@@ -1,5 +1,5 @@
 # csnx
 
-> Monorepo for client-side code
+> Monorepo for Guardian UIs
 
 Managed by [Nx](https://nx.dev/).
