@@ -1,0 +1,21 @@
+# based on https://github.com/guardian/configs/blob/main/.editorconfig
+
+; top-most EditorConfig file
+root = true
+
+[*]
+# Tabs for accessibility reasons:
+# - https://alexandersandberg.com/tabs-for-accessibility
+# - https://twitter.com/Rich_Harris/status/1541761871585464323
+# If it messes up your github previews, you can choose your favourite tab width:
+# - https://github.com/settings/appearance
+indent_style = tab
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Because `yml`
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
