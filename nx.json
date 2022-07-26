@@ -1,0 +1,21 @@
+{
+	"npmScope": "guardian",
+	"workspaceLayout": {
+		"appsDir": "apps",
+		"libsDir": "libs"
+	},
+	"extends": "nx/presets/npm.json",
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/nx-cloud",
+			"options": {
+				"cacheableOperations": ["test"],
+				"accessToken": "NjI4Yjk1ZTktYzFhOC00YWRmLTk4MDQtOTUxMjdiMjBmNjRlfHJlYWQtd3JpdGU="
+			}
+		}
+	},
+	"targetDefaults": {},
+	"affected": {
+		"defaultBase": "main"
+	}
+}
