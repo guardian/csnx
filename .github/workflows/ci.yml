@@ -10,4 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: curl -fsSL https://fnm.vercel.app/install | bash
       - run: make hello-world
