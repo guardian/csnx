@@ -13,3 +13,6 @@ Managed by [Nx](https://nx.dev/).
 ## Running tasks
 
 Tasks are defined in the [`Makefile`](./Makefile).
+
+- `make build` build all projects
+- `make test` run all tests
