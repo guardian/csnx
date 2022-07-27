@@ -11,6 +11,10 @@ test: install
 	$(call log,"Running tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
+hello-world: install
+	$(call log,"Saying hello")
+	@echo "Hello world"
+
 ################################ INTERNAL UTILS ################################
 
 # losely styled logging for user feedback
