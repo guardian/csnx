@@ -48,4 +48,4 @@ endif
 # install dependencies
 install: use-node-version
 	$(call log,"Refreshing dependencies")
-	@corepack pnpm install
+	@corepack pnpm install --frozen-lockfile
