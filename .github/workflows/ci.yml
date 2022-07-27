@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: curl -fsSL https://fnm.vercel.app/install | bash
-      - run: export PATH=/home/runner/.fnm:$PATH && fnm env && make hello-world
+      - run: export PATH=/home/runner/.fnm:$PATH && eval "`fnm env`" && make hello-world
