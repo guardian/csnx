@@ -8,21 +8,25 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"lib": ["es2017", "dom"],
 		"module": "esnext",
 		"moduleResolution": "node",
-		"noEmit": true,
 		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
+		"paths": {
+			"@guardian/no-build-lib": ["libs/no-build-lib/src/index.ts"],
+			"@guardian/private-lib": ["libs/private-lib/src/index.ts"],
+			"@guardian/public-lib": ["libs/public-lib/src/index.ts"]
+		},
 		"resolveJsonModule": true,
+		"rootDir": ".",
 		"sourceMap": true,
 		"strict": true,
 		"strictNullChecks": true,
-		"target": "esnext",
-		"paths": {
-			"@guardian/nxlib": ["libs/nxlib/src/index.ts"]
-		}
+		"target": "esnext"
 	},
-	"include": ["libs", "apps"]
+	"exclude": ["node_modules", "tmp"]
 }

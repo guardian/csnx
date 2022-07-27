@@ -1,30 +1,30 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/nxlib/src",
+	"sourceRoot": "libs/private-lib/src",
 	"projectType": "library",
 	"targets": {
 		"build": {
 			"executor": "@nrwl/js:tsc",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/libs/nxlib",
-				"main": "libs/nxlib/src/index.ts",
-				"tsConfig": "libs/nxlib/tsconfig.lib.json",
-				"assets": ["libs/nxlib/*.md"]
+				"outputPath": "dist/libs/private-lib",
+				"main": "libs/private-lib/src/index.ts",
+				"tsConfig": "libs/private-lib/tsconfig.lib.json",
+				"assets": ["libs/private-lib/*.md"]
 			}
 		},
 		"lint": {
 			"executor": "@nrwl/linter:eslint",
 			"outputs": ["{options.outputFile}"],
 			"options": {
-				"lintFilePatterns": ["libs/nxlib/**/*.ts"]
+				"lintFilePatterns": ["libs/private-lib/**/*.ts"]
 			}
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/nxlib"],
+			"outputs": ["coverage/libs/private-lib"],
 			"options": {
-				"jestConfig": "libs/nxlib/jest.config.ts",
+				"jestConfig": "libs/private-lib/jest.config.ts",
 				"passWithNoTests": true
 			}
 		}

@@ -1,21 +1,32 @@
 {
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"affected": {
+		"defaultBase": "main"
+	},
+	"implicitDependencies": {
+		".eslintrc.json": "*",
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		}
+	},
 	"npmScope": "guardian",
+	"targetDefaults": {
+		"build": {
+			"dependsOn": ["^build"]
+		}
+	},
+	"tasksRunnerOptions": {
+		"default": {
+			"options": {
+				"accessToken": "OTdkYmFjMTYtNGFhNS00MjM2LTg0OGMtZmNhNGZiMmU2YTM5fHJlYWQtd3JpdGU=",
+				"cacheableOperations": ["build", "lint", "test", "e2e"]
+			},
+			"runner": "@nrwl/nx-cloud"
+		}
+	},
 	"workspaceLayout": {
 		"appsDir": "apps",
 		"libsDir": "libs"
-	},
-	"extends": "nx/presets/npm.json",
-	"tasksRunnerOptions": {
-		"default": {
-			"runner": "@nrwl/nx-cloud",
-			"options": {
-				"cacheableOperations": ["test"],
-				"accessToken": "NjI4Yjk1ZTktYzFhOC00YWRmLTk4MDQtOTUxMjdiMjBmNjRlfHJlYWQtd3JpdGU="
-			}
-		}
-	},
-	"targetDefaults": {},
-	"affected": {
-		"defaultBase": "main"
 	}
 }
