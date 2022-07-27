@@ -1,8 +1,25 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
-check-env:
-# check whether fnm is installed, prompt to install it if not
+################################# USER TARGETS #################################
+
+build: install
+	$(call log,"Building projects")
+	@corepack pnpm nx run-many --target=build --all=true
+
+test: install
+	$(call log,"Running tests")
+	@corepack pnpm nx run-many --target=test --all=true
+
+################################ INTERNAL UTILS ################################
+
+# losely styled logging for user feedback
+define log
+    @echo -e "\x1b[2m$(1)\x1b[0m"
+endef
+
+# check whether fnm is installed - if not, prompt to install it
+check-fnm:
 	@type -t fnm > /dev/null  || { \
 		echo -e "\x1b[31mThis project uses \x1b[1mfnm\x1b[0;31m to manage node versions.\x1b[0m"; \
 		echo -e "You need to install it to continue."; \
@@ -10,11 +27,13 @@ check-env:
 		echo ""; \
 		exit 1; \
 	}
+
+# use fnm to set (and possibly fetch) the node version for this shell session
+use-node-version: check-fnm
+	$(call log,"Checking Node")
 	@fnm use --install-if-missing
+
+# install dependencies
+install: use-node-version
+	$(call log,"Refreshing dependencies")
 	@corepack pnpm install
-
-build: check-env
-	@corepack pnpm nx run-many --target=build --all=true
-
-test: check-env
-	@corepack pnpm nx run-many --target=test --all=true
