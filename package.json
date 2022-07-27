@@ -3,9 +3,9 @@
 	"version": "0.1.0",
 	"private": "true",
 	"scripts": {
-		"build": "./scripts/use-make-instead",
+		"build": "./tools/scripts/use-make-instead",
 		"prepare": "husky install",
-		"test": "./scripts/use-make-instead"
+		"test": "./tools/scripts/use-make-instead"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx,css,md,json}": "prettier --write",
