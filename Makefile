@@ -32,16 +32,16 @@ check-fnm:
 		exit 1; \
 	}
 
-ifeq ($(CI),"true")
-# use the node verion installed in the CI environment
-use-node-version:
-	$(call log,"Using installed Node version")
-	@node -v
-else
+ifeq ($(CI),)
 # use fnm to set (and possibly fetch) the node version for this shell session
 use-node-version: check-fnm
 	$(call log,"Checking Node")
 	@fnm use --install-if-missing
+else
+# use the node verion installed in the CI environment
+use-node-version:
+	$(call log,"Using installed Node version")
+	@node -v
 endif
 
 
