@@ -11,4 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: curl -fsSL https://fnm.vercel.app/install | bash
+      - run: source /home/runner/.bashrc
       - run: make hello-world
