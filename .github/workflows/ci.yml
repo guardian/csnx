@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: curl -fsSL https://fnm.vercel.app/install | bash
-      - run: export PATH=/home/runner/.fnm:$PATH
-      - run: eval "`fnm env`"
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
       - run: make hello-world
