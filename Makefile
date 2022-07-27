@@ -11,6 +11,10 @@ test: install
 	$(call log,"Running tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
+hello-world: install
+	$(call log,"Saying hello")
+	@echo "Hello world"
+
 ################################ INTERNAL UTILS ################################
 
 # losely styled logging for user feedback
@@ -28,12 +32,20 @@ check-fnm:
 		exit 1; \
 	}
 
+ifeq ($(CI),)
 # use fnm to set (and possibly fetch) the node version for this shell session
 use-node-version: check-fnm
 	$(call log,"Checking Node")
 	@fnm use --install-if-missing
+else
+# use the node verion installed in the CI environment
+use-node-version:
+	$(call log,"Using installed Node version")
+	@node -v
+endif
+
 
 # install dependencies
 install: use-node-version
 	$(call log,"Refreshing dependencies")
-	@corepack pnpm install
+	@corepack pnpm install --frozen-lockfile
