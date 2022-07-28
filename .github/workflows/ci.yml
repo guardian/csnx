@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      # enables use to use the cache in actions/setup-node
+      - uses: pnpm/action-setup@v2.2.2
+      - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+          cache: 'pnpm'
       - run: make hello-world
