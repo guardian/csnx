@@ -1,20 +1,6 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
-##################################### BUILD ####################################
-
-.PHONY: build
-build: install
-	$(call log,"Building projects")
-	@corepack pnpm nx run-many --target=build --all=true
-
-################################### MAKE LIVE ##################################
-
-.PHONY: publish-to-npm
-publish-to-npm: install build
-	$(call log,"Publishing packages to NPM")
-	@corepack pnpm changeset publish
-
 ################################# CODE QUALITY #################################
 
 .PHONY: test
@@ -24,6 +10,20 @@ test: install
 
 .PHONY: validate # check absolutely everything
 validate: install test build
+
+##################################### BUILD ####################################
+
+.PHONY: build
+build: install
+	$(call log,"Building projects")
+	@corepack pnpm nx run-many --target=build --all=true
+
+################################# PUTTING LIVE #################################
+
+.PHONY: publish-to-npm
+publish-to-npm: install build
+	$(call log,"Publishing packages to NPM")
+	@corepack pnpm changeset publish
 
 ################################ INTERNAL UTILS ################################
 
