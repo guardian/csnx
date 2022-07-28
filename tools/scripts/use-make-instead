@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-echo -e "\x1b[31mThis repo does not use npm-scripts to run user tasks.\x1b[0m"
-echo -e "Run \x1b[36mmake ${npm_lifecycle_event}\x1b[0m instead."
