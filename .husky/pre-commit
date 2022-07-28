@@ -1,4 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-fnm exec corepack pnpm lint-staged
+# If this fails, create a ~/.huskyrc file and load your node version manager from it.
+# e.g. for fnm run:
+# 	$ echo "eval \"$(fnm env)\"" > myfile.txt
+# see https://typicode.github.io/husky/#/?id=command-not-found for more info
+
+make use-node-version
+corepack pnpm lint-staged
