@@ -30,14 +30,12 @@ install: use-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
 
-# install node
-ifeq ($(CI),) # if _not_ in CI
-.PHONY: use-node-version # use fnm to set (and possibly fetch) the node version for this shell session
+.PHONY: use-node-version # use the correct node version
+ifeq ($(CI),) # if _not_ in CI, use fnm to set the node version for this session
 use-node-version: check-fnm
 	$(call log,"Checking Node")
 	@fnm use --install-if-missing
-else
-.PHONY: use-node-version # use the node version installed in the CI environment
+else # use the node version installed in the CI environment
 use-node-version:
 	$(call log,"Using pre-installed Node")
 	@node -v
