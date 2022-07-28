@@ -1,9 +1,5 @@
 {
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
-	"projects": {
-		"no-build-lib": "libs/no-build-lib",
-		"private-lib": "libs/private-lib",
-		"public-lib": "libs/public-lib"
-	}
+	"projects": {}
 }
