@@ -1,22 +1,27 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
-################################# USER TARGETS #################################
+##################################### BUILD ####################################
 
 .PHONY: build
 build: install
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
 
+.PHONY: hello-world
+hello-world: install
+	$(call log,"Saying hello")
+	@echo "Hello world"
+
+################################# CODE QUALITY #################################
+
 .PHONY: test
 test: install
 	$(call log,"Running tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
-.PHONY: hello-world
-hello-world: install
-	$(call log,"Saying hello")
-	@echo "Hello world"
+.PHONY: validate # check absolutely everything
+validate: install test build
 
 ################################ INTERNAL UTILS ################################
 
