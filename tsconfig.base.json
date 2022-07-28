@@ -16,11 +16,7 @@
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
-		"paths": {
-			"@guardian/no-build-lib": ["libs/no-build-lib/src/index.ts"],
-			"@guardian/private-lib": ["libs/private-lib/src/index.ts"],
-			"@guardian/public-lib": ["libs/public-lib/src/index.ts"]
-		},
+		"paths": {},
 		"resolveJsonModule": true,
 		"rootDir": ".",
 		"sourceMap": true,
