@@ -4,6 +4,7 @@
 	"private": "true",
 	"scripts": {
 		"build": "nx run-many --target=build --all=true",
+		"hello-world": "echo 'Hello World'",
 		"prepare": "husky install",
 		"test": "nx run-many --target=test --all=true"
 	},
