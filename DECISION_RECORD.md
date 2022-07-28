@@ -9,9 +9,9 @@
 ## 2. Use a `Makefile` to run repo tasks, rather than `npm-scripts`
 
 - It enables us to wrap common tasks so that they always run:
-    - in the correct node version and package manager
-    - with up-to-date dependencies
-    - without requiring user intervention
+  - in the correct Node version and package manager
+  - with up-to-date dependencies
+  - without requiring user intervention
 - It abstracts away the complexity of the tooling
 
 ## 3. Put all user tasks in the `Makefile` - don't share them with `package.json`
