@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  hello-world:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,4 +16,4 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: make hello-world
+      - run: make validate

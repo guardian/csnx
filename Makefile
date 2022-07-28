@@ -8,11 +8,6 @@ build: install
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
 
-.PHONY: hello-world
-hello-world: install
-	$(call log,"Saying hello")
-	@echo "Hello world"
-
 ################################# CODE QUALITY #################################
 
 .PHONY: test
