@@ -27,7 +27,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: make build && corepack pnpm changeset publish
           title: 'Release package updates'
           commit: 'Bump package versions'
         env:
