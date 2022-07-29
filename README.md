@@ -20,7 +20,4 @@ The [output of tasks are remotely cached by Nx](https://nx.dev/using-nx/mental-m
 
 ### Requirements
 
-_You'll be prompted to install any missing requirements when needed..._
-
-- [`fnm`](https://github.com/Schniz/fnm) is used behind the scenes to ensure all user tasks are run with the correct Node version.
-
+_You'll be prompted to install any missing requirements if they are needed..._

@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# get and store current node version
+node_version=$(node --version)
+node_version=${node_version:1} # remove the "v"
+
+# get and store needed node version
+nvmrc_version=$(cat .nvmrc)
+
+# helpers for message styling
+blue='\033[0;34m'
+red='\033[0;31m'
+dim='\033[2m'
+bold='\033[1m'
+reset='\033[0m'
+
+if [[ $node_version != $nvmrc_version ]]; then
+    echo -e "${red}You are using Node v$node_version${reset}"
+    echo -e "This project needs Node ${blue}v$nvmrc_version${reset}"
+
+    # if the user has a node version manager, prompt them to use it
+    if [[ $(type -t fnm) ]]; then # fnm?
+        echo -e "${dim}Run ${blue}fnm use${reset}${dim} and try again${reset}"
+        echo -e "${dim}See ${blue}${dim}https://github.com/Schniz/fnm#shell-setup${reset}${dim} to automate this${reset}"
+        exit 1
+    elif [[ $(which nvm) ]]; then # nvm?
+        echo -e "${dim}Run ${blue}nvm install${reset}${dim} and try again${reset}"
+        echo -e "${dim}See ${blue}${dim}https://github.com/nvm-sh/nvm#deeper-shell-integration${reset}${dim} to automate this${reset}"
+        exit 1
+    else # prompt the user to install fnm (becasuse it's fast and light)
+        echo -e "${dim}Consider using ${bold}fnm${reset}${dim} to automatically manage Node versions:${reset}"
+        echo -e "${dim}- run ${blue}brew install fnm${reset}${dim} (or see ${blue}${dim}https://github.com/Schniz/fnm#installation${reset}${dim})${reset}"
+        echo -e "${dim}- then run ${blue}fnm use${reset}${dim} and try again${reset}"
+    fi
+  exit 1
+else
+    echo -e "Using Node ${blue}v$node_version${reset}"
+fi
+
+
