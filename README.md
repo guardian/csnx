@@ -24,3 +24,6 @@ _You'll be prompted to install any missing requirements when needed..._
 
 - [`fnm`](https://github.com/Schniz/fnm) is used behind the scenes to ensure all user tasks are run with the correct Node version.
 
+### When migrating an existing project into CSNX
+
+- remove the current `.git` file from your existing project using `rm -rf .git` within the project root dir.
