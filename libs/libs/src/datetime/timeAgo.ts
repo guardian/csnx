@@ -1,6 +1,6 @@
 type Unit = 's' | 'm' | 'h' | 'd';
 
-const shortMonth = (month: number): string =>
+const shortMonth = (month: number) =>
 	[
 		'Jan',
 		'Feb',
@@ -16,7 +16,7 @@ const shortMonth = (month: number): string =>
 		'Dec',
 	][month];
 
-const longMonth = (month: number): string =>
+const longMonth = (month: number) =>
 	[
 		'January',
 		'February',
