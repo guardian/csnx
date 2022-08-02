@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Testing
+Test release
