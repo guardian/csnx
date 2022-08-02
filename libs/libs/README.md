@@ -116,11 +116,7 @@ If your target environment does not support that, make sure you transpile this p
 
 Changes are automatically released to NPM.
 
-The `main` branch on GitHub is analysed by [semantic-release](https://semantic-release.gitbook.io/) after every push.
-
-If a commit message follows the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0), semantic-release can determine what Types of changes are included in that commit.
-
-If necessary, it will then automatically release a new, [semver](https://semver.org/)-compliant version of the package to NPM.
+// TODO: fix this
 
 #### Pull requests
 
