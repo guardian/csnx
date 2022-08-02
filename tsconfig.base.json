@@ -8,6 +8,7 @@
 		"importHelpers": true,
 		"lib": ["es2017", "dom"],
 		"paths": {
+			"@guardian/libs": ["libs/libs/src/index.ts"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,
