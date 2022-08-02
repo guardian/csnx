@@ -8,7 +8,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import pkg from '../package.json';
+// TODO: import this from root package - currently errors TS6059: File '/Users/thalia_silver/code/csnx/package.json' is not under 'rootDir' 'libs/libs'. 'rootDir' is expected to contain all source files.
+// import pkg from '../../../package.json';
 
 const pathToReadme = path.join(__dirname, '../README.md');
 
@@ -18,7 +19,9 @@ let readme = fs.readFileSync(pathToReadme, 'utf8');
 const replacements = [
 	{
 		key: 'TS_VERSION',
-		value: pkg.devDependencies.typescript,
+		// TODO: import this from root package
+		// value: pkg.devDependencies.typescript,
+		value: '4.7.4',
 	},
 ];
 
