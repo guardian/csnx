@@ -16,8 +16,8 @@ describe.each([
 	let setSpy: jest.SpyInstance;
 
 	beforeEach(() => {
-		getSpy = jest.spyOn(native.__proto__, 'getItem');
-		setSpy = jest.spyOn(native.__proto__, 'setItem');
+		getSpy = jest.spyOn(native['__proto__'], 'getItem');
+		setSpy = jest.spyOn(native['__proto__'], 'setItem');
 		jest.resetModules();
 		native.clear();
 	});
