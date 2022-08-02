@@ -1,6 +1,6 @@
 ---
-'@guardian/libs': minor
-'@guardian/tsconfig': minor
+'@guardian/libs': patch
+'@guardian/tsconfig': patch
 ---
 
 test minor bumps to configs and libs
