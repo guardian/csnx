@@ -29,5 +29,5 @@ export const loadScript = (
 		script.onerror = reject;
 
 		const ref = document.scripts[0];
-		ref.parentNode?.insertBefore(script, ref);
+		ref?.parentNode?.insertBefore(script, ref);
 	});
