@@ -26,6 +26,8 @@ export const setSessionCookie = ({
 
 	// If the cookie is already memoized we want to replace its value
 	if (memoizedCookies.has(name)) {
-		memoizedCookies.set(name, getCookieValues(name)[0]);
+		const cookieValues = getCookieValues(name);
+		// TODO: extract this to a function
+		memoizedCookies.set(name, cookieValues[0] ? cookieValues[0] : '');
 	}
 };

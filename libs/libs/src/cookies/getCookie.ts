@@ -22,9 +22,11 @@ export const getCookie = ({
 
 	if (cookieVal.length > 0) {
 		if (shouldMemoize) {
-			memoizedCookies.set(name, cookieVal[0]);
+			// TODO: extract this to a function
+			memoizedCookies.set(name, cookieVal[0] ? cookieVal[0] : '');
 		}
-		return cookieVal[0];
+		// TODO: extract this to a function
+		return cookieVal[0] ? cookieVal[0] : '';
 	}
 	return null;
 };
