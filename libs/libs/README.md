@@ -94,30 +94,3 @@ then
 ```js
 import { loadScript, storage, ...etc } from '@guardian/libs';
 ```
-
-### TypeScript
-
-If you are using this library with TypeScript, make sure you are using at least TypeScript v<!-- TS_VERSION -->4.2.2<!-- /TS_VERSION -->.
-
-### Bundling
-
-This package uses `ES2020`.
-
-If your target environment does not support that, make sure you transpile this package when bundling your application.
-
-## Development
-
-### Requirements
-
-1. [Node LTS (latest)](https://nodejs.org/en/download/) ([nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm) recommended)
-2. [Yarn](https://classic.yarnpkg.com/en/docs/install/)
-
-### Releasing
-
-Changes are automatically released to NPM.
-
-// TODO: fix this
-
-#### Pull requests
-
-Try to write PR titles in the conventional commit format, and [squash and merge](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squash-and-merge-your-pull-request-commits) when merging. That way your PR will trigger a release when you merge it (if necessary).
