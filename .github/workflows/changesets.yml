@@ -25,12 +25,6 @@ jobs:
       - name: Build Projects
         run: pnpm build
 
-      # - name: Modify Workspace File for libs
-      #   run: sed -e "s|'libs\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
-
-      # - name: Modify Workspace File for apps
-      #   run: sed -e "s|'apps\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
-
       # down to business...
       - name: Create Release Pull Request or Publish to npm
         id: changesets
