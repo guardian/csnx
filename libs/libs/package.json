@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "0.0.0-this-never-updates-in-source-code-refer-to-git-tags",
+	"version": "0.1.0",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"homepage": "https://github.com/guardian/libs#readme",
@@ -36,14 +36,12 @@
 		"@guardian/eslint-config-typescript": "1.0.2",
 		"@guardian/pkgu": "0.6.2",
 		"@guardian/prettier": "2.0.0",
-		"@semantic-release/github": "8.0.5",
 		"@types/wcag-contrast": "3.0.0",
 		"conventional-changelog-conventionalcommits": "5.0.0",
 		"jest": "27.5.1",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
 		"npm-run-all": "4.1.5",
-		"semantic-release": "19.0.3",
 		"tslib": "2.4.0",
 		"wcag-contrast": "3.0.0",
 		"web-vitals": "2.0.0"
