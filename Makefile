@@ -18,11 +18,6 @@ build: install
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
 
-.PHONY: build-changed
-build-changed: install
-	$(call log,"Building changed projects")
-	@corepack pnpm nx affected --target=build
-
 ############################### MANAGING PACKAGES ##############################
 
 .PHONY: changeset
@@ -31,7 +26,7 @@ changeset: install
 	@corepack pnpm changeset
 
 .PHONY: publish-to-npm
-publish-to-npm: install build-changed
+publish-to-npm: install build
 	$(call log,"Publishing packages to NPM")
 	@./tools/scripts/publish-to-npm
 
