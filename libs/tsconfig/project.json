@@ -7,9 +7,9 @@
 			"executor": "@nrwl/js:tsc",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "libs/tsconfig/dist",
-				"main": "libs/tsconfig/index.ts",
-				"tsConfig": "libs/x/tsconfig.json",
+				"outputPath": "dist/libs/tsconfig",
+				"main": "libs/tsconfig/src/index.ts",
+				"tsConfig": "libs/tsconfig/tsconfig.lib.json",
 				"assets": ["libs/tsconfig/*.md", "libs/tsconfig/tsconfig.json"]
 			}
 		}
