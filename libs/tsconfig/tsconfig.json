@@ -10,6 +10,7 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"strict": true,
-		"target": "esnext"
+		"target": "esnext",
+		"resolveJsonModule": true
 	}
 }

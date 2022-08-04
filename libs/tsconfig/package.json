@@ -11,7 +11,5 @@
 		"url": "git+https://github.com/guardian/csnx.git"
 	},
 	"license": "MIT",
-	"files": [
-		"tsconfig.json"
-	]
+	"main": "./tsconfig.json"
 }
