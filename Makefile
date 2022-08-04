@@ -33,27 +33,11 @@ define log
 endef
 
 .PHONY: install # install dependencies
-install: use-node-version
+install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
 
-.PHONY: use-node-version # use the correct node version
-ifeq ($(CI),) # if _not_ in CI, use fnm to set the node version for this session
-use-node-version: check-fnm
+.PHONY: check-node-version # make sure we use the correct node version
+check-node-version:
 	$(call log,"Checking Node")
-	@fnm use --install-if-missing
-else # use the node version installed in the CI environment
-use-node-version:
-	$(call log,"Using pre-installed Node")
-	@node -v
-endif
-
-.PHONY: check-fnm # check whether fnm is installed - if not, prompt to install it
-check-fnm:
-	@type -t fnm > /dev/null  || { \
-		echo -e "\x1b[31mThis project uses \x1b[1mfnm\x1b[0;31m to manage node versions.\x1b[0m"; \
-		echo -e "You need to install it to continue."; \
-		echo -e "Run \x1b[36mbrew install fnm\x1b[0m, or see \x1b[36mhttps://github.com/Schniz/fnm#installation\x1b[0m."; \
-		echo ""; \
-		exit 1; \
-	}
+	@./tools/scripts/check-node-version
