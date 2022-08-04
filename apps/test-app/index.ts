@@ -1,3 +1,2 @@
-import { publicLib } from '@guardian/public-lib';
-
-console.log(publicLib());
+console.log('Hello world!');
+console.log('Hello again!');

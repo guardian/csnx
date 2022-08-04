@@ -22,6 +22,9 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
 
+      - name: Build Projects
+        run: pnpm build
+
       # down to business...
       - name: Create Release Pull Request or Publish to npm
         id: changesets

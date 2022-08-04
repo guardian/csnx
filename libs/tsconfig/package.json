@@ -1,0 +1,17 @@
+{
+	"name": "@guardian/tsconfig",
+	"version": "0.0.0",
+	"description": "TSConfig base for Guardian TypeScript projects",
+	"homepage": "https://github.com/guardian/csnx/libs/tsconfig#readme",
+	"bugs": {
+		"url": "https://github.com/guardian/csnx/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/guardian/csnx.git"
+	},
+	"license": "MIT",
+	"files": [
+		"tsconfig.json"
+	]
+}

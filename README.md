@@ -21,3 +21,7 @@ The [output of tasks are remotely cached by Nx](https://nx.dev/using-nx/mental-m
 ### Requirements
 
 _You'll be prompted to install any missing requirements if they are needed..._
+
+### When migrating an existing project into CSNX
+
+- remove the current `.git` file from your existing project using `rm -rf .git` within the project root dir.
