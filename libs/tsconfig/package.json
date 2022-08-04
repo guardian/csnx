@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/tsconfig",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "TSConfig base for Guardian TypeScript projects",
 	"homepage": "https://github.com/guardian/csnx/libs/tsconfig#readme",
 	"bugs": {
