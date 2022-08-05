@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  NX_BRANCH: ${{ github.event.pull_request.head.ref }}
+  NX_RUN_GROUP: ${{ github.run_id }}
+
 jobs:
   changesets-version:
     name: Manage Changesets Pull Request
@@ -15,6 +19,8 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can
           # generate changelogs with the correct commits
           fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v2
       - uses: pnpm/action-setup@v2.2.2
       - uses: actions/setup-node@v3
         with:
@@ -22,7 +28,7 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx run-many --target=build --all=true
+      - run: pnpm nx nx affected --target=build
 
       # The Nx convention is to build packages to a root `dist` directory, but
       # changesets expects `dist` and `package.json` to live alongside the `src`
