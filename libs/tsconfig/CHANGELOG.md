@@ -1,5 +1,11 @@
 # @guardian/tsconfig
 
+## 0.1.3
+
+### Patch Changes
+
+- a291be2: noop to test publishing
+
 ## 0.1.2
 
 ### Patch Changes
