@@ -9,5 +9,5 @@
 #
 # see https://typicode.github.io/husky/#/?id=command-not-found for more info
 
-make install
+make check-node-version
 corepack pnpm lint-staged
