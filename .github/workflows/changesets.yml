@@ -28,7 +28,7 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx nx affected --target=build
+      - run: pnpm nx affected --target=build
 
       # The Nx convention is to build packages to a root `dist` directory, but
       # changesets expects `dist` and `package.json` to live alongside the `src`
