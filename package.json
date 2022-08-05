@@ -8,6 +8,7 @@
 		"test": "./tools/scripts/use-make-instead"
 	},
 	"lint-staged": {
+		"*": "node tools/scripts/maintain-readme.mjs",
 		"*.{js,jsx,ts,tsx,css,md,json}": "prettier --write",
 		"package.json": "sort-package-json"
 	},

@@ -11,4 +11,3 @@
 
 make check-node-version
 corepack pnpm lint-staged
-node tools/scripts/maintain-readme.mjs
