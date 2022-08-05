@@ -12,7 +12,7 @@
 		"*.{js,jsx,ts,tsx,css,md,json}": "prettier --write",
 		"package.json": "sort-package-json"
 	},
-	"dependencies": {
+	"devDependencies": {
 		"@changesets/cli": "^2.24.1",
 		"@guardian/prettier": "^2.0.0",
 		"@manypkg/get-packages": "^1.1.3",
