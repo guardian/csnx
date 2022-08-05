@@ -1,5 +1,11 @@
 # @guardian/tsconfig
 
+## 0.1.2
+
+### Patch Changes
+
+- 034da90: noop for release process testing
+
 ## 0.1.1
 
 ### Patch Changes
