@@ -20,15 +20,12 @@ build: install
 
 ############################### MANAGING PACKAGES ##############################
 
+# n.b. publishing is handled in CI using .github/workflows/changesets.yml
+
 .PHONY: changeset
 changeset: install
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
-
-.PHONY: publish-to-npm
-publish-to-npm: install build
-	$(call log,"Publishing packages to NPM")
-	@./tools/scripts/publish-to-npm
 
 ################################ INTERNAL UTILS ################################
 
