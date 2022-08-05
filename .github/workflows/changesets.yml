@@ -40,9 +40,9 @@ jobs:
       # This will allow changesets to find the newly built assets to publish.
       #
       # https://dev.to/jmcdo29/automating-your-package-deployment-in-an-nx-monorepo-with-changeset-4em8
-      - run: echo "Rewriting workspace file to point to dist"
-      - run: sed -e "s|'libs\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml
-      - run: mv pnpm-new.yaml pnpm-workspace.yaml
+      - name: Prepare workspace for publishing
+      - run: sed -e "s|'libs\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && \
+          mv pnpm-new.yaml pnpm-workspace.yaml
 
       # down to business...
       - name: Create Release Pull Request or Publish to npm
@@ -50,7 +50,7 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: pnpm changeset publish
-          title: 'Release package updates'
+          title: '🦋 Release package updates'
           commit: 'Bump package versions'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
