@@ -1,6 +1,6 @@
 # `@guardian/tsconfig`
 
-> TSConfig base for Guardian TypeScript projects.
+> A [TSConfig base](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#tsconfig-bases) for Guardian TypeScript projects.
 
 ## Installation
 
