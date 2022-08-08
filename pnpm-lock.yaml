@@ -16,6 +16,7 @@ importers:
       '@nrwl/nx-cloud': latest
       '@nrwl/web': ^14.5.4
       '@nrwl/workspace': ^14.5.4
+      '@rollup/plugin-commonjs': ^22.0.2
       '@types/jest': 27.4.1
       '@types/node': 16.11.7
       '@typescript-eslint/eslint-plugin': ^5.29.0
@@ -46,6 +47,7 @@ importers:
       '@nrwl/nx-cloud': 14.3.0
       '@nrwl/web': 14.5.4_a5ejeq6zqlgeu6p4gjwtvbwmua
       '@nrwl/workspace': 14.5.4_p4mi2smrdlimk4bbxlu4b6wavm
+      '@rollup/plugin-commonjs': 22.0.2
       '@types/jest': 27.4.1
       '@types/node': 16.11.7
       '@typescript-eslint/eslint-plugin': 5.31.0_5tck6ikb2mwjuz56o2rwek4l2m
@@ -2492,6 +2494,21 @@ packages:
       rollup: 2.77.2
     dev: false
 
+  /@rollup/plugin-commonjs/22.0.2:
+    resolution: {integrity: sha512-//NdP6iIwPbMTcazYsiBMbJW7gfmpHom33u1beiIoHDEM0Q9clvtQB1T0efvMqHeKsGohiHo97BCPCkBXdscwg==}
+    engines: {node: '>= 12.0.0'}
+    peerDependencies:
+      rollup: ^2.68.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      commondir: 1.0.1
+      estree-walker: 2.0.2
+      glob: 7.2.3
+      is-reference: 1.2.1
+      magic-string: 0.25.9
+      resolve: 1.22.1
+    dev: false
+
   /@rollup/plugin-image/2.1.1_rollup@2.77.2:
     resolution: {integrity: sha512-AgP4U85zuQJdUopLUCM+hTf45RepgXeTb8EJsleExVy99dIoYpt3ZlDYJdKmAc2KLkNntCDg6BPJvgJU3uGF+g==}
     engines: {node: '>= 8.0.0'}
@@ -2525,6 +2542,17 @@ packages:
       is-module: 1.0.0
       resolve: 1.22.1
       rollup: 2.77.2
+    dev: false
+
+  /@rollup/pluginutils/3.1.0:
+    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@types/estree': 0.0.39
+      estree-walker: 1.0.1
+      picomatch: 2.3.1
     dev: false
 
   /@rollup/pluginutils/3.1.0_rollup@2.77.2:

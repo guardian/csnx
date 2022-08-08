@@ -1,8 +1,10 @@
 {
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
-		"outDir": "../../dist/out-tsc",
+		"outDir": "../../dist/libs/tsconfig",
 		"declaration": true,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
 		"types": []
 	},
 	"include": ["**/*.ts"]
