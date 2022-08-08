@@ -1,2 +1,1 @@
-import config from '../tsconfig.json';
-export default config;
+export default './tsconfig.json';

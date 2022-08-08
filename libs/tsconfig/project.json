@@ -1,16 +1,22 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/tsconfig/src",
+	"sourceRoot": "libs/tsconfig",
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/js:tsc",
+			"executor": "@nrwl/web:rollup",
 			"outputs": ["{options.outputPath}"],
 			"options": {
+				"project": "libs/tsconfig/package.json",
+				"entryFile": "libs/tsconfig/src/index.ts",
 				"outputPath": "dist/libs/tsconfig",
-				"main": "libs/tsconfig/src/index.ts",
 				"tsConfig": "libs/tsconfig/tsconfig.lib.json",
-				"assets": ["libs/tsconfig/*.md", "libs/tsconfig/tsconfig.json"]
+				"assets": [
+					"libs/tsconfig/readme.md",
+					"libs/tsconfig/CHANGELOG.md",
+					"libs/tsconfig/tsconfig.json"
+				],
+				"format": ["esm", "cjs"]
 			}
 		}
 	},

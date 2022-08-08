@@ -1,0 +1,5 @@
+// https://github.com/nrwl/nx/issues/3184#issuecomment-674770770
+{
+	"presets": ["@nrwl/web/babel"],
+	"babelrcRoots": ["*"]
+}
