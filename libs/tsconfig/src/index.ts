@@ -1,3 +1,3 @@
-import config from './tsconfig.json';
+const config = 'This index file is to keep TS happy';
 
-export default config;
+export { config };

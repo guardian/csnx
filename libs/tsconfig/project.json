@@ -15,7 +15,7 @@
 				"assets": [
 					"libs/tsconfig/readme.md",
 					"libs/tsconfig/CHANGELOG.md",
-					"libs/tsconfig/src/tsconfig.json"
+					"libs/tsconfig/tsconfig.json"
 				],
 				"format": ["esm", "cjs"]
 			}
