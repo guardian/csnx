@@ -7,7 +7,6 @@
 			"executor": "@nrwl/web:rollup",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"rollupConfig": "rollup.config.js",
 				"project": "libs/tsconfig/package.json",
 				"entryFile": "libs/tsconfig/src/index.ts",
 				"outputPath": "dist/libs/tsconfig",
