@@ -3,7 +3,7 @@ const commonjs = require('@rollup/plugin-commonjs');
 const ts = require('rollup-plugin-ts');
 const copy = require('rollup-plugin-copy');
 
-const external = ['@guardian/a'];
+const external = ['@guardian/nrwl-rollup'];
 
 module.exports = (_, options) => ({
 	input: options.entryFile,
