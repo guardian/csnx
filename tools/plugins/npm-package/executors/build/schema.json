@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"type": "object",
+	"cli": "nx",
+	"properties": {
+		"entryFile": {
+			"type": "string",
+			"description": "The path to the entry file, relative to project."
+		},
+		"outputPath": {
+			"type": "string",
+			"description": "The output path of the generated files."
+		},
+		"tsConfig": {
+			"type": "string",
+			"description": "The path to tsconfig file."
+		}
+	}
+}

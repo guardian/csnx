@@ -1,0 +1,6 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "tools/plugins/package",
+	"projectType": "library",
+	"tags": ["scope:tool"]
+}
