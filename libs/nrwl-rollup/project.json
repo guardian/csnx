@@ -14,7 +14,7 @@
 				"packageJson": "libs/nrwl-rollup/package.json",
 				"main": "libs/nrwl-rollup/src/index.ts",
 				"assets": ["libs/nrwl-rollup/readme.md"],
-				"rollupConfig": "rollup.config.js"
+				"rollupConfig": "libs/nrwl-rollup/rollup.config.js"
 			},
 			"format": ["esm", "cjs"]
 		}
