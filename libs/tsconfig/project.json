@@ -16,7 +16,9 @@
 					"libs/tsconfig/CHANGELOG.md",
 					"libs/tsconfig/tsconfig.json"
 				],
-				"format": ["esm", "cjs"]
+				"format": ["esm", "cjs"],
+				"compiler": "swc",
+				"rollupConfig": "rollup.config.js"
 			}
 		}
 	},
