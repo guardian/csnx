@@ -24,7 +24,7 @@ module.exports = (_, options) => ({
 	plugins: [
 		copy({
 			targets: options.assets.map((asset) => ({
-				src: [`${asset.input}/${asset.glob}`],
+				src: `${asset.input}/${asset.glob}`,
 				dest: `${options.outputPath}`,
 			})),
 		}),
