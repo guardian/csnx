@@ -2,6 +2,8 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
+		"nrwl-rollup": "libs/nrwl-rollup",
+		"gu-rollup": "libs/gu-rollup",
 		"tsconfig": "libs/tsconfig"
 	}
 }

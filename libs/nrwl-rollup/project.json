@@ -1,0 +1,19 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/nrwl-rollup/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/nrwl-rollup",
+				"tsConfig": "libs/nrwl-rollup/tsconfig.lib.json",
+				"packageJson": "libs/nrwl-rollup/package.json",
+				"main": "libs/nrwl-rollup/src/index.ts",
+				"assets": ["libs/nrwl-rollup/*.md"]
+			}
+		}
+	},
+	"tags": []
+}

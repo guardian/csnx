@@ -1,0 +1,19 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/gu-rollup/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/gu-rollup",
+				"tsConfig": "libs/gu-rollup/tsconfig.lib.json",
+				"packageJson": "libs/gu-rollup/package.json",
+				"main": "libs/gu-rollup/src/index.ts",
+				"assets": ["libs/gu-rollup/*.md"]
+			}
+		}
+	},
+	"tags": []
+}
