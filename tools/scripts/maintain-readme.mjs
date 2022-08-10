@@ -1,8 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import path from 'node:path'
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import updateSection from 'update-section'
-import { getPackages } from "@manypkg/get-packages";
+import updateSection from 'update-section';
+import { getPackages } from '@manypkg/get-packages';
 
 const thisFilePath = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(thisFilePath);
@@ -41,9 +41,16 @@ const updateReadmeSection = ({ label, updates }) => {
 	);
 };
 
-const { packages } = await getPackages()
-const packageListMarkdown = packages.map(pkg => `- [${pkg.packageJson.name}](${pathFromRoot(pkg.dir)})`).join('\n');
+const { packages } = await getPackages();
+const packageListMarkdown = packages
+	.filter((pkg) => pkg.packageJson.private !== true)
+	.filter((pkg) => pkg.packageJson.name.startsWith('@guardian/'))
+	.map((pkg) => `- [${pkg.packageJson.name}](${pathFromRoot(pkg.dir)})`)
+	.join('\n');
 
-readme = updateReadmeSection({ label: 'PACKAGES', updates: packageListMarkdown })
+readme = updateReadmeSection({
+	label: 'PACKAGES',
+	updates: packageListMarkdown,
+});
 
 await writeFile(readMePath, readme);
