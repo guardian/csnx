@@ -38,3 +38,26 @@ _You'll be prompted to install any missing requirements if they are needed..._
 
 - remove the current `.git` file from your existing project using `rm -rf .git` within the project root dir.
 -->
+
+## Troubleshooting
+
+### Using a git GUI
+
+If you get a `command not found` error when commiting, add a `~/.huskyrc` file and load your Node version manager there.
+
+For example, if you use FNM:
+
+```sh
+# ~/.huskyrc
+eval "$(fnm env)"
+fnm use
+```
+
+Or for asdf (on apple silicon):
+
+```sh
+# ~/.huskyrc
+. /opt/homebrew/opt/asdf/asdf.sh
+```
+
+See https://typicode.github.io/husky/#/?id=command-not-found for more info.
