@@ -10,6 +10,7 @@
 		"paths": {
 			"@guardian/nrwl-rollup": ["libs/nrwl-rollup/src/index.ts"],
 			"@guardian/gu-rollup": ["libs/gu-rollup/src/index.ts"],
+			"@guardian/gu-run-commands": ["libs/gu-run-commands"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,

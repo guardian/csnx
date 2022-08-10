@@ -1,0 +1,19 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/gu-run-commands/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/gu-run-commands",
+				"tsConfig": "libs/gu-run-commands/tsconfig.lib.json",
+				"packageJson": "libs/gu-run-commands/package.json",
+				"main": "libs/gu-run-commands/src/index.ts",
+				"assets": ["libs/gu-run-commands/*.md"]
+			}
+		}
+	},
+	"tags": []
+}
