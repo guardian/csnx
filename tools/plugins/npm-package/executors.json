@@ -4,7 +4,7 @@
 		"build": {
 			"implementation": "./executors/build/executor.ts",
 			"schema": "./executors/build/schema.json",
-			"description": "Builds TypeScript source into an NPM package for publishing."
+			"description": "Bundles source code into an NPM package for publishing."
 		}
 	}
 }
