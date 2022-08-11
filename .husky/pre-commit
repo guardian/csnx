@@ -1,13 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# If this fails, create a ~/.huskyrc file and load your node version manager from it.
-# e.g. for fnm, add:
-#
-# eval "$(fnm env)"
-# fnm use
-#
-# see https://typicode.github.io/husky/#/?id=command-not-found for more info
+# If this fails, see the "Troubleshooting" section in the README.
 
 make check-node-version
 corepack pnpm lint-staged
