@@ -1,17 +1,19 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/tsconfig/src",
+	"sourceRoot": "libs/tsconfig",
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
-			"outputs": ["{options.outputPath}"],
+			"executor": "nx:run-commands",
+			"outputs": ["dist/libs/tsconfig"],
 			"options": {
-				"outputPath": "dist/libs/tsconfig",
-				"main": "libs/tsconfig/src/index.ts",
-				"tsConfig": "libs/tsconfig/tsconfig.lib.json",
-				"assets": ["libs/tsconfig/*.md", "libs/tsconfig/tsconfig.json"],
-				"packageJson": "libs/tsconfig/package.json"
+				"commands": [
+					"rm -rf dist/libs/tsconfig",
+					"mkdir -p dist/libs/tsconfig",
+					"cp libs/tsconfig/* dist/libs/tsconfig",
+					"rm dist/libs/tsconfig/project.json"
+				],
+				"parallel": false
 			}
 		}
 	},

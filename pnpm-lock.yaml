@@ -35,6 +35,8 @@ importers:
       tslib: ^2.3.0
       typescript: ^4.7.4
       update-section: ^0.3.3
+    dependencies:
+      tslib: 2.4.0
     devDependencies:
       '@changesets/cli': 2.24.1
       '@guardian/prettier': 2.0.0_prettier@2.7.1
@@ -64,11 +66,13 @@ importers:
       sort-package-json: 1.57.0
       ts-jest: 27.1.4_7qhprak64zhe3pbaj7ujjugqgu
       ts-node: 10.8.2_vvjh7xvwyut4oxwpjiezshbmey
-      tslib: 2.4.0
       typescript: 4.7.4
       update-section: 0.3.3
 
   libs/tsconfig:
+    specifiers: {}
+
+  libs/x:
     specifiers: {}
 
   tools/plugins/npm-package:

@@ -10,5 +10,6 @@
 		"type": "git",
 		"url": "git+https://github.com/guardian/csnx.git"
 	},
-	"license": "MIT"
+	"license": "MIT",
+	"main": "tsconfig.json"
 }
