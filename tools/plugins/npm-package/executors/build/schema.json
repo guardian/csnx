@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"type": "object",
+	"cli": "nx",
+	"properties": {
+		"main": {
+			"type": "string",
+			"description": "The name of the main entry-point file."
+		},
+		"outputPath": {
+			"type": "string",
+			"description": "The output path of the generated files."
+		},
+		"tsConfig": {
+			"type": "string",
+			"description": "The path to the Typescript configuration file."
+		},
+		"packageJson": {
+			"type": "string",
+			"description": "The path to package.json file."
+		},
+		"assets": {
+			"type": "array",
+			"description": "List of static assets.",
+			"default": [],
+			"items": {
+				"type": "string"
+			}
+		}
+	},
+	"required": ["main", "outputPath", "tsConfig", "packageJson"]
+}

@@ -1,0 +1,10 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"executors": {
+		"build": {
+			"implementation": "./executors/build/executor.ts",
+			"schema": "./executors/build/schema.json",
+			"description": "Runs `echo` (to test executors out)."
+		}
+	}
+}

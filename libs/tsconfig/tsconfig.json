@@ -1,5 +1,3 @@
-// Guardian base config intended to improve code quality
-// It should not have any opinions about project shape
 {
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,

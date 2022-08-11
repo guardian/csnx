@@ -1,0 +1,13 @@
+{
+	"name": "@csnx/npm-package",
+	"private": true,
+	"dependencies": {
+		"@rollup/plugin-commonjs": "^22.0.2",
+		"@rollup/plugin-json": "^4.1.0",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"cpy": "^8.1.2",
+		"rollup": "^2.77.2",
+		"rollup-plugin-ts": "^3.0.2"
+	},
+	"executors": "./executors.json"
+}

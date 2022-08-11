@@ -4,13 +4,14 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@nrwl/js:tsc",
+			"executor": "@csnx/npm-package:build",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/tsconfig",
 				"main": "libs/tsconfig/src/index.ts",
 				"tsConfig": "libs/tsconfig/tsconfig.lib.json",
-				"assets": ["libs/tsconfig/*.md", "libs/tsconfig/tsconfig.json"]
+				"assets": ["libs/tsconfig/*.md", "libs/tsconfig/tsconfig.json"],
+				"packageJson": "libs/tsconfig/package.json"
 			}
 		}
 	},

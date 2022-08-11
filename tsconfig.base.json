@@ -8,6 +8,7 @@
 		"importHelpers": true,
 		"lib": ["es2017", "dom"],
 		"paths": {
+			"@csnx/npm-package": ["tools/plugins/npm-package"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,
