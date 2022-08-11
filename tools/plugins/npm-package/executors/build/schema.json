@@ -28,5 +28,5 @@
 			}
 		}
 	},
-	"required": ["main", "outputPath", "tsConfig", "packageJson"]
+	"required": ["outputPath", "packageJson"]
 }

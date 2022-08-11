@@ -4,16 +4,12 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "nx:run-commands",
+			"executor": "@csnx/npm-package:build",
 			"outputs": ["dist/libs/tsconfig"],
 			"options": {
-				"commands": [
-					"rm -rf dist/libs/tsconfig",
-					"mkdir -p dist/libs/tsconfig",
-					"cp libs/tsconfig/* dist/libs/tsconfig",
-					"rm dist/libs/tsconfig/project.json"
-				],
-				"parallel": false
+				"assets": ["libs/tsconfig/tsconfig.json", "libs/tsconfig/*.md"],
+				"outputPath": "dist/libs/tsconfig",
+				"packageJson": "libs/tsconfig/package.json"
 			}
 		}
 	},

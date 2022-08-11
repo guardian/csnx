@@ -72,9 +72,6 @@ importers:
   libs/tsconfig:
     specifiers: {}
 
-  libs/x:
-    specifiers: {}
-
   tools/plugins/npm-package:
     specifiers:
       '@rollup/plugin-commonjs': ^22.0.2

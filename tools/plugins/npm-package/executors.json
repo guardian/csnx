@@ -4,7 +4,7 @@
 		"build": {
 			"implementation": "./executors/build/executor.ts",
 			"schema": "./executors/build/schema.json",
-			"description": "Runs `echo` (to test executors out)."
+			"description": "Builds TypeScript source into an NPM package for publishing."
 		}
 	}
 }
