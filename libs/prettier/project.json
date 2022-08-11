@@ -9,7 +9,7 @@
 			"options": {
 				"packageJson": "libs/prettier/package.json",
 				"outputPath": "dist/libs/prettier",
-				"main": "libs/prettier/src/index.ts",
+				"main": "libs/prettier/src/index.js",
 				"tsConfig": "libs/prettier/tsconfig.lib.json",
 				"assets": ["libs/prettier/*.md"]
 			}
