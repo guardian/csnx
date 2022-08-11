@@ -3,9 +3,9 @@
 	"type": "object",
 	"cli": "nx",
 	"properties": {
-		"entryFile": {
+		"main": {
 			"type": "string",
-			"description": "The path to the entry file, relative to project."
+			"description": "The name of the main entry-point file."
 		},
 		"outputPath": {
 			"type": "string",
@@ -13,7 +13,20 @@
 		},
 		"tsConfig": {
 			"type": "string",
-			"description": "The path to tsconfig file."
+			"description": "The path to the Typescript configuration file."
+		},
+		"packageJson": {
+			"type": "string",
+			"description": "The path to package.json file."
+		},
+		"assets": {
+			"type": "array",
+			"description": "List of static assets.",
+			"default": [],
+			"items": {
+				"type": "string"
+			}
 		}
-	}
+	},
+	"required": ["main", "outputPath", "tsConfig", "packageJson"]
 }
