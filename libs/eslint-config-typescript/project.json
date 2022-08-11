@@ -13,21 +13,6 @@
 				"tsConfig": "libs/eslint-config-typescript/tsconfig.lib.json",
 				"assets": ["libs/eslint-config-typescript/*.md"]
 			}
-		},
-		"lint": {
-			"executor": "@nrwl/linter:eslint",
-			"outputs": ["{options.outputFile}"],
-			"options": {
-				"lintFilePatterns": ["libs/eslint-config-typescript/**/*.ts"]
-			}
-		},
-		"test": {
-			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/eslint-config-typescript"],
-			"options": {
-				"jestConfig": "libs/eslint-config-typescript/jest.config.ts",
-				"passWithNoTests": true
-			}
 		}
 	},
 	"tags": []
