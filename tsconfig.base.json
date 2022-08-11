@@ -9,9 +9,6 @@
 		"lib": ["es2017", "dom"],
 		"paths": {
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
-			"@guardian/gu-rollup": ["libs/gu-rollup/src/index.ts"],
-			"@guardian/gu-run-commands": ["libs/gu-run-commands"],
-			"@guardian/nrwl-rollup": ["libs/nrwl-rollup/src/index.ts"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,
