@@ -9,6 +9,7 @@
 		"lib": ["es2017", "dom"],
 		"paths": {
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
+			"@guardian/eslint-config": ["libs/eslint-config"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,
