@@ -8,6 +8,7 @@ import type { InputOption } from 'rollup';
 import util from 'node:util';
 import childProcess from 'node:child_process';
 import cpy from 'cpy';
+import json from '@rollup/plugin-json';
 
 const exec = util.promisify(childProcess.exec);
 
@@ -28,9 +29,10 @@ const getConfig = (options, format) => ({
 	},
 	plugins: [
 		nodeResolve({
-			extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js'],
+			extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
 		}),
 		ts({ tsconfig: options.tsConfig }),
+		json(),
 		commonjs(),
 	],
 });
