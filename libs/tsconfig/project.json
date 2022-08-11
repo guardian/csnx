@@ -5,10 +5,10 @@
 	"targets": {
 		"build": {
 			"executor": "@csnx/npm-package:build",
-			"outputs": ["dist/libs/tsconfig"],
+			"outputs": ["{options.outputPath}"],
 			"options": {
-				"assets": ["libs/tsconfig/tsconfig.json", "libs/tsconfig/*.md"],
 				"outputPath": "dist/libs/tsconfig",
+				"assets": ["libs/tsconfig/tsconfig.json", "libs/tsconfig/*.md"],
 				"packageJson": "libs/tsconfig/package.json"
 			}
 		}
