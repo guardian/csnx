@@ -3,6 +3,7 @@
 	"version": 2,
 	"projects": {
 		"eslint-config": "libs/eslint-config",
+		"eslint-config-typescript": "libs/eslint-config-typescript",
 		"npm-package": "tools/plugins/npm-package",
 		"tsconfig": "libs/tsconfig"
 	}

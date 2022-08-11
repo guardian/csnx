@@ -1,0 +1,34 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/eslint-config-typescript/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/eslint-config-typescript",
+				"packageJson": "libs/eslint-config-typescript/package.json",
+				"main": "libs/eslint-config-typescript/src/index.js",
+				"tsConfig": "libs/eslint-config-typescript/tsconfig.lib.json",
+				"assets": ["libs/eslint-config-typescript/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/eslint-config-typescript/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/eslint-config-typescript"],
+			"options": {
+				"jestConfig": "libs/eslint-config-typescript/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}

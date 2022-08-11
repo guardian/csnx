@@ -10,6 +10,7 @@
 		"paths": {
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
 			"@guardian/eslint-config": ["libs/eslint-config"],
+			"@guardian/eslint-config-typescript": ["libs/eslint-config-typescript"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,
