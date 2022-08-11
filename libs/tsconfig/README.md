@@ -2,6 +2,8 @@
 
 > TSConfig base for Guardian TypeScript projects.
 
+This is a base config intended to improve code quality. It does not have any opinions about your project shape.
+
 ## Installation
 
 ```shell
