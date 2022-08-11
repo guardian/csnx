@@ -53,11 +53,13 @@ eval "$(fnm env)"
 fnm use
 ```
 
-Or for asdf (on apple silicon):
+Or for asdf:
 
 ```sh
 # ~/.huskyrc
-. /opt/homebrew/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/asdf.sh (apple silicon)
+# or 
+. /usr/local/opt/asdf/libexec/asdf.sh (intel)
 ```
 
 See https://typicode.github.io/husky/#/?id=command-not-found for more info.
