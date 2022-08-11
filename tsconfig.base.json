@@ -9,7 +9,7 @@
 		"lib": ["es2017", "dom"],
 		"paths": {
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
-			"@guardian/prettier": ["libs/prettier/src/index.ts"],
+			"@guardian/prettier": ["libs/prettier"],
 			"@guardian/tsconfig": ["libs/tsconfig"]
 		},
 		"resolveJsonModule": true,
