@@ -3,6 +3,7 @@
 	"version": 2,
 	"projects": {
 		"npm-package": "tools/plugins/npm-package",
+		"prettier": "libs/prettier",
 		"tsconfig": "libs/tsconfig"
 	}
 }
