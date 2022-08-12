@@ -1,0 +1,17 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/eslint-config",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/eslint-config",
+				"packageJson": "libs/eslint-config/package.json",
+				"assets": ["libs/eslint-config/index.js", "libs/eslint-config/*.md"]
+			}
+		}
+	},
+	"tags": []
+}
