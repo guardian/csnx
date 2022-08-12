@@ -28,9 +28,18 @@ The following packages from `libs/*` are published to NPM:
 Tasks are defined in the [`Makefile`](./Makefile).
 
 - `make build` builds all projects
-- `make test` runs all tests
+- `make test` runs the tests for all projects
+- `make lint` lints all projects
+- `make fix` attempts to fix lint errors in all projects
+- `make changeset` creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
 
-The [output of tasks are remotely cached by Nx](https://nx.dev/using-nx/mental-model#computation-hashing-and-caching). This means re-running a task will be instant if no code has changed.
+> Note that the outputs of `build`, `test` and `lint` are [remotely cached by Nx](https://nx.dev/using-nx/mental-model#computation-hashing-and-caching), per project. This means only one iteration of a task (`build`, `test` etc) runs for a given state of a project, _ever_.
+>
+> For example, I'm working on something, run the tests and they pass. Nx remotely caches the result. I push my changes to CI. When CI runs the tests, nothing has changed, so Nx fetches the (passing) cached results, the build goes green and I can merge. When you pull my changes, your copy of the code is identical to what I pushed and merged, so you _also_ get the cached results. If you then change the code, Nx re-runs the tests and, again, caches the results. 
+>
+> This happens _per project_. So if you change `project-a` but not `project-b`, Nx will get the cached results for `project-b`, but run the tests for `project-a`. From then on, until `project-a` changes again, Nx will always use the cached results for both.
+>
+> This includes between development and CI, between pulls etc.
 
 ### Requirements
 
