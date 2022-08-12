@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 2.1.0
+
+### Minor Changes
+
+- 0aedc53: Add types to prettier config
+
 ## 2.0.2
 
 ### Patch Changes
