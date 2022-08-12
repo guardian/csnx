@@ -13,9 +13,9 @@ import json from '@rollup/plugin-json';
 const exec = util.promisify(childProcess.exec);
 
 export interface BuildExecutorOptions {
-	main: InputOption;
+	main?: InputOption;
 	outputPath: string;
-	tsConfig: string;
+	tsConfig?: string;
 	packageJson: string;
 	assets: Array<string>;
 }
@@ -50,15 +50,24 @@ export default async function buildExecutor(
 			cwd: context.root,
 		});
 
-		// create build for each module type
-		await Promise.all(
-			['cjs', 'esm'].map(async (format) => {
-				const { plugins, output } = getConfig(options, format);
-				const bundle = await rollup({ input: options.main, plugins });
-				await bundle.write(output);
-				return bundle.close();
-			}),
-		);
+		if (options.main) {
+			if (!options.tsConfig) {
+				logger.fatal(
+					"You must include a 'tsConfig' option when using the 'main' option",
+				);
+				process.exit(1);
+			}
+
+			// create build for each module type
+			await Promise.all(
+				['cjs', 'esm'].map(async (format) => {
+					const { plugins, output } = getConfig(options, format);
+					const bundle = await rollup({ input: options.main, plugins });
+					await bundle.write(output);
+					return bundle.close();
+				}),
+			);
+		}
 
 		return { success: true };
 	} catch (e) {

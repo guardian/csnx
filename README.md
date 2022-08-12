@@ -42,11 +42,11 @@ _You'll be prompted to install any missing requirements if they are needed..._
 
 ## Troubleshooting
 
-### Using a git GUI
+### Unable to commit
 
-If you get a `command not found` error when commiting, add a `~/.huskyrc` file and load your Node version manager there.
+If you get a `command not found` error when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.huskyrc` file and load your Node version manager there.
 
-For example, if you use FNM:
+For example, if you use [`fnm`](https://github.com/Schniz/fnm):
 
 ```sh
 # ~/.huskyrc
@@ -54,10 +54,15 @@ eval "$(fnm env)"
 fnm use
 ```
 
-Or for asdf (on apple silicon):
+Or for [`asdf`](https://asdf-vm.com/):
 
 ```sh
-# ~/.huskyrc
+# ~/.huskyrc (intel macs)
+. /usr/local/opt/asdf/libexec/asdf.sh
+```
+
+```sh
+# ~/.huskyrc (apple silicon)
 . /opt/homebrew/opt/asdf/asdf.sh
 ```
 
