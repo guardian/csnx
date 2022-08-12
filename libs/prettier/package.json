@@ -11,7 +11,7 @@
 		"url": "git+https://github.com/guardian/configs.git"
 	},
 	"license": "MIT",
-	"main": "src/index.js",
+	"main": "index.js",
 	"peerDependencies": {
 		"prettier": "^2.4.0"
 	},
