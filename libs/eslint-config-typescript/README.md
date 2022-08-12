@@ -22,11 +22,3 @@ npm install --save-dev @guardian/eslint-config-typescript
     "extends": "@guardian/eslint-config-typescript"
 }
 ```
-
-# eslint-config-typescript
-
-This library was generated with [Nx](https://nx.dev).
-
-## NX
-
-Run `nx build eslint-config-typescript` to build the library.
