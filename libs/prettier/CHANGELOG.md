@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 2.0.2
+
+### Patch Changes
+
+- 869a565: Update readme
+
 ## 2.0.1
 
 ### Patch Changes

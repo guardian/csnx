@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/prettier",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Prettier config for Guardian JavaScript projects",
 	"homepage": "https://github.com/guardian/csnx/tree/main/libs/prettier#readme",
 	"bugs": {
