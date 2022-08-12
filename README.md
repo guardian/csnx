@@ -23,7 +23,9 @@ The following packages from `libs/*` are published to NPM:
 ## Development
 
 1. Clone the repo
-1. Run a task.
+2. Run a task.
+
+_You'll be prompted to install any missing requirements if they are needed..._
 
 ## Running tasks
 
@@ -35,23 +37,19 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make fix` attempts to fix lint errors in all projects
 - `make changeset` creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
 
-> Note that the outputs of `build`, `test` and `lint` are [remotely cached by Nx](https://nx.dev/using-nx/mental-model#computation-hashing-and-caching), per project. This means only one iteration of a task (`build`, `test` etc) runs for a given state of a project, _ever_.
->
-> For example, you're working on something, run the tests and they pass. Nx remotely caches the result. You push your changes to CI. When CI runs the tests, nothing has changed, so Nx fetches the (passing) cached results, the build goes green and you can merge. When I pull your changes, my copy of the code is identical to what you pushed and merged, so I _also_ get the cached results. If I then change the code, Nx re-runs the tests and, again, caches the results. 
->
-> This happens _per project_. So if you change `project-a` but not `project-b`, Nx will get the cached results for `project-b`, but still run the tests for `project-a`. From then on, until `project-a` changes again, Nx will always use the cached results for both.
->
-> This includes between development and CI, between pulls etc.
+## Task caching
 
-### Requirements
+[Nx remotely caches the output](https://nx.dev/using-nx/mental-model#computation-hashing-and-caching) of `build`, `test` and `lint`.
 
-_You'll be prompted to install any missing requirements if they are needed..._
+This means only one iteration of these tasks runs for a given state of a project – _ever_ – which makes them extremely fast to run.
 
-<!--
-### When migrating an existing project into CSNX
+For example, you're working on something, run the tests and they pass. Nx remotely caches the result. You push your changes to CI. When CI runs the tests, nothing has changed, so Nx fetches the (passing) cached results, the build goes green and you can merge.
 
-- remove the current `.git` file from your existing project using `rm -rf .git` within the project root dir.
--->
+When I pull your changes, my copy of the code is identical to what you pushed and merged, so I _also_ get the cached results. If I then change the code, Nx re-runs the tests and, again, caches the results.
+
+This happens _per project_. So if you change `project-a` but not `project-b`, Nx will get the cached results for `project-b`, but still run the tests for `project-a`. From then on, until `project-a` changes again, Nx will always use the cached results for both.
+
+This includes between development and CI, between machines, pulls etc.
 
 ## Troubleshooting
 
