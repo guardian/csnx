@@ -1,0 +1,8 @@
+{
+	"name": "@csnx/eslint",
+	"private": true,
+	"dependencies": {
+		"@nrwl/linter": "14.4.3"
+	},
+	"executors": "./executors.json"
+}

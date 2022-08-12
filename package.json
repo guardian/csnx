@@ -21,7 +21,6 @@
 		"@nrwl/eslint-plugin-nx": "14.4.3",
 		"@nrwl/jest": "14.5.4",
 		"@nrwl/js": "14.4.3",
-		"@nrwl/linter": "14.4.3",
 		"@nrwl/node": "^14.4.3",
 		"@nrwl/nx-cloud": "latest",
 		"@nrwl/workspace": "^14.4.3",
