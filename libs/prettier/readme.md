@@ -20,11 +20,3 @@ npm install --save-dev @guardian/prettier
 # Prettier configuration file
 '@guardian/prettier'
 ```
-
-# NX
-
-This library was generated with [Nx](https://nx.dev).
-
-## Building
-
-Run `nx build prettier` to build the library.
