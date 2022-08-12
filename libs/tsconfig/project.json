@@ -1,6 +1,6 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/tsconfig/src",
+	"sourceRoot": "libs/tsconfig",
 	"projectType": "library",
 	"targets": {
 		"build": {
@@ -8,9 +8,7 @@
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/tsconfig",
-				"main": "libs/tsconfig/src/index.ts",
-				"tsConfig": "libs/tsconfig/tsconfig.lib.json",
-				"assets": ["libs/tsconfig/*.md", "libs/tsconfig/tsconfig.json"],
+				"assets": ["libs/tsconfig/tsconfig.json", "libs/tsconfig/*.md"],
 				"packageJson": "libs/tsconfig/package.json"
 			}
 		}
