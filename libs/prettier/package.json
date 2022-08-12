@@ -2,13 +2,13 @@
 	"name": "@guardian/prettier",
 	"version": "2.0.0",
 	"description": "Prettier config for Guardian JavaScript projects",
-	"homepage": "https://github.com/guardian/configs#readme",
+	"homepage": "https://github.com/guardian/csnx/tree/main/libs/prettier#readme",
 	"bugs": {
-		"url": "https://github.com/guardian/configs/issues"
+		"url": "https://github.com/guardian/csnx/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/guardian/configs.git"
+		"url": "git+https://github.com/guardian/csnx.git"
 	},
 	"license": "MIT",
 	"main": "index.js",
