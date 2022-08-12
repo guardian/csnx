@@ -1,6 +1,6 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/eslint-config/src",
+	"sourceRoot": "libs/eslint-config",
 	"projectType": "library",
 	"targets": {
 		"build": {
@@ -8,10 +8,8 @@
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/libs/eslint-config",
-				"main": "libs/eslint-config/src/index.js",
 				"packageJson": "libs/eslint-config/package.json",
-				"tsConfig": "libs/eslint-config/tsconfig.lib.json",
-				"assets": ["libs/eslint-config/*.md"]
+				"assets": ["libs/eslint-config/index.js", "libs/eslint-config/*.md"]
 			}
 		}
 	},

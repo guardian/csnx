@@ -11,7 +11,7 @@
 		"url": "git+https://github.com/guardian/configs.git"
 	},
 	"license": "MIT",
-	"main": "src/index.js",
+	"main": "index.js",
 	"dependencies": {
 		"@guardian/eslint-config": "^1.0.1",
 		"@typescript-eslint/eslint-plugin": "5.28.0",

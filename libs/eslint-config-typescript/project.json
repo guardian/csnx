@@ -1,6 +1,6 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/eslint-config-typescript/src",
+	"sourceRoot": "libs/eslint-config-typescript",
 	"projectType": "library",
 	"targets": {
 		"build": {
@@ -9,9 +9,10 @@
 			"options": {
 				"outputPath": "dist/libs/eslint-config-typescript",
 				"packageJson": "libs/eslint-config-typescript/package.json",
-				"main": "libs/eslint-config-typescript/src/index.js",
-				"tsConfig": "libs/eslint-config-typescript/tsconfig.lib.json",
-				"assets": ["libs/eslint-config-typescript/*.md"]
+				"assets": [
+					"libs/eslint-config-typescript/index.js",
+					"libs/eslint-config-typescript/*.md"
+				]
 			}
 		}
 	},
