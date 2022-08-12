@@ -4,18 +4,14 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
-	parserOptions: {
-		sourceType: 'module',
-		ecmaVersion: 2020,
-		ecmaFeatures: {
-			modules: true,
-		},
-	},
 	extends: [
 		'eslint:recommended',
 		'plugin:import/errors',
 		'plugin:import/warnings',
-		'prettier',
+
+		// this works for all possible configs in v8
+		// https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21
+		'plugin:prettier/recommended',
 	],
 	plugins: ['eslint-comments'],
 	rules: {

@@ -1,9 +1,9 @@
 module.exports = {
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		// if a consumer doesn't provide tsconfig, look for something that
-		// looks like one in the current working directory
-		project: './tsconfig.*?.json',
+		ecmaVersion: 'es2020',
+		project: './tsconfig.json',
+		sourceType: 'module',
 	},
 	plugins: ['@typescript-eslint'],
 	extends: [
