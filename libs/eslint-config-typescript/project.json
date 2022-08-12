@@ -10,7 +10,7 @@
 				"outputPath": "dist/libs/eslint-config-typescript",
 				"packageJson": "libs/eslint-config-typescript/package.json",
 				"assets": [
-					"libs/eslint-config-typescript/index.js",
+					"libs/eslint-config-typescript/.eslintrc.js",
 					"libs/eslint-config-typescript/*.md"
 				]
 			}
