@@ -5,6 +5,7 @@
 		"eslint-config": "libs/eslint-config",
 		"eslint-config-typescript": "libs/eslint-config-typescript",
 		"npm-package": "tools/plugins/npm-package",
+		"prettier": "libs/prettier",
 		"tsconfig": "libs/tsconfig"
 	}
 }
