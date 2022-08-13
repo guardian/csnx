@@ -77,12 +77,12 @@ fnm use
 Or for [`asdf`](https://asdf-vm.com/):
 
 ```sh
-# ~/.huskyrc (intel macs)
+# ~/.huskyrc (installed with brew on intel macs)
 . /usr/local/opt/asdf/libexec/asdf.sh
 ```
 
 ```sh
-# ~/.huskyrc (apple silicon)
+# ~/.huskyrc (installed with brew on apple silicon)
 . /opt/homebrew/opt/asdf/asdf.sh
 ```
 
