@@ -9,13 +9,25 @@ test: env
 	$(call log,"Running tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
+# checks all projects for lint errors
+.PHONY: lint
+lint: install
+	$(call log,"Linting projects")
+	@corepack pnpm nx run-many --target=lint --all=true
+
+# attemps to fix lint errors across all projects
+.PHONY: fix
+fix: install
+	$(call log,"Attempting to fix lint error in projects")
+	@corepack pnpm nx run-many --target=fix --all=true
+
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env test build
+validate: env workspace-lint lint test build
 
 ##################################### BUILD ####################################
 
-# builds all projects in the repo (libs and apps)
+# builds all projects
 .PHONY: build
 build: env
 	$(call log,"Building projects")
@@ -54,3 +66,9 @@ check-node-version:
 install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
+
+# Make sure everything in Nx land is ok
+.PHONY: workspace-lint
+workspace-lint: install
+	$(call log,"Linting workspace")
+	@corepack pnpm nx workspace-lint
