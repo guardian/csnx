@@ -5,6 +5,7 @@ import { updateReadmeSection } from './utils/update-readme-section.mjs';
 import { pathFromRoot, projectRoot } from '../project-paths.mjs';
 import { getPackageList } from './get-package-list.mjs';
 import { getMakeTargets } from './get-make-targets.mjs';
+import { getCachedTasks } from './get-cached-tasks.mjs';
 
 const thisFilePath = fileURLToPath(import.meta.url);
 const thisFilePathFromRoot = pathFromRoot(thisFilePath);
@@ -23,6 +24,13 @@ readme = updateReadmeSection({
 	readme,
 	label: 'TASKS',
 	updates: await getMakeTargets(),
+	updater: thisFilePathFromRoot,
+});
+
+readme = updateReadmeSection({
+	readme,
+	label: 'CACHED_TASKS',
+	updates: await getCachedTasks(),
 	updater: thisFilePathFromRoot,
 });
 
