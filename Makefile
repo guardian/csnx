@@ -3,18 +3,21 @@ export SHELL := /usr/bin/env bash
 
 ################################# CODE QUALITY #################################
 
+# runs the test for all projects
 .PHONY: test
-test: install
+test: env
 	$(call log,"Running tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
-.PHONY: validate # check absolutely everything
-validate: install test build
+# makes sure absolutely everything is working
+.PHONY: validate
+validate: env test build
 
 ##################################### BUILD ####################################
 
+# builds all projects in the repo (libs and apps)
 .PHONY: build
-build: install
+build: env
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
 
@@ -22,8 +25,9 @@ build: install
 
 # n.b. publishing is handled in CI using .github/workflows/changesets.yml
 
+# creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
 .PHONY: changeset
-changeset: install
+changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
@@ -34,15 +38,19 @@ define log
     @echo -e "\x1b[2m$(1)\x1b[0m"
 endef
 
-# Run this before every other task, to make sure you never run with
-# outdated deps. If deps are up to date this is almost instant, so it has very
-# little DX cost.
-.PHONY: install # install dependencies
-install: check-node-version
-	$(call log,"Refreshing dependencies")
-	@corepack pnpm install --frozen-lockfile
+# Make sure the local env is set up correctly.
+.PHONY: env # PRIVATE
+env: check-node-version install
 
-.PHONY: check-node-version # make sure we use the correct node version
+# Make sure we're using the correct node version.
+.PHONY: check-node-version # PRIVATE
 check-node-version:
 	$(call log,"Checking Node")
 	@./tools/scripts/check-node-version
+
+# Install dependencies. If deps are up to date this is almost instant, so we can
+# run before every other target with very little DX cost.
+.PHONY: install # PRIVATE
+install: check-node-version
+	$(call log,"Refreshing dependencies")
+	@corepack pnpm install --frozen-lockfile
