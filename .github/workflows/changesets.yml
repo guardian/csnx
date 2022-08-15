@@ -30,18 +30,21 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx affected --target=build
 
-      # The Nx convention is to build packages to a root `dist` directory, but
-      # changesets expects `dist` and `package.json` to live alongside the `src`
-      # files in the standard workspace.
+      # The Nx convention is to build projects to a root `dist` directory
+      # (outside their source directories), but changesets uses pnpm's workspace
+      # to look for the source directory of candidate packages when trying to
+      # publish.
       #
       # Therefore, after building the packages we are going to publish, we will
-      # rewrite the pnpm workspace file to point to the root `dist` directory instead.
+      # rewrite the pnpm workspace file to point to the root `dist` directory
+      # instead.
       #
       # This will allow changesets to find the newly built assets to publish.
       #
+      # Inspired by this article:
       # https://dev.to/jmcdo29/automating-your-package-deployment-in-an-nx-monorepo-with-changeset-4em8
       - name: Prepare workspace for publishing
-        run: sed -e "s|'libs\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
+        run: echo "packages:\n  - 'dist/**'" > pnpm-workspace.yaml
 
       # down to business...
       - name: Create Release Pull Request or Publish to npm

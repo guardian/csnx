@@ -1,4 +1,5 @@
 import childProcess from 'node:child_process';
+import path from 'node:path';
 import util from 'node:util';
 import type { ExecutorContext } from '@nrwl/devkit';
 import { logger } from '@nrwl/devkit';
@@ -20,6 +21,7 @@ export interface BuildExecutorOptions {
 	tsConfig?: string;
 	packageJson: string;
 	assets: string[];
+	pkgRoot?: string;
 }
 
 const getConfig = (
@@ -42,18 +44,47 @@ const getConfig = (
 	],
 });
 
+// Handle the use of `workspace:*`-style versions for dependencies in the same
+// workspace (https://pnpm.io/workspaces). pnpm resolves them to the real path
+// when running `pnpm publish` or `pnpm pack`, but because we're doing some
+// slightly unorthodox stuff with Nx and changesets in the release process, we
+// need these pre-resolved in the build output.
+const copyResolvedPackageJson = async (
+	options: BuildExecutorOptions,
+	context: ExecutorContext,
+) => {
+	const { stdout: tarball } = await exec(
+		`corepack pnpm pack --pack-destination ${path.resolve(
+			context.root,
+			options.outputPath,
+		)}`,
+		{
+			cwd: options.pkgRoot,
+		},
+	);
+	await exec(
+		`tar -xvf ${options.outputPath}/${tarball.trim()} -C ${
+			options.outputPath
+		} --strip-components 1 package/package.json`,
+	);
+	await exec(`rm -rf ${options.outputPath}/${tarball.trim()}`);
+};
+
 export default async function buildExecutor(
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
 ): Promise<{ success: boolean }> {
 	try {
+		options.pkgRoot = path.dirname(options.packageJson);
 		// remove old build
 		await exec(`rm -rf ${options.outputPath}`);
 
 		// copy assets over
-		await cpy([options.packageJson, ...options.assets], options.outputPath, {
+		await cpy(options.assets, options.outputPath, {
 			cwd: context.root,
 		});
+
+		await copyResolvedPackageJson(options, context);
 
 		if (options.main) {
 			if (!options.tsConfig) {
