@@ -1,9 +1,11 @@
 # https://github.com/marketplace/actions/labeler
 
-configs:
+📦 configs:
   - 'libs/*config*/**/*'
   - 'libs/prettier/**/*'
-nx-plugins:
+🗜 nx:
+  - 'nx.json'
+  - 'workspace.json'
   - 'tools/plugins/**/*'
-repo-scripts:
+🗜 repo-scripts:
   - 'tools/scripts/**/*'
