@@ -1,6 +1,5 @@
 ---
 '@guardian/eslint-config': major
-'@guardian/eslint-config-typescript': major
 ---
 
 _tl;dr_
