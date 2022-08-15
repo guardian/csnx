@@ -1,0 +1,9 @@
+# @guardian/eslint-config-typescript
+
+## 1.0.3
+
+### Patch Changes
+
+- 0cffa7a: noop to check changesets handles [pnpm's `workspace:*` syntax](https://pnpm.io/workspaces#publishing-workspace-packages)
+
+  _you can safely skip this release_
