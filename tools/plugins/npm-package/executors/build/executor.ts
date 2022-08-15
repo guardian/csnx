@@ -1,26 +1,31 @@
-import type { ExecutorContext } from '@nrwl/devkit';
-import { rollup } from 'rollup';
-import commonjs from '@rollup/plugin-commonjs';
-import ts from 'rollup-plugin-ts';
-import { logger } from '@nrwl/devkit';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import type { InputOption } from 'rollup';
-import util from 'node:util';
 import childProcess from 'node:child_process';
-import cpy from 'cpy';
+import util from 'node:util';
+import type { ExecutorContext } from '@nrwl/devkit';
+import { logger } from '@nrwl/devkit';
+import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import cpy from 'cpy';
+import { rollup } from 'rollup';
+import type { InputOption } from 'rollup';
+import ts from 'rollup-plugin-ts';
 
 const exec = util.promisify(childProcess.exec);
+
+const formats = ['cjs', 'esm'] as const;
 
 export interface BuildExecutorOptions {
 	main?: InputOption;
 	outputPath: string;
 	tsConfig?: string;
 	packageJson: string;
-	assets: Array<string>;
+	assets: string[];
 }
 
-const getConfig = (options, format) => ({
+const getConfig = (
+	options: BuildExecutorOptions,
+	format: typeof formats[number],
+) => ({
 	output: {
 		dir: `${options.outputPath}/${format}`,
 		format,
@@ -60,7 +65,7 @@ export default async function buildExecutor(
 
 			// create build for each module type
 			await Promise.all(
-				['cjs', 'esm'].map(async (format) => {
+				formats.map(async (format) => {
 					const { plugins, output } = getConfig(options, format);
 					const bundle = await rollup({ input: options.main, plugins });
 					await bundle.write(output);

@@ -11,9 +11,9 @@
 		"url": "git+https://github.com/guardian/csnx.git"
 	},
 	"license": "MIT",
-	"main": "index.js",
+	"main": ".eslintrc.js",
 	"dependencies": {
-		"@guardian/eslint-config": "^1.0.1",
+		"@guardian/eslint-config": "workspace:*",
 		"@typescript-eslint/eslint-plugin": "5.28.0",
 		"@typescript-eslint/parser": "5.31.0",
 		"eslint-import-resolver-typescript": "2.7.1",

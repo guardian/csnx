@@ -1,0 +1,15 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"executors": {
+		"check": {
+			"implementation": "./executors/check/executor.ts",
+			"schema": "./node_modules/@nrwl/linter/src/executors/eslint/schema.json",
+			"description": "Checks code with ESLint."
+		},
+		"fix": {
+			"implementation": "./executors/fix/executor.ts",
+			"schema": "./node_modules/@nrwl/linter/src/executors/eslint/schema.json",
+			"description": "Fixes ESLint errors in code."
+		}
+	}
+}

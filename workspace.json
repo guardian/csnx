@@ -2,6 +2,7 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
+		"eslint": "tools/plugins/eslint",
 		"eslint-config": "libs/eslint-config",
 		"eslint-config-typescript": "libs/eslint-config-typescript",
 		"npm-package": "tools/plugins/npm-package",

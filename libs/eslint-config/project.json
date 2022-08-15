@@ -9,7 +9,7 @@
 			"options": {
 				"outputPath": "dist/libs/eslint-config",
 				"packageJson": "libs/eslint-config/package.json",
-				"assets": ["libs/eslint-config/index.js", "libs/eslint-config/*.md"]
+				"assets": ["libs/eslint-config/.eslintrc.js", "libs/eslint-config/*.md"]
 			}
 		}
 	},

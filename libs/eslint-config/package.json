@@ -11,7 +11,7 @@
 		"url": "git+https://github.com/guardian/csnx.git"
 	},
 	"license": "MIT",
-	"main": "index.js",
+	"main": ".eslintrc.js",
 	"dependencies": {
 		"eslint-config-prettier": "8.5.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
