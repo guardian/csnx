@@ -45,7 +45,7 @@ jobs:
       # Inspired by this article:
       # https://dev.to/jmcdo29/automating-your-package-deployment-in-an-nx-monorepo-with-changeset-4em8
       - name: Prepare workspace for publishing
-        run: echo "packages:\n  - 'dist/**'" > pnpm-workspace.yaml
+        run: echo -e "packages:\n  - 'dist/**'" > pnpm-workspace.yaml
 
       - run: cat pnpm-workspace.yaml
 
