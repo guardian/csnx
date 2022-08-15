@@ -3495,6 +3495,8 @@ packages:
         optional: true
       eslint-config-prettier:
         optional: true
+      prettier:
+        optional: true
     dependencies:
       eslint-config-prettier: 8.5.0
       prettier-linter-helpers: 1.0.0
