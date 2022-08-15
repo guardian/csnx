@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"homepage": "https://github.com/guardian/csnx/tree/main/libs/eslint-config-typescript#readme",
 	"bugs": {
