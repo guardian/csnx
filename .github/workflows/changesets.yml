@@ -28,7 +28,8 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx affected --target=build
+      # - run: pnpm nx affected --target=build
+      - run: pnpm nx run-many --target=build --all=true
 
       # The Nx convention is to build projects to a root `dist` directory
       # (outside their source directories), but changesets uses pnpm's workspace
