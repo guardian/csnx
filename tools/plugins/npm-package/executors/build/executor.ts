@@ -8,23 +8,16 @@ import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import cpy from 'cpy';
 import { rollup } from 'rollup';
-import type { InputOption } from 'rollup';
 import ts from 'rollup-plugin-ts';
+import type { BuildExecutorOptions } from './schema';
+import { setPackageDefaults } from './set-package-defaults';
+import { writeResolvedPackageJson } from './write-resolved-package-json';
 
 const exec = util.promisify(childProcess.exec);
 
 const formats = ['cjs', 'esm'] as const;
 
-export interface BuildExecutorOptions {
-	main?: InputOption;
-	outputPath: string;
-	tsConfig?: string;
-	packageJson: string;
-	assets: string[];
-	pkgRoot?: string;
-}
-
-const getConfig = (
+const getRollupConfig = (
 	options: BuildExecutorOptions,
 	format: typeof formats[number],
 ) => ({
@@ -44,38 +37,13 @@ const getConfig = (
 	],
 });
 
-// Handle the use of `workspace:*`-style versions for dependencies in the same
-// workspace (https://pnpm.io/workspaces). pnpm resolves them to the real path
-// when running `pnpm publish` or `pnpm pack`, but because we're doing some
-// slightly unorthodox stuff with Nx and changesets in the release process, we
-// need these pre-resolved in the build output.
-const copyResolvedPackageJson = async (
-	options: BuildExecutorOptions,
-	context: ExecutorContext,
-) => {
-	const { stdout: tarball } = await exec(
-		`corepack pnpm pack --pack-destination ${path.resolve(
-			context.root,
-			options.outputPath,
-		)}`,
-		{
-			cwd: options.pkgRoot,
-		},
-	);
-	await exec(
-		`tar -xvf ${options.outputPath}/${tarball.trim()} -C ${
-			options.outputPath
-		} --strip-components 1 package/package.json`,
-	);
-	await exec(`rm -rf ${options.outputPath}/${tarball.trim()}`);
-};
-
 export default async function buildExecutor(
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
 ): Promise<{ success: boolean }> {
 	try {
 		options.pkgRoot = path.dirname(options.packageJson);
+
 		// remove old build
 		await exec(`rm -rf ${options.outputPath}`);
 
@@ -84,20 +52,24 @@ export default async function buildExecutor(
 			cwd: context.root,
 		});
 
-		await copyResolvedPackageJson(options, context);
+		// add a package.json with workspace deps resolved
+		await writeResolvedPackageJson(options, context);
+
+		// remove unwanted fields and set any necessary defaults in the package.json
+		await setPackageDefaults(options);
 
 		if (options.main) {
 			if (!options.tsConfig) {
 				logger.fatal(
 					"You must include a 'tsConfig' option when using the 'main' option",
 				);
-				process.exit(1);
+				return { success: false };
 			}
 
 			// create build for each module type
 			await Promise.all(
 				formats.map(async (format) => {
-					const { plugins, output } = getConfig(options, format);
+					const { plugins, output } = getRollupConfig(options, format);
 					const bundle = await rollup({ input: options.main, plugins });
 					await bundle.write(output);
 					return bundle.close();
