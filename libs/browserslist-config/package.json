@@ -1,0 +1,27 @@
+{
+	"name": "@guardian/browserslist-config",
+	"version": "1.0.1",
+	"description": "Browserslist config for Guardian websites",
+	"homepage": "https://github.com/guardian/csnx/tree/main/libs/browserslist-config#readme",
+	"bugs": {
+		"url": "https://github.com/guardian/configs/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/guardian/configs.git"
+	},
+	"license": "MIT",
+	"main": "browserslist.js",
+	"scripts": {
+		"update-readme": "node ./scripts/update-readme.js"
+	},
+	"devDependencies": {
+		"browserslist": "4.0.0"
+	},
+	"peerDependencies": {
+		"browserslist": "^4.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
