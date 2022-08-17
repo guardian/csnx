@@ -40,16 +40,17 @@ Or in your `package.json`:
 
 | Browser           | Versions                                                                                                                        |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| android           | 101                                                                                                                             |
-| chrome (android)  | 102                                                                                                                             |
-| chrome            | 76, 83, 84, 86, 87, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103                                              |
-| edge              | 86, 98, 99, 100, 101, 102                                                                                                       |
+| android           | 104                                                                                                                             |
+| chrome (android)  | 104                                                                                                                             |
+| chrome            | 67, 76, 80, 84, 86, 87, 89, 90, 91, 92, 93, 94, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105                                    |
+| edge              | 91, 99, 100, 101, 102, 103, 104                                                                                                 |
 | firefox (android) | 101                                                                                                                             |
-| firefox           | 78, 88, 91, 97, 98, 99, 100, 101                                                                                                |
+| firefox           | 78, 88, 89, 91, 94, 100, 101, 102, 103, 104                                                                                     |
 | opera (mobile)    | 64                                                                                                                              |
-| opera             | 85, 86, 87                                                                                                                      |
-| safari (mobile)   | 10.3, 11.3-11.4, 12.0-12.1, 12.2-12.5, 13.0-13.1, 13.2, 13.3, 13.4-13.7, 14.0-14.4, 14.5-14.8, 15.0-15.1, 15.2-15.3, 15.4, 15.5 |
-| safari            | 10.1, 11.1, 12.1, 13, 13.1, 14, 14.1, 15, 15.1, 15.4, 15.5                                                                      |
+| opera             | 88, 89                                                                                                                          |
+| safari (mobile)   | 10.3, 11.3-11.4, 12.0-12.1, 12.2-12.5, 13.0-13.1, 13.3, 13.4-13.7, 14.0-14.4, 14.5-14.8, 15.0-15.1, 15.2-15.3, 15.4, 15.5, 16.0 |
+| safari            | 10.1, 11.1, 12.1, 13, 13.1, 14, 14.1, 15, 15.1, 15.4, 15.5, 15.6                                                                |
+| samsung           | 11.1-11.2, 15.0, 16.0, 17.0                                                                                                     |
 
 <!-- /INCLUDED -->
 
@@ -61,94 +62,107 @@ These are the numbers that were used to generate the list of included browsers.
 
 | Browser                   | Usage  |
 | ------------------------- | ------ |
-| chrome (android) 102      | 18.35% |
-| safari (mobile) 15.4      | 11.92% |
-| chrome 101                | 9.80%  |
-| safari (mobile) 15.5      | 9.75%  |
-| chrome 102                | 8.74%  |
-| android 101               | 8.27%  |
-| safari 15.4               | 3.20%  |
-| safari 15.5               | 2.85%  |
-| edge 101                  | 2.71%  |
-| safari (mobile) 14.5-14.8 | 2.42%  |
-| safari (mobile) 15.2-15.3 | 2.04%  |
-| firefox 100               | 1.82%  |
-| edge 102                  | 1.43%  |
-| chrome 100                | 1.35%  |
-| safari 14.1               | 1.14%  |
-| firefox 101               | 1.03%  |
-| firefox (android) 101     | 0.95%  |
-| safari 13.1               | 0.65%  |
-| safari (mobile) 14.0-14.4 | 0.62%  |
-| safari (mobile) 12.2-12.5 | 0.53%  |
-| safari (mobile) 15.0-15.1 | 0.51%  |
-| safari 14                 | 0.51%  |
-| chrome 98                 | 0.45%  |
-| chrome 84                 | 0.35%  |
-| chrome 99                 | 0.32%  |
-| opera 86                  | 0.20%  |
-| edge 100                  | 0.19%  |
-| safari (mobile) 13.3      | 0.19%  |
-| chrome 94                 | 0.18%  |
-| safari 12.1               | 0.18%  |
-| opera 87                  | 0.17%  |
-| safari 15                 | 0.17%  |
-| firefox 91                | 0.15%  |
-| safari (mobile) 13.4-13.7 | 0.15%  |
-| safari 15.1               | 0.15%  |
-| firefox 78                | 0.14%  |
-| safari (mobile) 10.3      | 0.13%  |
-| chrome 76                 | 0.08%  |
-| chrome 87                 | 0.08%  |
-| chrome 96                 | 0.08%  |
-| chrome 97                 | 0.08%  |
-| chrome 89                 | 0.06%  |
-| safari 11.1               | 0.06%  |
-| firefox 99                | 0.05%  |
-| ie 11                     | 0.05%  |
-| chrome 49                 | 0.04%  |
-| chrome 83                 | 0.04%  |
-| chrome 93                 | 0.04%  |
-| firefox 98                | 0.04%  |
-| chrome 90                 | 0.03%  |
-| edge 99                   | 0.03%  |
-| firefox 97                | 0.03%  |
-| opera 85                  | 0.03%  |
-| chrome 86                 | 0.02%  |
-| chrome 91                 | 0.02%  |
-| chrome 92                 | 0.02%  |
-| chrome 95                 | 0.02%  |
+| chrome (android) 104      | 24.89% |
+| safari (mobile) 15.5      | 15.07% |
+| chrome 103                | 13.77% |
+| chrome 104                | 4.14%  |
+| safari 15.5               | 4.13%  |
+| edge 103                  | 3.06%  |
+| safari 15.6               | 2.11%  |
+| samsung 17.0              | 2.10%  |
+| android 104               | 1.98%  |
+| safari (mobile) 14.5-14.8 | 1.91%  |
+| firefox 103               | 1.69%  |
+| chrome 102                | 1.63%  |
+| safari (mobile) 15.4      | 1.32%  |
+| firefox 102               | 1.29%  |
+| firefox (android) 101     | 1.01%  |
+| edge 104                  | 1.00%  |
+| safari (mobile) 15.2-15.3 | 0.97%  |
+| safari 14.1               | 0.95%  |
+| safari 13.1               | 0.61%  |
+| safari 15.4               | 0.59%  |
+| safari (mobile) 14.0-14.4 | 0.56%  |
+| samsung 18.0              | 0.49%  |
+| safari (mobile) 12.2-12.5 | 0.47%  |
+| safari 14                 | 0.46%  |
+| safari (mobile) 15.0-15.1 | 0.35%  |
+| opera 89                  | 0.34%  |
+| chrome 100                | 0.22%  |
+| chrome 101                | 0.19%  |
+| safari (mobile) 13.3      | 0.18%  |
+| chrome 98                 | 0.15%  |
+| edge 102                  | 0.15%  |
+| firefox 78                | 0.15%  |
+| safari (mobile) 13.4-13.7 | 0.14%  |
+| safari 12.1               | 0.14%  |
+| firefox 91                | 0.12%  |
+| safari (mobile) 16.0      | 0.11%  |
+| chrome 99                 | 0.10%  |
+| chrome 93                 | 0.07%  |
+| safari (mobile) 10.3      | 0.07%  |
+| safari 15                 | 0.07%  |
+| firefox 94                | 0.06%  |
+| safari 15.1               | 0.06%  |
+| uc (android) 12.12        | 0.05%  |
+| chrome 87                 | 0.05%  |
+| chrome 96                 | 0.05%  |
+| chrome 84                 | 0.04%  |
+| chrome 91                 | 0.04%  |
+| chrome 94                 | 0.04%  |
+| ie 11                     | 0.04%  |
+| opera 88                  | 0.04%  |
+| safari 11.1               | 0.04%  |
+| safari 13                 | 0.04%  |
+| samsung 16.0              | 0.04%  |
+| chrome 105                | 0.03%  |
+| chrome 49                 | 0.03%  |
+| chrome 67                 | 0.03%  |
+| chrome 76                 | 0.03%  |
+| chrome 86                 | 0.03%  |
+| edge 100                  | 0.03%  |
+| edge 101                  | 0.03%  |
+| edge 91                   | 0.03%  |
+| firefox 100               | 0.03%  |
+| firefox 101               | 0.03%  |
+| samsung 11.1-11.2         | 0.03%  |
+| chrome 90                 | 0.02%  |
+| chrome 97                 | 0.02%  |
+| firefox 104               | 0.02%  |
 | firefox 48                | 0.02%  |
+| firefox 88                | 0.02%  |
+| safari (mobile) 11.3-11.4 | 0.02%  |
 | safari (mobile) 12.0-12.1 | 0.02%  |
 | safari (mobile) 13.0-13.1 | 0.02%  |
-| safari 13                 | 0.02%  |
-| uc (android) 12.12        | 0.01%  |
-| chrome 103                | 0.01%  |
-| chrome 104                | 0.01%  |
+| opera (mobile) 10         | 0.02%  |
+| opera (mobile) 11         | 0.02%  |
+| opera (mobile) 11.1       | 0.02%  |
+| opera (mobile) 11.5       | 0.02%  |
+| opera (mobile) 12         | 0.02%  |
+| opera (mobile) 12.1       | 0.02%  |
+| opera (mobile) 64         | 0.02%  |
+| chrome 66                 | 0.01%  |
 | chrome 70                 | 0.01%  |
+| chrome 72                 | 0.01%  |
 | chrome 79                 | 0.01%  |
 | chrome 80                 | 0.01%  |
-| chrome 88                 | 0.01%  |
-| edge 86                   | 0.01%  |
-| edge 91                   | 0.01%  |
-| edge 98                   | 0.01%  |
-| firefox 102               | 0.01%  |
+| chrome 89                 | 0.01%  |
+| chrome 92                 | 0.01%  |
+| chrome 95                 | 0.01%  |
+| edge 18                   | 0.01%  |
+| edge 99                   | 0.01%  |
 | firefox 52                | 0.01%  |
-| firefox 68                | 0.01%  |
-| firefox 88                | 0.01%  |
-| firefox 90                | 0.01%  |
+| firefox 89                | 0.01%  |
 | safari (mobile) 10.0-10.2 | 0.01%  |
 | safari (mobile) 11.0-11.2 | 0.01%  |
-| safari (mobile) 11.3-11.4 | 0.01%  |
 | safari (mobile) 13.2      | 0.01%  |
-| opera (mobile) 10         | 0.01%  |
-| opera (mobile) 11         | 0.01%  |
-| opera (mobile) 11.1       | 0.01%  |
-| opera (mobile) 11.5       | 0.01%  |
-| opera (mobile) 12         | 0.01%  |
-| opera (mobile) 12.1       | 0.01%  |
-| opera (mobile) 64         | 0.01%  |
+| safari (mobile) 9.3       | 0.01%  |
+| opera 85                  | 0.01%  |
 | safari 10.1               | 0.01%  |
+| samsung 13.0              | 0.01%  |
+| samsung 14.0              | 0.01%  |
+| samsung 15.0              | 0.01%  |
+| samsung 7.2-7.4           | 0.01%  |
 | qq (android) 10.4         | 0.00%  |
 | android 2.1               | 0.00%  |
 | android 2.2               | 0.00%  |
@@ -163,7 +177,8 @@ These are the numbers that were used to generate the list of included browsers.
 | blackberry 10             | 0.00%  |
 | blackberry 7              | 0.00%  |
 | chrome 10                 | 0.00%  |
-| chrome 105                | 0.00%  |
+| chrome 106                | 0.00%  |
+| chrome 107                | 0.00%  |
 | chrome 11                 | 0.00%  |
 | chrome 12                 | 0.00%  |
 | chrome 13                 | 0.00%  |
@@ -221,13 +236,10 @@ These are the numbers that were used to generate the list of included browsers.
 | chrome 63                 | 0.00%  |
 | chrome 64                 | 0.00%  |
 | chrome 65                 | 0.00%  |
-| chrome 66                 | 0.00%  |
-| chrome 67                 | 0.00%  |
 | chrome 68                 | 0.00%  |
 | chrome 69                 | 0.00%  |
 | chrome 7                  | 0.00%  |
 | chrome 71                 | 0.00%  |
-| chrome 72                 | 0.00%  |
 | chrome 73                 | 0.00%  |
 | chrome 74                 | 0.00%  |
 | chrome 75                 | 0.00%  |
@@ -235,7 +247,9 @@ These are the numbers that were used to generate the list of included browsers.
 | chrome 78                 | 0.00%  |
 | chrome 8                  | 0.00%  |
 | chrome 81                 | 0.00%  |
+| chrome 83                 | 0.00%  |
 | chrome 85                 | 0.00%  |
+| chrome 88                 | 0.00%  |
 | chrome 9                  | 0.00%  |
 | edge 12                   | 0.00%  |
 | edge 13                   | 0.00%  |
@@ -243,13 +257,13 @@ These are the numbers that were used to generate the list of included browsers.
 | edge 15                   | 0.00%  |
 | edge 16                   | 0.00%  |
 | edge 17                   | 0.00%  |
-| edge 18                   | 0.00%  |
 | edge 79                   | 0.00%  |
 | edge 80                   | 0.00%  |
 | edge 81                   | 0.00%  |
 | edge 83                   | 0.00%  |
 | edge 84                   | 0.00%  |
 | edge 85                   | 0.00%  |
+| edge 86                   | 0.00%  |
 | edge 87                   | 0.00%  |
 | edge 88                   | 0.00%  |
 | edge 89                   | 0.00%  |
@@ -260,8 +274,9 @@ These are the numbers that were used to generate the list of included browsers.
 | edge 95                   | 0.00%  |
 | edge 96                   | 0.00%  |
 | edge 97                   | 0.00%  |
+| edge 98                   | 0.00%  |
 | firefox 10                | 0.00%  |
-| firefox 103               | 0.00%  |
+| firefox 105               | 0.00%  |
 | firefox 11                | 0.00%  |
 | firefox 12                | 0.00%  |
 | firefox 13                | 0.00%  |
@@ -324,6 +339,7 @@ These are the numbers that were used to generate the list of included browsers.
 | firefox 65                | 0.00%  |
 | firefox 66                | 0.00%  |
 | firefox 67                | 0.00%  |
+| firefox 68                | 0.00%  |
 | firefox 69                | 0.00%  |
 | firefox 7                 | 0.00%  |
 | firefox 70                | 0.00%  |
@@ -344,13 +360,15 @@ These are the numbers that were used to generate the list of included browsers.
 | firefox 85                | 0.00%  |
 | firefox 86                | 0.00%  |
 | firefox 87                | 0.00%  |
-| firefox 89                | 0.00%  |
 | firefox 9                 | 0.00%  |
+| firefox 90                | 0.00%  |
 | firefox 92                | 0.00%  |
 | firefox 93                | 0.00%  |
-| firefox 94                | 0.00%  |
 | firefox 95                | 0.00%  |
 | firefox 96                | 0.00%  |
+| firefox 97                | 0.00%  |
+| firefox 98                | 0.00%  |
+| firefox 99                | 0.00%  |
 | ie 10                     | 0.00%  |
 | ie 5.5                    | 0.00%  |
 | ie 6                      | 0.00%  |
@@ -359,7 +377,6 @@ These are the numbers that were used to generate the list of included browsers.
 | ie 9                      | 0.00%  |
 | ie (mobile) 10            | 0.00%  |
 | ie (mobile) 11            | 0.00%  |
-| safari (mobile) 16.0      | 0.00%  |
 | safari (mobile) 3.2       | 0.00%  |
 | safari (mobile) 4.0-4.1   | 0.00%  |
 | safari (mobile) 4.2-4.3   | 0.00%  |
@@ -369,7 +386,6 @@ These are the numbers that were used to generate the list of included browsers.
 | safari (mobile) 8         | 0.00%  |
 | safari (mobile) 8.1-8.4   | 0.00%  |
 | safari (mobile) 9.0-9.2   | 0.00%  |
-| safari (mobile) 9.3       | 0.00%  |
 | kaios 2.5                 | 0.00%  |
 | opera mini all            | 0.00%  |
 | opera 10.0-10.1           | 0.00%  |
@@ -449,8 +465,11 @@ These are the numbers that were used to generate the list of included browsers.
 | opera 82                  | 0.00%  |
 | opera 83                  | 0.00%  |
 | opera 84                  | 0.00%  |
+| opera 86                  | 0.00%  |
+| opera 87                  | 0.00%  |
 | opera 9                   | 0.00%  |
 | opera 9.5-9.6             | 0.00%  |
+| opera 90                  | 0.00%  |
 | safari 10                 | 0.00%  |
 | safari 11                 | 0.00%  |
 | safari 12                 | 0.00%  |
@@ -470,17 +489,10 @@ These are the numbers that were used to generate the list of included browsers.
 | safari 9.1                | 0.00%  |
 | safari TP                 | 0.00%  |
 | samsung 10.1              | 0.00%  |
-| samsung 11.1-11.2         | 0.00%  |
 | samsung 12.0              | 0.00%  |
-| samsung 13.0              | 0.00%  |
-| samsung 14.0              | 0.00%  |
-| samsung 15.0              | 0.00%  |
-| samsung 16.0              | 0.00%  |
-| samsung 17.0              | 0.00%  |
 | samsung 4                 | 0.00%  |
 | samsung 5.0-5.4           | 0.00%  |
 | samsung 6.2-6.4           | 0.00%  |
-| samsung 7.2-7.4           | 0.00%  |
 | samsung 8.2               | 0.00%  |
 | samsung 9.2               | 0.00%  |
 
@@ -488,8 +500,8 @@ These are the numbers that were used to generate the list of included browsers.
 
 ## Updating
 
-Usage is based on our Google Analytics stats for 2022-05-17 to 2022-06-15.
+Usage is based on our Google Analytics stats.
 
-To update it, use [browserslist-ga-export](https://github.com/browserslist/browserslist-ga-export) to update [browserslist-stats.json](./browserslist-stats.json).
+To update it, use [browserslist-ga-export](https://github.com/browserslist/browserslist-ga-export) to generate a new [browserslist-stats.json](./browserslist-stats.json) and replace the current one.
 
-Then run `yarn update-readme` and publish the new version.
+Then run `pnpm --filter="browserslist-config" update-readme` (from the root – `pnpm update-readme` from this directory) and publish the new version.

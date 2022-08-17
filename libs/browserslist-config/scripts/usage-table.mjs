@@ -1,5 +1,5 @@
-const browserslistStats = require('../browserslist-stats.json');
-const normalise = require('./normalise-browser-name');
+import browserslistStats from '../browserslist-stats.json' assert { type: 'json' };
+import { normaliseBrowserName } from './normalise-browser-name.mjs';
 
 const flattened = {};
 
@@ -23,7 +23,7 @@ const sorted = Object.fromEntries(
 const table = ['| Browser | Usage |', '| ------- | -------- |'];
 
 for (let [browser, usage] of Object.entries(sorted)) {
-	table.push(`| ${normalise(browser)} | ${usage}% |`);
+	table.push(`| ${normaliseBrowserName(browser)} | ${usage}% |`);
 }
 
-module.exports = table.join('\n');
+export const usageTable = table.join('\n');

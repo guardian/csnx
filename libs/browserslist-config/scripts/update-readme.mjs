@@ -6,14 +6,17 @@
  * Note that anything between the comments is replaced each time.
  */
 
-const fs = require('fs');
-const path = require('path');
-const includedTable = require('./get-included-table');
-const usageTable = require('./get-usage-table');
+import { readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import prettier from 'prettier';
+import { includedTable } from './included-table.mjs';
+import { usageTable } from './usage-table.mjs';
 
-const pathToReadme = path.join(__dirname, '../README.md');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pathToReadme = path.join(__dirname, '..', '/README.md');
 
-let readme = fs.readFileSync(pathToReadme, 'utf8');
+let readme = await readFile(pathToReadme, 'utf8');
 
 // the keys and values to be replaced
 const replacements = [
@@ -32,4 +35,8 @@ for (const { key, value } of replacements) {
 	readme = readme.replace(regex, `<!-- ${key} -->\n${value}\n<!-- /${key} -->`);
 }
 
-fs.writeFileSync(pathToReadme, readme);
+readme = prettier.format(readme, {
+	parser: 'markdown',
+});
+
+await writeFile(pathToReadme, readme);
