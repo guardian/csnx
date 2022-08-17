@@ -1,5 +1,13 @@
 # @guardian/prettier
 
+## 2.1.1
+
+### Patch Changes
+
+- 05ae05c: noop to test release process.
+
+  _you can ignore this version._
+
 ## 2.1.0
 
 ### Minor Changes
