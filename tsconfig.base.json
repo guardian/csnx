@@ -10,6 +10,7 @@
 		"paths": {
 			"@csnx/eslint": ["tools/plugins/eslint"],
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
+			"@csnx/hello-world": ["libs/hello-world/src/index.ts"],
 			"@guardian/tsconfig": ["packages/tsconfig"]
 		},
 		"resolveJsonModule": true,
