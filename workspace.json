@@ -2,12 +2,13 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
-		"browserslist-config": "packages/browserslist-config",
-		"eslint": "tools/plugins/eslint",
-		"eslint-config": "packages/eslint-config",
-		"eslint-config-typescript": "packages/eslint-config-typescript",
+		"hello-world": "libs/hello-world",
 		"npm-package": "tools/plugins/npm-package",
-		"prettier": "packages/prettier",
-		"tsconfig": "packages/tsconfig"
+		"packages-browserslist-config": "packages/browserslist-config",
+		"packages-eslint-config": "packages/eslint-config",
+		"packages-eslint-config-typescript": "packages/eslint-config-typescript",
+		"packages-prettier": "packages/prettier",
+		"packages-tsconfig": "packages/tsconfig",
+		"plugin-eslint": "tools/plugins/eslint"
 	}
 }
