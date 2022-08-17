@@ -1,12 +1,12 @@
-const browserslist = require('browserslist');
-const normalise = require('./normalise-browser-name');
+import browserslist from 'browserslist';
+import { normaliseBrowserName } from './normalise-browser-name.mjs';
 
 const includedBrowsers = {};
 
 for (let [browser, version] of browserslist().map((browser) =>
 	browser.split(' '),
 )) {
-	const normalisedBrowser = normalise(browser);
+	const normalisedBrowser = normaliseBrowserName(browser);
 	includedBrowsers[normalisedBrowser] = [
 		version,
 		...(includedBrowsers[normalisedBrowser] ?? []),
@@ -19,7 +19,8 @@ const sorted = Object.fromEntries(Object.entries(includedBrowsers).sort());
 const table = ['| Browser | Versions |', '| ------- | -------- |'];
 
 for (let [browser, versions] of Object.entries(sorted)) {
-	table.push(`| ${normalise(browser)} | ${versions.join(', ')} |`);
+	table.push(`| ${normaliseBrowserName(browser)} | ${versions.join(', ')} |`);
 }
 
-module.exports = table.join('\n');
+export const includedTable = table.join('\n');
+// in my stats

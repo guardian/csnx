@@ -13,7 +13,7 @@
 	"license": "MIT",
 	"main": "browserslist.js",
 	"scripts": {
-		"update-readme": "node ./scripts/update-readme.js"
+		"update-readme": "node ./scripts/update-readme.mjs"
 	},
 	"devDependencies": {
 		"browserslist": "4.0.0"

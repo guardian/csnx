@@ -1,4 +1,4 @@
-module.exports = (browser) =>
+export const normaliseBrowserName = (browser) =>
 	browser
 		.replace('and_chr', 'chrome (android)')
 		.replace('and_ff', 'firefox (android)')
