@@ -23,13 +23,19 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env workspace-lint lint test build
+validate: env clean workspace-lint lint test build
 
 ##################################### BUILD ####################################
 
 # builds all projects
+.PHONY: clean
+clean: env
+	$(call log,"Cleaning all build assets")
+	@rm -rf dist/**
+
+# builds all projects
 .PHONY: build
-build: env
+build: env clean
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
 

@@ -1,15 +1,15 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/tsconfig",
+	"sourceRoot": "packages/prettier",
 	"projectType": "library",
 	"targets": {
 		"build": {
 			"executor": "@csnx/npm-package:build",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/libs/tsconfig",
-				"assets": ["libs/tsconfig/tsconfig.json", "libs/tsconfig/*.md"],
-				"packageJson": "libs/tsconfig/package.json"
+				"packageJson": "packages/prettier/package.json",
+				"outputPath": "dist/packages/prettier",
+				"assets": ["packages/prettier/index.js", "packages/prettier/*.md"]
 			}
 		}
 	},

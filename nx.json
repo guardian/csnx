@@ -10,7 +10,7 @@
 			"devDependencies": "*"
 		}
 	},
-	"npmScope": "guardian",
+	"npmScope": "csnx",
 	"targetDefaults": {
 		"build": {
 			"dependsOn": ["^build"]
