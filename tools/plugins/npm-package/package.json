@@ -10,6 +10,7 @@
 		"rollup": "^2.77.2",
 		"rollup-plugin-ts": "^3.0.2",
 		"sort-package-json": "^1.57.0",
+		"tslib": "^2.3.0",
 		"write-pkg": "^5.1.0"
 	},
 	"executors": "./executors.json"

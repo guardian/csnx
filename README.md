@@ -43,6 +43,7 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make lint` _checks all projects for lint errors_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make validate` _makes sure absolutely everything is working_
+- `make clean` _builds all projects_
 - `make build` _builds all projects_
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
 
