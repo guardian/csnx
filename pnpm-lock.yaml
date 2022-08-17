@@ -69,11 +69,11 @@ importers:
   libs/browserslist-config:
     specifiers:
       '@guardian/browserslist-config': workspace:*
-      browserslist: 4.13.0
+      browserslist: 4.16.5
       prettier: ^2.7.1
     devDependencies:
       '@guardian/browserslist-config': 'link:'
-      browserslist: 4.13.0
+      browserslist: 4.16.5
       prettier: 2.7.1
 
   libs/eslint-config:
@@ -2593,12 +2593,13 @@ packages:
       ua-parser-js: 1.0.2
     dev: false
 
-  /browserslist/4.13.0:
-    resolution: {integrity: sha512-MINatJ5ZNrLnQ6blGvePd/QOz9Xtu+Ne+x29iQSCHfkU5BugKVJwZKn/iiL8UbpIpa3JhviKjz+XxMo0m2caFQ==}
+  /browserslist/4.16.5:
+    resolution: {integrity: sha512-C2HAjrM1AI/djrpAUU/tr4pml1DqLIzJKSLDBXBrNErl9ZCCTXdhwxdJjYc16953+mBWf7Lw+uUJgpgb8cN71A==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001375
+      colorette: 1.4.0
       electron-to-chromium: 1.4.213
       escalade: 3.1.1
       node-releases: 1.1.77
@@ -2872,6 +2873,10 @@ packages:
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  /colorette/1.4.0:
+    resolution: {integrity: sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g==}
+    dev: true
 
   /colorette/2.0.19:
     resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==}
