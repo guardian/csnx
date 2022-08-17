@@ -8,10 +8,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:import/errors',
 		'plugin:import/warnings',
-
-		// this works for all possible configs in v8
-		// https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21
-		'plugin:prettier/recommended',
+		'prettier',
 	],
 	plugins: ['eslint-comments'],
 	rules: {
