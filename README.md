@@ -80,6 +80,11 @@ fnm use
 Or for [`asdf`](https://asdf-vm.com/):
 
 ```sh
+# ~/.huskyrc (installed with git)
+. $HOME/.asdf/asdf.sh
+```
+
+```sh
 # ~/.huskyrc (installed with brew on intel macs)
 . /usr/local/opt/asdf/libexec/asdf.sh
 ```
