@@ -2,15 +2,6 @@
 	"name": "@guardian/eslint-config-typescript",
 	"version": "1.0.4",
 	"description": "ESLint config for Guardian TypeScript projects",
-	"homepage": "https://github.com/guardian/csnx/tree/main/libs/eslint-config-typescript#readme",
-	"bugs": {
-		"url": "https://github.com/guardian/csnx/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/guardian/csnx.git"
-	},
-	"license": "MIT",
 	"main": ".eslintrc.js",
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
@@ -22,8 +13,5 @@
 	"peerDependencies": {
 		"eslint": "^8.0.0",
 		"typescript": "^4.0.2"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }
