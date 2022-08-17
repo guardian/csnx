@@ -46,7 +46,7 @@ importers:
       '@nrwl/jest': 14.5.4_yi4yd3arhmqimh2vkjiighnlby
       '@nrwl/js': 14.4.3_pry2m6t3dvegumxpecuq3q43ui
       '@nrwl/node': 14.4.3_bdhzzlugxsnlrdceqsklcwtwem
-      '@nrwl/nx-cloud': 14.3.0
+      '@nrwl/nx-cloud': 14.4.0
       '@nrwl/workspace': 14.4.3_g2gfexv45lo2liw4gi5livb4li
       '@swc-node/register': 1.5.1_typescript@4.7.4
       '@swc/core': 1.2.224
@@ -65,6 +65,12 @@ importers:
       tslib: 2.4.0
       typescript: 4.7.4
       update-section: 0.3.3
+
+  libs/browserslist-config:
+    specifiers:
+      browserslist: 4.0.0
+    devDependencies:
+      browserslist: 4.0.0
 
   libs/eslint-config:
     specifiers:
@@ -1226,12 +1232,13 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/14.3.0:
-    resolution: {integrity: sha512-aByHe8Gp1/IT9CtQYlGLIYBgU+ZtrgEwblBX8kcoBNRPf1OOdouahjyasAjQ9zi1cznve8AzTTcLt2eSCHWfrw==}
+  /@nrwl/nx-cloud/14.4.0:
+    resolution: {integrity: sha512-4sKNzGhBqTipy4fPZD09ZBkV9UTPTn0JUOQxOI7ETqlHhT2u8SfeybSJMnPAi5H6DjsqsooM8JCKPR/7D4+8sQ==}
     hasBin: true
     dependencies:
       axios: 0.21.4
       chalk: 4.1.0
+      dotenv: 10.0.0
       node-machine-id: 1.1.12
       strip-json-comments: 3.1.1
       tar: 6.1.11
@@ -2580,6 +2587,15 @@ packages:
       semver: 7.3.7
       ua-parser-js: 1.0.2
     dev: false
+
+  /browserslist/4.0.0:
+    resolution: {integrity: sha512-fJq4izbUYHHNdQd/5Mco31HeL8U8dg5sSaj5boaDP17+aAe41CrxSZbQifIjaWw27iIilmy48z9PrVtelNJhbw==}
+    hasBin: true
+    dependencies:
+      caniuse-lite: 1.0.30001375
+      electron-to-chromium: 1.4.213
+      node-releases: 1.1.77
+    dev: true
 
   /browserslist/4.20.2:
     resolution: {integrity: sha512-CQOBCqp/9pDvDbx3xfMi+86pr4KXIf2FDkTTdeuYw8OxS9t898LA1Khq57gtufFILXpfgsSx5woNgsBgvGjpsA==}
@@ -5726,6 +5742,10 @@ packages:
 
   /node-machine-id/1.1.12:
     resolution: {integrity: sha512-QNABxbrPa3qEIfrE6GOJ7BYIuignnJw7iQ2YPbc3Nla1HzRJjXzZOiikfF8m7eAMfichLt3M4VgLOetqgDmgGQ==}
+    dev: true
+
+  /node-releases/1.1.77:
+    resolution: {integrity: sha512-rB1DUFUNAN4Gn9keO2K1efO35IDK7yKHCdCaIMvFO7yUYmmZYeDjnGKle26G4rwj+LKRQpjyUUvMkPglwGCYNQ==}
     dev: true
 
   /node-releases/2.0.6:

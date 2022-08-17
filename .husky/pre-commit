@@ -4,4 +4,9 @@
 # If this fails, see the "Troubleshooting" section in the README.
 
 make check-node-version
+
+# keep docs up to date
+node tools/scripts/maintain-readme/index.mjs
+git add README.md
+
 corepack pnpm lint-staged
