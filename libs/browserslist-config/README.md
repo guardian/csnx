@@ -500,7 +500,7 @@ These are the numbers that were used to generate the list of included browsers.
 
 ## Updating
 
-Usage is based on our Google Analytics stats for 2022-05-17 to 2022-06-15.
+Usage is based on our Google Analytics stats.
 
 To update it, use [browserslist-ga-export](https://github.com/browserslist/browserslist-ga-export) to generate a new [browserslist-stats.json](./browserslist-stats.json) and replace the current one.
 
