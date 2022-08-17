@@ -35,4 +35,8 @@ for (const { key, value } of replacements) {
 	readme = readme.replace(regex, `<!-- ${key} -->\n${value}\n<!-- /${key} -->`);
 }
 
+readme = prettier.format(readme, {
+	parser: 'markdown',
+});
+
 await writeFile(pathToReadme, readme);

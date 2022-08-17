@@ -46,7 +46,7 @@ importers:
       '@nrwl/jest': 14.5.4_yi4yd3arhmqimh2vkjiighnlby
       '@nrwl/js': 14.4.3_pry2m6t3dvegumxpecuq3q43ui
       '@nrwl/node': 14.4.3_bdhzzlugxsnlrdceqsklcwtwem
-      '@nrwl/nx-cloud': 14.4.0
+      '@nrwl/nx-cloud': 14.4.1
       '@nrwl/workspace': 14.4.3_g2gfexv45lo2liw4gi5livb4li
       '@swc-node/register': 1.5.1_typescript@4.7.4
       '@swc/core': 1.2.224
@@ -68,9 +68,13 @@ importers:
 
   libs/browserslist-config:
     specifiers:
-      browserslist: 4.0.0
+      '@guardian/browserslist-config': workspace:*
+      browserslist: 4.13.0
+      prettier: ^2.7.1
     devDependencies:
-      browserslist: 4.0.0
+      '@guardian/browserslist-config': 'link:'
+      browserslist: 4.13.0
+      prettier: 2.7.1
 
   libs/eslint-config:
     specifiers:
@@ -1226,8 +1230,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/14.4.0:
-    resolution: {integrity: sha512-4sKNzGhBqTipy4fPZD09ZBkV9UTPTn0JUOQxOI7ETqlHhT2u8SfeybSJMnPAi5H6DjsqsooM8JCKPR/7D4+8sQ==}
+  /@nrwl/nx-cloud/14.4.1:
+    resolution: {integrity: sha512-vlWpBmIGfYvB9XMAdDZWOihOTFPE2VV9CDeZzBbSMF32KxDqUkhfaLf3dg6puIeUPkPbj5k+V57xjAl7g9k+Xw==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -1236,6 +1240,7 @@ packages:
       node-machine-id: 1.1.12
       strip-json-comments: 3.1.1
       tar: 6.1.11
+      yargs-parser: 21.0.1
     transitivePeerDependencies:
       - debug
     dev: true
@@ -2583,12 +2588,14 @@ packages:
       ua-parser-js: 1.0.2
     dev: false
 
-  /browserslist/4.0.0:
-    resolution: {integrity: sha512-fJq4izbUYHHNdQd/5Mco31HeL8U8dg5sSaj5boaDP17+aAe41CrxSZbQifIjaWw27iIilmy48z9PrVtelNJhbw==}
+  /browserslist/4.13.0:
+    resolution: {integrity: sha512-MINatJ5ZNrLnQ6blGvePd/QOz9Xtu+Ne+x29iQSCHfkU5BugKVJwZKn/iiL8UbpIpa3JhviKjz+XxMo0m2caFQ==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001375
       electron-to-chromium: 1.4.213
+      escalade: 3.1.1
       node-releases: 1.1.77
     dev: true
 

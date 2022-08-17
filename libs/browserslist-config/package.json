@@ -16,10 +16,12 @@
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},
 	"devDependencies": {
-		"browserslist": "4.0.0"
+		"@guardian/browserslist-config": "workspace:*",
+		"browserslist": "4.13.0",
+		"prettier": "^2.7.1"
 	},
 	"peerDependencies": {
-		"browserslist": "^4.0.0"
+		"browserslist": "^4.13.0"
 	},
 	"publishConfig": {
 		"access": "public"
