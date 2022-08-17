@@ -1,5 +1,5 @@
 {
-	"extends": "./libs/tsconfig/tsconfig.json",
+	"extends": "./packages/tsconfig/tsconfig.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"declaration": true,
@@ -10,7 +10,7 @@
 		"paths": {
 			"@csnx/eslint": ["tools/plugins/eslint"],
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
-			"@guardian/tsconfig": ["libs/tsconfig"]
+			"@guardian/tsconfig": ["packages/tsconfig"]
 		},
 		"resolveJsonModule": true,
 		"rootDir": ".",

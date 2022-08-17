@@ -1,17 +1,17 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/eslint-config-typescript",
+	"sourceRoot": "packages/eslint-config",
 	"projectType": "library",
 	"targets": {
 		"build": {
 			"executor": "@csnx/npm-package:build",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/libs/eslint-config-typescript",
-				"packageJson": "libs/eslint-config-typescript/package.json",
+				"outputPath": "dist/packages/eslint-config",
+				"packageJson": "packages/eslint-config/package.json",
 				"assets": [
-					"libs/eslint-config-typescript/.eslintrc.js",
-					"libs/eslint-config-typescript/*.md"
+					"packages/eslint-config/.eslintrc.js",
+					"packages/eslint-config/*.md"
 				]
 			}
 		}
