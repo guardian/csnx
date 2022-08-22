@@ -60,7 +60,7 @@ The repo is managed by [Nx](https://nx.dev/).
 
 <!-- END CACHED_TASKS -->
 
-This means only one iteration of these tasks runs for a given state of a project – _ever_ – which makes them extremely fast to run.
+This means only one full iteration of these tasks runs for a given state of a project – _ever_ – which makes them extremely fast to re-run.
 
 For example, you're working on something, run the tests and they pass. Nx remotely caches the result. You push your changes to CI. When CI runs the tests, nothing has changed, so Nx fetches the (passing) cached results, the build goes green and you can merge.
 
