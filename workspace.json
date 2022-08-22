@@ -9,6 +9,7 @@
 		"@guardian-prettier": "libs/@guardian/prettier",
 		"@guardian-tsconfig": "libs/@guardian/tsconfig",
 		"plugin-eslint": "tools/plugins/eslint",
-		"plugin-npm-package": "tools/plugins/npm-package"
+		"plugin-npm-package": "tools/plugins/npm-package",
+		"say-hello": "apps/say-hello"
 	}
 }

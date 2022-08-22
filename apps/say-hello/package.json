@@ -1,0 +1,7 @@
+{
+	"name": "say-hello",
+	"private": true,
+	"devDependencies": {
+		"@guardian/browserslist-config": "workspace:*"
+	}
+}

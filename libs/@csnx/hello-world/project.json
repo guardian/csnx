@@ -15,7 +15,14 @@
 			}
 		},
 		"lint": {
-			"executor": "@nrwl/linter:eslint",
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@csnx/hello-world/**/*.ts"]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
 			"outputs": ["{options.outputFile}"],
 			"options": {
 				"lintFilePatterns": ["libs/@csnx/hello-world/**/*.ts"]

@@ -1,11 +1,11 @@
 {
-	"extends": ["../../../.eslintrc.js"],
+	"extends": ["plugin:@nrwl/nx/react", "../../.eslintrc.js"],
 	"ignorePatterns": ["!**/*", "node_modules"],
 	"overrides": [
 		{
 			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
 			"parserOptions": {
-				"project": ["libs/@csnx/hello-world/tsconfig.*?.json"]
+				"project": ["apps/say-hello/tsconfig.*?.json"]
 			},
 			"rules": {}
 		},
