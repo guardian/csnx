@@ -41,7 +41,6 @@ Tasks are defined in the [`Makefile`](./Makefile).
 
 - `make say-hello` _start the `say-hello` test app_
 - `make test` _runs the tests for all projects_
-- `make e2e` _runs the e2e tests for all projects_
 - `make lint` _checks all projects for lint errors_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make validate` _makes sure absolutely everything is working_
