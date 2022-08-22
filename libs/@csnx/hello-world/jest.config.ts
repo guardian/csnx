@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export -- that's what jest likes */
 export default {
-	displayName: '@csnx-hello-world',
+	displayName: '@csnx/hello-world',
 	preset: '../../../jest.preset.js',
 	globals: {
 		'ts-jest': {

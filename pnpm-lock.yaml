@@ -4,7 +4,6 @@ importers:
 
   .:
     specifiers:
-      '@babel/core': ^7.18.10
       '@changesets/cli': ^2.24.1
       '@guardian/browserslist-config': workspace:*
       '@guardian/eslint-config': workspace:*
@@ -38,7 +37,6 @@ importers:
       typescript: ^4.7.4
       update-section: ^0.3.3
     devDependencies:
-      '@babel/core': 7.18.10
       '@changesets/cli': 2.24.1
       '@guardian/browserslist-config': link:libs/@guardian/browserslist-config
       '@guardian/eslint-config': link:libs/@guardian/eslint-config
@@ -66,7 +64,7 @@ importers:
       nx: 14.5.8_l3562fq52ox4noeq2satlohoy4
       prettier: 2.7.1
       sort-package-json: 1.57.0
-      ts-jest: 27.1.4_uvmegsgu3wwy5ezssftqak7ika
+      ts-jest: 27.1.4_7qhprak64zhe3pbaj7ujjugqgu
       ts-node: 10.8.2_vvjh7xvwyut4oxwpjiezshbmey
       tslib: 2.4.0
       typescript: 4.7.4
@@ -8504,7 +8502,7 @@ packages:
       compatfactory: 1.0.1
     dev: false
 
-  /ts-jest/27.1.4_uvmegsgu3wwy5ezssftqak7ika:
+  /ts-jest/27.1.4_7qhprak64zhe3pbaj7ujjugqgu:
     resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
@@ -8527,7 +8525,6 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@babel/core': 7.18.10
       '@types/jest': 27.4.1
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0

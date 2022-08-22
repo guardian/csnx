@@ -12,7 +12,6 @@
 		"package.json": "sort-package-json"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.18.10",
 		"@changesets/cli": "^2.24.1",
 		"@guardian/browserslist-config": "workspace:*",
 		"@guardian/eslint-config": "workspace:*",
