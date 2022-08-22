@@ -9,8 +9,8 @@
 		"lib": ["es2017", "dom"],
 		"paths": {
 			"@csnx/eslint": ["tools/plugins/eslint"],
+			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
 			"@csnx/npm-package": ["tools/plugins/npm-package"],
-			"@csnx/hello-world": ["libs/hello-world/src/index.ts"],
 			"@guardian/tsconfig": ["packages/tsconfig"]
 		},
 		"resolveJsonModule": true,

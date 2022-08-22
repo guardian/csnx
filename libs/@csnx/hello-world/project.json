@@ -1,0 +1,34 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@csnx/hello-world/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/@csnx/hello-world",
+				"tsConfig": "libs/@csnx/hello-world/tsconfig.lib.json",
+				"packageJson": "libs/@csnx/hello-world/package.json",
+				"main": "libs/@csnx/hello-world/src/index.ts",
+				"assets": ["libs/@csnx/hello-world/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@csnx/hello-world/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@csnx/hello-world"],
+			"options": {
+				"jestConfig": "libs/@csnx/hello-world/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}

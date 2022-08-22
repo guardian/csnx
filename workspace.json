@@ -2,9 +2,9 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
-		"hello-world": "libs/hello-world",
 		"npm-package": "tools/plugins/npm-package",
 		"plugin-eslint": "tools/plugins/eslint"
+		"@csnx-hello-world": "libs/@csnx/hello-world",
 		"@guardian-browserslist-config": "libs/@guardian/browserslist-config",
 		"@guardian-eslint-config": "libs/@guardian/eslint-config",
 		"@guardian-eslint-config-typescript": "libs/@guardian/eslint-config-typescript",
