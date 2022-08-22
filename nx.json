@@ -29,7 +29,6 @@
 		"appsDir": "apps",
 		"libsDir": "libs"
 	},
-	"defaultProject": "say-hello",
 	"generators": {
 		"@nrwl/react": {
 			"application": {
