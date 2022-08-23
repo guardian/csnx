@@ -1,5 +1,5 @@
 {
-	"extends": "./packages/tsconfig/tsconfig.json",
+	"extends": "./libs/@guardian/tsconfig/tsconfig.json",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"declaration": true,
@@ -9,9 +9,8 @@
 		"lib": ["es2017", "dom"],
 		"paths": {
 			"@csnx/eslint": ["tools/plugins/eslint"],
-			"@csnx/npm-package": ["tools/plugins/npm-package"],
-			"@csnx/hello-world": ["libs/hello-world/src/index.ts"],
-			"@guardian/tsconfig": ["packages/tsconfig"]
+			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
+			"@csnx/npm-package": ["tools/plugins/npm-package"]
 		},
 		"resolveJsonModule": true,
 		"rootDir": ".",

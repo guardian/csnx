@@ -20,7 +20,7 @@
 		"default": {
 			"options": {
 				"accessToken": "OTdkYmFjMTYtNGFhNS00MjM2LTg0OGMtZmNhNGZiMmU2YTM5fHJlYWQtd3JpdGU=",
-				"cacheableOperations": ["build", "lint", "test"]
+				"cacheableOperations": ["build", "lint", "test", "e2e"]
 			},
 			"runner": "@nrwl/nx-cloud"
 		}
@@ -28,5 +28,21 @@
 	"workspaceLayout": {
 		"appsDir": "apps",
 		"libsDir": "libs"
+	},
+	"generators": {
+		"@nrwl/react": {
+			"application": {
+				"style": "@emotion/styled",
+				"linter": "eslint",
+				"babel": true
+			},
+			"component": {
+				"style": "@emotion/styled"
+			},
+			"library": {
+				"style": "@emotion/styled",
+				"linter": "eslint"
+			}
+		}
 	}
 }

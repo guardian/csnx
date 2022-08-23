@@ -1,11 +1,11 @@
 {
-	"extends": ["../../.eslintrc.js"],
-	"ignorePatterns": ["!**/*"],
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
 	"overrides": [
 		{
 			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
 			"parserOptions": {
-				"project": ["libs/hello-world/tsconfig.*?.json"]
+				"project": ["libs/@csnx/hello-world/tsconfig.*?.json"]
 			},
 			"rules": {}
 		},

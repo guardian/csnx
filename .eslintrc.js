@@ -33,6 +33,13 @@ module.exports = {
 				'plugin:@nrwl/nx/typescript',
 				'@guardian/eslint-config-typescript',
 			],
+			settings: {
+				'import/resolver': {
+					typescript: {
+						project: 'tsconfig.base.json',
+					},
+				},
+			},
 		},
 	],
 };

@@ -2,13 +2,13 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
-		"hello-world": "libs/hello-world",
-		"npm-package": "tools/plugins/npm-package",
-		"packages-browserslist-config": "packages/browserslist-config",
-		"packages-eslint-config": "packages/eslint-config",
-		"packages-eslint-config-typescript": "packages/eslint-config-typescript",
-		"packages-prettier": "packages/prettier",
-		"packages-tsconfig": "packages/tsconfig",
-		"plugin-eslint": "tools/plugins/eslint"
+		"@csnx-hello-world": "libs/@csnx/hello-world",
+		"@guardian-browserslist-config": "libs/@guardian/browserslist-config",
+		"@guardian-eslint-config": "libs/@guardian/eslint-config",
+		"@guardian-eslint-config-typescript": "libs/@guardian/eslint-config-typescript",
+		"@guardian-prettier": "libs/@guardian/prettier",
+		"@guardian-tsconfig": "libs/@guardian/tsconfig",
+		"plugin-eslint": "tools/plugins/eslint",
+		"plugin-npm-package": "tools/plugins/npm-package"
 	}
 }

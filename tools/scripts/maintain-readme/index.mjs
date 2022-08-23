@@ -15,7 +15,7 @@ let readme = await readFile(readMePath, 'utf8');
 
 readme = updateReadmeSection({
 	readme,
-	label: 'PACKAGES',
+	label: 'PUBLISHED_PACKAGES',
 	updates: await getPackageList(),
 	updater: thisFilePathFromRoot,
 });
