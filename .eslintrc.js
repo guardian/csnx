@@ -41,5 +41,11 @@ module.exports = {
 				},
 			},
 		},
+		{
+			files: ['.lintstagedrc.js'],
+			rules: {
+				'import/no-default-export': 'off',
+			},
+		},
 	],
 };

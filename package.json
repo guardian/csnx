@@ -7,10 +7,6 @@
 		"prepare": "husky install",
 		"test": "./tools/scripts/use-make-instead"
 	},
-	"lint-staged": {
-		"*.{js,jsx,ts,tsx,css,md,json}": "prettier --write",
-		"package.json": "sort-package-json"
-	},
 	"devDependencies": {
 		"@changesets/cli": "^2.24.4",
 		"@guardian/browserslist-config": "workspace:*",
