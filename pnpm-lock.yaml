@@ -50,7 +50,7 @@ importers:
       '@nrwl/jest': 14.5.8_v3p3y3gevwe3ajze6ss43znjje
       '@nrwl/js': 14.5.8_67zolnyefhbhbeecpkfhdszewi
       '@nrwl/node': 14.5.8_e5jsl4pefesve5z5lcjyzylca4
-      '@nrwl/nx-cloud': 14.4.1
+      '@nrwl/nx-cloud': 14.5.1
       '@nrwl/workspace': 14.5.8_g2gfexv45lo2liw4gi5livb4li
       '@swc-node/register': 1.5.1_typescript@4.7.4
       '@swc/core': 1.2.224
@@ -121,6 +121,7 @@ importers:
 
   tools/plugins/npm-package:
     specifiers:
+      '@guardian/libs': ^7.1.2
       '@rollup/plugin-commonjs': ^22.0.2
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-node-resolve': ^13.3.0
@@ -142,6 +143,8 @@ importers:
       sort-package-json: 1.57.0
       tslib: 2.4.0
       write-pkg: 5.1.0
+    devDependencies:
+      '@guardian/libs': 7.1.2
 
 packages:
 
@@ -1683,6 +1686,12 @@ packages:
       - supports-color
     dev: true
 
+  /@guardian/libs/7.1.2:
+    resolution: {integrity: sha512-Gf1bDt6iv2QfPjaDjjNc86lzy9Xb+QuCJuIr/RGo5ZRof464CMr0l6tQMu7EDeOL6dk4HG/tvelDNh2uDqT4+A==}
+    peerDependencies:
+      web-vitals: ^2.0.0
+    dev: true
+
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
     engines: {node: '>=10.10.0'}
@@ -2394,8 +2403,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/14.4.1:
-    resolution: {integrity: sha512-vlWpBmIGfYvB9XMAdDZWOihOTFPE2VV9CDeZzBbSMF32KxDqUkhfaLf3dg6puIeUPkPbj5k+V57xjAl7g9k+Xw==}
+  /@nrwl/nx-cloud/14.5.1:
+    resolution: {integrity: sha512-koaQgjXZjzUFeM9YZwxhlClVYH83u6lzl0QL9jDh0ScWXGRU12AFhYQCo5ksQ2ZlLk3zrjgwTkN2ufTzeyKFdw==}
     hasBin: true
     dependencies:
       axios: 0.21.4
