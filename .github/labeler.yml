@@ -4,7 +4,7 @@
   - 'libs/@guardian/**/*'
 📦 lib:
   - 'libs/@csnx/**/*'
-🗜 workspace:
+🛠 workspace:
   - 'nx.json'
   - 'workspace.json'
   - 'tools/plugins/**/*'
