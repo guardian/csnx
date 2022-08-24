@@ -70,19 +70,9 @@ export default async function buildExecutor(
 				return { success: false };
 			}
 
-			// by default, do not bundle peer dependencies
-			// users can override with an array of package names
+			// do not bundle peer dependencies
 			const peerDeps = await getPeerDeps(options.packageJson);
-
-			if (peerDeps.length && options.externalDependencies) {
-				logger.error(
-					"Do not provide 'externalDependencies' if your package specifies 'peerDependencies'",
-				);
-				return { success: false };
-			}
-
-			const external =
-				options.externalDependencies ?? ((id: string) => peerDeps.includes(id));
+			const external = (id: string) => peerDeps.includes(id);
 
 			// create build for each module type
 			await Promise.all(

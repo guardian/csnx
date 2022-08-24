@@ -14,5 +14,8 @@
 		"tslib": "^2.3.0",
 		"write-pkg": "^5.1.0"
 	},
+	"devDependencies": {
+		"@guardian/libs": "^7.1.2"
+	},
 	"executors": "./executors.json"
 }
