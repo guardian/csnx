@@ -47,6 +47,9 @@ export default async function buildExecutor(
 		// remove old build
 		await exec(`rm -rf ${options.outputPath}`);
 
+		// create dist dir
+		await exec(`mkdir -p ${options.outputPath}`);
+
 		// copy assets over
 		await cpy(options.assets, options.outputPath, {
 			cwd: context.root,
