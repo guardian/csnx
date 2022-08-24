@@ -9,6 +9,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import cpy from 'cpy';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
+import { getPeerDeps } from './get-peerdeps';
 import type { BuildExecutorOptions } from './schema';
 import { setPackageDefaults } from './set-package-defaults';
 import { writeResolvedPackageJson } from './write-resolved-package-json';
@@ -47,6 +48,9 @@ export default async function buildExecutor(
 		// remove old build
 		await exec(`rm -rf ${options.outputPath}`);
 
+		// create dist dir
+		await exec(`mkdir -p ${options.outputPath}`);
+
 		// copy assets over
 		await cpy(options.assets, options.outputPath, {
 			cwd: context.root,
@@ -60,17 +64,25 @@ export default async function buildExecutor(
 
 		if (options.main) {
 			if (!options.tsConfig) {
-				logger.fatal(
+				logger.error(
 					"You must include a 'tsConfig' option when using the 'main' option",
 				);
 				return { success: false };
 			}
 
+			// do not bundle peer dependencies
+			const peerDeps = await getPeerDeps(options.packageJson);
+			const external = (id: string) => peerDeps.includes(id);
+
 			// create build for each module type
 			await Promise.all(
 				formats.map(async (format) => {
 					const { plugins, output } = getRollupConfig(options, format);
-					const bundle = await rollup({ input: options.main, plugins });
+					const bundle = await rollup({
+						input: options.main,
+						plugins,
+						external,
+					});
 					await bundle.write(output);
 					return bundle.close();
 				}),
