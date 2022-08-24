@@ -2,6 +2,7 @@
 	"name": "@csnx/npm-package",
 	"private": true,
 	"dependencies": {
+		"@guardian/libs": "workspace:*",
 		"@rollup/plugin-commonjs": "^22.0.2",
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-node-resolve": "^13.3.0",
@@ -12,9 +13,6 @@
 		"sort-package-json": "^1.57.0",
 		"tslib": "^2.3.0",
 		"write-pkg": "^5.1.0"
-	},
-	"devDependencies": {
-		"@guardian/libs": "^7.1.2"
 	},
 	"executors": "./executors.json"
 }

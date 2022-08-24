@@ -7,8 +7,8 @@
 		"noImplicitReturns": true,
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
+		"resolveJsonModule": true,
 		"strict": true,
-		"target": "esnext",
-		"resolveJsonModule": true
+		"target": "esnext"
 	}
 }
