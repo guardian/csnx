@@ -1,7 +1,6 @@
 import { isObject } from '@guardian/libs';
 
 export const getPeerDeps = async (pkgPath: string) => {
-	/* eslint-disable
 	/* eslint-disable @typescript-eslint/no-unsafe-assignment --
 		json is an any
 	*/
