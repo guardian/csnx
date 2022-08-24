@@ -26,13 +26,6 @@
 			"items": {
 				"type": "string"
 			}
-		},
-		"externalDependencies": {
-			"type": "array",
-			"description": "List of dependencies you do not want to include in the bundle.",
-			"items": {
-				"type": "string"
-			}
 		}
 	},
 	"required": ["outputPath", "packageJson"]

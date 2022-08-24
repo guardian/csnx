@@ -5,5 +5,4 @@ export interface BuildExecutorOptions {
 	packageJson: string;
 	assets: string[];
 	pkgRoot: string;
-	externalDependencies?: string[];
 }
