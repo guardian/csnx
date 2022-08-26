@@ -14,5 +14,6 @@
 		"tslib": "^2.3.0",
 		"write-pkg": "^5.1.0"
 	},
-	"executors": "./executors.json"
+	"executors": "./executors.json",
+	"generators": "generators.json"
 }
