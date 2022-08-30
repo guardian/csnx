@@ -15,7 +15,7 @@ tar -xvf $tmp/main.tar.gz \
 	--directory libs/@guardian/libs \
 	--strip-components 1 \
 		libs-main/src \
-		libs-main/scripts \
+		libs-main/scripts/generateSvg.logger.teams.ts \
 		libs-main/static \
 		libs-main/README.md
 
