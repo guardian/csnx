@@ -2,7 +2,7 @@
 	"name": "@csnx/npm-package",
 	"private": true,
 	"dependencies": {
-		"@guardian/libs": "workspace:*",
+		"@guardian/libs": "^7.1.2",
 		"@rollup/plugin-commonjs": "^22.0.2",
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-node-resolve": "^13.3.0",

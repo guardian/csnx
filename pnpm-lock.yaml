@@ -124,7 +124,7 @@ importers:
 
   tools/plugins/npm-package:
     specifiers:
-      '@guardian/libs': workspace:*
+      '@guardian/libs': ^7.1.2
       '@rollup/plugin-commonjs': ^22.0.2
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-node-resolve': ^13.3.0
@@ -136,7 +136,7 @@ importers:
       tslib: ^2.3.0
       write-pkg: ^5.1.0
     dependencies:
-      '@guardian/libs': link:../../../libs/@guardian/libs
+      '@guardian/libs': 7.1.4
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.77.2
       '@rollup/plugin-json': 4.1.0_rollup@2.77.2
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
@@ -1688,6 +1688,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@guardian/libs/7.1.4:
+    resolution: {integrity: sha512-r2AJk+4EakNLCLXHhUEqdYSjFhuq19k7tsQO5+53YZc6x6ADEXFNRVE/7EzbODgu5pVwk5SQ/rMuWsE7+5qdVQ==}
+    peerDependencies:
+      web-vitals: ^2.0.0
+    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
