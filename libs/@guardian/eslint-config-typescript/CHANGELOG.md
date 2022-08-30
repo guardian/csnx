@@ -1,5 +1,12 @@
 # @guardian/eslint-config-typescript
 
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies [8f3ed43]
+  - @guardian/eslint-config@2.0.1
+
 ## 1.0.6
 
 ### Patch Changes
