@@ -107,6 +107,9 @@ importers:
       eslint-import-resolver-typescript: 2.7.1_fkfqfehjtk7sk2efaqbgxsuasa
       eslint-plugin-import: 2.26.0_iwjjqrfrfcte6dghna6c4vjh6i
 
+  libs/@guardian/libs:
+    specifiers: {}
+
   libs/@guardian/prettier:
     specifiers: {}
 
@@ -121,7 +124,7 @@ importers:
 
   tools/plugins/npm-package:
     specifiers:
-      '@guardian/libs': ^7.1.2
+      '@guardian/libs': workspace:*
       '@rollup/plugin-commonjs': ^22.0.2
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-node-resolve': ^13.3.0
@@ -133,7 +136,7 @@ importers:
       tslib: ^2.3.0
       write-pkg: ^5.1.0
     dependencies:
-      '@guardian/libs': 7.1.2
+      '@guardian/libs': link:../../../libs/@guardian/libs
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.77.2
       '@rollup/plugin-json': 4.1.0_rollup@2.77.2
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
@@ -1685,12 +1688,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /@guardian/libs/7.1.2:
-    resolution: {integrity: sha512-Gf1bDt6iv2QfPjaDjjNc86lzy9Xb+QuCJuIr/RGo5ZRof464CMr0l6tQMu7EDeOL6dk4HG/tvelDNh2uDqT4+A==}
-    peerDependencies:
-      web-vitals: ^2.0.0
-    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
