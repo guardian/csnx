@@ -1,4 +1,11 @@
 {
 	"name": "@guardian/libs",
-	"private": true
+	"private": true,
+	"dependencies": {
+		"original-libs": "npm:@guardian/libs@^8.0.0"
+	},
+	"devDependencies": {
+		"tslib": "2.4.0",
+		"web-vitals": "2.0.0"
+	}
 }
