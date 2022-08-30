@@ -35,7 +35,7 @@ validate: env clean workspace-lint lint test build
 
 ##################################### BUILD ####################################
 
-# builds all projects
+# removes all build artifacts
 .PHONY: clean
 clean: env
 	$(call log,"Cleaning all build assets")
