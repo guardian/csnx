@@ -6,13 +6,11 @@
 		"declarationMap": true,
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true,
-		"lib": ["es2017", "dom"],
 		"paths": {
 			"@csnx/eslint": ["tools/plugins/eslint"],
 			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
 			"@csnx/npm-package": ["tools/plugins/npm-package"]
 		},
-		"resolveJsonModule": true,
 		"rootDir": ".",
 		"sourceMap": true
 	},
