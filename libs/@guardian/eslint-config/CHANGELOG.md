@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 2.0.1
+
+### Patch Changes
+
+- 8f3ed43: Configures `import/no-cycle` to ignore external modules, decreasing the time it takes to lint a project.
+
 ## 2.0.0
 
 ### Major Changes
