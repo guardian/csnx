@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 
+# import @guardian/libs from current repo
+
 tmp=.temp-import
 
+# create temp dir to download @guardian/libs repo into
 mkdir -p $tmp
 
-curl -L -O --create-dirs --output-dir $tmp https://github.com/guardian/libs/archive/main.tar.gz
+# fetch the @guardian/libs repo
+curl -L -O --output-dir $tmp https://github.com/guardian/libs/archive/main.tar.gz
 
-tar -xvf $tmp/main.tar.gz --directory libs/@guardian/libs  --strip-components 1 \
-	libs-main/src \
-	libs-main/scripts \
-	libs-main/static \
-	libs-main/README.md \
-	libs-main/package.json
+# extract the files we want into our package dir
+tar -xvf $tmp/main.tar.gz \
+	--directory libs/@guardian/libs \
+	--strip-components 1 \
+		libs-main/src \
+		libs-main/scripts \
+		libs-main/static \
+		libs-main/README.md \
+		libs-main/package.json
 
+# remove the temp dir
 rm -rf "$tmp"
+
