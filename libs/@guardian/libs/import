@@ -17,9 +17,11 @@ tar -xvf $tmp/main.tar.gz \
 		libs-main/src \
 		libs-main/scripts \
 		libs-main/static \
-		libs-main/README.md \
-		libs-main/package.json
+		libs-main/README.md
 
 # remove the temp dir
 rm -rf "$tmp"
+
+# remove the aliased version
+pnpm remove original-libs --filter @guardian/libs
 
