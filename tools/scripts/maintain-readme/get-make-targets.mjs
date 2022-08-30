@@ -30,5 +30,5 @@ export const getMakeTargets = async () => {
 		}
 	}
 
-	return markdown.join('\n');
+	return markdown.sort().join('\n');
 };
