@@ -26,12 +26,11 @@
   ### Recommendations
 
   Your project should handle `prettier` formatting in another way, e.g.
-	
-  -   via [editor integration](https://prettier.io/docs/en/editors.html)
-  -   via a [pre-commit hook](https://prettier.io/docs/en/precommit.html)
 
-	If you prefer the way this used to work (applying `prettier` formatting as part of linting), add the [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) manually to your ESLint config.
+  - via [editor integration](https://prettier.io/docs/en/editors.html)
+  - via a [pre-commit hook](https://prettier.io/docs/en/precommit.html)
 
+  If you prefer the way this used to work (applying `prettier` formatting as part of linting), add the [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) manually to your ESLint config.
 
 ## 1.0.2
 
