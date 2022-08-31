@@ -112,12 +112,9 @@ importers:
       '@types/wcag-contrast': 3.0.0
       jest-fetch-mock: 3.0.3
       mockdate: 3.0.5
-      original-libs: npm:@guardian/libs@8.0.0
       tslib: 2.4.0
       wcag-contrast: 3.0.0
       web-vitals: 2.0.0
-    dependencies:
-      original-libs: /@guardian/libs/8.0.0_hlwwgw6ekyqiqbfyexytf76jh4
     devDependencies:
       '@types/wcag-contrast': 3.0.0
       jest-fetch-mock: 3.0.3
@@ -1704,16 +1701,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /@guardian/libs/8.0.0_hlwwgw6ekyqiqbfyexytf76jh4:
-    resolution: {integrity: sha512-PRl+zB3/MI3FtnMXa5SEzHDMbMatODbCxynqjRfkrwItWsBgOtC2m8liVRqZGg9IqpliCCGEgJqcy1pnittOBg==}
-    peerDependencies:
-      tslib: ^2.4.0
-      web-vitals: ^2.0.0
-    dependencies:
-      tslib: 2.4.0
-      web-vitals: 2.0.0
-    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
@@ -8979,6 +8966,7 @@ packages:
 
   /web-vitals/2.0.0:
     resolution: {integrity: sha512-aCB1sYxt2eeBufybFRrDQNBg2cOcq2f6Q1He7T+qPHAwpodDXhAoWwBUavwppQQ4kfUcT5eIAfjPc9PdqAxPEw==}
+    dev: true
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

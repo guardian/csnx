@@ -1,12 +1,9 @@
 {
 	"name": "@guardian/libs",
-	"version": "8.0.1",
-	"private": true,
+	"version": "8.0.0",
+	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
-	"dependencies": {
-		"original-libs": "npm:@guardian/libs@8.0.0"
-	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.0",
 		"jest-fetch-mock": "3.0.3",

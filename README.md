@@ -20,6 +20,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/browserslist-config](libs/@guardian/browserslist-config)
 - [@guardian/eslint-config](libs/@guardian/eslint-config)
 - [@guardian/eslint-config-typescript](libs/@guardian/eslint-config-typescript)
+- [@guardian/libs](libs/@guardian/libs)
 - [@guardian/prettier](libs/@guardian/prettier)
 - [@guardian/tsconfig](libs/@guardian/tsconfig)
 
