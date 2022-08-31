@@ -1,8 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# If this fails, see the "Troubleshooting" section in the README.
-
+# make sure we're using the correct version of node
 . ./tools/scripts/use-node-version
 
 # keep docs up to date
