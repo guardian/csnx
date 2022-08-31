@@ -1,20 +1,15 @@
-import fs from 'fs';
-import { teamStyles } from '../src/logger/teamStyles';
-
-fs.writeFileSync(__dirname + '/../static/logger.svg', generateSvg());
+import fs from 'node:fs';
+import { commonStyle, teamStyles } from '../src/logger/teamStyles';
 
 function generateSvg(): string {
-	const filteredTeams = Object.entries(teamStyles).filter((team) => {
-		const [name] = team;
-		return name !== 'common';
-	});
+	const teams = Object.entries(teamStyles);
 
 	const padding = 10;
 	const lineHeight = 24;
 	const width = 600;
-	const height = filteredTeams.length * lineHeight + padding * 2 + 60;
+	const height = teams.length * lineHeight + padding * 2 + 60;
 
-	const lines = filteredTeams.map((team, index) => {
+	const lines = teams.map((team, index) => {
 		const [name, colours] = team;
 		return `<div class="line">
 			<span class="label common">@guardian</span>
@@ -72,8 +67,8 @@ function generateSvg(): string {
 		}
 
 		.common {
-			background-color: ${teamStyles.common.background};
-			color: ${teamStyles.common.font};
+			background-color: ${commonStyle.common.background};
+			color: ${commonStyle.common.font};
 		}
 	</style>
 	<foreignObject x="0" y="0" width="${width}" height="${height}">
@@ -87,3 +82,5 @@ function generateSvg(): string {
 </svg>`;
 	return svg;
 }
+
+fs.writeFileSync(__dirname + '/../static/logger.svg', generateSvg());
