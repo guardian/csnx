@@ -65,7 +65,7 @@ load_correct_node() {
 }
 
 asdf_installed() {
-	if [[ -x "$(command -v asdf)" ]]; then
+	if declare -p asdf >/dev/null 2>&1; then
 		return 0
 	fi
 
