@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# import @guardian/libs from current repo
+
+tmp=.temp-import
+
+# create temp dir to download @guardian/libs repo into
+mkdir -p $tmp
+
+# fetch the @guardian/libs repo
+curl -L -O --output-dir $tmp https://github.com/guardian/libs/archive/main.tar.gz
+
+# extract the files we want into our package dir
+tar -xvf $tmp/main.tar.gz \
+	--directory libs/@guardian/libs \
+	--strip-components 1 \
+		libs-main/src \
+		libs-main/scripts/generateSvg.logger.teams.ts \
+		libs-main/static \
+		libs-main/README.md
+
+# remove the temp dir
+rm -rf "$tmp"
+
+# remove the aliased version
+pnpm remove original-libs --filter @guardian/libs
+

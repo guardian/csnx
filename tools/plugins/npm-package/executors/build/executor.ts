@@ -9,7 +9,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import cpy from 'cpy';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
-import { getPeerDeps } from './get-peerdeps';
+import { getDeps } from './get-deps';
 import type { BuildExecutorOptions } from './schema';
 import { setPackageDefaults } from './set-package-defaults';
 import { writeResolvedPackageJson } from './write-resolved-package-json';
@@ -70,9 +70,10 @@ export default async function buildExecutor(
 				return { success: false };
 			}
 
-			// do not bundle peer dependencies
-			const peerDeps = await getPeerDeps(options.packageJson);
-			const external = (id: string) => peerDeps.includes(id);
+			// do not bundle dependencies
+			const deps = await getDeps(options.packageJson);
+
+			const external = (id: string) => deps.includes(id);
 
 			// create build for each module type
 			await Promise.all(
