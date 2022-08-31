@@ -144,7 +144,6 @@ install_with_nvm() {
 		echo -e "${dim}Installing Node v$nvmrc_version with ${blue}nvm${reset}"
 		nvm install "$nvmrc_version"
 	else
-		# echo -e "Using Node ${blue}$(node -v)${reset}"
 		nvm use "$nvmrc_version"
 	fi
 }
