@@ -102,7 +102,8 @@ install_with_asdf() {
 fnm_installed() {
 	if [[ -x "$(command -v fnm)" ]]; then
 		# if we're in a non-interative shell (e.g. a git gui – vscode, github
-		# desktop, etc), fnm may not have been loaded, so try to load it
+		# desktop, etc), the binary may be available but the env hasn't been
+		# setup, so try to do that if needed
 		if [[ $PATH != *"$HOME/.fnm"* ]]; then
 			export PATH=~/.fnm:$PATH
 			eval "`fnm env`"
