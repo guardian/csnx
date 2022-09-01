@@ -103,4 +103,12 @@ Or for [`asdf`](https://asdf-vm.com/):
 . /opt/homebrew/opt/asdf/asdf.sh
 ```
 
+Or for [`nvm`](https://github.com/nvm-sh/nvm):
+
+```sh
+# ~/.huskyrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm use
+```
+
 See https://typicode.github.io/husky/#/?id=command-not-found for more info.
