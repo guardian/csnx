@@ -11,15 +11,15 @@
   - 'tools/scripts/**/*'
 
 # individual npm packages
-@guardian/browserslist-config:
+"@guardian/browserslist-config":
   - 'libs/@guardian/browserslist-config/**/*'
-@guardian/eslint-config:
+"@guardian/eslint-config":
   - 'libs/@guardian/eslint-config/**/*'
-@guardian/eslint-config-typescript:
+"@guardian/eslint-config-typescript":
   - 'libs/@guardian/eslint-config-typescript/**/*'
-@guardian/libs:
+"@guardian/libs":
   - 'libs/@guardian/libs/**/*'
-@guardian/prettier:
+"@guardian/prettier":
   - 'libs/@guardian/prettier/**/*'
-@guardian/tsconfig:
+"@guardian/tsconfig":
   - 'libs/@guardian/tsconfig/**/*'
