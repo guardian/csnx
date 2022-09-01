@@ -11,6 +11,18 @@
 			"matchPaths": ["tools/**/package.json"],
 			"matchDepTypes": ["dependencies"],
 			"groupName": "dependencies (tools)"
+		},
+		{
+			"description": "These are pinned to the bottom of their peerDep range",
+			"matchPackageNames": ["web-vitals", "tslib"],
+			"matchPaths": ["libs/@guardian/libs/package.json"],
+			"enabled": false
+		},
+		{
+			"description": "These are pinned to the bottom of their peerDep range",
+			"matchPackageNames": ["browserslist"],
+			"matchPaths": ["libs/@guardian/browserslist-config/package.json"],
+			"enabled": false
 		}
 	]
 }
