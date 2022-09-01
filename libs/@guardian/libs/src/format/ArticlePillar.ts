@@ -1,7 +1,11 @@
-export enum ArticlePillar {
-	News = 0,
-	Opinion = 1,
-	Sport = 2,
-	Culture = 3,
-	Lifestyle = 4,
-}
+const ArticlePillars = [
+	'PillarNews',
+	'PillarOpinion',
+	'PillarSport',
+	'PillarCulture',
+	'PillarLifestyle',
+] as const;
+
+type ArticlePillar = typeof ArticlePillars[number];
+
+export type { ArticlePillar };

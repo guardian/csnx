@@ -19,11 +19,11 @@ export { getCountryByCountryCode } from './countries/getCountryByCountryCode';
 
 export { timeAgo } from './datetime/timeAgo';
 
-export { ArticleDesign } from './format/ArticleDesign';
-export { ArticleDisplay } from './format/ArticleDisplay';
+export type { ArticleDesign } from './format/ArticleDesign';
+export type { ArticleDisplay } from './format/ArticleDisplay';
 export type { ArticleFormat } from './format/ArticleFormat';
-export { ArticlePillar } from './format/ArticlePillar';
-export { ArticleSpecial } from './format/ArticleSpecial';
+export type { ArticlePillar } from './format/ArticlePillar';
+export type { ArticleSpecial } from './format/ArticleSpecial';
 export type { ArticleTheme } from './format/ArticleTheme';
 
 export { isBoolean } from './isBoolean/isBoolean';

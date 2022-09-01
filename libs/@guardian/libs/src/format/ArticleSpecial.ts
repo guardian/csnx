@@ -1,4 +1,4 @@
-export enum ArticleSpecial {
-	SpecialReport = 5,
-	Labs = 6,
-}
+const ArticleSpecials = ['SpecialReport', 'SpecialLabs'] as const;
+type ArticleSpecial = typeof ArticleSpecials[number];
+
+export type { ArticleSpecial };
