@@ -8,8 +8,7 @@
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
-		"browserslist": "4.16.5",
-		"prettier": "2.7.1"
+		"browserslist": "4.16.5"
 	},
 	"peerDependencies": {
 		"browserslist": "^4.16.5"

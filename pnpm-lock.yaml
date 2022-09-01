@@ -77,11 +77,9 @@ importers:
     specifiers:
       '@guardian/browserslist-config': workspace:*
       browserslist: 4.16.5
-      prettier: 2.7.1
     devDependencies:
       '@guardian/browserslist-config': 'link:'
       browserslist: 4.16.5
-      prettier: 2.7.1
 
   libs/@guardian/eslint-config:
     specifiers:
