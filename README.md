@@ -2,7 +2,8 @@
 
 > Monorepo for Guardian UIs
 
-![GitHub branch checks state](https://img.shields.io/github/checks-status/guardian/csnx/main)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/guardian/csnx)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/guardian/csnx)
 
 _This project is in a prototype/alpha stage. [Feedback is extremely welcome](https://github.com/guardian/csnx/issues/new/choose), but things are likely to change quickly and possibly on a whim._
 
