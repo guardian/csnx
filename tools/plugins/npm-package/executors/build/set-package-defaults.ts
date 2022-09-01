@@ -53,12 +53,10 @@ export const setPackageDefaults = async (options: BuildExecutorOptions) => {
 	}
 
 	if (options.main) {
-		const relativeMain = path
-			.relative(options.pkgRoot, options.main)
-			.replace(/\.ts$/, '.js');
-		pkgDefaults.main = `./cjs/${relativeMain}`;
-		pkgDefaults.module = `./esm/${relativeMain}`;
-		pkgDefaults.exports = `./esm/${relativeMain}`;
+		const entry = path.basename(options.main).replace(/\.tsx?$/, '.js');
+		pkgDefaults.main = `./cjs/${entry}`;
+		pkgDefaults.module = `./esm/${entry}`;
+		pkgDefaults.exports = `./esm/${entry}`;
 	} else if (!pkg.main) {
 		throw new Error(
 			"You must add a 'main' field to your package.json, or pass a 'main' option to the build executor",
