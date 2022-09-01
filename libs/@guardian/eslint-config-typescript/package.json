@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": ".eslintrc.js",
 	"dependencies": {

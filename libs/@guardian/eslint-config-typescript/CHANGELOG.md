@@ -1,5 +1,14 @@
 # @guardian/eslint-config-typescript
 
+## 1.0.8
+
+### Patch Changes
+
+- 7de3535: bumps deps:
+
+  - @typescript-eslint/eslint-plugin `5.28.0 -> 5.36.1`
+  - @typescript-eslint/parser `5.31.0 -> 5.36.1`
+
 ## 1.0.7
 
 ### Patch Changes
