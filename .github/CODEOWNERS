@@ -1,1 +1,8 @@
+# if you would like to be notified about changes in particular part of this repo,
+# please add yourself in a PR
+
 * @guardian/client-side-infra
+
+libs/@guardian/libs/src/coreWebVitals/* @guardian/dotcom-platform @guardian/commercial-dev
+
+libs/@guardian/libs/src/format/* @guardian/apps-rendering @guardian/dotcom-platform
