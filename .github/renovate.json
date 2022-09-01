@@ -6,6 +6,11 @@
 			"matchDepTypes": ["devDependencies"],
 			"matchUpdateTypes": ["patch", "minor"],
 			"groupName": "devDependencies (non-breaking)"
+		},
+		{
+			"matchPaths": ["tools/**/package.json"],
+			"matchDepTypes": ["dependencies"],
+			"groupName": "dependencies (tools)"
 		}
 	]
 }
