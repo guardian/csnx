@@ -1,5 +1,11 @@
 # @guardian/eslint-config-typescript
 
+## 1.0.9
+
+### Patch Changes
+
+- 84f85db: Update dependency `eslint-import-resolver-typescript` to v3
+
 ## 1.0.8
 
 ### Patch Changes
