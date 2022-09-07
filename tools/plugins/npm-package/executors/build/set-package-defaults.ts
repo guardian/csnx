@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call --
-	we're having to use a kludge to make this file work, these checks aren't really helpful considering that
-*/
-
 import path from 'node:path';
+import type * as ReadPackage from 'read-pkg';
 import sortPkgJson from 'sort-package-json';
+import type { JsonObject } from 'type-fest';
+import type * as WritePackage from 'write-pkg';
 import type { BuildExecutorOptions } from './schema';
 
 /**
- * THIS IS KLUDGE
+ * THIS IS KLUDGE #ES_NODE_MODULES
  *
  * lifted from https://github.com/nrwl/nx/pull/10414
  *
@@ -21,8 +20,12 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
  * don't want to publish.
  */
 export const setPackageDefaults = async (options: BuildExecutorOptions) => {
-	const { readPackage } = await esmModuleImport('read-pkg');
-	const { writePackage } = await esmModuleImport('write-pkg');
+	const { readPackage } = (await esmModuleImport(
+		'read-pkg',
+	)) as typeof ReadPackage;
+	const { writePackage } = (await esmModuleImport(
+		'write-pkg',
+	)) as typeof WritePackage;
 
 	const pkg = (await readPackage({ cwd: options.outputPath })) as Record<
 		string,
@@ -63,11 +66,10 @@ export const setPackageDefaults = async (options: BuildExecutorOptions) => {
 		);
 	}
 
-	await writePackage(
-		path.join(options.outputPath, 'package.json'),
-		sortPkgJson({
-			...pkgDefaults,
-			...pkg,
-		}),
-	);
+	const sortedPkg = sortPkgJson({
+		...pkgDefaults,
+		...pkg,
+	}) as JsonObject;
+
+	await writePackage(path.join(options.outputPath, 'package.json'), sortedPkg);
 };

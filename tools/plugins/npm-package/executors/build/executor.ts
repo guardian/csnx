@@ -6,13 +6,23 @@ import { logger } from '@nrwl/devkit';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import cpy from 'cpy';
+import type Cpy from 'cpy';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
 import { getDeps } from './get-deps';
 import type { BuildExecutorOptions } from './schema';
 import { setPackageDefaults } from './set-package-defaults';
 import { writeResolvedPackageJson } from './write-resolved-package-json';
+
+/**
+ * THIS IS KLUDGE #ES_NODE_MODULES
+ *
+ * lifted from https://github.com/nrwl/nx/pull/10414
+ *
+ * @TODO once Nx allows esm imports, it should be removed
+ */
+// eslint-disable-next-line @typescript-eslint/no-implied-eval -- this is a kludge
+const esmModuleImport = new Function('specifier', 'return import(specifier)');
 
 const exec = util.promisify(childProcess.exec);
 
@@ -52,6 +62,9 @@ export default async function buildExecutor(
 		await exec(`mkdir -p ${options.outputPath}`);
 
 		// copy assets over
+		const { default: cpy } = (await esmModuleImport('cpy')) as {
+			default: typeof Cpy;
+		};
 		await cpy(options.assets, options.outputPath, {
 			cwd: context.root,
 		});
