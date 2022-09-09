@@ -1,0 +1,70 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"sourceRoot": "apps/luminosity-calculator/src",
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "@nrwl/web:webpack",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"outputPath": "dist/apps/luminosity-calculator",
+				"compiler": "babel",
+				"index": "apps/luminosity-calculator/src/index.html",
+				"baseHref": "/",
+				"main": "apps/luminosity-calculator/src/main.ts",
+				"polyfills": "apps/luminosity-calculator/src/polyfills.ts",
+				"tsConfig": "apps/luminosity-calculator/tsconfig.app.json",
+				"assets": [
+					"apps/luminosity-calculator/src/favicon.ico",
+					"apps/luminosity-calculator/src/assets"
+				],
+				"styles": ["apps/luminosity-calculator/src/styles.css"],
+				"scripts": []
+			},
+			"configurations": {
+				"production": {
+					"fileReplacements": [
+						{
+							"replace": "apps/luminosity-calculator/src/environments/environment.ts",
+							"with": "apps/luminosity-calculator/src/environments/environment.prod.ts"
+						}
+					],
+					"optimization": true,
+					"outputHashing": "all",
+					"sourceMap": false,
+					"namedChunks": false,
+					"extractLicenses": true,
+					"vendorChunk": false
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/web:dev-server",
+			"options": {
+				"buildTarget": "luminosity-calculator:build"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "luminosity-calculator:build:production"
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/luminosity-calculator/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/luminosity-calculator"],
+			"options": {
+				"jestConfig": "apps/luminosity-calculator/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	}
+}

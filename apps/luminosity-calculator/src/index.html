@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=hi, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			const colors = [
+				[0, 90.7, 21],
+				[0, 100, 27.3],
+				[355.3, 93.2, 34.7],
+				[0, 100, 39],
+				[7, 100, 63.1],
+				[7.1, 100, 75.3],
+				[347.8, 100, 86.5],
+				[9.2, 100, 97.5],
+				[16.5, 90.7, 21.2],
+				[16.6, 100, 27.6],
+				[21.1, 100, 39],
+				[25.2, 100, 43.9],
+				[28, 100, 52.9],
+				[27.8, 100, 62.7],
+				[27.9, 91.6, 72],
+				[26.7, 81.8, 97.8],
+				[202.5, 100, 18.8],
+				[202.3, 100, 24.3],
+				[202.3, 100, 26.9],
+				[200.8, 100, 35.7],
+				[198.1, 100, 50],
+				[198.9, 100, 78.2],
+				[201.8, 64.7, 96.7],
+				[216.7, 100, 10.6],
+				[216.9, 89.7, 15.3],
+				[216.8, 90.3, 20.2],
+				[216.9, 28.9, 44.1],
+				[216.6, 90.8, 87.3],
+				[10, 7.5, 15.7],
+				[35.6, 27.8, 19],
+				[33.5, 24.3, 27.5],
+				[33.5, 25.1, 33.5],
+				[32.2, 25.2, 42],
+				[34.8, 27.3, 49.6],
+				[35.7, 63.8, 77.3],
+				[35.2, 48.9, 81.6],
+				[36.7, 36, 90.2],
+				[35, 60, 96.1],
+				[310.4, 100, 15.9],
+				[310.1, 100, 19.8],
+				[310.1, 100, 24.5],
+				[327.7, 52, 48.2],
+				[325.7, 100, 83.5],
+				[347.8, 96.4, 89],
+				[326.3, 88.9, 96.5],
+				[47.7, 100, 47.6],
+				[51.1, 100, 50],
+				[53.9, 100, 50],
+				[145.7, 59.3, 23.1],
+				[145.5, 59.8, 33.1],
+				[145.5, 56.1, 58],
+				[164.3, 28.9, 41.4],
+				[164.8, 27.8, 52.7],
+				[176, 53.1, 61.6],
+				[0, 0, 0],
+				[0, 0, 7.1],
+				[0, 0, 10.2],
+				[0, 0, 20],
+				[0, 0, 43.9],
+				[0, 0, 60],
+				[0, 0, 86.3],
+				[0, 0, 92.9],
+				[0, 0, 96.5],
+				[0, 0, 100],
+				[204, 6.8, 14.3],
+				[202.5, 7.7, 20.4],
+				[201.8, 8, 26.9],
+				[210, 3.3, 36.1],
+				[204, 2.6, 62.5],
+				[194, 21.7, 72.9],
+				[225, 8, 90.2],
+				[200, 10.3, 94.3],
+			]
+		</script>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo,
+					Consolas, Liberation Mono, monospace !important;
+				font-size: 12px;
+			}
+			#selector {
+				position: sticky;
+				top: 0;
+				left: 0;
+				background-color: white;
+				padding: 10px;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+			}
+			#delta-value {
+				padding-right: 1em;
+				text-align: right;
+			}
+			p {
+				padding: 1em;
+				flex: 50%;
+				margin: 0;
+			}
+			#colors {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+            #colors p:nth-child(odd) {
+                cursor: pointer
+            }
+            #colors p:nth-child(even) {
+                cursor: default
+            }
+			.color-pair {
+				display: flex;
+				flex-direction: row;
+			}
+		</style>
+		<style id="color-styles"></style>
+	</head>
+	<body>
+		<div id="selector">
+			<span id="delta-value"></span>
+			<input
+				type="range"
+				id="delta"
+				min="0"
+				max="100"
+				value="5"
+				step="0.1"
+				style="width: 400px"
+			/>
+		</div>
+
+		<div id="colors"></div>
+		<script>
+			const colorsDiv = document.querySelector('#colors')
+			const deltaInput = document.querySelector('#delta')
+			delta.addEventListener('input', onDeltaInput)
+
+			const swatches = []
+
+			for (const color of colors) {
+				const normal = document.createElement('p')
+				normal.innerHTML = 'normal'
+				swatches.push(normal)
+				colorsDiv.appendChild(normal)
+
+				const hover = document.createElement('p')
+				hover.innerHTML = 'hover'
+				swatches.push(hover)
+				colorsDiv.appendChild(hover)
+			}
+
+			function onDeltaInput() {
+				const delta = deltaInput.value / 100
+				for (const [i, color] of colors.entries()) {
+					const darkLuminosity = color[2] === 0 ? delta : color[2] * (1 - delta)
+
+					const normal = `hsl(${color[0]}, ${color[1]}%, ${color[2]}%)`
+					const hover = `hsl(${color[0]}, ${color[1]}%, ${darkLuminosity}%)`
+
+					swatches[i * 2].style.backgroundColor = normal
+					swatches[i * 2].style.color =
+						color[2] > 50 ? 'black' : 'white'
+					swatches[i * 2].onmouseover = () => {
+						swatches[i * 2].style.backgroundColor = hover
+						swatches[i * 2].style.color =
+							darkLuminosity > 50 ? 'black' : 'white'
+					}
+					swatches[i * 2].onmouseout = () => {
+						swatches[i * 2].style.backgroundColor = normal
+						swatches[i * 2].style.color =
+							color[2] > 50 ? 'black' : 'white'
+					}
+
+					swatches[i * 2 + 1].style.backgroundColor = hover
+					swatches[i * 2 + 1].style.color =
+						darkLuminosity > 50 ? 'black' : 'white'
+				}
+				document.querySelector('#delta-value').innerHTML =
+					deltaInput.value + '%'
+			}
+
+			onDeltaInput()
+		</script>
+	</body>
+</html>

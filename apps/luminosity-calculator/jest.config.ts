@@ -1,7 +1,7 @@
 /* eslint-disable import/no-default-export -- that's what jest likes */
 export default {
-	displayName: '@guardian/luminosity-calc',
-	preset: '../../../jest.preset.js',
+	displayName: '@guardian/luminosity-calculator',
+	preset: '../../jest.preset.js',
 	globals: {
 		'ts-jest': {
 			tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -12,5 +12,5 @@ export default {
 		'^.+\\.[tj]sx?$': 'ts-jest',
 	},
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-	coverageDirectory: '../../../coverage/apps/@guardian/luminosity-calc',
+	coverageDirectory: '../../coverage/apps/luminosity-calculator',
 };

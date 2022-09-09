@@ -1,1 +1,0 @@
-# Luminosity hover colour calculator

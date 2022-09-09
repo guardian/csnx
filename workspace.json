@@ -9,8 +9,8 @@
 		"@guardian-libs": "libs/@guardian/libs",
 		"@guardian-prettier": "libs/@guardian/prettier",
 		"@guardian-tsconfig": "libs/@guardian/tsconfig",
+		"luminosity-calculator": "apps/luminosity-calculator",
 		"nx-plugin-eslint": "tools/nx-plugins/eslint",
-		"nx-plugin-npm-package": "tools/nx-plugins/npm-package",
-		"@guardian-luminosity-calc": "apps/@guardian/luminosity-calc"
+		"nx-plugin-npm-package": "tools/nx-plugins/npm-package"
 	}
 }
