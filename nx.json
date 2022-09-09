@@ -9,7 +9,7 @@
 			"dependencies": "*",
 			"devDependencies": "*"
 		},
-		"tools/plugins/**/*": "*"
+		"tools/nx-plugins/**/*": "*"
 	},
 	"npmScope": "csnx",
 	"targetDefaults": {
