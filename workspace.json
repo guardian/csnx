@@ -9,7 +9,7 @@
 		"@guardian-libs": "libs/@guardian/libs",
 		"@guardian-prettier": "libs/@guardian/prettier",
 		"@guardian-tsconfig": "libs/@guardian/tsconfig",
-		"plugin-eslint": "tools/plugins/eslint",
-		"plugin-npm-package": "tools/plugins/npm-package"
+		"nx-plugin-eslint": "tools/nx-plugins/eslint",
+		"nx-plugin-npm-package": "tools/nx-plugins/npm-package"
 	}
 }

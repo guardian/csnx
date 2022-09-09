@@ -5,7 +5,7 @@ module.exports = {
 		{
 			files: ['*.ts', '*.tsx'],
 			parserOptions: {
-				project: ['tools/plugins/npm-package/tsconfig.json'],
+				project: ['tools/nx-plugins/npm-package/tsconfig.json'],
 			},
 			rules: {
 				'import/no-default-export': 'off', // Nx plugins export defaults
