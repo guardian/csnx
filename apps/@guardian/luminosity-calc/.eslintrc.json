@@ -1,0 +1,21 @@
+{
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"parserOptions": {
+				"project": ["apps/@guardian/luminosity-calc/tsconfig.*?.json"]
+			},
+			"rules": {}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"rules": {}
+		}
+	]
+}

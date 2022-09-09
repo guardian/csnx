@@ -1,0 +1,30 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/@guardian/luminosity-calc",
+	"projectType": "application",
+	"targets": {
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/@guardian/luminosity-calc/**/*.ts"]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/@guardian/luminosity-calc/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/@guardian/luminosity-calc"],
+			"options": {
+				"jestConfig": "apps/@guardian/luminosity-calc/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}
