@@ -2,15 +2,9 @@
 export default {
 	displayName: '@guardian/luminosity-calculator',
 	preset: '../../jest.preset.js',
-	globals: {
-		'ts-jest': {
-			tsconfig: '<rootDir>/tsconfig.spec.json',
-		},
-	},
-	testEnvironment: 'node',
 	transform: {
-		'^.+\\.[tj]sx?$': 'ts-jest',
+		'^.+\\.[tj]s$': 'babel-jest',
 	},
-	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+	moduleFileExtensions: ['ts', 'js', 'html'],
 	coverageDirectory: '../../coverage/apps/luminosity-calculator',
 };
