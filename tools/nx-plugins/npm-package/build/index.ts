@@ -7,9 +7,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import type Cpy from 'cpy';
+import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
-import { getDeps } from './get-deps';
+import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
 import { setPackageDefaults } from './set-package-defaults';
 import { writeResolvedPackageJson } from './write-resolved-package-json';
@@ -27,6 +28,9 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
 const exec = util.promisify(childProcess.exec);
 
 const formats = ['cjs', 'esm'] as const;
+export type Entries = {
+	[K in typeof formats[number]]: string;
+};
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
@@ -72,36 +76,52 @@ export default async function buildExecutor(
 		// add a package.json with workspace deps resolved
 		await writeResolvedPackageJson(options, context);
 
-		// remove unwanted fields and set any necessary defaults in the package.json
-		await setPackageDefaults(options);
+		let entries: Entries | undefined;
 
-		if (options.main) {
+		if (options.entry) {
 			if (!options.tsConfig) {
 				logger.error(
-					"You must include a 'tsConfig' option when using the 'main' option",
+					"You must include a 'tsConfig' option when using the 'entry' option",
 				);
 				return { success: false };
 			}
 
 			// do not bundle dependencies
-			const deps = await getDeps(options.packageJson);
-
-			const external = (id: string) => deps.includes(id);
+			const deps = await getDeclaredDeps(options.packageJson);
+			const external = deps.map((dep) => new RegExp(`^${dep}`));
 
 			// create build for each module type
-			await Promise.all(
+			const outputs = await Promise.all(
 				formats.map(async (format) => {
 					const { plugins, output } = getRollupConfig(options, format);
 					const bundle = await rollup({
-						input: options.main,
+						input: options.entry,
 						plugins,
 						external,
 					});
-					await bundle.write(output);
-					return bundle.close();
+					const artefact = await bundle.write(output);
+					await bundle.close();
+
+					const outputEntry = artefact.output.filter(
+						(file) => file.type === 'chunk' && file.isEntry,
+					) as OutputChunk[];
+
+					if (outputEntry.length === 1 && outputEntry[0]?.fileName) {
+						return [format, `${format}/${outputEntry[0].fileName}`];
+					}
+
+					// in reality, we control the entry option in the plugin, so we
+					// know there is only ever 1, but typescript doesn't know that
+					throw new Error('Expected a single entry file');
 				}),
 			);
+
+			// eslint-disable-next-line prefer-const -- it _is_ reassigned, eslint
+			entries = Object.fromEntries(outputs) as Entries;
 		}
+
+		// remove unwanted fields and set any necessary defaults in the package.json
+		await setPackageDefaults(options, entries);
 
 		return { success: true };
 	} catch (e) {
