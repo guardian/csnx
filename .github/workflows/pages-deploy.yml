@@ -28,8 +28,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          # This makes Actions fetch all Git history so that Changesets can
+          # generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v2
+      - uses: pnpm/action-setup@v2.2.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
       - name: Build the luminosity app
         run: pnpm nx build luminosity-calculator
       - name: Setup Pages
