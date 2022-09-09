@@ -4,6 +4,7 @@ import sortPkgJson from 'sort-package-json';
 import type { JsonObject } from 'type-fest';
 import type * as WritePackage from 'write-pkg';
 import type { BuildExecutorOptions } from './schema';
+import type { Entries } from './index';
 
 /**
  * THIS IS KLUDGE #ES_NODE_MODULES
@@ -19,7 +20,10 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
  * Sets some defaults in the package.json and removes things we
  * don't want to publish.
  */
-export const setPackageDefaults = async (options: BuildExecutorOptions) => {
+export const setPackageDefaults = async (
+	options: BuildExecutorOptions,
+	entries: Entries | undefined,
+) => {
 	const { readPackage } = (await esmModuleImport(
 		'read-pkg',
 	)) as typeof ReadPackage;
@@ -35,6 +39,7 @@ export const setPackageDefaults = async (options: BuildExecutorOptions) => {
 	delete pkg.pnpm;
 	delete pkg.packageManager;
 	delete pkg.scripts;
+	delete pkg.devDependencies;
 
 	const pkgDefaults: Record<string, unknown> = {
 		license: 'MIT',
@@ -55,14 +60,13 @@ export const setPackageDefaults = async (options: BuildExecutorOptions) => {
 		};
 	}
 
-	if (options.main) {
-		const entry = path.basename(options.main).replace(/\.tsx?$/, '.js');
-		pkgDefaults.main = `./cjs/${entry}`;
-		pkgDefaults.module = `./esm/${entry}`;
-		pkgDefaults.exports = `./esm/${entry}`;
+	if (entries) {
+		pkgDefaults.main = entries.cjs;
+		pkgDefaults.module = entries.esm;
+		pkgDefaults.exports = `./${entries.esm}`;
 	} else if (!pkg.main) {
 		throw new Error(
-			"You must add a 'main' field to your package.json, or pass a 'main' option to the build executor",
+			"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
 		);
 	}
 
