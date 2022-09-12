@@ -1,20 +1,20 @@
 {
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "tools/plugins/eslint",
+	"sourceRoot": "tools/nx-plugins/npm-package",
 	"projectType": "library",
 	"targets": {
 		"lint": {
 			"executor": "@csnx/eslint:check",
 			"outputs": ["{options.outputFile}"],
 			"options": {
-				"lintFilePatterns": ["tools/plugins/eslint/**/*.{js,ts}"]
+				"lintFilePatterns": ["tools/nx-plugins/npm-package/**/*.{js,ts}"]
 			}
 		},
 		"fix": {
 			"executor": "@csnx/eslint:fix",
 			"outputs": ["{options.outputFile}"],
 			"options": {
-				"lintFilePatterns": ["tools/plugins/eslint/**/*.{js,ts}"]
+				"lintFilePatterns": ["tools/nx-plugins/npm-package/**/*.{js,ts}"]
 			}
 		}
 	},

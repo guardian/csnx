@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 2.1.2
+
+### Patch Changes
+
+- f04d503: Update @rollup/plugin-node-resolve to v14
+
 ## 2.1.1
 
 ### Patch Changes

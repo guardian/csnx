@@ -1,14 +1,6 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
-###################################### DEV #####################################
-
-# start the `say-hello` test app
-.PHONY: say-hello
-say-hello: env
-	$(call log,"Running tests")
-	@corepack pnpm nx run say-hello:serve
-
 ################################# CODE QUALITY #################################
 
 # runs the tests for all projects

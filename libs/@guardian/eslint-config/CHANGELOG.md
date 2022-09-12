@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 2.0.2
+
+### Patch Changes
+
+- f04d503: Update @rollup/plugin-node-resolve to v14
+
 ## 2.0.1
 
 ### Patch Changes

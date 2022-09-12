@@ -1,13 +1,13 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "1.0.7",
+	"version": "1.0.10",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": ".eslintrc.js",
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "5.28.0",
-		"@typescript-eslint/parser": "5.31.0",
-		"eslint-import-resolver-typescript": "2.7.1",
+		"@typescript-eslint/eslint-plugin": "5.36.1",
+		"@typescript-eslint/parser": "5.36.1",
+		"eslint-import-resolver-typescript": "3.5.0",
 		"eslint-plugin-import": "2.26.0"
 	},
 	"peerDependencies": {

@@ -1,0 +1,49 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:base"],
+	"schedule": ["before 3am on Monday"],
+	"packageRules": [
+		{
+			"description": "Wait 3 days before bump is considered stable",
+			"matchDatasources": ["npm"],
+			"stabilityDays": 3,
+			"internalChecksFilter": "strict"
+		},
+		{
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["patch", "minor"],
+			"groupName": "devDependencies (non-breaking)"
+		},
+		{
+			"description": "Internal tooling - non-breaking",
+			"matchPaths": ["tools/**/package.json"],
+			"matchDepTypes": ["dependencies"],
+			"matchUpdateTypes": ["patch", "minor"],
+			"groupName": "dependencies (tools - non-breaking)"
+		},
+		{
+			"description": "Internal tooling - major",
+			"matchPaths": ["tools/**/package.json"],
+			"matchDepTypes": ["dependencies"],
+			"matchUpdateTypes": ["major"],
+			"groupName": "dependencies (tools - breaking)"
+		},
+		{
+			"description": "These are pinned to the bottom of their peerDep range",
+			"matchPackageNames": ["web-vitals", "tslib"],
+			"matchPaths": ["libs/@guardian/libs/package.json"],
+			"enabled": false
+		},
+		{
+			"description": "These are pinned to the bottom of their peerDep range",
+			"matchPackageNames": ["browserslist"],
+			"matchPaths": ["libs/@guardian/browserslist-config/package.json"],
+			"enabled": false
+		},
+		{
+			"extends": "monorepo:nrwl",
+			"matchUpdateTypes": ["digest", "patch", "minor", "major"],
+			"groupName": "Nx"
+		}
+	]
+}

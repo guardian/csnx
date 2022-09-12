@@ -2,7 +2,8 @@
 
 > Monorepo for Guardian UIs
 
-![GitHub branch checks state](https://img.shields.io/github/checks-status/guardian/csnx/main)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/guardian/csnx)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/guardian/csnx)
 
 _This project is in a prototype/alpha stage. [Feedback is extremely welcome](https://github.com/guardian/csnx/issues/new/choose), but things are likely to change quickly and possibly on a whim._
 
@@ -45,7 +46,6 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make clean` _removes all build artifacts_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make lint` _checks all projects for lint errors_
-- `make say-hello` _start the `say-hello` test app_
 - `make test` _runs the tests for all projects_
 - `make validate` _makes sure absolutely everything is working_
 

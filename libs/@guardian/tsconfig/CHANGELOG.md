@@ -1,5 +1,11 @@
 # @guardian/tsconfig
 
+## 0.1.5
+
+### Patch Changes
+
+- f04d503: Update @rollup/plugin-node-resolve to v14
+
 ## 0.1.4
 
 ### Patch Changes

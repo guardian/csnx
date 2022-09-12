@@ -3,17 +3,6 @@
 	"sourceRoot": "libs/@csnx/hello-world/src",
 	"projectType": "library",
 	"targets": {
-		"build": {
-			"executor": "@nrwl/js:tsc",
-			"outputs": ["{options.outputPath}"],
-			"options": {
-				"outputPath": "dist/libs/@csnx/hello-world",
-				"tsConfig": "libs/@csnx/hello-world/tsconfig.lib.json",
-				"packageJson": "libs/@csnx/hello-world/package.json",
-				"main": "libs/@csnx/hello-world/src/index.ts",
-				"assets": ["libs/@csnx/hello-world/*.md"]
-			}
-		},
 		"lint": {
 			"executor": "@csnx/eslint:check",
 			"outputs": ["{options.outputFile}"],

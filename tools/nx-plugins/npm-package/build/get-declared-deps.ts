@@ -1,6 +1,6 @@
 import { isObject } from '@guardian/libs';
 
-export const getDeps = async (pkgPath: string) => {
+export const getDeclaredDeps = async (pkgPath: string) => {
 	/* eslint-disable @typescript-eslint/no-unsafe-assignment --
 		json is an any
 	*/

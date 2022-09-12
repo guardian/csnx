@@ -1,5 +1,5 @@
 export interface BuildExecutorOptions {
-	main?: string;
+	entry?: string;
 	outputPath: string;
 	tsConfig?: string;
 	packageJson: string;
