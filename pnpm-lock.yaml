@@ -142,7 +142,7 @@ importers:
       '@guardian/libs': workspace:*
       '@rollup/plugin-commonjs': 22.0.2
       '@rollup/plugin-json': 4.1.0
-      '@rollup/plugin-node-resolve': 13.3.0
+      '@rollup/plugin-node-resolve': 14.0.1
       cpy: 9.0.1
       read-pkg: 7.1.0
       rollup: 2.79.0
@@ -154,7 +154,7 @@ importers:
       '@guardian/libs': link:../../../libs/@guardian/libs
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.79.0
       '@rollup/plugin-json': 4.1.0_rollup@2.79.0
-      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.0
+      '@rollup/plugin-node-resolve': 14.0.1_rollup@2.79.0
       cpy: 9.0.1
       read-pkg: 7.1.0
       rollup: 2.79.0
@@ -2347,11 +2347,11 @@ packages:
       rollup: 2.79.0
     dev: false
 
-  /@rollup/plugin-node-resolve/13.3.0_rollup@2.79.0:
-    resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
+  /@rollup/plugin-node-resolve/14.0.1_rollup@2.79.0:
+    resolution: {integrity: sha512-YvSs0ev00QWTQS8u+yaCJkIUPBgpmBsnzRJFvg8c2chbky85ZKoZtoNuRH0k9rjZT4xpgEPOiVTyeJTj1/iMdQ==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
-      rollup: ^2.42.0
+      rollup: ^2.78.0
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.79.0
       '@types/resolve': 1.17.1
