@@ -46,7 +46,7 @@ using_correct_node || {
 		if [[ -x "$(command -v fnm)" ]]; then
 			echo -e "${dim}Run ${blue}fnm use${reset}${dim} to switch to the correct version.${reset}"
 			echo -e "${dim}See ${blue}${dim}https://github.com/Schniz/fnm#shell-setup${reset}${dim} to automate this.${reset}"
-		elif [[ -x "$(declare -p asdf >/dev/null 2>&1)" ]]; then
+		elif [[ -x "$(command -v asdf)" ]]; then
 			echo -e "${dim}Run ${blue}asdf install${reset}${dim} to switch to the correct version.${reset}"
 		elif [[ -x "$(which nvm)" ]]; then
 			echo -e "${dim}Run ${blue}nvm install${reset}${dim} to switch to the correct version.${reset}"
