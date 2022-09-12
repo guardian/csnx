@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# Check whether the current node version matches the .nvmrc version, and offer some help if not.
+
+nvmrc_version=$(cat .nvmrc)
+
+in_terminal() { test -t 1; }
+
+# set up some colours for formatting messages
+# is this a terminal? (e.g. could be a git gui that doesn't support colours)
+if in_terminal; then
+    # see if it supports colors
+    ncolors=$(tput colors)
+    if test -n "$ncolors" && test $ncolors -ge 8; then
+		blue='\033[0;34m'
+		red='\033[0;31m'
+		dim='\033[2m'
+		bold='\033[1m'
+		reset='\033[0m'
+		orange='\033[0;33m'
+    fi
+fi
+
+using_correct_node() {
+	# is _any_ node available?
+	if [[ -x "$(command -v node)" ]]; then
+		node_version=$(node -v)
+		node_version=${node_version:1} # remove the "v" in "v1.2.3"
+	fi
+	if [ "$node_version" == "$nvmrc_version" ]; then
+		if in_terminal; then
+			echo -e "${dim}Using Node ${blue}$node_version${reset}"
+		fi
+		return 0
+	else
+		# this will also be false if no node is installed
+		return 1
+	fi
+}
+
+using_correct_node || {
+	echo -e "${red}This project requires Node v$nvmrc_version${reset}"
+
+	# try to guide users to loading the correct version
+	if in_terminal; then
+		if [[ -x "$(command -v fnm)" ]]; then
+			echo -e "${dim}Run ${blue}fnm use${reset}${dim} to switch to the correct version.${reset}"
+			echo -e "${dim}See ${blue}${dim}https://github.com/Schniz/fnm#shell-setup${reset}${dim} to automate this.${reset}"
+		elif [[ -x "$(declare -p asdf >/dev/null 2>&1)" ]]; then
+			echo -e "${dim}Run ${blue}asdf install${reset}${dim} to switch to the correct version.${reset}"
+		elif [[ -x "$(which nvm)" ]]; then
+			echo -e "${dim}Run ${blue}nvm install${reset}${dim} to switch to the correct version.${reset}"
+		else
+			echo -e "${dim}Consider using ${bold}fnm${reset}${dim} to manage Node versions:${reset} ${blue}https://github.com/Schniz/fnm#installation${reset}${dim}.${reset}"
+		fi
+	else
+		# not in a terminal, so v possible we're running a husky script in a git gui
+		echo "You may need to load your Node version manager in a ~/.huskyrc file. See the README for more details."
+	fi
+
+	exit 1
+}

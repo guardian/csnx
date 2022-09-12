@@ -66,18 +66,18 @@ endef
 
 # Make sure the local env is set up correctly.
 .PHONY: env # PRIVATE
-env: use-node-version install
+env: check-node-version install
 
 # Make sure we're using the correct node version.
-.PHONY: use-node-version # PRIVATE
-use-node-version:
+.PHONY: check-node-version # PRIVATE
+check-node-version:
 	$(call log,"Checking Node")
-	@./tools/scripts/use-node-version
+	@./tools/scripts/check-node-version
 
 # Install dependencies. If deps are up to date this is almost instant, so we can
 # run before every other target with very little DX cost.
 .PHONY: install # PRIVATE
-install: use-node-version
+install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
 
