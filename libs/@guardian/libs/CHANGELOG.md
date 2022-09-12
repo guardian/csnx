@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 8.0.3
+
+### Patch Changes
+
+- f04d503: Update @rollup/plugin-node-resolve to v14
+
 ## 8.0.2
 
 ### Patch Changes

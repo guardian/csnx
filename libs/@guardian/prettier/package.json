@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/prettier",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "Prettier config for Guardian JavaScript projects",
 	"main": "index.js",
 	"peerDependencies": {
