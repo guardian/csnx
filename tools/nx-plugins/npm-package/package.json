@@ -1,5 +1,6 @@
 {
 	"name": "@csnx/npm-package",
+	"version": null,
 	"private": true,
 	"dependencies": {
 		"@guardian/libs": "workspace:*",

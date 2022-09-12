@@ -1,5 +1,13 @@
 # @guardian/eslint-config-typescript
 
+## 1.0.10
+
+### Patch Changes
+
+- f04d503: Update @rollup/plugin-node-resolve to v14
+- Updated dependencies [f04d503]
+  - @guardian/eslint-config@2.0.2
+
 ## 1.0.9
 
 ### Patch Changes
