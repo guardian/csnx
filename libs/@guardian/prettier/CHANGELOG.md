@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 2.1.4
+
+### Patch Changes
+
+- fdbf32e: Update readme
+
 ## 2.1.3
 
 ### Patch Changes
