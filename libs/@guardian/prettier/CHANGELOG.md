@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 2.1.3
+
+### Patch Changes
+
+- 3d1da9d: Fix types export
+
 ## 2.1.2
 
 ### Patch Changes
