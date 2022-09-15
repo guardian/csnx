@@ -3,11 +3,18 @@ export SHELL := /usr/bin/env bash
 
 ################################# CODE QUALITY #################################
 
-# runs the tests for all projects
+# runs the unit tests for all projects
 .PHONY: test
 test: env
 	$(call log,"Running tests")
+	$(call log,"Running units tests")
 	@corepack pnpm nx run-many --target=test --all=true
+
+# runs the e2e tests for all projects
+.PHONY: e2e
+e2e: env
+	$(call log,"Running e2e tests")
+	@corepack pnpm nx run-many --target=e2e --all=true
 
 # checks all projects for lint errors
 .PHONY: lint
@@ -23,7 +30,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean workspace-lint lint test build
+validate: env clean workspace-lint lint test build e2e
 
 ##################################### BUILD ####################################
 
