@@ -11,7 +11,8 @@
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
-			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"]
+			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
+			"@guardian/prettier": ["libs/@guardian/prettier/index.d.ts"]
 		},
 		"rootDir": ".",
 		"sourceMap": true
