@@ -44,9 +44,10 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make build` _builds all projects_
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
 - `make clean` _removes all build artifacts_
+- `make e2e` _runs the e2e tests for all projects_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make lint` _checks all projects for lint errors_
-- `make test` _runs the tests for all projects_
+- `make test` _runs the unit tests for all projects_
 - `make validate` _makes sure absolutely everything is working_
 
 <!-- END TASKS -->
