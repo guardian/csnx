@@ -6,7 +6,6 @@ export SHELL := /usr/bin/env bash
 # runs the unit tests for all projects
 .PHONY: test
 test: env
-	$(call log,"Running tests")
 	$(call log,"Running units tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
