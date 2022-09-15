@@ -63,7 +63,6 @@ export const setPackageDefaults = async (
 	if (entries) {
 		pkgDefaults.main = entries.cjs;
 		pkgDefaults.module = entries.esm;
-		pkgDefaults.exports = `./${entries.esm}`;
 	} else if (!pkg.main) {
 		throw new Error(
 			"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
