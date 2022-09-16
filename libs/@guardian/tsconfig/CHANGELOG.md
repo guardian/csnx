@@ -1,5 +1,11 @@
 # @guardian/tsconfig
 
+## 0.1.6
+
+### Patch Changes
+
+- 0f81c66: Fix incorrect output directories
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 2.0.3
+
+### Patch Changes
+
+- 0f81c66: Fix incorrect output directories
+
 ## 2.0.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 2.1.5
+
+### Patch Changes
+
+- 0f81c66: Fix incorrect output directories
+
 ## 2.1.4
 
 ### Patch Changes
