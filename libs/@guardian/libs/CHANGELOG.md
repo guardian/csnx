@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 8.0.5
+
+### Patch Changes
+
+- 0f81c66: Fix incorrect output directories
+
 ## 8.0.4
 
 ### Patch Changes
