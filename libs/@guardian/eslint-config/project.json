@@ -10,7 +10,7 @@
 				"outputPath": "dist/libs/@guardian/eslint-config",
 				"packageJson": "libs/@guardian/eslint-config/package.json",
 				"assets": [
-					"libs/@guardian/eslint-config/.eslintrc.js",
+					"libs/@guardian/eslint-config/index.js",
 					"libs/@guardian/eslint-config/*.md"
 				]
 			}
