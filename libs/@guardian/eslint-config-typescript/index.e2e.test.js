@@ -1,4 +1,4 @@
-const srcExports = require('./index');
+const srcExports = require('.');
 const bundleExports = require('../../../dist/libs/@guardian/eslint-config-typescript');
 
 describe('The bundle', () => {

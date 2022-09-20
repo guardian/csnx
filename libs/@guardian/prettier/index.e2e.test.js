@@ -1,4 +1,4 @@
-const srcExports = require('./index');
+const srcExports = require('.');
 const bundleExports = require('../../../dist/libs/@guardian/prettier');
 
 describe('The bundle', () => {

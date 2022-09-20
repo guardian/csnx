@@ -1,4 +1,4 @@
-const srcExports = require('./browserslist');
+const srcExports = require('.');
 const bundleExports = require('../../../dist/libs/@guardian/browserslist-config');
 
 describe('The bundle', () => {

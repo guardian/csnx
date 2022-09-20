@@ -1,4 +1,4 @@
-const srcExports = require('./tsconfig.json');
+const srcExports = require('.');
 const bundleExports = require('../../../dist/libs/@guardian/tsconfig');
 
 describe('The bundle', () => {
