@@ -15,6 +15,13 @@
 					"libs/@guardian/prettier/*.md"
 				]
 			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/prettier"],
+			"options": {
+				"jestConfig": "libs/@guardian/prettier/jest.config.js"
+			}
 		}
 	},
 	"tags": []
