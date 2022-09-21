@@ -11,8 +11,16 @@
 				"outputPath": "dist/libs/@guardian/prettier",
 				"assets": [
 					"libs/@guardian/prettier/index.js",
+					"libs/@guardian/prettier/index.d.ts",
 					"libs/@guardian/prettier/*.md"
 				]
+			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/prettier"],
+			"options": {
+				"jestConfig": "libs/@guardian/prettier/jest.config.js"
 			}
 		}
 	},

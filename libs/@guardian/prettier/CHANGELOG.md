@@ -1,5 +1,23 @@
 # @guardian/prettier
 
+## 2.1.5
+
+### Patch Changes
+
+- 0f81c66: Fix incorrect output directories
+
+## 2.1.4
+
+### Patch Changes
+
+- fdbf32e: Update readme
+
+## 2.1.3
+
+### Patch Changes
+
+- 3d1da9d: Fix types export
+
 ## 2.1.2
 
 ### Patch Changes

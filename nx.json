@@ -45,5 +45,29 @@
 				"linter": "eslint"
 			}
 		}
+	},
+	"targetDependencies": {
+		"build": [
+			{
+				"target": "build",
+				"projects": "dependencies"
+			}
+		],
+		"test": [
+			{
+				"target": "build",
+				"projects": "dependencies"
+			}
+		],
+		"e2e": [
+			{
+				"target": "build",
+				"projects": "self"
+			},
+			{
+				"target": "build",
+				"projects": "dependencies"
+			}
+		]
 	}
 }

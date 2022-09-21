@@ -1,5 +1,13 @@
 # @guardian/eslint-config-typescript
 
+## 1.0.11
+
+### Patch Changes
+
+- 0f81c66: Fix incorrect output directories
+- Updated dependencies [0f81c66]
+  - @guardian/eslint-config@2.0.3
+
 ## 1.0.10
 
 ### Patch Changes

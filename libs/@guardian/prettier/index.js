@@ -1,6 +1,3 @@
-/**
- * @type {import('prettier').Options}
- */
 module.exports = {
 	arrowParens: 'always',
 	bracketSpacing: true,
