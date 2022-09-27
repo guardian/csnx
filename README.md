@@ -77,7 +77,7 @@ This includes between development and CI, between machines, pulls etc.
 
 ### Unable to commit
 
-If you get a `command not found` error when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.huskyrc` file and load your Node version manager there.
+If you get a `command not found` error or a message saying you're using the wrong version of Node when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.huskyrc` file and load your Node version manager there.
 
 For example, if you use [`fnm`](https://github.com/Schniz/fnm):
 
