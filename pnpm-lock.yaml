@@ -172,6 +172,20 @@ importers:
       dotenv: 16.0.2
       mkdirp: 1.0.4
 
+  libs/@guardian/source-react-components-development-kitchen:
+    specifiers:
+      '@emotion/react': 11.0.0
+      '@guardian/libs': workspace:*
+      '@guardian/source-foundations': workspace:*
+      '@guardian/source-react-components': workspace:*
+      react: 17.0.1
+    devDependencies:
+      '@emotion/react': 11.0.0_react@17.0.1
+      '@guardian/libs': link:../libs
+      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-react-components': link:../source-react-components
+      react: 17.0.1
+
   libs/@guardian/tsconfig:
     specifiers: {}
 
@@ -1621,6 +1635,30 @@ packages:
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.2.5
       '@types/react': 17.0.1
+      hoist-non-react-statics: 3.3.2
+      react: 17.0.1
+    dev: true
+
+  /@emotion/react/11.0.0_react@17.0.1:
+    resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+      '@types/react': '*'
+      react: '>=16.8.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.18.9
+      '@emotion/cache': 11.10.3
+      '@emotion/serialize': 1.1.0
+      '@emotion/sheet': 1.2.0
+      '@emotion/utils': 1.2.0
+      '@emotion/weak-memoize': 0.2.5
       hoist-non-react-statics: 3.3.2
       react: 17.0.1
     dev: true
@@ -4936,6 +4974,7 @@ packages:
 
   /eslint-config-prettier/8.5.0:
     resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+    hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
     peerDependenciesMeta:
@@ -6435,6 +6474,7 @@ packages:
   /jest-cli/29.0.3_gsb7asu77en4txj3es3i65pxci:
     resolution: {integrity: sha512-aUy9Gd/Kut1z80eBzG10jAn6BgS3BoBbXyv+uXEqBJ8wnnuZ5RpNfARoskSrTIy1GY4a8f32YGuCMwibtkl9CQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    hasBin: true
     peerDependencies:
       node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
     peerDependenciesMeta:
@@ -7167,6 +7207,7 @@ packages:
   /jest/29.0.3_gsb7asu77en4txj3es3i65pxci:
     resolution: {integrity: sha512-ElgUtJBLgXM1E8L6K1RW1T96R897YY/3lRYqq9uVcPWtP2AAl/nQ16IYDh/FzQOOQ12VEuLdcPU83mbhG2C3PQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    hasBin: true
     peerDependencies:
       node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
     peerDependenciesMeta:
@@ -7827,6 +7868,7 @@ packages:
 
   /nx/14.7.5:
     resolution: {integrity: sha512-hp8TYk/t15MJVXQCafSduriZqoxR2zvw5mDHqg32Mjt2jFEFKaPWtaO5l/qKj+rlLE8cPYTeGL5qAS9WZkAWtg==}
+    hasBin: true
     requiresBuild: true
     peerDependencies:
       '@swc-node/register': ^1.4.2
@@ -7870,6 +7912,7 @@ packages:
 
   /nx/14.7.5_lpb4yaepif7kgee3atmuvly2bi:
     resolution: {integrity: sha512-hp8TYk/t15MJVXQCafSduriZqoxR2zvw5mDHqg32Mjt2jFEFKaPWtaO5l/qKj+rlLE8cPYTeGL5qAS9WZkAWtg==}
+    hasBin: true
     requiresBuild: true
     peerDependencies:
       '@swc-node/register': ^1.4.2
@@ -9301,6 +9344,7 @@ packages:
   /ts-jest/29.0.0_3dyga3wrx2defegjy6ewupd7di:
     resolution: {integrity: sha512-OxUaigbv5Aon3OMLY9HBtwkGMs1upWE/URrmmVQFzzOcGlEPVuWzGmXUIkWGt/95Dj/T6MGuTrHHGL6kT6Yn8g==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    hasBin: true
     peerDependencies:
       '@babel/core': '>=7.0.0-beta.0 <8'
       '@jest/types': ^29.0.0
@@ -9352,6 +9396,7 @@ packages:
 
   /ts-node/10.9.1_p3n7xvypobwjsffaeeyjrz6k5m:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
       '@swc/wasm': '>=1.2.50'
@@ -9569,6 +9614,7 @@ packages:
 
   /update-browserslist-db/1.0.5_browserslist@4.21.3:
     resolution: {integrity: sha512-dteFFpCyvuDdr9S/ff1ISkKt/9YZxKjI9WlRR99c180GaztJtRa/fn18FdxGVKVsnPY7/a/FDN68mcvUmP4U7Q==}
+    hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
     dependencies:
@@ -9698,6 +9744,7 @@ packages:
   /webpack/5.74.0_@swc+core@1.2.246:
     resolution: {integrity: sha512-A2InDwnhhGN4LYctJj6M1JEaGL7Luj6LOmyBHjcI8529cm5p6VXiTIW2sn6ffvEAKmveLzvu4jrihwXtPojlAA==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
     peerDependencies:
       webpack-cli: '*'
     peerDependenciesMeta:

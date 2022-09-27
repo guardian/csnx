@@ -1,0 +1,19 @@
+{
+	"name": "@guardian/source-react-components-development-kitchen",
+	"version": "3.1.10",
+	"sideEffects": false,
+	"devDependencies": {
+		"@emotion/react": "11.0.0",
+		"@guardian/libs": "workspace:*",
+		"@guardian/source-foundations": "workspace:*",
+		"@guardian/source-react-components": "workspace:*",
+		"react": "17.0.1"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.0.0",
+		"@guardian/libs": "workspace:*",
+		"@guardian/source-foundations": "workspace:*",
+		"@guardian/source-react-components": "workspace:*",
+		"react": "^17.0.1"
+	}
+}

@@ -21,6 +21,9 @@
 			],
 			"@guardian/source-react-components": [
 				"libs/@guardian/source-react-components/src/index.ts"
+			],
+			"@guardian/source-react-components-development-kitchen": [
+				"libs/@guardian/source-react-components-development-kitchen/src/index.ts"
 			]
 		},
 		"rootDir": ".",
