@@ -5,6 +5,11 @@
 			"implementation": "./executors/compile/executor.ts",
 			"schema": "./node_modules/@nrwl/rollup/src/executors/rollup/schema.json",
 			"description": "Compiles source code into an NPM package for publishing."
+		},
+		"pack": {
+			"implementation": "./executors/pack/executor.ts",
+			"schema": "./executors/pack/schema.json",
+			"description": "Packages up source code into an NPM package for publishing."
 		}
 	}
 }

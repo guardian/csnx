@@ -4,7 +4,7 @@ import path from 'node:path';
 import { isObject } from '@guardian/libs';
 import type { RollupExecutorOptions } from '@nrwl/rollup/src/executors/rollup/schema';
 import sortPkgJson from 'sort-package-json';
-import type { PackOptions } from '../executors/pack/executor';
+import type { PackOptions } from '../pack/executor';
 
 /**
  * Sets some useful package default fields, and removes unnecessary ones

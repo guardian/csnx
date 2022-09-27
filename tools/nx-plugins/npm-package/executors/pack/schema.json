@@ -1,0 +1,18 @@
+{
+	"title": "CSNX NPM library packager",
+	"description": "Packages a plain NPM package, with no compilation steps.",
+	"cli": "nx",
+	"type": "object",
+	"properties": {
+		"project": {
+			"type": "string",
+			"description": "The path to package.json file."
+		},
+		"outputPath": {
+			"type": "string",
+			"description": "The output path of the generated files.",
+			"x-completion-type": "directory"
+		}
+	},
+	"required": ["project", "outputPath"]
+}
