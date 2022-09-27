@@ -4,14 +4,20 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:compile",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"entry": "libs/@guardian/source-react-components/src/index.ts",
-				"tsConfig": "libs/@guardian/source-react-components/tsconfig.json",
-				"packageJson": "libs/@guardian/source-react-components/package.json",
+				"entryFile": "libs/@guardian/source-react-components/src/index.ts",
+				"tsConfig": "libs/@guardian/source-react-components/tsconfig.lib.json",
+				"project": "libs/@guardian/source-react-components/package.json",
 				"outputPath": "dist/libs/@guardian/source-react-components",
-				"assets": ["libs/@guardian/source-react-components/*.md"]
+				"assets": [
+					{
+						"glob": "*.md",
+						"input": "libs/@guardian/source-react-components",
+						"output": "/"
+					}
+				]
 			}
 		},
 		"lint": {

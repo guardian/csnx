@@ -4,14 +4,20 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:compile",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"entry": "libs/@guardian/libs/src/index.ts",
-				"tsConfig": "libs/@guardian/libs/tsconfig.json",
-				"packageJson": "libs/@guardian/libs/package.json",
+				"entryFile": "libs/@guardian/libs/src/index.ts",
+				"tsConfig": "libs/@guardian/libs/tsconfig.lib.json",
+				"project": "libs/@guardian/libs/package.json",
 				"outputPath": "dist/libs/@guardian/libs",
-				"assets": ["libs/@guardian/libs/*.md"]
+				"assets": [
+					{
+						"glob": "*.md",
+						"input": "libs/@guardian/libs",
+						"output": "/"
+					}
+				]
 			}
 		},
 		"lint": {

@@ -4,15 +4,19 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:compile",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"entry": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
-				"tsConfig": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
-				"packageJson": "libs/@guardian/source-react-components-development-kitchen/package.json",
+				"entryFile": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
+				"tsConfig": "libs/@guardian/source-react-components-development-kitchen/tsconfig.lib.json",
+				"project": "libs/@guardian/source-react-components-development-kitchen/package.json",
 				"outputPath": "dist/libs/@guardian/source-react-components-development-kitchen",
 				"assets": [
-					"libs/@guardian/source-react-components-development-kitchen/*.md"
+					{
+						"glob": "*.md",
+						"input": "libs/@guardian/source-react-components-development-kitchen",
+						"output": "/"
+					}
 				]
 			}
 		},

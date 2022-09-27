@@ -1,10 +1,10 @@
 {
 	"$schema": "http://json-schema.org/schema",
 	"executors": {
-		"build": {
-			"implementation": "./build/index.ts",
-			"schema": "./build/schema.json",
-			"description": "Bundles source code into an NPM package for publishing."
+		"compile": {
+			"implementation": "./executors/compile/executor.ts",
+			"schema": "./node_modules/@nrwl/rollup/src/executors/rollup/schema.json",
+			"description": "Compiles source code into an NPM package for publishing."
 		}
 	}
 }
