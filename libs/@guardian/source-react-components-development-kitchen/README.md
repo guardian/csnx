@@ -49,8 +49,8 @@ Source is a library where teams can expect to find high quality shared component
 
 Potential contributors are put off contributing directly to Source, as they they find it hard to balance the time investment against their team's priorities. The cost of this is two-fold:
 
-- The number of high quality components available in Source is lower than it could be
-- Potentially sharable components are built directly into applications, leading to fragmentation, inconsistency and duplication
+- The number of high quality components available in Source is lower than it could be.
+- Potentially shareable components are built directly into applications, leading to fragmentation, inconsistency and duplication.
 
 We believe there is value in moving quickly, experimenting with new ideas and sharing those ideas for wider input. The Development Kitchen helps teams achieve this by lowering the barrier to entry. It allows teams to get fast feedback on new components, both from users and from other developers.
 
