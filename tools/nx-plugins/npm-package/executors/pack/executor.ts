@@ -1,11 +1,12 @@
 import childProcess from 'node:child_process';
+import { mkdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 import util from 'node:util';
 import type { ExecutorContext } from '@nrwl/devkit';
 import { logger } from '@nrwl/devkit';
 import { setPkgDefaults } from '../utils/set-pkg-defaults';
 
-const exec = util.promisify(childProcess.exec);
+const execFile = util.promisify(childProcess.execFile);
 
 export type PackOptions = {
 	project: string;
@@ -17,17 +18,27 @@ export type PackOptions = {
  */
 export default async (options: PackOptions, context: ExecutorContext) => {
 	try {
-		const projectPath = path.dirname(options.project);
-		const src = path.resolve(context.root, projectPath);
+		const src = path.resolve(context.root, path.dirname(options.project));
 		const dist = path.resolve(context.root, options.outputPath);
 
-		await exec(`rm -rf ${dist}`);
-		await exec(`mkdir -p ${dist}`);
-		await exec(`cd ${src} && corepack pnpm pack --pack-destination ${dist}`);
-		await exec(
-			`tar -xvf ${dist}/*.tgz -C ${dist} --strip-components 1 package`,
+		await rm(dist, { recursive: true, force: true });
+		await mkdir(dist, { recursive: true });
+		const packResult = await execFile(
+			'corepack',
+			['pnpm', 'pack', '--pack-destination', dist],
+			{
+				cwd: src,
+			},
 		);
-		await exec(`rm -rf ${dist}/*.tgz`);
+		const packedFileName = packResult.stdout.trim();
+		await execFile(
+			'tar',
+			['-xvf', packedFileName, '--strip-components', '1', 'package'],
+			{
+				cwd: dist,
+			},
+		);
+		await rm(path.resolve(dist, packedFileName));
 
 		await setPkgDefaults(options);
 
