@@ -8,6 +8,7 @@
 		"@guardian-eslint-config-typescript": "libs/@guardian/eslint-config-typescript",
 		"@guardian-libs": "libs/@guardian/libs",
 		"@guardian-source-foundations": "libs/@guardian/source-foundations",
+		"@guardian-source-react-components": "libs/@guardian/source-react-components",
 		"@guardian-prettier": "libs/@guardian/prettier",
 		"@guardian-tsconfig": "libs/@guardian/tsconfig",
 		"nx-plugin-eslint": "tools/nx-plugins/eslint",
