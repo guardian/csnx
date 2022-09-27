@@ -1,9 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# If this fails, see the "Troubleshooting" section in the README.
-
-make check-node-version
+# make sure we're using the correct version of node
+. ./tools/scripts/check-node-version
 
 # keep docs up to date
 node tools/scripts/maintain-readme/index.mjs
