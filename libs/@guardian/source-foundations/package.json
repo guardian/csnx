@@ -1,0 +1,9 @@
+{
+	"name": "@guardian/source-foundations",
+	"version": "5.2.1",
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"dependencies": {
+		"mini-svg-data-uri": "^1.3.3"
+	}
+}

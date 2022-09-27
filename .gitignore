@@ -4,3 +4,7 @@ node_modules
 .idea
 dist
 *.log
+
+# temporarily ignore these for https://github.com/guardian/csnx/pull/101
+/libs/@guardian/source-foundations/CHANGELOG.md
+/libs/@guardian/source-foundations/src
