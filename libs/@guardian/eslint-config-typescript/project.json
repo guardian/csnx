@@ -4,15 +4,11 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:pack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/libs/@guardian/eslint-config-typescript",
-				"packageJson": "libs/@guardian/eslint-config-typescript/package.json",
-				"assets": [
-					"libs/@guardian/eslint-config-typescript/index.js",
-					"libs/@guardian/eslint-config-typescript/*.md"
-				]
+				"project": "libs/@guardian/eslint-config-typescript/package.json",
+				"outputPath": "dist/libs/@guardian/eslint-config-typescript"
 			}
 		},
 		"e2e": {

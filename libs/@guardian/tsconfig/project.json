@@ -4,15 +4,11 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:pack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/libs/@guardian/tsconfig",
-				"assets": [
-					"libs/@guardian/tsconfig/tsconfig.json",
-					"libs/@guardian/tsconfig/*.md"
-				],
-				"packageJson": "libs/@guardian/tsconfig/package.json"
+				"project": "libs/@guardian/tsconfig/package.json",
+				"outputPath": "dist/libs/@guardian/tsconfig"
 			}
 		},
 		"e2e": {

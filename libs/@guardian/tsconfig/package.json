@@ -2,5 +2,8 @@
 	"name": "@guardian/tsconfig",
 	"version": "0.1.6",
 	"description": "TSConfig base for Guardian TypeScript projects",
-	"main": "tsconfig.json"
+	"main": "tsconfig.json",
+	"files": [
+		"*.md"
+	]
 }
