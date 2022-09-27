@@ -1,0 +1,60 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@guardian/source-react-components-development-kitchen/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
+				"tsConfig": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
+				"packageJson": "libs/@guardian/source-react-components-development-kitchen/package.json",
+				"outputPath": "dist/libs/@guardian/source-react-components-development-kitchen",
+				"assets": [
+					"libs/@guardian/source-react-components-development-kitchen/*.md"
+				]
+			}
+		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/@guardian/source-react-components-development-kitchen/**/*.ts"
+				]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/@guardian/source-react-components-development-kitchen/**/*.ts"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": [
+				"coverage/libs/@guardian/source-react-components-development-kitchen"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": [
+				"coverage/libs/@guardian/source-react-components-development-kitchen"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
+			}
+		}
+	},
+	"tags": []
+}
