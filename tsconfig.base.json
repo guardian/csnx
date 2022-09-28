@@ -8,15 +8,31 @@
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true,
 		"isolatedModules": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "@emotion/react",
 		"paths": {
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
 			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
-			"@guardian/prettier": ["libs/@guardian/prettier/index.d.ts"]
+			"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
+			"@guardian/source-foundations": [
+				"libs/@guardian/source-foundations/src/index.ts"
+			],
+			"@guardian/source-react-components": [
+				"libs/@guardian/source-react-components/src/index.ts"
+			],
+			"@guardian/source-react-components-development-kitchen": [
+				"libs/@guardian/source-react-components-development-kitchen/src/index.ts"
+			]
 		},
 		"rootDir": ".",
 		"sourceMap": true
 	},
-	"exclude": ["node_modules", "tmp"]
+	"exclude": ["node_modules", "tmp"],
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		}
+	}
 }
