@@ -23,6 +23,7 @@ export default async function (
 		options.format = ['esm', 'cjs'];
 		options.generateExportsField = true;
 		options.compiler = 'tsc';
+		options.skipTypeField = true;
 
 		// we need to wait for the promises returned from the generator to resolve
 		// https://github.com/nrwl/nx/blob/master/packages/rollup/src/executors/rollup/rollup.impl.ts
