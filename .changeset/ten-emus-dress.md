@@ -1,10 +1,10 @@
 ---
-'@guardian/browserslist-config': patch
-'@guardian/eslint-config': patch
-'@guardian/eslint-config-typescript': patch
-'@guardian/libs': patch
-'@guardian/prettier': patch
-'@guardian/tsconfig': patch
+'@guardian/browserslist-config': minor
+'@guardian/eslint-config': minor
+'@guardian/eslint-config-typescript': minor
+'@guardian/libs': minor
+'@guardian/prettier': minor
+'@guardian/tsconfig': minor
 ---
 
-Built with updated bundling process, which includes adding `exports` field to the package.json
+Add `exports` field to the package.json
