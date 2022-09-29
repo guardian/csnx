@@ -4,9 +4,6 @@
 '@guardian/eslint-config-typescript': patch
 '@guardian/libs': patch
 '@guardian/prettier': patch
-'@guardian/source-foundations': patch
-'@guardian/source-react-components': patch
-'@guardian/source-react-components-development-kitchen': patch
 '@guardian/tsconfig': patch
 ---
 
