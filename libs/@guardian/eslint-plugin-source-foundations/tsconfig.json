@@ -1,9 +1,11 @@
 {
-	"extends": "../../../tsconfig.json",
-	"compilerOptions": {
-		"target": "es5",
-		"module": "commonjs"
-	},
+	"extends": "../../../tsconfig.base.json",
 	"exclude": ["src/rules/*.test.ts", "dist"],
-	"include": ["src"]
+	"files": [],
+	"include": ["src"],
+	"references": [
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	]
 }
