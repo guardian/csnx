@@ -1,8 +1,7 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"exclude": ["src/rules/*.test.ts", "dist"],
 	"files": [],
-	"include": ["src"],
+	"include": ["."],
 	"references": [
 		{
 			"path": "./tsconfig.spec.json"
