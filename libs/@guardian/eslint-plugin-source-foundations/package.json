@@ -11,8 +11,9 @@
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"@types/estree": "^0.0.51",
-		"typescript": "~4.6.4"
+		"@guardian/source-foundations": "workspace:*",
+		"@types/eslint": "8.4.6",
+		"@types/estree": "0.0.51"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "workspace:*",
