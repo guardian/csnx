@@ -1,6 +1,5 @@
 {
 	"extends": ["../../../.eslintrc.js"],
-	"root": true,
 	"settings": {
 		"import/resolver": {
 			"typescript": {
