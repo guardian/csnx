@@ -1,30 +1,32 @@
 {
 	"extends": ["../../../.eslintrc.js"],
-	"settings": {
-		"import/resolver": {
-			"typescript": {
-				"alwaysTryTypes": true
-			}
-		}
-	},
-	"env": {
-		"jest": true,
-		"browser": true,
-		"node": true
-	},
-	"parserOptions": {
-		"sourceType": "module",
-		"ecmaVersion": 2020,
-		"ecmaFeatures": {
-			"modules": true
-		},
-		"project": "./tsconfig.json"
-	},
-	"ignorePatterns": ["dist", "coverage"],
+	"ignorePatterns": ["!**/*", "node_modules"],
 	"overrides": [
 		{
-			"files": ["**/*.ts", "**/*.tsx"],
-			"extends": ["@guardian/eslint-config-typescript"]
+			"files": ["*.ts", "*.tsx"],
+			"parserOptions": {
+				"project": [
+					"libs/@guardian/eslint-plugin-source-foundations/tsconfig.json"
+				]
+			},
+			"rules": {}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"rules": {}
+		},
+		{
+			"files": ["*.test.ts"],
+			"rules": {
+				"@typescript-eslint/no-unsafe-call": "off",
+				"@typescript-eslint/no-unsafe-assignment": "off",
+				"@typescript-eslint/restrict-template-expressions": "off",
+				"@typescript-eslint/no-unsafe-member-access": "off"
+			}
 		}
 	]
 }
