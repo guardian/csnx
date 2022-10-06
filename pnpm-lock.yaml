@@ -138,6 +138,27 @@ importers:
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
 
+  libs/@guardian/eslint-plugin-source-react-components:
+    specifiers:
+      '@guardian/eslint-config': workspace:*
+      '@guardian/eslint-config-typescript': workspace:*
+      '@guardian/libs': workspace:*
+      '@guardian/source-react-components': workspace:*
+      '@types/eslint': 8.4.6
+      '@types/estree': 0.0.51
+      '@typescript-eslint/eslint-plugin': 5.21.0
+      '@typescript-eslint/parser': 5.21.0
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 5.21.0_vv7ipe6rxf3tjsyyj5ahq5qdru
+      '@typescript-eslint/parser': 5.21.0
+    devDependencies:
+      '@guardian/eslint-config': link:../eslint-config
+      '@guardian/eslint-config-typescript': link:../eslint-config-typescript
+      '@guardian/libs': link:../libs
+      '@guardian/source-react-components': link:../source-react-components
+      '@types/eslint': 8.4.6
+      '@types/estree': 0.0.51
+
   libs/@guardian/libs:
     specifiers:
       '@types/wcag-contrast': 3.0.0
