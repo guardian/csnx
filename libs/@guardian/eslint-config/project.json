@@ -4,15 +4,11 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:pack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"outputPath": "dist/libs/@guardian/eslint-config",
-				"packageJson": "libs/@guardian/eslint-config/package.json",
-				"assets": [
-					"libs/@guardian/eslint-config/index.js",
-					"libs/@guardian/eslint-config/*.md"
-				]
+				"project": "libs/@guardian/eslint-config/package.json",
+				"outputPath": "dist/libs/@guardian/eslint-config"
 			}
 		},
 		"e2e": {

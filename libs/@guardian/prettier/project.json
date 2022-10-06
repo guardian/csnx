@@ -4,16 +4,11 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
-			"executor": "@csnx/npm-package:build",
+			"executor": "@csnx/npm-package:pack",
 			"outputs": ["{options.outputPath}"],
 			"options": {
-				"packageJson": "libs/@guardian/prettier/package.json",
-				"outputPath": "dist/libs/@guardian/prettier",
-				"assets": [
-					"libs/@guardian/prettier/index.js",
-					"libs/@guardian/prettier/index.d.ts",
-					"libs/@guardian/prettier/*.md"
-				]
+				"project": "libs/@guardian/prettier/package.json",
+				"outputPath": "dist/libs/@guardian/prettier"
 			}
 		},
 		"e2e": {

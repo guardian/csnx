@@ -3,6 +3,11 @@
 	"version": "2.0.3",
 	"description": "Browserslist config for Guardian websites",
 	"main": "browserslist.js",
+	"files": [
+		".browserslistrc",
+		"browserslist-stats.json",
+		"*.md"
+	],
 	"scripts": {
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},

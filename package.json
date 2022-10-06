@@ -56,7 +56,8 @@
 				"prettier",
 				"@emotion/react",
 				"react",
-				"react-dom"
+				"react-dom",
+				"nx"
 			]
 		}
 	}
