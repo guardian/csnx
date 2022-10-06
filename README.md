@@ -22,6 +22,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/eslint-config](libs/@guardian/eslint-config)
 - [@guardian/eslint-config-typescript](libs/@guardian/eslint-config-typescript)
 - [@guardian/eslint-plugin-source-foundations](libs/@guardian/eslint-plugin-source-foundations)
+- [@guardian/eslint-plugin-source-react-components](libs/@guardian/eslint-plugin-source-react-components)
 - [@guardian/libs](libs/@guardian/libs)
 - [@guardian/prettier](libs/@guardian/prettier)
 - [@guardian/source-foundations](libs/@guardian/source-foundations)
