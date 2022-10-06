@@ -1,0 +1,58 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@guardian/eslint-plugin-source-react-components/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": "libs/@guardian/eslint-plugin-source-react-components/src/index.ts",
+				"tsConfig": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.json",
+				"packageJson": "libs/@guardian/eslint-plugin-source-react-components/package.json",
+				"outputPath": "dist/libs/@guardian/eslint-plugin-source-react-components",
+				"assets": ["libs/@guardian/eslint-plugin-source-react-components/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/@guardian/eslint-plugin-source-react-components/**/*.ts"
+				]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/@guardian/eslint-plugin-source-react-components/**/*.ts"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": [
+				"coverage/libs/@guardian/eslint-plugin-source-react-components"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": [
+				"coverage/libs/@guardian/eslint-plugin-source-react-components"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
+			}
+		}
+	},
+	"tags": []
+}
