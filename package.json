@@ -46,7 +46,7 @@
 		"typescript": "4.8.2",
 		"update-section": "0.3.3"
 	},
-	"packageManager": "pnpm@7.12.2",
+	"packageManager": "pnpm@7.13.2",
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
