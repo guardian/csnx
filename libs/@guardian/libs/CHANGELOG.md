@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- 3a2c68e: This adds SpecialReportAlt theme in article format. We need to support a new type of special report. Consumers need to handle the new theme.
+- 3a2c68e: This adds `SpecialReportAlt` theme in article format. We need to support a new type of special report. Consumers need to handle the new theme.
 
 ## 8.0.5
 
