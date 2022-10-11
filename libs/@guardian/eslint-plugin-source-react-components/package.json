@@ -1,0 +1,22 @@
+{
+	"name": "@guardian/eslint-plugin-source-react-components",
+	"version": "7.0.0",
+	"description": "ESLint plugin for Guardian projects using the `@guardian/source-react-components` package.",
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "5.21.0",
+		"@typescript-eslint/parser": "5.21.0"
+	},
+	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
+		"@guardian/eslint-config-typescript": "workspace:*",
+		"@guardian/libs": "workspace:*",
+		"@guardian/source-react-components": "workspace:*",
+		"@types/eslint": "8.4.6",
+		"@types/estree": "0.0.51"
+	},
+	"peerDependencies": {
+		"@guardian/libs": "workspace:*",
+		"@guardian/source-react-components": "workspace:*",
+		"eslint": "^8.0.0"
+	}
+}

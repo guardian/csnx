@@ -1,0 +1,32 @@
+{
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"parserOptions": {
+				"project": [
+					"libs/@guardian/eslint-plugin-source-foundations/tsconfig.json"
+				]
+			},
+			"rules": {}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"rules": {}
+		},
+		{
+			"files": ["*.test.ts"],
+			"rules": {
+				"@typescript-eslint/no-unsafe-call": "off",
+				"@typescript-eslint/no-unsafe-assignment": "off",
+				"@typescript-eslint/restrict-template-expressions": "off",
+				"@typescript-eslint/no-unsafe-member-access": "off"
+			}
+		}
+	]
+}
