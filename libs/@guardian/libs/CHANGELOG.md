@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 9.0.1
+
+### Patch Changes
+
+- 04bda61: CommonJS exports in NPM packages target `ES2018`
+
 ## 9.0.0
 
 ### Major Changes
