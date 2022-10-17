@@ -10,6 +10,8 @@ import type Cpy from 'cpy';
 import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
+import { ScriptTarget } from 'typescript';
+import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
 import { setPackageDefaults } from './set-package-defaults';
@@ -34,24 +36,35 @@ export type Entries = {
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
+	context: ExecutorContext,
 	format: typeof formats[number],
-) => ({
-	output: {
-		dir: `${options.outputPath}/${format}`,
-		format,
-		sourcemap: true,
-		preserveModules: true,
-	},
-	plugins: [
-		nodeResolve({
-			extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
-		}),
-		ts({ tsconfig: options.tsConfig }),
-		json(),
-		commonjs(),
-	],
-});
+) => {
+	const compilerOptions = getCompilerOptions(options, context);
 
+	if (format === 'cjs') {
+		// Node 14 is eol 2023-04-30, so we should still support it
+		compilerOptions.target = ScriptTarget.ES2018;
+	}
+
+	return {
+		output: {
+			dir: `${options.outputPath}/${format}`,
+			format,
+			sourcemap: true,
+			preserveModules: true,
+		},
+		plugins: [
+			nodeResolve({
+				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
+			}),
+			ts({
+				tsconfig: compilerOptions,
+			}),
+			json(),
+			commonjs(),
+		],
+	};
+};
 export default async function buildExecutor(
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
@@ -78,10 +91,10 @@ export default async function buildExecutor(
 
 		let entries: Entries | undefined;
 
-		if (options.entry) {
-			if (!options.tsConfig) {
+		if (options.tsConfig) {
+			if (!options.entry) {
 				logger.error(
-					"You must include a 'tsConfig' option when using the 'entry' option",
+					"You must include a 'entry' option when using the 'tsConfig' option",
 				);
 				return { success: false };
 			}
@@ -93,7 +106,7 @@ export default async function buildExecutor(
 			// create build for each module type
 			const outputs = await Promise.all(
 				formats.map(async (format) => {
-					const { plugins, output } = getRollupConfig(options, format);
+					const { plugins, output } = getRollupConfig(options, context, format);
 					const bundle = await rollup({
 						input: options.entry,
 						plugins,
