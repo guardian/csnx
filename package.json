@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "7.19.3",
-		"@changesets/cli": "2.24.4",
+		"@changesets/cli": "2.25.0",
 		"@emotion/react": "11.0.0",
 		"@guardian/browserslist-config": "workspace:*",
 		"@guardian/eslint-config": "workspace:*",
