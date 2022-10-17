@@ -10,6 +10,8 @@ import type Cpy from 'cpy';
 import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
+import { ScriptTarget } from 'typescript';
+import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
 import { setPackageDefaults } from './set-package-defaults';
@@ -34,24 +36,34 @@ export type Entries = {
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
+	context: ExecutorContext,
 	format: typeof formats[number],
-) => ({
-	output: {
-		dir: `${options.outputPath}/${format}`,
-		format,
-		sourcemap: true,
-		preserveModules: true,
-	},
-	plugins: [
-		nodeResolve({
-			extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
-		}),
-		ts({ tsconfig: options.tsConfig }),
-		json(),
-		commonjs(),
-	],
-});
+) => {
+	const compilerOptions = getCompilerOptions(options, context);
 
+	if (format === 'cjs') {
+		compilerOptions.target = ScriptTarget.ES2018;
+	}
+
+	return {
+		output: {
+			dir: `${options.outputPath}/${format}`,
+			format,
+			sourcemap: true,
+			preserveModules: true,
+		},
+		plugins: [
+			nodeResolve({
+				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
+			}),
+			ts({
+				tsconfig: compilerOptions,
+			}),
+			json(),
+			commonjs(),
+		],
+	};
+};
 export default async function buildExecutor(
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
@@ -93,7 +105,7 @@ export default async function buildExecutor(
 			// create build for each module type
 			const outputs = await Promise.all(
 				formats.map(async (format) => {
-					const { plugins, output } = getRollupConfig(options, format);
+					const { plugins, output } = getRollupConfig(options, context, format);
 					const bundle = await rollup({
 						input: options.entry,
 						plugins,
