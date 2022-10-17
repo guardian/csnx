@@ -23,7 +23,7 @@ importers:
       '@types/babel__core': 7.1.19
       '@types/jest': 29.1.2
       '@types/node': 18.11.0
-      '@types/react': 17.0.1
+      '@types/react': 18.0.21
       '@typescript-eslint/parser': 5.40.0
       eslint: 8.25.0
       husky: 8.0.1
@@ -44,7 +44,7 @@ importers:
     devDependencies:
       '@babel/core': 7.19.3
       '@changesets/cli': 2.25.0
-      '@emotion/react': 11.0.0_pdfc56w7y2kzkcvhocggulgrde
+      '@emotion/react': 11.0.0_lzjce2a6cvf5zp5cfbetsc662m
       '@guardian/browserslist-config': link:libs/@guardian/browserslist-config
       '@guardian/eslint-config': link:libs/@guardian/eslint-config
       '@guardian/eslint-config-typescript': link:libs/@guardian/eslint-config-typescript
@@ -61,7 +61,7 @@ importers:
       '@types/babel__core': 7.1.19
       '@types/jest': 29.1.2
       '@types/node': 18.11.0
-      '@types/react': 17.0.1
+      '@types/react': 18.0.21
       '@typescript-eslint/parser': 5.40.0_z4bbprzjrhnsfa24uvmcbu7f5q
       eslint: 8.25.0
       husky: 8.0.1
@@ -917,7 +917,7 @@ packages:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: true
 
-  /@emotion/react/11.0.0_pdfc56w7y2kzkcvhocggulgrde:
+  /@emotion/react/11.0.0_lzjce2a6cvf5zp5cfbetsc662m:
     resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -938,7 +938,7 @@ packages:
       '@emotion/sheet': 1.2.0
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.2.5
-      '@types/react': 17.0.1
+      '@types/react': 18.0.21
       hoist-non-react-statics: 3.3.2
       react: 17.0.1
     dev: true
@@ -2455,10 +2455,11 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react/17.0.1:
-    resolution: {integrity: sha512-w8t9f53B2ei4jeOqf/gxtc2Sswnc3LBK5s0DyJcg5xd10tMHXts2N31cKjWfH9IC/JvEPa/YF1U4YeP1t4R6HQ==}
+  /@types/react/18.0.21:
+    resolution: {integrity: sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA==}
     dependencies:
       '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
       csstype: 3.1.1
     dev: true
 
@@ -2467,6 +2468,10 @@ packages:
     dependencies:
       '@types/node': 18.11.0
     dev: false
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
 
   /@types/semver/6.2.3:
     resolution: {integrity: sha512-KQf+QAMWKMrtBMsB8/24w53tEsxllMj6TuA80TT/5igJalLI/zm0L3oXRbIAl4Ohfc85gyHX/jhMwsVkmhLU4A==}
