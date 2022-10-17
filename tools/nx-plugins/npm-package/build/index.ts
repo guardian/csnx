@@ -78,10 +78,10 @@ export default async function buildExecutor(
 
 		let entries: Entries | undefined;
 
-		if (options.entry) {
-			if (!options.tsConfig) {
+		if (options.tsConfig) {
+			if (!options.entry) {
 				logger.error(
-					"You must include a 'tsConfig' option when using the 'entry' option",
+					"You must include a 'entry' option when using the 'tsConfig' option",
 				);
 				return { success: false };
 			}
