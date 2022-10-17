@@ -42,6 +42,7 @@ const getRollupConfig = (
 	const compilerOptions = getCompilerOptions(options, context);
 
 	if (format === 'cjs') {
+		// Node 14 is eol 2023-04-30, so we should still support it
 		compilerOptions.target = ScriptTarget.ES2018;
 	}
 
