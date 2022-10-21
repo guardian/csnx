@@ -166,14 +166,12 @@ importers:
       mockdate: 3.0.5
       tslib: 2.4.0
       wcag-contrast: 3.0.0
-      web-vitals: 2.0.0
     devDependencies:
       '@types/wcag-contrast': 3.0.0
       jest-fetch-mock: 3.0.3
       mockdate: 3.0.5
       tslib: 2.4.0
       wcag-contrast: 3.0.0
-      web-vitals: 2.0.0
 
   libs/@guardian/prettier:
     specifiers: {}
@@ -8820,10 +8818,6 @@ packages:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
     dependencies:
       defaults: 1.0.3
-    dev: true
-
-  /web-vitals/2.0.0:
-    resolution: {integrity: sha512-aCB1sYxt2eeBufybFRrDQNBg2cOcq2f6Q1He7T+qPHAwpodDXhAoWwBUavwppQQ4kfUcT5eIAfjPc9PdqAxPEw==}
     dev: true
 
   /webidl-conversions/3.0.1:

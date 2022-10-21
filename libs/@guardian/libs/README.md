@@ -15,10 +15,6 @@ Type that describes the role of an element in an article.
 
 API over `document.cookies`.
 
-### [Core Web Vitals](./src/coreWebVitals)
-
-API over Google’s `web-vitals`.
-
 ### [Countries](./src/countries)
 
 Country data and methods to access it.
@@ -97,7 +93,7 @@ import { loadScript, storage, ...etc } from '@guardian/libs';
 
 ### TypeScript
 
-If you are using this library with TypeScript, make sure you are using at least TypeScript v<!-- TS_VERSION -->4.8.2<!-- /TS_VERSION -->.
+If you are using this library with TypeScript, make sure you are using at least TypeScript v<!-- TS_VERSION -->4.8.4<!-- /TS_VERSION -->.
 
 ### Bundling
 
