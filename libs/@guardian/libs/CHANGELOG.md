@@ -43,3 +43,7 @@
 - 72d9c34: Noop to test the release process.
 
   You can safely ignore this version.
+
+## <= 8.0.0
+
+Previous versions are listed at the old repo: https://github.com/guardian/libs/releases
