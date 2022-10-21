@@ -4,6 +4,6 @@
 // This means we can run `src/index.test.ts` against `dist` instead.
 
 // @ts-ignore
-import * as dist from '../../../dist/libs/@guardian/source-react-components';
+import * as dist from '../../../dist/libs/@guardian/source-foundations';
 
 jest.mock('./src/index', () => dist);
