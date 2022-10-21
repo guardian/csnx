@@ -1,0 +1,50 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@guardian/core-web-vitals/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": "libs/@guardian/core-web-vitals/src/index.ts",
+				"tsConfig": "libs/@guardian/core-web-vitals/tsconfig.json",
+				"packageJson": "libs/@guardian/core-web-vitals/package.json",
+				"outputPath": "dist/libs/@guardian/core-web-vitals",
+				"assets": ["libs/@guardian/core-web-vitals/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@guardian/core-web-vitals/**/*.ts"]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@guardian/core-web-vitals/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/core-web-vitals"],
+			"options": {
+				"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/core-web-vitals"],
+			"options": {
+				"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+			}
+		}
+	},
+	"tags": []
+}
