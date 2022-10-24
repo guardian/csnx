@@ -1,4 +1,3 @@
-import * as libs from '@guardian/libs';
 import type { Metric, ReportHandler } from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
@@ -57,8 +56,6 @@ navigator.sendBeacon = mockBeacon;
 const mockConsoleWarn = jest
 	.spyOn(console, 'warn')
 	.mockImplementation(() => void 0);
-
-const spyLog = jest.spyOn(libs, 'log');
 
 const setVisibilityState = (value: DocumentVisibilityState = 'visible') => {
 	Object.defineProperty(document, 'visibilityState', {
@@ -296,71 +293,6 @@ describe('Endpoints', () => {
 		expect(mockBeacon).toHaveBeenCalledWith(
 			_.Endpoints.PROD,
 			expect.any(String),
-		);
-	});
-});
-
-describe('Logging', () => {
-	beforeEach(() => {
-		reset();
-		setVisibilityState();
-	});
-
-	it('should log for every team that registered', async () => {
-		const isDev = true;
-		await initCoreWebVitals({
-			browserId,
-			pageViewId,
-			isDev,
-			team: 'dotcom',
-		});
-		await bypassCoreWebVitalsSampling('design');
-		await bypassCoreWebVitalsSampling('commercial');
-
-		setVisibilityState('hidden');
-		global.dispatchEvent(new Event('visibilitychange'));
-
-		expect(spyLog).toHaveBeenCalledTimes(3);
-		expect(spyLog).nthCalledWith(
-			1,
-			'dotcom',
-			expect.stringContaining('successfully'),
-		);
-		expect(spyLog).nthCalledWith(
-			2,
-			'design',
-			expect.stringContaining('successfully'),
-		);
-		expect(spyLog).nthCalledWith(
-			3,
-			'commercial',
-			expect.stringContaining('successfully'),
-		);
-	});
-
-	it('should log a failure if it happens', async () => {
-		const mockAddEventListener = jest.spyOn(global, 'addEventListener');
-		const isDev = true;
-		const sampling = 100 / 100;
-		await initCoreWebVitals({
-			browserId,
-			pageViewId,
-			isDev,
-			sampling,
-			team: 'dotcom',
-		});
-
-		mockBeacon.mockReturnValueOnce(false);
-
-		setVisibilityState('hidden');
-		global.dispatchEvent(new Event('visibilitychange'));
-
-		expect(mockAddEventListener).toHaveBeenCalledTimes(2);
-
-		expect(spyLog).toHaveBeenCalledTimes(1);
-		expect(spyLog).toHaveBeenLastCalledWith(
-			'dotcom',
-			expect.stringContaining('Failed to queue'),
 		);
 	});
 });
