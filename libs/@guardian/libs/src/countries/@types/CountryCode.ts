@@ -1,7 +1,6 @@
 // https://en.wikipedia.org/wiki/ISO_3166-1
 export type CountryCode =
 	| 'AD'
-	| 'AD'
 	| 'AE'
 	| 'AF'
 	| 'AG'
@@ -239,6 +238,7 @@ export type CountryCode =
 	| 'VA'
 	| 'VC'
 	| 'VE'
+	| 'VG'
 	| 'VI'
 	| 'VN'
 	| 'VU'

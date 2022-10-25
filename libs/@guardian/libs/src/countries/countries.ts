@@ -970,7 +970,11 @@ export const countries: Record<CountryKey, Country> = {
 		countryCode: 'VN',
 		name: 'Viet Nam',
 	},
-	virgin_islands: {
+	virgin_islands_british: {
+		countryCode: 'VG',
+		name: 'Virgin Islands (British)',
+	},
+	virgin_islands_us: {
 		countryCode: 'VI',
 		name: 'Virgin Islands (U.S.)',
 	},
