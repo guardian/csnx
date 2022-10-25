@@ -238,6 +238,7 @@ export type CountryCode =
 	| 'VA'
 	| 'VC'
 	| 'VE'
+	| 'VG'
 	| 'VI'
 	| 'VN'
 	| 'VU'
