@@ -56,13 +56,9 @@
 			"executor": "nx:run-commands",
 			"outputs": ["dist/storybook/libs/@guardian/source-react-components"],
 			"options": {
-				"commands": [
-					"NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components",
-					"echo \"{}\" > ../../../dist/storybook/libs/@guardian/source-react-components/metadata.json"
-				],
+				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components",
 				"cwd": "libs/@guardian/source-react-components",
-				"color": true,
-				"parallel": false
+				"color": true
 			}
 		}
 	},

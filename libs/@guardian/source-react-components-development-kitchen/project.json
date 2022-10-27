@@ -68,13 +68,9 @@
 				"dist/storybook/libs/@guardian/source-react-components-development-kitchen"
 			],
 			"options": {
-				"commands": [
-					"NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen",
-					"echo \"{}\" > ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen/metadata.json"
-				],
+				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen",
 				"cwd": "libs/@guardian/source-react-components-development-kitchen",
-				"color": true,
-				"parallel": false
+				"color": true
 			}
 		}
 	},
