@@ -44,6 +44,3 @@ jobs:
           storybookBuildDir: 'dist/storybook/libs/@guardian-source-react-components-development-kitchen'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # only turbosnap on non-main branches
-
-
-      # COMPOSED PROJECT STORYBOOK
