@@ -3,7 +3,7 @@ export SHELL := /usr/bin/env bash
 
 ###################################### DEV #####################################
 
-# runs runs storybook for all projects in single instance
+# runs storybook for all projects in single instance
 .PHONY: storybooks
 storybooks: env
 	$(call log,"Stating storybooks")
