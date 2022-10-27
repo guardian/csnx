@@ -48,19 +48,12 @@
 			}
 		},
 		"build-storybook": {
-			"executor": "@nrwl/storybook:build",
-			"outputs": ["{options.outputPath}"],
+			"executor": "nx:run-commands",
+			"outputs": ["dist/storybook/apps/csnx"],
 			"options": {
-				"uiFramework": "@storybook/react",
-				"outputPath": "dist/storybook/apps/csnx",
-				"config": {
-					"configFolder": "apps/csnx/.storybook"
-				}
-			},
-			"configurations": {
-				"ci": {
-					"quiet": true
-				}
+				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/csnx",
+				"cwd": "apps/csnx",
+				"color": true
 			}
 		}
 	},

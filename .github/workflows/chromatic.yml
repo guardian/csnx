@@ -23,7 +23,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian-source-foundations'
+          storybookBuildDir: 'dist/storybook/libs/@guardian/source-foundations'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # only turbosnap on non-main branches
 
@@ -32,7 +32,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian-source-react-components'
+          storybookBuildDir: 'dist/storybook/libs/@guardian/source-react-components'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # only turbosnap on non-main branches
 
@@ -41,9 +41,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian-source-react-components-development-kitchen'
+          storybookBuildDir: 'dist/storybook/libs/@guardian/source-react-components-development-kitchen'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # only turbosnap on non-main branches
-
-
-      # COMPOSED PROJECT STORYBOOK

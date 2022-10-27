@@ -25,7 +25,6 @@
 		"@nrwl/eslint-plugin-nx": "14.7.13",
 		"@nrwl/jest": "14.7.13",
 		"@nrwl/nx-cloud": "latest",
-		"@nrwl/storybook": "14.7.13",
 		"@nrwl/workspace": "14.7.13",
 		"@storybook/addon-a11y": "6.5.12",
 		"@storybook/addon-docs": "6.5.12",

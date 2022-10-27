@@ -63,19 +63,14 @@
 			}
 		},
 		"build-storybook": {
-			"executor": "@nrwl/storybook:build",
-			"outputs": ["{options.outputPath}"],
+			"executor": "nx:run-commands",
+			"outputs": [
+				"dist/storybook/libs/@guardian/source-react-components-development-kitchen"
+			],
 			"options": {
-				"uiFramework": "@storybook/react",
-				"outputPath": "dist/storybook/libs/@guardian-source-react-components-development-kitchen",
-				"config": {
-					"configFolder": "libs/@guardian/source-react-components-development-kitchen/.storybook"
-				}
-			},
-			"configurations": {
-				"ci": {
-					"quiet": true
-				}
+				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen",
+				"cwd": "libs/@guardian/source-react-components-development-kitchen",
+				"color": true
 			}
 		}
 	},
