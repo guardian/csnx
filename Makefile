@@ -59,12 +59,6 @@ build-storybooks: env
 	$(call log,"Building storybooks")
 	@corepack pnpm nx run-many --target=build-storybook --all=true
 
-# prepares storybooks for publishing to github pages
-.PHONY: prepare-storybooks-for-publishing
-prepare-storybooks-for-publishing: build-storybooks
-	$(call log,"Preparing storybooks for publishing")
-	@mv dist/storybook/libs/@guardian dist/storybook/apps/csnx
-
 ############################### MANAGING PACKAGES ##############################
 
 # n.b. publishing is handled in CI using .github/workflows/changesets.yml

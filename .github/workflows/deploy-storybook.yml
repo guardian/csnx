@@ -14,7 +14,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: make prepare-storybooks-for-publishing
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm nx run csnx:build-storybook
       - name: deploy
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
