@@ -44,6 +44,29 @@
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
+		},
+		"storybook": {
+			"executor": "nx:run-commands",
+			"options": {
+				"commands": ["start-storybook"],
+				"cwd": "libs/@guardian/source-react-components"
+			}
+		},
+		"build-storybook": {
+			"executor": "@nrwl/storybook:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"uiFramework": "@storybook/react",
+				"outputPath": "dist/storybook/@guardian-source-react-components",
+				"config": {
+					"configFolder": "libs/@guardian/source-react-components/.storybook"
+				}
+			},
+			"configurations": {
+				"ci": {
+					"quiet": true
+				}
+			}
 		}
 	},
 	"tags": []

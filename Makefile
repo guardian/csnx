@@ -1,6 +1,14 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
+###################################### DEV #####################################
+
+# runs runs storybook for all projects in single instance
+.PHONY: storybooks
+storybooks: env
+	$(call log,"Stating storybooks")
+	@corepack pnpm nx run csnx:storybooks
+
 ################################# CODE QUALITY #################################
 
 # runs the unit tests for all projects

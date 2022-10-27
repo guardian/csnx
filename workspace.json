@@ -15,6 +15,7 @@
 		"@guardian/prettier": "libs/@guardian/prettier",
 		"@guardian/tsconfig": "libs/@guardian/tsconfig",
 		"nx-plugin-eslint": "tools/nx-plugins/eslint",
-		"nx-plugin-npm-package": "tools/nx-plugins/npm-package"
+		"nx-plugin-npm-package": "tools/nx-plugins/npm-package",
+		"csnx": "apps/csnx"
 	}
 }

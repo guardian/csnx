@@ -1,0 +1,52 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/csnx/src",
+	"projectType": "application",
+	"targets": {
+		"project-storybooks": {
+			"executor": "nx:run-commands",
+			"options": {
+				"commands": [
+					{
+						"command": "cd libs/@guardian/source-foundations && start-storybook --no-open --port 4401 --quiet",
+						"prefix": "foundations",
+						"color": "red"
+					},
+					{
+						"command": "cd libs/@guardian/source-react-components && start-storybook --no-open --port 4402 --quiet",
+						"prefix": "react-components",
+						"color": "green"
+					},
+					{
+						"command": "cd libs/@guardian/source-react-components-development-kitchen && start-storybook --no-open --port 4403 --quiet",
+						"prefix": "dev-kitchen",
+						"color": "blue"
+					}
+				],
+				"color": true,
+				"parallel": true
+			}
+		},
+		"composed-storybooks": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "start-storybook --port 4400 --quiet",
+				"cwd": "apps/csnx"
+			}
+		},
+		"storybooks": {
+			"executor": "nx:run-commands",
+			"options": {
+				"commands": [
+					{ "command": "nx run csnx:project-storybooks" },
+					{
+						"command": "sleep 5 && nx run csnx:composed-storybooks",
+						"prefix": "csnx",
+						"color": "cyan"
+					}
+				]
+			}
+		}
+	},
+	"tags": []
+}

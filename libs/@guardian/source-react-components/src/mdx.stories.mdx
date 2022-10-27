@@ -1,0 +1,20 @@
+import { Meta, Story } from '@storybook/addon-docs';
+
+import { Test } from './Test';
+
+<Meta component={Test} />
+
+<!-- 👇 We create a “template” of how args map to rendering -->
+
+export const Template = (args) => <Test {...args} />;
+
+<!-- 👇 Each story then reuses that template -->
+
+<Story
+	name="Primary"
+	args={{
+		foo: 'mdx',
+	}}
+>
+	{Template.bind({})}
+</Story>
