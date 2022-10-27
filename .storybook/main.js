@@ -22,9 +22,6 @@ module.exports = {
 	core: {
 		builder: 'webpack5',
 	},
-	features: {
-		buildStoriesJson: true,
-	},
 
 	webpackFinal: async (config, { configType }) => {
 		config.module.rules.push({

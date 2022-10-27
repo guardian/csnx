@@ -37,15 +37,15 @@ module.exports = {
 		return {
 			'source-foundations': {
 				title: 'source-foundations',
-				url: 'https://main--635a6aa8070dfdbfdac36f65.chromatic.com',
+				url: 'https://guardian.github.io/csnx/@guardian/source-foundations',
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://main--635a6fffacd30d393597c1ff.chromatic.com',
+				url: 'https://guardian.github.io/csnx/@guardian/source-react-components',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
-				url: 'https://main--635a7057acd30d393597c208.chromatic.com',
+				url: 'https://guardian.github.io/csnx/@guardian/source-react-components-development-kitchen',
 			},
 		};
 	},
