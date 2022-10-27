@@ -18,7 +18,7 @@ module.exports = {
 			rules: {},
 		},
 		{
-			files: ['*.test.ts'],
+			files: ['*.test.ts', '*.stories.*'],
 			rules: {
 				'@typescript-eslint/no-unsafe-call': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
@@ -36,6 +36,13 @@ module.exports = {
 				'@typescript-eslint/no-unsafe-member-access': 'off',
 				'@typescript-eslint/explicit-module-boundary-types': 'off',
 				'@typescript-eslint/no-unsafe-return': 'off',
+			},
+		},
+		{
+			files: ['**/*.stories.tsx'],
+			rules: {
+				// storybook require this
+				'import/no-default-export': 'off',
 			},
 		},
 	],
