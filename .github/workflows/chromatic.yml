@@ -1,0 +1,49 @@
+name: Chromatic
+on:
+  push:
+jobs:
+  upload-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # enables use to use the cache in actions/setup-node
+      - uses: pnpm/action-setup@v2.2.4
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: make build-storybooks
+
+      # INDIVIDUAL PROJECT STORYBOOKS
+
+      - name: Publish @guardian/source-foundations to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian-source-foundations'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # only turbosnap on non-main branches
+
+      - name: Publish @guardian/source-react-components to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian-source-react-components'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # only turbosnap on non-main branches
+
+      - name: Publish @guardian/source-react-components-development-kitchen to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian-source-react-components-development-kitchen'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # only turbosnap on non-main branches
+
+
+      # COMPOSED PROJECT STORYBOOK

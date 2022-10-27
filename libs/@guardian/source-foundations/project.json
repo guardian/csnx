@@ -57,7 +57,7 @@
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"uiFramework": "@storybook/react",
-				"outputPath": "dist/storybook/@guardian-source-foundations",
+				"outputPath": "dist/storybook/libs/@guardian-source-foundations",
 				"config": {
 					"configFolder": "libs/@guardian/source-foundations/.storybook"
 				}

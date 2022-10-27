@@ -53,6 +53,12 @@ build: env clean
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
 
+# builds all storybooks
+.PHONY: build-storybooks
+build-storybooks: env
+	$(call log,"Building storybooks")
+	@corepack pnpm nx run-many --target=build-storybook --all=true
+
 ############################### MANAGING PACKAGES ##############################
 
 # n.b. publishing is handled in CI using .github/workflows/changesets.yml
