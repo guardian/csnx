@@ -51,9 +51,13 @@
 			"executor": "nx:run-commands",
 			"outputs": ["dist/storybook/apps/csnx"],
 			"options": {
-				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/csnx",
+				"commands": [
+					"NODE_ENV=production build-storybook -o ../../dist/storybook/apps/csnx",
+					"echo \"{}\" > ../../dist/storybook/apps/csnx/metadata.json"
+				],
 				"cwd": "apps/csnx",
-				"color": true
+				"color": true,
+				"parallel": false
 			}
 		}
 	},
