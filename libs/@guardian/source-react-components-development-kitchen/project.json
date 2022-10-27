@@ -67,7 +67,7 @@
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"uiFramework": "@storybook/react",
-				"outputPath": "dist/storybook/@guardian-source-react-components-development-kitchen",
+				"outputPath": "dist/storybook/libs/@guardian-source-react-components-development-kitchen",
 				"config": {
 					"configFolder": "libs/@guardian/source-react-components-development-kitchen/.storybook"
 				}

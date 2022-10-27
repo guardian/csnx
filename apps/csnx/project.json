@@ -46,6 +46,22 @@
 					}
 				]
 			}
+		},
+		"build-storybook": {
+			"executor": "@nrwl/storybook:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"uiFramework": "@storybook/react",
+				"outputPath": "dist/storybook/apps/csnx",
+				"config": {
+					"configFolder": "apps/csnx/.storybook"
+				}
+			},
+			"configurations": {
+				"ci": {
+					"quiet": true
+				}
+			}
 		}
 	},
 	"tags": []

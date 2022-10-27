@@ -20,7 +20,7 @@ module.exports = {
 	refs: {
 		'source-foundations': {
 			title: 'source-foundations',
-			url: 'http://localhost:4401',
+			url: '../',
 		},
 		'source-react-components': {
 			title: 'source-react-components',
