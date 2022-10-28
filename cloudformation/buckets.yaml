@@ -1,0 +1,11 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Cloudformation template for the deploy-storybook.yml workflow action.
+
+Resources:
+  AllStorybooks:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: com-gu-all-storybooks
+      WebsiteConfiguration:
+        IndexDocument: index.html
