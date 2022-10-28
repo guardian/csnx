@@ -6,6 +6,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    # For RR upload
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - uses: actions/checkout@v3
       # enables use to use the cache in actions/setup-node
@@ -16,7 +22,30 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx run csnx:build-storybook
-      - name: deploy
-        run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+
+      # bundle RR + deploy
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-1
+          role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
+
+      - uses: guardian/actions-riff-raff@v2
+        with:
+          app: all-storybooks
+          config: |
+            stacks:
+              - deploy
+            regions:
+              - eu-west-1
+            allowedStages:
+              - PROD
+            deployments:
+              storybooks:
+                type: aws-s3
+                parameters:
+                  bucket:com-gu-all-storybooks
+                  cacheControl: private
+                  publicReadAcl: true
+          contentDirectories: |
+            storybooks:
+              - dist/storybook/apps/csnx
