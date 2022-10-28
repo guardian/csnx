@@ -49,6 +49,8 @@ jobs:
                   templatePath: buckets.yaml
               storybooks:
                 type: aws-s3
+                dependencies:
+                  - cloudformation
                 parameters:
                   bucket: com-gu-all-storybooks
                   cacheControl: private
