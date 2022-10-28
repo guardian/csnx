@@ -48,6 +48,9 @@ jobs:
                   bucket: com-gu-all-storybooks
                   cacheControl: private
                   publicReadAcl: true
+                  prefixPackage: false
+                  prefixStack: false
+                  prefixStage: false
           contentDirectories: |
             storybooks:
               - dist/storybook/apps/csnx
