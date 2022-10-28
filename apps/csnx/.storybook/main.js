@@ -41,11 +41,11 @@ module.exports = {
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://main--635a6fffacd30d393597c1ff.chromatic.com',
+				url: 'http://com-gu-storybook-source-react-components.s3-website-eu-west-1.amazonaws.com',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
-				url: 'https://main--635a7057acd30d393597c208.chromatic.com',
+				url: 'http://com-gu-storybook-source-react-components-development-kitchen.s3-website-eu-west-1.amazonaws.com',
 			},
 		};
 	},

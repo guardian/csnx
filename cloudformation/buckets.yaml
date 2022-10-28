@@ -15,3 +15,15 @@ Resources:
       BucketName: com-gu-storybook-source-foundations
       WebsiteConfiguration:
         IndexDocument: index.html
+  StorybookSourceReactComponents:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: com-gu-storybook-source-react-components
+      WebsiteConfiguration:
+        IndexDocument: index.html
+  StorybookSourceReactComponentsDevelopmentKitchen:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: com-gu-storybook-source-react-components-development-kitchen
+      WebsiteConfiguration:
+        IndexDocument: index.html

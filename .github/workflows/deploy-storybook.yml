@@ -63,8 +63,34 @@ jobs:
                   prefixPackage: false
                   prefixStack: false
                   prefixStage: false
+              storybook-source-react-components:
+                type: aws-s3
+                dependencies:
+                  - cloudformation
+                parameters:
+                  bucket: com-gu-storybook-source-react-components
+                  cacheControl: private
+                  publicReadAcl: true
+                  prefixPackage: false
+                  prefixStack: false
+                  prefixStage: false
+              storybook-source-react-components-development-kitchen:
+                type: aws-s3
+                dependencies:
+                  - cloudformation
+                parameters:
+                  bucket: com-gu-storybook-source-react-components-development-kitchen
+                  cacheControl: private
+                  publicReadAcl: true
+                  prefixPackage: false
+                  prefixStack: false
+                  prefixStage: false
           contentDirectories: |
             storybook-source-foundations:
               - dist/storybook/libs/@guardian/source-foundations
+              storybook-source-react-components:
+              - dist/storybook/libs/@guardian/source-react-components
+            storybook-source-react-components-development-kitchen:
+              - dist/storybook/libs/@guardian/source-react-components-development-kitchen
             cloudformation:
               - cloudformation/buckets.yaml
