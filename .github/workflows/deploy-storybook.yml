@@ -88,7 +88,7 @@ jobs:
           contentDirectories: |
             storybook-source-foundations:
               - dist/storybook/libs/@guardian/source-foundations
-              storybook-source-react-components:
+            storybook-source-react-components:
               - dist/storybook/libs/@guardian/source-react-components
             storybook-source-react-components-development-kitchen:
               - dist/storybook/libs/@guardian/source-react-components-development-kitchen
