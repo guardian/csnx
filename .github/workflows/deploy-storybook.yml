@@ -24,10 +24,10 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx run csnx:build-storybook
-      - name: deploy
-        run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      # - name: deploy
+      #   run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
+      #   env:
+      #     GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
 
       # bundle RiffRaff + deploy
       - uses: aws-actions/configure-aws-credentials@v1
