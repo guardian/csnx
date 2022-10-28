@@ -9,19 +9,19 @@ Resources:
       BucketName: com-gu-all-storybooks
       WebsiteConfiguration:
         IndexDocument: index.html
-  AllStorybookCloudfront: # sadly required for HTTPs :(
-    Type: AWS::CloudFront::Distribution
-    Properties:
-      DistributionConfig:
-        - CustomOriginConfig:
-          OriginProtocolPolicy: http-only
-          DomainName: !GetAtt AllStorybooks.DomainName
   StorybookSourceFoundations:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: com-gu-storybook-source-foundations
       WebsiteConfiguration:
         IndexDocument: index.html
+  StorybookSourceFoundationsCloudfront:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        - CustomOriginConfig:
+          OriginProtocolPolicy: http-only
+          DomainName: !GetAtt StorybookSourceFoundations.DomainName
   StorybookSourceReactComponents:
     Type: AWS::S3::Bucket
     Properties:
