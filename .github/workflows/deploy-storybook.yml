@@ -45,7 +45,7 @@ jobs:
               storybooks:
                 type: aws-s3
                 parameters:
-                  bucket:com-gu-all-storybooks
+                  bucket: com-gu-all-storybooks
                   cacheControl: private
                   publicReadAcl: true
           contentDirectories: |
