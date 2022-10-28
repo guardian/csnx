@@ -24,11 +24,6 @@ jobs:
           cache: 'pnpm'
       - run: make build-storybooks
 
-      - name: deploy root storybook to gh pages
-        run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
-
       # bundle RiffRaff + deploy
       - uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -94,3 +89,8 @@ jobs:
               - dist/storybook/libs/@guardian/source-react-components-development-kitchen
             cloudformation:
               - cloudformation/buckets.yaml
+
+      - name: deploy root storybook to github pages
+        run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
