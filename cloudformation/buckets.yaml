@@ -9,3 +9,9 @@ Resources:
       BucketName: com-gu-all-storybooks
       WebsiteConfiguration:
         IndexDocument: index.html
+  StorybookSourceFoundations:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: com-gu-storybook-source-foundations
+      WebsiteConfiguration:
+        IndexDocument: index.html

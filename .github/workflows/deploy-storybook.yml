@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: Deploy Storybooks
 on:
   pull_request:
   workflow_dispatch:
@@ -22,16 +22,21 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm nx run csnx:build-storybook
+      - run: make build-storybooks
 
-      # bundle RR + deploy
+      - name: Deploy root storybook to github pages
+        run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+
+      # bundle RiffRaff + deploy
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
           role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
 
-      - uses: guardian/actions-riff-raff@v2
+      - name: Deploy project storybooks AWS
+        uses: guardian/actions-riff-raff@v2
         with:
           app: all-storybooks
           config: |
@@ -47,19 +52,19 @@ jobs:
                 type: cloud-formation
                 parameters:
                   templatePath: buckets.yaml
-              storybooks:
+              storybook-source-foundations:
                 type: aws-s3
                 dependencies:
                   - cloudformation
                 parameters:
-                  bucket: com-gu-all-storybooks
+                  bucket: com-gu-storybook-source-foundations
                   cacheControl: private
                   publicReadAcl: true
                   prefixPackage: false
                   prefixStack: false
                   prefixStage: false
           contentDirectories: |
-            storybooks:
-              - dist/storybook/apps/csnx
+            storybook-source-foundations:
+              - dist/storybook/libs/@guardian/source-foundations
             cloudformation:
               - cloudformation/buckets.yaml

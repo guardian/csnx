@@ -37,7 +37,7 @@ module.exports = {
 		return {
 			'source-foundations': {
 				title: 'source-foundations',
-				url: 'https://main--635a6aa8070dfdbfdac36f65.chromatic.com',
+				url: 'http://com-gu-storybook-source-foundations.s3-website-eu-west-1.amazonaws.com',
 			},
 			'source-react-components': {
 				title: 'source-react-components',
