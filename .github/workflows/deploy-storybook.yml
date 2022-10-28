@@ -33,7 +33,7 @@ jobs:
       - name: Deploy project storybooks AWS
         uses: guardian/actions-riff-raff@v2
         with:
-          app: all-storybooks
+          app: csnx:storybooks
           config: |
             stacks:
               - deploy
