@@ -22,9 +22,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: make build-storybooks
-
-      - name: Deploy root storybook to github pages
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm nx run csnx:build-storybook
+      - name: deploy
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
