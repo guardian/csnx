@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     # For RR upload
-    permissions:
-      id-token: write
-      contents: read
+    # permissions:
+    #   id-token: write
+    #   contents: read
 
     steps:
       - uses: actions/checkout@v3
