@@ -31,9 +31,9 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        - CustomOriginConfig:
-          OriginProtocolPolicy: http-only
-          DomainName: !GetAtt StorybookSourceFoundations.DomainName
-          DefaultCacheBehavior:
-            CachePolicyId: CachingOptimized
-            ViewerProtocolPolicy: redirect-to-https
+        OriginProtocolPolicy: http-only
+        Origins:
+          - DomainName: !GetAtt StorybookSourceFoundations.DomainName
+        DefaultCacheBehavior:
+          CachePolicyId: CachingOptimized
+          ViewerProtocolPolicy: redirect-to-https
