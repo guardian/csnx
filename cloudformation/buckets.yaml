@@ -37,3 +37,23 @@ Resources:
         DefaultCacheBehavior:
           CachePolicyId: CachingOptimized
           ViewerProtocolPolicy: redirect-to-https
+  StorybookSourceReactComponentsCloudfront: # sadly required for HTTPs :(
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        OriginProtocolPolicy: http-only
+        Origins:
+          - DomainName: !GetAtt StorybookSourceReactComponents.DomainName
+        DefaultCacheBehavior:
+          CachePolicyId: CachingOptimized
+          ViewerProtocolPolicy: redirect-to-https
+  StorybookSourceReactComponentsDevelopmentKitchenCloudfront: # sadly required for HTTPs :(
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        OriginProtocolPolicy: http-only
+        Origins:
+          - DomainName: !GetAtt StorybookSourceReactComponentsDevelopmentKitchen.DomainName
+        DefaultCacheBehavior:
+          CachePolicyId: CachingOptimized
+          ViewerProtocolPolicy: redirect-to-https
