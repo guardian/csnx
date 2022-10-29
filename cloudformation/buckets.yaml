@@ -27,3 +27,14 @@ Resources:
       BucketName: com-gu-storybook-source-react-components-development
       WebsiteConfiguration:
         IndexDocument: index.html
+  StorybookSourceFoundationsCloudfront: # sadly required for HTTPs :(
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DefaultCacheBehavior:
+      DistributionConfig:
+        - CustomOriginConfig:
+          OriginProtocolPolicy: http-only
+          DomainName: !GetAtt StorybookSourceFoundations.DomainName
+          DefaultCacheBehavior:
+            CachePolicyId: CachingOptimized
+            ViewerProtocolPolicy: redirect-to-https
