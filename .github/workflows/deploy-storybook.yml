@@ -42,15 +42,15 @@ jobs:
             allowedStages:
               - PROD
             deployments:
-              cloudformation:
-                app: all-storybooks
-                type: cloud-formation
-                parameters:
-                  templatePath: buckets.yaml
+              # cloudformation:
+              #   app: all-storybooks
+              #   type: cloud-formation
+              #   parameters:
+              #     templatePath: buckets.yaml
               storybook-source-foundations:
                 type: aws-s3
-                dependencies:
-                  - cloudformation
+                # dependencies:
+                #   - cloudformation
                 parameters:
                   bucket: com-gu-storybook-source-foundations
                   cacheControl: private
@@ -60,8 +60,8 @@ jobs:
                   prefixStage: false
               storybook-source-react-components:
                 type: aws-s3
-                dependencies:
-                  - cloudformation
+                # dependencies:
+                #   - cloudformation
                 parameters:
                   bucket: com-gu-storybook-source-react-components
                   cacheControl: private
@@ -71,8 +71,8 @@ jobs:
                   prefixStage: false
               storybook-source-react-components-development-kitchen:
                 type: aws-s3
-                dependencies:
-                  - cloudformation
+                # dependencies:
+                #   - cloudformation
                 parameters:
                   bucket: com-gu-storybook-source-react-components-development-kitchen
                   cacheControl: private
@@ -87,8 +87,8 @@ jobs:
               - dist/storybook/libs/@guardian/source-react-components
             storybook-source-react-components-development-kitchen:
               - dist/storybook/libs/@guardian/source-react-components-development-kitchen
-            cloudformation:
-              - cloudformation/buckets.yaml
+            # cloudformation:
+            #   - cloudformation/buckets.yaml
 
       - name: deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx

@@ -3,57 +3,57 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Cloudformation template for the deploy-storybook.yml workflow action.
 
 Resources:
-  AllStorybooks:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: com-gu-all-storybooks
-      WebsiteConfiguration:
-        IndexDocument: index.html
-  StorybookSourceFoundations:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: com-gu-storybook-source-foundations
-      WebsiteConfiguration:
-        IndexDocument: index.html
-  StorybookSourceReactComponents:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: com-gu-storybook-source-react-components
-      WebsiteConfiguration:
-        IndexDocument: index.html
-  StorybookSourceReactComponentsDevelopmentKitchen:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: com-gu-storybook-source-react-components-development
-      WebsiteConfiguration:
-        IndexDocument: index.html
-  StorybookSourceFoundationsCloudfront: # sadly required for HTTPs :(
-    Type: AWS::CloudFront::Distribution
-    Properties:
-      DistributionConfig:
-        OriginProtocolPolicy: http-only
-        Origins:
-          - DomainName: !GetAtt StorybookSourceFoundations.DomainName
-        DefaultCacheBehavior:
-          CachePolicyId: CachingOptimized
-          ViewerProtocolPolicy: redirect-to-https
-  StorybookSourceReactComponentsCloudfront: # sadly required for HTTPs :(
-    Type: AWS::CloudFront::Distribution
-    Properties:
-      DistributionConfig:
-        OriginProtocolPolicy: http-only
-        Origins:
-          - DomainName: !GetAtt StorybookSourceReactComponents.DomainName
-        DefaultCacheBehavior:
-          CachePolicyId: CachingOptimized
-          ViewerProtocolPolicy: redirect-to-https
-  StorybookSourceReactComponentsDevelopmentKitchenCloudfront: # sadly required for HTTPs :(
-    Type: AWS::CloudFront::Distribution
-    Properties:
-      DistributionConfig:
-        OriginProtocolPolicy: http-only
-        Origins:
-          - DomainName: !GetAtt StorybookSourceReactComponentsDevelopmentKitchen.DomainName
-        DefaultCacheBehavior:
-          CachePolicyId: CachingOptimized
-          ViewerProtocolPolicy: redirect-to-https
+  # AllStorybooks:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     BucketName: com-gu-all-storybooks
+  #     WebsiteConfiguration:
+  #       IndexDocument: index.html
+  # StorybookSourceFoundations:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     BucketName: com-gu-storybook-source-foundations
+  #     WebsiteConfiguration:
+  #       IndexDocument: index.html
+  # StorybookSourceReactComponents:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     BucketName: com-gu-storybook-source-react-components
+  #     WebsiteConfiguration:
+  #       IndexDocument: index.html
+  # StorybookSourceReactComponentsDevelopmentKitchen:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     BucketName: com-gu-storybook-source-react-components-development
+  #     WebsiteConfiguration:
+  #       IndexDocument: index.html
+  # StorybookSourceFoundationsCloudfront: # sadly required for HTTPs :(
+  #   Type: AWS::CloudFront::Distribution
+  #   Properties:
+  #     DistributionConfig:
+  #       OriginProtocolPolicy: http-only
+  #       Origins:
+  #         - DomainName: !GetAtt StorybookSourceFoundations.DomainName
+  #       DefaultCacheBehavior:
+  #         CachePolicyId: CachingOptimized
+  #         ViewerProtocolPolicy: redirect-to-https
+  # StorybookSourceReactComponentsCloudfront: # sadly required for HTTPs :(
+  #   Type: AWS::CloudFront::Distribution
+  #   Properties:
+  #     DistributionConfig:
+  #       OriginProtocolPolicy: http-only
+  #       Origins:
+  #         - DomainName: !GetAtt StorybookSourceReactComponents.DomainName
+  #       DefaultCacheBehavior:
+  #         CachePolicyId: CachingOptimized
+  #         ViewerProtocolPolicy: redirect-to-https
+  # StorybookSourceReactComponentsDevelopmentKitchenCloudfront: # sadly required for HTTPs :(
+  #   Type: AWS::CloudFront::Distribution
+  #   Properties:
+  #     DistributionConfig:
+  #       OriginProtocolPolicy: http-only
+  #       Origins:
+  #         - DomainName: !GetAtt StorybookSourceReactComponentsDevelopmentKitchen.DomainName
+  #       DefaultCacheBehavior:
+  #         CachePolicyId: CachingOptimized
+  #         ViewerProtocolPolicy: redirect-to-https
