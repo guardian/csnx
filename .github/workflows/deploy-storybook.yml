@@ -24,14 +24,20 @@ jobs:
           cache: 'pnpm'
       - run: make build-storybooks
 
-      # bundle RiffRaff + deploy
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: eu-west-1
-          role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
+      # # bundle RiffRaff + deploy
+      # - uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-region: eu-west-1
+      #     role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
 
-      - name: deploy foundations to s3
-        run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
+      # - name: deploy source-foundations to s3
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
+
+      # - name: deploy source-foundations to s3
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
+
+      # - name: deploy source-foundations to s3
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
 
       - name: deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx

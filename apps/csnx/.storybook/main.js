@@ -39,10 +39,10 @@ module.exports = {
 				title: 'source-foundations',
 				url: 'https://d3i1l5r238v6d6.cloudfront.net',
 			},
-			// 'source-react-components': {
-			// 	title: 'source-react-components',
-			// 	url: 'https://com-gu-storybook-source-react-components.s3-website-eu-west-1.amazonaws.com',
-			// },
+			'source-react-components': {
+				title: 'source-react-components',
+				url: 'https://d1qsfuwwsg3os7.cloudfront.net/',
+			},
 			// 'source-react-components-development-kitchen': {
 			// 	title: 'source-react-components-development-kitchen',
 			// 	url: 'https://com-gu-storybook-source-react-components-development-kitchen.s3-website-eu-west-1.amazonaws.com',
