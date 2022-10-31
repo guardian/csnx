@@ -1,4 +1,5 @@
-import { breakpoints, Breakpoint } from '../../src/breakpoints/breakpoints';
+import type { Breakpoint } from '../../src/breakpoints/breakpoints';
+import { breakpoints } from '../../src/breakpoints/breakpoints';
 
 type ViewportMeta = {
 	[key in Breakpoint]: {
