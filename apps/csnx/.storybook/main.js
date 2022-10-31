@@ -41,7 +41,7 @@ module.exports = {
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://d1qsfuwwsg3os7.cloudfront.net/',
+				url: 'https://d1qsfuwwsg3os7.cloudfront.net',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',

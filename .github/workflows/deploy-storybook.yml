@@ -33,11 +33,11 @@ jobs:
       # - name: deploy source-foundations to s3
       #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
 
-      # - name: deploy source-foundations to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
+      # - name: deploy source-react-components to s3
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components s3://csnx-storybooks-source-react-components
 
-      # - name: deploy source-foundations to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
+      # - name: deploy source-react-components-development-kitchen to s3
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components-development-kitchen s3://csnx-storybooks-source-react-components-development-kitchen
 
       - name: deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
