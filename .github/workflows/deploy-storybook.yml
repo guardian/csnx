@@ -46,6 +46,11 @@ jobs:
                 type: aws-s3
                 parameters:
                   bucket: csnx-storybooks-source-foundations
+                  cacheControl: private
+                  publicReadAcl: true
+                  prefixPackage: false
+                  prefixStack: false
+                  prefixStage: false
           contentDirectories: |
             storybook-source-foundations:
               - dist/storybook/libs/@guardian/source-foundations
