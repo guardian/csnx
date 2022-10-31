@@ -66,7 +66,7 @@ jobs:
             storybook-source-react-components-development-kitchen:
               - dist/storybook/libs/@guardian/source-react-components-development-kitchen
       - name: deploy react components to s3
-        run: pnpm storybook-to-aws-s3 --bucket-path=com-gu-storybook-source-react-components --aws-profile=${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
+        run: pnpm storybook-to-aws-s3 --bucket-path=com-gu-storybook-source-react-components --aws-profile=NONE
       - name: deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
