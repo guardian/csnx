@@ -31,7 +31,7 @@ jobs:
           role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
 
       - name: deploy foundations to s3
-        run: pnpm storybook-to-aws-s3 --ci --existing-output-dir dist/storybook/libs/@guardian/source-foundations --bucket-path=csnx-storybooks-source-foundations --aws-profile=NONE
+        run: pnpm storybook-to-aws-s3 --ci --existing-output-dir dist/storybook/libs/@guardian/source-foundations --bucket-path=csnx-storybooks-source-foundations
 
       - name: deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
