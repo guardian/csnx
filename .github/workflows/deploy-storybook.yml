@@ -31,13 +31,13 @@ jobs:
       #     role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
 
       # - name: deploy source-foundations to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks-source-foundations
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks/source-foundations --delete
 
       # - name: deploy source-react-components to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components s3://csnx-storybooks-source-react-components
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components s3://csnx-storybooks/source-react-components --delete
 
       # - name: deploy source-react-components-development-kitchen to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components-development-kitchen s3://csnx-storybooks-source-react-components-development-kitchen
+      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components-development-kitchen s3://csnx-storybooks/source-react-components-development-kitchen --delete
 
       - name: deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
