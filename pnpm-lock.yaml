@@ -25,6 +25,7 @@ importers:
       '@storybook/addon-docs': 6.5.12
       '@storybook/addon-essentials': 6.5.12
       '@storybook/addon-links': 6.5.12
+      '@storybook/addons': ^6.5.13
       '@storybook/builder-webpack5': 6.5.12
       '@storybook/manager-webpack5': 6.5.12
       '@storybook/react': ^6.5.12
@@ -79,6 +80,7 @@ importers:
       '@storybook/addon-docs': 6.5.12_h76vyzqjkwxs33ydemupqctqci
       '@storybook/addon-essentials': 6.5.12_rgfblcdcave6mxvn74a3qw72re
       '@storybook/addon-links': 6.5.12_w7o5yyljkiidx2s2nzb26ottzu
+      '@storybook/addons': 6.5.13_w7o5yyljkiidx2s2nzb26ottzu
       '@storybook/builder-webpack5': 6.5.12_c223ox742xd5qdn63hln27tn24
       '@storybook/manager-webpack5': 6.5.12_c223ox742xd5qdn63hln27tn24
       '@storybook/react': 6.5.13_ybwoohmcph6zmpghsmd5onqnfe
