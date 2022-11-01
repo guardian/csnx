@@ -8,7 +8,7 @@ We have recently been in discussion with the Dotcom platform team regarding the 
 
 By relocating it in CSNX, we hope to reduce friction between DCR and the Guardian packages it consumes (Source, Libs etc) by rationalising dependencies and standardising package versions.
 
-# Pre-migration
+# Pre-relocation
 
 ## Rationalising NPM dependencies across the existing DCR / AR monorepo
 
