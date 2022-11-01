@@ -40,3 +40,51 @@ applications:
       cache:
         paths:
           - codebuild/output/.pnpm-store/v3/**/*
+  - appRoot: libs/@guardian/source-react-components
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - cd ../../../
+            - nvm install 16 # amplify doesn't support 18 and defaults to 14 :(
+            - corepack pnpm install --frozen-lockfile
+        build:
+          commands:
+            - corepack pnpm nx run @guardian/source-react-components:build-storybook
+        postBuild:
+          commands:
+            - echo "$PWD"
+            - ls
+            - ls ./dist
+      artifacts:
+        baseDirectory: ../../../dist/storybook/libs/@guardian/source-react-components
+        files:
+          - '**/*'
+        discard-paths: yes
+      cache:
+        paths:
+          - codebuild/output/.pnpm-store/v3/**/*
+  - appRoot: libs/@guardian/source-react-components-development-kitchen
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - cd ../../../
+            - nvm install 16 # amplify doesn't support 18 and defaults to 14 :(
+            - corepack pnpm install --frozen-lockfile
+        build:
+          commands:
+            - corepack pnpm nx run @guardian/source-react-components-development-kitchen:build-storybook
+        postBuild:
+          commands:
+            - echo "$PWD"
+            - ls
+            - ls ./dist
+      artifacts:
+        baseDirectory: ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen
+        files:
+          - '**/*'
+        discard-paths: yes
+      cache:
+        paths:
+          - codebuild/output/.pnpm-store/v3/**/*
