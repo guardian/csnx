@@ -1,4 +1,13 @@
-name: Deploy Storybook to GitHub Pages
+# This workflow deploys the root-level to GitHub Pages.
+#
+# The root-level storybook composes the individual project storybooks, which
+# are built and deployed by AWS Amplify projects on commits to main branch.
+#
+# To add another project storybook, you need to add a new AWS Amplify project.
+# See the existing projects (prefixed with "csnx/storybooks-") for examples of
+# how to do this.
+
+name: Deploy Storybooks
 on:
   push:
     branches:
@@ -15,8 +24,11 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx run csnx:build-storybook
-      - name: deploy
+
+      - name: Build root storybook
+        run: pnpm nx run csnx:build-storybook
+
+      - name: Deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
