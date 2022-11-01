@@ -14,4 +14,4 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - /codebuild/output/.pnpm-store/v3/**/*
