@@ -1,11 +1,12 @@
 # This workflow deploys the root-level to GitHub Pages.
 #
-# The root-level storybook composes the individual project storybooks, which
-# are built and deployed by AWS Amplify projects on commits to main branch.
+# The root-level storybook composes the individual project storybooks, which are
+# built and deployed by AWS Amplify projects on commits to main branch.
 #
 # To add another project storybook, you need to add a new AWS Amplify project.
-# See the existing projects (prefixed with "csnx/storybooks-") for examples of
-# how to do this.
+# See the existing projects (prefixed with "csnx/storybooks-") at
+# https://eu-west-1.console.aws.amazon.com/amplify/home?region=eu-west-1 for
+# examples of how to do this.
 
 name: Deploy Storybooks
 on:
