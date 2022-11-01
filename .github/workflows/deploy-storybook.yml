@@ -1,3 +1,12 @@
+# This workflow deploys the root-level to GitHub Pages.
+#
+# The root-level storybook composes the individual project storybooks, which
+# are built and deployed by AWS Amplify projects on commits to main branch.
+#
+# To add another project storybook, you need to add a new AWS Amplify project.
+# See the existing projects (prefixed with "csnx/storybooks-") for examples of
+# how to do this.
+
 name: Deploy Storybooks
 on:
   pull_request:
@@ -9,11 +18,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    # For RR upload
-    permissions:
-      id-token: write
-      contents: write
-
     steps:
       - uses: actions/checkout@v3
       # enables use to use the cache in actions/setup-node
@@ -22,24 +26,12 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: make build-storybooks
+      - run: pnpm install --frozen-lockfile
 
-      # # bundle RiffRaff + deploy
-      # - uses: aws-actions/configure-aws-credentials@v1
-      #   with:
-      #     aws-region: eu-west-1
-      #     role-to-assume: ${{ secrets.GU_RIFF_RAFF_ROLE_ARN }}
+      - name: Build root storybook
+        run: pnpm nx run csnx:build-storybook
 
-      # - name: deploy source-foundations to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-foundations s3://csnx-storybooks/source-foundations --delete
-
-      # - name: deploy source-react-components to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components s3://csnx-storybooks/source-react-components --delete
-
-      # - name: deploy source-react-components-development-kitchen to s3
-      #   run: aws s3 sync dist/storybook/libs/@guardian/source-react-components-development-kitchen s3://csnx-storybooks/source-react-components-development-kitchen --delete
-
-      - name: deploy root storybook to github pages
+      - name: Deploy root storybook to github pages
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}

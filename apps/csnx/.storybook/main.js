@@ -37,15 +37,15 @@ module.exports = {
 		return {
 			'source-foundations': {
 				title: 'source-foundations',
-				url: 'https://dkueb6x1zvheb.cloudfront.net',
+				url: 'https://main.diy95zty49kdd.amplifyapp.com',
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://d2fsrka4th9xxh.cloudfront.net',
+				url: 'https://main.d2zt1j33ncruvj.amplifyapp.com',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
-				url: 'https://d3ag6334pu7s8o.cloudfront.net',
+				url: 'https://main.d25xfnd702qjsd.amplifyapp.com',
 			},
 		};
 	},
