@@ -32,8 +32,8 @@ There are a number of potentially unused files in the old monorepo root folders,
 
 ## Match package versions to infrastructure deps in CSNX
 
-Eg Jest, Storybook, ESLint, Prettier etc
-Node versions
+- Jest, Storybook, ESLint, Prettier etc
+- Node versions
 
 ## Setup Storybook to match CSNX
 
