@@ -21,17 +21,16 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install 16 # amplify doesn't support 18 and defaults to 14 :(
+            - cd ../../../
             - corepack pnpm install --frozen-lockfile
         build:
           commands:
-            - echo "$PWD"
             - corepack pnpm nx run @guardian/source-foundations:build-storybook
       artifacts:
         files:
           - '**/*'
         discard-paths: yes
-        baseDirectory: ../../dist/storybook/libs/@guardian/source-foundations
+        baseDirectory: dist/storybook/libs/@guardian/source-foundations
       cache:
         paths:
           - codebuild/output/.pnpm-store/v3/**/*
