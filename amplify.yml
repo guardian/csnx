@@ -27,7 +27,6 @@ applications:
             - corepack pnpm install --frozen-lockfile
         build:
           commands:
-            - cd ../../
             - corepack pnpm nx run-many --target=build-storybook --all=true
       artifacts:
         files:
