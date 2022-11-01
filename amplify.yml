@@ -11,11 +11,6 @@ applications:
         build:
           commands:
             - corepack pnpm nx run @guardian/source-foundations:build-storybook
-        postBuild:
-          commands:
-            - echo "$PWD"
-            - ls
-            - ls ./dist
       artifacts:
         baseDirectory: ../../../dist/storybook/libs/@guardian/source-foundations
         files:
@@ -35,11 +30,6 @@ applications:
         build:
           commands:
             - corepack pnpm nx run @guardian/source-react-components:build-storybook
-        postBuild:
-          commands:
-            - echo "$PWD"
-            - ls
-            - ls ./dist
       artifacts:
         baseDirectory: ../../../dist/storybook/libs/@guardian/source-react-components
         files:
@@ -59,11 +49,6 @@ applications:
         build:
           commands:
             - corepack pnpm nx run @guardian/source-react-components-development-kitchen:build-storybook
-        postBuild:
-          commands:
-            - echo "$PWD"
-            - ls
-            - ls ./dist
       artifacts:
         baseDirectory: ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen
         files:
