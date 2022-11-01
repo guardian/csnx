@@ -20,7 +20,7 @@ We would like to handle dependencies across the existing monorepo using PNPM, an
 
 ## Adding NX to the workspace for use in DCR
 
-We use NX in CSNX to handle our build processes. Pre-migration we'd like to add NX to the AR/DCR monorepo.
+We use NX in CSNX to handle our build processes. Pre-relocation we intend to add NX to the AR/DCR monorepo.
 
 We need to discover whether it makes most sense to use `project.json` or NPM scripts in conjunction with NX.
 
