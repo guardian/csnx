@@ -12,7 +12,7 @@ By relocating it in CSNX, we hope to reduce friction between DCR and the Guardia
 
 ## Rationalising NPM dependencies across the existing DCR / AR monorepo
 
-We currently have a yarn workspace containing DCR and common rendering. AR dependencies are handled using NPM still. AR relies on some dependencies from the root package.
+The `dotcom-rendering` repo currently contains a yarn workspace containing DCR and common rendering and AR, whose dependencies are handled using NPM. AR consumes some undeclared dependencies from the root yarn workspace.
 
 Common-rendering is only consumed by AR.
 
