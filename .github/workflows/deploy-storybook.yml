@@ -9,8 +9,6 @@
 
 name: Deploy Storybooks
 on:
-  pull_request:
-  workflow_dispatch:
   push:
     branches:
       - main
