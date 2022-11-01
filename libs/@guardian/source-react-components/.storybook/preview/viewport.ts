@@ -42,19 +42,31 @@ const viewportMeta: ViewportMeta = {
 	},
 };
 
+type Viewports = {
+	[key in Breakpoint]: {
+		styles: {
+			width: string;
+			height: string;
+		};
+		type: string;
+	};
+};
+
 const viewportEntries = Object.entries(breakpoints).map(([name, width]) => {
 	return [
 		name,
 		{
-			name: viewportMeta[name].name,
+			name: viewportMeta[name as Breakpoint].name,
 			styles: {
 				width: `${width}px`,
 				height: '100%',
 			},
-			type: viewportMeta[name].type,
+			type: viewportMeta[name as Breakpoint].type,
 		},
 	];
 });
+
+const viewportEntriesObject = Object.fromEntries(viewportEntries) as Viewports;
 
 export const viewport = {
 	viewports: {
@@ -69,7 +81,7 @@ export const viewport = {
 				boxShadow: 'none',
 			},
 		},
-		...Object.fromEntries(viewportEntries),
+		...viewportEntriesObject,
 	},
 	defaultViewport: 'responsive',
 };
