@@ -6,7 +6,7 @@ We have recently been in discussion with the Dotcom platform team regarding the 
 
 ## What do we hope to achieve?
 
-With this migration, we hope to reduce friction between DCR and the Guardian packages it consumes (Source, Libs etc) by rationalising dependencies and standardising package versions.
+By relocating it in CSNX, we hope to reduce friction between DCR and the Guardian packages it consumes (Source, Libs etc) by rationalising dependencies and standardising package versions.
 
 # Pre-migration
 
