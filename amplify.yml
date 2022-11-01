@@ -30,7 +30,7 @@ applications:
         files:
           - '**/*'
         discard-paths: yes
-        baseDirectory: /dist/storybook/libs/@guardian/source-foundations
+        baseDirectory: ../../dist/storybook/libs/@guardian/source-foundations
       cache:
         paths:
           - codebuild/output/.pnpm-store/v3/**/*
