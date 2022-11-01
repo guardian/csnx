@@ -33,10 +33,10 @@ applications:
             - ls
             - ls ./dist
       artifacts:
+        baseDirectory: ../../../dist/storybook/libs/@guardian/source-foundations
         files:
           - '**/*'
         discard-paths: yes
-        baseDirectory: ./dist/storybook/libs/@guardian/source-foundations
       cache:
         paths:
           - codebuild/output/.pnpm-store/v3/**/*
