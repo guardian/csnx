@@ -22,6 +22,7 @@ applications:
         preBuild:
           commands:
             - cd ../../../
+            - nvm install 16 # amplify doesn't support 18 and defaults to 14 :(
             - corepack pnpm install --frozen-lockfile
         build:
           commands:
