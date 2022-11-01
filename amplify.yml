@@ -1,17 +1,35 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - corepack pnpm install --frozen-lockfile
-    build:
-      commands:
-        - corepack pnpm nx run-many --target=build-storybook --all=true
-  artifacts:
-    # IMPORTANT - Please verify your build output directory
-    baseDirectory: /dist/storybook/libs/@guardian/source-foundations
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - codebuild/output/.pnpm-store/v3/**/*
+# frontend:
+#   phases:
+#     preBuild:
+#       commands:
+#         - corepack pnpm install --frozen-lockfile
+#     build:
+#       commands:
+#         - corepack pnpm nx run-many --target=build-storybook --all=true
+#   artifacts:
+#     # IMPORTANT - Please verify your build output directory
+#     baseDirectory: /dist/storybook/libs/@guardian/source-foundations
+#     files:
+#       - '**/*'
+#   cache:
+#     paths:
+#       - codebuild/output/.pnpm-store/v3/**/*
+applications:
+  - appRoot: libs/@guardian/source-foundations
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - corepack pnpm install --frozen-lockfile
+        build:
+          commands:
+            - corepack pnpm nx run @guardian/source-foundations:build-storybook
+      artifacts:
+        files:
+          - '**/*'
+        discard-paths: yes
+        baseDirectory: /dist/storybook/libs/@guardian/source-foundations
+      cache:
+        paths:
+          - codebuild/output/.pnpm-store/v3/**/*
