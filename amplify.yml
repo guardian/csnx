@@ -34,4 +34,4 @@ applications:
         baseDirectory: /dist/storybook/libs/@guardian/source-foundations
       cache:
         paths:
-          - /codebuild/output/.pnpm-store/v3/**/*
+          - codebuild/output/.pnpm-store/v3/**/*
