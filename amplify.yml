@@ -25,6 +25,7 @@ applications:
             - corepack pnpm install --frozen-lockfile
         build:
           commands:
+            - echo "$PWD"
             - corepack pnpm nx run @guardian/source-foundations:build-storybook
       artifacts:
         files:
