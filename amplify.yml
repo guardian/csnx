@@ -27,6 +27,11 @@ applications:
         build:
           commands:
             - corepack pnpm nx run @guardian/source-foundations:build-storybook
+        postBuild:
+          commands:
+            - echo "$PWD"
+            - ls
+            - ls /dist
       artifacts:
         files:
           - '**/*'
