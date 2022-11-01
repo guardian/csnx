@@ -21,6 +21,7 @@ applications:
       phases:
         preBuild:
           commands:
+            - node -v
             - nvm install
             - corepack pnpm install --frozen-lockfile
         build:
