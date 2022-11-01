@@ -21,7 +21,7 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install -lts # amplify doesn't support 18 :(
+            - nvm install --lts # amplify doesn't support 18 :(
             - corepack pnpm install --frozen-lockfile
         build:
           commands:
