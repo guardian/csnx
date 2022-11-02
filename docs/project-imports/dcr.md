@@ -20,7 +20,7 @@ AR consumes some undeclared dependencies from the root yarn workspace.
 
 Common-rendering is only consumed by AR.
 
-We would like to handle dependencies across the existing monorepo using PNPM, and resolve any issues around shared dependencies _before_ any migration takes place.
+We will move all projects into one `yarn` workspace, and resolve any issues around shared dependencies _before_ any migration takes place.
 
 ## Adding NX to the workspace for use in DCR
 
