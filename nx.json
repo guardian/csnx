@@ -9,7 +9,8 @@
 			"dependencies": "*",
 			"devDependencies": "*"
 		},
-		"tools/nx-plugins/**/*": "*"
+		"tools/nx-plugins/**/*": "*",
+		".storybook/main.js": "*"
 	},
 	"npmScope": "csnx",
 	"targetDefaults": {
