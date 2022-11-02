@@ -42,7 +42,7 @@ Resources:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
           TargetOriginId: bucket
-          CachePolicyId: CachingOptimized
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html
           ViewerProtocolPolicy: redirect-to-https
   StorybookSourceReactComponentsCloudfront:
     Type: AWS::CloudFront::Distribution
@@ -56,7 +56,7 @@ Resources:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
           TargetOriginId: bucket
-          CachePolicyId: CachingOptimized
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
           ViewerProtocolPolicy: redirect-to-https
   StorybookSourceReactComponentsDevelopmentKitchenCloudfront:
     Type: AWS::CloudFront::Distribution
@@ -70,5 +70,5 @@ Resources:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
           TargetOriginId: bucket
-          CachePolicyId: CachingOptimized
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
           ViewerProtocolPolicy: redirect-to-https
