@@ -19,12 +19,11 @@ We want to relocate `dotcom-rendering` in the `csnx` monorepo.
 
 ### Turn the `dotcom-rendering` repo into a single `yarn` workspace
 
-the `dotcom-rendering` repo currently managed by two different package managers:
+the `dotcom-rendering` repo is currently managed by two different package managers:
 
 1. A `yarn` workspace containing `dotcom-rendering` and `common-rendering`
-2. An NPM-managed package that contains the `apps-rendering` code.
+2. An `npm`-managed package that contains the `apps-rendering` code.
 
-_n.b. `common-rendering` is only consumed by AR._
 
 #### Problem
 
