@@ -28,6 +28,7 @@ the `dotcom-rendering` repo is currently managed by two different package manage
 
 - `apps-rendering` consumes some undeclared dependencies from the `yarn` workspace
 - some `dotcom-rendering`-specific dependencies are installed in the root
+- it impossible to know for certain which packages are installed by which project and where, which makes it impossibly to confidently remove part of the workspace
 
 #### Solution
 
