@@ -48,13 +48,16 @@ There are a number of potentially unused files in the old monorepo root folders,
 - AR and CR will both be able to use NX, although this will not be CSTI's initial focus
 - AR and CR will remain in the `dotcom-rendering` repo for now
 
-## Whats in the root that each project is using?
+# Questions
 
-Eg how do we handle workflows
-Riff raff
-Cypress? (DCR only)
+## Whats processes/services do DCR and AR currently share?
 
-## What is the end goal?
+e.g.
+- workflows
+- Riff raff
+- Cypress
 
-Run an automated mirror version of DCR in CSNX
-Stagger switch within Frontend (eg 10% of requests go to CSNX instance of DCR)
+## How do manage the final switch over?
+
+- run a mirror of DCR in CSNX that automatically keeps in sync?
+- stagger the switch over from inside Frontend (eg 10% > 50% > 100% of requests go to CSNX instance of DCR)
