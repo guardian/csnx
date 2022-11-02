@@ -2,17 +2,17 @@
 
 ## Context
 
-We have recently been in discussion with the Dotcom platform team regarding the migration of DCR into the CSNX monorepo.
+We have recently been in discussion with the Dotcom platform team regarding the relocation of DCR into the CSNX monorepo.
 
 ## What do we hope to achieve?
 
-With this migration, we hope to reduce friction between DCR and the Guardian packages it consumes (Source, Libs etc) by rationalising dependencies and standardising package versions.
+By relocating it in CSNX, we hope to reduce friction between DCR and the Guardian packages it consumes (Source, Libs etc) by rationalising dependencies and standardising package versions.
 
-# Pre-migration
+# Pre-relocation
 
 ## Rationalising NPM dependencies across the existing DCR / AR monorepo
 
-We currently have a yarn workspace containing DCR and common rendering. AR dependencies are handled using NPM still. AR relies on some dependencies from the root package.
+The `dotcom-rendering` repo currently contains a yarn workspace containing DCR and common rendering and AR, whose dependencies are handled using NPM. AR consumes some undeclared dependencies from the root yarn workspace.
 
 Common-rendering is only consumed by AR.
 
@@ -20,7 +20,7 @@ We would like to handle dependencies across the existing monorepo using PNPM, an
 
 ## Adding NX to the workspace for use in DCR
 
-We use NX in CSNX to handle our build processes. Pre-migration we'd like to add NX to the AR/DCR monorepo.
+We use NX in CSNX to handle our build processes. Pre-relocation we intend to add NX to the AR/DCR monorepo.
 
 We need to discover whether it makes most sense to use `project.json` or NPM scripts in conjunction with NX.
 
@@ -32,8 +32,8 @@ There are a number of potentially unused files in the old monorepo root folders,
 
 ## Match package versions to infrastructure deps in CSNX
 
-Eg Jest, Storybook, ESLint, Prettier etc
-Node versions
+- Jest, Storybook, ESLint, Prettier etc
+- Node versions
 
 ## Setup Storybook to match CSNX
 

@@ -1,3 +1,3 @@
 # test markdown
 
-hello from source-react-components
+hello from `source-react-components`
