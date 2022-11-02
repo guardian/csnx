@@ -54,7 +54,7 @@ _n.b. `apps-rendering` and `common-rendering` will both be able to use Nx, altho
 
 #### Problem
 
-- there is a lot of config files in the `dotcom-rendering` repo
+- there are a lot of config files in the `dotcom-rendering` repo
 - we don't know how many are used still (e.g. `arkit.json`?)
 
 #### Solution
