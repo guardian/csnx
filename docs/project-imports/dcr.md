@@ -42,10 +42,11 @@ There are a number of potentially unused files in the old monorepo root folders,
 - per-project storybooks
 - standardise on idiomatic storybook code/structure (if needed)
 
-## What happens to AR and common rendering?
+## What happens to AR and `common-rendering`?
 
-Stays where it is?
-How do we not break it?
+- we will set up `dotcom-rendering` repo as full monorepo
+- AR and CR will both be able to use NX, although this will not be CSTI's initial focus
+- AR and CR will remain in the `dotcom-rendering` repo for now
 
 ## Whats in the root that each project is using?
 
