@@ -37,15 +37,15 @@ module.exports = {
 		return {
 			'source-foundations': {
 				title: 'source-foundations',
-				url: 'https://main.diy95zty49kdd.amplifyapp.com',
+				url: 'http://com-gu-storybook-source-foundations.s3-website-eu-west-1.amazonaws.com',
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://main.d2zt1j33ncruvj.amplifyapp.com',
+				url: 'http://com-gu-storybook-source-react-components.s3-website-eu-west-1.amazonaws.com',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
-				url: 'https://main.d25xfnd702qjsd.amplifyapp.com',
+				url: 'http://com-gu-storybook-source-react-components-development-kitchen.s3-website-eu-west-1.amazonaws.com',
 			},
 		};
 	},
