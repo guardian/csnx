@@ -39,11 +39,8 @@ There are a number of potentially unused files in the old monorepo root folders,
 
 ## Setup Storybook to match CSNX
 
-Per project storybooks
-Do we need a composed storybook for AR/DCR/common?
-Storybooks.gutools.co.uk ?
-Add to composed storybook
-Remove idiosyncratic code
+- per-project storybooks
+- standardise on idiomatic storybook code/structure (if needed)
 
 ## What happens to AR and common rendering?
 
