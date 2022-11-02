@@ -14,7 +14,9 @@ We want to relocate DCR in the CSNX monorepo.
 
 ## Rationalising NPM dependencies across the existing DCR / AR monorepo
 
-The `dotcom-rendering` repo currently contains a yarn workspace containing DCR and common rendering and AR, whose dependencies are handled using NPM. AR consumes some undeclared dependencies from the root yarn workspace.
+The `dotcom-rendering` repo currently contains one yarn workspace (containing DCR and common rendering) and a third, unattached package (AR), whose dependencies are handled using NPM. 
+
+AR consumes some undeclared dependencies from the root yarn workspace.
 
 Common-rendering is only consumed by AR.
 
