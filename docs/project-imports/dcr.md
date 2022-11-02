@@ -2,7 +2,7 @@
 
 ## Context
 
-We have recently been in discussion with the Dotcom platform team regarding the relocation of DCR into the CSNX monorepo.
+We want to relocate DCR in the CSNX monorepo.
 
 ## What do we hope to achieve?
 
