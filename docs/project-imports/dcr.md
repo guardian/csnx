@@ -6,7 +6,9 @@ We want to relocate DCR in the CSNX monorepo.
 
 ## What do we hope to achieve?
 
-By relocating it in CSNX, we hope to reduce friction between DCR and the Guardian packages it consumes (Source, Libs etc) by rationalising dependencies and standardising package versions.
+- make it easier for Guardian product teams to ship by reducing the friction of interdependency between DCR and other Guardian projects (Source, Libs, consent, commercial code etc) 
+- reduce the time spent by dotcom on managing their infrastructure
+- standardise process: _best practice by default_
 
 # Pre-relocation
 
