@@ -26,8 +26,6 @@ We will move all projects into one `yarn` workspace, and resolve any issues arou
 
 We use NX in CSNX to handle our build processes. Pre-relocation we intend to add NX to the `dotcom-rendering` monorepo.
 
-We need to discover whether it makes most sense to use `project.json` or NPM scripts in conjunction with NX.
-
 The setup should be as close as possible to CSNX.
 
 ## Identify unused config files in AR/DCR
