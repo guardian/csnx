@@ -1,63 +1,117 @@
-# Moving DCR into the CSNX monorepo
+# Importing `dotcom-rendering` into `csnx`
 
-## Context
+## Glossary
 
-We want to relocate DCR in the CSNX monorepo.
+- `dotcom-rendering` refers to the application that renders HTML for `frontend`
+- _"the `dotcom-rendering` repo"_ refers to the repo that contains `dotcom-rendering`, `apps-rendering` and `common-rendering` codebases
 
-## What do we hope to achieve?
+## Intention
 
-- make it easier for Guardian product teams to ship by reducing the friction of interdependency between DCR and other Guardian projects (Source, Libs, consent, commercial code etc) 
-- reduce the time spent by dotcom on managing their infrastructure
-- standardise process: _best practice by default_
+We want to relocate `dotcom-rendering` in the `csnx` monorepo.
 
-# Pre-relocation
+### Why?
 
-## Rationalising NPM dependencies across the existing DCR / AR monorepo
+- to make it easier for Guardian product teams to ship by reducing the friction of interdependency between `dotcom-rendering` and other Guardian projects (Source, Libs, consent, commercial code etc)
+- to reduce the time spent by dotcom on managing their infrastructure
+- to standardise process: _best practice by default_
 
-The `dotcom-rendering` repo currently contains one yarn workspace (containing DCR and common rendering) and a third, unattached package (AR), whose dependencies are handled using NPM. 
+## Preparation
 
-AR consumes some undeclared dependencies from the root yarn workspace.
+### Turn the `dotcom-rendering` repo into a single `yarn` workspace
 
-Common-rendering is only consumed by AR.
+the `dotcom-rendering` repo currently managed by two different package managers:
 
-We will move all projects into one `yarn` workspace, and resolve any issues around shared dependencies _before_ any migration takes place.
+1. A `yarn` workspace containing `dotcom-rendering` and `common-rendering`
+2. An NPM-managed package that contains the `apps-rendering` code.
 
-## Adding NX to the workspace for use in DCR
+_n.b. `common-rendering` is only consumed by AR._
 
-We use NX in CSNX to handle our build processes. Pre-relocation we intend to add NX to the `dotcom-rendering` monorepo.
+#### Problem
 
-The setup should be as close as possible to CSNX.
+- `apps-rendering` consumes some undeclared dependencies from the `yarn` workspace
+- some `dotcom-rendering`-specific dependencies are installed in the root
 
-## Identify unused config files in AR/DCR
+#### Solution
 
-There are a number of potentially unused files in the old monorepo root folders, are we able to remove these? `arkit.json` is a possible example
+- convert `apps-rendering` to `yarn`
+- move all projects into a single `yarn` workspace
+- move all possible deps to individual project's `package.json`
 
-## Match package versions to infrastructure deps in CSNX
+### Add Nx to the `dotcom-rendering` repo for use in `dotcom-rendering`
 
-- Jest, Storybook, ESLint, Prettier etc
-- Node versions
+#### Problem
 
-## Setup Storybook to match CSNX
+- `csnx` uses Nx to orchestrate the project
+- we want the actual importing of `dotcom-rendering` code to require as few changes as possible
 
-- per-project storybooks
+#### Solution
+
+- we will add Nx to the existing the `dotcom-rendering` repo monorepo
+- the setup will be as close as possible to `csnx`.
+
+_n.b. `apps-rendering` and `common-rendering` will both be able to use Nx, although setting this up will not be CSTI's initial focus._
+
+### Remove unused config from the `dotcom-rendering` repo
+
+#### Problem
+
+- there is a lot of config files in the `dotcom-rendering` repo
+- we don't know how many are used still (e.g. `arkit.json`?)
+
+#### Solution
+
+- identify and remove unused config files
+
+### Align dev dependency versions in the `dotcom-rendering` repo with `csnx`
+
+#### Problem
+
+- `csnx` tries to use a single version of dev dependencies (e.g. Jest, Storybook, ESLint, Prettier etc)
+- this makes it easier to manage updates across projects
+
+#### Solution
+
+- align `dotcom-rendering` dev dependencies with `csnx`
+
+### Align Node version in the `dotcom-rendering` repo with `csnx`
+
+#### Problem
+
+- projects in a monorepo cannot use different versions of Node
+
+#### Solution
+
+- align the `dotcom-rendering` repo `.nvmrc` with `csnx`
+
+### Align the Storybook setup in the `dotcom-rendering` repo with `csnx`
+
+#### Problem
+
+- `csnx` has a per-project Storybook setup, with a root Storybook that composes them all
+- the `dotcom-rendering` repo has a single Storybook that contains stories from all projects
+
+#### Solution
+
+- set up per-project storybooks in the `dotcom-rendering` repo
 - standardise on idiomatic storybook code/structure (if needed)
 
-## What happens to AR and `common-rendering`?
+## Questions
 
-- we will set up `dotcom-rendering` repo as full monorepo
-- AR and CR will both be able to use NX, although this will not be CSTI's initial focus
-- AR and CR will remain in the `dotcom-rendering` repo for now
+### What happens to `apps-rendering` and `common-rendering`?
 
-# Questions
+`apps-rendering` and `common-rendering` will remain in the `dotcom-rendering` repo for now.
 
-## Whats processes/services do DCR and AR currently share?
+### Whats processes/services/workflows do `dotcom-rendering` and `apps-rendering` currently share?
 
-e.g.
-- workflows
+For example:
+
+- github actions
 - Riff raff
 - Cypress
 
-## How do manage the final switch over?
+### How do manage the final switch over?
 
-- run a mirror of DCR in CSNX that automatically keeps in sync?
-- stagger the switch over from inside Frontend (eg 10% > 50% > 100% of requests go to CSNX instance of DCR)
+This is not clear yet.
+
+- run a mirror of `dotcom-rendering` in `csnx` that automatically keeps in sync?
+- stagger the switch over from inside Frontend (eg 10% > 50% > 100% of requests go to `csnx` instance of `dotcom-rendering`)?
