@@ -24,7 +24,6 @@ the `dotcom-rendering` repo is currently managed by two different package manage
 1. A `yarn` workspace containing `dotcom-rendering` and `common-rendering`
 2. An `npm`-managed package that contains the `apps-rendering` code.
 
-
 #### Problem
 
 - `apps-rendering` consumes some undeclared dependencies from the `yarn` workspace
