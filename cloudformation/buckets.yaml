@@ -25,7 +25,7 @@ Resources:
   StorybookSourceReactComponentsDevelopmentKitchen:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: com-gu-storybook-source-react-components-development
+      BucketName: com-gu-storybook-source-react-components-development-kitchen
       WebsiteConfiguration:
         IndexDocument: index.html
 
