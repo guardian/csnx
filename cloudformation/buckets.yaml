@@ -37,7 +37,7 @@ Resources:
         Enabled: true
         Origins:
           - Id: bucket
-            DomainName: !GetAtt StorybookSourceFoundations.DomainName
+            DomainName: !GetAtt StorybookSourceFoundations.WebsiteURL
             CustomOriginConfig:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
@@ -51,7 +51,7 @@ Resources:
         Enabled: true
         Origins:
           - Id: bucket
-            DomainName: !GetAtt StorybookSourceReactComponents.DomainName
+            DomainName: !GetAtt StorybookSourceReactComponents.WebsiteURL
             CustomOriginConfig:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
@@ -65,7 +65,7 @@ Resources:
         Enabled: true
         Origins:
           - Id: bucket
-            DomainName: !GetAtt StorybookSourceReactComponentsDevelopmentKitchen.DomainName
+            DomainName: !GetAtt StorybookSourceReactComponentsDevelopmentKitchen.WebsiteURL
             CustomOriginConfig:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
