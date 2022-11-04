@@ -13,5 +13,4 @@ export default {
 	},
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
 	coverageDirectory: '../../../coverage/libs/@guardian/source-foundations',
-	setupFilesAfterEnv: ['./lib/jest-matchers/index.ts'],
 };
