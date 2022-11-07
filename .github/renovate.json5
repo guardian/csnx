@@ -12,6 +12,7 @@
 	schedule: ['before 3am on Monday'],
 	addLabels: ['dependencies'],
 	reviewers: ['team:client-side-infra'],
+	semanticCommits: 'disabled',
 
 	/*************************** package-specific rules ***********************/
 
