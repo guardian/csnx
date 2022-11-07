@@ -1,0 +1,76 @@
+{
+	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	extends: ['config:base'],
+	schedule: ['before 3am on Monday'],
+	labels: ['dependencies'],
+	semanticCommits: 'disabled',
+	reviewers: ['team:client-side-infra'],
+	rangeStrategy: 'pin',
+
+	/*************************** package-specific rules ***********************/
+
+	packageRules: [
+		// group Nx updates
+		{
+			extends: 'monorepo:nrwl',
+			matchUpdateTypes: ['digest', 'patch', 'minor', 'major'],
+			groupName: 'Nx',
+		},
+
+		// npm packages can be unpublished within 3 days, so wait before a new version is considered stable
+		{
+			matchDatasources: ['npm'],
+			stabilityDays: 3,
+			internalChecksFilter: 'strict',
+		},
+
+		// group non-breaking devDependencies applies to all packages in the
+		// monorepo
+		// {
+		// 	matchDepTypes: ['devDependencies'],
+		// 	matchUpdateTypes: ['patch', 'minor'],
+		// 	groupName: '`devDependencies` (non-breaking)',
+		// },
+
+		/*************************** internal tooling *************************/
+
+		// we don't need to worry about dependency changes in these as much as
+		// we do public facing code, because we will be the ones observing any
+		// breaks they introduce
+
+		// group non-breaking dependencies
+		// {
+		// 	matchPaths: ['tools/**/package.json'],
+		// 	matchDepTypes: ['dependencies'],
+		// 	matchUpdateTypes: ['patch', 'minor'],
+		// 	groupName: '`dependencies` (tools - non-breaking)',
+		// },
+
+		// group breaking dependencies
+		// {
+		// 	matchPaths: ['tools/**/package.json'],
+		// 	matchDepTypes: ['dependencies'],
+		// 	matchUpdateTypes: ['major'],
+		// 	groupName: '`dependencies` (tools - breaking)',
+		// },
+
+		/*************************** peerDependencies *************************/
+
+		// things that our packages define as peerDependencies are pinned as
+		// devDependencies at the bottom of the peerDependency range, to ensure
+		// we develop against the sparest possible version of the package
+
+		{
+			description: 'These are pinned to the bottom of their peerDep range',
+			matchPackageNames: ['web-vitals', 'tslib'],
+			matchPaths: ['libs/@guardian/libs/package.json'],
+			enabled: false,
+		},
+		{
+			description: 'These are pinned to the bottom of their peerDep range',
+			matchPackageNames: ['browserslist'],
+			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			enabled: false,
+		},
+	],
+}
