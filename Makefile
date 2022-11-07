@@ -6,7 +6,7 @@ export SHELL := /usr/bin/env bash
 # runs storybook for all projects in single instance
 .PHONY: storybooks
 storybooks: env
-	$(call log,"Stating storybooks")
+	$(call log,"Starting storybooks")
 	@corepack pnpm nx run csnx:storybooks
 
 ################################# CODE QUALITY #################################
@@ -14,7 +14,7 @@ storybooks: env
 # runs the unit tests for all projects
 .PHONY: test
 test: env
-	$(call log,"Running units tests")
+	$(call log,"Running unit tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
 # runs the e2e tests for all projects
