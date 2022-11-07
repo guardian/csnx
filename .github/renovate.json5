@@ -2,7 +2,7 @@
 	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
 	extends: ['config:base'],
 	schedule: ['before 3am on Monday'],
-	labels: ['dependencies'],
+	addLabels: ['dependencies'],
 	semanticCommits: 'disabled',
 	reviewers: ['team:client-side-infra'],
 	rangeStrategy: 'pin',
