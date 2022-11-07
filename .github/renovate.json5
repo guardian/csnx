@@ -1,11 +1,17 @@
 {
 	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
-	extends: ['config:base'],
+	extends: [
+		'config:base',
+		'packages:jsUnitTest',
+		'packages:eslint',
+		':combinePatchMinorReleases',
+		':pinAllExceptPeerDependencies',
+	],
+	timezone: 'Europe/London',
 	schedule: ['before 3am on Monday'],
 	addLabels: ['dependencies'],
 	semanticCommits: 'disabled',
 	reviewers: ['team:client-side-infra'],
-	rangeStrategy: 'pin',
 
 	/*************************** package-specific rules ***********************/
 
@@ -22,6 +28,103 @@
 			matchDatasources: ['npm'],
 			stabilityDays: 3,
 			internalChecksFilter: 'strict',
+		},
+
+		/*************************** peerDependencies *************************/
+
+		// things that our packages define as peerDependencies are pinned as
+		// devDependencies at the bottom of the peerDependency range, to ensure
+		// we develop against the sparest possible version of the package
+
+		{
+			description: 'These are pinned to the bottom of their peerDep range',
+			matchPackageNames: ['web-vitals', 'tslib'],
+			matchPaths: ['libs/@guardian/libs/package.json'],
+			enabled: false,
+		},
+		{
+			description: 'These are pinned to the bottom of their peerDep range',
+			matchPackageNames: ['browserslist'],
+			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			enabled: false,
+		},
+
+		/****************************** package deps **************************/
+
+		// group all our packages by package
+
+		{
+			matchPackageNames: ['@csnx/eslint'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@csnx/eslint` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@csnx/npm-package'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@csnx/npm-package` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/browserslist-config'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/browserslist-config` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/eslint-config'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-config` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/eslint-config-typescript'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-config-typescript` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/eslint-plugin-source-foundations'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-plugin-source-foundations` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/eslint-plugin-source-react-components'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-plugin-source-react-components` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/libs'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/libs` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/prettier'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/prettier` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/source-foundations'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/source-foundations` dependencies',
+		},
+
+		{
+			matchPackageNames: ['@guardian/source-react-components'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/source-react-components` dependencies',
+		},
+
+		{
+			matchPackageNames: [
+				'@guardian/source-react-components-development-kitchen',
+			],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/source-react-components-development-kitchen` dependencies',
 		},
 
 		// group non-breaking devDependencies applies to all packages in the
@@ -53,24 +156,5 @@
 		// 	matchUpdateTypes: ['major'],
 		// 	groupName: '`dependencies` (tools - breaking)',
 		// },
-
-		/*************************** peerDependencies *************************/
-
-		// things that our packages define as peerDependencies are pinned as
-		// devDependencies at the bottom of the peerDependency range, to ensure
-		// we develop against the sparest possible version of the package
-
-		{
-			description: 'These are pinned to the bottom of their peerDep range',
-			matchPackageNames: ['web-vitals', 'tslib'],
-			matchPaths: ['libs/@guardian/libs/package.json'],
-			enabled: false,
-		},
-		{
-			description: 'These are pinned to the bottom of their peerDep range',
-			matchPackageNames: ['browserslist'],
-			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
-			enabled: false,
-		},
 	],
 }
