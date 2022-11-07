@@ -2,6 +2,8 @@
 
 > ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.
 
+This package is part of the [Source design system](/docs/source/README.md).
+
 ## Installation
 
 ```bash

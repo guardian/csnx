@@ -1,5 +1,7 @@
 # `@guardian/source-react-components`
 
+This package is part of the [Source design system](/docs/source/README.md).
+
 [![npm](https://img.shields.io/npm/v/@guardian/source-react-components)](https://www.npmjs.com/package/@guardian/source-react-components)
 
 A set of robust, accessible React components built using `@guardian/source-foundations`.

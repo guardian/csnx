@@ -1,5 +1,7 @@
 # `@guardian/source-foundations`
 
+This package is part of the [Source design system](/docs/source/README.md).
+
 [![npm](https://img.shields.io/npm/v/@guardian/source-foundations)](https://www.npmjs.com/package/@guardian/source-foundations)
 
 The atoms from which all our visual design is built. They may be used with any CSS-in-JS library.
