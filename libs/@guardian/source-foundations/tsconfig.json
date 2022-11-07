@@ -1,6 +1,6 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"files": [],
+	"files": ["./lib/jest-matchers/toBeValidCSS.ts"],
 	"include": [".", ".storybook/*"],
 	"references": [
 		{
