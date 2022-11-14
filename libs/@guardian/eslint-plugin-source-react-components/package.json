@@ -12,11 +12,12 @@
 		"@guardian/libs": "workspace:*",
 		"@guardian/source-react-components": "workspace:*",
 		"@types/eslint": "8.4.6",
-		"@types/estree": "0.0.51"
+		"@types/estree": "0.0.51",
+		"eslint": "8.0.0"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "workspace:*",
 		"@guardian/source-react-components": "workspace:*",
-		"eslint": "^8.0.0"
+		"eslint": "workspace:^"
 	}
 }

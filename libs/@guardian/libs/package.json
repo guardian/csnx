@@ -12,7 +12,7 @@
 		"wcag-contrast": "3.0.0"
 	},
 	"peerDependencies": {
-		"tslib": "^2.4.0"
+		"tslib": "workspace:^"
 	},
 	"publishConfig": {
 		"access": "public"

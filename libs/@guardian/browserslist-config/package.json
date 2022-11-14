@@ -11,7 +11,7 @@
 		"browserslist": "4.16.5"
 	},
 	"peerDependencies": {
-		"browserslist": "^4.16.5"
+		"browserslist": "workspace:^"
 	},
 	"publishConfig": {
 		"access": "public"

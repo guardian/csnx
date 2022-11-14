@@ -10,10 +10,10 @@
 		"react": "17.0.1"
 	},
 	"peerDependencies": {
-		"@emotion/react": "^11.0.0",
+		"@emotion/react": "workspace:^",
 		"@guardian/libs": "workspace:*",
 		"@guardian/source-foundations": "workspace:*",
 		"@guardian/source-react-components": "workspace:*",
-		"react": "^17.0.1"
+		"react": "workspace:^"
 	}
 }
