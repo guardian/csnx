@@ -3,8 +3,8 @@
 	"version": "7.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-react-components` package.",
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "5.21.0",
-		"@typescript-eslint/parser": "5.21.0"
+		"@typescript-eslint/eslint-plugin": "5.42.1",
+		"@typescript-eslint/parser": "5.42.1"
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
