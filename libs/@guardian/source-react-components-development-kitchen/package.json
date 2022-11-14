@@ -7,7 +7,7 @@
 		"@guardian/libs": "workspace:*",
 		"@guardian/source-foundations": "workspace:*",
 		"@guardian/source-react-components": "workspace:*",
-		"react": "17.0.1"
+		"react": "17.0.2"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.0.0",
