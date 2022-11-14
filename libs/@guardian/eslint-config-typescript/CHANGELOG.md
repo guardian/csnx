@@ -1,5 +1,11 @@
 # @guardian/eslint-config-typescript
 
+## 2.0.0
+
+### Major Changes
+
+- 8faec03: Requires `typescript@^4.1.2` (the version that added the `jsxImportSource` compiler option)
+
 ## 1.0.11
 
 ### Patch Changes
