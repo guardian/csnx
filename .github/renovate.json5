@@ -26,29 +26,36 @@
 
 		/******************************* groups *******************************/
 
-		// groups that aren't matched by default
-
+		// group all root deps together - matches are overidden by any subsequent matching group
 		{
 			matchPaths: ['package.json'],
 			matchDepTypes: ['devDependencies'],
 			groupName: 'workspace root `devDependencies`',
 		},
 
-		// group Nx updates
+		// group monorepo packages
 		{
 			extends: 'monorepo:nrwl',
 			matchUpdateTypes: ['digest', 'patch', 'minor', 'major'],
 			groupName: 'Nx',
 		},
 
+		// group @svgr
 		{
 			matchPackagePrefixes: ['@svgr'],
 			groupName: 'SVGR',
 		},
 
+		// group rollup stuff
 		{
 			matchPackagePrefixes: ['@rollup', 'rollup'],
 			groupName: 'rollup',
+		},
+
+		// group tslib stuff
+		{
+			matchPackageNames: ['tslib'],
+			groupName: 'tslib',
 		},
 
 		/*************************** peerDependencies *************************/
@@ -56,15 +63,41 @@
 		// things that our packages define as peerDependencies are pinned as
 		// devDependencies at the bottom of the peerDependency range, to ensure
 		// we develop against the sparest possible version of the package
+		//
+		// we don't really want to bump these unless they're major versions
 
+		// react et al in source packages
 		{
-			matchPackageNames: ['web-vitals', 'tslib'],
-			matchPaths: ['libs/@guardian/libs/package.json'],
+			matchPackagePatterns: ['react'],
+			matchPaths: ['libs/@guardian/@guardian/source-react*/package.json'],
+			matchUpdateTypes: ['digest', 'patch', 'minor'],
 			enabled: false,
 		},
+
+		{
+			matchPackageNames: ['prettier'],
+			matchPaths: ['libs/@guardian/prettier/package.json'],
+			matchUpdateTypes: ['digest', 'patch', 'minor'],
+			enabled: false,
+		},
+
 		{
 			matchPackageNames: ['browserslist'],
 			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			matchUpdateTypes: ['digest', 'patch', 'minor'],
+			enabled: false,
+		},
+
+		{
+			matchPackageNames: ['eslint'],
+			matchPaths: ['libs/@guardian/*eslint*/package.json'],
+			matchUpdateTypes: ['digest', 'patch', 'minor'],
+			enabled: false,
+		},
+		{
+			matchPackageNames: ['typescript'],
+			matchPaths: ['libs/@guardian/eslint-config-typescript/package.json'],
+			matchUpdateTypes: ['digest', 'patch', 'minor'],
 			enabled: false,
 		},
 
