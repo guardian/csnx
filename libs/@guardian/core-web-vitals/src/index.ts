@@ -1,6 +1,6 @@
+import type { TeamName } from '@guardian/libs';
+import { log } from '@guardian/libs';
 import type { ReportHandler } from 'web-vitals';
-import type { TeamName } from '../logger/@types/logger';
-import { log } from '../logger/log';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
@@ -35,10 +35,7 @@ const sendData = (): void => {
 	// So we’re not sending anything.
 	if (coreWebVitalsPayload.fcp === null) return;
 
-	queued = navigator.sendBeacon(
-		endpoint,
-		JSON.stringify(coreWebVitalsPayload),
-	);
+	queued = navigator.sendBeacon(endpoint, JSON.stringify(coreWebVitalsPayload));
 
 	if (teamsForLogging.size > 0) {
 		teamsForLogging.forEach((team) => {

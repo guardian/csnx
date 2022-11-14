@@ -3,7 +3,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@guardian/libs)](https://www.npmjs.com/package/@guardian/libs)
 [![ES version](https://badgen.net/badge/ES/2020/cyan)](https://tc39.es/ecma262/2020/)
 [![npm type definitions](https://img.shields.io/npm/types/@guardian/libs)](https://www.typescriptlang.org/)
-[![Coverage Status](https://coveralls.io/repos/github/guardian/libs/badge.svg)](https://coveralls.io/github/guardian/libs)
 
 > A collection of JavaScript libraries and TypeScript types for Guardian projects
 
@@ -14,10 +13,6 @@ Type that describes the role of an element in an article.
 ### [Cookies](./src/cookies)
 
 API over `document.cookies`.
-
-### [Core Web Vitals](./src/coreWebVitals)
-
-API over Google’s `web-vitals`.
 
 ### [Countries](./src/countries)
 

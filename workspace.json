@@ -6,6 +6,7 @@
 		"@guardian/browserslist-config": "libs/@guardian/browserslist-config",
 		"@guardian/eslint-config": "libs/@guardian/eslint-config",
 		"@guardian/eslint-config-typescript": "libs/@guardian/eslint-config-typescript",
+		"@guardian/core-web-vitals": "libs/@guardian/core-web-vitals",
 		"@guardian/libs": "libs/@guardian/libs",
 		"@guardian/source-foundations": "libs/@guardian/source-foundations",
 		"@guardian/source-react-components": "libs/@guardian/source-react-components",

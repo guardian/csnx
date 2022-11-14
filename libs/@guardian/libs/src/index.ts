@@ -7,11 +7,6 @@ export { removeCookie } from './cookies/removeCookie';
 export { setCookie } from './cookies/setCookie';
 export { setSessionCookie } from './cookies/setSessionCookie';
 
-export {
-	bypassCoreWebVitalsSampling,
-	initCoreWebVitals,
-} from './coreWebVitals';
-
 export type { Country } from './countries/@types/Country';
 export type { CountryCode } from './countries/@types/CountryCode';
 export { countries } from './countries/countries';
