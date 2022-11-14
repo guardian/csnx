@@ -1,12 +1,20 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
+###################################### DEV #####################################
+
+# runs storybook for all projects in single instance
+.PHONY: storybooks
+storybooks: env
+	$(call log,"Starting storybooks")
+	@corepack pnpm nx run csnx:storybooks
+
 ################################# CODE QUALITY #################################
 
 # runs the unit tests for all projects
 .PHONY: test
 test: env
-	$(call log,"Running units tests")
+	$(call log,"Running unit tests")
 	@corepack pnpm nx run-many --target=test --all=true
 
 # runs the e2e tests for all projects
@@ -44,6 +52,12 @@ clean: env
 build: env clean
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --all=true
+
+# builds all storybooks
+.PHONY: build-storybooks
+build-storybooks: env
+	$(call log,"Building storybooks")
+	@corepack pnpm nx run-many --target=build-storybook --all=true
 
 ############################### MANAGING PACKAGES ##############################
 

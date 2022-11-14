@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 9.1.0
+
+### Minor Changes
+
+- fd85d19: Added `VG` (British Virgin Islands) to `countries`
+
 ## 9.0.1
 
 ### Patch Changes

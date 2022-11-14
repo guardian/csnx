@@ -9,7 +9,8 @@
 			"dependencies": "*",
 			"devDependencies": "*"
 		},
-		"tools/nx-plugins/**/*": "*"
+		"tools/nx-plugins/**/*": "*",
+		".storybook/main.js": "*"
 	},
 	"npmScope": "csnx",
 	"targetDefaults": {
@@ -21,7 +22,13 @@
 		"default": {
 			"options": {
 				"accessToken": "OTdkYmFjMTYtNGFhNS00MjM2LTg0OGMtZmNhNGZiMmU2YTM5fHJlYWQtd3JpdGU=",
-				"cacheableOperations": ["build", "lint", "test", "e2e"]
+				"cacheableOperations": [
+					"build",
+					"lint",
+					"test",
+					"e2e",
+					"build-storybook"
+				]
 			},
 			"runner": "@nrwl/nx-cloud"
 		}

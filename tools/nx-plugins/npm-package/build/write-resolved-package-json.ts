@@ -17,7 +17,7 @@ export const writeResolvedPackageJson = async (
 	context: ExecutorContext,
 ) => {
 	// `pnpm pack` the source package, into the output directory
-	const tarball = (
+	const tarballPath = (
 		await exec(
 			`corepack pnpm pack --pack-destination ${path.resolve(
 				context.root,
@@ -28,8 +28,6 @@ export const writeResolvedPackageJson = async (
 			},
 		)
 	).stdout.trim();
-
-	const tarballPath = path.join(options.outputPath, tarball);
 
 	// extract the package.json into the output directory
 	await exec(

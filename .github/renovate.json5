@@ -1,0 +1,177 @@
+{
+	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	extends: [
+		'group:monorepos',
+		'group:recommended',
+		':dependencyDashboard',
+		':ignoreModulesAndTests',
+		':combinePatchMinorReleases',
+		':pinAllExceptPeerDependencies',
+	],
+	timezone: 'Europe/London',
+	schedule: ['before 3am on Monday'],
+	addLabels: ['dependencies'],
+	reviewers: ['team:client-side-infra'],
+	semanticCommits: 'disabled',
+
+	/*************************** package-specific rules ***********************/
+
+	packageRules: [
+		// group Nx updates
+		{
+			extends: 'monorepo:nrwl',
+			matchUpdateTypes: ['digest', 'patch', 'minor', 'major'],
+			groupName: 'Nx',
+		},
+
+		// npm packages can be unpublished within 3 days, so wait before a new version is considered stable
+		{
+			matchDatasources: ['npm'],
+			stabilityDays: 3,
+			internalChecksFilter: 'strict',
+		},
+
+		/******************************* groups *******************************/
+
+		// groups that aren't matched by default
+
+		{
+			matchPackagePrefixes: ['@svgr'],
+			groupName: 'SVGR',
+		},
+
+		{
+			matchPackagePrefixes: ['@rollup', 'rollup'],
+			groupName: 'rollup',
+		},
+
+		/*************************** peerDependencies *************************/
+
+		// things that our packages define as peerDependencies are pinned as
+		// devDependencies at the bottom of the peerDependency range, to ensure
+		// we develop against the sparest possible version of the package
+
+		{
+			matchPackageNames: ['web-vitals', 'tslib'],
+			matchPaths: ['libs/@guardian/libs/package.json'],
+			enabled: false,
+		},
+		{
+			matchPackageNames: ['browserslist'],
+			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			enabled: false,
+		},
+
+		/****************************** package deps **************************/
+
+		// group all our packages by package
+
+		{
+			matchPaths: ['tools/nx-plugins/eslint/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@csnx/eslint` dependencies',
+		},
+
+		{
+			matchPaths: ['tools/nx-plugins/npm-package/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@csnx/npm-package` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/browserslist-config` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/eslint-config/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-config` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/eslint-config-typescript/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-config-typescript` dependencies',
+		},
+
+		{
+			matchPaths: [
+				'libs/@guardian/eslint-plugin-source-foundations/package.json',
+			],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-plugin-source-foundations` dependencies',
+		},
+
+		{
+			matchPaths: [
+				'libs/@guardian/eslint-plugin-source-react-components/package.json',
+			],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/eslint-plugin-source-react-components` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/libs/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/libs` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/prettier/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/prettier` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/source-foundations/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/source-foundations` dependencies',
+		},
+
+		{
+			matchPaths: ['libs/@guardian/source-react-components/package.json'],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/source-react-components` dependencies',
+		},
+
+		{
+			matchPaths: [
+				'libs/@guardian/source-react-components-development-kitchen/package.json',
+			],
+			matchDepTypes: ['dependencies'],
+			groupName: '`@guardian/source-react-components-development-kitchen` dependencies',
+		},
+
+		// group non-breaking devDependencies applies to all packages in the
+		// monorepo
+		// {
+		// 	matchDepTypes: ['devDependencies'],
+		// 	matchUpdateTypes: ['patch', 'minor'],
+		// 	groupName: '`devDependencies` (non-breaking)',
+		// },
+
+		/*************************** internal tooling *************************/
+
+		// we don't need to worry about dependency changes in these as much as
+		// we do public facing code, because we will be the ones observing any
+		// breaks they introduce
+
+		// group non-breaking dependencies
+		// {
+		// 	matchPaths: ['tools/**/package.json'],
+		// 	matchDepTypes: ['dependencies'],
+		// 	matchUpdateTypes: ['patch', 'minor'],
+		// 	groupName: '`dependencies` (tools - non-breaking)',
+		// },
+
+		// group breaking dependencies
+		// {
+		// 	matchPaths: ['tools/**/package.json'],
+		// 	matchDepTypes: ['dependencies'],
+		// 	matchUpdateTypes: ['major'],
+		// 	groupName: '`dependencies` (tools - breaking)',
+		// },
+	],
+}

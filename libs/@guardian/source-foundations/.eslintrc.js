@@ -5,7 +5,7 @@ module.exports = {
 		{
 			files: ['*.ts', '*.tsx'],
 			parserOptions: {
-				project: ['libs/@guardian/source-react-components/tsconfig.json'],
+				project: ['libs/@guardian/source-foundations/tsconfig.json'],
 			},
 			rules: {},
 		},

@@ -54,6 +54,24 @@
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
+		},
+		"storybook": {
+			"executor": "nx:run-commands",
+			"options": {
+				"commands": ["start-storybook"],
+				"cwd": "libs/@guardian/source-react-components-development-kitchen"
+			}
+		},
+		"build-storybook": {
+			"executor": "nx:run-commands",
+			"outputs": [
+				"dist/storybook/libs/@guardian/source-react-components-development-kitchen"
+			],
+			"options": {
+				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen",
+				"cwd": "libs/@guardian/source-react-components-development-kitchen",
+				"color": true
+			}
 		}
 	},
 	"tags": []
