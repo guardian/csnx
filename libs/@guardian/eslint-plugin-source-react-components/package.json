@@ -12,7 +12,7 @@
 		"@guardian/libs": "workspace:*",
 		"@guardian/source-react-components": "workspace:*",
 		"@types/eslint": "8.4.6",
-		"@types/estree": "0.0.51"
+		"@types/estree": "0.0.52"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "workspace:*",
