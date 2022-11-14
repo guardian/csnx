@@ -36,6 +36,12 @@
 		// groups that aren't matched by default
 
 		{
+			matchPaths: ['package.json'],
+			matchDepTypes: ['devDependencies'],
+			groupName: 'workspace root `devDependencies`',
+		},
+
+		{
 			matchPackagePrefixes: ['@svgr'],
 			groupName: 'SVGR',
 		},
@@ -64,7 +70,7 @@
 
 		/****************************** package deps **************************/
 
-		// group all our packages by package
+		// group all our packages by package and/or role
 
 		{
 			matchPaths: ['tools/nx-plugins/eslint/package.json'],
@@ -85,31 +91,14 @@
 		},
 
 		{
-			matchPaths: ['libs/@guardian/eslint-config/package.json'],
-			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/eslint-config` dependencies',
-		},
-
-		{
-			matchPaths: ['libs/@guardian/eslint-config-typescript/package.json'],
-			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/eslint-config-typescript` dependencies',
-		},
-
-		{
 			matchPaths: [
+				'libs/@guardian/eslint-config/package.json',
+				'libs/@guardian/eslint-config-typescript/package.json',
 				'libs/@guardian/eslint-plugin-source-foundations/package.json',
-			],
-			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/eslint-plugin-source-foundations` dependencies',
-		},
-
-		{
-			matchPaths: [
 				'libs/@guardian/eslint-plugin-source-react-components/package.json',
 			],
 			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/eslint-plugin-source-react-components` dependencies',
+			groupName: '`@guardian/eslint-*` dependencies',
 		},
 
 		{
@@ -125,23 +114,13 @@
 		},
 
 		{
-			matchPaths: ['libs/@guardian/source-foundations/package.json'],
-			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/source-foundations` dependencies',
-		},
-
-		{
-			matchPaths: ['libs/@guardian/source-react-components/package.json'],
-			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/source-react-components` dependencies',
-		},
-
-		{
 			matchPaths: [
+				'libs/@guardian/source-foundations/package.json',
+				'libs/@guardian/source-react-components/package.json',
 				'libs/@guardian/source-react-components-development-kitchen/package.json',
 			],
 			matchDepTypes: ['dependencies'],
-			groupName: '`@guardian/source-react-components-development-kitchen` dependencies',
+			groupName: '`@guardian/source-*` dependencies',
 		},
 
 		// group non-breaking devDependencies applies to all packages in the
