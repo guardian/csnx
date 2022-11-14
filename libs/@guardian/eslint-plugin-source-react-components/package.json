@@ -11,7 +11,7 @@
 		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/libs": "workspace:*",
 		"@guardian/source-react-components": "workspace:*",
-		"@types/eslint": "8.4.6",
+		"@types/eslint": "8.4.10",
 		"@types/estree": "0.0.51"
 	},
 	"peerDependencies": {
