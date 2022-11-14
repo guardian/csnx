@@ -52,7 +52,7 @@
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
 		"require-from-string": "2.0.2",
-		"sort-package-json": "2.0.0",
+		"sort-package-json": "2.1.0",
 		"ts-jest": "29.0.3",
 		"ts-node": "10.9.1",
 		"tsconfig-paths-webpack-plugin": "4.0.0",
