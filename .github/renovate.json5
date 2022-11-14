@@ -17,13 +17,6 @@
 	/*************************** package-specific rules ***********************/
 
 	packageRules: [
-		// group Nx updates
-		{
-			extends: 'monorepo:nrwl',
-			matchUpdateTypes: ['digest', 'patch', 'minor', 'major'],
-			groupName: 'Nx',
-		},
-
 		// npm packages can be unpublished within 3 days, so wait before a new version is considered stable
 		{
 			matchDatasources: ['npm'],
@@ -39,6 +32,13 @@
 			matchPaths: ['package.json'],
 			matchDepTypes: ['devDependencies'],
 			groupName: 'workspace root `devDependencies`',
+		},
+
+		// group Nx updates
+		{
+			extends: 'monorepo:nrwl',
+			matchUpdateTypes: ['digest', 'patch', 'minor', 'major'],
+			groupName: 'Nx',
 		},
 
 		{
