@@ -1,5 +1,15 @@
-// this is a placeholder file as we prep for importing source to csnx.
-// source itself still live in https://github.com/guardian/source
+import { validImportPath } from './rules/valid-import-path';
 
-export type Placeholder = () => string;
-export const placeholder: Placeholder = () => 'nothing to see here';
+export const rules = {
+	'valid-import-path': validImportPath,
+};
+
+export const configs = {
+	recommended: {
+		plugins: ['@guardian/source-react-components'],
+
+		rules: {
+			'@guardian/source-react-components/valid-import-path': 'error',
+		},
+	},
+};

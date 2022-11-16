@@ -5,12 +5,3 @@ node_modules
 dist
 *.log
 .env
-
-# temporarily ignore these for https://github.com/guardian/csnx/pull/101
-/libs/@guardian/source-foundations/CHANGELOG.md
-
-/libs/@guardian/source-react-components/CHANGELOG.md
-/libs/@guardian/source-react-components/scripts
-/libs/@guardian/source-react-components/vendor
-
-/libs/@guardian/source-react-components-development-kitchen/CHANGELOG.md

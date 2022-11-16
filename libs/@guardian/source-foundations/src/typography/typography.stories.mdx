@@ -1,0 +1,286 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import {
+	headlineObjectStyles,
+	bodyObjectStyles,
+	textSansObjectStyles,
+	titlepieceObjectStyles,
+} from '@guardian/source-foundations';
+import {
+	FontStylesRenderer,
+	LineHeightRenderer,
+	FontWeightRenderer,
+	ItalicsRenderer,
+} from './storybookTypographyRenderers';
+
+<!--TODO: hide additional sidebar stories when functionality becomes available,
+	we need the <Story /> component to show examples of each font style in Chromatic
+	https://github.com/storybookjs/storybook/issues/9209 -->
+
+<Meta
+	title="Packages/source-foundations/Typography"
+	parameters={{ previewTabs: { canvas: { hidden: true } }, viewMode: 'docs' }}
+/>
+
+# Typography
+
+Typographic choices affect how textual content is interpreted; influencing tone,
+hierarchy and legibility.
+
+## Example
+
+```tsx
+import { headline, body, textSans } from '@guardian/source-foundations';
+
+const h1 = css`
+	${headline.large()};
+`;
+
+const p = css`
+	${body.medium()};
+`;
+
+const copyright = css`
+	${textSans.xsmall()};
+`;
+```
+
+You can also use the [object style syntax](https://emotion.sh/docs/object-styles):
+
+```tsx
+import { headlineObjectStyles } from '@guardian/source-foundations';
+
+const h1 = {
+	...headlineObjectStyles.large(),
+};
+```
+
+## Where can I find The Guardian's fonts?
+
+The canonical source of fonts is https://github.com/guardian/fonts
+
+They should be loaded from the locations specified in [font-faces.css](https://github.com/guardian/fonts/blob/main/fonts/web/font-faces.css). This optimises for consistency and performance across The Guardian's digital products.
+
+## API
+
+Each font family has an associated import, exposing methods that return snippets
+of CSS depending on the desired font size.
+
+A range of font sizes are available for each font family. The `medium` font size
+should be considered the default.
+
+Pixel values are given below for ease of understanding. By default the
+typography API assigns font size in rems.
+
+### Headline
+
+```css
+font-family: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif';
+```
+
+<Canvas>
+	<Story name="headline">
+		<FontStylesRenderer fontName="headline" fontStyles={headlineObjectStyles} />
+	</Story>
+</Canvas>
+
+#### Line height
+
+The default for headline is `tight`. This maps to `1.15 (115%)`.
+
+<Canvas>
+	<Story name="headline-lineheight">
+		<LineHeightRenderer getFontStyles={headlineObjectStyles.large} />
+	</Story>
+</Canvas>
+
+### Body
+
+```css
+font-family: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif';
+```
+
+<Canvas>
+	<Story name="body">
+		<FontStylesRenderer fontName="body" fontStyles={bodyObjectStyles} />
+	</Story>
+</Canvas>
+
+#### Line height
+
+The default for body is `loose`. This maps to `1.50 (150%)`.
+
+This meets the [WCAG 2.1 AAA success criterion for visual presentation](https://www.w3.org/TR/WCAG21/#visual-presentation).
+
+<Canvas>
+	<Story name="body-lineheight">
+		<LineHeightRenderer getFontStyles={bodyObjectStyles.small} />
+	</Story>
+</Canvas>
+
+### Text sans
+
+```css
+font-family: 'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif';
+```
+
+<Canvas>
+	<Story name="textSans">
+		<FontStylesRenderer fontName="textSans" fontStyles={textSansObjectStyles} />
+	</Story>
+</Canvas>
+
+#### Line height
+
+The default for body is `loose`. This maps to `1.5 (150%)`.
+
+<Canvas>
+	<Story name="text-sans-lineheight">
+		<LineHeightRenderer getFontStyles={textSansObjectStyles.medium} />
+	</Story>
+</Canvas>
+
+### Titlepiece
+
+```css
+font-family: 'GT Guardian Titlepiece, Georgia, serif';
+```
+
+<Canvas>
+	<Story name="titlepiece">
+		<FontStylesRenderer
+			fontName="titlepiece"
+			fontStyles={titlepieceObjectStyles}
+		/>
+	</Story>
+</Canvas>
+
+#### Line height
+
+The default for titlepiece is `tight`. This maps to `1.15 (115%)`.
+
+<Canvas>
+	<Story name="titlepiece-lineheight">
+		<LineHeightRenderer getFontStyles={titlepieceObjectStyles.medium} />
+	</Story>
+</Canvas>
+
+### Options
+
+Each method may receive an `options` object. Missing options are merged with sensible defaults for each font family.
+
+#### Line height
+
+The available options for line height are documented in the table below.
+
+<table>
+	<tr>
+		<th>Alias in Source</th>
+		<th>Line height</th>
+	</tr>
+	<tr>
+		<td>loose</td>
+		<td>150% (1.5)</td>
+	</tr>
+	<tr>
+		<td>regular</td>
+		<td>135% (1.35)</td>
+	</tr>
+	<tr>
+		<td>tight</td>
+		<td>115% (1.15)</td>
+	</tr>
+</table>
+
+The following is a table of the default line height for each font:
+
+<table>
+	<tr>
+		<th>Font family</th>
+		<th>Line height</th>
+		<th>Alias in Source</th>
+	</tr>
+	<tr>
+		<td>Text Sans</td>
+		<td>150% (1.50)</td>
+		<td>loose</td>
+	</tr>
+	<tr>
+		<td>Text Egyptian</td>
+		<td>150% (1.5)</td>
+		<td>loose</td>
+	</tr>
+	<tr>
+		<td>Guardian Headline</td>
+		<td>115% (1.15)</td>
+		<td>tight</td>
+	</tr>
+	<tr>
+		<td>Guardian Titlepiece</td>
+		<td>115% (1.15)</td>
+		<td>tight</td>
+	</tr>
+</table>
+
+We calculate the final line height based on the font size using the following formula:
+
+```ts
+// line-height is defined as a unitless value, so we multiply
+// by the element's font-size in px to get the px value
+const finalLineHeight = `${lineHeight * fontSizeInPx}px`;
+```
+
+And a worked example:
+
+```ts
+const lineHeight =
+	1.15 * // line-height: tight (unitless)
+	30; // font-size: small (px)
+
+//  lineHeight === 34.5px
+```
+
+#### Font weight
+
+```tsx
+headline.medium({ fontWeight: 'bold' });
+```
+
+<Canvas>
+	<Story name="font weight">
+		<FontWeightRenderer />
+	</Story>
+</Canvas>
+
+The default for body and textSans is `regular`. The `light` and `medium` font weights are not available for these fonts.
+
+The default for headline is `medium`. The `regular` font-weight is not available for this font.
+
+The default and only font-weight for titlepiece is `bold`.
+
+#### Font style
+
+```tsx
+headline.medium({ fontStyle: 'italic' });
+```
+
+`normal` (default) is available for all fonts.
+
+`italic` is available for the following fonts:
+
+<Canvas>
+	<Story name="italics">
+		<ItalicsRenderer />
+	</Story>
+</Canvas>
+
+#### Unit
+
+```tsx
+headline.medium({ unit: 'px' });
+```
+
+Specifies units for the font-size and line-height values.
+
+By default, font-size is expressed in `rem`, and line-height is expressed as a [unitless value](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#values).
+
+You can override this behaviour by setting the `unit` option to `px`. As a result, both font-size and line-height will be expressed in `px` values.
