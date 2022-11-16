@@ -7,8 +7,6 @@ dist
 .env
 
 # temporarily ignore these for https://github.com/guardian/csnx/pull/101
-/libs/@guardian/source-foundations/CHANGELOG.md
-
 /libs/@guardian/source-react-components/CHANGELOG.md
 /libs/@guardian/source-react-components/scripts
 /libs/@guardian/source-react-components/vendor
