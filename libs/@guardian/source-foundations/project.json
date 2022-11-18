@@ -14,6 +14,13 @@
 				"assets": ["libs/@guardian/source-foundations/*.md"]
 			}
 		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@guardian/source-foundations/**/*.ts"]
+			}
+		},
 		"fix": {
 			"executor": "@csnx/eslint:fix",
 			"outputs": ["{options.outputFile}"],
@@ -21,6 +28,24 @@
 				"lintFilePatterns": ["libs/@guardian/source-foundations/**/*.ts"]
 			}
 		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/source-foundations"],
+			"options": {
+				"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/source-foundations"],
+			"options": {
+				"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
+			}
+		},
+
 		"storybook": {
 			"executor": "nx:run-commands",
 			"options": {
