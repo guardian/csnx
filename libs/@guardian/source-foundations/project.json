@@ -14,6 +14,13 @@
 				"assets": ["libs/@guardian/source-foundations/*.md"]
 			}
 		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@guardian/source-foundations/**/*.ts"]
+			}
+		},
 		"fix": {
 			"executor": "@csnx/eslint:fix",
 			"outputs": ["{options.outputFile}"],
