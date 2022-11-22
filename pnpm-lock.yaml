@@ -30,6 +30,7 @@ importers:
       '@storybook/manager-webpack5': 6.5.12
       '@storybook/react': 6.5.12
       '@storybook/storybook-deployer': 2.8.16
+      '@storybook/theming': ^6.5.13
       '@swc-node/register': 1.5.4
       '@swc/core': 1.3.8
       '@types/babel__core': 7.1.19
@@ -84,6 +85,7 @@ importers:
       '@storybook/manager-webpack5': 6.5.12_c223ox742xd5qdn63hln27tn24
       '@storybook/react': 6.5.12_ybwoohmcph6zmpghsmd5onqnfe
       '@storybook/storybook-deployer': 2.8.16
+      '@storybook/theming': 6.5.13_w7o5yyljkiidx2s2nzb26ottzu
       '@swc-node/register': 1.5.4_vfoutbaceuxscp2ncv6yzgunee
       '@swc/core': 1.3.8
       '@types/babel__core': 7.1.19
@@ -5495,6 +5497,13 @@ packages:
       global: 4.4.0
     dev: true
 
+  /@storybook/client-logger/6.5.13:
+    resolution: {integrity: sha512-F2SMW3LWFGXLm2ENTwTitrLWJgmMXRf3CWQXdN2EbkNCIBHy5Zcbt+91K4OX8e2e5h9gjGfrdYbyYDYOoUCEfA==}
+    dependencies:
+      core-js: 3.26.0
+      global: 4.4.0
+    dev: true
+
   /@storybook/components/6.5.12_w7o5yyljkiidx2s2nzb26ottzu:
     resolution: {integrity: sha512-NAAGl5PDXaHdVLd6hA+ttmLwH3zAVGXeUmEubzKZ9bJzb+duhFKxDa9blM4YEkI+palumvgAMm0UgS7ou680Ig==}
     peerDependencies:
@@ -6312,6 +6321,25 @@ packages:
         optional: true
     dependencies:
       '@storybook/client-logger': 6.5.12
+      core-js: 3.26.0
+      memoizerific: 1.11.3
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      regenerator-runtime: 0.13.9
+    dev: true
+
+  /@storybook/theming/6.5.13_w7o5yyljkiidx2s2nzb26ottzu:
+    resolution: {integrity: sha512-oif5NGFAUQhizo50r+ctw2hZNLWV4dPHai+L/gFvbaSeRBeHSNkIcMoZ2FlrO566HdGZTDutYXcR+xus8rI28g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/client-logger': 6.5.13
       core-js: 3.26.0
       memoizerific: 1.11.3
       react: 17.0.1
@@ -14339,6 +14367,7 @@ packages:
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
+    hasBin: true
     dev: true
 
   /mockdate/3.0.5:
