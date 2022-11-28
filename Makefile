@@ -15,25 +15,25 @@ storybooks: env
 .PHONY: test
 test: env
 	$(call log,"Running unit tests")
-	@corepack pnpm nx run-many --target=test --all=true
+	@corepack pnpm nx run-many --target=test --all=true --skip-nx-cache
 
 # runs the e2e tests for all projects
 .PHONY: e2e
 e2e: env
 	$(call log,"Running e2e tests")
-	@corepack pnpm nx run-many --target=e2e --all=true
+	@corepack pnpm nx run-many --target=e2e --all=true --skip-nx-cache
 
 # checks all projects for lint errors
 .PHONY: lint
 lint: install
 	$(call log,"Linting projects")
-	@corepack pnpm nx run-many --target=lint --all=true
+	@corepack pnpm nx run-many --target=lint --all=true --skip-nx-cache
 
 # attemps to fix lint errors across all projects
 .PHONY: fix
 fix: install
 	$(call log,"Attempting to fix lint error in projects")
-	@corepack pnpm nx run-many --target=fix --all=true
+	@corepack pnpm nx run-many --target=fix --all=true --skip-nx-cache
 
 # makes sure absolutely everything is working
 .PHONY: validate
@@ -51,13 +51,13 @@ clean: env
 .PHONY: build
 build: env clean
 	$(call log,"Building projects")
-	@corepack pnpm nx run-many --target=build --all=true
+	@corepack pnpm nx run-many --target=build --all=true --skip-nx-cache
 
 # builds all storybooks
 .PHONY: build-storybooks
 build-storybooks: env
 	$(call log,"Building storybooks")
-	@corepack pnpm nx run-many --target=build-storybook --all=true
+	@corepack pnpm nx run-many --target=build-storybook --all=true --skip-nx-cache
 
 ############################### MANAGING PACKAGES ##############################
 
