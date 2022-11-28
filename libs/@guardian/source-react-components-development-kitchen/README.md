@@ -4,6 +4,8 @@
 
 The Development Kitchen is where new components and patterns can be cooked up, tested and shared. There are minimal acceptance criteria. It’s okay to duplicate and break things. If a Kitchen component proves valuable, it may be promoted to `@guardian/source-react-components`.
 
+This package is part of the [Source design system](/docs/source/README.md).
+
 ## Install
 
 ```sh
