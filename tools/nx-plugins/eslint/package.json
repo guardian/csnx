@@ -2,7 +2,7 @@
 	"name": "@csnx/eslint",
 	"private": true,
 	"dependencies": {
-		"@nrwl/linter": "14.8.6"
+		"@nrwl/linter": "15.2.1"
 	},
 	"executors": "./executors.json"
 }
