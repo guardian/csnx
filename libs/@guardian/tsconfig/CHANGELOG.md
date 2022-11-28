@@ -1,5 +1,11 @@
 # @guardian/tsconfig
 
+## 0.2.0
+
+### Minor Changes
+
+- 907c1dc: Enable the [incremental compiler option](https://www.typescriptlang.org/tsconfig#incremental) for faster rebuilds
+
 ## 0.1.6
 
 ### Patch Changes
