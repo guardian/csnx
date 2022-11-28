@@ -7,6 +7,6 @@
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
-		"lightningcss": "^1.16.1"
+		"lightningcss": "1.16.1"
 	}
 }

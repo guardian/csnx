@@ -7,7 +7,7 @@
 		"create-icons": "ts-node scripts/create-icons"
 	},
 	"devDependencies": {
-		"@emotion/react": "11.0.0",
+		"@emotion/react": "11.10.5",
 		"@guardian/source-foundations": "workspace:*",
 		"@svgr/babel-preset": "6.5.1",
 		"@svgr/core": "6.5.1",
@@ -17,9 +17,9 @@
 		"@types/mkdirp": "1.0.2",
 		"@types/svgo": "2.6.4",
 		"axios": "0.27.2",
-		"dotenv": "16.0.2",
+		"dotenv": "16.0.3",
 		"mkdirp": "1.0.4",
-		"react": "17.0.1"
+		"react": "17.0.2"
 	},
 	"peerDependencies": {
 		"@emotion/react": "workspace:^",
