@@ -64,7 +64,7 @@
 		"update-section": "0.3.3",
 		"webpack": "5.75.0"
 	},
-	"packageManager": "pnpm@7.15.0",
+	"packageManager": "pnpm@7.17.0",
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
