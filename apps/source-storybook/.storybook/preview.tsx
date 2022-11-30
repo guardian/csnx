@@ -5,7 +5,6 @@ export const parameters = {
 				'Source',
 				'Foundations',
 				'Components',
-				'Contributing/Stories',
 				'Development Kitchen',
 				'ESLint plugins',
 			],
