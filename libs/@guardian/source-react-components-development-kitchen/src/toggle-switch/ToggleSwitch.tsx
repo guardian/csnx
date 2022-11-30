@@ -68,7 +68,7 @@ export interface ToggleSwitchProps extends Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-toggle-switch--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-toggleswitch--with-no-label) •
  * [Design System](https://theguardian.design) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/toggle-switch) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)

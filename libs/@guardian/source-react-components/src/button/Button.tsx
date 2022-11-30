@@ -9,7 +9,7 @@ export interface ButtonProps
 		ButtonHTMLAttributes<HTMLButtonElement> {}
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-button--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-button--primary-priority-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/435225-button) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/button/Button.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

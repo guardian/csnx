@@ -57,7 +57,7 @@ export interface TextAreaProps
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-textarea--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-textarea--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/567182-text-area/b/42916b) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/text-area/TextArea.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

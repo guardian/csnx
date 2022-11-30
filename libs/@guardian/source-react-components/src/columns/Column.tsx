@@ -39,7 +39,7 @@ export interface ColumnProps extends HTMLAttributes<HTMLDivElement>, Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-columns) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-columns--default) •
  * [Design System](https://theguardian.design/2a1e5182b/p/41cd49-columns) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/columns/Column.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

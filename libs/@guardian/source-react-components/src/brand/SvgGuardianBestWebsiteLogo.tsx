@@ -26,7 +26,7 @@ export type SvgGuardianBestWebsiteLogoProps = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-svgguardianbestwebsitelogo--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-svgguardianbestwebsitelogo--default) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/brand/SvgGuardianBestWebsiteLogo.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *

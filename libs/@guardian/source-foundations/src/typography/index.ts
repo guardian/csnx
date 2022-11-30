@@ -14,7 +14,7 @@ import type {
 } from './types';
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-typography--page#titlepiece) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-typography--titlepiece) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/358767)
  *
  * ```
@@ -28,7 +28,7 @@ export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-typography--page#headline) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-typography--headline) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/7310bd)
  *
  * ```
@@ -46,7 +46,7 @@ export const headline: TypographyStrFunctions<HeadlineSizes> = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-typography--page#body) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-typography--body) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/88cd8e)
  *
  * ```
@@ -60,7 +60,7 @@ export const body: TypographyStrFunctions<BodySizes> = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-typography--page#text-sans) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-typography--text-sans) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/076605)
  *
  * ```

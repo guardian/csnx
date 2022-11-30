@@ -53,7 +53,7 @@ export type NumericInputProps = Omit<TextInputProps, 'inputmode'> & {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/source-react-components-development-kitchen-NumericInput--demo) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-numericinput--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/097455-text-input-field/b/050445) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/numeric-input) •
  * [NPM](https://www.npmjs.com/package/@guardian/@guardian/source-react-components-development-kitchen)

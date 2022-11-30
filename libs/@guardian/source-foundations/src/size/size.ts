@@ -1,7 +1,7 @@
 import { pxToRem } from '../utils/px-to-rem';
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-size--page#global-size-values) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-size--page#global-size-values) •
  * [Design System](https://theguardian.design/2a1e5182b/p/24a3ec-size/t/329aef)
  *
  * May be used for call to action buttons and user input fields.
@@ -13,7 +13,7 @@ export const size = {
 } as const;
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-size--page#global-size-values) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-size--page#global-size-values) •
  * [Design System](https://theguardian.design/2a1e5182b/p/24a3ec-size/t/329aef)
  *
  * May be used for call to action buttons and user input fields.
@@ -47,7 +47,7 @@ const remIconSize: { [K in keyof typeof iconSize]: number } = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-size--page#tokens) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-size--page#tokens) •
  * [Design System](https://theguardian.design/2a1e5182b/p/24a3ec-size/t/329aef)
  *
  * Height tokens expressed in px
@@ -73,7 +73,7 @@ export const height = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-size--page#tokens) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-size--page#tokens) •
  * [Design System](https://theguardian.design/2a1e5182b/p/24a3ec-size/t/329aef)
  *
  * Height tokens expressed in rem
@@ -99,7 +99,7 @@ export const remHeight = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-size--page#tokens) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-size--page#tokens) •
  * [Design System](https://theguardian.design/2a1e5182b/p/00ddcb-tokens/t/797660)
  *
  * Width tokens expressed in px
@@ -126,7 +126,7 @@ export const width = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-foundations-size--page#tokens) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_packages-source-foundations-size--page#tokens) •
  * [Design System](https://theguardian.design/2a1e5182b/p/00ddcb-tokens/t/797660)
  *
  * Width tokens expressed in rem

@@ -18,7 +18,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 ### API
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-divider--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-divider--default-divider)
 
 ### How to use
 

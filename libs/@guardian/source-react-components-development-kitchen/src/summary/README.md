@@ -22,15 +22,15 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 #### `ErrorSummary`
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-error-summary--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-error-summary--error-only)
 
 #### `Success Summary`
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-success-summary--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-success-summary--success-only)
 
 #### `Info Summary`
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-info-summary--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-info-summary--info-only)
 
 ### How to use
 

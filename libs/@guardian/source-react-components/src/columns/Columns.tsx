@@ -65,7 +65,7 @@ export interface ColumnsProps extends HTMLAttributes<HTMLDivElement>, Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-columns) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-columns--with-container) •
  * [Design System](https://theguardian.design/2a1e5182b/p/41cd49-columns) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/columns/Columns.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
@@ -73,7 +73,7 @@ export interface ColumnsProps extends HTMLAttributes<HTMLDivElement>, Props {
  * `Columns` arranges child `Column`s side by side on a single row, with the
  * specified width.
  *
- * They become really useful when used in conjunction with the [Container](https://guardian.github.io/source/?path=/docs/packages-source-react-components-container)
+ * They become really useful when used in conjunction with the [Container](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-container--default)
  * component. This ensures the columns conform to the Guardian's grid layouts at
  * every breakpoint.
  */
