@@ -4,7 +4,7 @@ import type { NumericInputProps } from './NumericInput';
 import { NumericInput } from './NumericInput';
 
 export default {
-	title: 'Packages/source-react-components-development-kitchen/NumericInput',
+	title: 'source-react-components-development-kitchen/NumericInput',
 	component: NumericInput,
 	args: {
 		label: 'Account number',

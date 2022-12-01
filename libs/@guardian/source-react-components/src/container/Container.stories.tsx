@@ -3,7 +3,7 @@ import type { ContainerProps } from './Container';
 import { Container } from './Container';
 
 export default {
-	title: 'Packages/source-react-components/Container',
+	title: 'source-react-components/Container',
 	component: Container,
 	argTypes: {
 		border: {

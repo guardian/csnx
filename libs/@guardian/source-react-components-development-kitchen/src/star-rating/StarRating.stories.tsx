@@ -3,7 +3,7 @@ import type { StarRatingProps } from './StarRating';
 import { StarRating } from './StarRating';
 
 export default {
-	title: 'Packages/source-react-components-development-kitchen/Star Rating',
+	title: 'source-react-components-development-kitchen/Star Rating',
 	component: StarRating,
 	args: {
 		size: 'medium',

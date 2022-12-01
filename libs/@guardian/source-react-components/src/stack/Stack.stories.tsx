@@ -3,7 +3,7 @@ import type { StackProps } from './Stack';
 import { Stack } from './Stack';
 
 export default {
-	title: 'Packages/source-react-components/Stack',
+	title: 'source-react-components/Stack',
 	component: Stack,
 };
 

@@ -5,7 +5,7 @@ import { Checkbox } from './Checkbox';
 import { checkboxThemeBrand } from './theme';
 
 export default {
-	title: 'Packages/source-react-components/Checkbox',
+	title: 'source-react-components/Checkbox',
 	component: Checkbox,
 	argTypes: {},
 	args: {

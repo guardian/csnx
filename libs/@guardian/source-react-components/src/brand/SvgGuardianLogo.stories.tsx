@@ -3,7 +3,7 @@ import type { SvgGuardianLogoProps } from './SvgGuardianLogo';
 import { SvgGuardianLogo } from './SvgGuardianLogo';
 
 export default {
-	title: 'Packages/source-react-components/SvgGuardianLogo',
+	title: 'source-react-components/SvgGuardianLogo',
 	component: SvgGuardianLogo,
 	argTypes: {
 		width: {

@@ -4,7 +4,7 @@ import type { TilesProps } from './Tiles';
 import { Tiles } from './Tiles';
 
 export default {
-	title: 'Packages/source-react-components/Tiles',
+	title: 'source-react-components/Tiles',
 	component: Tiles,
 	args: {
 		columns: '2',

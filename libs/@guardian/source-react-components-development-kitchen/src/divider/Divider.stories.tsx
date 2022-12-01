@@ -3,7 +3,7 @@ import type { DividerProps } from './Divider';
 import { Divider } from './Divider';
 
 export default {
-	title: 'Packages/source-react-components-development-kitchen/Divider',
+	title: 'source-react-components-development-kitchen/Divider',
 	component: Divider,
 };
 

@@ -4,8 +4,7 @@ import { ToggleSwitchApps } from './ToggleSwitchApps';
 import type { ToggleSwitchAppsProps } from './ToggleSwitchApps';
 
 export default {
-	title:
-		'Packages/source-react-components-development-kitchen/ToggleSwitchApps',
+	title: 'source-react-components-development-kitchen/ToggleSwitchApps',
 	component: ToggleSwitchApps,
 	args: {},
 };

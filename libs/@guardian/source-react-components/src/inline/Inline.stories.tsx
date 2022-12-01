@@ -3,7 +3,7 @@ import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
 
 export default {
-	title: 'Packages/source-react-components/Inline',
+	title: 'source-react-components/Inline',
 	component: Inline,
 };
 

@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 
 export default {
 	component: Footer,
-	title: 'Packages/source-react-components/Footer',
+	title: 'source-react-components/Footer',
 	argTypes: {
 		children: {
 			options: ['with', 'without'],

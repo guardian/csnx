@@ -14,7 +14,7 @@ const priorityArgs: ButtonPriority[] = [
 ];
 
 export default {
-	title: 'Packages/source-react-components/LinkButton',
+	title: 'source-react-components/LinkButton',
 	component: LinkButton,
 	argTypes: {
 		icon: {
