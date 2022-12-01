@@ -3,7 +3,7 @@ import type { FooterLinksProps } from './FooterLinks';
 import { defaultGuardianLinks, FooterLinks } from './FooterLinks';
 
 export default {
-	title: 'Packages/source-react-components-development-kitchen/FooterLinks',
+	title: 'FooterLinks',
 	component: FooterLinks,
 	parameters: {
 		layout: 'fullscreen',

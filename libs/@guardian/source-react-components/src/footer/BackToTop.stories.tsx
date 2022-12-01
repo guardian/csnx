@@ -3,7 +3,7 @@ import { BackToTop } from './BackToTop';
 
 export default {
 	component: BackToTop,
-	title: 'Packages/source-react-components/BackToTop',
+	title: 'BackToTop',
 };
 
 const Template: Story = () => BackToTop;

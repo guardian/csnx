@@ -6,7 +6,7 @@ import { labelThemeBrand } from './theme';
 import type { LegendProps } from './types';
 
 export default {
-	title: 'Packages/source-react-components/Legend',
+	title: 'Legend',
 	args: {
 		text: 'Email',
 		supporting: 'undefined',

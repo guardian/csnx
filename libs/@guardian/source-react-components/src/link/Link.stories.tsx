@@ -7,7 +7,7 @@ import type { LinkProps } from './Link';
 import { linkThemeBrand, linkThemeBrandAlt } from './theme';
 
 export default {
-	title: 'Packages/source-react-components/Link',
+	title: 'Link',
 	component: Link,
 	args: {
 		priority: 'primary',

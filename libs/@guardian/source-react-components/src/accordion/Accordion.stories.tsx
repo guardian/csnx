@@ -4,7 +4,7 @@ import { Accordion } from './Accordion';
 import { AccordionRow } from './AccordionRow';
 
 export default {
-	title: 'Packages/source-react-components/Accordion',
+	title: 'Accordion',
 	component: Accordion,
 	subcomponents: { AccordionRow },
 	args: {

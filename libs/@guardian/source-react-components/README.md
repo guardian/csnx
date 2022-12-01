@@ -66,7 +66,7 @@ Standard themes available from `@guardian/source-react-components`:
 - **brand – exported as `[componentName]ThemeBrand`**
 - **brandAlt – exported as `[componentName]ThemeBrandAlt`**
 
-To find out which themes a component supports, check its stories under `Packages/source-react-components/<ComponentName>`
+To find out which themes a component supports, check its stories under `source-react-components/<ComponentName>`
 
 Note that some components have their own unique themes in addition to the standard set of themes. For instance, the button component defines [two themes for use in Reader Revenue flows](https://theguardian.design/2a1e5182b/p/435225-button/t/41a3ce).
 

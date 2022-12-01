@@ -60,7 +60,7 @@ const pillars = [
 ];
 
 export default {
-	title: 'Packages/source-react-components-development-kitchen/ToggleSwitch',
+	title: 'ToggleSwitch',
 	component: ToggleSwitch,
 };
 

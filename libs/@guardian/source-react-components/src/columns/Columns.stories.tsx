@@ -12,7 +12,7 @@ const Code = (args: HTMLAttributes<HTMLElement>) => (
 );
 
 export default {
-	title: 'Packages/source-react-components/Columns',
+	title: 'Columns',
 	component: Columns,
 	subcomponents: { Column },
 };

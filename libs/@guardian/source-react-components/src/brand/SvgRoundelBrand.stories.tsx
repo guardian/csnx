@@ -3,7 +3,7 @@ import type { SvgRoundelBrandProps } from './SvgRoundelBrand';
 import { SvgRoundelBrand } from './SvgRoundelBrand';
 
 export default {
-	title: 'Packages/source-react-components/SvgRoundelBrand',
+	title: 'SvgRoundelBrand',
 	component: SvgRoundelBrand,
 	argTypes: {
 		width: {

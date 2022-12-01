@@ -7,7 +7,7 @@ import { ChoiceCardGroup } from './ChoiceCardGroup';
 import type { ChoiceCardGroupProps } from './ChoiceCardGroup';
 
 export default {
-	title: 'Packages/source-react-components/ChoiceCardGroup',
+	title: 'ChoiceCardGroup',
 	component: ChoiceCardGroup,
 	subcomponents: { ChoiceCard },
 	args: {

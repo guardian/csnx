@@ -4,7 +4,7 @@ import type { SelectProps } from './Select';
 import { Select } from './Select';
 
 export default {
-	title: 'Packages/source-react-components/Select',
+	title: 'Select',
 	component: Select,
 	subcomponents: { Option },
 	argTypes: {

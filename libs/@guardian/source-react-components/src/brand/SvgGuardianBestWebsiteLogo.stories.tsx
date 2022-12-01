@@ -3,7 +3,7 @@ import type { SvgGuardianBestWebsiteLogoProps } from './SvgGuardianBestWebsiteLo
 import { SvgGuardianBestWebsiteLogo } from './SvgGuardianBestWebsiteLogo';
 
 export default {
-	title: 'Packages/source-react-components/SvgGuardianBestWebsiteLogo',
+	title: 'SvgGuardianBestWebsiteLogo',
 	component: SvgGuardianBestWebsiteLogo,
 	argTypes: {
 		width: {

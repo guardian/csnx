@@ -7,7 +7,7 @@ import { radioThemeBrand } from './theme';
 // import type { Args, Story } from '@storybook/react';
 
 export default {
-	title: 'Packages/source-react-components/Radio',
+	title: 'Radio',
 	component: Radio,
 	argTypes: {
 		label: {

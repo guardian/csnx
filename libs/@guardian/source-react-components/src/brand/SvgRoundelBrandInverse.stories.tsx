@@ -3,7 +3,7 @@ import type { SvgRoundelBrandInverseProps } from './SvgRoundelBrandInverse';
 import { SvgRoundelBrandInverse } from './SvgRoundelBrandInverse';
 
 export default {
-	title: 'Packages/source-react-components/SvgRoundelBrandInverse',
+	title: 'SvgRoundelBrandInverse',
 	component: SvgRoundelBrandInverse,
 	argTypes: {
 		width: {

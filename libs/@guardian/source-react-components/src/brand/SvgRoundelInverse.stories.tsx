@@ -3,7 +3,7 @@ import type { SvgRoundelInverseProps } from './SvgRoundelInverse';
 import { SvgRoundelInverse } from './SvgRoundelInverse';
 
 export default {
-	title: 'Packages/source-react-components/SvgRoundelInverse',
+	title: 'SvgRoundelInverse',
 	component: SvgRoundelInverse,
 	argTypes: {
 		width: {

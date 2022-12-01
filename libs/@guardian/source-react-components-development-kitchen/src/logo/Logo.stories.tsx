@@ -3,7 +3,7 @@ import type { Story } from '@storybook/react';
 import { Logo } from './Logo';
 
 export default {
-	title: 'Packages/source-react-components-development-kitchen/Logo',
+	title: 'Logo',
 	component: Logo,
 	args: {
 		logoType: 'standard',
