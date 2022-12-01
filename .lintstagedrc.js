@@ -1,4 +1,4 @@
 module.exports = {
-	'*.{js,jsx,ts,tsx,css,md,json}': 'prettier --write',
+	'*.{js,jsx,ts,tsx,cjs,mjs,cts,mts,json,css,html,md}': 'prettier --write',
 	'package.json': 'sort-package-json',
 };
