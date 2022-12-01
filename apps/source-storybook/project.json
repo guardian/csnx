@@ -1,0 +1,15 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/source-storybook/src",
+	"projectType": "application",
+	"targets": {
+		"storybook": {
+			"executor": "nx:run-commands",
+			"options": {
+				"commands": ["start-storybook"],
+				"cwd": "apps/source-storybook"
+			}
+		}
+	},
+	"tags": []
+}

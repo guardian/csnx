@@ -1,0 +1,10 @@
+{
+	"name": "source-storybook",
+	"devDependencies": {
+		"@guardian/eslint-plugin-source-foundations": "workspace:*",
+		"@guardian/eslint-plugin-source-react-components": "workspace:*",
+		"@guardian/source-foundations": "workspace:*",
+		"@guardian/source-react-components": "workspace:*",
+		"@guardian/source-react-components-development-kitchen": "workspace:*"
+	}
+}
