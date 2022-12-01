@@ -16,7 +16,7 @@ const defaultFormat = {
 };
 
 export default {
-	title: 'source-react-components-development-kitchen/EditorialButton',
+	title: 'EditorialButton',
 	component: EditorialButton,
 	argTypes: {
 		format: {

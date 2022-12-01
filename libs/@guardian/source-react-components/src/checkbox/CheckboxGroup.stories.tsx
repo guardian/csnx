@@ -7,7 +7,7 @@ import { CheckboxGroup } from './CheckboxGroup';
 import { checkboxThemeBrand } from './theme';
 
 export default {
-	title: 'source-react-components/CheckboxGroup',
+	title: 'CheckboxGroup',
 	component: CheckboxGroup,
 	subcomponents: { Checkbox },
 	argTypes: {},

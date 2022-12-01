@@ -3,7 +3,7 @@ import type { SvgRoundelDefaultProps } from './SvgRoundelDefault';
 import { SvgRoundelDefault } from './SvgRoundelDefault';
 
 export default {
-	title: 'source-react-components/SvgRoundelDefault',
+	title: 'SvgRoundelDefault',
 	component: SvgRoundelDefault,
 	argTypes: {
 		width: {

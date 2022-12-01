@@ -4,7 +4,7 @@ import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
 
 export default {
-	title: 'source-react-components/ChoiceCard',
+	title: 'ChoiceCard',
 	component: ChoiceCard,
 	args: {
 		id: 'option-1-id',

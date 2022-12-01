@@ -4,7 +4,7 @@ import type { ButtonLinkProps } from './ButtonLink';
 import { ButtonLink } from './ButtonLink';
 
 export default {
-	title: 'source-react-components/ButtonLink',
+	title: 'ButtonLink',
 	component: ButtonLink,
 	args: {
 		priority: 'primary',

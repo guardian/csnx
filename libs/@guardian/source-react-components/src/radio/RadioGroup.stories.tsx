@@ -8,7 +8,7 @@ import { radioThemeBrand } from './theme';
 // import type { Args, Story } from '@storybook/react';
 
 export default {
-	title: 'source-react-components/RadioGroup',
+	title: 'RadioGroup',
 	component: RadioGroup,
 	subcomponents: { Radio },
 	args: {

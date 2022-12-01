@@ -5,7 +5,7 @@ import { userFeedbackThemeBrand } from './theme';
 import type { UserFeedbackProps } from './types';
 
 export default {
-	title: 'source-react-components/InlineError',
+	title: 'InlineError',
 	component: InlineError,
 };
 

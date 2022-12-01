@@ -240,7 +240,7 @@ const widePaymentIcons = {
 };
 
 export default {
-	title: 'source-react-components/Icons',
+	title: 'Icons',
 };
 
 // *****************************************************************************

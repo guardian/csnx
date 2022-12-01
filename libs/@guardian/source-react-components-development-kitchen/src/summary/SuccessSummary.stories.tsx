@@ -3,7 +3,7 @@ import type { SuccessSummaryProps } from './SuccessSummary';
 import { SuccessSummary } from './SuccessSummary';
 
 export default {
-	title: 'source-react-components-development-kitchen/Success Summary',
+	title: 'Success Summary',
 	component: SuccessSummary,
 	args: {
 		message: 'Your request was successful',

@@ -4,7 +4,7 @@ import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
 
 export default {
-	title: 'source-react-components/TextArea',
+	title: 'TextArea',
 	component: TextArea,
 	argTypes: {
 		error: {

@@ -4,7 +4,7 @@ import type { HideProps } from './Hide';
 import { Hide } from './Hide';
 
 export default {
-	title: 'source-react-components/Hide',
+	title: 'Hide',
 	component: Hide,
 	argTypes: {
 		above: {

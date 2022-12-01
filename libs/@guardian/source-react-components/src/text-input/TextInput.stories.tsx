@@ -4,7 +4,7 @@ import { TextInput } from './TextInput';
 import type { TextInputProps } from './TextInput';
 
 export default {
-	title: 'source-react-components/TextInput',
+	title: 'TextInput',
 	component: TextInput,
 	args: {
 		label: 'Email',

@@ -6,7 +6,7 @@ import { SquigglyLines as SquigglyLinesComponent } from './SquigglyLines';
 import { StraightLines as StraightLinesComponent } from './StraightLines';
 
 export default {
-	title: 'source-react-components-development-kitchen/Lines',
+	title: 'Lines',
 	component: StraightLinesComponent,
 	args: {
 		count: '4',

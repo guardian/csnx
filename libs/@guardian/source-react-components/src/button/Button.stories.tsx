@@ -59,7 +59,7 @@ const createStory = (args: Partial<ButtonProps>, parameters: Parameters) => {
 };
 
 export default {
-	title: 'source-react-components/Button',
+	title: 'Button',
 	component: Button,
 	argTypes: {
 		icon: {

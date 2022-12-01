@@ -4,7 +4,7 @@ import { userFeedbackThemeBrand } from './theme';
 import type { UserFeedbackProps } from './types';
 
 export default {
-	title: 'source-react-components/InlineSuccess',
+	title: 'InlineSuccess',
 	component: InlineSuccess,
 };
 

@@ -6,7 +6,7 @@ import { labelThemeBrand } from './theme';
 import type { LabelProps } from './types';
 
 export default {
-	title: 'source-react-components/Label',
+	title: 'Label',
 	args: {
 		text: 'Email',
 		optional: false,
