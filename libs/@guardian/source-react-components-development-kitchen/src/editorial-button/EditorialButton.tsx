@@ -14,7 +14,7 @@ export interface EditorialButtonProps
 		SharedEditorialButtonProps {}
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-editorialbutton--when-primary) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_editorialbutton--when-primary) •
  * [Design System](https://theguardian.design/2a1e5182b/p/435225-button) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/editorial-button) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)

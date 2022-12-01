@@ -18,7 +18,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 ### API
 
-See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_packages-source-react-components-development-kitchen-toggleswitch--with-no-label)
+See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_toggleswitch--with-no-label)
 
 ### How to use
 
