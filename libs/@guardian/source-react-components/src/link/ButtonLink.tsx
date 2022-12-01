@@ -9,7 +9,7 @@ export interface ButtonLinkProps
 		SharedLinkProps {}
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-buttonlink--primary-button-link-default-theme) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_buttonlink--primary-button-link-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/43c26b-link/b/048fd1) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/link/ButtonLink.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

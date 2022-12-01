@@ -53,7 +53,7 @@ export interface ChoiceCardGroupProps
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_packages-source-react-components-choicecardgroup--default-default-theme) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_choicecardgroup--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/65ffe9-choice-card) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/choice-card/ChoiceCardGroup.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-card)
