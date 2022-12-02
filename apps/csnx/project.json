@@ -21,6 +21,11 @@
 						"command": "cd libs/@guardian/source-react-components-development-kitchen && start-storybook --no-open --port 4403 --quiet",
 						"prefix": "dev-kitchen",
 						"color": "blue"
+					},
+					{
+						"command": "cd apps/source-storybook && start-storybook --no-open --port 4404 --quiet",
+						"prefix": "source-storybook",
+						"color": "magenta"
 					}
 				],
 				"color": true,
