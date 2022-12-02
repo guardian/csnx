@@ -9,6 +9,15 @@
 				"commands": ["start-storybook"],
 				"cwd": "apps/source-storybook"
 			}
+		},
+		"build-storybook": {
+			"executor": "nx:run-commands",
+			"outputs": ["dist/storybook/apps/source-storybook"],
+			"options": {
+				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/source-storybook",
+				"cwd": "apps/source-storybook",
+				"color": true
+			}
 		}
 	},
 	"tags": []
