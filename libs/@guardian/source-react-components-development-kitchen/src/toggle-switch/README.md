@@ -18,7 +18,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 ### API
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-toggle-switch--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_toggleswitch--with-no-label)
 
 ### How to use
 

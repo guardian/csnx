@@ -27,7 +27,7 @@ export interface LinesProps {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-lines--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_lines--default-lines) •
  * [Design System](https://theguardian.design) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/lines) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)

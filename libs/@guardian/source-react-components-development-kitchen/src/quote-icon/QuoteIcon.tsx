@@ -130,7 +130,7 @@ export type QuoteIconProps = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-quote-icon--demo) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_quoteicon--news) •
  * [Design System](https://theguardian.design) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/quote-icon) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)

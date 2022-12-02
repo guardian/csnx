@@ -22,7 +22,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 ### API
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-editorial-button--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_editorialbutton--when-primary)
 
 ### How to use
 

@@ -20,11 +20,11 @@ $ npm install @guardian/source-foundations
 
 ## Colours
 
-Guardian colours can be found in the [`palette` documentation](https://guardian.github.io/source/?path=/story/packages-source-foundations-palette--page).
+Guardian colours can be found in the [`palette` documentation](https://guardian.github.io/csnx/?path=/docs/source-foundations_palette--palette).
 
 ## Space
 
-Our [space](https://guardian.github.io/source/?path=/story/packages-source-foundations-space--page) system is structured as increments of 4px.
+Our [space](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) system is structured as increments of 4px.
 
 ```js
 import { space } from '@guardian/source-foundations';
@@ -38,7 +38,7 @@ const spaceAfter = css`
 
 ## Size
 
-[Size](https://guardian.github.io/source/?path=/story/packages-source-foundations-size--page) units may be used to set the height, max-height, width or max-width of a component.
+[Size](https://guardian.github.io/csnx/?path=/docs/source-foundations_size--page) units may be used to set the height, max-height, width or max-width of a component.
 
 ```js
 import { width, height } from '@guardian/source-foundations';
@@ -54,7 +54,7 @@ const checkbox = css`
 
 ## Typography
 
-[Typography](https://guardian.github.io/source/?path=/story/packages-source-foundations-typography--page) is expressed as methods that return snippets of CSS depending on the desired font family and size.
+[Typography](https://guardian.github.io/csnx/?path=/docs/source-foundations_typography--headline) is expressed as methods that return snippets of CSS depending on the desired font family and size.
 
 ```js
 import { headline } from '@guardian/source-foundations';
@@ -69,7 +69,7 @@ const h1 = css`
 
 ## Media queries
 
-We provide [media queries](https://guardian.github.io/source/?path=/story/packages-source-foundations-media-queries--page) for each breakpoint in our grid layout.
+We provide [media queries](https://guardian.github.io/csnx/?path=/docs/source-foundations_media-queries--page) for each breakpoint in our grid layout.
 
 ```js
 import { from, until, between } from '@guardian/source-foundations';

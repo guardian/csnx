@@ -13,7 +13,7 @@ export interface StackProps extends HTMLAttributes<HTMLDivElement>, Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-stack) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_stack--default) •
  * [Design System](https://theguardian.design/2a1e5182b/p/827581-stack) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/stack/Stack.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

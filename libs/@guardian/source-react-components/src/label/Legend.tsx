@@ -5,7 +5,7 @@ import { Text } from './Text';
 import type { LegendProps } from './types';
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-legend--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_legend--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/40151e-label/b/86af7d) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/label/Legend.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

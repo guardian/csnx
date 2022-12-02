@@ -12,7 +12,7 @@ export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-inline) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_inline--no-space) •
  * [Design System](https://theguardian.design/2a1e5182b/p/99f3c1-inline) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/inline/Inline.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)

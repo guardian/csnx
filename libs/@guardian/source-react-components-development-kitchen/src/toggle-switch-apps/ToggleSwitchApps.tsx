@@ -46,7 +46,7 @@ export interface ToggleSwitchAppsProps extends Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-toggle-switch-apps--playground) •
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_toggleswitchapps--android-no-label) •
  * [Design System](https://theguardian.design) •
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/toggle-switch-apps) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
