@@ -69,7 +69,8 @@ export type OphanComponentType =
 	| 'CONSENT'
 	| 'LIVE_BLOG_PINNED_POST'
 	| 'STICKY_VIDEO'
-	| 'IDENTITY_AUTHENTICATION';
+	| 'IDENTITY_AUTHENTICATION'
+	| 'RETENTION_HEADER';
 
 export type OphanComponent = {
 	componentType: OphanComponentType;
