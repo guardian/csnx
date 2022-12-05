@@ -17,7 +17,6 @@
 		"@guardian/tsconfig": "libs/@guardian/tsconfig",
 		"nx-plugin-eslint": "tools/nx-plugins/eslint",
 		"nx-plugin-npm-package": "tools/nx-plugins/npm-package",
-		"csnx": "apps/csnx",
-		"source-storybook": "apps/source-storybook"
+		"csnx": "apps/csnx"
 	}
 }
