@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "7.0.0",
+	"version": "7.0.1",
 	"sideEffects": false,
 	"devDependencies": {
 		"@emotion/react": "11.0.0",
