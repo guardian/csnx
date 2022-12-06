@@ -20,7 +20,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 #### `ExpandingWrapper`
 
-See [storybook](https://guardian.github.io/source/?path=/docs/packages-source-react-components-development-kitchen-expanding-wrapper--playground)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_expandingwrapper--expanding-wrapper)
 
 ### How to use
 

@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { ExpandingWrapper } from './ExpandingWrapper';
 
 /**
- * [Storybook](https://guardian.github.io/source/?path=/story/packages-source-react-components-development-kitchen-expandingwrapper--expanding-wrapper
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_expandingwrapper--expanding-wrapper)
  * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *
@@ -126,8 +126,7 @@ const expandingWrapper = (): ReactElement => {
 
 export default {
 	component: expandingWrapper,
-	title:
-		'Packages/source-react-components-development-kitchen/ExpandingWrapper',
+	title: 'ExpandingWrapper',
 };
 
 export { expandingWrapper };
