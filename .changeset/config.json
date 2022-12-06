@@ -8,5 +8,8 @@
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
 	"bumpVersionsWithWorkspaceProtocolOnly": true,
-	"ignore": ["@guardian/source-*", "@guardian/eslint-plugin-source-*"]
+	"ignore": ["@guardian/source-*", "@guardian/eslint-plugin-source-*"],
+	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+		"onlyUpdatePeerDependentsWhenOutOfRange": true
+	}
 }
