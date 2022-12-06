@@ -10,7 +10,7 @@
 		"web-vitals": "2.0.0"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "<=10.0.0",
+		"@guardian/libs": "workspace:^",
 		"tslib": "workspace:^",
 		"web-vitals": "workspace:^"
 	},
