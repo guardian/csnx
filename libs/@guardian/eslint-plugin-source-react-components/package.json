@@ -19,7 +19,7 @@
 		"web-vitals": "2.0.0"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^9.0.0",
+		"@guardian/libs": "^9.0.0 || ^10.0.0",
 		"@guardian/source-react-components": "^9.0.0",
 		"eslint": "^8.0.0"
 	}
