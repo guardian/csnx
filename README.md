@@ -81,6 +81,14 @@ This happens _per project_. So if you change `project-a` but not `project-b`, Nx
 
 This includes between development and CI, between machines, pulls etc.
 
+### Skipping the cache
+
+To force the tasks in the [`Makefile`](./Makefile) to skip the Nx cache, set `SKIP_NX_CACHE=true`, e.g.
+
+```sh
+SKIP_NX_CACHE=true make test
+```
+
 ## Troubleshooting
 
 ### Unable to commit
