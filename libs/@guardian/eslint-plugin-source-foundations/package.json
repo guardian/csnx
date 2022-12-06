@@ -3,8 +3,8 @@
 	"version": "8.0.1",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "5.21.0",
-		"@typescript-eslint/parser": "5.21.0",
+		"@typescript-eslint/eslint-plugin": "5.45.0",
+		"@typescript-eslint/parser": "5.45.0",
 		"eslint-plugin-import": "2.26.0"
 	},
 	"devDependencies": {

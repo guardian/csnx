@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "5.36.1",
-		"@typescript-eslint/parser": "5.36.1",
-		"eslint-import-resolver-typescript": "3.5.0",
+		"@typescript-eslint/eslint-plugin": "5.45.0",
+		"@typescript-eslint/parser": "5.45.0",
+		"eslint-import-resolver-typescript": "3.5.2",
 		"eslint-plugin-import": "2.26.0"
 	},
 	"devDependencies": {
