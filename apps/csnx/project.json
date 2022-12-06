@@ -51,7 +51,7 @@
 			"executor": "nx:run-commands",
 			"outputs": ["dist/storybook/apps/csnx"],
 			"options": {
-				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/csnx",
+				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/csnx --webpack-stats-json",
 				"cwd": "apps/csnx",
 				"color": true
 			}

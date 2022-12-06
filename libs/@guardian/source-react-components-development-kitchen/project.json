@@ -68,7 +68,7 @@
 				"dist/storybook/libs/@guardian/source-react-components-development-kitchen"
 			],
 			"options": {
-				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen",
+				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components-development-kitchen --webpack-stats-json",
 				"cwd": "libs/@guardian/source-react-components-development-kitchen",
 				"color": true
 			}
