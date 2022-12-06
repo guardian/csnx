@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 9.1.1
+
+### Patch Changes
+
+- 2033774: No op to test release process
+
 ## 9.1.0
 
 ### Minor Changes

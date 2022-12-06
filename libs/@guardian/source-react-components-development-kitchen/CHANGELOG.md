@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 7.0.1
+
+### Patch Changes
+
+- 2033774: No op to test release process
+
 ## 7.0.0
 
 ### Major Changes

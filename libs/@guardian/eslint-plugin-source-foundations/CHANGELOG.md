@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 8.0.1
+
+### Patch Changes
+
+- 2033774: No op to test release process
+
 ## 8.0.0
 
 ### Major Changes
