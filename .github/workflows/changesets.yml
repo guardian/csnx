@@ -53,7 +53,7 @@ jobs:
       # this point in the lifecycle, we don't build any @csnx/* packages, so it
       # throws an error looking for them in `dist/libs` (see above) to ignore.
       - name: Create fake @csnx package (workaround for changesets bug)
-        run: mkdir -p dist/libs/@csnx/null && cd "$_" && echo -e "{\"name\":\"@csnx/null\"}" > package.json
+        run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
 
       # down to business...
       - name: Create Release Pull Request or Publish to npm
