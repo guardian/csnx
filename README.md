@@ -5,10 +5,6 @@
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/guardian/csnx)
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/guardian/csnx)
 
-_This project is in a prototype/alpha stage. [Feedback is extremely welcome](https://github.com/guardian/csnx/issues/new/choose), but things are likely to change quickly and possibly on a whim._
-
-_For now, only projects owned by CSTI are being added._
-
 ## Projects in the monorepo
 
 ### Packages

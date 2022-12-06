@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 10.0.2
+
+### Patch Changes
+
+- 24ad7d0: Update dependencies
+
 ## 10.0.1
 
 ### Patch Changes
