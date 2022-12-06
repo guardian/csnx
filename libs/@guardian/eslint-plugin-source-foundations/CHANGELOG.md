@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 8.0.2
+
+### Patch Changes
+
+- 24ad7d0: Update dependencies
+
 ## 8.0.1
 
 ### Patch Changes
