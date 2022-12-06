@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 10.1.0
+
+### Minor Changes
+
+- 50a9940: Add new Ophan component event type
+
 ## 10.0.0
 
 ### Major Changes
