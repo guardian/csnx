@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 10.0.3
+
+### Patch Changes
+
+- a442275: Declare compatability with `@guardian/libs@^10.0.0`
+
 ## 10.0.2
 
 ### Patch Changes

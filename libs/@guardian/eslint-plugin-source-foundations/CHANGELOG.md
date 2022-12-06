@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 8.0.3
+
+### Patch Changes
+
+- a442275: Declare compatability with `@guardian/libs@^10.0.0`
+
 ## 8.0.2
 
 ### Patch Changes
