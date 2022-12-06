@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 10.1.1
+
+### Patch Changes
+
+- c39f114: noop, testing release process
+
 ## 10.1.0
 
 ### Minor Changes
