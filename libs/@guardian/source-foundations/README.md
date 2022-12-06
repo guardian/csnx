@@ -4,6 +4,8 @@
 
 The atoms from which all our visual design is built. They may be used with any CSS-in-JS library.
 
+This package is part of the [Source design system](/docs/source/README.md).
+
 ## Install
 
 Foundations are installed as a JavaScript package via Yarn:

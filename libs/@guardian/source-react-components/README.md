@@ -4,6 +4,8 @@
 
 A set of robust, accessible React components built using `@guardian/source-foundations`.
 
+This package is part of the [Source design system](/docs/source/README.md).
+
 ## Install
 
 ```sh
