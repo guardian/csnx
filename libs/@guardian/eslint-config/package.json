@@ -12,6 +12,6 @@
 		"eslint": "8.0.0"
 	},
 	"peerDependencies": {
-		"eslint": "workspace:^"
+		"eslint": "^8.0.0"
 	}
 }

@@ -7,6 +7,6 @@
 		"prettier": "2.4.0"
 	},
 	"peerDependencies": {
-		"prettier": "workspace:^"
+		"prettier": "^2.4.0"
 	}
 }
