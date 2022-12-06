@@ -133,7 +133,7 @@ importers:
       tslib: 2.4.1
       web-vitals: 2.0.0
     devDependencies:
-      '@guardian/libs': link:../libs
+      '@guardian/libs': 10.0.0_tslib@2.4.1
       tslib: 2.4.1
       web-vitals: 2.0.0
 
@@ -2720,6 +2720,14 @@ packages:
 
   /@gar/promisify/1.1.3:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
+    dev: true
+
+  /@guardian/libs/10.0.0_tslib@2.4.1:
+    resolution: {integrity: sha512-N6+5e0DrusWryaZCH6/cppJlLEksuZWFyYnQjHbe/HXM2cLe2i3GAU5kRhIh98pOlPTPer5GennBAYQ6gzQofg==}
+    peerDependencies:
+      tslib: ^2.4.0
+    dependencies:
+      tslib: 2.4.1
     dev: true
 
   /@humanwhocodes/config-array/0.11.7:
