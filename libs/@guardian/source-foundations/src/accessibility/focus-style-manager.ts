@@ -14,7 +14,6 @@ const TAB_KEY_CODE = 9;
 export class InteractionModeEngine {
 	private isRunning = false;
 
-	// tslint:disable-next-line:no-constructor-vars
 	constructor(private container: Element, private className: string) {}
 
 	/** Returns whether the engine is currently running. */
