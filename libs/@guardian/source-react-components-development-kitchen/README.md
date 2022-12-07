@@ -35,7 +35,7 @@ const Section = () => (
 
 Kitchen components are unsupported by CSTI. They are owned by the team or teams consuming them.
 
-Owners are defined in [CODEOWNERS](https://github.com/guardian/source/blob/main/.github/CODEOWNERS).
+Owners are defined in [CODEOWNERS](https://github.com/guardian/csnx/blob/main/.github/CODEOWNERS).
 
 If you wish to start consuming a Kitchen component, add your team as CODEOWNERS. This ensures you are notified of changes to the component.
 
