@@ -8,8 +8,6 @@
 		"eslint-plugin-import": "2.26.0"
 	},
 	"devDependencies": {
-		"@guardian/eslint-config": "1.0.0",
-		"@guardian/eslint-config-typescript": "1.0.0",
 		"@guardian/libs": "9.0.0",
 		"@guardian/source-foundations": "7.0.0",
 		"@types/eslint": "8.4.6",

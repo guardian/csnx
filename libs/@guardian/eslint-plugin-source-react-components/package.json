@@ -7,8 +7,6 @@
 		"@typescript-eslint/parser": "5.45.0"
 	},
 	"devDependencies": {
-		"@guardian/eslint-config": "1.0.0",
-		"@guardian/eslint-config-typescript": "1.0.0",
 		"@guardian/libs": "9.0.0",
 		"@guardian/source-foundations": "7.0.0",
 		"@guardian/source-react-components": "9.0.0",
