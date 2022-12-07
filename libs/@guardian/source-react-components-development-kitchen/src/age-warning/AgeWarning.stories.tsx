@@ -31,3 +31,6 @@ emptyWarningPrefix.args = { age: '5 years', warningPrefix: '' };
 
 export const customWarningPrefix = Template.bind({});
 customWarningPrefix.args = { age: '5 years', warningPrefix: 'This book is ' };
+
+export const supportsDarkMode = Template.bind({});
+supportsDarkMode.args = { age: '10 years old', supportsDarkMode: true };
