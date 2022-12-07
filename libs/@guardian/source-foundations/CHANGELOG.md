@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 7.0.3
+
+### Patch Changes
+
+- 3f6d6c8: Bump dependencies
+
 ## 7.0.2
 
 ### Patch Changes
