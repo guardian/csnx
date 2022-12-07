@@ -27,7 +27,7 @@ export interface AgeWarningProps {
 	 */
 	warningPrefix?: string;
 	/**
-	 * use this if platform support dark mode
+	 * use this if platform supports dark mode
 	 */
 	supportsDarkMode: boolean;
 }
