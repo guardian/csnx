@@ -9,6 +9,9 @@ export type { EditorialLinkButtonProps } from './editorial-button/EditorialLinkB
 export { ExpandingWrapper } from './expanding-wrapper/ExpandingWrapper';
 export type { ExpandingWrapperProps } from './expanding-wrapper/ExpandingWrapper';
 
+export { AgeWarning } from './age-warning/AgeWarning';
+export type { AgeWarningProps } from './age-warning/AgeWarning';
+
 export { Lines } from './lines/Lines';
 export { SquigglyLines } from './lines/SquigglyLines';
 export { DashedLines } from './lines/DashedLines';
