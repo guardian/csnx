@@ -8,17 +8,10 @@ import {
 	buttonThemeReaderRevenueBrand,
 	buttonThemeReaderRevenueBrandAlt,
 } from './theme-reader-revenue';
-import type { ButtonPriority } from './types';
+
 // These types are the right types, but don't work with Storybook v6 which uses Emotion v10
 // import type { Args, Story } from '@storybook/react';
 
-const priorityArgs: ButtonPriority[] = [
-	'primary',
-	'secondary',
-	'tertiary',
-	'subdued',
-];
-const readerRevenuePriorityArgs: ButtonPriority[] = ['primary', 'tertiary'];
 const themeParameters = {
 	default: {},
 	brand: {
@@ -49,14 +42,6 @@ const themeParameters = {
 		theme: buttonThemeReaderRevenueBrandAlt,
 	},
 };
-const createStory = (args: Partial<ButtonProps>, parameters: Parameters) => {
-	const story = Template.bind({});
-
-	story.parameters = parameters;
-	story.args = args;
-
-	return story;
-};
 
 export default {
 	title: 'Button',
@@ -86,63 +71,129 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => (
 	<Button {...args} />
 );
 
-export const [
-	PrimaryPriorityDefaultTheme,
-	SecondaryPriorityDefaultTheme,
-	TertiaryPriorityDefaultTheme,
-	SubduedPriorityDefaultTheme,
-] = priorityArgs.map((priority) =>
-	createStory({ priority }, themeParameters.default),
-);
+// *****************************************************************************
+
+export const PrimaryPriorityDefaultTheme = Template.bind({});
+PrimaryPriorityDefaultTheme.args = {
+	priority: 'primary',
+};
+PrimaryPriorityDefaultTheme.parameters = themeParameters.default;
+
+export const SecondaryPriorityDefaultTheme = Template.bind({});
+SecondaryPriorityDefaultTheme.args = {
+	priority: 'secondary',
+};
+SecondaryPriorityDefaultTheme.parameters = themeParameters.default;
+
+export const TertiaryPriorityDefaultTheme = Template.bind({});
+TertiaryPriorityDefaultTheme.args = {
+	priority: 'tertiary',
+};
+TertiaryPriorityDefaultTheme.parameters = themeParameters.default;
+
+export const SubduedPriorityDefaultTheme = Template.bind({});
+SubduedPriorityDefaultTheme.args = {
+	priority: 'subdued',
+};
+SubduedPriorityDefaultTheme.parameters = themeParameters.default;
 
 // *****************************************************************************
 
-export const [
-	PrimaryPriorityBrandTheme,
-	SecondaryPriorityBrandTheme,
-	TertiaryPriorityBrandTheme,
-	SubduedPriorityBrandTheme,
-] = priorityArgs.map((priority) =>
-	createStory({ priority }, themeParameters.brand),
-);
+export const PrimaryPriorityBrandTheme = Template.bind({});
+PrimaryPriorityBrandTheme.args = {
+	priority: 'primary',
+};
+PrimaryPriorityBrandTheme.parameters = themeParameters.brand;
+
+export const SecondaryPriorityBrandTheme = Template.bind({});
+SecondaryPriorityBrandTheme.args = {
+	priority: 'secondary',
+};
+SecondaryPriorityBrandTheme.parameters = themeParameters.brand;
+
+export const TertiaryPriorityBrandTheme = Template.bind({});
+TertiaryPriorityBrandTheme.args = {
+	priority: 'tertiary',
+};
+TertiaryPriorityBrandTheme.parameters = themeParameters.brand;
+
+export const SubduedPriorityBrandTheme = Template.bind({});
+SubduedPriorityBrandTheme.args = {
+	priority: 'subdued',
+};
+SubduedPriorityBrandTheme.parameters = themeParameters.brand;
 
 // *****************************************************************************
 
-export const [
-	PrimaryPriorityBrandAltTheme,
-	SecondaryPriorityBrandAltTheme,
-	TertiaryPriorityBrandAltTheme,
-	SubduedPriorityBrandAltTheme,
-] = priorityArgs.map((priority) =>
-	createStory({ priority }, themeParameters.brandAlt),
-);
+export const PrimaryPriorityBrandAltTheme = Template.bind({});
+PrimaryPriorityBrandAltTheme.args = {
+	priority: 'primary',
+};
+PrimaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
+
+export const SecondaryPriorityBrandAltTheme = Template.bind({});
+SecondaryPriorityBrandAltTheme.args = {
+	priority: 'secondary',
+};
+SecondaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
+
+export const TertiaryPriorityBrandAltTheme = Template.bind({});
+TertiaryPriorityBrandAltTheme.args = {
+	priority: 'tertiary',
+};
+TertiaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
+
+export const SubduedPriorityBrandAltTheme = Template.bind({});
+SubduedPriorityBrandAltTheme.args = {
+	priority: 'subdued',
+};
+SubduedPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
 // *****************************************************************************
 
-export const [
-	PrimaryPriorityReaderRevenueTheme,
-	TertiaryPriorityReaderRevenueTheme,
-] = readerRevenuePriorityArgs.map((priority) =>
-	createStory({ priority }, themeParameters.readerRevenue),
-);
+export const PrimaryPriorityReaderRevenueTheme = Template.bind({});
+PrimaryPriorityReaderRevenueTheme.args = {
+	priority: 'primary',
+};
+PrimaryPriorityReaderRevenueTheme.parameters = themeParameters.readerRevenue;
+
+export const TertiaryPriorityReaderRevenueTheme = Template.bind({});
+TertiaryPriorityReaderRevenueTheme.args = {
+	priority: 'tertiary',
+};
+TertiaryPriorityReaderRevenueTheme.parameters = themeParameters.readerRevenue;
 
 // *****************************************************************************
 
-export const [
-	PrimaryPriorityReaderRevenueBrandTheme,
-	TertiaryPriorityReaderRevenueBrandTheme,
-] = readerRevenuePriorityArgs.map((priority) =>
-	createStory({ priority }, themeParameters.readerRevenueBrand),
-);
+export const PrimaryPriorityReaderRevenueBrandTheme = Template.bind({});
+PrimaryPriorityReaderRevenueBrandTheme.args = {
+	priority: 'primary',
+};
+PrimaryPriorityReaderRevenueBrandTheme.parameters =
+	themeParameters.readerRevenueBrand;
+
+export const TertiaryPriorityReaderRevenueBrandTheme = Template.bind({});
+TertiaryPriorityReaderRevenueBrandTheme.args = {
+	priority: 'tertiary',
+};
+TertiaryPriorityReaderRevenueBrandTheme.parameters =
+	themeParameters.readerRevenueBrand;
 
 // *****************************************************************************
 
-export const [
-	PrimaryPriorityReaderRevenueBrandAltTheme,
-	TertiaryPriorityReaderRevenueBrandAltTheme,
-] = readerRevenuePriorityArgs.map((priority) =>
-	createStory({ priority }, themeParameters.readerRevenueBrandAlt),
-);
+export const PrimaryPriorityReaderRevenueBrandAltTheme = Template.bind({});
+PrimaryPriorityReaderRevenueBrandAltTheme.args = {
+	priority: 'primary',
+};
+PrimaryPriorityReaderRevenueBrandAltTheme.parameters =
+	themeParameters.readerRevenueBrandAlt;
+
+export const TertiaryPriorityReaderRevenueBrandAltTheme = Template.bind({});
+TertiaryPriorityReaderRevenueBrandAltTheme.args = {
+	priority: 'tertiary',
+};
+TertiaryPriorityReaderRevenueBrandAltTheme.parameters =
+	themeParameters.readerRevenueBrandAlt;
 
 // *****************************************************************************
 
