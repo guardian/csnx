@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 7.1.1
+
+### Patch Changes
+
+- 6d06f5b: Export AgeWarning component
+
 ## 7.1.0
 
 ### Minor Changes
