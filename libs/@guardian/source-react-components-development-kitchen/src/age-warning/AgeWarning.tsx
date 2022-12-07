@@ -10,13 +10,32 @@ import {
 import { darkModeCss } from './styles';
 
 export interface AgeWarningProps {
+	/**
+	 * the age to be shown in the warning. e.g. 5 years
+	 */
 	age: string;
+	/**
+	 * hiding the warning from sight while still being available to screen readers.
+	 */
 	isScreenReader?: boolean;
+	/**
+	 * size of the yellow warning banner
+	 */
 	size?: 'small' | 'medium';
+	/**
+	 * the message to be shown before the age. default is 'This article is more than '
+	 */
 	warningPrefix?: string;
+	/**
+	 * use this if platform support dark mode
+	 */
+	supportsDarkMode: boolean;
 }
 
-const ageWarningStyles = (isSmall: boolean): SerializedStyles => css`
+const ageWarningStyles = (
+	isSmall: boolean,
+	supportsDarkMode: boolean,
+): SerializedStyles => css`
 	${isSmall ? textSans.xxsmall() : textSans.medium()};
 	color: ${palette.neutral[7]};
 	background-color: ${palette.brandAlt[400]};
@@ -36,7 +55,7 @@ const ageWarningStyles = (isSmall: boolean): SerializedStyles => css`
 		padding-left: ${isSmall ? '5px' : '10px'};
 	}
 
-	${darkModeCss`
+	${darkModeCss(supportsDarkMode)`
 		background-color: ${palette.brandAlt[200]};
     `}
 `;
@@ -57,6 +76,7 @@ export const AgeWarning = ({
 	isScreenReader,
 	size = 'medium',
 	warningPrefix = 'This article is more than ',
+	supportsDarkMode = false,
 }: AgeWarningProps): EmotionJSX.Element => {
 	const isSmall = size === 'small';
 	const ageOld = ensureOldText(age);
@@ -66,7 +86,7 @@ export const AgeWarning = ({
 	}
 
 	return (
-		<div css={ageWarningStyles(isSmall)} aria-hidden="true">
+		<div css={ageWarningStyles(isSmall, supportsDarkMode)} aria-hidden="true">
 			<svg width="11" height="11" viewBox="0 0 11 11">
 				<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"></path>
 			</svg>
