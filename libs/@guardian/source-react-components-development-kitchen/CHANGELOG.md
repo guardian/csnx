@@ -28,7 +28,7 @@
 
 ### Major Changes
 
-- f83640ca: Visually hide StarRating's <figcaption> element
+- f83640ca: Visually hide StarRating's `<figcaption>` element
 
 ### Minor Changes
 
