@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 7.1.0
+
+### Minor Changes
+
+- c4e1b7f: Adding AgeWarning component in kitchen which inserts a yellow warning banner on the page showing how old the content is
+
 ## 7.0.2
 
 ### Patch Changes
