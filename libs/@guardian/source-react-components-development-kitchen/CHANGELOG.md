@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 7.1.2
+
+### Patch Changes
+
+- c616be8: Links in docs updated to point at csnx instead of the archived Source repo
+
 ## 7.1.1
 
 ### Patch Changes
