@@ -67,7 +67,7 @@ export interface ColumnsProps extends HTMLAttributes<HTMLDivElement>, Props {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_columns--with-container) •
  * [Design System](https://theguardian.design/2a1e5182b/p/41cd49-columns) •
- * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/columns/Columns.tsx) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/columns/Columns.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *
  * `Columns` arranges child `Column`s side by side on a single row, with the

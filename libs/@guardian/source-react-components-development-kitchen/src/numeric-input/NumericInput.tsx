@@ -55,7 +55,7 @@ export type NumericInputProps = Omit<TextInputProps, 'inputmode'> & {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_numericinput--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/097455-text-input-field/b/050445) •
- * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/numeric-input) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/@guardian/source-react-components-development-kitchen)
  *
  * This is an iteration on the core TextInput component for taking numeric input, such as currency amounts.
