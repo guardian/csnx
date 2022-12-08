@@ -59,6 +59,8 @@ $ yarn storybook
 - Generate a changeset describing your work by running `make changeset` and following the prompts.
 - Test that your component can be used in a real project (e.g. [dotcom-rendering](https://github.com/guardian/dotcom-rendering)). Use [`pnpm link`](https://pnpm.io/cli/link) to avoid having to perform a real publish, and [TODO: PNPM equivalent to `yarn pack`](#) to see exactly which files would be published.
 
+### TODO: merging Source PRs
+
 ### Versioning
 
 - `make changeset` will prompt you to choose a [semver](https://semver.org/) change type for your changes (major/minor/patch).
