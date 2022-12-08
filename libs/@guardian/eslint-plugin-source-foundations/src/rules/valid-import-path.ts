@@ -320,7 +320,7 @@ export const validFoundationsImportPath: Rule.RuleModule = {
 		docs: {
 			description: 'Get Source imports from v4 packages',
 			category: 'Deprecated',
-			url: 'https://github.com/guardian/source',
+			url: 'https://github.com/guardian/csnx/tree/main/libs/@guardian/eslint-plugin-source-foundations/README.md',
 		},
 		fixable: 'code',
 		schema: [],
