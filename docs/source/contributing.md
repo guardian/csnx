@@ -4,16 +4,24 @@
 
 ## Local development
 
-Install dependencies using Yarn:
+Install dependencies using pnpm:
 
 ```shell
-$ yarn
+$ pnpm i
 ```
 
-Develop using Storybook:
+### Develop using Storybook
+
+Run all CSNX storybooks in a single instance:
 
 ```shell
-$ yarn storybook
+$ make storybooks
+```
+
+Build all storybooks:
+
+```shell
+$ make build-storybooks
 ```
 
 ## Guidelines
