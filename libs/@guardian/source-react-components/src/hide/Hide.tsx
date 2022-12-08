@@ -35,7 +35,7 @@ export interface HideProps extends HTMLAttributes<HTMLDivElement>, Props {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_hide--hidden-from-tablet-at-mobile) •
  * [Design System](https://theguardian.design/2a1e5182b/p/78cb73-hide) •
- * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/hide/Hide.tsx) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/hide/Hide.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *
  * Hides child content `until` and/or `from` a given breakpoint.
