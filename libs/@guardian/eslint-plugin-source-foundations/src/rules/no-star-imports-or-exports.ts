@@ -20,7 +20,7 @@ export const noStarImportsOrExports: Rule.RuleModule = {
 		docs: {
 			description: 'Disallow * imports and exports',
 			category: 'Possible Problems',
-			url: 'https://github.com/guardian/source',
+			url: 'https://github.com/guardian/csnx/tree/main/libs/@guardian/eslint-plugin-source-foundations/README.md',
 		},
 	},
 

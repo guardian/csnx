@@ -20,7 +20,7 @@ export interface AccordionProps extends Props {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_accordion--with-cta-labels-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/38c5aa-accordion/b/92b71e) •
- * [GitHub](https://github.com/guardian/source/blob/main/packages/@guardian/source-react-components/src/accordion/Accordion.tsx) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/accordion/Accordion.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *
  * **Note**: the `max-height` of an `AccordionRow` is `500px`
