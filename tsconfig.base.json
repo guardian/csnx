@@ -14,8 +14,17 @@
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
+			"@guardian/apps-rendering": [
+				"libs/@guardian/apps-rendering/src/index.ts"
+			],
 			"@guardian/core-web-vitals": [
 				"libs/@guardian/core-web-vitals/src/index.ts"
+			],
+			"@guardian/eslint-plugin-source-foundations": [
+				"libs/@guardian/eslint-plugin-source-foundations/src/index.ts"
+			],
+			"@guardian/eslint-plugin-source-react-components": [
+				"libs/@guardian/eslint-plugin-source-react-components/src/index.ts"
 			],
 			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
 			"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
@@ -27,12 +36,6 @@
 			],
 			"@guardian/source-react-components-development-kitchen": [
 				"libs/@guardian/source-react-components-development-kitchen/src/index.ts"
-			],
-			"@guardian/eslint-plugin-source-foundations": [
-				"libs/@guardian/eslint-plugin-source-foundations/src/index.ts"
-			],
-			"@guardian/eslint-plugin-source-react-components": [
-				"libs/@guardian/eslint-plugin-source-react-components/src/index.ts"
 			]
 		},
 		"rootDir": ".",
