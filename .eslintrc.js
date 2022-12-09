@@ -1,3 +1,6 @@
+// This is repo-wide base config for eslint. It's not used directly by any
+// project, but is extended by each project's own eslint config.
+
 module.exports = {
 	root: true,
 	// disable eslint on all files by default, for perf reasons
