@@ -3,6 +3,7 @@
 	"version": "7.1.2",
 	"sideEffects": false,
 	"devDependencies": {
+		"@babel/core": "7.20.5",
 		"@emotion/react": "11.0.0",
 		"@guardian/libs": "9.0.0",
 		"@guardian/source-foundations": "7.0.0",
