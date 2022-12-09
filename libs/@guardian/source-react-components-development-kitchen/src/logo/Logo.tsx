@@ -130,7 +130,7 @@ const logoStyles = css`
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_logo--desktop) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components-development-kitchen/components/logo) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
  */
 export const Logo = ({

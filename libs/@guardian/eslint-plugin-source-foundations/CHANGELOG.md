@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 8.0.4
+
+### Patch Changes
+
+- 0e11603: Links in `eslint-plugin-source-foundations` and `eslint-plugin-source-react-components` eslint documentation updated to point at the relevant readme instead of the archived Source repo.
+
 ## 8.0.3
 
 ### Patch Changes

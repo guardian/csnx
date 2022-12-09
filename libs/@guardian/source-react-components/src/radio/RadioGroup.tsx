@@ -41,7 +41,7 @@ export interface RadioGroupProps
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_radiogroup--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/2891dd-radio-button/b/46940d) •
- * [GitHub](https://github.com/guardian/source/tree/main/packages/@guardian/source-react-components/src/radio/RadioGroup.tsx) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/radio/RadioGroup.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *
  * Radio buttons allow users to make a single selection from a set of options.
