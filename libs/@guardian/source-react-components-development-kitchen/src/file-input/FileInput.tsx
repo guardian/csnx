@@ -22,7 +22,6 @@ export const FileInput: FC<FileInputProps> = ({
 	...props
 }) => {
 	const [chosenFile, setChosenFile] = useState<null | string>();
-	console.log('*** chosenFile', chosenFile);
 
 	const getFileName = (filepath?: string): string =>
 		filepath?.split(/(\\|\/)/g).pop() ?? '';
@@ -30,7 +29,6 @@ export const FileInput: FC<FileInputProps> = ({
 	const onSelectFile = async (
 		event: React.ChangeEvent<HTMLInputElement>,
 	): Promise<void> => {
-		console.log('*** hi');
 		setChosenFile(event.target.value);
 		if (event.target.files?.[0]) {
 			try {
@@ -60,8 +58,7 @@ export const FileInput: FC<FileInputProps> = ({
 				hideLabel={hideLabel}
 			>
 				{error && <InlineError>{error}</InlineError>}
-				{/* TODO: Error styling on button? */}
-				<div css={(theme: Theme) => customUpload(theme.fileInput)}>
+				<div css={(theme: Theme) => customUpload(theme.fileInput, !!error)}>
 					{chosenFile ? 'Change File' : 'Choose File'}
 					<input
 						type="file"

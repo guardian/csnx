@@ -10,8 +10,8 @@ import { fileInputThemeDefault } from './theme';
 
 export const customUpload = (
 	fileInput = fileInputThemeDefault.fileInput,
+	hasError = false,
 ): SerializedStyles => css`
-	background: red;
 	${textSans.small()};
 	display: inline-flex;
 	justify-content: space-between;
@@ -25,11 +25,13 @@ export const customUpload = (
 	height: ${remHeight.ctaXsmall}rem;
 	min-height: ${remHeight.ctaXsmall}rem;
 	padding: ${remSpace[3]};
-	margin: ${remSpace[3]} ${remSpace[1]};
+	margin: ${remSpace[2]} ${remSpace[1]};
 	border-radius: ${remHeight.ctaMedium}rem;
 	${textSans.medium({ fontWeight: 'medium' })};
 	color: ${fileInput.primary};
-	border: 1px solid ${fileInput.primary};
+	border: ${hasError
+		? `4px solid ${fileInput.error}`
+		: `1px solid ${fileInput.primary}`};
 
 	&:focus-within,
 	&:focus {
