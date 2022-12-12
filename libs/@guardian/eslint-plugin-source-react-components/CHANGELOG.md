@@ -1,5 +1,19 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 11.0.0
+
+### Major Changes
+
+- eb65fde: Add `typescript@^4.3.2` to `peerDependecies` (`optional`).
+
+  This should mean you get a warning if you're using an incompatible version of typescript, but not if you aren't using it at all.
+
+### Patch Changes
+
+- Updated dependencies [eb65fde]
+  - @guardian/libs@11.0.0
+  - @guardian/source-react-components@10.0.0
+
 ## 10.0.4
 
 ### Patch Changes
