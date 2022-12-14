@@ -29,9 +29,6 @@ export const FileInput: FC<FileInputProps> = ({
 
 	const errorText = error ?? uploadError;
 
-	const getFileName = (filepath?: string): string =>
-		filepath?.split(/(\\|\/)/g).pop() ?? '';
-
 	const onSelectFile = async (
 		event: React.ChangeEvent<HTMLInputElement>,
 	): Promise<void> => {
@@ -104,7 +101,7 @@ export const FileInput: FC<FileInputProps> = ({
 							Remove File
 						</button>
 					)}
-					<span>{getFileName(fileName)}</span>
+					<span>{fileName}</span>
 				</>
 			)}
 		</div>
