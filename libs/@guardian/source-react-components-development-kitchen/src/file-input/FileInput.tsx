@@ -19,6 +19,7 @@ export const FileInput: FC<FileInputProps> = ({
 	error,
 	onError,
 	onUpload,
+	cssOverrides,
 	...props
 }) => {
 	const [chosenFile, setChosenFile] = useState<null | string>();
@@ -48,7 +49,7 @@ export const FileInput: FC<FileInputProps> = ({
 	};
 
 	return (
-		<>
+		<div css={cssOverrides}>
 			<Label
 				id={id}
 				key={id}
@@ -85,6 +86,6 @@ export const FileInput: FC<FileInputProps> = ({
 					<span>{getFileName(chosenFile)}</span>
 				</>
 			)}
-		</>
+		</div>
 	);
 };

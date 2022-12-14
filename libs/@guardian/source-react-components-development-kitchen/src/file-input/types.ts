@@ -1,3 +1,5 @@
+import type { SerializedStyles } from '@emotion/react';
+
 export interface FileInputProps {
 	id?: string;
 	/**
@@ -33,4 +35,8 @@ export interface FileInputProps {
 	 * Callback to call when a file is uploaded. It is passed the base64 stringified file.
 	 */
 	onUpload?: (file: string | undefined) => void;
+	/**
+	 * Override component styles by passing in the result of [emotion's `css` function/prop](https://emotion.sh/docs/introduction).
+	 */
+	cssOverrides?: SerializedStyles | SerializedStyles[];
 }

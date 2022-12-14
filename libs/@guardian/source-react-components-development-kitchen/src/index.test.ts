@@ -47,5 +47,7 @@ it('Should have exactly these exports', () => {
 		'ToggleSwitch',
 		'ToggleSwitchApps',
 		'defaultGuardianLinks',
+		'fileInputDarkTheme',
+		'fileInputThemeDefault',
 	]);
 });
