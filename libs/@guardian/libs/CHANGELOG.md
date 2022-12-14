@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 11.1.0
+
+### Minor Changes
+
+- 5a7ba38: Add `isNonNullable` [type guard](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types) for values that are neither `null` nor `undefined`
+
 ## 11.0.0
 
 ### Major Changes

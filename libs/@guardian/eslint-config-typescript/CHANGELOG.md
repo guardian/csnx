@@ -1,5 +1,11 @@
 # @guardian/eslint-config-typescript
 
+## 3.0.0
+
+### Major Changes
+
+- 4cb065e: Explicit uses of `any` are now errors, not just warnings.
+
 ## 2.0.1
 
 ### Patch Changes
