@@ -36,6 +36,14 @@ export interface FileInputProps {
 	 */
 	onUpload?: (file: string | undefined) => void;
 	/**
+	 * A list of valid file types. Defaults to ["image/png", "image/jpeg", "image/jpg"].
+	 */
+	validFileTypes?: string[];
+	/**
+	 * The maximum size of a file that should be uploaded (in bytes)
+	 */
+	maxFileSize?: number;
+	/**
 	 * Override component styles by passing in the result of [emotion's `css` function/prop](https://emotion.sh/docs/introduction).
 	 */
 	cssOverrides?: SerializedStyles | SerializedStyles[];

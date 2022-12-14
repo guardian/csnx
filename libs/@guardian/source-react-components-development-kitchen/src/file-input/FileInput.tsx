@@ -3,7 +3,7 @@ import { visuallyHidden } from '@guardian/source-foundations';
 import { InlineError, Label } from '@guardian/source-react-components';
 import { useState } from 'react';
 import type { FC } from 'react';
-import { stringifyFileBase64 } from './stringifyFileBase64';
+import { getReadableFileSize, stringifyFileBase64 } from './fileHelpers';
 import { customUpload } from './styles';
 import type { Theme } from './theme';
 import type { FileInputProps } from './types';
@@ -20,9 +20,14 @@ export const FileInput: FC<FileInputProps> = ({
 	onError,
 	onUpload,
 	cssOverrides,
+	validFileTypes = ['image/png', 'image/jpeg', 'image/jpg'],
+	maxFileSize,
 	...props
 }) => {
-	const [chosenFile, setChosenFile] = useState<null | string>();
+	const [fileName, setFileName] = useState<null | string>();
+	const [uploadError, setUploadError] = useState<undefined | string>();
+
+	const errorText = error ?? uploadError;
 
 	const getFileName = (filepath?: string): string =>
 		filepath?.split(/(\\|\/)/g).pop() ?? '';
@@ -30,21 +35,37 @@ export const FileInput: FC<FileInputProps> = ({
 	const onSelectFile = async (
 		event: React.ChangeEvent<HTMLInputElement>,
 	): Promise<void> => {
-		setChosenFile(event.target.value);
-		if (event.target.files?.[0]) {
-			try {
-				const stringifiedFile = await stringifyFileBase64(
-					event.target.files[0],
-				);
-				onUpload?.(stringifiedFile);
-			} catch (e) {
-				onError?.(e);
-			}
+		setUploadError(undefined);
+		const file = event.target.files?.[0];
+		if (!file) return;
+
+		if (!validFileTypes.includes(file.type)) {
+			const typeErrorMessage = `Sorry there was a problem with the file you uploaded. We accept ${validFileTypes.join(
+				', ',
+			)}`;
+			setUploadError(typeErrorMessage);
+			return;
+		}
+
+		if (maxFileSize && file.size > maxFileSize) {
+			const sizeErrorMessage = `Sorry there was a problem with the file you uploaded. The max file size is ${getReadableFileSize(
+				maxFileSize,
+			)}`;
+			setUploadError(sizeErrorMessage);
+			return;
+		}
+
+		setFileName(file.name);
+		try {
+			const stringifiedFile = await stringifyFileBase64(file);
+			onUpload?.(stringifiedFile);
+		} catch (e) {
+			onError?.(e);
 		}
 	};
 
 	const onRemoveFile = (): void => {
-		setChosenFile(undefined);
+		setFileName(undefined);
 		onUpload?.(undefined);
 	};
 
@@ -58,12 +79,12 @@ export const FileInput: FC<FileInputProps> = ({
 				optional={optional}
 				hideLabel={hideLabel}
 			>
-				{error && <InlineError>{error}</InlineError>}
-				<div css={(theme: Theme) => customUpload(theme.fileInput, !!error)}>
-					{chosenFile ? 'Change File' : 'Choose File'}
+				{!!errorText && <InlineError>{errorText}</InlineError>}
+				<div css={(theme: Theme) => customUpload(theme.fileInput, !!errorText)}>
+					{fileName ? 'Change File' : 'Choose File'}
 					<input
 						type="file"
-						accept="image/*, .pdf"
+						accept={validFileTypes.join(',')}
 						css={css`
 							${visuallyHidden}
 						`}
@@ -73,7 +94,7 @@ export const FileInput: FC<FileInputProps> = ({
 					/>
 				</div>
 			</Label>
-			{chosenFile && (
+			{fileName && (
 				<>
 					{optional && (
 						<button
@@ -83,7 +104,7 @@ export const FileInput: FC<FileInputProps> = ({
 							Remove File
 						</button>
 					)}
-					<span>{getFileName(chosenFile)}</span>
+					<span>{getFileName(fileName)}</span>
 				</>
 			)}
 		</div>
