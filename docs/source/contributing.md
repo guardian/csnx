@@ -43,12 +43,12 @@ $ make build-storybooks
 
 ### Documentation
 
-- Source uses [storybook](https://guardian.github.io/csnx) for its API documentation as well as for visual regression testing.
+- Source uses [Storybook](https://guardian.github.io/csnx) for its API documentation as well as for visual regression testing.
 
 ### Testing
 
-- Ensure you test your changes against our [accessibility testing guide](./pull-request-template.md#accessibility).
-- Ensure your component works against the following browsers (you can [ask for access to Browserstack](mailto:divx@theguardian.com?subject=Browserstack)):
+- Ensure you test your changes against our accessibility testing guide (see 'Raising a pull request' below).
+- Ensure your component works against the following browsers (you can [ask for access to Browserstack Live](mailto:divx@theguardian.com?subject=Browserstack)):
   - **Chrome 77+**
   - **Firefox 68+**
   - **Edge 17+**
@@ -65,9 +65,37 @@ $ make build-storybooks
 ### Raising a pull request
 
 - Generate a changeset describing your work by running `make changeset` and following the prompts.
-- Test that your component can be used in a real project (e.g. [dotcom-rendering](https://github.com/guardian/dotcom-rendering)). Use [`pnpm link`](https://pnpm.io/cli/link) to avoid having to perform a real publish, and [TODO: PNPM equivalent to `yarn pack`](#) to see exactly which files would be published.
+- Test that your component can be used in a real project (e.g. [dotcom-rendering](https://github.com/guardian/dotcom-rendering)). In the project folder, use [`pnpm link`](https://pnpm.io/cli/link) to avoid having to perform a real publish, and [`pnpm pack`](https://pnpm.io/cli/pack) to see exactly which files would be published.
 
-### TODO: merging Source PRs
+#### Testing checklist
+
+##### Accessibility
+
+- [ ] [Tested with screen reader](https://github.com/guardian/accessibility/blob/main/people-and-technology/03-visual.md#screen-reader)
+- [ ] [Navigable with keyboard](https://github.com/guardian/accessibility/blob/main/people-and-technology/02-physical.md#keyboard)
+- [ ] [Colour contrast passed](https://github.com/guardian/accessibility/blob/main/people-and-technology/03-visual.md#contrast)
+- [ ] [The change doesn't use only colour to convey meaning](https://github.com/guardian/accessibility/blob/main/people-and-technology/03-visual.md#use-of-colour)
+
+##### Cross browser and device testing
+
+- [ ] Tested with touch screen device
+
+##### Responsiveness
+
+If there are guidelines around how much content the component can support, or how wide its container may get, please specify them in the documentation section.
+
+- [ ] Tested at all breakpoints
+- [ ] Tested with with long text
+- [ ] Stretched to fill a wide container
+
+#### Documentation
+
+- [ ] Full API surface area is documented in the README
+- [ ] Examples in Storybook
+
+### Merging Source PRs
+
+CSTI members have permissions to merge your PR. Ping the team on [divx@theguardian.com]((mailto:divx@theguardian.com?subject=Source PR)) if your PR needs prompt attention.
 
 ### Versioning
 
