@@ -23,7 +23,7 @@ export interface FileInputProps {
 	 */
 	error?: string;
 	/**
-	 * An error handler which will be called if handling the file throws an error.
+	 * An error handler which will be called if uploading the file throws an error.
 	 */
 	onError?: (e: Error) => void;
 	/**
