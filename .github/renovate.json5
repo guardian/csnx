@@ -28,7 +28,7 @@
 
 		// group all root deps together - matches are overidden by any subsequent matching group
 		{
-			matchPaths: ['package.json'],
+			matchPaths: ['+(package.json)'],
 			matchDepTypes: ['devDependencies'],
 			groupName: 'workspace root `devDependencies`',
 		},
@@ -104,52 +104,43 @@
 		// group all our packages by package and/or role
 
 		{
-			matchPaths: ['tools/nx-plugins/eslint/package.json'],
+			matchFiles: ['tools/nx-plugins/eslint/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@csnx/eslint` dependencies',
 		},
 
 		{
-			matchPaths: ['tools/nx-plugins/npm-package/package.json'],
+			matchFiles: ['tools/nx-plugins/npm-package/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@csnx/npm-package` dependencies',
 		},
 
 		{
-			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			matchFiles: ['libs/@guardian/browserslist-config/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@guardian/browserslist-config` dependencies',
 		},
 
 		{
-			matchPaths: [
-				'libs/@guardian/eslint-config/package.json',
-				'libs/@guardian/eslint-config-typescript/package.json',
-				'libs/@guardian/eslint-plugin-source-foundations/package.json',
-				'libs/@guardian/eslint-plugin-source-react-components/package.json',
-			],
+			matchPaths: ['libs/@guardian/*eslint*/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@guardian/eslint-*` dependencies',
 		},
 
 		{
-			matchPaths: ['libs/@guardian/libs/package.json'],
+			matchFiles: ['libs/@guardian/libs/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@guardian/libs` dependencies',
 		},
 
 		{
-			matchPaths: ['libs/@guardian/prettier/package.json'],
+			matchFiles: ['libs/@guardian/prettier/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@guardian/prettier` dependencies',
 		},
 
 		{
-			matchPaths: [
-				'libs/@guardian/source-foundations/package.json',
-				'libs/@guardian/source-react-components/package.json',
-				'libs/@guardian/source-react-components-development-kitchen/package.json',
-			],
+			matchPaths: ['libs/@guardian/source-*/package.json'],
 			matchDepTypes: ['dependencies'],
 			groupName: '`@guardian/source-*` dependencies',
 		},
