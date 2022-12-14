@@ -119,6 +119,10 @@ module.exports = {
 		// use `a?.b` instead of `a && a.b`
 		'@typescript-eslint/prefer-optional-chain': 2,
 
+		// by default this a `warn`, but we want to enforce it
+		// https://typescript-eslint.io/rules/no-explicit-any
+		'@typescript-eslint/no-explicit-any': 2,
+
 		// requires any function or method that returns a Promise to be marked async
 		// '@typescript-eslint/promise-function-async': 2,
 	},
