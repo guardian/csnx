@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.1.0
+
+### Minor Changes
+
+- d098baa: Add the FileInput component
+
 ## 8.0.0
 
 ### Major Changes
