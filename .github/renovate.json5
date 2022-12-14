@@ -70,7 +70,6 @@
 		{
 			matchPackagePatterns: ['react'],
 			matchPaths: ['libs/@guardian/@guardian/source-react*/package.json'],
-			matchUpdateTypes: ['digest', 'patch', 'minor'],
 			enabled: false,
 		},
 
