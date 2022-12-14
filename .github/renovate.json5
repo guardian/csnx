@@ -66,27 +66,26 @@
 		//
 		// we don't really want to bump these unless they're major versions
 
-		// react et al in source packages
+		// dont try to bump react
 		{
-			matchPackagePatterns: ['react'],
-			matchPaths: ['libs/@guardian/@guardian/source-react*/package.json'],
+			matchPackagePatterns: ['react', '@emotion/react'],
+			matchPaths: ['libs/@guardian/**/package.json'],
 			enabled: false,
 		},
 
+		// only raise PRs for major versions for these packages
 		{
 			matchPackageNames: ['prettier'],
-			matchPaths: ['libs/@guardian/prettier/package.json'],
+			matchFiles: ['libs/@guardian/prettier/package.json'],
 			matchUpdateTypes: ['digest', 'patch', 'minor'],
 			enabled: false,
 		},
-
 		{
 			matchPackageNames: ['browserslist'],
-			matchPaths: ['libs/@guardian/browserslist-config/package.json'],
+			matchFiles: ['libs/@guardian/browserslist-config/package.json'],
 			matchUpdateTypes: ['digest', 'patch', 'minor'],
 			enabled: false,
 		},
-
 		{
 			matchPackageNames: ['eslint'],
 			matchPaths: ['libs/@guardian/*eslint*/package.json'],
@@ -95,7 +94,7 @@
 		},
 		{
 			matchPackageNames: ['typescript'],
-			matchPaths: ['libs/@guardian/eslint-config-typescript/package.json'],
+			matchFiles: ['libs/@guardian/eslint-config-typescript/package.json'],
 			matchUpdateTypes: ['digest', 'patch', 'minor'],
 			enabled: false,
 		},
