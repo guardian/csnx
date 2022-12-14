@@ -6,11 +6,6 @@
 
 - d098baa: Add the FileInput component
 
-### Patch Changes
-
-- Updated dependencies [5a7ba38]
-  - @guardian/libs@11.1.0
-
 ## 8.0.0
 
 ### Major Changes
