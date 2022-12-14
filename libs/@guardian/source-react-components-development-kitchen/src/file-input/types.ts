@@ -23,9 +23,9 @@ export interface FileInputProps {
 	 */
 	error?: string;
 	/**
-	 * An error handler which will be called if handling the file throws an error.
+	 * An error handler which will be called if uploading the file throws an error.
 	 */
-	onError?: (e: any) => void;
+	onError?: (e: Error) => void;
 	/**
 	 * Appears as an inline success message.
 	 * This prop should not have a value set at the same time as the error prop. In the event that both are set, errors take precedence.

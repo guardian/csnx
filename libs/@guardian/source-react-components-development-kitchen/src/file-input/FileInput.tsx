@@ -57,7 +57,11 @@ export const FileInput: FC<FileInputProps> = ({
 			const stringifiedFile = await stringifyFileBase64(file);
 			onUpload?.(stringifiedFile);
 		} catch (e) {
-			onError?.(e);
+			const error =
+				e instanceof Error
+					? e
+					: new Error('There was a problem uploading the file');
+			onError?.(error);
 		}
 	};
 
