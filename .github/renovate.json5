@@ -28,7 +28,7 @@
 
 		// group all root deps together - matches are overidden by any subsequent matching group
 		{
-			matchPaths: ['package.json'],
+			matchPaths: ['+(package.json)'],
 			matchDepTypes: ['devDependencies'],
 			groupName: 'workspace root `devDependencies`',
 		},
