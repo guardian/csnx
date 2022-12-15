@@ -1,5 +1,13 @@
 # @guardian/source-foundations
 
+## 8.0.0
+
+### Major Changes
+
+- eb65fde: Add `typescript@^4.3.2` to `peerDependecies` (`optional`).
+
+  This should mean you get a warning if you're using an incompatible version of typescript, but not if you aren't using it at all.
+
 ## 7.0.3
 
 ### Patch Changes

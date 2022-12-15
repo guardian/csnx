@@ -9,6 +9,11 @@ export type { EditorialLinkButtonProps } from './editorial-button/EditorialLinkB
 export { ExpandingWrapper } from './expanding-wrapper/ExpandingWrapper';
 export type { ExpandingWrapperProps } from './expanding-wrapper/ExpandingWrapper';
 
+export { fileInputThemeDefault, fileInputDarkTheme } from './file-input/theme';
+
+export { FileInput } from './file-input/FileInput';
+export type { FileInputProps } from './file-input/FileInput';
+
 export { AgeWarning } from './age-warning/AgeWarning';
 export type { AgeWarningProps } from './age-warning/AgeWarning';
 
