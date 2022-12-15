@@ -4,7 +4,7 @@ import { palette } from '@guardian/source-foundations';
 export const fileInputThemeDefault = {
 	fileInput: {
 		text: palette.neutral[7],
-		supporting: palette.neutral[60],
+		supporting: palette.neutral[46],
 		primary: palette.brand[300],
 		error: palette.error[400],
 	},
@@ -13,7 +13,7 @@ export const fileInputThemeDefault = {
 export const fileInputDarkTheme = {
 	fileInput: {
 		text: palette.neutral[86],
-		supporting: palette.neutral[86],
+		supporting: palette.neutral[60],
 		primary: palette.neutral[86],
 		error: palette.error[500],
 	},
