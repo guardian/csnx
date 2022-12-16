@@ -5,8 +5,6 @@
 ### Patch Changes
 
 - a4aa0bd: Update docs
-- Updated dependencies [a4aa0bd]
-  - @guardian/libs@11.1.1
 
 ## 2.0.0
 
