@@ -3,6 +3,7 @@
 	"version": 2,
 	"projects": {
 		"@csnx/hello-world": "libs/@csnx/hello-world",
+		"@guardian/atoms-rendering": "libs/@guardian/atoms-rendering",
 		"@guardian/browserslist-config": "libs/@guardian/browserslist-config",
 		"@guardian/eslint-config": "libs/@guardian/eslint-config",
 		"@guardian/eslint-config-typescript": "libs/@guardian/eslint-config-typescript",

@@ -60,6 +60,7 @@
 		"peerDependencyRules": {
 			"ignoreMissing": [
 				"@types/node",
+				"eslint",
 				"nx",
 				"prettier"
 			]

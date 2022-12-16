@@ -32,6 +32,10 @@ module.exports = {
 					title: 'source-react-components-development-kitchen',
 					url: 'http://localhost:4403',
 				},
+				'atoms-rendering': {
+					title: 'atoms-rendering',
+					url: 'http://localhost:4404',
+				},
 			};
 		}
 		return {
