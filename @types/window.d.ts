@@ -15,6 +15,17 @@ declare global {
 				};
 				switches?: Switches;
 			};
+			ophan?: {
+				setEventEmitter: () => void; // We don't currently have a custom eventEmitter on DCR - like 'mediator' in Frontend.
+				trackComponentAttention: (
+					name: string,
+					el: Element,
+					visiblityThreshold: number,
+				) => void;
+				record: () => void;
+				viewId: string;
+				pageViewId: string;
+			};
 		};
 	}
 }

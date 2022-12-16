@@ -37,7 +37,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean workspace-lint lint test build e2e
+validate: env clean workspace-lint lint test build build-storybooks e2e
 
 ##################################### BUILD ####################################
 

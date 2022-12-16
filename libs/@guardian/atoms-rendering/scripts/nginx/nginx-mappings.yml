@@ -1,0 +1,5 @@
+name: atoms-rendering
+mappings:
+    - prefix: atoms-rendering
+      port: 6006
+      websocket: /socket.io
