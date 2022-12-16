@@ -90,10 +90,6 @@ then
 import { loadScript, storage, ...etc } from '@guardian/libs';
 ```
 
-### TypeScript
-
-If you are using this library with TypeScript, make sure you are using at least TypeScript v<!-- TS_VERSION -->4.8.4<!-- /TS_VERSION -->.
-
 ### Bundling
 
 This package uses `ES2020`.
