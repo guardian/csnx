@@ -13,6 +13,7 @@
 	],
 
 	// PR and comit management
+	rebaseWhen: 'never',
 	prConcurrentLimit: 5,
 	addLabels: ['dependencies'],
 	reviewers: ['team:client-side-infra'],
