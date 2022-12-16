@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 11.1.1
+
+### Patch Changes
+
+- a4aa0bd: Update docs
+
 ## 11.1.0
 
 ### Minor Changes

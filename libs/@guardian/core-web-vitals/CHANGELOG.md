@@ -1,5 +1,13 @@
 # @guardian/core-web-vitals
 
+## 2.0.1
+
+### Patch Changes
+
+- a4aa0bd: Update docs
+- Updated dependencies [a4aa0bd]
+  - @guardian/libs@11.1.1
+
 ## 2.0.0
 
 ### Major Changes
