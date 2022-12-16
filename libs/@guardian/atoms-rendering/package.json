@@ -19,6 +19,7 @@
 		"@guardian/libs": "10.0.0",
 		"@guardian/source-foundations": "7.0.0",
 		"@guardian/source-react-components": "9.0.0",
+		"@storybook/addon-viewport": "6.5.14",
 		"@testing-library/dom": "7.29.1",
 		"@testing-library/jest-dom": "5.16.3",
 		"@testing-library/react": "11.2.2",
