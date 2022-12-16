@@ -16,26 +16,76 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: make workspace-lint
-      - run: make lint
-      - run: make test
-      - run: make build
-      - run: make e2e
-      - run: make build-storybooks
+      - name: Verify workspace
+        run: make workspace-lint
+      - name: Lint projects
+        run: make lint
+      - name: Run unit tests
+        run: make test
+      - name: Build projects
+        run: make build
+      - name: Run e2e tests
+        run: make e2e
+      - name: Build storybooks
+        run: make build-storybooks
 
-      # This deploys the root-level storybook to GitHub Pages.
-      #
-      # It composes the individual project storybooks, which are built and
-      # deployed by AWS Amplify projects on commits to main branch.
-      #
-      # To add another project storybook, you need to add a new AWS Amplify
-      # project.
-      #
-      # See the existing projects (prefixed with "csnx/storybooks-") at
-      # https://eu-west-1.console.aws.amazon.com/amplify/home?region=eu-west-1
-      # for examples of how to do this.
+      # Kick chromatic off only once all other steps have passed. This stops us
+      # wasting money running checks on PRs that are going to fail anyway.
+      - name: Upload @guardian/source-foundations storybook to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian/source-foundations'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # turbosnap on non-main branches
+
+      - name: Upload @guardian/source-react-components storybook to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian/source-react-components'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # turbosnap on non-main branches
+
+      - name: Upload @guardian/source-react-components-development-kitchen storybook to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian/source-react-components-development-kitchen'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # turbosnap on non-main branches
+
+  # This deploys the root-level storybook to GitHub Pages.
+  #
+  # It composes the individual project storybooks, which are built and deployed
+  # by AWS Amplify projects on commits to main branch.
+  #
+  # To add another project storybook, you need to add a new AWS Amplify project.
+  #
+  # See the existing projects (prefixed with "csnx/storybooks-") at
+  # https://eu-west-1.console.aws.amazon.com/amplify/home?region=eu-west-1 for
+  # examples of how to do this.
+  deploy-root-storybook:
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # enables use to use the cache in actions/setup-node
+      - uses: pnpm/action-setup@v2.2.4
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build root storybook
+        run: pnpm nx run csnx:build-storybook
+
       - name: Deploy root storybook to github pages
-        if: github.ref == 'refs/heads/main'
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
