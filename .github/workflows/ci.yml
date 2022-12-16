@@ -21,18 +21,14 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      - name: Verify workspace
-        run: make workspace-lint
-      - name: Lint projects
-        run: make lint
-      - name: Run unit tests
-        run: make test
-      - name: Build projects
-        run: make build
-      - name: Run e2e tests
-        run: make e2e
-      - name: Build storybooks
-        run: make build-storybooks
+      - run: pnpm install --frozen-lockfile
+
+      - run: make workspace-lint
+      - run: make lint
+      - run: make test
+      - run: make build
+      - run: make e2e
+      - run: make build-storybooks
 
       # Kick chromatic off only once all other steps have passed. This stops us
       # wasting money running checks on PRs that are going to fail anyway.
