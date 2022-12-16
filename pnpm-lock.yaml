@@ -273,6 +273,7 @@ importers:
       axios: 0.27.2
       dotenv: 16.0.2
       mkdirp: 1.0.4
+      prettier: 2.4.0
       react: 17.0.1
       ts-node: 10.9.1
       tslib: 2.4.1
@@ -292,6 +293,7 @@ importers:
       axios: 0.27.2
       dotenv: 16.0.2
       mkdirp: 1.0.4
+      prettier: 2.4.0
       react: 17.0.1
       ts-node: 10.9.1_typescript@4.3.2
       tslib: 2.4.1
@@ -4738,7 +4740,7 @@ packages:
     dependencies:
       '@svgr/core': 6.5.1
       deepmerge: 4.2.2
-      prettier: 2.7.1
+      prettier: 2.8.1
     dev: true
 
   /@svgr/plugin-svgo/6.5.1_@svgr+core@6.5.1:
@@ -13679,11 +13681,7 @@ packages:
   /prettier/2.4.0:
     resolution: {integrity: sha512-DsEPLY1dE5HF3BxCRBmD4uYZ+5DCbvatnolqTqcxEgKVZnL2kUfyu7b8pPQ5+hTBkdhU9SLUmK0/pHb07RE4WQ==}
     engines: {node: '>=10.13.0'}
-    dev: true
-
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
-    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /prettier/2.8.1:
