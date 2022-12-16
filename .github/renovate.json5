@@ -1,3 +1,6 @@
+// renovate's status for this repo, including forthcoming PRs, can be seen at
+// https://github.com/guardian/csnx/issues/74.
+
 {
 	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
 	extends: [
@@ -8,11 +11,16 @@
 		':combinePatchMinorReleases',
 		':pinAllExceptPeerDependencies',
 	],
-	timezone: 'Europe/London',
-	schedule: ['before 3am on Monday'],
+
+	// PR and comit management
+	prConcurrentLimit: 5,
 	addLabels: ['dependencies'],
 	reviewers: ['team:client-side-infra'],
 	semanticCommits: 'disabled',
+
+	// bot management
+	timezone: 'Europe/London',
+	schedule: ['before 3am on Monday'],
 
 	/*************************** package-specific rules ***********************/
 
