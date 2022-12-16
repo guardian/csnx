@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/atoms-rendering",
-	"version": "25.0.2",
+	"version": "25.0.3",
 	"scripts": {
 		"nginx:setup": "./scripts/nginx/setup.sh"
 	},
