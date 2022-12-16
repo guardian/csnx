@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  workspace-lint:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,93 +17,25 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: make workspace-lint
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.2.4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
       - run: make lint
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.2.4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
       - run: make test
-  build:
-    needs: [workspace-lint, lint, test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.2.4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
       - run: make build
-  e2e:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.2.4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
       - run: make e2e
-  build-storybooks:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.2.4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
       - run: make build-storybooks
 
-  # This deploys the root-level storybook to GitHub Pages.
-  #
-  # It composes the individual project storybooks, which are built and deployed
-  # by AWS Amplify projects on commits to main branch.
-  #
-  # To add another project storybook, you need to add a new AWS Amplify project.
-  #
-  # See the existing projects (prefixed with "csnx/storybooks-") at
-  # https://eu-west-1.console.aws.amazon.com/amplify/home?region=eu-west-1 for
-  # examples of how to do this.
-  deploy-storybook:
-    needs: build-storybooks
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.2.4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-
-      - name: Build root storybook
-        run: pnpm nx run csnx:build-storybook
-
+      # This deploys the root-level storybook to GitHub Pages.
+      #
+      # It composes the individual project storybooks, which are built and
+      # deployed by AWS Amplify projects on commits to main branch.
+      #
+      # To add another project storybook, you need to add a new AWS Amplify
+      # project.
+      #
+      # See the existing projects (prefixed with "csnx/storybooks-") at
+      # https://eu-west-1.console.aws.amazon.com/amplify/home?region=eu-west-1
+      # for examples of how to do this.
       - name: Deploy root storybook to github pages
+        if: github.ref == 'refs/heads/main'
         run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
