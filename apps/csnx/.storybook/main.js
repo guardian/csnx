@@ -52,7 +52,7 @@ module.exports = {
 				url: 'https://main.d25xfnd702qjsd.amplifyapp.com',
 			},
 			'atoms-rendering': {
-				title: 'source-react-components-development-kitchen',
+				title: 'atoms-rendering',
 				url: 'https://main.d1lzcy2qxdbvgt.amplifyapp.com/',
 			},
 		};
