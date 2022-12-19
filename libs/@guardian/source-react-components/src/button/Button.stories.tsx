@@ -1,13 +1,15 @@
-import type { Parameters, Story } from '@storybook/react';
+import { ThemeProvider } from '@emotion/react';
+import type { Story } from '@storybook/react';
 import { SvgCross } from '../../vendor/icons/SvgCross';
-import type { ButtonProps } from './Button';
 import { Button } from './Button';
+import type { ButtonTheme } from './theme';
 import { buttonThemeBrand, buttonThemeBrandAlt } from './theme';
 import {
 	buttonThemeReaderRevenue,
 	buttonThemeReaderRevenueBrand,
 	buttonThemeReaderRevenueBrandAlt,
 } from './theme-reader-revenue';
+import type { ButtonPriority } from './types';
 
 // These types are the right types, but don't work with Storybook v6 which uses Emotion v10
 // import type { Args, Story } from '@storybook/react';
@@ -67,23 +69,46 @@ export default {
 	},
 };
 
-const Template: Story<ButtonProps> = (args: ButtonProps) => (
-	<Button {...args} />
-);
+interface Temp {
+	priority: ButtonPriority;
+	theme?: ButtonTheme;
+	isLoading?: boolean;
+	// TODO: update string type
+	size?: string;
+	disabled?: true;
+	iconSide?: string;
+	hideLabel?: boolean;
+}
+
+const Template: Story<Temp> = (args: Temp) => {
+	const { priority, theme } = args;
+
+	if (theme) {
+		return (
+			<ThemeProvider theme={theme}>
+				<Button priority={priority} />
+			</ThemeProvider>
+		);
+	}
+
+	return <Button priority={priority} />;
+};
 
 // *****************************************************************************
 
 export const PrimaryPriorityDefaultTheme = Template.bind({});
 PrimaryPriorityDefaultTheme.args = {
 	priority: 'primary',
+	theme: undefined,
 };
-PrimaryPriorityDefaultTheme.parameters = themeParameters.default;
+// PrimaryPriorityDefaultTheme.parameters = themeParameters.default;
 
 export const SecondaryPriorityDefaultTheme = Template.bind({});
 SecondaryPriorityDefaultTheme.args = {
 	priority: 'secondary',
+	theme: undefined,
 };
-SecondaryPriorityDefaultTheme.parameters = themeParameters.default;
+// SecondaryPriorityDefaultTheme.parameters = themeParameters.default;
 
 export const TertiaryPriorityDefaultTheme = Template.bind({});
 TertiaryPriorityDefaultTheme.args = {
