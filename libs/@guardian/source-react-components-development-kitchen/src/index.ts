@@ -57,3 +57,8 @@ export type { FooterLinksProps } from './footer-with-contents/FooterLinks';
 
 export { NumericInput } from './numeric-input/NumericInput';
 export type { NumericInputProps } from './numeric-input/NumericInput';
+
+export { tabsThemeDefault, tabsDarkTheme } from './tabs/theme';
+
+export { Tabs } from './tabs/tabs';
+export type { TabContainerProps, TabProps } from './tabs/types';
