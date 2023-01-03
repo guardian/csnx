@@ -64,14 +64,18 @@ const fileSizeValidation = (): ReactElement => {
 	);
 };
 
-const smallFileInput = (): ReactElement => {
+const fileInputSizes = (): ReactElement => {
 	return (
-		<FileInput
-			id="file-input"
-			label="Upload a file"
-			supporting="A file input with an xsmall button"
-			size="xsmall"
-		/>
+		<>
+			There are three sizes of file input - Default, small and xsmall.
+			<FileInput id="file-input-default" label="Default file input" />
+			<FileInput id="file-input-small" label="Small file input" size="small" />
+			<FileInput
+				id="file-input-xsmall"
+				label="Xsmall file input"
+				size="xsmall"
+			/>
+		</>
 	);
 };
 
@@ -86,5 +90,5 @@ export {
 	fileInputWithError,
 	fileTypeValidation,
 	fileSizeValidation,
-	smallFileInput,
+	fileInputSizes,
 };
