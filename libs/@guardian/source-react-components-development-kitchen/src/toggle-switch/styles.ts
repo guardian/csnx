@@ -40,7 +40,7 @@ export const buttonStyles = (
 	&:after {
 		content: '';
 		position: absolute;
-		border-radius: 50%;
+		border-radius: 20%;
 		background: ${neutral[100]};
 		will-change: left;
 		transition: left 0.15s ease-in-out;
