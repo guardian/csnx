@@ -64,6 +64,17 @@ const fileSizeValidation = (): ReactElement => {
 	);
 };
 
+const smallFileInput = (): ReactElement => {
+	return (
+		<FileInput
+			id="file-input"
+			label="Upload a file"
+			supporting="A file input with an xsmall button"
+			size="xsmall"
+		/>
+	);
+};
+
 export default {
 	component: fileInput,
 	title: 'FileInput',
@@ -75,4 +86,5 @@ export {
 	fileInputWithError,
 	fileTypeValidation,
 	fileSizeValidation,
+	smallFileInput,
 };
