@@ -32,6 +32,15 @@ jobs:
 
       # Kick chromatic off only once all other steps have passed. This stops us
       # wasting money running checks on PRs that are going to fail anyway.
+      - name: Upload @guardian/atoms-rendering storybook to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_ATOMS_RENDERING_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian/atoms-rendering'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # turbosnap on non-main branches
+
       - name: Upload @guardian/source-foundations storybook to Chromatic
         uses: chromaui/action@v1
         with:
