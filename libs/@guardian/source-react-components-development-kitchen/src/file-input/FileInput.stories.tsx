@@ -64,6 +64,21 @@ const fileSizeValidation = (): ReactElement => {
 	);
 };
 
+const fileInputSizes = (): ReactElement => {
+	return (
+		<>
+			There are three sizes of file input - Default, small and xsmall.
+			<FileInput id="file-input-default" label="Default file input" />
+			<FileInput id="file-input-small" label="Small file input" size="small" />
+			<FileInput
+				id="file-input-xsmall"
+				label="Xsmall file input"
+				size="xsmall"
+			/>
+		</>
+	);
+};
+
 export default {
 	component: fileInput,
 	title: 'FileInput',
@@ -75,4 +90,5 @@ export {
 	fileInputWithError,
 	fileTypeValidation,
 	fileSizeValidation,
+	fileInputSizes,
 };

@@ -1,5 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 
+export type Size = 'default' | 'small' | 'xsmall';
+
 export interface FileInputProps {
 	id?: string;
 	/**
@@ -47,4 +49,8 @@ export interface FileInputProps {
 	 * Override component styles by passing in the result of [emotion's `css` function/prop](https://emotion.sh/docs/introduction).
 	 */
 	cssOverrides?: SerializedStyles | SerializedStyles[];
+	/**
+	 * Reflects the prominence of the action
+	 */
+	size?: Size;
 }
