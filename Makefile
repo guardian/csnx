@@ -12,7 +12,7 @@ storybooks: env
 # runs nginx setup script in atoms-rendering
 .PHONY: atoms-rendering-nginx-setup
 atoms-rendering-nginx-setup: env
-	$(call log,"Starting storybooks")
+	$(call log,"Running atoms-rendering nginx setup script")
 	@corepack pnpm nx run @guardian/atoms-rendering:nginx-setup
 
 ################################# CODE QUALITY #################################
