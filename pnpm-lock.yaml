@@ -114,6 +114,12 @@ importers:
       ts-jest: 29.0.3_fjjzkaaaiifbj3pxwnims7qnlq
       typescript: 4.3.2
 
+  libs/@guardian/ab-core:
+    specifiers:
+      typescript: 4.3.2
+    devDependencies:
+      typescript: 4.3.2
+
   libs/@guardian/atoms-rendering:
     specifiers:
       '@babel/core': 7.20.5
