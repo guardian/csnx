@@ -8,10 +8,10 @@
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
-		"browserslist": "4.16.5"
+		"browserslist": "4.21.4"
 	},
 	"peerDependencies": {
-		"browserslist": "^4.16.5"
+		"browserslist": "^4.21.4"
 	},
 	"publishConfig": {
 		"access": "public"
