@@ -4,7 +4,12 @@ import { InlineError, Label } from '@guardian/source-react-components';
 import { useState } from 'react';
 import type { FC } from 'react';
 import { getReadableFileSize, stringifyFileBase64 } from './fileHelpers';
-import { customUpload } from './styles';
+import {
+	customUpload,
+	fileName as fileNameStyle,
+	fontSizes,
+	uploadSizes,
+} from './styles';
 import type { Theme } from './theme';
 import type { FileInputProps } from './types';
 
@@ -22,6 +27,7 @@ export const FileInput: FC<FileInputProps> = ({
 	cssOverrides,
 	validFileTypes = ['image/png', 'image/jpeg', 'image/jpg'],
 	maxFileSize,
+	size = 'default',
 	...props
 }) => {
 	const [fileName, setFileName] = useState<null | string>();
@@ -71,7 +77,7 @@ export const FileInput: FC<FileInputProps> = ({
 	};
 
 	return (
-		<div css={cssOverrides}>
+		<div css={[cssOverrides, fontSizes[size]]}>
 			<Label
 				id={id}
 				key={id}
@@ -79,10 +85,16 @@ export const FileInput: FC<FileInputProps> = ({
 				supporting={supporting}
 				optional={optional}
 				hideLabel={hideLabel}
+				cssOverrides={fontSizes[size]}
 			>
 				{!!errorText && <InlineError>{errorText}</InlineError>}
-				<div css={(theme: Theme) => customUpload(theme.fileInput, !!errorText)}>
-					{fileName ? 'Change File' : 'Choose File'}
+				<div
+					css={[
+						(theme: Theme) => customUpload(theme.fileInput, !!errorText),
+						uploadSizes[size],
+					]}
+				>
+					{fileName ? 'Change file' : 'Choose file'}
 					<input
 						type="file"
 						accept={validFileTypes.join(',')}
@@ -99,13 +111,19 @@ export const FileInput: FC<FileInputProps> = ({
 				<>
 					{optional && (
 						<button
-							css={(theme: Theme) => customUpload(theme.fileInput)}
+							css={[
+								(theme: Theme) => customUpload(theme.fileInput),
+								fontSizes[size],
+								uploadSizes[size],
+							]}
 							onClick={onRemoveFile}
 						>
-							Remove File
+							Remove file
 						</button>
 					)}
-					<span>{fileName}</span>
+					<span css={(theme: Theme) => fileNameStyle(theme.fileInput)}>
+						{fileName}
+					</span>
 				</>
 			)}
 		</div>

@@ -60,6 +60,13 @@
 				"cwd": "libs/@guardian/atoms-rendering",
 				"color": true
 			}
+		},
+		"nginx-setup": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "./scripts/nginx/setup.sh",
+				"cwd": "libs/@guardian/atoms-rendering"
+			}
 		}
 	},
 	"tags": []

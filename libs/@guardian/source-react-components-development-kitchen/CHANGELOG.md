@@ -1,5 +1,15 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.0
+
+### Minor Changes
+
+- dd7d638: Add a new tab component
+
+### Patch Changes
+
+- dc6ab65: Update styling of FileInput after UX review
+
 ## 8.1.0
 
 ### Minor Changes
