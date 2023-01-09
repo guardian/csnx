@@ -3,7 +3,7 @@
 # please add yourself in a PR
 
 * @guardian/csnx
-![apps/*, libs/@guardian] @guardian/csnx
+![apps, libs/@guardian] @guardian/csnx
 
 libs/@guardian/atoms-rendering/* @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
 
