@@ -1,0 +1,58 @@
+{
+	"name": "@guardian/atoms-rendering",
+	"version": "25.0.4",
+	"dependencies": {
+		"is-mobile": "^3.1.1"
+	},
+	"devDependencies": {
+		"@babel/core": "7.20.5",
+		"@emotion/eslint-plugin": "11.7.0",
+		"@emotion/react": "11.1.5",
+		"@guardian/ab-core": "2.0.0",
+		"@guardian/commercial-core": "5.0.0",
+		"@guardian/consent-management-platform": "11.0.0",
+		"@guardian/eslint-plugin-source-foundations": "8.0.4",
+		"@guardian/eslint-plugin-source-react-components": "10.0.4",
+		"@guardian/libs": "10.0.0",
+		"@guardian/source-foundations": "7.0.0",
+		"@guardian/source-react-components": "9.0.0",
+		"@storybook/addon-viewport": "6.5.14",
+		"@testing-library/dom": "7.29.1",
+		"@testing-library/jest-dom": "5.16.3",
+		"@testing-library/react": "11.2.2",
+		"@types/lodash.debounce": "4.0.6",
+		"@types/react": "17.0.1",
+		"@types/react-dom": "17.0.1",
+		"@types/testing-library__jest-dom": "5.14.5",
+		"@types/youtube": "0.0.46",
+		"eslint-plugin-react": "^7.29.4",
+		"lodash.debounce": "4.0.6",
+		"react": "17.0.1",
+		"react-dom": "17.0.1",
+		"tslib": "2.4.0",
+		"typescript": "4.8.4"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.1.5",
+		"@guardian/commercial-core": "^5.0.0",
+		"@guardian/consent-management-platform": "^11.0.0",
+		"@guardian/libs": "^10.0.0",
+		"@guardian/source-foundations": "^7.0.0",
+		"@guardian/source-react-components": "^9.0.0",
+		"lodash.debounce": "^4.0.6",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"typescript": "^4.8.4"
+	},
+	"peerDependenciesMeta": {
+		"@guardian/commercial-core": {
+			"optional": true
+		},
+		"@guardian/consent-management-platform": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

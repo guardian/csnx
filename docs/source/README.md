@@ -16,3 +16,7 @@ In addition there are two ESLint plugins:
 
 - [`@guardian/eslint-plugin-source-foundations`](../../libs/@guardian/eslint-plugin-source-foundations/README.md): ESLint plugin for Guardian projects using the `@guardian/source-foundations` package
 - [`@guardian/eslint-plugin-source-react-components`](../../libs/@guardian/eslint-plugin-source-react-components/README.md): ESLint plugin for Guardian projects using the `@guardian/source-react-components` package
+
+## Contributing
+
+We welcome contributions to Source! See our [contributing](contributing.md) and [Storybook](storybook.md) docs for more info.

@@ -2,32 +2,79 @@ import { css } from '@emotion/react';
 import type { SerializedStyles } from '@emotion/react';
 import {
 	focusHalo,
+	fontWeights,
+	height,
 	remHeight,
 	remSpace,
+	space,
 	textSans,
 } from '@guardian/source-foundations';
 import { fileInputThemeDefault } from './theme';
+import type { Size as SizeType } from './types';
+
+export const fileName = (
+	fileInput = fileInputThemeDefault.fileInput,
+): SerializedStyles => css`
+	color: ${fileInput.supporting};
+`;
+
+const defaultUpload = css`
+	padding: ${remSpace[3]};
+	border-radius: ${height.ctaMedium}px;
+	font-weight: ${fontWeights.bold};
+`;
+const smallUpload = css`
+	padding: ${remSpace[3]};
+	border-radius: ${height.ctaSmall}px;
+	font-weight: ${fontWeights.bold};
+`;
+
+const xsmallUpload = css`
+	padding: 0 ${space[3]}px;
+	padding: ${remSpace[3]};
+	border-radius: ${height.ctaXsmall}px;
+	font-weight: ${fontWeights.bold};
+`;
+
+export const uploadSizes: {
+	[key in SizeType]: SerializedStyles;
+} = {
+	default: defaultUpload,
+	small: smallUpload,
+	xsmall: xsmallUpload,
+};
+
+export const fontSizes: {
+	[key in SizeType]: SerializedStyles;
+} = {
+	default: css`
+		${textSans.medium()};
+	`,
+	small: css`
+		${textSans.small()};
+	`,
+	xsmall: css`
+		${textSans.xsmall()};
+	`,
+};
 
 export const customUpload = (
 	fileInput = fileInputThemeDefault.fileInput,
 	hasError = false,
 ): SerializedStyles => css`
-	${textSans.small()};
+	color: ${fileInput.text};
 	display: inline-flex;
 	justify-content: space-between;
 	align-items: center;
 	box-sizing: border-box;
 	background: transparent;
 	cursor: pointer;
-	transition: all 0.3s ease-in-out 0s;
 	text-decoration: none;
 	white-space: nowrap;
+	margin: ${remSpace[2]} ${remSpace[2]} ${remSpace[2]} 0;
 	height: ${remHeight.ctaXsmall}rem;
 	min-height: ${remHeight.ctaXsmall}rem;
-	padding: ${remSpace[3]};
-	margin: ${remSpace[2]} ${remSpace[1]};
 	border-radius: ${remHeight.ctaMedium}rem;
-	${textSans.medium({ fontWeight: 'medium' })};
 	color: ${fileInput.primary};
 	border: ${hasError
 		? `4px solid ${fileInput.error}`

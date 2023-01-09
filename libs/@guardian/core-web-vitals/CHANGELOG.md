@@ -1,5 +1,11 @@
 # @guardian/core-web-vitals
 
+## 2.0.1
+
+### Patch Changes
+
+- a4aa0bd: Update docs
+
 ## 2.0.0
 
 ### Major Changes
