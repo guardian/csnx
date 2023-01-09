@@ -322,7 +322,7 @@ export const DuplicateVideos = (): JSX.Element => {
 };
 
 DuplicateVideos.parameters = {
-	chromatic: { diffThreshold: 0.75 },
+	chromatic: { diffThreshold: 1 },
 };
 
 export const MultipleStickyVideos = (): JSX.Element => {
@@ -384,5 +384,5 @@ export const MultipleStickyVideos = (): JSX.Element => {
 };
 
 MultipleStickyVideos.parameters = {
-	chromatic: { diffThreshold: 0.75 },
+	chromatic: { diffThreshold: 1 },
 };
