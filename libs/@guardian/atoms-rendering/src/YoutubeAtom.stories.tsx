@@ -6,6 +6,7 @@ import { YoutubeAtom } from './YoutubeAtom';
 export default {
 	title: 'YoutubeAtom',
 	component: YoutubeAtom,
+	parameters: { chromatic: { diffThreshold: 0.7 } },
 };
 
 const containerStyle = { width: '800px', margin: '24px' };
@@ -321,10 +322,6 @@ export const DuplicateVideos = (): JSX.Element => {
 	);
 };
 
-DuplicateVideos.parameters = {
-	chromatic: { diffThreshold: 1 },
-};
-
 export const MultipleStickyVideos = (): JSX.Element => {
 	return (
 		<div style={{ width: '500px', height: '5000px' }}>
@@ -381,8 +378,4 @@ export const MultipleStickyVideos = (): JSX.Element => {
 			/>
 		</div>
 	);
-};
-
-MultipleStickyVideos.parameters = {
-	chromatic: { diffThreshold: 1 },
 };
