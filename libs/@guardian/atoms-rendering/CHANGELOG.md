@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 25.0.4
+
+### Patch Changes
+
+- d509306: Noop to test releasing from CSNX
+
 ## 25.0.2
 
 ### Patch Changes
