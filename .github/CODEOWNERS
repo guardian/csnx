@@ -4,7 +4,7 @@
 
 * @guardian/csnx
 
-libs/@guardian/atoms-rendering/* @guardian/commercial-dev @guardian/client-side-infra
+libs/@guardian/atoms-rendering/* @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
 
 libs/@guardian/source-foundations/* @guardian/source
 libs/@guardian/source-react-components/* @guardian/source
