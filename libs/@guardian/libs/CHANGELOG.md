@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 11.1.2
+
+### Patch Changes
+
+- a544750: loadScript rejects with more helpful error messages
+
 ## 11.1.1
 
 ### Patch Changes
