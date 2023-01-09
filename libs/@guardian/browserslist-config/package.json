@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/browserslist-config",
-	"version": "2.0.3",
+	"version": "3.0.0",
 	"description": "Browserslist config for Guardian websites",
 	"main": "browserslist.js",
 	"scripts": {

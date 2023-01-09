@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 3.0.0
+
+### Major Changes
+
+- 0625974: Update browserslist version and include most up-to-date stats
+
 ## 2.0.3
 
 ### Patch Changes
