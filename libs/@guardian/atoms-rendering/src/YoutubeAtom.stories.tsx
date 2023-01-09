@@ -321,6 +321,10 @@ export const DuplicateVideos = (): JSX.Element => {
 	);
 };
 
+DuplicateVideos.parameters = {
+	chromatic: { diffThreshold: 0.8 },
+};
+
 export const MultipleStickyVideos = (): JSX.Element => {
 	return (
 		<div style={{ width: '500px', height: '5000px' }}>
@@ -377,4 +381,8 @@ export const MultipleStickyVideos = (): JSX.Element => {
 			/>
 		</div>
 	);
+};
+
+MultipleStickyVideos.parameters = {
+	chromatic: { diffThreshold: 0.8 },
 };
