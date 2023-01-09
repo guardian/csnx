@@ -2,21 +2,18 @@
 
 # please add yourself in a PR
 
-<!-- CSNX repo config -->
 * @guardian/csnx
-[!libs/@guardian, !apps] @guardian/csnx
+!libs/@guardian/* @guardian/csnx
+!apps/* @guardian/csnx
 
-<!-- @guardian/atoms-rendering -->
 libs/@guardian/atoms-rendering/* @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
 
-<!-- Source packages -->
 libs/@guardian/source-foundations/* @guardian/source
 libs/@guardian/source-react-components/* @guardian/source
 libs/@guardian/source-react-components-development-kitchen/* @guardian/source
 libs/@guardian/eslint-plugin-source-foundations/* @guardian/source
 libs/@guardian/eslint-plugin-source-react-components/* @guardian/source
 
-<!-- CSTI packages -->
 libs/@guardian/tsconfig/* @guardian/client-side-infra
 libs/@guardian/prettier/* @guardian/client-side-infra
 libs/@guardian/libs/* @guardian/client-side-infra @guardian/apps-rendering @guardian/dotcom-platform
