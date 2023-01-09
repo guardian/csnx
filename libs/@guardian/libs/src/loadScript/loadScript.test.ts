@@ -75,6 +75,6 @@ describe('loadScript', () => {
 	});
 
 	it('rejects if the script fails to load', async () => {
-		await expect(loadScript(badURL)).rejects.toBeDefined();
+		await expect(loadScript(badURL)).rejects.toMatch(badURL);
 	});
 });
