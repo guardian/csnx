@@ -1,8 +1,20 @@
 # if you would like to be notified about changes in particular part of this repo,
+
 # please add yourself in a PR
 
-* @guardian/client-side-infra
+* @guardian/csnx
 
-libs/@guardian/libs/src/coreWebVitals/* @guardian/dotcom-platform @guardian/commercial-dev
+libs/@guardian/atoms-rendering/* @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
 
-libs/@guardian/libs/src/format/* @guardian/apps-rendering @guardian/dotcom-platform
+libs/@guardian/source-foundations/* @guardian/source
+libs/@guardian/source-react-components/* @guardian/source
+libs/@guardian/source-react-components-development-kitchen/* @guardian/source
+libs/@guardian/eslint-plugin-source-foundations/* @guardian/source
+libs/@guardian/eslint-plugin-source-react-components/* @guardian/source
+
+libs/@guardian/tsconfig/* @guardian/client-side-infra
+libs/@guardian/prettier/* @guardian/client-side-infra
+libs/@guardian/eslint-config/* @guardian/client-side-infra
+libs/@guardian/eslint-config-typescript/* @guardian/client-side-infra
+libs/@guardian/browserlist-config/*  @guardian/client-side-infra @guardian/dotcom-platform
+libs/@guardian/libs/* @guardian/client-side-infra @guardian/apps-rendering @guardian/dotcom-platform
