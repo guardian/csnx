@@ -6,7 +6,7 @@ import { YoutubeAtom } from './YoutubeAtom';
 export default {
 	title: 'YoutubeAtomWithImaAd',
 	component: YoutubeAtom,
-	parameters: { chromatic: { diffThreshold: 0.6 } },
+	// parameters: { chromatic: { diffThreshold: 0.6 } },
 };
 
 const containerStyle = { width: '800px', margin: '24px' };
