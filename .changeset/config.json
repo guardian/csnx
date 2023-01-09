@@ -8,7 +8,7 @@
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
 	"bumpVersionsWithWorkspaceProtocolOnly": true,
-	"ignore": ["@csnx/*", "@guardian/atoms-rendering"],
+	"ignore": ["@csnx/*"],
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
 		"onlyUpdatePeerDependentsWhenOutOfRange": true
 	}
