@@ -1,5 +1,12 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.1
+
+### Patch Changes
+
+- c882f90: Update styling for expanding wrapper
+- 6ae535a: Update fileinput styling and add hover styling
+
 ## 8.2.0
 
 ### Minor Changes
