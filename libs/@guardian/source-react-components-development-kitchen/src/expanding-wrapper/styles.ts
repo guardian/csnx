@@ -32,6 +32,11 @@ export const containerStyles = (
 
 		&:hover {
 			background-color: ${expander.collapseBackgroundHover};
+			color: ${expander.collapseTextHover};
+
+			#svgminus {
+				fill: ${expander.collapseTextHover};
+			}
 		}
 
 		#svgminus {
