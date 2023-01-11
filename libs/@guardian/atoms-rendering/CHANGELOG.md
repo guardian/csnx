@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 25.1.0
+
+### Minor Changes
+
+- 90e0b9b: Explicitly export atoms-rendering types
+
 ## 25.0.4
 
 ### Patch Changes
