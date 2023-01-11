@@ -13,8 +13,8 @@ export const containerStyles = (
 ): SerializedStyles => css`
 	border-image: repeating-linear-gradient(
 			to bottom,
-			${expander.border},
-			${expander.border} 1px,
+			${expander.horizontalRules},
+			${expander.horizontalRules} 1px,
 			transparent 1px,
 			transparent 4px
 		)
@@ -29,6 +29,16 @@ export const containerStyles = (
 		background: ${expander.collapseBackground};
 		color: ${expander.collapseText};
 		border: 1px solid ${expander.collapseText};
+
+		&:hover {
+			background-color: ${expander.collapseBackgroundHover};
+			color: ${expander.collapseTextHover};
+
+			#svgminus {
+				fill: ${expander.collapseTextHover};
+			}
+		}
+
 		#svgminus {
 			fill: ${expander.collapseText};
 		}
@@ -84,6 +94,10 @@ export const showHideLabelStyles = (
 	min-height: ${remHeight.ctaMedium}rem;
 	${textSans.medium({ fontWeight: 'bold' })};
 	margin-left: ${remSpace[2]};
+
+	&:hover {
+		background-color: ${expander.expandBackgroundHover};
+	}
 `;
 
 export const collapsibleBodyStyles = css`
