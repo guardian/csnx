@@ -84,4 +84,8 @@ export const customUpload = (
 	&:focus {
 		${focusHalo};
 	}
+	&:hover {
+		color: ${fileInput.textHover};
+		background-color: ${fileInput.backgroundHover};
+	}
 `;

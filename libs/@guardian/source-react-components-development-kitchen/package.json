@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "8.2.0",
+	"version": "8.2.1",
 	"sideEffects": false,
 	"devDependencies": {
 		"@babel/core": "7.20.5",
