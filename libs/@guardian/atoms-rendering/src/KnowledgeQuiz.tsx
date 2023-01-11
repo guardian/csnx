@@ -149,6 +149,9 @@ export const Question = ({
 		<li
 			css={css`
 				${theme === ArticleSpecial.Labs ? textSans.medium() : body.medium()};
+				::before {
+					content: none !important;
+				}
 			`}
 		>
 			<fieldset css={fieldsetStyle}>
