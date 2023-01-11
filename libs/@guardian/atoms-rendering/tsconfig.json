@@ -2,9 +2,6 @@
 	"extends": "../../../tsconfig.base.json",
 	"files": ["../../../@types/window.d.ts"],
 	"include": [".", ".storybook/*"],
-	"compilerOptions": {
-		"declarationDir": "../../../dist/libs/@guardian/atoms-rendering/types"
-	},
 	"references": [
 		{
 			"path": "./tsconfig.spec.json"
