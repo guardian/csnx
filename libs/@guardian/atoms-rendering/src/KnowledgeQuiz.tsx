@@ -82,7 +82,7 @@ export const KnowledgeQuizAtom = ({
 					/>
 				</div>
 			)}
-			<ol>
+			<ol data-ignore="global-ol-styling">
 				{questions.map((question, idx) => (
 					<Question
 						key={question.id}
@@ -149,9 +149,6 @@ export const Question = ({
 		<li
 			css={css`
 				${theme === ArticleSpecial.Labs ? textSans.medium() : body.medium()};
-				::before {
-					content: none !important;
-				}
 			`}
 		>
 			<fieldset css={fieldsetStyle}>
