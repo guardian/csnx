@@ -48,6 +48,8 @@ it('Should have exactly these exports', () => {
 		'ToggleSwitch',
 		'ToggleSwitchApps',
 		'defaultGuardianLinks',
+		'expandingWrapperDarkTheme',
+		'expandingWrapperThemeDefault',
 		'fileInputDarkTheme',
 		'fileInputThemeDefault',
 		'tabsDarkTheme',

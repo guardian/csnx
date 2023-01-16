@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.2
+
+### Patch Changes
+
+- 0fcf574: ExpandingWrapper - update styling and allow cssOverrides
+
 ## 8.2.1
 
 ### Patch Changes
