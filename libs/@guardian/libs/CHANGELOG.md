@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 11.1.3
+
+### Patch Changes
+
+- f61460d: Refactor `CountryCode` type to infer the possible values from `countries#countryCode`.
+
 ## 11.1.2
 
 ### Patch Changes
