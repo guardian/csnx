@@ -1,5 +1,5 @@
-import type { ReactElement } from 'react';
 import type { SerializedStyles } from '@emotion/react';
+import type { ReactElement } from 'react';
 
 export interface ExpandingWrapperProps {
 	children: ReactElement;
