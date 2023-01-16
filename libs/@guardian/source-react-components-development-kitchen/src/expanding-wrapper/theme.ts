@@ -4,14 +4,14 @@ import { palette } from '@guardian/source-foundations';
 export const expandingWrapperThemeDefault = {
 	expander: {
 		horizontalRules: palette.neutral[86],
-		border: palette.brand[400],
-		expandBackground: palette.brand[400],
-		expandBackgroundHover: '#234B8A', // One-off colour  to match the primary button hover
+		border: palette.neutral[7],
+		expandBackground: palette.neutral[7],
+		expandBackgroundHover: '#454545', // One-off colour  to match the primary button hover
 		expandText: palette.neutral[100],
 		collapseBackground: palette.neutral[100],
 		collapseBackgroundHover: '#E5E5E5', // One-off colour variant to match tertiary button hover
-		collapseText: palette.brand[400],
-		collapseTextHover: palette.brand[400],
+		collapseText: palette.neutral[7],
+		collapseTextHover: palette.neutral[7],
 	},
 };
 export const expandingWrapperDarkTheme = {
