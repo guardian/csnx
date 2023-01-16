@@ -1,4 +1,4 @@
-// Ideally this would be in a npm lib folder
+/** TODO: add to shared libs folder */
 export const isExpired = (testExpiry: string | number | Date): boolean => {
 	// Get the current time, we check that right now is not after the end of the text expiry
 	const currentTime = new Date().valueOf();

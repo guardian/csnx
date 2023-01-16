@@ -5,7 +5,6 @@ import type {
 	Runnable,
 	Variant,
 } from './@types';
-// import { getVariantFromLocalStorage } from './ab-local-storage'; // Deprecating from localstorage
 import { isExpired } from './time';
 
 export const initCore = (config: CoreAPIConfig): CoreAPI => {
@@ -18,8 +17,11 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 		forcedTestException,
 		arrayOfTestObjects = [],
 	} = config;
-	// We only take account of a variant's canRun function if it's defined.
-	// If it's not, assume the variant can be run.
+
+	/**
+	 * We only take account of a variant's canRun function if it's defined.
+	 * If it's not, assume the variant can be run.
+	 */
 	const variantCanBeRun = (variant: Variant): boolean => {
 		const isInTest = variant.id !== 'notintest';
 		if (variant.canRun) {
@@ -36,16 +38,6 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 			abTestSwitches[`ab${test.id}`] && !!abTestSwitches[`ab${test.id}`];
 		const canTestBeRun = test.canRun();
 
-		// console.log({
-		// 	id: test.id,
-		// 	expired,
-		// 	pageIsSensitive,
-		// 	testShouldShowForSensitive,
-		// 	isTestOn,
-		// 	canTestBeRun,
-		// 	testCanRun: test.canRun(),
-		// });
-
 		return (
 			(pageIsSensitive ? testShouldShowForSensitive : true) &&
 			!!isTestOn &&
@@ -54,11 +46,14 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 		);
 	};
 
-	// Determine whether the user is in the test or not and return the associated
-	// variant ID, based on the MVT id segmentation.
-	//
-	// The test population is just a subset of MVT ids. A test population must
-	// begin from a specific value. Overlapping test ranges are permitted.
+	/**
+	 *
+	 * Determine whether the user is in the test or not
+	 * and return the associated variant ID, based on the MVT id segmentation.
+	 *
+	 * The test population is just a subset of MVT ids. A test population must
+	 * begin from a specific value. Overlapping test ranges are permitted.
+	 */
 	const computeVariantFromMvtCookie = (test: ABTest): Variant | null => {
 		const smallestTestId = mvtMaxValue * test.audienceOffset;
 		const largestTestId = smallestTestId + mvtMaxValue * test.audience;
@@ -86,13 +81,16 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 		return forcedTest ? getVariantFromIds(test, forcedTest) : false;
 	};
 
-	// This is the heart of the A/B testing framework.
-	// It turns an ABTest into a Runnable<ABTest>, if indeed the test
-	// actually has a variant which could run on this pageview.
-	//
-	// This function can be called at any time, it should always give the same result for a given pageview.
+	/**
+	 * This is the heart of the A/B testing framework.
+	 * It turns an `ABTest` into a `Runnable<ABTest>`,
+	 * if indeed the test actually has a variant which could run
+	 * on this page view.
+	 *
+	 * This function can be called at any time,
+	 * it should always give the same result for a given page view.
+	 */
 	const runnableTest: CoreAPI['runnableTest'] = (test) => {
-		// const fromLocalStorage = getVariantFromLocalStorage(test); // We're deprecating accessing localstorage
 		const fromCookie = computeVariantFromMvtCookie(test);
 		const variantFromForcedTest = getForcedTestVariant(
 			test,
@@ -100,15 +98,6 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 		);
 		const forcedOutOfTest = forcedTestException === test.id;
 		const variantToRun = variantFromForcedTest || fromCookie;
-
-		// console.log({
-		// 	test,
-		// 	forcedTestVariants,
-		// 	forcedOutOfTest,
-		// 	variantFromForcedTest,
-		// 	variantToRun,
-		// 	testCanBeRun: testCanBeRun(test),
-		// });
 
 		if (
 			!forcedOutOfTest &&
@@ -128,7 +117,6 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 
 	const allRunnableTests: CoreAPI['allRunnableTests'] = (tests) =>
 		tests.reduce<Array<Runnable<ABTest>>>((prev, currentValue) => {
-			// console.log({ currentValue, runnable: runnableTest(currentValue) });
 			const rt = runnableTest(currentValue);
 			return rt ? [...prev, rt] : prev;
 		}, []);
@@ -141,16 +129,6 @@ export const initCore = (config: CoreAPIConfig): CoreAPI => {
 	const isUserInVariant: CoreAPI['isUserInVariant'] = (testId, variantId) =>
 		allRunnableTests(arrayOfTestObjects).some(
 			(runnableTest: ABTest & { variantToRun: Variant }) => {
-				// console.log({
-				// 	testId,
-				// 	variantId,
-				// 	runnableTestId: runnableTest.id,
-				// 	variantToRun: runnableTest.variantToRun.id,
-				// 	isUserInVariant:
-				// 		runnableTest.id === testId &&
-				// 		runnableTest.variantToRun.id === variantId,
-				// });
-
 				return (
 					runnableTest.id === testId &&
 					runnableTest.variantToRun.id === variantId
