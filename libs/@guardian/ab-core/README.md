@@ -7,8 +7,7 @@
 2. [Initialise the AB Class](#initialising) in your project
 3. Consume [the API](#the-api)
 
-> **Note** There use to be a (P)React framework-specific implementation, but it
-> was not used in many context and has been removed. See
+> **Note** There is also a (P)React framework-specific implementation,
 > [@guardian/ab-react](https://www.npmjs.com/package/@guardian/ab-react)
 
 ## What does this client-side A/B testing library do?
@@ -233,13 +232,6 @@ your test variant will fall into.
 ### Testing with Jest
 
 Uses Jest, see `.test.ts` files.
-
-### Constructor and Provider Patterns
-
-The ab testing library uses the constructor pattern in
-[`ab-core`](packages/ab-core/src/ab.ts). It uses the Provider pattern in
-[`ab-react`](packages/ab-react/src/ab-react.tsx). We expose the types to public
-in [index.tsx](packages/ab-core/src/index.ts).
 
 ## What's Next
 
