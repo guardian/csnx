@@ -12,6 +12,8 @@
 # individual npm packages
 '@guardian/ab-core':
   - 'libs/@guardian/ab-core/**/*'
+'@guardian/ab-react':
+  - 'libs/@guardian/ab-react/**/*'
 '@guardian/browserslist-config':
   - 'libs/@guardian/browserslist-config/**/*'
 '@guardian/eslint-config':

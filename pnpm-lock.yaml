@@ -120,6 +120,22 @@ importers:
     devDependencies:
       typescript: 4.3.2
 
+  libs/@guardian/ab-react:
+    specifiers:
+      '@guardian/ab-core': 2.0.0
+      '@testing-library/react': 11.2.2
+      '@types/react': ~17.0
+      react: 17.0.2
+      react-dom: 17.0.2
+      typescript: 4.3.2
+    devDependencies:
+      '@guardian/ab-core': 2.0.0
+      '@testing-library/react': 11.2.2_sfoxds7t5ydpegc3knd667wn6m
+      '@types/react': 17.0.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      typescript: 4.3.2
+
   libs/@guardian/atoms-rendering:
     specifiers:
       '@babel/core': 7.20.5
@@ -5370,6 +5386,19 @@ packages:
       dom-accessibility-api: 0.5.14
       lodash: 4.17.21
       redent: 3.0.0
+    dev: true
+
+  /@testing-library/react/11.2.2_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-jaxm0hwUjv+hzC+UFEywic7buDC9JQ1q3cDsrWVSDAPmLotfA6E6kUHlYm/zOeGCac6g48DR36tFHxl7Zb+N5A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      '@babel/runtime': 7.20.6
+      '@testing-library/dom': 7.31.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: true
 
   /@testing-library/react/11.2.2_w7o5yyljkiidx2s2nzb26ottzu:
@@ -13428,6 +13457,7 @@ packages:
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
+    hasBin: true
     dev: true
 
   /mockdate/3.0.5:
@@ -15179,6 +15209,7 @@ packages:
 
   /resolve/1.22.1:
     resolution: {integrity: sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==}
+    hasBin: true
     dependencies:
       is-core-module: 2.11.0
       path-parse: 1.0.7
@@ -15410,6 +15441,7 @@ packages:
 
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
+    hasBin: true
     dev: true
 
   /semver/6.3.0:
