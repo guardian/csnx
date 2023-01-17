@@ -1,0 +1,22 @@
+{
+	"name": "@guardian/ab-core",
+	"version": "2.0.0",
+	"private": false,
+	"description": "A client-side library for A/B & multivariate testing",
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"devDependencies": {
+		"typescript": "4.3.2"
+	},
+	"peerDependencies": {
+		"typescript": "^4.3.2"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
