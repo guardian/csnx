@@ -5,6 +5,7 @@
 	"devDependencies": {
 		"@babel/core": "7.20.5",
 		"@emotion/react": "11.0.0",
+		"@guardian/ab-react": "workspace:*",
 		"@guardian/libs": "9.0.0",
 		"@guardian/source-foundations": "7.0.0",
 		"@guardian/source-react-components": "9.0.0",

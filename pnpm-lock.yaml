@@ -388,6 +388,7 @@ importers:
     specifiers:
       '@babel/core': 7.20.5
       '@emotion/react': 11.0.0
+      '@guardian/ab-react': workspace:*
       '@guardian/libs': 9.0.0
       '@guardian/source-foundations': 7.0.0
       '@guardian/source-react-components': 9.0.0
@@ -399,6 +400,7 @@ importers:
     devDependencies:
       '@babel/core': 7.20.5
       '@emotion/react': 11.0.0_6j7527pt6xlln2hks56p7acusi
+      '@guardian/ab-react': link:../ab-react
       '@guardian/libs': 9.0.0
       '@guardian/source-foundations': 7.0.0
       '@guardian/source-react-components': 9.0.0_okhws3igzik5hxyexclavuvnwa
