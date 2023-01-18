@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 12.0.0
+
+### Major Changes
+
+- 98cd62f: Fix versioning, latest formats update was a breaking change
+
 ## 11.2.0
 
 ### Minor Changes
