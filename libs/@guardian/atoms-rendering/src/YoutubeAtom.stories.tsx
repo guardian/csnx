@@ -10,6 +10,23 @@ export default {
 
 const containerStyle = { width: '800px', margin: '24px' };
 const containerStyleSmall = { width: '400px', margin: '24px' };
+const explainerStyle = {
+	fontSize: '20px',
+	margin: '0 0 20px',
+	width: '750px',
+};
+const boldStyle = { fontWeight: 'bold' };
+
+const OverlayAutoplayExplainer = () => (
+	<p style={explainerStyle}>
+		If you're viewing this in the composed storybook please be aware the
+		autoplay functionality in the player will not work correctly.{' '}
+		<span style={boldStyle}>
+			To view the correct functionality please view this story in the external
+			atoms-rendering storybook by clicking the link in the sidebar.
+		</span>
+	</p>
+);
 
 export const NoConsent = (): JSX.Element => {
 	return (
@@ -60,6 +77,7 @@ export const NoOverlay = (): JSX.Element => {
 export const WithOverrideImage = (): JSX.Element => {
 	return (
 		<div style={containerStyle}>
+			<OverlayAutoplayExplainer />
 			<YoutubeAtom
 				elementId="xyz"
 				videoId="3jpXAMwRSu4"
@@ -92,6 +110,7 @@ export const WithOverrideImage = (): JSX.Element => {
 export const WithPosterImage = (): JSX.Element => {
 	return (
 		<div style={containerStyle}>
+			<OverlayAutoplayExplainer />
 			<YoutubeAtom
 				elementId="xyz"
 				videoId="N9Cgy-ke5-s"
@@ -138,6 +157,7 @@ export const WithPosterImage = (): JSX.Element => {
 export const WithOverlayAndPosterImage = (): JSX.Element => {
 	return (
 		<div style={containerStyle}>
+			<OverlayAutoplayExplainer />
 			<YoutubeAtom
 				elementId="xyz"
 				videoId="N9Cgy-ke5-s"
@@ -195,6 +215,7 @@ export const GiveConsent = (): JSX.Element => {
 	const [consented, setConsented] = useState(false);
 	return (
 		<>
+			<OverlayAutoplayExplainer />
 			<button onClick={() => setConsented(true)}>Give consent</button>
 			<div style={containerStyle}>
 				<YoutubeAtom

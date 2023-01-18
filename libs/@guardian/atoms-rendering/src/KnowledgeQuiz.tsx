@@ -82,7 +82,7 @@ export const KnowledgeQuizAtom = ({
 					/>
 				</div>
 			)}
-			<ol>
+			<ol data-ignore="global-ol-styling">
 				{questions.map((question, idx) => (
 					<Question
 						key={question.id}

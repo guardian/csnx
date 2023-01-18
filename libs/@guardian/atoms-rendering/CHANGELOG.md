@@ -1,5 +1,17 @@
 # @guardian/atoms-rendering
 
+## 25.1.1
+
+### Patch Changes
+
+- 0e19d91: Adding data-ignore attribute to KnowledgeQuiz atom ordered lists to remove duplicate list numbers
+
+## 25.1.0
+
+### Minor Changes
+
+- 90e0b9b: Explicitly export atoms-rendering types
+
 ## 25.0.4
 
 ### Patch Changes

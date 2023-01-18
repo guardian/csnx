@@ -1,5 +1,17 @@
 # @guardian/libs
 
+## 11.2.0
+
+### Minor Changes
+
+- ced1714: Extends format's articleDesign type to include `Profile` and `Timeline`
+
+## 11.1.3
+
+### Patch Changes
+
+- f61460d: Refactor `CountryCode` type to infer the possible values from `countries#countryCode`.
+
 ## 11.1.2
 
 ### Patch Changes

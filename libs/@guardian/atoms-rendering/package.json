@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/atoms-rendering",
-	"version": "25.0.4",
+	"version": "25.1.1",
 	"dependencies": {
 		"is-mobile": "^3.1.1"
 	},

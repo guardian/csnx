@@ -1,7 +1,4 @@
-import type { Country } from './@types/Country';
-import type { CountryKey } from './@types/CountryKey';
-
-export const countries: Record<CountryKey, Country> = {
+export const countries = {
 	afghanistan: {
 		countryCode: 'AF',
 		name: 'Afghanistan',

@@ -35,7 +35,8 @@ In order for these stories to run as expected locally, you'll need to use [dev-n
 If you want to test a change before publishing to NPM, you will need to point to this repository. For instance, you might want to check in dotcom-rendering on local that a change you make in this library is correct. For this do the following
 
 - In CSNX root run `make build`,
-- In atoms-rendering run `yarn link`, then
+- Cd into the atoms-rendering dist dir `cd dist/libs/@guardian/atoms-rendering`
+- Run `yarn link`
 - In dotcom-rendering run `yarn link "@guardian/atoms-rendering"`.
 
 Then you will notice that your
