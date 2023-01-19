@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.3
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
 ## 8.2.2
 
 ### Patch Changes
