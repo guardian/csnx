@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 25.1.5
+
+### Patch Changes
+
+- 677568c: Analysis Guide Atoms should have a different background
+
 ## 25.1.4
 
 ### Patch Changes
