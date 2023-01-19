@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 25.1.2
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
 ## 25.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 11.0.1
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
 ## 11.0.0
 
 ### Major Changes
