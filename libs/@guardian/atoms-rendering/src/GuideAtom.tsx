@@ -10,6 +10,7 @@ export const GuideAtom = ({
 	image,
 	html,
 	credit,
+	design,
 	pillar,
 	expandForStorybook,
 	likeHandler,
@@ -20,6 +21,7 @@ export const GuideAtom = ({
 		<Container
 			id={id}
 			title={title}
+			design={design}
 			pillar={pillar}
 			atomType="guide"
 			atomTypeTitle="Quick Guide"

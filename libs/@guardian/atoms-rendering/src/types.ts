@@ -1,5 +1,5 @@
 import type { CustomParams } from '@guardian/commercial-core';
-import type { ArticleTheme } from '@guardian/libs';
+import type { ArticleDesign, ArticleTheme } from '@guardian/libs';
 
 export type AdTargeting =
 	| {
@@ -44,6 +44,7 @@ export type GuideAtomType = {
 	likeHandler?: () => void;
 	dislikeHandler?: () => void;
 	expandCallback?: () => void;
+	design?: ArticleDesign;
 };
 
 export type InteractiveAtomBlockElementType = {
