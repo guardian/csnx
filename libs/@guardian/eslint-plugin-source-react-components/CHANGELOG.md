@@ -1,5 +1,13 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 11.0.2
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
 ## 11.0.1
 
 ### Patch Changes

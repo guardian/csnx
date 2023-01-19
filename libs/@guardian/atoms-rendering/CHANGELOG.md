@@ -1,5 +1,13 @@
 # @guardian/atoms-rendering
 
+## 25.1.3
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
 ## 25.1.2
 
 ### Patch Changes

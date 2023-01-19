@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 10.0.1
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+
 ## 10.0.0
 
 ### Major Changes
