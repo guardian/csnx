@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 25.1.4
+
+### Patch Changes
+
+- efda2c7: Update @guardian packages
+
 ## 25.1.3
 
 ### Patch Changes
