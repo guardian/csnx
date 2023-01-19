@@ -1,5 +1,13 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.4
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
 ## 8.2.3
 
 ### Patch Changes

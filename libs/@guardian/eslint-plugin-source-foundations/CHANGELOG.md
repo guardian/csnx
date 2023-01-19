@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 9.0.2
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+
 ## 9.0.1
 
 ### Patch Changes
