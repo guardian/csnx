@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 10.0.2
+
+### Patch Changes
+
+- 3a8956f: The Edit Icon has been updated to a newer design
+
 ## 10.0.1
 
 ### Patch Changes
