@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 12.0.1
+
+### Patch Changes
+
+- 40cae72: Prevent unnecessary throwing of SecurityError errors by storage lib
+
 ## 12.0.0
 
 ### Major Changes
