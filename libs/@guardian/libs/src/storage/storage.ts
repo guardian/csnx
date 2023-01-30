@@ -4,14 +4,13 @@ import { isString } from '../isString/isString';
 class StorageFactory {
 	#storage: Storage | undefined; // https://mdn.io/Private_class_fields
 
-	constructor(storage: Storage) {
+	constructor(storageHandler: 'localStorage' | 'sessionStorage') {
 		try {
+			const storage = window[storageHandler];
 			const uid = new Date().toString();
 			storage.setItem(uid, uid);
-
 			const available = storage.getItem(uid) == uid;
 			storage.removeItem(uid);
-
 			if (available) this.#storage = storage;
 		} catch (e) {
 			// do nothing
@@ -119,10 +118,10 @@ export const storage = new (class {
 	// when it's accessed i.e. we know we're going to use it
 
 	get local() {
-		return (this.#local ||= new StorageFactory(localStorage));
+		return (this.#local ||= new StorageFactory('localStorage'));
 	}
 
 	get session() {
-		return (this.#session ||= new StorageFactory(sessionStorage));
+		return (this.#session ||= new StorageFactory('sessionStorage'));
 	}
 })();
