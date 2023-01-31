@@ -18,3 +18,5 @@ libs/@guardian/eslint-config/* @guardian/client-side-infra
 libs/@guardian/eslint-config-typescript/* @guardian/client-side-infra
 libs/@guardian/browserlist-config/*  @guardian/client-side-infra @guardian/dotcom-platform
 libs/@guardian/libs/* @guardian/client-side-infra @guardian/apps-rendering @guardian/dotcom-platform
+
+apps/theguardian.engineering/* @guardian/engineering-website
