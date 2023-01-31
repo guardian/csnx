@@ -3,62 +3,11 @@
 	"sourceRoot": "apps/theguardian.engineering/src",
 	"projectType": "application",
 	"targets": {
-		"project-storybooks": {
-			"executor": "nx:run-commands",
-			"options": {
-				"commands": [
-					{
-						"command": "cd libs/@guardian/source-foundations && start-storybook --no-open --port 4401 --quiet",
-						"prefix": "foundations",
-						"color": "red"
-					},
-					{
-						"command": "cd libs/@guardian/source-react-components && start-storybook --no-open --port 4402 --quiet",
-						"prefix": "react-components",
-						"color": "green"
-					},
-					{
-						"command": "cd libs/@guardian/source-react-components-development-kitchen && start-storybook --no-open --port 4403 --quiet",
-						"prefix": "dev-kitchen",
-						"color": "blue"
-					},
-					{
-						"command": "cd libs/@guardian/atoms-rendering && start-storybook --no-open --port 4404 --quiet",
-						"prefix": "atoms-rendering",
-						"color": "yellow"
-					}
-				],
-				"color": true,
-				"parallel": true
-			}
-		},
-		"composed-storybooks": {
+		"build": {
 			"executor": "nx:run-commands",
 			"options": {
 				"command": "start-storybook --port 4400 --quiet",
 				"cwd": "apps/theguardian.engineering"
-			}
-		},
-		"storybooks": {
-			"executor": "nx:run-commands",
-			"options": {
-				"commands": [
-					{ "command": "nx run csnx:project-storybooks" },
-					{
-						"command": "sleep 5 && nx run csnx:composed-storybooks",
-						"prefix": "csnx",
-						"color": "cyan"
-					}
-				]
-			}
-		},
-		"build-storybook": {
-			"executor": "nx:run-commands",
-			"outputs": ["dist/storybook/apps/theguardian.engineering"],
-			"options": {
-				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/theguardian.engineering --webpack-stats-json",
-				"cwd": "apps/theguardian.engineering",
-				"color": true
 			}
 		}
 	},
