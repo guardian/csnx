@@ -1,0 +1,125 @@
+---
+import PageLayout from "../layouts/page.astro";
+import { Content } from "../../content/open-source.md";
+
+import { border } from "../styles/shared.js";
+
+const reposUrl = `https://api.github.com/orgs/guardian/repos?per_page=100&sort=updated&direction=desc`;
+const reposRaw: Array<{
+  name: string;
+  description: string;
+  html_url: string;
+  stargazers_count: number;
+  archived: boolean;
+  pushed_at: string;
+}> = await fetch(reposUrl).then((r) => r.json());
+
+/**
+ * A mix of recently updated and most stargazed repos
+ */
+const repos = reposRaw
+  .filter((repo) => !repo.archived)
+  .sort(
+    (a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
+  )
+  .slice(0, 21)
+  .sort((a, b) => b.stargazers_count - a.stargazers_count)
+  .slice(0, 10);
+
+const timeAgo = (date: Date) =>
+  `${
+    [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ][date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
+---
+
+<PageLayout title="Open Source" edit="open-source.astro">
+  <section id="source">
+    <Content />
+
+    <ol>
+      {
+        repos.map((repo) => {
+          return (
+            <li>
+              <a href={repo.html_url}>
+                <h4>{repo.name}</h4>
+                <h5>
+                  ({repo.stargazers_count} stars - updated{" "}
+                  {timeAgo(new Date(repo.pushed_at))})
+                </h5>
+                <p>{repo.description}</p>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </section>
+</PageLayout>
+
+<style lang="scss" define:vars={{ border }}>
+  section {
+    padding: 0 1rem;
+
+    // All but the first section
+    &:nth-of-type(n + 2) {
+      border-top: var(--border);
+    }
+
+    p,
+    ul {
+      max-width: 36rem;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: var(--border);
+  }
+
+  #source {
+    ol {
+      li {
+        padding-bottom: 1rem;
+
+        a {
+          display: block;
+          max-width: 36rem;
+          padding: 0.5rem;
+          background-color: #333;
+
+          color: inherit;
+          text-decoration: none;
+
+          h4 {
+            color: gold;
+          }
+
+          h4,
+          h5 {
+            display: inline;
+          }
+
+          p {
+            flex-basis: 100%;
+            padding-top: 0.5rem;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+</style>

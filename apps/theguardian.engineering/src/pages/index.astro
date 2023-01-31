@@ -1,0 +1,150 @@
+---
+import PageLayout from "../layouts/page.astro";
+import BlogFeed from "../components/BlogFeed.astro";
+
+import { border } from "../styles/shared.js";
+import home from "/assets/home-digital-development.jpg";
+---
+
+<PageLayout edit="index.astro">
+  <section id="shaping-the-future-of-digital-journalism">
+    <div class="flexedText">
+      <h2>We're shaping the future of digital journalism.</h2>
+      <h2>
+        <a href="https://workforus.theguardian.com/careers/product-engineering"
+          >Join Us.</a
+        >
+      </h2>
+    </div>
+
+    <div class="flexedImage">
+      <img
+        id="home"
+        src={home}
+        alt="Five people gathered around a table, with a man in the centre wearing an 'I heart the Guardian' tshirt"
+      />
+    </div>
+  </section>
+
+  <section id="build-for-a-greater-cause">
+    <h3>We build in pursuit of a cause that is greater than ourselves.</h3>
+
+    <ul>
+      <li>
+        <h4>Empowering journalists</h4>
+        We build products that make it easier for journalists to publish informative
+        and delightful stories.
+      </li>
+      <li>
+        <h4>Coding in the open</h4>
+        We do much of our coding in public. Check out <a
+          href="https://github.com/guardian">our GitHub profile</a
+        > to see what we’ve been working on.
+      </li>
+      <li>
+        <h4>Moving fast</h4>
+        We spend our energy on the right things, shipping code and then rapidly iterating
+        on it. Move fast, break news.
+      </li>
+      <li>
+        <h4>Using the best tool for the job</h4>
+        We mostly program in Scala and TypeScript, but we use the best tool that
+        solves the problem.
+      </li>
+    </ul>
+  </section>
+  <section id="engineering-blog-posts">
+    <BlogFeed />
+  </section>
+</PageLayout>
+
+<style lang="scss" define:vars={{ border }}>
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  // All but the first section
+  section:nth-of-type(n + 2) {
+    border-top: var(--border);
+  }
+
+  h2,
+  h3 {
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 8vw, 3.75rem);
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+  }
+
+  #shaping-the-future-of-digital-journalism {
+    div.flexedText {
+      flex: 1 0 50%;
+    }
+
+    .flexedImage {
+      display: flex;
+      flex: 1 0 420px;
+      align-items: center;
+      max-width: 100%;
+    }
+
+    a {
+      background-color: #ccc;
+      color: #111;
+      text-decoration: none;
+      padding: 0 0.25em;
+    }
+
+    a:hover {
+      background-color: gold;
+    }
+
+    img {
+      object-fit: cover;
+      max-width: 100%;
+    }
+  }
+
+  #build-for-a-greater-cause {
+    h3 {
+      flex: 50%;
+    }
+
+    ul {
+      flex: 1 auto;
+      padding: 0rem;
+      list-style-type: none;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      counter-reset: card;
+
+      @media (min-width: 740px) {
+        & {
+          flex: 1 0 30rem;
+          padding: 2rem;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      li {
+        padding: 0.5em;
+        background-color: #333;
+        position: relative;
+
+        h4 {
+          margin: 0;
+          padding-bottom: 0.5em;
+        }
+      }
+    }
+  }
+</style>

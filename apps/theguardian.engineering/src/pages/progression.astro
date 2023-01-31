@@ -1,0 +1,41 @@
+---
+import { marked } from "marked";
+import PageLayout from "../layouts/page.astro";
+
+const title = "Progression Framework";
+
+const performance = await fetch(
+  "https://raw.githubusercontent.com/guardian/engineering-performance-framework/main/README.md"
+)
+  .then((r) => r.text())
+  // remove everything after the first h4
+  .then((t) => t.split("####").slice(0, 1).join("\n ####"))
+  .then((t) => marked.parse(t, { async: true }));
+
+const salaries = await fetch(
+  "https://raw.githubusercontent.com/guardian/engineering-performance-framework/main/salary-bands.md"
+)
+  .then((r) => r.text())
+  .then((t) => marked.parse(t, { async: true }));
+---
+
+<PageLayout title={title} edit="progression.astro">
+  <article class="markdown" set:html={performance} />
+
+  <p>
+    Read more about it <a
+      href="https://github.com/guardian/engineering-performance-framework/"
+      >here</a
+    >
+  </p>
+
+  <h1>Salary Bands</h1>
+
+  <article class="markdown" set:html={salaries} />
+</PageLayout>
+
+<style lang="scss">
+  .markdown {
+    padding: 0 1rem;
+  }
+</style>

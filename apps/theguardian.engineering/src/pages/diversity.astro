@@ -1,0 +1,44 @@
+---
+import PageLayout from "../layouts/page.astro";
+
+import { Content as Diversity, getHeadings } from "../../content/diversity.md";
+
+const title = getHeadings()[0].text;
+---
+
+<PageLayout title={title} edit="diversity.astro">
+  <section class="markdown">
+    <Diversity />
+  </section>
+</PageLayout>
+
+<style lang="scss" is:global>
+  .markdown {
+    padding: 0 1rem;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      align-content: space-between;
+    }
+
+    li {
+      margin: 1em;
+      padding: 1em;
+      background-color: #333;
+      width: 30%;
+    }
+
+    @media only screen and (max-width: 650px) {
+      ul {
+        flex-direction: column;
+      }
+
+      li {
+        box-sizing: border-box;
+        width: auto;
+      }
+    }
+  }
+</style>

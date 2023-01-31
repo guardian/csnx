@@ -1,0 +1,88 @@
+---
+import { SvgGithub } from "./icons/Github.tsx";
+import {
+  SvgTwitter,
+  SvgArrowRightStraight,
+} from "@guardian/source-react-components";
+---
+
+<ul id="social-presence">
+  <li>
+    <a href="https://github.com/guardian" target="_blank">
+      <span class="hidden">Github @guardian</span>
+      <SvgGithub />
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/gdndevelopers" target="_blank">
+      <span class="hidden">Twitter @gdndevelopers</span>
+      <SvgTwitter />
+    </a>
+  </li>
+  <li>
+    <a href="https://workforus.theguardian.com/" target="_blank" class="pill">
+      <span>Jobs</span>
+      <SvgArrowRightStraight />
+    </a>
+  </li>
+</ul>
+
+<h1>The Guardian&hairsp;<span class="white">Developers</span></h1>
+
+<style lang="scss">
+  ul {
+    list-style-type: none;
+    padding: 0;
+    padding-right: 0.5em;
+    display: flex;
+    gap: 1em;
+  }
+
+  li {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 3rem;
+      padding: 0.25rem;
+      background: #ccc;
+      color: #111;
+      text-decoration: none;
+
+      &:hover {
+        background: gold;
+      }
+
+      span {
+        padding: 0 0.5em;
+        font-weight: bold;
+      }
+
+      &.pill {
+        padding: 0.25rem 0.75rem;
+      }
+
+      span.hidden {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+
+      :global(svg) {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+
+  h1 {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .white {
+    color: white;
+  }
+</style>

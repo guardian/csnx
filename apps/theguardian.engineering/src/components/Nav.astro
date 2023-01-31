@@ -1,0 +1,59 @@
+---
+import { border } from "../styles/shared.js";
+
+const { path } = Astro.props;
+---
+
+<nav>
+  <a class={path === "/" ? "active" : ""} href="/"> Home</a>
+
+  <a class={path === "/open-people" ? "active" : ""} href="/open-people">
+    Open People
+  </a>
+
+  <a class={path === "/open-source" ? "active" : ""} href="/open-source">
+    Open Source
+  </a>
+
+  <a class={path === "/diversity" ? "active" : ""} href="/diversity">
+    Diversity
+  </a>
+
+  <a class={path === "/progression" ? "active" : ""} href="/progression">
+    Progression
+  </a>
+</nav>
+
+<style lang="scss" define:vars={{ border }}>
+  nav {
+    position: relative;
+    overflow-x: scroll;
+    display: flex;
+    border-bottom: var(--border);
+
+    * {
+      padding: 0 1em;
+      border-right: var(--border);
+    }
+
+    a {
+      color: inherit;
+      padding-top: 5px;
+      padding-bottom: 8px;
+      text-decoration: none;
+
+      &.active {
+        padding-top: 2px;
+        border-top: 3px solid;
+      }
+
+      &:focus,
+      &:hover {
+        color: gold;
+      }
+    }
+  }
+
+  h1 {
+  }
+</style>

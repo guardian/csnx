@@ -1,0 +1,158 @@
+---
+import { timeAgo } from "@guardian/libs";
+const CAPI_KEY = import.meta.env.CAPI_KEY ?? "test";
+
+type SeriesResult = {
+  id: string;
+  type: string;
+  sectionId: string;
+  sectionName: string;
+  webPublicationDate: string;
+  webTitle: string;
+  webUrl: string;
+  apiUrl: string;
+  isHosted: boolean;
+  pillarId: string;
+  pillarName: string;
+  fields: {
+    byline: string;
+  };
+};
+
+const queryParams = new URLSearchParams({
+  tag: "info/series/engineering-blog",
+  "show-fields": "byline",
+  "api-key": CAPI_KEY,
+});
+
+const posts: SeriesResult[] = await fetch(
+  `https://content.guardianapis.com/search?${queryParams.toString()}`
+)
+  .then((r) => r.json())
+  .then((d) => d.response.results);
+
+/**
+ * It would be good to use https://raw.githubusercontent.com/guardian/dotcom-rendering/main/dotcom-rendering/src/model/json-schema.json
+ */
+type ArticleResult = {
+  mainMediaElements: Array<{
+    data: {
+      alt: string;
+      caption: string;
+      credit: string;
+    };
+    imageSources: Array<{
+      weighting: "inline" | "thumbnail" | "showcase" | "immersive";
+      srcSet: Array<{
+        src: `https://i.guim.co.uk/${string}`;
+        width: number;
+      }>;
+    }>;
+  }>;
+};
+---
+
+<h3>Latest Engineering blog posts</h3>
+<ul>
+  {
+    posts.slice(0, 9).map(async (post) => {
+      const time = new Date(post.webPublicationDate).getTime();
+      const pubDate = timeAgo(time);
+
+      const article: ArticleResult = await fetch(
+        post.webUrl + ".json?dcr"
+      ).then((r) => r.json());
+
+      const media = article.mainMediaElements[0];
+
+      const image = media.imageSources
+        .find((source) => source.weighting === "inline")
+        .srcSet.slice()
+        .sort((a, b) => a.width - b.width)
+        .find((src) => src.width > 600);
+
+      return (
+        <li>
+          <a href={post.webUrl}>
+            <figure>
+              <img src={image.src} width={image.width} alt={media.data.alt} />
+            </figure>
+            <h4>{post.webTitle}</h4>
+            <h5 class="byline">{post.fields.byline}</h5>
+            <h5>{pubDate}</h5>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+<a href="https://www.theguardian.com/info/series/engineering-blog"
+  >Read more on our Engineering blog</a
+>
+
+<style lang="scss">
+  ul {
+    display: grid;
+    list-style-type: none;
+    padding: 0;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 740px) {
+      & {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    li {
+      padding: 0;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        padding: 0.5rem;
+        display: block;
+        box-sizing: border-box;
+        height: 100%;
+        background-color: #333;
+      }
+
+      figure {
+        margin: 0;
+        padding-top: 75%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          object-fit: cover;
+        }
+      }
+
+      h4 {
+        padding-top: 0.5rem;
+      }
+
+      h4,
+      h5 {
+        margin: 0;
+      }
+
+      h5 {
+        padding-top: 0.5rem;
+        font-weight: normal;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .byline {
+        font-style: italic;
+      }
+    }
+  }
+</style>

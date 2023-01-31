@@ -1,0 +1,35 @@
+---
+import Debug from "astro/debug";
+import { border } from "../styles/shared.ts";
+
+const { edit = null } = Astro.props;
+const branch = "main";
+
+const year = new Date().getUTCFullYear();
+---
+
+<footer>
+  <div>
+    {year} — Made with &hearts; by <a href="https://twitter.com/gdndevelopers"
+      >Guardian developers</a
+    >
+  </div>
+  {
+    edit ? (
+      <a
+        href={`https://github.com/guardian/guardian-engineering-site/blob/${branch}/src/pages/${edit}`}
+      >
+        Edit this page
+      </a>
+    ) : null
+  }
+</footer>
+
+<style define:vars={{ border }}>
+  footer {
+    padding: 1rem;
+    border-top: var(--border);
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
