@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.5
+
+### Patch Changes
+
+- 7cd6f21: Bump tslib to v2.4.1
+
 ## 8.2.4
 
 ### Patch Changes
