@@ -1,0 +1,33 @@
+{
+	"name": "@guardian/package-linter",
+	"version": "0.1.2",
+	"private": false,
+	"description": "Lint package.json to @guardian standards",
+	"sideEffects": false,
+	"dependencies": {
+		"@guardian/libs": "workspace:*",
+		"colorette": "^2.0.19",
+		"node-fetch": "^3.3.0",
+		"semver": "^7.3.8",
+		"zod": "^3.20.2"
+	},
+	"devDependencies": {
+		"@types/semver": "^7.3.13",
+		"jest": "29.3.1",
+		"jest-fetch-mock": "3.0.3",
+		"tslib": "2.4.1",
+		"typescript": "4.3.2"
+	},
+	"peerDependencies": {
+		"tslib": "^2.4.1",
+		"typescript": "^4.3.2"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

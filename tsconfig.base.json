@@ -21,6 +21,7 @@
 				"libs/@guardian/core-web-vitals/src/index.ts"
 			],
 			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
+			"@guardian/package-linter": ["libs/@guardian/package-linter/index.ts"],
 			"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
 			"@guardian/source-foundations": [
 				"libs/@guardian/source-foundations/src/index.ts"

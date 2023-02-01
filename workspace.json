@@ -16,6 +16,7 @@
 		"@guardian/source-react-components-development-kitchen": "libs/@guardian/source-react-components-development-kitchen",
 		"@guardian/eslint-plugin-source-foundations": "libs/@guardian/eslint-plugin-source-foundations",
 		"@guardian/eslint-plugin-source-react-components": "libs/@guardian/eslint-plugin-source-react-components",
+		"@guardian/package-linter": "libs/@guardian/package-linter",
 		"@guardian/prettier": "libs/@guardian/prettier",
 		"@guardian/tsconfig": "libs/@guardian/tsconfig",
 		"nx-plugin-eslint": "tools/nx-plugins/eslint",

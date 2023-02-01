@@ -1,0 +1,32 @@
+{
+	"name": "@guardian/libs",
+	"version": "12.0.0",
+	"private": false,
+	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
+	"homepage": "https://github.com/guardian/csnx/tree/main/libs/@guardian/libs#readme",
+	"bugs": {
+		"url": "https://github.com/guardian/csnx/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/guardian/csnx.git"
+	},
+	"license": "MIT",
+	"sideEffects": false,
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"peerDependencies": {
+		"tslib": "^2.4.1",
+		"typescript": "^4.3.2"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"readme": "ERROR: No README data found!",
+	"_id": "@guardian/libs@12.0.0"
+}

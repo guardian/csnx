@@ -1,0 +1,34 @@
+{
+	"name": "@guardian/core-web-vitals",
+	"version": "2.0.2",
+	"private": false,
+	"description": "Methods to help with the implementation of Google's Core Web Vitals",
+	"homepage": "https://github.com/guardian/csnx/tree/main/libs/@guardian/core-web-vitals#readme",
+	"bugs": {
+		"url": "https://github.com/guardian/csnx/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/guardian/csnx.git"
+	},
+	"license": "MIT",
+	"sideEffects": false,
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"peerDependencies": {
+		"@guardian/libs": "^12.0.0",
+		"tslib": "^2.4.1",
+		"typescript": "^4.3.2",
+		"web-vitals": "^2.0.0"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"readme": "ERROR: No README data found!",
+	"_id": "@guardian/core-web-vitals@2.0.2"
+}
