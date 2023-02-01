@@ -34,6 +34,10 @@ Get the active switches on theguardian.com.
 
 Check whether a value is a boolean.
 
+### [`isNonNullable`](./src/isNonNullable)
+
+Check whether a value is a [`NonNullable`](https://www.typescriptlang.org/docs/handbook/utility-types.html#nonnullabletype).
+
 ### [`isObject`](./src/isObject)
 
 Checks whether a value is a plain object (i.e. `{}`-like).
