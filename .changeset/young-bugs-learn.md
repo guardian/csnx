@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Actaully export `isNonNullable`
+Actually export `isNonNullable`
