@@ -35,26 +35,22 @@ export const loadScript = (
 		) => {
 			if (error) {
 				reject(error);
-
 				return;
 			}
 
 			if (typeof event === 'string') {
-				reject(`Error loading script: ${event}`);
-
+				reject(new Error(`Error loading script: ${event}`));
 				return;
 			}
 
 			if (event instanceof Event) {
 				const target = event.target as Element;
-				const src = target.getAttribute('src') ?? '';
-
-				reject(`Error loading script: ${src}`);
-
+				const targetSrc = target.getAttribute('src') ?? '';
+				reject(new Error(`Error loading script: ${targetSrc}`));
 				return;
 			}
 
-			reject(`Error loading script`);
+			reject(new Error(`Error loading script: ${src}`));
 		};
 
 		const ref = document.scripts[0];
