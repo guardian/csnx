@@ -82,7 +82,7 @@ const registerCompleteEvent =
 
 		try {
 			listener(buildOphanSubmitter(test, variant, complete, ophanRecord));
-		} catch (err) {
+		} catch (err: unknown) {
 			errorReporter(err, {}, false);
 		}
 	};
@@ -115,7 +115,7 @@ const buildOphanPayload = (
 		});
 
 		return log;
-	} catch (error) {
+	} catch (error: unknown) {
 		// Encountering an error should invalidate the logging process.
 		errorReporter(error, {}, false);
 		return {};

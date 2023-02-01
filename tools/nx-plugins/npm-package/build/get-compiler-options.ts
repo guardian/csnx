@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/unbound-method -- this is what the TS methods do */
 import path from 'node:path';
 import type { ExecutorContext } from '@nrwl/devkit';
 import {
