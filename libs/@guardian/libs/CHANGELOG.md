@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 13.1.0
+
+### Minor Changes
+
+- b4f6334: Add more metadata to loadScript errors
+
 ## 13.0.0
 
 ### Major Changes
