@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 9.0.0
+
+### Major Changes
+
+- c6366dd: Add `tslib@^2.4.1` to peerDependencies
+
 ## 8.2.6
 
 ### Patch Changes
