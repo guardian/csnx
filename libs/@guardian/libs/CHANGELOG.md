@@ -1,5 +1,15 @@
 # @guardian/libs
 
+## 13.0.0
+
+### Major Changes
+
+- b4104c1: loadScript rejects with an Error
+
+### Minor Changes
+
+- 05a5836: Actually export `isNonNullable`
+
 ## 12.0.1
 
 ### Patch Changes
