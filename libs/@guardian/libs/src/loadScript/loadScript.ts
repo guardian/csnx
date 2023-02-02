@@ -39,18 +39,22 @@ export const loadScript = (
 			}
 
 			if (typeof event === 'string') {
-				reject(new Error(`Error loading script: ${event}`));
+				reject(new Error(`Error loading script: src: ${src} event: ${event}`));
 				return;
 			}
 
 			if (event instanceof Event) {
 				const target = event.target as Element;
 				const targetSrc = target.getAttribute('src') ?? '';
-				reject(new Error(`Error loading script: ${targetSrc}`));
+				reject(
+					new Error(
+						`Error loading script: src: ${src} targetSrc: ${targetSrc}`,
+					),
+				);
 				return;
 			}
 
-			reject(new Error(`Error loading script: ${src}`));
+			reject(new Error(`Error loading script: src: ${src}`));
 		};
 
 		const ref = document.scripts[0];
