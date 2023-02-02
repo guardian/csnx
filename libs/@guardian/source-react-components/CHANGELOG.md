@@ -1,5 +1,16 @@
 # @guardian/source-react-components
 
+## 11.0.0
+
+### Major Changes
+
+- c6366dd: Add tslib to peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [c6366dd]
+  - @guardian/source-foundations@9.0.0
+
 ## 10.0.2
 
 ### Patch Changes

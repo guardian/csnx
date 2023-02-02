@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 4.0.0
+
+### Major Changes
+
+- c6366dd: Add tslib to peerDependencies
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,5 +1,16 @@
 # @guardian/eslint-config-typescript
 
+## 4.0.0
+
+### Major Changes
+
+- c6366dd: Add tslib to peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [c6366dd]
+  - @guardian/eslint-config@3.0.0
+
 ## 3.0.0
 
 ### Major Changes

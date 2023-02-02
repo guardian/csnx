@@ -1,5 +1,20 @@
 # @guardian/atoms-rendering
 
+## 26.0.0
+
+### Major Changes
+
+- c6366dd: Add tslib to peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [c6366dd]
+- Updated dependencies [b4104c1]
+- Updated dependencies [05a5836]
+  - @guardian/source-foundations@9.0.0
+  - @guardian/source-react-components@11.0.0
+  - @guardian/libs@13.0.0
+
 ## 25.1.6
 
 ### Patch Changes

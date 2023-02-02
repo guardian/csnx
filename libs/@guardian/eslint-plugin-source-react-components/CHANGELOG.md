@@ -1,5 +1,19 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 12.0.0
+
+### Major Changes
+
+- c6366dd: Add tslib to peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [c6366dd]
+- Updated dependencies [b4104c1]
+- Updated dependencies [05a5836]
+  - @guardian/source-react-components@11.0.0
+  - @guardian/libs@13.0.0
+
 ## 11.0.3
 
 ### Patch Changes

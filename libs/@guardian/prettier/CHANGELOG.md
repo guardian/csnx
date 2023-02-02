@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 3.0.0
+
+### Major Changes
+
+- c6366dd: Add tslib to peerDependencies
+
 ## 2.1.5
 
 ### Patch Changes
