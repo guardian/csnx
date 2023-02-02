@@ -87,13 +87,13 @@ const listener = (e: Event): void => {
 
 const getCoreWebVitals = async (): Promise<void> => {
 	const webVitals = await import('web-vitals');
-	const { onCLS, onFCP, onFID, onLCP, onTTFB } = webVitals;
+	const { getCLS, getFCP, getFID, getLCP, getTTFB } = webVitals;
 
-	onCLS(onReport, { reportAllChanges: false });
-	onFID(onReport);
-	onLCP(onReport);
-	onFCP(onReport);
-	onTTFB(onReport);
+	getCLS(onReport, { reportAllChanges: false });
+	getFID(onReport);
+	getLCP(onReport);
+	getFCP(onReport);
+	getTTFB(onReport);
 
 	// Report all available metrics when the page is unloaded or in background.
 	addEventListener('visibilitychange', listener);
