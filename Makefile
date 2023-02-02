@@ -34,6 +34,7 @@ e2e: env
 lint: install
 	$(call log,"Linting projects")
 	@corepack pnpm nx run-many --target=lint --all=true --skip-nx-cache=$(SKIP_NX_CACHE)
+	@node ./tools/scripts/check-packages-for-tslib.mjs
 
 # attemps to fix lint errors across all projects
 .PHONY: fix
