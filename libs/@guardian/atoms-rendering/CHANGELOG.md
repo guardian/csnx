@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 25.1.6
+
+### Patch Changes
+
+- Bump package versions
+
 ## 25.1.5
 
 ### Patch Changes
