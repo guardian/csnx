@@ -80,7 +80,9 @@ describe('loadScript', () => {
 			await loadScript(badURL);
 		} catch (error) {
 			expect(error instanceof Error).toEqual(true);
-			expect((error as Error).message).toEqual('Error loading script: bad-url');
+			expect((error as Error).message).toEqual(
+				'Error loading script: src: bad-url targetSrc: bad-url',
+			);
 		}
 	});
 });

@@ -14,8 +14,7 @@
 		"@types/estree": "0.0.51",
 		"eslint": "8.0.0",
 		"tslib": "2.4.1",
-		"typescript": "4.3.2",
-		"web-vitals": "2.0.0"
+		"typescript": "4.3.2"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "^12.0.0",

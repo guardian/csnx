@@ -89,7 +89,7 @@ const getCoreWebVitals = async (): Promise<void> => {
 	const webVitals = await import('web-vitals');
 	const { getCLS, getFCP, getFID, getLCP, getTTFB } = webVitals;
 
-	getCLS(onReport, false);
+	getCLS(onReport, { reportAllChanges: false });
 	getFID(onReport);
 	getLCP(onReport);
 	getFCP(onReport);
