@@ -1,17 +1,17 @@
 {
 	"name": "@guardian/core-web-vitals",
-	"version": "2.0.0",
+	"version": "2.0.3",
 	"private": false,
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
 	"devDependencies": {
-		"@guardian/libs": "10.0.0",
+		"@guardian/libs": "12.0.0",
 		"tslib": "2.4.1",
 		"typescript": "4.3.2",
 		"web-vitals": "2.0.0"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^10.0.0",
+		"@guardian/libs": "^12.0.0",
 		"tslib": "^2.4.1",
 		"typescript": "^4.3.2",
 		"web-vitals": "^2.0.0"

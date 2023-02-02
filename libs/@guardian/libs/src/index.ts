@@ -22,6 +22,7 @@ export { ArticleSpecial } from './format/ArticleSpecial';
 export type { ArticleTheme } from './format/ArticleTheme';
 
 export { isBoolean } from './isBoolean/isBoolean';
+export { isNonNullable } from './isNonNullable/isNonNullable';
 export { isObject } from './isObject/isObject';
 export { isString } from './isString/isString';
 export { isUndefined } from './isUndefined/isUndefined';

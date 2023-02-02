@@ -44,10 +44,15 @@ it('Should have exactly these exports', () => {
 		'StarRating',
 		'StraightLines',
 		'SuccessSummary',
+		'Tabs',
 		'ToggleSwitch',
 		'ToggleSwitchApps',
 		'defaultGuardianLinks',
+		'expandingWrapperDarkTheme',
+		'expandingWrapperThemeDefault',
 		'fileInputDarkTheme',
 		'fileInputThemeDefault',
+		'tabsDarkTheme',
+		'tabsThemeDefault',
 	]);
 });

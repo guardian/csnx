@@ -1,0 +1,56 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@guardian/ab-react/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": "libs/@guardian/ab-react/src/index.ts",
+				"tsConfig": "libs/@guardian/ab-react/tsconfig.json",
+				"packageJson": "libs/@guardian/ab-react/package.json",
+				"outputPath": "dist/libs/@guardian/ab-react",
+				"assets": ["libs/@guardian/ab-react/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/@guardian/ab-react/**/*.ts",
+					"libs/@guardian/ab-react/**/*.tsx"
+				]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": [
+					"libs/@guardian/ab-react/**/*.ts",
+					"libs/@guardian/ab-react/**/*.tsx"
+				]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/ab-react"],
+			"options": {
+				"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"e2e": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/@guardian/ab-react"],
+			"options": {
+				"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+			}
+		}
+	},
+	"tags": []
+}

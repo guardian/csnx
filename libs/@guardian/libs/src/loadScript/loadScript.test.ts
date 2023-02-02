@@ -75,6 +75,12 @@ describe('loadScript', () => {
 	});
 
 	it('rejects if the script fails to load', async () => {
-		await expect(loadScript(badURL)).rejects.toBeDefined();
+		expect.assertions(2);
+		try {
+			await loadScript(badURL);
+		} catch (error) {
+			expect(error instanceof Error).toEqual(true);
+			expect((error as Error).message).toEqual('Error loading script: bad-url');
+		}
 	});
 });

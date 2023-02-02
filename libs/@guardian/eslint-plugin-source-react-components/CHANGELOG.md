@@ -1,5 +1,25 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 11.0.3
+
+### Patch Changes
+
+- 7cd6f21: Bump tslib to v2.4.1
+
+## 11.0.2
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
+## 11.0.1
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
 ## 11.0.0
 
 ### Major Changes

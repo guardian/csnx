@@ -6,6 +6,11 @@ export { EditorialLinkButton } from './editorial-button/EditorialLinkButton';
 export type { EditorialButtonProps } from './editorial-button/EditorialButton';
 export type { EditorialLinkButtonProps } from './editorial-button/EditorialLinkButton';
 
+export {
+	expandingWrapperThemeDefault,
+	expandingWrapperDarkTheme,
+} from './expanding-wrapper/theme';
+
 export { ExpandingWrapper } from './expanding-wrapper/ExpandingWrapper';
 export type { ExpandingWrapperProps } from './expanding-wrapper/ExpandingWrapper';
 
@@ -57,3 +62,8 @@ export type { FooterLinksProps } from './footer-with-contents/FooterLinks';
 
 export { NumericInput } from './numeric-input/NumericInput';
 export type { NumericInputProps } from './numeric-input/NumericInput';
+
+export { tabsThemeDefault, tabsDarkTheme } from './tabs/theme';
+
+export { Tabs } from './tabs/tabs';
+export type { TabContainerProps, TabProps } from './tabs/types';

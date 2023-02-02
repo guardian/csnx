@@ -1,5 +1,41 @@
 # @guardian/libs
 
+## 12.0.1
+
+### Patch Changes
+
+- 40cae72: Prevent unnecessary throwing of SecurityError errors by storage lib
+
+## 12.0.0
+
+### Major Changes
+
+- 98cd62f: Fix versioning, latest formats update was a breaking change
+
+## 11.2.0
+
+### Minor Changes
+
+- ced1714: Extends format's articleDesign type to include `Profile` and `Timeline`
+
+## 11.1.3
+
+### Patch Changes
+
+- f61460d: Refactor `CountryCode` type to infer the possible values from `countries#countryCode`.
+
+## 11.1.2
+
+### Patch Changes
+
+- a544750: loadScript rejects with more helpful error messages
+
+## 11.1.1
+
+### Patch Changes
+
+- a4aa0bd: Update docs
+
 ## 11.1.0
 
 ### Minor Changes
