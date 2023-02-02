@@ -1,3 +1,16 @@
+/**
+ * We've set `"importHelpers": true,` in `tsconfig.base.json`. This means that
+ * when `@csnx/npm-package` bundles our NPM libraries, anything that ends up
+ * needing a helper from `tslib` will import it from `tslib`, rather than it
+ * being inlined into the bundle.
+ *
+ * This helps consumers keep their bundles smaller, but it means that we need to
+ * make sure that all of our libraries have (a valid) `tslib` as a peer
+ * dependency.
+ *
+ * This script makes sure they do.
+ */
+
 import { getPackages } from '@manypkg/get-packages';
 import { dim, red } from 'colorette';
 import { pathFromRoot } from './project-paths.mjs';
