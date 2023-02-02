@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- c6366dd: Add tslib to peerDependencies
+- c6366dd: Add `tslib@^2.4.1` to peerDependencies
 
 ### Patch Changes
 
