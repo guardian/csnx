@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import type { SerializedStyles } from '@emotion/react';
-import { from, headline, space } from '@guardian/source-foundations';
+import { from, space, textSans } from '@guardian/source-foundations';
 import { tabsThemeDefault } from './theme';
 
 export const tabList = css`
@@ -13,7 +13,7 @@ export const tabButton = (
 	tabs = tabsThemeDefault.tabs,
 ): SerializedStyles => css`
 	background-color: ${tabs.background};
-	${headline.xxxsmall({
+	${textSans.medium({
 		fontWeight: 'bold',
 	})}
 	position: relative;
@@ -33,14 +33,14 @@ export const tabButton = (
 
 	:first-of-type {
 		margin-left: ${space[2]}px;
-		border-radius: ${space[2]}px 0 0 0;
+		border-top-left-radius: ${space[2]}px;
 	}
 	:last-of-type {
-		border-radius: 0 ${space[2]}px 0 0;
+		border-top-right-radius: ${space[2]}px;
 	}
 
 	${from.phablet} {
-		${headline.xxsmall({
+		${textSans.medium({
 			fontWeight: 'bold',
 		})}
 		width: 210px;
