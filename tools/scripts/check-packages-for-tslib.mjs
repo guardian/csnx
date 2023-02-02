@@ -7,7 +7,10 @@ const tslibVersion = packages.find(
 	(pkg) => pkg.packageJson.name === '@guardian/libs',
 )?.packageJson.peerDependencies.tslib;
 
+const excludedPackages = ['@guardian/tsconfig'];
+
 const missing = packages
+	.filter((pkg) => !excludedPackages.includes(pkg.packageJson.name))
 	.filter((pkg) => pathFromRoot(pkg.dir).startsWith('libs/'))
 	.filter(
 		(pkg) =>

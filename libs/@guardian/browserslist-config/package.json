@@ -8,10 +8,12 @@
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
-		"browserslist": "4.21.4"
+		"browserslist": "4.21.4",
+		"tslib": "2.4.1"
 	},
 	"peerDependencies": {
-		"browserslist": "^4.21.4"
+		"browserslist": "^4.21.4",
+		"tslib": "^2.4.1"
 	},
 	"publishConfig": {
 		"access": "public"
