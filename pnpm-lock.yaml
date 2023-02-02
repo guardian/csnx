@@ -210,12 +210,12 @@ importers:
       '@guardian/libs': 12.0.0
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
     devDependencies:
       '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
 
   libs/@guardian/eslint-config:
     specifiers:
@@ -261,7 +261,7 @@ importers:
       eslint-plugin-import: 2.26.0
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.46.1_d743tgwdclnksgoxgljshoql5y
       '@typescript-eslint/parser': 5.46.1_mg2zsw3hlxbb4bt7pdw7kbeopm
@@ -274,7 +274,7 @@ importers:
       eslint: 8.0.0
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
 
   libs/@guardian/eslint-plugin-source-react-components:
     specifiers:
@@ -290,7 +290,7 @@ importers:
       react: 17.0.1
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.46.1_d743tgwdclnksgoxgljshoql5y
       '@typescript-eslint/parser': 5.46.1_mg2zsw3hlxbb4bt7pdw7kbeopm
@@ -305,7 +305,7 @@ importers:
       react: 17.0.1
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
 
   libs/@guardian/libs:
     specifiers:
@@ -397,7 +397,7 @@ importers:
       react: 17.0.1
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
     devDependencies:
       '@babel/core': 7.20.5
       '@emotion/react': 11.0.0_6j7527pt6xlln2hks56p7acusi
@@ -408,7 +408,7 @@ importers:
       react: 17.0.1
       tslib: 2.4.1
       typescript: 4.3.2
-      web-vitals: 2.0.0
+      web-vitals: 3.1.1
 
   libs/@guardian/tsconfig:
     specifiers: {}
@@ -7254,6 +7254,7 @@ packages:
 
   /bindings/1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     dev: true
@@ -9826,6 +9827,7 @@ packages:
 
   /file-uri-to-path/1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -13327,6 +13329,7 @@ packages:
 
   /nan/2.17.0:
     resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -16984,8 +16987,8 @@ packages:
     resolution: {integrity: sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw==}
     dev: true
 
-  /web-vitals/2.0.0:
-    resolution: {integrity: sha512-aCB1sYxt2eeBufybFRrDQNBg2cOcq2f6Q1He7T+qPHAwpodDXhAoWwBUavwppQQ4kfUcT5eIAfjPc9PdqAxPEw==}
+  /web-vitals/3.1.1:
+    resolution: {integrity: sha512-qvllU+ZeQChqzBhZ1oyXmWsjJ8a2jHYpH8AMaVuf29yscOPZfTQTjQFRX6+eADTdsDE8IanOZ0cetweHMs8/2A==}
     dev: true
 
   /webidl-conversions/3.0.1:
