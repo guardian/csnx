@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 8.2.6
+
+### Patch Changes
+
+- 05e2e44: Updates the tab styling so that single tabs get 2 rounded corners
+
 ## 8.2.5
 
 ### Patch Changes
