@@ -1,5 +1,23 @@
 # @guardian/core-web-vitals
 
+## 2.0.3
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+
+## 2.0.2
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
+## 2.0.1
+
+### Patch Changes
+
+- a4aa0bd: Update docs
+
 ## 2.0.0
 
 ### Major Changes

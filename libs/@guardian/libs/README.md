@@ -34,6 +34,10 @@ Get the active switches on theguardian.com.
 
 Check whether a value is a boolean.
 
+### [`isNonNullable`](./src/isNonNullable)
+
+Check whether a value is a [`NonNullable`](https://www.typescriptlang.org/docs/handbook/utility-types.html#nonnullabletype).
+
 ### [`isObject`](./src/isObject)
 
 Checks whether a value is a plain object (i.e. `{}`-like).
@@ -89,10 +93,6 @@ then
 ```js
 import { loadScript, storage, ...etc } from '@guardian/libs';
 ```
-
-### TypeScript
-
-If you are using this library with TypeScript, make sure you are using at least TypeScript v<!-- TS_VERSION -->4.8.4<!-- /TS_VERSION -->.
 
 ### Bundling
 
