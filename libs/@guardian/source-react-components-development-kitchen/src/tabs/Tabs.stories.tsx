@@ -54,7 +54,6 @@ const tabs = (): ReactElement => {
 	);
 };
 const singleTab = (): ReactElement => {
-	// const [selectedTab, setSelectedTab] = useState('cat');
 	return (
 		<Tabs
 			tabsLabel="Pets"
