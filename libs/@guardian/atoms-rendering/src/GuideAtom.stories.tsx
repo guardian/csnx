@@ -4,8 +4,10 @@ import {
 	lifestylePillarStoryExpanded,
 	listStoryExpanded,
 	orderedListStoryExpanded,
+	analysisStoryExpanded,
 } from './fixtures/guideAtom';
 import { GuideAtom } from './GuideAtom';
+import { css } from '@emotion/react';
 
 export default {
 	title: 'GuideAtom',
@@ -35,4 +37,19 @@ export const ImageStoryExpanded = (): JSX.Element => {
 export const LifestylePillarStoryExpanded = (): JSX.Element => {
 	//Modelled after: https://www.theguardian.com/money/2020/aug/07/energy-bills-to-be-cut-by-84-pounds-for-11m-uk-households-ofgem
 	return <GuideAtom {...lifestylePillarStoryExpanded} />;
+};
+
+export const AnalysisStoryExpanded = (): JSX.Element => {
+	// Modelled after: https://www.theguardian.com/football/2022/dec/11/gareth-southgate-england-world-cup-qatar
+	return (
+		<div
+			css={css`
+				background-color: #fff4f2;
+			`}
+		>
+			Analysis Articles have a different color background, so quick guide atoms
+			should too.
+			<GuideAtom {...analysisStoryExpanded} />
+		</div>
+	);
 };

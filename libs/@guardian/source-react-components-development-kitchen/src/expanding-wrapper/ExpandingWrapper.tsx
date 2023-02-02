@@ -36,6 +36,7 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 	renderExtra,
 	disableTabbingWhenCollapsed = true,
 	children,
+	cssOverrides,
 }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
@@ -46,7 +47,7 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 	return (
 		<div
 			id={`expander-${name}`}
-			css={(theme: Theme) => containerStyles(theme.expander)}
+			css={(theme: Theme) => [containerStyles(theme.expander), cssOverrides]}
 		>
 			<input
 				type="checkbox"

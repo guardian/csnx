@@ -14,6 +14,8 @@
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
+			"@guardian/ab-core": ["libs/@guardian/ab-core/src/index.ts"],
+			"@guardian/ab-react": ["libs/@guardian/ab-react/src/index.ts"],
 			"@guardian/atoms-rendering": [
 				"libs/@guardian/atoms-rendering/src/index.ts"
 			],

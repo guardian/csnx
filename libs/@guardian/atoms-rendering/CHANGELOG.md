@@ -1,5 +1,49 @@
 # @guardian/atoms-rendering
 
+## 25.1.6
+
+### Patch Changes
+
+- Bump package versions
+
+## 25.1.5
+
+### Patch Changes
+
+- 677568c: Analysis Guide Atoms should have a different background
+
+## 25.1.4
+
+### Patch Changes
+
+- efda2c7: Update @guardian packages
+
+## 25.1.3
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
+## 25.1.2
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
+## 25.1.1
+
+### Patch Changes
+
+- 0e19d91: Adding data-ignore attribute to KnowledgeQuiz atom ordered lists to remove duplicate list numbers
+
+## 25.1.0
+
+### Minor Changes
+
+- 90e0b9b: Explicitly export atoms-rendering types
+
 ## 25.0.4
 
 ### Patch Changes

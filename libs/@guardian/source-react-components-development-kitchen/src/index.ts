@@ -6,6 +6,11 @@ export { EditorialLinkButton } from './editorial-button/EditorialLinkButton';
 export type { EditorialButtonProps } from './editorial-button/EditorialButton';
 export type { EditorialLinkButtonProps } from './editorial-button/EditorialLinkButton';
 
+export {
+	expandingWrapperThemeDefault,
+	expandingWrapperDarkTheme,
+} from './expanding-wrapper/theme';
+
 export { ExpandingWrapper } from './expanding-wrapper/ExpandingWrapper';
 export type { ExpandingWrapperProps } from './expanding-wrapper/ExpandingWrapper';
 

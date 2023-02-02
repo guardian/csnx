@@ -15,6 +15,7 @@ describe('The package', () => {
 			'getLocale',
 			'getSwitches',
 			'isBoolean',
+			'isNonNullable',
 			'isObject',
 			'isString',
 			'isUndefined',
