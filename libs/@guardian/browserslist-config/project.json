@@ -21,7 +21,9 @@
 			"executor": "@nrwl/jest:jest",
 			"outputs": ["coverage/libs/@guardian/browserslist-config"],
 			"options": {
-				"jestConfig": "libs/@guardian/browserslist-config/jest.config.js"
+				"jestConfig": "libs/@guardian/browserslist-config/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
 		}
 	},

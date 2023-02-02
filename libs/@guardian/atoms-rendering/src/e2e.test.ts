@@ -1,3 +1,8 @@
+/**
+ * This file makes sure no exports have been accidentally removed from the
+ * package.
+ */
+
 import * as packageExports from './index';
 
 describe('The package', () => {

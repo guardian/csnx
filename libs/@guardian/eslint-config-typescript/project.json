@@ -19,7 +19,9 @@
 			"executor": "@nrwl/jest:jest",
 			"outputs": ["coverage/libs/@guardian/eslint-config-typescript"],
 			"options": {
-				"jestConfig": "libs/@guardian/eslint-config-typescript/jest.config.js"
+				"jestConfig": "libs/@guardian/eslint-config-typescript/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
 		}
 	},
