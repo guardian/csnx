@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 11.0.3
+
+### Patch Changes
+
+- 7cd6f21: Bump tslib to v2.4.1
+
 ## 11.0.2
 
 ### Patch Changes
