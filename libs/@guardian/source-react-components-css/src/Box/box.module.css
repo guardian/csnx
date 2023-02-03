@@ -1,0 +1,7 @@
+.box {
+	display: block;
+}
+
+.box em {
+	color: red;
+}

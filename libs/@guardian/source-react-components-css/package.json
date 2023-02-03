@@ -1,0 +1,28 @@
+{
+	"name": "@guardian/source-react-components-css",
+	"version": "0.1.0",
+	"description": "Experimental emotion-less React components for Source",
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"scripts": {},
+	"devDependencies": {
+		"@babel/core": "7.20.5",
+		"@emotion/react": "11.0.0",
+		"@emotion/styled": "11.0.0",
+		"@types/react": "17.0.1",
+		"react": "17.0.1",
+		"storybook-css-modules": "1.0.8",
+		"tslib": "2.4.1",
+		"typescript": "4.3.2"
+	},
+	"peerDependencies": {
+		"react": "^17.0.1",
+		"tslib": "^2.4.1",
+		"typescript": "^4.3.2"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	}
+}

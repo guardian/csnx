@@ -7,8 +7,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import type Cpy from 'cpy';
-import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
+import type { AssetInfo, OutputChunk } from 'rollup';
+import styles from 'rollup-plugin-styles';
 import ts from 'rollup-plugin-ts';
 import { ScriptTarget } from 'typescript';
 import { getCompilerOptions } from './get-compiler-options';
@@ -52,6 +53,12 @@ const getRollupConfig = (
 			format,
 			sourcemap: true,
 			preserveModules: true,
+			assetFileNames: (assetInfo: AssetInfo) => {
+				if (assetInfo.name.endsWith('css')) {
+					return '[name].css';
+				}
+				return 'assets/[name]-[hash][extname]';
+			},
 		},
 		plugins: [
 			nodeResolve({
@@ -61,6 +68,10 @@ const getRollupConfig = (
 				tsconfig: compilerOptions,
 			}),
 			json(),
+			styles({
+				mode: ['extract'],
+				autoModules: true,
+			}),
 			commonjs(),
 		],
 	};
@@ -101,7 +112,10 @@ export default async function buildExecutor(
 
 			// do not bundle dependencies
 			const deps = await getDeclaredDeps(options.packageJson);
-			const external = deps.map((dep) => new RegExp(`^${dep}`));
+			const external = [
+				'style-inject',
+				...deps.map((dep) => new RegExp(`^${dep}`)),
+			];
 
 			// create build for each module type
 			const outputs = await Promise.all(

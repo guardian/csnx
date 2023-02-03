@@ -9,7 +9,7 @@
 		"importHelpers": true,
 		"isolatedModules": true,
 		"jsx": "react-jsx",
-		"jsxImportSource": "@emotion/react",
+		"jsxImportSource": "react",
 		"paths": {
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
@@ -29,6 +29,9 @@
 			],
 			"@guardian/source-react-components": [
 				"libs/@guardian/source-react-components/src/index.ts"
+			],
+			"@guardian/source-react-components-css": [
+				"libs/@guardian/source-react-components-css/src/index.ts"
 			],
 			"@guardian/source-react-components-development-kitchen": [
 				"libs/@guardian/source-react-components-development-kitchen/src/index.ts"

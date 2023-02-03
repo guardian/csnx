@@ -9,6 +9,7 @@
 		"cpy": "8.1.2",
 		"read-pkg": "7.1.0",
 		"rollup": "2.79.0",
+		"rollup-plugin-styles": "^4.0.0",
 		"rollup-plugin-ts": "3.0.2",
 		"sort-package-json": "1.57.0",
 		"tslib": "2.4.0",

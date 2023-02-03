@@ -13,6 +13,7 @@
 		"@guardian/libs": "libs/@guardian/libs",
 		"@guardian/source-foundations": "libs/@guardian/source-foundations",
 		"@guardian/source-react-components": "libs/@guardian/source-react-components",
+		"@guardian/source-react-components-css": "libs/@guardian/source-react-components-css",
 		"@guardian/source-react-components-development-kitchen": "libs/@guardian/source-react-components-development-kitchen",
 		"@guardian/eslint-plugin-source-foundations": "libs/@guardian/eslint-plugin-source-foundations",
 		"@guardian/eslint-plugin-source-react-components": "libs/@guardian/eslint-plugin-source-react-components",
