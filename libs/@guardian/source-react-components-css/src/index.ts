@@ -1,2 +1,1 @@
-export { Box } from './Box/Box';
-export { UnstyledButton } from './UnstyledButton/Button';
+export { Button } from './Button/Button';

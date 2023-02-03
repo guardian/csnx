@@ -1,0 +1,15 @@
+/*
+An override .class and the default [attribute] selector would both have a
+specificity of 1.
+
+This means stylesheet source order comes into play.
+
+To ensure the override class always takes precedence, we apply the override
+class to the attribute, to get a specificity of 2.
+
+This mimics how a consumer could apply their own styles.
+*/
+
+.overrides[gu-src='button'] {
+	background-color: yellow;
+}

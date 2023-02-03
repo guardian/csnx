@@ -69,7 +69,7 @@ const getRollupConfig = (
 			}),
 			json(),
 			styles({
-				mode: ['extract'],
+				mode: ['extract', 'stylesheet.css'],
 				autoModules: true,
 			}),
 			commonjs(),

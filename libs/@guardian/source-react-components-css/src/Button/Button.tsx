@@ -1,5 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react';
 
+import './button.css';
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const Button = ({
@@ -7,15 +9,7 @@ export const Button = ({
 	children,
 	...props
 }: ButtonProps) => (
-	<button type={type} {...props}>
+	<button type={type} {...props} gu-src="button">
 		{children}
 	</button>
 );
-
-export const ButtonStyle = {
-	color: 'black',
-	backgroundColor: 'red',
-	border: 'none',
-	padding: '10px',
-	borderRadius: '1000px',
-};
