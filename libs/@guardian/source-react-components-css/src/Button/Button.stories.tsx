@@ -7,8 +7,11 @@ import { overrides } from './overrides';
 
 export default {
 	component: Button,
-	title: 'Button/Style overrides',
 };
+
+export const Default = () => (
+	<Button>Red bg applied by a global attribute selector</Button>
+);
 
 // These mimic how a consumer could apply their own styles.
 
