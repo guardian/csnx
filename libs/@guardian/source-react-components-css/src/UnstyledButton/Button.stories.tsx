@@ -20,6 +20,8 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => (
 
 // *****************************************************************************
 
+export const Default = Template.bind({});
+
 export const InlineStyles = Template.bind({});
 InlineStyles.args = {
 	style: ButtonStyle,
