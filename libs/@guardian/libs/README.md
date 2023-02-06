@@ -22,7 +22,7 @@ Country data and methods to access it.
 
 Codified editorial design and information architecture.
 
-### [Locale](./src/getLocale)
+### [Locale](./src/locale)
 
 Get the user’s current location.
 
