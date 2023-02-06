@@ -3,6 +3,7 @@ import { palette } from '@guardian/source-foundations';
 
 export const expandingWrapperThemeDefault = {
 	expander: {
+		background: palette.neutral[97],
 		horizontalRules: palette.neutral[86],
 		border: palette.neutral[7],
 		expandBackground: palette.neutral[7],
@@ -16,6 +17,7 @@ export const expandingWrapperThemeDefault = {
 };
 export const expandingWrapperDarkTheme = {
 	expander: {
+		background: palette.neutral[20],
 		horizontalRules: palette.neutral[60],
 		border: palette.neutral[60],
 		expandBackground: palette.neutral[86],

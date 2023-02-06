@@ -36,6 +36,7 @@ export const tabButton = (
 		border-top-left-radius: ${space[2]}px;
 	}
 	:last-of-type {
+		margin-right: ${space[2]}px;
 		border-top-right-radius: ${space[2]}px;
 	}
 
