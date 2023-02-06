@@ -1,6 +1,6 @@
 import { tabButton, tabList, tabPanel } from './styles';
 import type { Theme } from './theme';
-import { TabProps, TabContainerProps } from './types';
+import type { TabContainerProps, TabProps } from './types';
 
 function Tabs({
 	tabsLabel,
