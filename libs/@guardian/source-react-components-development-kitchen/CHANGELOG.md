@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 9.1.0
+
+### Minor Changes
+
+- d7684da: Update the styling of the Expanding Wrapper
+
 ## 9.0.0
 
 ### Major Changes
