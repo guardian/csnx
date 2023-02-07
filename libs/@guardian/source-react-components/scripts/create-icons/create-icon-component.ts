@@ -117,11 +117,12 @@ export const createIconComponent = async ({
 		},
 	);
 
-	const label = labels[icon.name] ?? icon.name;
+	const label = labels[icon.name];
 
 	if (!label) {
-		console.warn(
-			`Warning: No label found for ${icon.name}, falling back to machine id.`,
+		// This error is thrown when the accessible label data for the icon is missing in Figma.
+		throw new Error(
+			`Warning: No accessible label found for ${icon.name}! Please double check that it is specified correctly in Figma.`,
 		);
 	}
 
