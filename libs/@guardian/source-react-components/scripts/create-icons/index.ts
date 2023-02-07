@@ -17,6 +17,9 @@ const SPECIAL_CASES = {
 		'facebook-brand',
 		'google-brand',
 		'pay-pal-brand',
+		'telegram-brand',
+		'signal-brand',
+		'whats-app-brand',
 	],
 	isWide: ['direct-debit-wide'],
 };
