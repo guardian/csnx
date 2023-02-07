@@ -117,10 +117,12 @@ export const createIconComponent = async ({
 		},
 	);
 
-	const label = labels[icon.name];
+	const label = labels[icon.name] ?? icon.name;
 
 	if (!label) {
-		throw new Error(`No label found for ${icon.name}`);
+		console.warn(
+			`Warning: No label found for ${icon.name}, falling back to machine id.`,
+		);
 	}
 
 	const iconComponentExport = `

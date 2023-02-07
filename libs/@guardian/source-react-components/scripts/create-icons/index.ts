@@ -71,6 +71,7 @@ void (async () => {
 
 		await writeFile(
 			filepath,
+			// @ts-expect-error -- Some prettier config types are not narrowed.
 			format(warning + component, { filepath, ...prettierConfig }),
 			'utf8',
 		);
