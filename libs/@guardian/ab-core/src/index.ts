@@ -2,6 +2,7 @@ export type {
 	ABTest,
 	ABTestAPI,
 	AbTestConfig,
+	CoreAPIConfig,
 	Participations,
 	Runnable,
 	Variant,
