@@ -107,6 +107,7 @@ import { SvgSpeechBubbleCross } from '../../vendor/icons/SvgSpeechBubbleCross';
 import { SvgSpeechBubblePlus } from '../../vendor/icons/SvgSpeechBubblePlus';
 import { SvgStar } from '../../vendor/icons/SvgStar';
 import { SvgStarOutline } from '../../vendor/icons/SvgStarOutline';
+import { SvgTelegramBrand } from '../../vendor/icons/SvgTelegramBrand';
 import { SvgTextLarge } from '../../vendor/icons/SvgTextLarge';
 import { SvgTextSize } from '../../vendor/icons/SvgTextSize';
 import { SvgTextSmall } from '../../vendor/icons/SvgTextSmall';
@@ -115,7 +116,9 @@ import { SvgTwitter } from '../../vendor/icons/SvgTwitter';
 import { SvgUpload } from '../../vendor/icons/SvgUpload';
 import { SvgVideo } from '../../vendor/icons/SvgVideo';
 import { SvgWhatsApp } from '../../vendor/icons/SvgWhatsApp';
+import { SvgWhatsAppBrand } from '../../vendor/icons/SvgWhatsAppBrand';
 import type { IconProps, IconSize } from '../@types/Icons';
+import { SvgSignalBrand } from '../../vendor/icons/SvgSignalBrand';
 import { SvgSpinner } from './SvgSpinner';
 
 const uiIcons = {
@@ -167,6 +170,7 @@ const uiIcons = {
 	SvgAudio,
 	SvgVideo,
 	SvgWhatsApp,
+	SvgWhatsAppBrand,
 	SvgAlertPhone,
 	SvgArrowContract,
 	SvgArrowExpand,
@@ -229,6 +233,8 @@ const uiIcons = {
 	SvgTextSmall,
 	SvgUpload,
 	SvgSpinner,
+	SvgSignalBrand,
+	SvgTelegramBrand,
 };
 
 const paymentIcons = {
