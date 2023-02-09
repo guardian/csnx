@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 type TabElement = 'a' | 'button';
 export type TabProps = {
 	id: string;
-	text: string;
+	text: string | ReactNode;
 	href?: string;
 	content: ReactNode;
 };
