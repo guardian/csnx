@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 11.1.0
+
+### Minor Changes
+
+- 7743580: Added three icons: WhatsAppBrand, SignalBrand, and TelegramBrand.
+
 ## 11.0.0
 
 ### Major Changes

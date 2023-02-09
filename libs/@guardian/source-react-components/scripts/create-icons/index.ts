@@ -17,6 +17,9 @@ const SPECIAL_CASES = {
 		'facebook-brand',
 		'google-brand',
 		'pay-pal-brand',
+		'telegram-brand',
+		'signal-brand',
+		'whats-app-brand',
 	],
 	isWide: ['direct-debit-wide'],
 };
@@ -71,6 +74,7 @@ void (async () => {
 
 		await writeFile(
 			filepath,
+			// @ts-expect-error -- Some prettier config types are not narrowed.
 			format(warning + component, { filepath, ...prettierConfig }),
 			'utf8',
 		);

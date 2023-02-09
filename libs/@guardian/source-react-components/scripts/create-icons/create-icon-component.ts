@@ -120,7 +120,10 @@ export const createIconComponent = async ({
 	const label = labels[icon.name];
 
 	if (!label) {
-		throw new Error(`No label found for ${icon.name}`);
+		// This error is thrown when the accessible label data for the icon is missing in Figma.
+		throw new Error(
+			`Warning: No accessible label found for ${icon.name}! Please double check that it is specified correctly in Figma.`,
+		);
 	}
 
 	const iconComponentExport = `
