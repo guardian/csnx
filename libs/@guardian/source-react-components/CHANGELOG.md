@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 11.2.0
+
+### Minor Changes
+
+- d0005e0: Export three icons: WhatsAppBrand, SignalBrand, and TelegramBrand
+
 ## 11.1.0
 
 ### Minor Changes
