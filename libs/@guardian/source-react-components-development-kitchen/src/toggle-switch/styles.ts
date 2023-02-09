@@ -24,12 +24,10 @@ const toggleBorder = 'rgba(255, 255, 255, 0.6)';
  */
 const toggleBorderGreen = '#A7CFB8';
 
-export const buttonStyles = (
-	labelPosition: LabelPosition,
-): SerializedStyles => css`
+export const buttonStyles = css`
 	flex: none;
 	border: none;
-	margin: ${labelPosition === 'left' ? '0px 0px 0px 8px' : '0px 8px 0px 0px'};
+	margin: 0;
 	padding: 0;
 	display: inline-block;
 	text-align: center;
@@ -51,6 +49,21 @@ export const buttonStyles = (
 		visibility: visible;
 	}
 `;
+
+export const buttonStylesMargin = (
+	labelPosition: LabelPosition,
+): SerializedStyles => {
+	switch (labelPosition) {
+		case 'left':
+			return css`
+				margin-left: 8px;
+			`;
+		case 'right':
+			return css`
+				margin-right: 8px;
+			`;
+	}
+};
 
 export const toggleStyles = (format?: ArticleFormat): SerializedStyles => {
 	return css`
