@@ -1,3 +1,5 @@
+import { css } from '@emotion/react';
+import { SvgAppleBrand } from '@guardian/source-react-components';
 import { useState } from 'react';
 import type { ReactElement } from 'react';
 import { Tabs } from './tabs';
@@ -64,10 +66,35 @@ const singleTab = (): ReactElement => {
 		/>
 	);
 };
+const tabWithNodeTitle = (): ReactElement => {
+	const tabs = {
+		id: 'dog',
+		text: (
+			<div
+				css={css`
+					display: flex;
+				`}
+			>
+				Fruit
+				<SvgAppleBrand size="xsmall" />
+			</div>
+		),
+		content: dogsTab.content,
+	};
+	return (
+		<Tabs
+			tabsLabel="Pets"
+			tabElement="button"
+			tabs={[tabs]}
+			selectedTab={'dog'}
+			onTabChange={(): void => {}}
+		/>
+	);
+};
 
 export default {
 	component: tabs,
 	title: 'Tabs',
 };
 
-export { tabs, singleTab };
+export { tabs, singleTab, tabWithNodeTitle };
