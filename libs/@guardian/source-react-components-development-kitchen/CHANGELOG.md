@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 9.2.0
+
+### Minor Changes
+
+- 7f01b52: Allow tab titles to be nodes or text
+
 ## 9.1.0
 
 ### Minor Changes
