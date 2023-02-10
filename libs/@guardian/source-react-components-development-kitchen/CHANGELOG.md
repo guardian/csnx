@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 9.2.1
+
+### Patch Changes
+
+- b1dd060: `ToggleSwitch` is now perfectly aligned.
+
 ## 9.2.0
 
 ### Minor Changes
