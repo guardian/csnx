@@ -2,7 +2,7 @@
 	"name": "@guardian/atoms-rendering",
 	"version": "26.0.0",
 	"dependencies": {
-		"is-mobile": "^3.1.1"
+		"is-mobile": "3.1.1"
 	},
 	"devDependencies": {
 		"@babel/core": "7.20.12",
