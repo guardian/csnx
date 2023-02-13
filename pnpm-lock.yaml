@@ -162,7 +162,7 @@ importers:
       '@guardian/consent-management-platform': 11.0.0
       '@guardian/eslint-plugin-source-foundations': 10.0.0
       '@guardian/eslint-plugin-source-react-components': 12.0.0
-      '@guardian/libs': 12.0.0
+      '@guardian/libs': 12.0.1
       '@guardian/source-foundations': 9.0.0
       '@guardian/source-react-components': 11.0.0
       '@storybook/addon-viewport': 6.5.14
@@ -188,11 +188,11 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5_rnawoibddm4mr3vbowjsvrrtn4
       '@guardian/ab-core': 3.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
-      '@guardian/commercial-core': 5.0.0_kq6pzqbvvnu5vjbnsftmx4tk2y
-      '@guardian/consent-management-platform': 11.0.0_@guardian+libs@12.0.0
+      '@guardian/commercial-core': 5.0.0_eygu6vdq3kep5pbkyjdb6dzgkm
+      '@guardian/consent-management-platform': 11.0.0_@guardian+libs@12.0.1
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
-      '@guardian/libs': 12.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
+      '@guardian/libs': 12.0.1_c7o234nbnpuz7fnxnfuwyr2l7y
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': 11.0.0_x345knujwjxij46c3kkamn4q7q
       '@storybook/addon-viewport': 6.5.14_w7o5yyljkiidx2s2nzb26ottzu
@@ -223,12 +223,12 @@ importers:
 
   libs/@guardian/core-web-vitals:
     specifiers:
-      '@guardian/libs': 12.0.0
+      '@guardian/libs': 12.0.1
       tslib: 2.4.1
       typescript: 4.3.2
       web-vitals: 3.0.0
     devDependencies:
-      '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
+      '@guardian/libs': 12.0.1_gi2bhhty2ppzrovi5hjhpgztzq
       tslib: 2.4.1
       typescript: 4.3.2
       web-vitals: 3.0.0
@@ -271,7 +271,7 @@ importers:
 
   libs/@guardian/eslint-plugin-source-foundations:
     specifiers:
-      '@guardian/libs': 12.0.0
+      '@guardian/libs': 12.0.1
       '@guardian/source-foundations': 9.0.0
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
@@ -286,7 +286,7 @@ importers:
       '@typescript-eslint/parser': 5.46.1_mg2zsw3hlxbb4bt7pdw7kbeopm
       eslint-plugin-import: 2.26.0_vdbrudqrbar45cpuedhov3zkzu
     devDependencies:
-      '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
+      '@guardian/libs': 12.0.1_gi2bhhty2ppzrovi5hjhpgztzq
       '@guardian/source-foundations': link:../source-foundations
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
@@ -297,7 +297,7 @@ importers:
   libs/@guardian/eslint-plugin-source-react-components:
     specifiers:
       '@emotion/react': 11.0.0
-      '@guardian/libs': 12.0.0
+      '@guardian/libs': 12.0.1
       '@guardian/source-foundations': 9.0.0
       '@guardian/source-react-components': 11.0.0
       '@types/eslint': 8.4.6
@@ -313,7 +313,7 @@ importers:
       '@typescript-eslint/parser': 5.46.1_mg2zsw3hlxbb4bt7pdw7kbeopm
     devDependencies:
       '@emotion/react': 11.0.0_react@17.0.1
-      '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
+      '@guardian/libs': 12.0.1_gi2bhhty2ppzrovi5hjhpgztzq
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': 11.0.0_nyw5n3lcx3c55bjxmy5t5br7fy
       '@types/eslint': 8.4.6
@@ -408,7 +408,7 @@ importers:
     specifiers:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0
-      '@guardian/libs': 12.0.0
+      '@guardian/libs': 12.0.1
       '@guardian/source-foundations': 9.0.0
       '@guardian/source-react-components': 11.0.0
       '@types/react': 17.0.1
@@ -418,7 +418,7 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0_rnawoibddm4mr3vbowjsvrrtn4
-      '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
+      '@guardian/libs': 12.0.1_gi2bhhty2ppzrovi5hjhpgztzq
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': 11.0.0_nyw5n3lcx3c55bjxmy5t5br7fy
       '@types/react': 17.0.1
@@ -3512,7 +3512,7 @@ packages:
       typescript: 4.3.2
     dev: true
 
-  /@guardian/commercial-core/5.0.0_kq6pzqbvvnu5vjbnsftmx4tk2y:
+  /@guardian/commercial-core/5.0.0_eygu6vdq3kep5pbkyjdb6dzgkm:
     resolution: {integrity: sha512-PLSgWvf1oDIvGstwmTrKqpIFnI/G0hU04wJMSr8CGOqk9Apx9HUCvYF1uDdcD9oLCAck3Fz8oveXrBaXLmwsWQ==}
     peerDependencies:
       '@guardian/ab-core': ^2.0.0
@@ -3520,21 +3520,21 @@ packages:
       '@guardian/libs': ^10.0.0
     dependencies:
       '@guardian/ab-core': 3.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
-      '@guardian/consent-management-platform': 11.0.0_@guardian+libs@12.0.0
-      '@guardian/libs': 12.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
+      '@guardian/consent-management-platform': 11.0.0_@guardian+libs@12.0.1
+      '@guardian/libs': 12.0.1_c7o234nbnpuz7fnxnfuwyr2l7y
       type-fest: 2.12.2
     dev: true
 
-  /@guardian/consent-management-platform/11.0.0_@guardian+libs@12.0.0:
+  /@guardian/consent-management-platform/11.0.0_@guardian+libs@12.0.1:
     resolution: {integrity: sha512-j97gI5NbhVLXy1s8465lyT/w/nU3K+HewkfHIQ/NLOvzBS2mmcgB6A6sRXsKCOYRt4W8eNoTX5xgAdemFgvLAw==}
     peerDependencies:
       '@guardian/libs': ^10.0.0
     dependencies:
-      '@guardian/libs': 12.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
+      '@guardian/libs': 12.0.1_c7o234nbnpuz7fnxnfuwyr2l7y
     dev: true
 
-  /@guardian/libs/12.0.0_c7o234nbnpuz7fnxnfuwyr2l7y:
-    resolution: {integrity: sha512-Xjg/GC11x/YhereuwAZt8yKhWafJ49ak7kZJFE5nIc7MlPLAwr5xv+83vFKvYiqbHSnq4P/OHXA2Da9RkEIgsw==}
+  /@guardian/libs/12.0.1_c7o234nbnpuz7fnxnfuwyr2l7y:
+    resolution: {integrity: sha512-6KLhRRZHY69uMHi/9LwbE2GPdNgpAReKNu4IXIqHtCHZszRmdMfaYd+Im5VbX0x8v1rch9A2SZUnRs5P+QDbQg==}
     peerDependencies:
       tslib: ^2.4.1
       typescript: ^4.3.2
@@ -3546,8 +3546,8 @@ packages:
       typescript: 4.8.4
     dev: true
 
-  /@guardian/libs/12.0.0_gi2bhhty2ppzrovi5hjhpgztzq:
-    resolution: {integrity: sha512-Xjg/GC11x/YhereuwAZt8yKhWafJ49ak7kZJFE5nIc7MlPLAwr5xv+83vFKvYiqbHSnq4P/OHXA2Da9RkEIgsw==}
+  /@guardian/libs/12.0.1_gi2bhhty2ppzrovi5hjhpgztzq:
+    resolution: {integrity: sha512-6KLhRRZHY69uMHi/9LwbE2GPdNgpAReKNu4IXIqHtCHZszRmdMfaYd+Im5VbX0x8v1rch9A2SZUnRs5P+QDbQg==}
     peerDependencies:
       tslib: ^2.4.1
       typescript: ^4.3.2
