@@ -7,9 +7,15 @@ export const rules = {
 export const configs = {
 	recommended: {
 		plugins: ['@guardian/source-react-components'],
-
 		rules: {
 			'@guardian/source-react-components/valid-import-path': 'error',
+		},
+		settings: {
+			linkComponents: [
+				// Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+				{ name: 'LinkButton', linkAttribute: 'href' },
+				{ name: 'Link', linkAttribute: 'href' },
+			],
 		},
 	},
 };

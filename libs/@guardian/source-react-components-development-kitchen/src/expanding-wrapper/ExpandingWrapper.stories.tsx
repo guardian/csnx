@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { neutral } from '@guardian/source-foundations';
 import type { ReactElement } from 'react';
 import { ExpandingWrapper } from './ExpandingWrapper';
 
@@ -15,8 +14,7 @@ import { ExpandingWrapper } from './ExpandingWrapper';
  * */
 
 const loremStyles = css`
-	padding: 10px;
-	background: ${neutral[97]};
+	padding: 0 10px;
 	font-family: GuardianTextSans;
 `;
 

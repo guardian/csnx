@@ -10,4 +10,9 @@ describe('The countries object', () => {
 		const names = Object.values(countries).map((c) => c.name);
 		expect(names.length).toBe(new Set(names).size);
 	});
+
+	it('contains exactly 249 countries', () => {
+		// https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes#Current_ISO_3166_country_codes
+		expect(Object.keys(countries).length).toBe(249);
+	});
 });

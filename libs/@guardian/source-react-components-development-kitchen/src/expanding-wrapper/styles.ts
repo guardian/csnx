@@ -13,14 +13,14 @@ export const containerStyles = (
 ): SerializedStyles => css`
 	border-image: repeating-linear-gradient(
 			to bottom,
-			${expander.border},
-			${expander.border} 1px,
+			${expander.horizontalRules},
+			${expander.horizontalRules} 1px,
 			transparent 1px,
 			transparent 4px
 		)
 		13;
 	border-top: 13px solid ${expander.border};
-	background: ${expander.collapseBackground};
+	background: ${expander.background};
 	box-shadow: none;
 	position: relative;
 	margin-bottom: ${remSpace[9]};
@@ -29,6 +29,16 @@ export const containerStyles = (
 		background: ${expander.collapseBackground};
 		color: ${expander.collapseText};
 		border: 1px solid ${expander.collapseText};
+
+		&:hover {
+			background-color: ${expander.collapseBackgroundHover};
+			color: ${expander.collapseTextHover};
+
+			#svgminus {
+				fill: ${expander.collapseTextHover};
+			}
+		}
+
 		#svgminus {
 			fill: ${expander.collapseText};
 		}
@@ -52,8 +62,8 @@ export const overlayStyles = (
 ): SerializedStyles => css`
 	background-image: linear-gradient(
 		0deg,
-		${expander.collapseBackground},
-		${expander.collapseBackground} 40%,
+		${expander.background},
+		${expander.background} 40%,
 		rgba(255, 255, 255, 0)
 	);
 	height: 5rem;
@@ -66,6 +76,7 @@ export const overlayStyles = (
 export const showHideLabelStyles = (
 	expander = expandingWrapperThemeDefault.expander,
 ): SerializedStyles => css`
+	${textSans.small({ fontWeight: 'bold' })};
 	display: inline-flex;
 	justify-content: space-between;
 	box-shadow: none;
@@ -73,22 +84,28 @@ export const showHideLabelStyles = (
 	box-sizing: border-box;
 	cursor: pointer;
 	position: absolute;
-	bottom: -${remSpace[6]};
-	border-radius: ${remHeight.ctaMedium}rem;
-	padding: 0 ${remSpace[5]};
+	bottom: -${remHeight.ctaSmall / 2}rem;
+	border-radius: ${remHeight.ctaSmall}rem;
+	padding: 0 ${remSpace[4]};
+	padding-bottom: 2px;
 	border: 1px solid ${expander.expandBackground};
 	text-decoration: none;
 	background: ${expander.expandBackground};
 	color: ${expander.expandText};
-	height: ${remHeight.ctaMedium}rem;
-	min-height: ${remHeight.ctaMedium}rem;
-	${textSans.medium({ fontWeight: 'bold' })};
+	height: ${remHeight.ctaSmall}rem;
+	min-height: ${remHeight.ctaSmall}rem;
 	margin-left: ${remSpace[2]};
+
+	&:hover {
+		background-color: ${expander.expandBackgroundHover};
+	}
 `;
 
-export const collapsibleBodyStyles = css`
+export const collapsibleBodyStyles = (
+	collapsedHeight: string,
+): SerializedStyles => css`
 	margin: 0;
-	max-height: 30vh;
+	max-height: ${collapsedHeight};
 	overflow: hidden;
 `;
 

@@ -1,17 +1,18 @@
 {
 	"name": "@guardian/source-foundations",
-	"version": "8.0.0",
+	"version": "9.0.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
-		"lightningcss": "^1.16.1",
+		"lightningcss": "1.19.0",
 		"tslib": "2.4.1",
 		"typescript": "4.3.2"
 	},
 	"peerDependencies": {
+		"tslib": "^2.4.1",
 		"typescript": "^4.3.2"
 	},
 	"peerDependenciesMeta": {

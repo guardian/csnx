@@ -1,5 +1,40 @@
 # @guardian/source-react-components
 
+## 11.2.0
+
+### Minor Changes
+
+- d0005e0: Export three icons: WhatsAppBrand, SignalBrand, and TelegramBrand
+
+## 11.1.0
+
+### Minor Changes
+
+- 7743580: Added three icons: WhatsAppBrand, SignalBrand, and TelegramBrand.
+
+## 11.0.0
+
+### Major Changes
+
+- c6366dd: Add `tslib@^2.4.1` to peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [c6366dd]
+  - @guardian/source-foundations@9.0.0
+
+## 10.0.2
+
+### Patch Changes
+
+- 3a8956f: The Edit Icon has been updated to a newer design
+
+## 10.0.1
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+
 ## 10.0.0
 
 ### Major Changes

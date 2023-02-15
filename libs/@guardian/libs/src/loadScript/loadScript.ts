@@ -19,16 +19,43 @@ export const loadScript = (
 		script.src = src;
 
 		// dont inject 2 scripts with the same src
-		if (
-			Array.from(document.scripts).some(({ src }) => script.src === src)
-		) {
+		if (Array.from(document.scripts).some(({ src }) => script.src === src)) {
 			return resolve(void 0);
 		}
 
 		Object.assign(script, props);
 
 		script.onload = resolve;
-		script.onerror = reject;
+		script.onerror = (
+			event: string | Event,
+			source,
+			lineno,
+			colno,
+			error: Error | undefined,
+		) => {
+			if (error) {
+				reject(error);
+				return;
+			}
+
+			if (typeof event === 'string') {
+				reject(new Error(`Error loading script: src: ${src} event: ${event}`));
+				return;
+			}
+
+			if (event instanceof Event) {
+				const target = event.target as Element;
+				const targetSrc = target.getAttribute('src') ?? '';
+				reject(
+					new Error(
+						`Error loading script: src: ${src} targetSrc: ${targetSrc}`,
+					),
+				);
+				return;
+			}
+
+			reject(new Error(`Error loading script: src: ${src}`));
+		};
 
 		const ref = document.scripts[0];
 		ref?.parentNode?.insertBefore(script, ref);

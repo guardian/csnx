@@ -9,6 +9,12 @@ storybooks: env
 	$(call log,"Starting storybooks")
 	@corepack pnpm nx run csnx:storybooks
 
+# runs nginx setup script in atoms-rendering
+.PHONY: atoms-rendering-nginx-setup
+atoms-rendering-nginx-setup: env
+	$(call log,"Running atoms-rendering nginx setup script")
+	@corepack pnpm nx run @guardian/atoms-rendering:nginx-setup
+
 ################################# CODE QUALITY #################################
 
 # runs the unit tests for all projects
@@ -28,6 +34,7 @@ e2e: env
 lint: install
 	$(call log,"Linting projects")
 	@corepack pnpm nx run-many --target=lint --all=true --skip-nx-cache=$(SKIP_NX_CACHE)
+	@node ./tools/scripts/check-packages-for-tslib.mjs
 
 # attemps to fix lint errors across all projects
 .PHONY: fix
@@ -37,7 +44,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean workspace-lint lint test build e2e
+validate: env clean workspace-lint lint test build e2e build-storybooks
 
 ##################################### BUILD ####################################
 

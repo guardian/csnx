@@ -22,7 +22,7 @@ Country data and methods to access it.
 
 Codified editorial design and information architecture.
 
-### [Locale](./src/getLocale)
+### [Locale](./src/locale)
 
 Get the user’s current location.
 
@@ -33,6 +33,10 @@ Get the active switches on theguardian.com.
 ### [`isBoolean`](./src/isBoolean)
 
 Check whether a value is a boolean.
+
+### [`isNonNullable`](./src/isNonNullable)
+
+Check whether a value is a [`NonNullable`](https://www.typescriptlang.org/docs/handbook/utility-types.html#nonnullabletype).
 
 ### [`isObject`](./src/isObject)
 
@@ -89,10 +93,6 @@ then
 ```js
 import { loadScript, storage, ...etc } from '@guardian/libs';
 ```
-
-### TypeScript
-
-If you are using this library with TypeScript, make sure you are using at least TypeScript v<!-- TS_VERSION -->4.8.4<!-- /TS_VERSION -->.
 
 ### Bundling
 

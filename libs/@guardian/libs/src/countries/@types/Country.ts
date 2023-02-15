@@ -1,6 +1,3 @@
-import type { CountryCode } from './CountryCode';
+import type { countries } from '../countries';
 
-export type Country = {
-	countryCode: CountryCode;
-	name: string;
-};
+export type Country = typeof countries[keyof typeof countries];

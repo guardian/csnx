@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import type { Props } from '../../../source-react-components/src/@types/Props';
 import {
 	buttonStyles,
+	buttonStylesMargin,
 	labelBorderStyles,
 	labelStyles,
 	toggleStyles,
@@ -126,7 +127,11 @@ export const ToggleSwitch = ({
 			{labelPosition === 'left' && label}
 			<button
 				id={buttonId}
-				css={[buttonStyles(labelPosition), toggleStyles(format)]}
+				css={[
+					buttonStyles,
+					buttonStylesMargin(labelPosition),
+					toggleStyles(format),
+				]}
 				role="switch"
 				aria-checked={isChecked()}
 				aria-labelledby={labelId}

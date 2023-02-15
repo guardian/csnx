@@ -1,5 +1,17 @@
 # @guardian/browserslist-config
 
+## 4.0.0
+
+### Major Changes
+
+- c6366dd: Add `tslib@^2.4.1` to peerDependencies
+
+## 3.0.0
+
+### Major Changes
+
+- 0625974: Update browserslist version and include most up-to-date stats
+
 ## 2.0.3
 
 ### Patch Changes

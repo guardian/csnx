@@ -1,5 +1,78 @@
 # @guardian/source-react-components-development-kitchen
 
+## 9.2.1
+
+### Patch Changes
+
+- b1dd060: `ToggleSwitch` is now perfectly aligned.
+
+## 9.2.0
+
+### Minor Changes
+
+- 7f01b52: Allow tab titles to be nodes or text
+
+## 9.1.0
+
+### Minor Changes
+
+- d7684da: Update the styling of the Expanding Wrapper
+
+## 9.0.0
+
+### Major Changes
+
+- c6366dd: Add `tslib@^2.4.1` to peerDependencies
+
+## 8.2.6
+
+### Patch Changes
+
+- 05e2e44: Updates the tab styling so that single tabs get 2 rounded corners
+
+## 8.2.5
+
+### Patch Changes
+
+- 7cd6f21: Bump tslib to v2.4.1
+
+## 8.2.4
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
+## 8.2.3
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
+## 8.2.2
+
+### Patch Changes
+
+- 0fcf574: ExpandingWrapper - update styling and allow cssOverrides
+
+## 8.2.1
+
+### Patch Changes
+
+- c882f90: Update styling for expanding wrapper
+- 6ae535a: Update fileinput styling and add hover styling
+
+## 8.2.0
+
+### Minor Changes
+
+- dd7d638: Add a new tab component
+
+### Patch Changes
+
+- dc6ab65: Update styling of FileInput after UX review
+
 ## 8.1.0
 
 ### Minor Changes

@@ -36,6 +36,8 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 	renderExtra,
 	disableTabbingWhenCollapsed = true,
 	children,
+	cssOverrides,
+	collapsedHeight = '240px',
 }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
@@ -46,7 +48,7 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 	return (
 		<div
 			id={`expander-${name}`}
-			css={(theme: Theme) => containerStyles(theme.expander)}
+			css={(theme: Theme) => [containerStyles(theme.expander), cssOverrides]}
 		>
 			<input
 				type="checkbox"
@@ -64,7 +66,7 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 			<div
 				className="expander__collapsible-body"
 				id={`expander-${name}__collapsible-body`}
-				css={collapsibleBodyStyles}
+				css={() => collapsibleBodyStyles(collapsedHeight)}
 				aria-hidden={!isExpanded}
 			>
 				{children}
@@ -84,14 +86,14 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 						<span id="svgminus" css={buttonIconStyles}>
 							<SvgMinus />
 						</span>
-						Show Less
+						Show less
 					</>
 				) : (
 					<>
 						<span id="svgplus" css={buttonIconStyles}>
 							<SvgPlus />
 						</span>
-						Show More
+						Show more
 					</>
 				)}
 			</label>

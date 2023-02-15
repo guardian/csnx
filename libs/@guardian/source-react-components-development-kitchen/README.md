@@ -49,7 +49,7 @@ Components that prove valuable may be promoted to `@guardian/source-react-compon
 
 Source is a library where teams can expect to find high quality shared components. Adding new components to Source requires deep work and collaboration across disciplines – design, UX and engineering. It takes a long time and substantial effort for components to land in Source.
 
-Potential contributors are put off contributing directly to Source, as they they find it hard to balance the time investment against their team's priorities. The cost of this is two-fold:
+Potential contributors are put off contributing directly to Source, as they find it hard to balance the time investment against their team's priorities. The cost of this is two-fold:
 
 - The number of high quality components available in Source is lower than it could be.
 - Potentially shareable components are built directly into applications, leading to fragmentation, inconsistency and duplication.

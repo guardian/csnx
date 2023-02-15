@@ -1,5 +1,49 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 13.0.0
+
+### Major Changes
+
+- 1793e3c: Add linkComponents to settings
+
+  eslint allows us to specify components which should be treated as 'link components' for linting purposes.
+  In source-react-components, both Link and ButtonLink will apply props directly to an `<a>` tag. Listing them as link components allows rules like `jsx-no-target-blank` to identify them as links, and to lint their props accordingly.
+  If you don't have any linting rules which look for link elements then this update should not cause any changes. If you do have rules like this then it is possible that new errors or warnings will be raised, but these will be identifying pre-existing issues in your code.
+
+## 12.0.0
+
+### Major Changes
+
+- c6366dd: Add `tslib@^2.4.1` to peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [c6366dd]
+- Updated dependencies [b4104c1]
+- Updated dependencies [05a5836]
+  - @guardian/source-react-components@11.0.0
+  - @guardian/libs@13.0.0
+
+## 11.0.3
+
+### Patch Changes
+
+- 7cd6f21: Bump tslib to v2.4.1
+
+## 11.0.2
+
+### Patch Changes
+
+- cf437f9: Bump @guardian/source-foundations to v8
+- Updated dependencies [cf437f9]
+  - @guardian/source-react-components@10.0.1
+
+## 11.0.1
+
+### Patch Changes
+
+- d742b50: Bump @guardian/libs to 12.0.0
+
 ## 11.0.0
 
 ### Major Changes
