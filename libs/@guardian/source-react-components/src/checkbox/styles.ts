@@ -62,7 +62,8 @@ export const checkbox = (
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 2px solid currentColor;
+	border: 1px solid currentColor;
+	border-radius: 4px;
 	position: relative;
 	transition: box-shadow ${transitions.short};
 	transition-delay: 0.08s;
@@ -76,8 +77,8 @@ export const checkbox = (
 		appearance: none;
 		&:checked {
 			border: ${error
-				? `4px solid ${checkbox.borderError}`
-				: `2px solid ${checkbox.borderChecked}`};
+				? `1px solid ${checkbox.borderError}`
+				: `1px solid ${checkbox.borderChecked}`};
 			& ~ span:before {
 				right: 0;
 			}
@@ -188,10 +189,10 @@ export const tickWithSupportingText = css`
 export const errorCheckbox = (
 	checkbox = checkboxThemeDefault.checkbox,
 ): SerializedStyles => css`
-	border: 4px solid ${checkbox.borderError};
-
+	border: 1px solid ${checkbox.borderError};
+	border-radius: 4px;
 	&:not(:checked):hover,
 	&:active {
-		border: 2px solid ${checkbox.borderHover};
+		border: 1px solid ${checkbox.borderHover};
 	}
 `;
