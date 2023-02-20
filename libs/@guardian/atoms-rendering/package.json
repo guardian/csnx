@@ -18,7 +18,7 @@
 		"@guardian/source-react-components": "11.0.0",
 		"@storybook/addon-viewport": "6.5.14",
 		"@testing-library/dom": "7.29.1",
-		"@testing-library/jest-dom": "5.16.3",
+		"@testing-library/jest-dom": "5.16.5",
 		"@testing-library/react": "11.2.2",
 		"@types/lodash.debounce": "4.0.6",
 		"@types/react": "17.0.1",
