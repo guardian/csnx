@@ -13,22 +13,24 @@ import { selectThemeDefault } from './theme';
 export const errorInput = (
 	select = selectThemeDefault.select,
 ): SerializedStyles => css`
-	border: 4px solid ${select.borderError};
+	border: 1px solid ${select.borderError};
+	border-radius: 4px;
 	color: ${select.textError};
 	/* When select is active and in an error state, we want the border to remain the same. */
 	&:active {
-		border: 4px solid ${select.borderError};
+		border: 1px solid ${select.borderError};
 	}
 `;
 
 export const successInput = (
 	select = selectThemeDefault.select,
 ): SerializedStyles => css`
-	border: 4px solid ${select.borderSuccess};
+	border: 1px solid ${select.borderSuccess};
+	border-radius: 4px;
 	color: ${select.textSuccess};
 	/* When select is active and in an success state, we want the border to remain the same. */
 	&:active {
-		border: 4px solid ${select.borderSuccess};
+		border: 1px solid ${select.borderSuccess};
 	}
 `;
 
@@ -73,7 +75,8 @@ export const select = (select = selectThemeDefault.select): SerializedStyles =>
 		width: 100%;
 		${textSans.medium()};
 		background-color: ${select.backgroundInput};
-		border: 2px solid ${select.border};
+		border: 1px solid ${select.border};
+		border-radius: 4px;
 		padding-left: ${space[2]}px;
 
 		@supports (${appearance}) {
@@ -86,7 +89,7 @@ export const select = (select = selectThemeDefault.select): SerializedStyles =>
 		}
 
 		&:focus {
-			border: 2px solid ${select.borderActive};
+			border: 1px solid ${select.borderActive};
 			${focusHalo};
 		}
 
