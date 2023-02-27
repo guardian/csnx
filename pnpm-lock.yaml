@@ -71,7 +71,7 @@ importers:
       '@nrwl/devkit': 15.3.0_nx@15.3.0+typescript@4.9.4
       '@nrwl/eslint-plugin-nx': 15.3.0_m7bvcbttd6ok2y3ox42prs3kli
       '@nrwl/jest': 15.3.0_isyqarvlfxlrhkxbcm4fvz3mrq
-      '@nrwl/nx-cloud': 15.0.3
+      '@nrwl/nx-cloud': 15.1.1
       '@nrwl/workspace': 15.3.0_qbjrjqyljjxh5bz345a2sxyavi
       '@storybook/addon-a11y': 6.5.14_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-docs': 6.5.14_a5cv6o74llizyckim65tdhby4q
@@ -137,7 +137,7 @@ importers:
       '@emotion/react': 11.0.0
       '@guardian/ab-core': 3.0.0
       '@testing-library/react': 11.2.2
-      '@types/react': ^18.0.0
+      '@types/react': 18.0.28
       react: 18.2.0
       react-dom: 18.2.0
       tslib: 2.4.1
@@ -193,8 +193,8 @@ importers:
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': 12.0.0_xuuxjzybejsjhwppmoov2udj6i
       '@guardian/libs': 12.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
-      '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': 11.0.0_a5tkfr4wdihi45efs3a3yheqnm
+      '@guardian/source-foundations': 9.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
+      '@guardian/source-react-components': 11.0.0_rr3f27u56tffkf24lpn4iasohq
       '@storybook/addon-viewport': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@testing-library/dom': 7.29.1
       '@testing-library/jest-dom': 5.16.3
@@ -287,7 +287,7 @@ importers:
       eslint-plugin-import: 2.26.0_vdbrudqrbar45cpuedhov3zkzu
     devDependencies:
       '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 9.0.0_gi2bhhty2ppzrovi5hjhpgztzq
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       eslint: 8.0.0
@@ -314,8 +314,8 @@ importers:
     devDependencies:
       '@emotion/react': 11.0.0_react@18.2.0
       '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
-      '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': 11.0.0_f5xhgnuejsrlptl6gqst44avmy
+      '@guardian/source-foundations': 9.0.0_gi2bhhty2ppzrovi5hjhpgztzq
+      '@guardian/source-react-components': 11.0.0_23c2xhapdbcd6a6liv445v7ohm
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       eslint: 8.0.0
@@ -385,7 +385,7 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0_wkiylh6bncbdhwh6tncqb3s2nm
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 9.0.0_gi2bhhty2ppzrovi5hjhpgztzq
       '@svgr/babel-preset': 6.5.1_@babel+core@7.20.12
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1_@svgr+core@6.5.1
@@ -419,8 +419,8 @@ importers:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0_wkiylh6bncbdhwh6tncqb3s2nm
       '@guardian/libs': 12.0.0_gi2bhhty2ppzrovi5hjhpgztzq
-      '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': 11.0.0_f5xhgnuejsrlptl6gqst44avmy
+      '@guardian/source-foundations': 9.0.0_gi2bhhty2ppzrovi5hjhpgztzq
+      '@guardian/source-react-components': 11.0.0_23c2xhapdbcd6a6liv445v7ohm
       '@types/react': 18.0.28
       react: 18.2.0
       tslib: 2.4.1
@@ -3548,7 +3548,7 @@ packages:
         optional: true
     dependencies:
       '@guardian/libs': 12.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
-      '@guardian/source-react-components': 11.0.0_a5tkfr4wdihi45efs3a3yheqnm
+      '@guardian/source-react-components': 11.0.0_rr3f27u56tffkf24lpn4iasohq
       '@typescript-eslint/eslint-plugin': 5.46.1_lnmmfho2qe7ewqkm7w7e7pymxy
       '@typescript-eslint/parser': 5.46.1_typescript@4.8.4
       tslib: 2.4.1
@@ -3583,26 +3583,35 @@ packages:
       typescript: 4.3.2
     dev: true
 
-  /@guardian/source-react-components/11.0.0_a5tkfr4wdihi45efs3a3yheqnm:
-    resolution: {integrity: sha512-54ihlAkRuJTSg0AmMDSl3ySGZudkdx9jJA7vnvqI4I9fEh7koI+Stn9WgP+D1S2ywnK2FM12jPRi4sTnK1Z4aw==}
+  /@guardian/source-foundations/9.0.0_c7o234nbnpuz7fnxnfuwyr2l7y:
+    resolution: {integrity: sha512-yOLQ9Vq2YtschUc2tJO4bbPUEKHNFd3CUaWHJctsaI38vf1qW5vxT0DIRaI2DEGRJxVY0kQdy8rlxIarM5fsAg==}
     peerDependencies:
-      '@emotion/react': ^11.0.0
-      '@guardian/source-foundations': ^9.0.0
-      react: ^17.0.1
       tslib: ^2.4.1
       typescript: ^4.3.2
     peerDependenciesMeta:
       typescript:
         optional: true
     dependencies:
-      '@emotion/react': 11.1.5_wkiylh6bncbdhwh6tncqb3s2nm
-      '@guardian/source-foundations': link:libs/@guardian/source-foundations
-      react: 18.2.0
+      mini-svg-data-uri: 1.4.4
       tslib: 2.4.1
       typescript: 4.8.4
     dev: true
 
-  /@guardian/source-react-components/11.0.0_f5xhgnuejsrlptl6gqst44avmy:
+  /@guardian/source-foundations/9.0.0_gi2bhhty2ppzrovi5hjhpgztzq:
+    resolution: {integrity: sha512-yOLQ9Vq2YtschUc2tJO4bbPUEKHNFd3CUaWHJctsaI38vf1qW5vxT0DIRaI2DEGRJxVY0kQdy8rlxIarM5fsAg==}
+    peerDependencies:
+      tslib: ^2.4.1
+      typescript: ^4.3.2
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tslib: 2.4.1
+      typescript: 4.3.2
+    dev: true
+
+  /@guardian/source-react-components/11.0.0_23c2xhapdbcd6a6liv445v7ohm:
     resolution: {integrity: sha512-54ihlAkRuJTSg0AmMDSl3ySGZudkdx9jJA7vnvqI4I9fEh7koI+Stn9WgP+D1S2ywnK2FM12jPRi4sTnK1Z4aw==}
     peerDependencies:
       '@emotion/react': ^11.0.0
@@ -3615,10 +3624,29 @@ packages:
         optional: true
     dependencies:
       '@emotion/react': 11.0.0_react@18.2.0
-      '@guardian/source-foundations': link:libs/@guardian/source-foundations
+      '@guardian/source-foundations': 9.0.0_gi2bhhty2ppzrovi5hjhpgztzq
       react: 18.2.0
       tslib: 2.4.1
       typescript: 4.3.2
+    dev: true
+
+  /@guardian/source-react-components/11.0.0_rr3f27u56tffkf24lpn4iasohq:
+    resolution: {integrity: sha512-54ihlAkRuJTSg0AmMDSl3ySGZudkdx9jJA7vnvqI4I9fEh7koI+Stn9WgP+D1S2ywnK2FM12jPRi4sTnK1Z4aw==}
+    peerDependencies:
+      '@emotion/react': ^11.0.0
+      '@guardian/source-foundations': ^9.0.0
+      react: ^17.0.1
+      tslib: ^2.4.1
+      typescript: ^4.3.2
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@emotion/react': 11.1.5_wkiylh6bncbdhwh6tncqb3s2nm
+      '@guardian/source-foundations': 9.0.0_c7o234nbnpuz7fnxnfuwyr2l7y
+      react: 18.2.0
+      tslib: 2.4.1
+      typescript: 4.8.4
     dev: true
 
   /@humanwhocodes/config-array/0.11.7:
@@ -4385,8 +4413,8 @@ packages:
       - typescript
     dev: false
 
-  /@nrwl/nx-cloud/15.0.3:
-    resolution: {integrity: sha512-KvwM8/IbCOlbWIzi+Tm14tJkEdQK3ruN6TPUmeKnkeFZsJyoFw4GCyKJMOLs8y4MQokHgskg3nbF822JLR9xJg==}
+  /@nrwl/nx-cloud/15.1.1:
+    resolution: {integrity: sha512-aIVb87PQpAjwdEaFksQ3rYgFq9MDaBG2KvYZcj/k+z2uWeWH84ha/opO37aCFLf5VXNiyJZGRb/+7vW7BFpNOw==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -14644,7 +14672,6 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
 
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
