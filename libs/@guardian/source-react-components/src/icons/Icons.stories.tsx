@@ -80,6 +80,8 @@ import { SvgMediaControlsPause } from '../../vendor/icons/SvgMediaControlsPause'
 import { SvgMediaControlsPlay } from '../../vendor/icons/SvgMediaControlsPlay';
 import { SvgMediaControlsStop } from '../../vendor/icons/SvgMediaControlsStop';
 import { SvgMenu } from '../../vendor/icons/SvgMenu';
+import { SvgMessage } from '../../vendor/icons/SvgMessage';
+import { SvgMessageRound } from '../../vendor/icons/SvgMessageRound';
 import { SvgMinus } from '../../vendor/icons/SvgMinus';
 import { SvgMoon } from '../../vendor/icons/SvgMoon';
 import { SvgNewsletter } from '../../vendor/icons/SvgNewsletter';
@@ -152,6 +154,8 @@ const uiIcons = {
 	SvgCross,
 	SvgLinkedIn,
 	SvgFacebookMessenger,
+	SvgMessage,
+	SvgMessageRound,
 	SvgMinus,
 	SvgCrossedOutCloud,
 	SvgMediaControlsPlay,
