@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 11.3.0
+
+### Minor Changes
+
+- 30c3254: Added two icons: Message and MessageRound.
+
 ## 11.2.0
 
 ### Minor Changes
