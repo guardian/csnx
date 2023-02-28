@@ -1,0 +1,16 @@
+{
+	"name": "@guardian/ua-parsing",
+	"version": "0.0.0",
+	"description": "User-Agent parsing",
+	"type": "module",
+	"scripts": {
+		"build": "rollup -c"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "22.0.2",
+		"@rollup/plugin-json": "4.1.0",
+		"@rollup/plugin-node-resolve": "14.0.1",
+		"rollup": "2.79.0",
+		"ua-parser-js": "^1.0.33"
+	}
+}
