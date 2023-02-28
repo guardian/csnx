@@ -122,6 +122,13 @@ ErrorBrandTheme.parameters = {
 
 // *****************************************************************************
 
+export const OptionalDefaultTheme = Template.bind({});
+OptionalDefaultTheme.args = {
+	optional: true,
+};
+
+// *****************************************************************************
+
 export const SupportingMediaWithErrorDefaultTheme = Template.bind({});
 SupportingMediaWithErrorDefaultTheme.args = {
 	error: 'Please select a colour',

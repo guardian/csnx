@@ -25,6 +25,10 @@ export interface RadioGroupProps
 	 */
 	hideLabel?: boolean;
 	/**
+	 * Adds the word "Optional" after the label
+	 */
+	optional?: boolean;
+	/**
 	 * Additional text or component that appears below the label
 	 */
 	supporting?: string | JSX.Element;
@@ -52,6 +56,7 @@ export const RadioGroup = ({
 	id,
 	name,
 	label,
+	optional = false,
 	hideLabel = false,
 	supporting,
 	orientation = 'vertical',
@@ -61,8 +66,15 @@ export const RadioGroup = ({
 	...props
 }: RadioGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
+	console.log(`optional: ${optional.toString()}`);
+
 	const legend = label ? (
-		<Legend text={label} supporting={supporting} hideLabel={hideLabel} />
+		<Legend
+			text={label}
+			supporting={supporting}
+			hideLabel={hideLabel}
+			optional={optional}
+		/>
 	) : (
 		''
 	);
@@ -91,19 +103,21 @@ export const RadioGroup = ({
 	);
 
 	return (
-		<fieldset
-			aria-invalid={!!error}
-			id={groupId}
-			css={(theme: Theme) => [fieldset(theme.radio), cssOverrides]}
-			{...props}
-		>
-			{legend}
-			{message}
-			{orientation === 'vertical' ? (
-				<Stack>{radioContainers}</Stack>
-			) : (
-				<Inline space={5}>{radioContainers}</Inline>
-			)}
-		</fieldset>
+		<>
+			<fieldset
+				aria-invalid={!!error}
+				id={groupId}
+				css={(theme: Theme) => [fieldset(theme.radio), cssOverrides]}
+				{...props}
+			>
+				{legend}
+				{message}
+				{orientation === 'vertical' ? (
+					<Stack>{radioContainers}</Stack>
+				) : (
+					<Inline space={5}>{radioContainers}</Inline>
+				)}
+			</fieldset>
+		</>
 	);
 };

@@ -75,6 +75,13 @@ SupportingTextDefaultTheme.args = {
 
 // *****************************************************************************
 
+export const OptionalDefaultTheme = Template.bind({});
+OptionalDefaultTheme.args = {
+	optional: true,
+};
+
+// *****************************************************************************
+
 export const SupportingTextBrandTheme = Template.bind({});
 SupportingTextBrandTheme.parameters = {
 	backgrounds: {
