@@ -66,7 +66,6 @@ export const RadioGroup = ({
 	...props
 }: RadioGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
-	console.log(`optional: ${optional.toString()}`);
 
 	const legend = label ? (
 		<Legend
@@ -103,21 +102,19 @@ export const RadioGroup = ({
 	);
 
 	return (
-		<>
-			<fieldset
-				aria-invalid={!!error}
-				id={groupId}
-				css={(theme: Theme) => [fieldset(theme.radio), cssOverrides]}
-				{...props}
-			>
-				{legend}
-				{message}
-				{orientation === 'vertical' ? (
-					<Stack>{radioContainers}</Stack>
-				) : (
-					<Inline space={5}>{radioContainers}</Inline>
-				)}
-			</fieldset>
-		</>
+		<fieldset
+			aria-invalid={!!error}
+			id={groupId}
+			css={(theme: Theme) => [fieldset(theme.radio), cssOverrides]}
+			{...props}
+		>
+			{legend}
+			{message}
+			{orientation === 'vertical' ? (
+				<Stack>{radioContainers}</Stack>
+			) : (
+				<Inline space={5}>{radioContainers}</Inline>
+			)}
+		</fieldset>
 	);
 };
