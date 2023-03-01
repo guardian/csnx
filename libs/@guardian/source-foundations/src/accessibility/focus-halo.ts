@@ -8,7 +8,7 @@ import { palette } from '../colour/palette';
 export const focusHalo = `
  outline: 0;
  html:not(.src-focus-disabled) & {
-	 box-shadow: 0 0 0 5px ${palette.focus[400]};
+	 box-shadow: 0 0 0 3px ${palette.focus[400]};
  }
 `;
 
