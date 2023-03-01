@@ -7,13 +7,15 @@ import {
 } from '@guardian/source-foundations';
 
 export const errorInput = css`
-	border: 4px solid ${palette.error[400]};
+	border: 2px solid ${palette.error[400]};
+	border-radius: 4px;
 	color: ${palette.neutral[7]};
 	margin-top: 0;
 `;
 
 export const successInput = css`
-	border: 4px solid ${palette.success[400]};
+	border: 2px solid ${palette.success[400]};
+	border-radius: 4px;
 	color: ${palette.success[400]};
 	margin-top: 0;
 `;
@@ -27,7 +29,6 @@ export const textArea = css`
 	padding: ${space[2]}px ${space[2]}px 0 ${space[2]}px;
 
 	&:focus {
-		border: 2px solid ${palette.brand[500]};
 		${focusHalo};
 	}
 
