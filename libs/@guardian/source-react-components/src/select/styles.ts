@@ -13,24 +13,24 @@ import { selectThemeDefault } from './theme';
 export const errorInput = (
 	select = selectThemeDefault.select,
 ): SerializedStyles => css`
-	border: 1px solid ${select.borderError};
+	border: 2px solid ${select.borderError};
 	border-radius: 4px;
 	color: ${select.textError};
 	/* When select is active and in an error state, we want the border to remain the same. */
 	&:active {
-		border: 1px solid ${select.borderError};
+		border: 2px solid ${select.borderError};
 	}
 `;
 
 export const successInput = (
 	select = selectThemeDefault.select,
 ): SerializedStyles => css`
-	border: 1px solid ${select.borderSuccess};
+	border: 2px solid ${select.borderSuccess};
 	border-radius: 4px;
 	color: ${select.textSuccess};
 	/* When select is active and in an success state, we want the border to remain the same. */
 	&:active {
-		border: 1px solid ${select.borderSuccess};
+		border: 2px solid ${select.borderSuccess};
 	}
 `;
 
@@ -89,7 +89,6 @@ export const select = (select = selectThemeDefault.select): SerializedStyles =>
 		}
 
 		&:focus {
-			border: 1px solid ${select.borderActive};
 			${focusHalo};
 		}
 
