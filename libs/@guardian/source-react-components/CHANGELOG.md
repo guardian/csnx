@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 11.4.0
+
+### Minor Changes
+
+- 41095ce: Adds optional prop to CheckboxGroup element to append "optional" text to label
+
 ## 11.3.0
 
 ### Minor Changes
