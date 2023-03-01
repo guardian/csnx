@@ -11,7 +11,7 @@ import { textInputThemeDefault } from './theme';
 export const errorInput = (
 	textInput = textInputThemeDefault.textInput,
 ): SerializedStyles => css`
-	border: 1px solid ${textInput.borderError};
+	border: 2px solid ${textInput.borderError};
 	border-radius: 4px;
 	color: ${textInput.textError};
 	margin-top: 0;
@@ -20,7 +20,7 @@ export const errorInput = (
 export const successInput = (
 	textInput = textInputThemeDefault.textInput,
 ): SerializedStyles => css`
-	border: 1px solid ${textInput.borderSuccess};
+	border: 2px solid ${textInput.borderSuccess};
 	border-radius: 4px;
 	color: ${textInput.textSuccess};
 	margin-top: 0;
@@ -40,8 +40,7 @@ export const textInput = (
 		padding: 0 ${space[2]}px;
 
 		&:focus {
-			border: 1px solid ${textInput.borderActive};
-			${focusHalo};
+			${focusHalo}
 		}
 
 		&:invalid {
