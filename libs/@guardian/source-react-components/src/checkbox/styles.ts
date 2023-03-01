@@ -31,7 +31,9 @@ export const checkboxContainer = (
 
 	&:hover {
 		input {
-			border-color: ${error ? checkbox.borderError : checkbox.borderHover};
+			border: ${error
+				? `2px solid ${checkbox.borderError}`
+				: `2px solid ${checkbox.borderHover}`};
 		}
 	}
 	&:active {
@@ -77,8 +79,8 @@ export const checkbox = (
 		appearance: none;
 		&:checked {
 			border: ${error
-				? `1px solid ${checkbox.borderError}`
-				: `1px solid ${checkbox.borderChecked}`};
+				? `2px solid ${checkbox.borderError}`
+				: `2px solid ${checkbox.borderChecked}`};
 			& ~ span:before {
 				right: 0;
 			}
@@ -189,10 +191,10 @@ export const tickWithSupportingText = css`
 export const errorCheckbox = (
 	checkbox = checkboxThemeDefault.checkbox,
 ): SerializedStyles => css`
-	border: 1px solid ${checkbox.borderError};
+	border: 2px solid ${checkbox.borderError};
 	border-radius: 4px;
 	&:not(:checked):hover,
 	&:active {
-		border: 1px solid ${checkbox.borderHover};
+		border: 2px solid ${checkbox.borderHover};
 	}
 `;
