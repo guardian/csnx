@@ -18,11 +18,11 @@ export const fieldset = (
 	${resets.fieldset};
 
 	&[aria-invalid='true'] input {
-		border: 1px solid ${radio.borderError};
+		border: 2px solid ${radio.borderError};
 
 		&:not(:checked):hover,
 		&:active {
-			border: 1px solid ${radio.borderHover};
+			border: 2px solid ${radio.borderHover};
 		}
 	}
 `;
@@ -70,6 +70,7 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	color: ${radio.border};
 
 	&:checked {
+		border: 2px solid currentColor;
 		color: ${radio.backgroundChecked};
 	}
 
