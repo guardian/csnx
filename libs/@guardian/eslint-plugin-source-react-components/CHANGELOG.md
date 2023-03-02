@@ -1,5 +1,17 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 14.0.0
+
+### Major Changes
+
+- Now requires TypeScript ~4.9.5 (if you use it with TypeScript).
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@14.0.0
+  - @guardian/source-react-components@12.0.0
+
 ## 13.0.0
 
 ### Major Changes

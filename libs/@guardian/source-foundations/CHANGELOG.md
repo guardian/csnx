@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 10.0.0
+
+### Major Changes
+
+- Now requires TypeScript ~4.9.5 (if you use it with TypeScript).
+
 ## 9.0.1
 
 ### Patch Changes
