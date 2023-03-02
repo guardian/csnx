@@ -1,5 +1,16 @@
 # @guardian/core-web-vitals
 
+## 4.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@14.0.0
+
 ## 3.0.0
 
 ### Major Changes

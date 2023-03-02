@@ -1,5 +1,11 @@
 # @guardian/ab-core
 
+## 4.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
 ## 3.1.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 11.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@14.0.0
+  - @guardian/source-foundations@10.0.0
+
 ## 10.0.0
 
 ### Major Changes

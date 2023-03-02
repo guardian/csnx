@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 14.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
 ## 13.1.0
 
 ### Minor Changes

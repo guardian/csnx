@@ -1,5 +1,16 @@
 # @guardian/source-react-components
 
+## 12.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/source-foundations@10.0.0
+
 ## 11.2.0
 
 ### Minor Changes

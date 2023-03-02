@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 10.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
 ## 9.0.0
 
 ### Major Changes

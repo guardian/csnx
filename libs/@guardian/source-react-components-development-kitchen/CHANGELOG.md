@@ -1,5 +1,18 @@
 # @guardian/source-react-components-development-kitchen
 
+## 10.0.0
+
+### Major Changes
+
+- Update Typescript dependencies to 4.9.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@14.0.0
+  - @guardian/source-foundations@10.0.0
+  - @guardian/source-react-components@12.0.0
+
 ## 9.2.1
 
 ### Patch Changes
