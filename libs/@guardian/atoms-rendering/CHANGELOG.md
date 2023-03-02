@@ -12,6 +12,7 @@
   - @guardian/libs@14.0.0
   - @guardian/source-foundations@10.0.0
   - @guardian/source-react-components@12.0.0
+  - @guardian/eslint-plugin-source-react-components@14.0.0
 
 ## 26.0.0
 
