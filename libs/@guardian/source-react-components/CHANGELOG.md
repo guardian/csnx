@@ -11,6 +11,18 @@
 - Updated dependencies
   - @guardian/source-foundations@10.0.0
 
+## 11.4.0
+
+### Minor Changes
+
+- 41095ce: Adds optional prop to CheckboxGroup element to append "optional" text to label
+
+## 11.3.0
+
+### Minor Changes
+
+- 30c3254: Added two icons: Message and MessageRound.
+
 ## 11.2.0
 
 ### Minor Changes

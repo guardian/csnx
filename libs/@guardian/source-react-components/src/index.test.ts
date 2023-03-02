@@ -157,6 +157,8 @@ it('Should have exactly these exports', () => {
 		'SvgMediaControlsPlay',
 		'SvgMediaControlsStop',
 		'SvgMenu',
+		'SvgMessage',
+		'SvgMessageRound',
 		'SvgMessenger',
 		'SvgMinus',
 		'SvgMoon',
