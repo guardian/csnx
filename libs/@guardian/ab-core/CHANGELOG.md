@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- Update Typescript dependencies to 4.9.5
+- Now requires TypeScript ~4.9.5 (if you use it with TypeScript).
 
 ## 3.1.0
 
