@@ -6,6 +6,12 @@
 
 - Update Typescript dependencies to 4.9.5
 
+## 9.0.1
+
+### Patch Changes
+
+- 8e0c0d9: Mark deprecated palette exports using JSDOC comments
+
 ## 9.0.0
 
 ### Major Changes
