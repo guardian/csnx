@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 10.0.1
+
+### Patch Changes
+
+- f42f414: Indicate how to resolve the colour import deprecation notice
+
 ## 10.0.0
 
 ### Major Changes
