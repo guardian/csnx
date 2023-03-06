@@ -1,0 +1,39 @@
+// Recommended VS Code settings for this project.
+{
+	"cSpell.language": "en-GB",
+	"cSpell.words": ["browserslist", "CSNX", "CSTI", "nrwl"],
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.fixAll.sortJSON": false
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"eslint.format.enable": false,
+	"eslint.packageManager": "pnpm",
+	"eslint.validate": ["javascript", "typescript"],
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"*.cjs": "${capture}.cjs.map, ${capture}.min.cjs, ${capture}.d.ts",
+		"*.cts": "${capture}.cts.map, ${capture}.min.cts, ${capture}.d.ts",
+		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+		"*.jsx": "${capture}.js",
+		"*.mjs": "${capture}.mjs.map, ${capture}.min.mjs, ${capture}.d.ts",
+		"*.mts": "${capture}.mts.map, ${capture}.min.mts, ${capture}.d.ts",
+		"*.ts": "${capture}.js",
+		"*.tsx": "${capture}.ts",
+		".prettierrc": ".prettierignore",
+		"package.json": "package-lock.json, pnpm-lock.yaml, pnpm-workspace.yaml",
+		".vscode/settings.json": ".vscode/settings.json.default",
+		"tsconfig.json": "tsconfig*.json"
+	},
+	"files.associations": {
+		".vscode/settings.json*": "jsonc",
+		"tsconfig*.json": "jsonc"
+	},
+	"search.exclude": {
+		"**/*.tsbuildinfo": true,
+		"**/dist": true,
+		"**/node_modules": true
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
+}
