@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # for chromatic to work
 
       # enables use to use the cache in actions/setup-node
       - uses: pnpm/action-setup@v2.2.4
@@ -30,41 +28,44 @@ jobs:
       - run: make e2e
       - run: make build-storybooks
 
-      # Kick chromatic off only once all other steps have passed. This stops us
-      # wasting money running checks on PRs that are going to fail anyway.
-      - name: Upload @guardian/atoms-rendering storybook to Chromatic
-        uses: chromaui/action@v1
+  chromatic:
+    # Kick chromatic off only once all other steps have passed. This stops us
+    # wasting money running checks on PRs that are going to fail anyway.
+    needs: validate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lib:
+          [
+            'atoms-rendering',
+            'source-foundations',
+            'source-react-components',
+            'source-react-components-development-kitchen',
+          ]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # for chromatic to work
+
+      # enables use to use the cache in actions/setup-node
+      - uses: pnpm/action-setup@v2.2.4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      # This will just retrieve the output created in `validate` from Nx's build
+      # cache. It's simpler than using github actions cache.
+      - run: make build-storybooks
+
+      - uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_ATOMS_RENDERING_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian/atoms-rendering'
-          exitOnceUploaded: true
-          onlyChanged: '!(main)' # turbosnap on non-main branches
-
-      - name: Upload @guardian/source-foundations storybook to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian/source-foundations'
-          exitOnceUploaded: true
-          onlyChanged: '!(main)' # turbosnap on non-main branches
-
-      - name: Upload @guardian/source-react-components storybook to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian/source-react-components'
-          exitOnceUploaded: true
-          onlyChanged: '!(main)' # turbosnap on non-main branches
-
-      - name: Upload @guardian/source-react-components-development-kitchen storybook to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian/source-react-components-development-kitchen'
+          storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
 
@@ -80,6 +81,8 @@ jobs:
   # examples of how to do this.
   deploy-root-storybook:
     needs: validate
+
+    # only runs on main branch
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
