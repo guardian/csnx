@@ -50,3 +50,10 @@ on Wikipedia.
 ├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡
 └─┴┘  ╚═╩╝  ╙─╨╜  ╘═╧╛
 ```
+
+## TODO
+
+- package + @types/package info
+- better testing
+- improved error messages
+- maybe a way to call a bin?
