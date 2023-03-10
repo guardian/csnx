@@ -23,11 +23,19 @@ SELECT *
 FROM public.browser_usage_90d_window
 WHERE end_date = "2023-03-07"
 ORDER BY family ASC, version DESC
-LIMIT 1000
 `);
 
 const rows = array(row)
 	.parse(response[0])
 	.filter(({ percent_usage }) => percent_usage > 0.01 / 100);
 
-console.log(rows);
+console.log(rows.slice(0, 120));
+
+const browserlist = rows.reduce((json, { family, version, percent_usage }) => {
+	if (family === null || version === null) return json;
+	json[family] ??= {};
+	json[family][version] = percent_usage;
+	return json;
+}, {});
+
+console.log(browserlist);
