@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # for chromatic to work
 
       # enables use to use the cache in actions/setup-node
       - uses: pnpm/action-setup@v2.2.4
@@ -70,3 +72,4 @@ jobs:
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
+
