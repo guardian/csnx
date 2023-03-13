@@ -1,5 +1,23 @@
 # @guardian/source-foundations
 
+## 10.0.1
+
+### Patch Changes
+
+- f42f414: Indicate how to resolve the colour import deprecation notice
+
+## 10.0.0
+
+### Major Changes
+
+- Now requires TypeScript ~4.9.5 (if you use it with TypeScript).
+
+## 9.0.1
+
+### Patch Changes
+
+- 8e0c0d9: Mark deprecated palette exports using JSDOC comments
+
 ## 9.0.0
 
 ### Major Changes

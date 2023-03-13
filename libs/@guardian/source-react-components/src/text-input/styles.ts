@@ -35,8 +35,7 @@ export const textInput = (
 		${textSans.medium()};
 		color: ${textInput.textUserInput};
 		background-color: ${textInput.backgroundInput};
-		border: 1px solid ${textInput.border};
-		border-radius: 4px;
+		border: 2px solid ${textInput.border};
 		padding: 0 ${space[2]}px;
 
 		&:focus {

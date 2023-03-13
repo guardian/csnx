@@ -61,7 +61,7 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 1px solid currentColor;
+	border: 2px solid currentColor;
 	border-radius: 50%;
 	position: relative;
 	transition: box-shadow ${transitions.short};

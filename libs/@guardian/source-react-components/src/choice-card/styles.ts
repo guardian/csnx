@@ -141,7 +141,7 @@ export const choiceCard = (
 	justify-content: center;
 	min-height: ${height.inputMedium}px;
 	margin: 0 0 ${space[2]}px 0;
-	box-shadow: inset 0 0 0 1px ${choiceCard.border};
+	box-shadow: inset 0 0 0 2px ${choiceCard.border};
 	border-radius: 4px;
 	position: relative;
 	cursor: pointer;

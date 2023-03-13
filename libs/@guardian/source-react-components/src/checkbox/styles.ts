@@ -64,8 +64,7 @@ export const checkbox = (
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 1px solid currentColor;
-	border-radius: 4px;
+	border: 2px solid currentColor;
 	position: relative;
 	transition: box-shadow ${transitions.short};
 	transition-delay: 0.08s;
@@ -95,8 +94,8 @@ export const checkbox = (
 				color: ${checkbox.textIndeterminate};
 				content: '-';
 				position: absolute;
-				top: -7px;
-				left: 6px;
+				top: -${space[2]}px;
+				left: 5px;
 				z-index: 5;
 			}
 		}
