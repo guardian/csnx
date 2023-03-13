@@ -130,8 +130,8 @@ const fontSpacingVerticalOffset = css`
 
 const defaultSize = css`
 	${textSans.medium({ fontWeight: 'bold' })};
-	height: ${height.ctaMedium}px;
-	min-height: ${height.ctaMedium}px;
+	height: 200px;
+	min-height: 500px;
 	padding: 0 ${space[5]}px;
 	border-radius: ${height.ctaMedium}px;
 	${fontSpacingVerticalOffset};
