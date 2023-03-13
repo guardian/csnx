@@ -61,7 +61,7 @@ jobs:
 
       # This will just retrieve the output created in `validate` from Nx's build
       # cache. It's simpler than using github actions cache.
-      - run: make build-storybooks
+      - run: SKIP_NX_CACHE=true make build-storybooks
 
       - uses: chromaui/action@v1
         with:
