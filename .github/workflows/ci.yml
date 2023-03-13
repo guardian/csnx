@@ -35,13 +35,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        lib:
-          [
-            'atoms-rendering',
-            'source-foundations',
-            'source-react-components',
-            'source-react-components-development-kitchen',
-          ]
+        include:
+          - lib: atoms-rendering
+            token: CHROMATIC_ATOMS_RENDERING_TOKEN
+          - lib: source-foundations
+            token: CHROMATIC_SOURCE_FOUNDATIONS_TOKEN
+          - lib: source-react-components
+            token: CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN
+          - lib: source-react-components-development-kitchen
+            token: CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN
     steps:
       - uses: actions/checkout@v3
         with:
@@ -63,7 +65,7 @@ jobs:
 
       - uses: chromaui/action@v1
         with:
-          projectToken: ${{ secrets.CHROMATIC_ATOMS_RENDERING_TOKEN }}
+          projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
