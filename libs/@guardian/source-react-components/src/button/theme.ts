@@ -15,16 +15,16 @@ export type ButtonTheme = {
 
 export const buttonThemeDefault: { button: ButtonTheme } = {
 	button: {
-		textPrimary: palette.neutral[100],
-		backgroundPrimary: palette.brand[400],
-		backgroundPrimaryHover: '#234B8A', // One-off colour variant generated from palette.brand[400]
-		textSecondary: palette.brand[400],
-		backgroundSecondary: palette.brand[800],
-		backgroundSecondaryHover: '#ACC9F7', // One-off colour variant generated from palette.brand[800]
+		textPrimary: 'green',
+		backgroundPrimary: 'red',
+		backgroundPrimaryHover: 'red', // One-off colour variant generated from palette.brand[400]
+		textSecondary: 'green',
+		backgroundSecondary: 'blue',
+		backgroundSecondaryHover: 'red', // One-off colour variant generated from palette.brand[800]
 		textTertiary: palette.brand[400],
-		backgroundTertiaryHover: '#E5E5E5', // One-off colour variant
+		backgroundTertiaryHover: 'blue', // One-off colour variant
 		borderTertiary: palette.brand[400],
-		textSubdued: palette.brand[400],
+		textSubdued: 'red',
 	},
 };
 
