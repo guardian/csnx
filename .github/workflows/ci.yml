@@ -26,6 +26,7 @@ jobs:
       - run: make test
       - run: make build
       - run: make e2e
+      - run: make build-storybooks
 
   chromatic:
     # Kick chromatic off only once all other steps have passed. This stops us
@@ -68,3 +69,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
+          onlyChanged: '!(main)' # turbosnap on non-main branches
