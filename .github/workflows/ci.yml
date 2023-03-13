@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # for chromatic to work
 
       # enables use to use the cache in actions/setup-node
       - uses: pnpm/action-setup@v2.2.4
@@ -61,7 +63,7 @@ jobs:
 
       # This will just retrieve the output created in `validate` from Nx's build
       # cache. It's simpler than using github actions cache.
-      - run: SKIP_NX_CACHE=true make build-storybooks
+      - run: make build-storybooks
 
       - uses: chromaui/action@v1
         with:
