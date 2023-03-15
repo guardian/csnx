@@ -3,9 +3,9 @@ import { css } from '@emotion/react';
 import { size, space, textSans } from '@guardian/source-foundations';
 
 export const wrapperStyles = (color: string): SerializedStyles => css`
-	border: 4px solid ${color};
+	border: 2px solid ${color};
+	border-radius: 4px;
 	padding: ${space[1]}px;
-
 	display: flex;
 `;
 
