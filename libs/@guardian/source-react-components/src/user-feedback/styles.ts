@@ -1,11 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import {
-	remHeight,
-	remWidth,
-	space,
-	textSans,
-} from '@guardian/source-foundations';
+import { remHeight, remWidth, textSans } from '@guardian/source-foundations';
 import { userFeedbackThemeDefault } from './theme';
 
 const inlineMessage = css`
@@ -32,9 +27,6 @@ export const inlineError = (
 	userFeedback = userFeedbackThemeDefault.userFeedback,
 ): SerializedStyles => css`
 	${inlineMessage};
-	border: 2px solid ${userFeedback.textError};
-	border-radius: 4px;
-	padding: ${space[2]}px ${space[2]}px 0 ${space[2]}px;
 	color: ${userFeedback.textError};
 `;
 
@@ -42,8 +34,5 @@ export const inlineSuccess = (
 	userFeedback = userFeedbackThemeDefault.userFeedback,
 ): SerializedStyles => css`
 	${inlineMessage};
-	border: 2px solid ${userFeedback.textSuccess};
-	border-radius: 4px;
-	padding: ${space[2]}px ${space[2]}px 0 ${space[2]}px;
 	color: ${userFeedback.textSuccess};
 `;
