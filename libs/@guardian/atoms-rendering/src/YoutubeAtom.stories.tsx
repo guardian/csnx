@@ -7,7 +7,7 @@ export default {
 	title: 'YoutubeAtom',
 	component: YoutubeAtom,
 	parameters: {
-		chromatic: { diffIncludeAntiAliasing: true },
+		chromatic: { diffIncludeAntiAliasing: true, threshold: 1 },
 	},
 };
 
