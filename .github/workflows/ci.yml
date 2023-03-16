@@ -69,5 +69,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
-          onlyChanged: '!(main)' # turbosnap on non-main branches
-
