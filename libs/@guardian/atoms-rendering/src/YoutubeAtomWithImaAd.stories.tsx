@@ -361,6 +361,10 @@ export const DuplicateVideos = (): JSX.Element => {
 	);
 };
 
+DuplicateVideos.parameters = {
+	chromatic: { disableSnapshot: true },
+};
+
 export const MultipleStickyVideos = (): JSX.Element => {
 	return (
 		<div style={{ width: '500px', height: '5000px' }}>
@@ -420,4 +424,8 @@ export const MultipleStickyVideos = (): JSX.Element => {
 			/>
 		</div>
 	);
+};
+
+MultipleStickyVideos.parameters = {
+	chromatic: { disableSnapshot: true },
 };

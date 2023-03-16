@@ -71,7 +71,7 @@ importers:
       '@nrwl/devkit': 15.3.0_nx@15.3.0+typescript@4.9.5
       '@nrwl/eslint-plugin-nx': 15.3.0_3mokpfp3eprkmtlpzolh3kzrsu
       '@nrwl/jest': 15.3.0_fr4tj5qfvufo3dg4wlazhvctpq
-      '@nrwl/nx-cloud': 15.1.1
+      '@nrwl/nx-cloud': 15.2.1
       '@nrwl/workspace': 15.3.0_nxcwcvubmicxt6wwcagzbihoti
       '@storybook/addon-a11y': 6.5.14_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-docs': 6.5.14_nljus74hj57bwlfv3fd34cxvkq
@@ -193,7 +193,7 @@ importers:
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
       '@guardian/source-react-components': link:../source-react-components
       '@storybook/addon-viewport': 6.5.16_w7o5yyljkiidx2s2nzb26ottzu
       '@testing-library/dom': 7.29.1
@@ -287,7 +287,7 @@ importers:
       eslint-plugin-import: 2.26.0_vdbrudqrbar45cpuedhov3zkzu
     devDependencies:
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       eslint: 8.0.0
@@ -314,7 +314,7 @@ importers:
     devDependencies:
       '@emotion/react': 11.0.0_react@17.0.1
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
       '@guardian/source-react-components': link:../source-react-components
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
@@ -385,7 +385,7 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0_rnawoibddm4mr3vbowjsvrrtn4
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
       '@svgr/babel-preset': 6.5.1_@babel+core@7.20.12
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1_@svgr+core@6.5.1
@@ -419,7 +419,7 @@ importers:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0_rnawoibddm4mr3vbowjsvrrtn4
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
       '@guardian/source-react-components': link:../source-react-components
       '@types/react': 17.0.1
       react: 17.0.1
@@ -3507,6 +3507,20 @@ packages:
       '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
+  /@guardian/source-foundations/10.0.0_2pbpt5kusulw3ljguycdqs5yya:
+    resolution: {integrity: sha512-/fx5oOAeTvEnbPb3VDeX9iQ/7U6D6+JLHyRUL4HCocYLPIF/uzbPKI4nDebzO/ZdHE1O84bL1Kw7Jup+jqS1Ug==}
+    peerDependencies:
+      tslib: ^2.4.1
+      typescript: ~4.9.5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tslib: 2.4.1
+      typescript: 4.9.5
+    dev: true
+
   /@humanwhocodes/config-array/0.11.7:
     resolution: {integrity: sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw==}
     engines: {node: '>=10.10.0'}
@@ -4271,8 +4285,8 @@ packages:
       - typescript
     dev: false
 
-  /@nrwl/nx-cloud/15.1.1:
-    resolution: {integrity: sha512-aIVb87PQpAjwdEaFksQ3rYgFq9MDaBG2KvYZcj/k+z2uWeWH84ha/opO37aCFLf5VXNiyJZGRb/+7vW7BFpNOw==}
+  /@nrwl/nx-cloud/15.2.1:
+    resolution: {integrity: sha512-T4ycGSx77TdvS0j6tKI/6zmh6YtsPHyfB2li+wDR+BW9wjGGqOTX1QvG3gf0k2enhA3dxLgYnmeDZoEUek6MOw==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -14289,7 +14303,6 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
 
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
