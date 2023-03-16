@@ -4,7 +4,7 @@
 		"allowJs": true,
 		"outDir": "../../../dist/out-tsc",
 		"module": "commonjs",
-		"types": ["jest", "node"],
+		"types": ["jest", "node", "@testing-library/jest-dom"],
 		"composite": true
 	},
 	"include": [
@@ -17,6 +17,7 @@
 		"**/*.spec.js",
 		"**/*.test.jsx",
 		"**/*.spec.jsx",
-		"**/*.d.ts"
+		"**/*.d.ts",
+		"src/fixtures"
 	]
 }
