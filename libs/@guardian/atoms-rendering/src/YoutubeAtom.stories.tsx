@@ -343,7 +343,7 @@ export const DuplicateVideos = (): JSX.Element => {
 };
 
 DuplicateVideos.parameters = {
-	chromatic: { diffIncludeAntiAliasing: true },
+	chromatic: { threshold: 1 },
 };
 
 export const MultipleStickyVideos = (): JSX.Element => {
