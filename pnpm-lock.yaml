@@ -71,7 +71,7 @@ importers:
       '@nrwl/devkit': 15.3.0_nx@15.3.0+typescript@4.9.5
       '@nrwl/eslint-plugin-nx': 15.3.0_3mokpfp3eprkmtlpzolh3kzrsu
       '@nrwl/jest': 15.3.0_fr4tj5qfvufo3dg4wlazhvctpq
-      '@nrwl/nx-cloud': 15.2.1
+      '@nrwl/nx-cloud': 15.2.3
       '@nrwl/workspace': 15.3.0_nxcwcvubmicxt6wwcagzbihoti
       '@storybook/addon-a11y': 6.5.14_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-docs': 6.5.14_nljus74hj57bwlfv3fd34cxvkq
@@ -134,7 +134,6 @@ importers:
 
   libs/@guardian/ab-react:
     specifiers:
-      '@emotion/react': 11.0.0
       '@guardian/ab-core': 4.0.0
       '@testing-library/react': 11.2.2
       '@types/react': ~17.0
@@ -143,7 +142,6 @@ importers:
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
-      '@emotion/react': 11.0.0_wk7fohhuxwcjfgq2kdoh4ny7by
       '@guardian/ab-core': link:../ab-core
       '@testing-library/react': 11.2.2_sfoxds7t5ydpegc3knd667wn6m
       '@types/react': 17.0.1
@@ -3389,29 +3387,6 @@ packages:
       react: 17.0.1
     dev: true
 
-  /@emotion/react/11.0.0_wk7fohhuxwcjfgq2kdoh4ny7by:
-    resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-      '@types/react': '*'
-      react: '>=16.8.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.20.6
-      '@emotion/cache': 11.10.3
-      '@emotion/serialize': 1.1.1
-      '@emotion/sheet': 1.2.0
-      '@emotion/utils': 1.2.0
-      '@emotion/weak-memoize': 0.2.5
-      '@types/react': 17.0.1
-      hoist-non-react-statics: 3.3.2
-      react: 17.0.2
-    dev: true
-
   /@emotion/react/11.1.5_rnawoibddm4mr3vbowjsvrrtn4:
     resolution: {integrity: sha512-xfnZ9NJEv9SU9K2sxXM06lzjK245xSeHRpUh67eARBm3PBHjjKIZlfWZ7UQvD0Obvw6ZKjlC79uHrlzFYpOB/Q==}
     peerDependencies:
@@ -4285,8 +4260,8 @@ packages:
       - typescript
     dev: false
 
-  /@nrwl/nx-cloud/15.2.1:
-    resolution: {integrity: sha512-T4ycGSx77TdvS0j6tKI/6zmh6YtsPHyfB2li+wDR+BW9wjGGqOTX1QvG3gf0k2enhA3dxLgYnmeDZoEUek6MOw==}
+  /@nrwl/nx-cloud/15.2.3:
+    resolution: {integrity: sha512-odbLJVhANnjXhUvHOeKGfMeK6hrC8poa/y1p6Wj1E5K8xbECMlz/kUWYjcbkEFcSCGyjCednDZCirhT9oy3RVQ==}
     hasBin: true
     dependencies:
       axios: 0.21.4
