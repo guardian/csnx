@@ -75,7 +75,8 @@ export const select = (select = selectThemeDefault.select): SerializedStyles =>
 		width: 100%;
 		${textSans.medium()};
 		background-color: ${select.backgroundInput};
-		border: 2px solid ${select.border};
+		border: 1px solid ${select.border};
+		border-radius: 4px;
 		padding-left: ${space[2]}px;
 
 		@supports (${appearance}) {

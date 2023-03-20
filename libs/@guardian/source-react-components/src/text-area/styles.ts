@@ -25,7 +25,8 @@ export const textArea = css`
 	${textSans.medium()};
 	color: ${palette.neutral[7]};
 	background-color: ${palette.neutral[100]};
-	border: 2px solid ${palette.neutral[46]};
+	border: 1px solid ${palette.neutral[46]};
+	border-radius: 4px;
 	padding: ${space[2]}px ${space[2]}px 0 ${space[2]}px;
 
 	&:focus {

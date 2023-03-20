@@ -64,7 +64,8 @@ export const checkbox = (
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 2px solid currentColor;
+	border: 1px solid currentColor;
+	border-radius: 4px;
 	position: relative;
 	transition: box-shadow ${transitions.short};
 	transition-delay: 0.08s;
