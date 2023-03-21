@@ -1,5 +1,11 @@
 # @guardian/ab-react
 
+## 4.0.1
+
+### Patch Changes
+
+- d7c0e92: Use `react` jsx runtime instead of `@emotion/react` jsx runtime
+
 ## 4.0.0
 
 ### Major Changes
