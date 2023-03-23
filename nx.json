@@ -9,6 +9,7 @@
 			"dependencies": "*",
 			"devDependencies": "*"
 		},
+		"**/tsconfig*.json": "*",
 		"tools/nx-plugins/**/*": "*",
 		".storybook/main.js": "*"
 	},

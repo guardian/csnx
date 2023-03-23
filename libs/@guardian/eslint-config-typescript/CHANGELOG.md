@@ -1,5 +1,11 @@
 # @guardian/eslint-config-typescript
 
+## 5.0.0
+
+### Major Changes
+
+- Now requires TypeScript ~4.9.5 (if you use it with TypeScript).
+
 ## 4.0.0
 
 ### Major Changes

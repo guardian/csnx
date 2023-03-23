@@ -17,6 +17,10 @@ export interface CheckboxGroupProps extends Props {
 	 */
 	label?: string;
 	/**
+	 * Adds the word "Optional" after the label
+	 */
+	optional?: boolean;
+	/**
 	 * Appears as a legend at the top of the checkbox group
 	 */
 	hideLabel?: boolean;
@@ -48,6 +52,7 @@ export const CheckboxGroup = ({
 	name,
 	label,
 	hideLabel,
+	optional = false,
 	supporting,
 	error,
 	cssOverrides,
@@ -56,7 +61,12 @@ export const CheckboxGroup = ({
 }: CheckboxGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
-		<Legend text={label} supporting={supporting} hideLabel={hideLabel} />
+		<Legend
+			text={label}
+			supporting={supporting}
+			hideLabel={hideLabel}
+			optional={optional}
+		/>
 	) : (
 		''
 	);

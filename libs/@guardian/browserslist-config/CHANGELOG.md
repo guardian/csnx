@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 4.1.0
+
+### Minor Changes
+
+- c755ea2: Updated with last 30 days usage data (2023-02-07 to 2023-03-08)
+
 ## 4.0.0
 
 ### Major Changes

@@ -19,7 +19,10 @@ export { between, from, until } from './mq/mq';
 // palette
 export { palette };
 
-/** @deprecated exports - to be removed in a future major version */
+/**
+ * @deprecated exports - to be removed in a future major version.
+ * Colours should now be imported from the `palette` object.
+ */
 export {
 	background,
 	brandBackground,
@@ -35,7 +38,10 @@ export {
 	brandAltText,
 } from './colour/palette';
 
-/** @deprecated exports - to be removed in a future major version */
+/**
+ * @deprecated exports - to be removed in a future major version.
+ * Colours should now be imported from the `palette` object.
+ */
 export const {
 	brand,
 	brandAlt,
