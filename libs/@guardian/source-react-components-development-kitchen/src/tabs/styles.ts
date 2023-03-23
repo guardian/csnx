@@ -23,7 +23,8 @@ export const tabButton = (
 	text-decoration: none;
 	appearance: none;
 	width: 100%;
-	height: ${space[12]}px;
+	min-height: ${space[12]}px;
+	align-self: stretch;
 	text-align: left;
 	color: ${tabs.text};
 	padding: ${space[2]}px ${space[3]}px;
