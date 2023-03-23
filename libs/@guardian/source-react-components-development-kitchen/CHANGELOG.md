@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 10.0.1
+
+### Patch Changes
+
+- 0d092ef: Tabs should fit their content rather than be a fixed height
+
 ## 10.0.0
 
 ### Major Changes
