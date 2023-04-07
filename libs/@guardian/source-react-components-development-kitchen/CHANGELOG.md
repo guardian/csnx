@@ -15,6 +15,12 @@
 - Updated dependencies
   - @guardian/source-foundations@11.0.0
   - @guardian/source-react-components@13.0.0
+  
+## 10.0.1
+
+### Patch Changes
+
+- 0d092ef: Tabs should fit their content rather than be a fixed height
 
 ## 10.0.0
 

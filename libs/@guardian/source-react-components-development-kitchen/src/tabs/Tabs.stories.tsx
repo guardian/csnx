@@ -6,7 +6,24 @@ import { Tabs } from './tabs';
 
 const dogsTab = {
 	id: 'dog',
-	text: 'Dogs',
+	text: (
+		<div
+			css={css`
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+			`}
+		>
+			<span
+				css={css`
+					padding-right: 4px;
+				`}
+			>
+				Dogs
+			</span>
+			<span>(are the best)</span>
+		</div>
+	),
 	content: (
 		<p>
 			Vestibulum fermentum nibh ac est venenatis facilisis. In vehicula mattis
