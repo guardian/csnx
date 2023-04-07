@@ -71,7 +71,7 @@ importers:
       '@nrwl/devkit': 15.3.0_nx@15.3.0+typescript@4.9.5
       '@nrwl/eslint-plugin-nx': 15.3.0_3mokpfp3eprkmtlpzolh3kzrsu
       '@nrwl/jest': 15.3.0_fr4tj5qfvufo3dg4wlazhvctpq
-      '@nrwl/nx-cloud': 15.1.1
+      '@nrwl/nx-cloud': 15.3.5
       '@nrwl/workspace': 15.3.0_nxcwcvubmicxt6wwcagzbihoti
       '@storybook/addon-a11y': 6.5.14_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-docs': 6.5.14_nljus74hj57bwlfv3fd34cxvkq
@@ -163,8 +163,8 @@ importers:
       '@guardian/eslint-plugin-source-foundations': 11.0.0
       '@guardian/eslint-plugin-source-react-components': 14.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 12.0.0
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 13.0.0
       '@storybook/addon-viewport': 6.5.16
       '@testing-library/dom': 7.29.1
       '@testing-library/jest-dom': 5.16.3
@@ -241,7 +241,7 @@ importers:
       eslint-plugin-import: 2.26.0
       tslib: ^2.4.1
     dependencies:
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.5.0_eslint@8.0.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.0.0
       eslint-plugin-import: 2.26.0_eslint@8.0.0
     devDependencies:
@@ -272,7 +272,7 @@ importers:
   libs/@guardian/eslint-plugin-source-foundations:
     specifiers:
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
+      '@guardian/source-foundations': 11.0.0
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -298,8 +298,8 @@ importers:
     specifiers:
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 12.0.0
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 13.0.0
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -364,7 +364,7 @@ importers:
     specifiers:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0
-      '@guardian/source-foundations': 10.0.0
+      '@guardian/source-foundations': 11.0.0
       '@svgr/babel-preset': 6.5.1
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1
@@ -409,8 +409,8 @@ importers:
       '@babel/core': 7.20.12
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 12.0.0
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 13.0.0
       '@types/react': 17.0.1
       react: 17.0.1
       tslib: 2.4.1
@@ -508,29 +508,6 @@ packages:
       resolve: 1.22.1
       semver: 5.7.1
       source-map: 0.5.7
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@babel/core/7.19.0:
-    resolution: {integrity: sha512-reM4+U7B9ss148rh2n1Qs9ASS+w94irYXga7c2jaQv9RVzpS7Mv1a9rnYYwuDa45G+DkORt9g6An2k/V4d9LbQ==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@ampproject/remapping': 2.2.0
-      '@babel/code-frame': 7.18.6
-      '@babel/generator': 7.20.14
-      '@babel/helper-compilation-targets': 7.20.7_@babel+core@7.19.0
-      '@babel/helper-module-transforms': 7.20.11
-      '@babel/helpers': 7.20.13
-      '@babel/parser': 7.20.15
-      '@babel/template': 7.20.7
-      '@babel/traverse': 7.20.13
-      '@babel/types': 7.20.7
-      convert-source-map: 1.9.0
-      debug: 4.3.4
-      gensync: 1.0.0-beta.2
-      json5: 2.2.3
-      semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -637,20 +614,6 @@ packages:
       '@babel/core': 7.20.5
       '@babel/helper-validator-option': 7.18.6
       browserslist: 4.21.4
-      semver: 6.3.0
-    dev: true
-
-  /@babel/helper-compilation-targets/7.20.7_@babel+core@7.19.0:
-    resolution: {integrity: sha512-4tGORmfQcrc+bvrjb5y3dG9Mx1IOZjsHqQVUz7XCNHO+iTmqxWnVg3KRygjGmpRLJGdQSKuvFinbIb0CnZwHAQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    dependencies:
-      '@babel/compat-data': 7.20.5
-      '@babel/core': 7.19.0
-      '@babel/helper-validator-option': 7.18.6
-      browserslist: 4.21.4
-      lru-cache: 5.1.1
       semver: 6.3.0
     dev: true
 
@@ -4271,8 +4234,8 @@ packages:
       - typescript
     dev: false
 
-  /@nrwl/nx-cloud/15.1.1:
-    resolution: {integrity: sha512-aIVb87PQpAjwdEaFksQ3rYgFq9MDaBG2KvYZcj/k+z2uWeWH84ha/opO37aCFLf5VXNiyJZGRb/+7vW7BFpNOw==}
+  /@nrwl/nx-cloud/15.3.5:
+    resolution: {integrity: sha512-JMKLY0HhdzQ/6jEvfL/EecPPdsdBIM0SyFrWAjikSJAh5MqhpFJWnr6FfTc5P57PJZ+IUNLkJ21VMuoTrA4+4w==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -6056,22 +6019,22 @@ packages:
       '@babel/core': 7.20.12
     dev: true
 
-  /@svgr/babel-plugin-remove-jsx-attribute/6.3.1:
+  /@svgr/babel-plugin-remove-jsx-attribute/6.3.1_@babel+core@7.20.12:
     resolution: {integrity: sha512-dQzyJ4prwjcFd929T43Z8vSYiTlTu8eafV40Z2gO7zy/SV5GT+ogxRJRBIKWomPBOiaVXFg3jY4S5hyEN3IBjQ==}
     engines: {node: '>=10'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.19.0
-    transitivePeerDependencies:
-      - supports-color
+      '@babel/core': 7.20.12
     dev: true
 
-  /@svgr/babel-plugin-remove-jsx-empty-expression/6.3.1:
+  /@svgr/babel-plugin-remove-jsx-empty-expression/6.3.1_@babel+core@7.20.12:
     resolution: {integrity: sha512-HBOUc1XwSU67fU26V5Sfb8MQsT0HvUyxru7d0oBJ4rA2s4HW3PhyAPC7fV/mdsSGpAvOdd8Wpvkjsr0fWPUO7A==}
     engines: {node: '>=10'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.19.0
-    transitivePeerDependencies:
-      - supports-color
+      '@babel/core': 7.20.12
     dev: true
 
   /@svgr/babel-plugin-replace-jsx-attribute-value/6.5.1_@babel+core@7.20.12:
@@ -6127,15 +6090,13 @@ packages:
     dependencies:
       '@babel/core': 7.20.12
       '@svgr/babel-plugin-add-jsx-attribute': 6.5.1_@babel+core@7.20.12
-      '@svgr/babel-plugin-remove-jsx-attribute': 6.3.1
-      '@svgr/babel-plugin-remove-jsx-empty-expression': 6.3.1
+      '@svgr/babel-plugin-remove-jsx-attribute': 6.3.1_@babel+core@7.20.12
+      '@svgr/babel-plugin-remove-jsx-empty-expression': 6.3.1_@babel+core@7.20.12
       '@svgr/babel-plugin-replace-jsx-attribute-value': 6.5.1_@babel+core@7.20.12
       '@svgr/babel-plugin-svg-dynamic-title': 6.5.1_@babel+core@7.20.12
       '@svgr/babel-plugin-svg-em-dimensions': 6.5.1_@babel+core@7.20.12
       '@svgr/babel-plugin-transform-react-native-svg': 6.5.1_@babel+core@7.20.12
       '@svgr/babel-plugin-transform-svg-component': 6.5.1_@babel+core@7.20.12
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@svgr/core/6.5.1:
@@ -6197,11 +6158,13 @@ packages:
       svgo: 2.8.0
     dev: true
 
-  /@swc-node/core/1.9.1:
+  /@swc-node/core/1.9.1_@swc+core@1.3.22:
     resolution: {integrity: sha512-Mh4T/PmQOpPtqw1BNvU38uWzsXbd5RJji17YBXnj7JDDE5KlTR9sSo2RKxWKDVtHbdcD1S+CtyZXA93aEWlfGQ==}
     engines: {node: '>= 10'}
+    peerDependencies:
+      '@swc/core': '>= 1.3'
     dependencies:
-      '@swc/core': 1.3.20
+      '@swc/core': 1.3.22
     dev: true
 
   /@swc-node/register/1.5.4_ocfgs46hmkcxf3o5p6jyqzreeu:
@@ -6210,7 +6173,7 @@ packages:
       '@swc/core': '>= 1.3'
       typescript: '>= 4.3'
     dependencies:
-      '@swc-node/core': 1.9.1
+      '@swc-node/core': 1.9.1_@swc+core@1.3.22
       '@swc-node/sourcemap-support': 0.2.2
       '@swc/core': 1.3.22
       colorette: 2.0.19
@@ -6229,28 +6192,10 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@swc/core-darwin-arm64/1.3.20:
-    resolution: {integrity: sha512-ZLk5oVP4v/BAdC3FuBuyB0xpnkZStblIajiyo/kpp/7mq3YbABhOxTCUJGDozISbkaZlIZFXjqvHHnIS42tssw==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core-darwin-arm64/1.3.22:
     resolution: {integrity: sha512-MMhtPsuXp8gpUgr9bs+RZQ2IyFGiUNDG93usCDAFgAF+6VVp+YaAVjET/3/Bx5Lk2WAt0RxT62C9KTEw1YMo3w==}
     engines: {node: '>=10'}
     cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-darwin-x64/1.3.20:
-    resolution: {integrity: sha512-yM11/3n8PwougalAi9eWkz1r5QRDAg1qdXMSCn7sWlVGr0RvdPL20viKddm38yn+X3FzZzgdoajh7NGfEeqCIQ==}
-    engines: {node: '>=10'}
-    cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
@@ -6265,15 +6210,6 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core-linux-arm-gnueabihf/1.3.20:
-    resolution: {integrity: sha512-Y8YX7Ma7/xdvCR+hwqhU2lNKF7Qevlx3qZ+eGEpz2fP6k5iu8C5arUBjFWdC2OTY11OuD00TH43TgYfbWpU/Sw==}
-    engines: {node: '>=10'}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core-linux-arm-gnueabihf/1.3.22:
     resolution: {integrity: sha512-4E+TdQT1oHnHjDaPs/DyrRy9lOuFd6ncEd67yYA4j9lFqt6nuz/jnXss45k8KU7wR5kOTtdW73xPwkU4NbOWdw==}
     engines: {node: '>=10'}
@@ -6283,26 +6219,8 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core-linux-arm64-gnu/1.3.20:
-    resolution: {integrity: sha512-XCjQj4zo2T4QIqxVgzXkKxTLw4adqMgFG2iXBRRu1kOZXJor7Yzc0wH0B4rGtlkcZnh57MBbo+N1TNzH1leSFw==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core-linux-arm64-gnu/1.3.22:
     resolution: {integrity: sha512-6VcynOMbOBcbLutIPENI3Ejvg5LGz/Pwvzm25hM0FoiEtPxHA+tawQUwLx8Alk1Yr+Rnqid06UEZ0veJOGn2pQ==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-arm64-musl/1.3.20:
-    resolution: {integrity: sha512-f+fIixoNNaDjmHX0kJn8Lm1Z+CJPHqcYocGaPrXETRAv+8F3Q0rUtxO9FhDKtsG4pI6HRLmS5nBQtBBJWOmfvw==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
@@ -6319,26 +6237,8 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core-linux-x64-gnu/1.3.20:
-    resolution: {integrity: sha512-F5TKwsZh3F7CzfYoTAiNwhZazQ02NCgFZSqSwO4lOYbT7RU+zXI3OfLoi2R8f0dzfqh26QSdeeMFPdMb3LpzXg==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core-linux-x64-gnu/1.3.22:
     resolution: {integrity: sha512-FLkbiqsdXsVIFZi6iedx4rSBGX8x0vo/5aDlklSxJAAYOcQpO0QADKP5Yr65iMT1d6ABCt2d+/StpGLF7GWOcA==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-x64-musl/1.3.20:
-    resolution: {integrity: sha512-svbrCeaWU2N9saeg5yKZ2aQh+eYE6vW7y+ptZHgLIriuhnelg38mNqNjKK9emhshUNqOPLFJbW8kA1P+jOyyLw==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
@@ -6355,28 +6255,10 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core-win32-arm64-msvc/1.3.20:
-    resolution: {integrity: sha512-rFrC8JtVlnyfj5wTAIMvNWqPv0KXUA8/TmEKUlg7jgF/IweFPOFvF509tiAstz16Ui2JKL9xaA566/I+XLd+og==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core-win32-arm64-msvc/1.3.22:
     resolution: {integrity: sha512-loKGO+ZM2By6VdrmVJk1G79jVgDPaee93qLFuis5KyeoLLb4m1MlNMc/6SIDZUSuYg6NqaGP1spFeiFetMQ4Zg==}
     engines: {node: '>=10'}
     cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-win32-ia32-msvc/1.3.20:
-    resolution: {integrity: sha512-xIkBDw0Rd0G0SQ/g9FOUqrcmwcq/Iy7ScBQVV/NzziIGIUlrj9l4nYe3VyoMEH2lwAcyGo9AxwiNB0vq6vDjiQ==}
-    engines: {node: '>=10'}
-    cpu: [ia32]
     os: [win32]
     requiresBuild: true
     dev: true
@@ -6391,15 +6273,6 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core-win32-x64-msvc/1.3.20:
-    resolution: {integrity: sha512-1/vxiNasPvpCnVdMxGXEXYhRI65l7yNg/AQ9fYLQn3O5ouWJcd60+6ZoeVrnR5i/R87Fyu/A9fMhOJuOKLHXmA==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core-win32-x64-msvc/1.3.22:
     resolution: {integrity: sha512-ESyn4lZXAKEE3mcTaDfXatsolCiEfVGstsXdgBmZYa6o1IE1bDW8FE7Ob/Y+82WTpm9+A9ZYXYjZ62t67POHZg==}
     engines: {node: '>=10'}
@@ -6408,24 +6281,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@swc/core/1.3.20:
-    resolution: {integrity: sha512-wSuy5mFTbAPYGlo1DGWkTbXwUubpyYxY2Sf10Y861c4EPtwK7D1nbj35Zg0bsIQvcFG5Y2Q4sXNV5QpsnT0+1A==}
-    engines: {node: '>=10'}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      '@swc/core-darwin-arm64': 1.3.20
-      '@swc/core-darwin-x64': 1.3.20
-      '@swc/core-linux-arm-gnueabihf': 1.3.20
-      '@swc/core-linux-arm64-gnu': 1.3.20
-      '@swc/core-linux-arm64-musl': 1.3.20
-      '@swc/core-linux-x64-gnu': 1.3.20
-      '@swc/core-linux-x64-musl': 1.3.20
-      '@swc/core-win32-arm64-msvc': 1.3.20
-      '@swc/core-win32-ia32-msvc': 1.3.20
-      '@swc/core-win32-x64-msvc': 1.3.20
-    dev: true
 
   /@swc/core/1.3.22:
     resolution: {integrity: sha512-oQ9EPEb7NgWcGIDoVfLCuffvtC4MzVtrwjqwKzFHP8FUh1fn8+2wraOjkkDXW74BB4Hgve5ykkaHix9bebB9Ww==}
@@ -7503,8 +7358,10 @@ packages:
       acorn-walk: 8.2.0
     dev: true
 
-  /acorn-import-assertions/1.8.0:
+  /acorn-import-assertions/1.8.0_acorn@8.8.1:
     resolution: {integrity: sha512-m7VZ3jwz4eK6A4Vtt8Ew1/mNbP24u0FhdyfA7fSvnJR6LMdfOYnmuIrrJAgrYfYJ10F/otaHTtrtrtmHdMNzEw==}
+    peerDependencies:
+      acorn: ^8
     dependencies:
       acorn: 8.8.1
     dev: true
@@ -8624,7 +8481,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -10089,15 +9946,15 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier/8.5.0:
+  /eslint-config-prettier/8.5.0_eslint@8.0.0:
     resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+    peerDependencies:
+      eslint: '>=7.0.0'
     peerDependenciesMeta:
       eslint:
         optional: true
     dependencies:
       eslint: 8.0.0
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /eslint-import-resolver-node/0.3.6:
@@ -13066,14 +12923,40 @@ packages:
       jest-util: 29.3.1
     dev: true
 
-  /jest-pnp-resolver/1.2.3:
+  /jest-pnp-resolver/1.2.3_jest-resolve@28.1.1:
     resolution: {integrity: sha512-+3NpwQEnRoIBtx4fyhblQDPgJI0H1IEIkX7ShLUjPGA7TtUTvI1oiKi3SR4oBR0hQhQR80l4WAe5RrXBwWMA8w==}
     engines: {node: '>=6'}
+    peerDependencies:
+      jest-resolve: '*'
     peerDependenciesMeta:
       jest-resolve:
         optional: true
     dependencies:
       jest-resolve: 28.1.1
+    dev: true
+
+  /jest-pnp-resolver/1.2.3_jest-resolve@28.1.3:
+    resolution: {integrity: sha512-+3NpwQEnRoIBtx4fyhblQDPgJI0H1IEIkX7ShLUjPGA7TtUTvI1oiKi3SR4oBR0hQhQR80l4WAe5RrXBwWMA8w==}
+    engines: {node: '>=6'}
+    peerDependencies:
+      jest-resolve: '*'
+    peerDependenciesMeta:
+      jest-resolve:
+        optional: true
+    dependencies:
+      jest-resolve: 28.1.3
+    dev: true
+
+  /jest-pnp-resolver/1.2.3_jest-resolve@29.3.1:
+    resolution: {integrity: sha512-+3NpwQEnRoIBtx4fyhblQDPgJI0H1IEIkX7ShLUjPGA7TtUTvI1oiKi3SR4oBR0hQhQR80l4WAe5RrXBwWMA8w==}
+    engines: {node: '>=6'}
+    peerDependencies:
+      jest-resolve: '*'
+    peerDependenciesMeta:
+      jest-resolve:
+        optional: true
+    dependencies:
+      jest-resolve: 29.3.1
     dev: true
 
   /jest-regex-util/26.0.0:
@@ -13108,7 +12991,7 @@ packages:
       chalk: 4.1.2
       graceful-fs: 4.2.10
       jest-haste-map: 28.1.3
-      jest-pnp-resolver: 1.2.3
+      jest-pnp-resolver: 1.2.3_jest-resolve@28.1.1
       jest-util: 28.1.3
       jest-validate: 28.1.3
       resolve: 1.22.1
@@ -13123,7 +13006,7 @@ packages:
       chalk: 4.1.2
       graceful-fs: 4.2.10
       jest-haste-map: 28.1.3
-      jest-pnp-resolver: 1.2.3
+      jest-pnp-resolver: 1.2.3_jest-resolve@28.1.3
       jest-util: 28.1.3
       jest-validate: 28.1.3
       resolve: 1.22.1
@@ -13138,7 +13021,7 @@ packages:
       chalk: 4.1.2
       graceful-fs: 4.2.10
       jest-haste-map: 29.3.1
-      jest-pnp-resolver: 1.2.3
+      jest-pnp-resolver: 1.2.3_jest-resolve@29.3.1
       jest-util: 29.3.1
       jest-validate: 29.3.1
       resolve: 1.22.1
@@ -15492,6 +15375,17 @@ packages:
     engines: {node: '>=0.4.0'}
 
   /promise-inflight/1.0.1:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
+    dev: true
+
+  /promise-inflight/1.0.1_bluebird@3.7.2:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
     peerDependencies:
       bluebird: '*'
@@ -18200,7 +18094,7 @@ packages:
       '@webassemblyjs/wasm-edit': 1.11.1
       '@webassemblyjs/wasm-parser': 1.11.1
       acorn: 8.8.1
-      acorn-import-assertions: 1.8.0
+      acorn-import-assertions: 1.8.0_acorn@8.8.1
       browserslist: 4.21.4
       chrome-trace-event: 1.0.3
       enhanced-resolve: 5.12.0
