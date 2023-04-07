@@ -38,7 +38,7 @@ export const radioContainer = (
 
 	&:hover {
 		input {
-			border-color: ${radio.borderHover};
+			border: 2px solid ${radio.borderHover};
 		}
 	}
 `;
