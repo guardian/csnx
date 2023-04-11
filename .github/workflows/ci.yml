@@ -34,6 +34,7 @@ jobs:
     # wasting money running checks on PRs that are going to fail anyway.
     needs: validate
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'review_requested'}}
     strategy:
       matrix:
         include:
