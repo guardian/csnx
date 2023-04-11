@@ -29,7 +29,7 @@ export { isUndefined } from './isUndefined/isUndefined.js';
 
 export { joinUrl } from './joinUrl/joinUrl.js';
 
-export { loadScript } from './loadScript/loadScript';
+export { loadScript } from './loadScript/loadScript.js';
 
 export { getLocale } from './locale/getLocale';
 

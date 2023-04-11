@@ -1,4 +1,4 @@
-import { loadScript } from './loadScript';
+import { loadScript } from './loadScript.js';
 
 const goodURL = 'good-url';
 const badURL = 'bad-url';

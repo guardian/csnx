@@ -5,20 +5,17 @@
  *
  * If a script has been loaded already, it will resolve immediately.
  *
- * @param src - URL for the script `src`
- * @param props - any valid `script` attributes other than `src`, `onload` or `onerror`
+ * @param {string} src URL for the script `src`
+ * @param {Omit<Partial<HTMLScriptElement>, 'src' | 'onload' | 'onerror'>} [props] any valid `script` attributes other than `src`, `onload` or `onerror`
+ * @returns {Promise<Event | undefined>}
  */
-
-export const loadScript = (
-	src: string,
-	props?: Omit<Partial<HTMLScriptElement>, 'src' | 'onload' | 'onerror'>,
-): Promise<Event | undefined> =>
+export const loadScript = (src, props) =>
 	new Promise((resolve, reject) => {
 		// creating this before the check below allows us to compare the resolved `src` values
 		const script = document.createElement('script');
 		script.src = src;
 
-		// dont inject 2 scripts with the same src
+		// do not inject 2 scripts with the same src
 		if (Array.from(document.scripts).some(({ src }) => script.src === src)) {
 			return resolve(void 0);
 		}
@@ -26,13 +23,7 @@ export const loadScript = (
 		Object.assign(script, props);
 
 		script.onload = resolve;
-		script.onerror = (
-			event: string | Event,
-			source,
-			lineno,
-			colno,
-			error: Error | undefined,
-		) => {
+		script.onerror = (event, source, lineno, colno, error) => {
 			if (error) {
 				reject(error);
 				return;
@@ -44,11 +35,12 @@ export const loadScript = (
 			}
 
 			if (event instanceof Event) {
-				const target = event.target as Element;
-				const targetSrc = target.getAttribute('src') ?? '';
+				const target = event.target;
+				const targetSrc =
+					target instanceof Element ? target.getAttribute('src') : null;
 				reject(
 					new Error(
-						`Error loading script: src: ${src} targetSrc: ${targetSrc}`,
+						`Error loading script: src: ${src} targetSrc: ${targetSrc ?? ''}`,
 					),
 				);
 				return;
@@ -58,5 +50,5 @@ export const loadScript = (
 		};
 
 		const ref = document.scripts[0];
-		ref?.parentNode?.insertBefore(script, ref);
+		if (ref) ref.parentNode?.insertBefore(script, ref);
 	});
