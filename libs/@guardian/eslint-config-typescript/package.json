@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "4.0.0",
+	"version": "5.0.0",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": "index.js",
 	"dependencies": {
@@ -8,17 +8,16 @@
 		"@typescript-eslint/eslint-plugin": "5.46.1",
 		"@typescript-eslint/parser": "5.46.1",
 		"eslint-import-resolver-typescript": "3.5.2",
-		"eslint-plugin-import": "2.26.0",
-		"typescript": "4.2.2"
+		"eslint-plugin-import": "2.26.0"
 	},
 	"devDependencies": {
 		"eslint": "8.0.0",
 		"tslib": "2.4.1",
-		"typescript": "4.2.2"
+		"typescript": "4.9.5"
 	},
 	"peerDependencies": {
 		"eslint": "^8.0.0",
 		"tslib": "^2.4.1",
-		"typescript": "^4.2.2"
+		"typescript": "~4.9.5"
 	}
 }

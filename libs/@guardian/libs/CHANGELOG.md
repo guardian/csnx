@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 14.0.0
+
+### Major Changes
+
+- Now requires TypeScript ~4.9.5 (if you use it with TypeScript).
+
 ## 13.1.0
 
 ### Minor Changes

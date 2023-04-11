@@ -1,26 +1,25 @@
 {
 	"name": "@guardian/ab-react",
-	"version": "3.0.0",
+	"version": "4.0.1",
 	"private": false,
 	"description": "A React library for A/B & multivariate testing",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"devDependencies": {
-		"@emotion/react": "11.0.0",
-		"@guardian/ab-core": "3.0.0",
+		"@guardian/ab-core": "4.0.0",
 		"@testing-library/react": "11.2.2",
 		"@types/react": "18.0.28",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.4.1",
-		"typescript": "4.3.2"
+		"typescript": "4.9.5"
 	},
 	"peerDependencies": {
-		"@guardian/ab-core": "^3.0.0",
+		"@guardian/ab-core": "^4.0.0",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"tslib": "^2.4.1",
-		"typescript": "^4.3.2"
+		"typescript": "~4.9.5"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {

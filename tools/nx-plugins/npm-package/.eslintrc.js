@@ -9,6 +9,7 @@ module.exports = {
 			},
 			rules: {
 				'import/no-default-export': 'off', // Nx plugins export defaults
+				'@typescript-eslint/unbound-method': 'off',
 			},
 		},
 	],
