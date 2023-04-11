@@ -1,5 +1,16 @@
 # @guardian/atoms-rendering
 
+## 28.0.0
+
+### Major Changes
+
+- Update React to v18
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/source-react-components@13.0.0
+
 ## 27.0.0
 
 ### Major Changes
