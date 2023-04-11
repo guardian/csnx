@@ -1,12 +1,10 @@
-import type { TeamName } from './@types/logger';
-
 /** Common Guardian blue label. Do not edit */
-const commonStyle = {
+const commonStyle = /** @type {const} */ ({
 	common: {
 		background: '#052962',
 		font: '#ffffff',
 	},
-} as const;
+});
 
 /**
  * You can only subscribe to teams from this list.
@@ -14,7 +12,7 @@ const commonStyle = {
  *
  * Make sure your label has a contrast ratio of 4.5 or more.
  * */
-const teamStyles = {
+const teamStyles = /** @type {const} */ ({
 	commercial: {
 		background: '#77EEAA',
 		font: '#004400',
@@ -43,9 +41,12 @@ const teamStyles = {
 		background: '#6F5F8F',
 		font: '#ffffff',
 	},
-} as const;
+});
 
-const isTeam = (team: string): team is TeamName =>
-	Object.keys(teamStyles).includes(team);
+/** @typedef {keyof typeof teamStyles} TeamName */
+/** @typedef {TeamName | keyof typeof commonStyle} TeamStyle */
+
+/** @type {(team: string) => team is TeamName} */
+const isTeam = (team) => team in teamStyles;
 
 export { commonStyle, teamStyles, isTeam };

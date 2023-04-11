@@ -1,10 +1,10 @@
 import { hex } from 'wcag-contrast';
-import { storage } from '../storage/storage';
-import type { TeamName } from './@types/logger';
-import { debug } from './debug';
-import { log } from './log';
-import { STORAGE_KEY } from './storage-key';
-import { teamStyles } from './teamStyles';
+import { storage } from '../storage/storage.js';
+import { debug } from './debug.js';
+import { log } from './log.js';
+import { STORAGE_KEY } from './storage-key.js';
+import type { TeamName } from './teamStyles.js';
+import { teamStyles } from './teamStyles.js';
 
 const spy = jest
 	.spyOn(console, 'log')

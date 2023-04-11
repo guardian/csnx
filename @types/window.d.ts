@@ -1,4 +1,4 @@
-import type { TeamSubscription } from '../libs/@guardian/libs/src/logger/@types/logger';
+import type { TeamSubscription } from '../libs/@guardian/libs/src/logger/log.js';
 import type { Switches } from '../libs/@guardian/libs/src/switches/@types/Switches';
 
 declare global {
