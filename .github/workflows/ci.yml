@@ -4,7 +4,6 @@ on:
     branches:
       - main
   pull_request:
-    types: ['review_requested']
 
 jobs:
   validate:
@@ -33,6 +32,7 @@ jobs:
     # Kick chromatic off only once all other steps have passed. This stops us
     # wasting money running checks on PRs that are going to fail anyway.
     needs: validate
+    if: ${{ github.event.label.name == 'run_chromatic' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
