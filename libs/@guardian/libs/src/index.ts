@@ -27,7 +27,7 @@ export { isObject } from './isObject/isObject.js';
 export { isString } from './isString/isString.js';
 export { isUndefined } from './isUndefined/isUndefined.js';
 
-export { joinUrl } from './joinUrl/joinUrl';
+export { joinUrl } from './joinUrl/joinUrl.js';
 
 export { loadScript } from './loadScript/loadScript';
 
