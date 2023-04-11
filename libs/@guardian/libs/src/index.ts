@@ -30,7 +30,7 @@ export { joinUrl } from './joinUrl/joinUrl.js';
 
 export { loadScript } from './loadScript/loadScript.js';
 
-export { getLocale } from './locale/getLocale';
+export { getLocale } from './locale/getLocale.js';
 
 export { debug } from './logger/debug.js';
 export { log } from './logger/log.js';

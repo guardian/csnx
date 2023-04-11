@@ -1,10 +1,10 @@
 import fetchMock from 'jest-fetch-mock';
-import * as getCookieForSpy from '../cookies/getCookie';
-import { getCookie } from '../cookies/getCookie';
-import { removeCookie } from '../cookies/removeCookie';
-import { setSessionCookie } from '../cookies/setSessionCookie';
-import { storage } from '../storage/storage';
-import { __resetCachedValue, getLocale } from './getLocale';
+import * as getCookieForSpy from '../cookies/getCookie.js';
+import { getCookie } from '../cookies/getCookie.js';
+import { removeCookie } from '../cookies/removeCookie.js';
+import { setSessionCookie } from '../cookies/setSessionCookie.js';
+import { storage } from '../storage/storage.js';
+import { __resetCachedValue, getLocale } from './getLocale.js';
 
 const KEY = 'GU_geo_country';
 const KEY_OVERRIDE = 'gu.geo.override';
