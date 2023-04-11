@@ -6,24 +6,19 @@ import { memoizedCookies } from './memoizedCookies';
 
 /**
  * Set a cookie. If it's been memoized it will replace it's memoized value
- * @param details Details about the cookie.
- * @param details.name - the cookie’s name.
- * @param details.value - the cookie’s value.
- * @param details.daysToLive - optional expiry date will be calculated based on the daysToLive
- * @param details.isCrossSubdomain - specify if it's a cross subdomain cookie, default false
+ * @param {object} details - Details about the cookie.
+ * @param {string} details.name - the cookie’s name.
+ * @param {string} details.value - the cookie’s value.
+ * @param {number} [details.daysToLive] - optional expiry date will be calculated based on the daysToLive
+ * @param {boolean} [details.isCrossSubdomain] - specify if it's a cross subdomain cookie, default false
+ * @returns {void}
  */
-
 export const setCookie = ({
 	name,
 	value,
 	daysToLive,
 	isCrossSubdomain = false,
-}: {
-	name: string;
-	value: string;
-	daysToLive?: number;
-	isCrossSubdomain?: boolean;
-}): void => {
+}) => {
 	const expires = new Date();
 
 	if (!isValidCookie(name, value)) {

@@ -2,10 +2,10 @@
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
-export { getCookie } from './cookies/getCookie';
-export { removeCookie } from './cookies/removeCookie';
-export { setCookie } from './cookies/setCookie';
-export { setSessionCookie } from './cookies/setSessionCookie';
+export { getCookie } from './cookies/getCookie.js';
+export { removeCookie } from './cookies/removeCookie.js';
+export { setCookie } from './cookies/setCookie.js';
+export { setSessionCookie } from './cookies/setSessionCookie.js';
 
 export type { Country } from './countries/@types/Country';
 export type { CountryCode } from './countries/@types/CountryCode';
