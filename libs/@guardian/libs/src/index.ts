@@ -48,7 +48,7 @@ export type {
 	OphanProduct,
 } from './ophan/@types';
 
-export { storage } from './storage/storage';
+export { storage } from './storage/storage.js';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';

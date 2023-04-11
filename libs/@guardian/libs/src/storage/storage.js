@@ -1,10 +1,15 @@
-import { isObject } from '../isObject/isObject';
-import { isString } from '../isString/isString';
+import { isObject } from '../isObject/isObject.js';
+import { isString } from '../isString/isString.js';
 
 class StorageFactory {
-	#storage: Storage | undefined; // https://mdn.io/Private_class_fields
+	/**
+	 * https://mdn.io/Private_class_fields
+	 * @type {Storage | undefined}
+	 */
+	#storage;
 
-	constructor(storageHandler: 'localStorage' | 'sessionStorage') {
+	/** @param storageHandler {'localStorage' | 'sessionStorage'}  */
+	constructor(storageHandler) {
 		try {
 			const storage = window[storageHandler];
 			const uid = new Date().toString();
@@ -19,19 +24,22 @@ class StorageFactory {
 
 	/**
 	 * Check whether storage is available.
+	 * @returns {boolean}
 	 */
-	isAvailable(): boolean {
+	isAvailable() {
 		return Boolean(this.#storage);
 	}
 
 	/**
 	 * Retrieve an item from storage.
 	 *
-	 * @param key - the name of the item
+	 * @param key {string} the name of the item
+	 * @returns {unknown}
 	 */
-	get(key: string): unknown {
+	get(key) {
 		try {
-			const data: unknown = JSON.parse(this.#storage?.getItem(key) ?? '');
+			/** @type unknown */
+			const data = JSON.parse(this.#storage?.getItem(key) ?? '');
 			if (!isObject(data)) return null;
 			const { value, expires } = data;
 
@@ -50,11 +58,12 @@ class StorageFactory {
 	/**
 	 * Save a value to storage.
 	 *
-	 * @param key - the name of the item
-	 * @param value - the data to save
-	 * @param expires - optional date on which this data will expire
+	 * @param key {string} the name of the item
+	 * @param value {unknown} the data to save
+	 * @param [expires] {string | number | Date} optional date on which this data will expire
+	 * @returns {void}
 	 */
-	set(key: string, value: unknown, expires?: string | number | Date): void {
+	set(key, value, expires) {
 		return this.#storage?.setItem(
 			key,
 			JSON.stringify({
@@ -67,35 +76,39 @@ class StorageFactory {
 	/**
 	 * Remove an item from storage.
 	 *
-	 * @param key - the name of the item
+	 * @param key {string} the name of the item
+	 * @returns {void}
 	 */
-	remove(key: string): void {
+	remove(key) {
 		return this.#storage?.removeItem(key);
 	}
 
 	/**
 	 * Removes all items from storage.
+	 * @returns {void}
 	 */
-	clear(): void {
+	clear() {
 		return this.#storage?.clear();
 	}
 
 	/**
 	 * Retrieve an item from storage in its raw state.
 	 *
-	 * @param key - the name of the item
+	 * @param key {string} the name of the item
+	 * @returns {string | null}
 	 */
-	getRaw(key: string): string | null {
+	getRaw(key) {
 		return this.#storage?.getItem(key) ?? null;
 	}
 
 	/**
 	 * Save a raw value to storage.
 	 *
-	 * @param key - the name of the item
-	 * @param value - the data to save
+	 * @param key {string} the name of the item
+	 * @param value {string} the data to save
+	 * @returns {void}
 	 */
-	setRaw(key: string, value: string): void {
+	setRaw(key, value) {
 		return this.#storage?.setItem(key, value);
 	}
 }
@@ -110,8 +123,10 @@ class StorageFactory {
  * All methods are available for both `localStorage` and `sessionStorage`.
  */
 export const storage = new (class {
-	#local: StorageFactory | undefined;
-	#session: StorageFactory | undefined;
+	/** @type {StorageFactory | undefined}*/
+	#local;
+	/** @type {StorageFactory | undefined}*/
+	#session;
 
 	// creating the instance requires testing the native implementation
 	// which is blocking. therefore, only create new instances of the factory
