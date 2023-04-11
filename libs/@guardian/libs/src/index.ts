@@ -21,11 +21,11 @@ export { ArticlePillar } from './format/ArticlePillar';
 export { ArticleSpecial } from './format/ArticleSpecial';
 export type { ArticleTheme } from './format/ArticleTheme';
 
-export { isBoolean } from './isBoolean/isBoolean';
-export { isNonNullable } from './isNonNullable/isNonNullable';
-export { isObject } from './isObject/isObject';
-export { isString } from './isString/isString';
-export { isUndefined } from './isUndefined/isUndefined';
+export { isBoolean } from './isBoolean/isBoolean.js';
+export { isNonNullable } from './isNonNullable/isNonNullable.js';
+export { isObject } from './isObject/isObject.js';
+export { isString } from './isString/isString.js';
+export { isUndefined } from './isUndefined/isUndefined.js';
 
 export { joinUrl } from './joinUrl/joinUrl';
 

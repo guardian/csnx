@@ -1,4 +1,4 @@
-import { isString } from './isString';
+import { isString } from './isString.js';
 
 describe('isString', () => {
 	it('detects a valid string', () => {

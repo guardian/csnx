@@ -1,4 +1,4 @@
-import { isUndefined } from './isUndefined';
+import { isUndefined } from './isUndefined.js';
 
 let a: undefined;
 
