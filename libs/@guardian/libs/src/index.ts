@@ -14,12 +14,12 @@ export { getCountryByCountryCode } from './countries/getCountryByCountryCode';
 
 export { timeAgo } from './datetime/timeAgo';
 
-export { ArticleDesign } from './format/ArticleDesign';
-export { ArticleDisplay } from './format/ArticleDisplay';
-export type { ArticleFormat } from './format/ArticleFormat';
-export { ArticlePillar } from './format/ArticlePillar';
-export { ArticleSpecial } from './format/ArticleSpecial';
-export type { ArticleTheme } from './format/ArticleTheme';
+export { ArticleDesign } from './format/ArticleDesign.js';
+export { ArticleDisplay } from './format/ArticleDisplay.js';
+export type { ArticleFormat } from './format/ArticleFormat.js';
+export { ArticlePillar } from './format/ArticlePillar.js';
+export { ArticleSpecial } from './format/ArticleSpecial.js';
+export type { ArticleTheme } from './format/ArticleTheme.js';
 
 export { isBoolean } from './isBoolean/isBoolean.js';
 export { isNonNullable } from './isNonNullable/isNonNullable.js';

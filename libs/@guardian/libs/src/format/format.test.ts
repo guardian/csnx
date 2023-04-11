@@ -1,20 +1,45 @@
-import { ArticleDesign } from './ArticleDesign';
-import { ArticleDisplay } from './ArticleDisplay';
-import { ArticlePillar } from './ArticlePillar';
-import { ArticleSpecial } from './ArticleSpecial';
+import { ArticleDesign } from './ArticleDesign.js';
+import { ArticleDisplay } from './ArticleDisplay.js';
+import { ArticlePillar } from './ArticlePillar.js';
+import { ArticleSpecial } from './ArticleSpecial.js';
+import { ArticleTheme } from './ArticleTheme.js';
 
-it('Design enum contains Article', () => {
+/** An object is an enum if all all its keys map to unique numbers */
+const isEnum = (obj: Record<string, number>) =>
+	Object.keys(obj).length === new Set(Object.values(obj)).size;
+
+it('Design is like an enum', () => {
+	expect(isEnum(ArticleDesign)).toBe(true);
+});
+
+it('Design contains Standard', () => {
 	expect(ArticleDesign.Standard).toBeDefined();
 });
 
-it('Display enum contains Standard', () => {
+it('Display is like an enum', () => {
+	expect(isEnum(ArticleDisplay)).toBe(true);
+});
+
+it('Display contains Standard', () => {
 	expect(ArticleDisplay.Standard).toBeDefined();
 });
 
-it('Pillar enum contains News', () => {
+it('Pillar is like an enum', () => {
+	expect(isEnum(ArticlePillar)).toBe(true);
+});
+
+it('Pillar contains News', () => {
 	expect(ArticlePillar.News).toBe(0);
 });
 
-it('Special enum contains SpecialReport', () => {
+it('Special is like an enum', () => {
+	expect(isEnum(ArticleSpecial)).toBe(true);
+});
+
+it('Special contains SpecialReport', () => {
 	expect(ArticleSpecial.SpecialReport).toBe(5);
+});
+
+it('Theme is like an enum', () => {
+	expect(isEnum(ArticleTheme)).toBe(true);
 });

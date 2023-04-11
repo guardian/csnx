@@ -1,0 +1,31 @@
+/** @typedef {typeof ArticleDesign[keyof typeof ArticleDesign]} ArticleDesign */
+
+export const ArticleDesign =
+	/** @type {const} @satisfies {Record<string, number>} */ ({
+		Standard: 100,
+		Gallery: 101,
+		Audio: 102,
+		Video: 103,
+		Review: 104,
+		Analysis: 105,
+		Explainer: 106,
+		Comment: 107,
+		Letter: 108,
+		Feature: 109,
+		LiveBlog: 110,
+		DeadBlog: 111,
+		Recipe: 112,
+		MatchReport: 113,
+		Interview: 114,
+		Editorial: 115,
+		Quiz: 116,
+		Interactive: 117,
+		PhotoEssay: 118,
+		PrintShop: 119,
+		Obituary: 120,
+		Correction: 121,
+		FullPageInteractive: 122,
+		NewsletterSignup: 123,
+		Timeline: 124,
+		Profile: 125,
+	});
