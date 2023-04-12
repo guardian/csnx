@@ -134,6 +134,7 @@ importers:
 
   libs/@guardian/ab-react:
     specifiers:
+      '@emotion/react': 11.0.0
       '@guardian/ab-core': 4.0.0
       '@testing-library/react': 11.2.2
       '@types/react': ~17.0
@@ -142,6 +143,7 @@ importers:
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
+      '@emotion/react': 11.0.0_wk7fohhuxwcjfgq2kdoh4ny7by
       '@guardian/ab-core': link:../ab-core
       '@testing-library/react': 11.2.2_sfoxds7t5ydpegc3knd667wn6m
       '@types/react': 17.0.1
@@ -3385,6 +3387,29 @@ packages:
       '@types/react': 17.0.1
       hoist-non-react-statics: 3.3.2
       react: 17.0.1
+    dev: true
+
+  /@emotion/react/11.0.0_wk7fohhuxwcjfgq2kdoh4ny7by:
+    resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+      '@types/react': '*'
+      react: '>=16.8.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.6
+      '@emotion/cache': 11.10.3
+      '@emotion/serialize': 1.1.1
+      '@emotion/sheet': 1.2.0
+      '@emotion/utils': 1.2.0
+      '@emotion/weak-memoize': 0.2.5
+      '@types/react': 17.0.1
+      hoist-non-react-statics: 3.3.2
+      react: 17.0.2
     dev: true
 
   /@emotion/react/11.1.5_rnawoibddm4mr3vbowjsvrrtn4:
