@@ -20,7 +20,7 @@
 				"libs/@guardian/atoms-rendering/src/index.ts"
 			],
 			"@guardian/core-web-vitals": [
-				"libs/@guardian/core-web-vitals/src/index.ts"
+				"libs/@guardian/core-web-vitals/src/index.js"
 			],
 			"@guardian/eslint-plugin-source-foundations": [
 				"libs/@guardian/eslint-plugin-source-foundations/src/index.ts"

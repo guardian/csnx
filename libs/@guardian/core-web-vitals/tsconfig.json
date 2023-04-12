@@ -2,6 +2,12 @@
 	"extends": "../../../tsconfig.base.json",
 	"files": ["../../../@types/window.d.ts"],
 	"include": ["."],
+	"compilerOptions": {
+		"noEmit": true,
+		"declaration": false,
+		"declarationMap": false,
+		"checkJs": true
+	},
 	"references": [
 		{
 			"path": "./tsconfig.spec.json"

@@ -1,15 +1,25 @@
-import type { TeamName } from '@guardian/libs';
 import { log } from '@guardian/libs';
-import type { ReportHandler } from 'web-vitals';
-import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
-enum Endpoints {
-	PROD = 'https://performance-events.guardianapis.com/core-web-vitals',
-	CODE = 'https://performance-events.code.dev-guardianapis.com/core-web-vitals',
-}
+const Endpoints = /** @type {const} */ ({
+	PROD: 'https://performance-events.guardianapis.com/core-web-vitals',
+	CODE: 'https://performance-events.code.dev-guardianapis.com/core-web-vitals',
+});
 
-const coreWebVitalsPayload: CoreWebVitalsPayload = {
+/**
+ * The payload object
+ * @typedef {object} CoreWebVitalsPayload
+ * @property {string | null} browser_id
+ * @property {string | null} page_view_id
+ * @property {number | null} fid [First Input Delay](https://web.dev/fid/)
+ * @property {number | null} cls [Cumulative Layout Shift](https://web.dev/cls/)
+ * @property {number | null} lcp [Largest Contentful Pain]((https://web.dev/lcp/))
+ * @property {number | null} fcp [First Contentful Pain]((https://web.dev/fcp/))
+ * @property {number | null} ttfb [Time To First Byte]((https://web.dev/ttfb/))
+ */
+
+/** @type {CoreWebVitalsPayload} */
+const coreWebVitalsPayload = {
 	browser_id: null,
 	page_view_id: null,
 	fid: null,
@@ -19,16 +29,19 @@ const coreWebVitalsPayload: CoreWebVitalsPayload = {
 	ttfb: null,
 };
 
-const teamsForLogging: Set<TeamName> = new Set();
-let endpoint: Endpoints;
+/** @type {Set<import('@guardian/libs').TeamName>} */
+const teamsForLogging = new Set();
+/** @type {typeof Endpoints[keyof typeof Endpoints]} */
+let endpoint;
 let initialised = false;
 
-const setEndpoint = (isDev: boolean) => {
+/** @param {boolean} isDev */
+const setEndpoint = (isDev) => {
 	endpoint = isDev ? Endpoints.CODE : Endpoints.PROD;
 };
 
 let queued = false;
-const sendData = (): void => {
+const sendData = () => {
 	if (queued) return;
 
 	// If we’re missing FCP, the data is unusable in the lake,
@@ -49,7 +62,8 @@ const sendData = (): void => {
 	}
 };
 
-const onReport: ReportHandler = (metric) => {
+/** @type {import('web-vitals').ReportHandler}*/
+const onReport = (metric) => {
 	switch (metric.name) {
 		case 'FCP':
 			// Browser support: Chromium, Firefox, Safari Technology Preview
@@ -74,7 +88,8 @@ const onReport: ReportHandler = (metric) => {
 	}
 };
 
-const listener = (e: Event): void => {
+/** @param {Event} e */
+const listener = (e) => {
 	switch (e.type) {
 		case 'visibilitychange':
 			if (document.visibilityState === 'hidden') sendData();
@@ -85,7 +100,7 @@ const listener = (e: Event): void => {
 	}
 };
 
-const getCoreWebVitals = async (): Promise<void> => {
+const getCoreWebVitals = async () => {
 	const webVitals = await import('web-vitals');
 	const { getCLS, getFCP, getFID, getLCP, getTTFB } = webVitals;
 
@@ -102,27 +117,20 @@ const getCoreWebVitals = async (): Promise<void> => {
 	addEventListener('pagehide', listener);
 };
 
-type InitCoreWebVitalsOptions = {
-	isDev: boolean;
-
-	browserId?: string | null;
-	pageViewId?: string | null;
-
-	sampling?: number;
-	team?: TeamName;
-};
+/**
+ * @typedef {object} InitCoreWebVitalsOptions
+ * @property {boolean} isDev used to determine whether to use CODE or PROD endpoints.
+ * @property {string | null} [browserId] identifies the browser. Usually available via `getCookie({ name: 'bwid' })`. Defaults to `null`
+ * @property {string | null} [pageViewId] identifies the page view. Usually available on `guardian.config.ophan.pageViewId`. Defaults to `null`
+ * @property {number} [sampling] sampling rate for sending data. Defaults to `0.01`.
+ * @property {import('@guardian/libs').TeamName} [team] Optional team to trigger a log event once metrics are queued.
+ * */
 
 /**
  * Initialise sending Core Web Vitals metrics to a logging endpoint.
  *
  * @param {InitCoreWebVitalsOptions} init - the initialisation options
- * @param init.isDev - used to determine whether to use CODE or PROD endpoints.
- * @param init.browserId - identifies the browser. Usually available via `getCookie({ name: 'bwid' })`. Defaults to `null`
- * @param init.pageViewId - identifies the page view. Usually available on `guardian.config.ophan.pageViewId`. Defaults to `null`
- *
- * @param init.sampling - sampling rate for sending data. Defaults to `0.01`.
- *
- * @param init.team - Optional team to trigger a log event once metrics are queued.
+ * @returns {Promise<void>}
  */
 export const initCoreWebVitals = async ({
 	browserId = null,
@@ -130,7 +138,7 @@ export const initCoreWebVitals = async ({
 	sampling = 1 / 100, // 1% of page view by default
 	isDev,
 	team,
-}: InitCoreWebVitalsOptions): Promise<void> => {
+}) => {
 	if (initialised) {
 		console.warn(
 			'initCoreWebVitals already initialised',
@@ -174,11 +182,10 @@ export const initCoreWebVitals = async ({
 
 /**
  * A method to asynchronously send web vitals after initialization.
- * @param team - Optional team to trigger a log event once metrics are queued.
+ * @param {import('@guardian/libs').TeamName} [team] - Optional team to trigger a log event once metrics are queued.
+ * @returns {Promise<void>}
  */
-export const bypassCoreWebVitalsSampling = async (
-	team?: TeamName,
-): Promise<void> => {
+export const bypassCoreWebVitalsSampling = async (team) => {
 	if (!initialised) {
 		console.warn('initCoreWebVitals not yet initialised');
 		return;
@@ -190,13 +197,14 @@ export const bypassCoreWebVitalsSampling = async (
 export const _ = {
 	coreWebVitalsPayload,
 	sendData,
-	reset: (): void => {
+	reset: () => {
 		initialised = false;
 		teamsForLogging.clear();
 		queued = false;
-		Object.keys(coreWebVitalsPayload).map((key) => {
-			coreWebVitalsPayload[key as keyof CoreWebVitalsPayload] = null;
-		});
+		for (const key in coreWebVitalsPayload) {
+			// @ts-expect-error -- we know it’s a valid key!
+			coreWebVitalsPayload[key] = null;
+		}
 		removeEventListener('visibilitychange', listener);
 		removeEventListener('pagehide', listener);
 	},

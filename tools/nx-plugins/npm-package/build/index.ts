@@ -50,7 +50,7 @@ const getRollupConfig = (
 		output: {
 			dir: `${options.outputPath}/${format}`,
 			format,
-			sourcemap: true,
+			sourcemap: !compilerOptions.noEmit,
 			preserveModules: true,
 		},
 		plugins: [

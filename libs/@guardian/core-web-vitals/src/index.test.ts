@@ -1,6 +1,6 @@
 import type { Metric, ReportHandler } from 'web-vitals';
-import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
-import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
+import type { CoreWebVitalsPayload } from './index.js';
+import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index.js';
 
 const { coreWebVitalsPayload, reset } = _;
 
