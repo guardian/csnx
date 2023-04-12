@@ -46,20 +46,23 @@ const getRollupConfig = (
 		compilerOptions.target = ScriptTarget.ES2018;
 	}
 
+	/** only compile TypeScript sources */
+	const typescript = options.entry?.endsWith('.ts')
+		? ts({ tsconfig: compilerOptions })
+		: undefined;
+
 	return {
 		output: {
 			dir: `${options.outputPath}/${format}`,
 			format,
-			sourcemap: true,
+			sourcemap: !!typescript,
 			preserveModules: true,
 		},
 		plugins: [
 			nodeResolve({
 				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
 			}),
-			ts({
-				tsconfig: compilerOptions,
-			}),
+			typescript,
 			json(),
 			commonjs(),
 		],

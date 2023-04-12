@@ -7,18 +7,19 @@ export { removeCookie } from './cookies/removeCookie.js';
 export { setCookie } from './cookies/setCookie.js';
 export { setSessionCookie } from './cookies/setSessionCookie.js';
 
-export type { Country, CountryCode } from './countries/countries.js';
+/** @typedef {import('./countries/countries.js').Country} Country */
+/** @typedef {import('./countries/countries.js').CountryCode} CountryCode */
 export { countries } from './countries/countries.js';
 export { getCountryByCountryCode } from './countries/getCountryByCountryCode.js';
 
 export { timeAgo } from './datetime/timeAgo.js';
 
+/** @typedef {import('./format/ArticleFormat.js').ArticleFormat} ArticleFormat */
 export { ArticleDesign } from './format/ArticleDesign.js';
 export { ArticleDisplay } from './format/ArticleDisplay.js';
-export type { ArticleFormat } from './format/ArticleFormat.js';
 export { ArticlePillar } from './format/ArticlePillar.js';
 export { ArticleSpecial } from './format/ArticleSpecial.js';
-export type { ArticleTheme } from './format/ArticleTheme.js';
+export { ArticleTheme } from './format/ArticleTheme.js';
 
 export { isBoolean } from './isBoolean/isBoolean.js';
 export { isNonNullable } from './isNonNullable/isNonNullable.js';
@@ -34,20 +35,18 @@ export { getLocale } from './locale/getLocale.js';
 
 export { debug } from './logger/debug.js';
 export { log } from './logger/log.js';
-export type { TeamName } from './logger/teamStyles.js';
+/** @typedef {import('./logger/teamStyles.js').TeamName} TeamName */
 
-export type {
-	OphanABEvent,
-	OphanABPayload,
-	OphanABTestMeta,
-	OphanAction,
-	OphanComponent,
-	OphanComponentEvent,
-	OphanComponentType,
-	OphanProduct,
-} from './ophan/@types';
+/** @typedef {import('./ophan/@types').OphanABEvent} OphanABEvent */
+/** @typedef {import('./ophan/@types').OphanABPayload} OphanABPayload */
+/** @typedef {import('./ophan/@types').OphanABTestMeta} OphanABTestMeta */
+/** @typedef {import('./ophan/@types').OphanAction} OphanAction */
+/** @typedef {import('./ophan/@types').OphanComponent} OphanComponent */
+/** @typedef {import('./ophan/@types').OphanComponentEvent} OphanComponentEvent */
+/** @typedef {import('./ophan/@types').OphanComponentType} OphanComponentType */
+/** @typedef {import('./ophan/@types').OphanProduct} OphanProduct */
 
 export { storage } from './storage/storage.js';
 
-export type { Switches } from './switches/getSwitches.js';
+/** @typedef {import('./switches/getSwitches.js').Switches} Switches */
 export { getSwitches } from './switches/getSwitches.js';

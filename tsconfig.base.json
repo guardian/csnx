@@ -20,7 +20,7 @@
 			"@guardian/core-web-vitals": [
 				"libs/@guardian/core-web-vitals/src/index.ts"
 			],
-			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
+			"@guardian/libs": ["libs/@guardian/libs/src/index.js"],
 			"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
 			"@guardian/source-foundations": [
 				"libs/@guardian/source-foundations/src/index.ts"

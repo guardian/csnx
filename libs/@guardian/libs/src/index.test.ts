@@ -1,4 +1,4 @@
-import * as packageExports from './index';
+import * as packageExports from './index.js';
 
 describe('The package', () => {
 	it('exports everything it did before', () => {
@@ -8,6 +8,7 @@ describe('The package', () => {
 			'ArticleElementRole',
 			'ArticlePillar',
 			'ArticleSpecial',
+			'ArticleTheme',
 			'countries',
 			'debug',
 			'getCookie',
@@ -35,7 +36,6 @@ describe('The package', () => {
 // won't catch new types but I don't know how we can?
 export type {
 	ArticleFormat,
-	ArticleTheme,
 	Country,
 	CountryCode,
 	OphanABEvent,
