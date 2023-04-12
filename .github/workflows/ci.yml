@@ -28,12 +28,12 @@ jobs:
       - run: make build
       - run: make e2e
       - run: make build-storybooks
+      - run: echo ${{ github.event.pull_request.head.ref}}
 
   chromatic:
     # Kick chromatic off only once all other steps have passed. This stops us
     # wasting money running checks on PRs that are going to fail anyway.
     needs: validate
-    run: echo ${{ github.ref}}
     if: ${{ github.ref == 'refs/heads/main' }} || ${{ github.event.label.name == 'run_chromatic' }}
     runs-on: ubuntu-latest
     strategy:
