@@ -1,5 +1,5 @@
 import MockDate from 'mockdate';
-import { timeAgo } from './timeAgo';
+import { timeAgo } from './timeAgo.js';
 
 describe('timeAgo', () => {
 	beforeAll(() => {
@@ -23,9 +23,7 @@ describe('timeAgo', () => {
 	});
 
 	it('returns seconds for very recent dates', () => {
-		const secondsAgo = new Date(
-			Date.UTC(2019, 10, 17, 11, 59, 30),
-		).getTime();
+		const secondsAgo = new Date(Date.UTC(2019, 10, 17, 11, 59, 30)).getTime();
 		expect(timeAgo(secondsAgo)).toBe('30s ago');
 	});
 
@@ -37,9 +35,7 @@ describe('timeAgo', () => {
 	});
 
 	it('returns hours for dates within the last 24 hours', () => {
-		const twoHoursAgo = new Date(
-			Date.UTC(2019, 10, 17, 10, 0, 0),
-		).getTime();
+		const twoHoursAgo = new Date(Date.UTC(2019, 10, 17, 10, 0, 0)).getTime();
 		expect(timeAgo(twoHoursAgo)).toBe('2h ago');
 	});
 
@@ -49,17 +45,13 @@ describe('timeAgo', () => {
 	});
 
 	it('returns an absolute date for dates over a week old', () => {
-		const eightDaysAgo = new Date(
-			Date.UTC(2019, 10, 9, 13, 0, 0),
-		).getTime();
+		const eightDaysAgo = new Date(Date.UTC(2019, 10, 9, 13, 0, 0)).getTime();
 
 		expect(timeAgo(eightDaysAgo)).toBe('9 Nov 2019');
 	});
 
 	it('returns a longer absolute date when verbose is true', () => {
-		const eightDaysAgo = new Date(
-			Date.UTC(2019, 10, 9, 13, 0, 0),
-		).getTime();
+		const eightDaysAgo = new Date(Date.UTC(2019, 10, 9, 13, 0, 0)).getTime();
 
 		expect(
 			timeAgo(eightDaysAgo, {
@@ -76,9 +68,7 @@ describe('timeAgo', () => {
 	});
 
 	it('does not pluralise the unit when the delta is one', () => {
-		const oneMinuteAgo = new Date(
-			Date.UTC(2019, 10, 17, 11, 59, 0),
-		).getTime();
+		const oneMinuteAgo = new Date(Date.UTC(2019, 10, 17, 11, 59, 0)).getTime();
 		const oneHourAgo = new Date(Date.UTC(2019, 10, 17, 11, 0, 0)).getTime();
 		const oneDayAgo = new Date(Date.UTC(2019, 10, 16, 12, 0, 0)).getTime();
 
@@ -127,9 +117,7 @@ describe('timeAgo', () => {
 	});
 
 	it('returns verbose format for hours when this option is given', () => {
-		const twoHoursAgo = new Date(
-			Date.UTC(2019, 10, 17, 10, 0, 0),
-		).getTime();
+		const twoHoursAgo = new Date(Date.UTC(2019, 10, 17, 10, 0, 0)).getTime();
 		expect(
 			timeAgo(twoHoursAgo, {
 				verbose: true,
@@ -147,16 +135,12 @@ describe('timeAgo', () => {
 	});
 
 	it('still returns a relative string for dates yesterday if within 24hs', () => {
-		const twentyHoursAgo = new Date(
-			Date.UTC(2019, 10, 16, 16, 0, 0),
-		).getTime();
+		const twentyHoursAgo = new Date(Date.UTC(2019, 10, 16, 16, 0, 0)).getTime();
 		expect(timeAgo(twentyHoursAgo)).toBe('20h ago');
 	});
 
 	it('still returns an verbose relative string for dates yesterday if within 24hs', () => {
-		const twentyHoursAgo = new Date(
-			Date.UTC(2019, 10, 16, 16, 0, 0),
-		).getTime();
+		const twentyHoursAgo = new Date(Date.UTC(2019, 10, 16, 16, 0, 0)).getTime();
 		expect(
 			timeAgo(twentyHoursAgo, {
 				verbose: true,
@@ -165,9 +149,7 @@ describe('timeAgo', () => {
 	});
 
 	it('still returns "yesterday" when epoch is the previous day but only if over 24hrs', () => {
-		const thirtyHoursAgo = new Date(
-			Date.UTC(2019, 10, 16, 6, 0, 0),
-		).getTime();
+		const thirtyHoursAgo = new Date(Date.UTC(2019, 10, 16, 6, 0, 0)).getTime();
 		expect(
 			timeAgo(thirtyHoursAgo, {
 				verbose: true,
@@ -184,24 +166,16 @@ describe('timeAgo', () => {
 
 	it('returns days when within 5 days', () => {
 		const twoDaysAgo = new Date(Date.UTC(2019, 10, 15, 13, 0, 0)).getTime();
-		const fourDaysAgo = new Date(
-			Date.UTC(2019, 10, 13, 13, 0, 0),
-		).getTime();
-		const fiveDaysAgo = new Date(
-			Date.UTC(2019, 10, 12, 13, 0, 0),
-		).getTime();
+		const fourDaysAgo = new Date(Date.UTC(2019, 10, 13, 13, 0, 0)).getTime();
+		const fiveDaysAgo = new Date(Date.UTC(2019, 10, 12, 13, 0, 0)).getTime();
 		expect(timeAgo(twoDaysAgo)).toBe('2d ago');
 		expect(timeAgo(fourDaysAgo)).toBe('4d ago');
 		expect(timeAgo(fiveDaysAgo)).toBe('5d ago');
 	});
 
 	it('returns absolute dates after 7 days', () => {
-		const sevenDaysAgo = new Date(
-			Date.UTC(2019, 10, 10, 13, 0, 0),
-		).getTime();
-		const eightDaysAgo = new Date(
-			Date.UTC(2019, 10, 9, 13, 0, 0),
-		).getTime();
+		const sevenDaysAgo = new Date(Date.UTC(2019, 10, 10, 13, 0, 0)).getTime();
+		const eightDaysAgo = new Date(Date.UTC(2019, 10, 9, 13, 0, 0)).getTime();
 		expect(timeAgo(sevenDaysAgo)).toBe('7d ago');
 		expect(timeAgo(eightDaysAgo)).toBe('9 Nov 2019');
 	});
@@ -213,9 +187,7 @@ describe('timeAgo', () => {
 	});
 
 	it('defaults to a simple date format for dates over 1 week old', () => {
-		const eightDaysAgo = new Date(
-			Date.UTC(2019, 10, 9, 13, 0, 0),
-		).getTime();
+		const eightDaysAgo = new Date(Date.UTC(2019, 10, 9, 13, 0, 0)).getTime();
 		const aWhileBack = new Date(Date.UTC(2017, 3, 2, 17, 0, 0)).getTime();
 		expect(timeAgo(eightDaysAgo)).toBe('9 Nov 2019');
 		expect(timeAgo(aWhileBack)).toBe('2 Apr 2017');

@@ -1,20 +1,24 @@
-type Unit = 's' | 'm' | 'h' | 'd';
+/** @typedef {'s' | 'm' | 'h' | 'd'} Unit */
 
-const pad = (n: number): number | string => n.toString().padStart(2, '0');
+/** @type {(n: number) => string} */
+const pad = (n) => n.toString().padStart(2, '0');
 
-const isWithin24Hours = (date: Date): boolean => {
+/** @type {(date: Date) => boolean} */
+const isWithin24Hours = (date) => {
 	const today = new Date();
 	return date.getTime() > today.getTime() - 24 * 60 * 60 * 1000;
 };
 
-const isYesterday = (relative: Date): boolean => {
+/** @type {(date: Date) => boolean} */
+const isYesterday = (relative) => {
 	const today = new Date();
 	const yesterday = new Date();
 	yesterday.setDate(today.getDate() - 1);
 	return relative.toDateString() === yesterday.toDateString();
 };
 
-const getSuffix = (type: Unit, value: number, verbose?: boolean): string => {
+/** @type {(type: Unit, value: number, verbose?: boolean) => string} */
+const getSuffix = (type, value, verbose) => {
 	const shouldPluralise = value !== 1;
 	switch (type) {
 		case 's': {
@@ -40,8 +44,8 @@ const getSuffix = (type: Unit, value: number, verbose?: boolean): string => {
 	}
 };
 
-const withTime = (date: Date): string =>
-	` ${date.getHours()}.${pad(date.getMinutes())}`;
+/** @type {(date: Date) => string} */
+const withTime = (date) => ` ${date.getHours()}.${pad(date.getMinutes())}`;
 
 /**
  * Takes an absolute date in [epoch format] and returns a string representing
@@ -50,24 +54,20 @@ const withTime = (date: Date): string =>
  * Time is formatted according to [the Guardian and Observer Style Guide (T)][T]
  *
  * @param {number} epoch The date when an event happened in epoch format
- * @param {Object} [options] Options to control the formatting
+ * @param {object} [options] Options to control the formatting
+ * @param {boolean} [options.verbose] defaults to false
+ * @param {number} [options.daysUntilAbsolute] defaults to 7
  * @returns {string | false} A formatted relative time string, or `false` if the epoch is in the future
  *
  * [epoch format]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#description
  * [T]: https://www.theguardian.com/guardian-observer-style-guide-t
  */
-export const timeAgo = (
-	epoch: number,
-	options?: {
-		verbose?: boolean;
-		daysUntilAbsolute?: number;
-	},
-): false | string => {
+export const timeAgo = (epoch, options = {}) => {
 	const then = new Date(epoch);
 	const now = new Date();
 
-	const verbose = options?.verbose;
-	const daysUntilAbsolute = options?.daysUntilAbsolute ?? 7;
+	const verbose = !!options.verbose;
+	const daysUntilAbsolute = options.daysUntilAbsolute ?? 7;
 
 	const secondsAgo = Math.floor((now.getTime() - then.getTime()) / 1000);
 	const veryClose = secondsAgo < 15;

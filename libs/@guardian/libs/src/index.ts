@@ -11,7 +11,7 @@ export type { Country, CountryCode } from './countries/countries.js';
 export { countries } from './countries/countries.js';
 export { getCountryByCountryCode } from './countries/getCountryByCountryCode.js';
 
-export { timeAgo } from './datetime/timeAgo';
+export { timeAgo } from './datetime/timeAgo.js';
 
 export { ArticleDesign } from './format/ArticleDesign.js';
 export { ArticleDisplay } from './format/ArticleDisplay.js';
