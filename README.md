@@ -101,6 +101,10 @@ To force the tasks in the [`Makefile`](./Makefile) to skip the Nx cache, set `SK
 SKIP_NX_CACHE=true make test
 ```
 
+### Chromatic
+
+To run Chromatic (for visual regression testing) on a PR, add the `run_chromatic` label to the PR in Github. The Chromatic tests are required to pass by CI, so this will _need_ to be done at least once before a PR is merged. We recommend you only add the label once you are happy with any changes made and have checked for visual regressions manually first.
+
 ## Troubleshooting
 
 ### Unable to commit
