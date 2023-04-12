@@ -1,4 +1,4 @@
-import { getCountryByCountryCode } from './getCountryByCountryCode';
+import { getCountryByCountryCode } from './getCountryByCountryCode.js';
 
 describe('The getCountryByCountryCode', () => {
 	it('returns a country object', () => {

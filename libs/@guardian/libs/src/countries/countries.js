@@ -1,4 +1,8 @@
-export const countries = {
+/** @typedef {keyof typeof countries} CountryKeys */
+/** @typedef {countries[CountryKeys]} Country */
+/** @typedef {Country["countryCode"]} CountryCode */
+
+export const countries = /** @type {const} */ ({
 	afghanistan: {
 		countryCode: 'AF',
 		name: 'Afghanistan',
@@ -995,4 +999,4 @@ export const countries = {
 		countryCode: 'ZW',
 		name: 'Zimbabwe',
 	},
-} as const;
+});

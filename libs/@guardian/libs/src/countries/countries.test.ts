@@ -1,4 +1,4 @@
-import { countries } from './countries';
+import { countries } from './countries.js';
 
 describe('The countries object', () => {
 	it('only contains unique country codes', () => {

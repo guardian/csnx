@@ -7,10 +7,9 @@ export { removeCookie } from './cookies/removeCookie.js';
 export { setCookie } from './cookies/setCookie.js';
 export { setSessionCookie } from './cookies/setSessionCookie.js';
 
-export type { Country } from './countries/@types/Country';
-export type { CountryCode } from './countries/@types/CountryCode';
-export { countries } from './countries/countries';
-export { getCountryByCountryCode } from './countries/getCountryByCountryCode';
+export type { Country, CountryCode } from './countries/countries.js';
+export { countries } from './countries/countries.js';
+export { getCountryByCountryCode } from './countries/getCountryByCountryCode.js';
 
 export { timeAgo } from './datetime/timeAgo';
 
