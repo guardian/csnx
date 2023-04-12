@@ -1,6 +1,6 @@
 import fetchMock from 'jest-fetch-mock';
-import type { Switches } from './@types/Switches';
-import { __resetCachedValue, getSwitches } from './getSwitches';
+import type { Switches } from './getSwitches.js';
+import { __resetCachedValue, getSwitches } from './getSwitches.js';
 
 fetchMock.enableMocks();
 

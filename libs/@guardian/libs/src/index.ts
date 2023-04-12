@@ -49,5 +49,5 @@ export type {
 
 export { storage } from './storage/storage.js';
 
-export type { Switches } from './switches/@types/Switches';
-export { getSwitches } from './switches/getSwitches';
+export type { Switches } from './switches/getSwitches.js';
+export { getSwitches } from './switches/getSwitches.js';

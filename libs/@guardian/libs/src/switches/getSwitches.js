@@ -1,10 +1,12 @@
 import { isBoolean } from '../isBoolean/isBoolean';
 import { isObject } from '../isObject/isObject';
-import type { Switches } from './@types/Switches';
+
+/** @typedef {Record<string, boolean>} Switches */
 
 const URL = 'https://www.theguardian.com/switches.json';
 
-const validate = (switches: unknown) =>
+/** @type {(switches: unknown) => switches is Switches} */
+const validate = (switches) =>
 	isObject(switches) && Object.values(switches).every(isBoolean);
 
 const fetchSwitches = () =>
@@ -12,22 +14,22 @@ const fetchSwitches = () =>
 		.then((response) => response.json())
 		.then((switches) =>
 			validate(switches)
-				? (switches as Switches)
+				? switches
 				: Promise.reject(
-						new Error(
-							'Error getting remote switches – config is malformed',
-						),
+						new Error('Error getting remote switches – config is malformed'),
 				  ),
 		);
 
 // cache to store any retrieved switches
-let switches: Switches | undefined;
+/** @type {Switches | undefined} */
+let switches;
 
 /**
  * Get the active guardian switch config
+ * @returns {Promise<Switches>}
  */
-
-export const getSwitches = async (): Promise<Switches> =>
+export const getSwitches = async () =>
 	(switches ||= window.guardian?.config?.switches ?? (await fetchSwitches()));
 
-export const __resetCachedValue = (): void => (switches = void 0);
+/** @returns {void} */
+export const __resetCachedValue = () => (switches = void 0);
