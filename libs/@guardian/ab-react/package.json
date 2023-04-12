@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/ab-react",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"private": false,
 	"description": "A React library for A/B & multivariate testing",
 	"license": "Apache-2.0",
