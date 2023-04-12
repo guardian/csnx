@@ -1,6 +1,6 @@
 /**
  * @param {number} value
- * @param {number} [precision] number of significant digits
+ * @param {number} [precision] The number of significant digits.
  */
 export const roundWithDecimals = (value, precision = 6) => {
 	const power = Math.pow(10, precision);

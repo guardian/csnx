@@ -119,10 +119,10 @@ const getCoreWebVitals = async () => {
 
 /**
  * @typedef {object} InitCoreWebVitalsOptions
- * @property {boolean} isDev used to determine whether to use CODE or PROD endpoints.
- * @property {string | null} [browserId] identifies the browser. Usually available via `getCookie({ name: 'bwid' })`. Defaults to `null`
- * @property {string | null} [pageViewId] identifies the page view. Usually available on `guardian.config.ophan.pageViewId`. Defaults to `null`
- * @property {number} [sampling] sampling rate for sending data. Defaults to `0.01`.
+ * @property {boolean} isDev Used to determine whether to use CODE or PROD endpoints.
+ * @property {string | null} [browserId] Identifies the browser. Usually available via `getCookie({ name: 'bwid' })`. Defaults to `null`.
+ * @property {string | null} [pageViewId] Identifies the page view. Usually available on `guardian.config.ophan.pageViewId`. Defaults to `null`.
+ * @property {number} [sampling] Sampling rate for sending data. Defaults to `0.01`.
  * @property {import('@guardian/libs').TeamName} [team] Optional team to trigger a log event once metrics are queued.
  * */
 
@@ -182,7 +182,7 @@ export const initCoreWebVitals = async ({
 
 /**
  * A method to asynchronously send web vitals after initialization.
- * @param {import('@guardian/libs').TeamName} [team] - Optional team to trigger a log event once metrics are queued.
+ * @param {import('@guardian/libs').TeamName} [team] Optional team to trigger a log event once metrics are queued.
  * @returns {Promise<void>}
  */
 export const bypassCoreWebVitalsSampling = async (team) => {
