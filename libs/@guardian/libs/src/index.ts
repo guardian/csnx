@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
+export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole.js';
 
 export { getCookie } from './cookies/getCookie.js';
 export { removeCookie } from './cookies/removeCookie.js';
