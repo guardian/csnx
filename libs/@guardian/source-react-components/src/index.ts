@@ -161,6 +161,8 @@ export { SvgMediaControlsPause } from '../vendor/icons/SvgMediaControlsPause';
 export { SvgMediaControlsStop } from '../vendor/icons/SvgMediaControlsStop';
 export { SvgMenu } from '../vendor/icons/SvgMenu';
 export { SvgMoon } from '../vendor/icons/SvgMoon';
+export { SvgMessage } from '../vendor/icons/SvgMessage';
+export { SvgMessageRound } from '../vendor/icons/SvgMessageRound';
 export { SvgNewsletter } from '../vendor/icons/SvgNewsletter';
 export { SvgNotificationsOff } from '../vendor/icons/SvgNotificationsOff';
 export { SvgNotificationsOn } from '../vendor/icons/SvgNotificationsOn';

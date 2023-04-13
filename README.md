@@ -39,6 +39,18 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 
 _You'll be prompted to install any missing requirements if they are needed..._
 
+### Editor setup
+
+#### [VS Code](https://code.visualstudio.com/)
+
+You will be prompted to install the recommended extensions when you open the repo.
+
+There is also a suggested settings file (./.vscode/settings.json.default) with some defaults you may useful. It covers project-specific enhancements, useful settings for common extensions etc.
+
+If you want to use any/all of them, create a copy of the file and remove the `.default` extension.
+
+> n.b. these are your personal settings for this repo, so add anything else you find useful and remove/change anything you don't like.
+
 ## Running tasks
 
 Tasks are defined in the [`Makefile`](./Makefile).
@@ -88,6 +100,10 @@ To force the tasks in the [`Makefile`](./Makefile) to skip the Nx cache, set `SK
 ```sh
 SKIP_NX_CACHE=true make test
 ```
+
+### Chromatic
+
+To run Chromatic (for visual regression testing) on a PR, add the `run_chromatic` label to the PR in Github. The Chromatic tests are required to pass by CI, so this will _need_ to be done at least once before a PR is merged. We recommend you only add the label once you are happy with any changes made and have checked for visual regressions manually first.
 
 ## Troubleshooting
 

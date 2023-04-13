@@ -2,7 +2,7 @@
 
 # please add yourself in a PR
 
-* @guardian/csnx
+* @guardian/client-side-infra
 
 libs/@guardian/atoms-rendering/* @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
 
