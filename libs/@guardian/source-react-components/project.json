@@ -48,7 +48,7 @@
 		"storybook": {
 			"executor": "nx:run-commands",
 			"options": {
-				"commands": ["start-storybook"],
+				"commands": ["storybook dev"],
 				"cwd": "libs/@guardian/source-react-components"
 			}
 		},
@@ -56,7 +56,7 @@
 			"executor": "nx:run-commands",
 			"outputs": ["dist/storybook/libs/@guardian/source-react-components"],
 			"options": {
-				"command": "NODE_ENV=production build-storybook -o ../../../dist/storybook/libs/@guardian/source-react-components --webpack-stats-json",
+				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-react-components --webpack-stats-json",
 				"cwd": "libs/@guardian/source-react-components",
 				"color": true
 			}
