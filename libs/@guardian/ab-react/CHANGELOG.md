@@ -5,6 +5,11 @@
 ### Major Changes
 
 - Update React to v18
+## 4.0.2
+
+### Patch Changes
+
+- 15f7024: Use `@emotion/react` jsx runtime instead of `react` jsx runtime
 
 ## 4.0.1
 

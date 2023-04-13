@@ -6,6 +6,7 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"devDependencies": {
+		"@emotion/react": "11.0.0",
 		"@guardian/ab-core": "4.0.0",
 		"@testing-library/react": "11.2.2",
 		"@types/react": "18.0.28",
