@@ -143,7 +143,7 @@ importers:
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
-      '@emotion/react': 11.0.0_wk7fohhuxwcjfgq2kdoh4ny7by
+      '@emotion/react': 11.0.0_pmekkgnqduwlme35zpnqhenc34
       '@guardian/ab-core': link:../ab-core
       '@testing-library/react': 11.2.2_biqbaboplfbrettd7655fr4n2y
       '@types/react': 18.0.28
@@ -164,7 +164,7 @@ importers:
       '@guardian/eslint-plugin-source-react-components': 15.0.0
       '@guardian/libs': 14.0.0
       '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 12.0.0
+      '@guardian/source-react-components': 13.0.0
       '@storybook/addon-viewport': 6.5.16
       '@testing-library/dom': 7.29.1
       '@testing-library/jest-dom': 5.16.3
@@ -194,7 +194,7 @@ importers:
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
       '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
-      '@guardian/source-react-components': 12.0.0_2gauqff76n2ujuxxcpd7v5nytu
+      '@guardian/source-react-components': link:../source-react-components
       '@storybook/addon-viewport': 6.5.16_biqbaboplfbrettd7655fr4n2y
       '@testing-library/dom': 7.29.1
       '@testing-library/jest-dom': 5.16.3
@@ -3343,6 +3343,29 @@ packages:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: true
 
+  /@emotion/react/11.0.0_pmekkgnqduwlme35zpnqhenc34:
+    resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+      '@types/react': '*'
+      react: '>=16.8.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.6
+      '@emotion/cache': 11.10.3
+      '@emotion/serialize': 1.1.1
+      '@emotion/sheet': 1.2.0
+      '@emotion/utils': 1.2.0
+      '@emotion/weak-memoize': 0.2.5
+      '@types/react': 18.0.28
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+    dev: true
+
   /@emotion/react/11.0.0_react@18.2.0:
     resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
     peerDependencies:
@@ -3389,30 +3412,7 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@emotion/react/11.0.0_wk7fohhuxwcjfgq2kdoh4ny7by:
-    resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-      '@types/react': '*'
-      react: '>=16.8.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.20.6
-      '@emotion/cache': 11.10.3
-      '@emotion/serialize': 1.1.1
-      '@emotion/sheet': 1.2.0
-      '@emotion/utils': 1.2.0
-      '@emotion/weak-memoize': 0.2.5
-      '@types/react': 17.0.1
-      hoist-non-react-statics: 3.3.2
-      react: 17.0.2
-    dev: true
-
-  /@emotion/react/11.1.5_rnawoibddm4mr3vbowjsvrrtn4:
+  /@emotion/react/11.1.5_wkiylh6bncbdhwh6tncqb3s2nm:
     resolution: {integrity: sha512-xfnZ9NJEv9SU9K2sxXM06lzjK245xSeHRpUh67eARBm3PBHjjKIZlfWZ7UQvD0Obvw6ZKjlC79uHrlzFYpOB/Q==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -3517,25 +3517,6 @@ packages:
         optional: true
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tslib: 2.4.1
-      typescript: 4.9.5
-    dev: true
-
-  /@guardian/source-react-components/12.0.0_2gauqff76n2ujuxxcpd7v5nytu:
-    resolution: {integrity: sha512-nqNQVsqJO8wuFVFoCH+tpPwleiSdlizuFtIqrx9jVm2s0Fzn17u6xYGHQAnVuwuKf2RzbzIJkDHqvc1AjbJDsw==}
-    peerDependencies:
-      '@emotion/react': ^11.0.0
-      '@guardian/source-foundations': ^10.0.0
-      react: ^17.0.1
-      tslib: ^2.4.1
-      typescript: ~4.9.5
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@emotion/react': 11.1.5_wkiylh6bncbdhwh6tncqb3s2nm
-      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
-      react: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
     dev: true
