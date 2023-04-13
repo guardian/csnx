@@ -45,14 +45,5 @@ module.exports = {
 				'import/no-default-export': 'off',
 			},
 		},
-		{
-			// this is a storybook file, so we don't need to check it so rigorously
-			files: ['storybookColorPalette.tsx'],
-			rules: {
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-return': 'off',
-			},
-		},
 	],
 };
