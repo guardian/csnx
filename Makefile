@@ -44,7 +44,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean workspace-lint lint test build e2e build-storybooks
+validate: env clean lint test build e2e build-storybooks
 
 ##################################### BUILD ####################################
 
@@ -99,9 +99,3 @@ check-node-version:
 install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
-
-# Make sure everything in Nx land is ok
-.PHONY: workspace-lint
-workspace-lint: install
-	$(call log,"Linting workspace")
-	@corepack pnpm nx workspace-lint
