@@ -1,4 +1,5 @@
 {
+	"name": "csnx",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "apps/csnx/src",
 	"projectType": "application",
@@ -43,7 +44,9 @@
 			"executor": "nx:run-commands",
 			"options": {
 				"commands": [
-					{ "command": "nx run csnx:project-storybooks" },
+					{
+						"command": "nx run csnx:project-storybooks"
+					},
 					{
 						"command": "sleep 5 && nx run csnx:composed-storybooks",
 						"prefix": "csnx",

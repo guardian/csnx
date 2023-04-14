@@ -1,4 +1,5 @@
 {
+	"name": "@guardian/source-foundations",
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/@guardian/source-foundations/src",
 	"projectType": "library",
