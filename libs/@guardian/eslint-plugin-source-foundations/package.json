@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {
 		"@guardian/libs": "14.0.0",
-		"@guardian/source-foundations": "10.0.0",
+		"@guardian/source-foundations": "10.0.1",
 		"@types/eslint": "8.4.6",
 		"@types/estree": "0.0.51",
 		"eslint": "8.0.0",
