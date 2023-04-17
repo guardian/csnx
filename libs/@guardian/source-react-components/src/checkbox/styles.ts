@@ -34,11 +34,17 @@ export const checkboxContainer = (
 			border: ${error
 				? `2px solid ${checkbox.borderError}`
 				: `2px solid ${checkbox.borderHover}`};
-		}
-		// In the indeterminate state, we increase the border width by 1px on hover. This causes the position of indeterminate dash to shift as it is using position:absolute. This negative marign accounts for the extra border width and prevents the shift. We need to locate this css here as the hover sits on the container, rather than the input.
-		&:indeterminate {
-			&::after {
-				margin: -1px;
+			/*
+				In the indeterminate state, we increase the border width by 1px on
+				hover. This causes the position of the indeterminate dash to shift as it
+				is absolutely positioned. This negative margin accounts for the extra
+				border width and prevents the shift. We need to locate this css here as
+				the hover sits on the container, rather than the input element.
+			*/
+			&:indeterminate {
+				&:after {
+					margin: -1px;
+				}
 			}
 		}
 	}
@@ -104,8 +110,6 @@ export const checkbox = (
 				top: -7px;
 				left: 6px;
 				z-index: 5;
-			}
-			&:hover:after {
 			}
 		}
 	}
