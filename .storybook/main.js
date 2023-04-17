@@ -1,32 +1,20 @@
 const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-
 const nodeModulesExclude = {
 	and: [/node_modules/],
 	not: [/@guardian\//],
 };
-
 module.exports = {
 	stories: [],
 	addons: [
 		'@storybook/addon-a11y',
-		{
-			name: '@storybook/addon-docs',
-			options: {
-				transcludeMarkdown: true,
-			},
-		},
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 	],
-	core: {
-		builder: 'webpack5',
-	},
 	features: {
 		// used in composition
 		buildStoriesJson: true,
 	},
-
 	webpackFinal: async (config, { configType }) => {
 		config.module.rules.push({
 			test: /\.(ts|tsx)$/,
@@ -60,7 +48,6 @@ module.exports = {
 		config.module.rules.find(
 			(rule) => String(rule.test) === String(/\.(mjs|tsx?|jsx?)$/),
 		).exclude = nodeModulesExclude;
-
 		config.resolve.plugins ||= [];
 		config.resolve.plugins.push(
 			new TsconfigPathsPlugin({
@@ -70,5 +57,12 @@ module.exports = {
 			}),
 		);
 		return config;
+	},
+	framework: {
+		name: '@storybook/react-webpack5',
+		options: {},
+	},
+	docs: {
+		autodocs: true,
 	},
 };

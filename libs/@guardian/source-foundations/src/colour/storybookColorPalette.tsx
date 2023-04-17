@@ -133,21 +133,17 @@ interface ColorItemProps {
 	colors: Colors;
 }
 
-function renderSwatch(color: string, index: number) {
-	return (
-		<div css={SwatchStyles(color)} key={`${color} -${index} `} title={color} />
-	);
-}
+const renderSwatch = (color: string, index: number) => (
+	<div css={SwatchStyles(color)} key={`${color} -${index} `} title={color} />
+);
 
-function renderSwatchLabel(color: string, index: number) {
-	return (
-		<div css={SwatchLabelStyles} key={`${color} -${index} `} title={color}>
-			<div>{color}</div>
-		</div>
-	);
-}
+const renderSwatchLabel = (color: string, index: number) => (
+	<div css={SwatchLabelStyles} key={`${color} -${index} `} title={color}>
+		<div>{color}</div>
+	</div>
+);
 
-function renderSwatchSpecimen(colors: Colors) {
+const renderSwatchSpecimen = (colors: Colors) => {
 	if (Array.isArray(colors)) {
 		return (
 			<div css={SwatchSpecimenStyles}>
@@ -174,7 +170,7 @@ function renderSwatchSpecimen(colors: Colors) {
 			</div>
 		</div>
 	);
-}
+};
 
 /**
  * A single color row your styleguide showing title, subtitle and one or more colors, used

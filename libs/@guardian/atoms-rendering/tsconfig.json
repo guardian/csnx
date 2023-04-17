@@ -1,9 +1,5 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"compilerOptions": {
-		"jsx": "react-jsx",
-		"jsxImportSource": "@emotion/react"
-	},
 	"files": ["../../../@types/window.d.ts"],
 	"include": [".", ".storybook/*"],
 	"references": [

@@ -1,11 +1,12 @@
 {
 	"name": "@guardian/ab-react",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"private": false,
 	"description": "A React library for A/B & multivariate testing",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"devDependencies": {
+		"@emotion/react": "11.0.0",
 		"@guardian/ab-core": "4.0.0",
 		"@testing-library/react": "11.2.2",
 		"@types/react": "~17.0",
