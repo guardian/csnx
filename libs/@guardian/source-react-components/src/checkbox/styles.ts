@@ -31,21 +31,7 @@ export const checkboxContainer = (
 
 	&:hover {
 		input {
-			border: ${error
-				? `2px solid ${checkbox.borderError}`
-				: `2px solid ${checkbox.borderHover}`};
-			/*
-				In the indeterminate state, we increase the border width by 1px on
-				hover. This causes the position of the indeterminate dash to shift as it
-				is absolutely positioned. This negative margin accounts for the extra
-				border width and prevents the shift. We need to locate this css here as
-				the hover sits on the container, rather than the input element.
-			*/
-			&:indeterminate {
-				&:after {
-					margin: -1px;
-				}
-			}
+			border-color: ${error ? checkbox.borderError : checkbox.borderHover};
 		}
 	}
 	&:active {
@@ -76,8 +62,7 @@ export const checkbox = (
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 1px solid currentColor;
-	border-radius: 4px;
+	border: 2px solid currentColor;
 	position: relative;
 	transition: box-shadow ${transitions.short};
 	transition-delay: 0.08s;
@@ -91,7 +76,7 @@ export const checkbox = (
 		appearance: none;
 		&:checked {
 			border: ${error
-				? `2px solid ${checkbox.borderError}`
+				? `4px solid ${checkbox.borderError}`
 				: `2px solid ${checkbox.borderChecked}`};
 			& ~ span:before {
 				right: 0;
@@ -107,8 +92,8 @@ export const checkbox = (
 				color: ${checkbox.textIndeterminate};
 				content: '-';
 				position: absolute;
-				top: -7px;
-				left: 6px;
+				top: -${space[2]}px;
+				left: 5px;
 				z-index: 5;
 			}
 		}
@@ -203,8 +188,8 @@ export const tickWithSupportingText = css`
 export const errorCheckbox = (
 	checkbox = checkboxThemeDefault.checkbox,
 ): SerializedStyles => css`
-	border: 2px solid ${checkbox.borderError};
-	border-radius: 4px;
+	border: 4px solid ${checkbox.borderError};
+
 	&:not(:checked):hover,
 	&:active {
 		border: 2px solid ${checkbox.borderHover};
