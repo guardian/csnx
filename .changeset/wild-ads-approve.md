@@ -1,10 +1,10 @@
 ---
+'@guardian/atoms-rendering': major
+'@guardian/eslint-plugin-source-foundations': major
+'@guardian/eslint-plugin-source-react-components': major
 '@guardian/source-foundations': major
 '@guardian/source-react-components': major
 '@guardian/source-react-components-development-kitchen': major
-'@guardian/atoms-rendering': patch
-'@guardian/eslint-plugin-source-foundations': patch
-'@guardian/eslint-plugin-source-react-components': patch
 ---
 
 Update border styling across multiple form field components, reducing the default border width from 4px to 2px.
