@@ -18,7 +18,7 @@ export const fieldset = (
 	${resets.fieldset};
 
 	&[aria-invalid='true'] input {
-		border: 4px solid ${radio.borderError};
+		border: 2px solid ${radio.borderError};
 
 		&:not(:checked):hover,
 		&:active {
@@ -38,7 +38,7 @@ export const radioContainer = (
 
 	&:hover {
 		input {
-			border-color: ${radio.borderHover};
+			border: 2px solid ${radio.borderHover};
 		}
 	}
 `;
@@ -61,7 +61,7 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 2px solid currentColor;
+	border: 1px solid currentColor;
 	border-radius: 50%;
 	position: relative;
 	transition: box-shadow ${transitions.short};
@@ -70,6 +70,7 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	color: ${radio.border};
 
 	&:checked {
+		border: 2px solid currentColor;
 		color: ${radio.backgroundChecked};
 	}
 
