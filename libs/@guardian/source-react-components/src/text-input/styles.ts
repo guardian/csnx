@@ -11,8 +11,7 @@ import { textInputThemeDefault } from './theme';
 export const errorInput = (
 	textInput = textInputThemeDefault.textInput,
 ): SerializedStyles => css`
-	border: 2px solid ${textInput.borderError};
-	border-radius: 4px;
+	border: 4px solid ${textInput.borderError};
 	color: ${textInput.textError};
 	margin-top: 0;
 `;
@@ -20,8 +19,7 @@ export const errorInput = (
 export const successInput = (
 	textInput = textInputThemeDefault.textInput,
 ): SerializedStyles => css`
-	border: 2px solid ${textInput.borderSuccess};
-	border-radius: 4px;
+	border: 4px solid ${textInput.borderSuccess};
 	color: ${textInput.textSuccess};
 	margin-top: 0;
 `;
@@ -35,12 +33,12 @@ export const textInput = (
 		${textSans.medium()};
 		color: ${textInput.textUserInput};
 		background-color: ${textInput.backgroundInput};
-		border: 1px solid ${textInput.border};
-		border-radius: 4px;
+		border: 2px solid ${textInput.border};
 		padding: 0 ${space[2]}px;
 
 		&:focus {
-			${focusHalo}
+			border: 2px solid ${textInput.borderActive};
+			${focusHalo};
 		}
 
 		&:invalid {
