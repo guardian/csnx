@@ -8,22 +8,22 @@
 			"options": {
 				"commands": [
 					{
-						"command": "cd libs/@guardian/source-foundations && start-storybook --no-open --port 4401 --quiet",
+						"command": "cd libs/@guardian/source-foundations && storybook dev --no-open --port 4401 --quiet",
 						"prefix": "foundations",
 						"color": "red"
 					},
 					{
-						"command": "cd libs/@guardian/source-react-components && start-storybook --no-open --port 4402 --quiet",
+						"command": "cd libs/@guardian/source-react-components && storybook dev --no-open --port 4402 --quiet",
 						"prefix": "react-components",
 						"color": "green"
 					},
 					{
-						"command": "cd libs/@guardian/source-react-components-development-kitchen && start-storybook --no-open --port 4403 --quiet",
+						"command": "cd libs/@guardian/source-react-components-development-kitchen && storybook dev --no-open --port 4403 --quiet",
 						"prefix": "dev-kitchen",
 						"color": "blue"
 					},
 					{
-						"command": "cd libs/@guardian/atoms-rendering && start-storybook --no-open --port 4404 --quiet",
+						"command": "cd libs/@guardian/atoms-rendering && storybook dev --no-open --port 4404 --quiet",
 						"prefix": "atoms-rendering",
 						"color": "yellow"
 					}
@@ -35,7 +35,7 @@
 		"composed-storybooks": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "start-storybook --port 4400 --quiet",
+				"command": "storybook dev --port 4400 --quiet",
 				"cwd": "apps/csnx"
 			}
 		},
@@ -56,7 +56,7 @@
 			"executor": "nx:run-commands",
 			"outputs": ["dist/storybook/apps/csnx"],
 			"options": {
-				"command": "NODE_ENV=production build-storybook -o ../../dist/storybook/apps/csnx --webpack-stats-json",
+				"command": "NODE_ENV=production storybook build -o ../../dist/storybook/apps/csnx --webpack-stats-json",
 				"cwd": "apps/csnx",
 				"color": true
 			}

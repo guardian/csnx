@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { ArticlePillar } from '@guardian/libs';
-import { Radio } from '@guardian/source-react-components';
+import { Radio, RadioGroup } from '@guardian/source-react-components';
 import {
 	CorrectSelectedAnswer,
 	IncorrectAnswer,
@@ -43,18 +43,14 @@ export const Answers = (): JSX.Element => (
 			theme={ArticlePillar.News}
 		/>
 		<div css={radioButtonWrapperStyles(ArticlePillar.News)}>
-			<Radio
-				value={'answer.text'}
-				label="Selectable unanswered answer"
-				onChange={(e) => console.log(e.target.value)}
-				checked={true}
-			/>
-			<Radio
-				value={'answer.text'}
-				label="Selectable unanswered answer"
-				onChange={(e) => console.log(e.target.value)}
-				checked={false}
-			/>
+			<RadioGroup name="answers">
+				<Radio
+					defaultChecked
+					value="answer one"
+					label="Selectable unanswered answer"
+				/>
+				<Radio value="answer two" label="Selectable unanswered answer" />
+			</RadioGroup>
 		</div>
 	</div>
 );
