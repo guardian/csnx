@@ -31,7 +31,7 @@
 	"peerDependencies": {
 		"@emotion/react": "^11.0.0",
 		"@guardian/source-foundations": "^10.0.0",
-		"react": "^18.0.0",
+		"react": "^18.2.0",
 		"tslib": "^2.4.1",
 		"typescript": "~4.9.5"
 	},
