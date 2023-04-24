@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 13.0.0
+
+### Major Changes
+
+- Update React to v18
+
 ## 12.0.0
 
 ### Major Changes

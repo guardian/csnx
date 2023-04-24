@@ -1,5 +1,16 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 15.0.0
+
+### Major Changes
+
+- Update React to v18
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/source-react-components@13.0.0
+
 ## 14.0.0
 
 ### Major Changes

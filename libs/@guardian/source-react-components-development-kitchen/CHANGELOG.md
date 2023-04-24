@@ -1,5 +1,16 @@
 # @guardian/source-react-components-development-kitchen
 
+## 11.0.0
+
+### Major Changes
+
+- Update React to v18
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/source-react-components@13.0.0
+
 ## 10.0.1
 
 ### Patch Changes

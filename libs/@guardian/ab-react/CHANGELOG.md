@@ -1,5 +1,10 @@
 # @guardian/ab-react
 
+## 5.0.0
+
+### Major Changes
+
+- Update React to v18
 ## 4.0.2
 
 ### Patch Changes
