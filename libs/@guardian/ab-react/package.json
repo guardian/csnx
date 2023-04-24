@@ -9,7 +9,7 @@
 		"@emotion/react": "11.0.0",
 		"@guardian/ab-core": "4.0.0",
 		"@testing-library/react": "11.2.2",
-		"@types/react": "18.0.28",
+		"@types/react": "18.0.38",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.4.1",
