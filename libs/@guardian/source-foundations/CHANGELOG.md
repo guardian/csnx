@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 11.0.0
+
+### Major Changes
+
+- 313f8c0: Update form component border styles. This breaking change will only affect consumers not using `box-sizing: border-box`. In these circumstances consumers may need to adjust their styling to account for thinner borders.
+
 ## 10.0.1
 
 ### Patch Changes
