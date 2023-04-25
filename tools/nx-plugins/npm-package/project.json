@@ -1,4 +1,5 @@
 {
+	"name": "nx-plugin-npm-package",
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "tools/nx-plugins/npm-package",
 	"projectType": "library",

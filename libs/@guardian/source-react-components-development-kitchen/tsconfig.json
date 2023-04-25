@@ -1,7 +1,7 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"files": [],
-	"include": [".", "../../../@types/window.d.ts", ".storybook/*"],
+	"files": ["../../../@types/window.d.ts"],
+	"include": [".", ".storybook/*"],
 	"references": [
 		{
 			"path": "./tsconfig.spec.json"

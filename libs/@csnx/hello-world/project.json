@@ -1,4 +1,5 @@
 {
+	"name": "@csnx/hello-world",
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/@csnx/hello-world/src",
 	"projectType": "library",
