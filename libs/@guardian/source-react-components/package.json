@@ -17,7 +17,7 @@
 		"@svgr/plugin-svgo": "6.5.1",
 		"@types/mkdirp": "1.0.2",
 		"@types/prettier": "2.4.0",
-		"@types/react": "18.0.38",
+		"@types/react": "18.2.0",
 		"@types/svgo": "2.6.4",
 		"axios": "0.27.2",
 		"dotenv": "16.0.2",
