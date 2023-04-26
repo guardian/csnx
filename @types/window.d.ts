@@ -1,5 +1,7 @@
 import type { TeamSubscription } from '../libs/@guardian/libs/src/logger/@types/logger';
 import type { Switches } from '../libs/@guardian/libs/src/switches/@types/Switches';
+import type { google } from '../libs/@guardian/atoms-rendering/src/ima';
+import type { ImaManager } from '../libs/@guardian/atoms-rendering/src/YoutubeAtomPlayer';
 
 declare global {
 	interface Window {
@@ -37,6 +39,14 @@ declare global {
 				viewId: string;
 				pageViewId: string;
 			};
+		};
+		/**
+		 * Here we want to type the google object that will be added to window.
+		 * Since the imported google namespace is a value rather than a type, use typeof.
+		 */
+		google?: typeof google;
+		YT?: {
+			ImaManager: typeof ImaManager;
 		};
 	}
 }
