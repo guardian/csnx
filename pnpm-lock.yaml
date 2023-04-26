@@ -162,8 +162,8 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5
       '@guardian/ab-core': 4.0.0
-      '@guardian/commercial-core': 5.0.0
-      '@guardian/consent-management-platform': 11.0.0
+      '@guardian/commercial-core': ^6.3.0
+      '@guardian/consent-management-platform': ^12.0.0
       '@guardian/eslint-plugin-source-foundations': 11.0.0
       '@guardian/eslint-plugin-source-react-components': 15.0.0
       '@guardian/libs': 14.0.0
@@ -191,8 +191,8 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5_q35hynawvquf32rmovmnsbejtu
       '@guardian/ab-core': link:../ab-core
-      '@guardian/commercial-core': 5.0.0_ljpknfqiuokvdcrq333qqs7vsq
-      '@guardian/consent-management-platform': 11.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/commercial-core': 6.3.0_mdhpel7cev36wsdgnyrxcc63ve
+      '@guardian/consent-management-platform': 12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
@@ -2580,23 +2580,22 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
-  /@guardian/commercial-core/5.0.0_ljpknfqiuokvdcrq333qqs7vsq:
-    resolution: {integrity: sha512-PLSgWvf1oDIvGstwmTrKqpIFnI/G0hU04wJMSr8CGOqk9Apx9HUCvYF1uDdcD9oLCAck3Fz8oveXrBaXLmwsWQ==}
+  /@guardian/commercial-core/6.3.0_mdhpel7cev36wsdgnyrxcc63ve:
+    resolution: {integrity: sha512-+CxVVLD1BA/XYGF+TQsp0N+55TEIEGQstP1AUJ3RfdnN7pvTh4ZnypLGmLZ3l/WhRsnHIIa7Deu7tt2+4AeE2w==}
     peerDependencies:
-      '@guardian/ab-core': ^2.0.0
-      '@guardian/consent-management-platform': ^11.0.0
-      '@guardian/libs': ^10.0.0
+      '@guardian/ab-core': ^4.0.0
+      '@guardian/consent-management-platform': ^12.0.0
+      '@guardian/libs': ^14.0.0
     dependencies:
       '@guardian/ab-core': link:libs/@guardian/ab-core
-      '@guardian/consent-management-platform': 11.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/consent-management-platform': 12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/libs': link:libs/@guardian/libs
-      type-fest: 2.12.2
     dev: true
 
-  /@guardian/consent-management-platform/11.0.0_uo3bjqllavv5kwoq2zqgzcz5h4:
-    resolution: {integrity: sha512-j97gI5NbhVLXy1s8465lyT/w/nU3K+HewkfHIQ/NLOvzBS2mmcgB6A6sRXsKCOYRt4W8eNoTX5xgAdemFgvLAw==}
+  /@guardian/consent-management-platform/12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4:
+    resolution: {integrity: sha512-pS0w/Jy7fwI46/lbvmSodPn94IAD+lW80Xr8/2uVIr7i5eLNak28MMLHk4Vhe0SOQTGqqi0arPPLhu6cj7XNwQ==}
     peerDependencies:
-      '@guardian/libs': ^10.0.0
+      '@guardian/libs': ^14.0.0
     dependencies:
       '@guardian/libs': link:libs/@guardian/libs
     dev: true
@@ -14746,11 +14745,6 @@ packages:
   /type-fest/0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
-    dev: true
-
-  /type-fest/2.12.2:
-    resolution: {integrity: sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==}
-    engines: {node: '>=12.20'}
     dev: true
 
   /type-fest/2.19.0:
