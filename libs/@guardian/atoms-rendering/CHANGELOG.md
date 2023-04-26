@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 29.1.0
+
+### Minor Changes
+
+- ad05205: Add new ad targeting logic for YoutubeAtomPlayer
+
 ## 29.0.0
 
 ### Major Changes
