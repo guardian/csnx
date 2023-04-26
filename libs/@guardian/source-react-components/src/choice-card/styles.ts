@@ -1,9 +1,9 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import {
-	focusHalo,
 	from,
 	height,
+	palette,
 	resets,
 	space,
 	textSans,
@@ -67,11 +67,13 @@ export const input = (
 	${visuallyHidden};
 
 	&:focus + label {
-		${focusHalo};
+		html:not(.src-focus-disabled) & {
+			outline: 3px solid ${palette.focus[400]};
+		}
 	}
 
 	&:checked + label {
-		box-shadow: inset 0 0 0 4px ${choiceCard.borderChecked};
+		box-shadow: inset 0 0 0 2px ${choiceCard.borderChecked};
 		background-color: ${choiceCard.backgroundChecked};
 
 		& > * {
@@ -139,7 +141,7 @@ export const choiceCard = (
 	justify-content: center;
 	min-height: ${height.inputMedium}px;
 	margin: 0 0 ${space[2]}px 0;
-	box-shadow: inset 0 0 0 2px ${choiceCard.border};
+	box-shadow: inset 0 0 0 1px ${choiceCard.border};
 	border-radius: 4px;
 	position: relative;
 	cursor: pointer;
@@ -153,7 +155,7 @@ export const choiceCard = (
 	}
 
 	&:hover {
-		box-shadow: inset 0 0 0 4px ${choiceCard.borderHover};
+		box-shadow: inset 0 0 0 2px ${choiceCard.borderHover};
 		color: ${choiceCard.textHover};
 	}
 `;
@@ -247,7 +249,7 @@ export const tick = (
 export const errorChoiceCard = (
 	choiceCard = choiceCardThemeDefault.choiceCard,
 ): SerializedStyles => css`
-	box-shadow: inset 0 0 0 4px ${choiceCard.borderError};
+	box-shadow: inset 0 0 0 2px ${choiceCard.borderError};
 
 	& > * {
 		color: ${choiceCard.textError};
