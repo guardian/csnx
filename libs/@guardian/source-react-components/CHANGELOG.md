@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 14.0.1
+
+### Patch Changes
+
+- Update Source package versions
+
 ## 14.0.0
 
 ### Major Changes

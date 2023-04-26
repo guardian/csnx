@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 16.0.0
+
+### Major Changes
+
+- Update Source package versions
+
 ## 15.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 29.1.1
+
+### Patch Changes
+
+- Update Source package versions
+
 ## 29.1.0
 
 ### Minor Changes
