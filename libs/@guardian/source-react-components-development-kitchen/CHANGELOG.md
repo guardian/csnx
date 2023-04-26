@@ -1,5 +1,17 @@
 # @guardian/source-react-components-development-kitchen
 
+## 12.0.0
+
+### Major Changes
+
+- 313f8c0: Update form component border styles. This breaking change will only affect consumers not using `box-sizing: border-box`. In these circumstances consumers may need to adjust their styling to account for thinner borders.
+
+### Patch Changes
+
+- Updated dependencies [313f8c0]
+  - @guardian/source-foundations@11.0.0
+  - @guardian/source-react-components@14.0.0
+
 ## 11.0.0
 
 ### Major Changes
