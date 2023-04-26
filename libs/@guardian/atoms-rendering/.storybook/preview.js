@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { FocusStyleManager } from '@guardian/source-foundations';
 import { breakpoints } from '@guardian/source-foundations';
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
@@ -66,3 +68,12 @@ export const parameters = {
 		viewports: customViewports,
 	},
 };
+
+export const decorators = [
+	(Story) => {
+		useEffect(() => {
+			FocusStyleManager.onlyShowFocusOnTabs();
+		});
+		return <Story />;
+	},
+];
