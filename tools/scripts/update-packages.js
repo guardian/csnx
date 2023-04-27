@@ -1,15 +1,40 @@
-const packageNames = [
-	'@guardian/libs',
-	'@guardian/atoms-rendering',
-	'@guardian/source-foundations',
-	'@guardian/source-react-components',
-	'@guardian/source-react-components-development-kitchen',
-	'@guardian/eslint-plugin-source-react-components',
-	'@guardian/browserslist-config',
-];
-
 const fs = require('fs');
 const path = require('path');
+
+const companyName = '@guardian'; // Replace with your company name
+
+async function getPackageNames(rootDir, companyName) {
+	const packageNames = [];
+	const libsPath = path.join(rootDir, 'libs', companyName);
+
+	try {
+		const entries = await fs.promises.readdir(libsPath, {
+			withFileTypes: true,
+		});
+
+		for (const entry of entries) {
+			if (entry.isDirectory()) {
+				const packageJsonPath = path.join(libsPath, entry.name, 'package.json');
+				try {
+					const packageJson = await fs.promises.readFile(
+						packageJsonPath,
+						'utf-8',
+					);
+					const { name } = JSON.parse(packageJson);
+					packageNames.push(name);
+				} catch (err) {
+					console.error(`Error reading ${entry.name} package.json:`, err);
+				}
+			}
+		}
+	} catch (err) {
+		console.error(`Error reading libs/${companyName} directory:`, err);
+	}
+
+	return packageNames;
+}
+
+// Rest of the script remains the same as before
 
 // Function to create packageNamesVersions
 async function createPackageNamesVersions(packageNames, rootDir) {
@@ -92,7 +117,7 @@ function replacePackageVersions(packageJsonPath, packageNamesVersions) {
 		if (updated) {
 			fs.writeFile(
 				packageJsonPath,
-				JSON.stringify(packageJson, null, 2),
+				JSON.stringify(packageJson, null, '\t'),
 				(err) => {
 					if (err) {
 						console.error(err);
@@ -104,10 +129,12 @@ function replacePackageVersions(packageJsonPath, packageNamesVersions) {
 }
 
 const rootDir = path.resolve('.'); // You can change the root directory if needed
-createPackageNamesVersions(packageNames, rootDir).then(
-	(packageNamesVersions) => {
-		traverseDir(rootDir, (packageJsonPath) =>
-			replacePackageVersions(packageJsonPath, packageNamesVersions),
-		);
-	},
-);
+getPackageNames(rootDir, companyName).then((packageNames) => {
+	createPackageNamesVersions(packageNames, rootDir).then(
+		(packageNamesVersions) => {
+			traverseDir(rootDir, (packageJsonPath) =>
+				replacePackageVersions(packageJsonPath, packageNamesVersions),
+			);
+		},
+	);
+});
