@@ -68,6 +68,7 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make lint` _checks all projects for lint errors_
 - `make storybooks` _runs storybook for all projects in single instance_
 - `make test` _runs the unit tests for all projects_
+- `make update-packages` \_\_
 - `make validate` _makes sure absolutely everything is working_
 
 <!-- END TASKS -->

@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import path from 'node:path';
+import fs from 'node:fs';
 
 const companyName = '@guardian'; // Replace with your company name
 

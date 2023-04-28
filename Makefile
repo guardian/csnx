@@ -76,6 +76,11 @@ changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
+.PHONY: update-packages
+update-packages: env
+	$(call log,"Updating packages")
+	@node ./tools/scripts/update-packages.mjs
+
 ################################ INTERNAL UTILS ################################
 
 # loosely styled logging for user feedback
