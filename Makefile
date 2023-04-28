@@ -76,6 +76,7 @@ changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
+# updates all @guardian packages to the latest version
 .PHONY: update-packages
 update-packages: env
 	$(call log,"Updating packages")
