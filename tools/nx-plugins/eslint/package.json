@@ -2,7 +2,7 @@
 	"name": "@csnx/eslint",
 	"private": true,
 	"dependencies": {
-		"@nrwl/linter": "15.3.0",
+		"@nrwl/linter": "15.9.2",
 		"typescript": "4.9.5"
 	},
 	"executors": "./executors.json"

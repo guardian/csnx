@@ -5,4 +5,7 @@ module.exports = {
 	moduleFileExtensions: ['js', 'jsx'],
 	coverageDirectory:
 		'../../../coverage/libs/@guardian/eslint-config-typescript',
+	transform: {
+		'^.+\\.[tj]sx?$': 'ts-jest',
+	},
 };

@@ -19,7 +19,7 @@ import type { AdTargeting, VideoEventKey } from './types';
 import type { PlayerListenerName } from './YouTubePlayer';
 import { YouTubePlayer } from './YouTubePlayer';
 
-declare class ImaManager {
+export declare class ImaManager {
 	constructor(
 		player: YT.Player,
 		id: string,
@@ -31,19 +31,6 @@ declare class ImaManager {
 	);
 	getAdsLoader: () => google.ima.AdsLoader;
 	getAdsManager: () => google.ima.AdsManager;
-}
-
-declare global {
-	interface Window {
-		/**
-		 * Here we want to type the google object that will be added to window.
-		 * Since the imported google namespace is a value rather than a type, use typeof.
-		 */
-		google: typeof google;
-		YT: {
-			ImaManager: typeof ImaManager;
-		};
-	}
 }
 
 type Props = {
@@ -318,9 +305,11 @@ const createInstantiateImaManager =
 				consentState,
 				clientSideParticipations: abTestParticipations,
 			});
-			adsRenderingSettings.uiElements = [
-				window.google.ima.UiElements.AdAttribution,
-			];
+			if (window.google) {
+				adsRenderingSettings.uiElements = [
+					window.google.ima.UiElements.AdAttribution,
+				];
+			}
 		};
 
 		if (typeof window.YT.ImaManager !== 'undefined') {
@@ -334,19 +323,23 @@ const createInstantiateImaManager =
 
 			const onAdsManagerLoaded = () => {
 				adsManager.current = imaManager.current?.getAdsManager();
-				adsManager.current?.addEventListener(
-					window.google.ima.AdEvent.Type.Started,
-					() => {
-						dispatchCustomPlayEvent(uniqueId);
-					},
-				);
+				if (window.google) {
+					adsManager.current?.addEventListener(
+						window.google.ima.AdEvent.Type.Started,
+						() => {
+							dispatchCustomPlayEvent(uniqueId);
+						},
+					);
+				}
 			};
 
-			adsLoader.addEventListener(
-				window.google.ima.AdsManagerLoadedEvent.Type.AdsManagerLoaded,
-				onAdsManagerLoaded,
-				false,
-			);
+			if (window.google) {
+				adsLoader.addEventListener(
+					window.google.ima.AdsManagerLoadedEvent.Type.AdsManagerLoaded,
+					onAdsManagerLoaded,
+					false,
+				);
+			}
 		} else {
 			console.warn(
 				'YT.ImaManager is undefined, probably because the youtube iframe_api script was fetched from ' +

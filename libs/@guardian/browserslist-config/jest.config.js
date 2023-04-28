@@ -4,4 +4,7 @@ module.exports = {
 	testEnvironment: 'node',
 	moduleFileExtensions: ['js', 'jsx'],
 	coverageDirectory: '../../../coverage/libs/@guardian/browserslist-config',
+	transform: {
+		'^.+\\.[tj]sx?$': 'ts-jest',
+	},
 };
