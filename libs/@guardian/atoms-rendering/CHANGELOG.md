@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 29.1.2
+
+### Patch Changes
+
+- 833d562: Move youtube window types to window.d.ts
+
 ## 29.1.1
 
 ### Patch Changes
