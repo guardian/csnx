@@ -1,8 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
 
-const companyName = '@guardian'; // Replace with your company name
-
 async function getPackageNames(rootDir, companyName) {
 	const packageNames = [];
 	const libsPath = path.join(rootDir, 'libs', companyName);
@@ -34,9 +32,6 @@ async function getPackageNames(rootDir, companyName) {
 	return packageNames;
 }
 
-// Rest of the script remains the same as before
-
-// Function to create packageNamesVersions
 async function createPackageNamesVersions(packageNames, rootDir) {
 	const packageNamesVersions = {};
 
@@ -53,7 +48,6 @@ async function createPackageNamesVersions(packageNames, rootDir) {
 
 	return packageNamesVersions;
 }
-// End of createPackageNamesVersions function
 
 function traverseDir(dir, callback) {
 	fs.readdir(dir, { withFileTypes: true }, (err, entries) => {
@@ -128,7 +122,8 @@ function replacePackageVersions(packageJsonPath, packageNamesVersions) {
 	});
 }
 
-const rootDir = path.resolve('.'); // You can change the root directory if needed
+const companyName = '@guardian';
+const rootDir = path.resolve('.');
 getPackageNames(rootDir, companyName).then((packageNames) => {
 	createPackageNamesVersions(packageNames, rootDir).then(
 		(packageNamesVersions) => {
