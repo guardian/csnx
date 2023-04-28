@@ -4,4 +4,7 @@ module.exports = {
 	testEnvironment: 'node',
 	moduleFileExtensions: ['js', 'jsx'],
 	coverageDirectory: '../../../coverage/libs/@guardian/eslint-config',
+	transform: {
+		'^.+\\.[tj]sx?$': 'ts-jest',
+	},
 };

@@ -1,4 +1,5 @@
 {
+	"name": "@guardian/eslint-plugin-source-react-components",
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/@guardian/eslint-plugin-source-react-components/src",
 	"projectType": "library",

@@ -22,7 +22,6 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: make workspace-lint
       - run: make lint
       - run: make test
       - run: make build

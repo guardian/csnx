@@ -1,10 +1,11 @@
 {
 	"extends": "./tsconfig.json",
+	"files": ["../../../@types/window.d.ts"],
 	"compilerOptions": {
 		"allowJs": true,
 		"outDir": "../../../dist/out-tsc",
 		"module": "commonjs",
-		"types": ["jest", "node"],
+		"types": ["jest", "node", "@testing-library/jest-dom", "@types/youtube"],
 		"composite": true
 	},
 	"include": [
