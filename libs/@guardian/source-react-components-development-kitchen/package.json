@@ -1,14 +1,14 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "11.0.0",
+	"version": "12.0.1",
 	"sideEffects": false,
 	"devDependencies": {
 		"@babel/core": "7.21.4",
 		"@emotion/react": "11.0.0",
 		"@guardian/libs": "14.0.0",
-		"@guardian/source-foundations": "10.0.0",
-		"@guardian/source-react-components": "13.0.0",
-		"@types/react": "18.0.38",
+		"@guardian/source-foundations": "11.0.0",
+		"@guardian/source-react-components": "14.0.1",
+		"@types/react": "18.2.0",
 		"react": "18.2.0",
 		"tslib": "2.4.1",
 		"typescript": "4.9.5"
@@ -16,8 +16,8 @@
 	"peerDependencies": {
 		"@emotion/react": "^11.0.0",
 		"@guardian/libs": "^14.0.0",
-		"@guardian/source-foundations": "^10.0.0",
-		"@guardian/source-react-components": "^13.0.0",
+		"@guardian/source-foundations": "^11.0.0",
+		"@guardian/source-react-components": "^14.0.1",
 		"react": "^18.2.0",
 		"tslib": "^2.4.1",
 		"typescript": "~4.9.5"

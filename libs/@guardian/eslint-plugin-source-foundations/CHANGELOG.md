@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 12.0.0
+
+### Major Changes
+
+- Update Source package versions
+
 ## 11.0.0
 
 ### Major Changes

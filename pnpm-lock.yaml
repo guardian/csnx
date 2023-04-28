@@ -73,7 +73,7 @@ importers:
       '@nrwl/devkit': 15.9.2_nx@15.9.2
       '@nrwl/eslint-plugin-nx': 15.9.2_6ttp6oxus3cut72lsf2tggulpq
       '@nrwl/jest': 15.9.2_43vrqbpnfd5ymygjhz7axa5foy
-      '@nrwl/nx-cloud': 16.0.2
+      '@nrwl/nx-cloud': 16.0.5
       '@nrwl/workspace': 15.9.2_facz2opbapyestmexf5zkdkfiy
       '@storybook/addon-a11y': 7.0.4_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-docs': 7.0.4_biqbaboplfbrettd7655fr4n2y
@@ -141,16 +141,16 @@ importers:
       '@emotion/react': 11.0.0
       '@guardian/ab-core': 4.0.0
       '@testing-library/react': 14.0.0
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       react: 18.2.0
       react-dom: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
-      '@emotion/react': 11.0.0_mj3jo2baq3jslihcop7oivercy
+      '@emotion/react': 11.0.0_3mjolpizrsjgnt7s4ahgoveqvu
       '@guardian/ab-core': link:../ab-core
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tslib: 2.4.1
@@ -162,18 +162,18 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5
       '@guardian/ab-core': 4.0.0
-      '@guardian/commercial-core': 5.0.0
-      '@guardian/consent-management-platform': 11.0.0
-      '@guardian/eslint-plugin-source-foundations': 11.0.0
-      '@guardian/eslint-plugin-source-react-components': 15.0.0
+      '@guardian/commercial-core': ^6.3.0
+      '@guardian/consent-management-platform': ^12.0.0
+      '@guardian/eslint-plugin-source-foundations': 12.0.0
+      '@guardian/eslint-plugin-source-react-components': 16.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 13.0.0
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 14.0.1
       '@testing-library/dom': 9.2.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0
       '@types/lodash.debounce': 4.0.6
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       '@types/react-dom': 18.0.11
       '@types/testing-library__jest-dom': 5.14.5
       '@types/youtube': 0.0.46
@@ -189,20 +189,20 @@ importers:
     devDependencies:
       '@babel/core': 7.21.4
       '@emotion/eslint-plugin': 11.7.0
-      '@emotion/react': 11.1.5_qx56bwqltrqrt4z3blrcqiyhkq
+      '@emotion/react': 11.1.5_q35hynawvquf32rmovmnsbejtu
       '@guardian/ab-core': link:../ab-core
-      '@guardian/commercial-core': 5.0.0_ljpknfqiuokvdcrq333qqs7vsq
-      '@guardian/consent-management-platform': 11.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/commercial-core': 6.3.0_mdhpel7cev36wsdgnyrxcc63ve
+      '@guardian/consent-management-platform': 12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
+      '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
       '@testing-library/dom': 9.2.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/lodash.debounce': 4.0.6
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       '@types/react-dom': 18.0.11
       '@types/testing-library__jest-dom': 5.14.5
       '@types/youtube': 0.0.46
@@ -274,7 +274,7 @@ importers:
   libs/@guardian/eslint-plugin-source-foundations:
     specifiers:
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
+      '@guardian/source-foundations': 11.0.0
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -289,7 +289,7 @@ importers:
       eslint-plugin-import: 2.26.0_vdbrudqrbar45cpuedhov3zkzu
     devDependencies:
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
+      '@guardian/source-foundations': link:../source-foundations
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       eslint: 8.0.0
@@ -300,8 +300,8 @@ importers:
     specifiers:
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 13.0.0
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 14.0.1
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -316,7 +316,7 @@ importers:
     devDependencies:
       '@emotion/react': 11.0.0_react@18.2.0
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
+      '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
@@ -372,7 +372,7 @@ importers:
     specifiers:
       '@babel/core': 7.21.4
       '@emotion/react': 11.0.0
-      '@guardian/source-foundations': 10.0.0
+      '@guardian/source-foundations': 11.0.0
       '@svgr/babel-preset': 6.5.1
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1
@@ -380,7 +380,7 @@ importers:
       '@svgr/plugin-svgo': 6.5.1
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.4.0
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       '@types/svgo': 2.6.4
       axios: 0.27.2
       dotenv: 16.0.2
@@ -392,8 +392,8 @@ importers:
       typescript: 4.9.5
     devDependencies:
       '@babel/core': 7.21.4
-      '@emotion/react': 11.0.0_qx56bwqltrqrt4z3blrcqiyhkq
-      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
+      '@emotion/react': 11.0.0_q35hynawvquf32rmovmnsbejtu
+      '@guardian/source-foundations': link:../source-foundations
       '@svgr/babel-preset': 6.5.1_@babel+core@7.21.4
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1_@svgr+core@6.5.1
@@ -401,7 +401,7 @@ importers:
       '@svgr/plugin-svgo': 6.5.1_@svgr+core@6.5.1
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.4.0
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       '@types/svgo': 2.6.4
       axios: 0.27.2
       dotenv: 16.0.2
@@ -417,19 +417,19 @@ importers:
       '@babel/core': 7.21.4
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 10.0.0
-      '@guardian/source-react-components': 13.0.0
-      '@types/react': 18.0.38
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 14.0.1
+      '@types/react': 18.2.0
       react: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
       '@babel/core': 7.21.4
-      '@emotion/react': 11.0.0_qx56bwqltrqrt4z3blrcqiyhkq
+      '@emotion/react': 11.0.0_q35hynawvquf32rmovmnsbejtu
       '@guardian/libs': link:../libs
-      '@guardian/source-foundations': 10.0.0_2pbpt5kusulw3ljguycdqs5yya
+      '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       react: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
@@ -2109,7 +2109,7 @@ packages:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: true
 
-  /@emotion/react/11.0.0_mj3jo2baq3jslihcop7oivercy:
+  /@emotion/react/11.0.0_3mjolpizrsjgnt7s4ahgoveqvu:
     resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2127,12 +2127,12 @@ packages:
       '@emotion/sheet': 1.2.0
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.2.5
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: true
 
-  /@emotion/react/11.0.0_qx56bwqltrqrt4z3blrcqiyhkq:
+  /@emotion/react/11.0.0_q35hynawvquf32rmovmnsbejtu:
     resolution: {integrity: sha512-mMQOuJcCVHUHUKZMamCbNnuUEgEff1W1JL3/1jGXFN52Ik5R/2ccVb3FherYFkSJkkjkPC3dUfFSeisXVh9Spg==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2151,7 +2151,7 @@ packages:
       '@emotion/sheet': 1.2.0
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.2.5
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: true
@@ -2178,7 +2178,7 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@emotion/react/11.1.5_qx56bwqltrqrt4z3blrcqiyhkq:
+  /@emotion/react/11.1.5_q35hynawvquf32rmovmnsbejtu:
     resolution: {integrity: sha512-xfnZ9NJEv9SU9K2sxXM06lzjK245xSeHRpUh67eARBm3PBHjjKIZlfWZ7UQvD0Obvw6ZKjlC79uHrlzFYpOB/Q==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -2197,7 +2197,7 @@ packages:
       '@emotion/sheet': 1.2.1
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.2.5
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: true
@@ -2497,39 +2497,24 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
-  /@guardian/commercial-core/5.0.0_ljpknfqiuokvdcrq333qqs7vsq:
-    resolution: {integrity: sha512-PLSgWvf1oDIvGstwmTrKqpIFnI/G0hU04wJMSr8CGOqk9Apx9HUCvYF1uDdcD9oLCAck3Fz8oveXrBaXLmwsWQ==}
+  /@guardian/commercial-core/6.3.0_mdhpel7cev36wsdgnyrxcc63ve:
+    resolution: {integrity: sha512-+CxVVLD1BA/XYGF+TQsp0N+55TEIEGQstP1AUJ3RfdnN7pvTh4ZnypLGmLZ3l/WhRsnHIIa7Deu7tt2+4AeE2w==}
     peerDependencies:
-      '@guardian/ab-core': ^2.0.0
-      '@guardian/consent-management-platform': ^11.0.0
-      '@guardian/libs': ^10.0.0
+      '@guardian/ab-core': ^4.0.0
+      '@guardian/consent-management-platform': ^12.0.0
+      '@guardian/libs': ^14.0.0
     dependencies:
       '@guardian/ab-core': link:libs/@guardian/ab-core
-      '@guardian/consent-management-platform': 11.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
-      '@guardian/libs': link:libs/@guardian/libs
-      type-fest: 2.12.2
-    dev: true
-
-  /@guardian/consent-management-platform/11.0.0_uo3bjqllavv5kwoq2zqgzcz5h4:
-    resolution: {integrity: sha512-j97gI5NbhVLXy1s8465lyT/w/nU3K+HewkfHIQ/NLOvzBS2mmcgB6A6sRXsKCOYRt4W8eNoTX5xgAdemFgvLAw==}
-    peerDependencies:
-      '@guardian/libs': ^10.0.0
-    dependencies:
+      '@guardian/consent-management-platform': 12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
-  /@guardian/source-foundations/10.0.0_2pbpt5kusulw3ljguycdqs5yya:
-    resolution: {integrity: sha512-/fx5oOAeTvEnbPb3VDeX9iQ/7U6D6+JLHyRUL4HCocYLPIF/uzbPKI4nDebzO/ZdHE1O84bL1Kw7Jup+jqS1Ug==}
+  /@guardian/consent-management-platform/12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4:
+    resolution: {integrity: sha512-pS0w/Jy7fwI46/lbvmSodPn94IAD+lW80Xr8/2uVIr7i5eLNak28MMLHk4Vhe0SOQTGqqi0arPPLhu6cj7XNwQ==}
     peerDependencies:
-      tslib: ^2.4.1
-      typescript: ~4.9.5
-    peerDependenciesMeta:
-      typescript:
-        optional: true
+      '@guardian/libs': ^14.0.0
     dependencies:
-      mini-svg-data-uri: 1.4.4
-      tslib: 2.4.1
-      typescript: 4.9.5
+      '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
   /@humanwhocodes/config-array/0.11.7:
@@ -3068,7 +3053,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.4
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
       react: 18.2.0
     dev: true
 
@@ -3296,10 +3281,10 @@ packages:
       - typescript
     dev: false
 
-  /@nrwl/nx-cloud/16.0.2:
-    resolution: {integrity: sha512-JsfawqxTWyXx2lMS1YEhTzEiEddbGWPRjwNa2lgLfPA4iMGjMB0mvOZHannBdBaOMo6T/CQxcv0ItxHXF8Sd6w==}
+  /@nrwl/nx-cloud/16.0.5:
+    resolution: {integrity: sha512-1p82ym8WE9ziejwgPslstn19iV/VkHfHfKr/5YOnfCHQS+NxUf92ogcYhHXtqWLblVZ9Zs4W4pkSXK4e04wCmQ==}
     dependencies:
-      nx-cloud: 16.0.2
+      nx-cloud: 16.0.5
     transitivePeerDependencies:
       - debug
     dev: true
@@ -5368,11 +5353,11 @@ packages:
   /@types/react-dom/18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
-      '@types/react': 18.0.38
+      '@types/react': 18.2.0
     dev: true
 
-  /@types/react/18.0.38:
-    resolution: {integrity: sha512-ExsidLLSzYj4cvaQjGnQCk4HFfVT9+EZ9XZsQ8Hsrcn8QNgXtpZ3m9vSIC2MWtx7jHictK6wYhQgGh6ic58oOw==}
+  /@types/react/18.2.0:
+    resolution: {integrity: sha512-0FLj93y5USLHdnhIhABk83rm8XEGA7kH3cr+YUlvxoUGp1xNt/DINUMvqPxLyOQMzLmZe8i4RTHbvb8MC7NmrA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -6400,6 +6385,16 @@ packages:
     dependencies:
       follow-redirects: 1.15.1
       form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
+  /axios/1.1.3:
+    resolution: {integrity: sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -11947,6 +11942,7 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
+    dev: false
 
   /minimatch/3.0.5:
     resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
@@ -12222,12 +12218,12 @@ packages:
     resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
     dev: true
 
-  /nx-cloud/16.0.2:
-    resolution: {integrity: sha512-K9mzy0CVZHWMrWzyT+s0PveLSGMhFBEobsBXNXPUcLKU8iPpWleJrdMwiIQgNQuRJAyj3QTIKGxRYw0FUW0f7A==}
+  /nx-cloud/16.0.5:
+    resolution: {integrity: sha512-13P7r0aKikjBtmdZrNorwXzVPeVIV4MLEwqGY+DEG6doLBtI5KqEQk/d5B5l2dCF2BEi/LXEmLYCmf9gwbOJ+Q==}
     hasBin: true
     dependencies:
-      '@nrwl/nx-cloud': 16.0.2
-      axios: 1.3.6
+      '@nrwl/nx-cloud': 16.0.5
+      axios: 1.1.3
       chalk: 4.1.2
       dotenv: 10.0.0
       fs-extra: 11.1.1
@@ -14795,11 +14791,6 @@ packages:
   /type-fest/0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
-    dev: true
-
-  /type-fest/2.12.2:
-    resolution: {integrity: sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==}
-    engines: {node: '>=12.20'}
     dev: true
 
   /type-fest/2.19.0:
