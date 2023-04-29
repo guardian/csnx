@@ -76,6 +76,14 @@ changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
+# updates @guardian packages to latest version
+.PHONY: update-packages
+update-packages: env
+	$(call log,"Updating @guardian packages")
+	@node ./tools/scripts/update-packages.mjs
+	@corepack pnpm install
+
+
 ################################ INTERNAL UTILS ################################
 
 # loosely styled logging for user feedback
