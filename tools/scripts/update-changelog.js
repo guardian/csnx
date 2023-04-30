@@ -8,18 +8,18 @@ const MONOREPO_FOLDER = 'libs/@guardian';
 const PACKAGE_JSON_FILE = 'package.json';
 const CHANGELOG_FILE = 'CHANGELOG.md';
 
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-});
-
 const firstLetterToUppercase = (str) =>
 	str.charAt(0).toUpperCase() + str.slice(1);
 
 function getInput(query) {
+	const rl = readline.createInterface({
+		input: process.stdin,
+		output: process.stdout,
+	});
 	return new Promise((resolve) =>
 		rl.question(query, (ans) => {
 			rl.close();
+
 			resolve(ans);
 		}),
 	);
@@ -60,7 +60,9 @@ async function updateChangelog(
 	changeType,
 ) {
 	const changeTypeCapitalised = firstLetterToUppercase(changeType);
-	const description = await getInput('Enter a description for the changelog:');
+	const description = await getInput(
+		`Enter a description for the changelog of ${packageName}:`,
+	);
 	const newEntry = `\n## ${localVersion} \n\n### ${changeTypeCapitalised} changes \n\n- ${description}`;
 
 	const changelogPath = path.join(packagePath, CHANGELOG_FILE);
