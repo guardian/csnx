@@ -172,7 +172,7 @@ importers:
       '@guardian/eslint-plugin-source-foundations': 12.0.0
       '@guardian/eslint-plugin-source-react-components': 16.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-foundations': 11.0.1
       '@guardian/source-react-components': 14.0.1
       '@testing-library/dom': 9.2.0
       '@testing-library/jest-dom': 5.16.5
@@ -279,7 +279,7 @@ importers:
   libs/@guardian/eslint-plugin-source-foundations:
     specifiers:
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-foundations': 11.0.1
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -305,7 +305,7 @@ importers:
     specifiers:
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-foundations': 11.0.1
       '@guardian/source-react-components': 14.0.1
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
@@ -377,7 +377,7 @@ importers:
     specifiers:
       '@babel/core': 7.21.4
       '@emotion/react': 11.0.0
-      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-foundations': 11.0.1
       '@svgr/babel-preset': 6.5.1
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1
@@ -422,7 +422,7 @@ importers:
       '@babel/core': 7.21.4
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-foundations': 11.0.1
       '@guardian/source-react-components': 14.0.1
       '@types/react': 18.2.0
       react: 18.2.0
@@ -5797,7 +5797,7 @@ packages:
       eslint: 8.29.0
       eslint-scope: 5.1.1
       eslint-utils: 3.0.0_eslint@8.29.0
-      semver: 7.5.0
+      semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13718,7 +13718,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: false
 
   /semver/7.5.0:
     resolution: {integrity: sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==}
