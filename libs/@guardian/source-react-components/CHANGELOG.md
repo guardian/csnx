@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 14.0.2
+
+### Patch Changes
+
+- 9bb6ffd: Updates `create-icons` script accessible label lookup and updates README with command to run script and steps to obtain a Figma access token.
+
 ## 14.0.1
 
 ### Major Changes
