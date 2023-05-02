@@ -162,8 +162,8 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5
       '@guardian/ab-core': 4.0.0
-      '@guardian/commercial-core': ^6.3.0
-      '@guardian/consent-management-platform': ^12.0.0
+      '@guardian/commercial-core': 6.3.0
+      '@guardian/consent-management-platform': 12.0.0
       '@guardian/eslint-plugin-source-foundations': 12.0.0
       '@guardian/eslint-plugin-source-react-components': 16.0.0
       '@guardian/libs': 14.0.0
@@ -197,7 +197,7 @@ importers:
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
       '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': link:../source-react-components
+      '@guardian/source-react-components': 14.0.1_7jqog5mrenpdcmmja2c6qv3phm
       '@testing-library/dom': 9.2.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
@@ -317,7 +317,7 @@ importers:
       '@emotion/react': 11.0.0_react@18.2.0
       '@guardian/libs': link:../libs
       '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': link:../source-react-components
+      '@guardian/source-react-components': 14.0.1_p5td2vza6qcogekycjs3gk6x6m
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       eslint: 8.0.0
@@ -428,7 +428,7 @@ importers:
       '@emotion/react': 11.0.0_q35hynawvquf32rmovmnsbejtu
       '@guardian/libs': link:../libs
       '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': link:../source-react-components
+      '@guardian/source-react-components': 14.0.1_p5td2vza6qcogekycjs3gk6x6m
       '@types/react': 18.2.0
       react: 18.2.0
       tslib: 2.4.1
@@ -2478,6 +2478,44 @@ packages:
       '@guardian/libs': ^14.0.0
     dependencies:
       '@guardian/libs': link:libs/@guardian/libs
+    dev: true
+
+  /@guardian/source-react-components/14.0.1_7jqog5mrenpdcmmja2c6qv3phm:
+    resolution: {integrity: sha512-jdpe6AJjp57AFtuvADNCPjQAxwuRBMiuChm4K5wTKVhz/WiBIW7orHChwPClBLnOMA76Xh1hCC5X6DefWqKvtw==}
+    peerDependencies:
+      '@emotion/react': ^11.0.0
+      '@guardian/source-foundations': ^11.0.0
+      react: ^18.2.0
+      tslib: ^2.4.1
+      typescript: ~4.9.5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@emotion/react': 11.1.5_q35hynawvquf32rmovmnsbejtu
+      '@guardian/source-foundations': link:libs/@guardian/source-foundations
+      react: 18.2.0
+      tslib: 2.4.1
+      typescript: 4.9.5
+    dev: true
+
+  /@guardian/source-react-components/14.0.1_p5td2vza6qcogekycjs3gk6x6m:
+    resolution: {integrity: sha512-jdpe6AJjp57AFtuvADNCPjQAxwuRBMiuChm4K5wTKVhz/WiBIW7orHChwPClBLnOMA76Xh1hCC5X6DefWqKvtw==}
+    peerDependencies:
+      '@emotion/react': ^11.0.0
+      '@guardian/source-foundations': ^11.0.0
+      react: ^18.2.0
+      tslib: ^2.4.1
+      typescript: ~4.9.5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@emotion/react': 11.0.0_react@18.2.0
+      '@guardian/source-foundations': link:libs/@guardian/source-foundations
+      react: 18.2.0
+      tslib: 2.4.1
+      typescript: 4.9.5
     dev: true
 
   /@humanwhocodes/config-array/0.11.7:
@@ -7906,6 +7944,7 @@ packages:
 
   /eslint-config-prettier/8.5.0_eslint@8.0.0:
     resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+    hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
     peerDependenciesMeta:
