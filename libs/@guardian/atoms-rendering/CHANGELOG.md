@@ -8,21 +8,13 @@
 
 ## 29.1.1
 
-### Patch Changes
+### Major Changes
 
-- Update Source package versions
-
-## 29.1.0
+- 313f8c0: Update form component border styles. This breaking change will only affect consumers not using `box-sizing: border-box`. In these circumstances consumers may need to adjust their styling to account for thinner borders.
 
 ### Minor Changes
 
 - ad05205: Add new ad targeting logic for YoutubeAtomPlayer
-
-## 29.0.0
-
-### Major Changes
-
-- 313f8c0: Update form component border styles. This breaking change will only affect consumers not using `box-sizing: border-box`. In these circumstances consumers may need to adjust their styling to account for thinner borders.
 
 ### Patch Changes
 
