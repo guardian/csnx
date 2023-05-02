@@ -1,12 +1,12 @@
 # @guardian/source-react-components-development-kitchen
 
+## 12.0.2
+
+### Patch changes
+
+- Bump @guardian/source-react-components
+
 ## 12.0.1
-
-### Patch Changes
-
-- Update Source package versions
-
-## 12.0.0
 
 ### Major Changes
 

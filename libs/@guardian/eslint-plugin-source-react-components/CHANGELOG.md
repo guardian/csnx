@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 16.0.1
+
+### Patch changes
+
+- Bump @guardian/source-react-components
+
 ## 16.0.0
 
 ### Major Changes
