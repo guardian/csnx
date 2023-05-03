@@ -3,14 +3,14 @@ import fs from 'node:fs';
 import semver from 'semver';
 import { execSync } from 'node:child_process';
 
-const guardianFolder = path.join(path.resolve('.'), 'libs', '@guardian');
-const packageFolders = fs.readdirSync(guardianFolder);
-
 const SemverDiff = {
 	major: 1,
 	minor: 2,
 	patch: 3,
 };
+
+const guardianFolder = path.join(path.resolve('.'), 'libs', '@guardian');
+const packageFolders = fs.readdirSync(guardianFolder);
 
 packageFolders.forEach((folder) => {
 	const packagePath = path.join(guardianFolder, folder);

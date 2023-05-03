@@ -8,6 +8,8 @@ const MONOREPO_FOLDER = 'libs/@guardian';
 const PACKAGE_JSON_FILE = 'package.json';
 const CHANGELOG_FILE = 'CHANGELOG.md';
 
+const git = simpleGit();
+
 const firstLetterToUppercase = (str) =>
 	str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -19,13 +21,10 @@ function getInput(query) {
 	return new Promise((resolve) =>
 		rl.question(query, (ans) => {
 			rl.close();
-
 			resolve(ans);
 		}),
 	);
 }
-
-const git = simpleGit();
 
 async function getVersionFromBranch(packagePath, branch) {
 	await git.fetch();
@@ -56,7 +55,6 @@ async function updateChangelog(
 	packagePath,
 	packageName,
 	localVersion,
-	mainVersion,
 	changeType,
 ) {
 	const changeTypeCapitalised = firstLetterToUppercase(changeType);
@@ -140,7 +138,6 @@ async function updateChangelog(
 					packagePath,
 					packageName,
 					localVersion,
-					mainVersion,
 					changeType,
 				);
 			}

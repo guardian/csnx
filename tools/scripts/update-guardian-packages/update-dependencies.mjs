@@ -1,9 +1,11 @@
 import path from 'node:path';
 import fs from 'node:fs';
 
-async function getPackageNames(rootDir, companyName) {
+const rootDir = path.resolve('.');
+
+async function getPackageNames() {
 	const packageNames = [];
-	const libsPath = path.join(rootDir, 'libs', companyName);
+	const libsPath = path.join(rootDir, 'libs', '@guardian');
 
 	try {
 		const entries = await fs.promises.readdir(libsPath, {
@@ -26,13 +28,13 @@ async function getPackageNames(rootDir, companyName) {
 			}
 		}
 	} catch (err) {
-		console.error(`Error reading libs/${companyName} directory:`, err);
+		console.error(`Error reading libs/@guardian directory:`, err);
 	}
 
 	return packageNames;
 }
 
-async function createPackageNamesVersions(packageNames, rootDir) {
+async function createPackageNamesVersions(packageNames) {
 	const packageNamesVersions = {};
 
 	for (const packageName of packageNames) {
@@ -122,14 +124,10 @@ function replacePackageVersions(packageJsonPath, packageNamesVersions) {
 	});
 }
 
-const companyName = '@guardian';
-const rootDir = path.resolve('.');
-getPackageNames(rootDir, companyName).then((packageNames) => {
-	createPackageNamesVersions(packageNames, rootDir).then(
-		(packageNamesVersions) => {
-			traverseDir(rootDir, (packageJsonPath) =>
-				replacePackageVersions(packageJsonPath, packageNamesVersions),
-			);
-		},
-	);
+getPackageNames().then((packageNames) => {
+	createPackageNamesVersions(packageNames).then((packageNamesVersions) => {
+		traverseDir(rootDir, (packageJsonPath) =>
+			replacePackageVersions(packageJsonPath, packageNamesVersions),
+		);
+	});
 });

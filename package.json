@@ -7,7 +7,6 @@
 		"prepare": "husky install",
 		"test": "./tools/scripts/use-make-instead"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@babel/core": "7.21.4",
 		"@babel/plugin-transform-typescript": "7.21.3",
