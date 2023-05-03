@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const semver = require('semver');
-const simpleGit = require('simple-git');
-const readline = require('readline');
+import path from 'node:path';
+import fs from 'node:fs';
+import semver from 'semver';
+import simpleGit from 'simple-git';
+import readline from 'node:readline';
 
 const MONOREPO_FOLDER = 'libs/@guardian';
 const PACKAGE_JSON_FILE = 'package.json';

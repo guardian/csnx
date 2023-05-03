@@ -78,9 +78,13 @@ changeset: env
 
 # updates @guardian packages to latest version
 .PHONY: update-packages
-update-packages: env
+update-packages:
 	$(call log,"Updating @guardian packages")
-	@node ./tools/scripts/update-packages.mjs
+	@corepack pnpm install
+	@node ./tools/scripts/update-guardian-packages/update-dependencies.mjs
+	@node ./tools/scripts/update-guardian-packages/update-package-versions.mjs
+	@node ./tools/scripts/update-guardian-packages/update-dependencies.mjs
+	@node ./tools/scripts/update-guardian-packages/update-changelogs.mjs
 	@corepack pnpm install
 
 

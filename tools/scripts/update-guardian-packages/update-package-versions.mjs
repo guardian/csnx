@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
-const semver = require('semver');
+import path from 'node:path';
+import fs from 'node:fs';
+import semver from 'semver';
+import { execSync } from 'node:child_process';
 
 const guardianFolder = path.join(path.resolve('.'), 'libs', '@guardian');
 const packageFolders = fs.readdirSync(guardianFolder);

@@ -59,9 +59,6 @@ importers:
       typescript: 4.9.5
       update-section: 0.3.3
       webpack: 5.76.0
-    dependencies:
-      semver: 7.5.0
-      simple-git: 3.18.0
     devDependencies:
       '@babel/core': 7.21.4
       '@babel/plugin-transform-typescript': 7.21.3_@babel+core@7.21.4
@@ -110,6 +107,8 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       require-from-string: 2.0.2
+      semver: 7.5.0
+      simple-git: 3.18.0
       sort-package-json: 2.1.0
       storybook: 7.0.4
       tsconfig-paths-webpack-plugin: 4.0.0
@@ -170,10 +169,10 @@ importers:
       '@guardian/commercial-core': ^6.3.0
       '@guardian/consent-management-platform': ^12.0.0
       '@guardian/eslint-plugin-source-foundations': 12.0.0
-      '@guardian/eslint-plugin-source-react-components': 16.0.0
+      '@guardian/eslint-plugin-source-react-components': 16.0.1
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.1
-      '@guardian/source-react-components': 14.0.1
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 14.0.2
       '@testing-library/dom': 9.2.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0
@@ -279,7 +278,7 @@ importers:
   libs/@guardian/eslint-plugin-source-foundations:
     specifiers:
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.1
+      '@guardian/source-foundations': 11.0.0
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -305,8 +304,8 @@ importers:
     specifiers:
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.1
-      '@guardian/source-react-components': 14.0.1
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 14.0.2
       '@types/eslint': 8.4.6
       '@types/estree': 0.0.51
       '@typescript-eslint/eslint-plugin': 5.46.1
@@ -377,7 +376,7 @@ importers:
     specifiers:
       '@babel/core': 7.21.4
       '@emotion/react': 11.0.0
-      '@guardian/source-foundations': 11.0.1
+      '@guardian/source-foundations': 11.0.0
       '@svgr/babel-preset': 6.5.1
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1
@@ -422,8 +421,8 @@ importers:
       '@babel/core': 7.21.4
       '@emotion/react': 11.0.0
       '@guardian/libs': 14.0.0
-      '@guardian/source-foundations': 11.0.1
-      '@guardian/source-react-components': 14.0.1
+      '@guardian/source-foundations': 11.0.0
+      '@guardian/source-react-components': 14.0.2
       '@types/react': 18.2.0
       react: 18.2.0
       tslib: 2.4.1
@@ -3034,11 +3033,11 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
+    dev: true
 
   /@kwsites/promise-deferred/1.1.1:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
-    dev: false
+    dev: true
 
   /@manypkg/find-root/1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -13857,7 +13856,7 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
+    dev: true
 
   /simple-update-notifier/1.1.0:
     resolution: {integrity: sha512-VpsrsJSUcJEseSbMHkrsrAVSdvVS5I96Qo1QAQ4FxQ9wXFcB+pjj7FB7/us9+GcgfW4ziHtYMc1J0PLczb55mg==}
