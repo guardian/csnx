@@ -31,7 +31,9 @@
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/source-react-components"],
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/source-react-components"
+			],
 			"options": {
 				"jestConfig": "libs/@guardian/source-react-components/jest.config.ts",
 				"passWithNoTests": true
@@ -39,7 +41,9 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/source-react-components"],
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/source-react-components"
+			],
 			"options": {
 				"jestConfig": "libs/@guardian/source-react-components/jest.config.ts",
 				"passWithNoTests": true,
@@ -55,7 +59,9 @@
 		},
 		"build-storybook": {
 			"executor": "nx:run-commands",
-			"outputs": ["dist/storybook/libs/@guardian/source-react-components"],
+			"outputs": [
+				"{workspaceRoot}/dist/storybook/libs/@guardian/source-react-components"
+			],
 			"options": {
 				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-react-components --webpack-stats-json",
 				"cwd": "libs/@guardian/source-react-components",

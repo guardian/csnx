@@ -31,7 +31,7 @@
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/source-foundations"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/source-foundations"],
 			"options": {
 				"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
 				"passWithNoTests": true
@@ -39,7 +39,7 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/source-foundations"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/source-foundations"],
 			"options": {
 				"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
 				"passWithNoTests": true,
@@ -55,7 +55,9 @@
 		},
 		"build-storybook": {
 			"executor": "nx:run-commands",
-			"outputs": ["dist/storybook/libs/@guardian/source-foundations"],
+			"outputs": [
+				"{workspaceRoot}/dist/storybook/libs/@guardian/source-foundations"
+			],
 			"options": {
 				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-foundations --webpack-stats-json",
 				"cwd": "libs/@guardian/source-foundations",

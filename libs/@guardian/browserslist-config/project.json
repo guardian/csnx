@@ -20,7 +20,9 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/browserslist-config"],
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/browserslist-config"
+			],
 			"options": {
 				"jestConfig": "libs/@guardian/browserslist-config/jest.config.js"
 			}

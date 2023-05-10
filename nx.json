@@ -3,20 +3,17 @@
 	"affected": {
 		"defaultBase": "main"
 	},
-	"implicitDependencies": {
-		".eslintrc.json": "*",
-		"package.json": {
-			"dependencies": "*",
-			"devDependencies": "*"
-		},
-		"**/tsconfig*.json": "*",
-		"tools/nx-plugins/**/*": "*",
-		".storybook/main.js": "*"
-	},
 	"npmScope": "csnx",
 	"targetDefaults": {
 		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["production", "^production"]
+		},
+		"test": {
 			"dependsOn": ["^build"]
+		},
+		"e2e": {
+			"dependsOn": ["build", "^build"]
 		}
 	},
 	"tasksRunnerOptions": {
@@ -31,7 +28,7 @@
 					"build-storybook"
 				]
 			},
-			"runner": "@nrwl/nx-cloud"
+			"runner": "nx-cloud"
 		}
 	},
 	"workspaceLayout": {
@@ -54,28 +51,13 @@
 			}
 		}
 	},
-	"targetDependencies": {
-		"build": [
-			{
-				"target": "build",
-				"projects": "dependencies"
-			}
+	"namedInputs": {
+		"default": ["{projectRoot}/**/*", "sharedGlobals"],
+		"sharedGlobals": [
+			"{workspaceRoot}/**/tsconfig*.json",
+			"{workspaceRoot}/tools/nx-plugins/**/*",
+			"{workspaceRoot}/.storybook/main.js"
 		],
-		"test": [
-			{
-				"target": "build",
-				"projects": "dependencies"
-			}
-		],
-		"e2e": [
-			{
-				"target": "build",
-				"projects": "self"
-			},
-			{
-				"target": "build",
-				"projects": "dependencies"
-			}
-		]
+		"production": ["default"]
 	}
 }

@@ -31,7 +31,7 @@
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/core-web-vitals"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/core-web-vitals"],
 			"options": {
 				"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
 				"passWithNoTests": true
@@ -39,7 +39,7 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/core-web-vitals"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/core-web-vitals"],
 			"options": {
 				"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
 				"passWithNoTests": true,

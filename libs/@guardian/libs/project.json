@@ -31,7 +31,7 @@
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/libs"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
 			"options": {
 				"jestConfig": "libs/@guardian/libs/jest.config.ts",
 				"passWithNoTests": true
@@ -39,7 +39,7 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/libs"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
 			"options": {
 				"jestConfig": "libs/@guardian/libs/jest.config.ts",
 				"passWithNoTests": true,
