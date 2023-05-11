@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 30.0.0
+
+### Major Changes
+
+- 177e104: Update atoms-rendering commercial and cmp deps
+
 ## 29.1.2
 
 ### Patch Changes

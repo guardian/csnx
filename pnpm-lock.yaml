@@ -160,8 +160,8 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5
       '@guardian/ab-core': 4.0.0
-      '@guardian/commercial-core': 6.3.0
-      '@guardian/consent-management-platform': 12.0.0
+      '@guardian/commercial-core': 7.0.0
+      '@guardian/consent-management-platform': 13.0.2
       '@guardian/eslint-plugin-source-foundations': 12.0.0
       '@guardian/eslint-plugin-source-react-components': 16.0.0
       '@guardian/libs': 14.0.0
@@ -172,7 +172,7 @@ importers:
       '@testing-library/react': 14.0.0
       '@types/lodash.debounce': 4.0.6
       '@types/react': 18.2.0
-      '@types/react-dom': 18.0.11
+      '@types/react-dom': 18.2.3
       '@types/testing-library__jest-dom': 5.14.5
       '@types/youtube': 0.0.46
       eslint-plugin-react: ^7.29.4
@@ -189,8 +189,8 @@ importers:
       '@emotion/eslint-plugin': 11.7.0
       '@emotion/react': 11.1.5_q35hynawvquf32rmovmnsbejtu
       '@guardian/ab-core': link:../ab-core
-      '@guardian/commercial-core': 6.3.0_mdhpel7cev36wsdgnyrxcc63ve
-      '@guardian/consent-management-platform': 12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/commercial-core': 7.0.0_ukyo5qdbajvi2lioa5llmbcz4a
+      '@guardian/consent-management-platform': 13.0.2_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
@@ -201,7 +201,7 @@ importers:
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/lodash.debounce': 4.0.6
       '@types/react': 18.2.0
-      '@types/react-dom': 18.0.11
+      '@types/react-dom': 18.2.3
       '@types/testing-library__jest-dom': 5.14.5
       '@types/youtube': 0.0.46
       eslint-plugin-react: 7.31.11
@@ -2582,20 +2582,20 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
-  /@guardian/commercial-core/6.3.0_mdhpel7cev36wsdgnyrxcc63ve:
-    resolution: {integrity: sha512-+CxVVLD1BA/XYGF+TQsp0N+55TEIEGQstP1AUJ3RfdnN7pvTh4ZnypLGmLZ3l/WhRsnHIIa7Deu7tt2+4AeE2w==}
+  /@guardian/commercial-core/7.0.0_ukyo5qdbajvi2lioa5llmbcz4a:
+    resolution: {integrity: sha512-ByfukhmfJ2sF5mCyVq5XSRyOdBp0w+MOTpOp361wjZ6a2KHSgSC8VQucgSQHtQ7v05O0jJ53XFkSrGc2TUworA==}
     peerDependencies:
       '@guardian/ab-core': ^4.0.0
-      '@guardian/consent-management-platform': ^12.0.0
+      '@guardian/consent-management-platform': ^13.0.2
       '@guardian/libs': ^14.0.0
     dependencies:
       '@guardian/ab-core': link:libs/@guardian/ab-core
-      '@guardian/consent-management-platform': 12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/consent-management-platform': 13.0.2_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
-  /@guardian/consent-management-platform/12.0.0_uo3bjqllavv5kwoq2zqgzcz5h4:
-    resolution: {integrity: sha512-pS0w/Jy7fwI46/lbvmSodPn94IAD+lW80Xr8/2uVIr7i5eLNak28MMLHk4Vhe0SOQTGqqi0arPPLhu6cj7XNwQ==}
+  /@guardian/consent-management-platform/13.0.2_uo3bjqllavv5kwoq2zqgzcz5h4:
+    resolution: {integrity: sha512-rhuDQeZW//WJue9Uhj5JgWc7juV18CgwpOJXcmzYUkYcvi1wcf+kW/BvqfJjNjyd/kpx5eNQ2pCZtj4HuTQBEA==}
     peerDependencies:
       '@guardian/libs': ^14.0.0
     dependencies:
@@ -5060,7 +5060,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.21.0
       '@testing-library/dom': 9.2.0
-      '@types/react-dom': 18.0.11
+      '@types/react-dom': 18.2.3
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: true
@@ -5378,8 +5378,8 @@ packages:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: true
 
-  /@types/react-dom/18.0.11:
-    resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
+  /@types/react-dom/18.2.3:
+    resolution: {integrity: sha512-hxXEXWxFJXbY0LMj/T69mznqOZJXNtQMqVxIiirVAZnnpeYiD4zt+lPsgcr/cfWg2VLsxZ1y26vigG03prYB+Q==}
     dependencies:
       '@types/react': 18.2.0
     dev: true
