@@ -35,7 +35,9 @@
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/eslint-plugin-source-foundations"],
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-foundations"
+			],
 			"options": {
 				"jestConfig": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
 				"passWithNoTests": true
@@ -43,7 +45,9 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/eslint-plugin-source-foundations"],
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-foundations"
+			],
 			"options": {
 				"jestConfig": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
 				"passWithNoTests": true,

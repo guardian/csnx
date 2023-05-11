@@ -18,7 +18,7 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/tsconfig"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/tsconfig"],
 			"options": {
 				"jestConfig": "libs/@guardian/tsconfig/jest.config.js"
 			}

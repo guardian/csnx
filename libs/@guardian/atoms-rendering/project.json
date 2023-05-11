@@ -31,7 +31,7 @@
 		},
 		"test": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/atoms-rendering"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/atoms-rendering"],
 			"options": {
 				"jestConfig": "libs/@guardian/atoms-rendering/jest.config.ts",
 				"passWithNoTests": true
@@ -39,7 +39,7 @@
 		},
 		"e2e": {
 			"executor": "@nrwl/jest:jest",
-			"outputs": ["coverage/libs/@guardian/atoms-rendering"],
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/atoms-rendering"],
 			"options": {
 				"jestConfig": "libs/@guardian/atoms-rendering/jest.config.ts",
 				"passWithNoTests": true,
@@ -55,7 +55,9 @@
 		},
 		"build-storybook": {
 			"executor": "nx:run-commands",
-			"outputs": ["dist/storybook/libs/@guardian/atoms-rendering"],
+			"outputs": [
+				"{workspaceRoot}/dist/storybook/libs/@guardian/atoms-rendering"
+			],
 			"options": {
 				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/atoms-rendering --webpack-stats-json",
 				"cwd": "libs/@guardian/atoms-rendering",
