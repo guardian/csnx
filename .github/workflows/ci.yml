@@ -22,6 +22,12 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - name: Setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.33.2
+
+      - run: make package-health
       - run: make lint
       - run: make test
       - run: make build
