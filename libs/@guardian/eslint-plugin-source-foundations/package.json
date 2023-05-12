@@ -27,5 +27,10 @@
 		"typescript": {
 			"optional": true
 		}
+	},
+	"known_issues": {
+		"eslint@8.0.0": [
+			"@types/eslint@8.4.6"
+		]
 	}
 }

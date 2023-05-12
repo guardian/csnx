@@ -1,7 +1,7 @@
 {
 	"name": "@guardian/csnx",
 	"version": "0.1.0",
-	"private": "true",
+	"private": true,
 	"scripts": {
 		"build": "./tools/scripts/use-make-instead",
 		"prepare": "husky install",
@@ -45,7 +45,7 @@
 		"eslint": "8.40.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
 		"eslint-plugin-import": "2.27.5",
-		"eslint-plugin-storybook": "^0.6.12",
+		"eslint-plugin-storybook": "0.6.12",
 		"husky": "8.0.2",
 		"lint-staged": "13.1.0",
 		"nx": "16.1.4",
@@ -62,13 +62,16 @@
 		"webpack": "5.76.0"
 	},
 	"packageManager": "pnpm@7.18.1",
+	"known_issues": {
+		"@babel/core@7.21.4": [
+			"https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/babel__core",
+			"@types/babel__core@7.20.0"
+		]
+	},
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
-				"@types/node",
-				"eslint",
-				"nx",
-				"prettier"
+				"nx"
 			]
 		},
 		"updateConfig": {
