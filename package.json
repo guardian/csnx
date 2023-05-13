@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"private": "true",
 	"scripts": {
-		"build": "./tools/scripts/use-make-instead",
 		"prepare": "husky install",
 		"test": "./tools/scripts/use-make-instead"
 	},

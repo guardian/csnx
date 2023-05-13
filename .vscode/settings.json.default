@@ -4,6 +4,7 @@
 {
 	"cSpell.language": "en-GB",
 	"cSpell.words": ["browserslist", "CSNX", "CSTI", "nrwl"],
+	"deno.enablePaths": ["scripts/deno"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.fixAll.sortJSON": false
