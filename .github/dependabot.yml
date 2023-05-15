@@ -14,4 +14,4 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    rebase-strategy: 'disabled'
+    rebase-strategy: 'auto'
