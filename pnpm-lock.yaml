@@ -374,7 +374,7 @@ importers:
       '@svgr/babel-preset': 6.5.1
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1
-      '@svgr/plugin-prettier': 6.5.1
+      '@svgr/plugin-prettier': 8.0.1
       '@svgr/plugin-svgo': 6.5.1
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.4.0
@@ -395,7 +395,7 @@ importers:
       '@svgr/babel-preset': 6.5.1_@babel+core@7.21.4
       '@svgr/core': 6.5.1
       '@svgr/plugin-jsx': 6.5.1_@svgr+core@6.5.1
-      '@svgr/plugin-prettier': 6.5.1_@svgr+core@6.5.1
+      '@svgr/plugin-prettier': 8.0.1_@svgr+core@6.5.1
       '@svgr/plugin-svgo': 6.5.1_@svgr+core@6.5.1
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.4.0
@@ -1925,7 +1925,7 @@ packages:
       fs-extra: 7.0.1
       lodash.startcase: 4.4.0
       outdent: 0.5.0
-      prettier: 2.8.1
+      prettier: 2.8.8
       resolve-from: 5.0.0
       semver: 5.7.1
     dev: true
@@ -2091,7 +2091,7 @@ packages:
       '@changesets/types': 5.2.0
       fs-extra: 7.0.1
       human-id: 1.0.2
-      prettier: 2.8.1
+      prettier: 2.8.8
     dev: true
 
   /@colors/colors/1.5.0:
@@ -4196,7 +4196,7 @@ packages:
       globby: 11.1.0
       jscodeshift: 0.14.0_@babel+preset-env@7.21.4
       leven: 3.1.0
-      prettier: 2.8.1
+      prettier: 2.8.8
       prompts: 2.4.2
       puppeteer-core: 2.1.1
       read-pkg-up: 7.0.1
@@ -4241,7 +4241,7 @@ packages:
       globby: 11.1.0
       jscodeshift: 0.14.0_@babel+preset-env@7.21.4
       lodash: 4.17.21
-      prettier: 2.8.1
+      prettier: 2.8.8
       recast: 0.23.1
     transitivePeerDependencies:
       - supports-color
@@ -4843,15 +4843,15 @@ packages:
       - supports-color
     dev: true
 
-  /@svgr/plugin-prettier/6.5.1_@svgr+core@6.5.1:
-    resolution: {integrity: sha512-nJTtamrxQjsHcP9vb5PVBiaVW9kEtAt0hzGK8e4+zbaIUHq6RPeR8+SvYaAbIIn1TExFszFuZSz1U08UX7kz7w==}
-    engines: {node: '>=10'}
+  /@svgr/plugin-prettier/8.0.1_@svgr+core@6.5.1:
+    resolution: {integrity: sha512-5ukxApPhNM5JvA91azPGSNp0FtmYXgCiTF8DZtEoM1X4FcPSoN5Pbi930lb226XDO/RtMFy0C8yyFUZ90K8U3A==}
+    engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
     dependencies:
       '@svgr/core': 6.5.1
-      deepmerge: 4.2.2
-      prettier: 2.8.1
+      deepmerge: 4.3.1
+      prettier: 2.8.8
     dev: true
 
   /@svgr/plugin-svgo/6.5.1_@svgr+core@6.5.1:
@@ -12404,6 +12404,12 @@ packages:
 
   /prettier/2.8.1:
     resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier/2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
