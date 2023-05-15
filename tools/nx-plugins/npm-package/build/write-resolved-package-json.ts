@@ -17,16 +17,15 @@ export const writeResolvedPackageJson = async (
 	context: ExecutorContext,
 ) => {
 	// `pnpm pack` the source package, into the output directory
+	const cmd = `corepack pnpm pack`;
+	const args = [
+		`--pack-destination`,
+		`${path.resolve(context.root, options.outputPath)}`,
+	];
 	const tarballPath = (
-		await exec(
-			`corepack pnpm pack --pack-destination ${path.resolve(
-				context.root,
-				options.outputPath,
-			)}`,
-			{
-				cwd: options.pkgRoot,
-			},
-		)
+		await exec(`${cmd} ${args.join(' ')}`, {
+			cwd: options.pkgRoot,
+		})
 	).stdout.trim();
 
 	// extract the package.json into the output directory
