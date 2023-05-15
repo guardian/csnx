@@ -56,7 +56,7 @@
 		"require-from-string": "2.0.2",
 		"sort-package-json": "2.1.0",
 		"storybook": "7.0.4",
-		"tsconfig-paths-webpack-plugin": "4.0.0",
+		"tsconfig-paths-webpack-plugin": "4.0.1",
 		"typescript": "4.9.5",
 		"update-section": "0.3.3",
 		"webpack": "5.82.1"
