@@ -378,7 +378,7 @@ importers:
       '@types/prettier': 2.7.2
       '@types/react': 18.2.0
       axios: 0.27.2
-      dotenv: 16.0.2
+      dotenv: 16.0.3
       mkdirp: 1.0.4
       prettier: 2.8.8
       react: 18.2.0
@@ -398,7 +398,7 @@ importers:
       '@types/prettier': 2.7.2
       '@types/react': 18.2.0
       axios: 0.27.2
-      dotenv: 16.0.2
+      dotenv: 16.0.3
       mkdirp: 1.0.4
       prettier: 2.8.8
       react: 18.2.0
@@ -7844,8 +7844,8 @@ packages:
     resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
     engines: {node: '>=10'}
 
-  /dotenv/16.0.2:
-    resolution: {integrity: sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==}
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
     dev: true
 
@@ -11032,7 +11032,7 @@ packages:
     engines: {node: '>=14.0.0'}
     dependencies:
       app-root-dir: 1.0.2
-      dotenv: 16.0.2
+      dotenv: 16.0.3
       dotenv-expand: 10.0.0
     dev: true
 
