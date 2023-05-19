@@ -111,4 +111,5 @@ jobs:
         with:
           projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           skip: true
