@@ -19,6 +19,9 @@ on:
 jobs:
   on-success: # only run if CI is successful
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
 
