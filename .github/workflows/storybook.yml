@@ -16,6 +16,9 @@ on:
     branches: [main]
     types: [completed]
 
+permissions:
+  contents: write
+
 jobs:
   on-success: # only run if CI is successful
     runs-on: ubuntu-latest
