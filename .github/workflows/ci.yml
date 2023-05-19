@@ -29,10 +29,17 @@ jobs:
       - run: make build-storybooks
 
   chromatic:
-    # Kick chromatic off only once all other steps have passed. This stops us
+    # Kick Chromatic off only once all other steps have passed. This stops us
     # wasting money running checks on PRs that are going to fail anyway.
+    # Chromatic is only run if the PR is labelled with `run_chromatic`, this is
+    # the `main` branch, or this is a Dependabot PR. For Dependabot PRs we then
+    # apply the `skip` flag as we don't want to create snapshots, but this
+    # ensures the UI tests are marked as passing allowing the PR to be merged.
     needs: validate
-    if: contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||  github.ref == 'refs/heads/main'
+    if: |
+      (contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
+      github.ref == 'refs/heads/main') ||
+      github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -71,4 +78,4 @@ jobs:
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
-
+          skip: ${{ github.actor == 'dependabot[bot]' }}
