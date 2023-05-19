@@ -7,6 +7,7 @@
 		"@rollup/plugin-json": "4.1.0",
 		"@rollup/plugin-node-resolve": "14.0.1",
 		"cpy": "8.1.2",
+		"execa": "7.1.1",
 		"read-pkg": "7.1.0",
 		"rollup": "2.79.0",
 		"rollup-plugin-ts": "3.0.2",
