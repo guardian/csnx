@@ -29,10 +29,14 @@ jobs:
       - run: make build-storybooks
 
   chromatic:
-    # Kick chromatic off only once all other steps have passed. This stops us
+    # Kick Chromatic off only once all other steps have passed. This stops us
     # wasting money running checks on PRs that are going to fail anyway.
+    # Chromatic is only run if the PR is labelled with `run_chromatic`, or we're
+    # on the `main` branch.
     needs: validate
-    if: contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||  github.ref == 'refs/heads/main'
+    if: |
+      (contains(github.event.pull_request.labels.*.name, 'run_chromatic') || github.ref == 'refs/heads/main') &&
+      github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -72,3 +76,39 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
 
+  chromatic-dependabot:
+    # Run Chromatic with `skip` flag for Dependabot PRs. This ensures tests are
+    # marked as passing and prevents the PR being blocked by merge checks.
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - lib: atoms-rendering
+            token: CHROMATIC_ATOMS_RENDERING_TOKEN
+          - lib: source-foundations
+            token: CHROMATIC_SOURCE_FOUNDATIONS_TOKEN
+          - lib: source-react-components
+            token: CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN
+          - lib: source-react-components-development-kitchen
+            token: CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # for chromatic to work
+
+      # enables use to use the cache in actions/setup-node
+      - uses: pnpm/action-setup@v2.2.4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets[matrix.token] }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          skip: true
