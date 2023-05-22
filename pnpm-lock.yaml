@@ -377,7 +377,6 @@ importers:
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
       '@types/react': 18.2.0
-      '@types/svgo': 2.6.4
       axios: 0.27.2
       dotenv: 16.0.2
       mkdirp: 1.0.4
@@ -398,7 +397,6 @@ importers:
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
       '@types/react': 18.2.0
-      '@types/svgo': 2.6.4
       axios: 0.27.2
       dotenv: 16.0.2
       mkdirp: 1.0.4
@@ -5399,12 +5397,6 @@ packages:
 
   /@types/stack-utils/2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
-    dev: true
-
-  /@types/svgo/2.6.4:
-    resolution: {integrity: sha512-l4cmyPEckf8moNYHdJ+4wkHvFxjyW6ulm9l4YGaOxeyBWPhBOT0gvni1InpFPdzx1dKf/2s62qGITwxNWnPQng==}
-    dependencies:
-      '@types/node': 18.11.11
     dev: true
 
   /@types/testing-library__jest-dom/5.14.5:
