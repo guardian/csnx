@@ -37,9 +37,9 @@ jobs:
     # ensures the UI tests are marked as passing allowing the PR to be merged.
     needs: validate
     if: |
-      (contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
-      github.ref == 'refs/heads/main') ||
-      github.actor == 'dependabot[bot]'
+      contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
+      github.ref == 'refs/heads/main' ||
+      github.event.pull_request.user.login == 'dependabot'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -78,4 +78,4 @@ jobs:
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
-          skip: ${{ github.actor == 'dependabot[bot]' }}
+          skip: ${{ github.event.pull_request.user.login == 'dependabot' }}
