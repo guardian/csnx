@@ -8,6 +8,8 @@ describe('The package', () => {
 			'ArticleElementRole',
 			'ArticlePillar',
 			'ArticleSpecial',
+			'IdentityAuth',
+			'OAuthError',
 			'countries',
 			'debug',
 			'getCookie',
@@ -47,6 +49,12 @@ export type {
 	OphanComponentType,
 	OphanProduct,
 	Switches,
+	IdentityAuthOptions,
+	IdentityAuthState,
+	AccessToken,
+	AccessTokenClaims,
+	IDToken,
+	IDTokenClaims,
 } from './index';
 
 // @ts-expect-error: make sure the above list are real exports
