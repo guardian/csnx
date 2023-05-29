@@ -9,6 +9,7 @@
 		"@emotion/eslint-plugin": "11.11.0",
 		"@emotion/react": "11.11.0",
 		"@guardian/ab-core": "4.0.0",
+		"@guardian/commercial": "7.1.1-beta.1",
 		"@guardian/commercial-core": "7.0.0",
 		"@guardian/consent-management-platform": "13.0.2",
 		"@guardian/eslint-plugin-source-foundations": "12.0.0",
