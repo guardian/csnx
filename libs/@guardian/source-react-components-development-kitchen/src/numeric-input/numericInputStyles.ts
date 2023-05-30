@@ -59,8 +59,11 @@ export const textInput = (
 	`;
 
 export const hasExtensions = (prefix?: string, suffix?: string) => css`
-	${prefix && 'border-left: none; margin-left: 0;'}
-	${suffix && 'border-right: none; margin-right: 0;'}
+	${prefix &&
+	'border-left: none; margin-left: 0; border-radius: 0px 4px 4px 0px;'}
+	${suffix &&
+	'border-right: none; margin-right: 0; border-radius: 4px 0px 0px 4px;'}
+	${prefix && suffix && 'border-radius: 0;'}
 `;
 
 export const labelMargin = css`
