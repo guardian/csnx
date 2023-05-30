@@ -7,6 +7,8 @@ import { errorInput, inputBase } from './sharedStyles';
 export const inputWrapper = css`
 	display: flex;
 	width: 100%;
+	/* Ensures the focus halo matches the shape of the border */
+	border-radius: 4px;
 	/* Encloses the prefix and suffix when the input element is focused */
 	&:focus-within {
 		${focusHalo};
