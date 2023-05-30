@@ -42,7 +42,7 @@ importers:
       eslint-plugin-eslint-comments: 3.2.0
       eslint-plugin-import: 2.27.5
       eslint-plugin-storybook: ^0.6.12
-      husky: 8.0.2
+      husky: 8.0.3
       jest: 29.5.0
       jest-environment-jsdom: 29.5.0
       lint-staged: 13.2.2
@@ -98,7 +98,7 @@ importers:
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.40.0
       eslint-plugin-import: 2.27.5_6idlwav6izv3puhthw25gigili
       eslint-plugin-storybook: 0.6.12_jgkqkwom7vrxl4kyi454n2sy2i
-      husky: 8.0.2
+      husky: 8.0.3
       jest: 29.5.0_@types+node@18.11.13
       jest-environment-jsdom: 29.5.0
       lint-staged: 13.2.2
@@ -9592,9 +9592,10 @@ packages:
     resolution: {integrity: sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==}
     engines: {node: '>=14.18.0'}
 
-  /husky/8.0.2:
-    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
     engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /iconv-lite/0.4.24:
