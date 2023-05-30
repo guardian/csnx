@@ -1,4 +1,5 @@
-import { SerializedStyles, css } from '@emotion/react';
+import type { SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
 import { space } from '@guardian/source-foundations';
 import { textInputThemeDefault } from '@guardian/source-react-components';
 import { inputBase } from './sharedStyles';
