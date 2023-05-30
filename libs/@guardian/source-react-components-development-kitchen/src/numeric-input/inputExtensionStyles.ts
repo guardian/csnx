@@ -2,12 +2,11 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { space } from '@guardian/source-foundations';
 import { textInputThemeDefault } from '@guardian/source-react-components';
-import type { InputTheme } from './NumericInput';
 import { inputBase } from './sharedStyles';
 
-export const inputExtension: (
-	input: InputTheme['textInput'],
-) => SerializedStyles = (input = textInputThemeDefault.textInput) => css`
+export const inputExtension = (
+	input = textInputThemeDefault.textInput,
+): SerializedStyles => css`
 	${inputBase(input)}
 	display: inline-flex;
 	align-items: center;
