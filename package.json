@@ -24,7 +24,7 @@
 		"@nrwl/jest": "16.2.2",
 		"@nrwl/workspace": "16.1.4",
 		"@storybook/addon-a11y": "7.0.12",
-		"@storybook/addon-docs": "7.0.12",
+		"@storybook/addon-docs": "7.0.18",
 		"@storybook/addon-essentials": "7.0.12",
 		"@storybook/addon-links": "7.0.12",
 		"@storybook/addon-viewport": "7.0.12",
