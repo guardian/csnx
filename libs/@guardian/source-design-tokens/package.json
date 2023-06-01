@@ -1,5 +1,11 @@
 {
 	"name": "@guardian/source-design-tokens",
 	"version": "0.0.1",
-	"description": "Design Tokens for the Source Design System"
+	"description": "Design Tokens for the Source Design System",
+	"scripts": {
+		"build-tokens": "style-dictionary build"
+	},
+	"devDependencies": {
+		"style-dictionary": "^3.8.0"
+	}
 }
