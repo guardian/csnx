@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"incremental": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"target": "esnext"
+	}
+}
