@@ -39,7 +39,7 @@ jobs:
     if: |
       contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
       github.ref == 'refs/heads/main' ||
-      github.event.pull_request.user.login == 'dependabot'
+      github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -78,4 +78,4 @@ jobs:
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
-          skip: ${{ github.event.pull_request.user.login == 'dependabot' }}
+          skip: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
