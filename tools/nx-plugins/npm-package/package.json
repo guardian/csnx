@@ -5,7 +5,7 @@
 		"@guardian/libs": "workspace:*",
 		"@rollup/plugin-commonjs": "22.0.2",
 		"@rollup/plugin-json": "4.1.0",
-		"@rollup/plugin-node-resolve": "14.0.1",
+		"@rollup/plugin-node-resolve": "15.1.0",
 		"cpy": "8.1.2",
 		"execa": "7.1.1",
 		"read-pkg": "7.1.0",
