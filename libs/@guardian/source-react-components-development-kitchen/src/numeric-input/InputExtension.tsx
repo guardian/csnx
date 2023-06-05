@@ -1,3 +1,4 @@
+import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
 	inputExtension,
 	inputPrefix,
@@ -18,7 +19,7 @@ export const InputExtension = ({
 	type,
 	error,
 	success,
-}: InputExtensionProps) => {
+}: InputExtensionProps): EmotionJSX.Element => {
 	const style = type === 'prefix' ? inputPrefix : inputSuffix;
 
 	return (

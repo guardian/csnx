@@ -7,6 +7,8 @@ import { errorInput, inputBase } from './sharedStyles';
 export const inputWrapper = css`
 	display: flex;
 	width: 100%;
+	/* Ensures the focus halo matches the shape of the border */
+	border-radius: 4px;
 	/* Encloses the prefix and suffix when the input element is focused */
 	&:focus-within {
 		${focusHalo};
@@ -59,8 +61,11 @@ export const textInput = (
 	`;
 
 export const hasExtensions = (prefix?: string, suffix?: string) => css`
-	${prefix && 'border-left: none; margin-left: 0;'}
-	${suffix && 'border-right: none; margin-right: 0;'}
+	${prefix &&
+	'border-left: none; margin-left: 0; border-radius: 0px 4px 4px 0px;'}
+	${suffix &&
+	'border-right: none; margin-right: 0; border-radius: 4px 0px 0px 4px;'}
+	${prefix && suffix && 'border-radius: 0;'}
 `;
 
 export const labelMargin = css`
