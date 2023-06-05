@@ -14,7 +14,7 @@ importers:
       '@guardian/eslint-config': workspace:*
       '@guardian/eslint-config-typescript': workspace:*
       '@guardian/prettier': workspace:*
-      '@manypkg/get-packages': 1.1.3
+      '@manypkg/get-packages': 2.1.0
       '@nrwl/devkit': 16.2.2
       '@nrwl/eslint-plugin-nx': 16.2.2
       '@nrwl/jest': 16.2.2
@@ -70,7 +70,7 @@ importers:
       '@guardian/eslint-config': link:libs/@guardian/eslint-config
       '@guardian/eslint-config-typescript': link:libs/@guardian/eslint-config-typescript
       '@guardian/prettier': link:libs/@guardian/prettier
-      '@manypkg/get-packages': 1.1.3
+      '@manypkg/get-packages': 2.1.0
       '@nrwl/devkit': 16.2.2_nx@16.2.2
       '@nrwl/eslint-plugin-nx': 16.2.2_qj2lxzmlx4egfrnthfikgfjtpa
       '@nrwl/jest': 16.2.2_6lrh2463dx4iw6ngw4k6j4kt7a
@@ -2935,6 +2935,16 @@ packages:
       fs-extra: 8.1.0
     dev: true
 
+  /@manypkg/find-root/2.1.0:
+    resolution: {integrity: sha512-NEYRVlZCJYhRTqQURhv+WBpDcvmsp/M423Wcdvggv8lYJYD4GtqnTMLrQaTjA10fYt/PIc3tSdwV+wxJnWqPfQ==}
+    engines: {node: '>=14.18.0'}
+    dependencies:
+      '@manypkg/tools': 1.0.0
+      '@types/node': 12.20.55
+      find-up: 4.1.0
+      fs-extra: 8.1.0
+    dev: true
+
   /@manypkg/get-packages/1.1.3:
     resolution: {integrity: sha512-fo+QhuU3qE/2TQMQmbVMqaQ6EWbMhi4ABWP+O4AM1NqPBuy0OrApV5LO6BrrgnhtAHS2NH6RrVk9OL181tTi8A==}
     dependencies:
@@ -2943,6 +2953,24 @@ packages:
       '@manypkg/find-root': 1.1.0
       fs-extra: 8.1.0
       globby: 11.1.0
+      read-yaml-file: 1.1.0
+    dev: true
+
+  /@manypkg/get-packages/2.1.0:
+    resolution: {integrity: sha512-IgWPEGgeKeR3ISlgHAMbY+m042yjNe3NPt8UmJT0xMwofe/UifUVtOq5aUBkNSygfOrcUh/j5JExLPuOx72quA==}
+    engines: {node: '>=14.18.0'}
+    dependencies:
+      '@manypkg/find-root': 2.1.0
+      '@manypkg/tools': 1.0.0
+    dev: true
+
+  /@manypkg/tools/1.0.0:
+    resolution: {integrity: sha512-W8uDMhDGtwNyXYr6A+MWggxdL3spOQ8rfMNYpNph1GDJ0v084MnBFdpF1jvcPZ0okHAeYccV7le8AUs+fzwsAQ==}
+    engines: {node: '>=14.18.0'}
+    dependencies:
+      fs-extra: 8.1.0
+      globby: 11.1.0
+      jju: 1.4.0
       read-yaml-file: 1.1.0
     dev: true
 
@@ -3039,12 +3067,6 @@ packages:
       tmp: 0.2.1
       tslib: 2.4.1
     dev: false
-
-  /@nrwl/devkit/16.2.2:
-    resolution: {integrity: sha512-R8OSh33HtGycSuu0KshpH/tsTdi6j4w7DuIb+Sa59UDIkchpvMeNAz8tj/05Z2tTntDZnYqPkmCs6rkZ4PvY4Q==}
-    dependencies:
-      '@nx/devkit': 16.2.2_nx@16.2.2
-    dev: true
 
   /@nrwl/devkit/16.2.2_nx@16.2.2:
     resolution: {integrity: sha512-R8OSh33HtGycSuu0KshpH/tsTdi6j4w7DuIb+Sa59UDIkchpvMeNAz8tj/05Z2tTntDZnYqPkmCs6rkZ4PvY4Q==}
@@ -3313,7 +3335,7 @@ packages:
       nx:
         optional: true
     dependencies:
-      '@nrwl/devkit': 16.2.2
+      '@nrwl/devkit': 16.2.2_nx@16.2.2
       ejs: 3.1.9
       ignore: 5.2.4
       nx: 16.2.2_vdewrtcg4ne5tzbm2pelet6aly
@@ -7837,6 +7859,11 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /dotenv/16.1.1:
+    resolution: {integrity: sha512-UGmzIqXU/4b6Vb3R1Vrfd/4vGgVlB+mO+vEixOdfRhLeppkyW2BMhuK7TL8d0el+q9c4lW9qK2wZYhNLFhXYLA==}
+    engines: {node: '>=12'}
+    dev: true
+
   /duplexer/0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
@@ -10828,6 +10855,10 @@ packages:
       - ts-node
     dev: true
 
+  /jju/1.4.0:
+    resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
+    dev: true
+
   /js-sdsl/4.4.0:
     resolution: {integrity: sha512-FfVSdx6pJ41Oa+CF7RDaFmTnCaFhua+SNYQX74riGOpl96x+2jQCqEfQ2bnXu/5DPCqlRuiqyvTJM0Qjz26IVg==}
     dev: true
@@ -11019,7 +11050,7 @@ packages:
     engines: {node: '>=14.0.0'}
     dependencies:
       app-root-dir: 1.0.2
-      dotenv: 16.0.3
+      dotenv: 16.1.1
       dotenv-expand: 10.0.0
     dev: true
 

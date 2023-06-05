@@ -2,7 +2,7 @@ import { getPackages } from '@manypkg/get-packages';
 import { pathFromRoot } from '../project-paths.mjs';
 
 export const getPackageList = async () => {
-	const { packages } = await getPackages();
+	const { packages } = await getPackages(pathFromRoot('.'));
 
 	const markdown = packages
 		.filter((pkg) => pkg.packageJson.private !== true)
