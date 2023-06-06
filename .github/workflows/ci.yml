@@ -9,6 +9,14 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - task: lint
+          - task: test
+          - task: build
+          - task: e2e
+          - task: build-storybooks
     steps:
       - uses: actions/checkout@v3
 
@@ -22,11 +30,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: make lint
-      - run: make test
-      - run: make build
-      - run: make e2e
-      - run: make build-storybooks
+      - run: make ${{ matrix.task }}
 
   chromatic:
     # Kick Chromatic off only once all other steps have passed. This stops us
