@@ -74,6 +74,10 @@ Robust API over `localStorage` and `sessionStorage`.
 
 Format absolute dates as time-ago strings.
 
+### [IdentityAuth](./src/identityAuth)
+
+A library for authenticating and authorising users within the Guardian's identity platform hosted by Okta, using OAuth2 and OpenId Connect.
+
 ## Installation
 
 [![Generic badge](https://img.shields.io/badge/google-chat-259082.svg)](https://chat.google.com/room/AAAAWwBdSMs)
