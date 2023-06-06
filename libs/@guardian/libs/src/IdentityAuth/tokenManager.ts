@@ -18,20 +18,23 @@ export class TokenManager<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	private token: Token<AC, IC>;
-	private emitter: Emitter;
-	private storage = storage.local;
-	private accessTokenKey = 'gu.access_token';
-	private idTokenKey = 'gu.id_token';
+	#token: Token<AC, IC>;
+	#emitter: Emitter;
+	#storage = storage.local;
+	#accessTokenKey = 'gu.access_token';
+	#idTokenKey = 'gu.id_token';
 
 	constructor(emitter: Emitter, tokenClass: Token<AC, IC>) {
-		this.emitter = emitter;
-		this.token = tokenClass;
+		this.#emitter = emitter;
+		this.#token = tokenClass;
 
 		// subscribe to storage events, and emit an event when the storage is updated
 		window.addEventListener('storage', (event) => {
-			if (event.key === this.accessTokenKey || event.key === this.idTokenKey) {
-				this.emitStorage();
+			if (
+				event.key === this.#accessTokenKey ||
+				event.key === this.#idTokenKey
+			) {
+				this.#emitStorage();
 			}
 		});
 	}
@@ -40,24 +43,24 @@ export class TokenManager<
 	 * @name emitAdded
 	 * @description Emits an event when a token is added
 	 */
-	private emitAdded(key: TokenType, token?: AccessToken | IDToken) {
-		this.emitter.emit('added', key, token);
+	#emitAdded(key: TokenType, token?: AccessToken | IDToken) {
+		this.#emitter.emit('added', key, token);
 	}
 
 	/**
 	 * @name emitRemoved
 	 * @description Emits an event when a token is removed
 	 */
-	private emitRemoved(key: TokenType, token?: AccessToken | IDToken) {
-		this.emitter.emit('removed', key, token);
+	#emitRemoved(key: TokenType, token?: AccessToken | IDToken) {
+		this.#emitter.emit('removed', key, token);
 	}
 
 	/**
 	 * @name emitStorage
 	 * @description Emits an event when the local storage is updated
 	 */
-	private emitStorage() {
-		this.emitter.emit('storage');
+	#emitStorage() {
+		this.#emitter.emit('storage');
 	}
 
 	/**
@@ -74,13 +77,13 @@ export class TokenManager<
 		const existingTokens = this.getTokensSync();
 
 		// set the new tokens in storage
-		this.storage.set(
-			this.accessTokenKey,
+		this.#storage.set(
+			this.#accessTokenKey,
 			tokens.accessToken,
 			new Date(tokens.accessToken.expiresAt * 1000),
 		);
-		this.storage.set(
-			this.idTokenKey,
+		this.#storage.set(
+			this.#idTokenKey,
 			tokens.idToken,
 			new Date(tokens.idToken.expiresAt * 1000),
 		);
@@ -91,10 +94,10 @@ export class TokenManager<
 			const existingToken = existingTokens?.[tokenType];
 
 			if (existingToken) {
-				this.emitRemoved(tokenType, existingToken);
-				this.emitAdded(tokenType, newToken);
+				this.#emitRemoved(tokenType, existingToken);
+				this.#emitAdded(tokenType, newToken);
 			} else {
-				this.emitAdded(tokenType, newToken);
+				this.#emitAdded(tokenType, newToken);
 			}
 		});
 	}
@@ -106,11 +109,11 @@ export class TokenManager<
 	 * @returns Tokens | undefined - The tokens if they exist
 	 */
 	public getTokensSync(): Tokens<AC, IC> | undefined {
-		const accessToken = this.storage.get(
-			this.accessTokenKey,
+		const accessToken = this.#storage.get(
+			this.#accessTokenKey,
 		) as AccessToken<AC> | null;
 
-		const idToken = this.storage.get(this.idTokenKey) as IDToken<IC> | null;
+		const idToken = this.#storage.get(this.#idTokenKey) as IDToken<IC> | null;
 
 		if (!isAccessToken(accessToken) || !isIDToken(idToken)) {
 			return undefined;
@@ -139,14 +142,14 @@ export class TokenManager<
 
 			if (tokens) {
 				if (verifyToken) {
-					await this.token.verifyToken(tokens.idToken, tokens.accessToken);
+					await this.#token.verifyToken(tokens.idToken, tokens.accessToken);
 					return tokens;
 				}
 				return tokens;
 			}
 
 			if (refreshIfRequired) {
-				const tokenResponse = await this.token.getWithoutPrompt();
+				const tokenResponse = await this.#token.getWithoutPrompt();
 				this.setTokens(tokenResponse.tokens);
 				return tokenResponse.tokens;
 			}
@@ -164,9 +167,9 @@ export class TokenManager<
 	 * @returns void
 	 */
 	public clear(): void {
-		this.storage.remove(this.accessTokenKey);
-		this.storage.remove(this.idTokenKey);
-		this.emitRemoved('accessToken');
-		this.emitRemoved('idToken');
+		this.#storage.remove(this.#accessTokenKey);
+		this.#storage.remove(this.#idTokenKey);
+		this.#emitRemoved('accessToken');
+		this.#emitRemoved('idToken');
 	}
 }

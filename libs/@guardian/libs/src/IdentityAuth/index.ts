@@ -27,27 +27,27 @@ export class IdentityAuth<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	private options: IdentityAuthOptions;
-	private oauthUrls: OAuthUrls;
-	private emitter: Emitter;
+	#options: IdentityAuthOptions;
+	#oauthUrls: OAuthUrls;
+	#emitter: Emitter;
 
 	public tokenManager: TokenManager<AC, IC>;
 	public token: Token<AC, IC>;
 	public authStateManager: AuthStateManager<AC, IC>;
 
 	constructor(options: IdentityAuthOptions) {
-		this.options = options;
-		this.oauthUrls = {
-			authorizeUrl: `${this.options.issuer}/v1/authorize`,
-			tokenUrl: `${this.options.issuer}/v1/token`,
-			keysUrl: `${this.options.issuer}/v1/keys`,
+		this.#options = options;
+		this.#oauthUrls = {
+			authorizeUrl: `${this.#options.issuer}/v1/authorize`,
+			tokenUrl: `${this.#options.issuer}/v1/token`,
+			keysUrl: `${this.#options.issuer}/v1/keys`,
 		};
 
-		this.emitter = new Emitter();
-		this.token = new Token<AC, IC>(this.options, this.oauthUrls);
-		this.tokenManager = new TokenManager<AC, IC>(this.emitter, this.token);
+		this.#emitter = new Emitter();
+		this.token = new Token<AC, IC>(this.#options, this.#oauthUrls);
+		this.tokenManager = new TokenManager<AC, IC>(this.#emitter, this.token);
 		this.authStateManager = new AuthStateManager<AC, IC>(
-			this.emitter,
+			this.#emitter,
 			this.tokenManager,
 		);
 	}

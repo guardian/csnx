@@ -11,30 +11,30 @@ export class AuthStateManager<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	private authState: IdentityAuthState<AC, IC> | undefined = undefined;
-	private emitter: Emitter;
-	private tokenManager: TokenManager<AC, IC>;
+	#authState: IdentityAuthState<AC, IC> | undefined = undefined;
+	#emitter: Emitter;
+	#tokenManager: TokenManager<AC, IC>;
 
 	constructor(emitter: Emitter, tokenManager: TokenManager<AC, IC>) {
-		this.emitter = emitter;
-		this.tokenManager = tokenManager;
+		this.#emitter = emitter;
+		this.#tokenManager = tokenManager;
 
 		// on init, check if there are existing tokens in storage, and if so, update the auth state
-		this.updateAuthState();
+		this.#updateAuthState();
 
 		// subscribe to token manager events on addition
-		this.emitter.on('added', () => {
-			this.updateAuthState();
+		this.#emitter.on('added', () => {
+			this.#updateAuthState();
 		});
 
 		// subscribe to token manager events on removal
-		this.emitter.on('removed', () => {
-			this.updateAuthState();
+		this.#emitter.on('removed', () => {
+			this.#updateAuthState();
 		});
 
 		// subscribe to token manager events on storage
-		this.emitter.on('storage', () => {
-			this.updateAuthState();
+		this.#emitter.on('storage', () => {
+			this.#updateAuthState();
 		});
 	}
 
@@ -43,26 +43,26 @@ export class AuthStateManager<
 	 * @description Updates the auth state based on the tokens in storage
 	 * @returns void
 	 */
-	private updateAuthState() {
+	#updateAuthState() {
 		// check if there are existing tokens in storage
-		const tokens = this.tokenManager.getTokensSync();
+		const tokens = this.#tokenManager.getTokensSync();
 
 		// if there are tokens, set the auth state
 		if (tokens) {
-			this.authState = {
+			this.#authState = {
 				accessToken: tokens.accessToken,
 				idToken: tokens.idToken,
 				isAuthenticated: true,
 			};
 		} else {
 			// if there are no tokens, set the auth state to false
-			this.authState = {
+			this.#authState = {
 				isAuthenticated: false,
 			};
 		}
 
 		// emit the auth state change
-		this.emitter.emit('authStateChange', this.authState);
+		this.#emitter.emit('authStateChange', this.#authState);
 	}
 
 	/**
@@ -71,7 +71,7 @@ export class AuthStateManager<
 	 * @returns IdentityAuthState
 	 */
 	public getAuthState(): IdentityAuthState<AC, IC> | undefined {
-		return this.authState;
+		return this.#authState;
 	}
 
 	/**
@@ -80,7 +80,7 @@ export class AuthStateManager<
 	 * @param handler	- The EventCallback to use to subscribe
 	 */
 	public subscribe(handler: EventCallback): void {
-		this.emitter.on('authStateChange', handler);
+		this.#emitter.on('authStateChange', handler);
 	}
 
 	/**
@@ -89,6 +89,6 @@ export class AuthStateManager<
 	 * @param handler	- The EventCallback to used to subscribe
 	 */
 	public unsubscribe(handler: EventCallback): void {
-		this.emitter.off('authStateChange', handler);
+		this.#emitter.off('authStateChange', handler);
 	}
 }

@@ -14,10 +14,10 @@ type Event = {
  */
 export class Emitter {
 	// List of all events
-	private events: Record<string, Event[]>;
+	#events: Record<string, Event[]>;
 
 	constructor() {
-		this.events = {};
+		this.#events = {};
 	}
 
 	/**
@@ -31,7 +31,7 @@ export class Emitter {
 	 */
 	public on(name: string, callback: EventCallback, ctx?: unknown): this {
 		// get the events object
-		const events = this.events;
+		const events = this.#events;
 
 		// see if an event array already exists for this event name, if not create one
 		const eventArr = events[name] ?? (events[name] = []);
@@ -57,7 +57,7 @@ export class Emitter {
 	 */
 	public off(name: string, callback?: EventCallback): this {
 		// get the events object
-		const events = this.events;
+		const events = this.#events;
 		// get the event array for the event name
 		const eventArr = events[name];
 		// create an array to hold the current live events
@@ -85,7 +85,7 @@ export class Emitter {
 	 */
 	public emit(name: string, ...data: unknown[]): this {
 		// get the event array for the event name, if it exists
-		const eventArr = (this.events[name] ?? []).slice();
+		const eventArr = (this.#events[name] ?? []).slice();
 
 		// loop through the event array and run the callback for each event
 		eventArr.forEach((event) => {
