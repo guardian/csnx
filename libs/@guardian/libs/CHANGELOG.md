@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 14.1.0
+
+### Minor Changes
+
+- 0353489: Add Open Journalism team colours
+
 ## 14.0.0
 
 ### Major Changes

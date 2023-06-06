@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 12.1.0
+
+### Minor Changes
+
+- 88c5b36: update styling of NumericInput to match core Source input components
+
 ## 12.0.1
 
 ### Major Changes
