@@ -5,7 +5,7 @@
 		"is-mobile": "3.1.1"
 	},
 	"devDependencies": {
-		"@babel/core": "7.21.8",
+		"@babel/core": "7.22.1",
 		"@emotion/eslint-plugin": "11.11.0",
 		"@emotion/react": "11.11.0",
 		"@guardian/ab-core": "4.0.0",
