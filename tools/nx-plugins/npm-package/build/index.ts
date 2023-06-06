@@ -31,13 +31,13 @@ const exec = util.promisify(childProcess.exec);
 
 const formats = ['cjs', 'esm'] as const;
 export type Entries = {
-	[K in typeof formats[number]]: string;
+	[K in (typeof formats)[number]]: string;
 };
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
-	format: typeof formats[number],
+	format: (typeof formats)[number],
 ) => {
 	const compilerOptions = getCompilerOptions(options, context);
 
@@ -128,6 +128,7 @@ export default async function buildExecutor(
 					throw new Error('Expected a single entry file');
 				}),
 			);
+			console.log(outputs);
 
 			// eslint-disable-next-line prefer-const -- it _is_ reassigned, eslint
 			entries = Object.fromEntries(outputs) as Entries;
