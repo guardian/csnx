@@ -321,6 +321,14 @@ importers:
       tslib: 2.4.1
       typescript: 4.9.5
 
+  libs/@guardian/identity-auth:
+    specifiers:
+      tslib: 2.4.1
+      typescript: 4.9.5
+    devDependencies:
+      tslib: 2.4.1
+      typescript: 4.9.5
+
   libs/@guardian/libs:
     specifiers:
       '@types/wcag-contrast': 3.0.0
@@ -3049,7 +3057,7 @@ packages:
       ignore: 5.2.4
       semver: 7.3.4
       tmp: 0.2.1
-      tslib: 2.4.1
+      tslib: 2.5.2
     dev: false
 
   /@nrwl/devkit/15.9.2_nx@15.9.2:
@@ -3065,7 +3073,7 @@ packages:
       nx: 15.9.2
       semver: 7.3.4
       tmp: 0.2.1
-      tslib: 2.4.1
+      tslib: 2.5.2
     dev: false
 
   /@nrwl/devkit/16.3.2_nx@16.3.2:
@@ -3134,7 +3142,7 @@ packages:
       minimatch: 3.0.5
       source-map-support: 0.5.19
       tree-kill: 1.2.2
-      tslib: 2.4.1
+      tslib: 2.5.2
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -3170,7 +3178,7 @@ packages:
       '@nrwl/js': 15.9.2_typescript@4.9.5
       '@phenomnomnominal/tsquery': 4.1.1_typescript@4.9.5
       tmp: 0.2.1
-      tslib: 2.5.0
+      tslib: 2.5.2
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -4910,7 +4918,7 @@ packages:
       colorette: 2.0.19
       debug: 4.3.4
       pirates: 4.0.5
-      tslib: 2.5.0
+      tslib: 2.5.2
       typescript: 4.9.5
     transitivePeerDependencies:
       - supports-color
@@ -13241,7 +13249,7 @@ packages:
       magic-string: 0.26.2
       rollup: 2.79.0
       ts-clone-node: 1.0.0_typescript@4.9.5
-      tslib: 2.5.0
+      tslib: 2.5.2
       typescript: 4.9.5
     dev: false
 
@@ -13574,7 +13582,7 @@ packages:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.5.2
     dev: true
 
   /snapdragon-node/2.1.1:
@@ -14378,9 +14386,7 @@ packages:
 
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
-
-  /tslib/2.5.0:
-    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
+    dev: true
 
   /tslib/2.5.2:
     resolution: {integrity: sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==}
