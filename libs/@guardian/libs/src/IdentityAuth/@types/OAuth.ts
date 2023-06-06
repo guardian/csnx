@@ -1,4 +1,4 @@
-import type { AccessToken, IDToken } from './Token';
+import type { AccessToken, CustomClaims, IDToken } from './Token';
 
 export interface IdentityAuthOptions {
 	clientId: string;
@@ -10,11 +10,14 @@ export interface IdentityAuthOptions {
 	redirectUri: string;
 }
 
-export interface IdentityAuthState {
-	accessToken?: AccessToken;
-	idToken?: IDToken;
+export type IdentityAuthState<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> = {
+	accessToken?: AccessToken<AC>;
+	idToken?: IDToken<IC>;
 	isAuthenticated: boolean;
-}
+};
 
 export interface AuthorizeParams extends Record<string, string> {
 	client_id: string;

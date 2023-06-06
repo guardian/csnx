@@ -4,6 +4,7 @@ import type {
 	IdentityAuthState,
 	OAuthUrls,
 } from './@types/OAuth';
+import type { CustomClaims } from './@types/Token';
 import { AuthStateManager } from './authState';
 import { Emitter } from './emitter';
 import { Token } from './token';
@@ -22,14 +23,17 @@ import { TokenManager } from './tokenManager';
  *
  * @param {IdentityAuthOptions} options - The options for IdentityAuth
  */
-export class IdentityAuth {
+export class IdentityAuth<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> {
 	private options: IdentityAuthOptions;
 	private oauthUrls: OAuthUrls;
 	private emitter: Emitter;
 
-	public tokenManager: TokenManager;
-	public token: Token;
-	public authStateManager: AuthStateManager;
+	public tokenManager: TokenManager<AC, IC>;
+	public token: Token<AC, IC>;
+	public authStateManager: AuthStateManager<AC, IC>;
 
 	constructor(options: IdentityAuthOptions) {
 		this.options = options;
@@ -39,9 +43,9 @@ export class IdentityAuth {
 		};
 
 		this.emitter = new Emitter();
-		this.token = new Token(this.options, this.oauthUrls);
-		this.tokenManager = new TokenManager(this.emitter, this.token);
-		this.authStateManager = new AuthStateManager(
+		this.token = new Token<AC, IC>(this.options, this.oauthUrls);
+		this.tokenManager = new TokenManager<AC, IC>(this.emitter, this.token);
+		this.authStateManager = new AuthStateManager<AC, IC>(
 			this.emitter,
 			this.tokenManager,
 		);
@@ -61,7 +65,7 @@ export class IdentityAuth {
 	 *
 	 * @returns `AuthState` - Returns the current authentication state
 	 */
-	public async isSignedInWithAuthState(): Promise<IdentityAuthState> {
+	public async isSignedInWithAuthState(): Promise<IdentityAuthState<AC, IC>> {
 		try {
 			// if the user has a GU_SO cookie, they have recently signed out, so we should clear their tokens
 			// the GU_SO cookie will be automatically cleared when the user signs back in

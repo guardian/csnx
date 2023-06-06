@@ -14,6 +14,7 @@ import type {
 import type {
 	AccessToken,
 	AccessTokenClaims,
+	CustomClaims,
 	IDToken,
 	IDTokenClaims,
 	JWK,
@@ -181,7 +182,9 @@ const isOAuthTokenResponseError = (
  * @param token `string` - JWT token
  * @returns JWTObject - object containing the decoded token parts
  */
-const decodeToken = (token: string): JWTObject => {
+const decodeToken = <T extends CustomClaims = CustomClaims>(
+	token: string,
+): JWTObject<T> => {
 	// attempt to split the token into its parts
 	const [headerStr, payloadStr, signature] = token.split('.');
 
@@ -196,7 +199,7 @@ const decodeToken = (token: string): JWTObject => {
 		}
 
 		const header = JSON.parse(base64UrlToString(headerStr)) as JWTHeader;
-		const payload = JSON.parse(base64UrlToString(payloadStr)) as JWTPayload;
+		const payload = JSON.parse(base64UrlToString(payloadStr)) as JWTPayload<T>;
 
 		// validate the header, all okta oauth tokens have an alg and kid claim
 		if (!header.alg || !header.kid) {
@@ -680,18 +683,21 @@ export const exchangeCodeForTokens = async (
  * @param authorizeParams - params used to generate the authorization request (/authorize)
  * @returns Promise<TokenResponse> - resolves with the access and ID tokens
  */
-export const handleOAuthResponse = async (
+export const handleOAuthResponse = async <
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+>(
 	oauthTokenResponse: OAuthTokenResponse,
 	authorizeParams: AuthorizeParams,
 	options: IdentityAuthOptions,
-) => {
+): Promise<TokenResponse<AC, IC>> => {
 	// destructure the response
 	const { access_token, expires_in, id_token, token_type } = oauthTokenResponse;
 	// get the current time in seconds
 	const now = Math.floor(Date.now() / 1000);
 
 	// decode the access tokens
-	const decodedAccessToken = decodeToken(access_token);
+	const decodedAccessToken = decodeToken<AC>(access_token);
 
 	// get the access token claims, not type validated
 	const accessTokenPayload = decodedAccessToken.payload;
@@ -706,7 +712,7 @@ export const handleOAuthResponse = async (
 	}
 
 	// construct the access token
-	const accessToken: AccessToken = {
+	const accessToken: AccessToken<AC> = {
 		accessToken: access_token,
 		claims: accessTokenPayload,
 		expiresAt: now + Number(expires_in),
@@ -724,7 +730,7 @@ export const handleOAuthResponse = async (
 	}
 
 	// decode the ID token
-	const decodedIDToken = decodeToken(id_token);
+	const decodedIDToken = decodeToken<IC>(id_token);
 
 	// get the id token claims, not type validated
 	const idTokenPayload = decodedIDToken.payload;
@@ -739,7 +745,7 @@ export const handleOAuthResponse = async (
 	}
 
 	// construct the ID token
-	const idToken: IDToken = {
+	const idToken: IDToken<IC> = {
 		idToken: id_token,
 		issuer: options.issuer,
 		clientId: options.clientId,
@@ -775,7 +781,10 @@ export const handleOAuthResponse = async (
  * @class Token
  * @description Class for performing the Authorization Code Flow with PKCE, exchanging the authorization code for tokens and verifying the ID token
  */
-export class Token {
+export class Token<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> {
 	#options: IdentityAuthOptions;
 	#oauthUrls: OAuthUrls;
 
@@ -784,15 +793,25 @@ export class Token {
 		this.#oauthUrls = oauthUrls;
 	}
 
-	#exchangeCodeForTokens = (code: string, codeVerifier: string) =>
+	#exchangeCodeForTokens = (
+		code: string,
+		codeVerifier: string,
+	): Promise<OAuthTokenResponse | OAuthTokenResponseError> =>
 		exchangeCodeForTokens(code, codeVerifier, this.#options, this.#oauthUrls);
 
 	#handleOAuthResponse = (
 		oauthTokenResponse: OAuthTokenResponse,
 		authorizeParams: AuthorizeParams,
-	) => handleOAuthResponse(oauthTokenResponse, authorizeParams, this.#options);
+	): Promise<TokenResponse<AC, IC>> =>
+		handleOAuthResponse<AC, IC>(
+			oauthTokenResponse,
+			authorizeParams,
+			this.#options,
+		);
 
-	#performAuthCodeFlowIframe = (authorizeParams: AuthorizeParams) =>
+	#performAuthCodeFlowIframe = (
+		authorizeParams: AuthorizeParams,
+	): Promise<OAuthAuthorizeResponse | OAuthAuthorizeResponseError> =>
 		performAuthCodeFlowIframe(authorizeParams, this.#options, this.#oauthUrls);
 
 	/**
@@ -800,7 +819,7 @@ export class Token {
 	 * @description Performs the Authorization Code Flow with PKCE, exchanging the authorization code for tokens and verifying the ID token, without prompting the user and using a hidden iframe
 	 * @returns Promise<TokenResponse> - resolves with the access and ID tokens
 	 */
-	public async getWithoutPrompt(): Promise<TokenResponse> {
+	public async getWithoutPrompt(): Promise<TokenResponse<AC, IC>> {
 		// generate the code verifier and code challenge for PKCE
 		// see https://www.oauth.com/oauth2-servers/pkce/authorization-request/
 		// the `code_verifier` is a cryptographically random string using the characters A-Z, a-z, 0-9
@@ -877,7 +896,7 @@ export class Token {
 	 *
 	 * @param idToken - ID token to verify
 	 * @param accessToken - Access token to verify
-	 * @returns
+	 * @returns void
 	 */
 	public async verifyToken(idToken: IDToken, accessToken: AccessToken) {
 		return verifyToken(idToken, accessToken, this.#options);

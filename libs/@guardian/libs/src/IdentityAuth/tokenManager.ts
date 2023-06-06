@@ -1,5 +1,11 @@
 import { storage } from '../storage/storage';
-import type { AccessToken, IDToken, Tokens, TokenType } from './@types/Token';
+import type {
+	AccessToken,
+	CustomClaims,
+	IDToken,
+	Tokens,
+	TokenType,
+} from './@types/Token';
 import type { Emitter } from './emitter';
 import type { Token } from './token';
 import { isAccessToken, isIDToken } from './token';
@@ -8,14 +14,17 @@ import { isAccessToken, isIDToken } from './token';
  * @class TokenManager
  * @description Manages the storage and retrieval of tokens
  */
-export class TokenManager {
-	private token: Token;
+export class TokenManager<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> {
+	private token: Token<AC, IC>;
 	private emitter: Emitter;
 	private storage = storage.local;
 	private accessTokenKey = 'gu.access_token';
 	private idTokenKey = 'gu.id_token';
 
-	constructor(emitter: Emitter, tokenClass: Token) {
+	constructor(emitter: Emitter, tokenClass: Token<AC, IC>) {
 		this.emitter = emitter;
 		this.token = tokenClass;
 
@@ -57,7 +66,7 @@ export class TokenManager {
 	 * @param tokens - The tokens to set
 	 * @returns void
 	 */
-	public setTokens(tokens: Tokens): void {
+	public setTokens(tokens: Tokens<AC, IC>): void {
 		// setup the valid token types
 		const tokenTypes: TokenType[] = ['accessToken', 'idToken'];
 
@@ -96,12 +105,12 @@ export class TokenManager {
 	 *
 	 * @returns Tokens | undefined - The tokens if they exist
 	 */
-	public getTokensSync(): Tokens | undefined {
+	public getTokensSync(): Tokens<AC, IC> | undefined {
 		const accessToken = this.storage.get(
 			this.accessTokenKey,
-		) as AccessToken | null;
+		) as AccessToken<AC> | null;
 
-		const idToken = this.storage.get(this.idTokenKey) as IDToken | null;
+		const idToken = this.storage.get(this.idTokenKey) as IDToken<IC> | null;
 
 		if (!isAccessToken(accessToken) || !isIDToken(idToken)) {
 			return undefined;
@@ -124,7 +133,7 @@ export class TokenManager {
 	public async getTokens({
 		refreshIfRequired = false,
 		verifyToken = true,
-	} = {}): Promise<Tokens | undefined> {
+	} = {}): Promise<Tokens<AC, IC> | undefined> {
 		try {
 			const tokens = this.getTokensSync();
 

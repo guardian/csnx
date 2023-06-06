@@ -61,6 +61,7 @@ export type {
 export type {
 	AccessToken,
 	AccessTokenClaims,
+	CustomClaims,
 	IDToken,
 	IDTokenClaims,
 } from './IdentityAuth/@types/Token';

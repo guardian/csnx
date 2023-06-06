@@ -1,4 +1,5 @@
 import type { IdentityAuthState } from './@types/OAuth';
+import type { CustomClaims } from './@types/Token';
 import type { Emitter, EventCallback } from './emitter';
 import type { TokenManager } from './tokenManager';
 
@@ -6,12 +7,15 @@ import type { TokenManager } from './tokenManager';
  * @class AuthStateManager
  * @description Manages the authentication state of the user
  */
-export class AuthStateManager {
-	private authState: IdentityAuthState | undefined = undefined;
+export class AuthStateManager<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> {
+	private authState: IdentityAuthState<AC, IC> | undefined = undefined;
 	private emitter: Emitter;
-	private tokenManager: TokenManager;
+	private tokenManager: TokenManager<AC, IC>;
 
-	constructor(emitter: Emitter, tokenManager: TokenManager) {
+	constructor(emitter: Emitter, tokenManager: TokenManager<AC, IC>) {
 		this.emitter = emitter;
 		this.tokenManager = tokenManager;
 
@@ -66,7 +70,7 @@ export class AuthStateManager {
 	 * @description Returns the current auth state
 	 * @returns IdentityAuthState
 	 */
-	public getAuthState(): IdentityAuthState | undefined {
+	public getAuthState(): IdentityAuthState<AC, IC> | undefined {
 		return this.authState;
 	}
 
