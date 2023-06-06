@@ -159,7 +159,7 @@ importers:
       '@emotion/react': 11.11.0
       '@guardian/ab-core': 4.0.0
       '@guardian/commercial-core': 7.0.0
-      '@guardian/consent-management-platform': 13.0.2
+      '@guardian/consent-management-platform': 13.2.0
       '@guardian/eslint-plugin-source-foundations': 12.0.0
       '@guardian/eslint-plugin-source-react-components': 16.0.0
       '@guardian/libs': 14.0.0
@@ -187,8 +187,8 @@ importers:
       '@emotion/eslint-plugin': 11.11.0
       '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
       '@guardian/ab-core': link:../ab-core
-      '@guardian/commercial-core': 7.0.0_ukyo5qdbajvi2lioa5llmbcz4a
-      '@guardian/consent-management-platform': 13.0.2_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/commercial-core': 7.0.0_b45xec6iok3pemgwhgyoinrm34
+      '@guardian/consent-management-platform': 13.2.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
@@ -2576,7 +2576,7 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
-  /@guardian/commercial-core/7.0.0_ukyo5qdbajvi2lioa5llmbcz4a:
+  /@guardian/commercial-core/7.0.0_b45xec6iok3pemgwhgyoinrm34:
     resolution: {integrity: sha512-ByfukhmfJ2sF5mCyVq5XSRyOdBp0w+MOTpOp361wjZ6a2KHSgSC8VQucgSQHtQ7v05O0jJ53XFkSrGc2TUworA==}
     peerDependencies:
       '@guardian/ab-core': ^4.0.0
@@ -2584,12 +2584,12 @@ packages:
       '@guardian/libs': ^14.0.0
     dependencies:
       '@guardian/ab-core': link:libs/@guardian/ab-core
-      '@guardian/consent-management-platform': 13.0.2_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/consent-management-platform': 13.2.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
-  /@guardian/consent-management-platform/13.0.2_uo3bjqllavv5kwoq2zqgzcz5h4:
-    resolution: {integrity: sha512-rhuDQeZW//WJue9Uhj5JgWc7juV18CgwpOJXcmzYUkYcvi1wcf+kW/BvqfJjNjyd/kpx5eNQ2pCZtj4HuTQBEA==}
+  /@guardian/consent-management-platform/13.2.0_uo3bjqllavv5kwoq2zqgzcz5h4:
+    resolution: {integrity: sha512-1ggVotJaJad2k7w1QAKffnxSRigEiU1ztWNxu0SncNvnsF90BJ8wMCTECsyp/xMhJFIm1DSVJyIucBzzc7VYRg==}
     peerDependencies:
       '@guardian/libs': ^14.0.0
     dependencies:
