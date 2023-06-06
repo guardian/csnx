@@ -352,13 +352,10 @@ export const verifyAccessTokenWithAtHash = async (
  * @param token
  */
 export const verifySignature = async (
-	issuer: string,
+	jwksUri: string,
 	jwt: JWTObject,
 	token: string,
 ): Promise<void> => {
-	// generate the JWKS endpoint
-	const jwksUri = `${issuer}/v1/keys`;
-
 	// fetch the JWKS, okta returns standard cache-control headers, so caching is handled by the browser
 	const jwksResponse = await fetch(jwksUri);
 
@@ -599,6 +596,7 @@ export const verifyToken = async (
 	idToken: IDToken,
 	accessToken: AccessToken,
 	options: IdentityAuthOptions,
+	oauthUrls: OAuthUrls,
 ) => {
 	// check if the token has already been verified
 	if (memoizedVerifyToken.has(idToken.claims.jti)) {
@@ -622,7 +620,13 @@ export const verifyToken = async (
 		verifyIdTokenClaims(jwt.payload, idToken.nonce, options);
 
 		// verify the signature
-		await verifySignature(options.issuer, jwt, idToken.idToken);
+		await verifySignature(oauthUrls.keysUrl, jwt, idToken.idToken);
+
+		// verify the access token using the at_hash claim
+		await verifyAccessTokenWithAtHash(
+			idToken.claims.at_hash,
+			accessToken.accessToken,
+		);
 
 		// if successful, memoize the token
 		memoizedVerifyToken.set(idToken.claims.jti, true);
@@ -690,6 +694,7 @@ export const handleOAuthResponse = async <
 	oauthTokenResponse: OAuthTokenResponse,
 	authorizeParams: AuthorizeParams,
 	options: IdentityAuthOptions,
+	oauthUrls: OAuthUrls,
 ): Promise<TokenResponse<AC, IC>> => {
 	// destructure the response
 	const { access_token, expires_in, id_token, token_type } = oauthTokenResponse;
@@ -765,7 +770,7 @@ export const handleOAuthResponse = async <
 	}
 
 	// verify the ID token
-	await verifyToken(idToken, accessToken, options);
+	await verifyToken(idToken, accessToken, options, oauthUrls);
 
 	// return the tokens
 	return {
@@ -807,6 +812,7 @@ export class Token<
 			oauthTokenResponse,
 			authorizeParams,
 			this.#options,
+			this.#oauthUrls,
 		);
 
 	#performAuthCodeFlowIframe = (
@@ -899,6 +905,6 @@ export class Token<
 	 * @returns void
 	 */
 	public async verifyToken(idToken: IDToken, accessToken: AccessToken) {
-		return verifyToken(idToken, accessToken, this.#options);
+		return verifyToken(idToken, accessToken, this.#options, this.#oauthUrls);
 	}
 }

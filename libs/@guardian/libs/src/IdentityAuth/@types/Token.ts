@@ -1,6 +1,10 @@
-export type CustomClaimValue = string | boolean | number;
-export type CustomClaim = CustomClaimValue | Record<string, CustomClaimValue>;
-export type CustomClaims = Record<string, CustomClaim | CustomClaim[]>;
+// type for using custom claims in the access token or ID token
+type CustomClaimValue = string | boolean | number;
+// extend this type to add custom claims to the access token or ID token
+export type CustomClaims = Record<
+	string,
+	CustomClaimValue | CustomClaimValue[]
+>;
 
 // these are the default custom claims that we add to the access token for all guardian apps
 // as long as the scope `openid` and `profile` are requested
@@ -17,8 +21,6 @@ type DefaultCustomIDTokenClaims = {
 	legacy_identity_id: string;
 	user_groups: string[];
 };
-
-export type UserClaims = Partial<AccessTokenClaims & IDTokenClaims>;
 
 /**
  * The claims in an access token.
@@ -42,6 +44,13 @@ export type AccessTokenClaims<T extends CustomClaims = CustomClaims> = T &
 		ver: number;
 	};
 
+/**
+ * The claims in an ID token.
+ *
+ * https://developer.okta.com/docs/reference/api/oidc/#claims-in-the-payload-section
+ *
+ * We also extend the claims with our own custom claims.
+ */
 export type IDTokenClaims<T extends CustomClaims = CustomClaims> = T &
 	DefaultCustomIDTokenClaims & {
 		amr: string[];
@@ -59,27 +68,50 @@ export type IDTokenClaims<T extends CustomClaims = CustomClaims> = T &
 		ver: number;
 	};
 
+// set up a partial type for the claims in the access token and ID token
+export type UserClaims = Partial<AccessTokenClaims & IDTokenClaims>;
+
+/**
+ * The header of a JWT.
+ *
+ * https://developer.okta.com/docs/reference/api/oidc/#reserved-claims-in-the-header-section
+ * https://developer.okta.com/docs/reference/api/oidc/#claims-in-the-header-section
+ */
 export interface JWTHeader {
 	alg: string;
 	kid: string;
 }
 
+/**
+ * The payload of a JWT.
+ *
+ * Set up as a partial type so that we can use it for the access token and ID token, as we don't
+ * know exactly which claims will be in each, and will be returned from the server, until we
+ * validate and decode the token.
+ */
 export type JWTPayload<T extends CustomClaims = CustomClaims> = UserClaims &
 	T & {
 		scp?: string[];
 	};
 
+/**
+ * A JWT (JSON Web Token)
+ */
 export interface JWTObject<T extends CustomClaims = CustomClaims> {
 	header: JWTHeader;
 	payload: JWTPayload<T>;
 	signature: string;
 }
 
+// Shared types for the access token and ID token
 interface AbstractToken {
 	expiresAt: number;
 	scopes: string[];
 }
 
+/**
+ * The access token object.
+ */
 export type AccessToken<T extends CustomClaims = CustomClaims> =
 	AbstractToken & {
 		accessToken: string;
@@ -87,6 +119,9 @@ export type AccessToken<T extends CustomClaims = CustomClaims> =
 		tokenType: string;
 	};
 
+/**
+ * The ID token object.
+ */
 export type IDToken<T extends CustomClaims = CustomClaims> = AbstractToken & {
 	idToken: string;
 	claims: IDTokenClaims<T>;
@@ -95,6 +130,9 @@ export type IDToken<T extends CustomClaims = CustomClaims> = AbstractToken & {
 	nonce: string;
 };
 
+/**
+ * The tokens object, containing the access token and ID token.
+ */
 export type Tokens<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
@@ -103,8 +141,12 @@ export type Tokens<
 	idToken: IDToken<IC>;
 };
 
+// valid token types, currently only `accessToken` and `idToken`
 export type TokenType = keyof Tokens;
 
+/**
+ * Type used in the response from certain SDK methods, containing the tokens and the state (/authorize param)
+ */
 export type TokenResponse<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
@@ -113,6 +155,9 @@ export type TokenResponse<
 	state: string;
 };
 
+/**
+ * A JSON Web Key (JWK) as returned from the JWKS endpoint.
+ */
 export interface JWK {
 	alg: string;
 	e: string;
@@ -121,6 +166,10 @@ export interface JWK {
 	n: string;
 	use: string;
 }
+
+/**
+ * Response from the JWKS endpoint.
+ */
 export interface JWKS {
 	keys: JWK[];
 }

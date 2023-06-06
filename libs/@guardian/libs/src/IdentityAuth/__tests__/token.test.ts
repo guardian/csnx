@@ -31,6 +31,7 @@ describe('IdentityAuth#Token', () => {
 	const oauthUrls: OAuthUrls = {
 		authorizeUrl: 'https://profile.theguardian.com/oauth2/test/v1/authorize',
 		tokenUrl: 'https://profile.theguardian.com/oauth2/test/v1/token',
+		keysUrl: 'https://profile.theguardian.com/oauth2/test/v1/keys',
 	};
 
 	afterEach(() => {

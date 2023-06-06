@@ -90,7 +90,8 @@ describe('IdentityAuth', () => {
 		};
 
 		type CustomIdTokenClaims = CustomClaims & {
-			bar: string;
+			bar: number[];
+			baz: boolean;
 		};
 
 		const auth = new IdentityAuth<CustomAccessTokenClaims, CustomIdTokenClaims>(
@@ -132,7 +133,8 @@ describe('IdentityAuth', () => {
 				at_hash: 'at_hash',
 				aud: 'aud',
 				auth_time: 123,
-				bar: 'bar',
+				bar: [123, 123],
+				baz: true,
 				exp: 123,
 				iat: 123,
 				identity_username: 'identity_username',

@@ -32,8 +32,8 @@ const identityAuth = new IdentityAuth({
 const authState = await identityAuth.isSignedInWithAuthState();
 
 authState.isAuthenticated; // true or false
-authState?.accessToken; // the user's access token
-authState?.idToken; // the user's id token
+authState?.accessToken; // the user's access token object
+authState?.idToken; // the user's id token object
 
 // or boolean only
 const isLoggedIn = await identityAuth.isSignedIn();
@@ -42,6 +42,10 @@ const isLoggedIn = await identityAuth.isSignedIn();
 ```
 
 Applications will need to be registered in Okta before they can use this library. Please contact the Identity team to do this. They will provide you with the configuration values you need to initialise the library.
+
+In general you use the _Access Token_ to make API requests to Guardian services on behalf of the user, and you use the _ID Token_ to read the user's identity information within your application.
+
+This is what replaces the `SC_GU_U` cookie that is used in the legacy identity platform.
 
 ## Configuration
 
@@ -99,9 +103,30 @@ try {
 	// Check if the user is logged in and return the current auth state
 	const authState = await identityAuth.isSignedInWithAuthState();
 
-	authState.isAuthenticated; // true or false
-	authState?.accessToken; // the user's access token
-	authState?.idToken; // the user's id token
+	console.log(authState.isAuthenticated); // true or false
+	console.log(authState?.accessToken); // the user's access token
+	console.log(authState?.idToken); // the user's id token
+
+	// e.g. read the id token claims to use in your application
+	if (authState.idToken) {
+		const claims = authState.idToken.claims;
+
+		console.log('identity id', claims.legacy_identity_id);
+		console.log('username', claims.identity_username);
+	}
+
+	// e.g use the access token to make an API request
+	if (authState.accessToken) {
+		const accessTokenString = authState.accessToken.accessToken;
+
+		const response = await fetch('https://some-endpoint.theguardian.com', {
+			headers: {
+				Authorization: `Bearer ${accessTokenString}`,
+			},
+		});
+
+		// Handle the response
+	}
 } catch (error) {
 	if (error instanceof OAuthError) {
 		// Handle OAuth errors
@@ -313,3 +338,38 @@ import type {
 // e.g if (error instanceof OAuthError) { ... }
 import { OAuthError } from '@guardian/libs';
 ```
+
+### Custom claims
+
+Depending on the scopes you request, you may get custom claims in the Access Token or ID Token. If you don't create a type for these claims, then typescript will complain about them not existing.
+
+You can add custom claims for you application by creating a type that extends the `CustomClaims` type.
+
+A claim value can be a `string`, `number`, `boolean`, `string[]`, `number[]` or `boolean[]`.
+
+```ts
+type CustomAccessTokenClaims = CustomClaims & {
+	foo: string;
+};
+
+type CustomIdTokenClaims = CustomClaims & {
+	bar: number[];
+	baz: boolean;
+};
+
+// pass the types to the IdentityAuth class as generics
+const auth = new IdentityAuth<CustomAccessTokenClaims, CustomIdTokenClaims>({
+	...
+});
+
+// the custom claims will be available on the AccessToken and IDToken types
+const authState = auth.authStateManager.getAuthState();
+
+authState.accessToken.foo; // string
+authState.idToken.bar; // number[]
+authState.idToken.baz; // boolean
+```
+
+## Contributing
+
+Due to the nature of this library, if you want to make changes to it, we suggest you speak to the Identity team first regarding the nature of the changes you want to make, e.g. for bug fixes, new features, etc.

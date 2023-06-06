@@ -40,6 +40,7 @@ export class IdentityAuth<
 		this.oauthUrls = {
 			authorizeUrl: `${this.options.issuer}/v1/authorize`,
 			tokenUrl: `${this.options.issuer}/v1/token`,
+			keysUrl: `${this.options.issuer}/v1/keys`,
 		};
 
 		this.emitter = new Emitter();
