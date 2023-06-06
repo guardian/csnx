@@ -15,7 +15,7 @@ import { getPackages } from '@manypkg/get-packages';
 import { dim, red } from 'colorette';
 import { pathFromRoot } from './project-paths.mjs';
 
-const { packages } = await getPackages();
+const { packages } = await getPackages(pathFromRoot('.'));
 const tslibVersion = packages.find(
 	(pkg) => pkg.packageJson.name === '@guardian/libs',
 )?.packageJson.peerDependencies.tslib;

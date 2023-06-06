@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 248" width="600" height="248">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 272" width="600" height="272">
 	<style>
 		.wrapper {
 			font-family: monospace;
@@ -50,7 +50,7 @@
 			color: #ffffff;
 		}
 	</style>
-	<foreignObject x="0" y="0" width="600" height="248">
+	<foreignObject x="0" y="0" width="600" height="272">
 		<div class="wrapper" xmlns="http://www.w3.org/1999/xhtml">
 			<div id="console">
 				<div class="line top">Console</div>
@@ -94,6 +94,12 @@
 			<span class="label common">@guardian</span>
 			<span class="label identity" style="background-color: #6F5F8F; color: #ffffff">identity</span>
 			<span class="label">message no.6</span>
+			<span class="gap"></span>
+			<span class="label log">console.log</span>
+		</div><div class="line">
+			<span class="label common">@guardian</span>
+			<span class="label openJournalism" style="background-color: #C74600; color: #FEF9F5">openJournalism</span>
+			<span class="label">message no.7</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div>

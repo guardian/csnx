@@ -43,6 +43,10 @@ const teamStyles = {
 		background: '#6F5F8F',
 		font: '#ffffff',
 	},
+	openJournalism: {
+		background: '#C74600',
+		font: '#FEF9F5',
+	},
 } as const;
 
 const isTeam = (team: string): team is TeamName =>
