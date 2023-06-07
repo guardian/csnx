@@ -1,4 +1,4 @@
-import { storage } from '../storage/storage';
+import { storage } from '@guardian/libs';
 import type {
 	AccessToken,
 	CustomClaims,

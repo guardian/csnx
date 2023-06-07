@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
 export { getCookie } from './cookies/getCookie';
@@ -51,17 +52,3 @@ export { storage } from './storage/storage';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
-
-export { IdentityAuth } from './IdentityAuth';
-export { OAuthError } from './IdentityAuth/error';
-export type {
-	IdentityAuthOptions,
-	IdentityAuthState,
-} from './IdentityAuth/@types/OAuth';
-export type {
-	AccessToken,
-	AccessTokenClaims,
-	CustomClaims,
-	IDToken,
-	IDTokenClaims,
-} from './IdentityAuth/@types/Token';

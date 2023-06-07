@@ -1,4 +1,4 @@
-import { getCookie } from '../cookies/getCookie';
+import { getCookie } from '@guardian/libs';
 import type {
 	IdentityAuthOptions,
 	IdentityAuthState,
@@ -7,6 +7,7 @@ import type {
 import type { CustomClaims } from './@types/Token';
 import { AuthStateManager } from './authState';
 import { Emitter } from './emitter';
+import { OAuthError } from './error';
 import { Token } from './token';
 import { TokenManager } from './tokenManager';
 
@@ -111,7 +112,15 @@ export class IdentityAuth<
 				isAuthenticated: false,
 			};
 		} catch (error) {
-			// clear tokens if there is an error, which updates the auth state
+			// check if the error is an OAuthError and the error is login_required, in which case the user is not signed in
+			if (error instanceof OAuthError && error.error === 'login_required') {
+				// so return isAuthenticated: false
+				return {
+					isAuthenticated: false,
+				};
+			}
+
+			// otherwise there is an unknown error, so clear any tokens and throw the error
 			this.tokenManager.clear();
 			throw error;
 		}

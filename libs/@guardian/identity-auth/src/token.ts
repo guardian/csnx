@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition -- we're doing type guards on two different types */
 
-import { isNonNullable } from '../isNonNullable/isNonNullable';
+import { isNonNullable } from '@guardian/libs';
 import type {
 	AuthorizeParams,
 	IdentityAuthOptions,
