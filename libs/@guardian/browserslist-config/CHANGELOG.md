@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 4.2.0
+
+### Minor Changes
+
+- 3e6d282: Updated with June 2023 data
+
 ## 4.1.0
 
 ### Minor Changes
