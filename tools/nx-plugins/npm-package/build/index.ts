@@ -31,13 +31,13 @@ const exec = util.promisify(childProcess.exec);
 
 const formats = ['cjs', 'esm'] as const;
 export type Entries = {
-	[K in typeof formats[number]]: string;
+	[K in (typeof formats)[number]]: string;
 };
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
-	format: typeof formats[number],
+	format: (typeof formats)[number],
 ) => {
 	const compilerOptions = getCompilerOptions(options, context);
 
@@ -52,6 +52,7 @@ const getRollupConfig = (
 			format,
 			sourcemap: true,
 			preserveModules: true,
+			esModule: true,
 		},
 		plugins: [
 			nodeResolve({
