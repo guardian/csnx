@@ -5,7 +5,7 @@
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
 	"scripts": {
-		"build": "deno run -A ../../../scripts/deno/npm_package/mod.ts --entry=src/index.ts --assets=*.md"
+		"build": "deno run -A ../../../scripts/npm-package/mod.ts --entry=src/index.ts --assets=*.md"
 	},
 	"devDependencies": {
 		"@guardian/libs": "14.0.0",

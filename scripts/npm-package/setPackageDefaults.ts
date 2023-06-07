@@ -1,20 +1,19 @@
-import { require } from 'https://deno.land/x/require/mod.ts';
+import { require } from 'https://deno.land/x/require@1.0.0/mod.ts';
+
+type Options = {
+	outDir: string;
+	entries?: {
+		cjs: string;
+		esm: string;
+	};
+};
 
 /**
  * Sets some defaults in the package.json and removes things we
  * don't want to publish.
  */
-export const set_package_defaults = async ({
-	out_dir,
-	entries,
-}: {
-	out_dir: string;
-	entries?: {
-		cjs: string;
-		esm: string;
-	};
-}) => {
-	const pkg = await require(`${out_dir}/package.json`);
+export async function setPackageDefaults({ outDir, entries }: Options) {
+	const pkg = await require(`${outDir}/package.json`);
 
 	delete pkg.pnpm;
 	delete pkg.packageManager;
@@ -55,4 +54,4 @@ export const set_package_defaults = async ({
 	}) as JsonObject;
 
 	await writePackage(path.join(options.outputPath, 'package.json'), sortedPkg);
-};
+}

@@ -11,18 +11,18 @@ import { Untar } from 'https://deno.land/std@0.187.0/archive/untar.ts';
 import { ensureFile } from 'https://deno.land/std@0.187.0/fs/ensure_file.ts';
 import { copy } from 'https://deno.land/std@0.187.0/streams/copy.ts';
 
-export const write_resolved_package_json = async ({
-	src_dir,
-	out_dir,
+export const writeResolvedPackageJson = async ({
+	srcDir,
+	outDir,
 }: {
-	out_dir: string;
-	src_dir: string;
+	outDir: string;
+	srcDir: string;
 }) => {
 	// `pnpm pack` the source package, into the output directory
-	const cmd = ['corepack', 'pnpm', 'pack', '--pack-destination', out_dir];
+	const cmd = ['corepack', 'pnpm', 'pack', '--pack-destination', outDir];
 	let pack = Deno.run({
 		cmd,
-		cwd: src_dir,
+		cwd: srcDir,
 		stdout: 'piped',
 		stderr: 'piped',
 	});
@@ -36,7 +36,7 @@ export const write_resolved_package_json = async ({
 	// extract and copy the package.json data to the build package.json
 	for await (const file of contents) {
 		if (file.fileName === 'package/package.json') {
-			const out_path = `${out_dir}/package.json`;
+			const out_path = `${outDir}/package.json`;
 			await ensureFile(out_path);
 			const pkg_json = await Deno.open(out_path, { write: true });
 			await copy(file, pkg_json);
