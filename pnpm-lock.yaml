@@ -451,7 +451,7 @@ importers:
     specifiers:
       '@guardian/libs': workspace:*
       '@rollup/plugin-commonjs': 22.0.2
-      '@rollup/plugin-json': 4.1.0
+      '@rollup/plugin-json': 6.0.0
       '@rollup/plugin-node-resolve': 14.0.1
       cpy: 8.1.2
       execa: 7.1.1
@@ -466,7 +466,7 @@ importers:
     dependencies:
       '@guardian/libs': link:../../../libs/@guardian/libs
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.79.0
-      '@rollup/plugin-json': 4.1.0_rollup@2.79.0
+      '@rollup/plugin-json': 6.0.0_rollup@2.79.0
       '@rollup/plugin-node-resolve': 14.0.1_rollup@2.79.0
       cpy: 8.1.2
       execa: 7.1.1
@@ -5043,12 +5043,16 @@ packages:
       rollup: 2.79.0
     dev: false
 
-  /@rollup/plugin-json/4.1.0_rollup@2.79.0:
-    resolution: {integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==}
+  /@rollup/plugin-json/6.0.0_rollup@2.79.0:
+    resolution: {integrity: sha512-i/4C5Jrdr1XUarRhVu27EEwjt4GObltD7c+MkCIpO2QIbojw8MUs+CCTqOphQi3Qtg1FLmYt+l+6YeoIf51J7w==}
+    engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^1.20.0 || ^2.0.0
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.79.0
+      '@rollup/pluginutils': 5.0.2_rollup@2.79.0
       rollup: 2.79.0
     dev: false
 
@@ -5085,6 +5089,21 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: false
+
+  /@rollup/pluginutils/5.0.2_rollup@2.79.0:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.1
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+      rollup: 2.79.0
     dev: false
 
   /@sinclair/typebox/0.25.24:
