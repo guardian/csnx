@@ -11,6 +11,7 @@ import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
 import { ScriptTarget } from 'typescript';
+import * as TS49 from 'typescript-49';
 import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
@@ -31,13 +32,13 @@ const exec = util.promisify(childProcess.exec);
 
 const formats = ['cjs', 'esm'] as const;
 export type Entries = {
-	[K in typeof formats[number]]: string;
+	[K in (typeof formats)[number]]: string;
 };
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
-	format: typeof formats[number],
+	format: (typeof formats)[number],
 ) => {
 	const compilerOptions = getCompilerOptions(options, context);
 
@@ -58,6 +59,7 @@ const getRollupConfig = (
 				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
 			}),
 			ts({
+				typescript: TS49,
 				tsconfig: compilerOptions,
 			}),
 			json(),
