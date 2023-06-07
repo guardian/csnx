@@ -7,7 +7,7 @@
 		"create-icons": "ts-node scripts/create-icons"
 	},
 	"devDependencies": {
-		"@babel/core": "7.21.8",
+		"@babel/core": "7.22.1",
 		"@emotion/react": "11.11.0",
 		"@guardian/source-foundations": "11.0.0",
 		"@svgr/babel-preset": "8.0.0",
