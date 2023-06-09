@@ -158,7 +158,7 @@ importers:
       '@emotion/eslint-plugin': 11.11.0
       '@emotion/react': 11.11.0
       '@guardian/ab-core': 4.0.0
-      '@guardian/commercial': 8.0.0
+      '@guardian/commercial': 9.1.0
       '@guardian/consent-management-platform': 13.2.0
       '@guardian/eslint-plugin-source-foundations': 12.0.0
       '@guardian/eslint-plugin-source-react-components': 16.0.0
@@ -187,7 +187,7 @@ importers:
       '@emotion/eslint-plugin': 11.11.0
       '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
       '@guardian/ab-core': link:../ab-core
-      '@guardian/commercial': 8.0.0_typescript@4.9.5
+      '@guardian/commercial': 9.1.0_typescript@4.9.5
       '@guardian/consent-management-platform': 13.2.0_@guardian+libs@14.0.0
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
@@ -3968,8 +3968,8 @@ packages:
       typescript: 4.9.5
     dev: true
 
-  /@guardian/commercial/8.0.0_typescript@4.9.5:
-    resolution: {integrity: sha512-VcOf3WCnT5Gxj1UWHTobRH6J08dasPzeYbiY1+xsSFhHVBA4D/0kcKJ/p4ZBwnBFCrlzlf/6/tVZLybmQ/CHLQ==}
+  /@guardian/commercial/9.1.0_typescript@4.9.5:
+    resolution: {integrity: sha512-OkmhALiKsntK0mtNtZJgrdLyamgWdgOxufzP5d3C3dMPBXzAZtz9YIttfD4lSH5nutyOJ8fjx6gRGklLmBl7cg==}
     dependencies:
       '@guardian/ab-core': 4.0.0_ltvqt64fu4yppgfwhy23nl55i4
       '@guardian/consent-management-platform': 13.2.0_@guardian+libs@14.0.0
