@@ -159,7 +159,7 @@ importers:
       '@emotion/react': 11.11.0
       '@guardian/ab-core': 4.0.0
       '@guardian/commercial': 8.0.0
-      '@guardian/consent-management-platform': 13.0.2
+      '@guardian/consent-management-platform': 13.2.0
       '@guardian/eslint-plugin-source-foundations': 12.0.0
       '@guardian/eslint-plugin-source-react-components': 16.0.0
       '@guardian/libs': 14.0.0
@@ -188,7 +188,7 @@ importers:
       '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
       '@guardian/ab-core': link:../ab-core
       '@guardian/commercial': 8.0.0_typescript@4.9.5
-      '@guardian/consent-management-platform': 13.0.2_@guardian+libs@14.0.0
+      '@guardian/consent-management-platform': 13.2.0_@guardian+libs@14.0.0
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': 14.0.0_2pbpt5kusulw3ljguycdqs5yya
@@ -708,6 +708,7 @@ packages:
       '@babel/core': 7.22.1
       '@babel/helper-annotate-as-pure': 7.18.6
       regexpu-core: 5.2.2
+    dev: false
 
   /@babel/helper-create-regexp-features-plugin/7.22.1_@babel+core@7.21.8:
     resolution: {integrity: sha512-WWjdnfR3LPIe+0EY8td7WmjhytxXtjKAEpnAxun/hkNiyOaPlvGK+NZaBFIdi9ndYV3Gav7BpFvtUwnaJlwi1w==}
@@ -896,7 +897,7 @@ packages:
       '@babel/helper-annotate-as-pure': 7.18.6
       '@babel/helper-environment-visitor': 7.22.1
       '@babel/helper-wrap-function': 7.20.5
-      '@babel/types': 7.21.5
+      '@babel/types': 7.22.4
     transitivePeerDependencies:
       - supports-color
 
@@ -977,7 +978,7 @@ packages:
       '@babel/helper-function-name': 7.21.0
       '@babel/template': 7.21.9
       '@babel/traverse': 7.22.4
-      '@babel/types': 7.21.5
+      '@babel/types': 7.22.4
     transitivePeerDependencies:
       - supports-color
 
@@ -1459,7 +1460,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.22.1
-      '@babel/helper-create-regexp-features-plugin': 7.20.5_@babel+core@7.22.1
+      '@babel/helper-create-regexp-features-plugin': 7.22.1_@babel+core@7.22.1
       '@babel/helper-plugin-utils': 7.21.5
 
   /@babel/plugin-syntax-async-generators/7.8.4_@babel+core@7.21.8:
@@ -3307,7 +3308,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.21.9:
     resolution: {integrity: sha512-MK0X5k8NKOuWRamiEfc3KEJiHMTkGZNUjzMipqCGDDc6ijRl/B7RGSKVGncu4Ro/HdyzzY6cmoXuKI2Gffk7vQ==}
@@ -3972,7 +3972,7 @@ packages:
     resolution: {integrity: sha512-VcOf3WCnT5Gxj1UWHTobRH6J08dasPzeYbiY1+xsSFhHVBA4D/0kcKJ/p4ZBwnBFCrlzlf/6/tVZLybmQ/CHLQ==}
     dependencies:
       '@guardian/ab-core': 4.0.0_ltvqt64fu4yppgfwhy23nl55i4
-      '@guardian/consent-management-platform': 13.0.2_@guardian+libs@14.0.0
+      '@guardian/consent-management-platform': 13.2.0_@guardian+libs@14.0.0
       '@guardian/core-web-vitals': 4.0.0_nhzh4j5isijqcq34ywosodzluq
       '@guardian/libs': 14.0.0_ltvqt64fu4yppgfwhy23nl55i4
       '@guardian/source-foundations': 10.0.1_ltvqt64fu4yppgfwhy23nl55i4
@@ -3993,8 +3993,8 @@ packages:
       - typescript
     dev: true
 
-  /@guardian/consent-management-platform/13.0.2_@guardian+libs@14.0.0:
-    resolution: {integrity: sha512-rhuDQeZW//WJue9Uhj5JgWc7juV18CgwpOJXcmzYUkYcvi1wcf+kW/BvqfJjNjyd/kpx5eNQ2pCZtj4HuTQBEA==}
+  /@guardian/consent-management-platform/13.2.0_@guardian+libs@14.0.0:
+    resolution: {integrity: sha512-1ggVotJaJad2k7w1QAKffnxSRigEiU1ztWNxu0SncNvnsF90BJ8wMCTECsyp/xMhJFIm1DSVJyIucBzzc7VYRg==}
     peerDependencies:
       '@guardian/libs': ^14.0.0
     dependencies:
@@ -8117,7 +8117,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.1
       '@babel/helper-define-polyfill-provider': 0.3.3_@babel+core@7.22.1
-      core-js-compat: 3.30.0
+      core-js-compat: 3.30.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8897,7 +8897,6 @@ packages:
     resolution: {integrity: sha512-nriW1nuJjUgvkEjIot1Spwakz52V9YkYHZAQG6A1eCgC8AA1p0zngrQEP9R0+V6hji5XilWKG1Bd0YRppmGimA==}
     dependencies:
       browserslist: 4.21.7
-    dev: true
 
   /core-js-pure/3.30.2:
     resolution: {integrity: sha512-p/npFUJXXBkCCTIlEGBdghofn00jWG6ZOtdoIXSJmAu2QBvN0IqpZXWweOytcwE6cfx8ZvVUy1vw8zxhe4Y2vg==}
@@ -14671,7 +14670,7 @@ packages:
   /regenerator-transform/0.15.1:
     resolution: {integrity: sha512-knzmNAcuyxV+gQCufkYcvOqX/qIIfHLv0u5x79kRxuGojfYVky1f15TzZEu2Avte8QGepvUNTnLskf8E6X6Vyg==}
     dependencies:
-      '@babel/runtime': 7.21.5
+      '@babel/runtime': 7.22.3
 
   /regex-not/1.0.2:
     resolution: {integrity: sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A==}
