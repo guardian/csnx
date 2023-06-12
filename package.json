@@ -23,7 +23,7 @@
 		"@nrwl/eslint-plugin-nx": "16.3.2",
 		"@nrwl/jest": "16.3.2",
 		"@nrwl/workspace": "16.3.2",
-		"@storybook/addon-a11y": "7.0.18",
+		"@storybook/addon-a11y": "7.0.20",
 		"@storybook/addon-docs": "7.0.18",
 		"@storybook/addon-essentials": "7.0.18",
 		"@storybook/addon-links": "7.0.18",
