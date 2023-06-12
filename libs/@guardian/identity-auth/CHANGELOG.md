@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 0.1.1
+
+### Patch Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
 ## 0.1.0
 
 ### Minor Changes

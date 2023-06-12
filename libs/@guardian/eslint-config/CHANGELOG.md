@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 4.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
 ## 3.0.0
 
 ### Major Changes

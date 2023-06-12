@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 12.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
 ## 11.0.0
 
 ### Major Changes
