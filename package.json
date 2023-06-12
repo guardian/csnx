@@ -28,7 +28,7 @@
 		"@storybook/addon-essentials": "7.0.18",
 		"@storybook/addon-links": "7.0.18",
 		"@storybook/addon-viewport": "7.0.18",
-		"@storybook/addons": "7.0.18",
+		"@storybook/addons": "7.0.20",
 		"@storybook/react": "7.0.18",
 		"@storybook/react-webpack5": "7.0.18",
 		"@storybook/storybook-deployer": "2.8.16",
