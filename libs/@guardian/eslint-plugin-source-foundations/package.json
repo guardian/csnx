@@ -10,9 +10,9 @@
 	"devDependencies": {
 		"@guardian/libs": "14.0.0",
 		"@guardian/source-foundations": "11.0.0",
-		"@types/eslint": "8.4.6",
+		"@types/eslint": "8.40.1",
 		"@types/estree": "1.0.1",
-		"eslint": "8.0.0",
+		"eslint": "8.42.0",
 		"tslib": "2.4.1",
 		"typescript": "4.9.5"
 	},
