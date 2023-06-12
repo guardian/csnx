@@ -1,15 +1,18 @@
 {
 	"name": "@guardian/identity-auth",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"private": false,
 	"description": "",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"devDependencies": {
+		"@guardian/libs": "14.0.0",
+		"jest-fetch-mock": "3.0.3",
 		"tslib": "2.4.1",
 		"typescript": "4.9.5"
 	},
 	"peerDependencies": {
+		"@guardian/libs": "^14.0.0",
 		"tslib": "^2.4.1",
 		"typescript": "~4.9.5"
 	},
