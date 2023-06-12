@@ -323,9 +323,13 @@ importers:
 
   libs/@guardian/identity-auth:
     specifiers:
+      '@guardian/libs': 14.0.0
+      jest-fetch-mock: 3.0.3
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
+      '@guardian/libs': 14.0.0_2pbpt5kusulw3ljguycdqs5yya
+      jest-fetch-mock: 3.0.3
       tslib: 2.4.1
       typescript: 4.9.5
 
