@@ -39,7 +39,7 @@ export type IdentityAuthState<
  *
  * In our case specifically set up for:
  * 	- Authorization Code Flow with PKCE
- *  - Okta Post Message (iframe) response mode
+ * 	- Okta Post Message (iframe) response mode
  */
 export interface AuthorizeParams extends Record<string, string> {
 	client_id: string;

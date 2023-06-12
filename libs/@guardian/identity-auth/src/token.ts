@@ -25,7 +25,6 @@ import type {
 	TokenResponse,
 } from './@types/Token';
 import {
-	base64UrlDecode,
 	base64UrlEncode,
 	base64UrlToString,
 	generateCodeChallenge,
@@ -443,7 +442,7 @@ export const verifySignature = async (
 	const isValid = await window.crypto.subtle.verify(
 		algorithm,
 		publicKey,
-		stringToBuffer(base64UrlDecode(sig)),
+		stringToBuffer(base64UrlToString(sig)),
 		stringToBuffer(data),
 	);
 

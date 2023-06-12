@@ -86,10 +86,6 @@ export const stringToBuffer = (str: string) => {
 export const base64UrlToBase64 = (base64Url: string) =>
 	base64Url.replace(/-/g, '+').replace(/_/g, '/');
 
-// Converts a base64url string to a "normal" string
-export const base64UrlDecode = (str: string) =>
-	window.atob(base64UrlToBase64(str));
-
 // Converts a "normal" string to a base64url string
 export const base64UrlEncode = (str: string) =>
 	window.btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');

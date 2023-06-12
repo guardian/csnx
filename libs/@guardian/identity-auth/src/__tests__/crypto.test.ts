@@ -1,7 +1,6 @@
 import { subtle } from 'crypto';
 import { TextEncoder } from 'util';
 import {
-	base64UrlDecode,
 	base64UrlEncode,
 	base64UrlToBase64,
 	base64UrlToString,
@@ -67,14 +66,6 @@ describe('IdentityAuth#crypto#base64UrlToBase64', () => {
 		const base64 = base64UrlToBase64(base64Url);
 
 		expect(base64).toBe('aOlsbG8gd/hybGT4+A');
-	});
-});
-
-describe('IdentityAuth#crypto#base64UrlDecode', () => {
-	it('should convert a base64url string to a JS string', () => {
-		const base64Url = 'aOlsbG8gd_hybGT4-A';
-		const base64 = base64UrlDecode(base64Url);
-		expect(base64).toBe('héllo wørldøø');
 	});
 });
 
