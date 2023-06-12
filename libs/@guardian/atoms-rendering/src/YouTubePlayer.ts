@@ -1,4 +1,4 @@
-import type { AdsConfig } from '@guardian/commercial-core';
+import type { AdsConfig } from '@guardian/commercial';
 import { log } from '@guardian/libs';
 import { loadYouTubeAPI } from './loadYouTubeIframeApi';
 

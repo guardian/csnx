@@ -9,8 +9,8 @@
 		"@emotion/eslint-plugin": "11.11.0",
 		"@emotion/react": "11.11.0",
 		"@guardian/ab-core": "4.0.0",
-		"@guardian/commercial-core": "7.0.0",
-		"@guardian/consent-management-platform": "13.0.2",
+		"@guardian/commercial": "9.1.0",
+		"@guardian/consent-management-platform": "13.2.0",
 		"@guardian/eslint-plugin-source-foundations": "12.0.0",
 		"@guardian/eslint-plugin-source-react-components": "16.0.0",
 		"@guardian/libs": "14.0.0",
@@ -33,7 +33,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.0",
-		"@guardian/commercial-core": "^7.0.0",
+		"@guardian/commercial": "^9.1.0",
 		"@guardian/consent-management-platform": "^13.0.0",
 		"@guardian/libs": "^14.0.0",
 		"@guardian/source-foundations": "^11.0.0",
@@ -45,7 +45,7 @@
 		"typescript": "~4.9.5"
 	},
 	"peerDependenciesMeta": {
-		"@guardian/commercial-core": {
+		"@guardian/commercial": {
 			"optional": true
 		},
 		"@guardian/consent-management-platform": {

@@ -1,10 +1,10 @@
 import type { Participations } from '@guardian/ab-core';
-import type { AdsConfig } from '@guardian/commercial-core';
+import type { AdsConfig } from '@guardian/commercial';
 import {
 	buildAdsConfigWithConsent,
 	buildImaAdTagUrl,
 	disabledAds,
-} from '@guardian/commercial-core';
+} from '@guardian/commercial';
 import type { ConsentState } from '@guardian/consent-management-platform/dist/types';
 import { log } from '@guardian/libs';
 import {
