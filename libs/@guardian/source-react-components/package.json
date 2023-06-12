@@ -18,7 +18,7 @@
 		"@types/mkdirp": "1.0.2",
 		"@types/prettier": "2.7.2",
 		"@types/react": "18.2.9",
-		"axios": "0.27.2",
+		"axios": "1.4.0",
 		"dotenv": "16.0.3",
 		"mkdirp": "1.0.4",
 		"prettier": "2.8.8",
