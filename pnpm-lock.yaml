@@ -137,16 +137,16 @@ importers:
       '@emotion/react': 11.11.0
       '@guardian/ab-core': 4.0.0
       '@testing-library/react': 14.0.0
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       react: 18.2.0
       react-dom: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
-      '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
+      '@emotion/react': 11.11.0_xomkljxbsahfbuzbqqeyw47ndm
       '@guardian/ab-core': link:../ab-core
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tslib: 2.4.1
@@ -169,7 +169,7 @@ importers:
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0
       '@types/lodash.debounce': 4.0.6
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       '@types/react-dom': 18.2.3
       '@types/testing-library__jest-dom': 5.14.5
       '@types/youtube': 0.0.46
@@ -185,7 +185,7 @@ importers:
     devDependencies:
       '@babel/core': 7.22.1
       '@emotion/eslint-plugin': 11.11.0
-      '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
+      '@emotion/react': 11.11.0_xomkljxbsahfbuzbqqeyw47ndm
       '@guardian/ab-core': link:../ab-core
       '@guardian/commercial-core': 7.0.0_ysaufkjojtvcb4ck2e4dinh7m4
       '@guardian/consent-management-platform': 13.0.2_@guardian+libs@14.0.0
@@ -198,7 +198,7 @@ importers:
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/lodash.debounce': 4.0.6
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       '@types/react-dom': 18.2.3
       '@types/testing-library__jest-dom': 5.14.5
       '@types/youtube': 0.0.46
@@ -384,7 +384,7 @@ importers:
       '@svgr/plugin-svgo': 8.0.1
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       axios: 0.27.2
       dotenv: 16.0.3
       mkdirp: 1.0.4
@@ -395,7 +395,7 @@ importers:
       typescript: 4.9.5
     devDependencies:
       '@babel/core': 7.22.1
-      '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
+      '@emotion/react': 11.11.0_xomkljxbsahfbuzbqqeyw47ndm
       '@guardian/source-foundations': link:../source-foundations
       '@svgr/babel-preset': 8.0.0_@babel+core@7.22.1
       '@svgr/core': 8.0.0
@@ -404,7 +404,7 @@ importers:
       '@svgr/plugin-svgo': 8.0.1_@svgr+core@8.0.0
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       axios: 0.27.2
       dotenv: 16.0.3
       mkdirp: 1.0.4
@@ -421,17 +421,17 @@ importers:
       '@guardian/libs': 14.0.0
       '@guardian/source-foundations': 11.0.0
       '@guardian/source-react-components': 14.0.1
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       react: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
     devDependencies:
       '@babel/core': 7.22.1
-      '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
+      '@emotion/react': 11.11.0_xomkljxbsahfbuzbqqeyw47ndm
       '@guardian/libs': 14.0.0_2pbpt5kusulw3ljguycdqs5yya
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': 14.0.1_vsyezqnseky2wgc3m55wkyks5m
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
       react: 18.2.0
       tslib: 2.4.1
       typescript: 4.9.5
@@ -3622,27 +3622,6 @@ packages:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
     dev: true
 
-  /@emotion/react/11.11.0_3mjolpizrsjgnt7s4ahgoveqvu:
-    resolution: {integrity: sha512-ZSK3ZJsNkwfjT3JpDAWJZlrGD81Z3ytNDsxw1LKq1o+xkmO5pnWfr6gmCC8gHEFf3nSSX/09YrG67jybNPxSUw==}
-    peerDependencies:
-      '@types/react': '*'
-      react: '>=16.8.0'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.21.5
-      '@emotion/babel-plugin': 11.11.0
-      '@emotion/cache': 11.11.0
-      '@emotion/serialize': 1.1.2
-      '@emotion/use-insertion-effect-with-fallbacks': 1.0.1_react@18.2.0
-      '@emotion/utils': 1.2.1
-      '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.0
-      hoist-non-react-statics: 3.3.2
-      react: 18.2.0
-    dev: true
-
   /@emotion/react/11.11.0_react@18.2.0:
     resolution: {integrity: sha512-ZSK3ZJsNkwfjT3JpDAWJZlrGD81Z3ytNDsxw1LKq1o+xkmO5pnWfr6gmCC8gHEFf3nSSX/09YrG67jybNPxSUw==}
     peerDependencies:
@@ -3659,6 +3638,27 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1_react@18.2.0
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+    dev: true
+
+  /@emotion/react/11.11.0_xomkljxbsahfbuzbqqeyw47ndm:
+    resolution: {integrity: sha512-ZSK3ZJsNkwfjT3JpDAWJZlrGD81Z3ytNDsxw1LKq1o+xkmO5pnWfr6gmCC8gHEFf3nSSX/09YrG67jybNPxSUw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: '>=16.8.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.21.5
+      '@emotion/babel-plugin': 11.11.0
+      '@emotion/cache': 11.11.0
+      '@emotion/serialize': 1.1.2
+      '@emotion/use-insertion-effect-with-fallbacks': 1.0.1_react@18.2.0
+      '@emotion/utils': 1.2.1
+      '@emotion/weak-memoize': 0.3.1
+      '@types/react': 18.2.9
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: true
@@ -4000,7 +4000,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@emotion/react': 11.11.0_3mjolpizrsjgnt7s4ahgoveqvu
+      '@emotion/react': 11.11.0_xomkljxbsahfbuzbqqeyw47ndm
       '@guardian/source-foundations': link:libs/@guardian/source-foundations
       react: 18.2.0
       tslib: 2.4.1
@@ -4369,7 +4369,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.5
-      '@types/react': 18.2.7
+      '@types/react': 18.2.9
       react: 18.2.0
     dev: true
 
@@ -6783,19 +6783,11 @@ packages:
   /@types/react-dom/18.2.3:
     resolution: {integrity: sha512-hxXEXWxFJXbY0LMj/T69mznqOZJXNtQMqVxIiirVAZnnpeYiD4zt+lPsgcr/cfWg2VLsxZ1y26vigG03prYB+Q==}
     dependencies:
-      '@types/react': 18.2.0
+      '@types/react': 18.2.9
     dev: true
 
-  /@types/react/18.2.0:
-    resolution: {integrity: sha512-0FLj93y5USLHdnhIhABk83rm8XEGA7kH3cr+YUlvxoUGp1xNt/DINUMvqPxLyOQMzLmZe8i4RTHbvb8MC7NmrA==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
-    dev: true
-
-  /@types/react/18.2.7:
-    resolution: {integrity: sha512-ojrXpSH2XFCmHm7Jy3q44nXDyN54+EYKP2lBhJ2bqfyPj6cIUW/FZW/Csdia34NQgq7KYcAlHi5184m4X88+yw==}
+  /@types/react/18.2.9:
+    resolution: {integrity: sha512-pL3JAesUkF7PEQGxh5XOwdXGV907te6m1/Qe1ERJLgomojS6Ne790QiA7GUl434JEkFA2aAaB6qJ5z4e1zJn/w==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
