@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 31.0.0
+
+### Major Changes
+
+- dbbbc58: Switch atoms dep from commercial-core to commercial and bump cmp
+
 ## 30.0.0
 
 ### Major Changes
