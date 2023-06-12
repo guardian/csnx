@@ -12,7 +12,7 @@ describe('IdentityAuth#Emitter', () => {
 	});
 
 	it('should subscribe to and emit events', () => {
-		const eventName = 'testEvent';
+		const eventName = 'added';
 		const eventData = 'testData';
 		const callback = jest.fn();
 
@@ -24,7 +24,7 @@ describe('IdentityAuth#Emitter', () => {
 	});
 
 	it('should handle multiple event subscribers', () => {
-		const eventName = 'testEvent';
+		const eventName = 'added';
 		const eventData = 'testData';
 		const callback1 = jest.fn();
 		const callback2 = jest.fn();
@@ -39,7 +39,7 @@ describe('IdentityAuth#Emitter', () => {
 	});
 
 	it('should unsubscribe from events', () => {
-		const eventName = 'testEvent';
+		const eventName = 'added';
 		const eventData = 'testData';
 		const callback = jest.fn();
 
@@ -52,7 +52,7 @@ describe('IdentityAuth#Emitter', () => {
 	});
 
 	it('should allow unsubscribing from a specific callback only', () => {
-		const eventName = 'testEvent';
+		const eventName = 'added';
 		const eventData = 'testData';
 		const callback1 = jest.fn();
 		const callback2 = jest.fn();
@@ -69,7 +69,7 @@ describe('IdentityAuth#Emitter', () => {
 	});
 
 	it('should handle unsubscribing from non-existing events', () => {
-		const eventName = 'testEvent';
+		const eventName = 'added';
 		const callback = jest.fn();
 
 		emitter.off(eventName, callback);
@@ -78,7 +78,7 @@ describe('IdentityAuth#Emitter', () => {
 	});
 
 	it('should allow passing a context to the callback', () => {
-		const eventName = 'testEvent';
+		const eventName = 'added';
 		const eventData = 'testData';
 		const callback = jest.fn();
 

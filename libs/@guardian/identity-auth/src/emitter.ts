@@ -6,6 +6,8 @@ type Event = {
 	ctx?: unknown;
 };
 
+export type EventName = 'added' | 'removed' | 'storage' | 'authStateChange';
+
 /**
  * @class Emitter
  * @description A simple event emitter, based on TinyEmitter (https://github.com/scottcorgan/tiny-emitter)
@@ -29,7 +31,7 @@ export class Emitter {
 	 * @param ctx - The context to run the callback in
 	 * @returns this - The emitter for chaining purposes
 	 */
-	public on(name: string, callback: EventCallback, ctx?: unknown): this {
+	public on(name: EventName, callback: EventCallback, ctx?: unknown): this {
 		// get the events object
 		const events = this.#events;
 
@@ -55,7 +57,7 @@ export class Emitter {
 	 * @param callback - The callback to unsubscribe
 	 * @returns this - The emitter for chaining purposes
 	 */
-	public off(name: string, callback?: EventCallback): this {
+	public off(name: EventName, callback?: EventCallback): this {
 		// get the events object
 		const events = this.#events;
 		// get the event array for the event name
@@ -83,7 +85,7 @@ export class Emitter {
 	 * @param data - The data to pass to the callback
 	 * @returns this - The emitter for chaining purposes
 	 */
-	public emit(name: string, ...data: unknown[]): this {
+	public emit(name: EventName, ...data: unknown[]): this {
 		// get the event array for the event name, if it exists
 		const eventArr = (this.#events[name] ?? []).slice();
 
