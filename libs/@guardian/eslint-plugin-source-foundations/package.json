@@ -1,27 +1,27 @@
 {
 	"name": "@guardian/eslint-plugin-source-foundations",
-	"version": "12.0.0",
+	"version": "13.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "5.46.1",
+		"@typescript-eslint/eslint-plugin": "5.59.9",
 		"@typescript-eslint/parser": "5.59.9",
 		"eslint-plugin-import": "2.27.5"
 	},
 	"devDependencies": {
-		"@guardian/libs": "14.0.0",
-		"@guardian/source-foundations": "11.0.0",
-		"@types/eslint": "8.4.6",
+		"@guardian/libs": "15.0.0",
+		"@guardian/source-foundations": "12.0.0",
+		"@types/eslint": "8.40.0",
 		"@types/estree": "1.0.1",
-		"eslint": "8.0.0",
-		"tslib": "2.4.1",
-		"typescript": "4.9.5"
+		"eslint": "8.42.0",
+		"tslib": "2.5.3",
+		"typescript": "5.1.3"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^14.0.0",
-		"@guardian/source-foundations": "^11.0.0",
+		"@guardian/libs": "^15.0.0",
+		"@guardian/source-foundations": "^12.0.0",
 		"eslint": "^8.0.0",
-		"tslib": "^2.4.1",
-		"typescript": "~4.9.5"
+		"tslib": "^2.5.3",
+		"typescript": "~5.1.3"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {

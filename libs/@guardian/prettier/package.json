@@ -1,14 +1,14 @@
 {
 	"name": "@guardian/prettier",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
 	"main": "index.js",
 	"devDependencies": {
 		"prettier": "2.8.8",
-		"tslib": "2.4.1"
+		"tslib": "2.5.3"
 	},
 	"peerDependencies": {
 		"prettier": "^2.4.0",
-		"tslib": "^2.4.1"
+		"tslib": "^2.5.3"
 	}
 }

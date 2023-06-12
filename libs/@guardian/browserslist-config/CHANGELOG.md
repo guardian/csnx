@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 5.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
 ## 4.2.0
 
 ### Minor Changes
