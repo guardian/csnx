@@ -11,20 +11,20 @@ updates:
       interval: 'daily'
     open-pull-requests-limit: 10
     rebase-strategy: 'auto'
-    groups:
-      storybook:
-        patterns:
-          - '@storybook/*'
-      babel:
-        patterns:
-          - '@babel/*'
-      nx:
-        patterns:
-          - '@nrwl/*'
-          - 'nx*'
-      eslint:
-        patterns:
-          - '*eslint*'
+    # groups:
+    #   storybook:
+    #     patterns:
+    #       - '@storybook/*'
+    #   babel:
+    #     patterns:
+    #       - '@babel/*'
+    #   nx:
+    #     patterns:
+    #       - '@nrwl/*'
+    #       - 'nx*'
+    #   eslint:
+    #     patterns:
+    #       - '*eslint*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
