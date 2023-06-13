@@ -374,4 +374,4 @@ authState.idToken.baz; // boolean
 
 ## Contributing
 
-Due to the nature of this library, if you want to make changes to it, we suggest you speak to the Identity team first regarding the nature of the changes you want to make, e.g. for bug fixes, new features, etc.
+Due to the nature of this library, if you want to make changes to it, we suggest you speak to the Identity team first regarding the nature of the changes you would like to make, e.g. for bug fixes, new features, etc.
