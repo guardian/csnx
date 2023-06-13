@@ -792,9 +792,13 @@ export class Token<
 	#options: IdentityAuthOptions;
 	#oauthUrls: OAuthUrls;
 
+	// holder if there is currently a get token flow in progress
+	#getTokensInProgress: Promise<TokenResponse<AC, IC>> | undefined;
+
 	constructor(options: IdentityAuthOptions, oauthUrls: OAuthUrls) {
 		this.#options = options;
 		this.#oauthUrls = oauthUrls;
+		this.#getTokensInProgress = undefined;
 	}
 
 	#exchangeCodeForTokens = (
@@ -824,7 +828,7 @@ export class Token<
 	 * @description Performs the Authorization Code Flow with PKCE, exchanging the authorization code for tokens and verifying the ID token, without prompting the user and using a hidden iframe
 	 * @returns Promise<TokenResponse> - resolves with the access and ID tokens
 	 */
-	public async getWithoutPrompt(): Promise<TokenResponse<AC, IC>> {
+	async #getWithoutPrompt(): Promise<TokenResponse<AC, IC>> {
 		// generate the code verifier and code challenge for PKCE
 		// see https://www.oauth.com/oauth2-servers/pkce/authorization-request/
 		// the `code_verifier` is a cryptographically random string using the characters A-Z, a-z, 0-9
@@ -893,6 +897,27 @@ export class Token<
 
 		// return the tokens
 		return parsed;
+	}
+
+	/**
+	 * @name getWithoutPrompt
+	 * @description Performs the Authorization Code Flow with PKCE, exchanging the authorization code for tokens and verifying the ID token, without prompting the user and using a hidden iframe
+	 * @returns Promise<TokenResponse> - resolves with the access and ID tokens
+	 */
+	public async getWithoutPrompt(): Promise<TokenResponse<AC, IC>> {
+		// check if there is already an auth code flow in progress
+		if (this.#getTokensInProgress) {
+			// return the existing promise
+			return this.#getTokensInProgress;
+		}
+
+		// create a new promise that clears itself when it resolves
+		this.#getTokensInProgress = this.#getWithoutPrompt().finally(() => {
+			this.#getTokensInProgress = undefined;
+		});
+
+		// return the promise
+		return this.#getTokensInProgress;
 	}
 
 	/**
