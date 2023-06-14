@@ -4,6 +4,8 @@
 
 * @guardian/client-side-infra
 
+.changeset/* @guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/source @guardian/identity
+
 libs/@guardian/atoms-rendering/* @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
 
 libs/@guardian/source-foundations/* @guardian/source
