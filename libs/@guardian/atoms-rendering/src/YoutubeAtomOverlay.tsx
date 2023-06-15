@@ -2,13 +2,12 @@ import { css } from '@emotion/react';
 import type { ArticleTheme } from '@guardian/libs';
 import {
 	focusHalo,
-	neutral,
+	palette,
 	space,
 	textSans,
 } from '@guardian/source-foundations';
-import { SvgPlay } from '@guardian/source-react-components';
+import { SvgMediaControlsPlay } from '@guardian/source-react-components';
 import { formatTime } from './lib/formatTime';
-import { pillarPalette } from './lib/pillarPalette';
 import { Picture } from './Picture';
 import type { ImageSource, RoleType } from './types';
 
@@ -60,8 +59,11 @@ const overlayStyles = css`
 	}
 `;
 
-const playButtonStyling = (pillar: ArticleTheme) => css`
-	background-color: ${pillarPalette[pillar][500]};
+const playButtonStyling = css`
+	position: absolute;
+	bottom: ${space[2]}px;
+	left: ${space[2]}px;
+	background-color: rgba(18, 18, 18, 0.6);
 	border-radius: 100%;
 	height: 60px;
 	width: 60px;
@@ -73,25 +75,21 @@ const playButtonStyling = (pillar: ArticleTheme) => css`
 	justify-content: center;
 
 	svg {
-		fill: ${neutral[100]};
-		width: 45px;
-		height: 40px;
+		fill: ${palette.neutral[100]};
+		width: 55px;
+		height: 50px;
 	}
 `;
 
-const overlayInfoWrapperStyles = css`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+const videoDurationStyles = css`
 	position: absolute;
-	bottom: ${space[4]}px;
-	left: ${space[4]}px;
-`;
-
-const videoDurationStyles = (pillar: ArticleTheme) => css`
+	top: ${space[2]}px;
+	right: ${space[2]}px;
 	${textSans.medium({ fontWeight: 'bold' })};
-	padding-left: ${space[3]}px;
-	color: ${pillarPalette[pillar][500]};
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: ${space[2]}px ${space[3]}px;
+	border-radius: 18px;
 `;
 
 export const YoutubeAtomOverlay = ({
@@ -123,18 +121,18 @@ export const YoutubeAtomOverlay = ({
 				height={height}
 				width={width}
 			/>
-			<div css={overlayInfoWrapperStyles}>
-				<div
-					className="overlay-play-button"
-					css={css`
-						${playButtonStyling(pillar)}
-					`}
-				>
-					<SvgPlay />
+			{duration !== undefined && duration > 0 && (
+				<div css={videoDurationStyles}>
+					<span>{formatTime(duration)}</span>
 				</div>
-				{duration !== undefined && duration > 0 && (
-					<div css={videoDurationStyles(pillar)}>{formatTime(duration)}</div>
-				)}
+			)}
+			<div
+				className="overlay-play-button"
+				css={css`
+					${playButtonStyling}
+				`}
+			>
+				<SvgMediaControlsPlay />
 			</div>
 		</button>
 	);
