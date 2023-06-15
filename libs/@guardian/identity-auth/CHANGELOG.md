@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 0.1.2
+
+### Patch Changes
+
+- 2784f00: Only use a single promise if `getWithoutPrompt` called multiple times
+
 ## 0.1.1
 
 ### Patch Changes
