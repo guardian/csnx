@@ -1,115 +1,121 @@
 {
-	"palette": {
+	"color": {
 		"brand": {
-			"100": { "value": "{colour.base.blue.8}" },
-			"300": { "value": "{colour.base.blue.9}" },
-			"400": { "value": "{colour.base.blue.10}" },
-			"500": { "value": "{colour.base.blue.4}" },
-			"600": { "value": "{colour.base.blue.11}" },
-			"800": { "value": "{colour.base.blue.12}" }
+			"100": { "value": "{color.base.blue.8}" },
+			"300": { "value": "{color.base.blue.9}" },
+			"400": { "value": "{color.base.blue.10}" },
+			"500": { "value": "{color.base.blue.4}" },
+			"600": { "value": "{color.base.blue.11}" },
+			"800": { "value": "{color.base.blue.12}" }
 		},
 		"brandAlt": {
-			"100": { "value": "{colour.base.yellow.1}" },
-			"300": { "value": "{colour.base.yellow.2}" },
-			"400": { "value": "{colour.base.yellow.3}" }
+			"100": { "value": "{color.base.yellow.1}" },
+			"300": { "value": "{color.base.yellow.2}" },
+			"400": { "value": "{color.base.yellow.3}" }
 		},
 		"neutral": {
-			"0": { "value": "{colour.base.gray.1}" },
-			"7": { "value": "{colour.base.gray.2}" },
-			"10": { "value": "{colour.base.gray.3}" },
-			"20": { "value": "{colour.base.gray.4}" },
-			"46": { "value": "{colour.base.gray.5}" },
-			"60": { "value": "{colour.base.gray.6}" },
-			"86": { "value": "{colour.base.gray.7}" },
-			"93": { "value": "{colour.base.gray.8}" },
-			"97": { "value": "{colour.base.gray.9}" },
-			"100": { "value": "{colour.base.gray.10}" }
+			"0": { "value": "{color.base.gray.1}" },
+			"7": { "value": "{color.base.gray.2}" },
+			"10": { "value": "{color.base.gray.3}" },
+			"20": { "value": "{color.base.gray.4}" },
+			"46": { "value": "{color.base.gray.5}" },
+			"60": { "value": "{color.base.gray.6}" },
+			"86": { "value": "{color.base.gray.7}" },
+			"93": { "value": "{color.base.gray.8}" },
+			"97": { "value": "{color.base.gray.9}" },
+			"100": { "value": "{color.base.gray.10}" }
 		},
 		"error": {
-			"400": { "value": "{colour.base.red.4}" },
-			"500": { "value": "{colour.base.red.6}" }
+			"400": { "value": "{color.base.red.4}" },
+			"500": { "value": "{color.base.red.6}" }
 		},
 		"success": {
-			"400": { "value": "{colour.base.green.2}" },
-			"500": { "value": "{colour.base.green.3}" }
+			"400": { "value": "{color.base.green.2}" },
+			"500": { "value": "{color.base.green.3}" }
 		},
 		"news": {
-			"100": { "value": "{colour.base.red.1}" },
-			"200": { "value": "{colour.base.red.2}" },
-			"300": { "value": "{colour.base.red.3}" },
-			"400": { "value": "{colour.base.red.4}" },
-			"500": { "value": "{colour.base.red.5}" },
-			"550": { "value": "{colour.base.red.6}" },
-			"600": { "value": "{colour.base.red.7}" },
-			"800": { "value": "{colour.base.red.8}" }
+			"100": { "value": "{color.base.red.1}" },
+			"200": { "value": "{color.base.red.2}" },
+			"300": { "value": "{color.base.red.3}" },
+			"400": { "value": "{color.base.red.4}" },
+			"500": { "value": "{color.base.red.5}" },
+			"550": { "value": "{color.base.red.6}" },
+			"600": { "value": "{color.base.red.7}" },
+			"800": { "value": "{color.base.red.8}" }
 		},
 		"opinion": {
-			"100": { "value": "{colour.base.orange.1}" },
-			"200": { "value": "{colour.base.orange.2}" },
-			"300": { "value": "{colour.base.orange.3}" },
-			"400": { "value": "{colour.base.orange.3}" },
-			"450": { "value": "{colour.base.orange.4}" },
-			"500": { "value": "{colour.base.orange.5}" },
-			"550": { "value": "{colour.base.orange.6}" },
-			"600": { "value": "{colour.base.orange.7}" },
-			"800": { "value": "{colour.base.orange.8}" }
+			"100": { "value": "{color.base.orange.1}" },
+			"200": { "value": "{color.base.orange.2}" },
+			"300": {
+				"comment": "Deprecated: Use opinion.400",
+				"value": "{color.base.orange.3}"
+			},
+			"400": { "value": "{color.base.orange.3}" },
+			"450": { "value": "{color.base.orange.4}" },
+			"500": { "value": "{color.base.orange.5}" },
+			"550": { "value": "{color.base.orange.6}" },
+			"600": { "value": "{color.base.orange.7}" },
+			"800": { "value": "{color.base.orange.8}" }
 		},
 		"sport": {
-			"100": { "value": "{colour.base.blue.1}" },
-			"200": { "value": "{colour.base.blue.2}" },
-			"300": { "value": "{colour.base.blue.3}" },
-			"400": { "value": "{colour.base.blue.4}" },
-			"500": { "value": "{colour.base.blue.5}" },
-			"600": { "value": "{colour.base.blue.6}" },
-			"800": { "value": "{colour.base.blue.7}" }
+			"100": { "value": "{color.base.blue.1}" },
+			"200": { "value": "{color.base.blue.2}" },
+			"300": { "value": "{color.base.blue.3}" },
+			"400": { "value": "{color.base.blue.4}" },
+			"500": { "value": "{color.base.blue.5}" },
+			"600": { "value": "{color.base.blue.6}" },
+			"800": { "value": "{color.base.blue.7}" }
 		},
 		"culture": {
-			"50": { "value": "{colour.base.brown.1}" },
-			"100": { "value": "{colour.base.brown.2}" },
-			"200": { "value": "{colour.base.brown.3}" },
-			"300": { "value": "{colour.base.brown.4}" },
-			"350": { "value": "{colour.base.brown.5}" },
-			"400": { "value": "{colour.base.brown.5}" },
-			"450": { "value": "{colour.base.brown.6}" },
-			"500": { "value": "{colour.base.brown.7}" },
-			"600": { "value": "{colour.base.brown.8}" },
-			"700": { "value": "{colour.base.brown.9}" },
-			"800": { "value": "{colour.base.brown.10}" }
+			"50": { "value": "{color.base.brown.1}" },
+			"100": { "value": "{color.base.brown.2}" },
+			"200": { "value": "{color.base.brown.3}" },
+			"300": { "value": "{color.base.brown.4}" },
+			"350": {
+				"comment": "Deprecated: Use culture.400",
+				"value": "{color.base.brown.5}"
+			},
+			"400": { "value": "{color.base.brown.5}" },
+			"450": { "value": "{color.base.brown.6}" },
+			"500": { "value": "{color.base.brown.7}" },
+			"600": { "value": "{color.base.brown.8}" },
+			"700": { "value": "{color.base.brown.9}" },
+			"800": { "value": "{color.base.brown.10}" }
 		},
 		"lifestyle": {
-			"100": { "value": "{colour.base.pink.1}" },
-			"200": { "value": "{colour.base.pink.2}" },
-			"300": { "value": "{colour.base.pink.3}" },
-			"400": { "value": "{colour.base.pink.4}" },
-			"450": { "value": "{colour.base.pink.5}" },
-			"500": { "value": "{colour.base.pink.6}" },
-			"600": { "value": "{colour.base.pink.7}" },
-			"800": { "value": "{colour.base.pink.8}" }
+			"100": { "value": "{color.base.pink.1}" },
+			"200": { "value": "{color.base.pink.2}" },
+			"300": { "value": "{color.base.pink.3}" },
+			"400": { "value": "{color.base.pink.4}" },
+			"450": { "value": "{color.base.pink.5}" },
+			"500": { "value": "{color.base.pink.6}" },
+			"600": { "value": "{color.base.pink.7}" },
+			"800": { "value": "{color.base.pink.8}" }
 		},
 		"labs": {
-			"200": { "value": "{colour.base.green.4}" },
-			"300": { "value": "{colour.base.green.5}" },
-			"400": { "value": "{colour.base.green.6}" }
+			"200": { "value": "{color.base.green.4}" },
+			"300": { "value": "{color.base.green.5}" },
+			"400": { "value": "{color.base.green.6}" }
 		},
 		"specialReport": {
-			"100": { "value": "{colour.base.special.1}" },
-			"200": { "value": "{colour.base.special.2}" },
-			"300": { "value": "{colour.base.special.3}" },
-			"400": { "value": "{colour.base.special.4}" },
-			"450": { "value": "{colour.base.special.5}" },
-			"500": { "value": "{colour.base.special.6}" },
-			"700": { "value": "{colour.base.special.7}" },
-			"800": { "value": "{colour.base.special.8}" }
+			"100": { "value": "{color.base.special.1}" },
+			"200": { "value": "{color.base.special.2}" },
+			"300": { "value": "{color.base.special.3}" },
+			"400": { "value": "{color.base.special.4}" },
+			"450": { "value": "{color.base.special.5}" },
+			"500": { "value": "{color.base.special.6}" },
+			"700": { "value": "{color.base.special.7}" },
+			"800": { "value": "{color.base.special.8}" }
 		},
 		"specialReportAlt": {
-			"100": { "value": "{colour.base.special.9}" },
-			"200": { "value": "{colour.base.special.10}" },
-			"300": { "value": "{colour.base.special.11}" },
-			"700": { "value": "{colour.base.special.12}" },
-			"800": { "value": "{colour.base.special.13}" }
+			"100": { "value": "{color.base.special.9}" },
+			"200": { "value": "{color.base.special.10}" },
+			"300": { "value": "{color.base.special.11}" },
+			"700": { "value": "{color.base.special.12}" },
+			"800": { "value": "{color.base.special.13}" }
 		},
 		"focus": {
-			"400": { "value": "{colour.base.blue.4}" }
+			"400": { "value": "{color.base.blue.4}" }
 		}
 	}
 }
