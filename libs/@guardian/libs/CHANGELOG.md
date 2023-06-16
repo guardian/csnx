@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.1.0
+
+### Minor Changes
+
+- 529fdb6: Introducing a Picture design type for use by image articles
+
 ## 15.0.0
 
 ### Major Changes
