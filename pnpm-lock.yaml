@@ -15,10 +15,10 @@ importers:
       '@guardian/eslint-config-typescript': workspace:*
       '@guardian/prettier': workspace:*
       '@manypkg/get-packages': 2.1.0
-      '@nrwl/devkit': 16.3.2
-      '@nrwl/eslint-plugin-nx': 16.3.2
-      '@nrwl/jest': 16.3.2
-      '@nrwl/workspace': 16.3.2
+      '@nx/devkit': 16.3.2
+      '@nx/eslint-plugin': 16.3.2
+      '@nx/jest': 16.3.2
+      '@nx/workspace': 16.3.2
       '@storybook/addon-a11y': 7.0.18
       '@storybook/addon-docs': 7.0.18
       '@storybook/addon-essentials': 7.0.18
@@ -71,10 +71,10 @@ importers:
       '@guardian/eslint-config-typescript': link:libs/@guardian/eslint-config-typescript
       '@guardian/prettier': link:libs/@guardian/prettier
       '@manypkg/get-packages': 2.1.0
-      '@nrwl/devkit': 16.3.2_nx@16.3.2
-      '@nrwl/eslint-plugin-nx': 16.3.2_ufetjidzhg2hcvubxfvs53hgai
-      '@nrwl/jest': 16.3.2_bawngc7ankbzhkylumbvm4y77i
-      '@nrwl/workspace': 16.3.2_vdewrtcg4ne5tzbm2pelet6aly
+      '@nx/devkit': 16.3.2_nx@16.3.2
+      '@nx/eslint-plugin': 16.3.2_ufetjidzhg2hcvubxfvs53hgai
+      '@nx/jest': 16.3.2_bawngc7ankbzhkylumbvm4y77i
+      '@nx/workspace': 16.3.2_vdewrtcg4ne5tzbm2pelet6aly
       '@storybook/addon-a11y': 7.0.18_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-docs': 7.0.18_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-essentials': 7.0.18_biqbaboplfbrettd7655fr4n2y
@@ -936,7 +936,7 @@ packages:
     dependencies:
       '@babel/core': 7.21.8
       '@babel/helper-annotate-as-pure': 7.18.6
-      '@babel/helper-environment-visitor': 7.22.1
+      '@babel/helper-environment-visitor': 7.22.5
       '@babel/helper-wrap-function': 7.20.5
       '@babel/types': 7.22.5
     transitivePeerDependencies:
@@ -951,7 +951,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.1
       '@babel/helper-annotate-as-pure': 7.18.6
-      '@babel/helper-environment-visitor': 7.22.1
+      '@babel/helper-environment-visitor': 7.22.5
       '@babel/helper-wrap-function': 7.20.5
       '@babel/types': 7.22.5
     transitivePeerDependencies:
@@ -966,7 +966,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/helper-annotate-as-pure': 7.18.6
-      '@babel/helper-environment-visitor': 7.22.1
+      '@babel/helper-environment-visitor': 7.22.5
       '@babel/helper-wrap-function': 7.20.5
       '@babel/types': 7.22.5
     transitivePeerDependencies:
@@ -3605,7 +3605,7 @@ packages:
       babel-plugin-polyfill-corejs2: 0.3.3_@babel+core@7.21.8
       babel-plugin-polyfill-corejs3: 0.6.0_@babel+core@7.21.8
       babel-plugin-polyfill-regenerator: 0.4.1_@babel+core@7.21.8
-      core-js-compat: 3.30.0
+      core-js-compat: 3.30.2
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -5273,6 +5273,7 @@ packages:
     resolution: {integrity: sha512-EiDwVIvh6AcClXv22Q7auQh7Iy/ONISEFWzTswy/J6ZmVGCQesbiwg4cGV0MKiScr+awdVzqyNey+wD6IR5Lkw==}
     dependencies:
       '@nx/devkit': 16.3.2_nx@16.3.2
+    dev: false
 
   /@nrwl/devkit/16.3.2_nx@16.3.2:
     resolution: {integrity: sha512-EiDwVIvh6AcClXv22Q7auQh7Iy/ONISEFWzTswy/J6ZmVGCQesbiwg4cGV0MKiScr+awdVzqyNey+wD6IR5Lkw==}
@@ -5280,7 +5281,6 @@ packages:
       '@nx/devkit': 16.3.2_nx@16.3.2
     transitivePeerDependencies:
       - nx
-    dev: true
 
   /@nrwl/eslint-plugin-nx/16.3.2_ufetjidzhg2hcvubxfvs53hgai:
     resolution: {integrity: sha512-E+X/L8b/GtbAGnwm+WOdAlXNwNYCTb6uodo5yxRrUkkMoVVMkzI7FLOHKGgYiqXH/xbuKE3yAg21EwP0epOi2Q==}
@@ -5432,7 +5432,7 @@ packages:
       nx:
         optional: true
     dependencies:
-      '@nrwl/devkit': 16.3.2
+      '@nrwl/devkit': 16.3.2_nx@16.3.2
       ejs: 3.1.9
       ignore: 5.2.4
       nx: 16.3.2_vdewrtcg4ne5tzbm2pelet6aly
@@ -7448,12 +7448,6 @@ packages:
     resolution: {integrity: sha512-azBFKemX6kMg5Io+/rdGT0dkGreboUVR0Cdm3fz9QJWpaQGJRQXl7C+6hOTCZcMll7KFyEQpgbYI2lHdsS4U7g==}
     dependencies:
       '@babel/parser': 7.22.5
-      '@babel/types': 7.22.5
-    dev: true
-
-  /@types/babel__traverse/7.18.5:
-    resolution: {integrity: sha512-enCvTL8m/EHS/zIvJno9nE+ndYPh1/oNFzRYRmtUqJICG2VnCSBzMLW5VN2KCQU91f23tsNKR8v7VJJQMatl7Q==}
-    dependencies:
       '@babel/types': 7.22.5
     dev: true
 
@@ -9974,12 +9968,6 @@ packages:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
     engines: {node: '>=0.10.0'}
     dev: false
-
-  /core-js-compat/3.30.0:
-    resolution: {integrity: sha512-P5A2h/9mRYZFIAP+5Ab8ns6083IyVpSclU74UNvbGVQ8VM7n3n3/g2yF3AkKQ9NXz2O+ioxLbEWKnDtgsFamhg==}
-    dependencies:
-      browserslist: 4.21.7
-    dev: true
 
   /core-js-compat/3.30.2:
     resolution: {integrity: sha512-nriW1nuJjUgvkEjIot1Spwakz52V9YkYHZAQG6A1eCgC8AA1p0zngrQEP9R0+V6hji5XilWKG1Bd0YRppmGimA==}
@@ -13599,7 +13587,7 @@ packages:
       '@jest/expect-utils': 29.5.0
       '@jest/transform': 29.5.0
       '@jest/types': 29.5.0
-      '@types/babel__traverse': 7.18.5
+      '@types/babel__traverse': 7.20.1
       '@types/prettier': 2.7.2
       babel-preset-current-node-syntax: 1.0.1_@babel+core@7.22.5
       chalk: 4.1.2

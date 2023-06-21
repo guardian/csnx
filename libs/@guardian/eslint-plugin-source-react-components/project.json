@@ -34,7 +34,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": [
 				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
 			],
@@ -44,7 +44,7 @@
 			}
 		},
 		"e2e": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": [
 				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
 			],

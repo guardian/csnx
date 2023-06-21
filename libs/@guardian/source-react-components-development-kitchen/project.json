@@ -36,7 +36,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": [
 				"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
 			],
@@ -46,7 +46,7 @@
 			}
 		},
 		"e2e": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": [
 				"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
 			],

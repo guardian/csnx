@@ -30,7 +30,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/identity-auth"],
 			"options": {
 				"jestConfig": "libs/@guardian/identity-auth/jest.config.ts",
@@ -38,7 +38,7 @@
 			}
 		},
 		"e2e": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/identity-auth"],
 			"options": {
 				"jestConfig": "libs/@guardian/identity-auth/jest.config.ts",
