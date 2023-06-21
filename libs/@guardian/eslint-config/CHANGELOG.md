@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 4.1.0
+
+### Minor Changes
+
+- a135875: Bump eslint-config-prettier from 8.5.0 to 8.8.0
+
 ## 4.0.0
 
 ### Major Changes
