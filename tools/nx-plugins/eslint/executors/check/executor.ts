@@ -1,4 +1,4 @@
-import type { ExecutorContext } from '@nrwl/devkit';
+import type { ExecutorContext } from '@nx/devkit';
 import linter from '@nx/linter/src/executors/eslint/lint.impl.js';
 import type { Schema } from '@nx/linter/src/executors/eslint/schema';
 

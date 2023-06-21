@@ -18,7 +18,7 @@
 			}
 		},
 		"e2e": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/prettier"],
 			"options": {
 				"jestConfig": "libs/@guardian/prettier/jest.config.js"

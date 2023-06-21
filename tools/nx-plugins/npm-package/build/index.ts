@@ -1,8 +1,8 @@
 import childProcess from 'node:child_process';
 import path from 'node:path';
 import util from 'node:util';
-import type { ExecutorContext } from '@nrwl/devkit';
-import { logger } from '@nrwl/devkit';
+import type { ExecutorContext } from '@nx/devkit';
+import { logger } from '@nx/devkit';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
