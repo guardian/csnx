@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 32.0.0
+
+### Major Changes
+
+- a83c7a8: Update TS to v5.1.3 and all other packages to latest versions
+
 ## 31.0.0
 
 ### Major Changes
