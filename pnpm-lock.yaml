@@ -234,12 +234,12 @@ importers:
   libs/@guardian/eslint-config:
     specifiers:
       eslint: 8.0.0
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.8.0
       eslint-plugin-eslint-comments: 3.2.0
       eslint-plugin-import: 2.27.5
       tslib: ^2.5.3
     dependencies:
-      eslint-config-prettier: 8.5.0_eslint@8.0.0
+      eslint-config-prettier: 8.8.0_eslint@8.0.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.0.0
       eslint-plugin-import: 2.27.5_eslint@8.0.0
     devDependencies:
@@ -10148,8 +10148,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier/8.5.0_eslint@8.0.0:
-    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+  /eslint-config-prettier/8.8.0_eslint@8.0.0:
+    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
