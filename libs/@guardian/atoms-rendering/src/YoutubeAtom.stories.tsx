@@ -166,6 +166,7 @@ export const WithOverlayAndPosterImage = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				duration={252}
 				pillar={ArticlePillar.Opinion}
+				videoCategory="live"
 				overrideImage={[
 					{
 						srcSet: [
