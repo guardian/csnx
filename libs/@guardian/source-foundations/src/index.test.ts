@@ -45,6 +45,7 @@ it('Should have exactly these exports', () => {
 		'brandText',
 		'breakpoints',
 		'culture',
+		'default',
 		'descriptionId',
 		'error',
 		'focus',

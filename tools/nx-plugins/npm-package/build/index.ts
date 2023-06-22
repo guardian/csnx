@@ -52,6 +52,7 @@ const getRollupConfig = (
 			format,
 			sourcemap: true,
 			preserveModules: true,
+			esmModule: 'if-default-prop',
 		},
 		plugins: [
 			nodeResolve({

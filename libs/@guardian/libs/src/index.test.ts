@@ -10,6 +10,7 @@ describe('The package', () => {
 			'ArticleSpecial',
 			'countries',
 			'debug',
+			'default',
 			'getCookie',
 			'getCountryByCountryCode',
 			'getLocale',

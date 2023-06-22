@@ -5,6 +5,7 @@ describe('The package', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
 			'_',
 			'bypassCoreWebVitalsSampling',
+			'default',
 			'initCoreWebVitals',
 		]);
 	});

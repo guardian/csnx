@@ -17,6 +17,7 @@ describe('The package', () => {
 			'TimelineAtom',
 			'VideoAtom',
 			'YoutubeAtom',
+			'default',
 		]);
 	});
 });

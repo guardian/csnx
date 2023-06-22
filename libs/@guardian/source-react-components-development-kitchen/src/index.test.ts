@@ -47,6 +47,7 @@ it('Should have exactly these exports', () => {
 		'Tabs',
 		'ToggleSwitch',
 		'ToggleSwitchApps',
+		'default',
 		'defaultGuardianLinks',
 		'expandingWrapperDarkTheme',
 		'expandingWrapperThemeDefault',

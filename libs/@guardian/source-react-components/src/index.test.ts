@@ -219,6 +219,7 @@ it('Should have exactly these exports', () => {
 		'checkboxThemeBrand',
 		'checkboxThemeDefault',
 		'choiceCardThemeDefault',
+		'default',
 		'footerThemeBrand',
 		'labelThemeBrand',
 		'labelThemeDefault',
