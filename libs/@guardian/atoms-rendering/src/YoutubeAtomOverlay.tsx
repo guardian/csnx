@@ -63,8 +63,8 @@ const playButtonStyling = css`
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -30px; /* Half the height of the circle */
-	margin-left: -30px;
+	margin-top: -40px; /* Half the height of the circle */
+	margin-left: -40px;
 	background-color: rgba(18, 18, 18, 0.6);
 	border-radius: 100%;
 	height: 60px;
