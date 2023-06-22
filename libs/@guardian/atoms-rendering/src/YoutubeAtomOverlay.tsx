@@ -85,11 +85,11 @@ const videoDurationStyles = css`
 	position: absolute;
 	top: ${space[2]}px;
 	right: ${space[2]}px;
-	${textSans.medium({ fontWeight: 'bold' })};
+	${textSans.xxsmall({ fontWeight: 'bold' })};
 	background-color: rgba(0, 0, 0, 0.7);
 	color: white;
-	padding: ${space[2]}px ${space[3]}px;
-	border-radius: 18px;
+	padding: ${space[1]}px ${space[3]}px;
+	border-radius: ${space[3]}px;
 `;
 
 export const YoutubeAtomOverlay = ({
