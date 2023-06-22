@@ -67,8 +67,8 @@ const playButtonStyling = css`
 	margin-left: -40px;
 	background-color: rgba(18, 18, 18, 0.6);
 	border-radius: 100%;
-	height: 60px;
-	width: 60px;
+	height: 80px;
+	width: 80px;
 	transform: scale(1);
 	transition-duration: 300ms;
 
@@ -78,8 +78,8 @@ const playButtonStyling = css`
 
 	svg {
 		fill: ${palette.neutral[100]};
-		width: 55px;
-		height: 50px;
+		width: 75px;
+		height: 60px;
 	}
 `;
 
