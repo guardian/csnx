@@ -52,7 +52,6 @@ const getRollupConfig = (
 			format,
 			sourcemap: true,
 			preserveModules: true,
-			esModule: true,
 		},
 		plugins: [
 			nodeResolve({
