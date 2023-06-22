@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { ArticleTheme } from '@guardian/libs';
 import {
 	focusHalo,
 	palette,
@@ -20,7 +19,6 @@ type Props = {
 	alt: string;
 	role: RoleType;
 	duration?: number; // in seconds
-	pillar: ArticleTheme;
 	title?: string;
 	onClick: () => void;
 };
@@ -103,7 +101,6 @@ export const YoutubeAtomOverlay = ({
 	alt,
 	role,
 	duration,
-	pillar,
 	title,
 	onClick,
 }: Props): JSX.Element => {
