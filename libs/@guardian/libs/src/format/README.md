@@ -7,7 +7,7 @@ Types and enums related to editorial formats.
 ```ts
 import type { ArticleTheme, ArticleFormat } from '@guardian/libs';
 import {
-    ArticlePillar,
+    Pillar,
     ArticleSpecial,
     ArticleDesign,
     ArticleDisplay,

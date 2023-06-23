@@ -1,4 +1,4 @@
-import { ArticlePillar } from '@guardian/libs';
+import { Pillar } from '@guardian/libs';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { ensure } from './fixtures/ensure';
@@ -20,7 +20,7 @@ describe('PersonalityQuiz', () => {
 				questions={examplePersonalityQuestions}
 				resultBuckets={exampleResultBuckets}
 				sharingUrls={sharingUrls}
-				theme={ArticlePillar.News}
+				theme={Pillar.News}
 			/>,
 		);
 
@@ -38,7 +38,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -49,7 +49,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -65,7 +65,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -76,7 +76,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -92,7 +92,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -108,7 +108,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -125,7 +125,7 @@ describe('PersonalityQuiz', () => {
 					questions={examplePersonalityQuestions}
 					resultBuckets={exampleResultBuckets}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 

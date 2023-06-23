@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import {
 	ArticleDesign,
 	ArticleDisplay,
-	ArticlePillar,
+	Pillar,
 	ArticleSpecial,
 } from '@guardian/libs';
 import { SvgCross } from '@guardian/source-react-components';
@@ -30,11 +30,11 @@ export default {
 				'labs',
 			],
 			mapping: {
-				news: { ...defaultFormat, theme: ArticlePillar.News },
-				sport: { ...defaultFormat, theme: ArticlePillar.Sport },
-				culture: { ...defaultFormat, theme: ArticlePillar.Culture },
-				lifestyle: { ...defaultFormat, theme: ArticlePillar.Lifestyle },
-				opinion: { ...defaultFormat, theme: ArticlePillar.Opinion },
+				news: { ...defaultFormat, theme: Pillar.News },
+				sport: { ...defaultFormat, theme: Pillar.Sport },
+				culture: { ...defaultFormat, theme: Pillar.Culture },
+				lifestyle: { ...defaultFormat, theme: Pillar.Lifestyle },
+				opinion: { ...defaultFormat, theme: Pillar.Opinion },
 				special_report: {
 					...defaultFormat,
 					theme: ArticleSpecial.SpecialReport,
@@ -76,11 +76,11 @@ const Template: Story = (args: EditorialButtonProps) => {
 };
 
 const pillars = [
-	ArticlePillar.News,
-	ArticlePillar.Sport,
-	ArticlePillar.Culture,
-	ArticlePillar.Lifestyle,
-	ArticlePillar.Opinion,
+	Pillar.News,
+	Pillar.Sport,
+	Pillar.Culture,
+	Pillar.Lifestyle,
+	Pillar.Opinion,
 	ArticleSpecial.SpecialReport,
 	ArticleSpecial.Labs,
 ];

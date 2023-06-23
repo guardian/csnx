@@ -1,5 +1,5 @@
 import type { ArticleTheme } from '@guardian/libs';
-import { ArticlePillar, ArticleSpecial } from '@guardian/libs';
+import { Pillar, ArticleSpecial } from '@guardian/libs';
 import {
 	culture,
 	lifestyle,
@@ -19,11 +19,11 @@ interface PillarColours {
 }
 
 export const pillarPalette: Record<ArticleTheme, PillarColours> = {
-	[ArticlePillar.News]: news,
-	[ArticlePillar.Opinion]: opinion,
-	[ArticlePillar.Sport]: sport,
-	[ArticlePillar.Culture]: culture,
-	[ArticlePillar.Lifestyle]: lifestyle,
+	[Pillar.News]: news,
+	[Pillar.Opinion]: opinion,
+	[Pillar.Sport]: sport,
+	[Pillar.Culture]: culture,
+	[Pillar.Lifestyle]: lifestyle,
 	[ArticleSpecial.Labs]: lifestyle,
 	[ArticleSpecial.SpecialReport]: news,
 	[ArticleSpecial.SpecialReportAlt]: news,
