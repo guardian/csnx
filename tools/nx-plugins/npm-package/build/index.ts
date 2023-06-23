@@ -10,7 +10,7 @@ import type Cpy from 'cpy';
 import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
-import { ScriptTarget } from 'typescript';
+import { ScriptTarget, SyntaxKind } from 'typescript';
 import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
@@ -52,14 +52,60 @@ const getRollupConfig = (
 			format,
 			sourcemap: true,
 			preserveModules: true,
-			esmModule: 'if-default-prop',
-		},
+		} as const,
 		plugins: [
 			nodeResolve({
 				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
 			}),
 			ts({
+				cwd: '.',
 				tsconfig: compilerOptions,
+				transformers: {
+					before: [
+						(context) => {
+							return (node) => {
+								if (
+									node.libReferenceDirectives.length +
+										node.typeReferenceDirectives.length >
+									0
+								) {
+									console.log('📦 before', context, node);
+								}
+								return node;
+							};
+						},
+					],
+					after: [
+						(context) => {
+							return (node) => {
+								if (
+									node.libReferenceDirectives.length +
+										node.typeReferenceDirectives.length >
+									0
+								) {
+									console.log('📦 after', context, node);
+								}
+								return node;
+							};
+						},
+					],
+					afterDeclarations: [
+						(context) => {
+							return (node) => {
+								if (node.kind === SyntaxKind.Bundle) {
+									console.log(node.prepends);
+								} else if (
+									node.libReferenceDirectives.length +
+										node.typeReferenceDirectives.length >
+									0
+								) {
+									console.log('📦 afterDeclaration', context, node);
+								}
+								return node;
+							};
+						},
+					],
+				},
 			}),
 			json(),
 			commonjs(),
