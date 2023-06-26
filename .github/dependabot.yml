@@ -20,7 +20,7 @@ updates:
           - '@babel/*'
       nx:
         patterns:
-          - '@nrwl/*'
+          - '@nx/*'
           - 'nx*'
       eslint:
         patterns:

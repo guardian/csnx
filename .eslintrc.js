@@ -6,12 +6,12 @@ module.exports = {
 	// disable eslint on all files by default, for perf reasons
 	// re-enabled in each projects own eslint config (ignorePatterns: ['!**/*'])
 	ignorePatterns: ['**/*'],
-	plugins: ['@nrwl/nx'],
+	plugins: ['@nx'],
 	overrides: [
 		{
 			files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
 			rules: {
-				'@nrwl/nx/enforce-module-boundaries': [
+				'@nx/enforce-module-boundaries': [
 					'error',
 					{
 						enforceBuildableLibDependency: true,
@@ -28,14 +28,11 @@ module.exports = {
 		},
 		{
 			files: ['*.js', '*.jsx'],
-			extends: ['plugin:@nrwl/nx/javascript', '@guardian/eslint-config'],
+			extends: ['plugin:@nx/javascript', '@guardian/eslint-config'],
 		},
 		{
 			files: ['*.ts', '*.tsx'],
-			extends: [
-				'plugin:@nrwl/nx/typescript',
-				'@guardian/eslint-config-typescript',
-			],
+			extends: ['plugin:@nx/typescript', '@guardian/eslint-config-typescript'],
 			settings: {
 				'import/resolver': {
 					typescript: {
