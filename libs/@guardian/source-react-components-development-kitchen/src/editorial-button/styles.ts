@@ -4,8 +4,8 @@ import type { ArticleFormat } from '@guardian/libs';
 import {
 	ArticleDesign,
 	ArticleDisplay,
-	Pillar,
 	ArticleSpecial,
+	Pillar,
 } from '@guardian/libs';
 import {
 	culture,

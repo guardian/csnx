@@ -1,5 +1,5 @@
 import type { ArticleTheme } from '@guardian/libs';
-import { Pillar, ArticleSpecial } from '@guardian/libs';
+import { ArticleSpecial, Pillar } from '@guardian/libs';
 import {
 	culture,
 	lifestyle,

@@ -1,7 +1,7 @@
 import { ArticleDesign } from './ArticleDesign';
 import { ArticleDisplay } from './ArticleDisplay';
-import { Pillar } from './Pillar';
 import { ArticleSpecial } from './ArticleSpecial';
+import { Pillar } from './Pillar';
 
 it('Design enum contains Article', () => {
 	expect(ArticleDesign.Standard).toBeDefined();
