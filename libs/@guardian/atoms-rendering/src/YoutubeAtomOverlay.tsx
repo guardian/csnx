@@ -92,7 +92,7 @@ const pillStyles = css`
 	background-color: rgba(0, 0, 0, 0.7);
 	color: ${palette.neutral[100]};
 	border-radius: ${space[3]}px;
-	padding: 0px 6px;
+	padding: ${space[1]}px 6px;
 	display: inline-flex;
 `;
 
