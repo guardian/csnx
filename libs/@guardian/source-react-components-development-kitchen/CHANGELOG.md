@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 13.0.1
+
+### Patch Changes
+
+- Update build output config
+
 ## 13.0.0
 
 ### Major Changes
