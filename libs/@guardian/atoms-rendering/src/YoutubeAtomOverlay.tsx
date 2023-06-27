@@ -87,7 +87,7 @@ const videoDurationStyles = css`
 	right: ${space[2]}px;
 	${textSans.xxsmall({ fontWeight: 'bold' })};
 	background-color: rgba(0, 0, 0, 0.7);
-	color: white;
+	color: ${palette.neutral[100]};
 	padding: ${space[1]}px ${space[3]}px;
 	border-radius: ${space[3]}px;
 `;
