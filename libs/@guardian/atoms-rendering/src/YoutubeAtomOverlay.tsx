@@ -10,6 +10,8 @@ import { formatTime } from './lib/formatTime';
 import { Picture } from './Picture';
 import type { ImageSource, RoleType } from './types';
 
+export type VideoCategory = 'live' | 'documentary' | 'explainer';
+
 type Props = {
 	uniqueId: string;
 	overrideImage?: ImageSource[];
@@ -21,6 +23,7 @@ type Props = {
 	duration?: number; // in seconds
 	title?: string;
 	onClick: () => void;
+	videoCategory?: VideoCategory;
 };
 
 const overlayStyles = css`
@@ -81,16 +84,45 @@ const playButtonStyling = css`
 	}
 `;
 
-const videoDurationStyles = css`
+const pillStyles = css`
 	position: absolute;
 	top: ${space[2]}px;
 	right: ${space[2]}px;
 	${textSans.xxsmall({ fontWeight: 'bold' })};
 	background-color: rgba(0, 0, 0, 0.7);
 	color: ${palette.neutral[100]};
-	padding: ${space[1]}px ${space[3]}px;
 	border-radius: ${space[3]}px;
+	padding: 0 6px;
+	display: inline-flex;
 `;
+
+const pillItemStyles = css`
+	/* Target all but the first element, and add a border */
+	:nth-of-type(n + 2) {
+		border-left: 1px solid rgba(255, 255, 255, 0.5);
+	}
+`;
+
+const pillTextStyles = css`
+	line-height: ${space[4]}px;
+	padding: ${space[1]}px 6px;
+`;
+
+const liveStyles = css`
+	::before {
+		content: '';
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background-color: ${palette.news[500]};
+		display: inline-block;
+		position: relative;
+		margin-right: 0.1875rem;
+	}
+`;
+
+const capitalise = (str: string): string =>
+	str.charAt(0).toUpperCase() + str.slice(1);
 
 export const YoutubeAtomOverlay = ({
 	uniqueId,
@@ -103,8 +135,12 @@ export const YoutubeAtomOverlay = ({
 	duration,
 	title,
 	onClick,
+	videoCategory,
 }: Props): JSX.Element => {
 	const id = `youtube-overlay-${uniqueId}`;
+	const hasDuration = duration !== undefined && duration > 0;
+	const showPill = !!videoCategory || hasDuration;
+	const isLive = videoCategory === 'live';
 	return (
 		<button
 			data-cy={id}
@@ -120,9 +156,20 @@ export const YoutubeAtomOverlay = ({
 				height={height}
 				width={width}
 			/>
-			{duration !== undefined && duration > 0 && (
-				<div css={videoDurationStyles}>
-					<span>{formatTime(duration)}</span>
+			{showPill && (
+				<div css={pillStyles}>
+					{!!videoCategory && (
+						<div css={pillItemStyles}>
+							<div css={[pillTextStyles, isLive && liveStyles]}>
+								{capitalise(videoCategory)}
+							</div>
+						</div>
+					)}
+					{!!hasDuration && (
+						<div css={pillItemStyles}>
+							<div css={pillTextStyles}>{formatTime(duration)}</div>
+						</div>
+					)}
 				</div>
 			)}
 			<div

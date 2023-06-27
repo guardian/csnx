@@ -146,6 +146,7 @@ export const WithPosterImage = (): JSX.Element => {
 				width={800}
 				shouldStick={false}
 				isMainMedia={false}
+				videoCategory="documentary"
 				title="How Donald Trump’s broken promises failed Ohio | Anywhere but Washington"
 				imaEnabled={false}
 				abTestParticipations={{}}
@@ -166,6 +167,7 @@ export const WithOverlayAndPosterImage = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				duration={252}
 				pillar={ArticlePillar.Opinion}
+				videoCategory="live"
 				overrideImage={[
 					{
 						srcSet: [
