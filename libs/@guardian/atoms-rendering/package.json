@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/atoms-rendering",
-	"version": "32.0.0",
+	"version": "32.0.1",
 	"dependencies": {
 		"is-mobile": "3.1.1"
 	},
@@ -15,7 +15,7 @@
 		"@guardian/eslint-plugin-source-react-components": "17.0.0",
 		"@guardian/libs": "15.1.0",
 		"@guardian/source-foundations": "12.0.0",
-		"@guardian/source-react-components": "15.0.0",
+		"@guardian/source-react-components": "15.0.1",
 		"@testing-library/dom": "9.3.1",
 		"@testing-library/jest-dom": "5.16.5",
 		"@testing-library/react": "14.0.0",
@@ -37,7 +37,7 @@
 		"@guardian/consent-management-platform": "^13.5.0",
 		"@guardian/libs": "^15.1.0",
 		"@guardian/source-foundations": "^12.0.0",
-		"@guardian/source-react-components": "^15.0.0",
+		"@guardian/source-react-components": "^15.0.1",
 		"lodash.debounce": "^4.0.8",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

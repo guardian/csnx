@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 32.0.1
+
+### Patch Changes
+
+- Update build output config
+
 ## 32.0.0
 
 ### Major Changes
