@@ -1,14 +1,12 @@
 import { css } from '@emotion/react';
-import type { ArticleTheme } from '@guardian/libs';
 import {
 	focusHalo,
-	neutral,
+	palette,
 	space,
 	textSans,
 } from '@guardian/source-foundations';
-import { SvgPlay } from '@guardian/source-react-components';
+import { SvgMediaControlsPlay } from '@guardian/source-react-components';
 import { formatTime } from './lib/formatTime';
-import { pillarPalette } from './lib/pillarPalette';
 import { Picture } from './Picture';
 import type { ImageSource, RoleType } from './types';
 
@@ -21,7 +19,6 @@ type Props = {
 	alt: string;
 	role: RoleType;
 	duration?: number; // in seconds
-	pillar: ArticleTheme;
 	title?: string;
 	onClick: () => void;
 };
@@ -60,11 +57,16 @@ const overlayStyles = css`
 	}
 `;
 
-const playButtonStyling = (pillar: ArticleTheme) => css`
-	background-color: ${pillarPalette[pillar][500]};
+const playButtonStyling = css`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -40px; /* Half the height of the circle */
+	margin-left: -40px;
+	background-color: rgba(18, 18, 18, 0.6);
 	border-radius: 100%;
-	height: 60px;
-	width: 60px;
+	height: 80px;
+	width: 80px;
 	transform: scale(1);
 	transition-duration: 300ms;
 
@@ -73,25 +75,21 @@ const playButtonStyling = (pillar: ArticleTheme) => css`
 	justify-content: center;
 
 	svg {
-		fill: ${neutral[100]};
-		width: 45px;
-		height: 40px;
+		fill: ${palette.neutral[100]};
+		width: 75px;
+		height: 60px;
 	}
 `;
 
-const overlayInfoWrapperStyles = css`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+const videoDurationStyles = css`
 	position: absolute;
-	bottom: ${space[4]}px;
-	left: ${space[4]}px;
-`;
-
-const videoDurationStyles = (pillar: ArticleTheme) => css`
-	${textSans.medium({ fontWeight: 'bold' })};
-	padding-left: ${space[3]}px;
-	color: ${pillarPalette[pillar][500]};
+	top: ${space[2]}px;
+	right: ${space[2]}px;
+	${textSans.xxsmall({ fontWeight: 'bold' })};
+	background-color: rgba(0, 0, 0, 0.7);
+	color: ${palette.neutral[100]};
+	padding: ${space[1]}px ${space[3]}px;
+	border-radius: ${space[3]}px;
 `;
 
 export const YoutubeAtomOverlay = ({
@@ -103,7 +101,6 @@ export const YoutubeAtomOverlay = ({
 	alt,
 	role,
 	duration,
-	pillar,
 	title,
 	onClick,
 }: Props): JSX.Element => {
@@ -123,18 +120,18 @@ export const YoutubeAtomOverlay = ({
 				height={height}
 				width={width}
 			/>
-			<div css={overlayInfoWrapperStyles}>
-				<div
-					className="overlay-play-button"
-					css={css`
-						${playButtonStyling(pillar)}
-					`}
-				>
-					<SvgPlay />
+			{duration !== undefined && duration > 0 && (
+				<div css={videoDurationStyles}>
+					<span>{formatTime(duration)}</span>
 				</div>
-				{duration !== undefined && duration > 0 && (
-					<div css={videoDurationStyles(pillar)}>{formatTime(duration)}</div>
-				)}
+			)}
+			<div
+				className="overlay-play-button"
+				css={css`
+					${playButtonStyling}
+				`}
+			>
+				<SvgMediaControlsPlay />
 			</div>
 		</button>
 	);
