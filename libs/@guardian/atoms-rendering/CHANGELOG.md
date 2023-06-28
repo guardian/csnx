@@ -1,5 +1,12 @@
 # @guardian/atoms-rendering
 
+## 32.1.0
+
+### Minor Changes
+
+- 7d933a5: Update the YoutubeAtom's duration pill to include the videoCategory, if provided
+- 4fafa9e: Updates the design of the youtube atom overlay
+
 ## 32.0.1
 
 ### Patch Changes
