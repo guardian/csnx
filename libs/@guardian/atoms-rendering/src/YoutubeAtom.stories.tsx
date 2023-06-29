@@ -146,6 +146,7 @@ export const WithPosterImage = (): JSX.Element => {
 				width={800}
 				shouldStick={false}
 				isMainMedia={false}
+				videoCategory="documentary"
 				title="How Donald Trump’s broken promises failed Ohio | Anywhere but Washington"
 				imaEnabled={false}
 				abTestParticipations={{}}

@@ -1,5 +1,11 @@
 # @guardian/ab-react
 
+## 6.0.1
+
+### Patch Changes
+
+- Update build output config
+
 ## 6.0.0
 
 ### Major Changes

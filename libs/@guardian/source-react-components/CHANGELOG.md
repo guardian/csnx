@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 15.0.1
+
+### Patch Changes
+
+- Update build output config
+
 ## 15.0.0
 
 ### Major Changes
