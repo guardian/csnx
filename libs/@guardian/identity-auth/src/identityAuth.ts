@@ -6,6 +6,7 @@ import type {
 } from './@types/OAuth';
 import type { CustomClaims } from './@types/Token';
 import { AuthStateManager } from './authState';
+import { AutoRenewService } from './autoRenew';
 import { Emitter } from './emitter';
 import { OAuthError } from './error';
 import { Token } from './token';
@@ -28,16 +29,21 @@ export class IdentityAuth<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	#options: IdentityAuthOptions;
+	#options: Required<IdentityAuthOptions>;
 	#oauthUrls: OAuthUrls;
 	#emitter: Emitter;
+	#autoRenewService: AutoRenewService;
 
 	public tokenManager: TokenManager<AC, IC>;
 	public token: Token<AC, IC>;
 	public authStateManager: AuthStateManager<AC, IC>;
 
 	constructor(options: IdentityAuthOptions) {
-		this.#options = options;
+		this.#options = {
+			autoRenew: true,
+			renewGracePeriod: 60,
+			...options,
+		};
 		this.#oauthUrls = {
 			authorizeUrl: `${this.#options.issuer}/v1/authorize`,
 			tokenUrl: `${this.#options.issuer}/v1/token`,
@@ -51,6 +57,13 @@ export class IdentityAuth<
 			this.#emitter,
 			this.tokenManager,
 		);
+		this.#autoRenewService = new AutoRenewService(
+			this.#options,
+			this.#emitter,
+			this.authStateManager,
+		);
+
+		this.#autoRenewService.start();
 	}
 
 	/**

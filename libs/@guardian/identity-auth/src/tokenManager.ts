@@ -37,6 +37,10 @@ export class TokenManager<
 				this.#emitStorage();
 			}
 		});
+
+		this.#emitter.on('renew', async () => {
+			await this.renew();
+		});
 	}
 
 	/**
@@ -171,5 +175,16 @@ export class TokenManager<
 		this.#storage.remove(this.#idTokenKey);
 		this.#emitRemoved('accessToken');
 		this.#emitRemoved('idToken');
+	}
+
+	/**
+	 * @name renew
+	 * @description Attempts to renew the tokens, regardless of whether they are expired or not
+	 * @returns Promise<Tokens | undefined> - The tokens if they exist
+	 */
+	public async renew(): Promise<Tokens<AC, IC> | undefined> {
+		const tokenResponse = await this.#token.getWithoutPrompt();
+		this.setTokens(tokenResponse.tokens);
+		return tokenResponse.tokens;
 	}
 }

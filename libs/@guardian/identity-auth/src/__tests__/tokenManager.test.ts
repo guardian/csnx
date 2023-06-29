@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method -- jest mocks */
 import { storage } from '@guardian/libs';
 import type { AccessToken, IDToken } from '../@types/Token';
 import { Emitter } from '../emitter';
@@ -141,7 +142,30 @@ describe('IdentityAuth#TokenManager', () => {
 			idToken,
 		});
 
-		// eslint-disable-next-line @typescript-eslint/unbound-method -- jest mock
 		expect(token.getWithoutPrompt).toHaveBeenCalledTimes(1);
+	});
+
+	it('should renew the tokens if renew is called', async () => {
+		jest.spyOn(token, 'getWithoutPrompt').mockImplementation(() =>
+			Promise.resolve({
+				state: 'state',
+				tokens: {
+					accessToken,
+					idToken,
+				},
+			}),
+		);
+
+		tokenManager.setTokens = jest.fn();
+
+		const tokens = await tokenManager.renew();
+
+		expect(tokens).toEqual({
+			accessToken,
+			idToken,
+		});
+
+		expect(token.getWithoutPrompt).toHaveBeenCalledTimes(1);
+		expect(tokenManager.setTokens).toHaveBeenCalledTimes(1);
 	});
 });
