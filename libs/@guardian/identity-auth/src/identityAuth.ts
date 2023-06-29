@@ -74,17 +74,15 @@ export class IdentityAuth<
 			if (getCookie({ name: 'GU_SO', shouldMemoize: true })) {
 				this.tokenManager.clear();
 				return {
+					accessToken: undefined,
+					idToken: undefined,
 					isAuthenticated: false,
 				};
 			}
 
 			// if user tokens already exist, they are signed in
 			const authState = this.authStateManager.getAuthState();
-			if (
-				authState?.isAuthenticated &&
-				authState.accessToken &&
-				authState.idToken
-			) {
+			if (authState.isAuthenticated) {
 				// validate the id token and access token to make sure auth state is still valid
 				await this.token.verifyToken(authState.idToken, authState.accessToken);
 
@@ -100,15 +98,19 @@ export class IdentityAuth<
 				const tokens = await this.tokenManager.getTokens({
 					refreshIfRequired: true,
 				});
-				return {
-					accessToken: tokens?.accessToken,
-					idToken: tokens?.idToken,
-					isAuthenticated: true,
-				};
+				if (tokens) {
+					return {
+						accessToken: tokens.accessToken,
+						idToken: tokens.idToken,
+						isAuthenticated: true,
+					};
+				}
 			}
 
 			// if the user doesn't have tokens or a GU_U cookie, they are not signed in
 			return {
+				accessToken: undefined,
+				idToken: undefined,
 				isAuthenticated: false,
 			};
 		} catch (error) {
@@ -116,6 +118,8 @@ export class IdentityAuth<
 			if (error instanceof OAuthError && error.error === 'login_required') {
 				// so return isAuthenticated: false
 				return {
+					accessToken: undefined,
+					idToken: undefined,
 					isAuthenticated: false,
 				};
 			}

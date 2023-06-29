@@ -17,6 +17,27 @@ export interface IdentityAuthOptions {
 }
 
 /**
+ * Defines the state of the IdentityAuth instance when not authenticated.
+ */
+export type IdentityAuthStateNotAuthenticated = {
+	accessToken: undefined;
+	idToken: undefined;
+	isAuthenticated: false;
+};
+
+/**
+ * Defines the state of the IdentityAuth instance when authenticated.
+ */
+export type IdentityAuthStateAuthenticated<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> = {
+	accessToken: AccessToken<AC>;
+	idToken: IDToken<IC>;
+	isAuthenticated: true;
+};
+
+/**
  * Defines the state of the IdentityAuth instance.
  *
  * `isAuthenticated` - `true` when access and id token are present, `false` otherwise
@@ -26,11 +47,7 @@ export interface IdentityAuthOptions {
 export type IdentityAuthState<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
-> = {
-	accessToken?: AccessToken<AC>;
-	idToken?: IDToken<IC>;
-	isAuthenticated: boolean;
-};
+> = IdentityAuthStateNotAuthenticated | IdentityAuthStateAuthenticated<AC, IC>;
 
 /**
  * Parameter required for the OAuth2 authorization code flow, /authorize endpoint
