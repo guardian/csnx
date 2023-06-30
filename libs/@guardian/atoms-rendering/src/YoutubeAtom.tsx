@@ -151,7 +151,7 @@ export const YoutubeAtom = ({
 			setIsClosed={setIsClosed}
 		>
 			<MaintainAspectRatio height={height} width={width}>
-				{loadPlayer && consentState && (
+				{loadPlayer && consentState && adTargeting && (
 					<YoutubeAtomPlayer
 						videoId={videoId}
 						uniqueId={uniqueId}
