@@ -36,7 +36,7 @@ export declare class ImaManager {
 type Props = {
 	uniqueId: string;
 	videoId: string;
-	adTargeting?: AdTargeting;
+	adTargeting: AdTargeting;
 	consentState: ConsentState;
 	height: number;
 	width: number;
