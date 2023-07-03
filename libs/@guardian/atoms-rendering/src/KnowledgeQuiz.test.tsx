@@ -1,4 +1,4 @@
-import { ArticlePillar } from '@guardian/libs';
+import { Pillar } from '@guardian/libs';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { ensure } from './fixtures/ensure';
@@ -19,7 +19,7 @@ describe('KnowledgeQuiz', () => {
 				questions={[questionOne]}
 				resultGroups={resultGroups}
 				sharingUrls={sharingUrls}
-				theme={ArticlePillar.News}
+				theme={Pillar.News}
 			/>,
 		);
 		expect(getByText(questionOne.text)).toBeInTheDocument();
@@ -55,7 +55,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -66,7 +66,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -82,7 +82,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -94,7 +94,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -110,7 +110,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -122,7 +122,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -141,7 +141,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 
@@ -159,7 +159,7 @@ describe('KnowledgeQuiz', () => {
 					questions={[questionOne]}
 					resultGroups={resultGroups}
 					sharingUrls={sharingUrls}
-					theme={ArticlePillar.News}
+					theme={Pillar.News}
 				/>,
 			);
 

@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 33.0.0
+
+### Major Changes
+
+- Update @guardian/libs to v16.0.0
+
 ## 32.2.0
 
 ### Minor Changes

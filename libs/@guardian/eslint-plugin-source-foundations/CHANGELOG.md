@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 14.0.0
+
+### Major Changes
+
+- Update @guardian/libs to v16.0.0
+
 ## 13.0.0
 
 ### Major Changes

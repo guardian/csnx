@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 18.0.0
+
+### Major Changes
+
+- Update @guardian/libs to v16.0.0
+
 ## 17.0.0
 
 ### Major Changes

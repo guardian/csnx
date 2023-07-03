@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 14.0.0
+
+### Major Changes
+
+- Update @guardian/libs to v16.0.0
+
 ## 13.0.1
 
 ### Patch Changes

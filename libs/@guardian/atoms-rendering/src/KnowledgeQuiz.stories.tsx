@@ -1,4 +1,4 @@
-import { ArticlePillar, ArticleSpecial } from '@guardian/libs';
+import { Pillar, ArticleSpecial } from '@guardian/libs';
 import {
 	exampleKnowledgeQuestions,
 	natureQuestions,
@@ -19,7 +19,7 @@ export const DefaultRendering = (): JSX.Element => (
 		questions={exampleKnowledgeQuestions}
 		resultGroups={resultGroups}
 		sharingUrls={sharingUrls}
-		theme={ArticlePillar.News}
+		theme={Pillar.News}
 	/>
 );
 
@@ -29,7 +29,7 @@ export const BatchedResults = (): JSX.Element => (
 		questions={natureQuestions}
 		resultGroups={natureResultGroups}
 		sharingUrls={sharingUrls}
-		theme={ArticlePillar.News}
+		theme={Pillar.News}
 	/>
 );
 

@@ -1,4 +1,4 @@
-import { ArticlePillar, ArticleSpecial } from '@guardian/libs';
+import { Pillar, ArticleSpecial } from '@guardian/libs';
 import {
 	examplePersonalityQuestions,
 	exampleResultBuckets,
@@ -17,7 +17,7 @@ export const DefaultRendering = (): JSX.Element => (
 		questions={examplePersonalityQuestions}
 		resultBuckets={exampleResultBuckets}
 		sharingUrls={sharingUrls}
-		theme={ArticlePillar.News}
+		theme={Pillar.News}
 	/>
 );
 

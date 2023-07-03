@@ -1,4 +1,4 @@
-import { ArticlePillar } from '@guardian/libs';
+import { Pillar } from '@guardian/libs';
 import { useState } from 'react';
 import { consentStateCanTarget } from './fixtures/consentStateCanTarget';
 import { YoutubeAtom } from './YoutubeAtom';
@@ -38,7 +38,7 @@ export const NoConsent = (): JSX.Element => {
 				role="inline"
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={false}
@@ -61,7 +61,7 @@ export const NoOverlay = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={false}
@@ -86,7 +86,7 @@ export const WithOverrideImage = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				duration={252}
 				consentState={consentStateCanTarget}
-				pillar={ArticlePillar.News}
+				pillar={Pillar.News}
 				overrideImage={[
 					{
 						srcSet: [
@@ -117,7 +117,7 @@ export const WithPosterImage = (): JSX.Element => {
 				alt=""
 				role="inline"
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
-				pillar={ArticlePillar.Sport}
+				pillar={Pillar.Sport}
 				duration={252}
 				consentState={consentStateCanTarget}
 				posterImage={[
@@ -166,7 +166,7 @@ export const WithOverlayAndPosterImage = (): JSX.Element => {
 				role="inline"
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				duration={252}
-				pillar={ArticlePillar.Opinion}
+				pillar={Pillar.Opinion}
 				videoCategory="live"
 				overrideImage={[
 					{
@@ -228,7 +228,7 @@ export const GiveConsent = (): JSX.Element => {
 					eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 					consentState={consented ? consentStateCanTarget : undefined}
 					duration={252}
-					pillar={ArticlePillar.News}
+					pillar={Pillar.News}
 					overrideImage={[
 						{
 							srcSet: [
@@ -265,7 +265,7 @@ export const Sticky = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}
@@ -292,7 +292,7 @@ export const StickyMainMedia = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}
@@ -317,7 +317,7 @@ export const DuplicateVideos = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}
@@ -333,7 +333,7 @@ export const DuplicateVideos = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}
@@ -359,7 +359,7 @@ export const MultipleStickyVideos = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}
@@ -376,7 +376,7 @@ export const MultipleStickyVideos = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}
@@ -393,7 +393,7 @@ export const MultipleStickyVideos = (): JSX.Element => {
 				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
 				consentState={consentStateCanTarget}
 				duration={252}
-				pillar={ArticlePillar.Culture}
+				pillar={Pillar.Culture}
 				height={450}
 				width={800}
 				shouldStick={true}

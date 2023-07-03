@@ -1,7 +1,7 @@
 import {
 	ArticleDesign,
 	ArticleDisplay,
-	ArticlePillar,
+	Pillar,
 	ArticleSpecial,
 } from '@guardian/libs';
 import type { Story } from '@storybook/react';
@@ -28,11 +28,11 @@ export default {
 				'labs',
 			],
 			mapping: {
-				news: { ...defaultFormat, theme: ArticlePillar.News },
-				sport: { ...defaultFormat, theme: ArticlePillar.Sport },
-				culture: { ...defaultFormat, theme: ArticlePillar.Culture },
-				lifestyle: { ...defaultFormat, theme: ArticlePillar.Lifestyle },
-				opinion: { ...defaultFormat, theme: ArticlePillar.Opinion },
+				news: { ...defaultFormat, theme: Pillar.News },
+				sport: { ...defaultFormat, theme: Pillar.Sport },
+				culture: { ...defaultFormat, theme: Pillar.Culture },
+				lifestyle: { ...defaultFormat, theme: Pillar.Lifestyle },
+				opinion: { ...defaultFormat, theme: Pillar.Opinion },
 				special_report: {
 					...defaultFormat,
 					theme: ArticleSpecial.SpecialReport,
@@ -56,7 +56,7 @@ const Template: Story<QuoteIconProps> = (args: QuoteIconProps) => (
 export const News = Template.bind({});
 News.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
+	// @ts-expect-error - Storybook maps 'news' to Pillar.News
 	format: 'news',
 };
 
@@ -65,7 +65,7 @@ News.args = {
 export const Sport = Template.bind({});
 Sport.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Sport
+	// @ts-expect-error - Storybook maps 'news' to Pillar.Sport
 	format: 'sport',
 };
 
@@ -74,7 +74,7 @@ Sport.args = {
 export const Culture = Template.bind({});
 Culture.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Culture
+	// @ts-expect-error - Storybook maps 'news' to Pillar.Culture
 	format: 'culture',
 };
 
@@ -83,7 +83,7 @@ Culture.args = {
 export const Lifestyle = Template.bind({});
 Lifestyle.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Lifestyle
+	// @ts-expect-error - Storybook maps 'news' to Pillar.Lifestyle
 	format: 'lifestyle',
 };
 
@@ -92,7 +92,7 @@ Lifestyle.args = {
 export const Opinion = Template.bind({});
 Opinion.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Opinion
+	// @ts-expect-error - Storybook maps 'news' to Pillar.Opinion
 	format: 'opinion',
 };
 
@@ -101,7 +101,7 @@ Opinion.args = {
 export const SpecialReport = Template.bind({});
 SpecialReport.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.SpecialReport
+	// @ts-expect-error - Storybook maps 'news' to Pillar.SpecialReport
 	format: 'special_report',
 };
 
@@ -110,7 +110,7 @@ SpecialReport.args = {
 export const Labs = Template.bind({});
 Labs.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Labs
+	// @ts-expect-error - Storybook maps 'news' to Pillar.Labs
 	format: 'labs',
 };
 
@@ -119,7 +119,7 @@ Labs.args = {
 export const XSmall = Template.bind({});
 XSmall.args = {
 	size: 'xsmall',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
+	// @ts-expect-error - Storybook maps 'news' to Pillar.News
 	format: 'news',
 };
 
@@ -128,7 +128,7 @@ XSmall.args = {
 export const Small = Template.bind({});
 Small.args = {
 	size: 'small',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
+	// @ts-expect-error - Storybook maps 'news' to Pillar.News
 	format: 'news',
 };
 
@@ -137,7 +137,7 @@ Small.args = {
 export const Medium = Template.bind({});
 Medium.args = {
 	size: 'medium',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
+	// @ts-expect-error - Storybook maps 'news' to Pillar.News
 	format: 'news',
 };
 
@@ -146,6 +146,6 @@ Medium.args = {
 export const Large = Template.bind({});
 Large.args = {
 	size: 'large',
-	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
+	// @ts-expect-error - Storybook maps 'news' to Pillar.News
 	format: 'news',
 };

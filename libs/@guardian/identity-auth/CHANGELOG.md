@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 0.2.0
+
+### Minor Changes
+
+- Update @guardian/libs to v16.0.0
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @guardian/core-web-vitals
 
+## 6.0.0
+
+### Major Changes
+
+- Update @guardian/libs to v16.0.0
+
 ## 5.0.0
 
 ### Major Changes

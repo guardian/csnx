@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { ArticleFormat } from '@guardian/libs';
-import { ArticlePillar, ArticleSpecial } from '@guardian/libs';
+import { Pillar, ArticleSpecial } from '@guardian/libs';
 import {
 	culture,
 	labs,
@@ -16,35 +16,35 @@ import { SvgQuote } from '@guardian/source-react-components';
 
 const quoteColor = (format: ArticleFormat) => {
 	switch (format.theme) {
-		case ArticlePillar.News: {
+		case Pillar.News: {
 			return css`
 				svg {
 					fill: ${news[400]};
 				}
 			`;
 		}
-		case ArticlePillar.Opinion: {
+		case Pillar.Opinion: {
 			return css`
 				svg {
 					fill: ${opinion[400]};
 				}
 			`;
 		}
-		case ArticlePillar.Culture: {
+		case Pillar.Culture: {
 			return css`
 				svg {
 					fill: ${culture[400]};
 				}
 			`;
 		}
-		case ArticlePillar.Sport: {
+		case Pillar.Sport: {
 			return css`
 				svg {
 					fill: ${sport[400]};
 				}
 			`;
 		}
-		case ArticlePillar.Lifestyle: {
+		case Pillar.Lifestyle: {
 			return css`
 				svg {
 					fill: ${lifestyle[400]};

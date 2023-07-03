@@ -3,7 +3,7 @@ import type { ArticleFormat } from '@guardian/libs';
 import {
 	ArticleDesign,
 	ArticleDisplay,
-	ArticlePillar,
+	Pillar,
 	ArticleSpecial,
 } from '@guardian/libs';
 import {
@@ -23,15 +23,15 @@ import type { ToggleSwitchProps } from './ToggleSwitch';
 const decideBackgroundColor = (format?: ArticleFormat) => {
 	if (format) {
 		switch (format.theme) {
-			case ArticlePillar.News:
+			case Pillar.News:
 				return news[200];
-			case ArticlePillar.Culture:
+			case Pillar.Culture:
 				return culture[200];
-			case ArticlePillar.Lifestyle:
+			case Pillar.Lifestyle:
 				return lifestyle[300];
-			case ArticlePillar.Sport:
+			case Pillar.Sport:
 				return sport[100];
-			case ArticlePillar.Opinion:
+			case Pillar.Opinion:
 				return opinion[200];
 			case ArticleSpecial.Labs:
 				return labs[200];
@@ -50,11 +50,11 @@ const defaultFormat = {
 };
 
 const pillars = [
-	ArticlePillar.News,
-	ArticlePillar.Sport,
-	ArticlePillar.Culture,
-	ArticlePillar.Lifestyle,
-	ArticlePillar.Opinion,
+	Pillar.News,
+	Pillar.Sport,
+	Pillar.Culture,
+	Pillar.Lifestyle,
+	Pillar.Opinion,
 	ArticleSpecial.SpecialReport,
 	ArticleSpecial.Labs,
 ];
