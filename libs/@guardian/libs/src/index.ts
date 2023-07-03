@@ -17,7 +17,7 @@ export { timeAgo } from './datetime/timeAgo';
 export { ArticleDesign } from './format/ArticleDesign';
 export { ArticleDisplay } from './format/ArticleDisplay';
 export type { ArticleFormat } from './format/ArticleFormat';
-export { ArticlePillar } from './format/ArticlePillar';
+export { Pillar } from './format/Pillar';
 export { ArticleSpecial } from './format/ArticleSpecial';
 export type { ArticleTheme } from './format/ArticleTheme';
 

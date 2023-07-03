@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.0.0
+
+### Major Changes
+
+- Rename Pillar to Pillar
+
 ## 15.1.0
 
 ### Minor Changes

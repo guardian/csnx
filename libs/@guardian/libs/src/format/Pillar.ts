@@ -1,4 +1,4 @@
-export enum ArticlePillar {
+export enum Pillar {
 	News = 0,
 	Opinion = 1,
 	Sport = 2,

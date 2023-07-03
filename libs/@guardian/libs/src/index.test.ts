@@ -6,7 +6,7 @@ describe('The package', () => {
 			'ArticleDesign',
 			'ArticleDisplay',
 			'ArticleElementRole',
-			'ArticlePillar',
+			'Pillar',
 			'ArticleSpecial',
 			'countries',
 			'debug',
