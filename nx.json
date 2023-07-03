@@ -10,10 +10,10 @@
 			"inputs": ["production", "^production"]
 		},
 		"test": {
-			"dependsOn": ["^build"]
+			"dependsOn": ["build", "^build"]
 		},
 		"e2e": {
-			"dependsOn": ["build"]
+			"dependsOn": ["build", "^build"]
 		}
 	},
 	"tasksRunnerOptions": {
