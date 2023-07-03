@@ -13,7 +13,7 @@
 			"dependsOn": ["^build"]
 		},
 		"e2e": {
-			"dependsOn": ["build", "^build"]
+			"dependsOn": ["build"]
 		}
 	},
 	"tasksRunnerOptions": {
