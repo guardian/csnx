@@ -1,4 +1,4 @@
-import type { ArticlePillar } from './ArticlePillar';
 import type { ArticleSpecial } from './ArticleSpecial';
+import type { Pillar } from './Pillar';
 
-export type ArticleTheme = ArticlePillar | ArticleSpecial;
+export type ArticleTheme = Pillar | ArticleSpecial;
