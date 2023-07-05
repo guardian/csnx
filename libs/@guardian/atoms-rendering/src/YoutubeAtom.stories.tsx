@@ -2,6 +2,7 @@ import { ArticlePillar } from '@guardian/libs';
 import { useState } from 'react';
 import { consentStateCanTarget } from './fixtures/consentStateCanTarget';
 import { YoutubeAtom } from './YoutubeAtom';
+import { AdTargeting } from 'dist/libs/@guardian/atoms-rendering/cjs/types-a8b0938f';
 
 export default {
 	title: 'YoutubeAtom',
@@ -28,6 +29,10 @@ const OverlayAutoplayExplainer = () => (
 	</p>
 );
 
+const adTargeting: AdTargeting = {
+	disableAds: true,
+};
+
 export const NoConsent = (): JSX.Element => {
 	return (
 		<div style={containerStyle}>
@@ -45,6 +50,7 @@ export const NoConsent = (): JSX.Element => {
 				isMainMedia={false}
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
@@ -69,6 +75,7 @@ export const NoOverlay = (): JSX.Element => {
 				title="Rayshard Brooks: US justice system treats us like 'animals'"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
@@ -102,6 +109,7 @@ export const WithOverrideImage = (): JSX.Element => {
 				title="How to stop the spread of coronavirus"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
@@ -150,6 +158,7 @@ export const WithPosterImage = (): JSX.Element => {
 				title="How Donald Trump’s broken promises failed Ohio | Anywhere but Washington"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
@@ -208,6 +217,7 @@ export const WithOverlayAndPosterImage = (): JSX.Element => {
 				title="How Donald Trump’s broken promises failed Ohio"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
@@ -246,6 +256,7 @@ export const GiveConsent = (): JSX.Element => {
 					title="How to stop the spread of coronavirus"
 					imaEnabled={false}
 					abTestParticipations={{}}
+					adTargeting={adTargeting}
 				/>
 			</div>
 		</>
@@ -255,7 +266,10 @@ export const GiveConsent = (): JSX.Element => {
 export const Sticky = (): JSX.Element => {
 	return (
 		<div>
-			<div style={{ fontSize: '36px' }}>⬇️</div>
+			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
+			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
+			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
+			<div>Scroll down...</div>
 			<div style={{ height: '1000px' }}></div>
 			<YoutubeAtom
 				elementId="xyz"
@@ -273,6 +287,7 @@ export const Sticky = (): JSX.Element => {
 				title="Rayshard Brooks: US justice system treats us like 'animals'"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 			<div style={{ height: '1000px' }}></div>
 		</div>
@@ -282,7 +297,10 @@ export const Sticky = (): JSX.Element => {
 export const StickyMainMedia = (): JSX.Element => {
 	return (
 		<div>
-			<div style={{ fontSize: '36px' }}>⬇️</div>
+			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
+			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
+			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
+			<div>Scroll down...</div>
 			<div style={{ height: '1000px' }}></div>
 			<YoutubeAtom
 				elementId="xyz"
@@ -300,15 +318,23 @@ export const StickyMainMedia = (): JSX.Element => {
 				title="Rayshard Brooks: US justice system treats us like 'animals'"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 			<div style={{ height: '1000px' }}></div>
 		</div>
 	);
 };
 
+/**
+ * Tests duplicate YoutubeAtoms on the same page
+ * Players should play independently
+ * If another video is played any other playing video should pause
+ */
 export const DuplicateVideos = (): JSX.Element => {
 	return (
 		<div style={containerStyleSmall}>
+			<div>Playing one video should pause the other if playing</div>
+			<br />
 			<YoutubeAtom
 				elementId="xyz"
 				videoId="-ZCvZmYlQD8"
@@ -323,6 +349,7 @@ export const DuplicateVideos = (): JSX.Element => {
 				shouldStick={true}
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 			<br />
 			<YoutubeAtom
@@ -339,6 +366,7 @@ export const DuplicateVideos = (): JSX.Element => {
 				shouldStick={true}
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
@@ -348,6 +376,12 @@ DuplicateVideos.parameters = {
 	chromatic: { disableSnapshot: true },
 };
 
+/**
+ * Tests multiple YoutubeAtoms on the same page
+ * If a video is playing and the user scrolls past the video the video should stick
+ * If another video is played any other playing video should pause
+ * Closing a sticky video should pause the video
+ */
 export const MultipleStickyVideos = (): JSX.Element => {
 	return (
 		<div style={{ width: '500px', height: '5000px' }}>
@@ -367,6 +401,7 @@ export const MultipleStickyVideos = (): JSX.Element => {
 				title="Rayshard Brooks: US justice system treats us like 'animals'"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 			<YoutubeAtom
 				elementId="xyz-2"
@@ -384,6 +419,7 @@ export const MultipleStickyVideos = (): JSX.Element => {
 				title="Rayshard Brooks: US justice system treats us like 'animals'"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 			<YoutubeAtom
 				elementId="xyu"
@@ -401,6 +437,7 @@ export const MultipleStickyVideos = (): JSX.Element => {
 				title="Rayshard Brooks: US justice system treats us like 'animals'"
 				imaEnabled={false}
 				abTestParticipations={{}}
+				adTargeting={adTargeting}
 			/>
 		</div>
 	);
