@@ -2,7 +2,7 @@ import { ArticlePillar } from '@guardian/libs';
 import { useState } from 'react';
 import { consentStateCanTarget } from './fixtures/consentStateCanTarget';
 import { YoutubeAtom } from './YoutubeAtom';
-import { AdTargeting } from 'dist/libs/@guardian/atoms-rendering/cjs/types-a8b0938f';
+import { AdTargeting } from './types';
 
 export default {
 	title: 'YoutubeAtom',
@@ -266,9 +266,6 @@ export const GiveConsent = (): JSX.Element => {
 export const Sticky = (): JSX.Element => {
 	return (
 		<div>
-			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
-			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
-			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
 			<div>Scroll down...</div>
 			<div style={{ height: '1000px' }}></div>
 			<YoutubeAtom
@@ -297,9 +294,6 @@ export const Sticky = (): JSX.Element => {
 export const StickyMainMedia = (): JSX.Element => {
 	return (
 		<div>
-			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
-			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
-			<div style={{ fontSize: '32px', marginBottom: '4px' }}>⬇️</div>
 			<div>Scroll down...</div>
 			<div style={{ height: '1000px' }}></div>
 			<YoutubeAtom
@@ -326,15 +320,13 @@ export const StickyMainMedia = (): JSX.Element => {
 };
 
 /**
- * Tests duplicate YoutubeAtoms on the same page
- * Players should play independently
- * If another video is played any other playing video should pause
+ * Tests duplicate YoutubeAtoms on the same page.
+ * Players should play independently.
+ * If another video is played any other playing video should pause.
  */
 export const DuplicateVideos = (): JSX.Element => {
 	return (
 		<div style={containerStyleSmall}>
-			<div>Playing one video should pause the other if playing</div>
-			<br />
 			<YoutubeAtom
 				elementId="xyz"
 				videoId="-ZCvZmYlQD8"
@@ -377,10 +369,10 @@ DuplicateVideos.parameters = {
 };
 
 /**
- * Tests multiple YoutubeAtoms on the same page
- * If a video is playing and the user scrolls past the video the video should stick
- * If another video is played any other playing video should pause
- * Closing a sticky video should pause the video
+ * Tests multiple YoutubeAtoms on the same page.
+ * If a video is playing and the user scrolls past the video the video should stick.
+ * If another video is played any other playing video should pause.
+ * Closing a sticky video should pause the video.
  */
 export const MultipleStickyVideos = (): JSX.Element => {
 	return (
