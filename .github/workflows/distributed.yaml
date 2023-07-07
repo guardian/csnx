@@ -59,8 +59,9 @@ jobs:
         run: pnpm nx-cloud stop-all-agents
 
   agents:
-    name: Agent ${{ matrix.agent }}
+    name: Nx Cloud Agents
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     strategy:
       matrix:
         agent:
@@ -78,5 +79,3 @@ jobs:
 
       - name: Start Nx Agent ${{ matrix.agent }}
         run: pnpm nx-cloud start-agent
-        env:
-          NX_AGENT_NAME: ${{matrix.agent}}
