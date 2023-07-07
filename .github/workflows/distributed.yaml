@@ -45,22 +45,22 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Initialize the Nx Cloud distributed CI run
-        run: pnpx nx-cloud start-ci-run
+        run: pnpm nx-cloud start-ci-run
 
       - name: Run commands in parallel
         run: |
           pids=()
           # list of commands to be run on main has env flag NX_CLOUD_DISTRIBUTED_EXECUTION set to false
-          # NX_CLOUD_DISTRIBUTED_EXECUTION=false pnpx nx-cloud record -- pnpx nx format:check & pids+=($!)
+          # NX_CLOUD_DISTRIBUTED_EXECUTION=false pnpm nx-cloud record -- pnpm nx format:check & pids+=($!)
 
           # list of commands to be run on agents
           pnpm nx affected -t build --parallel=3 &
           pids+=($!)
 
-          # pnpx nx affected -t test --parallel=3 --configuration=ci &
+          # pnpm nx affected -t test --parallel=3 --configuration=ci &
           # pids+=($!)
 
-          # pnpx nx affected -t build --parallel=3 &
+          # pnpm nx affected -t build --parallel=3 &
           # pids+=($!)
 
           # run all commands in parallel and bail if one of them fails
@@ -75,7 +75,7 @@ jobs:
       - name: Stop all running agents for this CI run
         # It's important that we always run this step, otherwise in the case of any failures in preceding non-Nx steps, the agents will keep running and waste billable minutes
         if: ${{ always() }}
-        run: pnpx nx-cloud stop-all-agents
+        run: pnpm nx-cloud stop-all-agents
 
   agents:
     name: Agent ${{ matrix.agent }}
@@ -96,6 +96,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Start Nx Agent ${{ matrix.agent }}
-        run: pnpx nx-cloud start-agent
+        run: pnpm nx-cloud start-agent
         env:
           NX_AGENT_NAME: ${{matrix.agent}}

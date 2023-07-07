@@ -15,6 +15,7 @@ importers:
       '@guardian/eslint-config-typescript': workspace:*
       '@guardian/prettier': workspace:*
       '@manypkg/get-packages': 2.1.0
+      '@nrwl/nx-cloud': ^16.0.5
       '@nx/devkit': 16.3.2
       '@nx/eslint-plugin': 16.3.2
       '@nx/jest': 16.3.2
@@ -47,7 +48,6 @@ importers:
       jest-environment-jsdom: 29.5.0
       lint-staged: 13.2.2
       nx: 16.3.2
-      nx-cloud: latest
       prettier: 2.8.8
       react: 18.2.0
       react-dom: 18.2.0
@@ -71,6 +71,7 @@ importers:
       '@guardian/eslint-config-typescript': link:libs/@guardian/eslint-config-typescript
       '@guardian/prettier': link:libs/@guardian/prettier
       '@manypkg/get-packages': 2.1.0
+      '@nrwl/nx-cloud': 16.1.0
       '@nx/devkit': 16.3.2_nx@16.3.2
       '@nx/eslint-plugin': 16.3.2_ufetjidzhg2hcvubxfvs53hgai
       '@nx/jest': 16.3.2_def6em2i63n77sqha2pnf7quzy
@@ -103,7 +104,6 @@ importers:
       jest-environment-jsdom: 29.5.0
       lint-staged: 13.2.2
       nx: 16.3.2_vdewrtcg4ne5tzbm2pelet6aly
-      nx-cloud: 16.1.0
       prettier: 2.8.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -717,7 +717,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/core': 7.22.5
-      '@babel/helper-annotate-as-pure': 7.18.6
+      '@babel/helper-annotate-as-pure': 7.22.5
       '@babel/helper-environment-visitor': 7.22.1
       '@babel/helper-function-name': 7.21.0
       '@babel/helper-member-expression-to-functions': 7.22.3
@@ -728,7 +728,6 @@ packages:
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@babel/helper-create-class-features-plugin/7.22.5_@babel+core@7.21.8:
     resolution: {integrity: sha512-xkb58MyOYIslxu3gKmVXmjTtUPvBU4odYzbiIQbWwLKIHCsx6UGZGX6F1IznMFVnDdirseUZopzN+ZRt8Xb33Q==}
@@ -1788,7 +1787,6 @@ packages:
     dependencies:
       '@babel/core': 7.22.5
       '@babel/helper-plugin-utils': 7.21.5
-    dev: false
 
   /@babel/plugin-syntax-jsx/7.22.5_@babel+core@7.22.1:
     resolution: {integrity: sha512-gvyP4hZrgrs/wWMaocvxZ44Hw0b3W8Pe+cMxc8V1ULQ07oh8VNbIRaoD1LRZVTvD+0nieDKjfgKg89sD7rrKrg==}
@@ -1797,16 +1795,6 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.22.1
-      '@babel/helper-plugin-utils': 7.22.5
-    dev: true
-
-  /@babel/plugin-syntax-jsx/7.22.5_@babel+core@7.22.5:
-    resolution: {integrity: sha512-gvyP4hZrgrs/wWMaocvxZ44Hw0b3W8Pe+cMxc8V1ULQ07oh8VNbIRaoD1LRZVTvD+0nieDKjfgKg89sD7rrKrg==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
 
@@ -2041,8 +2029,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.22.5
-      '@babel/helper-plugin-utils': 7.21.5
-    dev: false
+      '@babel/helper-plugin-utils': 7.22.5
 
   /@babel/plugin-syntax-typescript/7.22.5_@babel+core@7.22.1:
     resolution: {integrity: sha512-1mS2o03i7t1c6VzH6fdQ3OA8tcEIxwG18zIPRp+UY1Ihv6W+XZzBCVxExF9upussPXJ0xE9XRHwMoNs1ep/nRQ==}
@@ -2816,20 +2803,6 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/plugin-transform-modules-commonjs/7.22.5_@babel+core@7.22.5:
-    resolution: {integrity: sha512-B4pzOXj+ONRmuaQTg05b3y/4DuFz3WcCNAXPLb2Q0GT0TrGKGxNKV4jwsXts+StaM0LQczZbOpj8o1DLPDJIiA==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.22.5
-      '@babel/helper-module-transforms': 7.22.5
-      '@babel/helper-plugin-utils': 7.22.5
-      '@babel/helper-simple-access': 7.22.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/plugin-transform-modules-systemjs/7.20.11_@babel+core@7.21.8:
     resolution: {integrity: sha512-vVu5g9BPQKSFEmvt2TA4Da5N+QVS66EX21d8uoOihC+OCpUoGvzVsXeqFdtAEfVa5BILAeFt+U7yVmLbQnAJmw==}
     engines: {node: '>=6.9.0'}
@@ -3548,7 +3521,6 @@ packages:
       '@babel/plugin-syntax-typescript': 7.21.4_@babel+core@7.22.5
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@babel/plugin-transform-typescript/7.22.5_@babel+core@7.22.1:
     resolution: {integrity: sha512-SMubA9S7Cb5sGSFFUlqxyClTA9zWJ8qGQrppNUm05LtFuN1ELRFNndkix4zUJrC9F+YivWwa1dHMSyo0e0N9dA==}
@@ -3561,21 +3533,6 @@ packages:
       '@babel/helper-create-class-features-plugin': 7.22.5_@babel+core@7.22.1
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-typescript': 7.22.5_@babel+core@7.22.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@babel/plugin-transform-typescript/7.22.5_@babel+core@7.22.5:
-    resolution: {integrity: sha512-SMubA9S7Cb5sGSFFUlqxyClTA9zWJ8qGQrppNUm05LtFuN1ELRFNndkix4zUJrC9F+YivWwa1dHMSyo0e0N9dA==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.22.5
-      '@babel/helper-annotate-as-pure': 7.22.5
-      '@babel/helper-create-class-features-plugin': 7.22.5_@babel+core@7.22.5
-      '@babel/helper-plugin-utils': 7.22.5
-      '@babel/plugin-syntax-typescript': 7.22.5_@babel+core@7.22.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4029,7 +3986,6 @@ packages:
       '@babel/plugin-transform-typescript': 7.22.3_@babel+core@7.22.5
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@babel/preset-typescript/7.22.5_@babel+core@7.22.1:
     resolution: {integrity: sha512-YbPaal9LxztSGhmndR46FmAbkJ/1fAsw293tSU+I5E5h+cnJ3d4GTwyUgGYmOXJYdGA+uNePle4qbaRzj2NISQ==}
@@ -4043,22 +3999,6 @@ packages:
       '@babel/plugin-syntax-jsx': 7.22.5_@babel+core@7.22.1
       '@babel/plugin-transform-modules-commonjs': 7.22.5_@babel+core@7.22.1
       '@babel/plugin-transform-typescript': 7.22.5_@babel+core@7.22.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@babel/preset-typescript/7.22.5_@babel+core@7.22.5:
-    resolution: {integrity: sha512-YbPaal9LxztSGhmndR46FmAbkJ/1fAsw293tSU+I5E5h+cnJ3d4GTwyUgGYmOXJYdGA+uNePle4qbaRzj2NISQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.22.5
-      '@babel/helper-plugin-utils': 7.22.5
-      '@babel/helper-validator-option': 7.22.5
-      '@babel/plugin-syntax-jsx': 7.22.5_@babel+core@7.22.5
-      '@babel/plugin-transform-modules-commonjs': 7.22.5_@babel+core@7.22.5
-      '@babel/plugin-transform-typescript': 7.22.5_@babel+core@7.22.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5603,7 +5543,7 @@ packages:
       '@babel/plugin-proposal-decorators': 7.21.0_@babel+core@7.22.5
       '@babel/plugin-transform-runtime': 7.21.4_@babel+core@7.22.5
       '@babel/preset-env': 7.22.4_@babel+core@7.22.5
-      '@babel/preset-typescript': 7.22.5_@babel+core@7.22.5
+      '@babel/preset-typescript': 7.21.5_@babel+core@7.22.5
       '@babel/runtime': 7.22.3
       '@nrwl/js': 16.3.2_hn2kyaqjruri6gwqqegwg7s4gi
       '@nx/devkit': 16.3.2_nx@16.3.2
@@ -8482,7 +8422,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.59.9_typescript@5.1.3
       eslint: 8.40.0
       eslint-scope: 5.1.1
-      semver: 7.5.3
+      semver: 7.5.1
     transitivePeerDependencies:
       - supports-color
       - typescript
