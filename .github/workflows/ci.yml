@@ -24,8 +24,6 @@ jobs:
           - task: e2e
           - task: build-storybooks
     steps:
-      - uses: nrwl/nx-set-shas@v3
-
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -38,6 +36,7 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
 
+      - uses: nrwl/nx-set-shas@v3
       - run: make ${{ matrix.task }}
 
   chromatic:
