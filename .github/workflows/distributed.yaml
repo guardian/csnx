@@ -11,7 +11,7 @@ env:
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
   # keep this number in sync with the number of agents in the matrix below
-  NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT: 16
+  NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT: 3
 
 jobs:
   agents:
@@ -22,7 +22,7 @@ jobs:
       matrix:
         # keep this array in sync with the number of agents in
         # NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT above
-        agent: [1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        agent: [1, 2, 3, 3]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
@@ -52,5 +52,5 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx-cloud start-ci-run
-      - run: pnpm nx run-many -t test lint build e2e build-storybooks --skip-nx-cache
+      - run: pnpm nx run-many -t test lint build e2e build-storybooks
       - run: pnpm nx-cloud stop-all-agents
