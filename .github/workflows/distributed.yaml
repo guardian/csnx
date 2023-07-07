@@ -41,14 +41,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
-      - run: |
-          echo "BASE: ${{ env.NX_BASE }}"
-          echo "HEAD: ${{ env.NX_HEAD }}"
       - uses: pnpm/action-setup@v2.2.4
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx run-many -t build --skip-nx-cache --parallel=false
+      - run: pnpm nx-cloud start-ci-run
+      - run: pnpm nx run-many -t test lint build e2e build-storybooks --skip-nx-cache --parallel=false
       - run: pnpm nx-cloud stop-all-agents
