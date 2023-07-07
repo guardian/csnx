@@ -50,5 +50,5 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx affected -t build --parallel=3
+      - run: pnpm nx affected -t build --parallel=3 --skip-nx-cache
       - run: pnpm nx-cloud stop-all-agents
