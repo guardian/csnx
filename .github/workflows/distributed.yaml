@@ -1,4 +1,5 @@
-name: CI
+name: LargeRepo
+
 on:
   push:
     branches:
@@ -6,76 +7,45 @@ on:
   pull_request:
 
 env:
-  NX_CLOUD_DISTRIBUTED_EXECUTION: true
-  NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT: 3
-  NX_BRANCH: ${{ github.event.number || github.ref_name }}
-  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  # NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NX_CLOUD_DISTRIBUTED_EXECUTION: 'true'
+  NODE_OPTIONS: '--max_old_space_size=4096'
 
 jobs:
-  main:
-    name: Nx Cloud - Main Job
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout [Pull Request]
-        if: ${{ github.event_name == 'pull_request' }}
-        with:
-          # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
-          ref: ${{ github.event.pull_request.head.sha }}
-          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
-          fetch-depth: 0
-
-      - uses: actions/checkout@v3
-        name: Checkout [Default Branch]
-        if: ${{ github.event_name != 'pull_request' }}
-        with:
-          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
-          fetch-depth: 0
-
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v3
-
-      - uses: pnpm/action-setup@v2.2.4
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Initialize the Nx Cloud distributed CI run
-        run: pnpm nx-cloud start-ci-run
-
-      - name: Run commands in parallel
-        run: pnpm nx affected -t build --parallel=3
-
-      - name: Stop all running agents for this CI run
-        # It's important that we always run this step, otherwise in the case of any failures in preceding non-Nx steps, the agents will keep running and waste billable minutes
-        if: ${{ always() }}
-        run: pnpm nx-cloud stop-all-agents
-
   agents:
     name: Nx Cloud Agents
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       matrix:
-        agent:
-          - [1, 2, 3]
+        agent: [1, 2, 3]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-
       - name: Start Nx Agent ${{ matrix.agent }}
         run: pnpm nx-cloud start-agent
+
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - run: |
+          echo "BASE: ${{ env.NX_BASE }}"
+          echo "HEAD: ${{ env.NX_HEAD }}"
+      - uses: pnpm/action-setup@v2.2.4
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm nx affected -t build --parallel=3
+      - run: pnpm nx-cloud stop-all-agents
