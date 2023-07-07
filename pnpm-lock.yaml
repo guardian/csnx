@@ -15,7 +15,6 @@ importers:
       '@guardian/eslint-config-typescript': workspace:*
       '@guardian/prettier': workspace:*
       '@manypkg/get-packages': 2.1.0
-      '@nrwl/nx-cloud': ^16.0.5
       '@nx/devkit': 16.3.2
       '@nx/eslint-plugin': 16.3.2
       '@nx/jest': 16.3.2
@@ -48,6 +47,7 @@ importers:
       jest-environment-jsdom: 29.5.0
       lint-staged: 13.2.2
       nx: 16.3.2
+      nx-cloud: ^16.0.5
       prettier: 2.8.8
       react: 18.2.0
       react-dom: 18.2.0
@@ -71,7 +71,6 @@ importers:
       '@guardian/eslint-config-typescript': link:libs/@guardian/eslint-config-typescript
       '@guardian/prettier': link:libs/@guardian/prettier
       '@manypkg/get-packages': 2.1.0
-      '@nrwl/nx-cloud': 16.1.0
       '@nx/devkit': 16.3.2_nx@16.3.2
       '@nx/eslint-plugin': 16.3.2_ufetjidzhg2hcvubxfvs53hgai
       '@nx/jest': 16.3.2_def6em2i63n77sqha2pnf7quzy
@@ -104,6 +103,7 @@ importers:
       jest-environment-jsdom: 29.5.0
       lint-staged: 13.2.2
       nx: 16.3.2_vdewrtcg4ne5tzbm2pelet6aly
+      nx-cloud: 16.1.0
       prettier: 2.8.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
