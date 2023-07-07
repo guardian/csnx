@@ -36,6 +36,12 @@ lint: install
 	@corepack pnpm nx run-many --target=lint --skip-nx-cache=$(SKIP_NX_CACHE)
 	@node ./tools/scripts/check-packages-for-tslib.mjs
 
+# checks all package.json for health issues
+.PHONY: package-health
+package-health:
+	$(call log,"Checking all package.json are healthy")
+	@deno run --allow-read --allow-net ./tools/scripts/deno/package-health.ts
+
 # attemps to fix lint errors across all projects
 .PHONY: fix
 fix: install

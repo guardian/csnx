@@ -67,6 +67,7 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make e2e` _runs the e2e tests for all projects_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make lint` _checks all projects for lint errors_
+- `make package-health` _checks all package.json for health issues_
 - `make storybooks` _runs storybook for all projects in single instance_
 - `make test` _runs the unit tests for all projects_
 - `make validate` _makes sure absolutely everything is working_

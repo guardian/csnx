@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         include:
+          - task: package-health
           - task: lint
           - task: test
           - task: build
@@ -29,6 +30,11 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
+
+      - name: Setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.33.2
 
       - run: make ${{ matrix.task }}
 
