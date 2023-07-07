@@ -1,4 +1,4 @@
-import { package_health } from 'https://deno.land/x/package_health@0.5.0/src/main.ts';
+import { package_health } from 'https://deno.land/x/package_health@0.5.1/src/main.ts';
 import { walk } from 'https://deno.land/std@0.193.0/fs/mod.ts';
 import {
 	dirname,
@@ -27,4 +27,5 @@ for await (const { path } of walk(root, {
 
 if (errors > 0) {
 	console.info(`There are ${errors} issues with \`package.json\` files…`);
+	Deno.exit(1);
 }

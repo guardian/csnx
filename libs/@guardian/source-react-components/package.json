@@ -16,7 +16,8 @@
 		"@svgr/plugin-prettier": "8.0.1",
 		"@svgr/plugin-svgo": "8.0.1",
 		"@types/mkdirp": "1.0.2",
-		"@types/prettier": "2.7.2",
+		"@types/node": "18.16.18",
+		"@types/prettier": "2.7.3",
 		"@types/react": "18.2.11",
 		"axios": "0.27.2",
 		"dotenv": "16.0.3",
@@ -38,5 +39,10 @@
 		"typescript": {
 			"optional": true
 		}
+	},
+	"known_issues": {
+		"prettier@2.8.8": [
+			"@types/prettier@2.7.3"
+		]
 	}
 }

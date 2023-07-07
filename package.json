@@ -45,7 +45,7 @@
 		"eslint": "8.40.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
 		"eslint-plugin-import": "2.27.5",
-		"eslint-plugin-storybook": "^0.6.12",
+		"eslint-plugin-storybook": "0.6.12",
 		"husky": "8.0.3",
 		"jest": "29.5.0",
 		"jest-environment-jsdom": "29.5.0",
@@ -65,13 +65,19 @@
 		"webpack": "5.88.0"
 	},
 	"packageManager": "pnpm@7.18.1",
+	"known_issues": {
+		"nx-cloud@latest": [
+			"We have decided not to pin this to an exact version"
+		],
+		"@babel/core@7.22.1": [
+			"https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/babel__core",
+			"@types/babel__core@7.20.1"
+		]
+	},
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
-				"@types/node",
-				"eslint",
-				"nx",
-				"prettier"
+				"nx"
 			]
 		},
 		"updateConfig": {

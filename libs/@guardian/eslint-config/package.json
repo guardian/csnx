@@ -10,7 +10,7 @@
 	},
 	"devDependencies": {
 		"eslint": "8.0.0",
-		"tslib": "^2.5.3"
+		"tslib": "2.5.3"
 	},
 	"peerDependencies": {
 		"eslint": "^8.0.0",
