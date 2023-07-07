@@ -7,8 +7,9 @@ on:
   pull_request:
 
 env:
-  NX_CLOUD_DISTRIBUTED_EXECUTION: 'true'
-  NODE_OPTIONS: '--max_old_space_size=4096'
+  NX_CLOUD_DISTRIBUTED_EXECUTION: true
+  NX_CLOUD_DISTRIBUTED_EXECUTION_AGENT_COUNT: 3
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
 jobs:
   agents:
@@ -28,6 +29,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Start Nx Agent ${{ matrix.agent }}
         run: pnpm nx-cloud start-agent
+        env:
+          NX_AGENT_NAME: ${{matrix.agent}}
 
   pr:
     runs-on: ubuntu-latest
