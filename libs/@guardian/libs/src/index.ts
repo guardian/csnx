@@ -54,4 +54,4 @@ export { storage } from './storage/storage';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
-console.log('this is not here');
+console.log('this is not heres still');
