@@ -48,5 +48,5 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx-cloud start-ci-run
-      - run: pnpm nx run-many -t test lint build e2e build-storybooks --skip-nx-cache
+      - run: pnpm nx run-many -t test lint build e2e build-storybooks
       - run: pnpm nx-cloud stop-all-agents
