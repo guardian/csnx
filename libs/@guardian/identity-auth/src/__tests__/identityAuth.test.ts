@@ -17,6 +17,7 @@ describe('IdentityAuth', () => {
 			issuer: 'https://profile.theguardian.com/oauth2/test',
 			redirectUri: 'test',
 			scopes: ['openid', 'profile', 'test'],
+			autoRenew: false,
 		});
 
 		const accessToken: AccessToken = {
@@ -100,6 +101,7 @@ describe('IdentityAuth', () => {
 				issuer: 'https://profile.theguardian.com/oauth2/test',
 				redirectUri: 'test',
 				scopes: ['openid', 'profile', 'test'],
+				autoRenew: false,
 			},
 		);
 

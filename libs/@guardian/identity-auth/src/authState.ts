@@ -11,13 +11,20 @@ export class AuthStateManager<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	#authState: IdentityAuthState<AC, IC> | undefined = undefined;
+	#authState: IdentityAuthState<AC, IC>;
 	#emitter: Emitter;
 	#tokenManager: TokenManager<AC, IC>;
 
 	constructor(emitter: Emitter, tokenManager: TokenManager<AC, IC>) {
 		this.#emitter = emitter;
 		this.#tokenManager = tokenManager;
+
+		// set default auth state, will be updated if there are existing tokens in storage
+		this.#authState = {
+			accessToken: undefined,
+			idToken: undefined,
+			isAuthenticated: false,
+		};
 
 		// on init, check if there are existing tokens in storage, and if so, update the auth state
 		this.#updateAuthState();
@@ -57,6 +64,8 @@ export class AuthStateManager<
 		} else {
 			// if there are no tokens, set the auth state to false
 			this.#authState = {
+				accessToken: undefined,
+				idToken: undefined,
 				isAuthenticated: false,
 			};
 		}
@@ -70,7 +79,7 @@ export class AuthStateManager<
 	 * @description Returns the current auth state
 	 * @returns IdentityAuthState
 	 */
-	public getAuthState(): IdentityAuthState<AC, IC> | undefined {
+	public getAuthState(): IdentityAuthState<AC, IC> {
 		return this.#authState;
 	}
 

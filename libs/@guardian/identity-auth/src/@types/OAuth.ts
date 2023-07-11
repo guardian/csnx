@@ -5,6 +5,13 @@ import type { AccessToken, CustomClaims, IDToken } from './Token';
  * Ask the Identity team for the values to use for your app.
  *
  * https://developer.okta.com/docs/reference/api/oidc/
+ *
+ * @param clientId - The client ID of your app
+ * @param issuer - The issuer of the tokens
+ * @param scopes - The scopes that your app requires
+ * @param redirectUri - The redirect URI of your app
+ * @param autoRenew - Whether to automatically renew the tokens, defaults to `true`
+ * @param renewGracePeriod - The time in seconds before the access token expires to renew the token, defaults to 60 seconds
  */
 export interface IdentityAuthOptions {
 	clientId: string;
@@ -14,7 +21,30 @@ export interface IdentityAuthOptions {
 		| 'thegulocal'}.com/oauth2/${string}`;
 	scopes: ['openid', 'profile', ...string[]];
 	redirectUri: string;
+	autoRenew?: boolean;
+	renewGracePeriod?: number;
 }
+
+/**
+ * Defines the state of the IdentityAuth instance when not authenticated.
+ */
+export type IdentityAuthStateNotAuthenticated = {
+	accessToken: undefined;
+	idToken: undefined;
+	isAuthenticated: false;
+};
+
+/**
+ * Defines the state of the IdentityAuth instance when authenticated.
+ */
+export type IdentityAuthStateAuthenticated<
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+> = {
+	accessToken: AccessToken<AC>;
+	idToken: IDToken<IC>;
+	isAuthenticated: true;
+};
 
 /**
  * Defines the state of the IdentityAuth instance.
@@ -26,11 +56,7 @@ export interface IdentityAuthOptions {
 export type IdentityAuthState<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
-> = {
-	accessToken?: AccessToken<AC>;
-	idToken?: IDToken<IC>;
-	isAuthenticated: boolean;
-};
+> = IdentityAuthStateNotAuthenticated | IdentityAuthStateAuthenticated<AC, IC>;
 
 /**
  * Parameter required for the OAuth2 authorization code flow, /authorize endpoint

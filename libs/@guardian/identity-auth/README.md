@@ -16,6 +16,7 @@ Browsers will need to support the following features or polyfill them:
   - [`crypto.subtle.importKey`](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/importKey)
   - [`crypto.subtle.verify`](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/verify)
 - [`TextEncoder`](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
+- [`Page Visibility API`](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)
 
 ## Usage
 
@@ -55,11 +56,26 @@ This is what replaces the `SC_GU_U` cookie that is used in the legacy identity p
 import type { IdentityAuthOptions } from '@guardian/identity-auth';
 import { IdentityAuth } from '@guardian/identity-auth';
 
+/**
+ * Defines the options that are required to configure the IdentityAuth
+ * Ask the Identity team for the values to use for your app.
+ *
+ * https://developer.okta.com/docs/reference/api/oidc/
+ *
+ * @param clientId - The client ID of your app
+ * @param issuer - The issuer of the tokens
+ * @param scopes - The scopes that your app requires
+ * @param redirectUri - The redirect URI of your app
+ * @param autoRenew - Whether to automatically renew the tokens, defaults to `true`
+ * @param renewGracePeriod - The time in seconds before the access token expires to renew the token, defaults to 60 seconds
+ */
 const config: IdentityAuthOptions = {
 	issuer: 'https://profile.theguardian.com/oauth2/SERVER_ID',
 	clientId: 'example-client-id',
 	redirectUri: 'https://theguardian.com',
 	scopes: ['openid', 'profile'], // and any other scopes you need
+	autoRenew: true, // optional, defaults to true
+	renewGracePeriod: 60, // optional, defaults to 60 seconds
 };
 
 const identityAuth = new IdentityAuth(config);
@@ -69,20 +85,23 @@ const identityAuth = new IdentityAuth(config);
 
 `IdentityAuth` exposes the following:
 
-- [`isSignedInWithAuthState`](#isSignedInWithAuthState)
-- [`isSignedIn`](#isSignedIn)
-- [`authStateManager`](#authStateManager)
-  - [`getAuthState`](#getAuthState)
+- [`isSignedInWithAuthState`](#issignedinwithauthstate)
+- [`isSignedIn`](#issignedin)
+- [`authStateManager`](#authstatemanager)
+  - [`getAuthState`](#getauthstate)
   - [`subscribe`](#subscribe)
   - [`unsubscribe`](#unsubscribe)
-- [`tokenManager`](#tokenManager)
+- [`tokenManager`](#tokenmanager)
   - [`clear`](#clear)
-  - [`getTokens`](#getTokens)
-  - [`getTokensSync`](#getTokensSync)
-  - [`setTokens`](#setTokens)
+  - [`getTokens`](#gettokens)
+  - [`getTokensSync`](#gettokenssync)
+  - [`renew`](#renew)
+  - [`setTokens`](#settokens)
 - [`token`](#token)
-  - [`getWithoutPrompt`](#getWithoutPrompt)
-  - [`verifyToken`](#verifyToken)
+  - [`getWithoutPrompt`](#getwithoutprompt)
+  - [`verifyToken`](#verifytoken)
+- [`autoRenew`](#autorenew)
+  - [`start`](#start)
 
 #### `isSignedInWithAuthState`
 
@@ -238,6 +257,16 @@ tokens.accessToken; // the user's access token
 tokens.idToken; // the user's id token
 ```
 
+#### `renew`
+
+Attempts to renew the tokens, regardless of whether they are expired or not
+
+Returns tokens or `undefined`.
+
+```ts
+const renewedTokens = await identityAuth.tokenManager.renew();
+```
+
 #### `setTokens`
 
 Sets the tokens in local storage, very unlikely you'll need to manually use this unless you're manually retrieving tokens using the `token` class.
@@ -320,6 +349,14 @@ try {
 	// handle other errors
 }
 ```
+
+### `autoRenew`
+
+The `autoRenew` object is an instance of `AutoRenew`, which manages the automatic renewal of tokens based on the expiry time of the tokens and the `autoRenew` options (`autoRenew` and `renewGracePeriod`).
+
+#### `start`
+
+Starts the automatic renewal of tokens, will automatically be started, no need to call, but exposed for use in other internal classes.
 
 ## Types
 
