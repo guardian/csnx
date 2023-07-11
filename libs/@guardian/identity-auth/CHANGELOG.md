@@ -1,5 +1,12 @@
 # @guardian/identity-auth
 
+## 0.2.0
+
+### Minor Changes
+
+- 3dfc301: - Add `AutoRenewService` for automatically renewing tokens before they expire
+  - Update type definitions for `IdentityAuthState`
+
 ## 0.1.2
 
 ### Patch Changes

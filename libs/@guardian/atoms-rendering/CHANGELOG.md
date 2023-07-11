@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 32.2.1
+
+### Patch Changes
+
+- 1e15445: Pass valid ad targeting to YoutubeAtom stories
+
 ## 32.2.0
 
 ### Minor Changes
