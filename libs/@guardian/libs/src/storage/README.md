@@ -14,19 +14,19 @@ import { storage } from '@guardian/libs';
 
 Has a few advantages over the native API:
 
--   fails gracefully if storage is not available
--   you can save and retrieve any JSONable data
--   stored items can expire
+- fails gracefully if storage is not available
+- you can save and retrieve any JSONable data
+- stored items can expire
 
 _n.b. the examples below use `storage.local`, but all methods are available for both `storage.local` and `storage.session`._
 
 ## Methods
 
--   [`get(key)`](#getkey)
--   [`set(key, value, expires?)`](#setkey-value-expires)
--   [`remove(key)`](#removekey)
--   [`clear()`](#clear)
--   [`isAvailable()`](#isavailable)
+- [`get(key)`](#getkey)
+- [`set(key, value, expires?)`](#setkey-value-expires)
+- [`remove(key)`](#removekey)
+- [`clear()`](#clear)
+- [`isAvailable()`](#isavailable)
 
 ## `get(key)`
 
@@ -74,18 +74,18 @@ Optional expiry date for this item.
 
 ```js
 storage.local.set('my-item', {
-    prop1: 'abc',
-    prop2: 123,
+	prop1: 'abc',
+	prop2: 123,
 });
 
 storage.local.set(
-    'my-expiring-item',
-    {
-        prop1: 'abc',
-        prop2: 123,
-    },
-    // expires 24 hours from now
-    Date.now() + 60 * 60 * 24 * 1000,
+	'my-expiring-item',
+	{
+		prop1: 'abc',
+		prop2: 123,
+	},
+	// expires 24 hours from now
+	Date.now() + 60 * 60 * 24 * 1000,
 );
 ```
 
@@ -117,6 +117,32 @@ Removes all items from storage.
 
 ```js
 storage.local.clear();
+```
+
+## `key(index: number)`
+
+Returns: `string[] | null`
+
+Get the name of the key at `index` in the storage object. Returns `null` if index
+is out of range or storage is unavailable.
+
+### Example
+
+```js
+storage.local.key(1);
+```
+
+## `length()`
+
+Returns `number | null`
+
+Get the number of items in the storage object. Returns `null` if storage is
+unavailable.
+
+### Example
+
+```js
+storage.local.length();
 ```
 
 ## `isAvailable()`
