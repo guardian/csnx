@@ -74,6 +74,10 @@ export const NoOverlay = (): JSX.Element => {
 	);
 };
 
+NoOverlay.parameters = {
+	chromatic: { disableSnapshot: true },
+};
+
 export const WithOverrideImage = (): JSX.Element => {
 	return (
 		<div style={containerStyle}>
