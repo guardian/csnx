@@ -19,7 +19,7 @@
 	"tasksRunnerOptions": {
 		"default": {
 			"options": {
-				"accessToken": "OTdkYmFjMTYtNGFhNS00MjM2LTg0OGMtZmNhNGZiMmU2YTM5fHJlYWQtd3JpdGU=",
+				"accessToken": "ZDI5NGQyNWMtYzRiNS00YjM0LWJkNDItMWEzMGQ2NWMwNWJkfHJlYWQtb25seQ==",
 				"cacheableOperations": [
 					"build",
 					"lint",
@@ -36,7 +36,7 @@
 		"libsDir": "libs"
 	},
 	"generators": {
-		"@nrwl/react": {
+		"@nx/react": {
 			"application": {
 				"style": "@emotion/styled",
 				"linter": "eslint",

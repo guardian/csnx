@@ -1,5 +1,17 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 17.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/source-react-components@15.0.0
+  - @guardian/libs@15.0.0
+
 ## 16.0.0
 
 ### Major Changes

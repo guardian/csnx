@@ -1,5 +1,16 @@
 # @guardian/core-web-vitals
 
+## 5.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@15.0.0
+
 ## 4.0.0
 
 ### Major Changes

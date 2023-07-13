@@ -1,8 +1,8 @@
 import childProcess from 'node:child_process';
 import path from 'node:path';
 import util from 'node:util';
-import type { ExecutorContext } from '@nrwl/devkit';
-import { logger } from '@nrwl/devkit';
+import type { ExecutorContext } from '@nx/devkit';
+import { logger } from '@nx/devkit';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -31,13 +31,13 @@ const exec = util.promisify(childProcess.exec);
 
 const formats = ['cjs', 'esm'] as const;
 export type Entries = {
-	[K in typeof formats[number]]: string;
+	[K in (typeof formats)[number]]: string;
 };
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
-	format: typeof formats[number],
+	format: (typeof formats)[number],
 ) => {
 	const compilerOptions = getCompilerOptions(options, context);
 
@@ -52,6 +52,7 @@ const getRollupConfig = (
 			format,
 			sourcemap: true,
 			preserveModules: true,
+			esModule: true,
 		},
 		plugins: [
 			nodeResolve({

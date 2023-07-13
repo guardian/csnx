@@ -1,5 +1,23 @@
 # @guardian/eslint-config-typescript
 
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies [a135875]
+  - @guardian/eslint-config@4.1.0
+
+## 6.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/eslint-config@4.0.0
+
 ## 5.0.0
 
 ### Major Changes

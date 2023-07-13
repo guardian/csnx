@@ -36,7 +36,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-react"],
 			"options": {
 				"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
@@ -44,7 +44,7 @@
 			}
 		},
 		"e2e": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-react"],
 			"options": {
 				"jestConfig": "libs/@guardian/ab-react/jest.config.ts",

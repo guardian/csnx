@@ -19,7 +19,7 @@
 			}
 		},
 		"test": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@csnx/hello-world"],
 			"options": {
 				"jestConfig": "libs/@csnx/hello-world/jest.config.ts",

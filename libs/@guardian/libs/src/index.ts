@@ -1,5 +1,7 @@
 /* istanbul ignore file */
 
+export * from './deprecated-exports';
+
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
 export { getCookie } from './cookies/getCookie';
@@ -17,9 +19,9 @@ export { timeAgo } from './datetime/timeAgo';
 export { ArticleDesign } from './format/ArticleDesign';
 export { ArticleDisplay } from './format/ArticleDisplay';
 export type { ArticleFormat } from './format/ArticleFormat';
-export { ArticlePillar } from './format/ArticlePillar';
 export { ArticleSpecial } from './format/ArticleSpecial';
 export type { ArticleTheme } from './format/ArticleTheme';
+export { Pillar } from './format/Pillar';
 
 export { isBoolean } from './isBoolean/isBoolean';
 export { isNonNullable } from './isNonNullable/isNonNullable';

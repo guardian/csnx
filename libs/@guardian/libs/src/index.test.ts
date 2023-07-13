@@ -8,6 +8,7 @@ describe('The package', () => {
 			'ArticleElementRole',
 			'ArticlePillar',
 			'ArticleSpecial',
+			'Pillar',
 			'countries',
 			'debug',
 			'getCookie',

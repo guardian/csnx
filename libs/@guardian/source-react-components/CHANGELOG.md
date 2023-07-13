@@ -1,5 +1,17 @@
 # @guardian/source-react-components
 
+## 15.0.1
+
+### Patch Changes
+
+- Update build output config
+
+## 15.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
 ## 14.0.2
 
 ### Patch Changes

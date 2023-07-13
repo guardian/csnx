@@ -1,5 +1,29 @@
 # @guardian/source-react-components-development-kitchen
 
+## 13.0.1
+
+### Patch Changes
+
+- Update build output config
+
+## 13.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/source-react-components@15.0.0
+  - @guardian/libs@15.0.0
+
+## 12.1.0
+
+### Minor Changes
+
+- 88c5b36: update styling of NumericInput to match core Source input components
+
 ## 12.0.1
 
 ### Major Changes

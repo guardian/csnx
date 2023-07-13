@@ -1,5 +1,5 @@
 import path from 'node:path';
-import type { ExecutorContext } from '@nrwl/devkit';
+import type { ExecutorContext } from '@nx/devkit';
 import {
 	findConfigFile,
 	parseJsonConfigFileContent,

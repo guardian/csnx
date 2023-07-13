@@ -1,5 +1,6 @@
 export enum ArticleDesign {
 	Standard,
+	Picture,
 	Gallery,
 	Audio,
 	Video,

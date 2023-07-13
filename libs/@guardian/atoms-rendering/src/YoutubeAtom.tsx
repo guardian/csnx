@@ -9,6 +9,7 @@ import type {
 	RoleType,
 	VideoEventKey,
 } from './types';
+import type { VideoCategory } from './YoutubeAtomOverlay';
 import { YoutubeAtomOverlay } from './YoutubeAtomOverlay';
 import { YoutubeAtomPlaceholder } from './YoutubeAtomPlaceholder';
 import { YoutubeAtomPlayer } from './YoutubeAtomPlayer';
@@ -34,6 +35,7 @@ type Props = {
 	isMainMedia?: boolean;
 	imaEnabled: boolean;
 	abTestParticipations: Participations;
+	videoCategory?: VideoCategory;
 };
 
 export const YoutubeAtom = ({
@@ -51,11 +53,11 @@ export const YoutubeAtom = ({
 	duration,
 	origin,
 	eventEmitters,
-	pillar,
 	shouldStick,
 	isMainMedia,
 	imaEnabled,
 	abTestParticipations,
+	videoCategory,
 }: Props): JSX.Element => {
 	const [overlayClicked, setOverlayClicked] = useState<boolean>(false);
 	const [playerReady, setPlayerReady] = useState<boolean>(false);
@@ -149,7 +151,7 @@ export const YoutubeAtom = ({
 			setIsClosed={setIsClosed}
 		>
 			<MaintainAspectRatio height={height} width={width}>
-				{loadPlayer && consentState && (
+				{loadPlayer && consentState && adTargeting && (
 					<YoutubeAtomPlayer
 						videoId={videoId}
 						uniqueId={uniqueId}
@@ -184,9 +186,9 @@ export const YoutubeAtom = ({
 						alt={alt}
 						role={role}
 						duration={duration}
-						pillar={pillar}
 						title={title}
 						onClick={() => setOverlayClicked(true)}
+						videoCategory={videoCategory}
 					/>
 				)}
 				{showPlaceholder && <YoutubeAtomPlaceholder uniqueId={uniqueId} />}

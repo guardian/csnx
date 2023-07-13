@@ -1,5 +1,29 @@
 # @guardian/libs
 
+## 15.2.0
+
+### Minor Changes
+
+- 644fcd7: Deprecate `ArticlePillar` in favour of `Pillar`. `ArticlePillar` will be removed entirely in a future major release.
+
+## 15.1.0
+
+### Minor Changes
+
+- 529fdb6: Introducing a Picture design type for use by image articles
+
+## 15.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
+## 14.1.0
+
+### Minor Changes
+
+- 0353489: Add Open Journalism team colours
+
 ## 14.0.0
 
 ### Major Changes

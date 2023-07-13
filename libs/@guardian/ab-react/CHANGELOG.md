@@ -1,10 +1,28 @@
 # @guardian/ab-react
 
+## 6.0.1
+
+### Patch Changes
+
+- Update build output config
+
+## 6.0.0
+
+### Major Changes
+
+- Update Typescript to v5.1.3 and tslib to v2.5.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/ab-core@5.0.0
+
 ## 5.0.0
 
 ### Major Changes
 
 - Update React to v18
+
 ## 4.0.2
 
 ### Patch Changes

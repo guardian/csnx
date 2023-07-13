@@ -17,7 +17,7 @@
 			}
 		},
 		"e2e": {
-			"executor": "@nrwl/jest:jest",
+			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/eslint-config"],
 			"options": {
 				"jestConfig": "libs/@guardian/eslint-config/jest.config.js"
