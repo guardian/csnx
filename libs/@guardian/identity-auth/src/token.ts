@@ -522,7 +522,7 @@ export const addPostMessageListener = (
 
 	// return the promise, clearing the timeout and removing the event listener when the promise resolves
 	return msgReceivedOrTimeout.finally(() => {
-		clearTimeout(timeoutId);
+		window.clearTimeout(timeoutId);
 		window.removeEventListener('message', responseHandler);
 	});
 };

@@ -6,6 +6,7 @@ import type {
 } from './@types/OAuth';
 import type { CustomClaims } from './@types/Token';
 import { AuthStateManager } from './authState';
+import { AutoRenewService } from './autoRenew';
 import { Emitter } from './emitter';
 import { OAuthError } from './error';
 import { Token } from './token';
@@ -28,16 +29,21 @@ export class IdentityAuth<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	#options: IdentityAuthOptions;
+	#options: Required<IdentityAuthOptions>;
 	#oauthUrls: OAuthUrls;
 	#emitter: Emitter;
+	#autoRenewService: AutoRenewService;
 
 	public tokenManager: TokenManager<AC, IC>;
 	public token: Token<AC, IC>;
 	public authStateManager: AuthStateManager<AC, IC>;
 
 	constructor(options: IdentityAuthOptions) {
-		this.#options = options;
+		this.#options = {
+			autoRenew: true,
+			renewGracePeriod: 60,
+			...options,
+		};
 		this.#oauthUrls = {
 			authorizeUrl: `${this.#options.issuer}/v1/authorize`,
 			tokenUrl: `${this.#options.issuer}/v1/token`,
@@ -51,6 +57,13 @@ export class IdentityAuth<
 			this.#emitter,
 			this.tokenManager,
 		);
+		this.#autoRenewService = new AutoRenewService(
+			this.#options,
+			this.#emitter,
+			this.authStateManager,
+		);
+
+		this.#autoRenewService.start();
 	}
 
 	/**
@@ -74,17 +87,15 @@ export class IdentityAuth<
 			if (getCookie({ name: 'GU_SO', shouldMemoize: true })) {
 				this.tokenManager.clear();
 				return {
+					accessToken: undefined,
+					idToken: undefined,
 					isAuthenticated: false,
 				};
 			}
 
 			// if user tokens already exist, they are signed in
 			const authState = this.authStateManager.getAuthState();
-			if (
-				authState?.isAuthenticated &&
-				authState.accessToken &&
-				authState.idToken
-			) {
+			if (authState.isAuthenticated) {
 				// validate the id token and access token to make sure auth state is still valid
 				await this.token.verifyToken(authState.idToken, authState.accessToken);
 
@@ -100,15 +111,19 @@ export class IdentityAuth<
 				const tokens = await this.tokenManager.getTokens({
 					refreshIfRequired: true,
 				});
-				return {
-					accessToken: tokens?.accessToken,
-					idToken: tokens?.idToken,
-					isAuthenticated: true,
-				};
+				if (tokens) {
+					return {
+						accessToken: tokens.accessToken,
+						idToken: tokens.idToken,
+						isAuthenticated: true,
+					};
+				}
 			}
 
 			// if the user doesn't have tokens or a GU_U cookie, they are not signed in
 			return {
+				accessToken: undefined,
+				idToken: undefined,
 				isAuthenticated: false,
 			};
 		} catch (error) {
@@ -116,6 +131,8 @@ export class IdentityAuth<
 			if (error instanceof OAuthError && error.error === 'login_required') {
 				// so return isAuthenticated: false
 				return {
+					accessToken: undefined,
+					idToken: undefined,
 					isAuthenticated: false,
 				};
 			}

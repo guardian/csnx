@@ -6,7 +6,12 @@ type Event = {
 	ctx?: unknown;
 };
 
-export type EventName = 'added' | 'removed' | 'storage' | 'authStateChange';
+export type EventName =
+	| 'added'
+	| 'authStateChange'
+	| 'removed'
+	| 'renew'
+	| 'storage';
 
 /**
  * @class Emitter

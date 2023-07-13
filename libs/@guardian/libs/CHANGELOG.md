@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.2.0
+
+### Minor Changes
+
+- 644fcd7: Deprecate `ArticlePillar` in favour of `Pillar`. `ArticlePillar` will be removed entirely in a future major release.
+
 ## 15.1.0
 
 ### Minor Changes

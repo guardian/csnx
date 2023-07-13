@@ -1,4 +1,9 @@
-import type { IdentityAuthOptions, IdentityAuthState } from './@types/OAuth';
+import type {
+	IdentityAuthOptions,
+	IdentityAuthState,
+	IdentityAuthStateAuthenticated,
+	IdentityAuthStateNotAuthenticated,
+} from './@types/OAuth';
 import type {
 	AccessToken,
 	AccessTokenClaims,
@@ -10,7 +15,12 @@ import type {
 import { IdentityAuth } from './identityAuth';
 
 export { IdentityAuth };
-export type { IdentityAuthOptions, IdentityAuthState };
+export type {
+	IdentityAuthOptions,
+	IdentityAuthState,
+	IdentityAuthStateAuthenticated,
+	IdentityAuthStateNotAuthenticated,
+};
 export type {
 	AccessToken,
 	AccessTokenClaims,
