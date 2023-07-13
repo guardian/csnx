@@ -158,12 +158,7 @@ describe('IdentityAuth#Token', () => {
 			clockSkew: 0,
 		} as IDToken;
 
-		const result = TokenModule.verifyIdTokenClaims(
-			idToken,
-			claims,
-			'nonce',
-			options,
-		);
+		const result = TokenModule.verifyIdTokenClaims(idToken, claims, options);
 
 		expect(result).toBeUndefined();
 	});
@@ -188,7 +183,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Invalid nonce');
 	});
 
@@ -212,7 +207,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Invalid issuer');
 	});
 
@@ -236,7 +231,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Invalid audience');
 	});
 
@@ -260,7 +255,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token has expired before it was issued');
 	});
 
@@ -284,7 +279,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token has expired');
 	});
 
@@ -308,7 +303,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token was issued in the future');
 	});
 
@@ -346,11 +341,11 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken1, claims1, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken1, claims1, options);
 		}).toThrowError('Token does not contain required claims');
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken2, claims2, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken2, claims2, options);
 		}).toThrowError('Token does not contain required claims');
 	});
 
@@ -376,7 +371,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).not.toThrowError();
 	});
 
@@ -402,7 +397,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token has expired');
 	});
 
@@ -428,7 +423,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).not.toThrowError();
 	});
 
@@ -454,7 +449,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token has expired');
 	});
 
@@ -480,7 +475,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).not.toThrowError();
 	});
 
@@ -507,7 +502,7 @@ describe('IdentityAuth#Token', () => {
 
 		// should fail because local time is 1 second behind server time
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token was issued in the future');
 	});
 
@@ -533,7 +528,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).not.toThrowError();
 	});
 
@@ -559,7 +554,7 @@ describe('IdentityAuth#Token', () => {
 		} as IDToken;
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(idToken, claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token was issued in the future');
 	});
 });

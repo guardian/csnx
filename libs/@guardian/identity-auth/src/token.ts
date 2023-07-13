@@ -237,14 +237,13 @@ const decodeToken = <T extends CustomClaims = CustomClaims>(
 export const verifyIdTokenClaims = (
 	decoded: IDToken,
 	claims: JWTPayload,
-	nonce: string,
 	options: RequiredIdentityAuthOptions,
 ): void => {
 	const localTime = Math.floor(Date.now() / 1000);
 	const normalisedTime = localTime - decoded.clockSkew;
 
 	// check the nonce is valid
-	if (claims.nonce !== nonce) {
+	if (claims.nonce !== decoded.nonce) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Invalid nonce in ID token',
@@ -620,7 +619,7 @@ export const verifyToken = async (
 		const jwt = decodeToken(idToken.idToken);
 
 		// verify the claims
-		verifyIdTokenClaims(idToken, jwt.payload, idToken.nonce, options);
+		verifyIdTokenClaims(idToken, jwt.payload, options);
 
 		// verify the signature
 		await verifySignature(oauthUrls.keysUrl, jwt, idToken.idToken);
