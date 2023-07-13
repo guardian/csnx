@@ -33,6 +33,7 @@ describe('IdentityAuth#AuthStateManager', () => {
 			ver: 1,
 		},
 		expiresAt: 123,
+		clockSkew: 0,
 		scopes: ['scp'],
 		tokenType: 'tokenType',
 	};
@@ -58,6 +59,7 @@ describe('IdentityAuth#AuthStateManager', () => {
 			ver: 1,
 		},
 		expiresAt: 123,
+		clockSkew: 0,
 		clientId: 'clientId',
 		idToken: 'idToken',
 		issuer: 'issuer',
@@ -72,6 +74,9 @@ describe('IdentityAuth#AuthStateManager', () => {
 				issuer: 'https://profile.theguardian.com/oauth2/test',
 				redirectUri: 'test',
 				scopes: ['openid', 'profile', 'test'],
+				autoRenew: false,
+				renewGracePeriod: 0,
+				maxClockSkew: 300,
 			},
 			{
 				authorizeUrl:

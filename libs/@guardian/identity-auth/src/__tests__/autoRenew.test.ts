@@ -41,11 +41,20 @@ describe('IdentityAuth#AutoRenewService', () => {
 	};
 
 	beforeEach(() => {
-		token = new (Token as jest.MockedClass<typeof Token>)(options, {
-			authorizeUrl: 'https://profile.theguardian.com/oauth2/test/v1/authorize',
-			tokenUrl: 'https://profile.theguardian.com/oauth2/test/v1/token',
-			keysUrl: 'https://profile.theguardian.com/oauth2/test/v1/keys',
-		});
+		token = new (Token as jest.MockedClass<typeof Token>)(
+			{
+				...options,
+				autoRenew: false,
+				renewGracePeriod: 0,
+				maxClockSkew: 300,
+			},
+			{
+				authorizeUrl:
+					'https://profile.theguardian.com/oauth2/test/v1/authorize',
+				tokenUrl: 'https://profile.theguardian.com/oauth2/test/v1/token',
+				keysUrl: 'https://profile.theguardian.com/oauth2/test/v1/keys',
+			},
+		);
 		emitter = new Emitter();
 		tokenManager = new (TokenManager as jest.MockedClass<typeof TokenManager>)(
 			emitter,
@@ -66,6 +75,7 @@ describe('IdentityAuth#AutoRenewService', () => {
 				...options,
 				autoRenew: true,
 				renewGracePeriod: 60,
+				maxClockSkew: 300,
 			},
 			emitter,
 			authStateManager,
@@ -86,6 +96,7 @@ describe('IdentityAuth#AutoRenewService', () => {
 				...options,
 				autoRenew: false,
 				renewGracePeriod: 60,
+				maxClockSkew: 300,
 			},
 			emitter,
 			authStateManager,
@@ -102,6 +113,7 @@ describe('IdentityAuth#AutoRenewService', () => {
 				...options,
 				autoRenew: true,
 				renewGracePeriod: 60,
+				maxClockSkew: 300,
 			},
 			emitter,
 			authStateManager,
@@ -136,6 +148,7 @@ describe('IdentityAuth#AutoRenewService', () => {
 				...options,
 				autoRenew: true,
 				renewGracePeriod: 60,
+				maxClockSkew: 300,
 			},
 			emitter,
 			authStateManager,
@@ -178,6 +191,7 @@ describe('IdentityAuth#AutoRenewService', () => {
 				...options,
 				autoRenew: true,
 				renewGracePeriod: 60,
+				maxClockSkew: 300,
 			},
 			emitter,
 			authStateManager,

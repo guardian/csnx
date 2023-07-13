@@ -3,6 +3,7 @@ import type {
 	IdentityAuthOptions,
 	IdentityAuthState,
 	OAuthUrls,
+	RequiredIdentityAuthOptions,
 } from './@types/OAuth';
 import type { CustomClaims } from './@types/Token';
 import { AuthStateManager } from './authState';
@@ -29,7 +30,7 @@ export class IdentityAuth<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	#options: Required<IdentityAuthOptions>;
+	#options: RequiredIdentityAuthOptions;
 	#oauthUrls: OAuthUrls;
 	#emitter: Emitter;
 	#autoRenewService: AutoRenewService;
@@ -42,6 +43,7 @@ export class IdentityAuth<
 		this.#options = {
 			autoRenew: true,
 			renewGracePeriod: 60,
+			maxClockSkew: 300,
 			...options,
 		};
 		this.#oauthUrls = {

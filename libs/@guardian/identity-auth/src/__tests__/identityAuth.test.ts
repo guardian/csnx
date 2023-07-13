@@ -41,6 +41,7 @@ describe('IdentityAuth', () => {
 			expiresAt: 123,
 			scopes: ['scp'],
 			tokenType: 'tokenType',
+			clockSkew: 0,
 		};
 
 		const idToken: IDToken = {
@@ -69,6 +70,7 @@ describe('IdentityAuth', () => {
 			issuer: 'issuer',
 			scopes: ['scp'],
 			nonce: 'nonce',
+			clockSkew: 0,
 		};
 
 		jest.spyOn(auth, 'isSignedInWithAuthState').mockImplementation(() =>
@@ -125,6 +127,7 @@ describe('IdentityAuth', () => {
 				ver: 1,
 			},
 			expiresAt: 123,
+			clockSkew: 0,
 			scopes: ['scp'],
 			tokenType: 'tokenType',
 		};
@@ -152,6 +155,7 @@ describe('IdentityAuth', () => {
 				ver: 1,
 			},
 			expiresAt: 123,
+			clockSkew: 0,
 			clientId: 'clientId',
 			idToken: 'idToken',
 			issuer: 'issuer',
