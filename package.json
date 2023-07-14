@@ -81,6 +81,11 @@
 				"react",
 				"react-dom"
 			]
+		},
+		"overrides": {
+			"semver@^5.0.0": "5.7.2",
+			"semver@^6.0.0": "6.3.1",
+			"semver@^7.0.0": "7.5.4"
 		}
 	}
 }
