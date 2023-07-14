@@ -427,20 +427,20 @@ importers:
     specifiers:
       '@babel/core': 7.22.9
       '@emotion/react': 11.11.1
-      '@guardian/libs': 15.2.0
+      '@guardian/libs': 15.0.0
       '@guardian/source-foundations': 12.0.0
       '@guardian/source-react-components': 15.0.1
-      '@types/react': 18.2.15
+      '@types/react': 18.2.11
       react: 18.2.0
       tslib: 2.5.3
       typescript: 5.1.3
     devDependencies:
       '@babel/core': 7.22.9
-      '@emotion/react': 11.11.1_tznpbkknyqq5lcv5sgrl332jvu
-      '@guardian/libs': link:../libs
+      '@emotion/react': 11.11.1_j4swkgacdxrhexoapez3itylte
+      '@guardian/libs': 15.0.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
-      '@types/react': 18.2.15
+      '@types/react': 18.2.11
       react: 18.2.0
       tslib: 2.5.3
       typescript: 5.1.3
