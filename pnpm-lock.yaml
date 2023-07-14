@@ -167,7 +167,7 @@ importers:
       '@guardian/consent-management-platform': 13.5.0
       '@guardian/eslint-plugin-source-foundations': 13.0.0
       '@guardian/eslint-plugin-source-react-components': 17.0.0
-      '@guardian/libs': 15.2.0
+      '@guardian/libs': 15.1.0
       '@guardian/source-foundations': 12.0.0
       '@guardian/source-react-components': 15.0.1
       '@testing-library/dom': 9.3.1
@@ -193,10 +193,10 @@ importers:
       '@emotion/react': 11.11.1_tznpbkknyqq5lcv5sgrl332jvu
       '@guardian/ab-core': link:../ab-core
       '@guardian/commercial': 10.0.0_typescript@5.1.3
-      '@guardian/consent-management-platform': 13.5.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/consent-management-platform': 13.5.0_@guardian+libs@15.1.0
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
-      '@guardian/libs': link:../libs
+      '@guardian/libs': 15.1.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
       '@testing-library/dom': 9.3.1
@@ -3549,12 +3549,12 @@ packages:
       - typescript
     dev: true
 
-  /@guardian/consent-management-platform/13.5.0_uo3bjqllavv5kwoq2zqgzcz5h4:
+  /@guardian/consent-management-platform/13.5.0_@guardian+libs@15.1.0:
     resolution: {integrity: sha512-9iz04lyonWAbUeZ7B+fNp0KbgAervsWDO3A4CE/3e+d876AQj0I3TwU7W4jpWxI4tthcA6UVk7Y6faaS8l+lFw==}
     peerDependencies:
       '@guardian/libs': ^15.0.0
     dependencies:
-      '@guardian/libs': link:libs/@guardian/libs
+      '@guardian/libs': 15.1.0_xfreuenalcno2zxheqz32kfzfe
     dev: true
 
   /@guardian/consent-management-platform/13.6.0_@guardian+libs@15.2.0:
@@ -3592,6 +3592,19 @@ packages:
 
   /@guardian/libs/15.0.0_xfreuenalcno2zxheqz32kfzfe:
     resolution: {integrity: sha512-UnNxcJHYDfpElrxc7sbfwSJ82erH3mjdKsALAgevggsbhOSAkE9yoCn+XMBPN7iQ14bEHZPYyOMt0y1hNCItyg==}
+    peerDependencies:
+      tslib: ^2.5.3
+      typescript: ~5.1.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      tslib: 2.5.3
+      typescript: 5.1.3
+    dev: true
+
+  /@guardian/libs/15.1.0_xfreuenalcno2zxheqz32kfzfe:
+    resolution: {integrity: sha512-1USL3EuhwhyUANjWeVBZx2mRVCydE0QAzUIOV2ukojp92ZAWyt2RqxV8luTEPgUxbDAtma9MuO6lgTshTk5nYw==}
     peerDependencies:
       tslib: ^2.5.3
       typescript: ~5.1.3
