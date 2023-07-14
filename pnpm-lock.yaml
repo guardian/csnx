@@ -163,8 +163,8 @@ importers:
       '@emotion/eslint-plugin': 11.11.0
       '@emotion/react': 11.11.1
       '@guardian/ab-core': 5.0.0
-      '@guardian/commercial': 10.5.0
-      '@guardian/consent-management-platform': 13.6.0
+      '@guardian/commercial': 10.0.0
+      '@guardian/consent-management-platform': 13.5.0
       '@guardian/eslint-plugin-source-foundations': 13.0.0
       '@guardian/eslint-plugin-source-react-components': 17.0.0
       '@guardian/libs': 15.2.0
@@ -192,8 +192,8 @@ importers:
       '@emotion/eslint-plugin': 11.11.0
       '@emotion/react': 11.11.1_tznpbkknyqq5lcv5sgrl332jvu
       '@guardian/ab-core': link:../ab-core
-      '@guardian/commercial': 10.5.0_typescript@5.1.3
-      '@guardian/consent-management-platform': 13.6.0_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/commercial': 10.0.0_typescript@5.1.3
+      '@guardian/consent-management-platform': 13.5.0_uo3bjqllavv5kwoq2zqgzcz5h4
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
       '@guardian/libs': link:../libs
@@ -3523,8 +3523,8 @@ packages:
       typescript: 5.1.3
     dev: true
 
-  /@guardian/commercial/10.5.0_typescript@5.1.3:
-    resolution: {integrity: sha512-m9kCUhfoUO0caJlZO16YpQ2YJ6t6txYAKrANoG7O8qlDltMk4UZzw5e4WT7anJcofSXxsepGyfnPF42zRboxQQ==}
+  /@guardian/commercial/10.0.0_typescript@5.1.3:
+    resolution: {integrity: sha512-ymKxtAuKmYJDKIbHPMpSHmjM1xATn9cq/t6g3G5GPPg4/f71g2H31elIfalPo9pes9dhgpXTyH+TzryF551F1w==}
     dependencies:
       '@changesets/cli': 2.26.2
       '@guardian/ab-core': 5.0.0_xfreuenalcno2zxheqz32kfzfe
@@ -3537,7 +3537,7 @@ packages:
       fastdom: 1.0.11
       lodash-es: 4.17.21
       ophan-tracker-js: 1.4.0
-      prebid.js: github.com/guardian/prebid.js/2e3b96dc57dfe14ed8c418674ee7a0a150ece7cb_tslib@2.5.3
+      prebid.js: github.com/guardian/prebid.js/2e3b96d_tslib@2.5.3
       process: 0.11.10
       raven-js: 3.27.2
       tslib: 2.5.3
@@ -3549,20 +3549,20 @@ packages:
       - typescript
     dev: true
 
+  /@guardian/consent-management-platform/13.5.0_uo3bjqllavv5kwoq2zqgzcz5h4:
+    resolution: {integrity: sha512-9iz04lyonWAbUeZ7B+fNp0KbgAervsWDO3A4CE/3e+d876AQj0I3TwU7W4jpWxI4tthcA6UVk7Y6faaS8l+lFw==}
+    peerDependencies:
+      '@guardian/libs': ^15.0.0
+    dependencies:
+      '@guardian/libs': link:libs/@guardian/libs
+    dev: true
+
   /@guardian/consent-management-platform/13.6.0_@guardian+libs@15.2.0:
     resolution: {integrity: sha512-GjAO4R6+Pl/zwt1EJtOUi5HwXmtqkg0+P+Eh3GtH0Kup+vZU7g5A0d5GITttGKsWQBPvSYIkGMbCJFVqD/DB2w==}
     peerDependencies:
       '@guardian/libs': ^15.0.0
     dependencies:
       '@guardian/libs': 15.2.0_xfreuenalcno2zxheqz32kfzfe
-    dev: true
-
-  /@guardian/consent-management-platform/13.6.0_uo3bjqllavv5kwoq2zqgzcz5h4:
-    resolution: {integrity: sha512-GjAO4R6+Pl/zwt1EJtOUi5HwXmtqkg0+P+Eh3GtH0Kup+vZU7g5A0d5GITttGKsWQBPvSYIkGMbCJFVqD/DB2w==}
-    peerDependencies:
-      '@guardian/libs': ^15.0.0
-    dependencies:
-      '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
   /@guardian/core-web-vitals/5.0.0_mr7k7vzdjfvyqxxzevda5jp4ua:
@@ -16441,9 +16441,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  github.com/guardian/prebid.js/2e3b96dc57dfe14ed8c418674ee7a0a150ece7cb_tslib@2.5.3:
-    resolution: {tarball: https://codeload.github.com/guardian/prebid.js/tar.gz/2e3b96dc57dfe14ed8c418674ee7a0a150ece7cb}
-    id: github.com/guardian/prebid.js/2e3b96dc57dfe14ed8c418674ee7a0a150ece7cb
+  github.com/guardian/prebid.js/2e3b96d_tslib@2.5.3:
+    resolution: {tarball: https://codeload.github.com/guardian/prebid.js/tar.gz/2e3b96d}
+    id: github.com/guardian/prebid.js/2e3b96d
     name: prebid.js
     version: 7.26.0
     engines: {node: '>=8.9.0'}
