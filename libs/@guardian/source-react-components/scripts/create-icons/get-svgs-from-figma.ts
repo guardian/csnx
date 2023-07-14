@@ -1,4 +1,3 @@
-import axios from 'axios';
 import 'dotenv/config';
 
 interface FigmaComponentsResponse {
@@ -31,15 +30,21 @@ const FIGMA_API_OPTIONS = {
 	},
 };
 
+const figmaApi = async <T>(url: string): Promise<T> => {
+	const response = await fetch(
+		`https://api.figma.com/v1/${url}`,
+		FIGMA_API_OPTIONS,
+	);
+	const data = await response.json();
+	return data;
+};
+
 export const getIconsFromFigma = async () => {
 	// Get a list of available (figma) components from Figma
 	// https://www.figma.com/developers/api#library-items-types
 	const figmaComponents = (
-		await axios.get<FigmaComponentsResponse>(
-			`https://api.figma.com/v1/files/${ICON_FILE}/components`,
-			FIGMA_API_OPTIONS,
-		)
-	).data.meta.components;
+		await figmaApi<FigmaComponentsResponse>(`files/${ICON_FILE}/components`)
+	).meta.components;
 
 	// filter out the icons from the list of figma components
 	const figmaIconComponents = figmaComponents.filter((c) => {
@@ -54,11 +59,10 @@ export const getIconsFromFigma = async () => {
 	// Get the URLs we can fetch actual images from from Figma
 	// https://www.figma.com/developers/api#get-images-endpoint
 	const figmaIconSvgUrlsByNodeId = (
-		await axios.get<FigmaImagesResponse>(
-			`https://api.figma.com/v1/images/${ICON_FILE}/?ids=${iconIds}&format=svg`,
-			FIGMA_API_OPTIONS,
+		await figmaApi<FigmaImagesResponse>(
+			`images/${ICON_FILE}/?ids=${iconIds}&format=svg`,
 		)
-	).data.images;
+	).images;
 
 	const icons = [];
 
@@ -69,7 +73,8 @@ export const getIconsFromFigma = async () => {
 			console.log(`Fetching ${icon.name}.svg`);
 
 			// Fetch SVG markup from Figma
-			const svg = (await axios.get<string>(url)).data;
+			const response = await fetch(url);
+			const svg = await response.text();
 
 			icons.push({
 				name: icon.name,
