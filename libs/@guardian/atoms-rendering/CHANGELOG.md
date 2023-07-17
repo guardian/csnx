@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 32.2.2
+
+### Patch Changes
+
+- 5364a4c: Use latest package versions
+
 ## 32.2.1
 
 ### Patch Changes

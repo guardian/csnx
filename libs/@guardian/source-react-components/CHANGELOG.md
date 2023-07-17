@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 15.0.2
+
+### Patch Changes
+
+- 5364a4c: Use latest package versions
+
 ## 15.0.1
 
 ### Patch Changes
