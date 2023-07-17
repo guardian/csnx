@@ -1,5 +1,8 @@
 import { getCookie } from '@guardian/libs';
-import type { IdentityAuthOptions, IdentityAuthState } from './@types/OAuth';
+import type {
+	IdentityAuthState,
+	RequiredIdentityAuthOptions,
+} from './@types/OAuth';
 import type { AuthStateManager } from './authState';
 import type { Emitter } from './emitter';
 
@@ -8,7 +11,7 @@ import type { Emitter } from './emitter';
  * @description Managing the auto renewal of tokens, if enabled
  */
 export class AutoRenewService {
-	#options: Required<IdentityAuthOptions>;
+	#options: RequiredIdentityAuthOptions;
 	#emitter: Emitter;
 	#authStateManager: AuthStateManager;
 	started = false;
@@ -16,7 +19,7 @@ export class AutoRenewService {
 	#renewAtTimeoutId: number | undefined;
 
 	constructor(
-		options: Required<IdentityAuthOptions>,
+		options: RequiredIdentityAuthOptions,
 		emitter: Emitter,
 		authStateManager: AuthStateManager,
 	) {

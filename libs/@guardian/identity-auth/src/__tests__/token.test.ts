@@ -1,10 +1,10 @@
 import fetchMock from 'jest-fetch-mock';
 import type {
 	AuthorizeParams,
-	IdentityAuthOptions,
 	OAuthUrls,
+	RequiredIdentityAuthOptions,
 } from '../@types/OAuth';
-import type { JWTPayload } from '../@types/Token';
+import type { IDToken, JWTPayload } from '../@types/Token';
 import * as TokenModule from '../token';
 
 fetchMock.enableMocks();
@@ -22,11 +22,14 @@ describe('IdentityAuth#Token', () => {
 		response_type: 'code',
 		nonce: 'nonce',
 	};
-	const options: IdentityAuthOptions = {
+	const options: RequiredIdentityAuthOptions = {
 		clientId: 'test',
 		issuer: 'https://profile.theguardian.com/oauth2/test',
 		redirectUri: 'test',
 		scopes: ['openid', 'profile', 'test'],
+		maxClockSkew: 300,
+		autoRenew: false,
+		renewGracePeriod: 0,
 	};
 	const oauthUrls: OAuthUrls = {
 		authorizeUrl: 'https://profile.theguardian.com/oauth2/test/v1/authorize',
@@ -137,124 +140,421 @@ describe('IdentityAuth#Token', () => {
 	});
 
 	it('should verify the id token claims', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 - 1,
-			exp: new Date().getTime() / 1000 + 3600,
+			iat: now - 1,
+			exp: now + 3600,
 			nonce: 'nonce',
 		};
 
-		const result = TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
+		const result = TokenModule.verifyIdTokenClaims(idToken, claims, options);
 
 		expect(result).toBeUndefined();
 	});
 
 	it('should verify the id token and throw if the nonce is incorrect', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/tes',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 - 1,
-			exp: new Date().getTime() / 1000 + 3600,
+			iat: now - 1,
+			exp: now + 3600,
 			nonce: 'nonsense',
 		};
 
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Invalid nonce');
 	});
 
 	it('should verify the id token and throw if the issuer is incorrect', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/tes',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 - 1,
-			exp: new Date().getTime() / 1000 + 3600,
+			iat: now - 1,
+			exp: now + 3600,
 			nonce: 'nonce',
 		};
 
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Invalid issuer');
 	});
 
 	it('should verify the id token and throw if the client id is incorrect', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'tes',
-			iat: new Date().getTime() / 1000 - 1,
-			exp: new Date().getTime() / 1000 + 3600,
+			iat: now - 1,
+			exp: now + 3600,
 			nonce: 'nonce',
 		};
 
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Invalid audience');
 	});
 
 	it('should verify the id token and throw if the token iat is after exp', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 + 1,
-			exp: new Date().getTime() / 1000 - 3600,
+			iat: now + 1,
+			exp: now - 3600,
 			nonce: 'nonce',
 		};
 
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token has expired before it was issued');
 	});
 
 	it('should verify the id token and throw if the token is expired', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 - 10,
-			exp: new Date().getTime() / 1000 - 1,
+			iat: now - 10,
+			exp: now - 1,
 			nonce: 'nonce',
 		};
 
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token has expired');
 	});
 
 	it('should verify the id token and throw if the token was issued in the future', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 + 10,
-			exp: new Date().getTime() / 1000 + 3600,
+			iat: now + 10,
+			exp: now + 3600,
 			nonce: 'nonce',
 		};
 
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
 		}).toThrowError('Token was issued in the future');
 	});
 
 	it('should verify the id token and throw if iat or exp are missing', () => {
+		const now = Math.floor(Date.now() / 1000);
+
 		const claims1: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'test',
-			iat: new Date().getTime() / 1000 - 1,
+			iat: now - 1,
 			nonce: 'nonce',
 		};
 
 		const claims2: JWTPayload = {
 			iss: 'https://profile.theguardian.com/oauth2/test',
 			aud: 'test',
-			exp: new Date().getTime() / 1000 + 3600,
+			exp: now + 3600,
 			nonce: 'nonce',
 		};
 
+		const idToken1 = {
+			claims: claims1,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
+		const idToken2 = {
+			claims: claims2,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew: 0,
+		} as IDToken;
+
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims1, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken1, claims1, options);
 		}).toThrowError('Token does not contain required claims');
 
 		expect(() => {
-			TokenModule.verifyIdTokenClaims(claims2, 'nonce', options);
+			TokenModule.verifyIdTokenClaims(idToken2, claims2, options);
 		}).toThrowError('Token does not contain required claims');
+	});
+
+	it('positive clock skew checking exp: exp > normalised local time is valid (token not expired)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = 1; // mock local clock skew of 1 second ahead of server time
+		const serverTime = localTime - clockSkew; // mocking server time
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: 1,
+			exp: serverTime, // mocking token expiry at server time
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).not.toThrowError();
+	});
+
+	it('positive clock skew checking exp: exp < normalised local time is invalid (token expired)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = 1; // mock local clock skew of 1 second ahead of server time
+		const serverTime = localTime - clockSkew; // mocking server time expiry
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: 1,
+			exp: serverTime - 1, // mocking token expiry 1 second in the past
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).toThrowError('Token has expired');
+	});
+
+	it('negative clock skew checking exp: exp > normalised local time is valid (token not expired)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = -1; // mock local clock skew of 1 second behind server time
+		const serverTime = localTime - clockSkew; // mocking server time
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: 1,
+			exp: serverTime, // mocking token expiry at server time
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).not.toThrowError();
+	});
+
+	it('negative clock skew checking exp: exp < normalised local time is invalid (token has expired)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = -1; // mock local clock skew of 1 second behind server time
+		const serverTime = localTime - clockSkew; // mocking server time expiry
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: 1,
+			exp: serverTime - 1, // mocking token expiry 1 second in the past
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).toThrowError('Token has expired');
+	});
+
+	it('positive clock skew checking iat: normalised local time > iat is valid (token not issued in future)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = 1; // mock local clock skew of 1 second ahead of server time
+		const serverTime = localTime - clockSkew; // mocking server time
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: serverTime, // mocking token issued at server time
+			exp: serverTime + 3600,
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).not.toThrowError();
+	});
+
+	it('positive clock skew checking iat: normalised local time < iat is invalid (token issued in future)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = 1; // mock local clock skew of 1 second ahead of server time
+		const serverTime = localTime - clockSkew; // mocking server time
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: serverTime + 1, // mocking token issued 1 second in the future
+			exp: serverTime + 3600,
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		// should fail because local time is 1 second behind server time
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).toThrowError('Token was issued in the future');
+	});
+
+	it('negative clock skew checking iat: normalised local time < iat is valid (token not in future)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = -1; // mock local clock skew of 1 second behind server time
+		const serverTime = localTime - clockSkew; // mocking server time
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: serverTime, // mocking token issued at server time
+			exp: serverTime + 3600,
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).not.toThrowError();
+	});
+
+	it('negative clock skew checking iat: normalised local time > iat is invalid (token issued in future)', () => {
+		const localTime = Math.floor(Date.now() / 1000);
+		const clockSkew = -1; // mock local clock skew of 1 second behind server time
+		const serverTime = localTime - clockSkew; // mocking server time
+
+		const claims: JWTPayload = {
+			iss: 'https://profile.theguardian.com/oauth2/test',
+			aud: 'test',
+			iat: serverTime + 1, // mocking token issued 1 second in the future
+			exp: serverTime + 3600,
+			nonce: 'nonce',
+		};
+
+		const idToken = {
+			claims,
+			clientId: 'test',
+			issuer: 'https://profile.theguardian.com/oauth2/test',
+			nonce: 'nonce',
+			clockSkew,
+		} as IDToken;
+
+		expect(() => {
+			TokenModule.verifyIdTokenClaims(idToken, claims, options);
+		}).toThrowError('Token was issued in the future');
 	});
 });

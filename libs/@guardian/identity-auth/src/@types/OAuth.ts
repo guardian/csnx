@@ -12,6 +12,7 @@ import type { AccessToken, CustomClaims, IDToken } from './Token';
  * @param redirectUri - The redirect URI of your app
  * @param autoRenew - Whether to automatically renew the tokens, defaults to `true`
  * @param renewGracePeriod - The time in seconds before the access token expires to renew the token, defaults to 60 seconds
+ * @param maxClockSkew - The maximum time drift in seconds between the client and server, defaults to 300 seconds (5 minutes), based on the default maximum tolerance of the Kerberos protocol
  */
 export interface IdentityAuthOptions {
 	clientId: string;
@@ -23,7 +24,13 @@ export interface IdentityAuthOptions {
 	redirectUri: string;
 	autoRenew?: boolean;
 	renewGracePeriod?: number;
+	maxClockSkew?: number;
 }
+
+/**
+ * Defines the options that are required to configure the IdentityAuth
+ */
+export type RequiredIdentityAuthOptions = Required<IdentityAuthOptions>;
 
 /**
  * Defines the state of the IdentityAuth instance when not authenticated.

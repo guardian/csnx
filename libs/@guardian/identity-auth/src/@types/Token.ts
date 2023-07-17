@@ -107,6 +107,7 @@ export interface JWTObject<T extends CustomClaims = CustomClaims> {
 interface AbstractToken {
 	expiresAt: number;
 	scopes: string[];
+	clockSkew: number; // in seconds, determines the drift between the client and server
 }
 
 /**

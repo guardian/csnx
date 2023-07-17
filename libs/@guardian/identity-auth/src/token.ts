@@ -3,12 +3,12 @@
 import { isNonNullable } from '@guardian/libs';
 import type {
 	AuthorizeParams,
-	IdentityAuthOptions,
 	OAuthAuthorizeResponse,
 	OAuthAuthorizeResponseError,
 	OAuthTokenResponse,
 	OAuthTokenResponseError,
 	OAuthUrls,
+	RequiredIdentityAuthOptions,
 	TokenParams,
 } from './@types/OAuth';
 import type {
@@ -229,18 +229,21 @@ const decodeToken = <T extends CustomClaims = CustomClaims>(
  * @description Verifies the claims of an ID token are valid and expected
  *
  * @param claims - ID token claims
- * @param options - IdentityAuthOptions
+ * @param options - RequiredIdentityAuthOptions
  *
  * @throws Error - if the claims are invalid
  * @returns void
  */
 export const verifyIdTokenClaims = (
+	decoded: IDToken,
 	claims: JWTPayload,
-	nonce: string,
-	options: IdentityAuthOptions,
+	options: RequiredIdentityAuthOptions,
 ): void => {
+	const localTime = Math.floor(Date.now() / 1000);
+	const normalisedTime = localTime - decoded.clockSkew;
+
 	// check the nonce is valid
-	if (claims.nonce !== nonce) {
+	if (claims.nonce !== decoded.nonce) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Invalid nonce in ID token',
@@ -285,7 +288,7 @@ export const verifyIdTokenClaims = (
 	}
 
 	// check the token hasn't expired
-	if (claims.exp < Math.floor(Date.now() / 1000)) {
+	if (normalisedTime > claims.exp) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token has expired',
@@ -294,7 +297,7 @@ export const verifyIdTokenClaims = (
 	}
 
 	// check the token wasn't issued in the future
-	if (claims.iat > Math.floor(Date.now() / 1000)) {
+	if (claims.iat > normalisedTime) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token was issued in the future',
@@ -460,13 +463,13 @@ export const verifySignature = async (
  * @name addPostMessageListener
  * @description Adds a postMessage listener to the window to listen for the response from the authorization server when performing the Authorization Code Flow with PKCE in an iframe
  *
- * @param opts - IdentityAuthOptions
+ * @param opts - RequiredIdentityAuthOptions
  * @param state - state to match the response
  * @param timeout - timeout in milliseconds, defaults to 12000 (12 seconds)
  * @returns Promise<OAuthAuthorizeResponse | OAuthAuthorizeResponseError> - resolves with the response from the authorization server
  */
 export const addPostMessageListener = (
-	opts: IdentityAuthOptions,
+	opts: RequiredIdentityAuthOptions,
 	state: string,
 	timeout = 12000,
 ) => {
@@ -547,13 +550,13 @@ export const loadFrame = (url: string) => {
  * @description Performs the authorization code flow with PKCE using an iframe, and returns the AuthorizationResponse
  *
  * @param authorizeParams - AuthorizeParams
- * @param options - IdentityAuthOptions
+ * @param options - RequiredIdentityAuthOptions
  * @param oauthUrls - OAuthUrls
  * @returns OAuthAuthorizeResponse | OAuthAuthorizeResponseError - resolves with the AuthorizationResponse
  */
 export const performAuthCodeFlowIframe = async (
 	authorizeParams: AuthorizeParams,
-	options: IdentityAuthOptions,
+	options: RequiredIdentityAuthOptions,
 	oauthUrls: OAuthUrls,
 ): Promise<OAuthAuthorizeResponse | OAuthAuthorizeResponseError> => {
 	// convert the authorize params to a query string
@@ -588,13 +591,13 @@ const memoizedVerifyToken = new Map<string, unknown>();
  *
  * @param idToken - IDToken
  * @param accessToken - AccessToken
- * @param options - IdentityAuthOptions
+ * @param options - RequiredIdentityAuthOptions
  * @returns Promise<void> - resolves when the token is verified
  */
 export const verifyToken = async (
 	idToken: IDToken,
 	accessToken: AccessToken,
-	options: IdentityAuthOptions,
+	options: RequiredIdentityAuthOptions,
 	oauthUrls: OAuthUrls,
 ) => {
 	// check if the token has already been verified
@@ -616,7 +619,7 @@ export const verifyToken = async (
 		const jwt = decodeToken(idToken.idToken);
 
 		// verify the claims
-		verifyIdTokenClaims(jwt.payload, idToken.nonce, options);
+		verifyIdTokenClaims(idToken, jwt.payload, options);
 
 		// verify the signature
 		await verifySignature(oauthUrls.keysUrl, jwt, idToken.idToken);
@@ -644,14 +647,14 @@ export const verifyToken = async (
  *
  * @param code - authorization code
  * @param codeVerifier - code verifier used to generate the code challenge
- * @param options - IdentityAuthOptions
+ * @param options - RequiredIdentityAuthOptions
  * @param oauthUrls - OAuthUrls
  * @returns Promise<OAuthTokenResponse> - resolves with the response from the authorization server
  */
 export const exchangeCodeForTokens = async (
 	code: string,
 	codeVerifier: string,
-	options: IdentityAuthOptions,
+	options: RequiredIdentityAuthOptions,
 	oauthUrls: OAuthUrls,
 ): Promise<OAuthTokenResponse | OAuthTokenResponseError> => {
 	// create the token params
@@ -692,11 +695,12 @@ export const handleOAuthResponse = async <
 >(
 	oauthTokenResponse: OAuthTokenResponse,
 	authorizeParams: AuthorizeParams,
-	options: IdentityAuthOptions,
+	options: RequiredIdentityAuthOptions,
 	oauthUrls: OAuthUrls,
 ): Promise<TokenResponse<AC, IC>> => {
 	// destructure the response
 	const { access_token, expires_in, id_token, token_type } = oauthTokenResponse;
+
 	// get the current time in seconds
 	const now = Math.floor(Date.now() / 1000);
 
@@ -715,11 +719,24 @@ export const handleOAuthResponse = async <
 		});
 	}
 
+	// calculate the clock skew (difference between local and server time) using the iat claim
+	const accessTokenClockSkew = now - accessTokenPayload.iat;
+
+	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
+	if (Math.abs(accessTokenClockSkew) > options.maxClockSkew) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid Access token',
+			message: 'Clock skew too large',
+		});
+	}
+
 	// construct the access token
 	const accessToken: AccessToken<AC> = {
 		accessToken: access_token,
 		claims: accessTokenPayload,
-		expiresAt: now + Number(expires_in),
+		expiresAt: now + Number(expires_in), // adjusted to local (machine) time, to account for clock skew
+		clockSkew: accessTokenClockSkew,
 		tokenType: token_type,
 		scopes: accessTokenPayload.scp,
 	};
@@ -748,13 +765,26 @@ export const handleOAuthResponse = async <
 		});
 	}
 
+	// calculate the clock skew (difference between local and server time) using the iat claim
+	const idTokenClockSkew = now - idTokenPayload.iat;
+
+	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
+	if (Math.abs(idTokenClockSkew) > options.maxClockSkew) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid ID token',
+			message: 'Clock skew too large',
+		});
+	}
+
 	// construct the ID token
 	const idToken: IDToken<IC> = {
 		idToken: id_token,
 		issuer: options.issuer,
 		clientId: options.clientId,
 		claims: idTokenPayload,
-		expiresAt: idTokenPayload.exp - idTokenPayload.iat + now, // adjusting expiresAt to be in local time
+		expiresAt: idTokenPayload.exp - idTokenPayload.iat + now, // adjusting expiresAt to be in local (machine) time, to account for clock skew
+		clockSkew: idTokenClockSkew,
 		scopes: options.scopes,
 		nonce: authorizeParams.nonce,
 	};
@@ -789,13 +819,13 @@ export class Token<
 	AC extends CustomClaims = CustomClaims,
 	IC extends CustomClaims = CustomClaims,
 > {
-	#options: IdentityAuthOptions;
+	#options: RequiredIdentityAuthOptions;
 	#oauthUrls: OAuthUrls;
 
 	// holder if there is currently a get token flow in progress
 	#getTokensInProgress: Promise<TokenResponse<AC, IC>> | undefined;
 
-	constructor(options: IdentityAuthOptions, oauthUrls: OAuthUrls) {
+	constructor(options: RequiredIdentityAuthOptions, oauthUrls: OAuthUrls) {
 		this.#options = options;
 		this.#oauthUrls = oauthUrls;
 		this.#getTokensInProgress = undefined;
