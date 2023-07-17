@@ -85,6 +85,7 @@ export default async function buildExecutor(
 		};
 		await cpy(options.assets, options.outputPath, {
 			cwd: context.root,
+			flat: true,
 		});
 
 		// add a package.json with workspace deps resolved
