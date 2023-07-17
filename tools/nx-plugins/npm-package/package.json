@@ -6,7 +6,7 @@
 		"@rollup/plugin-commonjs": "25.0.0",
 		"@rollup/plugin-json": "6.0.0",
 		"@rollup/plugin-node-resolve": "15.1.0",
-		"cpy": "8.1.2",
+		"cpy": "10.1.0",
 		"execa": "7.1.1",
 		"read-pkg": "8.0.0",
 		"rollup": "3.24.0",
