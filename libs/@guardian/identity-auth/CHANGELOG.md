@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 0.2.1
+
+### Patch Changes
+
+- c4e6c09: Account for clock skew when verifying tokens
+
 ## 0.2.0
 
 ### Minor Changes
