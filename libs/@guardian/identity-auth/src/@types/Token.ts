@@ -121,6 +121,11 @@ export type AccessToken<T extends CustomClaims = CustomClaims> =
 	};
 
 /**
+ * The access token storage object, containing the access token.
+ */
+export type AccessTokenStorage = Pick<AccessToken, 'accessToken'>;
+
+/**
  * The ID token object.
  */
 export type IDToken<T extends CustomClaims = CustomClaims> = AbstractToken & {
@@ -130,6 +135,11 @@ export type IDToken<T extends CustomClaims = CustomClaims> = AbstractToken & {
 	clientId: string;
 	nonce: string;
 };
+
+/**
+ * The ID token storage object, containing the ID token and nonce.
+ */
+export type IDTokenStorage = Pick<IDToken, 'idToken' | 'nonce'>;
 
 /**
  * The tokens object, containing the access token and ID token.

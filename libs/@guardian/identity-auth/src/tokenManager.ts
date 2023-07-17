@@ -1,8 +1,10 @@
 import { storage } from '@guardian/libs';
 import type {
 	AccessToken,
+	AccessTokenStorage,
 	CustomClaims,
 	IDToken,
+	IDTokenStorage,
 	Tokens,
 	TokenType,
 } from './@types/Token';
@@ -80,15 +82,25 @@ export class TokenManager<
 		// check if there are existing tokens in storage
 		const existingTokens = this.getTokensSync();
 
+		// setup the storage objects
+		const accessTokenStorage: AccessTokenStorage = {
+			accessToken: tokens.accessToken.accessToken,
+		};
+
+		const idTokenStorage: IDTokenStorage = {
+			idToken: tokens.idToken.idToken,
+			nonce: tokens.idToken.nonce,
+		};
+
 		// set the new tokens in storage
 		this.#storage.set(
 			this.#accessTokenKey,
-			tokens.accessToken,
+			accessTokenStorage,
 			new Date(tokens.accessToken.expiresAt * 1000),
 		);
 		this.#storage.set(
 			this.#idTokenKey,
-			tokens.idToken,
+			idTokenStorage,
 			new Date(tokens.idToken.expiresAt * 1000),
 		);
 
@@ -113,11 +125,27 @@ export class TokenManager<
 	 * @returns Tokens | undefined - The tokens if they exist
 	 */
 	public getTokensSync(): Tokens<AC, IC> | undefined {
-		const accessToken = this.#storage.get(
+		const accessTokenFromStorage = this.#storage.get(
 			this.#accessTokenKey,
-		) as AccessToken<AC> | null;
+		) as AccessTokenStorage | null;
 
-		const idToken = this.#storage.get(this.#idTokenKey) as IDToken<IC> | null;
+		const idTokenFromStorage = this.#storage.get(
+			this.#idTokenKey,
+		) as IDTokenStorage | null;
+
+		if (
+			!accessTokenFromStorage?.accessToken ||
+			!idTokenFromStorage?.idToken ||
+			!idTokenFromStorage.nonce
+		) {
+			return undefined;
+		}
+
+		const { accessToken, idToken } = this.#token.decodeTokens(
+			accessTokenFromStorage.accessToken,
+			idTokenFromStorage.idToken,
+			idTokenFromStorage.nonce,
+		);
 
 		if (!isAccessToken(accessToken) || !isIDToken(idToken)) {
 			return undefined;
@@ -133,20 +161,20 @@ export class TokenManager<
 	 * @name getTokens
 	 * @description Gets the tokens from storage asynchronously, can refresh tokens if required and verify them
 	 *
-	 * @param verifyToken - If true, will verify the token before returning (default: true)
+	 * @param verifyTokens - If true, will verify the token before returning (default: true)
 	 * @param refreshIfRequired - If true, will refresh the tokens if they are expired (default: false)
 	 * @returns Promise<Tokens | undefined> - The tokens if they exist
 	 */
 	public async getTokens({
 		refreshIfRequired = false,
-		verifyToken = true,
+		verifyTokens = true,
 	} = {}): Promise<Tokens<AC, IC> | undefined> {
 		try {
 			const tokens = this.getTokensSync();
 
 			if (tokens) {
-				if (verifyToken) {
-					await this.#token.verifyToken(tokens.idToken, tokens.accessToken);
+				if (verifyTokens) {
+					await this.#token.verifyTokens(tokens.idToken, tokens.accessToken);
 					return tokens;
 				}
 				return tokens;
