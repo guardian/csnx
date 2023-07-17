@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 13.0.2
+
+### Patch Changes
+
+- 5364a4c: Use latest package versions
+
 ## 13.0.1
 
 ### Patch Changes
