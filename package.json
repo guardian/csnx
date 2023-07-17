@@ -8,12 +8,12 @@
 		"test": "./tools/scripts/use-make-instead"
 	},
 	"devDependencies": {
-		"@babel/core": "7.22.1",
-		"@babel/plugin-transform-typescript": "7.22.3",
-		"@babel/preset-env": "7.22.4",
-		"@babel/preset-react": "7.22.3",
+		"@babel/core": "7.22.9",
+		"@babel/plugin-transform-typescript": "7.22.9",
+		"@babel/preset-env": "7.22.9",
+		"@babel/preset-react": "7.22.5",
 		"@babel/preset-typescript": "7.22.5",
-		"@changesets/cli": "2.26.1",
+		"@changesets/cli": "2.26.2",
 		"@emotion/babel-plugin": "11.11.0",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/eslint-config-typescript": "workspace:*",
@@ -57,7 +57,7 @@
 		"react-dom": "18.2.0",
 		"require-from-string": "2.0.2",
 		"sort-package-json": "2.1.0",
-		"storybook": "7.0.18",
+		"storybook": "7.0.27",
 		"ts-jest": "29.1.0",
 		"tsconfig-paths-webpack-plugin": "4.0.0",
 		"typescript": "5.1.3",
@@ -81,6 +81,11 @@
 				"react",
 				"react-dom"
 			]
+		},
+		"overrides": {
+			"semver@^5.0.0": "5.7.2",
+			"semver@^6.0.0": "6.3.1",
+			"semver@^7.0.0": "7.5.4"
 		}
 	}
 }
