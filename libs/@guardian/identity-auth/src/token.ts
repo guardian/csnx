@@ -401,30 +401,12 @@ export const verifyIdTokenClaims = (
 		});
 	}
 
-	// check that the iat (issued at) and exp (expiry) claims are present
-	if (!claims.iat || !claims.exp) {
+	// check that the iat (issued at) claim is present
+	if (!claims.iat) {
 		throw new OAuthError({
 			error: 'invalid_token',
-			error_description: 'Missing iat or exp claim in ID token',
+			error_description: 'Missing iat claim in ID token',
 			message: 'Token does not contain required claims',
-		});
-	}
-
-	// check that the iat isn't after the exp
-	if (claims.iat > claims.exp) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'iat claim is after exp claim in ID token',
-			message: 'Token has expired before it was issued',
-		});
-	}
-
-	// check the token hasn't expired
-	if (normalisedTime > claims.exp) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Token has expired',
-			message: 'Token has expired',
 		});
 	}
 
@@ -592,6 +574,65 @@ export const verifySignature = async (
 };
 
 /**
+ * @name verifyAccessTokenTimestamps
+ * @description Verifies the timestamps of an access token, used to determine if both the access token and ID token are valid
+ *
+ * We validate the access token token timestamps rather than the ID token timestamps, because the ID token in Okta is only valid for
+ * 1 hour with no way to change this, whereas the access token can be valid anywhere from 5 minutes to 24 hours, so we use the access token
+ * timestamps to determine if the tokens are valid.
+ *
+ * @param decoded - the decoded access token object
+ * @param claims - the jwt payload from the access token
+ * @returns void - resolves if the access token timestamps are valid, rejects if not
+ */
+export const verifyAccessTokenTimestamps = (
+	decoded: AccessToken,
+	claims: JWTPayload,
+) => {
+	// get the local time in seconds
+	const localTime = Math.floor(Date.now() / 1000);
+
+	// calculate the normalised time, which takes into account clock skew
+	const normalisedTime = localTime - decoded.clockSkew;
+
+	// check that the iat (issued at) and exp (expiry) claims are present
+	if (!claims.iat || !claims.exp) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Missing iat or exp claim in access token',
+			message: 'Token does not contain required claims',
+		});
+	}
+
+	// check that the iat isn't after the exp
+	if (claims.iat > claims.exp) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'iat claim is after exp claim in access token',
+			message: 'Token has expired before it was issued',
+		});
+	}
+
+	// check the token hasn't expired
+	if (normalisedTime > claims.exp) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Token has expired',
+			message: 'Token has expired',
+		});
+	}
+
+	// check the token wasn't issued in the future
+	if (claims.iat > normalisedTime) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Token was issued in the future',
+			message: 'Token was issued in the future',
+		});
+	}
+};
+
+/**
  * @name addPostMessageListener
  * @description Adds a postMessage listener to the window to listen for the response from the authorization server when performing the Authorization Code Flow with PKCE in an iframe
  *
@@ -748,19 +789,24 @@ export const verifyTokens = async (
 
 	try {
 		// decode the token
-		const jwt = decodeToken(idToken.idToken);
+		const idTokenJWT = decodeToken(idToken.idToken);
 
 		// verify the claims
-		verifyIdTokenClaims(idToken, jwt.payload, options);
+		verifyIdTokenClaims(idToken, idTokenJWT.payload, options);
 
 		// verify the signature
-		await verifySignature(oauthUrls.keysUrl, jwt, idToken.idToken);
+		await verifySignature(oauthUrls.keysUrl, idTokenJWT, idToken.idToken);
 
 		// verify the access token using the at_hash claim
 		await verifyAccessTokenWithAtHash(
 			idToken.claims.at_hash,
 			accessToken.accessToken,
 		);
+
+		const accessTokenJWT = decodeToken(accessToken.accessToken);
+
+		// verify access token timestamps
+		verifyAccessTokenTimestamps(accessToken, accessTokenJWT.payload);
 
 		// if successful, memoize the token
 		memoizedVerifyTokens.set(idToken.claims.jti, true);
