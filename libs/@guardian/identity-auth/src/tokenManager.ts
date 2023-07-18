@@ -161,7 +161,7 @@ export class TokenManager<
 	 * @name getTokens
 	 * @description Gets the tokens from storage asynchronously, can refresh tokens if required and verify them
 	 *
-	 * @param verifyTokens - If true, will verify the token before returning (default: true)
+	 * @param verifyTokens - If true, will verify the tokens before returning (default: true)
 	 * @param refreshIfRequired - If true, will refresh the tokens if they are expired (default: false)
 	 * @returns Promise<Tokens | undefined> - The tokens if they exist
 	 */

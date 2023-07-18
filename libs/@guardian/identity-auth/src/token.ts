@@ -283,7 +283,7 @@ const decodeTokens = <
 	const accessToken: AccessToken<AC> = {
 		accessToken: accessTokenRaw,
 		claims: accessTokenPayload,
-		expiresAt: accessTokenPayload.exp - accessTokenPayload.iat + now, // adjusting expiresAt to be in local (machine) time, to account for clock skew, // adjusted to local (machine) time, to account for clock skew
+		expiresAt: accessTokenPayload.exp - accessTokenPayload.iat + now, // adjusting expiresAt to be in local (machine) time, to account for clock skew
 		clockSkew: accessTokenClockSkew,
 		tokenType: 'Bearer',
 		scopes: accessTokenPayload.scp,
