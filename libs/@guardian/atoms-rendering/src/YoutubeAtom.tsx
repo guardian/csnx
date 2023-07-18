@@ -36,6 +36,7 @@ type Props = {
 	imaEnabled: boolean;
 	abTestParticipations: Participations;
 	videoCategory?: VideoCategory;
+	kicker?: string;
 };
 
 export const YoutubeAtom = ({
@@ -58,6 +59,8 @@ export const YoutubeAtom = ({
 	imaEnabled,
 	abTestParticipations,
 	videoCategory,
+	kicker,
+	pillar,
 }: Props): JSX.Element => {
 	const [overlayClicked, setOverlayClicked] = useState<boolean>(false);
 	const [playerReady, setPlayerReady] = useState<boolean>(false);
@@ -189,6 +192,8 @@ export const YoutubeAtom = ({
 						title={title}
 						onClick={() => setOverlayClicked(true)}
 						videoCategory={videoCategory}
+						kicker={kicker}
+						pillar={pillar}
 					/>
 				)}
 				{showPlaceholder && <YoutubeAtomPlaceholder uniqueId={uniqueId} />}

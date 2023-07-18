@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import {
 	focusHalo,
+	headline,
 	palette,
 	space,
 	textSans,
@@ -9,7 +10,8 @@ import { SvgMediaControlsPlay } from '@guardian/source-react-components';
 import { formatTime } from './lib/formatTime';
 import { Picture } from './Picture';
 import type { ImageSource, RoleType } from './types';
-
+import { ArticleTheme } from '@guardian/libs';
+import { pillarPalette } from './lib/pillarPalette';
 export type VideoCategory = 'live' | 'documentary' | 'explainer';
 
 type Props = {
@@ -24,6 +26,8 @@ type Props = {
 	title?: string;
 	onClick: () => void;
 	videoCategory?: VideoCategory;
+	kicker?: string;
+	pillar: ArticleTheme;
 };
 
 const overlayStyles = css`
@@ -102,6 +106,31 @@ const pillStyles = css`
 	display: inline-flex;
 `;
 
+const headlineStyling = css`
+	position: absolute;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.7) 25.04%
+	);
+	width: 100%;
+	bottom: 0;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: start;
+	padding: 36px 8px 8px 8px;
+`;
+
+const kickerStyles = (pillar: ArticleTheme) => css`
+	color: ${pillarPalette[pillar][400]};
+	${headline.xxsmall({ fontWeight: 'bold' })};
+`;
+const titleStyles = css`
+	${headline.xxsmall({ fontWeight: 'medium' })};
+`;
+
 const pillItemStyles = css`
 	/* Target all but the first element, and add a border */
 	:nth-of-type(n + 2) {
@@ -142,6 +171,8 @@ export const YoutubeAtomOverlay = ({
 	title,
 	onClick,
 	videoCategory,
+	kicker,
+	pillar,
 }: Props): JSX.Element => {
 	const id = `youtube-overlay-${uniqueId}`;
 	const hasDuration = duration !== undefined && duration > 0;
@@ -182,6 +213,11 @@ export const YoutubeAtomOverlay = ({
 				<span css={svgStyles}>
 					<SvgMediaControlsPlay />
 				</span>
+			</div>
+
+			<div css={headlineStyling}>
+				<div css={kickerStyles(pillar)}>{kicker}</div>
+				<div css={titleStyles}>{title}</div>
 			</div>
 		</button>
 	);
