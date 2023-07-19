@@ -15,6 +15,7 @@ updates:
       storybook:
         patterns:
           - '@storybook/*'
+          - 'storybook'
       babel:
         patterns:
           - '@babel/*'
