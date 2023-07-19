@@ -57,7 +57,7 @@
 		"react-dom": "18.2.0",
 		"require-from-string": "2.0.2",
 		"sort-package-json": "2.1.0",
-		"storybook": "7.0.27",
+		"storybook": "7.1.0",
 		"ts-jest": "29.1.0",
 		"tsconfig-paths-webpack-plugin": "4.0.0",
 		"typescript": "5.1.3",
