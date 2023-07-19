@@ -1,5 +1,14 @@
 # @guardian/identity-auth
 
+## 0.3.0
+
+### Minor Changes
+
+- 870f3bd: - Add `decodeTokens` method to `Token` class
+  - Refactor library so that we only store required values in `verifyTokens` local storage, and now derive other values from decoding the token
+  - Rename `verifyToken` method to `verifyTokens` in `Token` class to better reflect functionality
+  - Use access token to verify timestamps, instead of id tokens
+
 ## 0.2.1
 
 ### Patch Changes
