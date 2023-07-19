@@ -98,8 +98,9 @@ const identityAuth = new IdentityAuth(config);
   - [`renew`](#renew)
   - [`setTokens`](#settokens)
 - [`token`](#token)
+  - [`decodeTokens`](#decodetokens)
   - [`getWithoutPrompt`](#getwithoutprompt)
-  - [`verifyToken`](#verifytoken)
+  - [`verifyTokens`](#verifytokens)
 - [`autoRenew`](#autorenew)
   - [`start`](#start)
 
@@ -231,12 +232,12 @@ identityAuth.tokenManager.clear();
 
 Gets the tokens from storage asynchronously, can refresh tokens if required and verify them. Returns tokens or `undefined`.
 
-- `verifyToken` - If `true`, the tokens will be verified before being returned. Defaults to `true`.
+- `verifyTokens` - If `true`, the tokens will be verified before being returned. Defaults to `true`.
 - `refreshIfRequired` - If `true`, the tokens will be refreshed if they are expired. Defaults to `false`.
 
 ```ts
 const tokens = await identityAuth.tokenManager.getTokens({
-	verifyToken: true,
+	verifyTokens: true,
 	refreshIfRequired: true,
 });
 
@@ -293,6 +294,40 @@ identityAuth.tokenManager.setTokens(tokens);
 
 The `token` object is an instance of `Token`, which manages the retrieval of tokens by performing the OAuth Authorization Code Flow with PKCE, exchanging the authorization code for tokens and verifying the ID and access tokens.
 
+#### `decodeTokens`
+
+Decodes the access and id tokens, returns the decoded tokens, but does not verify that they are valid.
+
+Verification can additionally done by calling `verifyTokens`.
+
+```ts
+import { OAuthError } from '@guardian/identity-auth';
+
+try {
+	// tokens from somewhere
+	const accessTokenRaw = '...';
+	const idTokenRaw = '...';
+	const nonce = '...';
+
+	const tokens = identityAuth.token.decodeTokens(
+		accessTokenRaw,
+		idTokenRaw,
+		nonce,
+	);
+
+	await identityAuth.token.verifyTokens(tokens.idToken, tokens.accessToken);
+} catch (error) {
+	// handle error
+	if (error instanceof OAuthError) {
+		// handle OAuth error
+		error.error; // the error returned by the OAuth server
+		error.error_description; // the error description returned by the OAuth server
+		error.message; // the error message
+	}
+	// handle other errors
+}
+```
+
 #### `getWithoutPrompt`
 
 Performs the Authorization Code Flow with PKCE, exchanging the authorization code for tokens and verifying the ID token, without prompting the user and using a hidden iframe. Returns `TokenResponse` or throws an `OAuthError`.
@@ -321,7 +356,7 @@ try {
 }
 ```
 
-#### `verifyToken`
+#### `verifyTokens`
 
 Verifies the ID token, checking the signature and claims, and verifies the access token using the `at_hash` claim from the IDToken.
 
@@ -337,7 +372,7 @@ try {
 	// tokens from somewhere
 	const tokens = identityAuth.tokenManager.getTokensSync();
 
-	identityAuth.token.verifyToken(tokens.idToken, tokens.accessToken);
+	await identityAuth.token.verifyTokens(tokens.idToken, tokens.accessToken);
 } catch (error) {
 	// handle error
 	if (error instanceof OAuthError) {

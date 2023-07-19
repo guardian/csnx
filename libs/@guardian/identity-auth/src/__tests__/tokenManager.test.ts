@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/unbound-method -- jest mocks */
 import { storage } from '@guardian/libs';
-import type { AccessToken, IDToken } from '../@types/Token';
+import type {
+	AccessToken,
+	AccessTokenStorage,
+	IDToken,
+	IDTokenStorage,
+} from '../@types/Token';
 import { Emitter } from '../emitter';
 import { Token } from '../token';
 import { TokenManager } from '../tokenManager';
@@ -40,6 +45,10 @@ describe('IdentityAuth#TokenManager', () => {
 		tokenType: 'tokenType',
 	};
 
+	const accessTokenStorage: AccessTokenStorage = {
+		accessToken: 'accessToken',
+	};
+
 	const idToken: IDToken = {
 		claims: {
 			amr: ['amr'],
@@ -66,6 +75,11 @@ describe('IdentityAuth#TokenManager', () => {
 		idToken: 'idToken',
 		issuer: 'issuer',
 		scopes: ['scp'],
+		nonce: 'nonce',
+	};
+
+	const idTokenStorage: IDTokenStorage = {
+		idToken: 'idToken',
 		nonce: 'nonce',
 	};
 
@@ -105,12 +119,12 @@ describe('IdentityAuth#TokenManager', () => {
 		expect(mockedSetLocal).toHaveBeenCalledTimes(2);
 		expect(mockedSetLocal).toHaveBeenCalledWith(
 			'gu.access_token',
-			accessToken,
+			accessTokenStorage,
 			new Date(accessToken.expiresAt * 1000),
 		);
 		expect(mockedSetLocal).toHaveBeenCalledWith(
 			'gu.id_token',
-			idToken,
+			idTokenStorage,
 			new Date(idToken.expiresAt * 1000),
 		);
 	});

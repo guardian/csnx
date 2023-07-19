@@ -99,7 +99,7 @@ export class IdentityAuth<
 			const authState = this.authStateManager.getAuthState();
 			if (authState.isAuthenticated) {
 				// validate the id token and access token to make sure auth state is still valid
-				await this.token.verifyToken(authState.idToken, authState.accessToken);
+				await this.token.verifyTokens(authState.idToken, authState.accessToken);
 
 				// if the id token is valid, return the auth state
 				return authState;

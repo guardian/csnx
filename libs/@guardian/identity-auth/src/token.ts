@@ -23,6 +23,7 @@ import type {
 	JWTObject,
 	JWTPayload,
 	TokenResponse,
+	Tokens,
 } from './@types/Token';
 import {
 	base64UrlEncode,
@@ -225,9 +226,137 @@ const decodeToken = <T extends CustomClaims = CustomClaims>(
 };
 
 /**
+ * @name decodeTokens
+ * @description Decodes the access and ID tokens, returning the decoded claims, without verifying the tokens
+ *
+ * @param accessToken - Raw access token string to decode
+ * @param idToken - Raw ID token string to decode
+ * @param nonce - Nonce used when generating the tokens
+ *
+ * @returns Tokens - decoded access and ID tokens
+ */
+const decodeTokens = <
+	AC extends CustomClaims = CustomClaims,
+	IC extends CustomClaims = CustomClaims,
+>({
+	accessTokenRaw,
+	idTokenRaw,
+	nonce,
+	options,
+}: {
+	accessTokenRaw: string;
+	idTokenRaw: string;
+	nonce: string;
+	options: RequiredIdentityAuthOptions;
+}): Tokens<AC, IC> => {
+	// get the current time in seconds
+	const now = Math.floor(Date.now() / 1000);
+
+	// decode the access tokens
+	const decodedAccessToken = decodeToken<AC>(accessTokenRaw);
+
+	// get the access token claims, not type validated
+	const accessTokenPayload = decodedAccessToken.payload;
+
+	// validate the type of access token claims
+	if (!isAccessTokenClaims(accessTokenPayload)) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid access token claims',
+			message: 'Invalid access token claims',
+		});
+	}
+
+	// calculate the clock skew (difference between local and server time) using the iat claim
+	const accessTokenClockSkew = now - accessTokenPayload.iat;
+
+	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
+	if (Math.abs(accessTokenClockSkew) > options.maxClockSkew) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid Access token',
+			message: 'Clock skew too large',
+		});
+	}
+
+	// construct the access token
+	const accessToken: AccessToken<AC> = {
+		accessToken: accessTokenRaw,
+		claims: accessTokenPayload,
+		expiresAt: accessTokenPayload.exp - accessTokenPayload.iat + now, // adjusting expiresAt to be in local (machine) time, to account for clock skew
+		clockSkew: accessTokenClockSkew,
+		tokenType: 'Bearer',
+		scopes: accessTokenPayload.scp,
+	};
+
+	// validate the type of the access token
+	if (!isAccessToken(accessToken)) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid access token',
+			message: 'Invalid access token',
+		});
+	}
+
+	// decode the ID token
+	const decodedIDToken = decodeToken<IC>(idTokenRaw);
+
+	// get the id token claims, not type validated
+	const idTokenPayload = decodedIDToken.payload;
+
+	// validate the type of the ID token claims
+	if (!isIDTokenClaims(idTokenPayload)) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid ID token claims',
+			message: 'Invalid ID token claims',
+		});
+	}
+
+	// calculate the clock skew (difference between local and server time) using the iat claim
+	const idTokenClockSkew = now - idTokenPayload.iat;
+
+	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
+	if (Math.abs(idTokenClockSkew) > options.maxClockSkew) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid ID token',
+			message: 'Clock skew too large',
+		});
+	}
+
+	// construct the ID token
+	const idToken: IDToken<IC> = {
+		idToken: idTokenRaw,
+		issuer: options.issuer,
+		clientId: options.clientId,
+		claims: idTokenPayload,
+		expiresAt: idTokenPayload.exp - idTokenPayload.iat + now, // adjusting expiresAt to be in local (machine) time, to account for clock skew
+		clockSkew: idTokenClockSkew,
+		scopes: options.scopes,
+		nonce: nonce,
+	};
+
+	// validate the type of the ID token
+	if (!isIDToken(idToken)) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Invalid ID token',
+			message: 'Invalid ID token',
+		});
+	}
+
+	return {
+		accessToken,
+		idToken,
+	};
+};
+
+/**
  * @name verifyIdTokenClaims
  * @description Verifies the claims of an ID token are valid and expected
  *
+ * @param decoded - decoded ID token
  * @param claims - ID token claims
  * @param options - RequiredIdentityAuthOptions
  *
@@ -239,7 +368,10 @@ export const verifyIdTokenClaims = (
 	claims: JWTPayload,
 	options: RequiredIdentityAuthOptions,
 ): void => {
+	// get the local time in seconds
 	const localTime = Math.floor(Date.now() / 1000);
+
+	// calculate the normalised time, which takes into account clock skew
 	const normalisedTime = localTime - decoded.clockSkew;
 
 	// check the nonce is valid
@@ -269,30 +401,12 @@ export const verifyIdTokenClaims = (
 		});
 	}
 
-	// check that the iat (issued at) and exp (expiry) claims are present
-	if (!claims.iat || !claims.exp) {
+	// check that the iat (issued at) claim is present
+	if (!claims.iat) {
 		throw new OAuthError({
 			error: 'invalid_token',
-			error_description: 'Missing iat or exp claim in ID token',
+			error_description: 'Missing iat claim in ID token',
 			message: 'Token does not contain required claims',
-		});
-	}
-
-	// check that the iat isn't after the exp
-	if (claims.iat > claims.exp) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'iat claim is after exp claim in ID token',
-			message: 'Token has expired before it was issued',
-		});
-	}
-
-	// check the token hasn't expired
-	if (normalisedTime > claims.exp) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Token has expired',
-			message: 'Token has expired',
 		});
 	}
 
@@ -460,6 +574,65 @@ export const verifySignature = async (
 };
 
 /**
+ * @name verifyAccessTokenTimestamps
+ * @description Verifies the timestamps of an access token, used to determine if both the access token and ID token are valid
+ *
+ * We validate the access token token timestamps rather than the ID token timestamps, because the ID token in Okta is only valid for
+ * 1 hour with no way to change this, whereas the access token can be valid anywhere from 5 minutes to 24 hours, so we use the access token
+ * timestamps to determine if the tokens are valid.
+ *
+ * @param decoded - the decoded access token object
+ * @param claims - the jwt payload from the access token
+ * @returns void - resolves if the access token timestamps are valid, rejects if not
+ */
+export const verifyAccessTokenTimestamps = (
+	decoded: AccessToken,
+	claims: JWTPayload,
+) => {
+	// get the local time in seconds
+	const localTime = Math.floor(Date.now() / 1000);
+
+	// calculate the normalised time, which takes into account clock skew
+	const normalisedTime = localTime - decoded.clockSkew;
+
+	// check that the iat (issued at) and exp (expiry) claims are present
+	if (!claims.iat || !claims.exp) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Missing iat or exp claim in access token',
+			message: 'Token does not contain required claims',
+		});
+	}
+
+	// check that the iat isn't after the exp
+	if (claims.iat > claims.exp) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'iat claim is after exp claim in access token',
+			message: 'Token has expired before it was issued',
+		});
+	}
+
+	// check the token hasn't expired
+	if (normalisedTime > claims.exp) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Token has expired',
+			message: 'Token has expired',
+		});
+	}
+
+	// check the token wasn't issued in the future
+	if (claims.iat > normalisedTime) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'Token was issued in the future',
+			message: 'Token was issued in the future',
+		});
+	}
+};
+
+/**
  * @name addPostMessageListener
  * @description Adds a postMessage listener to the window to listen for the response from the authorization server when performing the Authorization Code Flow with PKCE in an iframe
  *
@@ -583,10 +756,10 @@ export const performAuthCodeFlowIframe = async (
 };
 
 // memoized verify token map
-const memoizedVerifyToken = new Map<string, unknown>();
+const memoizedVerifyTokens = new Map<string, unknown>();
 
 /**
- * @name verifyToken
+ * @name verifyTokens
  * @description Verifies the ID token, checking the signature and claims, and verifies the access token using the at_hash claim
  *
  * @param idToken - IDToken
@@ -594,16 +767,16 @@ const memoizedVerifyToken = new Map<string, unknown>();
  * @param options - RequiredIdentityAuthOptions
  * @returns Promise<void> - resolves when the token is verified
  */
-export const verifyToken = async (
+export const verifyTokens = async (
 	idToken: IDToken,
 	accessToken: AccessToken,
 	options: RequiredIdentityAuthOptions,
 	oauthUrls: OAuthUrls,
 ) => {
 	// check if the token has already been verified
-	if (memoizedVerifyToken.has(idToken.claims.jti)) {
+	if (memoizedVerifyTokens.has(idToken.claims.jti)) {
 		// get the memoized value
-		const memoized = memoizedVerifyToken.get(idToken.claims.jti);
+		const memoized = memoizedVerifyTokens.get(idToken.claims.jti);
 
 		// if the memoized value is true, return, already verified
 		if (memoized === true) {
@@ -616,13 +789,13 @@ export const verifyToken = async (
 
 	try {
 		// decode the token
-		const jwt = decodeToken(idToken.idToken);
+		const idTokenJWT = decodeToken(idToken.idToken);
 
 		// verify the claims
-		verifyIdTokenClaims(idToken, jwt.payload, options);
+		verifyIdTokenClaims(idToken, idTokenJWT.payload, options);
 
 		// verify the signature
-		await verifySignature(oauthUrls.keysUrl, jwt, idToken.idToken);
+		await verifySignature(oauthUrls.keysUrl, idTokenJWT, idToken.idToken);
 
 		// verify the access token using the at_hash claim
 		await verifyAccessTokenWithAtHash(
@@ -630,11 +803,16 @@ export const verifyToken = async (
 			accessToken.accessToken,
 		);
 
+		const accessTokenJWT = decodeToken(accessToken.accessToken);
+
+		// verify access token timestamps
+		verifyAccessTokenTimestamps(accessToken, accessTokenJWT.payload);
+
 		// if successful, memoize the token
-		memoizedVerifyToken.set(idToken.claims.jti, true);
+		memoizedVerifyTokens.set(idToken.claims.jti, true);
 	} catch (error) {
 		// if there is an error, memoize the error
-		memoizedVerifyToken.set(idToken.claims.jti, error);
+		memoizedVerifyTokens.set(idToken.claims.jti, error);
 
 		// throw the error
 		throw error;
@@ -699,107 +877,18 @@ export const handleOAuthResponse = async <
 	oauthUrls: OAuthUrls,
 ): Promise<TokenResponse<AC, IC>> => {
 	// destructure the response
-	const { access_token, expires_in, id_token, token_type } = oauthTokenResponse;
+	const { access_token, id_token } = oauthTokenResponse;
 
-	// get the current time in seconds
-	const now = Math.floor(Date.now() / 1000);
-
-	// decode the access tokens
-	const decodedAccessToken = decodeToken<AC>(access_token);
-
-	// get the access token claims, not type validated
-	const accessTokenPayload = decodedAccessToken.payload;
-
-	// validate the type of access token claims
-	if (!isAccessTokenClaims(accessTokenPayload)) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Invalid access token claims',
-			message: 'Invalid access token claims',
-		});
-	}
-
-	// calculate the clock skew (difference between local and server time) using the iat claim
-	const accessTokenClockSkew = now - accessTokenPayload.iat;
-
-	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
-	if (Math.abs(accessTokenClockSkew) > options.maxClockSkew) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Invalid Access token',
-			message: 'Clock skew too large',
-		});
-	}
-
-	// construct the access token
-	const accessToken: AccessToken<AC> = {
-		accessToken: access_token,
-		claims: accessTokenPayload,
-		expiresAt: now + Number(expires_in), // adjusted to local (machine) time, to account for clock skew
-		clockSkew: accessTokenClockSkew,
-		tokenType: token_type,
-		scopes: accessTokenPayload.scp,
-	};
-
-	// validate the type of the access token
-	if (!isAccessToken(accessToken)) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Invalid access token',
-			message: 'Invalid access token',
-		});
-	}
-
-	// decode the ID token
-	const decodedIDToken = decodeToken<IC>(id_token);
-
-	// get the id token claims, not type validated
-	const idTokenPayload = decodedIDToken.payload;
-
-	// validate the type of the ID token claims
-	if (!isIDTokenClaims(idTokenPayload)) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Invalid ID token claims',
-			message: 'Invalid ID token claims',
-		});
-	}
-
-	// calculate the clock skew (difference between local and server time) using the iat claim
-	const idTokenClockSkew = now - idTokenPayload.iat;
-
-	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
-	if (Math.abs(idTokenClockSkew) > options.maxClockSkew) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Invalid ID token',
-			message: 'Clock skew too large',
-		});
-	}
-
-	// construct the ID token
-	const idToken: IDToken<IC> = {
-		idToken: id_token,
-		issuer: options.issuer,
-		clientId: options.clientId,
-		claims: idTokenPayload,
-		expiresAt: idTokenPayload.exp - idTokenPayload.iat + now, // adjusting expiresAt to be in local (machine) time, to account for clock skew
-		clockSkew: idTokenClockSkew,
-		scopes: options.scopes,
+	// decode the tokens
+	const { accessToken, idToken } = decodeTokens<AC, IC>({
+		accessTokenRaw: access_token,
+		idTokenRaw: id_token,
 		nonce: authorizeParams.nonce,
-	};
+		options,
+	});
 
-	// validate the type of the ID token
-	if (!isIDToken(idToken)) {
-		throw new OAuthError({
-			error: 'invalid_token',
-			error_description: 'Invalid ID token',
-			message: 'Invalid ID token',
-		});
-	}
-
-	// verify the ID token
-	await verifyToken(idToken, accessToken, options, oauthUrls);
+	// verify the tokens
+	await verifyTokens(idToken, accessToken, options, oauthUrls);
 
 	// return the tokens
 	return {
@@ -951,14 +1040,33 @@ export class Token<
 	}
 
 	/**
-	 * @name verifyToken
+	 * @name verifyTokens
 	 * @description Verifies the ID token, checking the signature and claims, and verifies the access token using the at_hash claim
 	 *
 	 * @param idToken - ID token to verify
 	 * @param accessToken - Access token to verify
 	 * @returns void
 	 */
-	public async verifyToken(idToken: IDToken, accessToken: AccessToken) {
-		return verifyToken(idToken, accessToken, this.#options, this.#oauthUrls);
+	public async verifyTokens(idToken: IDToken, accessToken: AccessToken) {
+		return verifyTokens(idToken, accessToken, this.#options, this.#oauthUrls);
+	}
+
+	/**
+	 * @name decodeTokens
+	 * @description Decodes the access and ID tokens, returning the decoded claims, without verifying the tokens
+	 *
+	 * @param accessToken - Raw access token string to decode
+	 * @param idToken - Raw ID token string to decode
+	 * @param nonce - Nonce used when generating the tokens
+	 *
+	 * @returns Tokens - decoded access and ID tokens
+	 */
+	public decodeTokens(accessToken: string, idToken: string, nonce: string) {
+		return decodeTokens<AC, IC>({
+			accessTokenRaw: accessToken,
+			idTokenRaw: idToken,
+			nonce,
+			options: this.#options,
+		});
 	}
 }
