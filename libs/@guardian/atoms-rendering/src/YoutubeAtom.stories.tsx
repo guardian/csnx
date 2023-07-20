@@ -290,6 +290,7 @@ export const Sticky = (): JSX.Element => {
 				imaEnabled={false}
 				abTestParticipations={{}}
 				adTargeting={adTargeting}
+				shouldPauseOutOfView={true}
 			/>
 			<div style={{ height: '1000px' }}></div>
 		</div>
@@ -441,5 +442,38 @@ export const MultipleStickyVideos = (): JSX.Element => {
 };
 
 MultipleStickyVideos.parameters = {
+	chromatic: { disableSnapshot: true },
+};
+
+export const PausesOffscreen = (): JSX.Element => {
+	return (
+		<div>
+			<div>Scroll down...</div>
+			<YoutubeAtom
+				elementId="xyz"
+				videoId="-ZCvZmYlQD8"
+				alt=""
+				role="inline"
+				eventEmitters={[(e) => console.log(`analytics event ${e} called`)]}
+				consentState={consentStateCanTarget}
+				duration={252}
+				pillar={Pillar.Culture}
+				height={450}
+				width={800}
+				shouldStick={false}
+				isMainMedia={true}
+				title="Rayshard Brooks: US justice system treats us like 'animals'"
+				imaEnabled={false}
+				abTestParticipations={{}}
+				adTargeting={adTargeting}
+				shouldPauseOutOfView={true}
+			/>
+			<div style={{ height: '1000px' }}></div>
+			<p>It stopped playing!</p>
+		</div>
+	);
+};
+
+PausesOffscreen.parameters = {
 	chromatic: { disableSnapshot: true },
 };
