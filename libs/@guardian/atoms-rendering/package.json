@@ -13,7 +13,7 @@
 		"@guardian/consent-management-platform": "13.5.0",
 		"@guardian/eslint-plugin-source-foundations": "13.0.0",
 		"@guardian/eslint-plugin-source-react-components": "17.0.0",
-		"@guardian/libs": "15.1.0",
+		"@guardian/libs": "15.3.0",
 		"@guardian/source-foundations": "12.0.0",
 		"@guardian/source-react-components": "15.0.1",
 		"@testing-library/dom": "9.3.1",
