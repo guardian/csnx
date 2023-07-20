@@ -26,6 +26,7 @@ describe('The package', () => {
 			'removeCookie',
 			'setCookie',
 			'setSessionCookie',
+			'startMeasure',
 			'storage',
 			'timeAgo',
 		]);

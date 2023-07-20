@@ -39,6 +39,8 @@ export { debug } from './logger/debug';
 export { log } from './logger/log';
 export type { TeamName } from './logger/@types/logger';
 
+export { startMeasure } from './measure/startMeasure';
+
 export type {
 	OphanABEvent,
 	OphanABPayload,
