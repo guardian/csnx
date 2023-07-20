@@ -59,7 +59,7 @@ importers:
       require-from-string: 2.0.2
       sort-package-json: 2.1.0
       storybook: 7.1.0
-      ts-jest: 29.1.0
+      ts-jest: 29.1.1
       tsconfig-paths-webpack-plugin: 4.1.0
       typescript: 5.1.3
       update-section: 0.3.3
@@ -115,7 +115,7 @@ importers:
       require-from-string: 2.0.2
       sort-package-json: 2.1.0
       storybook: 7.1.0
-      ts-jest: 29.1.0_augnoelcboyuzjfr7q23y5uqdy
+      ts-jest: 29.1.1_augnoelcboyuzjfr7q23y5uqdy
       tsconfig-paths-webpack-plugin: 4.1.0
       typescript: 5.1.3
       update-section: 0.3.3
@@ -11081,18 +11081,6 @@ packages:
       - supports-color
     dev: true
 
-  /jest-util/29.5.0:
-    resolution: {integrity: sha512-RYMgG/MTadOr5t8KdhejfvUU82MxsCu5MF6KuDUHl+NuwzUt+Sm6jJWxTJVrDR1j5M/gJVCPKQEpWXY+yIQ6lQ==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-    dependencies:
-      '@jest/types': 29.6.1
-      '@types/node': 18.16.18
-      chalk: 4.1.2
-      ci-info: 3.8.0
-      graceful-fs: 4.2.11
-      picomatch: 2.3.1
-    dev: true
-
   /jest-util/29.6.1:
     resolution: {integrity: sha512-NRFCcjc+/uO3ijUVyNOQJluf8PtGCe/W6cix36+M3cTFgiYqFOOW5MgN4JOOcvbUhcKTYVd1CvHz/LWi8d16Mg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -14269,8 +14257,8 @@ packages:
     engines: {node: '>=6.10'}
     dev: true
 
-  /ts-jest/29.1.0_augnoelcboyuzjfr7q23y5uqdy:
-    resolution: {integrity: sha512-ZhNr7Z4PcYa+JjMl62ir+zPiNJfXJN6E8hSLnaUKhOgqcn8vb3e537cpkd0FuAfRK3sR1LSqM1MOhliXNgOFPA==}
+  /ts-jest/29.1.1_augnoelcboyuzjfr7q23y5uqdy:
+    resolution: {integrity: sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
     peerDependencies:
@@ -14294,7 +14282,7 @@ packages:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.5.0_@types+node@18.16.18
-      jest-util: 29.5.0
+      jest-util: 29.6.1
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6
