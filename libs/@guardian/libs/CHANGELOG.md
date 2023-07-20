@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.3.0
+
+### Minor Changes
+
+- 078dfaf: Add new ophan component types
+
 ## 15.2.0
 
 ### Minor Changes
