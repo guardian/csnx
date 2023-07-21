@@ -26,6 +26,10 @@ updates:
       eslint:
         patterns:
           - '*eslint*'
+      rollup:
+        patterns:
+          -  '@rollup/*'
+          -  'rollup'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
