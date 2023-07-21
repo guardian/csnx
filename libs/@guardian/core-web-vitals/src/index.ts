@@ -1,6 +1,6 @@
 import type { TeamName } from '@guardian/libs';
 import { log } from '@guardian/libs';
-import type { ReportCallback } from 'web-vitals';
+import { type ReportCallback } from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
@@ -17,6 +17,7 @@ const coreWebVitalsPayload: CoreWebVitalsPayload = {
 	lcp: null,
 	fcp: null,
 	ttfb: null,
+	inp: null,
 };
 
 const teamsForLogging: Set<TeamName> = new Set();
@@ -71,6 +72,9 @@ const onReport: ReportCallback = (metric) => {
 			// Browser support: Chromium, Firefox, Safari, Internet Explorer
 			coreWebVitalsPayload.ttfb = roundWithDecimals(metric.value);
 			break;
+		case 'INP':
+			coreWebVitalsPayload.inp = roundWithDecimals(metric.value);
+			break;
 	}
 };
 
@@ -87,13 +91,14 @@ const listener = (e: Event): void => {
 
 const getCoreWebVitals = async (): Promise<void> => {
 	const webVitals = await import('web-vitals');
-	const { onCLS, onFCP, onFID, onLCP, onTTFB } = webVitals;
+	const { onCLS, onFCP, onFID, onLCP, onTTFB, onINP } = webVitals;
 
 	onCLS(onReport, { reportAllChanges: false });
 	onFID(onReport);
 	onLCP(onReport);
 	onFCP(onReport);
 	onTTFB(onReport);
+	onINP(onReport);
 
 	// Report all available metrics when the page is unloaded or in background.
 	addEventListener('visibilitychange', listener);

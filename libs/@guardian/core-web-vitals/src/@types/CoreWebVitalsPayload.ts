@@ -6,4 +6,5 @@ export type CoreWebVitalsPayload = {
 	lcp: null | number;
 	fcp: null | number;
 	ttfb: null | number;
+	inp: null | number;
 };
