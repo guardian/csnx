@@ -3,7 +3,7 @@
 // const [sport300, sport400, sport500, sport600, sport800] = colors.blue
 const colors = {
 	reds: [
-		'#660502', //news-100
+		'#660505', //news-100
 		'#8B0000', //news-200
 		'#AB0613', //news-300
 		'#C70000', //news-400, error-400
