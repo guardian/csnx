@@ -1,6 +1,6 @@
 import type { TeamName } from '@guardian/libs';
 import { log } from '@guardian/libs';
-import type { ReportHandler } from 'web-vitals';
+import type { ReportCallback } from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
@@ -49,7 +49,7 @@ const sendData = (): void => {
 	}
 };
 
-const onReport: ReportHandler = (metric) => {
+const onReport: ReportCallback = (metric) => {
 	switch (metric.name) {
 		case 'FCP':
 			// Browser support: Chromium, Firefox, Safari Technology Preview
