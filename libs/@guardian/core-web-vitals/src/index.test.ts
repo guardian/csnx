@@ -12,40 +12,47 @@ const defaultCoreWebVitalsPayload: CoreWebVitalsPayload = {
 	lcp: 150,
 	ttfb: 9.99,
 	cls: 0.01,
+	inp: 180.3,
 };
 
 const browserId = defaultCoreWebVitalsPayload.browser_id;
 const pageViewId = defaultCoreWebVitalsPayload.page_view_id;
 
 jest.mock('web-vitals', () => ({
-	getTTFB: (onReport: ReportHandler) => {
+	onTTFB: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.ttfb,
 			name: 'TTFB',
 		} as Metric);
 	},
-	getFCP: (onReport: ReportHandler) => {
+	onFCP: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fcp,
 			name: 'FCP',
 		} as Metric);
 	},
-	getCLS: (onReport: ReportHandler) => {
+	onCLS: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.cls,
 			name: 'CLS',
 		} as Metric);
 	},
-	getFID: (onReport: ReportHandler) => {
+	onFID: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fid,
 			name: 'FID',
 		} as Metric);
 	},
-	getLCP: (onReport: ReportHandler) => {
+	onLCP: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.lcp,
 			name: 'LCP',
+		} as Metric);
+	},
+	onINP: (onReport: ReportHandler) => {
+		onReport({
+			value: defaultCoreWebVitalsPayload.inp,
+			name: 'INP',
 		} as Metric);
 	},
 }));
@@ -114,6 +121,7 @@ describe('coreWebVitals', () => {
 			lcp: null,
 			ttfb: null,
 			cls: null,
+			inp: null,
 		});
 	});
 
