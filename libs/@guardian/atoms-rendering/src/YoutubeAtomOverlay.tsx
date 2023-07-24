@@ -79,8 +79,10 @@ const playButtonStyling = css`
 
 	svg {
 		fill: ${palette.neutral[100]};
-		width: 75px;
 		height: 60px;
+		/* Nudge Icon to the right, so it appears optically centred */
+		/* https://medium.com/design-bridges/optical-effects-9fca82b4cd9a#f9d2 */
+		margin-left: ${space[1]}px;
 	}
 `;
 
