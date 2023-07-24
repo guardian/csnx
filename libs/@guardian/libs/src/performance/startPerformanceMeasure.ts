@@ -5,6 +5,9 @@ import { serialise } from './serialise';
 /** For browser which do not fully support the performance API */
 const fallback: ReturnType<typeof startPerformanceMeasure> = {
 	endPerformanceMeasure: () => -1,
+	observeEndMark: () => {
+		/* do nothing… */
+	},
 };
 
 /**
@@ -22,7 +25,7 @@ export const startPerformanceMeasure = (
 	team: TeamName,
 	name: string,
 	action?: string,
-): { endPerformanceMeasure: () => number } => {
+): { endPerformanceMeasure: () => number; observeEndMark: () => void } => {
 	if (!('getEntriesByName' in window.performance)) {
 		return fallback;
 	}
@@ -33,8 +36,11 @@ export const startPerformanceMeasure = (
 		start: performance.now(),
 	} satisfies PerformanceMeasureOptions;
 
-	const endPerformanceMeasure = () => {
-		const { duration } = window.performance.measure(measureName, options) ??
+	const endPerformanceMeasure = (end?: number) => {
+		const { duration } = window.performance.measure(measureName, {
+			...options,
+			end,
+		}) ??
 			window.performance.getEntriesByName(measureName, 'measure').at(-1) ?? {
 				duration: performance.now() - options.start,
 			};
@@ -42,5 +48,14 @@ export const startPerformanceMeasure = (
 		return Math.ceil(duration);
 	};
 
-	return { endPerformanceMeasure };
+	const observeEndMark = () =>
+		new PerformanceObserver((entries, observer) => {
+			const [endMark] = entries.getEntriesByName(measureName);
+			if (endMark) {
+				endPerformanceMeasure(endMark.startTime);
+				observer.disconnect();
+			}
+		}).observe({ type: 'mark' });
+
+	return { endPerformanceMeasure, observeEndMark };
 };
