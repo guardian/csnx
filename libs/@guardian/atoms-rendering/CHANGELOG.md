@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 32.2.3
+
+### Patch Changes
+
+- 28054ad: Fix YoutubeAtom play icon shifting after hover, and optically centre the icon within the circle
+
 ## 32.2.2
 
 ### Patch Changes
