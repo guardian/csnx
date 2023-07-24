@@ -49,6 +49,8 @@ jobs:
     # the `main` branch, or this is a Dependabot PR. For Dependabot PRs we then
     # apply the `skip` flag as we don't want to create snapshots, but this
     # ensures the UI tests are marked as passing allowing the PR to be merged.
+    permissions:
+      checks: write
     needs: validate
     if: |
       contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
