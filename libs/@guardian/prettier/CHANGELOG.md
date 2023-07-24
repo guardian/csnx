@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 5.0.0
+
+### Major Changes
+
+- 5798618: Use prettier 3.0.0
+
 ## 4.0.0
 
 ### Major Changes
