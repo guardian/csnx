@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 33.0.0
+
+### Major Changes
+
+- Update guardian packages
+
 ## 32.2.3
 
 ### Patch Changes
