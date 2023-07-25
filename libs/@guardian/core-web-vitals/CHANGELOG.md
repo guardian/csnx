@@ -1,5 +1,12 @@
 # @guardian/core-web-vitals
 
+## 5.1.0
+
+### Minor Changes
+
+- b6f5343: Adds collection of INP data in core-web-vitals
+- 0d15993: Updated deprecated ReportHandler with ReportCallback in core-web-vitals
+
 ## 5.0.0
 
 ### Major Changes
