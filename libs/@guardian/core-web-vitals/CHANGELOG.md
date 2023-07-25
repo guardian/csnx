@@ -1,5 +1,11 @@
 # @guardian/core-web-vitals
 
+## 6.0.0
+
+### Major Changes
+
+- 5595c42: Update guardian packages
+
 ## 5.1.0
 
 ### Minor Changes

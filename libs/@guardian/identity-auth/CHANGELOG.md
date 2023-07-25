@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 0.4.0
+
+### Minor Changes
+
+- 5595c42: Update guardian packages
+
 ## 0.3.0
 
 ### Minor Changes

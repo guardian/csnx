@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 14.0.0
+
+### Major Changes
+
+- 5595c42: Update guardian packages
+
 ## 13.0.0
 
 ### Major Changes

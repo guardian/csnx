@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-plugin-source-foundations",
-	"version": "13.0.0",
+	"version": "14.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "5.59.9",
