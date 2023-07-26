@@ -1,6 +1,6 @@
 import type { TeamName } from '@guardian/libs';
 import { log } from '@guardian/libs';
-import type { ReportHandler } from 'web-vitals';
+import { type ReportCallback } from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
@@ -17,6 +17,7 @@ const coreWebVitalsPayload: CoreWebVitalsPayload = {
 	lcp: null,
 	fcp: null,
 	ttfb: null,
+	inp: null,
 };
 
 const teamsForLogging: Set<TeamName> = new Set();
@@ -49,7 +50,7 @@ const sendData = (): void => {
 	}
 };
 
-const onReport: ReportHandler = (metric) => {
+const onReport: ReportCallback = (metric) => {
 	switch (metric.name) {
 		case 'FCP':
 			// Browser support: Chromium, Firefox, Safari Technology Preview
@@ -71,6 +72,9 @@ const onReport: ReportHandler = (metric) => {
 			// Browser support: Chromium, Firefox, Safari, Internet Explorer
 			coreWebVitalsPayload.ttfb = roundWithDecimals(metric.value);
 			break;
+		case 'INP':
+			coreWebVitalsPayload.inp = roundWithDecimals(metric.value);
+			break;
 	}
 };
 
@@ -87,13 +91,14 @@ const listener = (e: Event): void => {
 
 const getCoreWebVitals = async (): Promise<void> => {
 	const webVitals = await import('web-vitals');
-	const { getCLS, getFCP, getFID, getLCP, getTTFB } = webVitals;
+	const { onCLS, onFCP, onFID, onLCP, onTTFB, onINP } = webVitals;
 
-	getCLS(onReport, { reportAllChanges: false });
-	getFID(onReport);
-	getLCP(onReport);
-	getFCP(onReport);
-	getTTFB(onReport);
+	onCLS(onReport, { reportAllChanges: false });
+	onFID(onReport);
+	onLCP(onReport);
+	onFCP(onReport);
+	onTTFB(onReport);
+	onINP(onReport);
 
 	// Report all available metrics when the page is unloaded or in background.
 	addEventListener('visibilitychange', listener);
