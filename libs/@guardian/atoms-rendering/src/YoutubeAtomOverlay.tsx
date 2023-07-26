@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import {
+	from,
 	focusHalo,
 	headline,
 	palette,
@@ -76,7 +77,7 @@ const svgStyles = css`
 		transition-duration: 300ms;
 	}
 `;
-const playButtonStyling = css`
+const playButtonStyles = css`
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -106,31 +107,6 @@ const pillStyles = css`
 	display: inline-flex;
 `;
 
-const headlineStyling = css`
-	position: absolute;
-	background: linear-gradient(
-		180deg,
-		rgba(0, 0, 0, 0) 0%,
-		rgba(0, 0, 0, 0.7) 25.04%
-	);
-	width: 100%;
-	bottom: 0;
-	color: #ffffff;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	text-align: start;
-	padding: 36px 8px 8px 8px;
-`;
-
-const kickerStyles = (pillar: ArticleTheme) => css`
-	color: ${pillarPalette[pillar][400]};
-	${headline.xxsmall({ fontWeight: 'bold' })};
-`;
-const titleStyles = css`
-	${headline.xxsmall({ fontWeight: 'medium' })};
-`;
-
 const pillItemStyles = css`
 	/* Target all but the first element, and add a border */
 	:nth-of-type(n + 2) {
@@ -156,6 +132,36 @@ const liveStyles = css`
 	}
 `;
 
+const headlineStyles = css`
+	position: absolute;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.7) 25.04%
+	);
+	width: 100%;
+	bottom: 0;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: start;
+	padding: 36px 8px 8px 8px;
+`;
+
+const kickerStyles = (pillar: ArticleTheme) => css`
+	color: ${pillarPalette[pillar][400]};
+	${headline.xxxsmall({ fontWeight: 'bold' })};
+	${from.tablet} {
+		${headline.xxsmall({ fontWeight: 'bold' })};
+	}
+`;
+const titleStyles = css`
+	${headline.xxxsmall({ fontWeight: 'medium' })};
+	${from.tablet} {
+		${headline.xxsmall({ fontWeight: 'medium' })};
+	}
+`;
 const capitalise = (str: string): string =>
 	str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -209,13 +215,13 @@ export const YoutubeAtomOverlay = ({
 					)}
 				</div>
 			)}
-			<div className="overlay-play-button" css={playButtonStyling}>
+			<div className="overlay-play-button" css={playButtonStyles}>
 				<span css={svgStyles}>
 					<SvgMediaControlsPlay />
 				</span>
 			</div>
 
-			<div css={headlineStyling}>
+			<div css={headlineStyles}>
 				<div css={kickerStyles(pillar)}>{kicker}</div>
 				<div css={titleStyles}>{title}</div>
 			</div>
