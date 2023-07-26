@@ -1,5 +1,12 @@
 # @guardian/libs
 
+## 15.4.0
+
+### Minor Changes
+
+- 314a6ba: Add the `startPerformanceMeasure` helper, which has a unified API for measuring
+  durations and producing `PerformanceMeasure`s.
+
 ## 15.3.0
 
 ### Minor Changes
