@@ -8,7 +8,12 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
+      time: '09:00'
+      day: 'monday'
+    ignore:
+      - dependency-name: '*' # ignore all patch updates
+        update-types: ['version-update:semver-patch']
     open-pull-requests-limit: 10
     rebase-strategy: 'auto'
     groups:
@@ -28,8 +33,8 @@ updates:
           - '*eslint*'
       rollup:
         patterns:
-          -  '@rollup/*'
-          -  'rollup'
+          - '@rollup/*'
+          - 'rollup'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
