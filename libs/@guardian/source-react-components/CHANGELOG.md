@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 16.0.0
+
+### Major Changes
+
+- Use source-foundations 13.0.0
+
 ## 15.0.2
 
 ### Patch Changes
