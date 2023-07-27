@@ -63,8 +63,8 @@ export const YoutubeAtom = ({
 	videoCategory,
 	kicker,
 	pillar,
-	shouldPauseOutOfView,
-	showTextOverlay,
+	shouldPauseOutOfView = false,
+	showTextOverlay = false,
 }: Props): JSX.Element => {
 	const [overlayClicked, setOverlayClicked] = useState<boolean>(false);
 	const [playerReady, setPlayerReady] = useState<boolean>(false);

@@ -118,7 +118,7 @@ type Props = {
 	children: JSX.Element;
 	isClosed: boolean;
 	setIsClosed: (state: boolean) => void;
-	shouldPauseOutOfView?: boolean;
+	shouldPauseOutOfView: boolean;
 };
 
 const isMobile = detectMobile({ tablet: true });
