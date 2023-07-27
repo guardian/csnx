@@ -44,7 +44,7 @@ export const LineHeightRenderer = ({
 	const fontStyles = getFontStyles({ unit: 'px' });
 	return (
 		<p style={{ ...fontStyles, width: '15ch' }}>
-			The quick brown fox jumps over the lazy dog
+			The quick brown fox jumps over the lazy dogs
 		</p>
 	);
 };
