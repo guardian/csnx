@@ -1,5 +1,13 @@
 # @guardian/source-foundations
 
+## 13.0.0
+
+### Major Changes
+
+- Use new line heights
+
+  Line heights have been reduced for 'loose' and 'regular', this affects body and text-sans font-styles.
+
 ## 12.0.0
 
 ### Major Changes
