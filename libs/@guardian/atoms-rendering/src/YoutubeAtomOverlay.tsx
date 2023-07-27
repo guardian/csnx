@@ -133,12 +133,12 @@ const liveStyles = css`
 	}
 `;
 
-const headlineStyles = css`
+const textOverlayStyles = css`
 	position: absolute;
 	background: linear-gradient(
 		180deg,
 		rgba(0, 0, 0, 0) 0%,
-		rgba(0, 0, 0, 0.7) 25.04%
+		rgba(0, 0, 0, 0.7) 25%
 	);
 	width: 100%;
 	bottom: 0;
@@ -147,7 +147,8 @@ const headlineStyles = css`
 	flex-direction: column;
 	align-items: flex-start;
 	text-align: start;
-	padding: 36px 8px 8px 8px;
+	padding: ${space[2]}px;
+	padding-top: ${space[9]}px;
 `;
 
 const kickerStyles = (pillar: ArticleTheme) => css`
@@ -224,7 +225,7 @@ export const YoutubeAtomOverlay = ({
 			</div>
 
 			{showTextOverlay && (
-				<div css={headlineStyles}>
+				<div css={textOverlayStyles}>
 					<div css={kickerStyles(pillar)}>{kicker}</div>
 					<div css={titleStyles}>{title}</div>
 				</div>
