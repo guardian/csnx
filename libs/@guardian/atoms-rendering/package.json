@@ -36,7 +36,7 @@
 		"@guardian/commercial": "^10.8.0",
 		"@guardian/consent-management-platform": "^13.6.1",
 		"@guardian/libs": "^15.4.0",
-		"@guardian/source-foundations": "^14.0.0",
+		"@guardian/source-foundations": "^13.0.0",
 		"@guardian/source-react-components": "^16.0.0",
 		"lodash.debounce": "^4.0.8",
 		"react": "^18.2.0",
