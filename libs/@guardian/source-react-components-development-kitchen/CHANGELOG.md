@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 14.0.0
+
+### Major Changes
+
+- Use latest Guardian packages
+
 ## 13.0.2
 
 ### Patch Changes

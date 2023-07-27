@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 18.0.0
+
+### Major Changes
+
+- Use latest Guardian packages
+
 ## 17.0.0
 
 ### Major Changes
