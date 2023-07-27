@@ -223,6 +223,7 @@ export const WithOverlayAndPosterImage = (): JSX.Element => {
 				abTestParticipations={{}}
 				adTargeting={adTargeting}
 				kicker="Breaking News"
+				showTextOverlay={true}
 			/>
 		</div>
 	);

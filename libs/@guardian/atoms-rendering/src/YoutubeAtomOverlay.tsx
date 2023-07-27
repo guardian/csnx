@@ -29,6 +29,7 @@ type Props = {
 	videoCategory?: VideoCategory;
 	kicker?: string;
 	pillar: ArticleTheme;
+	showTextOverlay?: boolean;
 };
 
 const overlayStyles = css`
@@ -179,6 +180,7 @@ export const YoutubeAtomOverlay = ({
 	videoCategory,
 	kicker,
 	pillar,
+	showTextOverlay,
 }: Props): JSX.Element => {
 	const id = `youtube-overlay-${uniqueId}`;
 	const hasDuration = duration !== undefined && duration > 0;
@@ -221,10 +223,12 @@ export const YoutubeAtomOverlay = ({
 				</span>
 			</div>
 
-			<div css={headlineStyles}>
-				<div css={kickerStyles(pillar)}>{kicker}</div>
-				<div css={titleStyles}>{title}</div>
-			</div>
+			{showTextOverlay && (
+				<div css={headlineStyles}>
+					<div css={kickerStyles(pillar)}>{kicker}</div>
+					<div css={titleStyles}>{title}</div>
+				</div>
+			)}
 		</button>
 	);
 };
