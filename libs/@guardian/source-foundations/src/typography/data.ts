@@ -90,8 +90,8 @@ export const fonts = {
 
 export const lineHeights = {
 	tight: 1.15,
-	regular: 1.35,
-	loose: 1.5,
+	regular: 1.3,
+	loose: 1.4,
 } as const;
 
 export const fontWeights = {

@@ -8,7 +8,7 @@ on:
 
 env:
   # The `accessToken` in `nx.json` is a read-only token for use in dev.
-  # This overrides it with a read-write token so that CI run results are 
+  # This overrides it with a read-write token so that CI run results are
   # remotely cached.
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
