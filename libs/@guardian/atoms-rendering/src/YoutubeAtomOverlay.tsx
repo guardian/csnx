@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import {
+	from,
 	focusHalo,
+	headline,
 	palette,
 	space,
 	textSans,
@@ -9,7 +11,8 @@ import { SvgMediaControlsPlay } from '@guardian/source-react-components';
 import { formatTime } from './lib/formatTime';
 import { Picture } from './Picture';
 import type { ImageSource, RoleType } from './types';
-
+import { ArticleTheme } from '@guardian/libs';
+import { pillarPalette } from './lib/pillarPalette';
 export type VideoCategory = 'live' | 'documentary' | 'explainer';
 
 type Props = {
@@ -24,6 +27,9 @@ type Props = {
 	title?: string;
 	onClick: () => void;
 	videoCategory?: VideoCategory;
+	kicker?: string;
+	pillar: ArticleTheme;
+	showTextOverlay?: boolean;
 };
 
 const overlayStyles = css`
@@ -72,7 +78,7 @@ const svgStyles = css`
 		transition-duration: 300ms;
 	}
 `;
-const playButtonStyling = css`
+const playButtonStyles = css`
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -127,6 +133,37 @@ const liveStyles = css`
 	}
 `;
 
+const textOverlayStyles = css`
+	position: absolute;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.7) 25%
+	);
+	width: 100%;
+	bottom: 0;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: start;
+	padding: ${space[2]}px;
+	padding-top: ${space[9]}px;
+`;
+
+const kickerStyles = (pillar: ArticleTheme) => css`
+	color: ${pillarPalette[pillar][400]};
+	${headline.xxxsmall({ fontWeight: 'bold' })};
+	${from.tablet} {
+		${headline.xxsmall({ fontWeight: 'bold' })};
+	}
+`;
+const titleStyles = css`
+	${headline.xxxsmall({ fontWeight: 'medium' })};
+	${from.tablet} {
+		${headline.xxsmall({ fontWeight: 'medium' })};
+	}
+`;
 const capitalise = (str: string): string =>
 	str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -142,6 +179,9 @@ export const YoutubeAtomOverlay = ({
 	title,
 	onClick,
 	videoCategory,
+	kicker,
+	pillar,
+	showTextOverlay,
 }: Props): JSX.Element => {
 	const id = `youtube-overlay-${uniqueId}`;
 	const hasDuration = duration !== undefined && duration > 0;
@@ -178,11 +218,18 @@ export const YoutubeAtomOverlay = ({
 					)}
 				</div>
 			)}
-			<div className="overlay-play-button" css={playButtonStyling}>
+			<div className="overlay-play-button" css={playButtonStyles}>
 				<span css={svgStyles}>
 					<SvgMediaControlsPlay />
 				</span>
 			</div>
+
+			{showTextOverlay && (
+				<div css={textOverlayStyles}>
+					<div css={kickerStyles(pillar)}>{kicker}</div>
+					<div css={titleStyles}>{title}</div>
+				</div>
+			)}
 		</button>
 	);
 };

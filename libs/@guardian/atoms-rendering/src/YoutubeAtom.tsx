@@ -36,6 +36,9 @@ type Props = {
 	imaEnabled: boolean;
 	abTestParticipations: Participations;
 	videoCategory?: VideoCategory;
+	kicker?: string;
+	shouldPauseOutOfView?: boolean;
+	showTextOverlay?: boolean;
 };
 
 export const YoutubeAtom = ({
@@ -58,6 +61,10 @@ export const YoutubeAtom = ({
 	imaEnabled,
 	abTestParticipations,
 	videoCategory,
+	kicker,
+	pillar,
+	shouldPauseOutOfView = false,
+	showTextOverlay = false,
 }: Props): JSX.Element => {
 	const [overlayClicked, setOverlayClicked] = useState<boolean>(false);
 	const [playerReady, setPlayerReady] = useState<boolean>(false);
@@ -145,10 +152,11 @@ export const YoutubeAtom = ({
 			shouldStick={shouldStick}
 			isActive={isActive}
 			eventEmitters={eventEmitters}
-			setPauseVideo={() => setPauseVideo(true)}
+			setPauseVideo={setPauseVideo}
 			isMainMedia={isMainMedia}
 			isClosed={isClosed}
 			setIsClosed={setIsClosed}
+			shouldPauseOutOfView={shouldPauseOutOfView}
 		>
 			<MaintainAspectRatio height={height} width={width}>
 				{loadPlayer && consentState && adTargeting && (
@@ -189,6 +197,9 @@ export const YoutubeAtom = ({
 						title={title}
 						onClick={() => setOverlayClicked(true)}
 						videoCategory={videoCategory}
+						kicker={kicker}
+						pillar={pillar}
+						showTextOverlay={showTextOverlay}
 					/>
 				)}
 				{showPlaceholder && <YoutubeAtomPlaceholder uniqueId={uniqueId} />}
