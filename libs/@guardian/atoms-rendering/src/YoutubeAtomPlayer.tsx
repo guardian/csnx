@@ -49,6 +49,7 @@ type Props = {
 	pauseVideo: boolean;
 	deactivateVideo: () => void;
 	abTestParticipations: Participations;
+	kicker?: string;
 };
 
 type CustomPlayEventDetail = { videoId: string };
@@ -365,6 +366,7 @@ export const YoutubeAtomPlayer = ({
 	pauseVideo,
 	deactivateVideo,
 	abTestParticipations,
+	kicker,
 }: Props): JSX.Element => {
 	/**
 	 * useRef for player and progressEvents

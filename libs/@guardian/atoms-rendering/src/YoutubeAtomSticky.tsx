@@ -112,12 +112,13 @@ type Props = {
 	videoId: string;
 	eventEmitters: Array<(event: VideoEventKey) => void>;
 	shouldStick?: boolean;
-	setPauseVideo: () => void;
+	setPauseVideo: (state: boolean) => void;
 	isActive: boolean;
 	isMainMedia?: boolean;
 	children: JSX.Element;
 	isClosed: boolean;
 	setIsClosed: (state: boolean) => void;
+	shouldPauseOutOfView: boolean;
 };
 
 const isMobile = detectMobile({ tablet: true });
@@ -133,6 +134,7 @@ export const YoutubeAtomSticky = ({
 	children,
 	isClosed,
 	setIsClosed,
+	shouldPauseOutOfView,
 }: Props): JSX.Element => {
 	const [isSticky, setIsSticky] = useState<boolean>(false);
 	const [stickEventSent, setStickEventSent] = useState<boolean>(false);
@@ -153,7 +155,7 @@ export const YoutubeAtomSticky = ({
 		// reset the sticky event sender
 		setStickEventSent(false);
 		// pause the video
-		setPauseVideo();
+		setPauseVideo(true);
 		// set isClosed so that player won't restick
 		setIsClosed(true);
 
@@ -199,6 +201,15 @@ export const YoutubeAtomSticky = ({
 	useEffect(() => {
 		if (shouldStick) setIsSticky(isActive && !isIntersecting && !isClosed);
 	}, [isIntersecting, isActive, shouldStick, isClosed]);
+
+	/**
+	 * useEffect for the pausing youtubeAtoms that are out of view
+	 */
+	useEffect(() => {
+		// Sticky-ness should take precedence over pausing
+		if (!shouldStick && shouldPauseOutOfView)
+			setPauseVideo(isActive && !isIntersecting && !isClosed);
+	}, [isIntersecting, shouldStick, isActive, shouldPauseOutOfView, isClosed]);
 
 	/**
 	 * useEffect for the stick events

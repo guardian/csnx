@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 32.3.0
+
+### Minor Changes
+
+- 3c15ecb: Extend YoutubeAtom API to allow conditional rendering of a text overlay and autopausing on scroll functionality
+
 ## 32.2.3
 
 ### Patch Changes
