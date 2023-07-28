@@ -53,6 +53,12 @@
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
+		},
+		"verify": {
+			"executor": "@csnx/npm-package:verify",
+			"options": {
+				"outputPath": "dist/libs/@guardian/eslint-plugin-source-foundations"
+			}
 		}
 	},
 	"tags": []

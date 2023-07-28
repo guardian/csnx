@@ -22,6 +22,12 @@
 			"options": {
 				"jestConfig": "libs/@guardian/tsconfig/jest.config.js"
 			}
+		},
+		"verify": {
+			"executor": "@csnx/npm-package:verify",
+			"options": {
+				"outputPath": "dist/libs/@guardian/tsconfig"
+			}
 		}
 	},
 	"tags": []

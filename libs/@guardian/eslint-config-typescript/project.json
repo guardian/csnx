@@ -24,6 +24,12 @@
 			"options": {
 				"jestConfig": "libs/@guardian/eslint-config-typescript/jest.config.js"
 			}
+		},
+		"verify": {
+			"executor": "@csnx/npm-package:verify",
+			"options": {
+				"outputPath": "dist/libs/@guardian/eslint-config-typescript"
+			}
 		}
 	},
 	"tags": []

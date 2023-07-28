@@ -23,6 +23,12 @@
 			"options": {
 				"jestConfig": "libs/@guardian/prettier/jest.config.js"
 			}
+		},
+		"verify": {
+			"executor": "@csnx/npm-package:verify",
+			"options": {
+				"outputPath": "dist/libs/@guardian/prettier"
+			}
 		}
 	},
 	"tags": []

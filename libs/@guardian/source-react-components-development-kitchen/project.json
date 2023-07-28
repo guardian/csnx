@@ -56,6 +56,12 @@
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
 		},
+		"verify": {
+			"executor": "@csnx/npm-package:verify",
+			"options": {
+				"outputPath": "dist/libs/@guardian/source-react-components-development-kitchen"
+			}
+		},
 		"storybook": {
 			"executor": "nx:run-commands",
 			"options": {

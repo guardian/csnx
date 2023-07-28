@@ -46,6 +46,12 @@
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
 		},
+		"verify": {
+			"executor": "@csnx/npm-package:verify",
+			"options": {
+				"outputPath": "dist/libs/@guardian/source-foundations"
+			}
+		},
 		"storybook": {
 			"executor": "nx:run-commands",
 			"options": {

@@ -14,6 +14,9 @@
 		},
 		"e2e": {
 			"dependsOn": ["build", "^build"]
+		},
+		"verify": {
+			"dependsOn": ["build", "^build"]
 		}
 	},
 	"tasksRunnerOptions": {
@@ -25,7 +28,8 @@
 					"lint",
 					"test",
 					"e2e",
-					"build-storybook"
+					"build-storybook",
+					"verify"
 				]
 			},
 			"runner": "nx-cloud"

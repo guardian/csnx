@@ -5,6 +5,11 @@
 			"implementation": "./build/index.ts",
 			"schema": "./build/schema.json",
 			"description": "Bundles source code into an NPM package for publishing."
+		},
+		"verify": {
+			"implementation": "./verify/index.ts",
+			"schema": "./verify/schema.json",
+			"description": "Verifies that a built package is ready to be published."
 		}
 	}
 }

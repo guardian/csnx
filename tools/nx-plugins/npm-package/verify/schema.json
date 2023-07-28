@@ -1,0 +1,12 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"type": "object",
+	"cli": "nx",
+	"properties": {
+		"outputPath": {
+			"type": "string",
+			"description": "The output path of the generated files."
+		}
+	},
+	"required": ["outputPath"]
+}

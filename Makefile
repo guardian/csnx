@@ -23,6 +23,12 @@ test: env
 	$(call log,"Running unit tests")
 	@corepack pnpm nx run-many --target=test --skip-nx-cache=$(SKIP_NX_CACHE)
 
+# verfies that built packages are ready to publish
+.PHONY: verify
+verify: env
+	$(call log,"Verifying packages")
+	@corepack pnpm nx run-many --target=verify --skip-nx-cache=$(SKIP_NX_CACHE)
+
 # runs the e2e tests for all projects
 .PHONY: e2e
 e2e: env
@@ -44,7 +50,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean lint test build e2e build-storybooks
+validate: env clean lint test build verify e2e build-storybooks
 
 ##################################### BUILD ####################################
 
