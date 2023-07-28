@@ -4,7 +4,6 @@ import sortPkgJson from 'sort-package-json';
 import type { JsonObject } from 'type-fest';
 import type * as WritePackage from 'write-pkg';
 import type { BuildExecutorOptions } from './schema';
-import type { Entries } from './index';
 
 /**
  * THIS IS KLUDGE #ES_NODE_MODULES
@@ -22,7 +21,7 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
  */
 export const setPackageDefaults = async (
 	options: BuildExecutorOptions,
-	entries: Entries | undefined,
+	outputEntry?: string,
 ) => {
 	const { readPackage } = (await esmModuleImport(
 		'read-pkg',
@@ -52,6 +51,9 @@ export const setPackageDefaults = async (
 			type: 'git',
 			url: 'git+https://github.com/guardian/csnx.git',
 		},
+		engines: {
+			node: '>=16',
+		},
 	};
 
 	if (!pkg.private) {
@@ -60,9 +62,11 @@ export const setPackageDefaults = async (
 		};
 	}
 
-	if (entries) {
-		pkgDefaults.main = entries.cjs;
-		pkgDefaults.module = entries.esm;
+	if (outputEntry) {
+		pkgDefaults.type = 'module';
+		pkgDefaults.exports = {
+			'.': `./${outputEntry}`,
+		};
 	} else if (!pkg.main) {
 		throw new Error(
 			"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",

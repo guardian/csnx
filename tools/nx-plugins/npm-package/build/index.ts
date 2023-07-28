@@ -7,10 +7,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import type Cpy from 'cpy';
-import type { OutputChunk } from 'rollup';
+import type { InputPluginOption, OutputChunk, OutputOptions } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
-import { ScriptTarget } from 'typescript';
 import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
@@ -29,27 +28,16 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
 
 const exec = util.promisify(childProcess.exec);
 
-const formats = ['cjs', 'esm'] as const;
-export type Entries = {
-	[K in (typeof formats)[number]]: string;
-};
-
 const getRollupConfig = (
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
-	format: (typeof formats)[number],
-) => {
+): { output: OutputOptions; plugins: InputPluginOption } => {
 	const compilerOptions = getCompilerOptions(options, context);
-
-	if (format === 'cjs') {
-		// Node 14 is eol 2023-04-30, so we should still support it
-		compilerOptions.target = ScriptTarget.ES2018;
-	}
 
 	return {
 		output: {
-			dir: `${options.outputPath}/${format}`,
-			format,
+			dir: `${options.outputPath}`,
+			format: 'esm',
 			sourcemap: true,
 			preserveModules: true,
 			esModule: true,
@@ -66,6 +54,7 @@ const getRollupConfig = (
 		],
 	};
 };
+
 export default async function buildExecutor(
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
@@ -91,8 +80,11 @@ export default async function buildExecutor(
 		// add a package.json with workspace deps resolved
 		await writeResolvedPackageJson(options, context);
 
-		let entries: Entries | undefined;
+		// if we end up using rollup, this will be reassigned to the path to the
+		// entry file that rollup generates
+		let entry: string | undefined = undefined;
 
+		// if there's a tsconfig, we'll use rollup to bundle the package
 		if (options.tsConfig) {
 			if (!options.entry) {
 				logger.error(
@@ -101,42 +93,45 @@ export default async function buildExecutor(
 				return { success: false };
 			}
 
-			// do not bundle dependencies
-			const deps = await getDeclaredDeps(options.packageJson);
-			const external = deps.map((dep) => new RegExp(`^${dep}`));
+			try {
+				// do not bundle dependencies
+				const deps = await getDeclaredDeps(options.packageJson);
+				const external = deps.map((dep) => new RegExp(`^${dep}`));
 
-			// create build for each module type
-			const outputs = await Promise.all(
-				formats.map(async (format) => {
-					const { plugins, output } = getRollupConfig(options, context, format);
-					const bundle = await rollup({
-						input: options.entry,
-						plugins,
-						external,
-					});
-					const artefact = await bundle.write(output);
-					await bundle.close();
+				const { plugins, output } = getRollupConfig(options, context);
+				const bundle = await rollup({
+					input: options.entry,
+					plugins,
+					external,
+				});
+				const artefact = await bundle.write(output);
+				await bundle.close();
 
-					const outputEntry = artefact.output.filter(
-						(file) => file.type === 'chunk' && file.isEntry,
-					) as OutputChunk[];
+				const [outputEntry, ...unknownEntries] = artefact.output.filter(
+					(file) => file.type === 'chunk' && file.isEntry,
+				) as OutputChunk[];
 
-					if (outputEntry.length === 1 && outputEntry[0]?.fileName) {
-						return [format, `${format}/${outputEntry[0].fileName}`];
-					}
+				if (!outputEntry) {
+					throw new Error(
+						'Bundle does not include an entry file in the output...',
+					);
+				}
 
-					// in reality, we control the entry option in the plugin, so we
-					// know there is only ever 1, but typescript doesn't know that
-					throw new Error('Expected a single entry file');
-				}),
-			);
+				if (unknownEntries.length) {
+					throw new Error(
+						'Bundle includes unexplained entry files in the output...',
+					);
+				}
 
-			// eslint-disable-next-line prefer-const -- it _is_ reassigned, eslint
-			entries = Object.fromEntries(outputs) as Entries;
+				entry = outputEntry.fileName;
+			} catch (e) {
+				logger.error(e);
+				return { success: false };
+			}
 		}
 
 		// remove unwanted fields and set any necessary defaults in the package.json
-		await setPackageDefaults(options, entries);
+		await setPackageDefaults(options, entry);
 
 		return { success: true };
 	} catch (e) {
