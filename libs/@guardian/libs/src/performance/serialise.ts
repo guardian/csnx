@@ -5,4 +5,4 @@ import type { TeamName } from '../logger/@types/logger';
 const SEPARATOR = ':';
 
 export const serialise = (team: TeamName, name: string, action?: string) =>
-	[team, name, action].filter(isNonNullable).join(SEPARATOR);
+	['gu', team, name, action].filter(isNonNullable).join(SEPARATOR);
