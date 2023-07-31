@@ -4,7 +4,12 @@
 
 ### Major Changes
 
-- Use source-foundations 13.0.0
+- Updated dependencies
+  - @guardian/source-foundations@13.0.0
+- Changes to component spacing and alignment due to line height updates:
+  - Updates `Accordion` component spacing
+  - Fixes label and supporting text alignment in `Checkbox` and `Radio` components.
+  - Updates `Select` component to add missing spacing and bring in line with `TextInput`
 
 ## 15.0.2
 
