@@ -120,6 +120,11 @@ export const labelText = (
 
 export const labelTextWithSupportingText = css`
 	${textSans.medium({ fontWeight: 'bold' })};
+	margin-top: 1px;
+	/* If label text is empty, add additional spacing to align supporting text */
+	&:empty {
+		margin-top: 2px;
+	}
 `;
 
 export const supportingText = (

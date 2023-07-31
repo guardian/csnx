@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 33.0.0
+
+### Major Changes
+
+- Use latest Guardian packages
+
 ## 32.3.0
 
 ### Minor Changes
