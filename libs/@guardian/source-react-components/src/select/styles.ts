@@ -96,3 +96,15 @@ export const select = (select = selectThemeDefault.select): SerializedStyles =>
 			${errorInput(select)};
 		}
 	`;
+
+export const labelMargin = css`
+	margin-top: ${space[1]}px;
+`;
+
+export const supportingTextMargin = css`
+	margin-top: 6px;
+`;
+
+export const inlineMessageMargin = css`
+	margin-top: ${space[1]}px;
+`;

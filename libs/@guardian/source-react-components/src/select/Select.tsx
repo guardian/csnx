@@ -10,10 +10,12 @@ import { InlineSuccess } from '../user-feedback/InlineSuccess';
 import {
 	errorChevron,
 	errorInput,
+	inlineMessageMargin,
 	select,
 	selectWrapper,
 	successChevron,
 	successInput,
+	supportingTextMargin,
 } from './styles';
 
 export interface SelectProps
@@ -80,10 +82,16 @@ export const Select = ({
 				htmlFor={selectId}
 			>
 				{error && (
-					<InlineError id={descriptionId(selectId)}>{error}</InlineError>
+					<div css={inlineMessageMargin}>
+						<InlineError id={descriptionId(selectId)}>{error}</InlineError>
+					</div>
 				)}
 				{!error && success && (
-					<InlineSuccess id={descriptionId(selectId)}>{success}</InlineSuccess>
+					<div css={inlineMessageMargin}>
+						<InlineSuccess id={descriptionId(selectId)}>
+							{success}
+						</InlineSuccess>
+					</div>
 				)}
 			</Label>
 			<div
@@ -91,6 +99,7 @@ export const Select = ({
 					selectWrapper(theme.select),
 					error ? errorChevron(theme.select) : '',
 					!error && success ? successChevron(theme.select) : '',
+					!error && !success ? supportingTextMargin : '',
 				]}
 			>
 				<select
