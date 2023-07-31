@@ -30,7 +30,7 @@ const buttonStyles = css`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: ${remSpace[2]} 0 ${remSpace[6]} 0;
+	padding: ${remSpace[1]} 0 ${remSpace[5]} 0;
 	cursor: pointer;
 `;
 
@@ -76,6 +76,7 @@ const expandedBodyStyles = css`
 	transition: max-height ${transitions.medium};
 	overflow: hidden;
 	height: auto;
+	padding-bottom: ${remSpace[5]};
 `;
 
 export const expandedBody = css`
