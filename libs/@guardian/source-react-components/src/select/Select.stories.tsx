@@ -84,3 +84,21 @@ SupportingTextDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
+export const SupportingSuccessTextDefaultTheme = Template.bind({});
+SupportingSuccessTextDefaultTheme.args = {
+	supporting: 'Leave blank if you are not within the US',
+
+	success: 'success',
+};
+
+// *****************************************************************************
+
+export const SupportingErrorTextDefaultTheme = Template.bind({});
+SupportingErrorTextDefaultTheme.args = {
+	supporting: 'Leave blank if you are not within the US',
+	error:
+		'Please select your home state. This service is unavailable outside of the US.',
+};
+
+// *****************************************************************************
