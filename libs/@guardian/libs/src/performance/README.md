@@ -50,3 +50,16 @@ Type: `string | undefined`<br>
 
 Optional action performed as part of a task.
 Used for labelling `PerformanceMeasure`.
+
+### `getMeasures(teams)`
+
+Returns: `GuardianMeasure[]`
+
+Retrieve `PerformanceMeasure` generated with `startPerformanceMeasure`.
+The type is narrowed to `GuardianMeasure` which contains relevant details
+
+#### `teams`
+
+Type:`TeamName[]`
+
+Name of teams to get the measures for

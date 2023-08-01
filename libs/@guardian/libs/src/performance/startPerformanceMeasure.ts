@@ -31,6 +31,11 @@ export const startPerformanceMeasure = (
 
 	const options = {
 		start: performance.now(),
+		detail: {
+			team,
+			name,
+			action,
+		},
 	} satisfies PerformanceMeasureOptions;
 
 	const endPerformanceMeasure = () => {
