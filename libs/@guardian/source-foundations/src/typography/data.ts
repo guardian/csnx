@@ -88,6 +88,19 @@ export const fonts = {
 		'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
 } as const;
 
+/**
+ * @see https://theguardian.design/2a1e5182b/p/0578f1-typography-presets/b/4704a2
+ * @see https://www.figma.com/file/OqhZwB5nboFn33iHLYoc6d/%E2%97%90-Typography?type=design&node-id=384%3A3&t=mYsLeX87mBF2Uw8J-1
+ *
+ * Relative units ensure users can change their user-agent’s font size
+ * and having the line height grow accordingly.
+ *
+ * We meet the Web Consortium Accessibility Guidelines’
+ * success criterion for “Text Spacing” (1.4.12) as these values
+ * can be overridden by users.
+ *
+ * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
+ */
 export const lineHeights = {
 	tight: 1.15,
 	regular: 1.3,
