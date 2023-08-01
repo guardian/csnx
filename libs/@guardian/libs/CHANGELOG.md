@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.6.0
+
+### Minor Changes
+
+- 2f80074: Actually export new `getMeasures` method
+
 ## 15.5.0
 
 ### Minor Changes
