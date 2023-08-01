@@ -94,6 +94,7 @@ describe('IdentityAuth#TokenManager', () => {
 				maxClockSkew: 300,
 				autoRenew: false,
 				renewGracePeriod: 0,
+				idCookieSessionRefresh: false,
 			},
 			{
 				authorizeUrl:

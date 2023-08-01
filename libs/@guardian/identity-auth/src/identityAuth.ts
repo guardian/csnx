@@ -8,6 +8,7 @@ import type {
 import type { CustomClaims } from './@types/Token';
 import { AuthStateManager } from './authState';
 import { AutoRenewService } from './autoRenew';
+import { cookieRefreshIfRequired } from './cookieRefresh';
 import { Emitter } from './emitter';
 import { OAuthError } from './error';
 import { Token } from './token';
@@ -44,6 +45,7 @@ export class IdentityAuth<
 			autoRenew: true,
 			renewGracePeriod: 60,
 			maxClockSkew: 300,
+			idCookieSessionRefresh: false,
 			...options,
 		};
 		this.#oauthUrls = {
@@ -51,6 +53,12 @@ export class IdentityAuth<
 			tokenUrl: `${this.#options.issuer}/v1/token`,
 			keysUrl: `${this.#options.issuer}/v1/keys`,
 		};
+
+		// before doing anything else, we check if the user's session should be refreshed based on the idCookieSessionRefresh option
+		cookieRefreshIfRequired(
+			this.#options.idCookieSessionRefresh,
+			this.#options.issuer,
+		);
 
 		this.#emitter = new Emitter();
 		this.token = new Token<AC, IC>(this.#options, this.#oauthUrls);

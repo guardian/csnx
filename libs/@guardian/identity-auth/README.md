@@ -68,6 +68,8 @@ import { IdentityAuth } from '@guardian/identity-auth';
  * @param redirectUri - The redirect URI of your app
  * @param autoRenew - Whether to automatically renew the tokens, defaults to `true`
  * @param renewGracePeriod - The time in seconds before the access token expires to renew the token, defaults to 60 seconds
+ * @param maxClockSkew - The maximum time drift in seconds between the client and server, defaults to 300 seconds (5 minutes), based on the default maximum tolerance of the Kerberos protocol
+ * @param idCookieSessionRefresh - If switched on (set to `true`, ), will refresh the okta session and identity cookie (GU_U), if required (once every 30 days), by redirecting the user to `profile`'s `/signin/refresh` endpoint. Should be based on the id-cookie-refresh (idCookieRefresh) switch if being supplied by theguardian.com, defaults to `false`
  */
 const config: IdentityAuthOptions = {
 	issuer: 'https://profile.theguardian.com/oauth2/SERVER_ID',
@@ -76,6 +78,8 @@ const config: IdentityAuthOptions = {
 	scopes: ['openid', 'profile'], // and any other scopes you need
 	autoRenew: true, // optional, defaults to true
 	renewGracePeriod: 60, // optional, defaults to 60 seconds
+	maxClockSkew: 300, // optional, defaults to 300 seconds (5 minutes)
+	idCookieSessionRefresh: false, // optional, defaults to false
 };
 
 const identityAuth = new IdentityAuth(config);

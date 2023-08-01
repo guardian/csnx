@@ -1,4 +1,24 @@
+import { guard } from './guard';
+import type { Guard } from './guard';
 import type { AccessToken, CustomClaims, IDToken } from './Token';
+
+/**
+ * Defines the `profile` endpoint URL (Identity/Okta endpoint)
+ */
+// type of valid domains
+type GuardianDomain = 'theguardian' | 'code.dev-theguardian' | 'thegulocal';
+// list of valid profile urls
+const profileUrls = [
+	'https://profile.theguardian.com',
+	'https://profile.code.dev-theguardian.com',
+	'https://profile.thegulocal.com',
+] as const satisfies ReadonlyArray<`https://profile.${GuardianDomain}.com`>;
+
+// type guard for profile urls
+export const isProfileUrl = guard(profileUrls);
+
+// type for profile urls
+export type ProfileUrl = Guard<typeof isProfileUrl>;
 
 /**
  * Defines the options that are required to configure the IdentityAuth
@@ -13,18 +33,17 @@ import type { AccessToken, CustomClaims, IDToken } from './Token';
  * @param autoRenew - Whether to automatically renew the tokens, defaults to `true`
  * @param renewGracePeriod - The time in seconds before the access token expires to renew the token, defaults to 60 seconds
  * @param maxClockSkew - The maximum time drift in seconds between the client and server, defaults to 300 seconds (5 minutes), based on the default maximum tolerance of the Kerberos protocol
+ * @param idCookieSessionRefresh - If switched on (set to `true`, ), will refresh the okta session and identity cookie (GU_U), if required (once every 30 days), should be based on the id-cookie-refresh (idCookieRefresh) switch if being supplied by theguardian.com, defaults to `false`
  */
 export interface IdentityAuthOptions {
 	clientId: string;
-	issuer: `https://profile.${
-		| 'theguardian'
-		| 'code.dev-theguardian'
-		| 'thegulocal'}.com/oauth2/${string}`;
+	issuer: `${ProfileUrl}/oauth2/${string}`;
 	scopes: ['openid', 'profile', ...string[]];
 	redirectUri: string;
 	autoRenew?: boolean;
 	renewGracePeriod?: number;
 	maxClockSkew?: number;
+	idCookieSessionRefresh?: boolean;
 }
 
 /**
