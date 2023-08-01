@@ -39,8 +39,8 @@ jobs:
         run: pnpm nx run csnx:build-storybook
 
       - name: Deploy root storybook to github pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/storybook/apps/csnx
-          publish_branch: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: dist/storybook/apps/csnx
+          branch: main
