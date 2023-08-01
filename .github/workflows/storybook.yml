@@ -39,6 +39,8 @@ jobs:
         run: pnpm nx run csnx:build-storybook
 
       - name: Deploy root storybook to github pages
-        run: pnpm storybook-to-ghpages --ci --existing-output-dir dist/storybook/apps/csnx
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist/storybook/apps/csnx
+          publish_branch: main
