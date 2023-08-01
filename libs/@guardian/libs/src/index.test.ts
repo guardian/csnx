@@ -14,6 +14,7 @@ describe('The package', () => {
 			'getCookie',
 			'getCountryByCountryCode',
 			'getLocale',
+			'getMeasures',
 			'getSwitches',
 			'isBoolean',
 			'isNonNullable',
