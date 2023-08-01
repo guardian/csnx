@@ -4,6 +4,7 @@ overrides:
   semver@^5.0.0: 5.7.2
   semver@^6.0.0: 6.3.1
   semver@^7.0.0: 7.5.4
+  git-url-parse@^12.0.0: ^13.1.0
 
 importers:
 
@@ -193,10 +194,10 @@ importers:
       '@emotion/react': 11.11.1_tznpbkknyqq5lcv5sgrl332jvu
       '@guardian/ab-core': link:../ab-core
       '@guardian/commercial': 10.8.0_typescript@5.1.3
-      '@guardian/consent-management-platform': 13.6.1_uo3bjqllavv5kwoq2zqgzcz5h4
+      '@guardian/consent-management-platform': 13.6.1_@guardian+libs@15.4.0
       '@guardian/eslint-plugin-source-foundations': link:../eslint-plugin-source-foundations
       '@guardian/eslint-plugin-source-react-components': link:../eslint-plugin-source-react-components
-      '@guardian/libs': link:../libs
+      '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
       '@testing-library/dom': 9.3.1
@@ -289,7 +290,7 @@ importers:
       '@typescript-eslint/parser': 5.59.9_tizxnkcvjrb4cldxgwq5h3lj5u
       eslint-plugin-import: 2.27.5_4sfevs3vpuvadhjdwbsynzgtpy
     devDependencies:
-      '@guardian/libs': link:../libs
+      '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-foundations': link:../source-foundations
       '@types/eslint': 8.40.0
       '@types/estree': 1.0.1
@@ -316,7 +317,7 @@ importers:
       '@typescript-eslint/parser': 5.59.9_v5z4zaksc2au4w32gg6cwoxijq
     devDependencies:
       '@emotion/react': 11.11.1_react@18.2.0
-      '@guardian/libs': link:../libs
+      '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
       '@types/eslint': 8.4.6
@@ -435,7 +436,7 @@ importers:
     devDependencies:
       '@babel/core': 7.22.9
       '@emotion/react': 11.11.1_j4swkgacdxrhexoapez3itylte
-      '@guardian/libs': link:../libs
+      '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-foundations': link:../source-foundations
       '@guardian/source-react-components': link:../source-react-components
       '@types/react': 18.2.11
@@ -2492,7 +2493,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.40.0
-      eslint-visitor-keys: 3.4.2
+      eslint-visitor-keys: 3.4.1
     dev: true
 
   /@eslint-community/eslint-utils/4.4.0_eslint@8.42.0:
@@ -2574,9 +2575,9 @@ packages:
     dependencies:
       '@changesets/cli': 2.26.2
       '@guardian/ab-core': 5.0.0_2fm6qdqvboq725wodu6qww5jhq
-      '@guardian/consent-management-platform': 13.6.1_@guardian+libs@15.2.0
-      '@guardian/core-web-vitals': 5.0.0_3mflpycv66vuqouhdlj477ddkq
-      '@guardian/libs': 15.2.0_2fm6qdqvboq725wodu6qww5jhq
+      '@guardian/consent-management-platform': 13.6.1_@guardian+libs@15.4.0
+      '@guardian/core-web-vitals': 5.0.0_fkwh3656kve324stdzzoqiq6vm
+      '@guardian/libs': 15.4.0_2fm6qdqvboq725wodu6qww5jhq
       '@guardian/source-foundations': 12.0.0_2fm6qdqvboq725wodu6qww5jhq
       '@guardian/support-dotcom-components': 1.0.7
       '@octokit/core': 4.2.1
@@ -2595,23 +2596,15 @@ packages:
       - typescript
     dev: true
 
-  /@guardian/consent-management-platform/13.6.1_@guardian+libs@15.2.0:
+  /@guardian/consent-management-platform/13.6.1_@guardian+libs@15.4.0:
     resolution: {integrity: sha512-5KQ4dZrqIBKuJCSJ/TTWXZ4F0WXY9ecpMnfOfvNIU9tXF1LAeT+LNv7hfV8eC5qMJskj2yvZZUi7hlwWD+Nq/A==}
     peerDependencies:
       '@guardian/libs': ^15.0.0
     dependencies:
-      '@guardian/libs': 15.2.0_2fm6qdqvboq725wodu6qww5jhq
+      '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
     dev: true
 
-  /@guardian/consent-management-platform/13.6.1_uo3bjqllavv5kwoq2zqgzcz5h4:
-    resolution: {integrity: sha512-5KQ4dZrqIBKuJCSJ/TTWXZ4F0WXY9ecpMnfOfvNIU9tXF1LAeT+LNv7hfV8eC5qMJskj2yvZZUi7hlwWD+Nq/A==}
-    peerDependencies:
-      '@guardian/libs': ^15.0.0
-    dependencies:
-      '@guardian/libs': link:libs/@guardian/libs
-    dev: true
-
-  /@guardian/core-web-vitals/5.0.0_3mflpycv66vuqouhdlj477ddkq:
+  /@guardian/core-web-vitals/5.0.0_fkwh3656kve324stdzzoqiq6vm:
     resolution: {integrity: sha512-Mq3v8Y/YJGs7p/8NWmYHFKdVqRThjDJSfpoo1zSb6DgpQ1Ko8RjvOa2Q9P9ABWfKJCaDp0kcGK3dk0AjDSi/Qw==}
     peerDependencies:
       '@guardian/libs': ^15.0.0
@@ -2622,7 +2615,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@guardian/libs': 15.2.0_2fm6qdqvboq725wodu6qww5jhq
+      '@guardian/libs': 15.4.0_2fm6qdqvboq725wodu6qww5jhq
       tslib: 2.6.1
       typescript: 5.1.3
       web-vitals: 3.3.2
@@ -2649,8 +2642,8 @@ packages:
       typescript: 5.1.3
     dev: true
 
-  /@guardian/libs/15.2.0_2fm6qdqvboq725wodu6qww5jhq:
-    resolution: {integrity: sha512-R/DRo1qrRDTs856Keh+lFW62x97QG/7cqz/IyDfg5YoPyZpgHtnNuNoVrhnGdjWE0ZdAXJIg8TGAm+n+/JFPvQ==}
+  /@guardian/libs/15.4.0_2fm6qdqvboq725wodu6qww5jhq:
+    resolution: {integrity: sha512-UnLLRnVNHhuBE8uRSx3b0rjpjovFK7lSbnfCZ5jZqabEutkZimkNdW4DX95y3QWDHJT/faHo3kV7heiXKbiO3g==}
     peerDependencies:
       tslib: ^2.5.3
       typescript: ~5.1.3
@@ -2659,6 +2652,19 @@ packages:
         optional: true
     dependencies:
       tslib: 2.6.1
+      typescript: 5.1.3
+    dev: true
+
+  /@guardian/libs/15.4.0_xfreuenalcno2zxheqz32kfzfe:
+    resolution: {integrity: sha512-UnLLRnVNHhuBE8uRSx3b0rjpjovFK7lSbnfCZ5jZqabEutkZimkNdW4DX95y3QWDHJT/faHo3kV7heiXKbiO3g==}
+    peerDependencies:
+      tslib: ^2.5.3
+      typescript: ~5.1.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      tslib: 2.5.3
       typescript: 5.1.3
     dev: true
 
@@ -4974,7 +4980,7 @@ packages:
   /@storybook/storybook-deployer/2.8.16:
     resolution: {integrity: sha512-DRQrjyLKaRLXMYo7SNUznyGabtOLJ0b9yfBKNVMu6PsUHJifGPabXuNXmRPZ6qvyhHUSKLQgeLaX8L3Og6uFUg==}
     dependencies:
-      git-url-parse: 12.0.0
+      git-url-parse: 13.1.0
       glob: 7.2.3
       parse-repo: 1.0.4
       shelljs: 0.8.5
@@ -5381,10 +5387,6 @@ packages:
 
   /@tsconfig/node16/1.0.3:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
-    dev: true
-
-  /@tsconfig/node16/1.0.4:
-    resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
   /@types/aria-query/5.0.1:
@@ -9933,17 +9935,17 @@ packages:
     resolution: {integrity: sha512-XDfdemBGJIMAsHHOONHQxEH5dX2kCpE6MGZ1IsNvBuDPBZM3p4EAwAC7ygMjn/1/x+BJX0TK1ara1Zrh7JCFdQ==}
     dev: true
 
-  /git-up/6.0.0:
-    resolution: {integrity: sha512-6RUFSNd1c/D0xtGnyWN2sxza2bZtZ/EmI9448n6rCZruFwV/ezeEn2fJP7XnUQGwf0RAtd/mmUCbtH6JPYA2SA==}
+  /git-up/7.0.0:
+    resolution: {integrity: sha512-ONdIrbBCFusq1Oy0sC71F5azx8bVkvtZtMJAsv+a6lz5YAmbNnLD6HAB4gptHZVLPR8S2/kVN6Gab7lryq5+lQ==}
     dependencies:
       is-ssh: 1.4.0
-      parse-url: 7.0.2
+      parse-url: 8.1.0
     dev: true
 
-  /git-url-parse/12.0.0:
-    resolution: {integrity: sha512-I6LMWsxV87vysX1WfsoglXsXg6GjQRKq7+Dgiseo+h0skmp5Hp2rzmcEIRQot9CPA+uzU7x1x7jZdqvTFGnB+Q==}
+  /git-url-parse/13.1.0:
+    resolution: {integrity: sha512-5FvPJP/70WkIprlUZ33bm4UAaFdjcLkJLpWft1BeZKqwR0uhhNGoKwlUaPtVb4LxCSQ++erHapRak9kWGj+FCA==}
     dependencies:
-      git-up: 6.0.0
+      git-up: 7.0.0
     dev: true
 
   /github-slugger/1.5.0:
@@ -12225,11 +12227,6 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  /normalize-url/6.1.0:
-    resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
-    engines: {node: '>=10'}
-    dev: true
-
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
@@ -12683,8 +12680,8 @@ packages:
       type-fest: 3.13.0
     dev: false
 
-  /parse-path/5.0.0:
-    resolution: {integrity: sha512-qOpH55/+ZJ4jUu/oLO+ifUKjFPNZGfnPJtzvGzKN/4oLMil5m9OH4VpOj6++9/ytJcfks4kzH2hhi87GL/OU9A==}
+  /parse-path/7.0.0:
+    resolution: {integrity: sha512-Euf9GG8WT9CdqwuWJGdf3RkUcTBArppHABkO7Lm8IzRQp0e2r/kkFnmhu4TSK30Wcu5rVAZLmfPKSBBi9tWFog==}
     dependencies:
       protocols: 2.0.1
     dev: true
@@ -12693,13 +12690,10 @@ packages:
     resolution: {integrity: sha512-RdwYLh7cmxByP/BfeZX0QfIVfeNrH2fWgK1aLsGK+G6nCO4WTlCks4J7aW0O3Ap9BCPDF/e8rGTT50giQr10zg==}
     dev: true
 
-  /parse-url/7.0.2:
-    resolution: {integrity: sha512-PqO4Z0eCiQ08Wj6QQmrmp5YTTxpYfONdOEamrtvK63AmzXpcavIVQubGHxOEwiIoDZFb8uDOoQFS0NCcjqIYQg==}
+  /parse-url/8.1.0:
+    resolution: {integrity: sha512-xDvOoLU5XRrcOZvnI6b8zA6n9O9ejNk/GExuz1yBuWUGn9KA97GI6HTs6u02wKara1CeVmZhH+0TZFdWScR89w==}
     dependencies:
-      is-ssh: 1.4.0
-      normalize-url: 6.1.0
-      parse-path: 5.0.0
-      protocols: 2.0.1
+      parse-path: 7.0.0
     dev: true
 
   /parse5/7.1.2:
@@ -14492,9 +14486,9 @@ packages:
       '@tsconfig/node10': 1.0.9
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
+      '@tsconfig/node16': 1.0.3
       '@types/node': 18.16.19
-      acorn: 8.10.0
+      acorn: 8.8.1
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
