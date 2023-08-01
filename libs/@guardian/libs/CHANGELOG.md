@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.5.0
+
+### Minor Changes
+
+- 6a88106: New API to retrieve `PerformanceMeasure` created with `startPerformanceMeasure`.
+
 ## 15.4.0
 
 ### Minor Changes
