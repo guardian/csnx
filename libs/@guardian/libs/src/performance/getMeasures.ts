@@ -11,9 +11,8 @@ const isGuardianMeasure = (
 	isObject(measure.detail) &&
 	isString(measure.detail.team) &&
 	isTeam(measure.detail.team) &&
-	typeof measure.detail.name === 'string' &&
-	(measure.detail.action === undefined ||
-		typeof measure.detail.action === 'string');
+	isString(measure.detail.name) &&
+	(isString(measure.detail.action) || measure.detail.action === undefined);
 
 /**
  * Retrieve `PerformanceMeasure` generated with `startPerformanceMeasure`.
