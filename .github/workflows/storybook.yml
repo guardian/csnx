@@ -11,6 +11,7 @@
 
 name: Storybook
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: [CI]
     branches: [main]
@@ -42,5 +43,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/storybook/apps/csnx
+          publish_dir: ./dist/storybook/apps/csnx
           publish_branch: main
