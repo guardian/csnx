@@ -44,4 +44,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: dist/storybook/apps/csnx
-          branch: main
+          branch: gh-pages
