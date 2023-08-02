@@ -1,3 +1,5 @@
+import type { TeamName } from '../../logger/@types/logger';
+
 declare global {
 	interface Performance {
 		/**
@@ -12,4 +14,10 @@ declare global {
 	}
 }
 
-export type {};
+export interface GuardianMeasure extends PerformanceMeasure {
+	detail: {
+		team: TeamName;
+		name: string;
+		action?: string;
+	};
+}
