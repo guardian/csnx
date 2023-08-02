@@ -1,18 +1,6 @@
-import { isObject } from '../isObject/isObject';
-import { isString } from '../isString/isString';
 import type { TeamName } from '../logger/@types/logger';
-import { isTeam } from '../logger/teamStyles';
 import type { GuardianMeasure } from './@types/measure';
-
-const isGuardianMeasure = (
-	measure: PerformanceEntry,
-): measure is GuardianMeasure =>
-	measure instanceof PerformanceMeasure &&
-	isObject(measure.detail) &&
-	isString(measure.detail.team) &&
-	isTeam(measure.detail.team) &&
-	isString(measure.detail.name) &&
-	(isString(measure.detail.action) || measure.detail.action === undefined);
+import { deserialise } from './serialise';
 
 /**
  * Retrieve `PerformanceMeasure` generated with `startPerformanceMeasure`.
@@ -21,7 +9,11 @@ const isGuardianMeasure = (
 export const getMeasures = (
 	teams: readonly TeamName[],
 ): readonly GuardianMeasure[] =>
-	window.performance
-		.getEntriesByType('measure')
-		.filter(isGuardianMeasure)
-		.filter((measure) => teams.includes(measure.detail.team));
+	window.performance.getEntriesByType('measure').flatMap((measure) => {
+		const detail = deserialise(measure.name);
+		return measure instanceof PerformanceMeasure &&
+			detail &&
+			teams.includes(detail.team)
+			? { ...measure, detail }
+			: [];
+	});

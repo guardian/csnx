@@ -1,11 +1,16 @@
 import type { TeamName } from '../logger/@types/logger';
+import { log } from '../logger/log';
 import type {} from './@types/measure';
 import { serialise } from './serialise';
 
 /** For browser which do not fully support the performance API */
-const fallback: ReturnType<typeof startPerformanceMeasure> = {
-	endPerformanceMeasure: () => -1,
-};
+const fallbackDuration = -1;
+
+/** return a pseudo random identifier to prevent duplicate mark names */
+const getId = () =>
+	Math.trunc(Math.random() * 1_679_615)
+		.toString(36)
+		.padStart(4, '0');
 
 /**
  * Helper to measure the duration between two events.
@@ -23,29 +28,35 @@ export const startPerformanceMeasure = (
 	name: string,
 	action?: string,
 ): { endPerformanceMeasure: () => number } => {
-	if (!('getEntriesByName' in window.performance)) {
-		return fallback;
+	try {
+		const measureName = serialise({ team, name, action });
+		const markName = `${measureName}-${getId()}`;
+		const start = performance.now();
+
+		// Browser support for `measureOptions` is not good enough,
+		// so we have to rely on the side effect of adding a mark.
+		// See https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure#measureoptions
+		performance.mark(markName);
+
+		const endPerformanceMeasure = () => {
+			try {
+				const { duration } = window.performance.measure(
+					measureName,
+					markName,
+				) ?? {
+					duration: performance.now() - start,
+				};
+
+				return Math.ceil(duration);
+			} catch (error) {
+				log(team, error);
+				return fallbackDuration;
+			}
+		};
+
+		return { endPerformanceMeasure };
+	} catch (error) {
+		log(team, error);
+		return { endPerformanceMeasure: () => fallbackDuration };
 	}
-
-	const measureName = serialise(team, name, action);
-
-	const options = {
-		start: performance.now(),
-		detail: {
-			team,
-			name,
-			action,
-		},
-	} satisfies PerformanceMeasureOptions;
-
-	const endPerformanceMeasure = () => {
-		const { duration } = window.performance.measure(measureName, options) ??
-			window.performance.getEntriesByName(measureName, 'measure').at(-1) ?? {
-				duration: performance.now() - options.start,
-			};
-
-		return Math.ceil(duration);
-	};
-
-	return { endPerformanceMeasure };
 };
