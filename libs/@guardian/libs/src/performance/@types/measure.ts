@@ -14,10 +14,12 @@ declare global {
 	}
 }
 
+export type Detail = {
+	team: TeamName;
+	name: string;
+	action?: string;
+};
+
 export interface GuardianMeasure extends PerformanceMeasure {
-	detail: {
-		team: TeamName;
-		name: string;
-		action?: string;
-	};
+	detail: Detail;
 }
