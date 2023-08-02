@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.6.1
+
+### Patch Changes
+
+- efb20dc: Handle browser which do not support the `measureOptions` parameter to window.performance.measure() API
+
 ## 15.6.0
 
 ### Minor Changes
