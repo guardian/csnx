@@ -1,5 +1,12 @@
 # @guardian/libs
 
+## 15.6.2
+
+### Patch Changes
+
+- 368083d: Handle browsers which do not support the
+  [`performance.getEntriesByType` API](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntriesByType#browser_compatibility).
+
 ## 15.6.1
 
 ### Patch Changes
