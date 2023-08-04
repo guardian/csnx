@@ -562,7 +562,7 @@ These are the numbers that were used to generate the list of included browsers.
 
 Usage is based on our Google Analytics stats.
 
-To update it, use [browserslist-ga-export](https://github.com/browserslist/browserslist-ga-export) to generate a new [browserslist-stats.json](./browserslist-stats.json) and replace the current one.
+To update it, run `pnpm --filter="browserslist-config" update-all` (from the root – `pnpm update-all` from this directory).
 
 ### Report content
 
@@ -573,7 +573,3 @@ Views:
 - Editorial US Timezone
 
 Date range: Last 30 days
-
-### Updating the readme
-
-Then run `pnpm --filter="browserslist-config" update-readme` (from the root – `pnpm update-readme` from this directory) and publish the new version.
