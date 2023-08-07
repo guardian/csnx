@@ -11,7 +11,7 @@
 		"eslint-plugin-import": "2.27.5"
 	},
 	"devDependencies": {
-		"eslint": "8.0.0",
+		"eslint": "8.46.0",
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
 	},
