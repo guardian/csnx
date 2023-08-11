@@ -20,6 +20,11 @@ export type Detail = {
 	action?: string;
 };
 
-export interface GuardianMeasure extends PerformanceMeasure {
+export interface GuardianMeasure {
+	name: string;
+	duration: number;
+	startTime: number;
+	entryType: 'measure';
 	detail: Detail;
+	toJson(): string;
 }
