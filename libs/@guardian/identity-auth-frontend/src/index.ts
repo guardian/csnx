@@ -1,0 +1,66 @@
+import { IdentityAuth } from '@guardian/identity-auth';
+import type { CustomClaims } from '@guardian/identity-auth';
+
+type FrontendIdTokenClaims = CustomClaims & {
+	email: string;
+	braze_uuid: string;
+};
+
+export type FrontendIdentityAuth = IdentityAuth<never, FrontendIdTokenClaims>;
+
+const getStage = (isDev: boolean, stage: string) => (isDev ? 'DEV' : stage);
+
+const getIssuer = (stage: string) =>
+	stage === 'PROD'
+		? 'https://profile.theguardian.com/oauth2/aus3xgj525jYQRowl417'
+		: 'https://profile.code.dev-theguardian.com/oauth2/aus3v9gla95Toj0EE0x7';
+
+const getClientId = (stage: string) =>
+	stage === 'PROD' ? '0oa79m1fmgzrtaHc1417' : '0oa53x6k5wGYXOGzm0x7';
+
+const getRedirectUri = (stage: string) => {
+	switch (stage) {
+		case 'PROD':
+			return 'https://www.theguardian.com/';
+		case 'CODE':
+			return 'https://m.code.dev-theguardian.com/';
+		case 'DEV':
+		default:
+			return 'http://localhost:3030/';
+	}
+};
+
+export const getIdentityAuth = () => {
+	const { guardian } = window;
+	const { config } = guardian ?? {};
+	const { isDev, stage } = guardian?.config ?? {};
+
+	if (!guardian || !config || !isDev || !stage) {
+		throw new Error('window.guardian has not yet been initialized');
+	}
+
+	const stageOrDev = getStage(isDev, stage);
+
+	if (!guardian.identityAuth) {
+		guardian.identityAuth = new IdentityAuth<never, FrontendIdTokenClaims>({
+			issuer: getIssuer(stageOrDev),
+			clientId: getClientId(stageOrDev),
+			redirectUri: getRedirectUri(stageOrDev),
+			idCookieSessionRefresh: config.switches?.idCookieRefresh ?? false,
+			scopes: [
+				'openid', // required for open id connect, returns an id token
+				'profile', // populates the id token with basic profile information
+				'email', // populates the id token with the user's email address
+				'guardian.discussion-api.private-profile.read.self', // allows the access token to be used to make requests to the discussion api to read the user's profile
+				'guardian.discussion-api.update.secure', // allows the access token to be used to make requests to the discussion api to post comments, upvote etc
+				'guardian.identity-api.newsletters.read.self', // allows the access token to be used to make requests to the identity api to read the user's newsletter subscriptions
+				'guardian.identity-api.newsletters.update.self', // allows the access token to be used to make requests to the identity api to update the user's newsletter subscriptions
+				'guardian.identity-api.user.username.create.self.secure', // allows the access token to set the user's username
+				'guardian.members-data-api.read.self', // allows the access token to be used to make requests to the members data api to read the user's membership status
+				'id_token.profile.theguardian', // populates the id token with application specific profile information
+			],
+		});
+	}
+
+	return guardian.identityAuth;
+};
