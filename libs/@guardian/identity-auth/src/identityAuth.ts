@@ -46,6 +46,7 @@ export class IdentityAuth<
 			renewGracePeriod: 60,
 			maxClockSkew: 300,
 			idCookieSessionRefresh: false,
+			oauthTimeout: 30000,
 			...options,
 		};
 		this.#oauthUrls = {

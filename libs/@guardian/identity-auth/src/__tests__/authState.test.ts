@@ -78,6 +78,7 @@ describe('IdentityAuth#AuthStateManager', () => {
 				renewGracePeriod: 0,
 				maxClockSkew: 300,
 				idCookieSessionRefresh: false,
+				oauthTimeout: 30000,
 			},
 			{
 				authorizeUrl:

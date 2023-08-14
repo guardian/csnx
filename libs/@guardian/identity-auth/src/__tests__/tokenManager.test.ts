@@ -47,6 +47,7 @@ describe('IdentityAuth#TokenManager', () => {
 
 	const accessTokenStorage: AccessTokenStorage = {
 		accessToken: 'accessToken',
+		clockSkew: 0,
 	};
 
 	const idToken: IDToken = {
@@ -81,6 +82,7 @@ describe('IdentityAuth#TokenManager', () => {
 	const idTokenStorage: IDTokenStorage = {
 		idToken: 'idToken',
 		nonce: 'nonce',
+		clockSkew: 0,
 	};
 
 	beforeEach(() => {
@@ -95,6 +97,7 @@ describe('IdentityAuth#TokenManager', () => {
 				autoRenew: false,
 				renewGracePeriod: 0,
 				idCookieSessionRefresh: false,
+				oauthTimeout: 30000,
 			},
 			{
 				authorizeUrl:
