@@ -85,11 +85,13 @@ export class TokenManager<
 		// setup the storage objects
 		const accessTokenStorage: AccessTokenStorage = {
 			accessToken: tokens.accessToken.accessToken,
+			clockSkew: tokens.accessToken.clockSkew,
 		};
 
 		const idTokenStorage: IDTokenStorage = {
 			idToken: tokens.idToken.idToken,
 			nonce: tokens.idToken.nonce,
+			clockSkew: tokens.idToken.clockSkew,
 		};
 
 		// set the new tokens in storage
@@ -141,11 +143,13 @@ export class TokenManager<
 			return undefined;
 		}
 
-		const { accessToken, idToken } = this.#token.decodeTokens(
-			accessTokenFromStorage.accessToken,
-			idTokenFromStorage.idToken,
-			idTokenFromStorage.nonce,
-		);
+		const { accessToken, idToken } = this.#token.decodeTokens({
+			accessTokenRaw: accessTokenFromStorage.accessToken,
+			accessTokenClockSkew: accessTokenFromStorage.clockSkew,
+			idTokenRaw: idTokenFromStorage.idToken,
+			idTokenClockSkew: idTokenFromStorage.clockSkew,
+			nonce: idTokenFromStorage.nonce,
+		});
 
 		if (!isAccessToken(accessToken) || !isIDToken(idToken)) {
 			return undefined;

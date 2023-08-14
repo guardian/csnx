@@ -176,6 +176,30 @@ const isOAuthTokenResponseError = (
 };
 
 /**
+ * @name calculateClockSkew
+ * @description Calculates the clock skew between the current time and the iat claim in seconds
+ *
+ * @param now `number` - current time in seconds to compare against the iat claim
+ * @param token `string` - raw JWT token
+ * @returns `number` - the clock skew in seconds
+ */
+const calculateClockSkew = (now: number, token: string): number => {
+	// decode the token and extract the iat claim
+	const { iat } = decodeToken(token).payload;
+
+	// check that the iat claim is present
+	if (!iat) {
+		throw new OAuthError({
+			error: 'invalid_token',
+			error_description: 'iat claim is missing from token',
+		});
+	}
+
+	// return the difference between the current time and the iat claim
+	return now - iat;
+};
+
+/**
  * @name decodeToken
  * @description Decodes a JWT token into its parts, i.e header, payload and signature
  *
@@ -225,6 +249,15 @@ const decodeToken = <T extends CustomClaims = CustomClaims>(
 	}
 };
 
+interface DecodeTokenParams {
+	accessTokenRaw: string;
+	accessTokenClockSkew: number;
+	idTokenRaw: string;
+	idTokenClockSkew: number;
+	nonce: string;
+	options: RequiredIdentityAuthOptions;
+}
+
 /**
  * @name decodeTokens
  * @description Decodes the access and ID tokens, returning the decoded claims, without verifying the tokens
@@ -240,15 +273,12 @@ const decodeTokens = <
 	IC extends CustomClaims = CustomClaims,
 >({
 	accessTokenRaw,
+	accessTokenClockSkew,
 	idTokenRaw,
+	idTokenClockSkew,
 	nonce,
 	options,
-}: {
-	accessTokenRaw: string;
-	idTokenRaw: string;
-	nonce: string;
-	options: RequiredIdentityAuthOptions;
-}): Tokens<AC, IC> => {
+}: DecodeTokenParams): Tokens<AC, IC> => {
 	// get the current time in seconds
 	const now = Math.floor(Date.now() / 1000);
 
@@ -266,9 +296,6 @@ const decodeTokens = <
 			message: 'Invalid access token claims',
 		});
 	}
-
-	// calculate the clock skew (difference between local and server time) using the iat claim
-	const accessTokenClockSkew = now - accessTokenPayload.iat;
 
 	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
 	if (Math.abs(accessTokenClockSkew) > options.maxClockSkew) {
@@ -312,9 +339,6 @@ const decodeTokens = <
 			message: 'Invalid ID token claims',
 		});
 	}
-
-	// calculate the clock skew (difference between local and server time) using the iat claim
-	const idTokenClockSkew = now - idTokenPayload.iat;
 
 	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
 	if (Math.abs(idTokenClockSkew) > options.maxClockSkew) {
@@ -879,10 +903,18 @@ export const handleOAuthResponse = async <
 	// destructure the response
 	const { access_token, id_token } = oauthTokenResponse;
 
+	// calculate the clock skew for both tokens
+	// get the current time in seconds
+	const now = Math.floor(Date.now() / 1000);
+	const accessTokenClockSkew = calculateClockSkew(now, access_token);
+	const idTokenClockSkew = calculateClockSkew(now, id_token);
+
 	// decode the tokens
 	const { accessToken, idToken } = decodeTokens<AC, IC>({
 		accessTokenRaw: access_token,
+		accessTokenClockSkew,
 		idTokenRaw: id_token,
+		idTokenClockSkew,
 		nonce: authorizeParams.nonce,
 		options,
 	});
@@ -1061,10 +1093,18 @@ export class Token<
 	 *
 	 * @returns Tokens - decoded access and ID tokens
 	 */
-	public decodeTokens(accessToken: string, idToken: string, nonce: string) {
+	public decodeTokens({
+		accessTokenRaw,
+		accessTokenClockSkew,
+		idTokenRaw,
+		idTokenClockSkew,
+		nonce,
+	}: Omit<DecodeTokenParams, 'options'>) {
 		return decodeTokens<AC, IC>({
-			accessTokenRaw: accessToken,
-			idTokenRaw: idToken,
+			accessTokenRaw,
+			accessTokenClockSkew,
+			idTokenRaw,
+			idTokenClockSkew,
 			nonce,
 			options: this.#options,
 		});

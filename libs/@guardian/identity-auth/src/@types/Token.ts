@@ -118,12 +118,13 @@ export type AccessToken<T extends CustomClaims = CustomClaims> =
 		accessToken: string;
 		claims: AccessTokenClaims<T>;
 		tokenType: string;
+		clockSkew: number;
 	};
 
 /**
- * The access token storage object, containing the access token.
+ * The access token storage object, containing the access token and initial clock skew.
  */
-export type AccessTokenStorage = Pick<AccessToken, 'accessToken'>;
+export type AccessTokenStorage = Pick<AccessToken, 'accessToken' | 'clockSkew'>;
 
 /**
  * The ID token object.
@@ -134,12 +135,13 @@ export type IDToken<T extends CustomClaims = CustomClaims> = AbstractToken & {
 	issuer: string;
 	clientId: string;
 	nonce: string;
+	clockSkew: number;
 };
 
 /**
  * The ID token storage object, containing the ID token and nonce.
  */
-export type IDTokenStorage = Pick<IDToken, 'idToken' | 'nonce'>;
+export type IDTokenStorage = Pick<IDToken, 'idToken' | 'nonce' | 'clockSkew'>;
 
 /**
  * The tokens object, containing the access token and ID token.

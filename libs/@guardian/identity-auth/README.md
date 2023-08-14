@@ -313,11 +313,13 @@ try {
 	const idTokenRaw = '...';
 	const nonce = '...';
 
-	const tokens = identityAuth.token.decodeTokens(
+	const tokens = identityAuth.token.decodeTokens({
 		accessTokenRaw,
+		accessTokenClockSkew: 0,
 		idTokenRaw,
+		idTokenClockSkew: 0,
 		nonce,
-	);
+	});
 
 	await identityAuth.token.verifyTokens(tokens.idToken, tokens.accessToken);
 } catch (error) {
