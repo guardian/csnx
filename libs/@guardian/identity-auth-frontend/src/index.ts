@@ -37,8 +37,9 @@ const getRedirectUri = (stage: Stage) => {
 };
 
 export const getIdentityAuth = () => {
-	if (!window.guardian)
+	if (!window.guardian) {
 		throw new Error('window.guardian has not yet been initialized');
+	}
 
 	const {
 		isDev = false,
