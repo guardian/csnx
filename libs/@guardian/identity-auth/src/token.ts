@@ -662,13 +662,11 @@ export const verifyAccessTokenTimestamps = (
  *
  * @param opts - RequiredIdentityAuthOptions
  * @param state - state to match the response
- * @param timeout - timeout in milliseconds, defaults to 12000 (12 seconds)
  * @returns Promise<OAuthAuthorizeResponse | OAuthAuthorizeResponseError> - resolves with the response from the authorization server
  */
 export const addPostMessageListener = (
 	opts: RequiredIdentityAuthOptions,
 	state: string,
-	timeout = 12000,
 ) => {
 	// setup the response handler variable
 	let responseHandler: (
@@ -717,7 +715,7 @@ export const addPostMessageListener = (
 					message: 'The oauth request timed out',
 				}),
 			);
-		}, timeout);
+		}, opts.oauthTimeout);
 	});
 
 	// return the promise, clearing the timeout and removing the event listener when the promise resolves

@@ -97,6 +97,7 @@ describe('IdentityAuth#TokenManager', () => {
 				autoRenew: false,
 				renewGracePeriod: 0,
 				idCookieSessionRefresh: false,
+				oauthTimeout: 30000,
 			},
 			{
 				authorizeUrl:

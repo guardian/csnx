@@ -31,6 +31,7 @@ describe('IdentityAuth#Token', () => {
 		autoRenew: false,
 		renewGracePeriod: 0,
 		idCookieSessionRefresh: false,
+		oauthTimeout: 30000,
 	};
 	const oauthUrls: OAuthUrls = {
 		authorizeUrl: 'https://profile.theguardian.com/oauth2/test/v1/authorize',
