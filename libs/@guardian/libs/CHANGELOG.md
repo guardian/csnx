@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.6.4
+
+### Patch Changes
+
+- db6d601: PerformanceMeasure objects cannot be destructured…
+
 ## 15.6.3
 
 ### Patch Changes
