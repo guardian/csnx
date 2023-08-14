@@ -1,6 +1,6 @@
 # IdentityAuthFrontend
 
-A wrapper around [@guardian/identity-auth](../identity-auth/README.md) which manages creating and configuring a IdentityAuth singleton to be used primarily on [www.theguardian.com](www.theguardian.com) by DCR, Frontend, and Commercial.
+A wrapper around [@guardian/identity-auth](../identity-auth/README.md) which manages creating and configuring a IdentityAuth singleton to be used solely on [www.theguardian.com](www.theguardian.com) by DCR, Frontend, and Commercial.
 
 ## Usage
 

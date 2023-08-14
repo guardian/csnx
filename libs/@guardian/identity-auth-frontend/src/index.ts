@@ -16,11 +16,27 @@ export type FrontendIdentityAuth = IdentityAuth<never, FrontendIdTokenClaims>;
 const getStage = (isDev: boolean, stage: string) =>
 	isDev || !isStage(stage) ? 'DEV' : stage;
 
+/**
+ * Decide Issuer URL based on Stage.
+ *
+ * NOTE: These values are specifically are solely for use on www.theguardian.com
+ *
+ * @param stage
+ * @returns issuer URL
+ */
 const getIssuer = (stage: Stage) =>
 	stage === 'PROD'
 		? 'https://profile.theguardian.com/oauth2/aus3xgj525jYQRowl417'
 		: 'https://profile.code.dev-theguardian.com/oauth2/aus3v9gla95Toj0EE0x7';
 
+/**
+ * Decide Client ID based on Stage.
+ *
+ * NOTE: These values are specifically are solely for use on www.theguardian.com
+ *
+ * @param stage
+ * @returns Client ID
+ */
 const getClientId = (stage: Stage) =>
 	stage === 'PROD' ? '0oa79m1fmgzrtaHc1417' : '0oa53x6k5wGYXOGzm0x7';
 
