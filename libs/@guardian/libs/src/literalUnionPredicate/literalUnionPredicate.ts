@@ -15,8 +15,8 @@
  * if(!isStage("NOT_A_STAGE")) throw new Error("Invalid stage")
  */
 export const literalUnionPredicate =
-	<Literals extends readonly unknown[]>(literals: Literals) =>
-	(value: unknown): value is (typeof literals)[number] =>
+	<Literals extends ReadonlyArray<string | number>>(literals: Literals) =>
+	(value: string | number): value is Literals[number] =>
 		literals.includes(value);
 
 /**

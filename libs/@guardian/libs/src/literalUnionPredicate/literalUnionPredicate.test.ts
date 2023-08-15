@@ -10,9 +10,6 @@ describe('literalUnionPredicate', () => {
 		}
 
 		expect(isStage('NOT_A_STAGE')).toBe(false);
-		expect(isStage(undefined)).toBe(false);
-		expect(isStage({})).toBe(false);
-		expect(isStage(null)).toBe(false);
 	});
 
 	it('should narrow number literals', () => {
@@ -27,9 +24,6 @@ describe('literalUnionPredicate', () => {
 		expect(isPrime(2)).toBe(false);
 		expect(isPrime(11)).toBe(false);
 		expect(isPrime('1')).toBe(false);
-		expect(isPrime(undefined)).toBe(false);
-		expect(isPrime({})).toBe(false);
-		expect(isPrime(null)).toBe(false);
 	});
 
 	it('should actually narrow values', () => {
