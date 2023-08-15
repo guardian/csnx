@@ -1,5 +1,12 @@
 # @guardian/identity-auth
 
+## 0.5.0
+
+### Minor Changes
+
+- bae0b85: - Fix clock skew calculation issue
+  - Increase oauth timeout from 12 seconds to 30 seconds
+
 ## 0.4.0
 
 ### Minor Changes
