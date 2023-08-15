@@ -31,6 +31,8 @@ export { isUndefined } from './isUndefined/isUndefined';
 
 export { joinUrl } from './joinUrl/joinUrl';
 
+export { literalUnionPredicate } from './literalUnionPredicate/literalUnionPredicate';
+
 export { loadScript } from './loadScript/loadScript';
 
 export { getLocale } from './locale/getLocale';

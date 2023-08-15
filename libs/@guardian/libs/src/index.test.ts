@@ -22,6 +22,7 @@ describe('The package', () => {
 			'isString',
 			'isUndefined',
 			'joinUrl',
+			'literalUnionPredicate',
 			'loadScript',
 			'log',
 			'removeCookie',

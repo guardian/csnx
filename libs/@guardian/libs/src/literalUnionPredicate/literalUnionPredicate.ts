@@ -7,7 +7,7 @@
  * [type unions]: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types
  *
  * @example
- * import { createPredicate } from '@guardian/libs';
+ * import { literalUnionPredicate } from '@guardian/libs';
  *
  * const stages = ["PROD", "CODE", "DEV"] as const;
  * const isStage = createPredicate(stages);
