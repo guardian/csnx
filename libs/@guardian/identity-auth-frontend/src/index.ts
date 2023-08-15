@@ -9,6 +9,7 @@ const isStage = guard(stages);
 type FrontendIdTokenClaims = CustomClaims & {
 	email: string;
 	braze_uuid: string;
+	google_tag_id: string;
 };
 
 export type FrontendIdentityAuth = IdentityAuth<never, FrontendIdTokenClaims>;
