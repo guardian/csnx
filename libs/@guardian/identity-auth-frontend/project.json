@@ -1,0 +1,55 @@
+{
+	"name": "@guardian/identity-auth-frontend",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@guardian/identity-auth-frontend/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": "libs/@guardian/identity-auth-frontend/src/index.ts",
+				"tsConfig": "libs/@guardian/identity-auth-frontend/tsconfig.json",
+				"packageJson": "libs/@guardian/identity-auth-frontend/package.json",
+				"outputPath": "dist/libs/@guardian/identity-auth-frontend",
+				"assets": ["libs/@guardian/identity-auth-frontend/*.md"]
+			}
+		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@guardian/identity-auth-frontend/**/*.ts"]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@guardian/identity-auth-frontend/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/identity-auth-frontend"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/identity-auth-frontend/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"e2e": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/identity-auth-frontend"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/identity-auth-frontend/jest.config.ts",
+				"passWithNoTests": true,
+				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+			}
+		}
+	},
+	"tags": []
+}

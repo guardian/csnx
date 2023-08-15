@@ -2,6 +2,7 @@ import type { TeamSubscription } from '../libs/@guardian/libs/src/logger/@types/
 import type { Switches } from '../libs/@guardian/libs/src/switches/@types/Switches';
 import type { google } from '../libs/@guardian/atoms-rendering/src/ima';
 import type { ImaManager } from '../libs/@guardian/atoms-rendering/src/YoutubeAtomPlayer';
+import type { FrontendIdentityAuth } from '../libs/@guardian/identity-auth-frontend/src';
 
 declare global {
 	interface Window {
@@ -15,6 +16,8 @@ declare global {
 				page?: {
 					isPreview: boolean;
 				};
+				stage?: string;
+				isDev?: boolean;
 				switches?: Switches;
 			};
 			/**
@@ -39,6 +42,7 @@ declare global {
 				viewId: string;
 				pageViewId: string;
 			};
+			identityAuth?: FrontendIdentityAuth;
 		};
 		/**
 		 * Here we want to type the google object that will be added to window.
