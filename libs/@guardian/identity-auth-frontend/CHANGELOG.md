@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 1.0.0
+
+### Major Changes
+
+- 394944b: Release `@guardian/identity-auth-frontend` v1.0.0
+
 ## 0.1.0
 
 ### Minor Changes
