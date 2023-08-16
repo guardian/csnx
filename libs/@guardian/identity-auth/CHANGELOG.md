@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 1.0.0
+
+### Major Changes
+
+- e41cfa7: Release `@guardian/identity-auth` 1.0. We're using this package in PROD and has multiple consumers so we should expect it to be stable now.
+
 ## 0.5.0
 
 ### Minor Changes
