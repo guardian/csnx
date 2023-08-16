@@ -10,7 +10,7 @@
  * import { literalUnionPredicate } from '@guardian/libs';
  *
  * const stages = ["PROD", "CODE", "DEV"] as const;
- * const isStage = createPredicate(stages);
+ * const isStage = literalUnionPredicate(stages);
  *
  * if(!isStage("NOT_A_STAGE")) throw new Error("Invalid stage")
  */
@@ -21,7 +21,7 @@ export const literalUnionPredicate =
 
 /**
  * Extract the literal union from a type predicate method.
- * Companion to createPredicate
+ * Companion to literalUnionPredicate
  *
  */
 export type LiteralUnion<
