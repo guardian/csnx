@@ -6,7 +6,7 @@ const stages = ['PROD', 'CODE', 'DEV'] as const;
 type Stage = (typeof stages)[number];
 const isStage = guard(stages);
 
-type FrontendIdTokenClaims = CustomClaims & {
+export type FrontendIdTokenClaims = CustomClaims & {
 	email: string;
 	braze_uuid: string;
 	google_tag_id: string;
