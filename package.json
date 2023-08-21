@@ -20,7 +20,7 @@
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
 		"@nx/devkit": "16.6.0",
-		"@nx/eslint-plugin": "16.6.0",
+		"@nx/eslint-plugin": "16.7.2",
 		"@nx/jest": "16.6.0",
 		"@nx/workspace": "16.6.0",
 		"@storybook/addon-a11y": "7.2.3",
