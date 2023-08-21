@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 5.0.0
+
+### Major Changes
+
+- 6bb3297: Updates ESLint to latest version to fix security vulnerability in `word-wrap` dependency
+
 ## 4.1.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @guardian/eslint-config-typescript
 
+## 7.0.0
+
+### Major Changes
+
+- 6bb3297: Updates ESLint to latest version to fix security vulnerability in `word-wrap` dependency
+
+### Patch Changes
+
+- Updated dependencies [6bb3297]
+  - @guardian/eslint-config@5.0.0
+
 ## 6.0.1
 
 ### Patch Changes
