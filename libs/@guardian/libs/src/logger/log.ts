@@ -2,45 +2,49 @@ import { isString } from '../isString/isString';
 import { storage } from '../storage/storage';
 import type {
 	LogCall,
-	TeamName,
-	TeamStyle,
-	TeamSubscription,
+	Subscription,
+	LogStyle,
+	SubscriptionStyle,
 } from './@types/logger';
 import { STORAGE_KEY } from './storage-key';
-import { commonStyle, isTeam, teamStyles } from './teamStyles';
+import {
+	commonStyle,
+	isSubscription,
+	subscriptionStyles,
+} from './subscriptions';
 
-const allStyles = { ...teamStyles, ...commonStyle };
+const logStyles = { ...subscriptionStyles, ...commonStyle };
 
-const messageStyle = (teamStyle: TeamStyle): string => {
-	const { background, font } = allStyles[teamStyle];
+export const messageStyle = (subscriptionStyle: LogStyle): string => {
+	const { background, font } = logStyles[subscriptionStyle];
 	return `background: ${background}; color: ${font}; padding: 2px 6px; border-radius:20px`;
 };
 
-const getTeamSubscriptions = (): TeamName[] => {
-	const teams: unknown = storage.local.get(STORAGE_KEY);
-	if (!isString(teams)) return [];
-	return teams.split(',').filter(isTeam);
+const getSubscriptions = (): Subscription[] => {
+	const subscriptions: unknown = storage.local.get(STORAGE_KEY);
+	if (!isString(subscriptions)) return [];
+	return subscriptions.split(',').filter(isSubscription);
 };
 
 /**
- * Subscribe to a team’s log
- * @param team the team’s unique ID
+ * Subscribe to a log
+ * @param subscription the subscription ID
  */
-const subscribeTo: TeamSubscription = (team) => {
-	const teamSubscriptions: string[] = getTeamSubscriptions();
-	if (!teamSubscriptions.includes(team)) teamSubscriptions.push(team);
-	storage.local.set(STORAGE_KEY, teamSubscriptions.join(','));
-	log(team, '🔔 Subscribed, hello!');
+const subscribeTo: SubscriptionStyle = (subscription) => {
+	const subscriptions: string[] = getSubscriptions();
+	if (!subscriptions.includes(subscription)) subscriptions.push(subscription);
+	storage.local.set(STORAGE_KEY, subscriptions.join(','));
+	log(subscription, '🔔 Subscribed, hello!');
 };
 
 /**
- * Unsubscribe to a team’s log
- * @param team the team’s unique ID
+ * Unsubscribe to a subscription
+ * @param subscription the subscription ID
  */
-const unsubscribeFrom: TeamSubscription = (team) => {
-	log(team, '🔕 Unsubscribed, good-bye!');
-	const teamSubscriptions: string[] = getTeamSubscriptions().filter(
-		(t) => t !== team,
+const unsubscribeFrom: SubscriptionStyle = (subscription) => {
+	log(subscription, '🔕 Unsubscribed, good-bye!');
+	const teamSubscriptions: string[] = getSubscriptions().filter(
+		(t) => t !== subscription,
 	);
 	storage.local.set(STORAGE_KEY, teamSubscriptions.join(','));
 };
@@ -51,17 +55,21 @@ if (typeof window !== 'undefined') {
 	window.guardian.logger ||= {
 		subscribeTo,
 		unsubscribeFrom,
-		teams: () => Object.keys(teamStyles),
+		teams: () => {
+			console.warn(
+				'guardian.logger.teams() is deprecated - use subscriptions()',
+			);
+			return Object.keys(subscriptionStyles);
+		},
+		subscriptions: () => Object.keys(subscriptionStyles),
 	};
 }
 
 /**
  * Runs in all environments, if local storage values are set.
  */
-export const log: LogCall = (team, ...args) => {
-	if (!getTeamSubscriptions().includes(team)) return;
-
-	const styles = [messageStyle('common'), '', messageStyle(team), ''];
+export const log: LogCall = (subscription, ...args) => {
+	if (!getSubscriptions().includes(subscription)) return;
 
 	console.log(`%c@guardian%c %c${team}%c`, ...styles, ...args);
 };

@@ -37,7 +37,7 @@ export { getLocale } from './locale/getLocale';
 
 export { debug } from './logger/debug';
 export { log } from './logger/log';
-export type { TeamName } from './logger/@types/logger';
+export type { Subscription } from './logger/@types/logger';
 
 export { startPerformanceMeasure } from './performance/startPerformanceMeasure';
 export { getMeasures } from './performance/getMeasures';

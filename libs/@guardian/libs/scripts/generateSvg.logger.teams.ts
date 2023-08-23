@@ -1,8 +1,8 @@
 import fs from 'node:fs';
-import { commonStyle, teamStyles } from '../src/logger/teamStyles';
+import { commonStyle, subscriptionStyles } from '../src/logger/subscriptions';
 
 function generateSvg(): string {
-	const teams = Object.entries(teamStyles);
+	const teams = Object.entries(subscriptionStyles);
 
 	const padding = 10;
 	const lineHeight = 24;

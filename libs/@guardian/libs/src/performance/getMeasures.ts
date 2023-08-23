@@ -1,4 +1,4 @@
-import type { TeamName } from '../logger/@types/logger';
+import type { Subscription } from '../logger/@types/logger';
 import type { GuardianMeasure } from './@types/measure';
 import { deserialise } from './serialise';
 
@@ -7,7 +7,7 @@ import { deserialise } from './serialise';
  * The type is narrowed to `GuardianMeasure` which contains relevant details
  */
 export const getMeasures = (
-	teams: readonly TeamName[],
+	subscriptions: readonly Subscription[],
 ): readonly GuardianMeasure[] =>
 	// https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntriesByType#browser_compatibility
 	'getEntriesByType' in window.performance
@@ -17,7 +17,7 @@ export const getMeasures = (
 					const detail = deserialise(name);
 					return entryType === 'measure' &&
 						detail &&
-						teams.includes(detail.team)
+						subscriptions.includes(detail.subscription)
 						? {
 								name,
 								detail,

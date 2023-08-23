@@ -1,4 +1,4 @@
-import type { TeamName } from '../../logger/@types/logger';
+import type { Subscription } from '../../logger/@types/logger';
 
 declare global {
 	interface Performance {
@@ -15,7 +15,7 @@ declare global {
 }
 
 export type Detail = {
-	team: TeamName;
+	team: Subscription;
 	name: string;
 	action?: string;
 };
