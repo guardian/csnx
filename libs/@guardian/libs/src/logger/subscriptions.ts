@@ -47,6 +47,10 @@ export const subscriptionStyles = {
 		background: '#C74600',
 		font: '#FEF9F5',
 	},
+	perf: {
+		background: '#FFD700',
+		font: '#000000',
+	},
 } as const;
 
 export const isSubscription = (

@@ -15,7 +15,7 @@ declare global {
 }
 
 export type Detail = {
-	team: Subscription;
+	subscription: Subscription;
 	name: string;
 	action?: string;
 };

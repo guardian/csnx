@@ -2,8 +2,8 @@ import { isString } from '../isString/isString';
 import { storage } from '../storage/storage';
 import type {
 	LogCall,
-	Subscription,
 	LogStyle,
+	Subscription,
 	SubscriptionStyle,
 } from './@types/logger';
 import { STORAGE_KEY } from './storage-key';
@@ -20,7 +20,7 @@ export const messageStyle = (subscriptionStyle: LogStyle): string => {
 	return `background: ${background}; color: ${font}; padding: 2px 6px; border-radius:20px`;
 };
 
-const getSubscriptions = (): Subscription[] => {
+export const getSubscriptions = (): Subscription[] => {
 	const subscriptions: unknown = storage.local.get(STORAGE_KEY);
 	if (!isString(subscriptions)) return [];
 	return subscriptions.split(',').filter(isSubscription);
@@ -68,8 +68,10 @@ if (typeof window !== 'undefined') {
 /**
  * Runs in all environments, if local storage values are set.
  */
-export const log: LogCall = (subscription, ...args) => {
-	if (!getSubscriptions().includes(subscription)) return;
+export const log: LogCall = (team, ...args) => {
+	if (!getSubscriptions().includes(team)) return;
+
+	const styles = [messageStyle('common'), '', messageStyle(team), ''];
 
 	console.log(`%c@guardian%c %c${team}%c`, ...styles, ...args);
 };
