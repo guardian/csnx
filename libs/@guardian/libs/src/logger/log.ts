@@ -13,7 +13,7 @@ const allStyles = { ...teamStyles, ...commonStyle };
 
 const messageStyle = (teamStyle: TeamStyle): string => {
 	const { background, font } = allStyles[teamStyle];
-	return `background: ${background}; color: ${font}; padding: 2px 3px; border-radius:3px`;
+	return `background: ${background}; color: ${font}; padding: 2px 6px; border-radius:20px`;
 };
 
 const getTeamSubscriptions = (): TeamName[] => {

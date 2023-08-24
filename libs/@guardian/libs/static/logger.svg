@@ -46,8 +46,8 @@
 		}
 
 		.common {
-			background-color: #052962;
-			color: #ffffff;
+			background-color: #C1D8FC;
+			color: #052962;
 		}
 	</style>
 	<foreignObject x="0" y="0" width="600" height="272">
