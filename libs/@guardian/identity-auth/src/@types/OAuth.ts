@@ -32,9 +32,9 @@ export type ProfileUrl = Guard<typeof isProfileUrl>;
  * @param redirectUri - The redirect URI of your app
  * @param autoRenew - Whether to automatically renew the tokens, defaults to `true`
  * @param renewGracePeriod - The time in seconds before the access token expires to renew the token, defaults to 60 seconds
- * @param maxClockSkew - The maximum time drift in seconds between the client and server, defaults to 300 seconds (5 minutes), based on the default maximum tolerance of the Kerberos protocol
  * @param idCookieSessionRefresh - If switched on (set to `true`, ), will refresh the okta session and identity cookie (GU_U), if required (once every 30 days), should be based on the id-cookie-refresh (idCookieRefresh) switch if being supplied by theguardian.com, defaults to `false`
  * @param oauthTimeout - The time in milliseconds to wait for the OAuth2 authorization code flow to complete, defaults to 30 seconds (30000 milliseconds)
+ * @param maxClockSkew - The maximum time drift in seconds between the client and server, defaults to 300 seconds (5 minutes), based on the default maximum tolerance of the Kerberos protocol
  * @param strictClockSkewCheck - If switched on (set to `true`), will throw an error if the clock skew is greater than the `maxClockSkew`, defaults to `false`
  */
 export interface IdentityAuthOptions {
@@ -44,9 +44,9 @@ export interface IdentityAuthOptions {
 	redirectUri: string;
 	autoRenew?: boolean;
 	renewGracePeriod?: number;
-	maxClockSkew?: number;
 	idCookieSessionRefresh?: boolean;
 	oauthTimeout?: number;
+	maxClockSkew?: number;
 	strictClockSkewCheck?: boolean;
 }
 
