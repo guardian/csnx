@@ -1,5 +1,13 @@
 # @guardian/libs
 
+## 15.7.0
+
+### Minor Changes
+
+- 89fb611: Labels used in `logger` are quieter.
+- e47b5d2: - add `perf` to `logger`
+  - log measurement duration when calling `endPerformanceMeasure`
+
 ## 15.6.4
 
 ### Patch Changes
