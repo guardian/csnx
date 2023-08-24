@@ -3,8 +3,8 @@ import type { TeamName } from './@types/logger';
 /** Common Guardian blue label. Do not edit */
 const commonStyle = {
 	common: {
-		background: '#052962',
-		font: '#ffffff',
+		background: '#C1D8FC',
+		font: '#052962',
 	},
 } as const;
 
