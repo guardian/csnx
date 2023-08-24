@@ -38,7 +38,7 @@ const subscribeTo: SubscriptionStyle = (subscription) => {
 };
 
 /**
- * Unsubscribe to a subscription
+ * Unsubscribe from a log
  * @param subscription the subscription ID
  */
 const unsubscribeFrom: SubscriptionStyle = (subscription) => {
