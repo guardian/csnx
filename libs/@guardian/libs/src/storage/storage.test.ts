@@ -131,4 +131,44 @@ describe.each([
 		implementation.setRaw('raw item', '🦁');
 		expect(native.getItem('raw item')).toBe('🦁');
 	});
+
+	it(`gets keys in storage by index`, async () => {
+		expect(implementation.key(0)).toEqual(null);
+
+		native.setItem('item 1', 'some val');
+		native.setItem('item 2', 'some other val');
+		/**
+		 * The underlying native API doesn't guarantee order across different environments,
+		 * so we can't know for sure which key we will retrieve.
+		 */
+		expect(['item 1', 'item 2']).toContain(implementation.key(0));
+
+		native.removeItem('item 1');
+		expect(implementation.key(0)).toEqual('item 2');
+
+		setSpy.mockImplementation(functionThatThrowsAnError);
+		getSpy.mockImplementation(functionThatThrowsAnError);
+
+		// re-import now we've disabled native storage API
+		const { storage } = await import('./storage');
+		expect(storage[name].key(0)).toBeNull();
+	});
+
+	it(`returns the number of items in storage`, async () => {
+		expect(implementation.length()).toEqual(0);
+
+		native.setItem('item 1', 'some val');
+		native.setItem('item 2', 'some other val');
+		expect(implementation.length()).toEqual(2);
+
+		native.removeItem('item 1');
+		expect(implementation.length()).toEqual(1);
+
+		setSpy.mockImplementation(functionThatThrowsAnError);
+		getSpy.mockImplementation(functionThatThrowsAnError);
+
+		// re-import now we've disabled native storage API
+		const { storage } = await import('./storage');
+		expect(storage[name].length()).toEqual(null);
+	});
 });

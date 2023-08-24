@@ -98,6 +98,32 @@ class StorageFactory {
 	setRaw(key: string, value: string): void {
 		return this.#storage?.setItem(key, value);
 	}
+
+	/**
+	 * Get key by index.
+	 * @returns the name of the key at that index (`string`), or `null` (if
+	 *      index is out of range of if storage is unavailable) - if the index
+	 *      is out of range, or if storage is not available.
+	 *
+	 * Wrapper for the `key` method on the native `Storage` object, with
+	 * additional check for availability of storage. Note that the _order_ of
+	 * keys in storage is dependent on user-agent implementation, and so you
+	 * should not assume that keys will be stored in any particular order (e.g.
+	 * order of insertion).
+	 * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/key
+	 */
+	key(index: number): string | null {
+		return this.#storage?.key(index) ?? null;
+	}
+
+	/**
+	 * Get the number of items in storage.
+	 * @returns the number of items in storage, or `null` if storage is
+	 * 	not available.
+	 */
+	length(): number | null {
+		return this.#storage?.length ?? null;
+	}
 }
 
 /**
