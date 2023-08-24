@@ -3,8 +3,8 @@ import { storage } from '../storage/storage';
 import type {
 	LogCall,
 	LogStyle,
+	ManageSubscription,
 	Subscription,
-	SubscriptionStyle,
 } from './@types/logger';
 import { STORAGE_KEY } from './storage-key';
 import {
@@ -30,7 +30,7 @@ export const getSubscriptions = (): Subscription[] => {
  * Subscribe to a log
  * @param subscription the subscription ID
  */
-const subscribeTo: SubscriptionStyle = (subscription) => {
+const subscribeTo: ManageSubscription = (subscription) => {
 	const subscriptions: string[] = getSubscriptions();
 	if (!subscriptions.includes(subscription)) subscriptions.push(subscription);
 	storage.local.set(STORAGE_KEY, subscriptions.join(','));
@@ -41,7 +41,7 @@ const subscribeTo: SubscriptionStyle = (subscription) => {
  * Unsubscribe from a log
  * @param subscription the subscription ID
  */
-const unsubscribeFrom: SubscriptionStyle = (subscription) => {
+const unsubscribeFrom: ManageSubscription = (subscription) => {
 	log(subscription, '🔕 Unsubscribed, good-bye!');
 	const teamSubscriptions: string[] = getSubscriptions().filter(
 		(t) => t !== subscription,

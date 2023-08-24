@@ -1,4 +1,4 @@
-import type { SubscriptionStyle } from '../libs/@guardian/libs/src/logger/@types/logger';
+import type { ManageSubscription } from '../libs/@guardian/libs/src/logger/@types/logger';
 import type { Switches } from '../libs/@guardian/libs/src/switches/@types/Switches';
 import type { google } from '../libs/@guardian/atoms-rendering/src/ima';
 import type { ImaManager } from '../libs/@guardian/atoms-rendering/src/YoutubeAtomPlayer';
@@ -8,8 +8,8 @@ declare global {
 	interface Window {
 		guardian?: {
 			logger?: {
-				subscribeTo: SubscriptionStyle;
-				unsubscribeFrom: SubscriptionStyle;
+				subscribeTo: ManageSubscription;
+				unsubscribeFrom: ManageSubscription;
 				teams: () => string[];
 				subscriptions: () => string[];
 			};
