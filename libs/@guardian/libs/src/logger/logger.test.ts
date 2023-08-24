@@ -1,10 +1,10 @@
 import { hex } from 'wcag-contrast';
 import { storage } from '../storage/storage';
-import type { TeamName } from './@types/logger';
+import type { Subscription } from './@types/logger';
 import { debug } from './debug';
 import { log } from './log';
 import { STORAGE_KEY } from './storage-key';
-import { teamStyles } from './teamStyles';
+import { subscriptionStyles } from './subscriptions';
 
 const spy = jest
 	.spyOn(console, 'log')
@@ -109,7 +109,7 @@ describe('Add and remove teams', () => {
 });
 
 describe('Team-based logging', () => {
-	const teams: TeamName[] = ['cmp', 'commercial', 'dotcom'];
+	const teams: Subscription[] = ['cmp', 'commercial', 'dotcom'];
 
 	it.each(teams)(`should only log message for team: %s`, (team) => {
 		storage.local.set(STORAGE_KEY, team);
@@ -122,7 +122,7 @@ describe('Team-based logging', () => {
 });
 
 describe('Ensure labels are accessible', () => {
-	it.each(Object.entries(teamStyles))(
+	it.each(Object.entries(subscriptionStyles))(
 		'should have a minimum contrast ratio of 4.5 (AA) for %s',
 		(_, colour) => {
 			const { font, background } = colour;

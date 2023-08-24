@@ -1,7 +1,7 @@
-import type { TeamName } from './@types/logger';
+import type { Subscription } from './@types/logger';
 
 /** Common Guardian blue label. Do not edit */
-const commonStyle = {
+export const commonStyle = {
 	common: {
 		background: '#C1D8FC',
 		font: '#052962',
@@ -14,7 +14,7 @@ const commonStyle = {
  *
  * Make sure your label has a contrast ratio of 4.5 or more.
  * */
-const teamStyles = {
+export const subscriptionStyles = {
 	commercial: {
 		background: '#77EEAA',
 		font: '#004400',
@@ -47,9 +47,13 @@ const teamStyles = {
 		background: '#C74600',
 		font: '#FEF9F5',
 	},
-} as const;
+	perf: {
+		background: '#FFD700',
+		font: '#000000',
+	},
+} as const satisfies Record<string, { background: string; font: string}>;
 
-const isTeam = (team: string): team is TeamName =>
-	Object.keys(teamStyles).includes(team);
-
-export { commonStyle, teamStyles, isTeam };
+export const isSubscription = (
+	subscription: string,
+): subscription is Subscription =>
+	Object.keys(subscriptionStyles).includes(subscription);

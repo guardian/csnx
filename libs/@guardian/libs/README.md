@@ -66,6 +66,10 @@ Selectively log team-specific messages to the console.
 
 Types relating to Ophan.
 
+### [Performance](./src/performance)
+
+API over `window.performance` and hooks into the data warehouse.
+
 ### [`storage`](./src/storage)
 
 Robust API over `localStorage` and `sessionStorage`.
