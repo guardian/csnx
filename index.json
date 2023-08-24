@@ -1,1 +1,1 @@
-{"v":4,"entries":{"read-me--docs":{"id":"read-me--docs","title":"Read Me","name":"Docs","importPath":"./src/README.stories.mdx","type":"docs","tags":["stories-mdx","docs","autodocs"],"storiesImports":[]}}}
+{"v":4,"entries":{"read-me--docs":{"id":"read-me--docs","title":"Read Me","name":"Docs","importPath":"./src/README.stories.mdx","type":"docs","tags":["stories-mdx","stories-mdx-docsOnly","docs"],"storiesImports":[]}}}
