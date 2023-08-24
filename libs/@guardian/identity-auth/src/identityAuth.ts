@@ -47,6 +47,7 @@ export class IdentityAuth<
 			maxClockSkew: 300,
 			idCookieSessionRefresh: false,
 			oauthTimeout: 30000,
+			strictClockSkewCheck: false,
 			...options,
 		};
 		this.#oauthUrls = {

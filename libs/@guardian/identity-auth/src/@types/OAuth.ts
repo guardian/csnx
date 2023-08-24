@@ -35,6 +35,7 @@ export type ProfileUrl = Guard<typeof isProfileUrl>;
  * @param maxClockSkew - The maximum time drift in seconds between the client and server, defaults to 300 seconds (5 minutes), based on the default maximum tolerance of the Kerberos protocol
  * @param idCookieSessionRefresh - If switched on (set to `true`, ), will refresh the okta session and identity cookie (GU_U), if required (once every 30 days), should be based on the id-cookie-refresh (idCookieRefresh) switch if being supplied by theguardian.com, defaults to `false`
  * @param oauthTimeout - The time in milliseconds to wait for the OAuth2 authorization code flow to complete, defaults to 30 seconds (30000 milliseconds)
+ * @param strictClockSkewCheck - If switched on (set to `true`), will throw an error if the clock skew is greater than the `maxClockSkew`, defaults to `false`
  */
 export interface IdentityAuthOptions {
 	clientId: string;
@@ -46,6 +47,7 @@ export interface IdentityAuthOptions {
 	maxClockSkew?: number;
 	idCookieSessionRefresh?: boolean;
 	oauthTimeout?: number;
+	strictClockSkewCheck?: boolean;
 }
 
 /**
