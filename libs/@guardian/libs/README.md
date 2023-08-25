@@ -68,7 +68,7 @@ Types relating to Ophan.
 
 ### [Performance](./src/performance)
 
-API over `window.performance` and hooks into the data warehouse.
+API over `window.performance` with hooks into [`log`](./src/logger) the data warehouse.
 
 ### [`storage`](./src/storage)
 
