@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 1.1.0
+
+### Minor Changes
+
+- 5a4d75a: Make strict clock skew checking optional
+
 ## 1.0.0
 
 ### Major Changes
