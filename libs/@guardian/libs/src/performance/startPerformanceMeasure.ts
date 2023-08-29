@@ -1,5 +1,5 @@
 import type { Subscription } from '../logger/@types/logger';
-import { log } from '../logger/log';
+import { log } from '../logger/logger';
 import { logPerf } from './log';
 import type {} from './@types/measure';
 import { serialise } from './serialise';

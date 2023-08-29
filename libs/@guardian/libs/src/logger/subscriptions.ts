@@ -51,7 +51,7 @@ export const subscriptionStyles = {
 		background: '#FFD700',
 		font: '#000000',
 	},
-} as const satisfies Record<string, { background: string; font: string}>;
+} as const satisfies Record<string, { background: string; font: string }>;
 
 export const isSubscription = (
 	subscription: string,

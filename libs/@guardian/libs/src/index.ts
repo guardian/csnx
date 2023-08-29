@@ -36,7 +36,7 @@ export { loadScript } from './loadScript/loadScript';
 export { getLocale } from './locale/getLocale';
 
 export { debug } from './logger/debug';
-export { log } from './logger/log';
+export { log } from './logger/logger';
 export type { Subscription } from './logger/@types/logger';
 
 export { startPerformanceMeasure } from './performance/startPerformanceMeasure';
