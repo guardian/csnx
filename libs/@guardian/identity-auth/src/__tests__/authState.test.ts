@@ -79,6 +79,7 @@ describe('IdentityAuth#AuthStateManager', () => {
 				maxClockSkew: 300,
 				idCookieSessionRefresh: false,
 				oauthTimeout: 30000,
+				strictClockSkewCheck: false,
 			},
 			{
 				authorizeUrl:

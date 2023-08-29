@@ -103,7 +103,11 @@ export class TokenManager<
 		this.#storage.set(
 			this.#idTokenKey,
 			idTokenStorage,
-			new Date(tokens.idToken.expiresAt * 1000),
+			// use access token expiry as id token expiry as id token is always 1 hour
+			// while the access token can be between 5 mins and 24 hours
+			// the id token is refreshed at the same time as the access token, and is tied to
+			// a given access token using the at_hash claim, so it is safe to use the access token expiry
+			new Date(tokens.accessToken.expiresAt * 1000),
 		);
 
 		// emit events for each token type

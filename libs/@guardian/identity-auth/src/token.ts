@@ -297,8 +297,12 @@ const decodeTokens = <
 		});
 	}
 
-	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
-	if (Math.abs(accessTokenClockSkew) > options.maxClockSkew) {
+	// if strict clock skew checking is enabled and the the clock skew is greater than maxClockSkew (default 5 mins),
+	// throw an error, as this is likely a replay attack
+	if (
+		options.strictClockSkewCheck &&
+		Math.abs(accessTokenClockSkew) > options.maxClockSkew
+	) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Invalid Access token',
@@ -340,8 +344,12 @@ const decodeTokens = <
 		});
 	}
 
-	// if the clock skew is greater than maxClockSkew (default 5 mins), throw an error, as this is likely a replay attack
-	if (Math.abs(idTokenClockSkew) > options.maxClockSkew) {
+	// if strict clock skew checking is enabled and the the clock skew is greater than maxClockSkew (default 5 mins),
+	// throw an error, as this is likely a replay attack
+	if (
+		options.strictClockSkewCheck &&
+		Math.abs(idTokenClockSkew) > options.maxClockSkew
+	) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Invalid ID token',
