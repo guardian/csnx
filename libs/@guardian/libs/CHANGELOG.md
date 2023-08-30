@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.7.1
+
+### Patch Changes
+
+- 1791e1b: Uses a local cache for `logger` subscriptions, instead of hitting `localStorage` every time `log` was called (even when the console was closed).
+
 ## 15.7.0
 
 ### Minor Changes
