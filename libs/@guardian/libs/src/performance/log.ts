@@ -1,7 +1,7 @@
-import { getSubscriptions, messageStyle } from '../logger/log';
+import { isSubscribedTo, messageStyle } from '../logger/logger';
 
 export const logPerf = (measurement: string, duration: number) => {
-	if (!getSubscriptions().includes('perf')) return;
+	if (!isSubscribedTo('perf')) return;
 
 	const styles = [
 		messageStyle('common'),

@@ -1,5 +1,5 @@
 import type { LogCall } from './@types/logger';
-import { log } from './log';
+import { log } from './logger';
 
 /**
  * Only logs in dev environments.
