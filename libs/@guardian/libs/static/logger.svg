@@ -44,67 +44,62 @@
 			opacity: 0.7;
 			text-decoration: underline;
 		}
-
-		.common {
-			background-color: #C1D8FC;
-			color: #052962;
-		}
 	</style>
 	<foreignObject x="0" y="0" width="600" height="296">
 		<div class="wrapper" xmlns="http://www.w3.org/1999/xhtml">
 			<div id="console">
 				<div class="line top">Console</div>
 				<div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label commercial" style="background-color: #77EEAA; color: #004400">commercial</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label commercial" style="background: #77EEAA; color: #004400; padding: 2px 6px; border-radius:20px">commercial</span>
 			<span class="label">message no.0</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label cmp" style="background-color: #FF6BB5; color: #2F0404">cmp</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label cmp" style="background: #FF6BB5; color: #2F0404; padding: 2px 6px; border-radius:20px">cmp</span>
 			<span class="label">message no.1</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label dotcom" style="background-color: #000000; color: #ff7300">dotcom</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label dotcom" style="background: #000000; color: #ff7300; padding: 2px 6px; border-radius:20px">dotcom</span>
 			<span class="label">message no.2</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label design" style="background-color: #185E36; color: #FFF4F2">design</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label design" style="background: #185E36; color: #FFF4F2; padding: 2px 6px; border-radius:20px">design</span>
 			<span class="label">message no.3</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label tx" style="background-color: #2F4F4F; color: #FFFFFF">tx</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label tx" style="background: #2F4F4F; color: #FFFFFF; padding: 2px 6px; border-radius:20px">tx</span>
 			<span class="label">message no.4</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label supporterRevenue" style="background-color: #0F70B7; color: #ffffff">supporterRevenue</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label supporterRevenue" style="background: #0F70B7; color: #ffffff; padding: 2px 6px; border-radius:20px">supporterRevenue</span>
 			<span class="label">message no.5</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label identity" style="background-color: #6F5F8F; color: #ffffff">identity</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label identity" style="background: #6F5F8F; color: #ffffff; padding: 2px 6px; border-radius:20px">identity</span>
 			<span class="label">message no.6</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label openJournalism" style="background-color: #C74600; color: #FEF9F5">openJournalism</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label openJournalism" style="background: #C74600; color: #FEF9F5; padding: 2px 6px; border-radius:20px">openJournalism</span>
 			<span class="label">message no.7</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
 		</div><div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label perf" style="background-color: #FFD700; color: #000000">perf</span>
+			<span class="label common" style="background: #C1D8FC; color: #052962; padding: 2px 6px; border-radius:20px">@guardian</span>
+			<span class="label perf" style="background: #FFD700; color: #000000; padding: 2px 6px; border-radius:20px">perf</span>
 			<span class="label">message no.8</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
