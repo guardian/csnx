@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { messageStyle } from '../src/logger/log';
+import { messageStyle } from '../src/logger/logger';
 import {
 	isSubscription,
 	subscriptionStyles,
