@@ -12,12 +12,12 @@ export type NewsletterEmailRenderingOptions = {
 	podcastSubheading?: string[] | undefined;
 	darkThemeSubheading?: string[] | undefined;
 	readMoreSections?:
-		| {
+		| Array<{
 				subheading: string;
 				wording: string;
 				onwardPath?: string;
 				isDarkTheme?: boolean;
-		  }[]
+		  }>
 		| undefined;
 
 	automatedFrontSections?: AutomatedFrontSection[] | undefined;
