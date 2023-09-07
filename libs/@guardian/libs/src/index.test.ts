@@ -50,6 +50,11 @@ export type {
 	OphanComponentType,
 	OphanProduct,
 	Switches,
+	AutomatedFrontSection,
+	NewsletterEmailRenderingOptions,
+	NewsletterApiData,
+	NewslettersApiAllNewslettersResponse,
+	NewslettersApiSingleNewslettersResponse,
 } from './index';
 
 // @ts-expect-error: make sure the above list are real exports
