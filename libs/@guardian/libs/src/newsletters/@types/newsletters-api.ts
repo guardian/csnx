@@ -75,7 +75,7 @@ export type NewsletterApiData = {
 	/** the description text used in embedded in-article sign-up forms for this newsletter */
 	signUpEmbedDescription: string;
 	/** the EditionId for the edition (if any) this newsletter is primarily intended for*/
-	regionFocus?: 'UK' | 'AU' | 'US' | 'INTL' | 'EUR';
+	regionFocus?: 'UK' | 'AU' | 'US' | 'INT' | 'EUR';
 	/** display text describing how often the newsletter is sent - eg "weekly", "every day" */
 	frequency: string;
 	/** unique numerical identifier for the newsletter */
