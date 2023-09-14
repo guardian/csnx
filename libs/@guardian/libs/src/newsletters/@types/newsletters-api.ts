@@ -66,7 +66,7 @@ export type NewsletterApiData = {
 	brazeSubscribeEventNamePrefix: string;
 	brazeNewsletterName: string;
 	theme: 'news' | 'opinion' | 'culture' | 'sport' | 'lifestyle' | 'features';
-	/** @deprecated the name of a group used to categorise the newsletters into sets. */
+	/** the name of a group used to categorise the newsletters on the Manage My Account page. */
 	group: string;
 	/** the desired headline for the sign-up article for this newsletter */
 	signUpHeadline: string;
