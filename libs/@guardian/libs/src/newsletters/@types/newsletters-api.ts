@@ -42,17 +42,13 @@ export type NewsletterEmailRenderingOptions = {
 export type NewsletterApiData = {
 	/** unique identifier in kebab-case format*/
 	identityName: string;
+	/** unique numerical identifier for the newsletter */
+	listId: number;
+	/** @deprecated a legacy numerical identifier included for backwards compatibility */
+	listIdV1: number;
 	/** display name for the newsletter*/
 	name: string;
-	/** How the newsletter is produced and sent to users */
-	category:
-		| 'article-based'
-		| 'article-based-legacy'
-		| 'fronts-based'
-		| 'manual-send'
-		| 'other';
-	/** whether access to the newsletter should restricted - IE not available for any reader to subscribe to */
-	restricted: boolean;
+
 	/** The status of the newsletter:
 	 *  - **pending**: Initial state after launch - can be promoted, not yet ready to be sent out.
 	 *  - **live**: Able to be sent and/or currently being sent out to subscribers
@@ -60,12 +56,31 @@ export type NewsletterApiData = {
 	 *  - **cancelled**: Permanently cancelled - must still exist in the API for referential integrity
 	 */
 	status: 'paused' | 'cancelled' | 'live' | 'pending';
+
+	/** How the newsletter is produced and sent to users */
+	category:
+		| 'article-based'
+		| 'article-based-legacy'
+		| 'fronts-based'
+		| 'manual-send'
+		| 'other';
+
+	/** the name of the pillar the newsletter is aligned to */
+	theme: 'news' | 'opinion' | 'culture' | 'sport' | 'lifestyle' | 'features';
+	/** the EditionId for the edition (if any) this newsletter is primarily intended for*/
+	regionFocus?: 'UK' | 'AU' | 'US' | 'INT' | 'EUR';
 	/** whether the user should receive a validation email to confirm they want to subscribe before a subscription request is processed */
 	emailConfirmation: boolean;
-	brazeSubscribeAttributeName: string;
-	brazeSubscribeEventNamePrefix: string;
-	brazeNewsletterName: string;
-	theme: 'news' | 'opinion' | 'culture' | 'sport' | 'lifestyle' | 'features';
+	/** whether access to the newsletter should restricted - IE not available for any reader to subscribe to */
+	restricted: boolean;
+
+	/** the series tag that identifies an article as being an instance of this newsletter */
+	seriesTag?: string;
+	/**  a campaign tag to add to articles to indicate that the article should include a promotion for this newsletter.*/
+	composerCampaignTag?: string;
+
+	/** display text describing how often the newsletter is sent - eg "weekly", "every day" */
+	frequency: string;
 	/** the name of a group used to categorise the newsletters on the Manage My Account page. */
 	group: string;
 	/** the desired headline for the sign-up article for this newsletter */
@@ -74,34 +89,28 @@ export type NewsletterApiData = {
 	signUpDescription: string;
 	/** the description text used in embedded in-article sign-up forms for this newsletter */
 	signUpEmbedDescription: string;
-	/** the EditionId for the edition (if any) this newsletter is primarily intended for*/
-	regionFocus?: 'UK' | 'AU' | 'US' | 'INT' | 'EUR';
-	/** display text describing how often the newsletter is sent - eg "weekly", "every day" */
-	frequency: string;
-	/** unique numerical identifier for the newsletter */
-	listId: number;
-	/** @deprecated a legacy numerical identifier included for backwards compatibility */
-	listIdV1: number;
+	/** a custom message to display when comfirming to a user that their subscription request was received */
+	mailSuccessDescription?: string;
+
 	campaignName?: string;
 	campaignCode?: string;
+	brazeSubscribeAttributeName: string;
+	brazeSubscribeEventNamePrefix: string;
+	brazeNewsletterName: string;
 	brazeSubscribeAttributeNameAlternate?: string[];
-	// relative url to a dedicated page on theguardian.com for users to sign up to this newsletter
+
+	/** relative url to a dedicated page on theguardian.com for users to sign up to this newsletter */
 	signupPage?: string;
-	// relative url to a page on theguardian.com serving an example of the newsletter
+	/**  relative url to a page on theguardian.com serving an example of the newsletter */
 	exampleUrl?: string;
-	// asset url for a circular image representing the newsletter
+	/** asset url for a circular image representing the newsletter */
 	illustrationCircle?: string;
-	// asset url for a 5:3 image representing the newsletter
+	/** asset url for a 5:3 image representing the newsletter */
 	illustrationCard?: string;
+
 	creationTimeStamp: number;
 	cancellationTimeStamp?: number;
-	// the series tag that identifies an article as being an instance of this newsletter
-	seriesTag?: string;
-	// a campaign tag to add to articles to indicate that the article should include a promotion for this newsletter.
-	composerCampaignTag?: string;
 	renderingOptions?: NewsletterEmailRenderingOptions;
-	// a custom message to display when comfirming to a user that their subscription request was received
-	mailSuccessDescription?: string;
 };
 
 type ApiErrorResponse = {
