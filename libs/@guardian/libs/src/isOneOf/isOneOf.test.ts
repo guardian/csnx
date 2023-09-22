@@ -1,9 +1,9 @@
-import { literalUnionPredicate } from './literalUnionPredicate';
+import { isOneOf } from './isOneOf';
 
-describe('literalUnionPredicate', () => {
+describe('isOneOf', () => {
 	it('should narrow string literals', () => {
 		const stages = ['PROD', 'CODE', 'DEV'] as const;
-		const isStage = literalUnionPredicate(stages);
+		const isStage = isOneOf(stages);
 
 		for (const stage of stages) {
 			expect(isStage(stage)).toBe(true);
@@ -14,7 +14,7 @@ describe('literalUnionPredicate', () => {
 
 	it('should narrow number literals', () => {
 		const primes = [1, 3, 5, 7] as const;
-		const isPrime = literalUnionPredicate(primes);
+		const isPrime = isOneOf(primes);
 
 		for (const prime of primes) {
 			expect(isPrime(prime)).toBe(true);
@@ -28,7 +28,7 @@ describe('literalUnionPredicate', () => {
 
 	it('should actually narrow values', () => {
 		const liberalNewspaper = ['The Guardian'] as const;
-		const isLiberalNewspaper = literalUnionPredicate(liberalNewspaper);
+		const isLiberalNewspaper = isOneOf(liberalNewspaper);
 
 		const newspapers = ['The Grauniad', 'The Guardian', 'Guardian Unlimited'];
 

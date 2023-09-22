@@ -7,25 +7,24 @@
  * [type unions]: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types
  *
  * @example
- * import { literalUnionPredicate } from '@guardian/libs';
+ * import { isOneOf } from '@guardian/libs';
  *
  * const stages = ["PROD", "CODE", "DEV"] as const;
- * const isStage = literalUnionPredicate(stages);
+ * const isStage = isOneOf(stages);
  *
- * if(!isStage("NOT_A_STAGE")) throw new Error("Invalid stage")
+ * if(!isStage("NOT_A_STAGE")) throw new Error("Invalid stage");
  */
-export const literalUnionPredicate =
+export const isOneOf =
 	<Literals extends ReadonlyArray<string | number>>(literals: Literals) =>
 	(value: string | number): value is Literals[number] =>
 		literals.includes(value);
 
 /**
  * Extract the literal union from a type predicate method.
- * Companion to literalUnionPredicate
  *
+ * @see isOneOf Companion method
  */
-export type LiteralUnion<
-	Predicate extends (value: unknown) => value is unknown,
-> = Predicate extends (value: unknown) => value is infer LiteralUnion
-	? LiteralUnion
-	: never;
+export type OneOf<Predicate extends (value: unknown) => value is unknown> =
+	Predicate extends (value: unknown) => value is infer LiteralUnion
+		? LiteralUnion
+		: never;

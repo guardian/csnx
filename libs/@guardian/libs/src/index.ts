@@ -31,7 +31,7 @@ export { isUndefined } from './isUndefined/isUndefined';
 
 export { joinUrl } from './joinUrl/joinUrl';
 
-export { literalUnionPredicate } from './literalUnionPredicate/literalUnionPredicate';
+export { isOneOf } from './isOneOf/isOneOf';
 
 export { loadScript } from './loadScript/loadScript';
 
