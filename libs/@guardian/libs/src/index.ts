@@ -25,13 +25,12 @@ export { Pillar } from './format/Pillar';
 
 export { isBoolean } from './isBoolean/isBoolean';
 export { isNonNullable } from './isNonNullable/isNonNullable';
+export { isOneOf } from './isOneOf/isOneOf';
 export { isObject } from './isObject/isObject';
 export { isString } from './isString/isString';
 export { isUndefined } from './isUndefined/isUndefined';
 
 export { joinUrl } from './joinUrl/joinUrl';
-
-export { isOneOf } from './isOneOf/isOneOf';
 
 export { loadScript } from './loadScript/loadScript';
 
