@@ -42,6 +42,10 @@ Check whether a value is a [`NonNullable`](https://www.typescriptlang.org/docs/h
 
 Checks whether a value is a plain object (i.e. `{}`-like).
 
+### [`isOneOf`](./src/isOneOf)
+
+Check whether a value is one of a set of literal string or numbers.
+
 ### [`isString`](./src/isString)
 
 Check whether a value is a string.
