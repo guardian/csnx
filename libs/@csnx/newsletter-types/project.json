@@ -1,5 +1,5 @@
 {
-	"name": "newsletter-types",
+	"name": "@csnx/newsletter-types",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "libs/@csnx/newsletter-types/src",
 	"projectType": "library",
