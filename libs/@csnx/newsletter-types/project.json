@@ -1,4 +1,16 @@
 {
 	"name": "newsletter-types",
-	"$schema": "../../node_modules/nx/schemas/project-schema.json"
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@csnx/newsletter-types/src",
+	"projectType": "library",
+	"targets": {
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/@csnx/newsletter-types"],
+			"options": {
+				"jestConfig": "libs/@csnx/newsletter-types/jest.config.ts",
+				"passWithNoTests": true
+			}
+		}
+	}
 }
