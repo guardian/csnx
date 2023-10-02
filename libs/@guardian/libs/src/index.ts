@@ -58,11 +58,3 @@ export { storage } from './storage/storage';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
-
-export type {
-	AutomatedFrontSection,
-	NewsletterEmailRenderingOptions,
-	NewsletterApiData,
-	NewslettersApiAllNewslettersResponse,
-	NewslettersApiSingleNewslettersResponse,
-} from './newsletters/@types';
