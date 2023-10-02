@@ -4,6 +4,17 @@
 	"sourceRoot": "libs/@csnx/newsletter-types/src",
 	"projectType": "library",
 	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": "libs/@csnx/newsletter-types/src/index.ts",
+				"tsConfig": "libs/@csnx/newsletter-types/tsconfig.json",
+				"packageJson": "libs/@csnx/newsletter-types/package.json",
+				"outputPath": "dist/libs/@csnx/newsletter-types",
+				"assets": ["libs/@csnx/newsletter-types/*.md"]
+			}
+		},
 		"test": {
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@csnx/newsletter-types"],
