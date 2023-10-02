@@ -15,6 +15,20 @@
 				"assets": ["libs/@csnx/newsletter-types/*.md"]
 			}
 		},
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@csnx/newsletter-types/**/*.ts"]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@csnx/newsletter-types/**/*.ts"]
+			}
+		},
 		"test": {
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@csnx/newsletter-types"],
