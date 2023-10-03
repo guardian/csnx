@@ -64,8 +64,6 @@ importers:
       typescript: 5.1.3
       update-section: 0.3.3
       webpack: 5.88.2
-    dependencies:
-      '@swc/helpers': 0.5.2
     devDependencies:
       '@babel/core': 7.22.9
       '@babel/plugin-transform-typescript': 7.22.9_@babel+core@7.22.9
@@ -93,6 +91,7 @@ importers:
       '@storybook/theming': 7.4.2_biqbaboplfbrettd7655fr4n2y
       '@swc-node/register': 1.6.8_wyojg2y3vgb4fdquxl75igypr4
       '@swc/core': 1.3.90_@swc+helpers@0.5.2
+      '@swc/helpers': 0.5.2
       '@types/babel__core': 7.20.1
       '@types/jest': 29.5.3
       '@types/node': 18.16.19
@@ -342,11 +341,13 @@ importers:
   libs/@guardian/identity-auth-frontend:
     specifiers:
       '@guardian/identity-auth': 1.0.0
+      '@guardian/libs': 15.0.0
       jest-fetch-mock: 3.0.3
       tslib: 2.5.3
       typescript: 5.1.3
     devDependencies:
-      '@guardian/identity-auth': 1.0.0_xfreuenalcno2zxheqz32kfzfe
+      '@guardian/identity-auth': 1.0.0_qlt7ga6coexbwqk6rbe7gjw6su
+      '@guardian/libs': 15.0.0_xfreuenalcno2zxheqz32kfzfe
       jest-fetch-mock: 3.0.3
       tslib: 2.5.3
       typescript: 5.1.3
@@ -3149,7 +3150,7 @@ packages:
       - supports-color
     dev: true
 
-  /@guardian/identity-auth/1.0.0_xfreuenalcno2zxheqz32kfzfe:
+  /@guardian/identity-auth/1.0.0_qlt7ga6coexbwqk6rbe7gjw6su:
     resolution: {integrity: sha512-JUkPai2Qnuq1quQ2rtvwWhLTtISqJBNe8XpxqbIr4jGaNWn5EL3kI1scAwq5PyNEg9135E7YXWTnjLNkm3ivoA==}
     peerDependencies:
       '@guardian/libs': ^15.0.0
@@ -3159,6 +3160,7 @@ packages:
       typescript:
         optional: true
     dependencies:
+      '@guardian/libs': 15.0.0_xfreuenalcno2zxheqz32kfzfe
       tslib: 2.5.3
       typescript: 5.1.3
     dev: true
