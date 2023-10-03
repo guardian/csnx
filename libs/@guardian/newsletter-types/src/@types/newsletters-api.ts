@@ -1,3 +1,13 @@
+type PillarName =
+	| 'news'
+	| 'opinion'
+	| 'culture'
+	| 'sport'
+	| 'lifestyle'
+	| 'features';
+
+type EditionId = 'UK' | 'AU' | 'US' | 'INT' | 'EUR';
+
 export type AutomatedFrontSection = {
 	subheading: string;
 	insertPosition: number;
@@ -30,13 +40,7 @@ export type NewsletterEmailRenderingOptions = {
 	darkSubheadingBannerUrl?: string;
 	darkHeadlineBackground?: boolean;
 	displayNewsletterName?: boolean;
-	paletteOverride?:
-		| 'news'
-		| 'opinion'
-		| 'culture'
-		| 'sport'
-		| 'lifestyle'
-		| 'features';
+	paletteOverride?: PillarName;
 };
 
 export type NewsletterApiData = {
@@ -66,9 +70,9 @@ export type NewsletterApiData = {
 		| 'other';
 
 	/** the name of the pillar the newsletter is aligned to */
-	theme: 'news' | 'opinion' | 'culture' | 'sport' | 'lifestyle' | 'features';
+	theme: PillarName;
 	/** the EditionId for the edition (if any) this newsletter is primarily intended for*/
-	regionFocus?: 'UK' | 'AU' | 'US' | 'INT' | 'EUR';
+	regionFocus?: EditionId;
 	/** whether the user should receive a validation email to confirm they want to subscribe before a subscription request is processed */
 	emailConfirmation: boolean;
 	/** whether access to the newsletter should restricted - IE not available for any reader to subscribe to */
