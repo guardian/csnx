@@ -1,11 +1,9 @@
 {
 	"name": "@guardian/newsletter-types",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"private": false,
+	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
-	"scripts": {
-		"test": "npx ts-node src/index.ts"
-	},
 	"devDependencies": {
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
