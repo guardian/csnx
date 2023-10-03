@@ -1,5 +1,5 @@
 {
-	"name": "@csnx/newsletter-types",
+	"name": "@guardian/newsletter-types",
 	"version": "0.0.0",
 	"private": false,
 	"sideEffects": false,

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export -- that's what jest likes */
 export default {
-	displayName: '@csnx/newsletter-types',
+	displayName: '@guardian/newsletter-types',
 	preset: '../../../jest.preset.js',
 	testEnvironment: 'jest-environment-jsdom',
 	transform: {
@@ -12,5 +12,5 @@ export default {
 		],
 	},
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-	coverageDirectory: '../../../coverage/libs/@csnx/newsletter-types',
+	coverageDirectory: '../../../coverage/libs/@guardian/newsletter-types',
 };
