@@ -6,7 +6,8 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"devDependencies": {
-		"@guardian/identity-auth": "^1.0.0",
+		"@guardian/identity-auth": "1.0.0",
+		"@guardian/libs": "15.0.0",
 		"jest-fetch-mock": "3.0.3",
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
