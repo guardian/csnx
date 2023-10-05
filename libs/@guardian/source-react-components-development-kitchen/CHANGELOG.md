@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 14.0.1
+
+### Patch Changes
+
+- f74fda0: `ToggleSwitch` tick is now centred
+
 ## 14.0.0
 
 ### Major Changes
