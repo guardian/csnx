@@ -1,4 +1,3 @@
-export { AudioAtom } from './AudioAtom';
 export { ChartAtom } from './ChartAtom';
 export { ExplainerAtom } from './ExplainerAtom';
 export { InteractiveAtom } from './InteractiveAtom';

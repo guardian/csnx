@@ -1,15 +1,5 @@
 import type { ArticleDesign, ArticleTheme } from '@guardian/libs';
 
-export type AudioAtomType = {
-	id: string;
-	trackUrl: string;
-	kicker: string;
-	title?: string;
-	pillar: ArticleTheme;
-	shouldUseAcast?: boolean;
-	duration: number;
-};
-
 export type ChartAtomType = {
 	id: string;
 	html: string;
