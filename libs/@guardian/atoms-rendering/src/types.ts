@@ -21,21 +21,6 @@ export type ExplainerAtomType = {
 	html: string;
 };
 
-export type GuideAtomType = {
-	id: string;
-	label?: string;
-	title: string;
-	image?: string;
-	html: string;
-	credit?: string;
-	pillar: ArticleTheme;
-	expandForStorybook?: boolean;
-	likeHandler?: () => void;
-	dislikeHandler?: () => void;
-	expandCallback?: () => void;
-	design?: ArticleDesign;
-};
-
 export type InteractiveAtomBlockElementType = {
 	_type: string;
 	css: string;

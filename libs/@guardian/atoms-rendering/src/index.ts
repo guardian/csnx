@@ -1,7 +1,6 @@
 export { AudioAtom } from './AudioAtom';
 export { ChartAtom } from './ChartAtom';
 export { ExplainerAtom } from './ExplainerAtom';
-export { GuideAtom } from './GuideAtom';
 export { InteractiveAtom } from './InteractiveAtom';
 export { InteractiveLayoutAtom } from './InteractiveLayoutAtom';
 export { KnowledgeQuizAtom } from './KnowledgeQuiz';
@@ -14,7 +13,6 @@ export { VideoAtom } from './VideoAtom';
 
 export type {
 	ChartAtomType,
-	GuideAtomType,
 	ProfileAtomType,
 	QandaAtomType,
 	SharingUrlsType,
