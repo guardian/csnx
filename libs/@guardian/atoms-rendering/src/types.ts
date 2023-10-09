@@ -1,9 +1,4 @@
-import type { ArticleDesign, ArticleTheme } from '@guardian/libs';
-
-export type ChartAtomType = {
-	id: string;
-	html: string;
-};
+import type { ArticleTheme } from '@guardian/libs';
 
 export type ExplainerAtomType = {
 	id: string;
