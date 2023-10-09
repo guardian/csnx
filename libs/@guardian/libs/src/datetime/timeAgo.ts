@@ -1,47 +1,39 @@
-type Unit = 's' | 'm' | 'h' | 'd';
+const units = {
+	second: 1_000,
+	minute: 60_000,
+	hour: 3_600_000,
+	day: 86_400_000,
+} as const satisfies Record<string, number>;
 
-const pad = (n: number): number | string => n.toString().padStart(2, '0');
-
-const isWithin24Hours = (date: Date): boolean => {
-	const today = new Date();
-	return date.getTime() > today.getTime() - 24 * 60 * 60 * 1000;
-};
-
-const isYesterday = (relative: Date): boolean => {
-	const today = new Date();
-	const yesterday = new Date();
-	yesterday.setDate(today.getDate() - 1);
-	return relative.toDateString() === yesterday.toDateString();
-};
-
-const getSuffix = (type: Unit, value: number, verbose?: boolean): string => {
-	const shouldPluralise = value !== 1;
-	switch (type) {
-		case 's': {
-			// Always pluralised, as less than 15 seconds returns “now”
-			if (verbose) return ' seconds ago';
-			return 's ago';
-		}
-		case 'm': {
-			if (verbose && shouldPluralise) return ' minutes ago';
-			if (verbose) return ' minute ago';
-			return 'm ago';
-		}
-		case 'h': {
-			if (verbose && shouldPluralise) return ' hours ago';
-			if (verbose) return ' hour ago';
-			return 'h ago';
-		}
-		case 'd': {
-			// Always pluralised, as less than 2 days returns “Yesterday HH.MM”
-			if (verbose) return ' days ago';
-			return 'd ago';
-		}
+export const duration = ({
+	then,
+	now,
+}: {
+	then: number;
+	now: number;
+}): { length: number; unit: keyof typeof units } => {
+	const difference = now - then;
+	if (difference < units.minute) {
+		return { length: difference / units.second, unit: 'second' };
 	}
+	if (difference < units.hour) {
+		return { length: difference / units.minute, unit: 'minute' };
+	}
+	if (difference < units.day) {
+		return { length: difference / units.hour, unit: 'hour' };
+	}
+	return { length: difference / units.day, unit: 'day' };
+};
+
+const isYesterday = (then: number, now: number): boolean => {
+	const today = new Date(now);
+	const yesterday = new Date(now);
+	yesterday.setDate(today.getDate() - 1);
+	return new Date(then).toDateString() === yesterday.toDateString();
 };
 
 const withTime = (date: Date): string =>
-	` ${date.getHours()}.${pad(date.getMinutes())}`;
+	`${date.getHours()}.${date.getMinutes().toString().padStart(2, '0')}`;
 
 /**
  * Takes an absolute date in [epoch format] and returns a string representing
@@ -64,52 +56,51 @@ export const timeAgo = (
 		now?: number;
 	},
 ): false | string => {
-	const then = new Date(epoch);
-	const now = options?.now ? new Date(options.now) : new Date();
+	const then = epoch;
+	const now = options?.now ?? Date.now();
 
-	const verbose = options?.verbose;
-	const daysUntilAbsolute = options?.daysUntilAbsolute ?? 7;
+	const verbose = options?.verbose ?? false;
 
-	const secondsAgo = Math.floor((now.getTime() - then.getTime()) / 1000);
-	const veryClose = secondsAgo < 15;
-	const within55Seconds = secondsAgo < 55;
-	const withinTheHour = secondsAgo < 55 * 60;
-	const within24hrs = isWithin24Hours(then);
-	const wasYesterday = isYesterday(then);
-	const withinAbsoluteCutoff = secondsAgo < daysUntilAbsolute * 24 * 60 * 60;
+	const { length: rawLength, unit } = duration({ then, now });
+	const length = Math.round(rawLength);
 
-	if (secondsAgo < 0) {
-		// Dates in the future are not supported
-		return false;
-	} else if (veryClose) {
-		// Now
-		return 'now';
-	} else if (within55Seconds) {
-		// Seconds
-		return `${secondsAgo}${getSuffix('s', secondsAgo, verbose)}`;
-	} else if (withinTheHour) {
-		// Minutes
-		const minutes = Math.round(secondsAgo / 60);
-		return `${minutes}${getSuffix('m', minutes, verbose)}`;
-	} else if (within24hrs) {
-		// Hours
-		const hours = Math.round(secondsAgo / 3600);
-		return `${hours}${getSuffix('h', hours, verbose)}`;
-	} else if (wasYesterday && verbose) {
-		// Yesterday
-		return `Yesterday${withTime(then)}`;
-	} else if (withinAbsoluteCutoff) {
-		// Days
-		const days = Math.round(secondsAgo / 3600 / 24);
-		return `${days}${getSuffix('d', days, verbose)}`;
-	} else {
-		// Simple date - "9 Nov 2019"
-		return [
-			then.getDate(),
-			verbose
-				? then.toLocaleString('en-GB', { month: 'long' })
-				: then.toLocaleString('en-GB', { month: 'short' }),
-			then.getFullYear(),
-		].join(' ');
+	// Dates in the future are not supported
+	if (length < 0) return false;
+
+	switch (unit) {
+		case 'second': {
+			if (length > 55) return verbose ? '1 minute ago' : '1m ago';
+			if (length < 15) return 'now';
+			if (!verbose) return `${length}s ago`;
+			return `${length} seconds ago`;
+		}
+		case 'minute': {
+			if (length > 55) return verbose ? '1 hour ago' : '1h ago';
+			if (!verbose) return `${length}m ago`;
+			if (length == 1) return '1 minute ago';
+			return `${length} minutes ago`;
+		}
+		case 'hour': {
+			if (!verbose) return `${length}h ago`;
+			if (length == 1) return '1 hour ago';
+			return `${length} hours ago`;
+		}
+		case 'day': {
+			if (rawLength < (options?.daysUntilAbsolute ?? 7)) {
+				if (!verbose) return `${length}d ago`;
+				if (isYesterday(then, now)) {
+					return `Yesterday ${withTime(new Date(then))}`;
+				}
+				if (length == 1) return '1 day ago';
+				return `${length} days ago`;
+			}
+
+			// Simple date - "9 Nov 2019"
+			return new Date(then).toLocaleString('en-GB', {
+				day: 'numeric',
+				month: verbose ? 'long' : 'short',
+				year: 'numeric',
+			});
+		}
 	}
 };
