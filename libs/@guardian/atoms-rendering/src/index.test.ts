@@ -16,7 +16,6 @@ describe('The package', () => {
 			'RecipeAtom',
 			'TimelineAtom',
 			'VideoAtom',
-			'YoutubeAtom',
 		]);
 	});
 });

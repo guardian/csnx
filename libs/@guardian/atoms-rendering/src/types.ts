@@ -1,15 +1,4 @@
-import type { CustomParams } from '@guardian/commercial';
 import type { ArticleDesign, ArticleTheme } from '@guardian/libs';
-
-export type AdTargeting =
-	| {
-			adUnit: string;
-			customParams: CustomParams;
-			disableAds?: false;
-	  }
-	| {
-			disableAds: true;
-	  };
 
 export type AudioAtomType = {
 	id: string;
@@ -157,17 +146,6 @@ export type SharingUrlsType = {
 		userMessage: string;
 	};
 };
-
-export type VideoEventKey =
-	| 'play'
-	| '25'
-	| '50'
-	| '75'
-	| 'end'
-	| 'skip'
-	| 'cued'
-	| 'resume'
-	| 'pause';
 
 export type RecipeSchemaAtomType = {
 	id: string;
