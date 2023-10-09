@@ -26,6 +26,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/identity-auth](libs/@guardian/identity-auth)
 - [@guardian/identity-auth-frontend](libs/@guardian/identity-auth-frontend)
 - [@guardian/libs](libs/@guardian/libs)
+- [@guardian/newsletter-types](libs/@guardian/newsletter-types)
 - [@guardian/prettier](libs/@guardian/prettier)
 - [@guardian/source-foundations](libs/@guardian/source-foundations)
 - [@guardian/source-react-components](libs/@guardian/source-react-components)

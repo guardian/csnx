@@ -1,0 +1,10 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"files": ["../../../@types/window.d.ts"],
+	"include": ["."],
+	"references": [
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	]
+}

@@ -1,20 +1,14 @@
 {
-	"name": "@guardian/identity-auth-frontend",
+	"name": "@guardian/newsletter-types",
 	"version": "1.0.0",
 	"private": false,
-	"description": "",
-	"license": "Apache-2.0",
+	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
 	"devDependencies": {
-		"@guardian/identity-auth": "1.0.0",
-		"@guardian/libs": "15.0.0",
-		"jest-fetch-mock": "3.0.3",
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
 	},
 	"peerDependencies": {
-		"@guardian/identity-auth": "^1.0.0",
-		"@guardian/libs": "^15.0.0",
 		"tslib": "^2.5.3",
 		"typescript": "~5.1.3"
 	},
