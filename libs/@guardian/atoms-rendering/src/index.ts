@@ -11,7 +11,6 @@ export { QandaAtom } from './QandaAtom';
 export { RecipeSchemaAtom as RecipeAtom } from './RecipeSchemaAtom';
 export { TimelineAtom } from './TimelineAtom';
 export { VideoAtom } from './VideoAtom';
-export { YoutubeAtom } from './YoutubeAtom';
 
 export type {
 	ChartAtomType,
