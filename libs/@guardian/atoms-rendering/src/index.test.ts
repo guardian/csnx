@@ -4,7 +4,6 @@ describe('The package', () => {
 	it('exports everything it did before', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
 			'ChartAtom',
-			'ExplainerAtom',
 			'InteractiveAtom',
 			'InteractiveLayoutAtom',
 			'KnowledgeQuizAtom',

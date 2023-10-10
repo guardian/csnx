@@ -5,12 +5,6 @@ export type ChartAtomType = {
 	html: string;
 };
 
-export type ExplainerAtomType = {
-	id: string;
-	title: string;
-	html: string;
-};
-
 export type InteractiveAtomBlockElementType = {
 	_type: string;
 	css: string;
