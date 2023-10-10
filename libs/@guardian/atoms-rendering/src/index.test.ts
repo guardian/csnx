@@ -5,7 +5,6 @@ describe('The package', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
 			'ChartAtom',
 			'ExplainerAtom',
-			'GuideAtom',
 			'InteractiveAtom',
 			'InteractiveLayoutAtom',
 			'KnowledgeQuizAtom',
@@ -23,7 +22,6 @@ describe('The package', () => {
 // won't catch new types but I don't know how we can?
 export type {
 	ChartAtomType,
-	GuideAtomType,
 	ProfileAtomType,
 	QandaAtomType,
 	SharingUrlsType,

@@ -1,4 +1,4 @@
-import type { ArticleDesign, ArticleTheme } from '@guardian/libs';
+import type { ArticleTheme } from '@guardian/libs';
 
 export type ChartAtomType = {
 	id: string;
@@ -9,21 +9,6 @@ export type ExplainerAtomType = {
 	id: string;
 	title: string;
 	html: string;
-};
-
-export type GuideAtomType = {
-	id: string;
-	label?: string;
-	title: string;
-	image?: string;
-	html: string;
-	credit?: string;
-	pillar: ArticleTheme;
-	expandForStorybook?: boolean;
-	likeHandler?: () => void;
-	dislikeHandler?: () => void;
-	expandCallback?: () => void;
-	design?: ArticleDesign;
 };
 
 export type InteractiveAtomBlockElementType = {
