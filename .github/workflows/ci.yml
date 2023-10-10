@@ -36,7 +36,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - run: pnpm install --frozen-lockfile
 
