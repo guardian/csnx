@@ -1,46 +1,112 @@
 import { hex } from 'wcag-contrast';
 import { storage } from '../storage/storage';
-import type { TeamName } from './@types/logger';
+import type { Subscription } from './@types/logger';
 import { debug } from './debug';
-import { log } from './log';
+import { _, isSubscribedTo, log } from './logger';
 import { STORAGE_KEY } from './storage-key';
-import { teamStyles } from './teamStyles';
+import { subscriptionStyles } from './subscriptions';
 
-const spy = jest
+const consoleDotLog = jest
 	.spyOn(console, 'log')
 	.mockImplementation(() => () => undefined);
 
-const consoleMessage = (): string | undefined => {
-	if (spy.mock.calls[0] && typeof spy.mock.calls[0][5] === 'string') {
-		return spy.mock.calls[0][5];
-	}
-	return undefined;
-};
+beforeEach(() => {
+	storage.local.clear();
+	_.clearSubscriptionsCache();
+});
 
-describe('Logs messages for a team', () => {
+describe('Subscribe and unsubscribe', () => {
+	it(`should be able to add subscriptions`, () => {
+		expect(isSubscribedTo('commercial')).toBe(false);
+		expect(isSubscribedTo('dotcom')).toBe(false);
+		expect(isSubscribedTo('cmp')).toBe(false);
+		expect(storage.local.get(STORAGE_KEY)).toBeNull();
+
+		_.subscribeTo('commercial');
+		_.subscribeTo('dotcom');
+
+		expect(isSubscribedTo('commercial')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('commercial');
+		expect(isSubscribedTo('dotcom')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('dotcom');
+		expect(isSubscribedTo('cmp')).toBe(false);
+		expect(storage.local.get(STORAGE_KEY)).not.toContain('cmp');
+
+		_.subscribeTo('cmp');
+
+		expect(isSubscribedTo('commercial')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('commercial');
+		expect(isSubscribedTo('dotcom')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('dotcom');
+		expect(isSubscribedTo('cmp')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('cmp');
+	});
+
+	it(`should be able to remove a subscription`, () => {
+		expect(isSubscribedTo('commercial')).toBe(false);
+		expect(isSubscribedTo('dotcom')).toBe(false);
+		expect(storage.local.get(STORAGE_KEY)).toBeNull();
+
+		_.subscribeTo('commercial');
+		_.subscribeTo('dotcom');
+
+		expect(isSubscribedTo('commercial')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('commercial');
+		expect(isSubscribedTo('dotcom')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('dotcom');
+
+		_.unsubscribeFrom('dotcom');
+
+		expect(isSubscribedTo('commercial')).toBe(true);
+		expect(storage.local.get(STORAGE_KEY)).toContain('commercial');
+		expect(isSubscribedTo('dotcom')).toBe(false);
+		expect(storage.local.get(STORAGE_KEY)).not.toContain('dotcom');
+	});
+
+	it('should return the list of registered subscriptions', () => {
+		const subscriptions = window.guardian?.logger?.subscriptions();
+		expect(Array.isArray(subscriptions)).toBe(true);
+		expect(subscriptions).toContain('cmp');
+	});
+});
+
+describe('Logs messages for a subscription', () => {
 	it(`should not log any messages by default`, () => {
 		log('cmp', 'this will not log');
 		log('commercial', 'neither will this');
 		log('dotcom', 'or this');
-		expect(consoleMessage()).toBeUndefined();
+		expect(consoleDotLog).not.toHaveBeenCalled();
 	});
 
 	const message = 'Hello, world!';
-	const team = 'cmp';
+	const subscription = 'cmp';
 
-	it(`should be able to add team ${team}`, () => {
-		if (window.guardian?.logger) window.guardian.logger.subscribeTo(team);
-		const registered: string = storage.local.get(STORAGE_KEY) as string;
-		expect(registered).toBe(team);
-	});
-	it(`should log ${message} for team ${team}`, () => {
-		log(team, message);
-		expect(consoleMessage()).toBe(message);
+	it(`should log ${message} for subscription ${subscription}`, () => {
+		_.subscribeTo(subscription);
+		log(subscription, message);
+		expect(consoleDotLog).toHaveBeenNthCalledWith(
+			2,
+			expect.anything(),
+			expect.anything(),
+			expect.anything(),
+			expect.anything(),
+			expect.anything(),
+			message,
+		);
 	});
 
 	it('should log debug messages in dev', () => {
-		debug(team, message);
-		expect(consoleMessage()).toBe(message);
+		_.subscribeTo(subscription);
+		debug(subscription, message);
+		expect(consoleDotLog).toHaveBeenNthCalledWith(
+			2,
+			expect.anything(),
+			expect.anything(),
+			expect.anything(),
+			expect.anything(),
+			expect.anything(),
+			message,
+		);
 	});
 
 	it('should not log debug messages in prod', () => {
@@ -49,80 +115,53 @@ describe('Logs messages for a team', () => {
 		//@ts-expect-error -- we only check window.location.origin
 		window.location = new URL('https://www.theguardian.com');
 
-		debug(team, message);
-		expect(consoleMessage()).toBe(undefined);
+		_.subscribeTo(subscription);
+		debug(subscription, message);
+
+		expect(consoleDotLog).toHaveBeenCalledTimes(1);
 	});
 });
 
-describe('Add and remove teams', () => {
-	it(`should first clear local storage`, () => {
-		storage.local.clear();
-		expect(storage.local.get(STORAGE_KEY)).toBe(null);
-	});
-	it(`should be able to add two teams`, () => {
-		if (window.guardian?.logger) {
-			window.guardian.logger.subscribeTo('commercial');
-			window.guardian.logger.subscribeTo('dotcom');
-		}
-		const registered: string = storage.local.get(STORAGE_KEY) as string;
-		expect(registered).toBe('commercial,dotcom');
-	});
+describe('Subscription-based logging', () => {
+	const subscriptions: Subscription[] = ['cmp', 'commercial', 'dotcom'];
 
-	it(`should be able to add a third team`, () => {
-		if (window.guardian?.logger) window.guardian.logger.subscribeTo('cmp');
-		const registered: string = storage.local.get(STORAGE_KEY) as string;
-		expect(registered).toBe('commercial,dotcom,cmp');
-	});
+	it.each(subscriptions)(
+		`should only log message for subscription: %s`,
+		(subscription) => {
+			storage.local.set(STORAGE_KEY, subscription);
 
-	it(`should not add teams more than once`, () => {
-		if (window.guardian?.logger) {
-			window.guardian.logger.subscribeTo('cmp');
-			window.guardian.logger.subscribeTo('dotcom');
-			window.guardian.logger.subscribeTo('dotcom');
-			window.guardian.logger.subscribeTo('commercial');
-		}
-		const registered: string = storage.local.get(STORAGE_KEY) as string;
-		expect(registered).toBe('commercial,dotcom,cmp');
-	});
+			for (const _subscription of subscriptions) {
+				log(_subscription, `a message for ${_subscription}`);
+			}
 
-	it(`should be able to remove a third team`, () => {
-		if (window.guardian?.logger) {
-			window.guardian.logger.unsubscribeFrom('cmp');
-		}
-		const registered: string = storage.local.get(STORAGE_KEY) as string;
-		expect(registered).toBe('commercial,dotcom');
-	});
-
-	it(`should be able to remove a team`, () => {
-		if (window.guardian?.logger) {
-			window.guardian.logger.unsubscribeFrom('commercial');
-		}
-		const registered: string = storage.local.get(STORAGE_KEY) as string;
-		expect(registered).toBe('dotcom');
-	});
-
-	it('should return the list of registered teams', () => {
-		const teams = window.guardian?.logger?.teams();
-		expect(Array.isArray(teams)).toBe(true);
-		expect(teams).toContain('cmp');
-	});
+			expect(consoleDotLog).toHaveBeenNthCalledWith(
+				1,
+				expect.anything(),
+				expect.anything(),
+				expect.anything(),
+				expect.anything(),
+				expect.anything(),
+				`a message for ${subscription}`,
+			);
+		},
+	);
 });
 
-describe('Team-based logging', () => {
-	const teams: TeamName[] = ['cmp', 'commercial', 'dotcom'];
-
-	it.each(teams)(`should only log message for team: %s`, (team) => {
-		storage.local.set(STORAGE_KEY, team);
-
-		teams.map((t) => {
-			log(t, `a message for ${t}`);
-		});
-		expect(consoleMessage()).toBe(`a message for ${team}`);
+describe('Puts methods on the window', () => {
+	it('should put the logger methods on the window', () => {
+		expect(window.guardian).toHaveProperty(
+			'logger',
+			expect.objectContaining({
+				subscribeTo: expect.any(Function),
+				unsubscribeFrom: expect.any(Function),
+				subscriptions: expect.any(Function),
+			}),
+		);
 	});
 });
 
 describe('Ensure labels are accessible', () => {
-	it.each(Object.entries(teamStyles))(
+	it.each(Object.entries(subscriptionStyles))(
 		'should have a minimum contrast ratio of 4.5 (AA) for %s',
 		(_, colour) => {
 			const { font, background } = colour;

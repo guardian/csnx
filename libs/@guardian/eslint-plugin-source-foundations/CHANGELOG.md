@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 15.0.0
+
+### Major Changes
+
+- 6bb3297: Updates ESLint to latest version to fix security vulnerability in `word-wrap` dependency
+
 ## 14.0.0
 
 ### Major Changes

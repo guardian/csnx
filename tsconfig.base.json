@@ -28,6 +28,10 @@
 			"@guardian/eslint-plugin-source-react-components": [
 				"libs/@guardian/eslint-plugin-source-react-components/src/index.ts"
 			],
+			"@guardian/identity-auth": ["libs/@guardian/identity-auth/src/index.ts"],
+			"@guardian/identity-auth-frontend": [
+				"libs/@guardian/identity-auth-frontend/src/index.ts"
+			],
 			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
 			"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
 			"@guardian/source-foundations": [
@@ -38,6 +42,9 @@
 			],
 			"@guardian/source-react-components-development-kitchen": [
 				"libs/@guardian/source-react-components-development-kitchen/src/index.ts"
+			],
+			"@guardian/newsletters-types": [
+				"libs/@guardian/newsletters-types/src/index.ts"
 			]
 		},
 		"rootDir": ".",

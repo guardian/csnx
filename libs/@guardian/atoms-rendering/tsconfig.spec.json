@@ -5,7 +5,7 @@
 		"allowJs": true,
 		"outDir": "../../../dist/out-tsc",
 		"module": "commonjs",
-		"types": ["jest", "node", "@testing-library/jest-dom", "@types/youtube"],
+		"types": ["jest", "node", "@testing-library/jest-dom"],
 		"composite": true
 	},
 	"include": [

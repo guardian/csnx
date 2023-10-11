@@ -1,51 +1,4 @@
-import type { CustomParams } from '@guardian/commercial';
-import type { ArticleDesign, ArticleTheme } from '@guardian/libs';
-
-export type AdTargeting =
-	| {
-			adUnit: string;
-			customParams: CustomParams;
-			disableAds?: false;
-	  }
-	| {
-			disableAds: true;
-	  };
-
-export type AudioAtomType = {
-	id: string;
-	trackUrl: string;
-	kicker: string;
-	title?: string;
-	pillar: ArticleTheme;
-	shouldUseAcast?: boolean;
-	duration: number;
-};
-
-export type ChartAtomType = {
-	id: string;
-	html: string;
-};
-
-export type ExplainerAtomType = {
-	id: string;
-	title: string;
-	html: string;
-};
-
-export type GuideAtomType = {
-	id: string;
-	label?: string;
-	title: string;
-	image?: string;
-	html: string;
-	credit?: string;
-	pillar: ArticleTheme;
-	expandForStorybook?: boolean;
-	likeHandler?: () => void;
-	dislikeHandler?: () => void;
-	expandCallback?: () => void;
-	design?: ArticleDesign;
-};
+import type { ArticleTheme } from '@guardian/libs';
 
 export type InteractiveAtomBlockElementType = {
 	_type: string;
@@ -143,17 +96,6 @@ export type SharingUrlsType = {
 		userMessage: string;
 	};
 };
-
-export type VideoEventKey =
-	| 'play'
-	| '25'
-	| '50'
-	| '75'
-	| 'end'
-	| 'skip'
-	| 'cued'
-	| 'resume'
-	| 'pause';
 
 export type RecipeSchemaAtomType = {
 	id: string;

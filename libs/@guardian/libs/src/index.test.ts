@@ -19,6 +19,7 @@ describe('The package', () => {
 			'isBoolean',
 			'isNonNullable',
 			'isObject',
+			'isOneOf',
 			'isString',
 			'isUndefined',
 			'joinUrl',

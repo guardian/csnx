@@ -60,7 +60,7 @@ And in dotcom-rendering you might also want to run
 
 Adding a new atom in `atoms-rendering` involves
 
-1. Adding the component, eg. MyComponent.tsx - Make sure the outer component of the atom contains `data-atom-id` and `data-atom-type` in order to be picked up by teleporter. [Here is an example](https://github.com/guardian/atoms-rendering/blob/16b72b5e82101f30771aa823668fff632143ffa0/src/AudioAtom.tsx#L327)
+1. Adding the component, eg. MyComponent.tsx - Make sure the outer component of the atom contains `data-atom-id` and `data-atom-type` in order to be picked up by teleporter. [Here is an example](https://github.com/guardian/atoms-rendering/blob/16b72b5e82101f30771aa823668fff632143ffa0/src/ChartAtom.tsx#L10)
 2. Adding stories, eg. MyComponent.stories.tsx
 3. Adding a line to `index.ts` to export the component
 4. Publishing a new version of the library to Npm (see below)

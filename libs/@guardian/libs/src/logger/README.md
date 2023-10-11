@@ -1,6 +1,6 @@
 # `log`, `debug`
 
-Selectively log team-specific messages to the console.
+Selectively log subscription-specific messages to the console.
 
 ### Example
 
@@ -15,8 +15,8 @@ log('commercial', { 1: true, 2: false });
 Then in the browser console, you can do:
 
 ```js
-window.guardian.logger.teams();
-> ['commercial', 'cmp', 'dotcom'];
+window.guardian.logger.subscriptions();
+> ['commercial', 'cmp', 'dotcom', ...];
 
 window.guardian.logger.subscribeTo('commercial');
 window.guardian.logger.unsubscribeFrom('cmp');
@@ -24,31 +24,21 @@ window.guardian.logger.unsubscribeFrom('cmp');
 
 and see
 
-![example branded console output](/static/logger.svg)
-
-## Table of contents
-
--   [Methods](#methods)
-    -   [`log(team, args)`](#logteam-args)
-    -   [`debug(team, args)`](#debugteam-args)
--   [Browser globals](#browser-globals)
-    -   [`window.guardian.logger.subscribeTo(team)`](#windowguardianloggersubscribetoteam)
-    -   [`window.guardian.logger.unsubscribeFrom(team)`](#windowguardianloggerunsubscribefromteam)
-    -   [`window.guardian.logger.teams()`](#windowguardianloggerteams)
+![example branded console output](../../static/logger.svg)
 
 ## Methods
 
-### `log(team, args)`
+### `log(subscription, args)`
 
 Returns: `void`
 
-Logs a message to the console for a specific team.
+Logs a message to the console for a specific subscription.
 
-#### `team`
+#### `subscription`
 
 Type: `string`<br>
 
-Name of the team interested in this log.
+Name of the subscription interested in this log.
 
 #### `args`
 
@@ -62,7 +52,7 @@ The content to `console.log`.
 log('commercial', { 1: true, 2: false });
 ```
 
-### `debug(team, args)`
+### `debug(subscription, args)`
 
 Returns: `void`
 
@@ -70,23 +60,23 @@ Identical to [`log`][], but only runs in non-production environments (including 
 
 ## Browser globals
 
-### `window.guardian.logger.teams()`
+### `window.guardian.logger.subscriptions()`
 
 Returns: `Array`
 
-Get a list of available teams.
+Get a list of available subscriptions.
 
-### `window.guardian.logger.subscribeTo(team)`
-
-Returns: `void`
-
-Start receiving logs for a specific team.
-
-### `window.guardian.logger.unsubscribeFrom(team)`
+### `window.guardian.logger.subscribeTo(subscription)`
 
 Returns: `void`
 
-Stop receiving logs for a specific team.
+Start receiving logs for a specific subscription.
 
-[`log`]: #logteam-args
-[`debug`]: #debugteam-args
+### `window.guardian.logger.unsubscribeFrom(subscription)`
+
+Returns: `void`
+
+Stop receiving logs for a specific subscription.
+
+[`log`]: #logsubscription-args
+[`debug`]: #debugsubscription-args

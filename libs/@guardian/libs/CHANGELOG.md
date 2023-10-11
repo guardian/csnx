@@ -1,5 +1,28 @@
 # @guardian/libs
 
+## 15.8.0
+
+### Minor Changes
+
+- 623de72: Export `isOneOf` method which creates
+  [type predicates](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)
+  that narrow primitives to
+  [literal](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types) [type unions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)
+
+## 15.7.1
+
+### Patch Changes
+
+- 1791e1b: Uses a local cache for `logger` subscriptions, instead of hitting `localStorage` every time `log` was called (even when the console was closed).
+
+## 15.7.0
+
+### Minor Changes
+
+- 89fb611: Labels used in `logger` are quieter.
+- e47b5d2: - add `perf` to `logger`
+  - log measurement duration when calling `endPerformanceMeasure`
+
 ## 15.6.4
 
 ### Patch Changes

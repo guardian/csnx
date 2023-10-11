@@ -1,5 +1,6 @@
-import type { TeamName } from '../logger/@types/logger';
-import { log } from '../logger/log';
+import type { Subscription } from '../logger/@types/logger';
+import { log } from '../logger/logger';
+import { logPerf } from './log';
 import type {} from './@types/measure';
 import { serialise } from './serialise';
 
@@ -11,6 +12,10 @@ const getId = () =>
 	Math.trunc(Math.random() * 1_679_615)
 		.toString(36)
 		.padStart(4, '0');
+
+interface PerformanceMeasurementControls {
+	endPerformanceMeasure: () => number;
+}
 
 /**
  * Helper to measure the duration between two events.
@@ -24,12 +29,12 @@ const getId = () =>
  * const duration = endPerformanceMeasure();
  */
 export const startPerformanceMeasure = (
-	team: TeamName,
+	subscription: Subscription,
 	name: string,
 	action?: string,
-): { endPerformanceMeasure: () => number } => {
+): PerformanceMeasurementControls => {
 	try {
-		const measureName = serialise({ team, name, action });
+		const measureName = serialise({ subscription, name, action });
 		const markName = `${measureName}-${getId()}`;
 		const start = performance.now();
 
@@ -47,16 +52,20 @@ export const startPerformanceMeasure = (
 					duration: performance.now() - start,
 				};
 
-				return Math.ceil(duration);
+				const formattedDuration = Math.ceil(duration);
+
+				logPerf(measureName, formattedDuration);
+
+				return formattedDuration;
 			} catch (error) {
-				log(team, error);
+				log(subscription, error);
 				return fallbackDuration;
 			}
 		};
 
 		return { endPerformanceMeasure };
 	} catch (error) {
-		log(team, error);
+		log(subscription, error);
 		return { endPerformanceMeasure: () => fallbackDuration };
 	}
 };

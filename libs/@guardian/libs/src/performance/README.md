@@ -26,15 +26,17 @@ const duration = endPerformanceMeasure(); // duration of task in milliseconds
 
 ### `startPerformanceMeasure(team, name, action)`
 
-Returns: `{ endPerformanceMeasure: () => number }`
+Returns: `PerformanceMeasurementControls`
 
 Start measuring a performance duration.
+
+Returns an object of methods for controlling the current measurement.
 
 #### `team`
 
 Type: `TeamName`<br>
 
-Name of the team interested in this log.
+Name of the team interested in this measurement.
 Used for labelling `PerformanceMeasure`.
 
 #### `name`
@@ -50,6 +52,12 @@ Type: `string | undefined`<br>
 
 Optional action performed as part of a task.
 Used for labelling `PerformanceMeasure`.
+
+##### `PerformanceMeasurementControls#endPerformanceMeasure()`
+
+Returns: `number`
+
+End the performance measurement and return the duration in milliseconds.
 
 ### `getMeasures(teams)`
 

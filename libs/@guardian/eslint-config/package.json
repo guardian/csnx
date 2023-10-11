@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "4.1.0",
+	"version": "5.0.0",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
 	"dependencies": {
@@ -9,11 +9,11 @@
 		"eslint-plugin-import": "2.27.5"
 	},
 	"devDependencies": {
-		"eslint": "8.0.0",
+		"eslint": "8.47.0",
 		"tslib": "^2.5.3"
 	},
 	"peerDependencies": {
-		"eslint": "^8.0.0",
+		"eslint": "^8.47.0",
 		"tslib": "^2.5.3"
 	}
 }

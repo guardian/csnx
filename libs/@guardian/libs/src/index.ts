@@ -26,6 +26,7 @@ export { Pillar } from './format/Pillar';
 export { isBoolean } from './isBoolean/isBoolean';
 export { isNonNullable } from './isNonNullable/isNonNullable';
 export { isObject } from './isObject/isObject';
+export { isOneOf } from './isOneOf/isOneOf';
 export { isString } from './isString/isString';
 export { isUndefined } from './isUndefined/isUndefined';
 
@@ -36,8 +37,8 @@ export { loadScript } from './loadScript/loadScript';
 export { getLocale } from './locale/getLocale';
 
 export { debug } from './logger/debug';
-export { log } from './logger/log';
-export type { TeamName } from './logger/@types/logger';
+export { log } from './logger/logger';
+export type { Subscription } from './logger/@types/logger';
 
 export { startPerformanceMeasure } from './performance/startPerformanceMeasure';
 export { getMeasures } from './performance/getMeasures';

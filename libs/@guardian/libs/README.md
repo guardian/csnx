@@ -42,6 +42,10 @@ Check whether a value is a [`NonNullable`](https://www.typescriptlang.org/docs/h
 
 Checks whether a value is a plain object (i.e. `{}`-like).
 
+### [`isOneOf`](./src/isOneOf)
+
+Check whether a value is one of a set of literal string or numbers.
+
 ### [`isString`](./src/isString)
 
 Check whether a value is a string.
@@ -65,6 +69,10 @@ Selectively log team-specific messages to the console.
 ### [Ophan](./src/@types/ophan)
 
 Types relating to Ophan.
+
+### [Performance](./src/performance)
+
+API over `window.performance` with hooks into [`log`](./src/logger) the data warehouse.
 
 ### [`storage`](./src/storage)
 

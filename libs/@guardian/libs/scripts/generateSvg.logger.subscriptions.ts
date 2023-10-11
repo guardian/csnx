@@ -1,24 +1,28 @@
 import fs from 'node:fs';
-import { commonStyle, teamStyles } from '../src/logger/teamStyles';
+import { messageStyle } from '../src/logger/logger';
+import {
+	isSubscription,
+	subscriptionStyles,
+} from '../src/logger/subscriptions';
 
 function generateSvg(): string {
-	const teams = Object.entries(teamStyles);
+	const subscriptions = Object.keys(subscriptionStyles).filter(isSubscription);
 
 	const padding = 10;
 	const lineHeight = 24;
 	const width = 600;
-	const height = teams.length * lineHeight + padding * 2 + 60;
+	const height = subscriptions.length * lineHeight + padding * 2 + 60;
 
-	const lines = teams.map((team, index) => {
-		const [name, colours] = team;
-		return `<div class="line">
-			<span class="label common">@guardian</span>
-			<span class="label ${name}" style="background-color: ${colours.background}; color: ${colours.font}">${name}</span>
+	const lines = subscriptions.map(
+		(name, index) => `<div class="line">
+			<span class="label common" style="${messageStyle('common')}">@guardian</span>
+			<span class="label ${name}" style="${messageStyle(name)}">${name}</span>
 			<span class="label">message no.${index}</span>
 			<span class="gap"></span>
 			<span class="label log">console.log</span>
-		</div>`;
-	});
+		</div>`,
+	);
+
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
 	<style>
 		.wrapper {
@@ -64,11 +68,6 @@ function generateSvg(): string {
 		.log {
 			opacity: 0.7;
 			text-decoration: underline;
-		}
-
-		.common {
-			background-color: ${commonStyle.common.background};
-			color: ${commonStyle.common.font};
 		}
 	</style>
 	<foreignObject x="0" y="0" width="${width}" height="${height}">
