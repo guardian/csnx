@@ -66,18 +66,6 @@ export interface TimelineEvent {
 	toUnixDate?: number;
 }
 
-type AssetType = {
-	url: string;
-	mimeType: string;
-};
-
-export type VideoAtomType = {
-	assets: AssetType[];
-	poster?: string;
-	height?: number;
-	width?: number;
-};
-
 export type SrcSetItem = { src: string; width: number };
 
 export type ImageSource = {
