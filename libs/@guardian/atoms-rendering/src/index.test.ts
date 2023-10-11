@@ -3,7 +3,6 @@ import * as packageExports from './index';
 describe('The package', () => {
 	it('exports everything it did before', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
-			'ChartAtom',
 			'ExplainerAtom',
 			'InteractiveAtom',
 			'InteractiveLayoutAtom',
@@ -21,7 +20,6 @@ describe('The package', () => {
 // test that type exports have not been removed.
 // won't catch new types but I don't know how we can?
 export type {
-	ChartAtomType,
 	ProfileAtomType,
 	QandaAtomType,
 	SharingUrlsType,

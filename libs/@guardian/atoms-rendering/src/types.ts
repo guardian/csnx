@@ -1,10 +1,5 @@
 import type { ArticleTheme } from '@guardian/libs';
 
-export type ChartAtomType = {
-	id: string;
-	html: string;
-};
-
 export type ExplainerAtomType = {
 	id: string;
 	title: string;
