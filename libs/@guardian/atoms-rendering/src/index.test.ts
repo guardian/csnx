@@ -11,7 +11,6 @@ describe('The package', () => {
 			'QandaAtom',
 			'RecipeAtom',
 			'TimelineAtom',
-			'VideoAtom',
 		]);
 	});
 });

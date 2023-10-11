@@ -6,7 +6,6 @@ export { ProfileAtom } from './ProfileAtom';
 export { QandaAtom } from './QandaAtom';
 export { RecipeSchemaAtom as RecipeAtom } from './RecipeSchemaAtom';
 export { TimelineAtom } from './TimelineAtom';
-export { VideoAtom } from './VideoAtom';
 
 export type {
 	ProfileAtomType,
