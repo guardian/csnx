@@ -1,4 +1,3 @@
-export { ExplainerAtom } from './ExplainerAtom';
 export { InteractiveAtom } from './InteractiveAtom';
 export { InteractiveLayoutAtom } from './InteractiveLayoutAtom';
 export { KnowledgeQuizAtom } from './KnowledgeQuiz';

@@ -1,11 +1,5 @@
 import type { ArticleTheme } from '@guardian/libs';
 
-export type ExplainerAtomType = {
-	id: string;
-	title: string;
-	html: string;
-};
-
 export type InteractiveAtomBlockElementType = {
 	_type: string;
 	css: string;
