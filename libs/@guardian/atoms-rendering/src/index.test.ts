@@ -11,7 +11,6 @@ describe('The package', () => {
 			'InteractiveLayoutAtom',
 			'KnowledgeQuizAtom',
 			'PersonalityQuizAtom',
-			'ProfileAtom',
 			'QandaAtom',
 			'RecipeAtom',
 			'TimelineAtom',
@@ -26,7 +25,6 @@ describe('The package', () => {
 export type {
 	ChartAtomType,
 	GuideAtomType,
-	ProfileAtomType,
 	QandaAtomType,
 	SharingUrlsType,
 	TimelineEvent,
