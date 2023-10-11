@@ -1,4 +1,3 @@
-export { ChartAtom } from './ChartAtom';
 export { InteractiveAtom } from './InteractiveAtom';
 export { InteractiveLayoutAtom } from './InteractiveLayoutAtom';
 export { KnowledgeQuizAtom } from './KnowledgeQuiz';
@@ -10,7 +9,6 @@ export { TimelineAtom } from './TimelineAtom';
 export { VideoAtom } from './VideoAtom';
 
 export type {
-	ChartAtomType,
 	ProfileAtomType,
 	QandaAtomType,
 	SharingUrlsType,

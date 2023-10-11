@@ -1,10 +1,5 @@
 import type { ArticleTheme } from '@guardian/libs';
 
-export type ChartAtomType = {
-	id: string;
-	html: string;
-};
-
 export type InteractiveAtomBlockElementType = {
 	_type: string;
 	css: string;
