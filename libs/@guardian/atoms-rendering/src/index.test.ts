@@ -7,7 +7,6 @@ describe('The package', () => {
 			'InteractiveLayoutAtom',
 			'KnowledgeQuizAtom',
 			'PersonalityQuizAtom',
-			'ProfileAtom',
 			'QandaAtom',
 			'RecipeAtom',
 			'TimelineAtom',
@@ -18,7 +17,6 @@ describe('The package', () => {
 // test that type exports have not been removed.
 // won't catch new types but I don't know how we can?
 export type {
-	ProfileAtomType,
 	QandaAtomType,
 	SharingUrlsType,
 	TimelineEvent,

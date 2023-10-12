@@ -18,20 +18,6 @@ export type InteractiveLayoutAtomType = {
 	url: string;
 };
 
-export type ProfileAtomType = {
-	id: string;
-	label?: string;
-	title: string;
-	image?: string;
-	html: string;
-	credit?: string;
-	pillar: ArticleTheme;
-	expandForStorybook?: boolean;
-	likeHandler?: () => void;
-	dislikeHandler?: () => void;
-	expandCallback?: () => void;
-};
-
 export type QandaAtomType = {
 	id: string;
 	title: string;
