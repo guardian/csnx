@@ -28,10 +28,10 @@ import { loadScript } from '@guardian/libs';
 loadScript('my-polyfills.js', { async: false });
 
 loadScript('my-functions.js')
-    .then(() => {
-        // do something now that my-functions.js has loaded
-    })
-    .catch(() => {
-        // do something if my-functions.js script fails to load
-    });
+	.then(() => {
+		// do something now that my-functions.js has loaded
+	})
+	.catch(() => {
+		// do something if my-functions.js script fails to load
+	});
 ```
