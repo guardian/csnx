@@ -61,10 +61,11 @@ export const timeAgo = (
 	options?: {
 		verbose?: boolean;
 		daysUntilAbsolute?: number;
+		now?: number;
 	},
 ): false | string => {
 	const then = new Date(epoch);
-	const now = new Date();
+	const now = options?.now ? new Date(options.now) : new Date();
 
 	const verbose = options?.verbose;
 	const daysUntilAbsolute = options?.daysUntilAbsolute ?? 7;
