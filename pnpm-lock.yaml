@@ -405,7 +405,7 @@ importers:
       '@svgr/babel-preset': 8.0.0
       '@svgr/core': 8.0.0
       '@svgr/plugin-jsx': 8.0.1
-      '@svgr/plugin-prettier': 8.0.1
+      '@svgr/plugin-prettier': 8.1.0
       '@svgr/plugin-svgo': 8.0.1
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
@@ -424,7 +424,7 @@ importers:
       '@svgr/babel-preset': 8.0.0_@babel+core@7.23.2
       '@svgr/core': 8.0.0
       '@svgr/plugin-jsx': 8.0.1_@svgr+core@8.0.0
-      '@svgr/plugin-prettier': 8.0.1_@svgr+core@8.0.0
+      '@svgr/plugin-prettier': 8.1.0_@svgr+core@8.0.0
       '@svgr/plugin-svgo': 8.0.1_@svgr+core@8.0.0
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
@@ -5405,8 +5405,8 @@ packages:
       - supports-color
     dev: true
 
-  /@svgr/plugin-prettier/8.0.1_@svgr+core@8.0.0:
-    resolution: {integrity: sha512-5ukxApPhNM5JvA91azPGSNp0FtmYXgCiTF8DZtEoM1X4FcPSoN5Pbi930lb226XDO/RtMFy0C8yyFUZ90K8U3A==}
+  /@svgr/plugin-prettier/8.1.0_@svgr+core@8.0.0:
+    resolution: {integrity: sha512-o4/uFI8G64tAjBZ4E7gJfH+VP7Qi3T0+M4WnIsP91iFnGPqs5WvPDkpZALXPiyWEtzfYs1Rmwy1Zdfu8qoZuKw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
