@@ -1,5 +1,11 @@
 # @guardian/atoms-rendering
 
+## 34.0.1
+
+### Patch Changes
+
+- Update babel/core and guardian packages
+
 ## 34.0.0
 
 ### Major Changes

@@ -1,13 +1,13 @@
 {
 	"name": "@guardian/source-react-components",
-	"version": "16.0.0",
+	"version": "16.0.1",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
 		"create-icons": "ts-node scripts/create-icons"
 	},
 	"devDependencies": {
-		"@babel/core": "7.22.9",
+		"@babel/core": "7.23.2",
 		"@emotion/react": "11.11.1",
 		"@guardian/source-foundations": "13.0.0",
 		"@svgr/babel-preset": "8.0.0",
