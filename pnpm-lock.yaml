@@ -483,7 +483,7 @@ importers:
       rollup-plugin-ts: 3.2.0
       sort-package-json: 1.57.0
       tslib: 2.5.3
-      type-fest: 3.3.0
+      type-fest: 4.4.0
       typescript: 4.9.5
       write-pkg: 5.1.0
     dependencies:
@@ -498,7 +498,7 @@ importers:
       rollup-plugin-ts: 3.2.0_ollrytiw5favcwcsi5344oeg6e
       sort-package-json: 1.57.0
       tslib: 2.5.3
-      type-fest: 3.3.0
+      type-fest: 4.4.0
       typescript: 4.9.5
       write-pkg: 5.1.0
 
@@ -15043,11 +15043,6 @@ packages:
 
   /type-fest/3.13.0:
     resolution: {integrity: sha512-Gur3yQGM9qiLNs0KPP7LPgeRbio2QTt4xXouobMCarR0/wyW3F+F/+OWwshg3NG0Adon7uQfSZBpB46NfhoF1A==}
-    engines: {node: '>=14.16'}
-    dev: false
-
-  /type-fest/3.3.0:
-    resolution: {integrity: sha512-gezeeOIZyQLGW5uuCeEnXF1aXmtt2afKspXz3YqoOcZ3l/YMJq1pujvgT+cz/Nw1O/7q/kSav5fihJHsC/AOUg==}
     engines: {node: '>=14.16'}
     dev: false
 
