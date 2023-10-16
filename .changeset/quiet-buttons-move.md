@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Enable passing `now` as an argument to `timeAgo`
+Add a `now` option to `timeAgo`. Useful for situations in which you need to recreate a previous call, for example when hydrating a server-rendered component which uses it.
