@@ -5,12 +5,12 @@
 		"is-mobile": "3.1.1"
 	},
 	"devDependencies": {
-		"@babel/core": "7.22.9",
+		"@babel/core": "7.23.2",
 		"@emotion/eslint-plugin": "11.11.0",
 		"@emotion/react": "11.11.1",
 		"@guardian/ab-core": "5.0.0",
-		"@guardian/eslint-plugin-source-foundations": "14.0.0",
-		"@guardian/eslint-plugin-source-react-components": "18.0.0",
+		"@guardian/eslint-plugin-source-foundations": "15.0.0",
+		"@guardian/eslint-plugin-source-react-components": "19.0.0",
 		"@guardian/libs": "15.4.0",
 		"@guardian/source-foundations": "13.0.0",
 		"@guardian/source-react-components": "16.0.0",
