@@ -8,7 +8,7 @@
 		"test": "./tools/scripts/use-make-instead"
 	},
 	"devDependencies": {
-		"@babel/core": "7.22.9",
+		"@babel/core": "7.23.2",
 		"@babel/plugin-transform-typescript": "7.22.9",
 		"@babel/preset-env": "7.22.9",
 		"@babel/preset-react": "7.22.5",
