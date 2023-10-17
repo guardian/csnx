@@ -2,8 +2,12 @@ import MockDate from 'mockdate';
 import { timeAgo } from './timeAgo';
 
 describe('timeAgo', () => {
+	const now = new Date(
+		'Sun Nov 17 2019 12:00:00 GMT+0000 (Greenwich Mean Time)',
+	).getTime();
+
 	beforeAll(() => {
-		MockDate.set('Sun Nov 17 2019 12:00:00 GMT+0000 (Greenwich Mean Time)');
+		MockDate.set(now);
 	});
 
 	afterAll(() => {
@@ -13,6 +17,7 @@ describe('timeAgo', () => {
 	it('returns a short date string for older dates', () => {
 		const older = new Date(Date.UTC(2019, 1, 1)).getTime();
 		expect(timeAgo(older)).toBe('1 Feb 2019');
+		expect(timeAgo(older, { now })).toBe('1 Feb 2019');
 	});
 
 	it('returns "now" when within 15 seconds', () => {
@@ -20,6 +25,7 @@ describe('timeAgo', () => {
 			Date.UTC(2019, 10, 17, 11, 59, 46),
 		).getTime();
 		expect(timeAgo(fourteenSecondsAgo)).toBe('now');
+		expect(timeAgo(fourteenSecondsAgo, { now })).toBe('now');
 	});
 
 	it('returns seconds for very recent dates', () => {
@@ -27,6 +33,7 @@ describe('timeAgo', () => {
 			Date.UTC(2019, 10, 17, 11, 59, 30),
 		).getTime();
 		expect(timeAgo(secondsAgo)).toBe('30s ago');
+		expect(timeAgo(secondsAgo, { now })).toBe('30s ago');
 	});
 
 	it('returns minutes for slightly recent dates', () => {
@@ -34,6 +41,7 @@ describe('timeAgo', () => {
 			Date.UTC(2019, 10, 17, 11, 55, 0),
 		).getTime();
 		expect(timeAgo(fiveMinutesAgo)).toBe('5m ago');
+		expect(timeAgo(fiveMinutesAgo, { now })).toBe('5m ago');
 	});
 
 	it('returns hours for dates within the last 24 hours', () => {
@@ -41,11 +49,13 @@ describe('timeAgo', () => {
 			Date.UTC(2019, 10, 17, 10, 0, 0),
 		).getTime();
 		expect(timeAgo(twoHoursAgo)).toBe('2h ago');
+		expect(timeAgo(twoHoursAgo, { now })).toBe('2h ago');
 	});
 
 	it('returns days for dates within one week', () => {
 		const twoDaysAgo = new Date(Date.UTC(2019, 10, 15, 13, 0, 0)).getTime();
 		expect(timeAgo(twoDaysAgo)).toBe('2d ago');
+		expect(timeAgo(twoDaysAgo, { now })).toBe('2d ago');
 	});
 
 	it('returns an absolute date for dates over a week old', () => {
@@ -54,6 +64,7 @@ describe('timeAgo', () => {
 		).getTime();
 
 		expect(timeAgo(eightDaysAgo)).toBe('9 Nov 2019');
+		expect(timeAgo(eightDaysAgo, { now })).toBe('9 Nov 2019');
 	});
 
 	it('returns a longer absolute date when verbose is true', () => {
@@ -66,6 +77,12 @@ describe('timeAgo', () => {
 				verbose: true,
 			}),
 		).toBe('9 November 2019');
+		expect(
+			timeAgo(eightDaysAgo, {
+				verbose: true,
+				now,
+			}),
+		).toBe('9 November 2019');
 	});
 
 	it('returns "yesterday" only when verbose option given', () => {
@@ -73,6 +90,7 @@ describe('timeAgo', () => {
 
 		expect(timeAgo(yesterday)).toBe('1d ago');
 		expect(timeAgo(yesterday, { verbose: true })).toBe('Yesterday 3.00');
+		expect(timeAgo(yesterday, { verbose: true, now })).toBe('Yesterday 3.00');
 	});
 
 	it('does not pluralise the unit when the delta is one', () => {
@@ -151,6 +169,7 @@ describe('timeAgo', () => {
 			Date.UTC(2019, 10, 16, 16, 0, 0),
 		).getTime();
 		expect(timeAgo(twentyHoursAgo)).toBe('20h ago');
+		expect(timeAgo(twentyHoursAgo, { now })).toBe('20h ago');
 	});
 
 	it('still returns an verbose relative string for dates yesterday if within 24hs', () => {
@@ -160,6 +179,12 @@ describe('timeAgo', () => {
 		expect(
 			timeAgo(twentyHoursAgo, {
 				verbose: true,
+			}),
+		).toBe('20 hours ago');
+		expect(
+			timeAgo(twentyHoursAgo, {
+				verbose: true,
+				now,
 			}),
 		).toBe('20 hours ago');
 	});
@@ -173,6 +198,12 @@ describe('timeAgo', () => {
 				verbose: true,
 			}),
 		).toBe('Yesterday 6.00');
+		expect(
+			timeAgo(thirtyHoursAgo, {
+				verbose: true,
+				now,
+			}),
+		).toBe('Yesterday 6.00');
 	});
 
 	it('returns absolute format dates for dates over one week ago, regardless of options', () => {
@@ -180,6 +211,9 @@ describe('timeAgo', () => {
 		expect(timeAgo(oneMonthAgo)).toBe('17 Oct 2019');
 		expect(timeAgo(oneMonthAgo, { verbose: false })).toBe('17 Oct 2019');
 		expect(timeAgo(oneMonthAgo, { verbose: true })).toBe('17 October 2019');
+		expect(timeAgo(oneMonthAgo, { verbose: true, now })).toBe(
+			'17 October 2019',
+		);
 	});
 
 	it('returns days when within 5 days', () => {
@@ -193,6 +227,7 @@ describe('timeAgo', () => {
 		expect(timeAgo(twoDaysAgo)).toBe('2d ago');
 		expect(timeAgo(fourDaysAgo)).toBe('4d ago');
 		expect(timeAgo(fiveDaysAgo)).toBe('5d ago');
+		expect(timeAgo(fiveDaysAgo, { now })).toBe('5d ago');
 	});
 
 	it('returns absolute dates after 7 days', () => {
@@ -204,12 +239,14 @@ describe('timeAgo', () => {
 		).getTime();
 		expect(timeAgo(sevenDaysAgo)).toBe('7d ago');
 		expect(timeAgo(eightDaysAgo)).toBe('9 Nov 2019');
+		expect(timeAgo(eightDaysAgo, { now })).toBe('9 Nov 2019');
 	});
 
 	it('correctly changes format based on the daysUntilAbsolute option', () => {
 		const tenDaysAgo = new Date(Date.UTC(2019, 10, 7, 13, 0, 0)).getTime();
 		expect(timeAgo(tenDaysAgo)).toBe('7 Nov 2019');
 		expect(timeAgo(tenDaysAgo, { daysUntilAbsolute: 14 })).toBe('10d ago');
+		expect(timeAgo(tenDaysAgo, { daysUntilAbsolute: 14, now })).toBe('10d ago');
 	});
 
 	it('defaults to a simple date format for dates over 1 week old', () => {
@@ -219,10 +256,12 @@ describe('timeAgo', () => {
 		const aWhileBack = new Date(Date.UTC(2017, 3, 2, 17, 0, 0)).getTime();
 		expect(timeAgo(eightDaysAgo)).toBe('9 Nov 2019');
 		expect(timeAgo(aWhileBack)).toBe('2 Apr 2017');
+		expect(timeAgo(aWhileBack, { now })).toBe('2 Apr 2017');
 	});
 
 	it('returns false on future dates', () => {
 		const tomorrow = new Date(Date.UTC(2019, 10, 18, 10, 0, 0)).getTime();
 		expect(timeAgo(tomorrow)).toBe(false);
+		expect(timeAgo(tomorrow, { now })).toBe(false);
 	});
 });
