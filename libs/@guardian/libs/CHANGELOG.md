@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.9.1
+
+### Patch Changes
+
+- cff734b: Small performance improvements and internal refactors to `timeAgo`
+
 ## 15.9.0
 
 ### Minor Changes
