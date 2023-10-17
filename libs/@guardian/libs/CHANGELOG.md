@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.9.0
+
+### Minor Changes
+
+- 28f0b1e: Add a `now` option to `timeAgo`. Useful for situations in which you need to recreate a previous call, for example when hydrating a server-rendered component which uses it.
+
 ## 15.8.0
 
 ### Minor Changes
