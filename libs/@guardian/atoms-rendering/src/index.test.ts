@@ -7,7 +7,6 @@ describe('The package', () => {
 			'InteractiveLayoutAtom',
 			'KnowledgeQuizAtom',
 			'PersonalityQuizAtom',
-			'QandaAtom',
 			'RecipeAtom',
 			'TimelineAtom',
 		]);
@@ -16,12 +15,7 @@ describe('The package', () => {
 
 // test that type exports have not been removed.
 // won't catch new types but I don't know how we can?
-export type {
-	QandaAtomType,
-	SharingUrlsType,
-	TimelineEvent,
-	TimelineAtomType,
-} from './index';
+export type { SharingUrlsType, TimelineEvent, TimelineAtomType } from './index';
 
 // @ts-expect-error: make sure the above list are real exports
 export type { ThisTypeDoesNotExist } from './index';

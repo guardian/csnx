@@ -18,19 +18,6 @@ export type InteractiveLayoutAtomType = {
 	url: string;
 };
 
-export type QandaAtomType = {
-	id: string;
-	title: string;
-	image?: string;
-	html: string;
-	credit?: string;
-	pillar: ArticleTheme;
-	expandForStorybook?: boolean;
-	likeHandler?: () => void;
-	dislikeHandler?: () => void;
-	expandCallback?: () => void;
-};
-
 export type TimelineAtomType = {
 	id: string;
 	events?: TimelineEvent[];
