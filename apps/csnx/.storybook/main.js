@@ -32,10 +32,6 @@ module.exports = {
 					title: 'source-react-components-development-kitchen',
 					url: 'http://localhost:4403',
 				},
-				'atoms-rendering': {
-					title: 'atoms-rendering',
-					url: 'http://localhost:4404',
-				},
 			};
 		}
 		return {
@@ -50,10 +46,6 @@ module.exports = {
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
 				url: 'https://main.d25xfnd702qjsd.amplifyapp.com',
-			},
-			'atoms-rendering': {
-				title: 'atoms-rendering',
-				url: 'https://main.d1lzcy2qxdbvgt.amplifyapp.com/',
 			},
 		};
 	},

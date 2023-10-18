@@ -22,11 +22,6 @@
 						"command": "cd libs/@guardian/source-react-components-development-kitchen && storybook dev --no-open --port 4403 --quiet",
 						"prefix": "dev-kitchen",
 						"color": "blue"
-					},
-					{
-						"command": "cd libs/@guardian/atoms-rendering && storybook dev --no-open --port 4404 --quiet",
-						"prefix": "atoms-rendering",
-						"color": "yellow"
 					}
 				],
 				"color": true,
