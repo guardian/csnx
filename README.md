@@ -34,6 +34,10 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 
 <!-- END PUBLISHED_PACKAGES -->
 
+### Deprecated Packages
+
+- [@guardian/atoms-rendering](libs/@guardian/atoms-rendering)
+
 ## Development
 
 1. Clone the repo
