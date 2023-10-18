@@ -16,7 +16,6 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 
 - [@guardian/ab-core](libs/@guardian/ab-core)
 - [@guardian/ab-react](libs/@guardian/ab-react)
-- [@guardian/atoms-rendering](libs/@guardian/atoms-rendering)
 - [@guardian/browserslist-config](libs/@guardian/browserslist-config)
 - [@guardian/core-web-vitals](libs/@guardian/core-web-vitals)
 - [@guardian/eslint-config](libs/@guardian/eslint-config)
