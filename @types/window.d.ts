@@ -1,7 +1,5 @@
 import type { ManageSubscription } from '../libs/@guardian/libs/src/logger/@types/logger';
 import type { Switches } from '../libs/@guardian/libs/src/switches/@types/Switches';
-import type { google } from '../libs/@guardian/atoms-rendering/src/ima';
-import type { ImaManager } from '../libs/@guardian/atoms-rendering/src/YoutubeAtomPlayer';
 import type { FrontendIdentityAuth } from '../libs/@guardian/identity-auth-frontend/src';
 
 declare global {
@@ -44,14 +42,6 @@ declare global {
 				pageViewId: string;
 			};
 			identityAuth?: FrontendIdentityAuth;
-		};
-		/**
-		 * Here we want to type the google object that will be added to window.
-		 * Since the imported google namespace is a value rather than a type, use typeof.
-		 */
-		google?: typeof google;
-		YT?: {
-			ImaManager: typeof ImaManager;
 		};
 	}
 }

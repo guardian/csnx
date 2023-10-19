@@ -60,8 +60,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - lib: atoms-rendering
-            token: CHROMATIC_ATOMS_RENDERING_TOKEN
           - lib: source-foundations
             token: CHROMATIC_SOURCE_FOUNDATIONS_TOKEN
           - lib: source-react-components

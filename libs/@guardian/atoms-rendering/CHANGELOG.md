@@ -1,5 +1,7 @@
 # @guardian/atoms-rendering
 
+# This package has now been deprecated components are now in DCR - https://github.com/guardian/dotcom-rendering
+
 ## 34.0.1
 
 ### Patch Changes

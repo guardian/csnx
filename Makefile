@@ -9,12 +9,6 @@ storybooks: env
 	$(call log,"Starting storybooks")
 	@corepack pnpm nx run csnx:storybooks
 
-# runs nginx setup script in atoms-rendering
-.PHONY: atoms-rendering-nginx-setup
-atoms-rendering-nginx-setup: env
-	$(call log,"Running atoms-rendering nginx setup script")
-	@corepack pnpm nx run @guardian/atoms-rendering:nginx-setup
-
 ################################# CODE QUALITY #################################
 
 # runs the unit tests for all projects
