@@ -432,7 +432,7 @@ importers:
       rollup-plugin-ts: 3.2.0
       sort-package-json: 1.57.0
       tslib: 2.5.3
-      type-fest: 3.3.0
+      type-fest: 4.5.0
       typescript: 4.9.5
       write-pkg: 5.1.0
     dependencies:
@@ -447,7 +447,7 @@ importers:
       rollup-plugin-ts: 3.2.0_ollrytiw5favcwcsi5344oeg6e
       sort-package-json: 1.57.0
       tslib: 2.5.3
-      type-fest: 3.3.0
+      type-fest: 4.5.0
       typescript: 4.9.5
       write-pkg: 5.1.0
 
@@ -12913,7 +12913,7 @@ packages:
       '@types/normalize-package-data': 2.4.1
       normalize-package-data: 6.0.0
       parse-json: 7.0.0
-      type-fest: 4.4.0
+      type-fest: 4.5.0
     dev: false
 
   /read-yaml-file/1.1.0:
@@ -14277,13 +14277,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: false
 
-  /type-fest/3.3.0:
-    resolution: {integrity: sha512-gezeeOIZyQLGW5uuCeEnXF1aXmtt2afKspXz3YqoOcZ3l/YMJq1pujvgT+cz/Nw1O/7q/kSav5fihJHsC/AOUg==}
-    engines: {node: '>=14.16'}
-    dev: false
-
-  /type-fest/4.4.0:
-    resolution: {integrity: sha512-HT3RRs7sTfY22KuPQJkD/XjbTbxgP2Je5HPt6H6JEGvcjHd5Lqru75EbrP3tb4FYjNJ+DjLp+MNQTFQU0mhXNw==}
+  /type-fest/4.5.0:
+    resolution: {integrity: sha512-diLQivFzddJl4ylL3jxSkEc39Tpw7o1QeEHIPxVwryDK2lpB7Nqhzhuo6v5/Ls08Z0yPSAhsyAWlv1/H0ciNmw==}
     engines: {node: '>=16'}
     dev: false
 
