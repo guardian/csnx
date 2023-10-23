@@ -433,7 +433,7 @@ importers:
       sort-package-json: 1.57.0
       tslib: 2.5.3
       type-fest: 3.3.0
-      typescript: 4.9.5
+      typescript: 5.1.3
       write-pkg: 5.1.0
     dependencies:
       '@guardian/libs': link:../../../libs/@guardian/libs
@@ -444,11 +444,11 @@ importers:
       execa: 7.1.1
       read-pkg: 8.1.0
       rollup: 3.24.0
-      rollup-plugin-ts: 3.4.5_ollrytiw5favcwcsi5344oeg6e
+      rollup-plugin-ts: 3.4.5_pgjen54w7efektgwm6vmu7pcsa
       sort-package-json: 1.57.0
       tslib: 2.5.3
       type-fest: 3.3.0
-      typescript: 4.9.5
+      typescript: 5.1.3
       write-pkg: 5.1.0
 
 packages:
@@ -7705,14 +7705,14 @@ packages:
   /commondir/1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
 
-  /compatfactory/3.0.0_typescript@4.9.5:
+  /compatfactory/3.0.0_typescript@5.1.3:
     resolution: {integrity: sha512-WD5kF7koPwVoyKL8p0LlrmIZtilrD46sQStyzzxzTFinMKN2Dxk1hN+sddLSQU1mGIZvQfU8c+ONSghvvM40jg==}
     engines: {node: '>=14.9.0'}
     peerDependencies:
       typescript: '>=3.x || >= 4.x || >= 5.x'
     dependencies:
       helpertypes: 0.0.19
-      typescript: 4.9.5
+      typescript: 5.1.3
     dev: false
 
   /compressible/2.0.18:
@@ -13304,7 +13304,7 @@ packages:
     dependencies:
       glob: 7.1.4
 
-  /rollup-plugin-ts/3.4.5_ollrytiw5favcwcsi5344oeg6e:
+  /rollup-plugin-ts/3.4.5_pgjen54w7efektgwm6vmu7pcsa:
     resolution: {integrity: sha512-9iCstRJpEZXSRQuXitlSZAzcGlrqTbJg1pE4CMbEi6xYldxVncdPyzA2I+j6vnh73wBymZckerS+Q/iEE/M3Ow==}
     engines: {node: '>=16.15.1', npm: '>=7.0.0', pnpm: '>=3.2.0', yarn: '>=1.13'}
     peerDependencies:
@@ -13338,13 +13338,13 @@ packages:
       ansi-colors: 4.1.3
       browserslist: 4.22.1
       browserslist-generator: 2.1.0
-      compatfactory: 3.0.0_typescript@4.9.5
+      compatfactory: 3.0.0_typescript@5.1.3
       crosspath: 2.0.0
       magic-string: 0.30.5
       rollup: 3.24.0
-      ts-clone-node: 3.0.0_typescript@4.9.5
+      ts-clone-node: 3.0.0_typescript@5.1.3
       tslib: 2.6.2
-      typescript: 4.9.5
+      typescript: 5.1.3
     dev: false
 
   /rollup/3.24.0:
@@ -14182,14 +14182,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-clone-node/3.0.0_typescript@4.9.5:
+  /ts-clone-node/3.0.0_typescript@5.1.3:
     resolution: {integrity: sha512-egavvyHbIoelkgh1IC2agNB1uMNjB8VJgh0g/cn0bg2XXTcrtjrGMzEk4OD3Fi2hocICjP3vMa56nkzIzq0FRg==}
     engines: {node: '>=14.9.0'}
     peerDependencies:
       typescript: ^3.x || ^4.x || ^5.x
     dependencies:
-      compatfactory: 3.0.0_typescript@4.9.5
-      typescript: 4.9.5
+      compatfactory: 3.0.0_typescript@5.1.3
+      typescript: 5.1.3
     dev: false
 
   /ts-dedent/2.2.0:
@@ -14470,12 +14470,6 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
-
-  /typescript/4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: false
 
   /typescript/5.1.3:
     resolution: {integrity: sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==}
