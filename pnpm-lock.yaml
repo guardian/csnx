@@ -355,7 +355,7 @@ importers:
       '@svgr/core': 8.0.0
       '@svgr/plugin-jsx': 8.0.1
       '@svgr/plugin-prettier': 8.1.0
-      '@svgr/plugin-svgo': 8.0.1
+      '@svgr/plugin-svgo': 8.1.0
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
       '@types/react': 18.2.11
@@ -374,7 +374,7 @@ importers:
       '@svgr/core': 8.0.0
       '@svgr/plugin-jsx': 8.0.1_@svgr+core@8.0.0
       '@svgr/plugin-prettier': 8.1.0_@svgr+core@8.0.0
-      '@svgr/plugin-svgo': 8.0.1_@svgr+core@8.0.0
+      '@svgr/plugin-svgo': 8.1.0_@svgr+core@8.0.0
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.7.2
       '@types/react': 18.2.11
@@ -5296,8 +5296,8 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@svgr/plugin-svgo/8.0.1_@svgr+core@8.0.0:
-    resolution: {integrity: sha512-29OJ1QmJgnohQHDAgAuY2h21xWD6TZiXji+hnx+W635RiXTAlHTbjrZDktfqzkN0bOeQEtNe+xgq73/XeWFfSg==}
+  /@svgr/plugin-svgo/8.1.0_@svgr+core@8.0.0:
+    resolution: {integrity: sha512-Ywtl837OGO9pTLIN/onoWLmDQ4zFUycI1g76vuKGEz6evR/ZTJlJuz3G/fIkb6OVBJ2g0o6CGJzaEjfmEo3AHA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
@@ -8277,7 +8277,7 @@ packages:
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
-      entities: 4.4.0
+      entities: 4.5.0
     dev: true
 
   /domelementtype/2.3.0:
