@@ -1,0 +1,4100 @@
+{
+	"version": "6.0",
+	"nxVersion": "17.0.1",
+	"deps": {
+		"@babel/core": "7.23.2",
+		"@babel/plugin-transform-typescript": "7.22.9",
+		"@babel/preset-env": "7.22.9",
+		"@babel/preset-react": "7.22.5",
+		"@babel/preset-typescript": "7.23.0",
+		"@changesets/cli": "2.26.2",
+		"@emotion/babel-plugin": "11.11.0",
+		"@guardian/eslint-config": "workspace:*",
+		"@guardian/eslint-config-typescript": "workspace:*",
+		"@guardian/prettier": "workspace:*",
+		"@manypkg/get-packages": "2.2.0",
+		"@nx/devkit": "17.0.1",
+		"@nx/eslint-plugin": "17.0.1",
+		"@nx/jest": "17.0.1",
+		"@nx/workspace": "17.0.1",
+		"@storybook/addon-a11y": "7.5.1",
+		"@storybook/addon-docs": "7.5.1",
+		"@storybook/addon-essentials": "7.5.1",
+		"@storybook/addon-links": "7.5.1",
+		"@storybook/addon-viewport": "7.5.1",
+		"@storybook/addons": "7.5.1",
+		"@storybook/react": "7.5.1",
+		"@storybook/react-webpack5": "7.5.1",
+		"@storybook/theming": "7.5.1",
+		"@swc-node/register": "1.6.8",
+		"@swc/core": "1.3.90",
+		"@swc/helpers": "^0.5.2",
+		"@types/babel__core": "7.20.1",
+		"@types/jest": "29.5.3",
+		"@types/node": "18.16.19",
+		"@typescript-eslint/eslint-plugin": "5.60.1",
+		"@typescript-eslint/parser": "5.60.1",
+		"babel-loader": "9.1.3",
+		"colorette": "2.0.20",
+		"eslint": "8.47.0",
+		"eslint-plugin-eslint-comments": "3.2.0",
+		"eslint-plugin-import": "2.27.5",
+		"eslint-plugin-storybook": "^0.6.12",
+		"husky": "8.0.3",
+		"jest": "29.6.2",
+		"jest-environment-jsdom": "29.7.0",
+		"lint-staged": "13.2.3",
+		"nx": "17.0.1",
+		"nx-cloud": "latest",
+		"prettier": "2.8.8",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"require-from-string": "2.0.2",
+		"sort-package-json": "2.1.0",
+		"storybook": "7.5.1",
+		"ts-jest": "29.1.1",
+		"tsconfig-paths-webpack-plugin": "4.1.0",
+		"typescript": "5.1.3",
+		"update-section": "0.3.3",
+		"webpack": "5.88.2"
+	},
+	"pathMappings": {
+		"@csnx/eslint": ["tools/nx-plugins/eslint"],
+		"@csnx/hello-world": ["libs/@csnx/hello-world/src/index.ts"],
+		"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
+		"@guardian/ab-core": ["libs/@guardian/ab-core/src/index.ts"],
+		"@guardian/ab-react": ["libs/@guardian/ab-react/src/index.ts"],
+		"@guardian/core-web-vitals": [
+			"libs/@guardian/core-web-vitals/src/index.ts"
+		],
+		"@guardian/eslint-plugin-source-foundations": [
+			"libs/@guardian/eslint-plugin-source-foundations/src/index.ts"
+		],
+		"@guardian/eslint-plugin-source-react-components": [
+			"libs/@guardian/eslint-plugin-source-react-components/src/index.ts"
+		],
+		"@guardian/identity-auth": ["libs/@guardian/identity-auth/src/index.ts"],
+		"@guardian/identity-auth-frontend": [
+			"libs/@guardian/identity-auth-frontend/src/index.ts"
+		],
+		"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
+		"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
+		"@guardian/source-foundations": [
+			"libs/@guardian/source-foundations/src/index.ts"
+		],
+		"@guardian/source-react-components": [
+			"libs/@guardian/source-react-components/src/index.ts"
+		],
+		"@guardian/source-react-components-development-kitchen": [
+			"libs/@guardian/source-react-components-development-kitchen/src/index.ts"
+		],
+		"@guardian/newsletters-types": [
+			"libs/@guardian/newsletters-types/src/index.ts"
+		]
+	},
+	"nxJsonPlugins": [],
+	"fileMap": {
+		"nonProjectFiles": [
+			{
+				"file": ".babelrc.json",
+				"hash": "7888628267955151835"
+			},
+			{
+				"file": ".changeset/README.md",
+				"hash": "4888845876018830777"
+			},
+			{
+				"file": ".changeset/config.json",
+				"hash": "944052533728595811"
+			},
+			{
+				"file": ".editorconfig",
+				"hash": "8923946239021411611"
+			},
+			{
+				"file": ".eslintrc.js",
+				"hash": "11001352340730519770"
+			},
+			{
+				"file": ".github/CODEOWNERS",
+				"hash": "13957875825411328747"
+			},
+			{
+				"file": ".github/ISSUE_TEMPLATE/bug_report.md",
+				"hash": "14655092323915632237"
+			},
+			{
+				"file": ".github/ISSUE_TEMPLATE/feature_request.md",
+				"hash": "17866374837384796256"
+			},
+			{
+				"file": ".github/PULL_REQUEST_TEMPLATE.md",
+				"hash": "1294117161459577663"
+			},
+			{
+				"file": ".github/dependabot.yml",
+				"hash": "16206187610841472464"
+			},
+			{
+				"file": ".github/labeler.yml",
+				"hash": "7355243003124430960"
+			},
+			{
+				"file": ".github/renovate.json5.old",
+				"hash": "7353773741858660500"
+			},
+			{
+				"file": ".github/workflows/changesets.yml",
+				"hash": "18045749683167608440"
+			},
+			{
+				"file": ".github/workflows/ci.yml",
+				"hash": "6032860619446920607"
+			},
+			{
+				"file": ".github/workflows/codeql-analysis.yml",
+				"hash": "8830854177766634111"
+			},
+			{
+				"file": ".github/workflows/labeler.yml",
+				"hash": "10595427078226313038"
+			},
+			{
+				"file": ".github/workflows/project.yml",
+				"hash": "5678242775384713828"
+			},
+			{
+				"file": ".github/workflows/stale-PRs.yml",
+				"hash": "18245889365039326546"
+			},
+			{
+				"file": ".github/workflows/storybook.yml",
+				"hash": "3079385059130698954"
+			},
+			{
+				"file": ".gitignore",
+				"hash": "14940002021827552547"
+			},
+			{
+				"file": ".husky/.gitignore",
+				"hash": "10106645302852536800"
+			},
+			{
+				"file": ".husky/pre-commit",
+				"hash": "1256009299144523295"
+			},
+			{
+				"file": ".lintstagedrc.js",
+				"hash": "4555733081107280404"
+			},
+			{
+				"file": ".npmrc",
+				"hash": "15018567513827106815"
+			},
+			{
+				"file": ".nvmrc",
+				"hash": "1095320927709084414"
+			},
+			{
+				"file": ".nx/cache/cloud/2310.19.6/index.js",
+				"hash": "15048939128412700699"
+			},
+			{
+				"file": ".nx/cache/cloud/2310.19.6/lib/daemon/process-run-end.js",
+				"hash": "17488724639353388161"
+			},
+			{
+				"file": ".nx/cache/cloud/verify.lock",
+				"hash": "4919393975320119165"
+			},
+			{
+				"file": ".nx/cache/d/server-process.json",
+				"hash": "12036516967610746205"
+			},
+			{
+				"file": ".prettierrc",
+				"hash": "4867579649369044296"
+			},
+			{
+				"file": ".storybook/main.js",
+				"hash": "13968623086404214130"
+			},
+			{
+				"file": ".vscode/extensions.json",
+				"hash": "17421152550813830709"
+			},
+			{
+				"file": ".vscode/settings.json.default",
+				"hash": "3644059105104574151"
+			},
+			{
+				"file": "@types/window.d.ts",
+				"hash": "10271321105985027037"
+			},
+			{
+				"file": "CODE_OF_CONDUCT.md",
+				"hash": "2358924543358207658"
+			},
+			{
+				"file": "CONTRIBUTING.md",
+				"hash": "11998878259422384329"
+			},
+			{
+				"file": "DECISION_RECORD.md",
+				"hash": "11270196963295750990"
+			},
+			{
+				"file": "LICENSE",
+				"hash": "12649885980860800067"
+			},
+			{
+				"file": "Makefile",
+				"hash": "18244260522212722469"
+			},
+			{
+				"file": "README.md",
+				"hash": "8451686071875221268"
+			},
+			{
+				"file": "docs/project-imports/dcr.md",
+				"hash": "4998153998181972777"
+			},
+			{
+				"file": "docs/source/README.md",
+				"hash": "11519182655501083395"
+			},
+			{
+				"file": "docs/source/assets/logo.png",
+				"hash": "4786721276062359404"
+			},
+			{
+				"file": "docs/source/contributing.md",
+				"hash": "12295120773234826208"
+			},
+			{
+				"file": "docs/source/storybook.md",
+				"hash": "6687648024815830512"
+			},
+			{
+				"file": "jest.config.ts",
+				"hash": "17078405625718920242"
+			},
+			{
+				"file": "jest.preset.js",
+				"hash": "18006474503688449260"
+			},
+			{
+				"file": "libs/@guardian/atoms-rendering/CHANGELOG.md",
+				"hash": "1153571161116562036"
+			},
+			{
+				"file": "libs/@guardian/atoms-rendering/README.md",
+				"hash": "2767725942153565813"
+			},
+			{
+				"file": "nx.json",
+				"hash": "1197483752690255551"
+			},
+			{
+				"file": "package.json",
+				"hash": "11418208727020351879"
+			},
+			{
+				"file": "pnpm-lock.yaml",
+				"hash": "8251774729927045438"
+			},
+			{
+				"file": "pnpm-workspace.yaml",
+				"hash": "4964550561036177694"
+			},
+			{
+				"file": "tools/scripts/check-node-version",
+				"hash": "8968951123345794547"
+			},
+			{
+				"file": "tools/scripts/check-packages-for-tslib.mjs",
+				"hash": "10520500460927286749"
+			},
+			{
+				"file": "tools/scripts/maintain-readme/get-cached-tasks.mjs",
+				"hash": "10141088087931776880"
+			},
+			{
+				"file": "tools/scripts/maintain-readme/get-make-targets.mjs",
+				"hash": "17036882249371462864"
+			},
+			{
+				"file": "tools/scripts/maintain-readme/get-package-list.mjs",
+				"hash": "2738301432638901693"
+			},
+			{
+				"file": "tools/scripts/maintain-readme/index.mjs",
+				"hash": "14132716869806712971"
+			},
+			{
+				"file": "tools/scripts/maintain-readme/utils/update-readme-section.mjs",
+				"hash": "4942339728862499586"
+			},
+			{
+				"file": "tools/scripts/project-paths.mjs",
+				"hash": "9392337059854505940"
+			},
+			{
+				"file": "tools/scripts/use-make-instead",
+				"hash": "14906407128735570979"
+			},
+			{
+				"file": "tsconfig.base.json",
+				"hash": "13104772494296368624"
+			},
+			{
+				"file": ".nx/cache/lockfile.hash",
+				"hash": "1564304179965583055"
+			},
+			{
+				"file": ".nx/cache/parsed-lock-file.json",
+				"hash": "8030714621481538226"
+			},
+			{
+				"file": ".nx/cache/file-map.json",
+				"hash": "12309858878895565922"
+			},
+			{
+				"file": ".nx/cache/project-graph.json",
+				"hash": "15237046294260328480"
+			}
+		],
+		"projectFileMap": {
+			"@guardian/source-react-components": [
+				{
+					"file": "libs/@guardian/source-react-components/.eslintrc.js",
+					"hash": "5042272805337725251"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/main.js",
+					"hash": "24357244346551319",
+					"deps": ["npm:../../../../.storybook/main"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/manager.ts",
+					"hash": "4132396816044148053",
+					"deps": ["npm:@storybook/addons"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/preview/FocusManagerDecorator.tsx",
+					"hash": "6139147699350382015",
+					"deps": ["npm:react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/preview/ThemeProviderDecorator.tsx",
+					"hash": "8836181832117602877",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/preview/backgrounds.ts",
+					"hash": "827380625774100857",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/preview/viewport.ts",
+					"hash": "481346789287670766",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/preview-head.html",
+					"hash": "16915390007016120558"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/preview.tsx",
+					"hash": "10963434000858451489"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/.storybook/theme.ts",
+					"hash": "2138187543257934411",
+					"deps": ["npm:@storybook/theming"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/CHANGELOG.md",
+					"hash": "1513526868999385578"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/README.md",
+					"hash": "7635125350534325742"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/jest.config.ts",
+					"hash": "5907711237503377170"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/jest.e2e.setup.ts",
+					"hash": "16663778415765119337",
+					"deps": ["npm:../../../dist/libs/@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/package.json",
+					"hash": "6290958628321455792",
+					"deps": [
+						"npm:@babel/core",
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:@svgr/babel-preset",
+						"npm:@svgr/core",
+						"npm:@svgr/plugin-jsx",
+						"npm:@svgr/plugin-prettier",
+						"npm:@svgr/plugin-svgo",
+						"npm:@types/mkdirp",
+						"npm:@types/prettier",
+						"npm:@types/react",
+						"npm:dotenv",
+						"npm:mkdirp",
+						"npm:prettier",
+						"npm:react",
+						"npm:ts-node",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/project.json",
+					"hash": "15242169984047275888"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/scripts/README.md",
+					"hash": "8380639751053917471"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/scripts/create-icons/create-icon-component.ts",
+					"hash": "16488225198093403267",
+					"deps": ["npm:@babel/core", "npm:@svgr/core"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/scripts/create-icons/create-readme.ts",
+					"hash": "5286310898219005733"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/scripts/create-icons/get-svgs-from-figma.ts",
+					"hash": "17578717215270674420",
+					"deps": ["npm:dotenv"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/scripts/create-icons/index.ts",
+					"hash": "3103074563288702473",
+					"deps": [
+						"npm:fs",
+						"npm:path",
+						"@guardian/prettier",
+						"npm:mkdirp",
+						"npm:prettier"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/scripts/vendor/icons/README.md",
+					"hash": "7355312549135428426"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/@types/Icons.ts",
+					"hash": "16924261175750917603"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/@types/Props.ts",
+					"hash": "4835386910146254153",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/@types/Theme.ts",
+					"hash": "10067430149847117002",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/@types/ThemeName.ts",
+					"hash": "1298543686667911210"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/accordion/Accordion.stories.tsx",
+					"hash": "8269695046241897334",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/accordion/Accordion.tsx",
+					"hash": "15217146404509065900",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/accordion/AccordionRow.tsx",
+					"hash": "3451470038613361917",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/accordion/AccordionRowNoJS.tsx",
+					"hash": "4657464556909153400",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/accordion/styles.ts",
+					"hash": "3551527912748482003",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/accordion/theme.ts",
+					"hash": "3005788094942693569",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgGuardianBestWebsiteLogo.stories.tsx",
+					"hash": "1511197374882289134",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgGuardianBestWebsiteLogo.tsx",
+					"hash": "17350277876316172562",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgGuardianLiveLogo.stories.tsx",
+					"hash": "1925825216084544550",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgGuardianLiveLogo.tsx",
+					"hash": "5507688378851179815",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgGuardianLogo.stories.tsx",
+					"hash": "2704849703562142596",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgGuardianLogo.tsx",
+					"hash": "4454836152063237205",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundel.tsx",
+					"hash": "13612920870058185826",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelBrand.stories.tsx",
+					"hash": "11165606680108749907",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelBrand.tsx",
+					"hash": "1917504155841775770",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelBrandInverse.stories.tsx",
+					"hash": "1343022629119000263",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelBrandInverse.tsx",
+					"hash": "15043582355342593228",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelDefault.stories.tsx",
+					"hash": "16176011043517950229",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelDefault.tsx",
+					"hash": "297971982763062930",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelInverse.stories.tsx",
+					"hash": "7415977629945551855",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/SvgRoundelInverse.tsx",
+					"hash": "14598958064497603069",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/114x114-roundel.png",
+					"hash": "8971141816949656859"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/114x114.png",
+					"hash": "6945084667537717361"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/120x120.png",
+					"hash": "6646437214566028084"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/144x144.png",
+					"hash": "8062033761045390075"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/152x152-roundel.png",
+					"hash": "6525773105856853255"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/152x152.png",
+					"hash": "4335629829251490043"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/32x32-dev.ico",
+					"hash": "17913601666057006450"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/32x32.ico",
+					"hash": "5958804225030608657"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/57x57.png",
+					"hash": "10823530662963046710"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/brand/favicons/72x72.png",
+					"hash": "8198483919052366335"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/Button.stories.tsx",
+					"hash": "11601043986971263663",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/Button.tsx",
+					"hash": "607052644535743976",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/LinkButton.stories.tsx",
+					"hash": "12766628544317967154",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/LinkButton.tsx",
+					"hash": "10507829834915319980",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/shared.tsx",
+					"hash": "16401359800719086527",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/styles.ts",
+					"hash": "13543079029154055390",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/theme-reader-revenue.ts",
+					"hash": "11912269122525169137",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/theme.ts",
+					"hash": "2154759261766268303",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/button/types.ts",
+					"hash": "17610531072259415872",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/Checkbox.stories.tsx",
+					"hash": "10417747497797288514",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/Checkbox.tsx",
+					"hash": "5547122445097996215",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/CheckboxGroup.stories.tsx",
+					"hash": "18434837815368205711",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/CheckboxGroup.tsx",
+					"hash": "3028748448275031757",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/LabelText.tsx",
+					"hash": "6239047280907053189",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/SupportingText.tsx",
+					"hash": "8291818587628099666",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/styles.ts",
+					"hash": "14001377492483368418",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/checkbox/theme.ts",
+					"hash": "16290746104998093907",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/choice-card/ChoiceCard.stories.tsx",
+					"hash": "5977601760038624084",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/choice-card/ChoiceCard.tsx",
+					"hash": "8685051100636411792",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/choice-card/ChoiceCardGroup.stories.tsx",
+					"hash": "14030391992784978312",
+					"deps": [
+						"@guardian/source-foundations",
+						"npm:@storybook/react",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/choice-card/ChoiceCardGroup.tsx",
+					"hash": "12259402725734364604",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/choice-card/styles.ts",
+					"hash": "16626792676088835775",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/choice-card/theme.ts",
+					"hash": "16695302577073152996",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/columns/Column.tsx",
+					"hash": "16806994101866640403",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/columns/Columns.stories.tsx",
+					"hash": "8732054800580296947",
+					"deps": [
+						"@guardian/source-foundations",
+						"npm:@storybook/react",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/columns/Columns.tsx",
+					"hash": "2669690496608917321",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/columns/styles.ts",
+					"hash": "7544130033686585997",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/container/Container.stories.tsx",
+					"hash": "270017429537251928",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/container/Container.tsx",
+					"hash": "17439317638494634425",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/container/styles.ts",
+					"hash": "7075327597886865296",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/deprecated-exports.ts",
+					"hash": "177525926249137735"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/footer/BackToTop.stories.tsx",
+					"hash": "10869094313137230077",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/footer/BackToTop.tsx",
+					"hash": "5991765336852901468"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/footer/Footer.stories.tsx",
+					"hash": "13649645272734318881",
+					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/footer/Footer.tsx",
+					"hash": "17380749283770801973",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/footer/styles.ts",
+					"hash": "7359268501866444382",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/footer/theme.ts",
+					"hash": "14144505508599397503",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/hide/Hide.stories.tsx",
+					"hash": "15104156131488072478",
+					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/hide/Hide.tsx",
+					"hash": "6341565632583380603",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/icons/Icons.stories.tsx",
+					"hash": "17539826314378684477",
+					"deps": ["npm:@emotion/react", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/icons/SvgSpinner.tsx",
+					"hash": "1114040650099682820",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/icons/labels.ts",
+					"hash": "6044808323746125753"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/index.test.ts",
+					"hash": "18048353379477585035"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/index.ts",
+					"hash": "17330464570717403205"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/inline/Inline.stories.tsx",
+					"hash": "3934733922948881846",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/inline/Inline.tsx",
+					"hash": "18393658233339692562",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/inline/styles.ts",
+					"hash": "7023912456842280050",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/inline/types.ts",
+					"hash": "5156720294545253253"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/Label.stories.tsx",
+					"hash": "4215344360119929612",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/Label.tsx",
+					"hash": "12504067630458857745",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/Legend.stories.tsx",
+					"hash": "2970251498069881057",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/Legend.tsx",
+					"hash": "7435154886587674006",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/SupportingText.tsx",
+					"hash": "4719921877028579066",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/Text.tsx",
+					"hash": "12093240555347578843",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/styles.ts",
+					"hash": "2304301045632768977",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/theme.ts",
+					"hash": "11396598989601927423",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/label/types.ts",
+					"hash": "7875707177798063384",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/ButtonLink.stories.tsx",
+					"hash": "13615037702163468839",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/ButtonLink.tsx",
+					"hash": "5906257840351165069",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/Link.stories.tsx",
+					"hash": "6774810056392349272",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:@storybook/react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/Link.tsx",
+					"hash": "65283190110586136",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/shared.tsx",
+					"hash": "18337859145358442365",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/styles.ts",
+					"hash": "16289984075321039824",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/theme.ts",
+					"hash": "12645967592567297523",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/link/types.ts",
+					"hash": "1383359159673884750",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/radio/Radio.stories.tsx",
+					"hash": "5522933451750364692",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/radio/Radio.tsx",
+					"hash": "11069843586241674415",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/radio/RadioGroup.stories.tsx",
+					"hash": "17619764480484707085",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/radio/RadioGroup.tsx",
+					"hash": "2866926003925845653",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/radio/styles.ts",
+					"hash": "17769761805295424688",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/radio/theme.ts",
+					"hash": "5778429210053377563",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/select/Option.tsx",
+					"hash": "3597266564925798552",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/select/Select.stories.tsx",
+					"hash": "5391257196004624240",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/select/Select.tsx",
+					"hash": "4369612736427562420",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/select/styles.ts",
+					"hash": "4147323288254997493",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/select/theme.ts",
+					"hash": "10719611531302410028",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/stack/Stack.stories.tsx",
+					"hash": "12394064609354646776",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/stack/Stack.tsx",
+					"hash": "17040216589564948522",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/stack/styles.ts",
+					"hash": "5680035415650495084",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-area/TextArea.stories.tsx",
+					"hash": "10377320263395140659",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-area/TextArea.tsx",
+					"hash": "15638873113976569776",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-area/styles.ts",
+					"hash": "1053154851628913043",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-input/TextInput.stories.tsx",
+					"hash": "6756236052962852528",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-input/TextInput.tsx",
+					"hash": "3395853204435052239",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-input/styles.ts",
+					"hash": "17757251533700742946",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/text-input/theme.ts",
+					"hash": "14191473258383009295",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/tiles/Tiles.stories.tsx",
+					"hash": "9459144264689786734",
+					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/tiles/Tiles.tsx",
+					"hash": "2728765936420129703",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/tiles/styles.ts",
+					"hash": "386265688638816216",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/tiles/types.ts",
+					"hash": "8721099805558745043"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/InlineError.stories.tsx",
+					"hash": "16258803836260819642",
+					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/InlineError.tsx",
+					"hash": "16213321560609542180",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/InlineSuccess.stories.tsx",
+					"hash": "6394952059515529703",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/InlineSuccess.tsx",
+					"hash": "10502773515832018754",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/styles.ts",
+					"hash": "4514041833136300136",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/theme.ts",
+					"hash": "14846682712190034486",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/src/user-feedback/types.ts",
+					"hash": "13943895933333823697",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/tsconfig.json",
+					"hash": "2494373635055494437"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/README.md",
+					"hash": "11977640085461750878"
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAlertPhone.tsx",
+					"hash": "7226716034805031283",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAlertRound.tsx",
+					"hash": "5774527277819148184",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAlertTriangle.tsx",
+					"hash": "18364652677705041822",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAppleBrand.tsx",
+					"hash": "9329348403834646714",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowContract.tsx",
+					"hash": "5256405415169953328",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowDownStraight.tsx",
+					"hash": "16657089041132960022",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowExpand.tsx",
+					"hash": "9404209129237910519",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowLeftStraight.tsx",
+					"hash": "4166474301754778711",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowOutdent.tsx",
+					"hash": "17582711591143182231",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowPopOut.tsx",
+					"hash": "17838918609328392616",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowRightStraight.tsx",
+					"hash": "3060879827060827317",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowScroll.tsx",
+					"hash": "13312586645264815199",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowUpAndDownSmall.tsx",
+					"hash": "2281858937925229373",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowUpStraight.tsx",
+					"hash": "16256436895311784436",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgArrowUpStraightSmall.tsx",
+					"hash": "11188373164739814773",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAsterisk.tsx",
+					"hash": "12413770042626512867",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAudio.tsx",
+					"hash": "14342306095780376823",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgAudioMute.tsx",
+					"hash": "11539723329401072149",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgBookMark.tsx",
+					"hash": "6792639369002347446",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgBookMarkCross.tsx",
+					"hash": "17932432335887095136",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCalendar.tsx",
+					"hash": "15800835516804344575",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCamera.tsx",
+					"hash": "699763675826540424",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCheckmark.tsx",
+					"hash": "10588670851222408305",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronDownDouble.tsx",
+					"hash": "985477364678566890",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronDownSingle.tsx",
+					"hash": "13763588479676120993",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronDownSingleXsmall.tsx",
+					"hash": "5419436942622475903",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronLeftDouble.tsx",
+					"hash": "1233578422198107938",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronLeftSingle.tsx",
+					"hash": "12410822190368887345",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronRightDouble.tsx",
+					"hash": "1666236474079433410",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronRightSingle.tsx",
+					"hash": "17449262496170697064",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronUpDouble.tsx",
+					"hash": "6831067805606021302",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgChevronUpSingle.tsx",
+					"hash": "10755567192504644115",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgClock.tsx",
+					"hash": "4266646978996303431",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgClockBaselineSmall.tsx",
+					"hash": "16387989322301588122",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCreditCard.tsx",
+					"hash": "45184435916682250",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCross.tsx",
+					"hash": "3884406152578596082",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCrossRound.tsx",
+					"hash": "17557311935808895885",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCrossedOutCloud.tsx",
+					"hash": "11843469334513029214",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgCrosswords.tsx",
+					"hash": "13336903801220966010",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgDirectDebit.tsx",
+					"hash": "13971672771242416358",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgDirectDebitWide.tsx",
+					"hash": "18183416793306221304",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgDocument.tsx",
+					"hash": "10457256520396282700",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgDownload.tsx",
+					"hash": "14232898729629505979",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgDragHandle.tsx",
+					"hash": "4660502076154344988",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgEdit.tsx",
+					"hash": "2102112681599397554",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgEllipsis.tsx",
+					"hash": "17287846103362729252",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgEnvelope.tsx",
+					"hash": "16965927700975875273",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgExclamation.tsx",
+					"hash": "11401376659175752578",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgExternal.tsx",
+					"hash": "14295511692831808510",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgEye.tsx",
+					"hash": "569370618265576327",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgEyeStrike.tsx",
+					"hash": "10777293584480050113",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgFacebook.tsx",
+					"hash": "6761593143806175481",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgFacebookBrand.tsx",
+					"hash": "10119966636666294055",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgFacebookMessenger.tsx",
+					"hash": "17260906654491388017",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgFilter.tsx",
+					"hash": "12970261664456401868",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgGift.tsx",
+					"hash": "16793996304965780909",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgGlobe.tsx",
+					"hash": "1448428911427595973",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgGoogleBrand.tsx",
+					"hash": "15948401815264951310",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgGps.tsx",
+					"hash": "10419130715039870749",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgHandPointed.tsx",
+					"hash": "8392674781989550192",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgHouse.tsx",
+					"hash": "3424305971762634240",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgHouseCross.tsx",
+					"hash": "11417053964099489310",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgHousePlus.tsx",
+					"hash": "14234191080928919421",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgHouseSetting.tsx",
+					"hash": "5145419209098420191",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgIndent.tsx",
+					"hash": "14774282465074402814",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgInfoRound.tsx",
+					"hash": "1695451388447237718",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgLinkedIn.tsx",
+					"hash": "11550603181337584614",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgLocationMarker.tsx",
+					"hash": "9165664459962248453",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMagnifyingGlass.tsx",
+					"hash": "2687988047660048446",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMagnifyingGlassMinus.tsx",
+					"hash": "1131794276308676178",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMagnifyingGlassPlus.tsx",
+					"hash": "3296245714109073933",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMagnifyingGlassSadFace.tsx",
+					"hash": "14533861611929564661",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMediaControlsBack.tsx",
+					"hash": "6531094537475809971",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMediaControlsForward.tsx",
+					"hash": "14840222528991153655",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMediaControlsPause.tsx",
+					"hash": "6178197329785004337",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMediaControlsPlay.tsx",
+					"hash": "11405887159548479750",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMediaControlsStop.tsx",
+					"hash": "15152108252464643908",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMenu.tsx",
+					"hash": "3394148919511561012",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMessage.tsx",
+					"hash": "4070368837949767481",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMessageRound.tsx",
+					"hash": "5103480993577533308",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMinus.tsx",
+					"hash": "16349072397242204570",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgMoon.tsx",
+					"hash": "11214077452837687153",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgNewsletter.tsx",
+					"hash": "7687550030599586206",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgNotificationsOff.tsx",
+					"hash": "13220865435692495931",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgNotificationsOn.tsx",
+					"hash": "990183967976247003",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPadlock.tsx",
+					"hash": "5367911933576741587",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPartyOfThree.tsx",
+					"hash": "3353453918900626997",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPayPalBrand.tsx",
+					"hash": "3167934916099628722",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPerson.tsx",
+					"hash": "13976880725471561403",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPersonCross.tsx",
+					"hash": "16159543382980410220",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPersonPlus.tsx",
+					"hash": "15097136364084929059",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPersonRound.tsx",
+					"hash": "201800796371873998",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPersonTick.tsx",
+					"hash": "4359488211805605409",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPhone.tsx",
+					"hash": "14754332968231983423",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPinned.tsx",
+					"hash": "17327251803760313152",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPinterest.tsx",
+					"hash": "635519803900083907",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgPlus.tsx",
+					"hash": "7620754488373192773",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgQuote.tsx",
+					"hash": "8670707242608251973",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgReload.tsx",
+					"hash": "15180038744444887107",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgSettings.tsx",
+					"hash": "7202580525084099639",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgShare.tsx",
+					"hash": "7015252352225406083",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgShareCallout.tsx",
+					"hash": "5513752485267869905",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgSignalBrand.tsx",
+					"hash": "661943786110989512",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgSpeechBubble.tsx",
+					"hash": "1825912853951806873",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgSpeechBubbleCross.tsx",
+					"hash": "1884296277726081746",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgSpeechBubblePlus.tsx",
+					"hash": "1274477976908466623",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgStar.tsx",
+					"hash": "7205799896922074655",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgStarOutline.tsx",
+					"hash": "14319759438996853376",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgTelegramBrand.tsx",
+					"hash": "17417007157729408931",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgTextLarge.tsx",
+					"hash": "9834899304899337248",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgTextSize.tsx",
+					"hash": "1294776627592554565",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgTextSmall.tsx",
+					"hash": "3796470912606490426",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgTickRound.tsx",
+					"hash": "836673009854348179",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgTwitter.tsx",
+					"hash": "16974723533851564908",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgUpload.tsx",
+					"hash": "8570986611834676934",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgVideo.tsx",
+					"hash": "17009494725387123962",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgWhatsApp.tsx",
+					"hash": "18402348082171175443",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components/vendor/icons/SvgWhatsAppBrand.tsx",
+					"hash": "2852669639407796304",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				}
+			],
+			"@guardian/newsletter-types": [
+				{
+					"file": "libs/@guardian/newsletter-types/.eslintrc.json",
+					"hash": "6513534372145807551"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/CHANGELOG.md",
+					"hash": "7471150077534923810"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/README.md",
+					"hash": "9236147224023520212"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/jest.config.ts",
+					"hash": "17089776537538925641"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/jest.e2e.setup.js",
+					"hash": "2633614407614076610",
+					"deps": ["npm:../../../dist/libs/@guardian/newsletter-types"]
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/package-lock.json",
+					"hash": "1907557906434946321"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/package.json",
+					"hash": "4298818145013038443",
+					"deps": ["npm:tslib", "npm:typescript"]
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/project.json",
+					"hash": "11459960747435943817"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/src/@types/index.ts",
+					"hash": "10118164306892192027"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/src/@types/newsletters-api.ts",
+					"hash": "5939286297217334287"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/src/index.ts",
+					"hash": "10369755120179243156"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@csnx/hello-world": [
+				{
+					"file": "libs/@csnx/hello-world/.eslintrc.json",
+					"hash": "1981009228005663347"
+				},
+				{
+					"file": "libs/@csnx/hello-world/README.md",
+					"hash": "14827552075958354746"
+				},
+				{
+					"file": "libs/@csnx/hello-world/jest.config.ts",
+					"hash": "7277571155642727270"
+				},
+				{
+					"file": "libs/@csnx/hello-world/package.json",
+					"hash": "8300598231242691514",
+					"deps": ["npm:tslib", "npm:typescript"]
+				},
+				{
+					"file": "libs/@csnx/hello-world/project.json",
+					"hash": "7495595221072220437"
+				},
+				{
+					"file": "libs/@csnx/hello-world/src/index.ts",
+					"hash": "14590783021641316475"
+				},
+				{
+					"file": "libs/@csnx/hello-world/src/lib/hello-world.spec.ts",
+					"hash": "1487034059140156733"
+				},
+				{
+					"file": "libs/@csnx/hello-world/src/lib/hello-world.ts",
+					"hash": "9709547799850499789"
+				},
+				{
+					"file": "libs/@csnx/hello-world/tsconfig.json",
+					"hash": "16206424712271688735"
+				},
+				{
+					"file": "libs/@csnx/hello-world/tsconfig.lib.json",
+					"hash": "16599458128203412001"
+				},
+				{
+					"file": "libs/@csnx/hello-world/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/prettier": [
+				{
+					"file": "libs/@guardian/prettier/CHANGELOG.md",
+					"hash": "2373330524025770020"
+				},
+				{
+					"file": "libs/@guardian/prettier/e2e.test.js",
+					"hash": "7831527849869619943",
+					"deps": ["npm:../../../dist/libs/@guardian/prettier"]
+				},
+				{
+					"file": "libs/@guardian/prettier/index.d.ts",
+					"hash": "15472471954476781312",
+					"deps": ["npm:prettier"]
+				},
+				{
+					"file": "libs/@guardian/prettier/index.js",
+					"hash": "149497246191536"
+				},
+				{
+					"file": "libs/@guardian/prettier/jest.config.js",
+					"hash": "7251506874164924401"
+				},
+				{
+					"file": "libs/@guardian/prettier/package.json",
+					"hash": "16985272932645218393",
+					"deps": ["npm:prettier", "npm:tslib"]
+				},
+				{
+					"file": "libs/@guardian/prettier/project.json",
+					"hash": "16199203547803921741"
+				},
+				{
+					"file": "libs/@guardian/prettier/readme.md",
+					"hash": "9948498955916695467"
+				}
+			],
+			"@guardian/ab-react": [
+				{
+					"file": "libs/@guardian/ab-react/.eslintrc.json",
+					"hash": "11368009469470141677"
+				},
+				{
+					"file": "libs/@guardian/ab-react/CHANGELOG.md",
+					"hash": "15993986301537703363"
+				},
+				{
+					"file": "libs/@guardian/ab-react/README.md",
+					"hash": "1174174413585650294"
+				},
+				{
+					"file": "libs/@guardian/ab-react/jest.config.ts",
+					"hash": "4075835613377403807"
+				},
+				{
+					"file": "libs/@guardian/ab-react/jest.e2e.setup.js",
+					"hash": "8521875203457064649",
+					"deps": ["npm:../../../dist/libs/@guardian/ab-react"]
+				},
+				{
+					"file": "libs/@guardian/ab-react/package.json",
+					"hash": "13487281314565779858",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/ab-core",
+						"npm:@testing-library/react",
+						"npm:@types/react",
+						"npm:react",
+						"npm:react-dom",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/ab-react/project.json",
+					"hash": "5551129810010558747"
+				},
+				{
+					"file": "libs/@guardian/ab-react/src/context.test.tsx",
+					"hash": "8672283271990578802",
+					"deps": ["npm:@testing-library/react"]
+				},
+				{
+					"file": "libs/@guardian/ab-react/src/context.tsx",
+					"hash": "4995233489358866708",
+					"deps": ["@guardian/ab-core", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/ab-react/src/index.ts",
+					"hash": "3325535115643034162"
+				},
+				{
+					"file": "libs/@guardian/ab-react/tsconfig.json",
+					"hash": "1857757241205281244"
+				},
+				{
+					"file": "libs/@guardian/ab-react/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/source-react-components-development-kitchen": [
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.eslintrc.js",
+					"hash": "17163163467810184326"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/main.js",
+					"hash": "24357244346551319",
+					"deps": ["npm:../../../../.storybook/main"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/manager.ts",
+					"hash": "4132396816044148053",
+					"deps": ["npm:@storybook/addons"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/FocusManagerDecorator.tsx",
+					"hash": "6139147699350382015",
+					"deps": ["npm:react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/ThemeProviderDecorator.tsx",
+					"hash": "8836181832117602877",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/backgrounds.ts",
+					"hash": "827380625774100857",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/viewport.ts",
+					"hash": "481346789287670766",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview-head.html",
+					"hash": "16915390007016120558"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview.tsx",
+					"hash": "10963434000858451489"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/theme.ts",
+					"hash": "2138187543257934411",
+					"deps": ["npm:@storybook/theming"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/CHANGELOG.md",
+					"hash": "4368545508627858286"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/README.md",
+					"hash": "7982466192870685962"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
+					"hash": "15115059482023424321"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/jest.e2e.setup.ts",
+					"hash": "9233361272482632929",
+					"deps": [
+						"npm:../../../dist/libs/@guardian/source-react-components-development-kitchen"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/package.json",
+					"hash": "15420437158961156274",
+					"deps": [
+						"npm:@babel/core",
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:@types/react",
+						"npm:react",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/project.json",
+					"hash": "10642615072879639043"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/AgeWarning.stories.tsx",
+					"hash": "10006625314389151621",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/AgeWarning.tsx",
+					"hash": "17676100369636826084",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/README.md",
+					"hash": "11290091093803078054"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/styles.ts",
+					"hash": "9254339797494607004",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/Divider.stories.tsx",
+					"hash": "6200119099727023922",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/Divider.tsx",
+					"hash": "5711586629832039202",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/README.md",
+					"hash": "6318264852607265122"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/styles.ts",
+					"hash": "7348185331722480401",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialButton.stories.tsx",
+					"hash": "2756601389008233045",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-react-components",
+						"npm:@storybook/react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialButton.tsx",
+					"hash": "1395438675874750259",
+					"deps": ["npm:@emotion/react", "@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialLinkButton.stories.tsx",
+					"hash": "8725431935803268529",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-react-components",
+						"npm:@storybook/react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialLinkButton.tsx",
+					"hash": "16098505719332547773",
+					"deps": ["npm:@emotion/react", "@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/README.md",
+					"hash": "4723737548666933479"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/styles.ts",
+					"hash": "6141442118125401818",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/types.ts",
+					"hash": "11449405129908114076",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.stories.tsx",
+					"hash": "7745190438035539997",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.tsx",
+					"hash": "16264674040305617714",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/README.md",
+					"hash": "2368261425563997746"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/styles.ts",
+					"hash": "12591058029551423734",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/theme.ts",
+					"hash": "5187963855753392200",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/types.ts",
+					"hash": "5070332543442729023",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/FileInput.stories.tsx",
+					"hash": "15548239273371581845",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/FileInput.tsx",
+					"hash": "7050367324443787296",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/README.md",
+					"hash": "11812291851199277952"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/fileHelpers.ts",
+					"hash": "9421982981689013220"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/styles.ts",
+					"hash": "15169341151065730067",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/theme.ts",
+					"hash": "5287040224626559817",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/types.ts",
+					"hash": "9019221658782117483",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterLinks.stories.tsx",
+					"hash": "13465802665480018853",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterLinks.tsx",
+					"hash": "17518324155053953953",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterWithContents.stories.tsx",
+					"hash": "9944439462868552185",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterWithContents.tsx",
+					"hash": "3662005720995746377",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/README.md",
+					"hash": "18146143063253884465"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/footerLinksStyles.ts",
+					"hash": "7856923857390222807",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/footerWithContentsStyles.ts",
+					"hash": "4083466391564768658",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/index.test.ts",
+					"hash": "1041957154316588494"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
+					"hash": "17649606848539929042"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/DashedLines.tsx",
+					"hash": "5768893434953525680",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/DottedLines.tsx",
+					"hash": "9715584227454774192",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.stories.tsx",
+					"hash": "10926532776196894026",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.tsx",
+					"hash": "16797086849814904611",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/README.md",
+					"hash": "9182825803256309570"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/SquigglyLines.tsx",
+					"hash": "11517487456726442957",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/StraightLines.tsx",
+					"hash": "14185918427383483624",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.stories.tsx",
+					"hash": "15860161772596379365",
+					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx",
+					"hash": "5706700228799189600",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/README.md",
+					"hash": "1648384074638231592"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/InputExtension.tsx",
+					"hash": "2030903793191754805",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.stories.tsx",
+					"hash": "5080394675637656852",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.tsx",
+					"hash": "3761691726304332232",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/README.md",
+					"hash": "7160352542172640727"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/inputExtensionStyles.ts",
+					"hash": "7720670300214934092",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/numericInputStyles.ts",
+					"hash": "3675332391965353283",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/sharedStyles.ts",
+					"hash": "14328922261581889168",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.stories.tsx",
+					"hash": "2518986403780342895",
+					"deps": ["@guardian/libs", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.tsx",
+					"hash": "6052820505683553787",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/README.md",
+					"hash": "10867471346551414326"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/README.md",
+					"hash": "12137594941782531864"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.stories.tsx",
+					"hash": "4693731699692179204",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.tsx",
+					"hash": "8038328894577079589",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/ErrorSummary.stories.tsx",
+					"hash": "5377303033535772440",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/ErrorSummary.tsx",
+					"hash": "13841244092362368364",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/InfoSummary.stories.tsx",
+					"hash": "7436229663649833026",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/InfoSummary.tsx",
+					"hash": "16333290994852830949",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/README.md",
+					"hash": "9307293655053189972"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/SuccessSummary.stories.tsx",
+					"hash": "12932780105691169069",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/SuccessSummary.tsx",
+					"hash": "5350379183831687734",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/styles.ts",
+					"hash": "1361792728384022510",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/types.ts",
+					"hash": "12474401092658518477",
+					"deps": ["@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/README.MD",
+					"hash": "8681905073889575039"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/Tabs.stories.tsx",
+					"hash": "7857423065147164944",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/styles.ts",
+					"hash": "17816590035016437803",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/tabs.tsx",
+					"hash": "13971204821057552201"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/theme.ts",
+					"hash": "16596511521087917567",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/types.ts",
+					"hash": "12544734913223605969",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/README.md",
+					"hash": "669307248487057503"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.stories.tsx",
+					"hash": "15459070412305650623",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"npm:@storybook/react",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.tsx",
+					"hash": "9637344518786558737",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"npm:react",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/styles.ts",
+					"hash": "12997443210475535641",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/README.md",
+					"hash": "15254259793597964607"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.stories.tsx",
+					"hash": "17725615491017877034",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.tsx",
+					"hash": "4397931237302068403",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/styles.ts",
+					"hash": "6413398082591567370",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
+					"hash": "2494373635055494437"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/source-foundations": [
+				{
+					"file": "libs/@guardian/source-foundations/.eslintrc.js",
+					"hash": "1550181523664533959"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/.storybook/main.js",
+					"hash": "24357244346551319",
+					"deps": ["npm:../../../../.storybook/main"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/.storybook/preview-head.html",
+					"hash": "16915390007016120558"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/.storybook/preview.tsx",
+					"hash": "15570997121796260248"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/CHANGELOG.md",
+					"hash": "18243346329093601099"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/README.md",
+					"hash": "2066624161393987205"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/jest.config.ts",
+					"hash": "2389290539114294087"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/jest.e2e.setup.ts",
+					"hash": "16722866084370106895",
+					"deps": ["npm:../../../dist/libs/@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/lib/jest-matchers/index.d.ts",
+					"hash": "5887406237053507186"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/lib/jest-matchers/toBeValidCSS.ts",
+					"hash": "15594950232994060461",
+					"deps": ["npm:lightningcss"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/package.json",
+					"hash": "17788891494663465309",
+					"deps": [
+						"npm:mini-svg-data-uri",
+						"npm:@emotion/react",
+						"npm:lightningcss",
+						"npm:react",
+						"npm:react-dom",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/project.json",
+					"hash": "11084046998283173473"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/accessibility.test.ts",
+					"hash": "8390031533201394671"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/description-id.stories.mdx",
+					"hash": "5273275255495755312"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/description-id.ts",
+					"hash": "1867987847395697772"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-halo.stories.mdx",
+					"hash": "9411332542260378433"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-halo.ts",
+					"hash": "15434665690961501465"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-style-manager.stories.mdx",
+					"hash": "16888453837444224413"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-style-manager.ts",
+					"hash": "10651957854388052740"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/generate-source-id.stories.mdx",
+					"hash": "12315915105789947697"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/generate-source-id.ts",
+					"hash": "1196074209014016249"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/visually-hidden.stories.mdx",
+					"hash": "15020017441198293649"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/visually-hidden.ts",
+					"hash": "12380044207180660529"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/animation/transitions.ts",
+					"hash": "5934028615348823794"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/breakpoints/breakpoints.ts",
+					"hash": "10398876398364786590"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/colour/palette.stories.mdx",
+					"hash": "10254399241817415096"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/colour/palette.ts",
+					"hash": "5067776153459294017"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/colour/storybookColorPalette.tsx",
+					"hash": "11777730835441330180",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/index.test.ts",
+					"hash": "3184136727367546132"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/index.ts",
+					"hash": "5611159186373320787"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/mq/mq.stories.mdx",
+					"hash": "15048305675548810401"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/mq/mq.test.ts",
+					"hash": "12409527711778663641"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/mq/mq.ts",
+					"hash": "3687055638412932100"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/size/size.stories.mdx",
+					"hash": "2340793411436690801"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/size/size.ts",
+					"hash": "4830817665741381164"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/space/space.stories.mdx",
+					"hash": "12251189590366454455"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/space/space.test.ts",
+					"hash": "4807644214251501273"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/space/space.ts",
+					"hash": "2697734913497840057"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/api.ts",
+					"hash": "8717936668393798314"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/data.ts",
+					"hash": "14952195993775752314"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/font-styles.ts",
+					"hash": "9882410232816530494"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/index.ts",
+					"hash": "11583423385146396085"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/obj/index.ts",
+					"hash": "18418766009205954129"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/obj/typography.obj.test.ts",
+					"hash": "3352158577739593431"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/storybookTypographyRenderers.tsx",
+					"hash": "13781187217553396369"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/types.ts",
+					"hash": "8331168317181061639"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/typography.stories.mdx",
+					"hash": "130646505018069724"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/typography.test.ts",
+					"hash": "4010106939072006386"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/px-to-rem.test.ts",
+					"hash": "8179524110169491671"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/px-to-rem.ts",
+					"hash": "9865494703287067528"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/resets.stories.mdx",
+					"hash": "2966624682354624697"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/resets.test.ts",
+					"hash": "744436503325623283"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/resets.ts",
+					"hash": "16583117230524712549"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/supports-queries.ts",
+					"hash": "6115487028328199082"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/svg-background-image.ts",
+					"hash": "7828681073200841071",
+					"deps": ["npm:mini-svg-data-uri"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/tsconfig.json",
+					"hash": "2494373635055494437"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/eslint-plugin-source-foundations": [
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/.eslintrc.json",
+					"hash": "11097259163872067192"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/CHANGELOG.md",
+					"hash": "902776068525928612"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/README.md",
+					"hash": "3284594776500096823"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
+					"hash": "9529271860355131206"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/jest.e2e.setup.ts",
+					"hash": "8172123534921709252",
+					"deps": [
+						"npm:../../../dist/libs/@guardian/eslint-plugin-source-foundations"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/package.json",
+					"hash": "14052662687111885974",
+					"deps": [
+						"npm:@typescript-eslint/eslint-plugin",
+						"npm:@typescript-eslint/parser",
+						"npm:eslint-plugin-import",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"npm:@types/eslint",
+						"npm:@types/estree",
+						"npm:eslint",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/project.json",
+					"hash": "17293076193234666642"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/index.test.ts",
+					"hash": "15161976767759481955"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/index.ts",
+					"hash": "15135424645467927213"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/no-star-imports-or-exports.test.ts",
+					"hash": "7970008723150675572",
+					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/no-star-imports-or-exports.ts",
+					"hash": "4198022973300840888",
+					"deps": ["npm:eslint", "npm:estree"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/valid-import-path.test.ts",
+					"hash": "9165246361668144663",
+					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/valid-import-path.ts",
+					"hash": "7612239752252806317",
+					"deps": ["@guardian/libs", "npm:eslint", "npm:estree"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/eslint-config": [
+				{
+					"file": "libs/@guardian/eslint-config/CHANGELOG.md",
+					"hash": "6214569367115308000"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/README.md",
+					"hash": "745915868383433290"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/e2e.test.js",
+					"hash": "1679444207401432461",
+					"deps": ["npm:../../../dist/libs/@guardian/eslint-config"]
+				},
+				{
+					"file": "libs/@guardian/eslint-config/index.js",
+					"hash": "2681364849865611711"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/jest.config.js",
+					"hash": "14055872559690274152"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/package.json",
+					"hash": "13856615558683619697",
+					"deps": [
+						"npm:eslint-config-prettier",
+						"npm:eslint-plugin-eslint-comments",
+						"npm:eslint-plugin-import",
+						"npm:eslint",
+						"npm:tslib"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-config/project.json",
+					"hash": "755376773088798932"
+				}
+			],
+			"csnx": [
+				{
+					"file": "apps/csnx/.storybook/main.js",
+					"hash": "716687333490868408",
+					"deps": ["npm:../../../.storybook/main"]
+				},
+				{
+					"file": "apps/csnx/.storybook/preview.js",
+					"hash": "3244421341483603138"
+				},
+				{
+					"file": "apps/csnx/README.md",
+					"hash": "7759650497409900813"
+				},
+				{
+					"file": "apps/csnx/project.json",
+					"hash": "400143405715566561"
+				},
+				{
+					"file": "apps/csnx/src/README.stories.mdx",
+					"hash": "17498719543509757889"
+				}
+			],
+			"@guardian/eslint-config-typescript": [
+				{
+					"file": "libs/@guardian/eslint-config-typescript/CHANGELOG.md",
+					"hash": "6893497940713246038"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/DECISION_RECORD.md",
+					"hash": "13113131601420968107"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/README.md",
+					"hash": "7907907892206820104"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/e2e.test.js",
+					"hash": "5320943896646056055",
+					"deps": ["npm:../../../dist/libs/@guardian/eslint-config-typescript"]
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/index.js",
+					"hash": "16583573112952399985"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/jest.config.js",
+					"hash": "2524713161842202053"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/package.json",
+					"hash": "6499894244597132797",
+					"deps": [
+						"@guardian/eslint-config",
+						"npm:@typescript-eslint/eslint-plugin",
+						"npm:@typescript-eslint/parser",
+						"npm:eslint-import-resolver-typescript",
+						"npm:eslint-plugin-import",
+						"npm:eslint",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/project.json",
+					"hash": "9278462466589483831"
+				}
+			],
+			"@guardian/browserslist-config": [
+				{
+					"file": "libs/@guardian/browserslist-config/.browserslistrc",
+					"hash": "10738151125382981633"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/CHANGELOG.md",
+					"hash": "18292427692941339043"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/README.md",
+					"hash": "15472444555433677519"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/browserslist-stats.json",
+					"hash": "17271511382104281606"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/browserslist.js",
+					"hash": "12942232371607447698"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/e2e.test.js",
+					"hash": "14896730811675395564",
+					"deps": ["npm:../../../dist/libs/@guardian/browserslist-config"]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/jest.config.js",
+					"hash": "9172693907117633587"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/package.json",
+					"hash": "5856691472766156854",
+					"deps": ["npm:browserslist", "npm:tslib"]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/project.json",
+					"hash": "7152168760337971922"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/included-table.mjs",
+					"hash": "1343647351876579979",
+					"deps": ["npm:browserslist"]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/normalise-browser-name.mjs",
+					"hash": "10826260321120845191"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/update-readme.mjs",
+					"hash": "2800766929748311125",
+					"deps": [
+						"npm:node:fs/promises",
+						"npm:node:path",
+						"npm:node:url",
+						"npm:prettier"
+					]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/usage-table.mjs",
+					"hash": "14219408142414878502"
+				}
+			],
+			"@guardian/ab-core": [
+				{
+					"file": "libs/@guardian/ab-core/.eslintrc.json",
+					"hash": "6959177146399665629"
+				},
+				{
+					"file": "libs/@guardian/ab-core/CHANGELOG.md",
+					"hash": "7003934771089575060"
+				},
+				{
+					"file": "libs/@guardian/ab-core/README.md",
+					"hash": "14919591766933602536"
+				},
+				{
+					"file": "libs/@guardian/ab-core/jest.config.ts",
+					"hash": "555898884935911471"
+				},
+				{
+					"file": "libs/@guardian/ab-core/jest.e2e.setup.js",
+					"hash": "16944538561887207684",
+					"deps": ["npm:../../../dist/libs/@guardian/ab-core"]
+				},
+				{
+					"file": "libs/@guardian/ab-core/package.json",
+					"hash": "11431113632958341288",
+					"deps": ["npm:tslib", "npm:typescript"]
+				},
+				{
+					"file": "libs/@guardian/ab-core/project.json",
+					"hash": "14020600437460473978"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/@types/index.ts",
+					"hash": "10309291841894149285"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/ab.test.ts",
+					"hash": "13312248574960313914"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/ab.ts",
+					"hash": "16672056303901164343"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/core.test.ts",
+					"hash": "6395582096933500215"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/core.ts",
+					"hash": "11024750863647290456"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/e2e.test.ts",
+					"hash": "8898998349125857949"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/fixture.ts",
+					"hash": "10177107845182198395"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/index.ts",
+					"hash": "17690945889171795949"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/ophan.ts",
+					"hash": "15566170479313334604"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/time.test.ts",
+					"hash": "825707822073706130"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/time.ts",
+					"hash": "17130656409564423505"
+				},
+				{
+					"file": "libs/@guardian/ab-core/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/ab-core/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"nx-plugin-eslint": [
+				{
+					"file": "tools/nx-plugins/eslint/.eslintrc.js",
+					"hash": "14269935202021846062"
+				},
+				{
+					"file": "tools/nx-plugins/eslint/executors/check/executor.ts",
+					"hash": "18346123640401450802",
+					"deps": ["npm:@nx/devkit", "npm:@nx/linter"]
+				},
+				{
+					"file": "tools/nx-plugins/eslint/executors/fix/executor.ts",
+					"hash": "13833701296378924349",
+					"deps": ["npm:@nx/devkit", "npm:@nx/linter"]
+				},
+				{
+					"file": "tools/nx-plugins/eslint/executors.json",
+					"hash": "3213262441854148989"
+				},
+				{
+					"file": "tools/nx-plugins/eslint/package.json",
+					"hash": "10563552081728691225",
+					"deps": ["npm:@nx/eslint", "npm:typescript"]
+				},
+				{
+					"file": "tools/nx-plugins/eslint/project.json",
+					"hash": "14938103777087480883"
+				},
+				{
+					"file": "tools/nx-plugins/eslint/tsconfig.json",
+					"hash": "1269800487405912732"
+				}
+			],
+			"@guardian/identity-auth-frontend": [
+				{
+					"file": "libs/@guardian/identity-auth-frontend/.eslintrc.json",
+					"hash": "12323676007825436467"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/CHANGELOG.md",
+					"hash": "17713888616696813619"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/README.MD",
+					"hash": "1435465837697527176"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/jest.config.ts",
+					"hash": "3314363417455480469"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/jest.e2e.setup.js",
+					"hash": "108223945364513399",
+					"deps": ["npm:../../../dist/libs/@guardian/identity-auth-frontend"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/package.json",
+					"hash": "18024134315508331767",
+					"deps": [
+						"@guardian/identity-auth",
+						"@guardian/libs",
+						"npm:jest-fetch-mock",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/project.json",
+					"hash": "1409283852173158037"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/src/__tests__/index.test.ts",
+					"hash": "15079522260752410805"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/src/index.ts",
+					"hash": "17808896395704555140",
+					"deps": ["@guardian/identity-auth", "npm:@guardian/identity-auth"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/tsconfig.spec.json",
+					"hash": "7916238407462233235"
+				}
+			],
+			"@guardian/eslint-plugin-source-react-components": [
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/.eslintrc.json",
+					"hash": "13135539320465078857"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/CHANGELOG.md",
+					"hash": "15974034141022343029"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/README.md",
+					"hash": "17161212990015164294"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
+					"hash": "8338547406996913733"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/jest.e2e.setup.ts",
+					"hash": "3159610872043835157",
+					"deps": [
+						"npm:../../../dist/libs/@guardian/eslint-plugin-source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/package.json",
+					"hash": "11357083978047987063",
+					"deps": [
+						"npm:@typescript-eslint/eslint-plugin",
+						"npm:@typescript-eslint/parser",
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:@types/eslint",
+						"npm:@types/estree",
+						"npm:eslint",
+						"npm:react",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/project.json",
+					"hash": "2477242551907227391"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/index.test.ts",
+					"hash": "15161976767759481955"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/index.ts",
+					"hash": "4241342026852817975"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/rules/valid-import-path.test.ts",
+					"hash": "11043886046350992854",
+					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/rules/valid-import-path.ts",
+					"hash": "518998309705449540",
+					"deps": ["@guardian/libs", "npm:eslint", "npm:estree"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/core-web-vitals": [
+				{
+					"file": "libs/@guardian/core-web-vitals/.eslintrc.json",
+					"hash": "2446043990230554346"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/CHANGELOG.md",
+					"hash": "10988624897837080241"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/README.md",
+					"hash": "6324081144396852781"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/jest.config.ts",
+					"hash": "3089527477687987803"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/jest.e2e.setup.js",
+					"hash": "15825959017368110657",
+					"deps": ["npm:../../../dist/libs/@guardian/core-web-vitals"]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/package.json",
+					"hash": "7453408041896139563",
+					"deps": [
+						"@guardian/libs",
+						"npm:tslib",
+						"npm:typescript",
+						"npm:web-vitals"
+					]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/project.json",
+					"hash": "9763260610916139435"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/@types/CoreWebVitalsPayload.ts",
+					"hash": "1583130179538901373"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/e2e.test.ts",
+					"hash": "9547534464465073704"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/index.test.ts",
+					"hash": "10844598452064341220",
+					"deps": ["npm:web-vitals"]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/index.ts",
+					"hash": "4411971637359906579",
+					"deps": [
+						"@guardian/libs",
+						"npm:web-vitals",
+						["npm:web-vitals", "dynamic"]
+					]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/roundWithDecimals.test.ts",
+					"hash": "11201989208305382423"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/roundWithDecimals.ts",
+					"hash": "2399786712856102619"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/libs": [
+				{
+					"file": "libs/@guardian/libs/.eslintrc copy.json",
+					"hash": "11255427998450984252"
+				},
+				{
+					"file": "libs/@guardian/libs/.eslintrc.json",
+					"hash": "11255427998450984252"
+				},
+				{
+					"file": "libs/@guardian/libs/.lintstagedrc copy.js",
+					"hash": "1994094866776373942",
+					"deps": ["npm:../../../.lintstagedrc.js"]
+				},
+				{
+					"file": "libs/@guardian/libs/.lintstagedrc.js",
+					"hash": "1994094866776373942",
+					"deps": ["npm:../../../.lintstagedrc.js"]
+				},
+				{
+					"file": "libs/@guardian/libs/CHANGELOG.md",
+					"hash": "18275310136544700831"
+				},
+				{
+					"file": "libs/@guardian/libs/README.md",
+					"hash": "6495599384692781627"
+				},
+				{
+					"file": "libs/@guardian/libs/jest.config.ts",
+					"hash": "11764278695911642917"
+				},
+				{
+					"file": "libs/@guardian/libs/jest.e2e.setup.js",
+					"hash": "4769930602818925195",
+					"deps": ["npm:../../../dist/libs/@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/libs/package.json",
+					"hash": "4563908759802668561",
+					"deps": [
+						"npm:@types/wcag-contrast",
+						"npm:jest-fetch-mock",
+						"npm:mockdate",
+						"npm:tslib",
+						"npm:typescript",
+						"npm:wcag-contrast"
+					]
+				},
+				{
+					"file": "libs/@guardian/libs/project.json",
+					"hash": "1746026131553676170"
+				},
+				{
+					"file": "libs/@guardian/libs/scripts/generateSvg.logger.subscriptions.ts",
+					"hash": "11206264362312975508",
+					"deps": ["npm:node:fs"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/ArticleElementRole/ArticleElementRole.test.ts",
+					"hash": "3389874484024850773"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ArticleElementRole/ArticleElementRole.ts",
+					"hash": "14484956861109895192"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ArticleElementRole/README.md",
+					"hash": "15463784356544454001"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/ERR_INVALID_COOKIE.ts",
+					"hash": "10352373831965093591"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/README.md",
+					"hash": "17854822972898837839"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/cookies.test.ts",
+					"hash": "16459016347473344338",
+					"deps": ["npm:mockdate"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getCookie.ts",
+					"hash": "3709342582278503521"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getCookieValues.ts",
+					"hash": "2248232651377390359"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getDomainAttribute.ts",
+					"hash": "697721966772734008"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getShortDomain.ts",
+					"hash": "10397717949361411856"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/isValidCookie.ts",
+					"hash": "3109278285507657338"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/memoizedCookies.ts",
+					"hash": "4390798146919565360"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/removeCookie.ts",
+					"hash": "3976094881587794360"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/setCookie.ts",
+					"hash": "15894422136854867889"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/setSessionCookie.ts",
+					"hash": "334841585123136048"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/@types/Country.ts",
+					"hash": "9205788842730484597"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/@types/CountryCode.ts",
+					"hash": "12157220912617141203"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/@types/CountryKey.ts",
+					"hash": "11248190321601263247"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/README.md",
+					"hash": "17821738322035516225"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/countries.test.ts",
+					"hash": "2489718129152144171"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/countries.ts",
+					"hash": "2887594540122135538"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/getCountryByCountryCode.test.ts",
+					"hash": "1328877349706344556"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/getCountryByCountryCode.ts",
+					"hash": "13348586147276349249"
+				},
+				{
+					"file": "libs/@guardian/libs/src/datetime/README.md",
+					"hash": "3209504404783224614"
+				},
+				{
+					"file": "libs/@guardian/libs/src/datetime/timeAgo.test.ts",
+					"hash": "9108929614165942636",
+					"deps": ["npm:mockdate"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/datetime/timeAgo.ts",
+					"hash": "11004200906608495893"
+				},
+				{
+					"file": "libs/@guardian/libs/src/deprecated-exports.ts",
+					"hash": "15627922740730568681"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleDesign.ts",
+					"hash": "52212398850507759"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleDisplay.ts",
+					"hash": "7368084828366459413"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleFormat.ts",
+					"hash": "3124615810286304821"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleSpecial.ts",
+					"hash": "8914597165783894911"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleTheme.ts",
+					"hash": "7228539150541033531"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/Pillar.ts",
+					"hash": "509365268991115031"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/README.md",
+					"hash": "12184199480632099494"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/format.test.ts",
+					"hash": "11614399434960216740"
+				},
+				{
+					"file": "libs/@guardian/libs/src/index.test.ts",
+					"hash": "16111297175465689039"
+				},
+				{
+					"file": "libs/@guardian/libs/src/index.ts",
+					"hash": "7163726097533274019"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isBoolean/README.md",
+					"hash": "12724998748987778201"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isBoolean/isBoolean.test.ts",
+					"hash": "17759194283861651011"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isBoolean/isBoolean.ts",
+					"hash": "14981310418486267129"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isNonNullable/isNonNullable.test.ts",
+					"hash": "7563673411911758104"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isNonNullable/isNonNullable.ts",
+					"hash": "16884370021114524322"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isObject/README.md",
+					"hash": "1109028473797670784"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isObject/isObject.test.ts",
+					"hash": "15896836299199103610"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isObject/isObject.ts",
+					"hash": "3666851094553642228"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isOneOf/README.md",
+					"hash": "1322636274867252962"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isOneOf/isOneOf.test.ts",
+					"hash": "480873935154951761"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isOneOf/isOneOf.ts",
+					"hash": "14389434723967371227"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isString/README.md",
+					"hash": "5382268190189970801"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isString/isString.test.ts",
+					"hash": "13282780227846604823"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isString/isString.ts",
+					"hash": "1840854932863330717"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isUndefined/README.md",
+					"hash": "9195436988330372166"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isUndefined/isUndefined.test.ts",
+					"hash": "12344640196136135293"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isUndefined/isUndefined.ts",
+					"hash": "2370044265664301631"
+				},
+				{
+					"file": "libs/@guardian/libs/src/joinUrl/README.md",
+					"hash": "17259319757405442272"
+				},
+				{
+					"file": "libs/@guardian/libs/src/joinUrl/joinUrl.test.ts",
+					"hash": "12810696442356062663"
+				},
+				{
+					"file": "libs/@guardian/libs/src/joinUrl/joinUrl.ts",
+					"hash": "12426902247934023175"
+				},
+				{
+					"file": "libs/@guardian/libs/src/loadScript/README.md",
+					"hash": "16830045204036776873"
+				},
+				{
+					"file": "libs/@guardian/libs/src/loadScript/loadScript.test.ts",
+					"hash": "1743256568503439004"
+				},
+				{
+					"file": "libs/@guardian/libs/src/loadScript/loadScript.ts",
+					"hash": "14956954185915960936"
+				},
+				{
+					"file": "libs/@guardian/libs/src/locale/README.md",
+					"hash": "9968929302886627817"
+				},
+				{
+					"file": "libs/@guardian/libs/src/locale/getLocale.test.ts",
+					"hash": "1423542932124523847",
+					"deps": ["npm:jest-fetch-mock"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/locale/getLocale.ts",
+					"hash": "12435366018691131723"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/@types/logger.ts",
+					"hash": "16489264463519509458"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/README.md",
+					"hash": "2119016902830181551"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/debug.ts",
+					"hash": "18188248319243296984"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/logger.test.ts",
+					"hash": "10903407604028578100",
+					"deps": ["npm:wcag-contrast"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/logger.ts",
+					"hash": "6829863619643387077"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/storage-key.ts",
+					"hash": "6710576870097275136"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/subscriptions.ts",
+					"hash": "6192214675619078750"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ophan/@types/index.ts",
+					"hash": "7940816354039600930"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ophan/README.md",
+					"hash": "13390047702104949960"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/@types/measure.ts",
+					"hash": "5529053476719309169"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/README.md",
+					"hash": "9719497332087250107"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/getMeasures.test.ts",
+					"hash": "5737215836857367554"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/getMeasures.ts",
+					"hash": "9704974598629469912"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/log.ts",
+					"hash": "15125191956477390267"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/serialise.ts",
+					"hash": "16867204621062853074"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/startPerformanceMeasure.test.ts",
+					"hash": "16722565192442568713"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/startPerformanceMeasure.ts",
+					"hash": "18108104695085121323"
+				},
+				{
+					"file": "libs/@guardian/libs/src/storage/README.md",
+					"hash": "5807297484654366949"
+				},
+				{
+					"file": "libs/@guardian/libs/src/storage/storage.test.ts",
+					"hash": "8566043075661303093"
+				},
+				{
+					"file": "libs/@guardian/libs/src/storage/storage.ts",
+					"hash": "8476231775572737270"
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/@types/Switches.ts",
+					"hash": "9855780497657202303"
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/README.md",
+					"hash": "16111736686416887217"
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/getSwitches.test.ts",
+					"hash": "6311988030987970754",
+					"deps": ["npm:jest-fetch-mock"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/getSwitches.ts",
+					"hash": "2797727128988156428"
+				},
+				{
+					"file": "libs/@guardian/libs/static/logger.svg",
+					"hash": "5734655333426585715"
+				},
+				{
+					"file": "libs/@guardian/libs/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/libs/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/tsconfig": [
+				{
+					"file": "libs/@guardian/tsconfig/CHANGELOG.md",
+					"hash": "14869747583657564126"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/README.md",
+					"hash": "10037873192541883047"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/e2e.test.js",
+					"hash": "14546087856982111850",
+					"deps": ["npm:../../../dist/libs/@guardian/tsconfig"]
+				},
+				{
+					"file": "libs/@guardian/tsconfig/jest.config.js",
+					"hash": "15495889370655369403"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/package.json",
+					"hash": "3872194915737436854"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/project.json",
+					"hash": "5461502278508145893"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/tsconfig.json",
+					"hash": "2484137810917320156"
+				}
+			],
+			"@guardian/identity-auth": [
+				{
+					"file": "libs/@guardian/identity-auth/.eslintrc.json",
+					"hash": "151656126826297128"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/CHANGELOG.md",
+					"hash": "6578241987059731253"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/README.md",
+					"hash": "5397657271900178365"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/jest.config.ts",
+					"hash": "17597513626967017591"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/jest.e2e.setup.js",
+					"hash": "8138304509284146376",
+					"deps": ["npm:../../../dist/libs/@guardian/identity-auth"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/package.json",
+					"hash": "5249224496618725143",
+					"deps": [
+						"@guardian/libs",
+						"npm:jest-fetch-mock",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/project.json",
+					"hash": "12189016583314406302"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/@types/OAuth.ts",
+					"hash": "484232461514257501"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/@types/Token.ts",
+					"hash": "7710503934205359429"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/@types/guard.ts",
+					"hash": "10041493709679624412"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/authState.test.ts",
+					"hash": "17497959930696438376"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/autoRenew.test.ts",
+					"hash": "16384414508176261761"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/cookieRefresh.test.ts",
+					"hash": "1527596820980430557",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/crypto.test.ts",
+					"hash": "9181934876416850649",
+					"deps": ["npm:crypto", "npm:util"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/emitter.test.ts",
+					"hash": "7710097742673258287"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/identityAuth.test.ts",
+					"hash": "489530732443378060"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/token.test.ts",
+					"hash": "12686861540637751220",
+					"deps": ["npm:jest-fetch-mock"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/tokenManager.test.ts",
+					"hash": "11901189109852515960",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/authState.ts",
+					"hash": "2148353814522809728"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/autoRenew.ts",
+					"hash": "18016551665061312317",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/cookieRefresh.ts",
+					"hash": "10606239704407516958",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/crypto.ts",
+					"hash": "10385687851002448224"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/emitter.ts",
+					"hash": "18244189917631540244"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/error.ts",
+					"hash": "9539885733972546553"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/identityAuth.ts",
+					"hash": "4828276554248696956",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/index.ts",
+					"hash": "1777034081882803857"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/token.ts",
+					"hash": "3907910782606095645",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/tokenManager.ts",
+					"hash": "17753920346863240100",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"nx-plugin-npm-package": [
+				{
+					"file": "tools/nx-plugins/npm-package/.eslintrc.js",
+					"hash": "17019859542275624475"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/get-compiler-options.ts",
+					"hash": "12413112592323578307",
+					"deps": ["npm:node:path", "npm:@nx/devkit", "npm:typescript"]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/get-declared-deps.ts",
+					"hash": "16026176867410784145",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/index.ts",
+					"hash": "7432326981236812958",
+					"deps": [
+						"npm:node:child_process",
+						"npm:node:path",
+						"npm:node:util",
+						"npm:@nx/devkit",
+						"npm:@rollup/plugin-commonjs",
+						"npm:@rollup/plugin-json",
+						"npm:@rollup/plugin-node-resolve",
+						"npm:cpy",
+						"npm:rollup",
+						"npm:rollup-plugin-ts",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/schema.d.ts",
+					"hash": "11787974242978041962"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/schema.json",
+					"hash": "2031497523210644975"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/set-package-defaults.ts",
+					"hash": "18355940592721137475",
+					"deps": [
+						"npm:node:path",
+						"npm:read-pkg",
+						"npm:sort-package-json",
+						"npm:type-fest",
+						"npm:write-pkg"
+					]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/write-resolved-package-json.ts",
+					"hash": "18446332424988686656",
+					"deps": ["npm:node:path", "npm:@nx/devkit", "npm:execa"]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/executors.json",
+					"hash": "14867668346469181292"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/package.json",
+					"hash": "75523000040982101",
+					"deps": [
+						"@guardian/libs",
+						"npm:@rollup/plugin-commonjs",
+						"npm:@rollup/plugin-json",
+						"npm:@rollup/plugin-node-resolve",
+						"npm:cpy",
+						"npm:execa",
+						"npm:read-pkg",
+						"npm:rollup",
+						"npm:rollup-plugin-ts",
+						"npm:sort-package-json",
+						"npm:tslib",
+						"npm:type-fest",
+						"npm:typescript",
+						"npm:write-pkg"
+					]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/project.json",
+					"hash": "14263057533646079389"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/tsconfig.json",
+					"hash": "1269800487405912732"
+				}
+			]
+		}
+	}
+}

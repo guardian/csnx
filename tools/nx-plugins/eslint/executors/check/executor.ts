@@ -1,6 +1,6 @@
 import type { ExecutorContext } from '@nx/devkit';
-import linter from '@nx/linter/src/executors/eslint/lint.impl.js';
-import type { Schema } from '@nx/linter/src/executors/eslint/schema';
+import linter from '@nx/eslint/src/executors/lint/lint.impl.js';
+import type { Schema } from '@nx/eslint/src/executors/lint/schema';
 
 // wrap @nx/linter:eslint executor with some defaults
 export default function (
