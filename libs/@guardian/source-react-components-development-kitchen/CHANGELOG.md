@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 14.0.2
+
+### Patch Changes
+
+- 1b32aeb: Update @babel/core
+
 ## 14.0.1
 
 ### Patch Changes

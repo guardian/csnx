@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/newsletter-types",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"private": false,
 	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,

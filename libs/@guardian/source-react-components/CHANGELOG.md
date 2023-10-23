@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 16.0.1
+
+### Patch Changes
+
+- 1b32aeb: Update @babel/core
+
 ## 16.0.0
 
 ### Major Changes

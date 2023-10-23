@@ -1,5 +1,25 @@
 # @guardian/atoms-rendering
 
+# This package has now been deprecated components are now in DCR - https://github.com/guardian/dotcom-rendering
+
+## 34.0.1
+
+### Patch Changes
+
+- Update babel/core and guardian packages
+
+## 34.0.0
+
+### Major Changes
+
+- 4006935: Remove AudioAtom
+- 9838b8f: Remove GuideAtom
+- b96a7fe: Remove Explainer atom
+- d328835: Removed profile atom
+- 89da1d2: Remove video atom
+- 8ca0734: Remove YoutubeAtom
+- c23f192: Remove ChartAtom
+
 ## 33.0.0
 
 ### Major Changes

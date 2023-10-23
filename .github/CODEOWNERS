@@ -6,8 +6,6 @@
 
 /.changeset/ @guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/source @guardian/identity
 
-/libs/@guardian/atoms-rendering/ @guardian/dotcom-platform @guardian/commercial-dev @guardian/client-side-infra
-
 /libs/@guardian/source-foundations/ @guardian/source
 /libs/@guardian/source-react-components/ @guardian/source
 /libs/@guardian/source-react-components-development-kitchen/ @guardian/source

@@ -5,6 +5,7 @@ node_modules
 dist
 *.log
 .env
+.nx
 
 # Speed up TSC builds
 # https://www.typescriptlang.org/tsconfig#incremental

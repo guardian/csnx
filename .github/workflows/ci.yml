@@ -36,7 +36,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - run: pnpm install --frozen-lockfile
 
@@ -60,8 +60,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - lib: atoms-rendering
-            token: CHROMATIC_ATOMS_RENDERING_TOKEN
           - lib: source-foundations
             token: CHROMATIC_SOURCE_FOUNDATIONS_TOKEN
           - lib: source-react-components
