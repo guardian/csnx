@@ -197,11 +197,11 @@
 			},
 			{
 				"file": ".nx/cache/cloud/2310.19.6/index.js",
-				"hash": "15048939128412700699"
+				"hash": "8962466676440895484"
 			},
 			{
 				"file": ".nx/cache/cloud/2310.19.6/lib/daemon/process-run-end.js",
-				"hash": "17488724639353388161"
+				"hash": "4620693656541876393"
 			},
 			{
 				"file": ".nx/cache/cloud/verify.lock",
@@ -209,7 +209,23 @@
 			},
 			{
 				"file": ".nx/cache/d/server-process.json",
-				"hash": "12036516967610746205"
+				"hash": "9892686990287439943"
+			},
+			{
+				"file": ".nx/cache/file-map.json",
+				"hash": "12969865199901271869"
+			},
+			{
+				"file": ".nx/cache/lockfile.hash",
+				"hash": "7243516030506733422"
+			},
+			{
+				"file": ".nx/cache/parsed-lock-file.json",
+				"hash": "2919872971444557400"
+			},
+			{
+				"file": ".nx/cache/project-graph.json",
+				"hash": "14901878942033815948"
 			},
 			{
 				"file": ".prettierrc",
@@ -301,7 +317,7 @@
 			},
 			{
 				"file": "pnpm-lock.yaml",
-				"hash": "8251774729927045438"
+				"hash": "9151135789819101444"
 			},
 			{
 				"file": "pnpm-workspace.yaml",
@@ -348,23 +364,2783 @@
 				"hash": "13104772494296368624"
 			},
 			{
-				"file": ".nx/cache/lockfile.hash",
-				"hash": "1564304179965583055"
+				"file": ".nx/cache/terminalOutputs/2842914152902513718",
+				"hash": "6910698246532311900"
 			},
 			{
-				"file": ".nx/cache/parsed-lock-file.json",
-				"hash": "8030714621481538226"
+				"file": ".nx/cache/terminalOutputs/18199097327615981256",
+				"hash": "3340363467439166506"
 			},
 			{
-				"file": ".nx/cache/file-map.json",
-				"hash": "12309858878895565922"
+				"file": ".nx/cache/terminalOutputs/1704431908889653431",
+				"hash": "18247315580250251685"
 			},
 			{
-				"file": ".nx/cache/project-graph.json",
-				"hash": "15237046294260328480"
+				"file": ".nx/cache/1704431908889653431/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/1704431908889653431.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/1704431908889653431/terminalOutput",
+				"hash": "18247315580250251685"
+			},
+			{
+				"file": ".nx/cache/1704431908889653431/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/14329834149115441380",
+				"hash": "597905830198230245"
+			},
+			{
+				"file": ".nx/cache/18199097327615981256/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/18199097327615981256.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/18199097327615981256/terminalOutput",
+				"hash": "3340363467439166506"
+			},
+			{
+				"file": ".nx/cache/18199097327615981256/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/16377195702398093423",
+				"hash": "10000320214729975441"
+			},
+			{
+				"file": ".nx/cache/16377195702398093423.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/16377195702398093423/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/16377195702398093423/terminalOutput",
+				"hash": "10000320214729975441"
+			},
+			{
+				"file": ".nx/cache/16377195702398093423/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/14329834149115441380.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/2842914152902513718/terminalOutput",
+				"hash": "6910698246532311900"
+			},
+			{
+				"file": ".nx/cache/2842914152902513718/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/2842914152902513718/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/16296450839971157471",
+				"hash": "6388801550293681509"
+			},
+			{
+				"file": ".nx/cache/14329834149115441380/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/14329834149115441380/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/2842914152902513718.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/14329834149115441380/terminalOutput",
+				"hash": "597905830198230245"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/11983611350926316271",
+				"hash": "7231969392472373484"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/17383105618234185000",
+				"hash": "17266800884905842119"
+			},
+			{
+				"file": ".nx/cache/11983611350926316271/terminalOutput",
+				"hash": "7231969392472373484"
+			},
+			{
+				"file": ".nx/cache/11983611350926316271/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/11983611350926316271/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/11983611350926316271.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/17383105618234185000/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/16396403733248082997",
+				"hash": "15634427738138964923"
+			},
+			{
+				"file": ".nx/cache/17383105618234185000/terminalOutput",
+				"hash": "17266800884905842119"
+			},
+			{
+				"file": ".nx/cache/17383105618234185000/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/17383105618234185000.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/9376135515842068723",
+				"hash": "6061036779563706456"
+			},
+			{
+				"file": ".nx/cache/16296450839971157471.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/16296450839971157471/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/16296450839971157471/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/16296450839971157471/terminalOutput",
+				"hash": "6388801550293681509"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/7585813827805771358",
+				"hash": "15284055510017769142"
+			},
+			{
+				"file": ".nx/cache/9376135515842068723/terminalOutput",
+				"hash": "6061036779563706456"
+			},
+			{
+				"file": ".nx/cache/9376135515842068723/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/16396403733248082997/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/16396403733248082997/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/9376135515842068723/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/9376135515842068723.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/16396403733248082997/terminalOutput",
+				"hash": "15634427738138964923"
+			},
+			{
+				"file": ".nx/cache/16396403733248082997.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/7648422008060465014",
+				"hash": "4575437252675703605"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/13867941318942862237",
+				"hash": "13540442587542889434"
+			},
+			{
+				"file": ".nx/cache/7585813827805771358/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/7585813827805771358/terminalOutput",
+				"hash": "15284055510017769142"
+			},
+			{
+				"file": ".nx/cache/7585813827805771358/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/7585813827805771358.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/9294963915456610923",
+				"hash": "4741835067313962128"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/2649124480558216491",
+				"hash": "7353450249590683205"
+			},
+			{
+				"file": ".nx/cache/13867941318942862237/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/13867941318942862237.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/13867941318942862237/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/13867941318942862237/terminalOutput",
+				"hash": "13540442587542889434"
+			},
+			{
+				"file": ".nx/cache/9294963915456610923/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/9294963915456610923.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/9294963915456610923/terminalOutput",
+				"hash": "4741835067313962128"
+			},
+			{
+				"file": ".nx/cache/9294963915456610923/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/2649124480558216491/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/2649124480558216491/terminalOutput",
+				"hash": "7353450249590683205"
+			},
+			{
+				"file": ".nx/cache/2649124480558216491/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/2649124480558216491.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/run.json",
+				"hash": "5954194775436030606"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/12747598711007061014",
+				"hash": "597905830198230245"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/18378280001833932438",
+				"hash": "6388801550293681509"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/10312979622586551473",
+				"hash": "6910698246532311900"
+			},
+			{
+				"file": ".nx/cache/12747598711007061014/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/12747598711007061014.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/12747598711007061014/terminalOutput",
+				"hash": "597905830198230245"
+			},
+			{
+				"file": ".nx/cache/12747598711007061014/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/9310409371558920006",
+				"hash": "17266800884905842119"
+			},
+			{
+				"file": ".nx/cache/18378280001833932438/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/18378280001833932438/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/18378280001833932438.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/18378280001833932438/terminalOutput",
+				"hash": "6388801550293681509"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/13162049551758383146",
+				"hash": "7231969392472373484"
+			},
+			{
+				"file": ".nx/cache/10312979622586551473/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/10312979622586551473/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/10312979622586551473.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/10312979622586551473/terminalOutput",
+				"hash": "6910698246532311900"
+			},
+			{
+				"file": ".nx/cache/9310409371558920006/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/9310409371558920006/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/9310409371558920006/terminalOutput",
+				"hash": "17266800884905842119"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/5568573637145966597",
+				"hash": "15634427738138964923"
+			},
+			{
+				"file": ".nx/cache/9310409371558920006.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/7120570674122594804",
+				"hash": "15284055510017769142"
+			},
+			{
+				"file": ".nx/cache/13162049551758383146/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/13162049551758383146/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/13162049551758383146.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/13162049551758383146/terminalOutput",
+				"hash": "7231969392472373484"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/10835994794266488178",
+				"hash": "13540442587542889434"
+			},
+			{
+				"file": ".nx/cache/5568573637145966597/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/5568573637145966597/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/5568573637145966597/terminalOutput",
+				"hash": "15634427738138964923"
+			},
+			{
+				"file": ".nx/cache/5568573637145966597.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/13546235148857920568",
+				"hash": "14290325532907785086"
+			},
+			{
+				"file": ".nx/cache/7120570674122594804/terminalOutput",
+				"hash": "15284055510017769142"
+			},
+			{
+				"file": ".nx/cache/7120570674122594804.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/7120570674122594804/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/7120570674122594804/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/terminalOutputs/3508609107835761398",
+				"hash": "4741835067313962128"
+			},
+			{
+				"file": ".nx/cache/10835994794266488178/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/10835994794266488178/terminalOutput",
+				"hash": "13540442587542889434"
+			},
+			{
+				"file": ".nx/cache/10835994794266488178/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/10835994794266488178.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/13546235148857920568.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/13546235148857920568/code",
+				"hash": "1838281907459330133"
+			},
+			{
+				"file": ".nx/cache/13546235148857920568/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/13546235148857920568/terminalOutput",
+				"hash": "14290325532907785086"
+			},
+			{
+				"file": ".nx/cache/3508609107835761398.commit",
+				"hash": "4664556114322093609"
+			},
+			{
+				"file": ".nx/cache/3508609107835761398/source",
+				"hash": "8880466380307166899"
+			},
+			{
+				"file": ".nx/cache/3508609107835761398/terminalOutput",
+				"hash": "4741835067313962128"
+			},
+			{
+				"file": ".nx/cache/3508609107835761398/code",
+				"hash": "1838281907459330133"
 			}
 		],
 		"projectFileMap": {
+			"nx-plugin-eslint": [
+				{
+					"file": "tools/nx-plugins/eslint/.eslintrc.js",
+					"hash": "14269935202021846062"
+				},
+				{
+					"file": "tools/nx-plugins/eslint/executors/check/executor.ts",
+					"hash": "14319105064119333821",
+					"deps": ["npm:@nx/devkit", "npm:@nx/eslint"]
+				},
+				{
+					"file": "tools/nx-plugins/eslint/executors/fix/executor.ts",
+					"hash": "12067603739882216207",
+					"deps": ["npm:@nx/devkit", "npm:@nx/eslint"]
+				},
+				{
+					"file": "tools/nx-plugins/eslint/executors.json",
+					"hash": "17780128945940792050"
+				},
+				{
+					"file": "tools/nx-plugins/eslint/package.json",
+					"hash": "10563552081728691225",
+					"deps": ["npm:@nx/eslint", "npm:typescript"]
+				},
+				{
+					"file": "tools/nx-plugins/eslint/project.json",
+					"hash": "14938103777087480883"
+				},
+				{
+					"file": "tools/nx-plugins/eslint/tsconfig.json",
+					"hash": "1269800487405912732"
+				}
+			],
+			"@guardian/libs": [
+				{
+					"file": "libs/@guardian/libs/.eslintrc copy.json",
+					"hash": "11255427998450984252"
+				},
+				{
+					"file": "libs/@guardian/libs/.eslintrc.json",
+					"hash": "11255427998450984252"
+				},
+				{
+					"file": "libs/@guardian/libs/.lintstagedrc copy.js",
+					"hash": "1994094866776373942",
+					"deps": ["npm:../../../.lintstagedrc.js"]
+				},
+				{
+					"file": "libs/@guardian/libs/.lintstagedrc.js",
+					"hash": "1994094866776373942",
+					"deps": ["npm:../../../.lintstagedrc.js"]
+				},
+				{
+					"file": "libs/@guardian/libs/CHANGELOG.md",
+					"hash": "18275310136544700831"
+				},
+				{
+					"file": "libs/@guardian/libs/README.md",
+					"hash": "6495599384692781627"
+				},
+				{
+					"file": "libs/@guardian/libs/jest.config.ts",
+					"hash": "11764278695911642917"
+				},
+				{
+					"file": "libs/@guardian/libs/jest.e2e.setup.js",
+					"hash": "4769930602818925195",
+					"deps": ["npm:../../../dist/libs/@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/libs/package.json",
+					"hash": "4563908759802668561",
+					"deps": [
+						"npm:@types/wcag-contrast",
+						"npm:jest-fetch-mock",
+						"npm:mockdate",
+						"npm:tslib",
+						"npm:typescript",
+						"npm:wcag-contrast"
+					]
+				},
+				{
+					"file": "libs/@guardian/libs/project.json",
+					"hash": "1746026131553676170"
+				},
+				{
+					"file": "libs/@guardian/libs/scripts/generateSvg.logger.subscriptions.ts",
+					"hash": "11206264362312975508",
+					"deps": ["npm:node:fs"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/ArticleElementRole/ArticleElementRole.test.ts",
+					"hash": "3389874484024850773"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ArticleElementRole/ArticleElementRole.ts",
+					"hash": "14484956861109895192"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ArticleElementRole/README.md",
+					"hash": "15463784356544454001"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/ERR_INVALID_COOKIE.ts",
+					"hash": "10352373831965093591"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/README.md",
+					"hash": "17854822972898837839"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/cookies.test.ts",
+					"hash": "16459016347473344338",
+					"deps": ["npm:mockdate"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getCookie.ts",
+					"hash": "3709342582278503521"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getCookieValues.ts",
+					"hash": "2248232651377390359"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getDomainAttribute.ts",
+					"hash": "697721966772734008"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/getShortDomain.ts",
+					"hash": "10397717949361411856"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/isValidCookie.ts",
+					"hash": "3109278285507657338"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/memoizedCookies.ts",
+					"hash": "4390798146919565360"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/removeCookie.ts",
+					"hash": "3976094881587794360"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/setCookie.ts",
+					"hash": "15894422136854867889"
+				},
+				{
+					"file": "libs/@guardian/libs/src/cookies/setSessionCookie.ts",
+					"hash": "334841585123136048"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/@types/Country.ts",
+					"hash": "9205788842730484597"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/@types/CountryCode.ts",
+					"hash": "12157220912617141203"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/@types/CountryKey.ts",
+					"hash": "11248190321601263247"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/README.md",
+					"hash": "17821738322035516225"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/countries.test.ts",
+					"hash": "2489718129152144171"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/countries.ts",
+					"hash": "2887594540122135538"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/getCountryByCountryCode.test.ts",
+					"hash": "1328877349706344556"
+				},
+				{
+					"file": "libs/@guardian/libs/src/countries/getCountryByCountryCode.ts",
+					"hash": "13348586147276349249"
+				},
+				{
+					"file": "libs/@guardian/libs/src/datetime/README.md",
+					"hash": "3209504404783224614"
+				},
+				{
+					"file": "libs/@guardian/libs/src/datetime/timeAgo.test.ts",
+					"hash": "9108929614165942636",
+					"deps": ["npm:mockdate"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/datetime/timeAgo.ts",
+					"hash": "11004200906608495893"
+				},
+				{
+					"file": "libs/@guardian/libs/src/deprecated-exports.ts",
+					"hash": "15627922740730568681"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleDesign.ts",
+					"hash": "52212398850507759"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleDisplay.ts",
+					"hash": "7368084828366459413"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleFormat.ts",
+					"hash": "3124615810286304821"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleSpecial.ts",
+					"hash": "8914597165783894911"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/ArticleTheme.ts",
+					"hash": "7228539150541033531"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/Pillar.ts",
+					"hash": "509365268991115031"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/README.md",
+					"hash": "12184199480632099494"
+				},
+				{
+					"file": "libs/@guardian/libs/src/format/format.test.ts",
+					"hash": "11614399434960216740"
+				},
+				{
+					"file": "libs/@guardian/libs/src/index.test.ts",
+					"hash": "16111297175465689039"
+				},
+				{
+					"file": "libs/@guardian/libs/src/index.ts",
+					"hash": "7163726097533274019"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isBoolean/README.md",
+					"hash": "12724998748987778201"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isBoolean/isBoolean.test.ts",
+					"hash": "17759194283861651011"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isBoolean/isBoolean.ts",
+					"hash": "14981310418486267129"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isNonNullable/isNonNullable.test.ts",
+					"hash": "7563673411911758104"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isNonNullable/isNonNullable.ts",
+					"hash": "16884370021114524322"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isObject/README.md",
+					"hash": "1109028473797670784"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isObject/isObject.test.ts",
+					"hash": "15896836299199103610"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isObject/isObject.ts",
+					"hash": "3666851094553642228"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isOneOf/README.md",
+					"hash": "1322636274867252962"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isOneOf/isOneOf.test.ts",
+					"hash": "480873935154951761"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isOneOf/isOneOf.ts",
+					"hash": "14389434723967371227"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isString/README.md",
+					"hash": "5382268190189970801"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isString/isString.test.ts",
+					"hash": "13282780227846604823"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isString/isString.ts",
+					"hash": "1840854932863330717"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isUndefined/README.md",
+					"hash": "9195436988330372166"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isUndefined/isUndefined.test.ts",
+					"hash": "12344640196136135293"
+				},
+				{
+					"file": "libs/@guardian/libs/src/isUndefined/isUndefined.ts",
+					"hash": "2370044265664301631"
+				},
+				{
+					"file": "libs/@guardian/libs/src/joinUrl/README.md",
+					"hash": "17259319757405442272"
+				},
+				{
+					"file": "libs/@guardian/libs/src/joinUrl/joinUrl.test.ts",
+					"hash": "12810696442356062663"
+				},
+				{
+					"file": "libs/@guardian/libs/src/joinUrl/joinUrl.ts",
+					"hash": "12426902247934023175"
+				},
+				{
+					"file": "libs/@guardian/libs/src/loadScript/README.md",
+					"hash": "16830045204036776873"
+				},
+				{
+					"file": "libs/@guardian/libs/src/loadScript/loadScript.test.ts",
+					"hash": "1743256568503439004"
+				},
+				{
+					"file": "libs/@guardian/libs/src/loadScript/loadScript.ts",
+					"hash": "14956954185915960936"
+				},
+				{
+					"file": "libs/@guardian/libs/src/locale/README.md",
+					"hash": "9968929302886627817"
+				},
+				{
+					"file": "libs/@guardian/libs/src/locale/getLocale.test.ts",
+					"hash": "1423542932124523847",
+					"deps": ["npm:jest-fetch-mock"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/locale/getLocale.ts",
+					"hash": "12435366018691131723"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/@types/logger.ts",
+					"hash": "16489264463519509458"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/README.md",
+					"hash": "2119016902830181551"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/debug.ts",
+					"hash": "18188248319243296984"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/logger.test.ts",
+					"hash": "10903407604028578100",
+					"deps": ["npm:wcag-contrast"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/logger.ts",
+					"hash": "6829863619643387077"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/storage-key.ts",
+					"hash": "6710576870097275136"
+				},
+				{
+					"file": "libs/@guardian/libs/src/logger/subscriptions.ts",
+					"hash": "6192214675619078750"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ophan/@types/index.ts",
+					"hash": "7940816354039600930"
+				},
+				{
+					"file": "libs/@guardian/libs/src/ophan/README.md",
+					"hash": "13390047702104949960"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/@types/measure.ts",
+					"hash": "5529053476719309169"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/README.md",
+					"hash": "9719497332087250107"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/getMeasures.test.ts",
+					"hash": "5737215836857367554"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/getMeasures.ts",
+					"hash": "9704974598629469912"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/log.ts",
+					"hash": "15125191956477390267"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/serialise.ts",
+					"hash": "16867204621062853074"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/startPerformanceMeasure.test.ts",
+					"hash": "16722565192442568713"
+				},
+				{
+					"file": "libs/@guardian/libs/src/performance/startPerformanceMeasure.ts",
+					"hash": "18108104695085121323"
+				},
+				{
+					"file": "libs/@guardian/libs/src/storage/README.md",
+					"hash": "5807297484654366949"
+				},
+				{
+					"file": "libs/@guardian/libs/src/storage/storage.test.ts",
+					"hash": "8566043075661303093"
+				},
+				{
+					"file": "libs/@guardian/libs/src/storage/storage.ts",
+					"hash": "8476231775572737270"
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/@types/Switches.ts",
+					"hash": "9855780497657202303"
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/README.md",
+					"hash": "16111736686416887217"
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/getSwitches.test.ts",
+					"hash": "6311988030987970754",
+					"deps": ["npm:jest-fetch-mock"]
+				},
+				{
+					"file": "libs/@guardian/libs/src/switches/getSwitches.ts",
+					"hash": "2797727128988156428"
+				},
+				{
+					"file": "libs/@guardian/libs/static/logger.svg",
+					"hash": "5734655333426585715"
+				},
+				{
+					"file": "libs/@guardian/libs/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/libs/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/tsconfig": [
+				{
+					"file": "libs/@guardian/tsconfig/CHANGELOG.md",
+					"hash": "14869747583657564126"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/README.md",
+					"hash": "10037873192541883047"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/e2e.test.js",
+					"hash": "14546087856982111850",
+					"deps": ["npm:../../../dist/libs/@guardian/tsconfig"]
+				},
+				{
+					"file": "libs/@guardian/tsconfig/jest.config.js",
+					"hash": "15495889370655369403"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/package.json",
+					"hash": "3872194915737436854"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/project.json",
+					"hash": "5461502278508145893"
+				},
+				{
+					"file": "libs/@guardian/tsconfig/tsconfig.json",
+					"hash": "2484137810917320156"
+				}
+			],
+			"nx-plugin-npm-package": [
+				{
+					"file": "tools/nx-plugins/npm-package/.eslintrc.js",
+					"hash": "17019859542275624475"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/get-compiler-options.ts",
+					"hash": "12413112592323578307",
+					"deps": ["npm:node:path", "npm:@nx/devkit", "npm:typescript"]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/get-declared-deps.ts",
+					"hash": "16026176867410784145",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/index.ts",
+					"hash": "7432326981236812958",
+					"deps": [
+						"npm:node:child_process",
+						"npm:node:path",
+						"npm:node:util",
+						"npm:@nx/devkit",
+						"npm:@rollup/plugin-commonjs",
+						"npm:@rollup/plugin-json",
+						"npm:@rollup/plugin-node-resolve",
+						"npm:cpy",
+						"npm:rollup",
+						"npm:rollup-plugin-ts",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/schema.d.ts",
+					"hash": "11787974242978041962"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/schema.json",
+					"hash": "2031497523210644975"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/set-package-defaults.ts",
+					"hash": "18355940592721137475",
+					"deps": [
+						"npm:node:path",
+						"npm:read-pkg",
+						"npm:sort-package-json",
+						"npm:type-fest",
+						"npm:write-pkg"
+					]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/build/write-resolved-package-json.ts",
+					"hash": "18446332424988686656",
+					"deps": ["npm:node:path", "npm:@nx/devkit", "npm:execa"]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/executors.json",
+					"hash": "14867668346469181292"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/package.json",
+					"hash": "75523000040982101",
+					"deps": [
+						"@guardian/libs",
+						"npm:@rollup/plugin-commonjs",
+						"npm:@rollup/plugin-json",
+						"npm:@rollup/plugin-node-resolve",
+						"npm:cpy",
+						"npm:execa",
+						"npm:read-pkg",
+						"npm:rollup",
+						"npm:rollup-plugin-ts",
+						"npm:sort-package-json",
+						"npm:tslib",
+						"npm:type-fest",
+						"npm:typescript",
+						"npm:write-pkg"
+					]
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/project.json",
+					"hash": "14263057533646079389"
+				},
+				{
+					"file": "tools/nx-plugins/npm-package/tsconfig.json",
+					"hash": "1269800487405912732"
+				}
+			],
+			"@guardian/identity-auth-frontend": [
+				{
+					"file": "libs/@guardian/identity-auth-frontend/.eslintrc.json",
+					"hash": "12323676007825436467"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/CHANGELOG.md",
+					"hash": "17713888616696813619"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/README.MD",
+					"hash": "1435465837697527176"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/jest.config.ts",
+					"hash": "3314363417455480469"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/jest.e2e.setup.js",
+					"hash": "108223945364513399",
+					"deps": ["npm:../../../dist/libs/@guardian/identity-auth-frontend"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/package.json",
+					"hash": "18024134315508331767",
+					"deps": [
+						"@guardian/identity-auth",
+						"@guardian/libs",
+						"npm:jest-fetch-mock",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/project.json",
+					"hash": "1409283852173158037"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/src/__tests__/index.test.ts",
+					"hash": "15079522260752410805"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/src/index.ts",
+					"hash": "17808896395704555140",
+					"deps": ["@guardian/identity-auth", "npm:@guardian/identity-auth"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/identity-auth-frontend/tsconfig.spec.json",
+					"hash": "7916238407462233235"
+				}
+			],
+			"@guardian/prettier": [
+				{
+					"file": "libs/@guardian/prettier/CHANGELOG.md",
+					"hash": "2373330524025770020"
+				},
+				{
+					"file": "libs/@guardian/prettier/e2e.test.js",
+					"hash": "7831527849869619943",
+					"deps": ["npm:../../../dist/libs/@guardian/prettier"]
+				},
+				{
+					"file": "libs/@guardian/prettier/index.d.ts",
+					"hash": "15472471954476781312",
+					"deps": ["npm:prettier"]
+				},
+				{
+					"file": "libs/@guardian/prettier/index.js",
+					"hash": "149497246191536"
+				},
+				{
+					"file": "libs/@guardian/prettier/jest.config.js",
+					"hash": "7251506874164924401"
+				},
+				{
+					"file": "libs/@guardian/prettier/package.json",
+					"hash": "16985272932645218393",
+					"deps": ["npm:prettier", "npm:tslib"]
+				},
+				{
+					"file": "libs/@guardian/prettier/project.json",
+					"hash": "16199203547803921741"
+				},
+				{
+					"file": "libs/@guardian/prettier/readme.md",
+					"hash": "9948498955916695467"
+				}
+			],
+			"@guardian/ab-react": [
+				{
+					"file": "libs/@guardian/ab-react/.eslintrc.json",
+					"hash": "11368009469470141677"
+				},
+				{
+					"file": "libs/@guardian/ab-react/CHANGELOG.md",
+					"hash": "15993986301537703363"
+				},
+				{
+					"file": "libs/@guardian/ab-react/README.md",
+					"hash": "1174174413585650294"
+				},
+				{
+					"file": "libs/@guardian/ab-react/jest.config.ts",
+					"hash": "4075835613377403807"
+				},
+				{
+					"file": "libs/@guardian/ab-react/jest.e2e.setup.js",
+					"hash": "8521875203457064649",
+					"deps": ["npm:../../../dist/libs/@guardian/ab-react"]
+				},
+				{
+					"file": "libs/@guardian/ab-react/package.json",
+					"hash": "13487281314565779858",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/ab-core",
+						"npm:@testing-library/react",
+						"npm:@types/react",
+						"npm:react",
+						"npm:react-dom",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/ab-react/project.json",
+					"hash": "5551129810010558747"
+				},
+				{
+					"file": "libs/@guardian/ab-react/src/context.test.tsx",
+					"hash": "8672283271990578802",
+					"deps": ["npm:@testing-library/react"]
+				},
+				{
+					"file": "libs/@guardian/ab-react/src/context.tsx",
+					"hash": "4995233489358866708",
+					"deps": ["@guardian/ab-core", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/ab-react/src/index.ts",
+					"hash": "3325535115643034162"
+				},
+				{
+					"file": "libs/@guardian/ab-react/tsconfig.json",
+					"hash": "1857757241205281244"
+				},
+				{
+					"file": "libs/@guardian/ab-react/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/browserslist-config": [
+				{
+					"file": "libs/@guardian/browserslist-config/.browserslistrc",
+					"hash": "10738151125382981633"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/CHANGELOG.md",
+					"hash": "18292427692941339043"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/README.md",
+					"hash": "15472444555433677519"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/browserslist-stats.json",
+					"hash": "17271511382104281606"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/browserslist.js",
+					"hash": "12942232371607447698"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/e2e.test.js",
+					"hash": "14896730811675395564",
+					"deps": ["npm:../../../dist/libs/@guardian/browserslist-config"]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/jest.config.js",
+					"hash": "9172693907117633587"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/package.json",
+					"hash": "5856691472766156854",
+					"deps": ["npm:browserslist", "npm:tslib"]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/project.json",
+					"hash": "7152168760337971922"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/included-table.mjs",
+					"hash": "1343647351876579979",
+					"deps": ["npm:browserslist"]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/normalise-browser-name.mjs",
+					"hash": "10826260321120845191"
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/update-readme.mjs",
+					"hash": "2800766929748311125",
+					"deps": [
+						"npm:node:fs/promises",
+						"npm:node:path",
+						"npm:node:url",
+						"npm:prettier"
+					]
+				},
+				{
+					"file": "libs/@guardian/browserslist-config/scripts/usage-table.mjs",
+					"hash": "14219408142414878502"
+				}
+			],
+			"@guardian/source-react-components-development-kitchen": [
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.eslintrc.js",
+					"hash": "17163163467810184326"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/main.js",
+					"hash": "24357244346551319",
+					"deps": ["npm:../../../../.storybook/main"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/manager.ts",
+					"hash": "4132396816044148053",
+					"deps": ["npm:@storybook/addons"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/FocusManagerDecorator.tsx",
+					"hash": "6139147699350382015",
+					"deps": ["npm:react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/ThemeProviderDecorator.tsx",
+					"hash": "8836181832117602877",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/backgrounds.ts",
+					"hash": "827380625774100857",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/viewport.ts",
+					"hash": "481346789287670766",
+					"deps": ["@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview-head.html",
+					"hash": "16915390007016120558"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview.tsx",
+					"hash": "10963434000858451489"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/theme.ts",
+					"hash": "2138187543257934411",
+					"deps": ["npm:@storybook/theming"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/CHANGELOG.md",
+					"hash": "4368545508627858286"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/README.md",
+					"hash": "7982466192870685962"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
+					"hash": "15115059482023424321"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/jest.e2e.setup.ts",
+					"hash": "9233361272482632929",
+					"deps": [
+						"npm:../../../dist/libs/@guardian/source-react-components-development-kitchen"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/package.json",
+					"hash": "15420437158961156274",
+					"deps": [
+						"npm:@babel/core",
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:@types/react",
+						"npm:react",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/project.json",
+					"hash": "10642615072879639043"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/AgeWarning.stories.tsx",
+					"hash": "10006625314389151621",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/AgeWarning.tsx",
+					"hash": "17676100369636826084",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/README.md",
+					"hash": "11290091093803078054"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/styles.ts",
+					"hash": "9254339797494607004",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/Divider.stories.tsx",
+					"hash": "6200119099727023922",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/Divider.tsx",
+					"hash": "5711586629832039202",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/README.md",
+					"hash": "6318264852607265122"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/styles.ts",
+					"hash": "7348185331722480401",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialButton.stories.tsx",
+					"hash": "2756601389008233045",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-react-components",
+						"npm:@storybook/react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialButton.tsx",
+					"hash": "1395438675874750259",
+					"deps": ["npm:@emotion/react", "@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialLinkButton.stories.tsx",
+					"hash": "8725431935803268529",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-react-components",
+						"npm:@storybook/react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialLinkButton.tsx",
+					"hash": "16098505719332547773",
+					"deps": ["npm:@emotion/react", "@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/README.md",
+					"hash": "4723737548666933479"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/styles.ts",
+					"hash": "6141442118125401818",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/types.ts",
+					"hash": "11449405129908114076",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.stories.tsx",
+					"hash": "7745190438035539997",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.tsx",
+					"hash": "16264674040305617714",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/README.md",
+					"hash": "2368261425563997746"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/styles.ts",
+					"hash": "12591058029551423734",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/theme.ts",
+					"hash": "5187963855753392200",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/types.ts",
+					"hash": "5070332543442729023",
+					"deps": ["npm:@emotion/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/FileInput.stories.tsx",
+					"hash": "15548239273371581845",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/FileInput.tsx",
+					"hash": "7050367324443787296",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/README.md",
+					"hash": "11812291851199277952"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/fileHelpers.ts",
+					"hash": "9421982981689013220"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/styles.ts",
+					"hash": "15169341151065730067",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/theme.ts",
+					"hash": "5287040224626559817",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/types.ts",
+					"hash": "9019221658782117483",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterLinks.stories.tsx",
+					"hash": "13465802665480018853",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterLinks.tsx",
+					"hash": "17518324155053953953",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterWithContents.stories.tsx",
+					"hash": "9944439462868552185",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterWithContents.tsx",
+					"hash": "3662005720995746377",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/README.md",
+					"hash": "18146143063253884465"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/footerLinksStyles.ts",
+					"hash": "7856923857390222807",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/footerWithContentsStyles.ts",
+					"hash": "4083466391564768658",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/index.test.ts",
+					"hash": "1041957154316588494"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
+					"hash": "17649606848539929042"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/DashedLines.tsx",
+					"hash": "5768893434953525680",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/DottedLines.tsx",
+					"hash": "9715584227454774192",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.stories.tsx",
+					"hash": "10926532776196894026",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.tsx",
+					"hash": "16797086849814904611",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/README.md",
+					"hash": "9182825803256309570"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/SquigglyLines.tsx",
+					"hash": "11517487456726442957",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/StraightLines.tsx",
+					"hash": "14185918427383483624",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.stories.tsx",
+					"hash": "15860161772596379365",
+					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx",
+					"hash": "5706700228799189600",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/README.md",
+					"hash": "1648384074638231592"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/InputExtension.tsx",
+					"hash": "2030903793191754805",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.stories.tsx",
+					"hash": "5080394675637656852",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.tsx",
+					"hash": "3761691726304332232",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/README.md",
+					"hash": "7160352542172640727"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/inputExtensionStyles.ts",
+					"hash": "7720670300214934092",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/numericInputStyles.ts",
+					"hash": "3675332391965353283",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/sharedStyles.ts",
+					"hash": "14328922261581889168",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.stories.tsx",
+					"hash": "2518986403780342895",
+					"deps": ["@guardian/libs", "npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.tsx",
+					"hash": "6052820505683553787",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/README.md",
+					"hash": "10867471346551414326"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/README.md",
+					"hash": "12137594941782531864"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.stories.tsx",
+					"hash": "4693731699692179204",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.tsx",
+					"hash": "8038328894577079589",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/ErrorSummary.stories.tsx",
+					"hash": "5377303033535772440",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/ErrorSummary.tsx",
+					"hash": "13841244092362368364",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/InfoSummary.stories.tsx",
+					"hash": "7436229663649833026",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/InfoSummary.tsx",
+					"hash": "16333290994852830949",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/README.md",
+					"hash": "9307293655053189972"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/SuccessSummary.stories.tsx",
+					"hash": "12932780105691169069",
+					"deps": ["npm:@storybook/react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/SuccessSummary.tsx",
+					"hash": "5350379183831687734",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/styles.ts",
+					"hash": "1361792728384022510",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/types.ts",
+					"hash": "12474401092658518477",
+					"deps": ["@guardian/source-react-components"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/README.MD",
+					"hash": "8681905073889575039"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/Tabs.stories.tsx",
+					"hash": "7857423065147164944",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-react-components",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/styles.ts",
+					"hash": "17816590035016437803",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/tabs.tsx",
+					"hash": "13971204821057552201"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/theme.ts",
+					"hash": "16596511521087917567",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/types.ts",
+					"hash": "12544734913223605969",
+					"deps": ["npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/README.md",
+					"hash": "669307248487057503"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.stories.tsx",
+					"hash": "15459070412305650623",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"npm:@storybook/react",
+						"npm:react"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.tsx",
+					"hash": "9637344518786558737",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"npm:react",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/styles.ts",
+					"hash": "12997443210475535641",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/README.md",
+					"hash": "15254259793597964607"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.stories.tsx",
+					"hash": "17725615491017877034",
+					"deps": ["npm:@storybook/react", "npm:react"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.tsx",
+					"hash": "4397931237302068403",
+					"deps": [
+						"npm:@emotion/react",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/styles.ts",
+					"hash": "6413398082591567370",
+					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
+					"hash": "2494373635055494437"
+				},
+				{
+					"file": "libs/@guardian/source-react-components-development-kitchen/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/ab-core": [
+				{
+					"file": "libs/@guardian/ab-core/.eslintrc.json",
+					"hash": "6959177146399665629"
+				},
+				{
+					"file": "libs/@guardian/ab-core/CHANGELOG.md",
+					"hash": "7003934771089575060"
+				},
+				{
+					"file": "libs/@guardian/ab-core/README.md",
+					"hash": "14919591766933602536"
+				},
+				{
+					"file": "libs/@guardian/ab-core/jest.config.ts",
+					"hash": "555898884935911471"
+				},
+				{
+					"file": "libs/@guardian/ab-core/jest.e2e.setup.js",
+					"hash": "16944538561887207684",
+					"deps": ["npm:../../../dist/libs/@guardian/ab-core"]
+				},
+				{
+					"file": "libs/@guardian/ab-core/package.json",
+					"hash": "11431113632958341288",
+					"deps": ["npm:tslib", "npm:typescript"]
+				},
+				{
+					"file": "libs/@guardian/ab-core/project.json",
+					"hash": "14020600437460473978"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/@types/index.ts",
+					"hash": "10309291841894149285"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/ab.test.ts",
+					"hash": "13312248574960313914"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/ab.ts",
+					"hash": "16672056303901164343"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/core.test.ts",
+					"hash": "6395582096933500215"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/core.ts",
+					"hash": "11024750863647290456"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/e2e.test.ts",
+					"hash": "8898998349125857949"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/fixture.ts",
+					"hash": "10177107845182198395"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/index.ts",
+					"hash": "17690945889171795949"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/ophan.ts",
+					"hash": "15566170479313334604"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/time.test.ts",
+					"hash": "825707822073706130"
+				},
+				{
+					"file": "libs/@guardian/ab-core/src/time.ts",
+					"hash": "17130656409564423505"
+				},
+				{
+					"file": "libs/@guardian/ab-core/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/ab-core/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"csnx": [
+				{
+					"file": "apps/csnx/.storybook/main.js",
+					"hash": "716687333490868408",
+					"deps": ["npm:../../../.storybook/main"]
+				},
+				{
+					"file": "apps/csnx/.storybook/preview.js",
+					"hash": "3244421341483603138"
+				},
+				{
+					"file": "apps/csnx/README.md",
+					"hash": "7759650497409900813"
+				},
+				{
+					"file": "apps/csnx/project.json",
+					"hash": "400143405715566561"
+				},
+				{
+					"file": "apps/csnx/src/README.stories.mdx",
+					"hash": "17498719543509757889"
+				}
+			],
+			"@guardian/core-web-vitals": [
+				{
+					"file": "libs/@guardian/core-web-vitals/.eslintrc.json",
+					"hash": "2446043990230554346"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/CHANGELOG.md",
+					"hash": "10988624897837080241"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/README.md",
+					"hash": "6324081144396852781"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/jest.config.ts",
+					"hash": "3089527477687987803"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/jest.e2e.setup.js",
+					"hash": "15825959017368110657",
+					"deps": ["npm:../../../dist/libs/@guardian/core-web-vitals"]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/package.json",
+					"hash": "7453408041896139563",
+					"deps": [
+						"@guardian/libs",
+						"npm:tslib",
+						"npm:typescript",
+						"npm:web-vitals"
+					]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/project.json",
+					"hash": "9763260610916139435"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/@types/CoreWebVitalsPayload.ts",
+					"hash": "1583130179538901373"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/e2e.test.ts",
+					"hash": "9547534464465073704"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/index.test.ts",
+					"hash": "10844598452064341220",
+					"deps": ["npm:web-vitals"]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/index.ts",
+					"hash": "4411971637359906579",
+					"deps": [
+						"@guardian/libs",
+						"npm:web-vitals",
+						["npm:web-vitals", "dynamic"]
+					]
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/roundWithDecimals.test.ts",
+					"hash": "11201989208305382423"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/src/roundWithDecimals.ts",
+					"hash": "2399786712856102619"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/core-web-vitals/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@csnx/hello-world": [
+				{
+					"file": "libs/@csnx/hello-world/.eslintrc.json",
+					"hash": "1981009228005663347"
+				},
+				{
+					"file": "libs/@csnx/hello-world/README.md",
+					"hash": "14827552075958354746"
+				},
+				{
+					"file": "libs/@csnx/hello-world/jest.config.ts",
+					"hash": "7277571155642727270"
+				},
+				{
+					"file": "libs/@csnx/hello-world/package.json",
+					"hash": "8300598231242691514",
+					"deps": ["npm:tslib", "npm:typescript"]
+				},
+				{
+					"file": "libs/@csnx/hello-world/project.json",
+					"hash": "7495595221072220437"
+				},
+				{
+					"file": "libs/@csnx/hello-world/src/index.ts",
+					"hash": "14590783021641316475"
+				},
+				{
+					"file": "libs/@csnx/hello-world/src/lib/hello-world.spec.ts",
+					"hash": "1487034059140156733"
+				},
+				{
+					"file": "libs/@csnx/hello-world/src/lib/hello-world.ts",
+					"hash": "9709547799850499789"
+				},
+				{
+					"file": "libs/@csnx/hello-world/tsconfig.json",
+					"hash": "16206424712271688735"
+				},
+				{
+					"file": "libs/@csnx/hello-world/tsconfig.lib.json",
+					"hash": "16599458128203412001"
+				},
+				{
+					"file": "libs/@csnx/hello-world/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/eslint-plugin-source-react-components": [
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/.eslintrc.json",
+					"hash": "13135539320465078857"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/CHANGELOG.md",
+					"hash": "15974034141022343029"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/README.md",
+					"hash": "17161212990015164294"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
+					"hash": "8338547406996913733"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/jest.e2e.setup.ts",
+					"hash": "3159610872043835157",
+					"deps": [
+						"npm:../../../dist/libs/@guardian/eslint-plugin-source-react-components"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/package.json",
+					"hash": "11357083978047987063",
+					"deps": [
+						"npm:@typescript-eslint/eslint-plugin",
+						"npm:@typescript-eslint/parser",
+						"npm:@emotion/react",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"@guardian/source-react-components",
+						"npm:@types/eslint",
+						"npm:@types/estree",
+						"npm:eslint",
+						"npm:react",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/project.json",
+					"hash": "2477242551907227391"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/index.test.ts",
+					"hash": "15161976767759481955"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/index.ts",
+					"hash": "4241342026852817975"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/rules/valid-import-path.test.ts",
+					"hash": "11043886046350992854",
+					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/src/rules/valid-import-path.ts",
+					"hash": "518998309705449540",
+					"deps": ["@guardian/libs", "npm:eslint", "npm:estree"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/newsletter-types": [
+				{
+					"file": "libs/@guardian/newsletter-types/.eslintrc.json",
+					"hash": "6513534372145807551"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/CHANGELOG.md",
+					"hash": "7471150077534923810"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/README.md",
+					"hash": "9236147224023520212"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/jest.config.ts",
+					"hash": "17089776537538925641"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/jest.e2e.setup.js",
+					"hash": "2633614407614076610",
+					"deps": ["npm:../../../dist/libs/@guardian/newsletter-types"]
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/package-lock.json",
+					"hash": "1907557906434946321"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/package.json",
+					"hash": "4298818145013038443",
+					"deps": ["npm:tslib", "npm:typescript"]
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/project.json",
+					"hash": "11459960747435943817"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/src/@types/index.ts",
+					"hash": "10118164306892192027"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/src/@types/newsletters-api.ts",
+					"hash": "5939286297217334287"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/src/index.ts",
+					"hash": "10369755120179243156"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/newsletter-types/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/identity-auth": [
+				{
+					"file": "libs/@guardian/identity-auth/.eslintrc.json",
+					"hash": "151656126826297128"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/CHANGELOG.md",
+					"hash": "6578241987059731253"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/README.md",
+					"hash": "5397657271900178365"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/jest.config.ts",
+					"hash": "17597513626967017591"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/jest.e2e.setup.js",
+					"hash": "8138304509284146376",
+					"deps": ["npm:../../../dist/libs/@guardian/identity-auth"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/package.json",
+					"hash": "5249224496618725143",
+					"deps": [
+						"@guardian/libs",
+						"npm:jest-fetch-mock",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/project.json",
+					"hash": "12189016583314406302"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/@types/OAuth.ts",
+					"hash": "484232461514257501"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/@types/Token.ts",
+					"hash": "7710503934205359429"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/@types/guard.ts",
+					"hash": "10041493709679624412"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/authState.test.ts",
+					"hash": "17497959930696438376"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/autoRenew.test.ts",
+					"hash": "16384414508176261761"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/cookieRefresh.test.ts",
+					"hash": "1527596820980430557",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/crypto.test.ts",
+					"hash": "9181934876416850649",
+					"deps": ["npm:crypto", "npm:util"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/emitter.test.ts",
+					"hash": "7710097742673258287"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/identityAuth.test.ts",
+					"hash": "489530732443378060"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/token.test.ts",
+					"hash": "12686861540637751220",
+					"deps": ["npm:jest-fetch-mock"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/__tests__/tokenManager.test.ts",
+					"hash": "11901189109852515960",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/authState.ts",
+					"hash": "2148353814522809728"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/autoRenew.ts",
+					"hash": "18016551665061312317",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/cookieRefresh.ts",
+					"hash": "10606239704407516958",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/crypto.ts",
+					"hash": "10385687851002448224"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/emitter.ts",
+					"hash": "18244189917631540244"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/error.ts",
+					"hash": "9539885733972546553"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/identityAuth.ts",
+					"hash": "4828276554248696956",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/index.ts",
+					"hash": "1777034081882803857"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/token.ts",
+					"hash": "3907910782606095645",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/src/tokenManager.ts",
+					"hash": "17753920346863240100",
+					"deps": ["@guardian/libs"]
+				},
+				{
+					"file": "libs/@guardian/identity-auth/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/identity-auth/tsconfig.spec.json",
+					"hash": "9319630462349922671"
+				}
+			],
+			"@guardian/eslint-config": [
+				{
+					"file": "libs/@guardian/eslint-config/CHANGELOG.md",
+					"hash": "6214569367115308000"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/README.md",
+					"hash": "745915868383433290"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/e2e.test.js",
+					"hash": "1679444207401432461",
+					"deps": ["npm:../../../dist/libs/@guardian/eslint-config"]
+				},
+				{
+					"file": "libs/@guardian/eslint-config/index.js",
+					"hash": "2681364849865611711"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/jest.config.js",
+					"hash": "14055872559690274152"
+				},
+				{
+					"file": "libs/@guardian/eslint-config/package.json",
+					"hash": "13856615558683619697",
+					"deps": [
+						"npm:eslint-config-prettier",
+						"npm:eslint-plugin-eslint-comments",
+						"npm:eslint-plugin-import",
+						"npm:eslint",
+						"npm:tslib"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-config/project.json",
+					"hash": "755376773088798932"
+				}
+			],
+			"@guardian/eslint-config-typescript": [
+				{
+					"file": "libs/@guardian/eslint-config-typescript/CHANGELOG.md",
+					"hash": "6893497940713246038"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/DECISION_RECORD.md",
+					"hash": "13113131601420968107"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/README.md",
+					"hash": "7907907892206820104"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/e2e.test.js",
+					"hash": "5320943896646056055",
+					"deps": ["npm:../../../dist/libs/@guardian/eslint-config-typescript"]
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/index.js",
+					"hash": "16583573112952399985"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/jest.config.js",
+					"hash": "2524713161842202053"
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/package.json",
+					"hash": "6499894244597132797",
+					"deps": [
+						"@guardian/eslint-config",
+						"npm:@typescript-eslint/eslint-plugin",
+						"npm:@typescript-eslint/parser",
+						"npm:eslint-import-resolver-typescript",
+						"npm:eslint-plugin-import",
+						"npm:eslint",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-config-typescript/project.json",
+					"hash": "9278462466589483831"
+				}
+			],
+			"@guardian/source-foundations": [
+				{
+					"file": "libs/@guardian/source-foundations/.eslintrc.js",
+					"hash": "1550181523664533959"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/.storybook/main.js",
+					"hash": "24357244346551319",
+					"deps": ["npm:../../../../.storybook/main"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/.storybook/preview-head.html",
+					"hash": "16915390007016120558"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/.storybook/preview.tsx",
+					"hash": "15570997121796260248"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/CHANGELOG.md",
+					"hash": "18243346329093601099"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/README.md",
+					"hash": "2066624161393987205"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/jest.config.ts",
+					"hash": "2389290539114294087"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/jest.e2e.setup.ts",
+					"hash": "16722866084370106895",
+					"deps": ["npm:../../../dist/libs/@guardian/source-foundations"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/lib/jest-matchers/index.d.ts",
+					"hash": "5887406237053507186"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/lib/jest-matchers/toBeValidCSS.ts",
+					"hash": "15594950232994060461",
+					"deps": ["npm:lightningcss"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/package.json",
+					"hash": "17788891494663465309",
+					"deps": [
+						"npm:mini-svg-data-uri",
+						"npm:@emotion/react",
+						"npm:lightningcss",
+						"npm:react",
+						"npm:react-dom",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/project.json",
+					"hash": "11084046998283173473"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/accessibility.test.ts",
+					"hash": "8390031533201394671"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/description-id.stories.mdx",
+					"hash": "5273275255495755312"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/description-id.ts",
+					"hash": "1867987847395697772"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-halo.stories.mdx",
+					"hash": "9411332542260378433"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-halo.ts",
+					"hash": "15434665690961501465"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-style-manager.stories.mdx",
+					"hash": "16888453837444224413"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/focus-style-manager.ts",
+					"hash": "10651957854388052740"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/generate-source-id.stories.mdx",
+					"hash": "12315915105789947697"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/generate-source-id.ts",
+					"hash": "1196074209014016249"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/visually-hidden.stories.mdx",
+					"hash": "15020017441198293649"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/accessibility/visually-hidden.ts",
+					"hash": "12380044207180660529"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/animation/transitions.ts",
+					"hash": "5934028615348823794"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/breakpoints/breakpoints.ts",
+					"hash": "10398876398364786590"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/colour/palette.stories.mdx",
+					"hash": "10254399241817415096"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/colour/palette.ts",
+					"hash": "5067776153459294017"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/colour/storybookColorPalette.tsx",
+					"hash": "11777730835441330180",
+					"deps": ["npm:@emotion/react"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/index.test.ts",
+					"hash": "3184136727367546132"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/index.ts",
+					"hash": "5611159186373320787"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/mq/mq.stories.mdx",
+					"hash": "15048305675548810401"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/mq/mq.test.ts",
+					"hash": "12409527711778663641"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/mq/mq.ts",
+					"hash": "3687055638412932100"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/size/size.stories.mdx",
+					"hash": "2340793411436690801"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/size/size.ts",
+					"hash": "4830817665741381164"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/space/space.stories.mdx",
+					"hash": "12251189590366454455"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/space/space.test.ts",
+					"hash": "4807644214251501273"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/space/space.ts",
+					"hash": "2697734913497840057"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/api.ts",
+					"hash": "8717936668393798314"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/data.ts",
+					"hash": "14952195993775752314"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/font-styles.ts",
+					"hash": "9882410232816530494"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/index.ts",
+					"hash": "11583423385146396085"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/obj/index.ts",
+					"hash": "18418766009205954129"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/obj/typography.obj.test.ts",
+					"hash": "3352158577739593431"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/storybookTypographyRenderers.tsx",
+					"hash": "13781187217553396369"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/types.ts",
+					"hash": "8331168317181061639"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/typography.stories.mdx",
+					"hash": "130646505018069724"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/typography/typography.test.ts",
+					"hash": "4010106939072006386"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/px-to-rem.test.ts",
+					"hash": "8179524110169491671"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/px-to-rem.ts",
+					"hash": "9865494703287067528"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/resets.stories.mdx",
+					"hash": "2966624682354624697"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/resets.test.ts",
+					"hash": "744436503325623283"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/resets.ts",
+					"hash": "16583117230524712549"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/supports-queries.ts",
+					"hash": "6115487028328199082"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/src/utils/svg-background-image.ts",
+					"hash": "7828681073200841071",
+					"deps": ["npm:mini-svg-data-uri"]
+				},
+				{
+					"file": "libs/@guardian/source-foundations/tsconfig.json",
+					"hash": "2494373635055494437"
+				},
+				{
+					"file": "libs/@guardian/source-foundations/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
+			"@guardian/eslint-plugin-source-foundations": [
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/.eslintrc.json",
+					"hash": "11097259163872067192"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/CHANGELOG.md",
+					"hash": "902776068525928612"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/README.md",
+					"hash": "3284594776500096823"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
+					"hash": "9529271860355131206"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/jest.e2e.setup.ts",
+					"hash": "8172123534921709252",
+					"deps": [
+						"npm:../../../dist/libs/@guardian/eslint-plugin-source-foundations"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/package.json",
+					"hash": "14052662687111885974",
+					"deps": [
+						"npm:@typescript-eslint/eslint-plugin",
+						"npm:@typescript-eslint/parser",
+						"npm:eslint-plugin-import",
+						"@guardian/libs",
+						"@guardian/source-foundations",
+						"npm:@types/eslint",
+						"npm:@types/estree",
+						"npm:eslint",
+						"npm:tslib",
+						"npm:typescript"
+					]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/project.json",
+					"hash": "17293076193234666642"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/index.test.ts",
+					"hash": "15161976767759481955"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/index.ts",
+					"hash": "15135424645467927213"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/no-star-imports-or-exports.test.ts",
+					"hash": "7970008723150675572",
+					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/no-star-imports-or-exports.ts",
+					"hash": "4198022973300840888",
+					"deps": ["npm:eslint", "npm:estree"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/valid-import-path.test.ts",
+					"hash": "9165246361668144663",
+					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/valid-import-path.ts",
+					"hash": "7612239752252806317",
+					"deps": ["@guardian/libs", "npm:eslint", "npm:estree"]
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/tsconfig.json",
+					"hash": "16446198764448842999"
+				},
+				{
+					"file": "libs/@guardian/eslint-plugin-source-foundations/tsconfig.spec.json",
+					"hash": "13936884200327842647"
+				}
+			],
 			"@guardian/source-react-components": [
 				{
 					"file": "libs/@guardian/source-react-components/.eslintrc.js",
@@ -1805,2294 +4581,6 @@
 					"file": "libs/@guardian/source-react-components/vendor/icons/SvgWhatsAppBrand.tsx",
 					"hash": "2852669639407796304",
 					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				}
-			],
-			"@guardian/newsletter-types": [
-				{
-					"file": "libs/@guardian/newsletter-types/.eslintrc.json",
-					"hash": "6513534372145807551"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/CHANGELOG.md",
-					"hash": "7471150077534923810"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/README.md",
-					"hash": "9236147224023520212"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/jest.config.ts",
-					"hash": "17089776537538925641"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/jest.e2e.setup.js",
-					"hash": "2633614407614076610",
-					"deps": ["npm:../../../dist/libs/@guardian/newsletter-types"]
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/package-lock.json",
-					"hash": "1907557906434946321"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/package.json",
-					"hash": "4298818145013038443",
-					"deps": ["npm:tslib", "npm:typescript"]
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/project.json",
-					"hash": "11459960747435943817"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/src/@types/index.ts",
-					"hash": "10118164306892192027"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/src/@types/newsletters-api.ts",
-					"hash": "5939286297217334287"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/src/index.ts",
-					"hash": "10369755120179243156"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/newsletter-types/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"@csnx/hello-world": [
-				{
-					"file": "libs/@csnx/hello-world/.eslintrc.json",
-					"hash": "1981009228005663347"
-				},
-				{
-					"file": "libs/@csnx/hello-world/README.md",
-					"hash": "14827552075958354746"
-				},
-				{
-					"file": "libs/@csnx/hello-world/jest.config.ts",
-					"hash": "7277571155642727270"
-				},
-				{
-					"file": "libs/@csnx/hello-world/package.json",
-					"hash": "8300598231242691514",
-					"deps": ["npm:tslib", "npm:typescript"]
-				},
-				{
-					"file": "libs/@csnx/hello-world/project.json",
-					"hash": "7495595221072220437"
-				},
-				{
-					"file": "libs/@csnx/hello-world/src/index.ts",
-					"hash": "14590783021641316475"
-				},
-				{
-					"file": "libs/@csnx/hello-world/src/lib/hello-world.spec.ts",
-					"hash": "1487034059140156733"
-				},
-				{
-					"file": "libs/@csnx/hello-world/src/lib/hello-world.ts",
-					"hash": "9709547799850499789"
-				},
-				{
-					"file": "libs/@csnx/hello-world/tsconfig.json",
-					"hash": "16206424712271688735"
-				},
-				{
-					"file": "libs/@csnx/hello-world/tsconfig.lib.json",
-					"hash": "16599458128203412001"
-				},
-				{
-					"file": "libs/@csnx/hello-world/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"@guardian/prettier": [
-				{
-					"file": "libs/@guardian/prettier/CHANGELOG.md",
-					"hash": "2373330524025770020"
-				},
-				{
-					"file": "libs/@guardian/prettier/e2e.test.js",
-					"hash": "7831527849869619943",
-					"deps": ["npm:../../../dist/libs/@guardian/prettier"]
-				},
-				{
-					"file": "libs/@guardian/prettier/index.d.ts",
-					"hash": "15472471954476781312",
-					"deps": ["npm:prettier"]
-				},
-				{
-					"file": "libs/@guardian/prettier/index.js",
-					"hash": "149497246191536"
-				},
-				{
-					"file": "libs/@guardian/prettier/jest.config.js",
-					"hash": "7251506874164924401"
-				},
-				{
-					"file": "libs/@guardian/prettier/package.json",
-					"hash": "16985272932645218393",
-					"deps": ["npm:prettier", "npm:tslib"]
-				},
-				{
-					"file": "libs/@guardian/prettier/project.json",
-					"hash": "16199203547803921741"
-				},
-				{
-					"file": "libs/@guardian/prettier/readme.md",
-					"hash": "9948498955916695467"
-				}
-			],
-			"@guardian/ab-react": [
-				{
-					"file": "libs/@guardian/ab-react/.eslintrc.json",
-					"hash": "11368009469470141677"
-				},
-				{
-					"file": "libs/@guardian/ab-react/CHANGELOG.md",
-					"hash": "15993986301537703363"
-				},
-				{
-					"file": "libs/@guardian/ab-react/README.md",
-					"hash": "1174174413585650294"
-				},
-				{
-					"file": "libs/@guardian/ab-react/jest.config.ts",
-					"hash": "4075835613377403807"
-				},
-				{
-					"file": "libs/@guardian/ab-react/jest.e2e.setup.js",
-					"hash": "8521875203457064649",
-					"deps": ["npm:../../../dist/libs/@guardian/ab-react"]
-				},
-				{
-					"file": "libs/@guardian/ab-react/package.json",
-					"hash": "13487281314565779858",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/ab-core",
-						"npm:@testing-library/react",
-						"npm:@types/react",
-						"npm:react",
-						"npm:react-dom",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/ab-react/project.json",
-					"hash": "5551129810010558747"
-				},
-				{
-					"file": "libs/@guardian/ab-react/src/context.test.tsx",
-					"hash": "8672283271990578802",
-					"deps": ["npm:@testing-library/react"]
-				},
-				{
-					"file": "libs/@guardian/ab-react/src/context.tsx",
-					"hash": "4995233489358866708",
-					"deps": ["@guardian/ab-core", "npm:react"]
-				},
-				{
-					"file": "libs/@guardian/ab-react/src/index.ts",
-					"hash": "3325535115643034162"
-				},
-				{
-					"file": "libs/@guardian/ab-react/tsconfig.json",
-					"hash": "1857757241205281244"
-				},
-				{
-					"file": "libs/@guardian/ab-react/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"@guardian/source-react-components-development-kitchen": [
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.eslintrc.js",
-					"hash": "17163163467810184326"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/main.js",
-					"hash": "24357244346551319",
-					"deps": ["npm:../../../../.storybook/main"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/manager.ts",
-					"hash": "4132396816044148053",
-					"deps": ["npm:@storybook/addons"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/FocusManagerDecorator.tsx",
-					"hash": "6139147699350382015",
-					"deps": ["npm:react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/ThemeProviderDecorator.tsx",
-					"hash": "8836181832117602877",
-					"deps": ["npm:@emotion/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/backgrounds.ts",
-					"hash": "827380625774100857",
-					"deps": ["@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview/viewport.ts",
-					"hash": "481346789287670766",
-					"deps": ["@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview-head.html",
-					"hash": "16915390007016120558"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/preview.tsx",
-					"hash": "10963434000858451489"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/.storybook/theme.ts",
-					"hash": "2138187543257934411",
-					"deps": ["npm:@storybook/theming"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/CHANGELOG.md",
-					"hash": "4368545508627858286"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/README.md",
-					"hash": "7982466192870685962"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"hash": "15115059482023424321"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/jest.e2e.setup.ts",
-					"hash": "9233361272482632929",
-					"deps": [
-						"npm:../../../dist/libs/@guardian/source-react-components-development-kitchen"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/package.json",
-					"hash": "15420437158961156274",
-					"deps": [
-						"npm:@babel/core",
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components",
-						"npm:@types/react",
-						"npm:react",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/project.json",
-					"hash": "10642615072879639043"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/AgeWarning.stories.tsx",
-					"hash": "10006625314389151621",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/AgeWarning.tsx",
-					"hash": "17676100369636826084",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/README.md",
-					"hash": "11290091093803078054"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/age-warning/styles.ts",
-					"hash": "9254339797494607004",
-					"deps": ["npm:@emotion/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/Divider.stories.tsx",
-					"hash": "6200119099727023922",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/Divider.tsx",
-					"hash": "5711586629832039202",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/README.md",
-					"hash": "6318264852607265122"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/divider/styles.ts",
-					"hash": "7348185331722480401",
-					"deps": ["npm:@emotion/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialButton.stories.tsx",
-					"hash": "2756601389008233045",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-react-components",
-						"npm:@storybook/react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialButton.tsx",
-					"hash": "1395438675874750259",
-					"deps": ["npm:@emotion/react", "@guardian/source-react-components"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialLinkButton.stories.tsx",
-					"hash": "8725431935803268529",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-react-components",
-						"npm:@storybook/react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/EditorialLinkButton.tsx",
-					"hash": "16098505719332547773",
-					"deps": ["npm:@emotion/react", "@guardian/source-react-components"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/README.md",
-					"hash": "4723737548666933479"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/styles.ts",
-					"hash": "6141442118125401818",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/editorial-button/types.ts",
-					"hash": "11449405129908114076",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.stories.tsx",
-					"hash": "7745190438035539997",
-					"deps": ["npm:@emotion/react", "npm:react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.tsx",
-					"hash": "16264674040305617714",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components",
-						"npm:react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/README.md",
-					"hash": "2368261425563997746"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/styles.ts",
-					"hash": "12591058029551423734",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/theme.ts",
-					"hash": "5187963855753392200",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/types.ts",
-					"hash": "5070332543442729023",
-					"deps": ["npm:@emotion/react", "npm:react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/FileInput.stories.tsx",
-					"hash": "15548239273371581845",
-					"deps": ["npm:react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/FileInput.tsx",
-					"hash": "7050367324443787296",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components",
-						"npm:react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/README.md",
-					"hash": "11812291851199277952"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/fileHelpers.ts",
-					"hash": "9421982981689013220"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/styles.ts",
-					"hash": "15169341151065730067",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/theme.ts",
-					"hash": "5287040224626559817",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/file-input/types.ts",
-					"hash": "9019221658782117483",
-					"deps": ["npm:@emotion/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterLinks.stories.tsx",
-					"hash": "13465802665480018853",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterLinks.tsx",
-					"hash": "17518324155053953953",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-react-components",
-						"npm:react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterWithContents.stories.tsx",
-					"hash": "9944439462868552185",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/FooterWithContents.tsx",
-					"hash": "3662005720995746377",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components",
-						"npm:react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/README.md",
-					"hash": "18146143063253884465"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/footerLinksStyles.ts",
-					"hash": "7856923857390222807",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/footer-with-contents/footerWithContentsStyles.ts",
-					"hash": "4083466391564768658",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/index.test.ts",
-					"hash": "1041957154316588494"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
-					"hash": "17649606848539929042"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/DashedLines.tsx",
-					"hash": "5768893434953525680",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/DottedLines.tsx",
-					"hash": "9715584227454774192",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.stories.tsx",
-					"hash": "10926532776196894026",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.tsx",
-					"hash": "16797086849814904611",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/README.md",
-					"hash": "9182825803256309570"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/SquigglyLines.tsx",
-					"hash": "11517487456726442957",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/lines/StraightLines.tsx",
-					"hash": "14185918427383483624",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.stories.tsx",
-					"hash": "15860161772596379365",
-					"deps": ["@guardian/source-foundations", "npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx",
-					"hash": "5706700228799189600",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/logo/README.md",
-					"hash": "1648384074638231592"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/InputExtension.tsx",
-					"hash": "2030903793191754805",
-					"deps": ["npm:@emotion/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.stories.tsx",
-					"hash": "5080394675637656852",
-					"deps": ["npm:@storybook/react", "npm:react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.tsx",
-					"hash": "3761691726304332232",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/README.md",
-					"hash": "7160352542172640727"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/inputExtensionStyles.ts",
-					"hash": "7720670300214934092",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/numericInputStyles.ts",
-					"hash": "3675332391965353283",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/numeric-input/sharedStyles.ts",
-					"hash": "14328922261581889168",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.stories.tsx",
-					"hash": "2518986403780342895",
-					"deps": ["@guardian/libs", "npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.tsx",
-					"hash": "6052820505683553787",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/quote-icon/README.md",
-					"hash": "10867471346551414326"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/README.md",
-					"hash": "12137594941782531864"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.stories.tsx",
-					"hash": "4693731699692179204",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.tsx",
-					"hash": "8038328894577079589",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/ErrorSummary.stories.tsx",
-					"hash": "5377303033535772440",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/ErrorSummary.tsx",
-					"hash": "13841244092362368364",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/InfoSummary.stories.tsx",
-					"hash": "7436229663649833026",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/InfoSummary.tsx",
-					"hash": "16333290994852830949",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/README.md",
-					"hash": "9307293655053189972"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/SuccessSummary.stories.tsx",
-					"hash": "12932780105691169069",
-					"deps": ["npm:@storybook/react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/SuccessSummary.tsx",
-					"hash": "5350379183831687734",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/styles.ts",
-					"hash": "1361792728384022510",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/summary/types.ts",
-					"hash": "12474401092658518477",
-					"deps": ["@guardian/source-react-components"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/README.MD",
-					"hash": "8681905073889575039"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/Tabs.stories.tsx",
-					"hash": "7857423065147164944",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-react-components",
-						"npm:react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/styles.ts",
-					"hash": "17816590035016437803",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/tabs.tsx",
-					"hash": "13971204821057552201"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/theme.ts",
-					"hash": "16596511521087917567",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/tabs/types.ts",
-					"hash": "12544734913223605969",
-					"deps": ["npm:react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/README.md",
-					"hash": "669307248487057503"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.stories.tsx",
-					"hash": "15459070412305650623",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"npm:@storybook/react",
-						"npm:react"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.tsx",
-					"hash": "9637344518786558737",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"npm:react",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/styles.ts",
-					"hash": "12997443210475535641",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/README.md",
-					"hash": "15254259793597964607"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.stories.tsx",
-					"hash": "17725615491017877034",
-					"deps": ["npm:@storybook/react", "npm:react"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.tsx",
-					"hash": "4397931237302068403",
-					"deps": [
-						"npm:@emotion/react",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/styles.ts",
-					"hash": "6413398082591567370",
-					"deps": ["npm:@emotion/react", "@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
-					"hash": "2494373635055494437"
-				},
-				{
-					"file": "libs/@guardian/source-react-components-development-kitchen/tsconfig.spec.json",
-					"hash": "13936884200327842647"
-				}
-			],
-			"@guardian/source-foundations": [
-				{
-					"file": "libs/@guardian/source-foundations/.eslintrc.js",
-					"hash": "1550181523664533959"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/.storybook/main.js",
-					"hash": "24357244346551319",
-					"deps": ["npm:../../../../.storybook/main"]
-				},
-				{
-					"file": "libs/@guardian/source-foundations/.storybook/preview-head.html",
-					"hash": "16915390007016120558"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/.storybook/preview.tsx",
-					"hash": "15570997121796260248"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/CHANGELOG.md",
-					"hash": "18243346329093601099"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/README.md",
-					"hash": "2066624161393987205"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/jest.config.ts",
-					"hash": "2389290539114294087"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/jest.e2e.setup.ts",
-					"hash": "16722866084370106895",
-					"deps": ["npm:../../../dist/libs/@guardian/source-foundations"]
-				},
-				{
-					"file": "libs/@guardian/source-foundations/lib/jest-matchers/index.d.ts",
-					"hash": "5887406237053507186"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/lib/jest-matchers/toBeValidCSS.ts",
-					"hash": "15594950232994060461",
-					"deps": ["npm:lightningcss"]
-				},
-				{
-					"file": "libs/@guardian/source-foundations/package.json",
-					"hash": "17788891494663465309",
-					"deps": [
-						"npm:mini-svg-data-uri",
-						"npm:@emotion/react",
-						"npm:lightningcss",
-						"npm:react",
-						"npm:react-dom",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/source-foundations/project.json",
-					"hash": "11084046998283173473"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/accessibility.test.ts",
-					"hash": "8390031533201394671"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/description-id.stories.mdx",
-					"hash": "5273275255495755312"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/description-id.ts",
-					"hash": "1867987847395697772"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/focus-halo.stories.mdx",
-					"hash": "9411332542260378433"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/focus-halo.ts",
-					"hash": "15434665690961501465"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/focus-style-manager.stories.mdx",
-					"hash": "16888453837444224413"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/focus-style-manager.ts",
-					"hash": "10651957854388052740"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/generate-source-id.stories.mdx",
-					"hash": "12315915105789947697"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/generate-source-id.ts",
-					"hash": "1196074209014016249"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/visually-hidden.stories.mdx",
-					"hash": "15020017441198293649"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/accessibility/visually-hidden.ts",
-					"hash": "12380044207180660529"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/animation/transitions.ts",
-					"hash": "5934028615348823794"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/breakpoints/breakpoints.ts",
-					"hash": "10398876398364786590"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/colour/palette.stories.mdx",
-					"hash": "10254399241817415096"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/colour/palette.ts",
-					"hash": "5067776153459294017"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/colour/storybookColorPalette.tsx",
-					"hash": "11777730835441330180",
-					"deps": ["npm:@emotion/react"]
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/index.test.ts",
-					"hash": "3184136727367546132"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/index.ts",
-					"hash": "5611159186373320787"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/mq/mq.stories.mdx",
-					"hash": "15048305675548810401"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/mq/mq.test.ts",
-					"hash": "12409527711778663641"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/mq/mq.ts",
-					"hash": "3687055638412932100"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/size/size.stories.mdx",
-					"hash": "2340793411436690801"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/size/size.ts",
-					"hash": "4830817665741381164"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/space/space.stories.mdx",
-					"hash": "12251189590366454455"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/space/space.test.ts",
-					"hash": "4807644214251501273"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/space/space.ts",
-					"hash": "2697734913497840057"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/api.ts",
-					"hash": "8717936668393798314"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/data.ts",
-					"hash": "14952195993775752314"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/font-styles.ts",
-					"hash": "9882410232816530494"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/index.ts",
-					"hash": "11583423385146396085"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/obj/index.ts",
-					"hash": "18418766009205954129"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/obj/typography.obj.test.ts",
-					"hash": "3352158577739593431"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/storybookTypographyRenderers.tsx",
-					"hash": "13781187217553396369"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/types.ts",
-					"hash": "8331168317181061639"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/typography.stories.mdx",
-					"hash": "130646505018069724"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/typography/typography.test.ts",
-					"hash": "4010106939072006386"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/px-to-rem.test.ts",
-					"hash": "8179524110169491671"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/px-to-rem.ts",
-					"hash": "9865494703287067528"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/resets.stories.mdx",
-					"hash": "2966624682354624697"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/resets.test.ts",
-					"hash": "744436503325623283"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/resets.ts",
-					"hash": "16583117230524712549"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/supports-queries.ts",
-					"hash": "6115487028328199082"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/src/utils/svg-background-image.ts",
-					"hash": "7828681073200841071",
-					"deps": ["npm:mini-svg-data-uri"]
-				},
-				{
-					"file": "libs/@guardian/source-foundations/tsconfig.json",
-					"hash": "2494373635055494437"
-				},
-				{
-					"file": "libs/@guardian/source-foundations/tsconfig.spec.json",
-					"hash": "13936884200327842647"
-				}
-			],
-			"@guardian/eslint-plugin-source-foundations": [
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/.eslintrc.json",
-					"hash": "11097259163872067192"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/CHANGELOG.md",
-					"hash": "902776068525928612"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/README.md",
-					"hash": "3284594776500096823"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
-					"hash": "9529271860355131206"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/jest.e2e.setup.ts",
-					"hash": "8172123534921709252",
-					"deps": [
-						"npm:../../../dist/libs/@guardian/eslint-plugin-source-foundations"
-					]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/package.json",
-					"hash": "14052662687111885974",
-					"deps": [
-						"npm:@typescript-eslint/eslint-plugin",
-						"npm:@typescript-eslint/parser",
-						"npm:eslint-plugin-import",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"npm:@types/eslint",
-						"npm:@types/estree",
-						"npm:eslint",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/project.json",
-					"hash": "17293076193234666642"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/src/index.test.ts",
-					"hash": "15161976767759481955"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/src/index.ts",
-					"hash": "15135424645467927213"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/no-star-imports-or-exports.test.ts",
-					"hash": "7970008723150675572",
-					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/no-star-imports-or-exports.ts",
-					"hash": "4198022973300840888",
-					"deps": ["npm:eslint", "npm:estree"]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/valid-import-path.test.ts",
-					"hash": "9165246361668144663",
-					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/src/rules/valid-import-path.ts",
-					"hash": "7612239752252806317",
-					"deps": ["@guardian/libs", "npm:eslint", "npm:estree"]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-foundations/tsconfig.spec.json",
-					"hash": "13936884200327842647"
-				}
-			],
-			"@guardian/eslint-config": [
-				{
-					"file": "libs/@guardian/eslint-config/CHANGELOG.md",
-					"hash": "6214569367115308000"
-				},
-				{
-					"file": "libs/@guardian/eslint-config/README.md",
-					"hash": "745915868383433290"
-				},
-				{
-					"file": "libs/@guardian/eslint-config/e2e.test.js",
-					"hash": "1679444207401432461",
-					"deps": ["npm:../../../dist/libs/@guardian/eslint-config"]
-				},
-				{
-					"file": "libs/@guardian/eslint-config/index.js",
-					"hash": "2681364849865611711"
-				},
-				{
-					"file": "libs/@guardian/eslint-config/jest.config.js",
-					"hash": "14055872559690274152"
-				},
-				{
-					"file": "libs/@guardian/eslint-config/package.json",
-					"hash": "13856615558683619697",
-					"deps": [
-						"npm:eslint-config-prettier",
-						"npm:eslint-plugin-eslint-comments",
-						"npm:eslint-plugin-import",
-						"npm:eslint",
-						"npm:tslib"
-					]
-				},
-				{
-					"file": "libs/@guardian/eslint-config/project.json",
-					"hash": "755376773088798932"
-				}
-			],
-			"csnx": [
-				{
-					"file": "apps/csnx/.storybook/main.js",
-					"hash": "716687333490868408",
-					"deps": ["npm:../../../.storybook/main"]
-				},
-				{
-					"file": "apps/csnx/.storybook/preview.js",
-					"hash": "3244421341483603138"
-				},
-				{
-					"file": "apps/csnx/README.md",
-					"hash": "7759650497409900813"
-				},
-				{
-					"file": "apps/csnx/project.json",
-					"hash": "400143405715566561"
-				},
-				{
-					"file": "apps/csnx/src/README.stories.mdx",
-					"hash": "17498719543509757889"
-				}
-			],
-			"@guardian/eslint-config-typescript": [
-				{
-					"file": "libs/@guardian/eslint-config-typescript/CHANGELOG.md",
-					"hash": "6893497940713246038"
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/DECISION_RECORD.md",
-					"hash": "13113131601420968107"
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/README.md",
-					"hash": "7907907892206820104"
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/e2e.test.js",
-					"hash": "5320943896646056055",
-					"deps": ["npm:../../../dist/libs/@guardian/eslint-config-typescript"]
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/index.js",
-					"hash": "16583573112952399985"
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/jest.config.js",
-					"hash": "2524713161842202053"
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/package.json",
-					"hash": "6499894244597132797",
-					"deps": [
-						"@guardian/eslint-config",
-						"npm:@typescript-eslint/eslint-plugin",
-						"npm:@typescript-eslint/parser",
-						"npm:eslint-import-resolver-typescript",
-						"npm:eslint-plugin-import",
-						"npm:eslint",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/eslint-config-typescript/project.json",
-					"hash": "9278462466589483831"
-				}
-			],
-			"@guardian/browserslist-config": [
-				{
-					"file": "libs/@guardian/browserslist-config/.browserslistrc",
-					"hash": "10738151125382981633"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/CHANGELOG.md",
-					"hash": "18292427692941339043"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/README.md",
-					"hash": "15472444555433677519"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/browserslist-stats.json",
-					"hash": "17271511382104281606"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/browserslist.js",
-					"hash": "12942232371607447698"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/e2e.test.js",
-					"hash": "14896730811675395564",
-					"deps": ["npm:../../../dist/libs/@guardian/browserslist-config"]
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/jest.config.js",
-					"hash": "9172693907117633587"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/package.json",
-					"hash": "5856691472766156854",
-					"deps": ["npm:browserslist", "npm:tslib"]
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/project.json",
-					"hash": "7152168760337971922"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/scripts/included-table.mjs",
-					"hash": "1343647351876579979",
-					"deps": ["npm:browserslist"]
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/scripts/normalise-browser-name.mjs",
-					"hash": "10826260321120845191"
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/scripts/update-readme.mjs",
-					"hash": "2800766929748311125",
-					"deps": [
-						"npm:node:fs/promises",
-						"npm:node:path",
-						"npm:node:url",
-						"npm:prettier"
-					]
-				},
-				{
-					"file": "libs/@guardian/browserslist-config/scripts/usage-table.mjs",
-					"hash": "14219408142414878502"
-				}
-			],
-			"@guardian/ab-core": [
-				{
-					"file": "libs/@guardian/ab-core/.eslintrc.json",
-					"hash": "6959177146399665629"
-				},
-				{
-					"file": "libs/@guardian/ab-core/CHANGELOG.md",
-					"hash": "7003934771089575060"
-				},
-				{
-					"file": "libs/@guardian/ab-core/README.md",
-					"hash": "14919591766933602536"
-				},
-				{
-					"file": "libs/@guardian/ab-core/jest.config.ts",
-					"hash": "555898884935911471"
-				},
-				{
-					"file": "libs/@guardian/ab-core/jest.e2e.setup.js",
-					"hash": "16944538561887207684",
-					"deps": ["npm:../../../dist/libs/@guardian/ab-core"]
-				},
-				{
-					"file": "libs/@guardian/ab-core/package.json",
-					"hash": "11431113632958341288",
-					"deps": ["npm:tslib", "npm:typescript"]
-				},
-				{
-					"file": "libs/@guardian/ab-core/project.json",
-					"hash": "14020600437460473978"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/@types/index.ts",
-					"hash": "10309291841894149285"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/ab.test.ts",
-					"hash": "13312248574960313914"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/ab.ts",
-					"hash": "16672056303901164343"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/core.test.ts",
-					"hash": "6395582096933500215"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/core.ts",
-					"hash": "11024750863647290456"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/e2e.test.ts",
-					"hash": "8898998349125857949"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/fixture.ts",
-					"hash": "10177107845182198395"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/index.ts",
-					"hash": "17690945889171795949"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/ophan.ts",
-					"hash": "15566170479313334604"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/time.test.ts",
-					"hash": "825707822073706130"
-				},
-				{
-					"file": "libs/@guardian/ab-core/src/time.ts",
-					"hash": "17130656409564423505"
-				},
-				{
-					"file": "libs/@guardian/ab-core/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/ab-core/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"nx-plugin-eslint": [
-				{
-					"file": "tools/nx-plugins/eslint/.eslintrc.js",
-					"hash": "14269935202021846062"
-				},
-				{
-					"file": "tools/nx-plugins/eslint/executors/check/executor.ts",
-					"hash": "18346123640401450802",
-					"deps": ["npm:@nx/devkit", "npm:@nx/linter"]
-				},
-				{
-					"file": "tools/nx-plugins/eslint/executors/fix/executor.ts",
-					"hash": "13833701296378924349",
-					"deps": ["npm:@nx/devkit", "npm:@nx/linter"]
-				},
-				{
-					"file": "tools/nx-plugins/eslint/executors.json",
-					"hash": "3213262441854148989"
-				},
-				{
-					"file": "tools/nx-plugins/eslint/package.json",
-					"hash": "10563552081728691225",
-					"deps": ["npm:@nx/eslint", "npm:typescript"]
-				},
-				{
-					"file": "tools/nx-plugins/eslint/project.json",
-					"hash": "14938103777087480883"
-				},
-				{
-					"file": "tools/nx-plugins/eslint/tsconfig.json",
-					"hash": "1269800487405912732"
-				}
-			],
-			"@guardian/identity-auth-frontend": [
-				{
-					"file": "libs/@guardian/identity-auth-frontend/.eslintrc.json",
-					"hash": "12323676007825436467"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/CHANGELOG.md",
-					"hash": "17713888616696813619"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/README.MD",
-					"hash": "1435465837697527176"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/jest.config.ts",
-					"hash": "3314363417455480469"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/jest.e2e.setup.js",
-					"hash": "108223945364513399",
-					"deps": ["npm:../../../dist/libs/@guardian/identity-auth-frontend"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/package.json",
-					"hash": "18024134315508331767",
-					"deps": [
-						"@guardian/identity-auth",
-						"@guardian/libs",
-						"npm:jest-fetch-mock",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/project.json",
-					"hash": "1409283852173158037"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/src/__tests__/index.test.ts",
-					"hash": "15079522260752410805"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/src/index.ts",
-					"hash": "17808896395704555140",
-					"deps": ["@guardian/identity-auth", "npm:@guardian/identity-auth"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/identity-auth-frontend/tsconfig.spec.json",
-					"hash": "7916238407462233235"
-				}
-			],
-			"@guardian/eslint-plugin-source-react-components": [
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/.eslintrc.json",
-					"hash": "13135539320465078857"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/CHANGELOG.md",
-					"hash": "15974034141022343029"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/README.md",
-					"hash": "17161212990015164294"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
-					"hash": "8338547406996913733"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/jest.e2e.setup.ts",
-					"hash": "3159610872043835157",
-					"deps": [
-						"npm:../../../dist/libs/@guardian/eslint-plugin-source-react-components"
-					]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/package.json",
-					"hash": "11357083978047987063",
-					"deps": [
-						"npm:@typescript-eslint/eslint-plugin",
-						"npm:@typescript-eslint/parser",
-						"npm:@emotion/react",
-						"@guardian/libs",
-						"@guardian/source-foundations",
-						"@guardian/source-react-components",
-						"npm:@types/eslint",
-						"npm:@types/estree",
-						"npm:eslint",
-						"npm:react",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/project.json",
-					"hash": "2477242551907227391"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/src/index.test.ts",
-					"hash": "15161976767759481955"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/src/index.ts",
-					"hash": "4241342026852817975"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/src/rules/valid-import-path.test.ts",
-					"hash": "11043886046350992854",
-					"deps": ["npm:eslint", "npm:@typescript-eslint/parser"]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/src/rules/valid-import-path.ts",
-					"hash": "518998309705449540",
-					"deps": ["@guardian/libs", "npm:eslint", "npm:estree"]
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.spec.json",
-					"hash": "13936884200327842647"
-				}
-			],
-			"@guardian/core-web-vitals": [
-				{
-					"file": "libs/@guardian/core-web-vitals/.eslintrc.json",
-					"hash": "2446043990230554346"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/CHANGELOG.md",
-					"hash": "10988624897837080241"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/README.md",
-					"hash": "6324081144396852781"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/jest.config.ts",
-					"hash": "3089527477687987803"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/jest.e2e.setup.js",
-					"hash": "15825959017368110657",
-					"deps": ["npm:../../../dist/libs/@guardian/core-web-vitals"]
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/package.json",
-					"hash": "7453408041896139563",
-					"deps": [
-						"@guardian/libs",
-						"npm:tslib",
-						"npm:typescript",
-						"npm:web-vitals"
-					]
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/project.json",
-					"hash": "9763260610916139435"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/src/@types/CoreWebVitalsPayload.ts",
-					"hash": "1583130179538901373"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/src/e2e.test.ts",
-					"hash": "9547534464465073704"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/src/index.test.ts",
-					"hash": "10844598452064341220",
-					"deps": ["npm:web-vitals"]
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/src/index.ts",
-					"hash": "4411971637359906579",
-					"deps": [
-						"@guardian/libs",
-						"npm:web-vitals",
-						["npm:web-vitals", "dynamic"]
-					]
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/src/roundWithDecimals.test.ts",
-					"hash": "11201989208305382423"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/src/roundWithDecimals.ts",
-					"hash": "2399786712856102619"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/core-web-vitals/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"@guardian/libs": [
-				{
-					"file": "libs/@guardian/libs/.eslintrc copy.json",
-					"hash": "11255427998450984252"
-				},
-				{
-					"file": "libs/@guardian/libs/.eslintrc.json",
-					"hash": "11255427998450984252"
-				},
-				{
-					"file": "libs/@guardian/libs/.lintstagedrc copy.js",
-					"hash": "1994094866776373942",
-					"deps": ["npm:../../../.lintstagedrc.js"]
-				},
-				{
-					"file": "libs/@guardian/libs/.lintstagedrc.js",
-					"hash": "1994094866776373942",
-					"deps": ["npm:../../../.lintstagedrc.js"]
-				},
-				{
-					"file": "libs/@guardian/libs/CHANGELOG.md",
-					"hash": "18275310136544700831"
-				},
-				{
-					"file": "libs/@guardian/libs/README.md",
-					"hash": "6495599384692781627"
-				},
-				{
-					"file": "libs/@guardian/libs/jest.config.ts",
-					"hash": "11764278695911642917"
-				},
-				{
-					"file": "libs/@guardian/libs/jest.e2e.setup.js",
-					"hash": "4769930602818925195",
-					"deps": ["npm:../../../dist/libs/@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/libs/package.json",
-					"hash": "4563908759802668561",
-					"deps": [
-						"npm:@types/wcag-contrast",
-						"npm:jest-fetch-mock",
-						"npm:mockdate",
-						"npm:tslib",
-						"npm:typescript",
-						"npm:wcag-contrast"
-					]
-				},
-				{
-					"file": "libs/@guardian/libs/project.json",
-					"hash": "1746026131553676170"
-				},
-				{
-					"file": "libs/@guardian/libs/scripts/generateSvg.logger.subscriptions.ts",
-					"hash": "11206264362312975508",
-					"deps": ["npm:node:fs"]
-				},
-				{
-					"file": "libs/@guardian/libs/src/ArticleElementRole/ArticleElementRole.test.ts",
-					"hash": "3389874484024850773"
-				},
-				{
-					"file": "libs/@guardian/libs/src/ArticleElementRole/ArticleElementRole.ts",
-					"hash": "14484956861109895192"
-				},
-				{
-					"file": "libs/@guardian/libs/src/ArticleElementRole/README.md",
-					"hash": "15463784356544454001"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/ERR_INVALID_COOKIE.ts",
-					"hash": "10352373831965093591"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/README.md",
-					"hash": "17854822972898837839"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/cookies.test.ts",
-					"hash": "16459016347473344338",
-					"deps": ["npm:mockdate"]
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/getCookie.ts",
-					"hash": "3709342582278503521"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/getCookieValues.ts",
-					"hash": "2248232651377390359"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/getDomainAttribute.ts",
-					"hash": "697721966772734008"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/getShortDomain.ts",
-					"hash": "10397717949361411856"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/isValidCookie.ts",
-					"hash": "3109278285507657338"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/memoizedCookies.ts",
-					"hash": "4390798146919565360"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/removeCookie.ts",
-					"hash": "3976094881587794360"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/setCookie.ts",
-					"hash": "15894422136854867889"
-				},
-				{
-					"file": "libs/@guardian/libs/src/cookies/setSessionCookie.ts",
-					"hash": "334841585123136048"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/@types/Country.ts",
-					"hash": "9205788842730484597"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/@types/CountryCode.ts",
-					"hash": "12157220912617141203"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/@types/CountryKey.ts",
-					"hash": "11248190321601263247"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/README.md",
-					"hash": "17821738322035516225"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/countries.test.ts",
-					"hash": "2489718129152144171"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/countries.ts",
-					"hash": "2887594540122135538"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/getCountryByCountryCode.test.ts",
-					"hash": "1328877349706344556"
-				},
-				{
-					"file": "libs/@guardian/libs/src/countries/getCountryByCountryCode.ts",
-					"hash": "13348586147276349249"
-				},
-				{
-					"file": "libs/@guardian/libs/src/datetime/README.md",
-					"hash": "3209504404783224614"
-				},
-				{
-					"file": "libs/@guardian/libs/src/datetime/timeAgo.test.ts",
-					"hash": "9108929614165942636",
-					"deps": ["npm:mockdate"]
-				},
-				{
-					"file": "libs/@guardian/libs/src/datetime/timeAgo.ts",
-					"hash": "11004200906608495893"
-				},
-				{
-					"file": "libs/@guardian/libs/src/deprecated-exports.ts",
-					"hash": "15627922740730568681"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/ArticleDesign.ts",
-					"hash": "52212398850507759"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/ArticleDisplay.ts",
-					"hash": "7368084828366459413"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/ArticleFormat.ts",
-					"hash": "3124615810286304821"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/ArticleSpecial.ts",
-					"hash": "8914597165783894911"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/ArticleTheme.ts",
-					"hash": "7228539150541033531"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/Pillar.ts",
-					"hash": "509365268991115031"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/README.md",
-					"hash": "12184199480632099494"
-				},
-				{
-					"file": "libs/@guardian/libs/src/format/format.test.ts",
-					"hash": "11614399434960216740"
-				},
-				{
-					"file": "libs/@guardian/libs/src/index.test.ts",
-					"hash": "16111297175465689039"
-				},
-				{
-					"file": "libs/@guardian/libs/src/index.ts",
-					"hash": "7163726097533274019"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isBoolean/README.md",
-					"hash": "12724998748987778201"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isBoolean/isBoolean.test.ts",
-					"hash": "17759194283861651011"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isBoolean/isBoolean.ts",
-					"hash": "14981310418486267129"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isNonNullable/isNonNullable.test.ts",
-					"hash": "7563673411911758104"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isNonNullable/isNonNullable.ts",
-					"hash": "16884370021114524322"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isObject/README.md",
-					"hash": "1109028473797670784"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isObject/isObject.test.ts",
-					"hash": "15896836299199103610"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isObject/isObject.ts",
-					"hash": "3666851094553642228"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isOneOf/README.md",
-					"hash": "1322636274867252962"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isOneOf/isOneOf.test.ts",
-					"hash": "480873935154951761"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isOneOf/isOneOf.ts",
-					"hash": "14389434723967371227"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isString/README.md",
-					"hash": "5382268190189970801"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isString/isString.test.ts",
-					"hash": "13282780227846604823"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isString/isString.ts",
-					"hash": "1840854932863330717"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isUndefined/README.md",
-					"hash": "9195436988330372166"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isUndefined/isUndefined.test.ts",
-					"hash": "12344640196136135293"
-				},
-				{
-					"file": "libs/@guardian/libs/src/isUndefined/isUndefined.ts",
-					"hash": "2370044265664301631"
-				},
-				{
-					"file": "libs/@guardian/libs/src/joinUrl/README.md",
-					"hash": "17259319757405442272"
-				},
-				{
-					"file": "libs/@guardian/libs/src/joinUrl/joinUrl.test.ts",
-					"hash": "12810696442356062663"
-				},
-				{
-					"file": "libs/@guardian/libs/src/joinUrl/joinUrl.ts",
-					"hash": "12426902247934023175"
-				},
-				{
-					"file": "libs/@guardian/libs/src/loadScript/README.md",
-					"hash": "16830045204036776873"
-				},
-				{
-					"file": "libs/@guardian/libs/src/loadScript/loadScript.test.ts",
-					"hash": "1743256568503439004"
-				},
-				{
-					"file": "libs/@guardian/libs/src/loadScript/loadScript.ts",
-					"hash": "14956954185915960936"
-				},
-				{
-					"file": "libs/@guardian/libs/src/locale/README.md",
-					"hash": "9968929302886627817"
-				},
-				{
-					"file": "libs/@guardian/libs/src/locale/getLocale.test.ts",
-					"hash": "1423542932124523847",
-					"deps": ["npm:jest-fetch-mock"]
-				},
-				{
-					"file": "libs/@guardian/libs/src/locale/getLocale.ts",
-					"hash": "12435366018691131723"
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/@types/logger.ts",
-					"hash": "16489264463519509458"
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/README.md",
-					"hash": "2119016902830181551"
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/debug.ts",
-					"hash": "18188248319243296984"
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/logger.test.ts",
-					"hash": "10903407604028578100",
-					"deps": ["npm:wcag-contrast"]
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/logger.ts",
-					"hash": "6829863619643387077"
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/storage-key.ts",
-					"hash": "6710576870097275136"
-				},
-				{
-					"file": "libs/@guardian/libs/src/logger/subscriptions.ts",
-					"hash": "6192214675619078750"
-				},
-				{
-					"file": "libs/@guardian/libs/src/ophan/@types/index.ts",
-					"hash": "7940816354039600930"
-				},
-				{
-					"file": "libs/@guardian/libs/src/ophan/README.md",
-					"hash": "13390047702104949960"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/@types/measure.ts",
-					"hash": "5529053476719309169"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/README.md",
-					"hash": "9719497332087250107"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/getMeasures.test.ts",
-					"hash": "5737215836857367554"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/getMeasures.ts",
-					"hash": "9704974598629469912"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/log.ts",
-					"hash": "15125191956477390267"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/serialise.ts",
-					"hash": "16867204621062853074"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/startPerformanceMeasure.test.ts",
-					"hash": "16722565192442568713"
-				},
-				{
-					"file": "libs/@guardian/libs/src/performance/startPerformanceMeasure.ts",
-					"hash": "18108104695085121323"
-				},
-				{
-					"file": "libs/@guardian/libs/src/storage/README.md",
-					"hash": "5807297484654366949"
-				},
-				{
-					"file": "libs/@guardian/libs/src/storage/storage.test.ts",
-					"hash": "8566043075661303093"
-				},
-				{
-					"file": "libs/@guardian/libs/src/storage/storage.ts",
-					"hash": "8476231775572737270"
-				},
-				{
-					"file": "libs/@guardian/libs/src/switches/@types/Switches.ts",
-					"hash": "9855780497657202303"
-				},
-				{
-					"file": "libs/@guardian/libs/src/switches/README.md",
-					"hash": "16111736686416887217"
-				},
-				{
-					"file": "libs/@guardian/libs/src/switches/getSwitches.test.ts",
-					"hash": "6311988030987970754",
-					"deps": ["npm:jest-fetch-mock"]
-				},
-				{
-					"file": "libs/@guardian/libs/src/switches/getSwitches.ts",
-					"hash": "2797727128988156428"
-				},
-				{
-					"file": "libs/@guardian/libs/static/logger.svg",
-					"hash": "5734655333426585715"
-				},
-				{
-					"file": "libs/@guardian/libs/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/libs/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"@guardian/tsconfig": [
-				{
-					"file": "libs/@guardian/tsconfig/CHANGELOG.md",
-					"hash": "14869747583657564126"
-				},
-				{
-					"file": "libs/@guardian/tsconfig/README.md",
-					"hash": "10037873192541883047"
-				},
-				{
-					"file": "libs/@guardian/tsconfig/e2e.test.js",
-					"hash": "14546087856982111850",
-					"deps": ["npm:../../../dist/libs/@guardian/tsconfig"]
-				},
-				{
-					"file": "libs/@guardian/tsconfig/jest.config.js",
-					"hash": "15495889370655369403"
-				},
-				{
-					"file": "libs/@guardian/tsconfig/package.json",
-					"hash": "3872194915737436854"
-				},
-				{
-					"file": "libs/@guardian/tsconfig/project.json",
-					"hash": "5461502278508145893"
-				},
-				{
-					"file": "libs/@guardian/tsconfig/tsconfig.json",
-					"hash": "2484137810917320156"
-				}
-			],
-			"@guardian/identity-auth": [
-				{
-					"file": "libs/@guardian/identity-auth/.eslintrc.json",
-					"hash": "151656126826297128"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/CHANGELOG.md",
-					"hash": "6578241987059731253"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/README.md",
-					"hash": "5397657271900178365"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/jest.config.ts",
-					"hash": "17597513626967017591"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/jest.e2e.setup.js",
-					"hash": "8138304509284146376",
-					"deps": ["npm:../../../dist/libs/@guardian/identity-auth"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/package.json",
-					"hash": "5249224496618725143",
-					"deps": [
-						"@guardian/libs",
-						"npm:jest-fetch-mock",
-						"npm:tslib",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/project.json",
-					"hash": "12189016583314406302"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/@types/OAuth.ts",
-					"hash": "484232461514257501"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/@types/Token.ts",
-					"hash": "7710503934205359429"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/@types/guard.ts",
-					"hash": "10041493709679624412"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/authState.test.ts",
-					"hash": "17497959930696438376"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/autoRenew.test.ts",
-					"hash": "16384414508176261761"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/cookieRefresh.test.ts",
-					"hash": "1527596820980430557",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/crypto.test.ts",
-					"hash": "9181934876416850649",
-					"deps": ["npm:crypto", "npm:util"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/emitter.test.ts",
-					"hash": "7710097742673258287"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/identityAuth.test.ts",
-					"hash": "489530732443378060"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/token.test.ts",
-					"hash": "12686861540637751220",
-					"deps": ["npm:jest-fetch-mock"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/__tests__/tokenManager.test.ts",
-					"hash": "11901189109852515960",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/authState.ts",
-					"hash": "2148353814522809728"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/autoRenew.ts",
-					"hash": "18016551665061312317",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/cookieRefresh.ts",
-					"hash": "10606239704407516958",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/crypto.ts",
-					"hash": "10385687851002448224"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/emitter.ts",
-					"hash": "18244189917631540244"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/error.ts",
-					"hash": "9539885733972546553"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/identityAuth.ts",
-					"hash": "4828276554248696956",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/index.ts",
-					"hash": "1777034081882803857"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/token.ts",
-					"hash": "3907910782606095645",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/src/tokenManager.ts",
-					"hash": "17753920346863240100",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "libs/@guardian/identity-auth/tsconfig.json",
-					"hash": "16446198764448842999"
-				},
-				{
-					"file": "libs/@guardian/identity-auth/tsconfig.spec.json",
-					"hash": "9319630462349922671"
-				}
-			],
-			"nx-plugin-npm-package": [
-				{
-					"file": "tools/nx-plugins/npm-package/.eslintrc.js",
-					"hash": "17019859542275624475"
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/get-compiler-options.ts",
-					"hash": "12413112592323578307",
-					"deps": ["npm:node:path", "npm:@nx/devkit", "npm:typescript"]
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/get-declared-deps.ts",
-					"hash": "16026176867410784145",
-					"deps": ["@guardian/libs"]
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/index.ts",
-					"hash": "7432326981236812958",
-					"deps": [
-						"npm:node:child_process",
-						"npm:node:path",
-						"npm:node:util",
-						"npm:@nx/devkit",
-						"npm:@rollup/plugin-commonjs",
-						"npm:@rollup/plugin-json",
-						"npm:@rollup/plugin-node-resolve",
-						"npm:cpy",
-						"npm:rollup",
-						"npm:rollup-plugin-ts",
-						"npm:typescript"
-					]
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/schema.d.ts",
-					"hash": "11787974242978041962"
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/schema.json",
-					"hash": "2031497523210644975"
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/set-package-defaults.ts",
-					"hash": "18355940592721137475",
-					"deps": [
-						"npm:node:path",
-						"npm:read-pkg",
-						"npm:sort-package-json",
-						"npm:type-fest",
-						"npm:write-pkg"
-					]
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/build/write-resolved-package-json.ts",
-					"hash": "18446332424988686656",
-					"deps": ["npm:node:path", "npm:@nx/devkit", "npm:execa"]
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/executors.json",
-					"hash": "14867668346469181292"
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/package.json",
-					"hash": "75523000040982101",
-					"deps": [
-						"@guardian/libs",
-						"npm:@rollup/plugin-commonjs",
-						"npm:@rollup/plugin-json",
-						"npm:@rollup/plugin-node-resolve",
-						"npm:cpy",
-						"npm:execa",
-						"npm:read-pkg",
-						"npm:rollup",
-						"npm:rollup-plugin-ts",
-						"npm:sort-package-json",
-						"npm:tslib",
-						"npm:type-fest",
-						"npm:typescript",
-						"npm:write-pkg"
-					]
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/project.json",
-					"hash": "14263057533646079389"
-				},
-				{
-					"file": "tools/nx-plugins/npm-package/tsconfig.json",
-					"hash": "1269800487405912732"
 				}
 			]
 		}

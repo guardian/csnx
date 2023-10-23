@@ -13572,18 +13572,18 @@
 				"hash": "sha512-NGhtDFu3jCEm7B4Fy0DpLewdJQOZcQ0rGbwQ/+stjnrp2i+rlKeCvos9hOIeCmqwratM47OBxY7uFZzjxHXmrg=="
 			}
 		},
-		"npm:string_decoder": {
+		"npm:string_decoder@1.1.1": {
 			"type": "npm",
-			"name": "npm:string_decoder",
+			"name": "npm:string_decoder@1.1.1",
 			"data": {
 				"version": "1.1.1",
 				"packageName": "string_decoder",
 				"hash": "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg=="
 			}
 		},
-		"npm:string_decoder@1.3.0": {
+		"npm:string_decoder": {
 			"type": "npm",
-			"name": "npm:string_decoder@1.3.0",
+			"name": "npm:string_decoder",
 			"data": {
 				"version": "1.3.0",
 				"packageName": "string_decoder",
@@ -14121,18 +14121,18 @@
 				"hash": "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
 			}
 		},
-		"npm:tslib": {
+		"npm:tslib@2.4.1": {
 			"type": "npm",
-			"name": "npm:tslib",
+			"name": "npm:tslib@2.4.1",
 			"data": {
 				"version": "2.4.1",
 				"packageName": "tslib",
 				"hash": "sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA=="
 			}
 		},
-		"npm:tslib@2.5.3": {
+		"npm:tslib": {
 			"type": "npm",
-			"name": "npm:tslib@2.5.3",
+			"name": "npm:tslib",
 			"data": {
 				"version": "2.5.3",
 				"packageName": "tslib",
@@ -18599,7 +18599,7 @@
 		},
 		{
 			"source": "npm:@guardian/identity-auth",
-			"target": "npm:tslib@2.5.3",
+			"target": "npm:tslib",
 			"type": "static"
 		},
 		{
@@ -18609,7 +18609,7 @@
 		},
 		{
 			"source": "npm:@guardian/libs",
-			"target": "npm:tslib@2.5.3",
+			"target": "npm:tslib",
 			"type": "static"
 		},
 		{
@@ -18619,7 +18619,7 @@
 		},
 		{
 			"source": "npm:@guardian/libs@15.4.0",
-			"target": "npm:tslib@2.5.3",
+			"target": "npm:tslib",
 			"type": "static"
 		},
 		{
@@ -18639,7 +18639,7 @@
 		},
 		{
 			"source": "npm:@guardian/source-react-components",
-			"target": "npm:tslib@2.5.3",
+			"target": "npm:tslib",
 			"type": "static"
 		},
 		{
@@ -34199,7 +34199,7 @@
 		},
 		{
 			"source": "npm:readable-stream@2.3.8",
-			"target": "npm:string_decoder",
+			"target": "npm:string_decoder@1.1.1",
 			"type": "static"
 		},
 		{
@@ -34214,7 +34214,7 @@
 		},
 		{
 			"source": "npm:readable-stream",
-			"target": "npm:string_decoder@1.3.0",
+			"target": "npm:string_decoder",
 			"type": "static"
 		},
 		{
@@ -35128,12 +35128,12 @@
 			"type": "static"
 		},
 		{
-			"source": "npm:string_decoder",
+			"source": "npm:string_decoder@1.1.1",
 			"target": "npm:safe-buffer@5.1.2",
 			"type": "static"
 		},
 		{
-			"source": "npm:string_decoder@1.3.0",
+			"source": "npm:string_decoder",
 			"target": "npm:safe-buffer",
 			"type": "static"
 		},
