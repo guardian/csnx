@@ -3,12 +3,12 @@
 	"executors": {
 		"check": {
 			"implementation": "./executors/check/executor.ts",
-			"schema": "./node_modules/@nx/linter/src/executors/eslint/schema.json",
+			"schema": "./node_modules/@nx/eslint/src/executors/lint/schema.json",
 			"description": "Checks code with ESLint."
 		},
 		"fix": {
 			"implementation": "./executors/fix/executor.ts",
-			"schema": "./node_modules/@nx/linter/src/executors/eslint/schema.json",
+			"schema": "./node_modules/@nx/eslint/src/executors/lint/schema.json",
 			"description": "Fixes ESLint errors in code."
 		}
 	}
