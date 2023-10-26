@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 13.1.0
+
+### Minor Changes
+
+- 1bede05: Added 38 to the neutral color palette hex #606060
+
 ## 13.0.0
 
 ### Major Changes
