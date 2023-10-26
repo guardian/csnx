@@ -76,6 +76,7 @@ const colors = {
 		'#121212', //neutral-7
 		'#1A1A1A', //neutral-10
 		'#333333', //neutral-20
+		'#606060', //neutral-38
 		'#707070', //neutral-46
 		'#999999', //neutral-60
 		'#DCDCDC', //neutral-86
@@ -125,12 +126,13 @@ export const palette = {
 		7: colors.grays[1],
 		10: colors.grays[2],
 		20: colors.grays[3],
-		46: colors.grays[4],
-		60: colors.grays[5],
-		86: colors.grays[6],
-		93: colors.grays[7],
-		97: colors.grays[8],
-		100: colors.grays[9],
+		38: colors.grays[4],
+		46: colors.grays[5],
+		60: colors.grays[6],
+		86: colors.grays[7],
+		93: colors.grays[8],
+		97: colors.grays[9],
+		100: colors.grays[10],
 	},
 	error: {
 		400: colors.reds[3],
