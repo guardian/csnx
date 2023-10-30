@@ -233,7 +233,7 @@ importers:
       eslint-plugin-import: 2.27.5_uydhjpvr6vcjv2etsu73t4uhnu
     devDependencies:
       '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 13.0.0_xfreuenalcno2zxheqz32kfzfe
       '@types/eslint': 8.44.2
       '@types/estree': 1.0.1
       eslint: 8.47.0
@@ -260,8 +260,8 @@ importers:
     devDependencies:
       '@emotion/react': 11.11.1_react@18.2.0
       '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
-      '@guardian/source-foundations': link:../source-foundations
-      '@guardian/source-react-components': 16.0.0_gqwmkmfg6hyvlppc3upkalgkjm
+      '@guardian/source-foundations': 13.0.0_xfreuenalcno2zxheqz32kfzfe
+      '@guardian/source-react-components': 16.0.0_wg7suquuwdybuf4rkjkyg7fvju
       '@types/eslint': 8.44.2
       '@types/estree': 1.0.1
       eslint: 8.47.0
@@ -330,7 +330,7 @@ importers:
   libs/@guardian/source-foundations:
     specifiers:
       '@emotion/react': 11.11.1
-      lightningcss: 1.19.0
+      lightningcss: 1.22.0
       mini-svg-data-uri: 1.4.4
       react: 18.2.0
       react-dom: 18.2.0
@@ -340,7 +340,7 @@ importers:
       mini-svg-data-uri: 1.4.4
     devDependencies:
       '@emotion/react': 11.11.1_react@18.2.0
-      lightningcss: 1.19.0
+      lightningcss: 1.22.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tslib: 2.5.3
@@ -369,7 +369,7 @@ importers:
     devDependencies:
       '@babel/core': 7.23.2
       '@emotion/react': 11.11.1_j4swkgacdxrhexoapez3itylte
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 13.0.0_xfreuenalcno2zxheqz32kfzfe
       '@svgr/babel-preset': 8.0.0_@babel+core@7.23.2
       '@svgr/core': 8.1.0
       '@svgr/plugin-jsx': 8.0.1_@svgr+core@8.1.0
@@ -401,7 +401,7 @@ importers:
       '@babel/core': 7.23.2
       '@emotion/react': 11.11.1_j4swkgacdxrhexoapez3itylte
       '@guardian/libs': 15.4.0_xfreuenalcno2zxheqz32kfzfe
-      '@guardian/source-foundations': link:../source-foundations
+      '@guardian/source-foundations': 13.0.0_xfreuenalcno2zxheqz32kfzfe
       '@guardian/source-react-components': link:../source-react-components
       '@types/react': 18.2.11
       react: 18.2.0
@@ -2504,7 +2504,21 @@ packages:
       typescript: 5.1.3
     dev: true
 
-  /@guardian/source-react-components/16.0.0_gqwmkmfg6hyvlppc3upkalgkjm:
+  /@guardian/source-foundations/13.0.0_xfreuenalcno2zxheqz32kfzfe:
+    resolution: {integrity: sha512-1+z20ySfwm0K2GiQXh2JlWIjOKBwHxISRdAgAKivOdT1QUCh5VdU+2xCVE07juMI4lBBfIzXe/qZXAI7II6tQQ==}
+    peerDependencies:
+      tslib: ^2.5.3
+      typescript: ~5.1.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tslib: 2.5.3
+      typescript: 5.1.3
+    dev: true
+
+  /@guardian/source-react-components/16.0.0_wg7suquuwdybuf4rkjkyg7fvju:
     resolution: {integrity: sha512-oSRa1TjRvbnfYIEa+qMz23aCM6V73pIvP2ca64dP9dNopNR1PgooNlf7PihjXDEkyBo4ks9udMRzzAd3nfst6A==}
     peerDependencies:
       '@emotion/react': ^11.11.1
@@ -2517,7 +2531,7 @@ packages:
         optional: true
     dependencies:
       '@emotion/react': 11.11.1_react@18.2.0
-      '@guardian/source-foundations': link:libs/@guardian/source-foundations
+      '@guardian/source-foundations': 13.0.0_xfreuenalcno2zxheqz32kfzfe
       react: 18.2.0
       tslib: 2.5.3
       typescript: 5.1.3
@@ -11239,8 +11253,8 @@ packages:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  /lightningcss-darwin-arm64/1.19.0:
-    resolution: {integrity: sha512-wIJmFtYX0rXHsXHSr4+sC5clwblEMji7HHQ4Ub1/CznVRxtCFha6JIt5JZaNf8vQrfdZnBxLLC6R8pC818jXqg==}
+  /lightningcss-darwin-arm64/1.22.0:
+    resolution: {integrity: sha512-aH2be3nNny+It5YEVm8tBSSdRlBVWQV8m2oJ7dESiYRzyY/E/bQUe2xlw5caaMuhlM9aoTMtOH25yzMhir0qPg==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [darwin]
@@ -11248,8 +11262,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-darwin-x64/1.19.0:
-    resolution: {integrity: sha512-Lif1wD6P4poaw9c/4Uh2z+gmrWhw/HtXFoeZ3bEsv6Ia4tt8rOJBdkfVaUJ6VXmpKHALve+iTyP2+50xY1wKPw==}
+  /lightningcss-darwin-x64/1.22.0:
+    resolution: {integrity: sha512-9KHRFA0Y6mNxRHeoQMp0YaI0R0O2kOgUlYPRjuasU4d+pI8NRhVn9bt0yX9VPs5ibWX1RbDViSPtGJvYYrfVAQ==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [darwin]
@@ -11257,8 +11271,17 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-arm-gnueabihf/1.19.0:
-    resolution: {integrity: sha512-P15VXY5682mTXaiDtbnLYQflc8BYb774j2R84FgDLJTN6Qp0ZjWEFyN1SPqyfTj2B2TFjRHRUvQSSZ7qN4Weig==}
+  /lightningcss-freebsd-x64/1.22.0:
+    resolution: {integrity: sha512-xaYL3xperGwD85rQioDb52ozF3NAJb+9wrge3jD9lxGffplu0Mn35rXMptB8Uc2N9Mw1i3Bvl7+z1evlqVl7ww==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-arm-gnueabihf/1.22.0:
+    resolution: {integrity: sha512-epQGvXIjOuxrZpMpMnRjK54ZqzhiHhCPLtHvw2fb6NeK2kK9YtF0wqmeTBiQ1AkbWfnnXGTstYaFNiadNK+StQ==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm]
     os: [linux]
@@ -11266,8 +11289,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-arm64-gnu/1.19.0:
-    resolution: {integrity: sha512-zwXRjWqpev8wqO0sv0M1aM1PpjHz6RVIsBcxKszIG83Befuh4yNysjgHVplF9RTU7eozGe3Ts7r6we1+Qkqsww==}
+  /lightningcss-linux-arm64-gnu/1.22.0:
+    resolution: {integrity: sha512-AArGtKSY4DGTA8xP8SDyNyKtpsUl1Rzq6FW4JomeyUQ4nBrR71uPChksTpj3gmWuGhZeRKLeCUI1DBid/zhChg==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
@@ -11275,8 +11298,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-arm64-musl/1.19.0:
-    resolution: {integrity: sha512-vSCKO7SDnZaFN9zEloKSZM5/kC5gbzUjoJQ43BvUpyTFUX7ACs/mDfl2Eq6fdz2+uWhUh7vf92c4EaaP4udEtA==}
+  /lightningcss-linux-arm64-musl/1.22.0:
+    resolution: {integrity: sha512-RRraNgP8hnBPhInTTUdlFm+z16C/ghbxBG51Sw00hd7HUyKmEUKRozyc5od+/N6pOrX/bIh5vIbtMXIxsos0lg==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
@@ -11284,8 +11307,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-x64-gnu/1.19.0:
-    resolution: {integrity: sha512-0AFQKvVzXf9byrXUq9z0anMGLdZJS+XSDqidyijI5njIwj6MdbvX2UZK/c4FfNmeRa2N/8ngTffoIuOUit5eIQ==}
+  /lightningcss-linux-x64-gnu/1.22.0:
+    resolution: {integrity: sha512-grdrhYGRi2KrR+bsXJVI0myRADqyA7ekprGxiuK5QRNkv7kj3Yq1fERDNyzZvjisHwKUi29sYMClscbtl+/Zpw==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
@@ -11293,8 +11316,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-linux-x64-musl/1.19.0:
-    resolution: {integrity: sha512-SJoM8CLPt6ECCgSuWe+g0qo8dqQYVcPiW2s19dxkmSI5+Uu1GIRzyKA0b7QqmEXolA+oSJhQqCmJpzjY4CuZAg==}
+  /lightningcss-linux-x64-musl/1.22.0:
+    resolution: {integrity: sha512-t5f90X+iQUtIyR56oXIHMBUyQFX/zwmPt72E6Dane3P8KNGlkijTg2I75XVQS860gNoEFzV7Mm5ArRRA7u5CAQ==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
@@ -11302,8 +11325,8 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss-win32-x64-msvc/1.19.0:
-    resolution: {integrity: sha512-C+VuUTeSUOAaBZZOPT7Etn/agx/MatzJzGRkeV+zEABmPuntv1zihncsi+AyGmjkkzq3wVedEy7h0/4S84mUtg==}
+  /lightningcss-win32-x64-msvc/1.22.0:
+    resolution: {integrity: sha512-64HTDtOOZE9PUCZJiZZQpyqXBbdby1lnztBccnqh+NtbKxjnGzP92R2ngcgeuqMPecMNqNWxgoWgTGpC+yN5Sw==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [win32]
@@ -11311,20 +11334,21 @@ packages:
     dev: true
     optional: true
 
-  /lightningcss/1.19.0:
-    resolution: {integrity: sha512-yV5UR7og+Og7lQC+70DA7a8ta1uiOPnWPJfxa0wnxylev5qfo4P+4iMpzWAdYWOca4jdNQZii+bDL/l+4hUXIA==}
+  /lightningcss/1.22.0:
+    resolution: {integrity: sha512-+z0qvwRVzs4XGRXelnWRNwqsXUx8k3bSkbP8vD42kYKSk3z9OM2P3e/gagT7ei/gwh8DTS80LZOFZV6lm8Z8Fg==}
     engines: {node: '>= 12.0.0'}
     dependencies:
       detect-libc: 1.0.3
     optionalDependencies:
-      lightningcss-darwin-arm64: 1.19.0
-      lightningcss-darwin-x64: 1.19.0
-      lightningcss-linux-arm-gnueabihf: 1.19.0
-      lightningcss-linux-arm64-gnu: 1.19.0
-      lightningcss-linux-arm64-musl: 1.19.0
-      lightningcss-linux-x64-gnu: 1.19.0
-      lightningcss-linux-x64-musl: 1.19.0
-      lightningcss-win32-x64-msvc: 1.19.0
+      lightningcss-darwin-arm64: 1.22.0
+      lightningcss-darwin-x64: 1.22.0
+      lightningcss-freebsd-x64: 1.22.0
+      lightningcss-linux-arm-gnueabihf: 1.22.0
+      lightningcss-linux-arm64-gnu: 1.22.0
+      lightningcss-linux-arm64-musl: 1.22.0
+      lightningcss-linux-x64-gnu: 1.22.0
+      lightningcss-linux-x64-musl: 1.22.0
+      lightningcss-win32-x64-msvc: 1.22.0
     dev: true
 
   /lilconfig/2.1.0:
@@ -11686,7 +11710,6 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
 
   /minimatch/3.0.5:
     resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
