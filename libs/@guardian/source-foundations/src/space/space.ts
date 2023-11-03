@@ -6,6 +6,8 @@ import { pxToRem } from '../utils/px-to-rem';
  *
  * Can be applied to margin or padding properties, vertically or horizontally.
  *
+ * @deprecated Use updated `spacing` tokens instead
+ *
  ** `space[1]` -> 4px
  ** `space[2]` -> 8px
  ** `space[3]` -> 12px
@@ -33,6 +35,7 @@ export const space = {
  * [Design System](https://theguardian.design/2a1e5182b/p/05f835-space)
  *
  * Can be applied to margin or padding properties, vertically or horizontally.
+ * @deprecated Use updated `spacing` tokens instead
  *
  ** `remSpace[1]` -> 0.25rem
  ** `remSpace[2]` -> 0.5rem
