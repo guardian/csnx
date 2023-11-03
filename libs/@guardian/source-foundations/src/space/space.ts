@@ -58,3 +58,36 @@ export const remSpace: { [K in keyof typeof space]: string } = {
 
 /* TODO: this should be exposed as a number instead of a string,
    so consumers can perform calculations on it */
+
+/**
+ * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) •
+ * [Design System(https://theguardian.design/2a1e5182b/p/912e85-spacing/b/084803)
+ *
+ * Can be applied to margin or padding properties, vertically or horizontally.
+ *
+ ** `space[1]` -> `spacing030`
+ ** `space[2]` -> `spacing040`
+ ** `space[3]` -> `spacing050`
+ ** `space[4]` -> `spacing060`
+ ** `space[5]` -> `spacing070`
+ ** `space[6]` -> `spacing080`
+ ** `space[9]` -> `spacing100`
+ ** `space[12]` -> `spacing120`
+ ** `space[24]` -> `spacing160`
+ */
+export const spacing010 = 0;
+export const spacing020 = 2;
+export const spacing030 = 4;
+export const spacing040 = 8;
+export const spacing050 = 12;
+export const spacing060 = 16;
+export const spacing070 = 20;
+export const spacing080 = 24;
+export const spacing090 = 32;
+export const spacing100 = 36;
+export const spacing110 = 40;
+export const spacing120 = 48;
+export const spacing130 = 56;
+export const spacing140 = 64;
+export const spacing150 = 72;
+export const spacing160 = 96;
