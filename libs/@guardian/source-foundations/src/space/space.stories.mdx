@@ -12,30 +12,53 @@ Space units create visual rhythm and balance
 ## Example
 
 ```tsx
-import { space } from '@guardian/source-foundations';
+import { spacing030, spacing060 } from '@guardian/source-foundations';
 
 const container = css`
-	margin: ${space[1]}px;
+	margin-top: ${spacing030}px;
+	margin-bottom: ${spacing060}px;
 `;
 
 /*
 .class-name {
-  margin: 4px;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
 */
 ```
 
-## Space scale
+## Spacing scale
 
 The following units can be applied to margin or padding properties, vertically
 or horizontally.
 
-- `space[1]` -> 4px
-- `space[2]` -> 8px
-- `space[3]` -> 12px
-- `space[4]` -> 16px
-- `space[5]` -> 20px
-- `space[6]` -> 24px
-- `space[9]` -> 36px
-- `space[12]` -> 48px
-- `space[24]` -> 96px
+- `spacing010` -> 0px
+- `spacing020` -> 2px
+- `spacing030` -> 4px
+- `spacing040` -> 8px
+- `spacing050` -> 12px
+- `spacing060` -> 16px
+- `spacing070` -> 20px
+- `spacing080` -> 24px
+- `spacing090` -> 32px
+- `spacing100` -> 36px
+- `spacing110` -> 40px
+- `spacing120` -> 48px
+- `spacing130` -> 56px
+- `spacing140` -> 64px
+- `spacing150` -> 72px
+- `spacing160` -> 96px
+
+## Deprecated spacing units
+
+Deprecated spacing units map to the new scale as follows:
+
+- `space[1]` -> `spacing030`
+- `space[2]` -> `spacing040`
+- `space[3]` -> `spacing050`
+- `space[4]` -> `spacing060`
+- `space[5]` -> `spacing070`
+- `space[6]` -> `spacing080`
+- `space[9]` -> `spacing100`
+- `space[12]` -> `spacing120`
+- `space[24]` -> `spacing160`

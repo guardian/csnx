@@ -68,15 +68,22 @@ export const remSpace: { [K in keyof typeof space]: string } = {
  *
  * Can be applied to margin or padding properties, vertically or horizontally.
  *
- ** `space[1]` -> `spacing030`
- ** `space[2]` -> `spacing040`
- ** `space[3]` -> `spacing050`
- ** `space[4]` -> `spacing060`
- ** `space[5]` -> `spacing070`
- ** `space[6]` -> `spacing080`
- ** `space[9]` -> `spacing100`
- ** `space[12]` -> `spacing120`
- ** `space[24]` -> `spacing160`
+ ** `spacing010` -> 0px
+ ** `spacing020` -> 2px
+ ** `spacing030` -> 4px
+ ** `spacing040` -> 8px
+ ** `spacing050` -> 12px
+ ** `spacing060` -> 16px
+ ** `spacing070` -> 20px
+ ** `spacing080` -> 24px
+ ** `spacing090` -> 32px
+ ** `spacing100` -> 36px
+ ** `spacing110` -> 40px
+ ** `spacing120` -> 48px
+ ** `spacing130` -> 56px
+ ** `spacing140` -> 64px
+ ** `spacing150` -> 72px
+ ** `spacing160` -> 96px
  */
 export const spacing010 = 0;
 export const spacing020 = 2;
