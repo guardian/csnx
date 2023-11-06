@@ -37,7 +37,7 @@
 		"@swc/helpers": "^0.5.2",
 		"@types/babel__core": "7.20.1",
 		"@types/jest": "29.5.3",
-		"@types/node": "18.16.19",
+		"@types/node": "18.18.8",
 		"@typescript-eslint/eslint-plugin": "5.60.1",
 		"@typescript-eslint/parser": "5.60.1",
 		"babel-loader": "9.1.3",
