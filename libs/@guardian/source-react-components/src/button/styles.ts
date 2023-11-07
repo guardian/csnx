@@ -3,7 +3,11 @@ import { css } from '@emotion/react';
 import {
 	focusHaloSpaced,
 	height,
-	space,
+	spacing030,
+	spacing040,
+	spacing050,
+	spacing060,
+	spacing070,
 	textSans,
 	transitions,
 	width,
@@ -132,7 +136,7 @@ const defaultSize = css`
 	${textSans.medium({ fontWeight: 'bold' })};
 	height: ${height.ctaMedium}px;
 	min-height: ${height.ctaMedium}px;
-	padding: 0 ${space[5]}px;
+	padding: 0 ${spacing070}px;
 	border-radius: ${height.ctaMedium}px;
 	${fontSpacingVerticalOffset};
 `;
@@ -141,7 +145,7 @@ const smallSize = css`
 	${textSans.medium({ fontWeight: 'bold' })};
 	height: ${height.ctaSmall}px;
 	min-height: ${height.ctaSmall}px;
-	padding: 0 ${space[4]}px;
+	padding: 0 ${spacing060}px;
 	border-radius: ${height.ctaSmall}px;
 	${fontSpacingVerticalOffset};
 `;
@@ -150,7 +154,7 @@ const xsmallSize = css`
 	${textSans.small({ fontWeight: 'bold' })};
 	height: ${height.ctaXsmall}px;
 	min-height: ${height.ctaXsmall}px;
-	padding: 0 ${space[3]}px;
+	padding: 0 ${spacing050}px;
 	border-radius: ${height.ctaXsmall}px;
 	${fontSpacingVerticalOffset};
 `;
@@ -165,7 +169,7 @@ const iconDefault = css`
 		height: auto;
 	}
 	.src-button-space {
-		width: ${space[3]}px;
+		width: ${spacing050}px;
 	}
 `;
 
@@ -179,7 +183,7 @@ const iconSmall = css`
 		height: auto;
 	}
 	.src-button-space {
-		width: ${space[2]}px;
+		width: ${spacing040}px;
 	}
 `;
 
@@ -193,7 +197,7 @@ const iconXsmall = css`
 		height: auto;
 	}
 	.src-button-space {
-		width: ${space[1]}px;
+		width: ${spacing030}px;
 	}
 `;
 
@@ -201,7 +205,7 @@ const iconXsmall = css`
  the extra space encoded into the SVG. We should consider removing
  or significantly reducing this space
  */
-const pullIconTowardEdge = -space[1];
+const pullIconTowardEdge = -spacing030;
 
 const iconLeft = css`
 	flex-direction: row-reverse;
@@ -243,7 +247,7 @@ const iconNudgeAnimation = css`
 	&:hover,
 	&:focus {
 		svg {
-			transform: translate(${space[1] / 2}px, 0);
+			transform: translate(${spacing030 / 2}px, 0);
 		}
 	}
 `;
