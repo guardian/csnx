@@ -69,7 +69,26 @@ export {
 } from './size/size';
 
 // space
-export { space, remSpace } from './space/space';
+export {
+	space,
+	remSpace,
+	spacing010,
+	spacing020,
+	spacing030,
+	spacing040,
+	spacing050,
+	spacing060,
+	spacing070,
+	spacing080,
+	spacing090,
+	spacing100,
+	spacing110,
+	spacing120,
+	spacing130,
+	spacing140,
+	spacing150,
+	spacing160,
+} from './space/space';
 
 // typography
 export {
