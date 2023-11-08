@@ -1,8 +1,11 @@
+// Category, Type, Item, Sub-item, State
+
 module.exports = {
 	source: ['tokens/**/*.json'],
 	platforms: {
-		scss: {
+		css: {
 			transforms: ['attribute/cti', 'name/cti/kebab', 'color/css', 'size/px'],
+			// transformGroup: 'css',
 			buildPath: 'build/',
 			files: [
 				{
@@ -21,5 +24,31 @@ module.exports = {
 				},
 			],
 		},
+		// js: {
+		//   transformGroup: 'js',
+		// 	buildPath: 'build/',
+		// 	files: [
+		// 		{
+		// 			filter: (token) =>
+		// 				token.attributes.category === 'color' &&
+		// 				token.attributes.type !== 'base', // Filter out base colours
+		//     	format: 'javascript/es6',
+		//       destination: 'colors.js'
+		//     }
+		//   ]
+		// },
+		// ios: {
+		//   transformGroup: 'ios',
+		// 	buildPath: 'build/',
+		// 	files: [
+		// 		{
+		// 			filter: (token) =>
+		// 				token.attributes.category === 'color' &&
+		// 				token.attributes.type !== 'base', // Filter out base colours
+		//     	format: 'ios-swift/enum.swift',
+		//       destination: 'colors.swift'
+		//     }
+		//   ]
+		// }
 	},
 };
