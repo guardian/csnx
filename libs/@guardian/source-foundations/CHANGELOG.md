@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 13.2.0
+
+### Minor Changes
+
+- 3965eba: Add new spacing units to maintain parity with Figma
+
 ## 13.1.0
 
 ### Minor Changes
