@@ -12,11 +12,38 @@ updates:
       time: '09:00'
       day: 'monday'
     ignore:
-      - dependency-name: '*' # ignore all patch updates
-        update-types: ['version-update:semver-patch']
+      # don't update peerDependencies of libs
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+      - dependency-name: 'tslib'
+        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+      - dependency-name: 'react'
+        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+      - dependency-name: 'react-dom'
+        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+      - dependency-name: '@emotion/react'
+        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+      - dependency-name: 'web-vitals'
+        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
     open-pull-requests-limit: 10
     rebase-strategy: 'auto'
     groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
+        exclude-patterns:
+          - '@storybook/*'
+          - 'storybook'
+          - '@babel/*'
+          - '@nx/*'
+          - '@nrwl/*'
+          - 'nx*'
+          - '*eslint*'
+          - '@rollup/*'
+          - 'rollup'
+          - '@guardian/*'
+          - '@swc/*'
       storybook:
         patterns:
           - '@storybook/*'
@@ -27,14 +54,27 @@ updates:
       nx:
         patterns:
           - '@nx/*'
+          - '@nrwl/*'
           - 'nx*'
       eslint:
         patterns:
           - '*eslint*'
+      jest:
+        patterns:
+          - '*jest*'
       rollup:
         patterns:
           - '@rollup/*'
           - 'rollup'
+      guardian:
+        patterns:
+          - '@guardian/*'
+      swc:
+        patterns:
+          - '@swc/*'
+      react:
+        patterns:
+          - 'react*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
