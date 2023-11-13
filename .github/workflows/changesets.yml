@@ -75,7 +75,7 @@ jobs:
           publish: pnpm changeset publish
           title: '🦋 Release package updates'
           commit: 'Bump package versions'
-          setupGitUser: 'gu-changesets-release-pr[bot]'
+          setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.BOT_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
