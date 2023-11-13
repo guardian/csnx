@@ -68,6 +68,10 @@ jobs:
           app_id: ${{ secrets.GU_CHANGESETS_APP_ID }}
           private_key: ${{ secrets.GU_CHANGESETS_PRIVATE_KEY }}
           fallback: ${{ secrets.GITHUB_TOKEN }} # fall back to the default token if the app token is not available
+      - name: Set git user to Gu Changesets app
+        run: |
+          git config user.name "gu-changesets-release-pr[bot]"
+          git config user.email "gu-changesets-release-pr[bot]@users.noreply.github.com"
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
