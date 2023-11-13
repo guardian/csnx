@@ -60,6 +60,14 @@ jobs:
         run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
 
       # down to business...
+      # See https://github.com/github/combine-prs/blob/main/docs/github-app-setup.md
+      - name: Use GitHub App Token
+        uses: wow-actions/use-app-token@d7957e08172ca2e8e49b35b8d266ad585885edc7 # pinned to the hash of v2.0.2 to guarantee immutability
+        id: generate_token
+        with:
+          app_id: ${{ secrets.GU_CHANGESETS_APP_ID }}
+          private_key: ${{ secrets.GU_CHANGESETS_PRIVATE_KEY }}
+          fallback: ${{ secrets.GITHUB_TOKEN }} # fall back to the default token if the app token is not available
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -68,5 +76,5 @@ jobs:
           title: '🦋 Release package updates'
           commit: 'Bump package versions'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.BOT_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
