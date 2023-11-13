@@ -2,7 +2,7 @@ name: CI
 on:
   push:
   pull_request:
-    types: [opened, reopened, labeled, synchronize]
+    types: [opened, labeled, synchronize]
 
 env:
   # The `accessToken` in `nx.json` is a read-only token for use in dev.
