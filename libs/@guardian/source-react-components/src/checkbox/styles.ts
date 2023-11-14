@@ -12,6 +12,8 @@ import {
 } from '@guardian/source-foundations';
 import { checkboxThemeDefault } from './theme';
 
+const inputPadding = (height.inputMedium - height.inputXsmall) / 2;
+
 export const fieldset = css`
 	${resets.fieldset};
 	display: flex;
@@ -26,7 +28,8 @@ export const checkboxContainer = (
 	position: relative;
 	display: flex;
 	align-items: center;
-	min-height: ${height.inputMedium}px;
+	padding-top: ${inputPadding}px;
+	padding-bottom: ${inputPadding}px;
 	cursor: pointer;
 
 	&:hover {
