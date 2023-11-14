@@ -1,7 +1,5 @@
 import type { Story } from '@storybook/react';
-import { useState } from 'react';
 import { Checkbox } from './Checkbox';
-import CheckboxStories from './Checkbox.stories';
 import type { CheckboxGroupProps } from './CheckboxGroup';
 import { CheckboxGroup } from './CheckboxGroup';
 import { checkboxThemeBrand } from './theme';
@@ -21,15 +19,11 @@ export default {
 };
 
 const Template: Story<CheckboxGroupProps> = (args: CheckboxGroupProps) => {
-	const [checked, setChecked] = useState(CheckboxStories.args.checked);
-
 	return (
 		<CheckboxGroup {...args}>
-			<Checkbox
-				{...CheckboxStories.args}
-				checked={checked}
-				onChange={(e) => setChecked(e.target.checked)}
-			/>
+			<Checkbox label="The Guardian Today" />
+			<Checkbox label="First Edition" />
+			<Checkbox label="The Guide" />
 		</CheckboxGroup>
 	);
 };
