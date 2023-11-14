@@ -27,7 +27,6 @@ export const checkboxContainer = (
 ): SerializedStyles => css`
 	position: relative;
 	display: flex;
-	align-items: center;
 	padding-top: ${inputPadding}px;
 	padding-bottom: ${inputPadding}px;
 	cursor: pointer;
@@ -63,7 +62,6 @@ export const label: SerializedStyles = css`
 `;
 
 export const checkboxContainerWithSupportingText = css`
-	align-items: flex-start;
 	margin-bottom: ${space[3]}px;
 `;
 
@@ -199,12 +197,6 @@ export const tickWithLabelText = css`
 	@supports (${appearance}) {
 		top: 15px;
 		left: 9px;
-	}
-`;
-
-export const tickWithSupportingText = css`
-	@supports (${appearance}) {
-		top: 5px;
 	}
 `;
 

@@ -22,7 +22,7 @@ const Template: Story<CheckboxGroupProps> = (args: CheckboxGroupProps) => {
 	return (
 		<CheckboxGroup {...args}>
 			<Checkbox label="The Guardian Today" />
-			<Checkbox label="First Edition" />
+			<Checkbox label="First Edition — Archie Bland and Nimo Omer take you through the top stories and what they mean" />
 			<Checkbox label="The Guide" />
 		</CheckboxGroup>
 	);

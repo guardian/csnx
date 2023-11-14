@@ -12,7 +12,6 @@ import {
 	label,
 	tick,
 	tickWithLabelText,
-	tickWithSupportingText,
 } from './styles';
 import { SupportingText } from './SupportingText';
 
@@ -116,7 +115,6 @@ export const Checkbox = ({
 				css={(theme: Theme) => [
 					tick(theme.checkbox),
 					labelContent || supporting ? tickWithLabelText : '',
-					supporting ? tickWithSupportingText : '',
 				]}
 			/>
 
