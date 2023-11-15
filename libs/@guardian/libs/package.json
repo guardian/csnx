@@ -5,7 +5,7 @@
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
 	"devDependencies": {
-		"@types/wcag-contrast": "3.0.0",
+		"@types/wcag-contrast": "3.0.3",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
 		"tslib": "2.5.3",
