@@ -70,14 +70,12 @@ updates:
           - 'react*'
       dependencies:
         dependency-type: 'production'
-        update-types:
-          ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types: ['minor', 'patch']
         exclude-patterns:
           - '@csnx*' # don't treat csnx packages as public
       devDependencies:
         dependency-type: 'development'
-        update-types:
-          ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types: ['minor', 'patch']
         exclude-patterns:
           - '@storybook*'
           - 'storybook'
