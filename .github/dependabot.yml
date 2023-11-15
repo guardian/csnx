@@ -14,31 +14,37 @@ updates:
     ignore:
       # don't update peerDependencies of libs
       - dependency-name: 'typescript'
-        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
       - dependency-name: 'tslib'
-        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
       - dependency-name: 'react'
-        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
       - dependency-name: 'react-dom'
-        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
       - dependency-name: '@emotion/react'
-        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
       - dependency-name: 'web-vitals'
-        update-types: ['version-update:semver-minor', 'version-update:semver-patch']
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
     open-pull-requests-limit: 10
     rebase-strategy: 'auto'
     groups:
       storybook:
         patterns:
-          - '@storybook/*'
+          - '@storybook*'
           - 'storybook'
       babel:
         patterns:
           - '@babel/*'
       nx:
         patterns:
-          - '@nx/*'
-          - '@nrwl/*'
+          - '@nx*'
+          - '@nrwl*'
           - 'nx*'
       eslint:
         patterns:
@@ -48,33 +54,36 @@ updates:
           - '*jest*'
       rollup:
         patterns:
-          - '@rollup/*'
+          - '@rollup*'
           - 'rollup'
+      prettier:
+        patterns:
+          - '*prettier*'
       guardian:
         patterns:
-          - '@guardian/*'
+          - '@guardian*'
       swc:
         patterns:
-          - '@swc/*'
+          - '@swc*'
       react:
         patterns:
           - 'react*'
       production-dependencies:
-        dependency-type: "production"
+        dependency-type: 'production'
       development-dependencies:
-        dependency-type: "development"
+        dependency-type: 'development'
         exclude-patterns:
-          - '@storybook/*'
+          - '@storybook*'
           - 'storybook'
-          - '@babel/*'
-          - '@nx/*'
-          - '@nrwl/*'
+          - '@babel*'
+          - '@nx*'
+          - '@nrwl*'
           - 'nx*'
           - '*eslint*'
-          - '@rollup/*'
+          - '@rollup*'
           - 'rollup'
-          - '@guardian/*'
-          - '@swc/*'
+          - '@guardian*'
+          - '@swc*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
