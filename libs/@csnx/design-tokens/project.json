@@ -1,0 +1,39 @@
+{
+	"name": "@csnx/design-tokens",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@csnx/design-tokens/src",
+	"projectType": "library",
+	"targets": {
+		"lint": {
+			"executor": "@csnx/eslint:check",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@csnx/design-tokens/**/*.ts"]
+			}
+		},
+		"fix": {
+			"executor": "@csnx/eslint:fix",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/@csnx/design-tokens/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/@csnx/design-tokens"],
+			"options": {
+				"jestConfig": "libs/@csnx/design-tokens/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"build-tokens": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "style-dictionary build",
+				"cwd": "libs/@csnx/design-tokens",
+				"color": true
+			}
+		}
+	},
+	"tags": []
+}

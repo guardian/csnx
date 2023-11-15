@@ -1,7 +1,8 @@
 {
-	"name": "@csnx/hello-world",
+	"name": "@csnx/design-tokens",
 	"private": true,
 	"devDependencies": {
+		"style-dictionary": "^3.9.0",
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
 	},
