@@ -68,10 +68,16 @@ updates:
       react:
         patterns:
           - 'react*'
-      production-dependencies:
+      dependencies:
         dependency-type: 'production'
-      development-dependencies:
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
+        exclude-patterns:
+          - '@csnx*' # don't treat csnx packages as public
+      devDependencies:
         dependency-type: 'development'
+        update-types:
+          ['version-update:semver-minor', 'version-update:semver-patch']
         exclude-patterns:
           - '@storybook*'
           - 'storybook'
@@ -84,6 +90,7 @@ updates:
           - 'rollup'
           - '@guardian*'
           - '@swc*'
+          - '*prettier*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
