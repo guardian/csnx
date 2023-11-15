@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export -- that's what jest likes */
 export default {
-	displayName: '@csnx/hello-world',
+	displayName: '@csnx/design-tokens',
 	preset: '../../../jest.preset.js',
 	testEnvironment: 'node',
 	transform: {
@@ -12,5 +12,5 @@ export default {
 		],
 	},
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-	coverageDirectory: '../../../coverage/libs/@csnx/hello-world',
+	coverageDirectory: '../../../coverage/libs/@csnx/design-tokens',
 };
