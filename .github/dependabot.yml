@@ -28,22 +28,6 @@ updates:
     open-pull-requests-limit: 10
     rebase-strategy: 'auto'
     groups:
-      production-dependencies:
-        dependency-type: "production"
-      development-dependencies:
-        dependency-type: "development"
-        exclude-patterns:
-          - '@storybook/*'
-          - 'storybook'
-          - '@babel/*'
-          - '@nx/*'
-          - '@nrwl/*'
-          - 'nx*'
-          - '*eslint*'
-          - '@rollup/*'
-          - 'rollup'
-          - '@guardian/*'
-          - '@swc/*'
       storybook:
         patterns:
           - '@storybook/*'
@@ -75,6 +59,22 @@ updates:
       react:
         patterns:
           - 'react*'
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
+        exclude-patterns:
+          - '@storybook/*'
+          - 'storybook'
+          - '@babel/*'
+          - '@nx/*'
+          - '@nrwl/*'
+          - 'nx*'
+          - '*eslint*'
+          - '@rollup/*'
+          - 'rollup'
+          - '@guardian/*'
+          - '@swc/*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
