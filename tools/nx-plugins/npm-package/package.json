@@ -13,7 +13,7 @@
 		"rollup-plugin-ts": "3.4.5",
 		"sort-package-json": "1.57.0",
 		"tslib": "2.5.3",
-		"type-fest": "4.5.0",
+		"type-fest": "4.7.1",
 		"typescript": "5.1.3",
 		"write-pkg": "5.1.0"
 	},
