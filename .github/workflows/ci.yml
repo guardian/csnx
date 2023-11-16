@@ -18,6 +18,7 @@ jobs:
     strategy:
       matrix:
         include:
+          - task: check-formatting
           - task: lint
           - task: test
           - task: build

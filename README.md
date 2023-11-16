@@ -67,6 +67,7 @@ Tasks are defined in the [`Makefile`](./Makefile).
 - `make build-storybooks` _builds all storybooks_
 - `make build` _builds all projects_
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
+- `make check-formatting` _check repo for formatting errors_
 - `make clean` _removes all build artifacts_
 - `make e2e` _runs the e2e tests for all projects_
 - `make fix` _attemps to fix lint errors across all projects_

@@ -1,0 +1,6 @@
+dist
+node_modules
+.nx
+
+# specific files
+pnpm-lock.yaml
