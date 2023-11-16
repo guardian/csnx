@@ -40,9 +40,7 @@ describe('joinUrl', () => {
 
 	it('works when the filename has special characters in it', () => {
 		expect(
-			joinUrl(
-				'/vendors~AudioAtomWrapper~elements-YoutubeBlockComponent.js',
-			),
+			joinUrl('/vendors~AudioAtomWrapper~elements-YoutubeBlockComponent.js'),
 		).toBe('/vendors~AudioAtomWrapper~elements-YoutubeBlockComponent.js');
 	});
 });

@@ -12,8 +12,8 @@ If `window.guardian.config.switches` exists it will return that. Otherwise it fe
 import { getSwitches } from '@guardian/libs';
 
 getSwitches().then((switches) => {
-    if (switches.mySwitch) {
-        // do the thing i want
-    }
+	if (switches.mySwitch) {
+		// do the thing i want
+	}
 });
 ```

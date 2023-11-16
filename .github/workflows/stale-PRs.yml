@@ -1,8 +1,8 @@
-name: "Stale PR Handler"
+name: 'Stale PR Handler'
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: '0 6 * * *'
 
 permissions:
   pull-requests: write
@@ -14,17 +14,17 @@ jobs:
       - uses: actions/stale@v8
         id: stale
         # Read about options here: https://github.com/actions/stale#all-options
-        with:          
+        with:
           # do not mark issues as stale (they're used for planning)
           days-before-issue-stale: -1
-          
+
           days-before-stale: 30
           stale-pr-message: >
             "This PR was marked stale because it has been open for 30 days without activity. If nothing happens, it will be closed 3 days from now."
-          
+
           days-before-close: 3
-          close-pr-message: "This PR was closed because nothing happened for 3 days after becoming stale."
-          
+          close-pr-message: 'This PR was closed because nothing happened for 3 days after becoming stale.'
+
           delete-branch: true
-          
-          exempt-pr-labels: "dependencies"
+
+          exempt-pr-labels: 'dependencies'

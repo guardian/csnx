@@ -34,31 +34,30 @@ export const width4 = css`
 
 export const textInput = (
 	textInput = textInputThemeDefault.textInput,
-): SerializedStyles =>
-	css`
-		${inputBase(textInput)}
-		max-width: 100%;
-		flex-grow: 1;
+): SerializedStyles => css`
+	${inputBase(textInput)}
+	max-width: 100%;
+	flex-grow: 1;
 
-		&:active {
-			border: 2px solid ${textInput.borderActive};
-		}
+	&:active {
+		border: 2px solid ${textInput.borderActive};
+	}
 
-		&:focus {
-			/* Focus outline is provided on the wrapper */
-			outline: none;
-		}
+	&:focus {
+		/* Focus outline is provided on the wrapper */
+		outline: none;
+	}
 
-		&:invalid {
-			/*
+	&:invalid {
+		/*
 			We automatically apply error styling to fields in an invalid state,
 			but stop short of applying it to empty required fields.
 			*/
-			&[value]:not([value='']) {
-				${errorInput(textInput)};
-			}
+		&[value]:not([value='']) {
+			${errorInput(textInput)};
 		}
-	`;
+	}
+`;
 
 export const hasExtensions = (prefix?: string, suffix?: string) => css`
 	${prefix &&

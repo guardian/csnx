@@ -5,9 +5,7 @@ export const getCookieValues = (name: string): string[] => {
 	return cookies.reduce((acc: string[], cookie: string) => {
 		const cookieTrimmed: string = cookie.trim();
 		if (cookieTrimmed.startsWith(nameEq)) {
-			acc.push(
-				cookieTrimmed.substring(nameEq.length, cookieTrimmed.length),
-			);
+			acc.push(cookieTrimmed.substring(nameEq.length, cookieTrimmed.length));
 		}
 
 		return acc;
