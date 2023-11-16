@@ -18,7 +18,7 @@ const redirectToRefreshEndpoint = (
 
 // check if the lastRefresh value is valid and is older than 30 days
 const shouldRefreshCookie = (
-	lastRefresh: unknown | null,
+	lastRefresh: unknown,
 	currentTime: number,
 ): boolean => {
 	// `!!Number()` returns `false` for `false`, `null`, `undefined`, `0`, and non-numeric strings.
@@ -65,7 +65,7 @@ export const cookieRefreshIfRequired = (
 		// a number in the shouldRefreshCookie function.
 		// storage.local.get will return null in two cases: if the key is missing,
 		// or if the value has expired.
-		const lastRefresh: unknown | null = storage.local.get(lastRefreshKey);
+		const lastRefresh: unknown = storage.local.get(lastRefreshKey);
 		if (shouldRefreshCookie(lastRefresh, currentTime)) {
 			// Set the value in localStorage to expire in 30 days.
 			const newExpiry = currentTime + days30InMillis;

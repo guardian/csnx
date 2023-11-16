@@ -299,15 +299,14 @@ export const buttonStyles =
 	}: SharedButtonProps) =>
 	(
 		theme: Theme,
-	): Array<string | SerializedStyles | SerializedStyles[] | undefined> =>
-		[
-			button,
-			sizes[size],
-			priorities[priority](theme.button),
-			iconSvg || isLoading ? iconSizes[size] : '',
-			(iconSvg || isLoading) && !hideLabel ? iconSides[iconSide] : '',
-			nudgeIcon ? iconNudgeAnimation : '',
-			hideLabel ? iconOnlySizes[size] : '',
-			isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
-			cssOverrides,
-		];
+	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
+		button,
+		sizes[size],
+		priorities[priority](theme.button),
+		iconSvg ?? isLoading ? iconSizes[size] : '',
+		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
+		nudgeIcon ? iconNudgeAnimation : '',
+		hideLabel ? iconOnlySizes[size] : '',
+		isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
+		cssOverrides,
+	];
