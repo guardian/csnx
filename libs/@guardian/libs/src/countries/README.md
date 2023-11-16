@@ -50,8 +50,8 @@ Type: `CountryCode`
 
 ```typescript
 type Country = {
-    countryCode: CountryCode;
-    name: string;
+	countryCode: CountryCode;
+	name: string;
 };
 ```
 

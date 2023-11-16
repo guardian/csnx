@@ -14,7 +14,10 @@ const TAB_KEY_CODE = 9;
 export class InteractionModeEngine {
 	private isRunning = false;
 
-	constructor(private container: Element, private className: string) {}
+	constructor(
+		private container: Element,
+		private className: string,
+	) {}
 
 	/** Returns whether the engine is currently running. */
 	public isActive(): boolean {

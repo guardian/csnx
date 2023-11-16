@@ -11,9 +11,7 @@ describe('cookies', () => {
 	beforeAll(() => {
 		Object.defineProperty(document, 'cookie', {
 			get() {
-				return cookieValue
-					.replace('|', ';')
-					.replace(/^[;|]|[;|]$/g, '');
+				return cookieValue.replace('|', ';').replace(/^[;|]|[;|]$/g, '');
 			},
 
 			set(value: string) {
@@ -44,9 +42,7 @@ describe('cookies', () => {
 	it('gets a cookie', () => {
 		document.cookie =
 			'optimizelyEndUserId=oeu1398171767331r0.5280374749563634; __qca=P0-938012256-1398171768649;';
-		expect(getCookie({ name: '__qca' })).toEqual(
-			'P0-938012256-1398171768649',
-		);
+		expect(getCookie({ name: '__qca' })).toEqual('P0-938012256-1398171768649');
 	});
 
 	it('sets a cookie with an expiry date in six months that preserves UTC time', () => {

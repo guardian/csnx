@@ -14,7 +14,7 @@ Lookups are cached, so you can call this function as many times as you want with
 import { getLocale } from '@guardian/libs';
 
 getLocale().then((locale) => {
-    console.log(locale); // UK, AU etc
+	console.log(locale); // UK, AU etc
 });
 ```
 

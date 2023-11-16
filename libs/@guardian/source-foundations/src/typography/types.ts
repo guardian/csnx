@@ -22,7 +22,7 @@ export type TypographyStyles<Unit extends ScaleUnit = ScaleUnit> = {
 	fontFamily: string;
 	fontSize: Unit extends 'px' ? number : `${number}rem`;
 	lineHeight: string | number;
-	fontWeight?: typeof fontWeights[keyof typeof fontWeights] | FontWeight;
+	fontWeight?: (typeof fontWeights)[keyof typeof fontWeights] | FontWeight;
 	fontStyle?: 'normal' | 'italic';
 	textDecorationThickness?: number;
 };

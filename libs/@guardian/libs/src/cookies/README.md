@@ -6,19 +6,19 @@ Robust API over `document.cookie`.
 
 ```js
 import {
-    getCookie,
-    removeCookie,
-    setCookie,
-    setSessionCookie
- } from '@guardian/libs';
+	getCookie,
+	removeCookie,
+	setCookie,
+	setSessionCookie,
+} from '@guardian/libs';
 ```
 
 ## Methods
 
--   [`setCookie({name, value, daysToLive?, isCrossSubdomain?})`](#setCookie)
--   [`setSessionCookie({name, value})`](#setSessionCookie)
--   [`getCookie({name, shouldMemoize?})`](#getCookie)
--   [`removeCookie(name)`](#removeCookie)
+- [`setCookie({name, value, daysToLive?, isCrossSubdomain?})`](#setCookie)
+- [`setSessionCookie({name, value})`](#setSessionCookie)
+- [`getCookie({name, shouldMemoize?})`](#getCookie)
+- [`removeCookie(name)`](#removeCookie)
 
 ## `setCookie({name, value, daysToLive?, isCrossSubdomain?})`
 
@@ -53,9 +53,14 @@ Set this true if the cookie is cross subdomain.
 ### Example
 
 ```js
-setCookie({name:'GU_country_code', value:'GB'})
-setCookie({name:'GU_country_code', value:'GB', daysToLive: 7})
-setCookie({name:'GU_country_code', value:'GB', daysToLive: 7, isCrossSubdomain: true})
+setCookie({ name: 'GU_country_code', value: 'GB' });
+setCookie({ name: 'GU_country_code', value: 'GB', daysToLive: 7 });
+setCookie({
+	name: 'GU_country_code',
+	value: 'GB',
+	daysToLive: 7,
+	isCrossSubdomain: true,
+});
 ```
 
 ## `setSessionCookie({name, value})`
@@ -79,7 +84,7 @@ Value of the cookie.
 ### Example
 
 ```js
-setSessionCookie({name:'GU_country_code', value: 'GB'})
+setSessionCookie({ name: 'GU_country_code', value: 'GB' });
 ```
 
 ## `getCookie({name, shouldMemoize?})`
@@ -92,19 +97,17 @@ Type: `string`
 
 Name of the cookie to retrieve.
 
-
 #### `shouldMemoize?`
 
 Type: `boolean`<br>
 
 When this is set to true it will keep the cookie in memory to avoid fetching more than once.
 
-
 ### Example
 
 ```js
-getCookie({name:'GU_geo_country'}); //GB
-getCookie({name:'GU_geo_country', shouldMemoize: true}); //GB
+getCookie({ name: 'GU_geo_country' }); //GB
+getCookie({ name: 'GU_geo_country', shouldMemoize: true }); //GB
 ```
 
 ## `removeCookie({name, currentDomainOnly?})`
@@ -124,9 +127,10 @@ Name of the stored cookie to remove.
 Type: `boolean`
 
 Set to true if it's a cookie for current domain only, defaults to false
+
 ### Example
 
 ```js
-removeCookie({name:'GU_geo_country'});
-removeCookie({name:'GU_geo_country', currentDomainOnly: true});
+removeCookie({ name: 'GU_geo_country' });
+removeCookie({ name: 'GU_geo_country', currentDomainOnly: true });
 ```

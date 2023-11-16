@@ -1009,9 +1009,8 @@ export class Token<
 		};
 
 		// perform the authorization code flow with PKCE using an iframe
-		const authorizeResponse = await this.#performAuthCodeFlowIframe(
-			authorizeParams,
-		);
+		const authorizeResponse =
+			await this.#performAuthCodeFlowIframe(authorizeParams);
 
 		// check for an error response
 		if (isOAuthAuthorizeResponseError(authorizeResponse)) {

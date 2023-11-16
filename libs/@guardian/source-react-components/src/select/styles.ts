@@ -67,35 +67,36 @@ export const selectWrapper = (
 	}
 `;
 
-export const select = (select = selectThemeDefault.select): SerializedStyles =>
-	css`
-		color: ${select.textUserInput};
-		box-sizing: border-box;
-		height: ${height.inputMedium}px;
-		width: 100%;
-		${textSans.medium()};
-		background-color: ${select.backgroundInput};
-		border: 1px solid ${select.border};
-		border-radius: 4px;
-		padding-left: ${space[2]}px;
+export const select = (
+	select = selectThemeDefault.select,
+): SerializedStyles => css`
+	color: ${select.textUserInput};
+	box-sizing: border-box;
+	height: ${height.inputMedium}px;
+	width: 100%;
+	${textSans.medium()};
+	background-color: ${select.backgroundInput};
+	border: 1px solid ${select.border};
+	border-radius: 4px;
+	padding-left: ${space[2]}px;
 
-		@supports (${appearance}) {
-			appearance: none;
-			padding-right: ${space[2]}px;
+	@supports (${appearance}) {
+		appearance: none;
+		padding-right: ${space[2]}px;
 
-			& ~ svg {
-				display: block;
-			}
+		& ~ svg {
+			display: block;
 		}
+	}
 
-		&:focus {
-			${focusHalo};
-		}
+	&:focus {
+		${focusHalo};
+	}
 
-		&:invalid {
-			${errorInput(select)};
-		}
-	`;
+	&:invalid {
+		${errorInput(select)};
+	}
+`;
 
 export const labelMargin = css`
 	margin-top: ${space[1]}px;
