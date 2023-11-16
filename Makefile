@@ -30,11 +30,18 @@ lint: install
 	@corepack pnpm nx run-many --target=lint --skip-nx-cache=$(SKIP_NX_CACHE)
 	@node ./tools/scripts/check-packages-for-tslib.mjs
 
+# check repo for formatting errors
+.PHONY: check-formatting
+check-formatting: install
+	$(call log,"Checking formatting across repo")
+	@corepack pnpm prettier --ignore-unknown --cache --check .
+
 # attemps to fix lint errors across all projects
 .PHONY: fix
 fix: install
-	$(call log,"Attempting to fix lint error in projects")
+	$(call log,"Attempting to fix issues across all projects")
 	@corepack pnpm nx run-many --target=fix --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm prettier --ignore-unknown --cache --write .
 
 # makes sure absolutely everything is working
 .PHONY: validate
