@@ -3,4 +3,5 @@ export enum ArticleDisplay {
 	Immersive,
 	Showcase,
 	NumberedList,
+	KeyTakeaways,
 }
