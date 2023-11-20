@@ -2,7 +2,6 @@ import { ThemeProvider } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
 	ButtonLink,
-	buttonThemeBrand,
 	Column,
 	Columns,
 	Hide,
