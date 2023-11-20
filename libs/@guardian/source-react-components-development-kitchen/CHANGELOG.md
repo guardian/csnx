@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 14.1.0
+
+### Minor Changes
+
+- 51dbf18: Update FooterLinks component to support ButtonLinks
+
 ## 14.0.2
 
 ### Patch Changes
