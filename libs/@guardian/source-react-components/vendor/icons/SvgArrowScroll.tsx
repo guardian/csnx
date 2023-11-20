@@ -7,17 +7,17 @@ import type { IconProps } from '../../src/@types/Icons';
 
 const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 	<svg
-		xmlns="http://www.w3.org/2000/svg"
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
 		viewBox="-3 -3 30 30"
+		xmlns="http://www.w3.org/2000/svg"
 		focusable={false}
 		aria-hidden={true}
 	>
 		<path
 			fillRule="evenodd"
-			d="M16.68 5.36V18.64l-3.528-2.72-.882.882 5.046 4.998h.686L23 16.801l-.858-.882-3.503 2.72V5.36l3.503 2.72.858-.882L18.002 2.2h-.686L12.27 7.198l.882.882 3.527-2.72Zm-5.88-.22V3.18H1v1.96h9.8Zm-.98 3.92V7.1H1v1.96h8.82Zm1.96 3.92v-1.96H1v1.96h10.78ZM8.84 16.9v-1.96H1v1.96h7.84Z"
 			clipRule="evenodd"
+			d="M16.6793 5.36037V18.6388L13.1515 15.9194L12.2695 16.8013L17.3163 21.7991H18.0022L23 16.8013L22.1425 15.9194L18.6392 18.6388V5.36037L22.1425 8.07975L23 7.19779L18.0022 2.20001H17.3163L12.2695 7.19779L13.1515 8.07975L16.6793 5.36037ZM10.7996 5.13988V3.17997H1V5.13988H10.7996ZM9.8196 9.0597V7.09979H1V9.0597H9.8196ZM11.7795 12.9795V11.0196H1V12.9795H11.7795ZM8.83964 16.8993V14.9394H1V16.8993H8.83964Z"
 		/>
 	</svg>
 );

@@ -106,6 +106,12 @@ export const createIconComponent = async ({
 			jsx: {
 				babelConfig: createBabelConfig({ retainFill }),
 			},
+			svgoConfig: {
+				plugins: [
+					{ name: 'cleanupIds', params: { minify: true } },
+					{ name: 'prefixIds', params: { prefix: icon.name } },
+				],
+			},
 			typescript: true,
 			jsxRuntime: 'automatic',
 			expandProps: false,

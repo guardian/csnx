@@ -7,17 +7,17 @@ import type { IconProps } from '../../src/@types/Icons';
 
 const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 	<svg
-		xmlns="http://www.w3.org/2000/svg"
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
 		viewBox="-3 -3 30 30"
+		xmlns="http://www.w3.org/2000/svg"
 		focusable={false}
 		aria-hidden={true}
 	>
 		<path
 			fillRule="evenodd"
-			d="M21 6.5 19.5 5h-15L3 6.5v9L4.475 17H7v5h.975L11 17h8.5l1.5-1.5v-9Z"
 			clipRule="evenodd"
+			d="M20.9999 6.49999L19.4999 5H4.49999L3 6.49999V15.5L4.475 17H6.99999V21.9999H7.97498L11 17H19.4999L20.9999 15.5V6.49999Z"
 		/>
 	</svg>
 );
