@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
-	Button,
+	ButtonLink,
 	buttonThemeBrand,
 	Column,
 	Columns,
@@ -15,7 +15,6 @@ import {
 	getItemStyles,
 	getListStyles,
 	linkElementStyles,
-	footerButtonColumnItemStyles,
 } from './footerLinksStyles';
 
 type FooterLink = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -83,92 +82,59 @@ export const FooterLinks = ({
 	): link is FooterLink => {
 		return (link as FooterLink).href !== undefined;
 	};
+	const getLink = (link: FooterLink) => {
+		const { href, text, isExternal, ...linkAttrs } = link;
+		return (
+			<Link
+				cssOverrides={linkElementStyles}
+				href={href}
+				rel={isExternal ? 'noopener noreferrer' : ''}
+				{...linkAttrs}
+			>
+				{text}
+			</Link>
+		);
+	};
+	const getButtonLink = (link: FooterButton) => {
+		const { text, onClick, ...linkAttrs } = link;
+		return (
+			<ButtonLink
+				cssOverrides={linkElementStyles}
+				onClick={onClick}
+				{...linkAttrs}
+			>
+				{text}
+			</ButtonLink>
+		);
+	};
 	return (
 		<div css={fullWidthContainer}>
 			<Hide from="tablet">
 				<ul css={getListStyles(useColumns)}>
 					{links.map((link, index) => {
-						const key = `link-${index}`;
-						if (isFooterLink(link)) {
-							const { href, text, isExternal, ...linkAttrs } = link;
+						{
 							return (
-								<li key={key} css={getItemStyles(useColumns)}>
+								<li key={`link-${index}`} css={getItemStyles(useColumns)}>
 									<ThemeProvider theme={linkThemeBrand}>
-										<Link
-											cssOverrides={linkElementStyles}
-											href={href}
-											rel={isExternal ? 'noopener noreferrer' : ''}
-											{...linkAttrs}
-										>
-											{text}
-										</Link>
+										{isFooterLink(link) ? getLink(link) : getButtonLink(link)}
 									</ThemeProvider>
 								</li>
 							);
 						}
-						const { text, onClick, ...linkAttrs } = link;
-						return (
-							<li key={key} css={getItemStyles(useColumns)}>
-								<ThemeProvider theme={buttonThemeBrand}>
-									<Button
-										cssOverrides={linkElementStyles}
-										iconSide="left"
-										priority="subdued"
-										size="default"
-										onClick={onClick}
-										{...linkAttrs}
-									>
-										{text}
-									</Button>
-								</ThemeProvider>
-							</li>
-						);
 					})}
 				</ul>
 			</Hide>
 			<Hide until="tablet">
 				<Columns cssOverrides={getListStyles(useColumns)}>
 					{links.map((link, index) => {
-						const key = `link-${index}`;
-						if (isFooterLink(link)) {
-							const { href, text, isExternal, ...linkAttrs } = link;
-							return (
-								<Column
-									key={key}
-									span={[0, 3, 2]}
-									cssOverrides={getItemStyles(useColumns)}
-								>
-									<ThemeProvider theme={linkThemeBrand}>
-										<Link
-											cssOverrides={linkElementStyles}
-											href={href}
-											rel={isExternal ? 'noopener noreferrer' : ''}
-											{...linkAttrs}
-										>
-											{text}
-										</Link>
-									</ThemeProvider>
-								</Column>
-							);
-						}
-						const { text, onClick, ...linkAttrs } = link;
 						return (
 							<Column
-								key={key}
+								key={`link-${index}`}
 								span={[0, 3, 2]}
 								cssOverrides={getItemStyles(useColumns)}
 							>
-								<ThemeProvider theme={buttonThemeBrand}>
-									<Button
-										cssOverrides={linkElementStyles}
-										iconSide="left"
-										priority="subdued"
-										size="default"
-										onClick={onClick}
-										{...linkAttrs}
-									>
-										{text}
-									</Button>
+								<ThemeProvider theme={linkThemeBrand}>
+									{isFooterLink(link) ? getLink(link) : getButtonLink(link)}
 								</ThemeProvider>
 							</Column>
 						);
