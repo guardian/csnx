@@ -4,20 +4,19 @@ import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { iconSize, visuallyHidden } from '@guardian/source-foundations';
 import type { IconProps } from '../../src/@types/Icons';
-
 const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 	<svg
+		xmlns="http://www.w3.org/2000/svg"
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
 		viewBox="-3 -3 30 30"
-		xmlns="http://www.w3.org/2000/svg"
 		focusable={false}
 		aria-hidden={true}
 	>
 		<path
 			fillRule="evenodd"
+			d="m2.712 2 9.499 9.499V12.5L2.712 22l-.952-.977L9.128 12 1.76 2.977 2.712 2Zm10.025 0 9.499 9.499V12.5L12.737 22l-.952-.977L19.153 12l-7.368-9.023.952-.977Z"
 			clipRule="evenodd"
-			d="m2.712 2 9.5 9.499V12.5L2.711 22l-.952-.977L9.128 12 1.76 2.977 2.712 2Zm10.026 0 9.498 9.499V12.5L12.738 22l-.953-.977L19.154 12l-7.369-9.023.953-.977Z"
 		/>
 	</svg>
 );

@@ -15,13 +15,13 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 	>
 		<path
 			fillRule="evenodd"
-			d="M17.45 6.125 12.35 1h-.7l-5.1 5.125.85.85 3.6-2.75V10h2V4.225l3.6 2.75.85-.85ZM7.4 17l-.85.9 5.1 5.1h.7l5.1-5.1-.85-.9-3.6 2.75V14h-2v5.75L7.4 17Z"
+			d="M4.364 6.5v-1L5 4.717l4.818-1.086V2.543L10.364 2h3.272l.546.544V3.63L19 4.716l.636.783v1H4.364ZM6 21 4.364 7.5h15.272L18 21l-1 1-10-.09L6 21Zm8.182-3.348v-6.108l.545-.544.546.544v6.108l-.546.544-.545-.544Zm-5.455-6.108v6.108l.546.544.545-.544v-6.108L9.273 11l-.546.544Zm2.727 6.108v-6.108L12 11l.545.544v6.108l-.545.544-.546-.544Z"
 			clipRule="evenodd"
 		/>
 	</svg>
 );
 
-export const SvgArrowUpAndDownSmall = ({
+export const SvgBin = ({
 	size,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
@@ -33,7 +33,7 @@ export const SvgArrowUpAndDownSmall = ({
 					${visuallyHidden}
 				`}
 			>
-				Up and down arrow
+				Delete
 			</span>
 		) : (
 			''

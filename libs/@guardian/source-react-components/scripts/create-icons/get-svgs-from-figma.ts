@@ -16,7 +16,7 @@ interface FigmaImagesResponse {
 	images: Record<string, string>;
 }
 
-export const ICON_FILE = 'Ai7AELHC6KCz38qKZkvuHo';
+export const ICON_FILE = 'b2qv2OMLoNCYnP01ipfrP7';
 
 if (!process.env.FIGMA_TOKEN) {
 	console.log('FIGMA_TOKEN not set. Please add it to your .env file.');
