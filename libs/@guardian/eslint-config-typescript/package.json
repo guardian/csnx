@@ -5,13 +5,13 @@
 	"main": "index.js",
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "5.59.9",
-		"@typescript-eslint/parser": "5.59.9",
-		"eslint-import-resolver-typescript": "3.5.5",
-		"eslint-plugin-import": "2.27.5"
+		"@typescript-eslint/eslint-plugin": "6.11.0",
+		"@typescript-eslint/parser": "6.11.0",
+		"eslint-import-resolver-typescript": "3.6.1",
+		"eslint-plugin-import": "2.29.0"
 	},
 	"devDependencies": {
-		"eslint": "8.47.0",
+		"eslint": "8.54.0",
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
 	},
