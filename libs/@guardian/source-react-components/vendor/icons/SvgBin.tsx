@@ -14,11 +14,15 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 		focusable={false}
 		aria-hidden={true}
 	>
-		<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+		<path
+			fillRule="evenodd"
+			d="M4.364 6.5v-1L5 4.717l4.818-1.086V2.543L10.364 2h3.272l.546.544V3.63L19 4.716l.636.783v1H4.364ZM6 21 4.364 7.5h15.272L18 21l-1 1-10-.09L6 21Zm8.182-3.348v-6.108l.545-.544.546.544v6.108l-.546.544-.545-.544Zm-5.455-6.108v6.108l.546.544.545-.544v-6.108L9.273 11l-.546.544Zm2.727 6.108v-6.108L12 11l.545.544v6.108l-.545.544-.546-.544Z"
+			clipRule="evenodd"
+		/>
 	</svg>
 );
 
-export const SvgTwitter = ({
+export const SvgBin = ({
 	size,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
@@ -30,7 +34,7 @@ export const SvgTwitter = ({
 					${visuallyHidden}
 				`}
 			>
-				Twitter logo
+				Delete
 			</span>
 		) : (
 			''
