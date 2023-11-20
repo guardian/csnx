@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "15.9.1",
+	"version": "15.9.2",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,

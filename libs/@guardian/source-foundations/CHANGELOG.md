@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 13.2.1
+
+### Patch Changes
+
+- 51d255b: ignore, noop testing guardian changesets release app
+
 ## 13.2.0
 
 ### Minor Changes

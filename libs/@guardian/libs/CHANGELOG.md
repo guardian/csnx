@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 15.9.2
+
+### Patch Changes
+
+- 25adb0b: ignore, noop testing guardian changesets release app
+
 ## 15.9.1
 
 ### Patch Changes
