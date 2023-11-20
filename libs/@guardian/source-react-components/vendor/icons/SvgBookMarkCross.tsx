@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { iconSize, visuallyHidden } from '@guardian/source-foundations';
 import type { IconProps } from '../../src/@types/Icons';
+
 const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

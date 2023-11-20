@@ -101,6 +101,7 @@ export const labels: Record<string, string> = {
 	reload: 'Reload',
 	settings: 'Settings',
 	share: 'Share',
+	'share-callout': 'Share callout',
 	'signal-brand': 'Signal logo',
 	'speech-bubble': 'Comments',
 	'speech-bubble-cross': 'Remove comment',
