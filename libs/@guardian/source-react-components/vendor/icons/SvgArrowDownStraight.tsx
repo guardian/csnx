@@ -10,48 +10,15 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 		xmlns="http://www.w3.org/2000/svg"
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
-		viewBox="0 0 29 31"
+		viewBox="-3 -3 30 30"
 		focusable={false}
 		aria-hidden={true}
 	>
-		<g filter="url(#prefix__a)">
-			<path
-				fillRule="evenodd"
-				d="M13.507 1v18.274l-8.575-7.167L4 13.04 13.985 23h.956l9.984-9.96-.931-.932-8.576 7.166V1h-1.91Z"
-				clipRule="evenodd"
-			/>
-		</g>
-		<defs>
-			<filter
-				id="prefix__a"
-				width={28.925}
-				height={30}
-				x={0}
-				y={1}
-				colorInterpolationFilters="sRGB"
-				filterUnits="userSpaceOnUse"
-			>
-				<feFlood floodOpacity={0} result="BackgroundImageFix" />
-				<feColorMatrix
-					in="SourceAlpha"
-					result="hardAlpha"
-					values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-				/>
-				<feOffset dy={4} />
-				<feGaussianBlur stdDeviation={2} />
-				<feComposite in2="hardAlpha" operator="out" />
-				<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-				<feBlend
-					in2="BackgroundImageFix"
-					result="effect1_dropShadow_4220_6737"
-				/>
-				<feBlend
-					in="SourceGraphic"
-					in2="effect1_dropShadow_4220_6737"
-					result="shape"
-				/>
-			</filter>
-		</defs>
+		<path
+			fillRule="evenodd"
+			d="M11.045 1v18.274l-8.576-7.167-.931.932L11.523 23h.955l9.985-9.96-.932-.932-8.575 7.166V1h-1.911Z"
+			clipRule="evenodd"
+		/>
 	</svg>
 );
 
