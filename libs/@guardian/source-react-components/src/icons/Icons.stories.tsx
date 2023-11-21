@@ -20,6 +20,7 @@ import { SvgArrowUpStraightSmall } from '../../vendor/icons/SvgArrowUpStraightSm
 import { SvgAsterisk } from '../../vendor/icons/SvgAsterisk';
 import { SvgAudio } from '../../vendor/icons/SvgAudio';
 import { SvgAudioMute } from '../../vendor/icons/SvgAudioMute';
+import { SvgBin } from '../../vendor/icons/SvgBin';
 import { SvgBookMark } from '../../vendor/icons/SvgBookMark';
 import { SvgBookMarkCross } from '../../vendor/icons/SvgBookMarkCross';
 import { SvgCalendar } from '../../vendor/icons/SvgCalendar';
@@ -138,6 +139,7 @@ const uiIcons = {
 	SvgChevronRightDouble,
 	SvgChevronRightSingle,
 	SvgChevronUpSingle,
+	SvgBin,
 	SvgClock,
 	SvgEnvelope,
 	SvgExternal,
