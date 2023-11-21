@@ -71,41 +71,44 @@ export interface FooterLinksProps {
 	forceColumns?: boolean;
 }
 
+const isFooterLink = (link: FooterLink | FooterButton): link is FooterLink => {
+	return 'href' in link;
+	// return (link as FooterLink).href !== undefined;
+};
+
+const getLink = (link: FooterLink) => {
+	const { href, text, isExternal, ...linkAttrs } = link;
+	return (
+		<Link
+			cssOverrides={linkElementStyles}
+			href={href}
+			rel={isExternal ? 'noopener noreferrer' : ''}
+			{...linkAttrs}
+		>
+			{text}
+		</Link>
+	);
+};
+
+const getButtonLink = (link: FooterButton) => {
+	const { text, onClick, ...linkAttrs } = link;
+	return (
+		<ButtonLink
+			cssOverrides={linkElementStyles}
+			onClick={onClick}
+			{...linkAttrs}
+		>
+			{text}
+		</ButtonLink>
+	);
+};
+
 export const FooterLinks = ({
 	links = defaultGuardianLinks,
 	forceColumns = false,
 }: FooterLinksProps): EmotionJSX.Element => {
 	const useColumns = links.length > 3 || forceColumns;
-	const isFooterLink = (
-		link: FooterLink | FooterButton,
-	): link is FooterLink => {
-		return (link as FooterLink).href !== undefined;
-	};
-	const getLink = (link: FooterLink) => {
-		const { href, text, isExternal, ...linkAttrs } = link;
-		return (
-			<Link
-				cssOverrides={linkElementStyles}
-				href={href}
-				rel={isExternal ? 'noopener noreferrer' : ''}
-				{...linkAttrs}
-			>
-				{text}
-			</Link>
-		);
-	};
-	const getButtonLink = (link: FooterButton) => {
-		const { text, onClick, ...linkAttrs } = link;
-		return (
-			<ButtonLink
-				cssOverrides={linkElementStyles}
-				onClick={onClick}
-				{...linkAttrs}
-			>
-				{text}
-			</ButtonLink>
-		);
-	};
+
 	return (
 		<div css={fullWidthContainer}>
 			<Hide from="tablet">
