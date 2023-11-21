@@ -105,6 +105,7 @@ import { SvgReload } from '../../vendor/icons/SvgReload';
 import { SvgSettings } from '../../vendor/icons/SvgSettings';
 import { SvgShare } from '../../vendor/icons/SvgShare';
 import { SvgShareCallout } from '../../vendor/icons/SvgShareCallout';
+import { SvgSignalBrand } from '../../vendor/icons/SvgSignalBrand';
 import { SvgSpeechBubble } from '../../vendor/icons/SvgSpeechBubble';
 import { SvgSpeechBubbleCross } from '../../vendor/icons/SvgSpeechBubbleCross';
 import { SvgSpeechBubblePlus } from '../../vendor/icons/SvgSpeechBubblePlus';
@@ -121,7 +122,6 @@ import { SvgVideo } from '../../vendor/icons/SvgVideo';
 import { SvgWhatsApp } from '../../vendor/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../../vendor/icons/SvgWhatsAppBrand';
 import type { IconProps, IconSize } from '../@types/Icons';
-import { SvgSignalBrand } from '../../vendor/icons/SvgSignalBrand';
 import { SvgSpinner } from './SvgSpinner';
 
 const uiIcons = {
