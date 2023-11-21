@@ -2,7 +2,7 @@ const StyleDictionary = require('style-dictionary');
 const _ = require('lodash');
 
 StyleDictionary.registerFormat({
-	name: 'typeScriptObject',
+	name: 'typescript/object',
 	formatter: function ({ dictionary }) {
 		const tokens = dictionary.allTokens
 			.map((token) => {
@@ -36,8 +36,19 @@ module.exports = {
 			files: [
 				{
 					filter: (token) => token.attributes.category === 'size',
-					format: 'typeScriptObject',
+					format: 'typescript/object',
 					destination: 'space.ts',
+				},
+			],
+		},
+		css: {
+			transforms: ['attribute/cti', 'name/cti/kebab', 'size/px'],
+			buildPath: 'dist/',
+			prefix: 'source',
+			files: [
+				{
+					format: 'css/variables',
+					destination: 'source.css',
 				},
 			],
 		},
