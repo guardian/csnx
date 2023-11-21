@@ -4,8 +4,8 @@ This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
-Run `nx test @csnx/design-tokens` to execute the unit tests via [Jest](https://jestjs.io).
+Run `pnpm nx run @csnx/design-tokens:test` to execute the unit tests.
 
-## Running lint
+## Linting
 
-Run `nx lint @csnx/design-tokens` to execute the lint via [ESLint](https://eslint.org/).
+Run `pnpm nx run @csnx/design-tokens:lint` to lint code.
