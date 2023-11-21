@@ -139,7 +139,6 @@ const uiIcons = {
 	SvgChevronRightDouble,
 	SvgChevronRightSingle,
 	SvgChevronUpSingle,
-	SvgBin,
 	SvgClock,
 	SvgEnvelope,
 	SvgExternal,
@@ -241,6 +240,7 @@ const uiIcons = {
 	SvgSpinner,
 	SvgSignalBrand,
 	SvgTelegramBrand,
+	SvgBin,
 };
 
 const paymentIcons = {
