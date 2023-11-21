@@ -17,7 +17,7 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M2.6001 10.725L2.6501 11.4L10.2501 13.3L12.6251 21.4499L13.4001 21.4999L21.4 3.2L20.7 2.5L2.6001 10.725Z"
+			d="m2.6 10.725.05.675 7.6 1.9 2.375 8.15.775.05 8-18.3-.7-.7-18.1 8.225Z"
 		/>
 	</svg>
 );

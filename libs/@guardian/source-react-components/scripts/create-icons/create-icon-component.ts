@@ -110,6 +110,7 @@ export const createIconComponent = async ({
 				plugins: [
 					{ name: 'cleanupIds', params: { minify: true } },
 					{ name: 'prefixIds', params: { prefix: icon.name } },
+					{ name: 'convertPathData' },
 				],
 			},
 			typescript: true,
