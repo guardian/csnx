@@ -20,7 +20,7 @@ type FooterLink = AnchorHTMLAttributes<HTMLAnchorElement> & {
 	/**
 	 * The URL of the link
 	 */
-	href?: string;
+	href: string;
 	/**
 	 * The visible text of the link
 	 */
@@ -73,7 +73,6 @@ export interface FooterLinksProps {
 
 const isFooterLink = (link: FooterLink | FooterButton): link is FooterLink => {
 	return 'href' in link;
-	// return (link as FooterLink).href !== undefined;
 };
 
 const getLink = (link: FooterLink) => {
