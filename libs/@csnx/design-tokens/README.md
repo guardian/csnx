@@ -1,11 +1,9 @@
 # @csnx/design-tokens
 
-This library was generated with [Nx](https://nx.dev).
+Experimental Design Tokens package for internal use.
 
-## Running unit tests
+## Usage
 
-Run `pnpm nx run @csnx/design-tokens:test` to execute the unit tests.
+To build tokens run:
 
-## Linting
-
-Run `pnpm nx run @csnx/design-tokens:lint` to lint code.
+`pnpm nx run @csnx/design-tokens:build`.

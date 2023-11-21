@@ -124,12 +124,8 @@ importers:
   libs/@csnx/design-tokens:
     specifiers:
       style-dictionary: ^3.9.0
-      tslib: 2.5.3
-      typescript: 5.1.3
     devDependencies:
       style-dictionary: 3.9.0
-      tslib: 2.5.3
-      typescript: 5.1.3
 
   libs/@guardian/ab-core:
     specifiers:
