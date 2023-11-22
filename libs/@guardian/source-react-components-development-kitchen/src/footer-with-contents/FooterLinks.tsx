@@ -71,10 +71,6 @@ export interface FooterLinksProps {
 	forceColumns?: boolean;
 }
 
-const isFooterLink = (link: FooterLink | FooterButton): link is FooterLink => {
-	return 'href' in link;
-};
-
 const getLink = (link: FooterLink) => {
 	const { href, text, isExternal, ...linkAttrs } = link;
 	return (
@@ -117,7 +113,7 @@ export const FooterLinks = ({
 							return (
 								<li key={`link-${index}`} css={getItemStyles(useColumns)}>
 									<ThemeProvider theme={linkThemeBrand}>
-										{isFooterLink(link) ? getLink(link) : getButtonLink(link)}
+										{'href' in link ? getLink(link) : getButtonLink(link)}
 									</ThemeProvider>
 								</li>
 							);
@@ -135,7 +131,7 @@ export const FooterLinks = ({
 								cssOverrides={getItemStyles(useColumns)}
 							>
 								<ThemeProvider theme={linkThemeBrand}>
-									{isFooterLink(link) ? getLink(link) : getButtonLink(link)}
+									{'href' in link ? getLink(link) : getButtonLink(link)}
 								</ThemeProvider>
 							</Column>
 						);
