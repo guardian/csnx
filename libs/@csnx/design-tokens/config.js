@@ -22,16 +22,28 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerTransform({
-	name: 'name/item/camel',
+	name: 'name/i/camel',
 	type: 'name',
-	transformer: (token) => token.path.slice(token.path.length - 1),
+	transformer: (token, options) => {
+		const path = token.path.slice(token.path.length - 1);
+		return _.kebabCase([options.prefix].concat(path).join(' '));
+	},
+});
+
+StyleDictionary.registerTransform({
+	name: 'name/ti/kebab',
+	type: 'name',
+	transformer: (token, options) => {
+		const path = token.path.slice(token.path.length - 2);
+		return _.kebabCase([options.prefix].concat(path).join(' '));
+	},
 });
 
 module.exports = {
 	source: ['src/tokens/**/*.json'],
 	platforms: {
 		typescript: {
-			transforms: ['attribute/cti', 'name/item/camel', 'size/px'],
+			transforms: ['attribute/cti', 'name/i/camel', 'size/px'],
 			buildPath: 'dist/',
 			files: [
 				{
@@ -42,7 +54,7 @@ module.exports = {
 			],
 		},
 		css: {
-			transforms: ['attribute/cti', 'name/cti/kebab', 'size/px'],
+			transforms: ['attribute/cti', 'name/ti/kebab', 'size/px'],
 			buildPath: 'dist/',
 			prefix: 'source',
 			files: [
