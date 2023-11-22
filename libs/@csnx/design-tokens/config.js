@@ -25,7 +25,7 @@ StyleDictionary.registerTransform({
 	name: 'name/i/camel',
 	type: 'name',
 	transformer: (token, options) => {
-		const path = token.path.slice(token.path.length - 1);
+		const path = token.path.slice(2);
 		return _.kebabCase([options.prefix].concat(path).join(' '));
 	},
 });
@@ -34,7 +34,7 @@ StyleDictionary.registerTransform({
 	name: 'name/ti/kebab',
 	type: 'name',
 	transformer: (token, options) => {
-		const path = token.path.slice(token.path.length - 2);
+		const path = token.path.slice(1);
 		return _.kebabCase([options.prefix].concat(path).join(' '));
 	},
 });
