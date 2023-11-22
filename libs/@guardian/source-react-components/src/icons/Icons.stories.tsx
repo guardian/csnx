@@ -87,7 +87,9 @@ import { SvgMinus } from '../../vendor/icons/SvgMinus';
 import { SvgMoon } from '../../vendor/icons/SvgMoon';
 import { SvgNewsletter } from '../../vendor/icons/SvgNewsletter';
 import { SvgNotificationsOff } from '../../vendor/icons/SvgNotificationsOff';
+import { SvgNotificationsOffRound } from '../../vendor/icons/SvgNotificationsOffRound';
 import { SvgNotificationsOn } from '../../vendor/icons/SvgNotificationsOn';
+import { SvgNotificationsOnRound } from '../../vendor/icons/SvgNotificationsOnRound';
 import { SvgPadlock } from '../../vendor/icons/SvgPadlock';
 import { SvgPartyOfThree } from '../../vendor/icons/SvgPartyOfThree';
 import { SvgPayPalBrand } from '../../vendor/icons/SvgPayPalBrand';
@@ -241,6 +243,8 @@ const uiIcons = {
 	SvgSignalBrand,
 	SvgTelegramBrand,
 	SvgBin,
+	SvgNotificationsOnRound,
+	SvgNotificationsOffRound,
 };
 
 const paymentIcons = {

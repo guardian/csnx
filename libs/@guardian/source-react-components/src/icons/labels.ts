@@ -85,6 +85,8 @@ export const labels: Record<string, string> = {
 	newsletter: 'Newsletter',
 	'notifications-off': 'Notification off',
 	'notifications-on': 'Notification on',
+	'notifications-on-round': 'Notification off',
+	'notifications-off-round': 'Notification on',
 	padlock: 'Lock',
 	'party-of-three': 'Share',
 	'pay-pal-brand': 'PayPal logo',
