@@ -1,0 +1,14 @@
+{
+	"size": {
+		"breakpoint": {
+			"mobile": { "value": "320" },
+			"mobileMedium": { "value": "375" },
+			"mobileLandscape": { "value": "480" },
+			"phablet": { "value": "660" },
+			"tablet": { "value": "740" },
+			"desktop": { "value": "980" },
+			"leftCol": { "value": "1140" },
+			"wide": { "value": "1300" }
+		}
+	}
+}

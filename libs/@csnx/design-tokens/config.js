@@ -47,7 +47,9 @@ module.exports = {
 			buildPath: 'dist/',
 			files: [
 				{
-					filter: (token) => token.attributes.category === 'size',
+					filter: (token) =>
+						token.attributes.category === 'size' &&
+						token.attributes.type === 'space',
 					format: 'typescript/object',
 					destination: 'space.ts',
 				},
