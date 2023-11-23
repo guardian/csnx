@@ -2,8 +2,6 @@
 	"name": "@csnx/design-tokens",
 	"private": true,
 	"devDependencies": {
-		"postcss": "^8.4.31",
-		"postcss-cli": "^10.1.0",
 		"style-dictionary": "^3.9.0"
 	},
 	"peerDependencies": {
