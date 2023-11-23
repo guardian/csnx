@@ -1,0 +1,46 @@
+{
+	"size": {
+		"fontSize": {
+			"12": { "value": "12" },
+			"14": { "value": "14" },
+			"15": { "value": "15" },
+			"17": { "value": "17" },
+			"20": { "value": "20" },
+			"24": { "value": "24" },
+			"28": { "value": "28" },
+			"34": { "value": "34" },
+			"42": { "value": "42" },
+			"50": { "value": "50" },
+			"70": { "value": "70" },
+			"textSans": {
+				"xxSmall": { "value": "{size.fontSize.12}" },
+				"xSmall": { "value": "{size.fontSize.14}" },
+				"small": { "value": "{size.fontSize.15}" },
+				"medium": { "value": "{size.fontSize.17}" },
+				"large": { "value": "{size.fontSize.20}" },
+				"xLarge": { "value": "{size.fontSize.24}" },
+				"xxLarge": { "value": "{size.fontSize.28}" },
+				"xxxLarge": { "value": "{size.fontSize.34}" }
+			},
+			"body": {
+				"xSmall": { "value": "{size.fontSize.14}" },
+				"small": { "value": "{size.fontSize.15}" },
+				"medium": { "value": "{size.fontSize.17}" }
+			},
+			"headline": {
+				"xxxSmall": { "value": "{size.fontSize.17}" },
+				"xxSmall": { "value": "{size.fontSize.20}" },
+				"xSmall": { "value": "{size.fontSize.24}" },
+				"small": { "value": "{size.fontSize.28}" },
+				"medium": { "value": "{size.fontSize.34}" },
+				"large": { "value": "{size.fontSize.42}" },
+				"xLarge": { "value": "{size.fontSize.50}" }
+			},
+			"titlepiece": {
+				"small": { "value": "{size.fontSize.42}" },
+				"medium": { "value": "{size.fontSize.50}" },
+				"large": { "value": "{size.fontSize.70}" }
+			}
+		}
+	}
+}

@@ -1,0 +1,123 @@
+{
+	"color": {
+		"palette": {
+			"brand": {
+				"100": { "value": "{color.colour.blue.8}" },
+				"300": { "value": "{color.colour.blue.9}" },
+				"400": { "value": "{color.colour.blue.10}" },
+				"500": { "value": "{color.colour.blue.4}" },
+				"600": { "value": "{color.colour.blue.11}" },
+				"800": { "value": "{color.colour.blue.12}" }
+			},
+			"brandAlt": {
+				"100": { "value": "{color.colour.yellow.1}" },
+				"300": { "value": "{color.colour.yellow.2}" },
+				"400": { "value": "{color.colour.yellow.3}" }
+			},
+			"neutral": {
+				"0": { "value": "{color.colour.gray.1}" },
+				"7": { "value": "{color.colour.gray.2}" },
+				"10": { "value": "{color.colour.gray.3}" },
+				"20": { "value": "{color.colour.gray.4}" },
+				"46": { "value": "{color.colour.gray.5}" },
+				"60": { "value": "{color.colour.gray.6}" },
+				"86": { "value": "{color.colour.gray.7}" },
+				"93": { "value": "{color.colour.gray.8}" },
+				"97": { "value": "{color.colour.gray.9}" },
+				"100": { "value": "{color.colour.gray.10}" }
+			},
+			"error": {
+				"400": { "value": "{color.colour.red.4}" },
+				"500": { "value": "{color.colour.red.6}" }
+			},
+			"success": {
+				"400": { "value": "{color.colour.green.2}" },
+				"500": { "value": "{color.colour.green.3}" }
+			},
+			"news": {
+				"100": { "value": "{color.colour.red.1}" },
+				"200": { "value": "{color.colour.red.2}" },
+				"300": { "value": "{color.colour.red.3}" },
+				"400": { "value": "{color.colour.red.4}" },
+				"500": { "value": "{color.colour.red.5}" },
+				"550": { "value": "{color.colour.red.6}" },
+				"600": { "value": "{color.colour.red.7}" },
+				"800": { "value": "{color.colour.red.8}" }
+			},
+			"opinion": {
+				"100": { "value": "{color.colour.orange.1}" },
+				"200": { "value": "{color.colour.orange.2}" },
+				"300": {
+					"comment": "Deprecated: Use opinion.400",
+					"value": "{color.colour.orange.3}"
+				},
+				"400": { "value": "{color.colour.orange.3}" },
+				"450": { "value": "{color.colour.orange.4}" },
+				"500": { "value": "{color.colour.orange.5}" },
+				"550": { "value": "{color.colour.orange.6}" },
+				"600": { "value": "{color.colour.orange.7}" },
+				"800": { "value": "{color.colour.orange.8}" }
+			},
+			"sport": {
+				"100": { "value": "{color.colour.blue.1}" },
+				"200": { "value": "{color.colour.blue.2}" },
+				"300": { "value": "{color.colour.blue.3}" },
+				"400": { "value": "{color.colour.blue.4}" },
+				"500": { "value": "{color.colour.blue.5}" },
+				"600": { "value": "{color.colour.blue.6}" },
+				"800": { "value": "{color.colour.blue.7}" }
+			},
+			"culture": {
+				"50": { "value": "{color.colour.brown.1}" },
+				"100": { "value": "{color.colour.brown.2}" },
+				"200": { "value": "{color.colour.brown.3}" },
+				"300": { "value": "{color.colour.brown.4}" },
+				"350": {
+					"comment": "Deprecated: Use culture.400",
+					"value": "{color.colour.brown.5}"
+				},
+				"400": { "value": "{color.colour.brown.5}" },
+				"450": { "value": "{color.colour.brown.6}" },
+				"500": { "value": "{color.colour.brown.7}" },
+				"600": { "value": "{color.colour.brown.8}" },
+				"700": { "value": "{color.colour.brown.9}" },
+				"800": { "value": "{color.colour.brown.10}" }
+			},
+			"lifestyle": {
+				"100": { "value": "{color.colour.pink.1}" },
+				"200": { "value": "{color.colour.pink.2}" },
+				"300": { "value": "{color.colour.pink.3}" },
+				"400": { "value": "{color.colour.pink.4}" },
+				"450": { "value": "{color.colour.pink.5}" },
+				"500": { "value": "{color.colour.pink.6}" },
+				"600": { "value": "{color.colour.pink.7}" },
+				"800": { "value": "{color.colour.pink.8}" }
+			},
+			"labs": {
+				"200": { "value": "{color.colour.green.4}" },
+				"300": { "value": "{color.colour.green.5}" },
+				"400": { "value": "{color.colour.green.6}" }
+			},
+			"specialReport": {
+				"100": { "value": "{color.colour.special.1}" },
+				"200": { "value": "{color.colour.special.2}" },
+				"300": { "value": "{color.colour.special.3}" },
+				"400": { "value": "{color.colour.special.4}" },
+				"450": { "value": "{color.colour.special.5}" },
+				"500": { "value": "{color.colour.special.6}" },
+				"700": { "value": "{color.colour.special.7}" },
+				"800": { "value": "{color.colour.special.8}" }
+			},
+			"specialReportAlt": {
+				"100": { "value": "{color.colour.special.9}" },
+				"200": { "value": "{color.colour.special.10}" },
+				"300": { "value": "{color.colour.special.11}" },
+				"700": { "value": "{color.colour.special.12}" },
+				"800": { "value": "{color.colour.special.13}" }
+			},
+			"focus": {
+				"400": { "value": "{color.colour.blue.4}" }
+			}
+		}
+	}
+}

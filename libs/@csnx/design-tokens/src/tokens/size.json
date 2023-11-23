@@ -5,7 +5,7 @@
 			"small": { "value": "36" },
 			"medium": { "value": "44" }
 		},
-		"iconSize": {
+		"sizeIcon": {
 			"xSmall": { "value": "20" },
 			"small": { "value": "26" },
 			"medium": { "value": "30" }
@@ -16,18 +16,18 @@
 			"ctaXSmall": { "value": "{size.size.xSmall}" },
 			"inputMedium": { "value": "{size.size.medium}" },
 			"inputXSmall": { "value": "{size.size.xSmall}" },
-			"iconMedium": { "value": "{size.iconSize.medium}" },
-			"iconSmall": { "value": "{size.iconSize.small}" },
-			"iconXSmall": { "value": "{size.iconSize.xSmall}" }
+			"iconMedium": { "value": "{size.sizeIcon.medium}" },
+			"iconSmall": { "value": "{size.sizeIcon.small}" },
+			"iconXSmall": { "value": "{size.sizeIcon.xSmall}" }
 		},
 		"width": {
 			"ctaMedium": { "value": "{size.size.medium}" },
 			"ctaSmall": { "value": "{size.size.small}" },
 			"ctaXSmall": { "value": "{size.size.xSmall}" },
 			"inputXSmall": { "value": "{size.size.xSmall}" },
-			"iconMedium": { "value": "{size.iconSize.medium}" },
-			"iconSmall": { "value": "{size.iconSize.small}" },
-			"iconXSmall": { "value": "{size.iconSize.xSmall}" }
+			"iconMedium": { "value": "{size.sizeIcon.medium}" },
+			"iconSmall": { "value": "{size.sizeIcon.small}" },
+			"iconXSmall": { "value": "{size.sizeIcon.xSmall}" }
 		}
 	}
 }
