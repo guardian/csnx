@@ -40,18 +40,14 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-	name: 'size/fontSizePxToRem',
+	name: 'font/pxToRem',
 	type: 'value',
 	transformer: (token, options) => {
-		if (token.attributes.category !== 'size') {
-			return token.original.value;
-		}
-
-		if (token.attributes.type === 'font-size') {
+		if (token.attributes.type === 'fontSize') {
 			return `${token.original.value / 16}rem`;
 		}
 
-		return `${token.original.value}px`;
+		return token.original.value;
 	},
 });
 
@@ -59,7 +55,7 @@ module.exports = {
 	source: ['src/tokens/**/*.json'],
 	platforms: {
 		typescript: {
-			transforms: ['attribute/cti', 'name/i/camel', 'size/fontSizePxToRem'],
+			transforms: ['attribute/cti', 'name/i/camel', 'size/px', 'font/pxToRem'],
 			buildPath: 'dist/',
 			files: [
 				{
@@ -72,7 +68,7 @@ module.exports = {
 			],
 		},
 		css: {
-			transforms: ['attribute/cti', 'name/ti/kebab', 'size/fontSizePxToRem'],
+			transforms: ['attribute/cti', 'name/ti/kebab', 'size/px', 'font/pxToRem'],
 			buildPath: 'dist/',
 			prefix: 'source',
 			files: [
