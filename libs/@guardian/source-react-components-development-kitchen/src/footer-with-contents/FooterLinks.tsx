@@ -71,32 +71,22 @@ export interface FooterLinksProps {
 	forceColumns?: boolean;
 }
 
-const getLink = (link: FooterLink) => {
-	const { href, text, isExternal, ...linkAttrs } = link;
-	return (
-		<Link
-			cssOverrides={linkElementStyles}
-			href={href}
-			rel={isExternal ? 'noopener noreferrer' : ''}
-			{...linkAttrs}
-		>
-			{text}
-		</Link>
-	);
-};
+const getLink = ({ href, text, isExternal, ...linkAttrs }: FooterLink) => (
+	<Link
+		cssOverrides={linkElementStyles}
+		href={href}
+		rel={isExternal ? 'noopener noreferrer' : ''}
+		{...linkAttrs}
+	>
+		{text}
+	</Link>
+);
 
-const getButtonLink = (link: FooterButton) => {
-	const { text, onClick, ...linkAttrs } = link;
-	return (
-		<ButtonLink
-			cssOverrides={linkElementStyles}
-			onClick={onClick}
-			{...linkAttrs}
-		>
-			{text}
-		</ButtonLink>
-	);
-};
+const getButtonLink = ({ text, onClick, ...linkAttrs }: FooterButton) => (
+	<ButtonLink cssOverrides={linkElementStyles} onClick={onClick} {...linkAttrs}>
+		{text}
+	</ButtonLink>
+);
 
 export const FooterLinks = ({
 	links = defaultGuardianLinks,
