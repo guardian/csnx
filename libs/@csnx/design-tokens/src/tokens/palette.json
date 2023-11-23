@@ -47,10 +47,6 @@
 			"opinion": {
 				"100": { "value": "{color.colour.orange.1}" },
 				"200": { "value": "{color.colour.orange.2}" },
-				"300": {
-					"comment": "Deprecated: Use opinion.400",
-					"value": "{color.colour.orange.3}"
-				},
 				"400": { "value": "{color.colour.orange.3}" },
 				"450": { "value": "{color.colour.orange.4}" },
 				"500": { "value": "{color.colour.orange.5}" },
@@ -72,10 +68,6 @@
 				"100": { "value": "{color.colour.brown.2}" },
 				"200": { "value": "{color.colour.brown.3}" },
 				"300": { "value": "{color.colour.brown.4}" },
-				"350": {
-					"comment": "Deprecated: Use culture.400",
-					"value": "{color.colour.brown.5}"
-				},
 				"400": { "value": "{color.colour.brown.5}" },
 				"450": { "value": "{color.colour.brown.6}" },
 				"500": { "value": "{color.colour.brown.7}" },
