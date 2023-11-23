@@ -82,8 +82,8 @@ const registerCompleteEvent =
 
 		try {
 			listener(buildOphanSubmitter(test, variant, complete, ophanRecord));
-		} catch (err: unknown) {
-			errorReporter(err, {}, false);
+		} catch (error: unknown) {
+			errorReporter(error);
 		}
 	};
 
@@ -117,17 +117,13 @@ const buildOphanPayload = (
 		return log;
 	} catch (error: unknown) {
 		// Encountering an error should invalidate the logging process.
-		errorReporter(error, {}, false);
+		errorReporter(error);
 		return {};
 	}
 };
 
 export const initOphan = (config: OphanAPIConfig): OphanAPI => {
-	const {
-		serverSideTests = {},
-		errorReporter = () => undefined,
-		ophanRecord = () => undefined,
-	} = config;
+	const { serverSideTests, errorReporter, ophanRecord } = config;
 
 	const registerCompleteEvents: OphanAPI['registerCompleteEvents'] = (
 		tests,

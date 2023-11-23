@@ -48,6 +48,9 @@ describe('AB', () => {
 				abTestSwitches={{ abDummyTest: true }}
 				mvtId={19}
 				pageIsSensitive={false}
+				serverSideTests={{}}
+				errorReporter={() => void 0}
+				ophanRecord={() => void 0}
 			>
 				<Example />
 			</ABProvider>,
@@ -63,6 +66,9 @@ describe('AB', () => {
 				abTestSwitches={{ abDummyTest: true }}
 				mvtId={20}
 				pageIsSensitive={false}
+				serverSideTests={{}}
+				errorReporter={() => void 0}
+				ophanRecord={() => void 0}
 			>
 				<Example />
 			</ABProvider>,
@@ -78,6 +84,9 @@ describe('AB', () => {
 				abTestSwitches={{ abDummyTest: false }}
 				mvtId={19}
 				pageIsSensitive={false}
+				serverSideTests={{}}
+				errorReporter={() => void 0}
+				ophanRecord={() => void 0}
 			>
 				<Example />
 			</ABProvider>,
@@ -93,6 +102,9 @@ describe('AB', () => {
 				abTestSwitches={{ abDummyTest: true }}
 				mvtId={19}
 				pageIsSensitive={true}
+				serverSideTests={{}}
+				errorReporter={() => void 0}
+				ophanRecord={() => void 0}
 			>
 				<Example />
 			</ABProvider>,
@@ -108,6 +120,9 @@ describe('AB', () => {
 				abTestSwitches={{ abDummyTest: true }}
 				mvtId={19}
 				pageIsSensitive={false}
+				serverSideTests={{}}
+				errorReporter={() => void 0}
+				ophanRecord={() => void 0}
 			>
 				<Example />
 			</ABProvider>,
