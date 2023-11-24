@@ -1,5 +1,11 @@
 # @guardian/ab-react
 
+## 7.0.0
+
+### Major Changes
+
+- e3c3675: Bumps dependency on `@guardian/ab-core` to `6.0.0`.
+
 ## 6.0.1
 
 ### Patch Changes
