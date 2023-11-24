@@ -3,10 +3,12 @@
 ---
 
 ## New icons
+
 - `SvgBin`
 - `SvgNotificationsOffRound`
 - `SvgNotificationsONRound`
 
 ## Updated icons
-- `SvgShareCallout` 
+
+- `SvgShareCallout`
 - `SvgReload`
