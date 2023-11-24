@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/ab-core",
-	"version": "5.0.0",
+	"version": "6.0.0",
 	"private": false,
 	"description": "A client-side library for A/B & multivariate testing",
 	"license": "Apache-2.0",
