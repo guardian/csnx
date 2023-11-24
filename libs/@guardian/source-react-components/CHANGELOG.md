@@ -5,16 +5,17 @@
 ### Major Changes
 
 - 81dfd5a:
-  ## New icons
 
-  - `SvgBin`
-  - `SvgNotificationsOffRound`
-  - `SvgNotificationsONRound`
+#### New icons
 
-  ## Updated icons
+- `SvgBin`
+- `SvgNotificationsOffRound`
+- `SvgNotificationsONRound`
 
-  - `SvgShareCallout`
-  - `SvgReload`
+#### Updated icons
+
+- `SvgShareCallout`
+- `SvgReload`
 
 ## 16.0.1
 
