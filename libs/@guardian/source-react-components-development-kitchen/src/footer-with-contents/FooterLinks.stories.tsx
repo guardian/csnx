@@ -30,3 +30,16 @@ FooterLinksInColumns.args = {
 		},
 	],
 };
+
+// *****************************************************************************
+
+export const FooterLinksWithFooterButton = Template.bind({});
+FooterLinksWithFooterButton.args = {
+	links: [
+		...defaultGuardianLinks,
+		{
+			text: 'Hello world',
+			onClick: () => alert('Hello world'),
+		},
+	],
+};
