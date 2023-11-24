@@ -1,6 +1,5 @@
 ---
 '@guardian/ab-core': major
-'@guardian/ab-react': major
 ---
 
 Members of the `OphanAPIConfig` are now **required**. Consumers must pass a
