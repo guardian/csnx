@@ -6,16 +6,15 @@
 
 - 81dfd5a:
 
-#### New icons
+- New icons
 
-- `SvgBin`
-- `SvgNotificationsOffRound`
-- `SvgNotificationsONRound`
+  - `SvgBin`
+  - `SvgNotificationsOffRound`
+  - `SvgNotificationsONRound`
 
-#### Updated icons
-
-- `SvgShareCallout`
-- `SvgReload`
+- Updated icons
+  - `SvgShareCallout`
+  - `SvgReload`
 
 ## 16.0.1
 
