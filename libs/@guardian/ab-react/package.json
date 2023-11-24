@@ -7,7 +7,7 @@
 	"sideEffects": false,
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
-		"@guardian/ab-core": "5.0.0",
+		"@guardian/ab-core": "6.0.0",
 		"@testing-library/react": "14.0.0",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
