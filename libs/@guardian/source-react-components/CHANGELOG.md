@@ -4,14 +4,15 @@
 
 ### Major Changes
 
-- 81dfd5a: ## New icons
+- 81dfd5a:
+
+- New icons
 
   - `SvgBin`
   - `SvgNotificationsOffRound`
   - `SvgNotificationsONRound`
 
-  ## Updated icons
-
+- Updated icons
   - `SvgShareCallout`
   - `SvgReload`
 
