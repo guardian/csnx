@@ -17,12 +17,12 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M7.806 10.712 11.634 15h.731l3.829-4.288L15.5 10 12 13l-3.5-3-.694.712Z"
+			d="M4.364 6.5v-1L5 4.717l4.818-1.086V2.543L10.364 2h3.272l.546.544V3.63L19 4.716l.636.783v1H4.364ZM6 21 4.364 7.5h15.272L18 21l-1 1-10-.09L6 21Zm8.182-3.348v-6.108l.545-.544.546.544v6.108l-.546.544-.545-.544Zm-5.455-6.108v6.108l.546.544.545-.544v-6.108L9.273 11l-.546.544Zm2.727 6.108v-6.108L12 11l.545.544v6.108l-.545.544-.546-.544Z"
 		/>
 	</svg>
 );
 
-export const SvgChevronDownSingleXsmall = ({
+export const SvgBin = ({
 	size,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
@@ -34,7 +34,7 @@ export const SvgChevronDownSingleXsmall = ({
 					${visuallyHidden}
 				`}
 			>
-				Expand to show more
+				Delete
 			</span>
 		) : (
 			''
