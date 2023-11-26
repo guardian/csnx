@@ -11,6 +11,6 @@ Handles trailing or leading spaces and double slashes.
 ```js
 import { joinUrl } from '@guardian/libs';
 
-const url = joinUrl('http://example.com/ ', ' /abc/', '/xyz/');
-// 'http://example.com/abc/xyz'
+const url = joinUrl('https://example.com/', '/media', '/', '//source.png');
+console.assert(url === 'https://example.com/media/source.png');
 ```
