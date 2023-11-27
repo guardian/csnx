@@ -7,7 +7,7 @@
 		"build": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "style-dictionary build",
+				"command": "co build",
 				"cwd": "libs/@csnx/design-tokens",
 				"color": true
 			}
