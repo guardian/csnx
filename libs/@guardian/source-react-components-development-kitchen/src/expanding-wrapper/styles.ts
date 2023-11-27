@@ -1,50 +1,49 @@
-import { css } from '@emotion/react';
 import type { SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
 import {
 	focusHalo,
 	remHeight,
 	remSpace,
 	textSans,
 } from '@guardian/source-foundations';
-import { expandingWrapperThemeDefault } from './theme';
+import { themeColour } from './theme';
 
-export const containerStyles = (
-	expander = expandingWrapperThemeDefault.expander,
-): SerializedStyles => css`
+export const containerStyles = css`
 	border-image: repeating-linear-gradient(
 			to bottom,
-			${expander.horizontalRules},
-			${expander.horizontalRules} 1px,
+			${themeColour('--horizontalRules')},
+			${themeColour('--horizontalRules')} 1px,
 			transparent 1px,
 			transparent 4px
 		)
 		13;
-	border-top: 13px solid ${expander.border};
-	background: ${expander.background};
+	border-top: 13px solid ${themeColour('--border')};
+	background: ${themeColour('--background')};
+	color: ${themeColour('--text')};
 	box-shadow: none;
 	position: relative;
 	margin-bottom: ${remSpace[9]};
 
 	.expander__checkbox:checked ~ label {
-		background: ${expander.collapseBackground};
-		color: ${expander.collapseText};
-		border: 1px solid ${expander.collapseText};
+		background: ${themeColour('--collapseBackground')};
+		color: ${themeColour('--collapseText')};
+		border: 1px solid ${themeColour('--collapseText')};
 
 		&:hover {
-			background-color: ${expander.collapseBackgroundHover};
-			color: ${expander.collapseTextHover};
+			background-color: ${themeColour('--collapseBackgroundHover')};
+			color: ${themeColour('--collapseTextHover')};
 
 			#svgminus {
-				fill: ${expander.collapseTextHover};
+				fill: ${themeColour('--collapseTextHover')};
 			}
 		}
 
 		#svgminus {
-			fill: ${expander.collapseText};
+			fill: ${themeColour('--collapseText')};
 		}
 	}
 	.expander__checkbox ~ label #svgplus {
-		fill: ${expander.expandText};
+		fill: ${themeColour('--expandText')};
 	}
 
 	.expander__checkbox:checked ~ .expander__collapsible-body {
@@ -57,13 +56,11 @@ export const containerStyles = (
 	}
 `;
 
-export const overlayStyles = (
-	expander = expandingWrapperThemeDefault.expander,
-): SerializedStyles => css`
+export const overlayStyles = css`
 	background-image: linear-gradient(
 		0deg,
-		${expander.background},
-		${expander.background} 40%,
+		${themeColour('--background')},
+		${themeColour('--background')} 40%,
 		rgba(255, 255, 255, 0)
 	);
 	height: 5rem;
@@ -73,9 +70,7 @@ export const overlayStyles = (
 	display: block;
 `;
 
-export const showHideLabelStyles = (
-	expander = expandingWrapperThemeDefault.expander,
-): SerializedStyles => css`
+export const showHideLabelStyles = css`
 	${textSans.small({ fontWeight: 'bold' })};
 	display: inline-flex;
 	justify-content: space-between;
@@ -88,16 +83,16 @@ export const showHideLabelStyles = (
 	border-radius: ${remHeight.ctaSmall}rem;
 	padding: 0 ${remSpace[4]};
 	padding-bottom: 2px;
-	border: 1px solid ${expander.expandBackground};
+	border: 1px solid ${themeColour('--expandBackground')};
 	text-decoration: none;
-	background: ${expander.expandBackground};
-	color: ${expander.expandText};
+	background: ${themeColour('--expandBackground')};
+	color: ${themeColour('--expandText')};
 	height: ${remHeight.ctaSmall}rem;
 	min-height: ${remHeight.ctaSmall}rem;
 	margin-left: ${remSpace[2]};
 
 	&:hover {
-		background-color: ${expander.expandBackgroundHover};
+		background-color: ${themeColour('--expandBackgroundHover')};
 	}
 `;
 
