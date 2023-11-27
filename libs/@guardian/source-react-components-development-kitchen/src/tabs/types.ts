@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { Theme } from './theme';
 
 type TabElement = 'a' | 'button';
 export type TabProps = {
@@ -14,4 +15,5 @@ export type TabContainerProps = {
 	tabs: readonly TabProps[];
 	onTabChange: (tabName: string) => void;
 	selectedTab: string;
+	theme?: Theme;
 };
