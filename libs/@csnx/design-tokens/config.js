@@ -3,21 +3,12 @@ const _ = require('lodash');
 
 StyleDictionary.registerFormat({
 	name: 'typescript/object',
-	formatter: function ({ dictionary }) {
+	formatter: function ({ dictionary, file }) {
 		const tokens = dictionary.allTokens
-			.map((token) => {
-				const value = JSON.stringify(token.value);
-				if (dictionary.usesReference(token.original.value)) {
-					const refs = dictionary.getReferences(token.original.value);
-					refs.forEach((ref) => {
-						value = value.replace(ref.value, () => `${ref.name}`);
-					});
-				}
-				return `${token.name}: ${value},`;
-			})
+			.map((token) => `${token.name}: "${token.value}",`)
 			.join('\n');
-		// TODO: get object variable name from token
-		return `export const space = { ${tokens} } as const;`;
+
+		return `export const ${file.name} = { ${tokens} } as const;`;
 	},
 });
 
@@ -55,7 +46,7 @@ module.exports = {
 	source: ['src/tokens/**/*.json'],
 	platforms: {
 		typescript: {
-			transforms: ['attribute/cti', 'name/i/camel', 'size/px', 'font/pxToRem'],
+			transforms: ['attribute/cti', 'name/i/camel', 'size/pxToRem'],
 			buildPath: 'dist/',
 			files: [
 				{
@@ -63,6 +54,7 @@ module.exports = {
 						token.attributes.category === 'size' &&
 						token.attributes.type === 'space',
 					format: 'typescript/object',
+					name: 'space',
 					destination: 'space.ts',
 				},
 			],
