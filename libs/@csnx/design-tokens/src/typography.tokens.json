@@ -1,0 +1,169 @@
+{
+	"font": {
+		"fontSize": {
+			"12": {
+				"$value": "12"
+			},
+			"14": {
+				"$value": "14"
+			},
+			"15": {
+				"$value": "15"
+			},
+			"17": {
+				"$value": "17"
+			},
+			"20": {
+				"$value": "20"
+			},
+			"24": {
+				"$value": "24"
+			},
+			"28": {
+				"$value": "28"
+			},
+			"34": {
+				"$value": "34"
+			},
+			"42": {
+				"$value": "42"
+			},
+			"50": {
+				"$value": "50"
+			},
+			"70": {
+				"$value": "70"
+			},
+			"textSans": {
+				"xxSmall": {
+					"$value": "{font.fontSize.12}"
+				},
+				"xSmall": {
+					"$value": "{font.fontSize.14}"
+				},
+				"small": {
+					"$value": "{font.fontSize.15}"
+				},
+				"medium": {
+					"$value": "{font.fontSize.17}"
+				},
+				"large": {
+					"$value": "{font.fontSize.20}"
+				},
+				"xLarge": {
+					"$value": "{font.fontSize.24}"
+				},
+				"xxLarge": {
+					"$value": "{font.fontSize.28}"
+				},
+				"xxxLarge": {
+					"$value": "{font.fontSize.34}"
+				}
+			},
+			"body": {
+				"xSmall": {
+					"$value": "{font.fontSize.14}"
+				},
+				"small": {
+					"$value": "{font.fontSize.15}"
+				},
+				"medium": {
+					"$value": "{font.fontSize.17}"
+				}
+			},
+			"headline": {
+				"xxxSmall": {
+					"$value": "{font.fontSize.17}"
+				},
+				"xxSmall": {
+					"$value": "{font.fontSize.20}"
+				},
+				"xSmall": {
+					"$value": "{font.fontSize.24}"
+				},
+				"small": {
+					"$value": "{font.fontSize.28}"
+				},
+				"medium": {
+					"$value": "{font.fontSize.34}"
+				},
+				"large": {
+					"$value": "{font.fontSize.42}"
+				},
+				"xLarge": {
+					"$value": "{font.fontSize.50}"
+				}
+			},
+			"titlepiece": {
+				"small": {
+					"$value": "{font.fontSize.42}"
+				},
+				"medium": {
+					"$value": "{font.fontSize.50}"
+				},
+				"large": {
+					"$value": "{font.fontSize.70}"
+				}
+			}
+		},
+		"fontWeight": {
+			"textSans": {
+				"regular": {
+					"$value": "400"
+				},
+				"bold": {
+					"$value": "700"
+				}
+			},
+			"body": {
+				"regular": {
+					"$value": "400"
+				},
+				"bold": {
+					"$value": "700"
+				}
+			},
+			"headline": {
+				"light": {
+					"$value": "300"
+				},
+				"medium": {
+					"$value": "500"
+				},
+				"bold": {
+					"$value": "700"
+				}
+			},
+			"titlepiece": {
+				"bold": {
+					"$value": "700"
+				}
+			}
+		},
+		"lineHeight": {
+			"tight": {
+				"$value": "1.15"
+			},
+			"regular": {
+				"$value": "1.3"
+			},
+			"loose": {
+				"$value": "1.4"
+			}
+		},
+		"fontFamily": {
+			"titlepiece": {
+				"$value": "'GT Guardian Titlepiece', Georgia, serif"
+			},
+			"headline": {
+				"$value": "'GH Guardian Headline', Georgia, serif"
+			},
+			"body": {
+				"$value": "GuardianTextEgyptian, Georgia, serif"
+			},
+			"textSans": {
+				"$value": "GuardianTextSans, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
+			}
+		}
+	}
+}
