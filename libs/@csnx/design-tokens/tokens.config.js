@@ -11,8 +11,14 @@ export default {
 	outDir: './dist/',
 	plugins: [
 		pluginCSS({
+			p3: false,
 			generateName: (variableId) =>
 				defaultNameGenerator(`source.${variableId}`),
+			transform: (token) => {
+				if (token.$type === 'dimension' && token.$value.slice(-2) === 'px') {
+					return token.$value.slice(0, -2) / 16 + 'rem';
+				}
+			},
 		}),
 	],
 };
