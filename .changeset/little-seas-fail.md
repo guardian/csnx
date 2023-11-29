@@ -5,4 +5,4 @@
 '@guardian/eslint-config': major
 ---
 
-Update eslint version
+`@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` dependencies upgraded to next major version (6).
