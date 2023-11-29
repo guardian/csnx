@@ -1,7 +1,7 @@
 {
 	"size": {
 		"$type": "dimension",
-		"x small": {
+		"xSmall": {
 			"$value": "24px"
 		},
 		"small": {
@@ -11,7 +11,7 @@
 			"$value": "44px"
 		},
 		"icon": {
-			"x small": {
+			"xSmall": {
 				"$value": "20px"
 			},
 			"small": {
@@ -24,53 +24,53 @@
 	},
 	"height": {
 		"$type": "dimension",
-		"cta medium": {
+		"ctaMedium": {
 			"$value": "{size.medium}"
 		},
-		"cta small": {
+		"ctaSmall": {
 			"$value": "{size.small}"
 		},
-		"cta x small": {
-			"$value": "{size.x small}"
+		"ctaXSmall": {
+			"$value": "{size.xSmall}"
 		},
-		"input medium": {
+		"inputMedium": {
 			"$value": "{size.medium}"
 		},
-		"input x small": {
-			"$value": "{size.x small}"
+		"inputXSmall": {
+			"$value": "{size.xSmall}"
 		},
-		"icon medium": {
+		"iconMedium": {
 			"$value": "{size.icon.medium}"
 		},
-		"icon small": {
+		"iconSmall": {
 			"$value": "{size.icon.small}"
 		},
-		"icon x small": {
-			"$value": "{size.icon.x small}"
+		"iconXSmall": {
+			"$value": "{size.icon.xSmall}"
 		}
 	},
 	"width": {
 		"$type": "dimension",
-		"cta medium": {
+		"ctaMedium": {
 			"$value": "{size.medium}"
 		},
-		"cta small": {
+		"ctaSmall": {
 			"$value": "{size.small}"
 		},
-		"cta x small": {
-			"$value": "{size.x small}"
+		"ctaXSmall": {
+			"$value": "{size.xSmall}"
 		},
-		"input x small": {
-			"$value": "{size.x small}"
+		"inputXSmall": {
+			"$value": "{size.xSmall}"
 		},
-		"icon medium": {
+		"iconMedium": {
 			"$value": "{size.icon.medium}"
 		},
-		"icon small": {
+		"iconSmall": {
 			"$value": "{size.icon.small}"
 		},
-		"icon x small": {
-			"$value": "{size.icon.x small}"
+		"iconXSmall": {
+			"$value": "{size.icon.xSmall}"
 		}
 	}
 }
