@@ -7,6 +7,7 @@ export default {
 		'./src/palette.tokens.json',
 		'./src/size.tokens.json',
 		'./src/space.tokens.json',
+		'./src/typography.tokens.json',
 	],
 	outDir: './dist/',
 	plugins: [
