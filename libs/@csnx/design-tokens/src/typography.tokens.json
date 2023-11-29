@@ -1,168 +1,88 @@
 {
 	"font": {
-		"fontSize": {
-			"12": {
-				"$value": "12"
-			},
-			"14": {
-				"$value": "14"
-			},
-			"15": {
-				"$value": "15"
-			},
-			"17": {
-				"$value": "17"
-			},
-			"20": {
-				"$value": "20"
-			},
-			"24": {
-				"$value": "24"
-			},
-			"28": {
-				"$value": "28"
-			},
-			"34": {
-				"$value": "34"
-			},
-			"42": {
-				"$value": "42"
-			},
-			"50": {
-				"$value": "50"
-			},
-			"70": {
-				"$value": "70"
-			},
-			"textSans": {
-				"xxSmall": {
-					"$value": "{font.fontSize.12}"
-				},
-				"xSmall": {
-					"$value": "{font.fontSize.14}"
-				},
-				"small": {
-					"$value": "{font.fontSize.15}"
-				},
-				"medium": {
-					"$value": "{font.fontSize.17}"
-				},
-				"large": {
-					"$value": "{font.fontSize.20}"
-				},
-				"xLarge": {
-					"$value": "{font.fontSize.24}"
-				},
-				"xxLarge": {
-					"$value": "{font.fontSize.28}"
-				},
-				"xxxLarge": {
-					"$value": "{font.fontSize.34}"
-				}
-			},
-			"body": {
-				"xSmall": {
-					"$value": "{font.fontSize.14}"
-				},
-				"small": {
-					"$value": "{font.fontSize.15}"
-				},
-				"medium": {
-					"$value": "{font.fontSize.17}"
-				}
+		"family": {
+			"$type": "fontFamily",
+			"titlepiece": {
+				"$value": ["GT Guardian Titlepiece", "Georgia", "serif"]
 			},
 			"headline": {
-				"xxxSmall": {
-					"$value": "{font.fontSize.17}"
-				},
-				"xxSmall": {
-					"$value": "{font.fontSize.20}"
-				},
-				"xSmall": {
-					"$value": "{font.fontSize.24}"
-				},
-				"small": {
-					"$value": "{font.fontSize.28}"
-				},
-				"medium": {
-					"$value": "{font.fontSize.34}"
-				},
-				"large": {
-					"$value": "{font.fontSize.42}"
-				},
-				"xLarge": {
-					"$value": "{font.fontSize.50}"
-				}
+				"$value": ["GH Guardian Headline", "Georgia", "serif"]
 			},
-			"titlepiece": {
-				"small": {
-					"$value": "{font.fontSize.42}"
-				},
-				"medium": {
-					"$value": "{font.fontSize.50}"
-				},
-				"large": {
-					"$value": "{font.fontSize.70}"
-				}
+			"body": {
+				"$value": ["GuardianTextEgyptian", "Georgia", "serif"]
+			},
+			"textSans": {
+				"$value": [
+					"GuardianTextSans",
+					"Helvetica Neue",
+					"Helvetica",
+					"Arial",
+					"Lucida Grande",
+					"sans-serif"
+				]
 			}
 		},
-		"fontWeight": {
-			"textSans": {
-				"regular": {
-					"$value": "400"
-				},
-				"bold": {
-					"$value": "700"
-				}
+		"size": {
+			"$type": "dimension",
+			"12": {
+				"$value": "12px"
 			},
-			"body": {
-				"regular": {
-					"$value": "400"
-				},
-				"bold": {
-					"$value": "700"
-				}
+			"14": {
+				"$value": "14px"
 			},
-			"headline": {
-				"light": {
-					"$value": "300"
-				},
-				"medium": {
-					"$value": "500"
-				},
-				"bold": {
-					"$value": "700"
-				}
+			"15": {
+				"$value": "15px"
 			},
-			"titlepiece": {
-				"bold": {
-					"$value": "700"
-				}
+			"17": {
+				"$value": "17px"
+			},
+			"20": {
+				"$value": "20px"
+			},
+			"24": {
+				"$value": "24px"
+			},
+			"28": {
+				"$value": "28px"
+			},
+			"34": {
+				"$value": "34px"
+			},
+			"42": {
+				"$value": "42px"
+			},
+			"50": {
+				"$value": "50px"
+			},
+			"70": {
+				"$value": "70px"
 			}
 		},
 		"lineHeight": {
+			"$type": "number",
 			"tight": {
-				"$value": "1.15"
+				"$value": 1.15
 			},
 			"regular": {
-				"$value": "1.3"
+				"$value": 1.3
 			},
 			"loose": {
-				"$value": "1.4"
+				"$value": 1.4
 			}
 		},
-		"fontFamily": {
-			"titlepiece": {
-				"$value": "'GT Guardian Titlepiece', Georgia, serif"
+		"weight": {
+			"$type": "number",
+			"light": {
+				"$value": 300
 			},
-			"headline": {
-				"$value": "'GH Guardian Headline', Georgia, serif"
+			"regular": {
+				"$value": 400
 			},
-			"body": {
-				"$value": "GuardianTextEgyptian, Georgia, serif"
+			"medium": {
+				"$value": 500
 			},
-			"textSans": {
-				"$value": "GuardianTextSans, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
+			"bold": {
+				"$value": 700
 			}
 		}
 	}
