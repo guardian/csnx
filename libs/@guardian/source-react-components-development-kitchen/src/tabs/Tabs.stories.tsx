@@ -1,41 +1,12 @@
 import { css } from '@emotion/react';
+import { palette } from '@guardian/source-foundations';
 import { SvgAppleBrand } from '@guardian/source-react-components';
 import { useState } from 'react';
 import type { ReactElement } from 'react';
 import { Tabs } from './tabs';
+import { tabsDarkTheme } from './theme';
+import type { TabProps } from './types';
 
-const dogsTab = {
-	id: 'dog',
-	text: (
-		<div
-			css={css`
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-			`}
-		>
-			<span
-				css={css`
-					padding-right: 4px;
-				`}
-			>
-				Dogs
-			</span>
-			<span>(are the best)</span>
-		</div>
-	),
-	content: (
-		<p>
-			Vestibulum fermentum nibh ac est venenatis facilisis. In vehicula mattis
-			mi, id eleifend metus suscipit posuere. Nulla sed sem magna. Sed ante
-			orci, convallis a facilisis sed, mollis id lacus. Aenean ullamcorper
-			pellentesque nisi sed vehicula. Aenean quis auctor libero. Vestibulum
-			aliquam in tellus id varius. Donec congue consectetur sem, sit amet
-			sagittis turpis. Maecenas mattis massa augue, sit amet aliquet libero
-			elementum nec.
-		</p>
-	),
-};
 const tabsContent = [
 	{
 		id: 'cat',
@@ -55,37 +26,71 @@ const tabsContent = [
 			</p>
 		),
 	},
-	dogsTab,
-];
+	{
+		id: 'dog',
+		text: (
+			<div
+				css={css`
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+				`}
+			>
+				<span
+					css={css`
+						padding-right: 4px;
+					`}
+				>
+					Dogs
+				</span>
+				<span>(are the best)</span>
+			</div>
+		),
+		content: (
+			<p>
+				Vestibulum fermentum nibh ac est venenatis facilisis. In vehicula mattis
+				mi, id eleifend metus suscipit posuere. Nulla sed sem magna. Sed ante
+				orci, convallis a facilisis sed, mollis id lacus. Aenean ullamcorper
+				pellentesque nisi sed vehicula. Aenean quis auctor libero. Vestibulum
+				aliquam in tellus id varius. Donec congue consectetur sem, sit amet
+				sagittis turpis. Maecenas mattis massa augue, sit amet aliquet libero
+				elementum nec.
+			</p>
+		),
+	},
+] as const satisfies readonly TabProps[];
 
 const tabs = (): ReactElement => {
-	const [selectedTab, setSelectedTab] = useState('cat');
+	const [selectedTab, setSelectedTab] = useState<string>(tabsContent[1].id);
 	return (
 		<Tabs
 			tabsLabel="Pets"
 			tabElement="button"
 			tabs={tabsContent}
 			selectedTab={selectedTab}
-			onTabChange={(tabName: string): void => {
-				setSelectedTab(tabName);
-			}}
+			onTabChange={setSelectedTab}
 		/>
 	);
 };
+
 const singleTab = (): ReactElement => {
+	const dog = tabsContent[1];
 	return (
 		<Tabs
 			tabsLabel="Pets"
 			tabElement="button"
-			tabs={[dogsTab]}
-			selectedTab={'dog'}
-			onTabChange={(): void => {}}
+			tabs={[dog]}
+			selectedTab={dog.id}
+			onTabChange={() => {
+				// do nothing
+			}}
 		/>
 	);
 };
+
 const tabWithNodeTitle = (): ReactElement => {
-	const tabs = {
-		id: 'dog',
+	const fruit = {
+		id: 'fruit',
 		text: (
 			<div
 				css={css`
@@ -96,15 +101,52 @@ const tabWithNodeTitle = (): ReactElement => {
 				<SvgAppleBrand size="xsmall" />
 			</div>
 		),
-		content: dogsTab.content,
-	};
+		content: (
+			<p>The apple is a fresh fruit that also happen to be massively tasty!</p>
+		),
+	} satisfies TabProps;
 	return (
 		<Tabs
 			tabsLabel="Pets"
 			tabElement="button"
-			tabs={[tabs]}
-			selectedTab={'dog'}
-			onTabChange={(): void => {}}
+			tabs={[fruit]}
+			selectedTab={fruit.id}
+			onTabChange={() => {
+				// do nothing
+			}}
+		/>
+	);
+};
+
+const tabWithDarkTheme = (): ReactElement => {
+	const [selectedTab, setSelectedTab] = useState<string>(tabsContent[0].id);
+	return (
+		<Tabs
+			tabsLabel="Themed"
+			tabElement="button"
+			tabs={tabsContent}
+			selectedTab={selectedTab}
+			onTabChange={setSelectedTab}
+			theme={tabsDarkTheme}
+		/>
+	);
+};
+
+const tabWithCustomTheme = (): ReactElement => {
+	const [selectedTab, setSelectedTab] = useState<string>(tabsContent[0].id);
+	return (
+		<Tabs
+			tabsLabel="Themed"
+			tabElement="button"
+			tabs={tabsContent}
+			selectedTab={selectedTab}
+			onTabChange={setSelectedTab}
+			theme={{
+				'--background': palette.brand[300],
+				'--border': palette.brand[100],
+				'--inactiveBackground': palette.brand[600],
+				'--text': palette.neutral[97],
+			}}
 		/>
 	);
 };
@@ -114,4 +156,10 @@ export default {
 	title: 'Tabs',
 };
 
-export { tabs, singleTab, tabWithNodeTitle };
+export {
+	tabs,
+	singleTab,
+	tabWithNodeTitle,
+	tabWithDarkTheme,
+	tabWithCustomTheme,
+};

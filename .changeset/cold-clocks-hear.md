@@ -2,21 +2,37 @@
 '@guardian/source-react-components-development-kitchen': major
 ---
 
-Refactor ExpandingWrapper so it can receive an optional theme. This will require
-consumers to update their calls, but it should be compatible with the existing
-exported light and dark themes.
+Refactor `ExpandingWrapper` so it can receive an optional theme. This will
+require consumers relying on `cssOverrides` to use the `theme` prop instead. The
+exported exported light (default) and dark themes are compatible with this API.
 
-```tsx
+```jsx
+import { css } from '@emotion/react';
 import {
 	ExpandingWrapper,
-	expandingWrapperDarkTheme,
+	expandingWrapperThemeDefault,
 } from '@guardian/source-react-components-development-kitchen';
-<ExpandingWrapper
-	name="Expanding Wrapper With Dark Theme"
-	theme={expandingWrapperDarkTheme}
->
-	{children}
-</ExpandingWrapper>;
+
+const Before = ({ children }) => (
+	<ExpandingWrapper
+		cssOverrides={css`
+			color: aquamarine;
+		`}
+	>
+		{children}
+	</ExpandingWrapper>
+);
+
+const After = ({ children }) => (
+	<ExpandingWrapper
+		theme={{
+			...expandingWrapperThemeDefault,
+			'--text': 'aquamarine',
+		}}
+	>
+		{children}
+	</ExpandingWrapper>
+);
 ```
 
 Uses CSS Custom Properties under the hood.

@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import type { SerializedStyles } from '@emotion/react';
 import { from, space, textSans } from '@guardian/source-foundations';
-import { tabsThemeDefault } from './theme';
+import { tabThemeColour } from './theme';
 
 export const tabList = css`
 	display: flex;
@@ -9,10 +8,8 @@ export const tabList = css`
 	justify-content: flex-start;
 `;
 
-export const tabButton = (
-	tabs = tabsThemeDefault.tabs,
-): SerializedStyles => css`
-	background-color: ${tabs.background};
+export const tabButton = css`
+	background-color: ${tabThemeColour('--background')};
 	${textSans.medium({
 		fontWeight: 'bold',
 	})}
@@ -26,15 +23,18 @@ export const tabButton = (
 	min-height: ${space[12]}px;
 	align-self: stretch;
 	text-align: left;
-	color: ${tabs.text};
+	color: ${tabThemeColour('--text')};
 	padding: ${space[2]}px ${space[3]}px;
-	border: 1px solid ${tabs.border};
+	border: 1px solid ${tabThemeColour('--border')};
 	border-bottom: none;
 	cursor: pointer;
 
 	:first-of-type {
 		margin-left: ${space[2]}px;
 		border-top-left-radius: ${space[2]}px;
+	}
+	:nth-of-type(n + 2) {
+		border-left: none;
 	}
 	:last-of-type {
 		margin-right: ${space[2]}px;
@@ -49,7 +49,7 @@ export const tabButton = (
 	}
 
 	&[aria-selected='false'] {
-		background-color: ${tabs.inactiveBackground};
+		background-color: ${tabThemeColour('--inactiveBackground')};
 	}
 
 	/* Pseudo-element that covers the tab panel bottom border for the active tab */
@@ -65,10 +65,10 @@ export const tabButton = (
 	}
 `;
 
-export const tabPanel = (tabs = tabsThemeDefault.tabs): SerializedStyles => css`
+export const tabPanel = css`
 	position: relative;
 	padding: ${space[3]}px;
-	background: ${tabs.background};
-	border-top: 1px solid ${tabs.border};
-	color: ${tabs.text};
+	background: ${tabThemeColour('--background')};
+	border-top: 1px solid ${tabThemeColour('--border')};
+	color: ${tabThemeColour('--text')};
 `;
