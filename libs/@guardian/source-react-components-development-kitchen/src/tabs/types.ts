@@ -2,15 +2,16 @@ import type { ReactNode } from 'react';
 
 type TabElement = 'a' | 'button';
 export type TabProps = {
-	id: string;
-	text: string | ReactNode;
-	href?: string;
-	content: ReactNode;
+	readonly id: string;
+	readonly text: string | ReactNode;
+	readonly href?: string;
+	readonly content: ReactNode;
 };
+
 export type TabContainerProps = {
 	tabsLabel: string;
 	tabElement: TabElement;
-	tabs: TabProps[];
+	tabs: readonly TabProps[];
 	onTabChange: (tabName: string) => void;
 	selectedTab: string;
 };
