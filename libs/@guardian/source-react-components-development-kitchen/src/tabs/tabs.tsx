@@ -1,6 +1,6 @@
 import { tabButton, tabList, tabPanel } from './styles';
 import type { Theme } from './theme';
-import type { TabContainerProps, TabProps } from './types';
+import type { TabContainerProps } from './types';
 
 function Tabs({
 	tabsLabel,
@@ -13,33 +13,33 @@ function Tabs({
 	return (
 		<div>
 			<div css={tabList} role="tablist" aria-label={tabsLabel}>
-				{tabs.map((tab: TabProps) => {
+				{tabs.map(({ id, href, text }) => {
 					return (
 						<TabControllerElement
-							key={tab.id}
+							key={id}
 							css={(theme: Theme) => tabButton(theme.tabs)}
 							role="tab"
-							id={tab.id}
-							href={tab.href}
-							aria-selected={selectedTab === tab.id}
-							aria-controls={`${tab.id}-tab`}
-							onClick={(): void => onTabChange(tab.id)}
+							id={id}
+							href={href}
+							aria-selected={selectedTab === id}
+							aria-controls={`${id}-tab`}
+							onClick={(): void => onTabChange(id)}
 						>
-							{tab.text}
+							{text}
 						</TabControllerElement>
 					);
 				})}
 			</div>
-			{tabs.map((tab: TabProps) => (
+			{tabs.map(({ id, content }) => (
 				<div
-					key={`${tab.id}-tab`}
+					key={`${id}-tab`}
 					css={(theme: Theme) => tabPanel(theme.tabs)}
 					role="tabpanel"
-					id={`${tab.id}-tab`}
-					aria-labelledby={tab.id}
-					hidden={!(tab.id === selectedTab)}
+					id={`${id}-tab`}
+					aria-labelledby={id}
+					hidden={!(id === selectedTab)}
 				>
-					{tab.content}
+					{content}
 				</div>
 			))}
 		</div>
