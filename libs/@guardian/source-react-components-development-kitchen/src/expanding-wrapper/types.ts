@@ -1,5 +1,5 @@
-import type { SerializedStyles } from '@emotion/react';
 import type { ReactElement } from 'react';
+import type { Theme } from './theme';
 
 export interface ExpandingWrapperProps {
 	children: ReactElement;
@@ -8,10 +8,7 @@ export interface ExpandingWrapperProps {
 
 	renderExtra?: () => ReactElement;
 	expandCallback?: (expanded: boolean) => void;
-	/**
-	 * Override component styles by passing in the result of [emotion's `css` function/prop](https://emotion.sh/docs/introduction).
-	 */
-	cssOverrides?: SerializedStyles | SerializedStyles[];
+	theme?: Theme;
 	/**
 	 * Override the height of the collapsed content. Defaults to '240px'
 	 */

@@ -1,5 +1,86 @@
 # @guardian/source-react-components-development-kitchen
 
+## 15.0.0
+
+### Major Changes
+
+- 61afb21: Refactor `ExpandingWrapper` so it can receive an optional theme. This will
+  require consumers relying on `cssOverrides` to use the `theme` prop instead. The
+  exported exported light (default) and dark themes are compatible with this API.
+
+  ```jsx
+  import { css } from '@emotion/react';
+  import {
+  	ExpandingWrapper,
+  	expandingWrapperThemeDefault,
+  } from '@guardian/source-react-components-development-kitchen';
+
+  const Before = ({ children }) => (
+  	<ExpandingWrapper
+  		cssOverrides={css`
+  			color: aquamarine;
+  		`}
+  	>
+  		{children}
+  	</ExpandingWrapper>
+  );
+
+  const After = ({ children }) => (
+  	<ExpandingWrapper
+  		theme={{
+  			...expandingWrapperThemeDefault,
+  			'--text': 'aquamarine',
+  		}}
+  	>
+  		{children}
+  	</ExpandingWrapper>
+  );
+  ```
+
+  Uses CSS Custom Properties under the hood.
+
+- 182a659: Refactor `Tabs` so it can receive an optional theme. This will require consumers
+  relying on `cssOverrides` to use the `theme` prop instead. The exported exported
+  light (default) and dark themes are compatible with this API
+
+  ```tsx
+  import { css } from '@emotion/react';
+  import {
+  	Tabs,
+  	tabsThemeDefault,
+  } from '@guardian/source-react-components-development-kitchen';
+
+  const Before = () => (
+  	<Tabs
+  		tabs={tabs}
+  		cssOverride={css`
+  			border-color: darkbrown;
+  		`}
+  	/>
+  );
+
+  const After = () => (
+  	<Tabs
+  		tabs={tabs}
+  		theme={{ ...tabsThemeDefault, '--border': 'darkbrown' }}
+  	/>
+  );
+  ```
+
+  Uses CSS Custom Properties under the hood.
+
+### Patch Changes
+
+- 3954945: Internals rewritten as read-only. No change for consumers, they are still able
+  to provide a mutable data structure, but we guarantee that this component will
+  not modify it
+
+## 14.1.0
+
+### Minor Changes
+
+- 214f533: Update FooterLinks component to support ButtonLinks
+
 ## 14.0.2
 
 ### Patch Changes

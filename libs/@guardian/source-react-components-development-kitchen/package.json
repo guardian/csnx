@@ -1,9 +1,9 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "14.0.2",
+	"version": "15.0.0",
 	"sideEffects": false,
 	"devDependencies": {
-		"@babel/core": "7.23.3",
+		"@babel/core": "7.23.5",
 		"@emotion/react": "11.11.1",
 		"@guardian/libs": "15.4.0",
 		"@guardian/source-foundations": "13.0.0",

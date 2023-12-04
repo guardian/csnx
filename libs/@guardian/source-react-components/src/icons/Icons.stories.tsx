@@ -20,6 +20,7 @@ import { SvgArrowUpStraightSmall } from '../../vendor/icons/SvgArrowUpStraightSm
 import { SvgAsterisk } from '../../vendor/icons/SvgAsterisk';
 import { SvgAudio } from '../../vendor/icons/SvgAudio';
 import { SvgAudioMute } from '../../vendor/icons/SvgAudioMute';
+import { SvgBin } from '../../vendor/icons/SvgBin';
 import { SvgBookMark } from '../../vendor/icons/SvgBookMark';
 import { SvgBookMarkCross } from '../../vendor/icons/SvgBookMarkCross';
 import { SvgCalendar } from '../../vendor/icons/SvgCalendar';
@@ -86,7 +87,9 @@ import { SvgMinus } from '../../vendor/icons/SvgMinus';
 import { SvgMoon } from '../../vendor/icons/SvgMoon';
 import { SvgNewsletter } from '../../vendor/icons/SvgNewsletter';
 import { SvgNotificationsOff } from '../../vendor/icons/SvgNotificationsOff';
+import { SvgNotificationsOffRound } from '../../vendor/icons/SvgNotificationsOffRound';
 import { SvgNotificationsOn } from '../../vendor/icons/SvgNotificationsOn';
+import { SvgNotificationsOnRound } from '../../vendor/icons/SvgNotificationsOnRound';
 import { SvgPadlock } from '../../vendor/icons/SvgPadlock';
 import { SvgPartyOfThree } from '../../vendor/icons/SvgPartyOfThree';
 import { SvgPayPalBrand } from '../../vendor/icons/SvgPayPalBrand';
@@ -104,6 +107,7 @@ import { SvgReload } from '../../vendor/icons/SvgReload';
 import { SvgSettings } from '../../vendor/icons/SvgSettings';
 import { SvgShare } from '../../vendor/icons/SvgShare';
 import { SvgShareCallout } from '../../vendor/icons/SvgShareCallout';
+import { SvgSignalBrand } from '../../vendor/icons/SvgSignalBrand';
 import { SvgSpeechBubble } from '../../vendor/icons/SvgSpeechBubble';
 import { SvgSpeechBubbleCross } from '../../vendor/icons/SvgSpeechBubbleCross';
 import { SvgSpeechBubblePlus } from '../../vendor/icons/SvgSpeechBubblePlus';
@@ -120,7 +124,6 @@ import { SvgVideo } from '../../vendor/icons/SvgVideo';
 import { SvgWhatsApp } from '../../vendor/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../../vendor/icons/SvgWhatsAppBrand';
 import type { IconProps, IconSize } from '../@types/Icons';
-import { SvgSignalBrand } from '../../vendor/icons/SvgSignalBrand';
 import { SvgSpinner } from './SvgSpinner';
 
 const uiIcons = {
@@ -239,6 +242,9 @@ const uiIcons = {
 	SvgSpinner,
 	SvgSignalBrand,
 	SvgTelegramBrand,
+	SvgBin,
+	SvgNotificationsOnRound,
+	SvgNotificationsOffRound,
 };
 
 const paymentIcons = {

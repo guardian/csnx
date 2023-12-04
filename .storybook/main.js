@@ -37,7 +37,6 @@ module.exports = {
 						plugins: [
 							'@babel/plugin-transform-typescript',
 							'@emotion/babel-plugin',
-							'@babel/plugin-proposal-class-properties',
 						],
 					},
 				},

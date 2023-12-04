@@ -1,0 +1,76 @@
+{
+	"size": {
+		"$type": "dimension",
+		"xSmall": {
+			"$value": "24px"
+		},
+		"small": {
+			"$value": "36px"
+		},
+		"medium": {
+			"$value": "44px"
+		},
+		"icon": {
+			"xSmall": {
+				"$value": "20px"
+			},
+			"small": {
+				"$value": "26px"
+			},
+			"medium": {
+				"$value": "30px"
+			}
+		}
+	},
+	"height": {
+		"$type": "dimension",
+		"ctaMedium": {
+			"$value": "{size.medium}"
+		},
+		"ctaSmall": {
+			"$value": "{size.small}"
+		},
+		"ctaXSmall": {
+			"$value": "{size.xSmall}"
+		},
+		"inputMedium": {
+			"$value": "{size.medium}"
+		},
+		"inputXSmall": {
+			"$value": "{size.xSmall}"
+		},
+		"iconMedium": {
+			"$value": "{size.icon.medium}"
+		},
+		"iconSmall": {
+			"$value": "{size.icon.small}"
+		},
+		"iconXSmall": {
+			"$value": "{size.icon.xSmall}"
+		}
+	},
+	"width": {
+		"$type": "dimension",
+		"ctaMedium": {
+			"$value": "{size.medium}"
+		},
+		"ctaSmall": {
+			"$value": "{size.small}"
+		},
+		"ctaXSmall": {
+			"$value": "{size.xSmall}"
+		},
+		"inputXSmall": {
+			"$value": "{size.xSmall}"
+		},
+		"iconMedium": {
+			"$value": "{size.icon.medium}"
+		},
+		"iconSmall": {
+			"$value": "{size.icon.small}"
+		},
+		"iconXSmall": {
+			"$value": "{size.icon.xSmall}"
+		}
+	}
+}

@@ -23,9 +23,9 @@ export type CoreAPI = {
 };
 
 export type OphanAPIConfig = {
-	serverSideTests?: ServerSideTests;
-	errorReporter?: ErrorReporterFunc;
-	ophanRecord?: OphanRecordFunction;
+	serverSideTests: ServerSideTests;
+	errorReporter: ErrorReporterFunc;
+	ophanRecord: OphanRecordFunction;
 };
 
 export type OphanAPI = {
@@ -97,5 +97,8 @@ export type Runnable<ABTest> = ABTest & {
 
 export type ServerSideTests = Record<string, string>;
 
-// We don't know what the error reporter for the platform might need
-export type ErrorReporterFunc = (...args: unknown[]) => void;
+/**
+ * Anything can be throw in JS, so you might want to narrow your return type
+ * with `error instanceof Error`
+ */
+export type ErrorReporterFunc = (error: unknown) => void;

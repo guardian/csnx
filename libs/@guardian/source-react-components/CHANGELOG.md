@@ -1,5 +1,21 @@
 # @guardian/source-react-components
 
+## 17.0.0
+
+### Major Changes
+
+- 81dfd5a:
+
+- New icons
+
+  - `SvgBin`
+  - `SvgNotificationsOffRound`
+  - `SvgNotificationsONRound`
+
+- Updated icons
+  - `SvgShareCallout`
+  - `SvgReload`
+
 ## 16.0.1
 
 ### Patch Changes
