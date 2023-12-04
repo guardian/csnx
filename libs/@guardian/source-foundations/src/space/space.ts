@@ -1,44 +1,14 @@
 import { pxToRem } from '../utils/px-to-rem';
+import { tokens } from '@csnx/design-tokens';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) •
  * [Design System](https://theguardian.design/2a1e5182b/p/05f835-space)
  *
  * Can be applied to margin or padding properties, vertically or horizontally.
- *
- ** `space[0]` -> 2px
- ** `space[1]` -> 4px
- ** `space[2]` -> 8px
- ** `space[3]` -> 12px
- ** `space[4]` -> 16px
- ** `space[5]` -> 20px
- ** `space[6]` -> 24px
- ** `space[8]` -> 32px
- ** `space[9]` -> 36px
- ** `space[10]` -> 40px
- ** `space[12]` -> 48px
- ** `space[14]` -> 56px
- ** `space[16]` -> 64px
- ** `space[18]` -> 72px
- ** `space[24]` -> 96px
  */
-export const space = {
-	0: 2,
-	1: 4,
-	2: 8,
-	3: 12,
-	4: 16,
-	5: 20,
-	6: 24,
-	8: 32,
-	9: 36,
-	10: 40,
-	12: 48,
-	14: 56,
-	16: 64,
-	18: 72,
-	24: 96,
-} as const;
+
+export const space = tokens.space;
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) •

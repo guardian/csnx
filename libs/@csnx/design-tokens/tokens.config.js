@@ -32,7 +32,7 @@ export default {
 		'./src/space.tokens.json',
 		'./src/typography.tokens.json',
 	],
-	outDir: './dist/',
+	outDir: './tokens/',
 	plugins: [
 		pluginCSS({
 			p3: false,
