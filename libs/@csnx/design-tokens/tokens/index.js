@@ -236,7 +236,7 @@ export const tokens = {
 			800: '#C1D8FC',
 		},
 		brandAlt: {
-			100: '#F3C100',
+			200: '#F3C100',
 			300: '#FFD900',
 			400: '#FFE500',
 		},

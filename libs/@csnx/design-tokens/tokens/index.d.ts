@@ -187,7 +187,7 @@ export declare const tokens: {
 			'800': ParsedColorToken['$value'];
 		};
 		brandAlt: {
-			'100': ParsedColorToken['$value'];
+			'200': ParsedColorToken['$value'];
 			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 		};
