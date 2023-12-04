@@ -86,7 +86,7 @@ jobs:
       # cache. It's simpler than using github actions cache.
       - run: make build-storybooks
 
-      - uses: chromaui/action@v1
+      - uses: chromaui/action@v10
         with:
           projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
