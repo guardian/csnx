@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 1.1.1
+
+### Patch Changes
+
+- 9e0cb43: Linting fixes
+
 ## 1.1.0
 
 ### Minor Changes
