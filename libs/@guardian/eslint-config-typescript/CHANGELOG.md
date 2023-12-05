@@ -1,5 +1,16 @@
 # @guardian/eslint-config-typescript
 
+## 8.0.0
+
+### Major Changes
+
+- 9e0cb43: `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` dependencies upgraded to next major version (6).
+
+### Patch Changes
+
+- Updated dependencies [9e0cb43]
+  - @guardian/eslint-config@6.0.0
+
 ## 7.0.0
 
 ### Major Changes

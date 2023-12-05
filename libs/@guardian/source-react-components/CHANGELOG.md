@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 17.0.1
+
+### Patch Changes
+
+- 9e0cb43: Linting fixes
+
 ## 17.0.0
 
 ### Major Changes

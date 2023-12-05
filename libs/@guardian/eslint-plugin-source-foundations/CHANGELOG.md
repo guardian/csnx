@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 16.0.0
+
+### Major Changes
+
+- 9e0cb43: `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` dependencies upgraded to next major version (6).
+
 ## 15.0.0
 
 ### Major Changes
