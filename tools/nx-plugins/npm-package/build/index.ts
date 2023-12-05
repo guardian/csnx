@@ -131,7 +131,6 @@ export default async function buildExecutor(
 				}),
 			);
 
-			// eslint-disable-next-line prefer-const -- it _is_ reassigned, eslint
 			entries = Object.fromEntries(outputs) as Entries;
 		}
 
