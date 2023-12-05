@@ -1,5 +1,16 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 20.0.0
+
+### Major Changes
+
+- 9e0cb43: `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` dependencies upgraded to next major version (6).
+
+### Patch Changes
+
+- Updated dependencies [9e0cb43]
+  - @guardian/source-react-components@17.0.1
+
 ## 19.0.0
 
 ### Major Changes
