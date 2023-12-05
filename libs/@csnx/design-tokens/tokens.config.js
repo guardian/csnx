@@ -11,18 +11,6 @@ const pxToRem = (token) => {
 	}
 };
 
-const pxToNumeric = (token) => {
-	const tokenGroup = token.id.split('.')[0];
-
-	if (
-		token.$type === 'dimension' &&
-		token.$value.slice(-2) === 'px' &&
-		tokenGroup === 'space'
-	) {
-		return Number(token.$value.slice(0, -2));
-	}
-};
-
 export default {
 	tokens: [
 		'./src/breakpoint.tokens.json',
@@ -43,7 +31,6 @@ export default {
 			js: true,
 			meta: false,
 			deep: true,
-			transform: pxToNumeric,
 		}),
 	],
 };
