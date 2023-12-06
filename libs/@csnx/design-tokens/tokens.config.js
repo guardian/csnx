@@ -13,14 +13,14 @@ const pxToRem = (token) => {
 
 export default {
 	tokens: [
-		'./src/breakpoint.tokens.json',
-		'./src/colour.tokens.json',
-		'./src/palette.tokens.json',
-		'./src/size.tokens.json',
-		'./src/space.tokens.json',
-		'./src/typography.tokens.json',
+		'./src/tokens/breakpoint.tokens.json',
+		'./src/tokens/colour.tokens.json',
+		'./src/tokens/palette.tokens.json',
+		'./src/tokens/size.tokens.json',
+		'./src/tokens/space.tokens.json',
+		'./src/tokens/typography.tokens.json',
 	],
-	outDir: './tokens/',
+	outDir: './src/build',
 	plugins: [
 		pluginCSS({
 			p3: false,
