@@ -4,7 +4,6 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"dependencies": {
-		"@csnx/design-tokens": "workspace:0.0.1",
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
