@@ -1,18 +1,9 @@
 import { tokens } from './build';
+import { addRem, removePx } from './utils/value-conversions.js';
 
 const palette = tokens.palette;
-const space = {};
-const remSpace = {};
+const breakpoint = tokens.breakpoint;
+const space = removePx(tokens.space);
+const remSpace = addRem(space);
 
-/**
- * Convert `px` spacing tokens to unitless numeric values and `rem` equivalent
- * to match existing Source Foundation spacing token structure
- */
-Object.keys(tokens.space).forEach((key) => {
-	// Strip `px` unit from token and convert to numeric value
-	const value = Number(tokens.space[key].slice(0, -2));
-	space[key] = value;
-	remSpace[key] = `${value / 16}rem`;
-});
-
-export { palette, space, remSpace };
+export { palette, space, remSpace, breakpoint };
