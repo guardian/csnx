@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"type": "module",
-	"main": "index.js",
+	"main": "/dist/index.js",
 	"dependencies": {
 		"@cobalt-ui/core": "^1.6.1"
 	},
