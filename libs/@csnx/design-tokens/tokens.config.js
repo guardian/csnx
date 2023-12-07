@@ -20,7 +20,7 @@ export default {
 		'./src/tokens/space.tokens.json',
 		'./src/tokens/typography.tokens.json',
 	],
-	outDir: './src/build',
+	outDir: 'dist',
 	plugins: [
 		pluginCSS({
 			p3: false,

@@ -1,5 +1,5 @@
+import { tokens } from '@csnx/design-tokens';
 import { pxToRem } from '../utils/px-to-rem';
-
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) •
  * [Design System](https://theguardian.design/2a1e5182b/p/05f835-space)
@@ -22,24 +22,21 @@ import { pxToRem } from '../utils/px-to-rem';
  ** `space[18]` -> 72px
  ** `space[24]` -> 96px
  */
-export const space = {
-	0: 2,
-	1: 4,
-	2: 8,
-	3: 12,
-	4: 16,
-	5: 20,
-	6: 24,
-	8: 32,
-	9: 36,
-	10: 40,
-	12: 48,
-	14: 56,
-	16: 64,
-	18: 72,
-	24: 96,
-} as const;
 
+type SpaceTokenKey = keyof typeof tokens.space;
+
+const space = {} as { [K in SpaceTokenKey]: number };
+const remSpace = {} as { [K in SpaceTokenKey]: string };
+
+Object.keys(tokens.space).forEach((key) => {
+	// Strip 'px' unit from token and convert to a numeric value
+	const value = Number(tokens.space[key as SpaceTokenKey].slice(0, -2));
+
+	space[key as SpaceTokenKey] = value;
+	remSpace[key as SpaceTokenKey] = `${pxToRem(value)}rem`;
+});
+
+export { space, remSpace };
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) •
  * [Design System](https://theguardian.design/2a1e5182b/p/05f835-space)
@@ -62,23 +59,6 @@ export const space = {
  ** `remSpace[18]` -> 4.5rem
  ** `remSpace[24]` -> 6rem
  */
-export const remSpace: { [K in keyof typeof space]: string } = {
-	0: `${pxToRem(space[0])}rem`,
-	1: `${pxToRem(space[1])}rem`,
-	2: `${pxToRem(space[2])}rem`,
-	3: `${pxToRem(space[3])}rem`,
-	4: `${pxToRem(space[4])}rem`,
-	5: `${pxToRem(space[5])}rem`,
-	6: `${pxToRem(space[6])}rem`,
-	8: `${pxToRem(space[8])}rem`,
-	9: `${pxToRem(space[9])}rem`,
-	10: `${pxToRem(space[10])}rem`,
-	12: `${pxToRem(space[12])}rem`,
-	14: `${pxToRem(space[14])}rem`,
-	16: `${pxToRem(space[16])}rem`,
-	18: `${pxToRem(space[18])}rem`,
-	24: `${pxToRem(space[24])}rem`,
-};
 
 /* TODO: this should be exposed as a number instead of a string,
    so consumers can perform calculations on it */

@@ -11,6 +11,7 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "@emotion/react",
 		"paths": {
+			"@csnx/design-tokens": ["libs/@csnx/design-tokens/dist/index.js"],
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
 			"@guardian/ab-core": ["libs/@guardian/ab-core/src/index.ts"],
