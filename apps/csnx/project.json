@@ -5,6 +5,12 @@
 	"projectType": "application",
 	"targets": {
 		"project-storybooks": {
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			],
 			"executor": "nx:run-commands",
 			"options": {
 				"commands": [
@@ -30,6 +36,12 @@
 		},
 		"composed-storybooks": {
 			"executor": "nx:run-commands",
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			],
 			"options": {
 				"command": "storybook dev --port 4400 --quiet",
 				"cwd": "apps/csnx"
@@ -37,6 +49,12 @@
 		},
 		"storybooks": {
 			"executor": "nx:run-commands",
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			],
 			"options": {
 				"commands": [
 					{
@@ -53,6 +71,12 @@
 		"build-storybook": {
 			"executor": "nx:run-commands",
 			"outputs": ["{workspaceRoot}/dist/storybook/apps/csnx"],
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			],
 			"options": {
 				"command": "NODE_ENV=production storybook build -o ../../dist/storybook/apps/csnx --webpack-stats-json",
 				"cwd": "apps/csnx",
