@@ -20,7 +20,13 @@
 			"outputs": ["{options.outputFile}"],
 			"options": {
 				"lintFilePatterns": ["libs/@guardian/source-foundations/**/*.ts"]
-			}
+			},
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			]
 		},
 		"fix": {
 			"executor": "@csnx/eslint:fix",
@@ -35,7 +41,13 @@
 			"options": {
 				"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
 				"passWithNoTests": true
-			}
+			},
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			]
 		},
 		"e2e": {
 			"executor": "@nx/jest:jest",
@@ -44,14 +56,26 @@
 				"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
-			}
+			},
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			]
 		},
 		"storybook": {
 			"executor": "nx:run-commands",
 			"options": {
 				"commands": ["storybook dev"],
 				"cwd": "libs/@guardian/source-foundations"
-			}
+			},
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			]
 		},
 		"build-storybook": {
 			"executor": "nx:run-commands",
@@ -62,7 +86,13 @@
 				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-foundations --webpack-stats-json",
 				"cwd": "libs/@guardian/source-foundations",
 				"color": true
-			}
+			},
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			]
 		}
 	},
 	"tags": []
