@@ -52,6 +52,9 @@
 				{
 					"projects": ["@csnx/design-tokens"],
 					"target": "build"
+				},
+				{
+					"target": "^build"
 				}
 			]
 		},
@@ -67,6 +70,9 @@
 				{
 					"projects": ["@csnx/design-tokens"],
 					"target": "build"
+				},
+				{
+					"target": "^build"
 				}
 			]
 		},
