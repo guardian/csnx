@@ -7,10 +7,10 @@
 		"build": {
 			"executor": "nx:run-commands",
 			"options": {
-				"commands": ["co build"],
+				"command": "co build",
 				"cwd": "libs/@csnx/design-tokens",
 				"color": true,
-				"outputs": ["dist"]
+				"outputs": ["{workspaceRoot}/libs/@csnx/design-tokens/dist"]
 			}
 		}
 	},
