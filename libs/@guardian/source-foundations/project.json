@@ -33,7 +33,13 @@
 			"outputs": ["{options.outputFile}"],
 			"options": {
 				"lintFilePatterns": ["libs/@guardian/source-foundations/**/*.ts"]
-			}
+			},
+			"dependsOn": [
+				{
+					"projects": ["@csnx/design-tokens"],
+					"target": "build"
+				}
+			]
 		},
 		"test": {
 			"executor": "@nx/jest:jest",
