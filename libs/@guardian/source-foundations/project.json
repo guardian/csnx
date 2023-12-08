@@ -54,7 +54,7 @@
 					"target": "build"
 				},
 				{
-					"target": "^build"
+					"target": "build"
 				}
 			]
 		},
@@ -72,7 +72,7 @@
 					"target": "build"
 				},
 				{
-					"target": "^build"
+					"target": "build"
 				}
 			]
 		},
