@@ -22,7 +22,7 @@
 			}
 		},
 		"brandAlt": {
-			"100": {
+			"200": {
 				"$value": "{colour.yellow.1}"
 			},
 			"300": {

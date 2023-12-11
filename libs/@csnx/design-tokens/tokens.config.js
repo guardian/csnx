@@ -1,6 +1,7 @@
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
+import pluginJS from '@cobalt-ui/plugin-js';
 
-const prefixName = (variableId) => {
+const prefixCustomProperty = (variableId) => {
 	return defaultNameGenerator(`source.${variableId}`);
 };
 
@@ -12,19 +13,24 @@ const pxToRem = (token) => {
 
 export default {
 	tokens: [
-		'./src/breakpoint.tokens.json',
-		'./src/colour.tokens.json',
-		'./src/palette.tokens.json',
-		'./src/size.tokens.json',
-		'./src/space.tokens.json',
-		'./src/typography.tokens.json',
+		'./src/tokens/breakpoint.tokens.json',
+		'./src/tokens/colour.tokens.json',
+		'./src/tokens/palette.tokens.json',
+		'./src/tokens/size.tokens.json',
+		'./src/tokens/space.tokens.json',
+		'./src/tokens/typography.tokens.json',
 	],
-	outDir: './dist/',
+	outDir: './src/build',
 	plugins: [
 		pluginCSS({
 			p3: false,
-			generateName: prefixName,
+			generateName: prefixCustomProperty,
 			transform: pxToRem,
+		}),
+		pluginJS({
+			js: true,
+			meta: false,
+			deep: true,
 		}),
 	],
 };
