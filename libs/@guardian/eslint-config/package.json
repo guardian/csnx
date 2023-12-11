@@ -9,7 +9,7 @@
 		"eslint-plugin-import": "2.29.0"
 	},
 	"devDependencies": {
-		"eslint": "8.47.0",
+		"eslint": "8.55.0",
 		"tslib": "^2.5.3"
 	},
 	"peerDependencies": {
