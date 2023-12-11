@@ -20,7 +20,7 @@ export default {
 		'./src/tokens/space.tokens.json',
 		'./src/tokens/typography.tokens.json',
 	],
-	outDir: 'dist',
+	outDir: '../../../dist/libs/@csnx/design-tokens',
 	plugins: [
 		pluginCSS({
 			p3: false,
