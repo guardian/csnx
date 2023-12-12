@@ -13,7 +13,7 @@
 		"paths": {
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
-			"@csnx/design-tokens": ["libs/@csnx/design-tokens/tokens/index.js"],
+			"@csnx/design-tokens": ["libs/@csnx/design-tokens/tokens/index"],
 			"@guardian/ab-core": ["libs/@guardian/ab-core/src/index.ts"],
 			"@guardian/ab-react": ["libs/@guardian/ab-react/src/index.ts"],
 			"@guardian/core-web-vitals": [
