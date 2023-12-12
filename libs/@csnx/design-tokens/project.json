@@ -10,8 +10,20 @@
 				"commands": ["rm -rf ./tokens", "co build"],
 				"parallel": false,
 				"cwd": "libs/@csnx/design-tokens",
-				"color": true,
-				"outputs": ["{workspaceRoot}/dist/libs/@csnx/design-tokens"]
+				"color": true
+			}
+		},
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/libs/@csnx/design-tokens",
+				"packageJson": "libs/@csnx/design-tokens/package.json",
+				"assets": [
+					"libs/@csnx/design-tokens/tokens/index.js",
+					"libs/@csnx/design-tokens/tokens/index.d.ts",
+					"libs/@csnx/design-tokens/tokens/tokens.css"
+				]
 			}
 		}
 	},
