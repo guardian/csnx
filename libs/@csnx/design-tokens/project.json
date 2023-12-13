@@ -4,12 +4,14 @@
 	"sourceRoot": "libs/@csnx/design-tokens/src",
 	"projectType": "library",
 	"targets": {
-		"build": {
+		"make-tokens": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "co build",
+				"commands": ["rm -rf ./tokens", "co build"],
+				"parallel": false,
 				"cwd": "libs/@csnx/design-tokens",
-				"color": true
+				"color": true,
+				"outputs": ["{workspaceRoot}/dist/libs/@csnx/design-tokens"]
 			}
 		}
 	},
