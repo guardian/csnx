@@ -1,24 +1,9 @@
-export type Breakpoint =
-	| 'mobile'
-	| 'mobileMedium'
-	| 'mobileLandscape'
-	| 'phablet'
-	| 'tablet'
-	| 'desktop'
-	| 'leftCol'
-	| 'wide';
+import { tokens } from '@csnx/design-tokens';
+
+export type Breakpoint = keyof typeof tokens.breakpoint;
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_media-queries--page) •
  * [Design System](https://theguardian.design/2a1e5182b/p/41be19-grids)
  */
-export const breakpoints = {
-	mobile: 320,
-	mobileMedium: 375,
-	mobileLandscape: 480,
-	phablet: 660,
-	tablet: 740,
-	desktop: 980,
-	leftCol: 1140,
-	wide: 1300,
-} as const;
+export const breakpoints = tokens.breakpoint;
