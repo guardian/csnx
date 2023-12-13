@@ -15,7 +15,7 @@ module.exports = {
 					'error',
 					{
 						enforceBuildableLibDependency: true,
-						allow: [],
+						allow: ['@csnx/**'],
 						depConstraints: [
 							{
 								sourceTag: '*',
