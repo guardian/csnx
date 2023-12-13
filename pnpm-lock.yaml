@@ -334,7 +334,7 @@ importers:
 
   libs/@guardian/source-foundations:
     specifiers:
-      '@csnx/design-tokens': workspace:^0.1.0
+      '@csnx/design-tokens': workspace:*
       '@emotion/react': 11.11.1
       lightningcss: 1.19.0
       mini-svg-data-uri: 1.4.4
