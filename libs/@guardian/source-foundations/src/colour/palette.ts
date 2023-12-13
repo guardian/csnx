@@ -1,3 +1,4 @@
+// eslint-disable-next-line @nx/enforce-module-boundaries -- expected
 import { tokens } from '@csnx/design-tokens';
 // Arrays of colours should have pillar colors first
 // e.g. for sport:

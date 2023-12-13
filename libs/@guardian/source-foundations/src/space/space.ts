@@ -1,3 +1,4 @@
+// eslint-disable-next-line @nx/enforce-module-boundaries -- expected
 import { tokens } from '@csnx/design-tokens';
 import { pxToRem } from '../utils/px-to-rem';
 
