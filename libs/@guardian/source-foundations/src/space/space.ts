@@ -1,5 +1,5 @@
 import { tokens } from '@csnx/design-tokens';
-import { pxToRem } from '../utils/px-to-rem';
+import { pxStringToNumber, pxToRem } from '../utils/px-to-rem';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_space--page) •
@@ -8,18 +8,38 @@ import { pxToRem } from '../utils/px-to-rem';
  * Can be applied to margin or padding properties, vertically or horizontally.
  *
  */
+export const space = {
+	0: pxStringToNumber(tokens.space[0]),
+	1: pxStringToNumber(tokens.space[1]),
+	2: pxStringToNumber(tokens.space[2]),
+	3: pxStringToNumber(tokens.space[3]),
+	4: pxStringToNumber(tokens.space[4]),
+	5: pxStringToNumber(tokens.space[5]),
+	6: pxStringToNumber(tokens.space[6]),
+	8: pxStringToNumber(tokens.space[8]),
+	9: pxStringToNumber(tokens.space[9]),
+	10: pxStringToNumber(tokens.space[10]),
+	12: pxStringToNumber(tokens.space[12]),
+	14: pxStringToNumber(tokens.space[14]),
+	16: pxStringToNumber(tokens.space[16]),
+	18: pxStringToNumber(tokens.space[18]),
+	24: pxStringToNumber(tokens.space[24]),
+} as const;
 
-type SpaceTokenKey = keyof typeof tokens.space;
-
-const space = {} as { [K in SpaceTokenKey]: number };
-const remSpace = {} as { [K in SpaceTokenKey]: string };
-
-Object.keys(tokens.space).forEach((key) => {
-	// Strip 'px' unit from token and convert to a numeric value
-	const value = Number(tokens.space[key as SpaceTokenKey].slice(0, -2));
-
-	space[key as SpaceTokenKey] = value;
-	remSpace[key as SpaceTokenKey] = `${pxToRem(value)}rem`;
-});
-
-export { space, remSpace };
+export const remSpace: { [K in keyof typeof space]: string } = {
+	0: `${pxToRem(space[0])}rem`,
+	1: `${pxToRem(space[1])}rem`,
+	2: `${pxToRem(space[2])}rem`,
+	3: `${pxToRem(space[3])}rem`,
+	4: `${pxToRem(space[4])}rem`,
+	5: `${pxToRem(space[5])}rem`,
+	6: `${pxToRem(space[6])}rem`,
+	8: `${pxToRem(space[8])}rem`,
+	9: `${pxToRem(space[9])}rem`,
+	10: `${pxToRem(space[10])}rem`,
+	12: `${pxToRem(space[12])}rem`,
+	14: `${pxToRem(space[14])}rem`,
+	16: `${pxToRem(space[16])}rem`,
+	18: `${pxToRem(space[18])}rem`,
+	24: `${pxToRem(space[24])}rem`,
+};
