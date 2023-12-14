@@ -1,6 +1,14 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
+################################## DEFAULT TARGET ##############################
+
+# lists available `make` targets
+.PHONY: ls
+ls:
+	@node tools/scripts/list-make-targets.mjs
+
+
 ###################################### DEV #####################################
 
 # runs storybook for all projects in single instance
