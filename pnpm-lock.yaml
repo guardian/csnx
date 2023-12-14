@@ -47,6 +47,7 @@ importers:
       eslint-plugin-eslint-comments: 3.2.0
       eslint-plugin-import: 2.29.0
       eslint-plugin-storybook: ^0.6.15
+      fast-glob: ^3.3.2
       husky: 8.0.3
       jest: 29.7.0
       jest-environment-jsdom: 29.7.0
@@ -103,6 +104,7 @@ importers:
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.47.0
       eslint-plugin-import: 2.29.0_tv723rrvltv7gsaxhjnsyzbxfe
       eslint-plugin-storybook: 0.6.15_xvfqhj2znzzcemdfwd7ahod35q
+      fast-glob: 3.3.2
       husky: 8.0.3
       jest: 29.7.0_@types+node@18.16.19
       jest-environment-jsdom: 29.7.0
@@ -2945,9 +2947,7 @@ packages:
   /@nrwl/devkit/17.1.2:
     resolution: {integrity: sha512-INPZk4qts3xNJt8E9fttuVTufXdigPUOvUiAiPJmR2oUGDF8SeOlIYNForbz+XMRvxyIVtf45O32azUsgeZe3Q==}
     dependencies:
-      '@nx/devkit': 17.1.2
-    transitivePeerDependencies:
-      - nx
+      '@nx/devkit': 17.1.2_nx@17.1.2
     dev: false
 
   /@nrwl/devkit/17.1.2_nx@17.1.2:
