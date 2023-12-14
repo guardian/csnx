@@ -1,10 +1,11 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { updateReadmeSection } from './utils/update-readme-section.mjs';
+import { updateReadmeSection } from './update-readme-section.mjs';
 import { pathFromRoot, projectRoot } from '../project-paths.mjs';
 import { getPackageList } from './get-package-list.mjs';
-import { getMakeTargets } from './get-make-targets.mjs';
+import { getMakeTargets } from '../lib/get-make-targets.mjs';
+import { getNxTargets } from '../lib/get-nx-targets.mjs';
 import { getCachedTasks } from './get-cached-tasks.mjs';
 
 const thisFilePath = fileURLToPath(import.meta.url);
@@ -20,10 +21,26 @@ readme = updateReadmeSection({
 	updater: thisFilePathFromRoot,
 });
 
+const makeTargets = await getMakeTargets();
+const makeTargetsList = makeTargets
+	.map(({ target, description }) => `- \`make ${target}\` _${description}_`)
+	.join('\n');
+
+const nxTargets = await getNxTargets();
+
+const nxTargetsList = [
+	"You can also run individual project's Nx targets by running `make <target>`. <details><summary>Nx targets</summary>",
+];
+for (const target of nxTargets) {
+	nxTargetsList.push(`- \`make ${target}\``);
+}
+
+nxTargetsList.push('</details>');
+
 readme = updateReadmeSection({
 	readme,
 	label: 'TASKS',
-	updates: await getMakeTargets(),
+	updates: makeTargetsList + '\n\n' + nxTargetsList.join('\n'),
 	updater: thisFilePathFromRoot,
 });
 

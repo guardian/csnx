@@ -46,6 +46,7 @@
 		"eslint-plugin-eslint-comments": "3.2.0",
 		"eslint-plugin-import": "2.29.0",
 		"eslint-plugin-storybook": "^0.6.15",
+		"fast-glob": "^3.3.2",
 		"husky": "8.0.3",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
