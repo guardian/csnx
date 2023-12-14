@@ -10,8 +10,7 @@
 				"commands": ["rm -rf ./tokens", "co build"],
 				"parallel": false,
 				"cwd": "libs/@csnx/design-tokens",
-				"color": true,
-				"outputs": ["{workspaceRoot}/dist/libs/@csnx/design-tokens"]
+				"color": true
 			}
 		}
 	},

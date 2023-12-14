@@ -7,6 +7,7 @@
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
+		"@csnx/design-tokens": "workspace:*",
 		"@emotion/react": "11.11.1",
 		"lightningcss": "1.19.0",
 		"react": "18.2.0",
