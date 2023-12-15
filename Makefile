@@ -109,10 +109,11 @@ install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
 
-# This enables running `nx run` against any Nx target with make, e.g.
-# make @guardian/libs:build.
-# The nx targets are defined in the various **/project.json files.
+# This just passes the user input to `nx run` (assuming it
+# doesn't match another target), e.g. make @guardian/libs:build.
+# The actual Nx targets are defined in the various **/project.json files.
 .PHONY: %
+# The '|' make the prerequisites order-only, which maintains the value of $@.
 %: | env
 	@corepack pnpm nx run $@
 
