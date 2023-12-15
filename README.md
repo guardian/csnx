@@ -83,7 +83,7 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`
 - `make csnx:storybooks`
-- `make @csnx/design-tokens:build`
+- `make @csnx/design-tokens:make-tokens`
 - `make @guardian/ab-core:build`
 - `make @guardian/ab-core:e2e`
 - `make @guardian/ab-core:fix`
