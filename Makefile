@@ -13,7 +13,7 @@ ls:
 
 # runs storybook for all projects in single instance
 .PHONY: storybooks
-storybooks: | env
+storybooks: env
 	$(call log,"Starting storybooks")
 	@corepack pnpm nx run csnx:storybooks
 
@@ -21,13 +21,13 @@ storybooks: | env
 
 # runs the unit tests for all projects
 .PHONY: test
-test: | env
+test: env
 	$(call log,"Running unit tests")
 	@corepack pnpm nx run-many --target=test --skip-nx-cache=$(SKIP_NX_CACHE)
 
 # runs the e2e tests for all projects
 .PHONY: e2e
-e2e: | env
+e2e: env
 	$(call log,"Running e2e tests")
 	@corepack pnpm nx run-many --target=e2e --skip-nx-cache=$(SKIP_NX_CACHE)
 
@@ -53,25 +53,25 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: | env clean lint test build e2e build-storybooks
+validate: env clean lint test build e2e build-storybooks
 
 ##################################### BUILD ####################################
 
 # removes all build artifacts
 .PHONY: clean
-clean: | env
+clean: env
 	$(call log,"Cleaning all build assets")
 	@rm -rf dist/**
 
 # builds all projects
 .PHONY: build
-build: | env clean
+build: env clean
 	$(call log,"Building projects")
 	@corepack pnpm nx run-many --target=build --skip-nx-cache=$(SKIP_NX_CACHE)
 
 # builds all storybooks
 .PHONY: build-storybooks
-build-storybooks: | env
+build-storybooks: env
 	$(call log,"Building storybooks")
 	@corepack pnpm nx run-many --target=build-storybook --skip-nx-cache=$(SKIP_NX_CACHE)
 
@@ -81,7 +81,7 @@ build-storybooks: | env
 
 # creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
 .PHONY: changeset
-changeset: | env
+changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
@@ -93,7 +93,7 @@ define log
 endef
 
 # Make sure the local env is set up correctly.
-.PHONY: | env # PRIVATE
+.PHONY: env # PRIVATE
 env: check-node-version install
 
 # Make sure we're using the correct node version.
@@ -105,7 +105,7 @@ check-node-version:
 # Install dependencies. If deps are up to date this is almost instant, so we can
 # run before every other target with very little DX cost.
 .PHONY: install # PRIVATE
-install: | check-node-version
+install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
 
