@@ -1,5 +1,12 @@
 # @guardian/source-foundations
 
+## 13.2.1
+
+### Patch Changes
+
+- c73b0b1: Spacing now uses the design-tokens internal package as the source of truth.
+  The api remains unchanged.
+
 ## 13.2.0
 
 ### Minor Changes
