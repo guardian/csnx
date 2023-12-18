@@ -3,9 +3,9 @@
 	"version": "16.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "6.12.0",
-		"@typescript-eslint/parser": "6.12.0",
-		"eslint-plugin-import": "2.29.0"
+		"@typescript-eslint/eslint-plugin": "6.14.0",
+		"@typescript-eslint/parser": "6.14.0",
+		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
 		"@guardian/libs": "15.4.0",
