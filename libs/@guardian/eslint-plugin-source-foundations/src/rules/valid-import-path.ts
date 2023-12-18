@@ -257,11 +257,7 @@ const relevantImportSource = (importSource: string, pkg: Package): boolean => {
 		return true;
 	}
 
-	if (pkg === 'all' && importSource.startsWith("'@guardian/src-")) {
-		return true;
-	}
-
-	return false;
+	return pkg === 'all' && importSource.startsWith("'@guardian/src-");
 };
 
 const createReport = (context: Rule.RuleContext, node: Node, pkg: Package) => {
@@ -309,7 +305,7 @@ const createReport = (context: Rule.RuleContext, node: Node, pkg: Package) => {
 				: [
 						...getRenameImportFixers(node, removedExports, fixer, nodeSource),
 						fixer.replaceTextRange(node.source?.range ?? [0, 0], newPackage),
-				  ];
+					];
 		},
 	});
 };
