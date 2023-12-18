@@ -1,5 +1,16 @@
 # @guardian/identity-auth
 
+## 2.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and coresponding packages
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@16.0.0
+
 ## 1.1.1
 
 ### Patch Changes

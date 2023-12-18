@@ -1,5 +1,16 @@
 # @guardian/core-web-vitals
 
+## 6.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and coresponding packages
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/libs@16.0.0
+
 ## 5.1.0
 
 ### Minor Changes

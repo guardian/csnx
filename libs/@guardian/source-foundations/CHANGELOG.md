@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and coresponding packages
+
 ## 13.2.1
 
 ### Patch Changes

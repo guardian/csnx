@@ -1,5 +1,11 @@
 # @guardian/ab-core
 
+## 7.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and coresponding packages
+
 ## 6.0.0
 
 ### Major Changes

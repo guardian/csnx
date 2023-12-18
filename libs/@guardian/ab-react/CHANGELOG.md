@@ -1,5 +1,16 @@
 # @guardian/ab-react
 
+## 8.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and coresponding packages
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/ab-core@7.0.0
+
 ## 7.0.0
 
 ### Major Changes

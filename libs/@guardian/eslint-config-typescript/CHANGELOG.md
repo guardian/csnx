@@ -1,5 +1,16 @@
 # @guardian/eslint-config-typescript
 
+## 9.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and coresponding packages
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/eslint-config@7.0.0
+
 ## 8.0.1
 
 ### Patch Changes
