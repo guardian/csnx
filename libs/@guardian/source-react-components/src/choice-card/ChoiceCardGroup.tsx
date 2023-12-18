@@ -74,8 +74,9 @@ export const ChoiceCardGroup = ({
 	...props
 }: ChoiceCardGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
+	const showLabel = !!(label && !hideLabel);
 	const topMargin =
-		(label && !hideLabel) || supporting || error ? containerTopMargin : '';
+		(showLabel || supporting) ?? error ? containerTopMargin : '';
 
 	return (
 		<fieldset css={[fieldset, cssOverrides]} id={groupId} {...props}>
@@ -104,7 +105,7 @@ export const ChoiceCardGroup = ({
 								? {
 										error: true,
 										'aria-describedby': descriptionId(groupId),
-								  }
+									}
 								: {},
 							{
 								name,

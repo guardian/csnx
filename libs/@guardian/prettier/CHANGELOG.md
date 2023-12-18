@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 6.0.0
+
+### Major Changes
+
+- 7cdfec3: Updated peer dependency `prettier` from 3.0.0 to 3.1.1
+
 ## 5.0.0
 
 ### Major Changes

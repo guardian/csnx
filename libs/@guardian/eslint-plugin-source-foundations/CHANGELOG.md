@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 16.0.1
+
+### Patch Changes
+
+- a116dfe: Update @typescript-eslint/parser and @typescript-eslint/eslint-plugin
+
 ## 16.0.0
 
 ### Major Changes

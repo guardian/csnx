@@ -90,7 +90,7 @@ export const CheckboxGroup = ({
 							? {
 									error: true,
 									'aria-describedby': descriptionId(groupId),
-							  }
+								}
 							: {},
 						{
 							name,

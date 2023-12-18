@@ -15,7 +15,7 @@ const fetchSwitches = () =>
 				? (switches as Switches)
 				: Promise.reject(
 						new Error('Error getting remote switches – config is malformed'),
-				  ),
+					),
 		);
 
 // cache to store any retrieved switches

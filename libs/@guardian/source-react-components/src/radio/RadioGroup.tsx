@@ -79,7 +79,7 @@ export const RadioGroup = ({
 						error
 							? {
 									'aria-describedby': descriptionId(groupId),
-							  }
+								}
 							: {},
 						{
 							name,

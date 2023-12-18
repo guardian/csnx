@@ -3,10 +3,12 @@
 	"version": "0.1.0",
 	"private": true,
 	"type": "module",
-	"main": "src/index.js",
+	"main": "./tokens/index.js",
+	"dependencies": {
+		"@cobalt-ui/core": "^1.6.1"
+	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "^1.6.2",
-		"@cobalt-ui/core": "^1.6.1",
 		"@cobalt-ui/plugin-css": "^1.7.0",
 		"@cobalt-ui/plugin-js": "^1.4.2"
 	},
