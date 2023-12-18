@@ -16,23 +16,17 @@ updates:
       - dependency-name: '*' # ignore all patch updates
         update-types: ['version-update:semver-patch']
       - dependency-name: 'typescript'
-        update-types:
-          ['version-update:semver-minor']
+        update-types: ['version-update:semver-minor']
       - dependency-name: 'tslib'
-        update-types:
-          ['version-update:semver-minor']
+        update-types: ['version-update:semver-minor']
       - dependency-name: 'react'
-        update-types:
-          ['version-update:semver-minor']
+        update-types: ['version-update:semver-minor']
       - dependency-name: 'react-dom'
-        update-types:
-          ['version-update:semver-minor']
+        update-types: ['version-update:semver-minor']
       - dependency-name: '@emotion/react'
-        update-types:
-          ['version-update:semver-minor']
+        update-types: ['version-update:semver-minor']
       - dependency-name: 'web-vitals'
-        update-types:
-          ['version-update:semver-minor']
+        update-types: ['version-update:semver-minor']
     open-pull-requests-limit: 10
     rebase-strategy: 'auto'
     groups:
