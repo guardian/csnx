@@ -1,28 +1,37 @@
 # https://github.com/marketplace/actions/labeler
 
 📦 npm:
-  - 'libs/@guardian/**/*'
+  - changed-files:
+      - any-glob-to-any-file: libs/@guardian/**/*
 📦 lib:
-  - 'libs/@csnx/**/*'
+  - changed-files:
+      - any-glob-to-any-file: libs/@csnx/**/*
 🛠 workspace:
-  - 'nx.json'
-  - 'workspace.json'
-  - 'tools/**/*'
+  - changed-files:
+      - any-glob-to-any-file: [nx.json, workspace.json, tools/**/*]
 
 # individual npm packages
 '@guardian/ab-core':
-  - 'libs/@guardian/ab-core/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/ab-core/**/*
 '@guardian/ab-react':
-  - 'libs/@guardian/ab-react/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/ab-react/**/*
 '@guardian/browserslist-config':
-  - 'libs/@guardian/browserslist-config/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/browserslist-config/**/*
 '@guardian/eslint-config':
-  - 'libs/@guardian/eslint-config/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/eslint-config/**/*
 '@guardian/eslint-config-typescript':
-  - 'libs/@guardian/eslint-config-typescript/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/eslint-config-typescript/**/*
 '@guardian/libs':
-  - 'libs/@guardian/libs/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/libs/**/*
 '@guardian/prettier':
-  - 'libs/@guardian/prettier/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/prettier/**/*
 '@guardian/tsconfig':
-  - 'libs/@guardian/tsconfig/**/*'
+  - changed-files:
+      - any-glob-to-any-file:libs/@guardian/tsconfig/**/*
