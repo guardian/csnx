@@ -8,7 +8,7 @@
 		"@guardian/libs": "15.4.0",
 		"@guardian/source-foundations": "13.0.0",
 		"@guardian/source-react-components": "16.0.1",
-		"@types/react": "18.2.11",
+		"@types/react": "18.2.45",
 		"react": "18.2.0",
 		"tslib": "2.5.3",
 		"typescript": "5.1.3"
