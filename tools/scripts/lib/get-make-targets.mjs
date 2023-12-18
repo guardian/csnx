@@ -8,14 +8,14 @@ export const getMakeTargets = async () => {
 
 	const lines = makefile.split('\n');
 
-	const markdown = [];
+	const targets = [];
 
 	for (const [lineNumber, line] of lines.entries()) {
 		if (line.includes('INTERNAL UTILS')) {
 			break;
 		}
 		if (line.startsWith('.PHONY')) {
-			let task = `- \`make ${line.split(':')[1].trim()}\` `;
+			const target = line.split(':')[1].trim();
 
 			const description = [];
 			let i = lineNumber - 1;
@@ -24,11 +24,12 @@ export const getMakeTargets = async () => {
 				i--;
 			}
 
-			task += `_${description.join(' ')}_`;
-
-			markdown.push(task);
+			targets.push({
+				target,
+				description: description.join(' '),
+			});
 		}
 	}
 
-	return markdown.sort().join('\n');
+	return targets.sort((a, b) => a.target.localeCompare(b.target));
 };
