@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 20.0.1
+
+### Patch Changes
+
+- a116dfe: Update @typescript-eslint/parser and @typescript-eslint/eslint-plugin
+
 ## 20.0.0
 
 ### Major Changes
