@@ -1,4 +1,5 @@
-import { pxToRem } from '../utils/px-to-rem';
+import { tokens } from '@csnx/design-tokens';
+import { pxStringToNumber, pxToRem } from '../utils/px-to-rem';
 import type { AvailableFontWeights, ItalicsFontWeights } from './types';
 
 /**
@@ -9,33 +10,33 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  */
 export const pxTextSizes = {
 	textSans: {
-		xxsmall: 12,
-		xsmall: 14,
-		small: 15,
-		medium: 17,
-		large: 20,
-		xlarge: 24,
-		xxlarge: 28,
-		xxxlarge: 34,
+		xxsmall: pxStringToNumber(tokens.font.textSans.xxSmall.fontSize!),
+		xsmall: pxStringToNumber(tokens.font.textSans.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.font.textSans.small.fontSize!),
+		medium: pxStringToNumber(tokens.font.textSans.medium.fontSize!),
+		large: pxStringToNumber(tokens.font.textSans.large.fontSize!),
+		xlarge: pxStringToNumber(tokens.font.textSans.xLarge.fontSize!),
+		xxlarge: pxStringToNumber(tokens.font.textSans.xxLarge.fontSize!),
+		xxxlarge: pxStringToNumber(tokens.font.textSans.xxxLarge.fontSize!),
 	},
 	body: {
-		xsmall: 14,
-		small: 15,
-		medium: 17,
+		xsmall: pxStringToNumber(tokens.font.body.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.font.body.small.fontSize!),
+		medium: pxStringToNumber(tokens.font.body.medium.fontSize!),
 	},
 	headline: {
-		xxxsmall: 17,
-		xxsmall: 20,
-		xsmall: 24,
-		small: 28,
-		medium: 34,
-		large: 42,
-		xlarge: 50,
+		xxxsmall: pxStringToNumber(tokens.font.headline.xxxSmall.fontSize!),
+		xxsmall: pxStringToNumber(tokens.font.headline.xxSmall.fontSize!),
+		xsmall: pxStringToNumber(tokens.font.headline.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.font.headline.small.fontSize!),
+		medium: pxStringToNumber(tokens.font.headline.medium.fontSize!),
+		large: pxStringToNumber(tokens.font.headline.large.fontSize!),
+		xlarge: pxStringToNumber(tokens.font.headline.xLarge.fontSize!),
 	},
 	titlepiece: {
-		small: 42,
-		medium: 50,
-		large: 70,
+		small: pxStringToNumber(tokens.font.titlepiece.small.fontSize!),
+		medium: pxStringToNumber(tokens.font.titlepiece.medium.fontSize!),
+		large: pxStringToNumber(tokens.font.titlepiece.large.fontSize!),
 	},
 } as const;
 
@@ -81,11 +82,10 @@ export const remTextSizes = {
 } as const;
 
 export const fonts = {
-	titlepiece: 'GT Guardian Titlepiece, Georgia, serif',
-	headline: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif',
-	body: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif',
-	textSans:
-		'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+	titlepiece: tokens.font.family.titlepiece,
+	headline: tokens.font.family.headline,
+	body: tokens.font.family.body,
+	textSans: tokens.font.family.textSans,
 } as const;
 
 /**
@@ -102,16 +102,16 @@ export const fonts = {
  * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
  */
 export const lineHeights = {
-	tight: 1.15,
-	regular: 1.3,
-	loose: 1.4,
+	tight: tokens.font.lineHeight.tight,
+	regular: tokens.font.lineHeight.regular,
+	loose: tokens.font.lineHeight.loose,
 } as const;
 
 export const fontWeights = {
-	light: 300,
-	regular: 400,
-	medium: 500,
-	bold: 700,
+	light: tokens.font.weight.light,
+	regular: tokens.font.weight.regular,
+	medium: tokens.font.weight.medium,
+	bold: tokens.font.weight.bold,
 } as const;
 
 export const availableFontWeights = {
