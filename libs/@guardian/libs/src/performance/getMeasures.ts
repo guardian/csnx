@@ -25,7 +25,7 @@ export const getMeasures = (
 								entryType,
 								startTime,
 								toJson: () => JSON.stringify(this),
-						  }
+							}
 						: [];
 				})
 		: [];
