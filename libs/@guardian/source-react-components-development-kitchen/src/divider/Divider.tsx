@@ -22,18 +22,18 @@ const decideSpace = (
 			return displayText
 				? css`
 						margin-top: -${space[1]}px;
-				  `
+					`
 				: css`
 						margin-top: ${space[6]}px;
-				  `;
+					`;
 		case 'loose':
 			return displayText
 				? css`
 						margin-top: ${space[9]}px;
-				  `
+					`
 				: css`
 						margin-top: ${space[12]}px;
-				  `;
+					`;
 	}
 };
 
