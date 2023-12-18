@@ -1,7 +1,7 @@
 import { promises } from 'fs';
 import path from 'path';
 import prettierConfig from '@guardian/prettier';
-import mkdirp from 'mkdirp';
+import { mkdirp } from 'mkdirp';
 import { format } from 'prettier';
 import { createIconComponent } from './create-icon-component';
 import { createReadme } from './create-readme';
