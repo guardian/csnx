@@ -9,7 +9,7 @@
 	"devDependencies": {
 		"@csnx/design-tokens": "workspace:*",
 		"@emotion/react": "11.11.1",
-		"lightningcss": "1.19.0",
+		"lightningcss": "1.22.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.5.3",
