@@ -1,5 +1,11 @@
 # @guardian/eslint-config-typescript
 
+## 8.0.1
+
+### Patch Changes
+
+- a116dfe: Update @typescript-eslint/parser and @typescript-eslint/eslint-plugin
+
 ## 8.0.0
 
 ### Major Changes
