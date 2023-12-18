@@ -1,6 +1,14 @@
 # standardise on a shell
 export SHELL := /usr/bin/env bash
 
+################################## DEFAULT TARGET ##############################
+
+# lists available `make` targets
+.PHONY: ls
+ls:
+	@node tools/scripts/list-make-targets.mjs
+
+
 ###################################### DEV #####################################
 
 # runs storybook for all projects in single instance
@@ -100,4 +108,12 @@ check-node-version:
 install: check-node-version
 	$(call log,"Refreshing dependencies")
 	@corepack pnpm install --frozen-lockfile
+
+# This just passes the user input to `nx run` (assuming it
+# doesn't match another target), e.g. make @guardian/libs:build.
+# The actual Nx targets are defined in the various **/project.json files.
+.PHONY: %
+# The '|' make the prerequisites order-only, which maintains the value of $@.
+%: | env
+	@corepack pnpm nx run $@
 

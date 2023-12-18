@@ -17,5 +17,5 @@ export const darkModeCss =
 							})
 							.join('')}
 					}
-			  `
+				`
 			: css``;
