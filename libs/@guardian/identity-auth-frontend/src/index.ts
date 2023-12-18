@@ -1,10 +1,10 @@
 import { IdentityAuth } from '@guardian/identity-auth';
 import type { CustomClaims } from '@guardian/identity-auth';
-import { guard } from '@guardian/identity-auth/cjs/@types/guard';
+import { isOneOf } from '@guardian/libs';
 
 const stages = ['PROD', 'CODE', 'DEV'] as const;
 type Stage = (typeof stages)[number];
-const isStage = guard(stages);
+const isStage = isOneOf(stages);
 
 export type FrontendIdTokenClaims = CustomClaims & {
 	email: string;
