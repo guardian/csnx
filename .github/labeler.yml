@@ -2,36 +2,36 @@
 
 📦 npm:
   - changed-files:
-      - any-glob-to-any-file: libs/@guardian/**/*
+      - any-glob-to-any-file: 'libs/@guardian/**/*'
 📦 lib:
   - changed-files:
-      - any-glob-to-any-file: libs/@csnx/**/*
+      - any-glob-to-any-file: 'libs/@csnx/**/*'
 🛠 workspace:
   - changed-files:
-      - any-glob-to-any-file: [nx.json, workspace.json, tools/**/*]
+      - any-glob-to-any-file: ['nx.json', 'workspace.json', 'tools/**/*']
 
 # individual npm packages
 '@guardian/ab-core':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/ab-core/**/*
+      - any-glob-to-any-file: 'libs/@guardian/ab-core/**/*'
 '@guardian/ab-react':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/ab-react/**/*
+      - any-glob-to-any-file: 'libs/@guardian/ab-react/**/*'
 '@guardian/browserslist-config':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/browserslist-config/**/*
+      - any-glob-to-any-file: 'libs/@guardian/browserslist-config/**/*'
 '@guardian/eslint-config':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/eslint-config/**/*
+      - any-glob-to-any-file: 'libs/@guardian/eslint-config/**/*'
 '@guardian/eslint-config-typescript':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/eslint-config-typescript/**/*
+      - any-glob-to-any-file: 'libs/@guardian/eslint-config-typescript/**/*'
 '@guardian/libs':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/libs/**/*
+      - any-glob-to-any-file: 'libs/@guardian/libs/**/*'
 '@guardian/prettier':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/prettier/**/*
+      - any-glob-to-any-file: 'libs/@guardian/prettier/**/*'
 '@guardian/tsconfig':
   - changed-files:
-      - any-glob-to-any-file:libs/@guardian/tsconfig/**/*
+      - any-glob-to-any-file: 'libs/@guardian/tsconfig/**/*'
