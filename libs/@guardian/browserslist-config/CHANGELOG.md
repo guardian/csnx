@@ -5,6 +5,7 @@
 ### Major Changes
 
 - Update TS to version 5.3.3 and tslib to 2.6.2
+- 55d5aa9: Updated peer dependency browserlist from 4.21.7 to 4.22.2
 
 ## 5.1.0
 
