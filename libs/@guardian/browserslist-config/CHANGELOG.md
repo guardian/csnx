@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- Update TS to version 5.3.3 and coresponding packages
+- Update TS to version 5.3.3 and tslib to 2.6.2
 
 ## 5.1.0
 
