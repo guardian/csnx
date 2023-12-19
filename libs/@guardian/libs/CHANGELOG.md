@@ -6,6 +6,10 @@
 
 - Update TS to version 5.3.3 and tslib to 2.6.2
 
+### Patch Changes
+
+- f85e2a4: `joinUrl`: better documentation using JSDoc
+
 ## 15.9.1
 
 ### Patch Changes

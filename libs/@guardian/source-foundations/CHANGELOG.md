@@ -6,6 +6,10 @@
 
 - Update TS to version 5.3.3 and tslib to 2.6.2
 
+### Minor Changes
+
+- 4d8f750: Changed the source of truth for source foundations to be the design tokens for palette, breakpoints, size
+
 ## 13.2.1
 
 ### Patch Changes
