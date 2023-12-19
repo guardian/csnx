@@ -164,6 +164,11 @@
 	--source-font-size-42: 2.625rem;
 	--source-font-size-50: 3.125rem;
 	--source-font-size-70: 4.375rem;
+	--source-font-textDecorationThickness-2: 2;
+	--source-font-textDecorationThickness-3: 3;
+	--source-font-textDecorationThickness-4: 4;
+	--source-font-textDecorationThickness-5: 5;
+	--source-font-textDecorationThickness-6: 6;
 	--source-font-textSans-large-font-family: var(--source-font-family-textSans);
 	--source-font-textSans-large-font-size: var(--source-font-size-20);
 	--source-font-textSans-large-font-weight: var(--source-font-weight-regular);

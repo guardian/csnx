@@ -160,6 +160,13 @@ export declare const tokens: {
 			'50': ParsedDimensionToken['$value'];
 			'70': ParsedDimensionToken['$value'];
 		};
+		textDecorationThickness: {
+			'2': ParsedNumberToken['$value'];
+			'3': ParsedNumberToken['$value'];
+			'4': ParsedNumberToken['$value'];
+			'5': ParsedNumberToken['$value'];
+			'6': ParsedNumberToken['$value'];
+		};
 		textSans: {
 			large: ParsedTypographyToken['$value'];
 			medium: ParsedTypographyToken['$value'];
