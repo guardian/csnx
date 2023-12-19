@@ -1,4 +1,9 @@
-import { pxStringToNumber, pxToRem, rootPixelFontSize } from './convert-value';
+import {
+	fontArrayToString,
+	pxStringToNumber,
+	pxToRem,
+	rootPixelFontSize,
+} from './convert-value';
 
 describe('pxToRem', () => {
 	it('should calculate a rem equivalent of a pixel value', () => {
@@ -14,5 +19,28 @@ describe('pxStringToNumber', () => {
 		const result = pxStringToNumber(value);
 		expect(result).toBe(16);
 		expect(typeof result).toBe('number');
+	});
+});
+
+describe('fontArrayToString', () => {
+	it('should convert an array of font names to a valid `font-family` value', () => {
+		const value = ['GuardianTextEgyptian', 'Georgia', 'serif'];
+		const result = fontArrayToString(value);
+		expect(result).toBe('GuardianTextEgyptian, Georgia, serif');
+	});
+
+	it('should quote any font names containing spaces', () => {
+		const value = [
+			'GuardianTextSans',
+			'Helvetica Neue',
+			'Helvetica',
+			'Arial',
+			'Lucida Grande',
+			'sans-serif',
+		];
+		const result = fontArrayToString(value);
+		expect(result).toBe(
+			'GuardianTextSans, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
+		);
 	});
 });

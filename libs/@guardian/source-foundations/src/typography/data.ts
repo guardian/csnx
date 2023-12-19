@@ -1,5 +1,9 @@
 import { tokens } from '@csnx/design-tokens';
-import { pxStringToNumber, pxToRem } from '../utils/convert-value';
+import {
+	fontArrayToString,
+	pxStringToNumber,
+	pxToRem,
+} from '../utils/convert-value';
 import type { AvailableFontWeights, ItalicsFontWeights } from './types';
 
 /**
@@ -82,11 +86,10 @@ export const remTextSizes = {
 } as const;
 
 export const fonts = {
-	titlepiece: 'GT Guardian Titlepiece, Georgia, serif',
-	headline: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif',
-	body: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif',
-	textSans:
-		'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+	titlepiece: fontArrayToString(tokens.font.family.titlepiece),
+	headline: fontArrayToString(tokens.font.family.headline),
+	body: fontArrayToString(tokens.font.family.body),
+	textSans: fontArrayToString(tokens.font.family.textSans),
 } as const;
 
 /**
