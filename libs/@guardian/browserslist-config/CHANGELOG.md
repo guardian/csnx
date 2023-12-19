@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 7.0.0
+
+### Major Changes
+
+- 55d5aa9: Updated peer dependency browserlist from 4.21.7 to 4.22.2
+
 ## 6.0.0
 
 ### Major Changes

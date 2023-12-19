@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.1.0
+
+### Minor Changes
+
+- 4d8f750: Changed the source of truth for source foundations to be the design tokens for palette, breakpoints, size
+
 ## 14.0.0
 
 ### Major Changes

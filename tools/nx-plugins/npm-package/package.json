@@ -17,5 +17,6 @@
 		"typescript": "5.3.3",
 		"write-pkg": "7.0.0"
 	},
-	"executors": "./executors.json"
+	"executors": "./executors.json",
+	"version": null
 }

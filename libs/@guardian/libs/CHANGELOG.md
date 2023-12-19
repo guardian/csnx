@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.0.1
+
+### Patch Changes
+
+- f85e2a4: `joinUrl`: better documentation using JSDoc
+
 ## 16.0.0
 
 ### Major Changes
