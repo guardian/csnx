@@ -14,33 +14,33 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  */
 export const pxTextSizes = {
 	textSans: {
-		xxsmall: pxStringToNumber(tokens.font.textSans.xxSmall.fontSize!),
-		xsmall: pxStringToNumber(tokens.font.textSans.xSmall.fontSize!),
-		small: pxStringToNumber(tokens.font.textSans.small.fontSize!),
-		medium: pxStringToNumber(tokens.font.textSans.medium.fontSize!),
-		large: pxStringToNumber(tokens.font.textSans.large.fontSize!),
-		xlarge: pxStringToNumber(tokens.font.textSans.xLarge.fontSize!),
-		xxlarge: pxStringToNumber(tokens.font.textSans.xxLarge.fontSize!),
-		xxxlarge: pxStringToNumber(tokens.font.textSans.xxxLarge.fontSize!),
+		xxsmall: pxStringToNumber(tokens.typography.textSans.xxSmall.fontSize!),
+		xsmall: pxStringToNumber(tokens.typography.textSans.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.typography.textSans.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.textSans.medium.fontSize!),
+		large: pxStringToNumber(tokens.typography.textSans.large.fontSize!),
+		xlarge: pxStringToNumber(tokens.typography.textSans.xLarge.fontSize!),
+		xxlarge: pxStringToNumber(tokens.typography.textSans.xxLarge.fontSize!),
+		xxxlarge: pxStringToNumber(tokens.typography.textSans.xxxLarge.fontSize!),
 	},
 	body: {
-		xsmall: pxStringToNumber(tokens.font.body.xSmall.fontSize!),
-		small: pxStringToNumber(tokens.font.body.small.fontSize!),
-		medium: pxStringToNumber(tokens.font.body.medium.fontSize!),
+		xsmall: pxStringToNumber(tokens.typography.body.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.typography.body.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.body.medium.fontSize!),
 	},
 	headline: {
-		xxxsmall: pxStringToNumber(tokens.font.headline.xxxSmall.fontSize!),
-		xxsmall: pxStringToNumber(tokens.font.headline.xxSmall.fontSize!),
-		xsmall: pxStringToNumber(tokens.font.headline.xSmall.fontSize!),
-		small: pxStringToNumber(tokens.font.headline.small.fontSize!),
-		medium: pxStringToNumber(tokens.font.headline.medium.fontSize!),
-		large: pxStringToNumber(tokens.font.headline.large.fontSize!),
-		xlarge: pxStringToNumber(tokens.font.headline.xLarge.fontSize!),
+		xxxsmall: pxStringToNumber(tokens.typography.headline.xxxSmall.fontSize!),
+		xxsmall: pxStringToNumber(tokens.typography.headline.xxSmall.fontSize!),
+		xsmall: pxStringToNumber(tokens.typography.headline.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.typography.headline.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.headline.medium.fontSize!),
+		large: pxStringToNumber(tokens.typography.headline.large.fontSize!),
+		xlarge: pxStringToNumber(tokens.typography.headline.xLarge.fontSize!),
 	},
 	titlepiece: {
-		small: pxStringToNumber(tokens.font.titlepiece.small.fontSize!),
-		medium: pxStringToNumber(tokens.font.titlepiece.medium.fontSize!),
-		large: pxStringToNumber(tokens.font.titlepiece.large.fontSize!),
+		small: pxStringToNumber(tokens.typography.titlepiece.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.titlepiece.medium.fontSize!),
+		large: pxStringToNumber(tokens.typography.titlepiece.large.fontSize!),
 	},
 } as const;
 
@@ -86,10 +86,10 @@ export const remTextSizes = {
 } as const;
 
 export const fonts = {
-	titlepiece: fontArrayToString(tokens.font.family.titlepiece),
-	headline: fontArrayToString(tokens.font.family.headline),
-	body: fontArrayToString(tokens.font.family.body),
-	textSans: fontArrayToString(tokens.font.family.textSans),
+	titlepiece: fontArrayToString(tokens.typography.fontFamily.titlepiece),
+	headline: fontArrayToString(tokens.typography.fontFamily.headline),
+	body: fontArrayToString(tokens.typography.fontFamily.body),
+	textSans: fontArrayToString(tokens.typography.fontFamily.textSans),
 } as const;
 
 /**
@@ -106,16 +106,16 @@ export const fonts = {
  * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
  */
 export const lineHeights = {
-	tight: tokens.font.lineHeight.tight,
-	regular: tokens.font.lineHeight.regular,
-	loose: tokens.font.lineHeight.loose,
+	tight: tokens.typography.lineHeight.tight,
+	regular: tokens.typography.lineHeight.regular,
+	loose: tokens.typography.lineHeight.loose,
 } as const;
 
 export const fontWeights = {
-	light: tokens.font.weight.light,
-	regular: tokens.font.weight.regular,
-	medium: tokens.font.weight.medium,
-	bold: tokens.font.weight.bold,
+	light: tokens.typography.fontWeight.light,
+	regular: tokens.typography.fontWeight.regular,
+	medium: tokens.typography.fontWeight.medium,
+	bold: tokens.typography.fontWeight.bold,
 } as const;
 
 export const availableFontWeights = {
@@ -134,33 +134,33 @@ export const italicsFontWeights = {
 
 export const underlineThickness = {
 	textSans: {
-		xxsmall: tokens.font.textDecorationThickness[2],
-		xsmall: tokens.font.textDecorationThickness[2],
-		small: tokens.font.textDecorationThickness[2],
-		medium: tokens.font.textDecorationThickness[2],
-		large: tokens.font.textDecorationThickness[3],
-		xlarge: tokens.font.textDecorationThickness[3],
-		xxlarge: tokens.font.textDecorationThickness[3],
-		xxxlarge: tokens.font.textDecorationThickness[4],
+		xxsmall: tokens.typography.textDecorationThickness[2],
+		xsmall: tokens.typography.textDecorationThickness[2],
+		small: tokens.typography.textDecorationThickness[2],
+		medium: tokens.typography.textDecorationThickness[2],
+		large: tokens.typography.textDecorationThickness[3],
+		xlarge: tokens.typography.textDecorationThickness[3],
+		xxlarge: tokens.typography.textDecorationThickness[3],
+		xxxlarge: tokens.typography.textDecorationThickness[4],
 	},
 	body: {
-		xsmall: tokens.font.textDecorationThickness[2],
-		small: tokens.font.textDecorationThickness[2],
-		medium: tokens.font.textDecorationThickness[2],
+		xsmall: tokens.typography.textDecorationThickness[2],
+		small: tokens.typography.textDecorationThickness[2],
+		medium: tokens.typography.textDecorationThickness[2],
 	},
 	headline: {
-		xxxsmall: tokens.font.textDecorationThickness[2],
-		xxsmall: tokens.font.textDecorationThickness[3],
-		xsmall: tokens.font.textDecorationThickness[3],
-		small: tokens.font.textDecorationThickness[3],
-		medium: tokens.font.textDecorationThickness[4],
-		large: tokens.font.textDecorationThickness[5],
-		xlarge: tokens.font.textDecorationThickness[6],
+		xxxsmall: tokens.typography.textDecorationThickness[2],
+		xxsmall: tokens.typography.textDecorationThickness[3],
+		xsmall: tokens.typography.textDecorationThickness[3],
+		small: tokens.typography.textDecorationThickness[3],
+		medium: tokens.typography.textDecorationThickness[4],
+		large: tokens.typography.textDecorationThickness[5],
+		xlarge: tokens.typography.textDecorationThickness[6],
 	},
 	titlepiece: {
-		small: tokens.font.textDecorationThickness[5],
-		medium: tokens.font.textDecorationThickness[6],
-		large: tokens.font.textDecorationThickness[6],
+		small: tokens.typography.textDecorationThickness[5],
+		medium: tokens.typography.textDecorationThickness[6],
+		large: tokens.typography.textDecorationThickness[6],
 	},
 } as const;
 

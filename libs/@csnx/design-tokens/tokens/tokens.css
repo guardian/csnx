@@ -91,168 +91,6 @@
 	--source-colour-yellow-1: #f3c100;
 	--source-colour-yellow-2: #ffd900;
 	--source-colour-yellow-3: #ffe500;
-	--source-font-body-medium-font-family: var(--source-font-family-body);
-	--source-font-body-medium-font-size: var(--source-font-size-17);
-	--source-font-body-medium-font-weight: var(--source-font-weight-regular);
-	--source-font-body-medium-line-height: var(--source-font-lineHeight-loose);
-	--source-font-body-small-font-family: var(--source-font-family-body);
-	--source-font-body-small-font-size: var(--source-font-size-15);
-	--source-font-body-small-font-weight: var(--source-font-weight-regular);
-	--source-font-body-small-line-height: var(--source-font-lineHeight-loose);
-	--source-font-body-xSmall-font-family: var(--source-font-family-body);
-	--source-font-body-xSmall-font-size: var(--source-font-size-14);
-	--source-font-body-xSmall-font-weight: var(--source-font-weight-regular);
-	--source-font-body-xSmall-line-height: var(--source-font-lineHeight-loose);
-	--source-font-family-body: GuardianTextEgyptian, Georgia, serif;
-	--source-font-family-headline: 'GH Guardian Headline', Georgia, serif;
-	--source-font-family-textSans: GuardianTextSans, 'Helvetica Neue', Helvetica,
-		Arial, 'Lucida Grande', sans-serif;
-	--source-font-family-titlepiece: 'GT Guardian Titlepiece', Georgia, serif;
-	--source-font-headline-large-font-family: var(--source-font-family-headline);
-	--source-font-headline-large-font-size: var(--source-font-size-42);
-	--source-font-headline-large-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-large-line-height: var(--source-font-lineHeight-tight);
-	--source-font-headline-medium-font-family: var(--source-font-family-headline);
-	--source-font-headline-medium-font-size: var(--source-font-size-34);
-	--source-font-headline-medium-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-medium-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-headline-small-font-family: var(--source-font-family-headline);
-	--source-font-headline-small-font-size: var(--source-font-size-28);
-	--source-font-headline-small-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-small-line-height: var(--source-font-lineHeight-tight);
-	--source-font-headline-xLarge-font-family: var(--source-font-family-headline);
-	--source-font-headline-xLarge-font-size: var(--source-font-size-50);
-	--source-font-headline-xLarge-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-xLarge-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-headline-xSmall-font-family: var(--source-font-family-headline);
-	--source-font-headline-xSmall-font-size: var(--source-font-size-24);
-	--source-font-headline-xSmall-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-xSmall-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-headline-xxSmall-font-family: var(
-		--source-font-family-headline
-	);
-	--source-font-headline-xxSmall-font-size: var(--source-font-size-20);
-	--source-font-headline-xxSmall-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-xxSmall-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-headline-xxxSmall-font-family: var(
-		--source-font-family-headline
-	);
-	--source-font-headline-xxxSmall-font-size: var(--source-font-size-17);
-	--source-font-headline-xxxSmall-font-weight: var(--source-font-weight-medium);
-	--source-font-headline-xxxSmall-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-lineHeight-loose: 1.4;
-	--source-font-lineHeight-regular: 1.3;
-	--source-font-lineHeight-tight: 1.15;
-	--source-font-size-12: 0.75rem;
-	--source-font-size-14: 0.875rem;
-	--source-font-size-15: 0.9375rem;
-	--source-font-size-17: 1.0625rem;
-	--source-font-size-20: 1.25rem;
-	--source-font-size-24: 1.5rem;
-	--source-font-size-28: 1.75rem;
-	--source-font-size-34: 2.125rem;
-	--source-font-size-42: 2.625rem;
-	--source-font-size-50: 3.125rem;
-	--source-font-size-70: 4.375rem;
-	--source-font-textDecorationThickness-2: 2;
-	--source-font-textDecorationThickness-3: 3;
-	--source-font-textDecorationThickness-4: 4;
-	--source-font-textDecorationThickness-5: 5;
-	--source-font-textDecorationThickness-6: 6;
-	--source-font-textSans-large-font-family: var(--source-font-family-textSans);
-	--source-font-textSans-large-font-size: var(--source-font-size-20);
-	--source-font-textSans-large-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-large-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-medium-font-family: var(--source-font-family-textSans);
-	--source-font-textSans-medium-font-size: var(--source-font-size-17);
-	--source-font-textSans-medium-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-medium-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-small-font-family: var(--source-font-family-textSans);
-	--source-font-textSans-small-font-size: var(--source-font-size-15);
-	--source-font-textSans-small-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-small-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-xLarge-font-family: var(--source-font-family-textSans);
-	--source-font-textSans-xLarge-font-size: var(--source-font-size-24);
-	--source-font-textSans-xLarge-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-xLarge-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-xSmall-font-family: var(--source-font-family-textSans);
-	--source-font-textSans-xSmall-font-size: var(--source-font-size-14);
-	--source-font-textSans-xSmall-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-xSmall-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-xxLarge-font-family: var(
-		--source-font-family-textSans
-	);
-	--source-font-textSans-xxLarge-font-size: var(--source-font-size-28);
-	--source-font-textSans-xxLarge-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-xxLarge-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-xxSmall-font-family: var(
-		--source-font-family-textSans
-	);
-	--source-font-textSans-xxSmall-font-size: var(--source-font-size-12);
-	--source-font-textSans-xxSmall-font-weight: var(--source-font-weight-regular);
-	--source-font-textSans-xxSmall-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-textSans-xxxLarge-font-family: var(
-		--source-font-family-textSans
-	);
-	--source-font-textSans-xxxLarge-font-size: var(--source-font-size-34);
-	--source-font-textSans-xxxLarge-font-weight: var(
-		--source-font-weight-regular
-	);
-	--source-font-textSans-xxxLarge-line-height: var(
-		--source-font-lineHeight-regular
-	);
-	--source-font-titlepiece-large-font-family: var(
-		--source-font-family-titlepiece
-	);
-	--source-font-titlepiece-large-font-size: var(--source-font-size-70);
-	--source-font-titlepiece-large-font-weight: var(--source-font-weight-bold);
-	--source-font-titlepiece-large-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-titlepiece-medium-font-family: var(
-		--source-font-family-titlepiece
-	);
-	--source-font-titlepiece-medium-font-size: var(--source-font-size-50);
-	--source-font-titlepiece-medium-font-weight: var(--source-font-weight-bold);
-	--source-font-titlepiece-medium-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-titlepiece-small-font-family: var(
-		--source-font-family-titlepiece
-	);
-	--source-font-titlepiece-small-font-size: var(--source-font-size-42);
-	--source-font-titlepiece-small-font-weight: var(--source-font-weight-bold);
-	--source-font-titlepiece-small-line-height: var(
-		--source-font-lineHeight-tight
-	);
-	--source-font-weight-bold: 700;
-	--source-font-weight-light: 300;
-	--source-font-weight-medium: 500;
-	--source-font-weight-regular: 400;
 	--source-height-ctaMedium: 2.75rem;
 	--source-height-ctaSmall: 2.25rem;
 	--source-height-ctaXSmall: 1.5rem;
@@ -365,6 +203,288 @@
 	--source-space-16: 4rem;
 	--source-space-18: 4.5rem;
 	--source-space-24: 6rem;
+	--source-typography-body-medium-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-typography-body-medium-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-body-medium-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-body-medium-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-typography-body-small-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-typography-body-small-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typography-body-small-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-body-small-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-typography-body-xSmall-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-typography-body-xSmall-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-body-xSmall-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-body-xSmall-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-typography-fontFamily-body: GuardianTextEgyptian, Georgia, serif;
+	--source-typography-fontFamily-headline: 'GH Guardian Headline', Georgia,
+		serif;
+	--source-typography-fontFamily-textSans: GuardianTextSans, 'Helvetica Neue',
+		Helvetica, Arial, 'Lucida Grande', sans-serif;
+	--source-typography-fontFamily-titlepiece: 'GT Guardian Titlepiece', Georgia,
+		serif;
+	--source-typography-fontSize-12: 0.75rem;
+	--source-typography-fontSize-14: 0.875rem;
+	--source-typography-fontSize-15: 0.9375rem;
+	--source-typography-fontSize-17: 1.0625rem;
+	--source-typography-fontSize-20: 1.25rem;
+	--source-typography-fontSize-24: 1.5rem;
+	--source-typography-fontSize-28: 1.75rem;
+	--source-typography-fontSize-34: 2.125rem;
+	--source-typography-fontSize-42: 2.625rem;
+	--source-typography-fontSize-50: 3.125rem;
+	--source-typography-fontSize-70: 4.375rem;
+	--source-typography-fontWeight-bold: 700;
+	--source-typography-fontWeight-light: 300;
+	--source-typography-fontWeight-medium: 500;
+	--source-typography-fontWeight-regular: 400;
+	--source-typography-headline-large-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-large-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-headline-large-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-large-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-headline-medium-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-medium-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-headline-medium-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-medium-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-headline-small-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-small-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-headline-small-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-small-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-headline-xLarge-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-xLarge-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-headline-xLarge-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-xLarge-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-headline-xSmall-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-xSmall-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-headline-xSmall-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-xSmall-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-headline-xxSmall-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-xxSmall-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-headline-xxSmall-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-xxSmall-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-headline-xxxSmall-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-headline-xxxSmall-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-headline-xxxSmall-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-headline-xxxSmall-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-lineHeight-loose: 1.4;
+	--source-typography-lineHeight-regular: 1.3;
+	--source-typography-lineHeight-tight: 1.15;
+	--source-typography-textDecorationThickness-2: 2;
+	--source-typography-textDecorationThickness-3: 3;
+	--source-typography-textDecorationThickness-4: 4;
+	--source-typography-textDecorationThickness-5: 5;
+	--source-typography-textDecorationThickness-6: 6;
+	--source-typography-textSans-large-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-large-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-textSans-large-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-large-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-medium-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-medium-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-textSans-medium-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-medium-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-small-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-small-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typography-textSans-small-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-small-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-xLarge-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-xLarge-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-textSans-xLarge-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-xLarge-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-xSmall-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-xSmall-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-textSans-xSmall-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-xSmall-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-xxLarge-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-xxLarge-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-textSans-xxLarge-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-xxLarge-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-xxSmall-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-xxSmall-font-size: var(
+		--source-typography-fontSize-12
+	);
+	--source-typography-textSans-xxSmall-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-xxSmall-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-textSans-xxxLarge-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typography-textSans-xxxLarge-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-textSans-xxxLarge-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typography-textSans-xxxLarge-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typography-titlepiece-large-font-family: var(
+		--source-typography-fontFamily-titlepiece
+	);
+	--source-typography-titlepiece-large-font-size: var(
+		--source-typography-fontSize-70
+	);
+	--source-typography-titlepiece-large-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-titlepiece-large-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-titlepiece-medium-font-family: var(
+		--source-typography-fontFamily-titlepiece
+	);
+	--source-typography-titlepiece-medium-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-titlepiece-medium-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-titlepiece-medium-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-titlepiece-small-font-family: var(
+		--source-typography-fontFamily-titlepiece
+	);
+	--source-typography-titlepiece-small-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-titlepiece-small-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-titlepiece-small-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-width-ctaMedium: 2.75rem;
 	--source-width-ctaSmall: 2.25rem;
 	--source-width-ctaXSmall: 1.5rem;
