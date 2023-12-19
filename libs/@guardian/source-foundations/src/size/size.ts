@@ -1,4 +1,5 @@
-import { pxToRem } from '../utils/px-to-rem';
+import { tokens } from '@csnx/design-tokens';
+import { pxStringToNumber, pxToRem } from '../utils/px-to-rem';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_size--page#global-size-values) •
@@ -7,9 +8,9 @@ import { pxToRem } from '../utils/px-to-rem';
  * May be used for call to action buttons and user input fields.
  */
 export const size = {
-	xsmall: 24,
-	small: 36,
-	medium: 44, // meets WCAG 2.1 AAA compliance for touch targets.
+	xsmall: pxStringToNumber(tokens.size.xSmall),
+	small: pxStringToNumber(tokens.size.small),
+	medium: pxStringToNumber(tokens.size.medium), // meets WCAG 2.1 AAA compliance for touch targets.
 } as const;
 
 /**
@@ -35,9 +36,9 @@ const remSize: { [K in keyof typeof size]: number } = {
    component.
 */
 export const iconSize = {
-	xsmall: 20,
-	small: 26,
-	medium: 30,
+	xsmall: pxStringToNumber(tokens.size.icon.xSmall),
+	small: pxStringToNumber(tokens.size.icon.small),
+	medium: pxStringToNumber(tokens.size.icon.medium),
 } as const;
 
 const remIconSize: { [K in keyof typeof iconSize]: number } = {
