@@ -6,8 +6,6 @@
 
 - Update TS to version 5.3.3 and tslib to 2.6.2
 
-### Patch Changes
-
 - Updated dependencies
   - @guardian/source-react-components@18.0.0
   - @guardian/source-foundations@14.0.0

@@ -1,8 +1,6 @@
 # @csnx/npm-package
 
-## null
-
-### Patch Changes
+## Major Changes
 
 - Updated dependencies
   - @guardian/libs@16.0.0

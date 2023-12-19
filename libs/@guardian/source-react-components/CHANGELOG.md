@@ -6,8 +6,6 @@
 
 - Update TS to version 5.3.3 and tslib to 2.6.2
 
-### Patch Changes
-
 - Updated dependencies
   - @guardian/source-foundations@14.0.0
 
