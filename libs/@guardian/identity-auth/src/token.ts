@@ -206,7 +206,7 @@ const calculateClockSkew = (now: number, token: string): number => {
  * @param token `string` - JWT token
  * @returns JWTObject - object containing the decoded token parts
  */
-const decodeToken = <T extends CustomClaims = CustomClaims>(
+export const decodeToken = <T extends CustomClaims = CustomClaims>(
 	token: string,
 ): JWTObject<T> => {
 	// attempt to split the token into its parts

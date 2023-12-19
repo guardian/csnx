@@ -135,6 +135,7 @@ export interface OAuthUrls {
 	authorizeUrl: `${IdentityAuthOptions['issuer']}/v1/authorize`;
 	tokenUrl: `${IdentityAuthOptions['issuer']}/v1/token`;
 	keysUrl: `${IdentityAuthOptions['issuer']}/v1/keys`;
+	userinfoUrl: `${IdentityAuthOptions['issuer']}/v1/userinfo`;
 }
 
 /**
