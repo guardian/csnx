@@ -1,5 +1,16 @@
 # @guardian/source-react-components-development-kitchen
 
+## 16.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and tslib to 2.6.2
+
+- Updated dependencies
+  - @guardian/source-react-components@18.0.0
+  - @guardian/source-foundations@14.0.0
+  - @guardian/libs@16.0.0
+
 ## 15.0.0
 
 ### Major Changes

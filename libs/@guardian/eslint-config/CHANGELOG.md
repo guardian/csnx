@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 7.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and tslib to 2.6.2
+
 ## 6.0.0
 
 ### Major Changes

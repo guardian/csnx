@@ -1,5 +1,14 @@
 # @guardian/identity-auth
 
+## 2.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and tslib to 2.6.2
+
+- Updated dependencies
+  - @guardian/libs@16.0.0
+
 ## 1.1.1
 
 ### Patch Changes

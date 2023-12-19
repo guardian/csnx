@@ -1,5 +1,15 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 17.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and tslib to 2.6.2
+
+- Updated dependencies
+  - @guardian/source-foundations@14.0.0
+  - @guardian/libs@16.0.0
+
 ## 16.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 6.0.0
+
+### Major Changes
+
+- Update TS to version 5.3.3 and tslib to 2.6.2
+
 ## 5.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 7.0.0
+
+### Major Changes
+
+- Update tslib to 2.6.2
+
 ## 6.0.0
 
 ### Major Changes

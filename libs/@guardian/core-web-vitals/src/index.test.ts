@@ -1,4 +1,4 @@
-import type { Metric, ReportHandler } from 'web-vitals';
+import type { MetricType, ReportHandler } from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
 
@@ -23,37 +23,37 @@ jest.mock('web-vitals', () => ({
 		onReport({
 			value: defaultCoreWebVitalsPayload.ttfb,
 			name: 'TTFB',
-		} as Metric);
+		} as MetricType);
 	},
 	onFCP: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fcp,
 			name: 'FCP',
-		} as Metric);
+		} as MetricType);
 	},
 	onCLS: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.cls,
 			name: 'CLS',
-		} as Metric);
+		} as MetricType);
 	},
 	onFID: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fid,
 			name: 'FID',
-		} as Metric);
+		} as MetricType);
 	},
 	onLCP: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.lcp,
 			name: 'LCP',
-		} as Metric);
+		} as MetricType);
 	},
 	onINP: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.inp,
 			name: 'INP',
-		} as Metric);
+		} as MetricType);
 	},
 }));
 

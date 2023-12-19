@@ -1,19 +1,19 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "6.0.0",
+	"version": "7.0.0",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
-		"eslint-plugin-import": "2.29.0"
+		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
-		"eslint": "8.47.0",
-		"tslib": "^2.5.3"
+		"eslint": "8.56.0",
+		"tslib": "^2.6.2"
 	},
 	"peerDependencies": {
-		"eslint": "^8.47.0",
-		"tslib": "^2.5.3"
+		"eslint": "^8.56.0",
+		"tslib": "^2.6.2"
 	}
 }
