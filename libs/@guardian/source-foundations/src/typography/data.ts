@@ -1,5 +1,5 @@
 import { tokens } from '@csnx/design-tokens';
-import { pxStringToNumber, pxToRem } from '../utils/px-to-rem';
+import { pxStringToNumber, pxToRem } from '../utils/convert-value';
 import type { AvailableFontWeights, ItalicsFontWeights } from './types';
 
 /**
@@ -47,7 +47,7 @@ export const pxTextSizes = {
  * We assert that the computed rem values match the expected values
  * in our {@link [unit test suite](./typography.test.ts)}.
  *
- * See {@link [pxToRem](../utils/px-to-rem.ts)} for more details.
+ * See {@link [pxToRem](../utils/convert-value.ts)} for more details.
  */
 export const remTextSizes = {
 	textSans: {
@@ -82,10 +82,11 @@ export const remTextSizes = {
 } as const;
 
 export const fonts = {
-	titlepiece: tokens.font.family.titlepiece,
-	headline: tokens.font.family.headline,
-	body: tokens.font.family.body,
-	textSans: tokens.font.family.textSans,
+	titlepiece: 'GT Guardian Titlepiece, Georgia, serif',
+	headline: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif',
+	body: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif',
+	textSans:
+		'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
 } as const;
 
 /**

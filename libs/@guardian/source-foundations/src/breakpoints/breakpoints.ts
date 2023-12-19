@@ -1,5 +1,5 @@
 import { tokens } from '@csnx/design-tokens';
-import { pxStringToNumber } from '../utils/px-to-rem';
+import { pxStringToNumber } from '../utils/convert-value';
 
 export type Breakpoint = keyof typeof tokens.breakpoint;
 
