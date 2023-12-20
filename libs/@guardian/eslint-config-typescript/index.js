@@ -125,5 +125,26 @@ module.exports = {
 
 		// requires any function or method that returns a Promise to be marked async
 		// '@typescript-eslint/promise-function-async': 2,
+
+		'no-restricted-syntax': [
+			'error',
+			{
+				message: 'Use cmpStorage instead',
+				selector:
+					'MemberExpression[object.name = "storage"][property.name = "local"]',
+			},
+			{
+				message: 'Use cmpStorage instead',
+				selector: 'MemberExpression[property.name="localStorage"]',
+			},
+			{
+				message: 'Use cmpGetCookie instead',
+				selector: "CallExpression[callee.name='getCookie']",
+			},
+			{
+				message: 'Use cmpSetCookie instead',
+				selector: "CallExpression[callee.name='setCookie']",
+			},
+		],
 	},
 };
