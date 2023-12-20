@@ -1,4 +1,9 @@
-import { pxToRem } from '../utils/px-to-rem';
+import { tokens } from '@csnx/design-tokens';
+import {
+	fontArrayToString,
+	pxStringToNumber,
+	pxToRem,
+} from '../utils/convert-value';
 import type { AvailableFontWeights, ItalicsFontWeights } from './types';
 
 /**
@@ -9,33 +14,33 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  */
 export const pxTextSizes = {
 	textSans: {
-		xxsmall: 12,
-		xsmall: 14,
-		small: 15,
-		medium: 17,
-		large: 20,
-		xlarge: 24,
-		xxlarge: 28,
-		xxxlarge: 34,
+		xxsmall: pxStringToNumber(tokens.typography.textSans.xxSmall.fontSize!),
+		xsmall: pxStringToNumber(tokens.typography.textSans.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.typography.textSans.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.textSans.medium.fontSize!),
+		large: pxStringToNumber(tokens.typography.textSans.large.fontSize!),
+		xlarge: pxStringToNumber(tokens.typography.textSans.xLarge.fontSize!),
+		xxlarge: pxStringToNumber(tokens.typography.textSans.xxLarge.fontSize!),
+		xxxlarge: pxStringToNumber(tokens.typography.textSans.xxxLarge.fontSize!),
 	},
 	body: {
-		xsmall: 14,
-		small: 15,
-		medium: 17,
+		xsmall: pxStringToNumber(tokens.typography.body.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.typography.body.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.body.medium.fontSize!),
 	},
 	headline: {
-		xxxsmall: 17,
-		xxsmall: 20,
-		xsmall: 24,
-		small: 28,
-		medium: 34,
-		large: 42,
-		xlarge: 50,
+		xxxsmall: pxStringToNumber(tokens.typography.headline.xxxSmall.fontSize!),
+		xxsmall: pxStringToNumber(tokens.typography.headline.xxSmall.fontSize!),
+		xsmall: pxStringToNumber(tokens.typography.headline.xSmall.fontSize!),
+		small: pxStringToNumber(tokens.typography.headline.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.headline.medium.fontSize!),
+		large: pxStringToNumber(tokens.typography.headline.large.fontSize!),
+		xlarge: pxStringToNumber(tokens.typography.headline.xLarge.fontSize!),
 	},
 	titlepiece: {
-		small: 42,
-		medium: 50,
-		large: 70,
+		small: pxStringToNumber(tokens.typography.titlepiece.small.fontSize!),
+		medium: pxStringToNumber(tokens.typography.titlepiece.medium.fontSize!),
+		large: pxStringToNumber(tokens.typography.titlepiece.large.fontSize!),
 	},
 } as const;
 
@@ -46,7 +51,7 @@ export const pxTextSizes = {
  * We assert that the computed rem values match the expected values
  * in our {@link [unit test suite](./typography.test.ts)}.
  *
- * See {@link [pxToRem](../utils/px-to-rem.ts)} for more details.
+ * See {@link [pxToRem](../utils/convert-value.ts)} for more details.
  */
 export const remTextSizes = {
 	textSans: {
@@ -81,11 +86,10 @@ export const remTextSizes = {
 } as const;
 
 export const fonts = {
-	titlepiece: 'GT Guardian Titlepiece, Georgia, serif',
-	headline: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif',
-	body: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif',
-	textSans:
-		'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+	titlepiece: fontArrayToString(tokens.typography.fontFamily.titlepiece),
+	headline: fontArrayToString(tokens.typography.fontFamily.headline),
+	body: fontArrayToString(tokens.typography.fontFamily.body),
+	textSans: fontArrayToString(tokens.typography.fontFamily.textSans),
 } as const;
 
 /**
@@ -102,16 +106,16 @@ export const fonts = {
  * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
  */
 export const lineHeights = {
-	tight: 1.15,
-	regular: 1.3,
-	loose: 1.4,
+	tight: tokens.typography.lineHeight.tight,
+	regular: tokens.typography.lineHeight.regular,
+	loose: tokens.typography.lineHeight.loose,
 } as const;
 
 export const fontWeights = {
-	light: 300,
-	regular: 400,
-	medium: 500,
-	bold: 700,
+	light: tokens.typography.fontWeight.light,
+	regular: tokens.typography.fontWeight.regular,
+	medium: tokens.typography.fontWeight.medium,
+	bold: tokens.typography.fontWeight.bold,
 } as const;
 
 export const availableFontWeights = {
@@ -130,33 +134,33 @@ export const italicsFontWeights = {
 
 export const underlineThickness = {
 	textSans: {
-		xxsmall: 2,
-		xsmall: 2,
-		small: 2,
-		medium: 2,
-		large: 3,
-		xlarge: 3,
-		xxlarge: 3,
-		xxxlarge: 4,
+		xxsmall: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		xsmall: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		small: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		medium: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		large: pxStringToNumber(tokens.typography.textDecorationThickness[3]),
+		xlarge: pxStringToNumber(tokens.typography.textDecorationThickness[3]),
+		xxlarge: pxStringToNumber(tokens.typography.textDecorationThickness[3]),
+		xxxlarge: pxStringToNumber(tokens.typography.textDecorationThickness[4]),
 	},
 	body: {
-		xsmall: 2,
-		small: 2,
-		medium: 2,
+		xsmall: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		small: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		medium: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
 	},
 	headline: {
-		xxxsmall: 2,
-		xxsmall: 3,
-		xsmall: 3,
-		small: 3,
-		medium: 4,
-		large: 5,
-		xlarge: 6,
+		xxxsmall: pxStringToNumber(tokens.typography.textDecorationThickness[2]),
+		xxsmall: pxStringToNumber(tokens.typography.textDecorationThickness[3]),
+		xsmall: pxStringToNumber(tokens.typography.textDecorationThickness[3]),
+		small: pxStringToNumber(tokens.typography.textDecorationThickness[3]),
+		medium: pxStringToNumber(tokens.typography.textDecorationThickness[4]),
+		large: pxStringToNumber(tokens.typography.textDecorationThickness[5]),
+		xlarge: pxStringToNumber(tokens.typography.textDecorationThickness[6]),
 	},
 	titlepiece: {
-		small: 5,
-		medium: 6,
-		large: 6,
+		small: pxStringToNumber(tokens.typography.textDecorationThickness[5]),
+		medium: pxStringToNumber(tokens.typography.textDecorationThickness[6]),
+		large: pxStringToNumber(tokens.typography.textDecorationThickness[6]),
 	},
 } as const;
 

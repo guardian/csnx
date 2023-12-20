@@ -13,11 +13,6 @@ import {
 } from '@cobalt-ui/core';
 
 export declare const tokens: {
-	body: {
-		medium: ParsedTypographyToken['$value'];
-		small: ParsedTypographyToken['$value'];
-		xSmall: ParsedTypographyToken['$value'];
-	};
 	breakpoint: {
 		desktop: ParsedDimensionToken['$value'];
 		leftCol: ParsedDimensionToken['$value'];
@@ -125,47 +120,6 @@ export declare const tokens: {
 			'2': ParsedColorToken['$value'];
 			'3': ParsedColorToken['$value'];
 		};
-	};
-	font: {
-		family: {
-			body: ParsedFontFamilyToken['$value'];
-			headline: ParsedFontFamilyToken['$value'];
-			textSans: ParsedFontFamilyToken['$value'];
-			titlepiece: ParsedFontFamilyToken['$value'];
-		};
-		lineHeight: {
-			loose: ParsedNumberToken['$value'];
-			regular: ParsedNumberToken['$value'];
-			tight: ParsedNumberToken['$value'];
-		};
-		size: {
-			'12': ParsedDimensionToken['$value'];
-			'14': ParsedDimensionToken['$value'];
-			'15': ParsedDimensionToken['$value'];
-			'17': ParsedDimensionToken['$value'];
-			'20': ParsedDimensionToken['$value'];
-			'24': ParsedDimensionToken['$value'];
-			'28': ParsedDimensionToken['$value'];
-			'34': ParsedDimensionToken['$value'];
-			'42': ParsedDimensionToken['$value'];
-			'50': ParsedDimensionToken['$value'];
-			'70': ParsedDimensionToken['$value'];
-		};
-		weight: {
-			bold: ParsedNumberToken['$value'];
-			light: ParsedNumberToken['$value'];
-			medium: ParsedNumberToken['$value'];
-			regular: ParsedNumberToken['$value'];
-		};
-	};
-	headline: {
-		large: ParsedTypographyToken['$value'];
-		medium: ParsedTypographyToken['$value'];
-		small: ParsedTypographyToken['$value'];
-		xLarge: ParsedTypographyToken['$value'];
-		xSmall: ParsedTypographyToken['$value'];
-		xxSmall: ParsedTypographyToken['$value'];
-		xxxSmall: ParsedTypographyToken['$value'];
 	};
 	height: {
 		ctaMedium: ParsedDimensionToken['$value'];
@@ -317,20 +271,73 @@ export declare const tokens: {
 		'18': ParsedDimensionToken['$value'];
 		'24': ParsedDimensionToken['$value'];
 	};
-	textSans: {
-		large: ParsedTypographyToken['$value'];
-		medium: ParsedTypographyToken['$value'];
-		small: ParsedTypographyToken['$value'];
-		xLarge: ParsedTypographyToken['$value'];
-		xSmall: ParsedTypographyToken['$value'];
-		xxLarge: ParsedTypographyToken['$value'];
-		xxSmall: ParsedTypographyToken['$value'];
-		xxxLarge: ParsedTypographyToken['$value'];
-	};
-	titlepiece: {
-		large: ParsedTypographyToken['$value'];
-		medium: ParsedTypographyToken['$value'];
-		small: ParsedTypographyToken['$value'];
+	typography: {
+		body: {
+			medium: ParsedTypographyToken['$value'];
+			small: ParsedTypographyToken['$value'];
+			xSmall: ParsedTypographyToken['$value'];
+		};
+		fontFamily: {
+			body: ParsedFontFamilyToken['$value'];
+			headline: ParsedFontFamilyToken['$value'];
+			textSans: ParsedFontFamilyToken['$value'];
+			titlepiece: ParsedFontFamilyToken['$value'];
+		};
+		fontSize: {
+			'12': ParsedDimensionToken['$value'];
+			'14': ParsedDimensionToken['$value'];
+			'15': ParsedDimensionToken['$value'];
+			'17': ParsedDimensionToken['$value'];
+			'20': ParsedDimensionToken['$value'];
+			'24': ParsedDimensionToken['$value'];
+			'28': ParsedDimensionToken['$value'];
+			'34': ParsedDimensionToken['$value'];
+			'42': ParsedDimensionToken['$value'];
+			'50': ParsedDimensionToken['$value'];
+			'70': ParsedDimensionToken['$value'];
+		};
+		fontWeight: {
+			bold: ParsedNumberToken['$value'];
+			light: ParsedNumberToken['$value'];
+			medium: ParsedNumberToken['$value'];
+			regular: ParsedNumberToken['$value'];
+		};
+		headline: {
+			large: ParsedTypographyToken['$value'];
+			medium: ParsedTypographyToken['$value'];
+			small: ParsedTypographyToken['$value'];
+			xLarge: ParsedTypographyToken['$value'];
+			xSmall: ParsedTypographyToken['$value'];
+			xxSmall: ParsedTypographyToken['$value'];
+			xxxSmall: ParsedTypographyToken['$value'];
+		};
+		lineHeight: {
+			loose: ParsedNumberToken['$value'];
+			regular: ParsedNumberToken['$value'];
+			tight: ParsedNumberToken['$value'];
+		};
+		textDecorationThickness: {
+			'2': ParsedDimensionToken['$value'];
+			'3': ParsedDimensionToken['$value'];
+			'4': ParsedDimensionToken['$value'];
+			'5': ParsedDimensionToken['$value'];
+			'6': ParsedDimensionToken['$value'];
+		};
+		textSans: {
+			large: ParsedTypographyToken['$value'];
+			medium: ParsedTypographyToken['$value'];
+			small: ParsedTypographyToken['$value'];
+			xLarge: ParsedTypographyToken['$value'];
+			xSmall: ParsedTypographyToken['$value'];
+			xxLarge: ParsedTypographyToken['$value'];
+			xxSmall: ParsedTypographyToken['$value'];
+			xxxLarge: ParsedTypographyToken['$value'];
+		};
+		titlepiece: {
+			large: ParsedTypographyToken['$value'];
+			medium: ParsedTypographyToken['$value'];
+			small: ParsedTypographyToken['$value'];
+		};
 	};
 	width: {
 		ctaMedium: ParsedDimensionToken['$value'];

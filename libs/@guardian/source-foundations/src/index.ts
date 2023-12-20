@@ -119,6 +119,6 @@ export type {
 // utils
 export { appearance } from './utils/supports-queries';
 export { FocusStyleManager } from './accessibility/focus-style-manager';
-export { pxToRem, rootPixelFontSize } from './utils/px-to-rem';
+export { pxToRem, rootPixelFontSize } from './utils/convert-value';
 export { resets } from './utils/resets';
 export { svgBackgroundImage } from './utils/svg-background-image';
