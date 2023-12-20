@@ -317,11 +317,11 @@ export declare const tokens: {
 			tight: ParsedNumberToken['$value'];
 		};
 		textDecorationThickness: {
-			'2': ParsedNumberToken['$value'];
-			'3': ParsedNumberToken['$value'];
-			'4': ParsedNumberToken['$value'];
-			'5': ParsedNumberToken['$value'];
-			'6': ParsedNumberToken['$value'];
+			'2': ParsedDimensionToken['$value'];
+			'3': ParsedDimensionToken['$value'];
+			'4': ParsedDimensionToken['$value'];
+			'5': ParsedDimensionToken['$value'];
+			'6': ParsedDimensionToken['$value'];
 		};
 		textSans: {
 			large: ParsedTypographyToken['$value'];

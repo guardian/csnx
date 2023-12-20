@@ -368,11 +368,11 @@ export const tokens = {
 			tight: 1.15,
 		},
 		textDecorationThickness: {
-			2: 2,
-			3: 3,
-			4: 4,
-			5: 5,
-			6: 6,
+			2: '2px',
+			3: '3px',
+			4: '4px',
+			5: '5px',
+			6: '6px',
 		},
 		textSans: {
 			large: {
