@@ -81,16 +81,21 @@ module.exports = {
 			'error',
 			{
 				selector: "CallExpression[callee.object.name='localStorage']",
-				message: 'Use @guardian/libs’s storage.local instead',
+				message: 'Use @guardian/libs’ storage.local instead',
 			},
 			{
 				selector:
 					"CallExpression[callee.object.object.name='window'][callee.object.property.name='localStorage']",
-				message: 'Use @guardian/libs’s storage.local instead',
+				message: 'Use @guardian/libs’ storage.local instead',
 			},
 			{
 				selector: "CallExpression[callee.object.name='sessionStorage']",
-				message: 'Use @guardian/libs’s storage.session instead',
+				message: 'Use @guardian/libs’ storage.session instead',
+			},
+			{
+				message: 'Use @guardian/libs’ getCookie/setCookie instead',
+				selector:
+					'MemberExpression[object.name = "document"][property.name = "cookie"]',
 			},
 		],
 	},
