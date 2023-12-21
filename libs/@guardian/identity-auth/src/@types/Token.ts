@@ -85,7 +85,7 @@ export interface JWTHeader {
 /**
  * The payload of a JWT.
  *
- * Set up as a partial type so that we can use it for the access token and ID token, as we don't
+ * Set up as a generic type so that we can use it for the access token and ID token, as we don't
  * know exactly which claims will be in each, and will be returned from the server, until we
  * validate and decode the token.
  */
