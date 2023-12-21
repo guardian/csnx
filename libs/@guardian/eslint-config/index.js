@@ -84,6 +84,11 @@ module.exports = {
 				message: 'Use @guardian/libs’s storage.local instead',
 			},
 			{
+				selector:
+					"CallExpression[callee.object.object.name='window'][callee.object.property.name='localStorage']",
+				message: 'Use @guardian/libs’s storage.local instead',
+			},
+			{
 				selector: "CallExpression[callee.object.name='sessionStorage']",
 				message: 'Use @guardian/libs’s storage.session instead',
 			},
