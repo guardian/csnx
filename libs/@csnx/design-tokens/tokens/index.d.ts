@@ -188,7 +188,6 @@ export declare const tokens: {
 		};
 		brandAlt: {
 			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 		};
 		culture: {
@@ -196,7 +195,6 @@ export declare const tokens: {
 			'100': ParsedColorToken['$value'];
 			'200': ParsedColorToken['$value'];
 			'300': ParsedColorToken['$value'];
-			'350': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
 			'500': ParsedColorToken['$value'];
@@ -210,6 +208,11 @@ export declare const tokens: {
 		};
 		focus: {
 			'400': ParsedColorToken['$value'];
+		};
+		green: {
+			'300': ParsedColorToken['$value'];
+			'400': ParsedColorToken['$value'];
+			'500': ParsedColorToken['$value'];
 		};
 		labs: {
 			'200': ParsedColorToken['$value'];
@@ -231,6 +234,7 @@ export declare const tokens: {
 			'7': ParsedColorToken['$value'];
 			'10': ParsedColorToken['$value'];
 			'20': ParsedColorToken['$value'];
+			'38': ParsedColorToken['$value'];
 			'46': ParsedColorToken['$value'];
 			'60': ParsedColorToken['$value'];
 			'86': ParsedColorToken['$value'];
@@ -251,7 +255,6 @@ export declare const tokens: {
 		opinion: {
 			'100': ParsedColorToken['$value'];
 			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
 			'500': ParsedColorToken['$value'];
@@ -261,11 +264,9 @@ export declare const tokens: {
 		};
 		specialReport: {
 			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
 			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
 			'700': ParsedColorToken['$value'];
 			'800': ParsedColorToken['$value'];
 		};
