@@ -76,5 +76,17 @@ module.exports = {
 
 		// prevent circular dependencies
 		'import/no-cycle': ['error', { ignoreExternal: true }],
+
+		'no-restricted-syntax': [
+			'error',
+			{
+				selector: "CallExpression[callee.object.name='localStorage']",
+				message: 'Use @guardian/libs’s storage.local instead',
+			},
+			{
+				selector: "CallExpression[callee.object.name='sessionStorage']",
+				message: 'Use @guardian/libs’s storage.session instead',
+			},
+		],
 	},
 };
