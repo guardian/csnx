@@ -11,7 +11,7 @@
 		"@guardian/libs": "16.0.0",
 		"@guardian/source-foundations": "14.0.0",
 		"@guardian/source-react-components": "18.0.0",
-		"@types/eslint": "8.44.9",
+		"@types/eslint": "8.56.0",
 		"@types/estree": "1.0.5",
 		"eslint": "8.56.0",
 		"react": "18.2.0",
