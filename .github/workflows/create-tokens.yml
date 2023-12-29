@@ -6,35 +6,40 @@ on:
 
 permissions:
   pull-requests: write
-  steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
-    # enables use to use the cache in actions/setup-node
-    - uses: pnpm/action-setup@v2.4.0
+jobs:
+  update-tokens:
+    runs-on: ubuntu-latest
 
-    - uses: actions/setup-node@v4
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'pnpm'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - run: pnpm install --frozen-lockfile
-    - name: Create or update branch
-      run: |
-        git checkout -b automated-update-tokens || git checkout automated-update-tokens
+      # enables use to use the cache in actions/setup-node
+      - uses: pnpm/action-setup@v2.4.0
 
-    - name: Update tokens
-      run: pnpm nx run @csnx/design-tokens:make-tokens
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
 
-    - name: Add changes update branch
-      run: |
-        git add .
-        git commit -m "Update color tokens" -a
-        git push origin automated-update-tokens
+      - run: pnpm install --frozen-lockfile
+      - name: Create or update branch
+        run: |
+          git checkout -b automated-update-tokens || git checkout automated-update-tokens
 
-    - name: Create Pull Request
-      run: |
-        gh pr create -B main -H automated-update-tokens --title '[Automated] Update Color Tokens' --body 'This is an automated PR to update color tokens'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update tokens
+        run: pnpm nx run @csnx/design-tokens:make-tokens
+
+      - name: Add changes update branch
+        run: |
+          git add .
+          git commit -m "Update color tokens" -a
+          git push origin automated-update-tokens
+
+      - name: Create Pull Request
+        run: |
+          gh pr create -B main -H automated-update-tokens --title '[Automated] Update Color Tokens' --body 'This is an automated PR to update color tokens'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
