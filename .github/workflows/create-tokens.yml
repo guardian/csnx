@@ -35,6 +35,7 @@ jobs:
       - name: Create or update branch
         run: |
           git checkout -b automated-update-tokens || git checkout automated-update-tokens
+          git pull
 
       - name: Update tokens
         run: pnpm nx run @csnx/design-tokens:make-tokens
