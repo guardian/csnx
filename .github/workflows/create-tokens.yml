@@ -48,3 +48,5 @@ jobs:
       - name: Create Pull Request
         run: |
           gh pr create -B main -H automated-update-tokens --title '[Automated] Update Color Tokens' --body 'This is an automated PR to update color tokens'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
