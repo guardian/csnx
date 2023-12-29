@@ -1,4 +1,4 @@
-import { rootPixelFontSize } from '../utils/px-to-rem';
+import { rootPixelFontSize } from '../utils/convert-value';
 import { pxTextSizes, remTextSizes } from './data';
 import {
 	fonts,

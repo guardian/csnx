@@ -1,5 +1,5 @@
 import { tokens } from '@csnx/design-tokens';
-import { pxStringToNumber, pxToRem } from '../utils/px-to-rem';
+import { pxStringToNumber, pxToRem } from '../utils/convert-value';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_size--page#global-size-values) •
