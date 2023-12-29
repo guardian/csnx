@@ -1,9 +1,5 @@
 name: 'Update Colour Tokens'
 
-on:
-  pull_requests:
-    type: [opened]
-
 permissions:
   pull-requests: write
   steps:
