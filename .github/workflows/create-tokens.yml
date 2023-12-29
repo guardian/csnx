@@ -42,11 +42,15 @@ jobs:
       - name: Update tokens
         run: pnpm nx run @csnx/design-tokens:make-tokens
 
-      - name: Add changes update branch
+      - name: Add changes and update branch
         run: |
           git add .
-          git commit -m "Update color tokens" -a
-          git push origin automated-update-tokens
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update color tokens"
+            git push origin automated-update-tokens
+          fi
 
       - name: Create Pull Request
         run: |
