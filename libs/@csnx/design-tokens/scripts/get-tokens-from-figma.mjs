@@ -3,9 +3,16 @@ const headers = new Headers();
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-headers.append('X-FIGMA-TOKEN', process.env.FIGMA_TOKEN);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+if (!process.env.FIGMA_TOKEN) {
+	console.log('FIGMA_TOKEN not set. Please add it to your .env file.');
+	console.log('See https://www.figma.com/developers/api#access-tokens');
+	process.exit(1);
+}
+
+headers.append('X-FIGMA-TOKEN', process.env.FIGMA_TOKEN);
 
 const requestOptions = {
 	method: 'GET',
