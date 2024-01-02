@@ -23,104 +23,6 @@ export declare const tokens: {
 		tablet: ParsedDimensionToken['$value'];
 		wide: ParsedDimensionToken['$value'];
 	};
-	colour: {
-		blue: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-			'11': ParsedColorToken['$value'];
-			'12': ParsedColorToken['$value'];
-		};
-		brown: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-		};
-		gray: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-		};
-		green: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-		};
-		orange: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-		};
-		pink: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-		};
-		red: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-		};
-		special: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-			'11': ParsedColorToken['$value'];
-			'12': ParsedColorToken['$value'];
-			'13': ParsedColorToken['$value'];
-		};
-		yellow: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-		};
-	};
 	height: {
 		ctaMedium: ParsedDimensionToken['$value'];
 		ctaSmall: ParsedDimensionToken['$value'];
@@ -142,7 +44,6 @@ export declare const tokens: {
 		};
 		brandAlt: {
 			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 		};
 		culture: {
@@ -150,7 +51,6 @@ export declare const tokens: {
 			'100': ParsedColorToken['$value'];
 			'200': ParsedColorToken['$value'];
 			'300': ParsedColorToken['$value'];
-			'350': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
 			'500': ParsedColorToken['$value'];
@@ -164,6 +64,11 @@ export declare const tokens: {
 		};
 		focus: {
 			'400': ParsedColorToken['$value'];
+		};
+		green: {
+			'300': ParsedColorToken['$value'];
+			'400': ParsedColorToken['$value'];
+			'500': ParsedColorToken['$value'];
 		};
 		labs: {
 			'200': ParsedColorToken['$value'];
@@ -185,6 +90,7 @@ export declare const tokens: {
 			'7': ParsedColorToken['$value'];
 			'10': ParsedColorToken['$value'];
 			'20': ParsedColorToken['$value'];
+			'38': ParsedColorToken['$value'];
 			'46': ParsedColorToken['$value'];
 			'60': ParsedColorToken['$value'];
 			'86': ParsedColorToken['$value'];
@@ -205,7 +111,6 @@ export declare const tokens: {
 		opinion: {
 			'100': ParsedColorToken['$value'];
 			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
 			'500': ParsedColorToken['$value'];
@@ -215,11 +120,9 @@ export declare const tokens: {
 		};
 		specialReport: {
 			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
 			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
 			'700': ParsedColorToken['$value'];
 			'800': ParsedColorToken['$value'];
 		};
