@@ -56,7 +56,8 @@
 		"sharedGlobals": [
 			"{workspaceRoot}/**/tsconfig*.json",
 			"{workspaceRoot}/tools/nx-plugins/**/*",
-			"{workspaceRoot}/.storybook/main.js"
+			"{workspaceRoot}/.storybook/main.js",
+			"{workspaceRoot}/.nvmrc"
 		],
 		"production": ["default"]
 	}
