@@ -1,5 +1,11 @@
 # @guardian/ab-core
 
+## 7.0.1
+
+### Patch Changes
+
+- c8c9634: Reduce code repetition, which may improve bundle size
+
 ## 7.0.0
 
 ### Major Changes
