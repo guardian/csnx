@@ -11,10 +11,6 @@ import type {
 	Variant,
 } from './@types';
 
-const noop = () => {
-	// Do nothing !
-};
-
 const submit = (
 	payload: OphanABPayload,
 	ophanRecord: OphanRecordFunction,
@@ -78,7 +74,9 @@ const registerCompleteEvent =
 	) =>
 	(test: Runnable<ABTest>): void => {
 		const variant = test.variantToRun;
-		const listener = (complete ? variant.success : variant.impression) ?? noop;
+		const listener = complete ? variant.success : variant.impression;
+
+		if (!listener) return;
 
 		try {
 			listener(buildOphanSubmitter(test, variant, complete, ophanRecord));
@@ -122,30 +120,22 @@ const buildOphanPayload = (
 	}
 };
 
-export const initOphan = (config: OphanAPIConfig): OphanAPI => {
-	const { serverSideTests, errorReporter, ophanRecord } = config;
+export const initOphan = ({
+	serverSideTests,
+	errorReporter,
+	ophanRecord,
+}: OphanAPIConfig): OphanAPI => ({
+	registerCompleteEvents: (tests) =>
+		tests.forEach(registerCompleteEvent(true, errorReporter, ophanRecord)),
 
-	const registerCompleteEvents: OphanAPI['registerCompleteEvents'] = (
-		tests,
-	) => {
-		return tests.forEach(
-			registerCompleteEvent(true, errorReporter, ophanRecord),
-		);
-	};
-
-	const registerImpressionEvents: OphanAPI['registerImpressionEvents'] = (
-		tests,
-	) => {
+	registerImpressionEvents: (tests) =>
 		tests
 			.filter(defersImpression)
-			.forEach(registerCompleteEvent(false, errorReporter, ophanRecord));
-	};
+			.forEach(registerCompleteEvent(false, errorReporter, ophanRecord)),
 
-	const trackABTests: OphanAPI['trackABTests'] = (tests) =>
+	trackABTests: (tests) =>
 		submit(
 			buildOphanPayload(tests, errorReporter, serverSideTests),
 			ophanRecord,
-		);
-
-	return { registerCompleteEvents, registerImpressionEvents, trackABTests };
-};
+		),
+});
