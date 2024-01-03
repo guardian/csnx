@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.1.1
+
+### Patch Changes
+
+- 819524f: Adds `neutral.38` to colour palette and fixes `Breakpoint` type declaration
+
 ## 14.1.0
 
 ### Minor Changes
