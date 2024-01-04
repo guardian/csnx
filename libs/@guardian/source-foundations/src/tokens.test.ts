@@ -43,6 +43,12 @@ import {
 	titlepieceSizes,
 	underlineThickness,
 } from './typography/data';
+import {
+	bodyObjectStyles,
+	headlineObjectStyles,
+	textSansObjectStyles,
+	titlepieceObjectStyles,
+} from '.';
 
 /**
  * Verify token output with snapshot tests.
@@ -103,6 +109,9 @@ describe('space', () => {
 });
 
 describe('typography', () => {
+	/**
+	 * Typography tokens
+	 */
 	it('matches existing token values in snapshot', () => {
 		expect(pxTextSizes).toMatchSnapshot();
 		expect(remTextSizes).toMatchSnapshot();
@@ -122,7 +131,10 @@ describe('typography', () => {
 		expect(remTitlepieceSizes).toMatchSnapshot();
 	});
 
-	it('matches existing API output in snapshot', () => {
+	/**
+	 * Typography API CSS property output
+	 */
+	it('matches existing API CSS output in snapshot', () => {
 		expect(textSans.xxsmall()).toMatchSnapshot();
 		expect(textSans.xsmall()).toMatchSnapshot();
 		expect(textSans.small()).toMatchSnapshot();
@@ -144,5 +156,32 @@ describe('typography', () => {
 		expect(titlepiece.small()).toMatchSnapshot();
 		expect(titlepiece.medium()).toMatchSnapshot();
 		expect(titlepiece.large()).toMatchSnapshot();
+	});
+
+	/**
+	 * Typography API object style CSS output
+	 */
+	it('matches existing API object output in snapshot', () => {
+		expect(textSansObjectStyles.xxsmall()).toMatchSnapshot();
+		expect(textSansObjectStyles.xsmall()).toMatchSnapshot();
+		expect(textSansObjectStyles.small()).toMatchSnapshot();
+		expect(textSansObjectStyles.medium()).toMatchSnapshot();
+		expect(textSansObjectStyles.large()).toMatchSnapshot();
+		expect(textSansObjectStyles.xlarge()).toMatchSnapshot();
+		expect(textSansObjectStyles.xxlarge()).toMatchSnapshot();
+		expect(textSansObjectStyles.xxxlarge()).toMatchSnapshot();
+		expect(bodyObjectStyles.xsmall()).toMatchSnapshot();
+		expect(bodyObjectStyles.small()).toMatchSnapshot();
+		expect(bodyObjectStyles.medium()).toMatchSnapshot();
+		expect(headlineObjectStyles.xxxsmall()).toMatchSnapshot();
+		expect(headlineObjectStyles.xxsmall()).toMatchSnapshot();
+		expect(headlineObjectStyles.xsmall()).toMatchSnapshot();
+		expect(headlineObjectStyles.small()).toMatchSnapshot();
+		expect(headlineObjectStyles.medium()).toMatchSnapshot();
+		expect(headlineObjectStyles.large()).toMatchSnapshot();
+		expect(headlineObjectStyles.xlarge()).toMatchSnapshot();
+		expect(titlepieceObjectStyles.small()).toMatchSnapshot();
+		expect(titlepieceObjectStyles.medium()).toMatchSnapshot();
+		expect(titlepieceObjectStyles.large()).toMatchSnapshot();
 	});
 });

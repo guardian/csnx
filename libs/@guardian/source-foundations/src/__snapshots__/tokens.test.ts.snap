@@ -385,7 +385,7 @@ exports[`transitions matches existing token values in snapshot 1`] = `
 }
 `;
 
-exports[`typography matches existing API output in snapshot 1`] = `
+exports[`typography matches existing API CSS output in snapshot 1`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 0.75rem;
@@ -404,7 +404,7 @@ exports[`typography matches existing API output in snapshot 1`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 2`] = `
+exports[`typography matches existing API CSS output in snapshot 2`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 0.875rem;
@@ -423,7 +423,7 @@ exports[`typography matches existing API output in snapshot 2`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 3`] = `
+exports[`typography matches existing API CSS output in snapshot 3`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 0.9375rem;
@@ -442,7 +442,7 @@ exports[`typography matches existing API output in snapshot 3`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 4`] = `
+exports[`typography matches existing API CSS output in snapshot 4`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.0625rem;
@@ -461,7 +461,7 @@ exports[`typography matches existing API output in snapshot 4`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 5`] = `
+exports[`typography matches existing API CSS output in snapshot 5`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.25rem;
@@ -480,7 +480,7 @@ exports[`typography matches existing API output in snapshot 5`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 6`] = `
+exports[`typography matches existing API CSS output in snapshot 6`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.5rem;
@@ -499,7 +499,7 @@ exports[`typography matches existing API output in snapshot 6`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 7`] = `
+exports[`typography matches existing API CSS output in snapshot 7`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.75rem;
@@ -518,7 +518,7 @@ exports[`typography matches existing API output in snapshot 7`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 8`] = `
+exports[`typography matches existing API CSS output in snapshot 8`] = `
 "
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 2.125rem;
@@ -537,7 +537,7 @@ exports[`typography matches existing API output in snapshot 8`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 9`] = `
+exports[`typography matches existing API CSS output in snapshot 9`] = `
 "
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
 			font-size: 0.875rem;
@@ -556,7 +556,7 @@ exports[`typography matches existing API output in snapshot 9`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 10`] = `
+exports[`typography matches existing API CSS output in snapshot 10`] = `
 "
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
 			font-size: 0.9375rem;
@@ -575,7 +575,7 @@ exports[`typography matches existing API output in snapshot 10`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 11`] = `
+exports[`typography matches existing API CSS output in snapshot 11`] = `
 "
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
 			font-size: 1.0625rem;
@@ -594,7 +594,7 @@ exports[`typography matches existing API output in snapshot 11`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 12`] = `
+exports[`typography matches existing API CSS output in snapshot 12`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.0625rem;
@@ -613,7 +613,7 @@ exports[`typography matches existing API output in snapshot 12`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 13`] = `
+exports[`typography matches existing API CSS output in snapshot 13`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.25rem;
@@ -632,7 +632,7 @@ exports[`typography matches existing API output in snapshot 13`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 14`] = `
+exports[`typography matches existing API CSS output in snapshot 14`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.5rem;
@@ -651,7 +651,7 @@ exports[`typography matches existing API output in snapshot 14`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 15`] = `
+exports[`typography matches existing API CSS output in snapshot 15`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.75rem;
@@ -670,7 +670,7 @@ exports[`typography matches existing API output in snapshot 15`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 16`] = `
+exports[`typography matches existing API CSS output in snapshot 16`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 2.125rem;
@@ -689,7 +689,7 @@ exports[`typography matches existing API output in snapshot 16`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 17`] = `
+exports[`typography matches existing API CSS output in snapshot 17`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 2.625rem;
@@ -708,7 +708,7 @@ exports[`typography matches existing API output in snapshot 17`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 18`] = `
+exports[`typography matches existing API CSS output in snapshot 18`] = `
 "
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 3.125rem;
@@ -727,7 +727,7 @@ exports[`typography matches existing API output in snapshot 18`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 19`] = `
+exports[`typography matches existing API CSS output in snapshot 19`] = `
 "
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
 			font-size: 2.625rem;
@@ -746,7 +746,7 @@ exports[`typography matches existing API output in snapshot 19`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 20`] = `
+exports[`typography matches existing API CSS output in snapshot 20`] = `
 "
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
 			font-size: 3.125rem;
@@ -765,7 +765,7 @@ exports[`typography matches existing API output in snapshot 20`] = `
 		"
 `;
 
-exports[`typography matches existing API output in snapshot 21`] = `
+exports[`typography matches existing API CSS output in snapshot 21`] = `
 "
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
 			font-size: 4.375rem;
@@ -782,6 +782,237 @@ exports[`typography matches existing API output in snapshot 21`] = `
 			 */
 			--source-text-decoration-thickness: 6px;
 		"
+`;
+
+exports[`typography matches existing API object output in snapshot 1`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "0.75rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 2`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "0.875rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 3`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "0.9375rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 4`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "1.0625rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 5`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "1.25rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 3,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 6`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "1.5rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 3,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 7`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "1.75rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 3,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 8`] = `
+{
+  "fontFamily": "GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif",
+  "fontSize": "2.125rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.3,
+  "textDecorationThickness": 4,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 9`] = `
+{
+  "fontFamily": "GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif",
+  "fontSize": "0.875rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.4,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 10`] = `
+{
+  "fontFamily": "GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif",
+  "fontSize": "0.9375rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.4,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 11`] = `
+{
+  "fontFamily": "GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif",
+  "fontSize": "1.0625rem",
+  "fontStyle": undefined,
+  "fontWeight": 400,
+  "lineHeight": 1.4,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 12`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "1.0625rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 2,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 13`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "1.25rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 3,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 14`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "1.5rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 3,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 15`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "1.75rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 3,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 16`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "2.125rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 4,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 17`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "2.625rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 5,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 18`] = `
+{
+  "fontFamily": ""GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif",
+  "fontSize": "3.125rem",
+  "fontStyle": undefined,
+  "fontWeight": 500,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 6,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 19`] = `
+{
+  "fontFamily": ""GT Guardian Titlepiece", Georgia, serif",
+  "fontSize": "2.625rem",
+  "fontStyle": undefined,
+  "fontWeight": 700,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 5,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 20`] = `
+{
+  "fontFamily": ""GT Guardian Titlepiece", Georgia, serif",
+  "fontSize": "3.125rem",
+  "fontStyle": undefined,
+  "fontWeight": 700,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 6,
+}
+`;
+
+exports[`typography matches existing API object output in snapshot 21`] = `
+{
+  "fontFamily": ""GT Guardian Titlepiece", Georgia, serif",
+  "fontSize": "4.375rem",
+  "fontStyle": undefined,
+  "fontWeight": 700,
+  "lineHeight": 1.15,
+  "textDecorationThickness": 6,
+}
 `;
 
 exports[`typography matches existing token values in snapshot 1`] = `
