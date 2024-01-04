@@ -385,6 +385,405 @@ exports[`transitions matches existing token values in snapshot 1`] = `
 }
 `;
 
+exports[`typography matches existing API output in snapshot 1`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 0.75rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 2`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 0.875rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 3`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 0.9375rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 4`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 1.0625rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 5`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 1.25rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 3px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 6`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 1.5rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 3px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 7`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 1.75rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 3px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 8`] = `
+"
+			font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+			font-size: 2.125rem;
+			line-height: 1.3;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 4px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 9`] = `
+"
+			font-family: GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif;
+			font-size: 0.875rem;
+			line-height: 1.4;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 10`] = `
+"
+			font-family: GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.4;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 11`] = `
+"
+			font-family: GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif;
+			font-size: 1.0625rem;
+			line-height: 1.4;
+			font-weight: 400;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 12`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 1.0625rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 2px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 13`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 1.25rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 3px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 14`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 1.5rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 3px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 15`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 1.75rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 3px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 16`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 2.125rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 4px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 17`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 2.625rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 5px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 18`] = `
+"
+			font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+			font-size: 3.125rem;
+			line-height: 1.15;
+			font-weight: 500;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 6px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 19`] = `
+"
+			font-family: GT Guardian Titlepiece, Georgia, serif;
+			font-size: 2.625rem;
+			line-height: 1.15;
+			font-weight: 700;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 5px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 20`] = `
+"
+			font-family: GT Guardian Titlepiece, Georgia, serif;
+			font-size: 3.125rem;
+			line-height: 1.15;
+			font-weight: 700;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 6px;
+		"
+`;
+
+exports[`typography matches existing API output in snapshot 21`] = `
+"
+			font-family: GT Guardian Titlepiece, Georgia, serif;
+			font-size: 4.375rem;
+			line-height: 1.15;
+			font-weight: 700;
+			;
+
+			/*
+			 * Child elements (e.g. <Link/>) can use this variable
+			 * to set the thickness of their underline.
+			 *
+			 * The thickness for each font type and weight is defined
+			 * in the underlineThickness object.
+			 */
+			--source-text-decoration-thickness: 6px;
+		"
+`;
+
 exports[`typography matches existing token values in snapshot 1`] = `
 {
   "body": {

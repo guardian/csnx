@@ -24,6 +24,7 @@ import {
 	width,
 } from './size/size';
 import { remSpace, space } from './space/space';
+import { body, headline, textSans, titlepiece } from './typography';
 import {
 	availableFontWeights,
 	bodySizes,
@@ -119,5 +120,29 @@ describe('typography', () => {
 		expect(remBodySizes).toMatchSnapshot();
 		expect(remHeadlineSizes).toMatchSnapshot();
 		expect(remTitlepieceSizes).toMatchSnapshot();
+	});
+
+	it('matches existing API output in snapshot', () => {
+		expect(textSans.xxsmall()).toMatchSnapshot();
+		expect(textSans.xsmall()).toMatchSnapshot();
+		expect(textSans.small()).toMatchSnapshot();
+		expect(textSans.medium()).toMatchSnapshot();
+		expect(textSans.large()).toMatchSnapshot();
+		expect(textSans.xlarge()).toMatchSnapshot();
+		expect(textSans.xxlarge()).toMatchSnapshot();
+		expect(textSans.xxxlarge()).toMatchSnapshot();
+		expect(body.xsmall()).toMatchSnapshot();
+		expect(body.small()).toMatchSnapshot();
+		expect(body.medium()).toMatchSnapshot();
+		expect(headline.xxxsmall()).toMatchSnapshot();
+		expect(headline.xxsmall()).toMatchSnapshot();
+		expect(headline.xsmall()).toMatchSnapshot();
+		expect(headline.small()).toMatchSnapshot();
+		expect(headline.medium()).toMatchSnapshot();
+		expect(headline.large()).toMatchSnapshot();
+		expect(headline.xlarge()).toMatchSnapshot();
+		expect(titlepiece.small()).toMatchSnapshot();
+		expect(titlepiece.medium()).toMatchSnapshot();
+		expect(titlepiece.large()).toMatchSnapshot();
 	});
 });
