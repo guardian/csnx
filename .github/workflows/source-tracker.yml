@@ -1,4 +1,4 @@
-name: source package usage tracker
+name: Guardian package usage tracker
 on:
   schedule:
     # Every work day of the week at 08:08
@@ -12,7 +12,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  scheduled:
+  check-package-usage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,8 +28,8 @@ jobs:
           deno run \
             --allow-read \
             --allow-net \
-            --allow-sys=uid \
-            --allow-env=TMPDIR,GITHUB_TOKEN \
+            --allow-sys=uid,gid \
+            --allow-env \
             scripts/deno/source-tracker/mod.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
