@@ -28,7 +28,7 @@ jobs:
           deno run \
             --allow-read \
             --allow-net \
-            --allow-env=HOME,GITHUB_TOKEN \
+            --allow-env \
             scripts/deno/source-tracker/mod.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
