@@ -7,17 +7,15 @@ import type {
 } from './@types';
 import { isExpired } from './time';
 
-export const initCore = (config: CoreAPIConfig): CoreAPI => {
-	const {
-		mvtMaxValue = 1000000,
-		mvtId,
-		pageIsSensitive,
-		abTestSwitches,
-		forcedTestVariants,
-		forcedTestException,
-		arrayOfTestObjects = [],
-	} = config;
-
+export const initCore = ({
+	mvtMaxValue = 1_000_000,
+	mvtId,
+	pageIsSensitive,
+	abTestSwitches,
+	forcedTestVariants,
+	forcedTestException,
+	arrayOfTestObjects = [],
+}: CoreAPIConfig): CoreAPI => {
 	/**
 	 * We only take account of a variant's canRun function if it's defined.
 	 * If it's not, assume the variant can be run.
