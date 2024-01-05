@@ -28,7 +28,6 @@ jobs:
           deno run \
             --allow-read \
             --allow-net \
-            --allow-env \
             --allow-sys=uid \
             --allow-env=TMPDIR,GITHUB_TOKEN \
             scripts/deno/source-tracker/mod.ts
