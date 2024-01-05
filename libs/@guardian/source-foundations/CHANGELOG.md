@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.1.2
+
+### Patch Changes
+
+- bb0d13b: Reinstates missing fallbacks from font stacks
+
 ## 14.1.1
 
 ### Patch Changes
