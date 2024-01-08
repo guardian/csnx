@@ -270,29 +270,55 @@ export const tokens = {
 	typography: {
 		body: {
 			medium: {
-				fontFamily: ['GuardianTextEgyptian', 'Georgia', 'serif'],
+				fontFamily: [
+					'GuardianTextEgyptian',
+					'Guardian Text Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '17px',
 				lineHeight: 1.4,
 				fontWeight: 400,
 			},
 			small: {
-				fontFamily: ['GuardianTextEgyptian', 'Georgia', 'serif'],
+				fontFamily: [
+					'GuardianTextEgyptian',
+					'Guardian Text Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '15px',
 				lineHeight: 1.4,
 				fontWeight: 400,
 			},
 			xSmall: {
-				fontFamily: ['GuardianTextEgyptian', 'Georgia', 'serif'],
+				fontFamily: [
+					'GuardianTextEgyptian',
+					'Guardian Text Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '14px',
 				lineHeight: 1.4,
 				fontWeight: 400,
 			},
 		},
 		fontFamily: {
-			body: ['GuardianTextEgyptian', 'Georgia', 'serif'],
-			headline: ['GH Guardian Headline', 'Georgia', 'serif'],
+			body: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			headline: [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			],
 			textSans: [
 				'GuardianTextSans',
+				'Guardian Text Sans Web',
 				'Helvetica Neue',
 				'Helvetica',
 				'Arial',
@@ -322,43 +348,78 @@ export const tokens = {
 		},
 		headline: {
 			large: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '42px',
 				lineHeight: 1.15,
 				fontWeight: 500,
 			},
 			medium: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '34px',
 				lineHeight: 1.15,
 				fontWeight: 500,
 			},
 			small: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '28px',
 				lineHeight: 1.15,
 				fontWeight: 500,
 			},
 			xLarge: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '50px',
 				lineHeight: 1.15,
 				fontWeight: 500,
 			},
 			xSmall: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '24px',
 				lineHeight: 1.15,
 				fontWeight: 500,
 			},
 			xxSmall: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '20px',
 				lineHeight: 1.15,
 				fontWeight: 500,
 			},
 			xxxSmall: {
-				fontFamily: ['GH Guardian Headline', 'Georgia', 'serif'],
+				fontFamily: [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				],
 				fontSize: '17px',
 				lineHeight: 1.15,
 				fontWeight: 500,
@@ -380,6 +441,7 @@ export const tokens = {
 			large: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -393,6 +455,7 @@ export const tokens = {
 			medium: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -406,6 +469,7 @@ export const tokens = {
 			small: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -419,6 +483,7 @@ export const tokens = {
 			xLarge: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -432,6 +497,7 @@ export const tokens = {
 			xSmall: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -445,6 +511,7 @@ export const tokens = {
 			xxLarge: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -458,6 +525,7 @@ export const tokens = {
 			xxSmall: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',
@@ -471,6 +539,7 @@ export const tokens = {
 			xxxLarge: {
 				fontFamily: [
 					'GuardianTextSans',
+					'Guardian Text Sans Web',
 					'Helvetica Neue',
 					'Helvetica',
 					'Arial',

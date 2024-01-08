@@ -241,11 +241,13 @@
 	--source-typography-body-xSmall-line-height: var(
 		--source-typography-lineHeight-loose
 	);
-	--source-typography-fontFamily-body: GuardianTextEgyptian, Georgia, serif;
-	--source-typography-fontFamily-headline: 'GH Guardian Headline', Georgia,
-		serif;
-	--source-typography-fontFamily-textSans: GuardianTextSans, 'Helvetica Neue',
-		Helvetica, Arial, 'Lucida Grande', sans-serif;
+	--source-typography-fontFamily-body: GuardianTextEgyptian,
+		'Guardian Text Egyptian Web', Georgia, serif;
+	--source-typography-fontFamily-headline: 'GH Guardian Headline',
+		'Guardian Egyptian Web', Georgia, serif;
+	--source-typography-fontFamily-textSans: GuardianTextSans,
+		'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial,
+		'Lucida Grande', sans-serif;
 	--source-typography-fontFamily-titlepiece: 'GT Guardian Titlepiece', Georgia,
 		serif;
 	--source-typography-fontSize-12: 0.75rem;
