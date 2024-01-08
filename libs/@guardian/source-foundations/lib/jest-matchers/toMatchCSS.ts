@@ -34,7 +34,10 @@ expect.extend({
 				normalisedReceivedCSS.code.toString() !==
 				normalisedExpectedCSS.code.toString()
 			) {
-				throw new Error('Received CSS does not match expected CSS.');
+				throw new Error(
+					'Received CSS does not match expected CSS\n\n' +
+						normalisedReceivedCSS.code.toString(),
+				);
 			}
 
 			return {
