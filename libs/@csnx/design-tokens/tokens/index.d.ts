@@ -218,9 +218,11 @@ export declare const tokens: {
 		};
 		specialReport: {
 			'100': ParsedColorToken['$value'];
+			'200': ParsedColorToken['$value'];
 			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'450': ParsedColorToken['$value'];
+			'500': ParsedColorToken['$value'];
 			'700': ParsedColorToken['$value'];
 			'800': ParsedColorToken['$value'];
 		};
