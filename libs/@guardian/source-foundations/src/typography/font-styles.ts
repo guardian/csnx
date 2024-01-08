@@ -130,16 +130,8 @@ export const fontStyleToStringFunction =
 			font-family: ${fontFamily};
 			font-size: ${typeof fontSize === 'number' ? `${fontSize}px` : fontSize};
 			line-height: ${lineHeight};
-			${fontWeight ? `font-weight: ${fontWeight}` : ''};
-			${fontStyle ? `font-style: ${fontStyle}` : ''};
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
+			${fontWeight ? `font-weight: ${fontWeight};` : ''}
+			${fontStyle ? `font-style: ${fontStyle};` : ''}
 			--source-text-decoration-thickness: ${
 				textDecorationThickness === undefined
 					? 'auto'
