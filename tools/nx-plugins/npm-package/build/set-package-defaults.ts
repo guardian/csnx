@@ -1,6 +1,6 @@
 import path from 'node:path';
 import type * as ReadPackage from 'read-pkg';
-import sortPkgJson from 'sort-package-json';
+import type * as SortPkgJson from 'sort-package-json';
 import type { JsonObject } from 'type-fest';
 import type * as WritePackage from 'write-pkg';
 import type { BuildExecutorOptions } from './schema';
@@ -68,6 +68,10 @@ export const setPackageDefaults = async (
 			"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
 		);
 	}
+
+	const { default: sortPkgJson } = (await esmModuleImport(
+		'sort-package-json',
+	)) as typeof SortPkgJson;
 
 	const sortedPkg = sortPkgJson({
 		...pkgDefaults,
