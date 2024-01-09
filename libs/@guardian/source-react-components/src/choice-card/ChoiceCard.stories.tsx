@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
@@ -63,4 +64,22 @@ IconDefaultTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
 	icon: 'JSX element',
+};
+
+export const DarkTheme = Template.bind({});
+DarkTheme.args = {
+	themeOverride: {
+		textUnSelected: palette.neutral[46],
+		textSelected: palette.brand[100],
+		textHover: palette.brand[100],
+		textError: palette.error[500],
+		borderUnSelected: palette.neutral[46],
+		borderSelected: palette.brand[100],
+		borderHover: palette.brand[100],
+		borderError: palette.error[400],
+		backgroundUnSelected: palette.neutral[100],
+		backgroundHover: 'red',
+		backgroundSelected: '#E3F6FF',
+		backgroundTick: palette.brand[100],
+	},
 };
