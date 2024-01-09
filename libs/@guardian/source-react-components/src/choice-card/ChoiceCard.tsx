@@ -16,21 +16,26 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
+import { choiceCardThemeDark, choiceCardThemeDefault } from './theme';
 
-interface ChoiceCardTheme {
-	textUnSelected: string;
-	textSelected: string;
-	textHover: string;
-	textError: string;
-	borderUnSelected: string;
-	borderSelected: string;
-	borderHover: string;
-	borderError: string;
-	backgroundUnSelected: string;
-	backgroundHover: string;
-	backgroundSelected: string;
-	backgroundTick: string;
-}
+export type ChoiceCardTheme =
+	| {
+			textUnSelected?: string;
+			textSelected?: string;
+			textHover?: string;
+			textError?: string;
+			borderUnSelected?: string;
+			borderSelected?: string;
+			borderHover?: string;
+			borderError?: string;
+			backgroundUnSelected?: string;
+			backgroundHover?: string;
+			backgroundSelected?: string;
+			backgroundTick?: string;
+	  }
+	| 'light'
+	| 'dark';
+
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		Props {
@@ -64,9 +69,9 @@ export interface ChoiceCardProps
 	 */
 	type?: 'radio' | 'checkbox';
 	/**
-	 * A theme to override the colour palette of the button
+	 * A component level theme to override the colour palette of the button
 	 */
-	themeOverride?: ChoiceCardTheme;
+	theme?: ChoiceCardTheme;
 }
 
 /**
@@ -88,7 +93,7 @@ export const ChoiceCard = ({
 	cssOverrides,
 	error,
 	onChange,
-	themeOverride,
+	theme,
 	type = 'radio',
 	...props
 }: ChoiceCardProps): EmotionJSX.Element => {
@@ -100,14 +105,31 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
+	const getCombinedTheme = (providedTheme: Theme = choiceCardThemeDefault) => {
+		if (typeof theme !== 'string' && theme && providedTheme.choiceCard) {
+			return { ...providedTheme.choiceCard, ...theme };
+		}
+		if (typeof theme === 'string') {
+			switch (theme) {
+				case 'dark':
+					return choiceCardThemeDark.choiceCard;
+				case 'light':
+					return choiceCardThemeDefault.choiceCard;
+				default:
+					return providedTheme.choiceCard;
+			}
+		}
+		return providedTheme.choiceCard;
+	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
 
 	return (
 		<>
 			<input
-				css={(theme: Theme) => [
-					input(themeOverride ?? theme.choiceCard),
+				//add back theme here
+				css={(theme) => [
+					input(getCombinedTheme(theme)),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
@@ -126,9 +148,9 @@ export const ChoiceCard = ({
 				{...props}
 			/>
 			<label
-				css={(theme: Theme) => [
-					choiceCard(themeOverride ?? theme.choiceCard),
-					error ? errorChoiceCard(themeOverride ?? theme.choiceCard) : '',
+				css={(theme) => [
+					choiceCard(getCombinedTheme(theme)),
+					error ? errorChoiceCard(getCombinedTheme(theme)) : '',
 				]}
 				htmlFor={id}
 			>
@@ -136,9 +158,7 @@ export const ChoiceCard = ({
 					{iconSvg ? iconSvg : ''}
 					<div>{labelContent}</div>
 				</div>
-				<span
-					css={(theme: Theme) => [tick(themeOverride ?? theme.choiceCard)]}
-				/>
+				<span css={(theme) => [tick(getCombinedTheme(theme))]} />
 			</label>
 		</>
 	);
