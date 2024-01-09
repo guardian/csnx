@@ -10,7 +10,7 @@ expect.extend({
 	 */
 	toBeValidCSS(
 		received: string,
-		options: ToBeValidCSSOptions = {},
+		options: CSSMatcherOptions = {},
 	): jest.CustomMatcherResult {
 		const { isFragment = false } = options;
 

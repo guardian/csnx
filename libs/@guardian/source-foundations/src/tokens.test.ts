@@ -499,342 +499,216 @@ describe('Typography tokens', () => {
 
 describe('Typography API CSS output', () => {
 	it('should match expected output', () => {
-		expect(textSans.xxsmall()).toEqual(`
+		expect(textSans.xxsmall()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 0.75rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(textSans.xsmall()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.xsmall()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 0.875rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(textSans.small()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.small()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 0.9375rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(textSans.medium()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.medium()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.0625rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(textSans.large()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.large()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.25rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 3px;
-		`);
-		expect(textSans.xlarge()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.xlarge()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.5rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 3px;
-		`);
-		expect(textSans.xxlarge()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.xxlarge()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 1.75rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 3px;
-		`);
-		expect(textSans.xxxlarge()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(textSans.xxxlarge()).toMatchCSS(
+			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 			font-size: 2.125rem;
 			line-height: 1.3;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 4px;
-		`);
-		expect(body.xsmall()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(body.xsmall()).toMatchCSS(
+			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
 			font-size: 0.875rem;
 			line-height: 1.4;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(body.small()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(body.small()).toMatchCSS(
+			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
 			font-size: 0.9375rem;
 			line-height: 1.4;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(body.medium()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(body.medium()).toMatchCSS(
+			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
 			font-size: 1.0625rem;
 			line-height: 1.4;
 			font-weight: 400;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(headline.xxxsmall()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.xxxsmall()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.0625rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 2px;
-		`);
-		expect(headline.xxsmall()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.xxsmall()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.25rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 3px;
-		`);
-		expect(headline.xsmall()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.xsmall()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.5rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 3px;
-		`);
-		expect(headline.small()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.small()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 1.75rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 3px;
-		`);
-		expect(headline.medium()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.medium()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 2.125rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 4px;
-		`);
-		expect(headline.large()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.large()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 2.625rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 5px;
-		`);
-		expect(headline.xlarge()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(headline.xlarge()).toMatchCSS(
+			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 3.125rem;
 			line-height: 1.15;
 			font-weight: 500;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 6px;
-		`);
-		expect(titlepiece.small()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(titlepiece.small()).toMatchCSS(
+			`
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
 			font-size: 2.625rem;
 			line-height: 1.15;
 			font-weight: 700;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 5px;
-		`);
-		expect(titlepiece.medium()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(titlepiece.medium()).toMatchCSS(
+			`
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
 			font-size: 3.125rem;
 			line-height: 1.15;
 			font-weight: 700;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 6px;
-		`);
-		expect(titlepiece.large()).toEqual(`
+		`,
+			{ isFragment: true },
+		);
+		expect(titlepiece.large()).toMatchCSS(
+			`
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
 			font-size: 4.375rem;
 			line-height: 1.15;
 			font-weight: 700;
-			;
-
-			/*
-			 * Child elements (e.g. <Link/>) can use this variable
-			 * to set the thickness of their underline.
-			 *
-			 * The thickness for each font type and weight is defined
-			 * in the underlineThickness object.
-			 */
 			--source-text-decoration-thickness: 6px;
-		`);
+		`,
+			{ isFragment: true },
+		);
 	});
 });
 
