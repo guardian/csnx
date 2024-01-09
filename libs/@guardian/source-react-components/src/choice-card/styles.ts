@@ -73,11 +73,11 @@ export const input = (
 	}
 
 	&:checked + label {
-		box-shadow: inset 0 0 0 2px ${choiceCard.borderChecked};
-		background-color: ${choiceCard.backgroundChecked};
+		box-shadow: inset 0 0 0 2px ${choiceCard.borderSelected};
+		background: ${choiceCard.backgroundSelected};
 
 		& > * {
-			color: ${choiceCard.textChecked};
+			color: ${choiceCard.textSelected};
 
 			/* last child is the tick */
 			&:last-child {
@@ -141,11 +141,12 @@ export const choiceCard = (
 	justify-content: center;
 	min-height: ${height.inputMedium}px;
 	margin: 0 0 ${space[2]}px 0;
-	box-shadow: inset 0 0 0 1px ${choiceCard.border};
+	box-shadow: inset 0 0 0 1px ${choiceCard.borderUnSelected};
 	border-radius: 4px;
 	position: relative;
 	cursor: pointer;
-	color: ${choiceCard.textLabel};
+	background: ${choiceCard.backgroundUnSelected};
+	color: ${choiceCard.textUnSelected};
 
 	${from.mobileLandscape} {
 		margin: 0 ${space[2]}px 0 0;
@@ -156,6 +157,7 @@ export const choiceCard = (
 
 	&:hover {
 		box-shadow: inset 0 0 0 2px ${choiceCard.borderHover};
+		background-color: ${choiceCard.backgroundHover};
 		color: ${choiceCard.textHover};
 	}
 `;

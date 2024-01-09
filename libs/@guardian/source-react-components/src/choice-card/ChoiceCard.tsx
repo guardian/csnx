@@ -17,6 +17,20 @@ import {
 	tickAnimation,
 } from './styles';
 
+interface ChoiceCardTheme {
+	textUnSelected: string;
+	textSelected: string;
+	textHover: string;
+	textError: string;
+	borderUnSelected: string;
+	borderSelected: string;
+	borderHover: string;
+	borderError: string;
+	backgroundUnSelected: string;
+	backgroundHover: string;
+	backgroundSelected: string;
+	backgroundTick: string;
+}
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		Props {
@@ -49,6 +63,10 @@ export interface ChoiceCardProps
 	 * The type of input you want
 	 */
 	type?: 'radio' | 'checkbox';
+	/**
+	 * A theme to override the colour palette of the button
+	 */
+	themeOverride?: ChoiceCardTheme;
 }
 
 /**
@@ -70,6 +88,7 @@ export const ChoiceCard = ({
 	cssOverrides,
 	error,
 	onChange,
+	themeOverride,
 	type = 'radio',
 	...props
 }: ChoiceCardProps): EmotionJSX.Element => {
@@ -88,7 +107,7 @@ export const ChoiceCard = ({
 		<>
 			<input
 				css={(theme: Theme) => [
-					input(theme.choiceCard),
+					input(themeOverride ?? theme.choiceCard),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
@@ -108,8 +127,8 @@ export const ChoiceCard = ({
 			/>
 			<label
 				css={(theme: Theme) => [
-					choiceCard(theme.choiceCard),
-					error ? errorChoiceCard(theme.choiceCard) : '',
+					choiceCard(themeOverride ?? theme.choiceCard),
+					error ? errorChoiceCard(themeOverride ?? theme.choiceCard) : '',
 				]}
 				htmlFor={id}
 			>
@@ -117,7 +136,9 @@ export const ChoiceCard = ({
 					{iconSvg ? iconSvg : ''}
 					<div>{labelContent}</div>
 				</div>
-				<span css={(theme: Theme) => [tick(theme.choiceCard)]} />
+				<span
+					css={(theme: Theme) => [tick(themeOverride ?? theme.choiceCard)]}
+				/>
 			</label>
 		</>
 	);
