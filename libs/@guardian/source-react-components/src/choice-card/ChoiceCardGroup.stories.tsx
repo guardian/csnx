@@ -5,7 +5,6 @@ import { ChoiceCard } from './ChoiceCard';
 import ChoiceCardStories from './ChoiceCard.stories';
 import { ChoiceCardGroup } from './ChoiceCardGroup';
 import type { ChoiceCardGroupProps } from './ChoiceCardGroup';
-import { choiceCardThemeDefault } from './theme';
 
 export default {
 	title: 'ChoiceCardGroup',
@@ -33,10 +32,6 @@ export default {
 const Template: Story<ChoiceCardGroupProps> = (args: ChoiceCardGroupProps) => (
 	<ChoiceCardGroup {...args}>
 		<ChoiceCard
-			themeOverride={{
-				...choiceCardThemeDefault.choiceCard,
-				backgroundHover: 'red',
-			}}
 			{...ChoiceCardStories.args}
 			id="abc1"
 			value="option-1"
