@@ -131,7 +131,6 @@ export const ChoiceCard = ({
 	return (
 		<>
 			<input
-				//add back theme here
 				css={(theme) => [
 					input(getCombinedTheme(theme)),
 					userChanged ? tickAnimation : '',
