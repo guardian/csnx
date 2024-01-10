@@ -42,6 +42,7 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 // *****************************************************************************
 
 export const DefaultDefaultTheme = Template.bind({});
+
 // *****************************************************************************
 
 export const CheckedDefaultTheme = Template.bind({});
