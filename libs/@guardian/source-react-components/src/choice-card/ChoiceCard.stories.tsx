@@ -2,7 +2,8 @@ import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
-import { choiceCardThemeDark } from './theme';
+import { choiceCardThemeDark, choiceCardThemeDefault } from './theme';
+import { ThemeProvider } from '@emotion/react';
 
 export default {
 	title: 'ChoiceCard',
@@ -36,7 +37,23 @@ export default {
 };
 
 const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
-	<ChoiceCard {...args} />
+	<div style={{ columns: 5 }}>
+		<ChoiceCard {...args} />
+
+		<ThemeProvider theme={choiceCardThemeDefault}>
+			<ChoiceCard {...args} />
+		</ThemeProvider>
+
+		<ThemeProvider theme={{ choiceCard: choiceCardThemeDark }}>
+			<ChoiceCard {...args} />
+		</ThemeProvider>
+
+		<ThemeProvider theme={{ choiceCard: choiceCardThemeDark }}>
+			<ChoiceCard {...args} theme={{ backgroundUnSelected: 'purple' }} />
+		</ThemeProvider>
+
+		<ChoiceCard {...args} theme={{ backgroundUnSelected: 'hotpink' }} />
+	</div>
 );
 
 // *****************************************************************************
@@ -68,5 +85,5 @@ IconDefaultTheme.args = {
 
 export const DarkTheme = Template.bind({});
 DarkTheme.args = {
-	theme: choiceCardThemeDark.choiceCard,
+	theme: choiceCardThemeDark,
 };
