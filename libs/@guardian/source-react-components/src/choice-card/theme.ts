@@ -4,8 +4,8 @@ import { userFeedbackThemeDefault } from '../user-feedback/theme';
 export const choiceCardThemeDefault = {
 	choiceCard: {
 		textUnSelected: palette.neutral[46],
-		textSelected: palette.brand[400],
-		textHover: palette.brand[400],
+		textSelected: palette.brand[500],
+		textHover: palette.brand[500],
 		textError: palette.error[400],
 		borderUnSelected: palette.neutral[46],
 		borderSelected: palette.brand[500],
