@@ -12,7 +12,7 @@ import {
 	width,
 } from '@guardian/source-foundations';
 import type { ChoiceCardColumns } from './ChoiceCardGroup';
-import { choiceCardThemeDefault } from './theme';
+import { choiceCardThemeLight } from './theme';
 
 export const fieldset = css`
 	${resets.fieldset};
@@ -62,7 +62,7 @@ export const gridColumns: { [key in ChoiceCardColumns]: SerializedStyles } = {
 };
 
 export const input = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
+	choiceCard = choiceCardThemeLight,
 ): SerializedStyles => css`
 	${visuallyHidden};
 
@@ -74,7 +74,7 @@ export const input = (
 
 	&:checked + label {
 		box-shadow: inset 0 0 0 2px ${choiceCard.borderSelected};
-		background: ${choiceCard.backgroundSelected};
+		background-color: ${choiceCard.backgroundSelected};
 
 		& > * {
 			color: ${choiceCard.textSelected};
@@ -134,7 +134,7 @@ export const tickAnimation = css`
 `;
 
 export const choiceCard = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
+	choiceCard = choiceCardThemeLight,
 ): SerializedStyles => css`
 	flex: 1;
 	display: flex;
@@ -145,7 +145,7 @@ export const choiceCard = (
 	border-radius: 4px;
 	position: relative;
 	cursor: pointer;
-	background: ${choiceCard.backgroundUnSelected};
+	background-color: ${choiceCard.backgroundUnSelected};
 	color: ${choiceCard.textUnSelected};
 
 	${from.mobileLandscape} {
@@ -208,7 +208,7 @@ export const contentWrapperLabelOnly = css`
 // TODO: most of this is duplicated in the checkbox component
 // We should extract it into its own module somewhere
 export const tick = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
+	choiceCard = choiceCardThemeLight,
 ): SerializedStyles => css`
 	/* overall positional properties */
 	position: absolute;
@@ -249,7 +249,7 @@ export const tick = (
 `;
 
 export const errorChoiceCard = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
+	choiceCard = choiceCardThemeLight,
 ): SerializedStyles => css`
 	box-shadow: inset 0 0 0 2px ${choiceCard.borderError};
 

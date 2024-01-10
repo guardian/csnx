@@ -16,25 +16,46 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
-import { choiceCardThemeDark, choiceCardThemeDefault } from './theme';
+import { choiceCardThemeDark, choiceCardThemeLight } from './theme';
 
-export type ChoiceCardTheme =
-	| {
-			textUnSelected?: string;
-			textSelected?: string;
-			textHover?: string;
-			textError?: string;
-			borderUnSelected?: string;
-			borderSelected?: string;
-			borderHover?: string;
-			borderError?: string;
-			backgroundUnSelected?: string;
-			backgroundHover?: string;
-			backgroundSelected?: string;
-			backgroundTick?: string;
-	  }
-	| 'light'
-	| 'dark';
+export type AcceptedTheme = {
+	textUnSelected: string;
+	textSelected: string;
+	textHover: string;
+	textError: string;
+	borderUnSelected: string;
+	borderSelected: string;
+	borderHover: string;
+	borderError: string;
+	backgroundUnSelected: string;
+	backgroundHover: string;
+	backgroundSelected: string;
+	backgroundTick: string;
+};
+export type CombinedTheme = {
+	/** @deprecated use `textUnSelected` **/
+	textLabel?: string;
+	textUnSelected?: string;
+	/** @deprecated use `textSelected` **/
+	textChecked?: string;
+	textSelected?: string;
+	textHover?: string;
+	textError?: string;
+	/** @deprecated use `borderUnSelected` **/
+	border?: string;
+	borderUnSelected?: string;
+	/** @deprecated use `borderSelected` **/
+	borderChecked?: string;
+	borderSelected?: string;
+	borderHover?: string;
+	borderError?: string;
+	backgroundUnSelected?: string;
+	backgroundHover?: string;
+	/** @deprecated use `backgroundSelected` **/
+	backgroundChecked?: string;
+	backgroundSelected?: string;
+	backgroundTick?: string;
+};
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -71,7 +92,7 @@ export interface ChoiceCardProps
 	/**
 	 * A component level theme to override the colour palette of the button
 	 */
-	theme?: ChoiceCardTheme;
+	theme?: CombinedTheme | 'light' | 'dark';
 }
 
 /**
@@ -105,25 +126,66 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
-	const getCombinedTheme = (providedTheme: Theme = choiceCardThemeDefault) => {
+	const transformTheme = (
+		combinedTheme: CombinedTheme,
+		defaultTheme = choiceCardThemeLight,
+	): AcceptedTheme => {
+		return {
+			textUnSelected:
+				combinedTheme.textUnSelected ??
+				combinedTheme.textLabel ??
+				defaultTheme.textUnSelected,
+			textSelected:
+				combinedTheme.textSelected ??
+				combinedTheme.textChecked ??
+				defaultTheme.textSelected,
+			textHover: combinedTheme.textHover ?? defaultTheme.textHover,
+			textError: combinedTheme.textError ?? defaultTheme.textError,
+			borderUnSelected:
+				combinedTheme.borderUnSelected ??
+				combinedTheme.border ??
+				defaultTheme.borderUnSelected,
+			borderSelected:
+				combinedTheme.borderSelected ??
+				combinedTheme.borderChecked ??
+				defaultTheme.borderSelected,
+			borderHover: combinedTheme.borderHover ?? defaultTheme.borderHover,
+			borderError: combinedTheme.borderError ?? defaultTheme.borderError,
+			backgroundUnSelected:
+				combinedTheme.backgroundUnSelected ?? defaultTheme.backgroundUnSelected,
+			backgroundHover:
+				combinedTheme.backgroundHover ?? defaultTheme.backgroundHover,
+			backgroundSelected:
+				combinedTheme.backgroundSelected ??
+				combinedTheme.backgroundChecked ??
+				defaultTheme.backgroundSelected,
+			backgroundTick:
+				combinedTheme.backgroundTick ?? defaultTheme.backgroundTick,
+		};
+	};
+	const getCombinedTheme = (
+		providedTheme: Theme,
+	): AcceptedTheme | undefined => {
+		let transformedProvidedTheme;
+		if (providedTheme.choiceCard) {
+			transformedProvidedTheme = transformTheme(providedTheme.choiceCard);
+		}
 		if (typeof theme !== 'string' && theme) {
 			return {
-				...choiceCardThemeDefault.choiceCard,
-				...providedTheme,
+				...choiceCardThemeLight,
+				...transformedProvidedTheme,
 				...theme,
 			};
 		}
 		if (typeof theme === 'string') {
 			switch (theme) {
 				case 'dark':
-					return choiceCardThemeDark.choiceCard;
+					return choiceCardThemeDark;
 				case 'light':
-					return choiceCardThemeDefault.choiceCard;
-				default:
-					return providedTheme.choiceCard;
+					return choiceCardThemeLight;
 			}
 		}
-		return providedTheme.choiceCard;
+		return transformedProvidedTheme;
 	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
