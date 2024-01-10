@@ -126,41 +126,16 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
-	const transformTheme = (
-		combinedTheme: CombinedTheme,
-		defaultTheme = choiceCardThemeLight,
-	): AcceptedTheme => {
+	const transformTheme = (combinedTheme: CombinedTheme): CombinedTheme => {
 		return {
-			textUnSelected:
-				combinedTheme.textUnSelected ??
-				combinedTheme.textLabel ??
-				defaultTheme.textUnSelected,
-			textSelected:
-				combinedTheme.textSelected ??
-				combinedTheme.textChecked ??
-				defaultTheme.textSelected,
-			textHover: combinedTheme.textHover ?? defaultTheme.textHover,
-			textError: combinedTheme.textError ?? defaultTheme.textError,
-			borderUnSelected:
-				combinedTheme.borderUnSelected ??
-				combinedTheme.border ??
-				defaultTheme.borderUnSelected,
+			...combinedTheme,
+			textUnSelected: combinedTheme.textUnSelected ?? combinedTheme.textLabel,
+			textSelected: combinedTheme.textSelected ?? combinedTheme.textChecked,
+			borderUnSelected: combinedTheme.borderUnSelected ?? combinedTheme.border,
 			borderSelected:
-				combinedTheme.borderSelected ??
-				combinedTheme.borderChecked ??
-				defaultTheme.borderSelected,
-			borderHover: combinedTheme.borderHover ?? defaultTheme.borderHover,
-			borderError: combinedTheme.borderError ?? defaultTheme.borderError,
-			backgroundUnSelected:
-				combinedTheme.backgroundUnSelected ?? defaultTheme.backgroundUnSelected,
-			backgroundHover:
-				combinedTheme.backgroundHover ?? defaultTheme.backgroundHover,
+				combinedTheme.borderSelected ?? combinedTheme.borderChecked,
 			backgroundSelected:
-				combinedTheme.backgroundSelected ??
-				combinedTheme.backgroundChecked ??
-				defaultTheme.backgroundSelected,
-			backgroundTick:
-				combinedTheme.backgroundTick ?? defaultTheme.backgroundTick,
+				combinedTheme.backgroundSelected ?? combinedTheme.backgroundChecked,
 		};
 	};
 	const getCombinedTheme = (
@@ -185,7 +160,7 @@ export const ChoiceCard = ({
 					return choiceCardThemeLight;
 			}
 		}
-		return transformedProvidedTheme;
+		return { ...choiceCardThemeLight, ...transformedProvidedTheme };
 	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
