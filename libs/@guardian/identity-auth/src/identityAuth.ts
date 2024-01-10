@@ -1,4 +1,4 @@
-import { getCookie } from '@guardian/libs';
+import { getCookie, removeCookie } from '@guardian/libs';
 import type {
 	IdentityAuthOptions,
 	IdentityAuthState,
@@ -153,6 +153,10 @@ export class IdentityAuth<
 						idToken: tokens.idToken,
 						isAuthenticated: true,
 					};
+				} else {
+					// if we weren't able to get the tokens, despite having a GU_U cookie, the user is not signed in
+					// we should clear the GU_U cookie, as it is likely invalid
+					removeCookie({ name: 'GU_U' });
 				}
 			}
 
@@ -165,7 +169,10 @@ export class IdentityAuth<
 		} catch (error) {
 			// check if the error is an OAuthError and the error is login_required, in which case the user is not signed in
 			if (error instanceof OAuthError && error.error === 'login_required') {
-				// so return isAuthenticated: false
+				// remove the GU_U cookie, as it is likely invalid
+				removeCookie({ name: 'GU_U' });
+
+				// and return isAuthenticated: false
 				return {
 					accessToken: undefined,
 					idToken: undefined,
