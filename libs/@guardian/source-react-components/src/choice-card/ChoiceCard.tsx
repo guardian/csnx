@@ -106,8 +106,8 @@ export const ChoiceCard = ({
 	};
 
 	const getCombinedTheme = (providedTheme: Theme = choiceCardThemeDefault) => {
-		if (typeof theme !== 'string' && theme && providedTheme.choiceCard) {
-			return { ...providedTheme.choiceCard, ...theme };
+		if (typeof theme !== 'string' && theme) {
+			return { ...choiceCardThemeDefault.choiceCard, ...theme };
 		}
 		if (typeof theme === 'string') {
 			switch (theme) {
