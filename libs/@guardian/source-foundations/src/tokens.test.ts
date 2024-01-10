@@ -44,11 +44,21 @@ import {
 	underlineThickness,
 } from './typography/data';
 import {
+	TextSansSizes,
 	bodyObjectStyles,
 	headlineObjectStyles,
 	textSansObjectStyles,
 	titlepieceObjectStyles,
 } from '.';
+import {
+	BodySizes,
+	FontScaleArgs,
+	FontStyle,
+	FontWeight,
+	HeadlineSizes,
+	LineHeight,
+	TitlepieceSizes,
+} from './typography/types';
 
 describe('Transition tokens', () => {
 	it('should match expected output', () => {
@@ -1016,3 +1026,120 @@ describe('Palette theme tokens (deprecated)', () => {
 		});
 	});
 });
+
+/**
+ * Placeholder: Enumerate all typography API combinations
+ */
+
+const typographicOptions: Record<
+	string,
+	{ fontWeight: FontWeight; fontStyle: FontStyle }[]
+> = {
+	textSans: [
+		{ fontStyle: 'normal', fontWeight: 'regular' },
+		{ fontStyle: 'normal', fontWeight: 'bold' },
+		{ fontStyle: 'italic', fontWeight: 'regular' },
+	],
+	body: [
+		{ fontStyle: 'normal', fontWeight: 'regular' },
+		{ fontStyle: 'normal', fontWeight: 'bold' },
+		{ fontStyle: 'italic', fontWeight: 'regular' },
+		{ fontStyle: 'italic', fontWeight: 'bold' },
+	],
+	headline: [
+		{ fontStyle: 'normal', fontWeight: 'light' },
+		{ fontStyle: 'normal', fontWeight: 'medium' },
+		{ fontStyle: 'normal', fontWeight: 'bold' },
+		{ fontStyle: 'italic', fontWeight: 'light' },
+		{ fontStyle: 'italic', fontWeight: 'medium' },
+	],
+	titlepiece: [{ fontStyle: 'normal', fontWeight: 'bold' }],
+};
+
+for (const lineHeight of Object.keys(lineHeights)) {
+	for (const textSansSize of Object.keys(textSans)) {
+		for (const textSansOptions of typographicOptions.textSans!) {
+			const textSansConfig: FontScaleArgs = {
+				...textSansOptions,
+				lineHeight: lineHeight as LineHeight,
+			};
+
+			console.log(textSansConfig);
+
+			console.log(`textSansObjectStyles.${textSansSize}()`);
+			console.log(
+				textSansObjectStyles[textSansSize as keyof TextSansSizes](
+					textSansConfig,
+				),
+			);
+
+			console.log(`textSans.${textSansSize}()`);
+			console.log(
+				textSans[textSansSize as keyof TextSansSizes](textSansConfig),
+			);
+		}
+	}
+
+	for (const bodySize of Object.keys(body)) {
+		for (const bodyOptions of typographicOptions.body!) {
+			const bodyConfig: FontScaleArgs = {
+				...bodyOptions,
+				lineHeight: lineHeight as LineHeight,
+			};
+
+			console.log(bodyConfig);
+
+			console.log(`bodyObjectStyles.${bodySize}()`);
+			console.log(bodyObjectStyles[bodySize as keyof BodySizes](bodyConfig));
+
+			console.log(`body.${bodySize}()`);
+			console.log(body[bodySize as keyof BodySizes](bodyConfig));
+		}
+	}
+
+	for (const headlineSize of Object.keys(headline)) {
+		for (const headlineOptions of typographicOptions.headline!) {
+			const headlineConfig: FontScaleArgs = {
+				...headlineOptions,
+				lineHeight: lineHeight as LineHeight,
+			};
+
+			console.log(headlineConfig);
+
+			console.log(`headlineObjectStyles.${headlineSize}()`);
+			console.log(
+				headlineObjectStyles[headlineSize as keyof HeadlineSizes](
+					headlineConfig,
+				),
+			);
+
+			console.log(`headline.${headlineSize}()`);
+			console.log(
+				headline[headlineSize as keyof HeadlineSizes](headlineConfig),
+			);
+		}
+	}
+
+	for (const titlepieceSize of Object.keys(titlepiece)) {
+		for (const titlepieceOptions of typographicOptions.titlepiece!) {
+			const titlepieceConfig: FontScaleArgs = {
+				...titlepieceOptions,
+				lineHeight: lineHeight as LineHeight,
+			};
+
+			console.log(titlepieceConfig);
+
+			console.log(`titlepieceObjectStyles.${titlepieceSize}()`);
+			console.log(
+				headlineObjectStyles[titlepieceSize as keyof TitlepieceSizes](
+					titlepieceConfig,
+				),
+			);
+
+			console.log(`headline.${titlepieceSize}()`);
+			console.log(
+				headline[titlepieceSize as keyof TitlepieceSizes](titlepieceConfig),
+			);
+		}
+	}
+}
