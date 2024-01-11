@@ -1,8 +1,23 @@
+import { palette } from '@guardian/source-foundations';
 import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
 
+const choiceCardThemeDark = {
+	textUnselected: palette.neutral[86],
+	textSelected: palette.brand[400],
+	textHover: palette.brand[800],
+	textError: palette.error[500],
+	borderUnselected: palette.neutral[86],
+	borderSelected: palette.brand[800],
+	borderHover: palette.brand[800],
+	borderError: palette.error[500],
+	backgroundUnselected: palette.neutral[20],
+	backgroundHover: palette.neutral[20],
+	backgroundSelected: palette.neutral[100],
+	backgroundTick: palette.brand[500],
+};
 export default {
 	title: 'ChoiceCard',
 	component: ChoiceCard,
@@ -63,4 +78,11 @@ IconDefaultTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
 	icon: 'JSX element',
+};
+
+// *****************************************************************************
+
+export const DarkTheme = Template.bind({});
+DarkTheme.args = {
+	theme: choiceCardThemeDark,
 };
