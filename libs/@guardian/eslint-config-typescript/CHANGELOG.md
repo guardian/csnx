@@ -1,5 +1,17 @@
 # @guardian/eslint-config-typescript
 
+## 9.0.1
+
+### Patch Changes
+
+- 225e542: Dependencies updates:
+
+  - `@typescript-eslint/eslint-plugin` from 6.14.0 to 6.18.0
+  - `@typescript-eslint/parser` from 6.14.0 to 6.18.0
+
+- Updated dependencies [225e542]
+  - @guardian/eslint-config@7.0.1
+
 ## 9.0.0
 
 ### Major Changes

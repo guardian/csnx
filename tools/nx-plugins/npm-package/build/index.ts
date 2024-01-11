@@ -47,6 +47,7 @@ const getRollupConfig = (
 	}
 
 	return {
+		strictDeprecations: true,
 		output: {
 			dir: `${options.outputPath}/${format}`,
 			format,
