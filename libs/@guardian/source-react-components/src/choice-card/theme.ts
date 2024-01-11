@@ -37,7 +37,7 @@ export const choiceCardThemeDefault = {
 
 export const choiceCardThemeDark = {
 	textUnSelected: palette.neutral[86],
-	textSelected: palette.brand[800],
+	textSelected: palette.brand[400],
 	textHover: palette.brand[800],
 	textError: palette.error[500],
 	borderUnSelected: palette.neutral[86],
@@ -52,7 +52,7 @@ export const choiceCardThemeDark = {
 
 export const choiceCardThemeLight = {
 	textUnSelected: palette.neutral[46],
-	textSelected: palette.brand[500],
+	textSelected: palette.brand[400],
 	textHover: palette.brand[500],
 	textError: palette.error[400],
 	borderUnSelected: palette.neutral[46],
