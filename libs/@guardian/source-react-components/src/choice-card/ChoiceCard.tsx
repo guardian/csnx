@@ -17,24 +17,15 @@ import {
 	tickAnimation,
 } from './styles';
 import type { ChoiceCardTheme } from './theme';
-import { choiceCardThemeDark, choiceCardThemeLight } from './theme';
+import {
+	choiceCardThemeDark,
+	choiceCardThemeDefault,
+	choiceCardThemeLight,
+} from './theme';
 
 type ChoiceCardFullTheme = {
 	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
 };
-
-interface CombinedChoiceCardTheme extends ChoiceCardTheme {
-	/** @deprecated use `textUnSelected` **/
-	textLabel?: string;
-	/** @deprecated use `textSelected` **/
-	textChecked?: string;
-	/** @deprecated use `borderUnSelected` **/
-	border?: string;
-	/** @deprecated use `borderSelected` **/
-	borderChecked?: string;
-	/** @deprecated use `backgroundSelected` **/
-	backgroundChecked?: string;
-}
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -106,22 +97,20 @@ export const ChoiceCard = ({
 	};
 
 	const transformProvidedTheme = (
-		providedTheme: CombinedChoiceCardTheme = choiceCardThemeLight,
+		providedTheme = choiceCardThemeDefault.choiceCard,
 	): ChoiceCardTheme => {
 		return {
 			...providedTheme,
-			textUnSelected: providedTheme.textUnSelected ?? providedTheme.textLabel,
-			textSelected: providedTheme.textSelected ?? providedTheme.textChecked,
-			borderUnSelected: providedTheme.borderUnSelected ?? providedTheme.border,
-			borderSelected:
-				providedTheme.borderSelected ?? providedTheme.borderChecked,
-			backgroundSelected:
-				providedTheme.backgroundSelected ?? providedTheme.backgroundChecked,
+			textUnSelected: providedTheme.textLabel,
+			textSelected: providedTheme.textChecked,
+			borderUnSelected: providedTheme.border,
+			borderSelected: providedTheme.borderChecked,
+			backgroundSelected: providedTheme.backgroundChecked,
 		};
 	};
 
 	const getCombinedTheme = (
-		providedTheme: CombinedChoiceCardTheme,
+		providedTheme: ChoiceCardTheme,
 	): ChoiceCardFullTheme => {
 		if (typeof theme !== 'string' && theme) {
 			return {
