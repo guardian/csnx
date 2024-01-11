@@ -21,7 +21,7 @@ const choiceCardThemeDark = {
 };
 
 export default {
-	title: 'ChoiceCardTheming',
+	title: 'ChoiceCard Theming',
 	component: ChoiceCard,
 	args: {
 		id: 'option-1-id',
