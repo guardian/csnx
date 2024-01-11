@@ -61,8 +61,8 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 			theme={{
 				choiceCard: {
 					...choiceCardThemeDefault.choiceCard,
-					backgroundUnSelected: 'green',
-					textLabel: 'black',
+					backgroundUnSelected: palette.brandAlt[200],
+					textLabel: palette.neutral[0],
 				},
 			}}
 		>
@@ -76,13 +76,19 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 
 		{/* Backwards compatible but not advised */}
 		<ThemeProvider theme={{ choiceCard: choiceCardThemeDark }}>
-			<ChoiceCard {...args} theme={{ backgroundUnSelected: 'purple' }} />
+			<ChoiceCard
+				{...args}
+				theme={{ backgroundUnSelected: palette.brandAlt[300] }}
+			/>
 		</ThemeProvider>
 
 		{/* New advised method with props */}
 		<ChoiceCard
 			{...args}
-			theme={{ ...choiceCardThemeDark, backgroundUnSelected: 'purple' }}
+			theme={{
+				...choiceCardThemeDark,
+				backgroundUnSelected: palette.brandAlt[300],
+			}}
 		/>
 	</div>
 );
@@ -116,5 +122,5 @@ IconDefaultTheme.args = {
 
 export const DarkTheme = Template.bind({});
 DarkTheme.args = {
-	theme: ChoiceCardThemeDark,
+	theme: choiceCardThemeDark,
 };
