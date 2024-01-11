@@ -17,7 +17,7 @@ import {
 	tickAnimation,
 } from './styles';
 import type { ChoiceCardTheme, choiceCardThemeDefault } from './theme';
-import { choiceCardThemeDark, choiceCardThemeLight } from './theme';
+import { choiceCardTheme } from './theme';
 
 type ChoiceCardFullTheme = {
 	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
@@ -58,7 +58,7 @@ export interface ChoiceCardProps
 	/**
 	 * A component level theme to override the colour palette of the button
 	 */
-	theme?: ChoiceCardTheme | 'light' | 'dark';
+	theme?: ChoiceCardTheme;
 }
 
 /**
@@ -109,24 +109,17 @@ export const ChoiceCard = ({
 	};
 
 	const getCombinedTheme = (
-		providedTheme: ChoiceCardTheme,
+		providedTheme: typeof choiceCardThemeDefault.choiceCard | undefined,
 	): ChoiceCardFullTheme => {
-		if (typeof theme !== 'string' && theme) {
+		const transformedProvidedTheme = transformProvidedTheme(providedTheme);
+		if (theme) {
 			return {
-				...choiceCardThemeLight,
-				...providedTheme,
+				...choiceCardTheme,
+				...transformedProvidedTheme,
 				...theme,
 			};
 		}
-		if (typeof theme === 'string') {
-			switch (theme) {
-				case 'dark':
-					return choiceCardThemeDark;
-				case 'light':
-					return choiceCardThemeLight;
-			}
-		}
-		return { ...choiceCardThemeLight, ...providedTheme };
+		return { ...choiceCardTheme, ...transformedProvidedTheme };
 	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
@@ -135,7 +128,7 @@ export const ChoiceCard = ({
 		<>
 			<input
 				css={(theme: Theme) => [
-					input(getCombinedTheme(transformProvidedTheme(theme.choiceCard))),
+					input(getCombinedTheme(theme.choiceCard)),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
@@ -155,14 +148,8 @@ export const ChoiceCard = ({
 			/>
 			<label
 				css={(theme: Theme) => [
-					choiceCard(
-						getCombinedTheme(transformProvidedTheme(theme.choiceCard)),
-					),
-					error
-						? errorChoiceCard(
-								getCombinedTheme(transformProvidedTheme(theme.choiceCard)),
-							)
-						: '',
+					choiceCard(getCombinedTheme(theme.choiceCard)),
+					error ? errorChoiceCard(getCombinedTheme(theme.choiceCard)) : '',
 				]}
 				htmlFor={id}
 			>
@@ -171,9 +158,7 @@ export const ChoiceCard = ({
 					<div>{labelContent}</div>
 				</div>
 				<span
-					css={(theme: Theme) => [
-						tick(getCombinedTheme(transformProvidedTheme(theme.choiceCard))),
-					]}
+					css={(theme: Theme) => [tick(getCombinedTheme(theme.choiceCard))]}
 				/>
 			</label>
 		</>
