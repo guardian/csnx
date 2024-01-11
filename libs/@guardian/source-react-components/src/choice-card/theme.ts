@@ -2,15 +2,15 @@ import { palette } from '@guardian/source-foundations';
 import { userFeedbackThemeDefault } from '../user-feedback/theme';
 
 export interface ChoiceCardTheme {
-	textUnSelected?: string;
+	textUnselected?: string;
 	textSelected?: string;
 	textHover?: string;
 	textError?: string;
-	borderUnSelected?: string;
+	borderUnselected?: string;
 	borderSelected?: string;
 	borderHover?: string;
 	borderError?: string;
-	backgroundUnSelected?: string;
+	backgroundUnselected?: string;
 	backgroundHover?: string;
 	backgroundSelected?: string;
 	backgroundTick?: string;
@@ -40,15 +40,15 @@ export const choiceCardThemeDefault = {
 };
 
 export const choiceCardTheme: ChoiceCardFullTheme = {
-	textUnSelected: palette.neutral[46],
+	textUnselected: palette.neutral[46],
 	textSelected: palette.brand[400],
 	textHover: palette.brand[500],
 	textError: palette.error[400],
-	borderUnSelected: palette.neutral[46],
+	borderUnselected: palette.neutral[46],
 	borderSelected: palette.brand[500],
 	borderHover: palette.brand[500],
 	borderError: palette.error[400],
-	backgroundUnSelected: 'transparent',
+	backgroundUnselected: 'transparent',
 	backgroundHover: 'transparent',
 	backgroundSelected: '#E3F6FF',
 	backgroundTick: palette.brand[500],

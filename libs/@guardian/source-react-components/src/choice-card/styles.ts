@@ -139,12 +139,12 @@ export const choiceCard = (
 	justify-content: center;
 	min-height: ${height.inputMedium}px;
 	margin: 0 0 ${space[2]}px 0;
-	box-shadow: inset 0 0 0 1px ${choiceCard.borderUnSelected};
+	box-shadow: inset 0 0 0 1px ${choiceCard.borderUnselected};
 	border-radius: 4px;
 	position: relative;
 	cursor: pointer;
-	background-color: ${choiceCard.backgroundUnSelected};
-	color: ${choiceCard.textUnSelected};
+	background-color: ${choiceCard.backgroundUnselected};
+	color: ${choiceCard.textUnselected};
 
 	${from.mobileLandscape} {
 		margin: 0 ${space[2]}px 0 0;

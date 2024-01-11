@@ -99,9 +99,9 @@ export const ChoiceCard = ({
 			return {};
 		}
 		return {
-			textUnSelected: providedTheme.textLabel,
+			textUnselected: providedTheme.textLabel,
 			textSelected: providedTheme.textChecked,
-			borderUnSelected: providedTheme.border,
+			borderUnselected: providedTheme.border,
 			borderSelected: providedTheme.borderChecked,
 			backgroundSelected: providedTheme.backgroundChecked,
 			...providedTheme,
