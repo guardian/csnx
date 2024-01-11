@@ -1,5 +1,5 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
-import { SvgAlertTriangle } from '../../vendor/icons/SvgAlertTriangle';
+import { SvgAlertRound } from '../../vendor/icons/SvgAlertRound';
 import type { Theme } from '../@types/Theme';
 import { inlineError } from './styles';
 import type { UserFeedbackProps } from './types';
@@ -24,7 +24,7 @@ export const InlineError = ({
 		role="alert"
 		{...props}
 	>
-		<SvgAlertTriangle />
+		<SvgAlertRound />
 		{children}
 	</span>
 );
