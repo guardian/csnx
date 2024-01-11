@@ -56,7 +56,7 @@ export interface ChoiceCardProps
 	 */
 	type?: 'radio' | 'checkbox';
 	/**
-	 * A component level theme to override the colour palette of the button
+	 * A component level theme to override the colour palette of the choice card component
 	 */
 	theme?: ChoiceCardTheme;
 }
