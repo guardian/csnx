@@ -61,6 +61,7 @@ export declare const tokens: {
 			'8': ParsedColorToken['$value'];
 			'9': ParsedColorToken['$value'];
 			'10': ParsedColorToken['$value'];
+			'11': ParsedColorToken['$value'];
 		};
 		green: {
 			'1': ParsedColorToken['$value'];

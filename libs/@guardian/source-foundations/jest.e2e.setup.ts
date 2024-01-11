@@ -8,5 +8,6 @@ import * as dist from '../../../dist/libs/@guardian/source-foundations';
 
 // Register our custom Jest matcher.
 import './lib/jest-matchers/toBeValidCSS';
+import './lib/jest-matchers/toMatchCSS';
 
 jest.mock('./src/index', () => dist);
