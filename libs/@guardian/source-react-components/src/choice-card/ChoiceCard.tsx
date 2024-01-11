@@ -105,29 +105,28 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
-	const transformTheme = (
-		combinedTheme: CombinedChoiceCardTheme,
+	const transformProvidedTheme = (
+		providedTheme: CombinedChoiceCardTheme = choiceCardThemeLight,
 	): ChoiceCardTheme => {
 		return {
-			...combinedTheme,
-			textUnSelected: combinedTheme.textUnSelected ?? combinedTheme.textLabel,
-			textSelected: combinedTheme.textSelected ?? combinedTheme.textChecked,
-			borderUnSelected: combinedTheme.borderUnSelected ?? combinedTheme.border,
+			...providedTheme,
+			textUnSelected: providedTheme.textUnSelected ?? providedTheme.textLabel,
+			textSelected: providedTheme.textSelected ?? providedTheme.textChecked,
+			borderUnSelected: providedTheme.borderUnSelected ?? providedTheme.border,
 			borderSelected:
-				combinedTheme.borderSelected ?? combinedTheme.borderChecked,
+				providedTheme.borderSelected ?? providedTheme.borderChecked,
 			backgroundSelected:
-				combinedTheme.backgroundSelected ?? combinedTheme.backgroundChecked,
+				providedTheme.backgroundSelected ?? providedTheme.backgroundChecked,
 		};
 	};
-	const getCombinedTheme = (providedTheme: Theme): ChoiceCardFullTheme => {
-		let transformedProvidedTheme;
-		if (providedTheme.choiceCard) {
-			transformedProvidedTheme = transformTheme(providedTheme.choiceCard);
-		}
+
+	const getCombinedTheme = (
+		providedTheme: CombinedChoiceCardTheme,
+	): ChoiceCardFullTheme => {
 		if (typeof theme !== 'string' && theme) {
 			return {
 				...choiceCardThemeLight,
-				...transformedProvidedTheme,
+				...providedTheme,
 				...theme,
 			};
 		}
@@ -139,7 +138,7 @@ export const ChoiceCard = ({
 					return choiceCardThemeLight;
 			}
 		}
-		return { ...choiceCardThemeLight, ...transformedProvidedTheme };
+		return { ...choiceCardThemeLight, ...providedTheme };
 	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
@@ -147,8 +146,8 @@ export const ChoiceCard = ({
 	return (
 		<>
 			<input
-				css={(theme) => [
-					input(getCombinedTheme(theme)),
+				css={(theme: Theme) => [
+					input(getCombinedTheme(transformProvidedTheme(theme.choiceCard))),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
@@ -167,9 +166,15 @@ export const ChoiceCard = ({
 				{...props}
 			/>
 			<label
-				css={(theme) => [
-					choiceCard(getCombinedTheme(theme)),
-					error ? errorChoiceCard(getCombinedTheme(theme)) : '',
+				css={(theme: Theme) => [
+					choiceCard(
+						getCombinedTheme(transformProvidedTheme(theme.choiceCard)),
+					),
+					error
+						? errorChoiceCard(
+								getCombinedTheme(transformProvidedTheme(theme.choiceCard)),
+							)
+						: '',
 				]}
 				htmlFor={id}
 			>
@@ -177,7 +182,11 @@ export const ChoiceCard = ({
 					{iconSvg ? iconSvg : ''}
 					<div>{labelContent}</div>
 				</div>
-				<span css={(theme) => [tick(getCombinedTheme(theme))]} />
+				<span
+					css={(theme: Theme) => [
+						tick(getCombinedTheme(transformProvidedTheme(theme.choiceCard))),
+					]}
+				/>
 			</label>
 		</>
 	);
