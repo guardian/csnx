@@ -1,5 +1,12 @@
 # @guardian/identity-auth
 
+## 2.0.1
+
+### Patch Changes
+
+- f2f4527: Update `isSignedIn` logic to use `GU_SO` cookie correctly
+- a75996f: Remove `GU_U` cookie if we fail to get tokens with it, as it's likely invalid
+
 ## 2.0.0
 
 ### Major Changes
