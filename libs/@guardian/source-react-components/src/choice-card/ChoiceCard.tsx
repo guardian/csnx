@@ -16,12 +16,8 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
-import type { ChoiceCardTheme } from './theme';
-import {
-	choiceCardThemeDark,
-	choiceCardThemeDefault,
-	choiceCardThemeLight,
-} from './theme';
+import type { ChoiceCardTheme, choiceCardThemeDefault } from './theme';
+import { choiceCardThemeDark, choiceCardThemeLight } from './theme';
 
 type ChoiceCardFullTheme = {
 	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
@@ -97,15 +93,18 @@ export const ChoiceCard = ({
 	};
 
 	const transformProvidedTheme = (
-		providedTheme = choiceCardThemeDefault.choiceCard,
+		providedTheme: typeof choiceCardThemeDefault.choiceCard | undefined,
 	): ChoiceCardTheme => {
+		if (!providedTheme) {
+			return {};
+		}
 		return {
-			...providedTheme,
 			textUnSelected: providedTheme.textLabel,
 			textSelected: providedTheme.textChecked,
 			borderUnSelected: providedTheme.border,
 			borderSelected: providedTheme.borderChecked,
 			backgroundSelected: providedTheme.backgroundChecked,
+			...providedTheme,
 		};
 	};
 
