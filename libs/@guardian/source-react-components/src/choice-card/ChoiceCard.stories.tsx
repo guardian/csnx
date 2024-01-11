@@ -37,7 +37,7 @@ export default {
 };
 
 const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
-	<div style={{ columns: 5 }}>
+	<div style={{ columns: 6 }}>
 		<ChoiceCard {...args} />
 
 		<ThemeProvider
@@ -56,9 +56,16 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 			<ChoiceCard {...args} />
 		</ThemeProvider>
 
+		{/* backwards compatible but not advised */}
 		<ThemeProvider theme={{ choiceCard: choiceCardThemeDark }}>
 			<ChoiceCard {...args} theme={{ backgroundUnSelected: 'purple' }} />
 		</ThemeProvider>
+
+		{/* new advised method with props*/}
+		<ChoiceCard
+			{...args}
+			theme={{ ...choiceCardThemeDark, backgroundUnSelected: 'purple' }}
+		/>
 
 		<ChoiceCard {...args} theme={{ backgroundUnSelected: 'hotpink' }} />
 	</div>
