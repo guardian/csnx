@@ -142,6 +142,7 @@ export declare const tokens: {
 		};
 		brandAlt: {
 			'200': ParsedColorToken['$value'];
+			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 		};
 		culture: {
@@ -162,11 +163,6 @@ export declare const tokens: {
 		};
 		focus: {
 			'400': ParsedColorToken['$value'];
-		};
-		green: {
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
 		};
 		labs: {
 			'200': ParsedColorToken['$value'];
@@ -243,6 +239,7 @@ export declare const tokens: {
 			'800': ParsedColorToken['$value'];
 		};
 		success: {
+			'300': ParsedColorToken['$value'];
 			'400': ParsedColorToken['$value'];
 			'500': ParsedColorToken['$value'];
 		};

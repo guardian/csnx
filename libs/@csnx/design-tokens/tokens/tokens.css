@@ -106,6 +106,7 @@
 	--source-palette-brand-600: #506991;
 	--source-palette-brand-800: #c1d8fc;
 	--source-palette-brandAlt-200: #f3c100;
+	--source-palette-brandAlt-300: #ffd900;
 	--source-palette-brandAlt-400: #ffe500;
 	--source-palette-culture-50: #2b2625;
 	--source-palette-culture-100: #3e3323;
@@ -120,9 +121,6 @@
 	--source-palette-error-400: #c70000;
 	--source-palette-error-500: #ff9081;
 	--source-palette-focus-400: #0077b6;
-	--source-palette-green-300: #185e36;
-	--source-palette-green-400: #22874d;
-	--source-palette-green-500: #58d08b;
 	--source-palette-labs-200: #0c7a73;
 	--source-palette-labs-300: #65a897;
 	--source-palette-labs-400: #69d1ca;
@@ -181,6 +179,7 @@
 	--source-palette-sport-500: #00b2ff;
 	--source-palette-sport-600: #90dcff;
 	--source-palette-sport-800: #f1f8fc;
+	--source-palette-success-300: #185e36;
 	--source-palette-success-400: #22874d;
 	--source-palette-success-500: #58d08b;
 	--source-size-icon-medium: 1.875rem;

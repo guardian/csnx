@@ -134,6 +134,7 @@ export const tokens = {
 		},
 		brandAlt: {
 			200: '#F3C100',
+			300: '#FFD900',
 			400: '#FFE500',
 		},
 		culture: {
@@ -154,11 +155,6 @@ export const tokens = {
 		},
 		focus: {
 			400: '#0077B6',
-		},
-		green: {
-			300: '#185E36',
-			400: '#22874D',
-			500: '#58D08B',
 		},
 		labs: {
 			200: '#0C7A73',
@@ -235,6 +231,7 @@ export const tokens = {
 			800: '#F1F8FC',
 		},
 		success: {
+			300: '#185E36',
 			400: '#22874D',
 			500: '#58D08B',
 		},
