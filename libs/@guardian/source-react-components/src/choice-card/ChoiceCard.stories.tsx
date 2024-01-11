@@ -63,7 +63,7 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 			<ChoiceCard {...args} theme={{ backgroundUnSelected: 'purple' }} />
 		</ThemeProvider>
 
-		{/* New advised method with props*/}
+		{/* New advised method with props */}
 		<ChoiceCard
 			{...args}
 			theme={{ ...choiceCardThemeDark, backgroundUnSelected: 'purple' }}
