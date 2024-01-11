@@ -40,7 +40,15 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 	<div style={{ columns: 5 }}>
 		<ChoiceCard {...args} />
 
-		<ThemeProvider theme={choiceCardThemeDefault}>
+		<ThemeProvider
+			theme={{
+				choiceCard: {
+					...choiceCardThemeDefault.choiceCard,
+					backgroundUnSelected: 'green',
+					textLabel: 'black',
+				},
+			}}
+		>
 			<ChoiceCard {...args} />
 		</ThemeProvider>
 

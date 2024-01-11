@@ -149,7 +149,7 @@ export const ChoiceCard = ({
 			return {
 				...choiceCardThemeLight,
 				...transformedProvidedTheme,
-				...theme,
+				...transformTheme(theme),
 			};
 		}
 		if (typeof theme === 'string') {
