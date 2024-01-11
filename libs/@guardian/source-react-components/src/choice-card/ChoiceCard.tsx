@@ -16,46 +16,25 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
+import type { ChoiceCardTheme } from './theme';
 import { choiceCardThemeDark, choiceCardThemeLight } from './theme';
 
-export type AcceptedTheme = {
-	textUnSelected: string;
-	textSelected: string;
-	textHover: string;
-	textError: string;
-	borderUnSelected: string;
-	borderSelected: string;
-	borderHover: string;
-	borderError: string;
-	backgroundUnSelected: string;
-	backgroundHover: string;
-	backgroundSelected: string;
-	backgroundTick: string;
+type ChoiceCardFullTheme = {
+	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
 };
-export type CombinedTheme = {
+
+interface CombinedChoiceCardTheme extends ChoiceCardTheme {
 	/** @deprecated use `textUnSelected` **/
 	textLabel?: string;
-	textUnSelected?: string;
 	/** @deprecated use `textSelected` **/
 	textChecked?: string;
-	textSelected?: string;
-	textHover?: string;
-	textError?: string;
 	/** @deprecated use `borderUnSelected` **/
 	border?: string;
-	borderUnSelected?: string;
 	/** @deprecated use `borderSelected` **/
 	borderChecked?: string;
-	borderSelected?: string;
-	borderHover?: string;
-	borderError?: string;
-	backgroundUnSelected?: string;
-	backgroundHover?: string;
 	/** @deprecated use `backgroundSelected` **/
 	backgroundChecked?: string;
-	backgroundSelected?: string;
-	backgroundTick?: string;
-};
+}
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -92,7 +71,7 @@ export interface ChoiceCardProps
 	/**
 	 * A component level theme to override the colour palette of the button
 	 */
-	theme?: CombinedTheme | 'light' | 'dark';
+	theme?: ChoiceCardTheme | 'light' | 'dark';
 }
 
 /**
@@ -126,7 +105,9 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
-	const transformTheme = (combinedTheme: CombinedTheme): CombinedTheme => {
+	const transformTheme = (
+		combinedTheme: CombinedChoiceCardTheme,
+	): ChoiceCardTheme => {
 		return {
 			...combinedTheme,
 			textUnSelected: combinedTheme.textUnSelected ?? combinedTheme.textLabel,
@@ -138,9 +119,7 @@ export const ChoiceCard = ({
 				combinedTheme.backgroundSelected ?? combinedTheme.backgroundChecked,
 		};
 	};
-	const getCombinedTheme = (
-		providedTheme: Theme,
-	): AcceptedTheme | undefined => {
+	const getCombinedTheme = (providedTheme: Theme): ChoiceCardFullTheme => {
 		let transformedProvidedTheme;
 		if (providedTheme.choiceCard) {
 			transformedProvidedTheme = transformTheme(providedTheme.choiceCard);
@@ -149,7 +128,7 @@ export const ChoiceCard = ({
 			return {
 				...choiceCardThemeLight,
 				...transformedProvidedTheme,
-				...transformTheme(theme),
+				...theme,
 			};
 		}
 		if (typeof theme === 'string') {
