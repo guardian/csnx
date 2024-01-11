@@ -15,7 +15,7 @@ export interface ChoiceCardTheme {
 	backgroundSelected?: string;
 	backgroundTick?: string;
 }
-/** @deprecated use ChoiceCardThemeLight **/
+/** @deprecated Use `choiceCardThemeLight` and `theme` prop instead of `ThemeProvider` **/
 export const choiceCardThemeDefault = {
 	choiceCard: {
 		textLabel: palette.neutral[46],
