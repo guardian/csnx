@@ -112,14 +112,11 @@ export const ChoiceCard = ({
 		providedTheme: typeof choiceCardThemeDefault.choiceCard | undefined,
 	): ChoiceCardFullTheme => {
 		const transformedProvidedTheme = transformProvidedTheme(providedTheme);
-		if (theme) {
-			return {
-				...choiceCardTheme,
-				...transformedProvidedTheme,
-				...theme,
-			};
-		}
-		return { ...choiceCardTheme, ...transformedProvidedTheme };
+		return {
+			...choiceCardTheme,
+			...transformedProvidedTheme,
+			...(theme ?? {}),
+		};
 	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
