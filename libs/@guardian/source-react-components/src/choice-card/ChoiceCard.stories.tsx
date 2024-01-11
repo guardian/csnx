@@ -1,9 +1,10 @@
 import { ThemeProvider } from '@emotion/react';
+import { palette } from '@guardian/source-foundations';
 import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
-import { choiceCardThemeDark, choiceCardThemeDefault } from './theme';
+import { choiceCardThemeDefault } from './theme';
 
 export default {
 	title: 'ChoiceCard',
@@ -34,6 +35,21 @@ export default {
 		},
 		onChange: { action: 'choice changed' },
 	},
+};
+
+const choiceCardThemeDark = {
+	textUnSelected: palette.neutral[86],
+	textSelected: palette.brand[400],
+	textHover: palette.brand[800],
+	textError: palette.error[500],
+	borderUnSelected: palette.neutral[86],
+	borderSelected: palette.brand[800],
+	borderHover: palette.brand[800],
+	borderError: palette.error[500],
+	backgroundUnSelected: palette.neutral[20],
+	backgroundHover: palette.neutral[20],
+	backgroundSelected: palette.neutral[100],
+	backgroundTick: palette.brand[500],
 };
 
 const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
@@ -100,5 +116,5 @@ IconDefaultTheme.args = {
 
 export const DarkTheme = Template.bind({});
 DarkTheme.args = {
-	theme: choiceCardThemeDark,
+	theme: ChoiceCardThemeDark,
 };
