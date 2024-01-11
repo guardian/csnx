@@ -15,6 +15,10 @@ export interface ChoiceCardTheme {
 	backgroundSelected?: string;
 	backgroundTick?: string;
 }
+
+export type ChoiceCardFullTheme = {
+	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
+};
 /** @deprecated Use `choiceCardThemeLight` and `theme` prop instead of `ThemeProvider` **/
 export const choiceCardThemeDefault = {
 	choiceCard: {
@@ -35,7 +39,7 @@ export const choiceCardThemeDefault = {
 	...userFeedbackThemeDefault,
 };
 
-export const choiceCardTheme = {
+export const choiceCardTheme: ChoiceCardFullTheme = {
 	textUnSelected: palette.neutral[46],
 	textSelected: palette.brand[400],
 	textHover: palette.brand[500],

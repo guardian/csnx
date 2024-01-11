@@ -16,12 +16,12 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
-import type { ChoiceCardTheme, choiceCardThemeDefault } from './theme';
+import type {
+	ChoiceCardFullTheme,
+	ChoiceCardTheme,
+	choiceCardThemeDefault,
+} from './theme';
 import { choiceCardTheme } from './theme';
-
-type ChoiceCardFullTheme = {
-	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
-};
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
