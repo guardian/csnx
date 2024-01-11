@@ -5,15 +5,15 @@ import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
 
 const choiceCardThemeDark = {
-	textUnSelected: palette.neutral[86],
+	textUnselected: palette.neutral[86],
 	textSelected: palette.brand[400],
 	textHover: palette.brand[800],
 	textError: palette.error[500],
-	borderUnSelected: palette.neutral[86],
+	borderUnselected: palette.neutral[86],
 	borderSelected: palette.brand[800],
 	borderHover: palette.brand[800],
 	borderError: palette.error[500],
-	backgroundUnSelected: palette.neutral[20],
+	backgroundUnselected: palette.neutral[20],
 	backgroundHover: palette.neutral[20],
 	backgroundSelected: palette.neutral[100],
 	backgroundTick: palette.brand[500],
