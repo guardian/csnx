@@ -1,8 +1,8 @@
 import { palette } from '@guardian/source-foundations';
 import type { Story } from '@storybook/react';
+import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
-import { SvgCamera } from '../../vendor/icons/SvgCamera';
 
 const choiceCardThemeDark = {
 	textUnSelected: palette.neutral[86],
@@ -20,7 +20,7 @@ const choiceCardThemeDark = {
 };
 
 export default {
-	title: 'ChoiceCard',
+	title: 'ChoiceCard Theming',
 	component: ChoiceCard,
 	args: {
 		id: 'option-1-id',
@@ -59,22 +59,22 @@ export const ThemeExample = Template.bind({});
 
 // *****************************************************************************
 
-export const CheckedDefaultTheme = Template.bind({});
-CheckedDefaultTheme.args = {
+export const CheckedDarkTheme = Template.bind({});
+CheckedDarkTheme.args = {
 	checked: true,
 };
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme = Template.bind({});
-ErrorDefaultTheme.args = {
+export const ErrorDarkTheme = Template.bind({});
+ErrorDarkTheme.args = {
 	error: true,
 };
 
 // *****************************************************************************
 
-export const IconDefaultTheme = Template.bind({});
-IconDefaultTheme.args = {
+export const IconDarkTheme = Template.bind({});
+IconDarkTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
 	icon: 'JSX element',
