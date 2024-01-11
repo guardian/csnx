@@ -1,7 +1,20 @@
 import { palette } from '@guardian/source-foundations';
 import { userFeedbackThemeDefault } from '../user-feedback/theme';
-import { AcceptedTheme } from './ChoiceCard';
 
+export interface ChoiceCardTheme {
+	textUnSelected?: string;
+	textSelected?: string;
+	textHover?: string;
+	textError?: string;
+	borderUnSelected?: string;
+	borderSelected?: string;
+	borderHover?: string;
+	borderError?: string;
+	backgroundUnSelected?: string;
+	backgroundHover?: string;
+	backgroundSelected?: string;
+	backgroundTick?: string;
+}
 /** @deprecated use ChoiceCardThemeLight **/
 export const choiceCardThemeDefault = {
 	choiceCard: {
@@ -22,7 +35,7 @@ export const choiceCardThemeDefault = {
 	...userFeedbackThemeDefault,
 };
 
-export const choiceCardThemeDark: AcceptedTheme = {
+export const choiceCardThemeDark = {
 	textUnSelected: palette.neutral[20],
 	textSelected: palette.brand[800],
 	textHover: palette.brand[800],

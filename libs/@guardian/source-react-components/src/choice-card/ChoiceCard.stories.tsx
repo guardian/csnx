@@ -1,9 +1,9 @@
+import { ThemeProvider } from '@emotion/react';
 import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
 import { choiceCardThemeDark, choiceCardThemeDefault } from './theme';
-import { ThemeProvider } from '@emotion/react';
 
 export default {
 	title: 'ChoiceCard',
