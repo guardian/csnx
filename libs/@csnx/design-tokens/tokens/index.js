@@ -15,6 +15,28 @@ export const tokens = {
 		tablet: '740px',
 		wide: '1300px',
 	},
+	choiceCard: {
+		color: {
+			background: {
+				hover: 'transparent',
+				selected: '#e3f6ff',
+				tick: '#0077B6',
+				unselected: 'transparent',
+			},
+			border: {
+				error: '#C70000',
+				hover: '#0077B6',
+				selected: '#0077B6',
+				unselected: '#707070',
+			},
+			text: {
+				error: '#C70000',
+				hover: '#0077B6',
+				selected: '#052962',
+				unselected: '#707070',
+			},
+		},
+	},
 	colour: {
 		blue: {
 			1: '#003C60',

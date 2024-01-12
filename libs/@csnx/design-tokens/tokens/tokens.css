@@ -13,6 +13,18 @@
 	--source-breakpoint-phablet: 41.25rem;
 	--source-breakpoint-tablet: 46.25rem;
 	--source-breakpoint-wide: 81.25rem;
+	--source-choiceCard-color-background-hover: #00000000;
+	--source-choiceCard-color-background-selected: #e3f6ff;
+	--source-choiceCard-color-background-tick: var(--source-palette-brand-500);
+	--source-choiceCard-color-background-unselected: #00000000;
+	--source-choiceCard-color-border-error: var(--source-palette-error-400);
+	--source-choiceCard-color-border-hover: var(--source-palette-brand-500);
+	--source-choiceCard-color-border-selected: var(--source-palette-brand-500);
+	--source-choiceCard-color-border-unselected: var(--source-palette-neutral-46);
+	--source-choiceCard-color-text-error: var(--source-palette-error-400);
+	--source-choiceCard-color-text-hover: var(--source-palette-brand-500);
+	--source-choiceCard-color-text-selected: var(--source-palette-brand-400);
+	--source-choiceCard-color-text-unselected: var(--source-palette-neutral-46);
 	--source-colour-blue-1: #003c60;
 	--source-colour-blue-2: #004e7c;
 	--source-colour-blue-3: #005689;

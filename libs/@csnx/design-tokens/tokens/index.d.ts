@@ -23,6 +23,28 @@ export declare const tokens: {
 		tablet: ParsedDimensionToken['$value'];
 		wide: ParsedDimensionToken['$value'];
 	};
+	choiceCard: {
+		color: {
+			background: {
+				hover: ParsedColorToken['$value'];
+				selected: ParsedColorToken['$value'];
+				tick: ParsedColorToken['$value'];
+				unselected: ParsedColorToken['$value'];
+			};
+			border: {
+				error: ParsedColorToken['$value'];
+				hover: ParsedColorToken['$value'];
+				selected: ParsedColorToken['$value'];
+				unselected: ParsedColorToken['$value'];
+			};
+			text: {
+				error: ParsedColorToken['$value'];
+				hover: ParsedColorToken['$value'];
+				selected: ParsedColorToken['$value'];
+				unselected: ParsedColorToken['$value'];
+			};
+		};
+	};
 	colour: {
 		blue: {
 			'1': ParsedColorToken['$value'];
