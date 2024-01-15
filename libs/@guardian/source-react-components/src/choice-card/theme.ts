@@ -19,7 +19,7 @@ export interface ChoiceCardTheme {
 export type ChoiceCardFullTheme = {
 	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
 };
-/** @deprecated Use `choiceCardThemeLight` and `theme` prop instead of `ThemeProvider` **/
+/** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` **/
 export const choiceCardThemeDefault = {
 	choiceCard: {
 		textLabel: palette.neutral[46],
