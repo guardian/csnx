@@ -2,6 +2,14 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { resets, textSans } from '@guardian/source-foundations';
 import { labelThemeDefault } from './theme';
+import type { Size } from './types';
+
+const textSize: {
+	[key in Size]: string;
+} = {
+	default: textSans.medium({ fontWeight: 'bold' }),
+	small: textSans.xsmall({ fontWeight: 'bold' }),
+};
 
 export const legend = css`
 	${resets.legend};
@@ -9,8 +17,9 @@ export const legend = css`
 
 export const labelText = (
 	label = labelThemeDefault.label,
+	size: Size,
 ): SerializedStyles => css`
-	${textSans.medium({ fontWeight: 'bold' })};
+	${textSize[size]};
 	color: ${label.textLabel};
 `;
 

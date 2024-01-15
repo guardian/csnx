@@ -11,6 +11,7 @@ export default {
 		text: 'Email',
 		optional: false,
 		hideLabel: false,
+		size: 'default',
 	},
 	component: Label,
 };
@@ -23,7 +24,7 @@ const Template: Story<LabelProps> = (args: LabelProps) => (
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultTheme = Template.bind({});
 
 // *****************************************************************************
 
@@ -84,11 +85,75 @@ WithOptionalBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithHiddenLabelThemeBrandTheme = Template.bind({});
-WithHiddenLabelThemeBrandTheme.args = {
+export const WithHiddenLabelBrandTheme = Template.bind({});
+WithHiddenLabelBrandTheme.args = {
 	hideLabel: true,
 };
-WithHiddenLabelThemeBrandTheme.parameters = {
+WithHiddenLabelBrandTheme.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const DefaultThemeSizeSmall = Template.bind({});
+DefaultThemeSizeSmall.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithSupportingTextDefaultThemeSizeSmall = Template.bind({});
+WithSupportingTextDefaultThemeSizeSmall.args = {
+	supporting: 'alex@example.com',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithOptionalDefaultThemeSizeSmall = Template.bind({});
+WithOptionalDefaultThemeSizeSmall.args = {
+	optional: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const DefaultBrandThemeSizeSmall = Template.bind({});
+DefaultBrandThemeSizeSmall.args = {
+	size: 'small',
+};
+DefaultBrandThemeSizeSmall.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const WithSupportingTextBrandThemeSizeSmall = Template.bind({});
+WithSupportingTextBrandThemeSizeSmall.args = {
+	supporting: 'alex@example.com',
+	size: 'small',
+};
+WithSupportingTextBrandThemeSizeSmall.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const WithOptionalBrandThemeSizeSmall = Template.bind({});
+WithOptionalBrandThemeSizeSmall.args = {
+	optional: true,
+	size: 'small',
+};
+WithOptionalBrandThemeSizeSmall.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},

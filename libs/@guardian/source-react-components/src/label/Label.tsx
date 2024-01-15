@@ -21,13 +21,14 @@ export const Label = ({
 	supporting,
 	optional = false,
 	hideLabel = false,
+	size,
 	cssOverrides,
 	children,
 	...props
 }: LabelProps): EmotionJSX.Element => {
 	return (
 		<label css={cssOverrides} {...props}>
-			<Text hideLabel={hideLabel} text={text} optional={optional} />
+			<Text hideLabel={hideLabel} text={text} optional={optional} size={size} />
 			{supporting ? (
 				<SupportingText hideLabel={hideLabel}>{supporting}</SupportingText>
 			) : (
