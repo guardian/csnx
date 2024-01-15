@@ -6,7 +6,25 @@ import {
 	space,
 	textSans,
 } from '@guardian/source-foundations';
+import type { Size } from '../label/types';
 import { textInputThemeDefault } from './theme';
+
+const inputSizeDefault = css`
+	${textSans.medium()};
+	height: ${height.inputMedium}px;
+`;
+
+const inputSizeSmall = css`
+	${textSans.xsmall()};
+	height: ${height.ctaSmall}px; // TODO: Add height.inputSmall token
+`;
+
+const inputSize: {
+	[key in Size]: SerializedStyles;
+} = {
+	default: inputSizeDefault,
+	small: inputSizeSmall,
+};
 
 export const errorInput = (
 	textInput = textInputThemeDefault.textInput,
@@ -28,10 +46,10 @@ export const successInput = (
 
 export const textInput = (
 	textInput = textInputThemeDefault.textInput,
+	size: Size,
 ): SerializedStyles => css`
 	box-sizing: border-box;
-	height: ${height.inputMedium}px;
-	${textSans.medium()};
+	${inputSize[size]};
 	color: ${textInput.textUserInput};
 	background-color: ${textInput.backgroundInput};
 	border: 1px solid ${textInput.border};
