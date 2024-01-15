@@ -2,8 +2,11 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import { stack, stackSpace } from './styles';
+import { space } from '@guardian/source-foundations';
+import type { Breakpoint } from '@guardian/source-foundations';
 
-export type StackSpace = 1 | 2 | 3 | 4 | 5 | 6 | 9 | 12 | 24;
+type Space = keyof typeof space;
+export type StackSpace = Space | { [key in Breakpoint]?: Space };
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
@@ -27,7 +30,7 @@ export const Stack = ({
 	...props
 }: StackProps): EmotionJSX.Element => {
 	return (
-		<div css={[stack, space ? stackSpace[space] : '', cssOverrides]} {...props}>
+		<div css={[stack, space ? stackSpace(space) : '', cssOverrides]} {...props}>
 			{children}
 		</div>
 	);

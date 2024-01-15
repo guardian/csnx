@@ -10,7 +10,7 @@ const meta: Meta<typeof Stack> = {
 export default meta;
 
 const Template: StoryFn<typeof Stack> = (args: StackProps) => (
-	<Stack {...args}>
+	<Stack space={{ mobile: 4 }}>
 		<div>Item 1</div>
 		<div>Item 2</div>
 		<div>Item 3</div>
@@ -81,3 +81,10 @@ export const Space24: StoryFn<typeof Stack> = Template.bind({});
 Space24.args = {
 	space: 24,
 };
+
+// *****************************************************************************
+
+// export const Responsive = Template.bind({});
+// Space24.args = {
+// 	space: {{'mobile'}},
+// };
