@@ -149,8 +149,8 @@ importers:
         specifier: latest
         version: 16.5.2
       prettier:
-        specifier: 3.1.1
-        version: 3.1.1
+        specifier: 3.2.2
+        version: 3.2.2
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -404,7 +404,7 @@ importers:
     devDependencies:
       '@guardian/identity-auth':
         specifier: 2.0.0
-        version: link:../identity-auth
+        version: 2.0.0(@guardian/libs@libs+@guardian+libs)(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/libs':
         specifier: 16.0.0
         version: link:../libs
@@ -451,8 +451,8 @@ importers:
   libs/@guardian/prettier:
     devDependencies:
       prettier:
-        specifier: 3.1.1
-        version: 3.1.1
+        specifier: 3.2.2
+        version: 3.2.2
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -527,8 +527,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1
       prettier:
-        specifier: 3.1.1
-        version: 3.1.1
+        specifier: 3.2.2
+        version: 3.2.2
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -3620,6 +3620,21 @@ packages:
       typescript: 5.3.3
     dev: true
 
+  /@guardian/identity-auth@2.0.0(@guardian/libs@libs+@guardian+libs)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-lLO+O8ZMcUJ1e55+K+HN1eCKCMsZp/p10Yu7SRcDc69ohvLzMH6sCIXinj1eI+I2222tVAKFC0F3XRPAbPI/Wg==}
+    peerDependencies:
+      '@guardian/libs': ^16.0.0
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@guardian/libs': link:libs/@guardian/libs
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
   /@guardian/source-foundations@14.0.0(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-9/oTahVnH8BFwVHsNBDzLBZIrkQvcZkJ9fMDeHujIxtSZ8woUWe8X0A3ADxIoh3aTERG6LBIplr3hyxbc5lFcQ==}
     peerDependencies:
@@ -6618,7 +6633,7 @@ packages:
     resolution: {integrity: sha512-mFMBfMOz8QxhYVbuINtswBp9VL2b4Y0QqYHwqLz3YbgtfAcat2Dl6Y1o4e22S/OVE6Ebl9m7wWiMT2lSbAs1wA==}
     deprecated: This is a stub types definition. prettier provides its own type definitions, so you do not need this installed.
     dependencies:
-      prettier: 3.1.1
+      prettier: 3.2.2
     dev: true
 
   /@types/pretty-hrtime@1.0.3:
@@ -12875,8 +12890,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.1.1:
-    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
+  /prettier@3.2.2:
+    resolution: {integrity: sha512-HTByuKZzw7utPiDO523Tt2pLtEyK7OibUD9suEJQrPUCYQqrHr74GGX6VidMrovbf/I50mPqr8j/II6oBAuc5A==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
