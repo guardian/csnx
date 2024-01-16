@@ -1,5 +1,5 @@
 ---
-'@guardian/eslint-config-typescript': minor
+'@guardian/eslint-config-typescript': patch
 ---
 
 Improve performance by delegating namespace import to TypeScript.
