@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 19.0.0
+
+### Major Changes
+
+- ed769eb: Replaces triangular warning icon in `InlineError` with circular version for consistency with rest of icon set
+
 ## 18.0.0
 
 ### Major Changes
