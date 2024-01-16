@@ -1,3 +1,4 @@
+import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import {
 	focusHalo,
@@ -5,6 +6,14 @@ import {
 	space,
 	textSans,
 } from '@guardian/source-foundations';
+import type { InputSize } from '../@types/InputSize';
+
+const textAreaSize: {
+	[key in InputSize]: string;
+} = {
+	default: textSans.medium(),
+	small: textSans.xsmall(),
+};
 
 export const errorInput = css`
 	border: 2px solid ${palette.error[400]};
@@ -20,9 +29,9 @@ export const successInput = css`
 	margin-top: 0;
 `;
 
-export const textArea = css`
+export const textArea = (size: InputSize): SerializedStyles => css`
 	box-sizing: border-box;
-	${textSans.medium()};
+	${textAreaSize[size]};
 	color: ${palette.neutral[7]};
 	background-color: ${palette.neutral[100]};
 	border: 1px solid ${palette.neutral[46]};
