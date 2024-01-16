@@ -105,14 +105,26 @@ export const ChoiceCard = ({
 	/** Transforms an old shaped `ThemeProvider` theme to ChoiceCardTheme  */
 	const transformOldProviderTheme = (
 		providerTheme: Theme['choiceCard'],
-	): Partial<ChoiceCardTheme> => ({
-		textUnselected: providerTheme?.textLabel,
-		textSelected: providerTheme?.textChecked,
-		borderUnselected: providerTheme?.border,
-		borderSelected: providerTheme?.borderChecked,
-		backgroundSelected: providerTheme?.backgroundChecked,
-		...providerTheme,
-	});
+	): Partial<ChoiceCardTheme> => {
+		const transformedTheme: Partial<ChoiceCardTheme> = {};
+
+		if (providerTheme?.textLabel) {
+			transformedTheme.textUnselected = providerTheme.textLabel;
+		}
+		if (providerTheme?.textChecked) {
+			transformedTheme.textSelected = providerTheme.textChecked;
+		}
+		if (providerTheme?.border) {
+			transformedTheme.borderUnselected = providerTheme.border;
+		}
+		if (providerTheme?.borderChecked) {
+			transformedTheme.borderSelected = providerTheme.borderChecked;
+		}
+		if (providerTheme?.backgroundChecked) {
+			transformedTheme.backgroundSelected = providerTheme.backgroundChecked;
+		}
+		return { ...transformedTheme, ...providerTheme };
+	};
 
 	const combineThemes = (
 		providerTheme: Theme['choiceCard'],
