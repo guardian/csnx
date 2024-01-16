@@ -16,12 +16,22 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
-import type {
-	ChoiceCardFullTheme,
-	ChoiceCardTheme,
-	choiceCardThemeDefault,
-} from './theme';
-import { choiceCardTheme } from './theme';
+import { choiceCardTheme as defaultTheme } from './theme';
+
+export type ChoiceCardTheme = {
+	textUnselected: string;
+	textSelected: string;
+	textHover: string;
+	textError: string;
+	borderUnselected: string;
+	borderSelected: string;
+	borderHover: string;
+	borderError: string;
+	backgroundUnselected: string;
+	backgroundHover: string;
+	backgroundSelected: string;
+	backgroundTick: string;
+};
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -58,7 +68,7 @@ export interface ChoiceCardProps
 	/**
 	 * A component level theme to override the colour palette of the choice card component
 	 */
-	theme?: ChoiceCardTheme;
+	theme?: Partial<ChoiceCardTheme>;
 }
 
 /**
@@ -80,7 +90,7 @@ export const ChoiceCard = ({
 	cssOverrides,
 	error,
 	onChange,
-	theme,
+	theme = {},
 	type = 'radio',
 	...props
 }: ChoiceCardProps): EmotionJSX.Element => {
