@@ -111,12 +111,14 @@ export const TextArea = ({
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textAreaId)}>{error}</InlineError>
+						<InlineError id={descriptionId(textAreaId)} size={size}>
+							{error}
+						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textAreaId)}>
+						<InlineSuccess id={descriptionId(textAreaId)} size={size}>
 							{success}
 						</InlineSuccess>
 					</div>
