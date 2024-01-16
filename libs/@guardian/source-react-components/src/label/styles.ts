@@ -7,7 +7,7 @@ import { labelThemeDefault } from './theme';
 const textSize: {
 	[key in InputSize]: string;
 } = {
-	default: textSans.medium({ fontWeight: 'bold' }),
+	medium: textSans.medium({ fontWeight: 'bold' }),
 	small: textSans.xsmall({ fontWeight: 'bold' }),
 };
 

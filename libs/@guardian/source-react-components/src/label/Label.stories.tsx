@@ -11,7 +11,7 @@ export default {
 		text: 'Email',
 		optional: false,
 		hideLabel: false,
-		size: 'default',
+		size: 'medium',
 	},
 	component: Label,
 };

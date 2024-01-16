@@ -13,7 +13,7 @@ export const Text = ({
 	text,
 	optional,
 	hideLabel,
-	size = 'default',
+	size = 'medium',
 }: LabelProps): EmotionJSX.Element => (
 	<div
 		css={(theme: Theme) => [

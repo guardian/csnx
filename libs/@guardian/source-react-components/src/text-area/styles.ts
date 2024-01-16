@@ -11,7 +11,7 @@ import type { InputSize } from '../@types/InputSize';
 const textAreaSize: {
 	[key in InputSize]: string;
 } = {
-	default: textSans.medium(),
+	medium: textSans.medium(),
 	small: textSans.xsmall(),
 };
 

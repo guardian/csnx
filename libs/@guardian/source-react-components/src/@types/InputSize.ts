@@ -1,1 +1,1 @@
-export type InputSize = 'default' | 'small';
+export type InputSize = 'small' | 'medium';

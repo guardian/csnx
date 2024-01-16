@@ -9,7 +9,7 @@ import {
 import type { InputSize } from '../@types/InputSize';
 import { textInputThemeDefault } from './theme';
 
-const inputSizeDefault = css`
+const inputSizeMediun = css`
 	${textSans.medium()};
 	height: ${height.inputMedium}px;
 `;
@@ -22,7 +22,7 @@ const inputSizeSmall = css`
 const inputSize: {
 	[key in InputSize]: SerializedStyles;
 } = {
-	default: inputSizeDefault,
+	medium: inputSizeMediun,
 	small: inputSizeSmall,
 };
 

@@ -69,7 +69,7 @@ export const NumericInput = ({
 	optional = false,
 	hideLabel = false,
 	supporting,
-	size = 'default',
+	size = 'medium',
 	width,
 	error,
 	success,
