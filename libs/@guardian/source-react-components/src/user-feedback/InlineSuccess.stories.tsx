@@ -6,6 +6,9 @@ import type { UserFeedbackProps } from './types';
 export default {
 	title: 'InlineSuccess',
 	component: InlineSuccess,
+	args: {
+		size: 'medium',
+	},
 };
 
 const Template: Story<UserFeedbackProps> = (args: UserFeedbackProps) => (

@@ -7,6 +7,9 @@ import type { UserFeedbackProps } from './types';
 export default {
 	title: 'InlineError',
 	component: InlineError,
+	args: {
+		size: 'medium',
+	},
 };
 
 const Template: Story<UserFeedbackProps> = ({
