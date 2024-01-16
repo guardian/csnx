@@ -6,10 +6,12 @@ import {
 } from './inputExtensionStyles';
 import type { InputTheme } from './NumericInput';
 import { errorInput, successInput } from './sharedStyles';
+import { Size } from 'libs/@guardian/source-react-components/src/label/types';
 
 type InputExtensionProps = {
 	children: string;
 	type: 'prefix' | 'suffix';
+	size: Size;
 	error?: string;
 	success?: string;
 };
@@ -17,6 +19,7 @@ type InputExtensionProps = {
 export const InputExtension = ({
 	children,
 	type,
+	size,
 	error,
 	success,
 }: InputExtensionProps): EmotionJSX.Element => {
@@ -26,7 +29,7 @@ export const InputExtension = ({
 		<span
 			aria-hidden="true"
 			css={(theme: InputTheme) => [
-				inputExtension(theme.textInput),
+				inputExtension(theme.textInput, size),
 				error ? errorInput(theme.textInput) : '',
 				!error && success ? successInput(theme.textInput) : '',
 				style,

@@ -11,6 +11,7 @@ export default {
 		optional: false,
 		hideLabel: false,
 		supporting: '',
+		size: 'default',
 		error: 'undefined',
 		success: 'undefined',
 	},
