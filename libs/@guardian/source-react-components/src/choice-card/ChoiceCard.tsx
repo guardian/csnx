@@ -102,30 +102,25 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
-	const transformProvidedTheme = (
-		providedTheme: typeof choiceCardThemeDefault.choiceCard | undefined,
-	): ChoiceCardTheme => {
-		if (!providedTheme) {
-			return {};
-		}
-		return {
-			textUnselected: providedTheme.textLabel,
-			textSelected: providedTheme.textChecked,
-			borderUnselected: providedTheme.border,
-			borderSelected: providedTheme.borderChecked,
-			backgroundSelected: providedTheme.backgroundChecked,
-			...providedTheme,
-		};
-	};
+	/** Transforms an old shaped `ThemeProvider` theme to ChoiceCardTheme  */
+	const transformOldProviderTheme = (
+		providerTheme: Theme['choiceCard'],
+	): Partial<ChoiceCardTheme> => ({
+		textUnselected: providerTheme?.textLabel,
+		textSelected: providerTheme?.textChecked,
+		borderUnselected: providerTheme?.border,
+		borderSelected: providerTheme?.borderChecked,
+		backgroundSelected: providerTheme?.backgroundChecked,
+		...providerTheme,
+	});
 
-	const getCombinedTheme = (
-		providedTheme: typeof choiceCardThemeDefault.choiceCard | undefined,
-	): ChoiceCardFullTheme => {
-		const transformedProvidedTheme = transformProvidedTheme(providedTheme);
+	const combineThemes = (
+		providerTheme: Theme['choiceCard'],
+	): ChoiceCardTheme => {
 		return {
-			...choiceCardTheme,
-			...transformedProvidedTheme,
-			...(theme ?? {}),
+			...defaultTheme,
+			...transformOldProviderTheme(providerTheme),
+			...theme,
 		};
 	};
 	// prevent the animation firing if a Choice Card has been checked by default
@@ -134,15 +129,15 @@ export const ChoiceCard = ({
 	return (
 		<>
 			<input
-				css={(theme: Theme) => [
-					input(getCombinedTheme(theme.choiceCard)),
+				css={(providerTheme: Theme) => [
+					input(combineThemes(providerTheme.choiceCard)),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
 				id={id}
 				value={value}
 				aria-invalid={!!error}
-				defaultChecked={defaultChecked != null ? defaultChecked : undefined}
+				defaultChecked={defaultChecked ?? undefined}
 				checked={checked != null ? isChecked() : undefined}
 				onChange={(event) => {
 					if (onChange) {
@@ -154,9 +149,9 @@ export const ChoiceCard = ({
 				{...props}
 			/>
 			<label
-				css={(theme: Theme) => [
-					choiceCard(getCombinedTheme(theme.choiceCard)),
-					error ? errorChoiceCard(getCombinedTheme(theme.choiceCard)) : '',
+				css={(providerTheme: Theme) => [
+					choiceCard(combineThemes(providerTheme.choiceCard)),
+					error ? errorChoiceCard(combineThemes(providerTheme.choiceCard)) : '',
 				]}
 				htmlFor={id}
 			>
@@ -165,7 +160,9 @@ export const ChoiceCard = ({
 					<div>{labelContent}</div>
 				</div>
 				<span
-					css={(theme: Theme) => [tick(getCombinedTheme(theme.choiceCard))]}
+					css={(providerTheme: Theme) => [
+						tick(combineThemes(providerTheme.choiceCard)),
+					]}
 				/>
 			</label>
 		</>
