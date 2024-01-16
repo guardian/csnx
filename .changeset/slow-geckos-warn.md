@@ -1,5 +1,5 @@
 ---
-"@guardian/prettier": major
+'@guardian/prettier': major
 ---
 
 Now requires `prettier@^3.2.2`, which adds JSONC support, alongside other improvements:
