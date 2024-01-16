@@ -2,6 +2,7 @@ import { palette } from '@guardian/source-foundations';
 import { userFeedbackThemeDefault } from '../user-feedback/theme';
 import type { ChoiceCardTheme } from './ChoiceCard';
 
+/** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const choiceCardThemeDefault = {
 	choiceCard: {
 		textLabel: palette.neutral[46],
