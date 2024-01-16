@@ -1,5 +1,4 @@
-import { palette } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
@@ -18,7 +17,7 @@ const choiceCardThemeDark = {
 	backgroundSelected: palette.neutral[100],
 	backgroundTick: palette.brand[500],
 };
-export default {
+const meta: Meta<typeof ChoiceCard> = {
 	title: 'ChoiceCard',
 	component: ChoiceCard,
 	args: {
@@ -49,31 +48,33 @@ export default {
 	},
 };
 
-const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
+export default meta;
+
+const Template: StoryFn<ChoiceCardProps> = (args: ChoiceCardProps) => (
 	<ChoiceCard {...args} />
 );
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
 
 // *****************************************************************************
 
-export const CheckedDefaultTheme = Template.bind({});
+export const CheckedDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
 CheckedDefaultTheme.args = {
 	checked: true,
 };
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme = Template.bind({});
+export const ErrorDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
 ErrorDefaultTheme.args = {
 	error: true,
 };
 
 // *****************************************************************************
 
-export const IconDefaultTheme = Template.bind({});
+export const IconDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
 IconDefaultTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
