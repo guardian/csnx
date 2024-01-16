@@ -1,9 +1,9 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { focusHalo, space } from '@guardian/source-foundations';
+import type { Size } from '@guardian/source-react-components';
 import { textInputThemeDefault } from '@guardian/source-react-components';
 import { errorInput, inputBase } from './sharedStyles';
-import { Size } from 'libs/@guardian/source-react-components/src/label/types';
 
 export const inputWrapper = css`
 	display: flex;

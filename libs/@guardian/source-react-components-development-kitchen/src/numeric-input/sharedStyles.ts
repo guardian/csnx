@@ -1,8 +1,8 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { height, space, textSans } from '@guardian/source-foundations';
+import type { Size } from '@guardian/source-react-components';
 import { textInputThemeDefault } from '@guardian/source-react-components';
-import { Size } from 'libs/@guardian/source-react-components/src/label/types';
 
 const inputSizeDefault = css`
 	${textSans.medium()};
