@@ -1,8 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import type { HTMLAttributes, LabelHTMLAttributes, ReactNode } from 'react';
+import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
-
-export type Size = 'default' | 'small';
 
 export interface LabelProps
 	extends LabelHTMLAttributes<HTMLLabelElement>,
@@ -26,7 +25,7 @@ export interface LabelProps
 	/**
 	 * Size of label
 	 */
-	size?: Size;
+	size?: InputSize;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
 	children?: ReactNode;
 }

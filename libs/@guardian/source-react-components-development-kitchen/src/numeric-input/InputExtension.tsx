@@ -6,12 +6,12 @@ import {
 } from './inputExtensionStyles';
 import type { InputTheme } from './NumericInput';
 import { errorInput, successInput } from './sharedStyles';
-import { Size } from 'libs/@guardian/source-react-components/src/label/types';
+import type { InputSize } from '@guardian/source-react-components';
 
 type InputExtensionProps = {
 	children: string;
 	type: 'prefix' | 'suffix';
-	size: Size;
+	size: InputSize;
 	error?: string;
 	success?: string;
 };

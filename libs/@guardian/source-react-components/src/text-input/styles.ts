@@ -6,7 +6,7 @@ import {
 	space,
 	textSans,
 } from '@guardian/source-foundations';
-import type { Size } from '../label/types';
+import type { InputSize } from '../@types/InputSize';
 import { textInputThemeDefault } from './theme';
 
 const inputSizeDefault = css`
@@ -20,7 +20,7 @@ const inputSizeSmall = css`
 `;
 
 const inputSize: {
-	[key in Size]: SerializedStyles;
+	[key in InputSize]: SerializedStyles;
 } = {
 	default: inputSizeDefault,
 	small: inputSizeSmall,
@@ -46,7 +46,7 @@ export const successInput = (
 
 export const textInput = (
 	textInput = textInputThemeDefault.textInput,
-	size: Size,
+	size: InputSize,
 ): SerializedStyles => css`
 	box-sizing: border-box;
 	${inputSize[size]};

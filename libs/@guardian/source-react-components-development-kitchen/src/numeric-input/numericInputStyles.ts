@@ -1,8 +1,8 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { focusHalo, space } from '@guardian/source-foundations';
-import type { Size } from '@guardian/source-react-components';
 import { textInputThemeDefault } from '@guardian/source-react-components';
+import type { InputSize } from '@guardian/source-react-components';
 import { errorInput, inputBase } from './sharedStyles';
 
 export const inputWrapper = css`
@@ -35,7 +35,7 @@ export const width4 = css`
 
 export const textInput = (
 	textInput = textInputThemeDefault.textInput,
-	size: Size,
+	size: InputSize,
 ): SerializedStyles => css`
 	${inputBase(textInput, size)}
 	max-width: 100%;

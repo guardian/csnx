@@ -19,7 +19,7 @@ import {
 	width4,
 	widthFluid,
 } from './styles';
-import { Size } from '../label/types';
+import type { InputSize } from '../@types/InputSize';
 
 export type Width = 30 | 10 | 4;
 
@@ -54,7 +54,7 @@ export interface TextInputProps
 	/**
 	 * Size of the text input field, label and error message if visible.
 	 */
-	size?: Size;
+	size?: InputSize;
 	/**
 	 * Determines the width of a fixed-length field, based on the specified character length of the user input. If unspecified,
 	 * the width will default to 100% of the field's container.
