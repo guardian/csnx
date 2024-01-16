@@ -1,5 +1,13 @@
 # @guardian/eslint-config-typescript
 
+## 9.0.2
+
+### Patch Changes
+
+- 48708f0: Improve performance by delegating namespace import to TypeScript.
+
+  See https://typescript-eslint.io/linting/troubleshooting/performance-troubleshooting/#eslint-plugin-import.
+
 ## 9.0.1
 
 ### Patch Changes
