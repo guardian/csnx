@@ -1,25 +1,8 @@
 import { palette } from '@guardian/source-foundations';
 import { userFeedbackThemeDefault } from '../user-feedback/theme';
+import type { ChoiceCardTheme } from './ChoiceCard';
 
-export interface ChoiceCardTheme {
-	textUnselected?: string;
-	textSelected?: string;
-	textHover?: string;
-	textError?: string;
-	borderUnselected?: string;
-	borderSelected?: string;
-	borderHover?: string;
-	borderError?: string;
-	backgroundUnselected?: string;
-	backgroundHover?: string;
-	backgroundSelected?: string;
-	backgroundTick?: string;
-}
-
-export type ChoiceCardFullTheme = {
-	[P in keyof ChoiceCardTheme]-?: ChoiceCardTheme[P];
-};
-/** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` **/
+/** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const choiceCardThemeDefault = {
 	choiceCard: {
 		textLabel: palette.neutral[46],
@@ -37,9 +20,9 @@ export const choiceCardThemeDefault = {
 		borderError: palette.error[400],
 	},
 	...userFeedbackThemeDefault,
-};
+} as const;
 
-export const choiceCardTheme: ChoiceCardFullTheme = {
+export const choiceCardTheme: ChoiceCardTheme = {
 	textUnselected: palette.neutral[46],
 	textSelected: palette.brand[400],
 	textHover: palette.brand[500],
@@ -52,4 +35,4 @@ export const choiceCardTheme: ChoiceCardFullTheme = {
 	backgroundHover: 'transparent',
 	backgroundSelected: '#E3F6FF',
 	backgroundTick: palette.brand[500],
-};
+} as const;
