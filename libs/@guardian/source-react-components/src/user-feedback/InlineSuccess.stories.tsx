@@ -26,3 +26,23 @@ InlineSuccessBrandTheme.parameters = {
 	},
 	theme: userFeedbackThemeBrand,
 };
+
+// *****************************************************************************
+
+export const InlineSuccessDefaultThemeSizeSmall = Template.bind({});
+InlineSuccessDefaultThemeSizeSmall.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const InlineSuccessBrandThemeSizeSmall = Template.bind({});
+InlineSuccessBrandThemeSizeSmall.args = {
+	size: 'small',
+};
+InlineSuccessBrandThemeSizeSmall.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: userFeedbackThemeBrand,
+};

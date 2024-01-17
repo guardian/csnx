@@ -45,3 +45,21 @@ LongInlineErrorDefaultThemeMobile.args = {
 };
 
 // *****************************************************************************
+
+export const InlineErrorDefaultThemeSizeSmall = Template.bind({});
+InlineErrorDefaultThemeSizeSmall.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const InlineErrorBrandThemeSizeSmall = Template.bind({});
+InlineErrorBrandThemeSizeSmall.args = {
+	size: 'small',
+};
+InlineErrorBrandThemeSizeSmall.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: userFeedbackThemeBrand,
+};
