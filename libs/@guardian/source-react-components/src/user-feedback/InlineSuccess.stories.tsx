@@ -29,18 +29,18 @@ InlineSuccessBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const InlineSuccessDefaultThemeSizeSmall = Template.bind({});
-InlineSuccessDefaultThemeSizeSmall.args = {
+export const InlineSuccessSmallDefaultTheme = Template.bind({});
+InlineSuccessSmallDefaultTheme.args = {
 	size: 'small',
 };
 
 // *****************************************************************************
 
-export const InlineSuccessBrandThemeSizeSmall = Template.bind({});
-InlineSuccessBrandThemeSizeSmall.args = {
+export const InlineSuccessSmallBrandTheme = Template.bind({});
+InlineSuccessSmallBrandTheme.args = {
 	size: 'small',
 };
-InlineSuccessBrandThemeSizeSmall.parameters = {
+InlineSuccessSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},

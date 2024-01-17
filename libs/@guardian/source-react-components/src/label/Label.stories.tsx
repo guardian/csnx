@@ -24,7 +24,7 @@ const Template: Story<LabelProps> = (args: LabelProps) => (
 
 // *****************************************************************************
 
-export const DefaultTheme = Template.bind({});
+export const DefaultDefaultTheme = Template.bind({});
 
 // *****************************************************************************
 
@@ -98,34 +98,34 @@ WithHiddenLabelBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const DefaultThemeSizeSmall = Template.bind({});
-DefaultThemeSizeSmall.args = {
+export const DefaultSmallDefaultTheme = Template.bind({});
+DefaultSmallDefaultTheme.args = {
 	size: 'small',
 };
 
 // *****************************************************************************
 
-export const WithSupportingTextDefaultThemeSizeSmall = Template.bind({});
-WithSupportingTextDefaultThemeSizeSmall.args = {
+export const WithSupportingTextSmallDefaultTheme = Template.bind({});
+WithSupportingTextSmallDefaultTheme.args = {
 	supporting: 'alex@example.com',
 	size: 'small',
 };
 
 // *****************************************************************************
 
-export const WithOptionalDefaultThemeSizeSmall = Template.bind({});
-WithOptionalDefaultThemeSizeSmall.args = {
+export const WithOptionalSmallDefaultTheme = Template.bind({});
+WithOptionalSmallDefaultTheme.args = {
 	optional: true,
 	size: 'small',
 };
 
 // *****************************************************************************
 
-export const DefaultBrandThemeSizeSmall = Template.bind({});
-DefaultBrandThemeSizeSmall.args = {
+export const DefaultSmallBrandTheme = Template.bind({});
+DefaultSmallBrandTheme.args = {
 	size: 'small',
 };
-DefaultBrandThemeSizeSmall.parameters = {
+DefaultSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
@@ -134,12 +134,12 @@ DefaultBrandThemeSizeSmall.parameters = {
 
 // *****************************************************************************
 
-export const WithSupportingTextBrandThemeSizeSmall = Template.bind({});
-WithSupportingTextBrandThemeSizeSmall.args = {
+export const WithSupportingTextSmallBrandTheme = Template.bind({});
+WithSupportingTextSmallBrandTheme.args = {
 	supporting: 'alex@example.com',
 	size: 'small',
 };
-WithSupportingTextBrandThemeSizeSmall.parameters = {
+WithSupportingTextSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
@@ -148,12 +148,12 @@ WithSupportingTextBrandThemeSizeSmall.parameters = {
 
 // *****************************************************************************
 
-export const WithOptionalBrandThemeSizeSmall = Template.bind({});
-WithOptionalBrandThemeSizeSmall.args = {
+export const WithOptionalSmallBrandTheme = Template.bind({});
+WithOptionalSmallBrandTheme.args = {
 	optional: true,
 	size: 'small',
 };
-WithOptionalBrandThemeSizeSmall.parameters = {
+WithOptionalSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},

@@ -46,18 +46,18 @@ LongInlineErrorDefaultThemeMobile.args = {
 
 // *****************************************************************************
 
-export const InlineErrorDefaultThemeSizeSmall = Template.bind({});
-InlineErrorDefaultThemeSizeSmall.args = {
+export const InlineErrorSmallDefaultTheme = Template.bind({});
+InlineErrorSmallDefaultTheme.args = {
 	size: 'small',
 };
 
 // *****************************************************************************
 
-export const InlineErrorBrandThemeSizeSmall = Template.bind({});
-InlineErrorBrandThemeSizeSmall.args = {
+export const InlineErrorSmallBrandTheme = Template.bind({});
+InlineErrorSmallBrandTheme.args = {
 	size: 'small',
 };
-InlineErrorBrandThemeSizeSmall.parameters = {
+InlineErrorSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
