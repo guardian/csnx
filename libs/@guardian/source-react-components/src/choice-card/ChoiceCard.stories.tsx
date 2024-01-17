@@ -41,7 +41,7 @@ const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
 		theme={{
 			choiceCard: {
 				...choiceCardThemeDefault.choiceCard,
-				textLabel: 'hotpink',
+				textLabel: 'blue',
 			},
 		}}
 	>
