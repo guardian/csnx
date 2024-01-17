@@ -3,7 +3,7 @@ import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
-import { choiceCardThemeDefault } from '@guardian/source-react-components';
+import { choiceCardThemeDefault } from './theme';
 
 export default {
 	title: 'ChoiceCard',
