@@ -1,17 +1,17 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { height, space, textSans } from '@guardian/source-foundations';
+import { size, space, textSans } from '@guardian/source-foundations';
 import { textInputThemeDefault } from '@guardian/source-react-components';
 import type { InputSize } from '@guardian/source-react-components';
 
 const inputSizeDefault = css`
 	${textSans.medium()};
-	height: ${height.inputMedium}px;
+	height: ${size.medium}px;
 `;
 
 const inputSizeSmall = css`
 	${textSans.xsmall()};
-	height: ${height.ctaSmall}px; // TODO: Add height.inputSmall token
+	height: ${size.small}px;
 `;
 
 const inputSize: {
