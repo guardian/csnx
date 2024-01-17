@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
@@ -72,7 +73,7 @@ IconDefaultTheme.args = {
 export const CustomTheme: StoryFn<ChoiceCardProps> = Template.bind({});
 CustomTheme.args = {
 	theme: {
-		backgroundUnselected: 'black',
-		backgroundSelected: 'hotpink',
+		backgroundUnselected: palette.neutral[0],
+		textUnselected: palette.lifestyle[500],
 	},
 };
