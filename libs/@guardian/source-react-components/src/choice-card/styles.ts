@@ -11,8 +11,8 @@ import {
 	visuallyHidden,
 	width,
 } from '@guardian/source-foundations';
+import type { ChoiceCardTheme } from './ChoiceCard';
 import type { ChoiceCardColumns } from './ChoiceCardGroup';
-import { choiceCardThemeDefault } from './theme';
 
 export const fieldset = css`
 	${resets.fieldset};
@@ -61,9 +61,7 @@ export const gridColumns: { [key in ChoiceCardColumns]: SerializedStyles } = {
 	5: gridColumnsStyle(5),
 };
 
-export const input = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
-): SerializedStyles => css`
+export const input = (theme: ChoiceCardTheme): SerializedStyles => css`
 	${visuallyHidden};
 
 	&:focus + label {
@@ -73,11 +71,11 @@ export const input = (
 	}
 
 	&:checked + label {
-		box-shadow: inset 0 0 0 2px ${choiceCard.borderChecked};
-		background-color: ${choiceCard.backgroundChecked};
+		box-shadow: inset 0 0 0 2px ${theme.borderSelected};
+		background-color: ${theme.backgroundSelected};
 
 		& > * {
-			color: ${choiceCard.textChecked};
+			color: ${theme.textSelected};
 
 			/* last child is the tick */
 			&:last-child {
@@ -133,19 +131,18 @@ export const tickAnimation = css`
 	}
 `;
 
-export const choiceCard = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
-): SerializedStyles => css`
+export const choiceCard = (theme: ChoiceCardTheme): SerializedStyles => css`
 	flex: 1;
 	display: flex;
 	justify-content: center;
 	min-height: ${height.inputMedium}px;
 	margin: 0 0 ${space[2]}px 0;
-	box-shadow: inset 0 0 0 1px ${choiceCard.border};
+	box-shadow: inset 0 0 0 1px ${theme.borderUnselected};
 	border-radius: 4px;
 	position: relative;
 	cursor: pointer;
-	color: ${choiceCard.textLabel};
+	background-color: ${theme.backgroundUnselected};
+	color: ${theme.textUnselected};
 
 	${from.mobileLandscape} {
 		margin: 0 ${space[2]}px 0 0;
@@ -155,8 +152,9 @@ export const choiceCard = (
 	}
 
 	&:hover {
-		box-shadow: inset 0 0 0 2px ${choiceCard.borderHover};
-		color: ${choiceCard.textHover};
+		box-shadow: inset 0 0 0 2px ${theme.borderHover};
+		background-color: ${theme.backgroundHover};
+		color: ${theme.textHover};
 	}
 `;
 
@@ -205,9 +203,7 @@ export const contentWrapperLabelOnly = css`
 
 // TODO: most of this is duplicated in the checkbox component
 // We should extract it into its own module somewhere
-export const tick = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
-): SerializedStyles => css`
+export const tick = (theme: ChoiceCardTheme): SerializedStyles => css`
 	/* overall positional properties */
 	position: absolute;
 	top: 50%;
@@ -222,7 +218,7 @@ export const tick = (
 	&:before {
 		position: absolute;
 		display: block;
-		background-color: ${choiceCard.backgroundTick};
+		background-color: ${theme.backgroundTick};
 		transition: all ${transitions.short} ease-in-out;
 		content: '';
 	}
@@ -247,11 +243,11 @@ export const tick = (
 `;
 
 export const errorChoiceCard = (
-	choiceCard = choiceCardThemeDefault.choiceCard,
+	theme: ChoiceCardTheme,
 ): SerializedStyles => css`
-	box-shadow: inset 0 0 0 2px ${choiceCard.borderError};
+	box-shadow: inset 0 0 0 2px ${theme.borderError};
 
 	& > * {
-		color: ${choiceCard.textError};
+		color: ${theme.textError};
 	}
 `;

@@ -16,6 +16,22 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
+import { choiceCardTheme as defaultTheme } from './theme';
+
+export type ChoiceCardTheme = {
+	textUnselected: string;
+	textSelected: string;
+	textHover: string;
+	textError: string;
+	borderUnselected: string;
+	borderSelected: string;
+	borderHover: string;
+	borderError: string;
+	backgroundUnselected: string;
+	backgroundHover: string;
+	backgroundSelected: string;
+	backgroundTick: string;
+};
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -49,6 +65,10 @@ export interface ChoiceCardProps
 	 * The type of input you want
 	 */
 	type?: 'radio' | 'checkbox';
+	/**
+	 * A component level theme to override the colour palette of the choice card component
+	 */
+	theme?: Partial<ChoiceCardTheme>;
 }
 
 /**
@@ -70,6 +90,7 @@ export const ChoiceCard = ({
 	cssOverrides,
 	error,
 	onChange,
+	theme = {},
 	type = 'radio',
 	...props
 }: ChoiceCardProps): EmotionJSX.Element => {
@@ -81,21 +102,54 @@ export const ChoiceCard = ({
 		return !!defaultChecked;
 	};
 
+	/** Transforms an old shaped `ThemeProvider` theme to ChoiceCardTheme  */
+	const transformOldProviderTheme = (
+		providerTheme: Theme['choiceCard'],
+	): Partial<ChoiceCardTheme> => {
+		const transformedTheme: Partial<ChoiceCardTheme> = {};
+
+		if (providerTheme?.textLabel) {
+			transformedTheme.textUnselected = providerTheme.textLabel;
+		}
+		if (providerTheme?.textChecked) {
+			transformedTheme.textSelected = providerTheme.textChecked;
+		}
+		if (providerTheme?.border) {
+			transformedTheme.borderUnselected = providerTheme.border;
+		}
+		if (providerTheme?.borderChecked) {
+			transformedTheme.borderSelected = providerTheme.borderChecked;
+		}
+		if (providerTheme?.backgroundChecked) {
+			transformedTheme.backgroundSelected = providerTheme.backgroundChecked;
+		}
+		return { ...transformedTheme, ...providerTheme };
+	};
+
+	const combineThemes = (
+		providerTheme: Theme['choiceCard'],
+	): ChoiceCardTheme => {
+		return {
+			...defaultTheme,
+			...transformOldProviderTheme(providerTheme),
+			...theme,
+		};
+	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
 
 	return (
 		<>
 			<input
-				css={(theme: Theme) => [
-					input(theme.choiceCard),
+				css={(providerTheme: Theme) => [
+					input(combineThemes(providerTheme.choiceCard)),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
 				id={id}
 				value={value}
 				aria-invalid={!!error}
-				defaultChecked={defaultChecked != null ? defaultChecked : undefined}
+				defaultChecked={defaultChecked ?? undefined}
 				checked={checked != null ? isChecked() : undefined}
 				onChange={(event) => {
 					if (onChange) {
@@ -107,9 +161,9 @@ export const ChoiceCard = ({
 				{...props}
 			/>
 			<label
-				css={(theme: Theme) => [
-					choiceCard(theme.choiceCard),
-					error ? errorChoiceCard(theme.choiceCard) : '',
+				css={(providerTheme: Theme) => [
+					choiceCard(combineThemes(providerTheme.choiceCard)),
+					error ? errorChoiceCard(combineThemes(providerTheme.choiceCard)) : '',
 				]}
 				htmlFor={id}
 			>
@@ -117,7 +171,11 @@ export const ChoiceCard = ({
 					{iconSvg ? iconSvg : ''}
 					<div>{labelContent}</div>
 				</div>
-				<span css={(theme: Theme) => [tick(theme.choiceCard)]} />
+				<span
+					css={(providerTheme: Theme) => [
+						tick(combineThemes(providerTheme.choiceCard)),
+					]}
+				/>
 			</label>
 		</>
 	);
