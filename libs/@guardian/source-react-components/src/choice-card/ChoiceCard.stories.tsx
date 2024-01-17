@@ -1,7 +1,9 @@
+import { ThemeProvider } from '@emotion/react';
 import type { Story } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
+import { choiceCardThemeDefault } from '@guardian/source-react-components';
 
 export default {
 	title: 'ChoiceCard',
@@ -35,7 +37,16 @@ export default {
 };
 
 const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
-	<ChoiceCard {...args} />
+	<ThemeProvider
+		theme={{
+			choiceCard: {
+				...choiceCardThemeDefault.choiceCard,
+				textLabel: 'hotpink',
+			},
+		}}
+	>
+		<ChoiceCard {...args} />
+	</ThemeProvider>
 );
 
 // *****************************************************************************
