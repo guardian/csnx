@@ -106,3 +106,59 @@ WithDefaultValue.args = {
 };
 
 // *****************************************************************************
+
+export const DefaultSmallDefaultTheme = Template.bind({});
+DefaultSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithRowsSmallDefaultTheme = Template.bind({});
+WithRowsSmallDefaultTheme.args = {
+	rows: 10,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const OptionalSmallDefaultTheme = Template.bind({});
+OptionalSmallDefaultTheme.args = {
+	optional: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const VisuallyHideLabelSmallDefaultTheme = Template.bind({});
+VisuallyHideLabelSmallDefaultTheme.args = {
+	hideLabel: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SupportingTextSmallDefaultTheme = Template.bind({});
+SupportingTextSmallDefaultTheme.args = {
+	supporting:
+		'Please keep comments respectful and abide by the community guidelines.',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageSmallDefaultTheme = Template.bind({});
+ErrorWithMessageSmallDefaultTheme.args = {
+	error: 'error',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SuccessWithMessageSmallDefaultTheme = Template.bind({});
+SuccessWithMessageSmallDefaultTheme.args = {
+	success: 'success',
+	size: 'small',
+};
+
+// *****************************************************************************
