@@ -26,7 +26,7 @@ export const labelText = (
 export const optionalText = (
 	label = labelThemeDefault.label,
 ): SerializedStyles => css`
-	${textSans.small()};
+	${textSans.xsmall()};
 	color: ${label.textOptional};
 	font-style: italic;
 `;
@@ -34,7 +34,7 @@ export const optionalText = (
 export const supportingText = (
 	label = labelThemeDefault.label,
 ): SerializedStyles => css`
-	${textSans.small()};
+	${textSans.xsmall()};
 	color: ${label.textSupporting};
 	margin: 2px 0 0;
 `;
