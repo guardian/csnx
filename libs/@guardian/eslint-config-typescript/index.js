@@ -125,5 +125,9 @@ module.exports = {
 
 		// requires any function or method that returns a Promise to be marked async
 		// '@typescript-eslint/promise-function-async': 2,
+
+		// Performance boost, as TypeScript provides the same checks as part of standard type checking.
+		// See https://typescript-eslint.io/linting/troubleshooting/performance-troubleshooting/#eslint-plugin-import
+		'import/namespace': 0,
 	},
 };

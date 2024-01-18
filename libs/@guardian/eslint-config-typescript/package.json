@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "9.0.1",
+	"version": "9.0.2",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": "index.js",
 	"dependencies": {
