@@ -1,8 +1,8 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { SvgGuardianBestWebsiteLogoProps } from './SvgGuardianBestWebsiteLogo';
 import { SvgGuardianBestWebsiteLogo } from './SvgGuardianBestWebsiteLogo';
 
-export default {
+const meta: Meta<typeof SvgGuardianBestWebsiteLogo> = {
 	title: 'SvgGuardianBestWebsiteLogo',
 	component: SvgGuardianBestWebsiteLogo,
 	argTypes: {
@@ -12,8 +12,11 @@ export default {
 	},
 };
 
-const Template: Story = (args: SvgGuardianBestWebsiteLogoProps) => (
-	<SvgGuardianBestWebsiteLogo {...args} />
-);
+export default meta;
 
-export const Default = Template.bind({});
+const Template: StoryFn<typeof SvgGuardianBestWebsiteLogo> = (
+	args: SvgGuardianBestWebsiteLogoProps,
+) => <SvgGuardianBestWebsiteLogo {...args} />;
+
+export const DefaultStoryFn: StoryFn<typeof SvgGuardianBestWebsiteLogo> =
+	Template.bind({});

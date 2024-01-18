@@ -1,19 +1,9 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { SvgArrowRightStraight } from '../../vendor/icons/SvgArrowRightStraight';
 import { LinkButton } from './LinkButton';
 import type { LinkButtonProps } from './LinkButton';
-import type { ButtonPriority } from './types';
-// These types are the right types, but don't work with Storybook v6 which uses Emotion v10
-// import type { Args, Story } from '@storybook/react';
 
-const priorityArgs: ButtonPriority[] = [
-	'primary',
-	'secondary',
-	'tertiary',
-	'subdued',
-];
-
-export default {
+const meta: Meta<typeof LinkButton> = {
 	title: 'LinkButton',
 	component: LinkButton,
 	argTypes: {
@@ -30,7 +20,7 @@ export default {
 		children: 'Subscribe now',
 		size: 'default',
 		hideLabel: false,
-		icon: 'undefined',
+		icon: undefined,
 		priority: 'primary',
 		iconSide: 'left',
 		nudgeIcon: false,
@@ -38,28 +28,49 @@ export default {
 	},
 };
 
-const Template: Story<LinkButtonProps> = (args: LinkButtonProps) => (
+export default meta;
+
+const Template: StoryFn<typeof LinkButton> = (args: LinkButtonProps) => (
 	<LinkButton {...args} />
 );
 
-export const [
-	PrimaryPriorityDefaultTheme,
-	SecondaryPriorityDefaultTheme,
-	TertiaryPriorityDefaultTheme,
-	SubduedPriorityDefaultTheme,
-] = priorityArgs.map((priority) => {
-	const story = Template.bind({});
+// *****************************************************************************
 
-	story.args = {
-		priority,
-	};
-
-	return story;
-});
+export const PrimaryPriorityDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
+PrimaryPriorityDefaultTheme.args = {
+	priority: 'primary',
+};
 
 // *****************************************************************************
 
-export const TextAndIconLeftDefaultSizeDefaultTheme = Template.bind({});
+export const SecondaryPriorityDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
+SecondaryPriorityDefaultTheme.args = {
+	priority: 'secondary',
+};
+
+// *****************************************************************************
+
+export const TertiaryPriorityDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
+TertiaryPriorityDefaultTheme.args = {
+	priority: 'tertiary',
+};
+
+// *****************************************************************************
+
+export const SubduedPriorityDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
+SubduedPriorityDefaultTheme.args = {
+	priority: 'subdued',
+};
+
+// *****************************************************************************
+
+export const TextAndIconLeftDefaultSizeDefaultTheme: StoryFn<
+	typeof LinkButton
+> = Template.bind({});
 TextAndIconLeftDefaultSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -67,7 +78,9 @@ TextAndIconLeftDefaultSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconRightDefaultSizeDefaultTheme = Template.bind({});
+export const TextAndIconRightDefaultSizeDefaultTheme: StoryFn<
+	typeof LinkButton
+> = Template.bind({});
 TextAndIconRightDefaultSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -76,7 +89,8 @@ TextAndIconRightDefaultSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconLeftSmallSizeDefaultTheme = Template.bind({});
+export const TextAndIconLeftSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 TextAndIconLeftSmallSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -85,7 +99,8 @@ TextAndIconLeftSmallSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconRightSmallSizeDefaultTheme = Template.bind({});
+export const TextAndIconRightSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 TextAndIconRightSmallSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -95,7 +110,8 @@ TextAndIconRightSmallSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconLeftXSmallSizeDefaultTheme = Template.bind({});
+export const TextAndIconLeftXSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 TextAndIconLeftXSmallSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -104,7 +120,9 @@ TextAndIconLeftXSmallSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconRightXSmallSizeDefaultTheme = Template.bind({});
+export const TextAndIconRightXSmallSizeDefaultTheme: StoryFn<
+	typeof LinkButton
+> = Template.bind({});
 TextAndIconRightXSmallSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -114,7 +132,8 @@ TextAndIconRightXSmallSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconLeftWithNudgeDefaultTheme = Template.bind({});
+export const TextAndIconLeftWithNudgeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 TextAndIconLeftWithNudgeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -123,7 +142,8 @@ TextAndIconLeftWithNudgeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const TextAndIconRightWithNudgeDefaultTheme = Template.bind({});
+export const TextAndIconRightWithNudgeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 TextAndIconRightWithNudgeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -133,7 +153,8 @@ TextAndIconRightWithNudgeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const IconOnlyDefaultSizeDefaultTheme = Template.bind({});
+export const IconOnlyDefaultSizeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 IconOnlyDefaultSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -142,7 +163,8 @@ IconOnlyDefaultSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const IconOnlySmallSizeDefaultTheme = Template.bind({});
+export const IconOnlySmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 IconOnlySmallSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
@@ -152,7 +174,8 @@ IconOnlySmallSizeDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const IconOnlyXSmallSizeDefaultTheme = Template.bind({});
+export const IconOnlyXSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
 IconOnlyXSmallSizeDefaultTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',

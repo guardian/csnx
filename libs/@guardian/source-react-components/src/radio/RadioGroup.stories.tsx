@@ -1,16 +1,13 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import RadioStories from './Radio.stories';
 import type { RadioGroupProps } from './RadioGroup';
 import { RadioGroup } from './RadioGroup';
 import { radioThemeBrand } from './theme';
-// These types are the right types, but don't work with Storybook v6 which uses Emotion v10
-// import type { Args, Story } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof RadioGroup> = {
 	title: 'RadioGroup',
 	component: RadioGroup,
-	subcomponents: { Radio },
 	args: {
 		name: 'colours',
 		label: 'Select your preferred colour',
@@ -32,6 +29,8 @@ export default {
 	},
 };
 
+export default meta;
+
 const Image = () => (
 	<img
 		style={{ padding: `8px 0` }}
@@ -40,18 +39,20 @@ const Image = () => (
 	/>
 );
 
-const Template: Story = (args: RadioGroupProps) => (
+const Template: StoryFn<typeof RadioGroup> = (args: RadioGroupProps) => (
 	<RadioGroup {...args}>
 		<Radio {...RadioStories.args} key="radio-1" />
 		<Radio label="Blue" value="blue" key="radio-2" />
 	</RadioGroup>
 );
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof RadioGroup> = Template.bind(
+	{},
+);
 
 // *****************************************************************************
 
-export const DefaultBrandTheme = Template.bind({});
+export const DefaultBrandTheme: StoryFn<typeof RadioGroup> = Template.bind({});
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -61,28 +62,33 @@ DefaultBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const HorizontalDefaultTheme = Template.bind({});
+export const HorizontalDefaultTheme: StoryFn<typeof RadioGroup> = Template.bind(
+	{},
+);
 HorizontalDefaultTheme.args = {
 	orientation: 'horizontal',
 };
 
 // *****************************************************************************
 
-export const VisuallyHideLegendDefaultTheme = Template.bind({});
+export const VisuallyHideLegendDefaultTheme: StoryFn<typeof RadioGroup> =
+	Template.bind({});
 VisuallyHideLegendDefaultTheme.args = {
 	hideLabel: true,
 };
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme = Template.bind({});
+export const SupportingTextDefaultTheme: StoryFn<typeof RadioGroup> =
+	Template.bind({});
 SupportingTextDefaultTheme.args = {
 	supporting: 'You can always change it later',
 };
 
 // *****************************************************************************
 
-export const SupportingTextBrandTheme = Template.bind({});
+export const SupportingTextBrandTheme: StoryFn<typeof RadioGroup> =
+	Template.bind({});
 SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -95,21 +101,22 @@ SupportingTextBrandTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingMediaDefaultTheme = Template.bind({});
+export const SupportingMediaDefaultTheme: StoryFn<typeof RadioGroup> =
+	Template.bind({});
 SupportingMediaDefaultTheme.args = {
 	supporting: <Image />,
 };
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme = Template.bind({});
+export const ErrorDefaultTheme: StoryFn<typeof RadioGroup> = Template.bind({});
 ErrorDefaultTheme.args = {
 	error: 'The selected colour is out of stock',
 };
 
 // *****************************************************************************
 
-export const ErrorBrandTheme = Template.bind({});
+export const ErrorBrandTheme: StoryFn<typeof RadioGroup> = Template.bind({});
 ErrorBrandTheme.args = {
 	error: 'The selected colour is out of stock',
 };
@@ -122,7 +129,8 @@ ErrorBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const SupportingMediaWithErrorDefaultTheme = Template.bind({});
+export const SupportingMediaWithErrorDefaultTheme: StoryFn<typeof RadioGroup> =
+	Template.bind({});
 SupportingMediaWithErrorDefaultTheme.args = {
 	error: 'Please select a colour',
 	supporting: <Image />,
