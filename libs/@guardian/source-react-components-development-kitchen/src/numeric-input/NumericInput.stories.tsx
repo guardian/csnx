@@ -109,6 +109,7 @@ SuccessWithMessageDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
 export const WithPrefix = Template.bind({});
 WithPrefix.args = {
 	prefixText: '£',
@@ -116,6 +117,7 @@ WithPrefix.args = {
 };
 
 // *****************************************************************************
+
 export const WithSuffix = Template.bind({});
 WithSuffix.args = {
 	suffixText: 'kr.',
@@ -123,6 +125,7 @@ WithSuffix.args = {
 };
 
 // *****************************************************************************
+
 export const WithPrefixAndSuffix = Template.bind({});
 WithPrefixAndSuffix.args = {
 	prefixText: '£',
@@ -132,6 +135,7 @@ WithPrefixAndSuffix.args = {
 };
 
 // *****************************************************************************
+
 export const WithPrefixAndError = Template.bind({});
 WithPrefixAndError.args = {
 	prefixText: '£',
@@ -140,9 +144,133 @@ WithPrefixAndError.args = {
 };
 
 // *****************************************************************************
+
 export const WithSuffixAndSuccess = Template.bind({});
 WithSuffixAndSuccess.args = {
 	suffixText: 'kr.',
 	label: 'Contribution amount',
 	success: 'success',
+};
+
+// *****************************************************************************
+
+export const DefaultSmallDefaultTheme = Template.bind({});
+DefaultSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const OptionalSmallDefaultTheme = Template.bind({});
+OptionalSmallDefaultTheme.args = {
+	optional: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const HideLabelSmallDefaultTheme = Template.bind({});
+HideLabelSmallDefaultTheme.args = {
+	hideLabel: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SupportingTextSmallDefaultTheme = Template.bind({});
+SupportingTextSmallDefaultTheme.args = {
+	supporting: 'Must be between 6 and 8 digits long',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const Width30SmallDefaultTheme = Template.bind({});
+Width30SmallDefaultTheme.args = {
+	width: 30,
+	label: 'Card number',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const Width10SmallDefaultTheme = Template.bind({});
+Width10SmallDefaultTheme.args = {
+	width: 10,
+	label: 'Sort code',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const Width4SmallDefaultTheme = Template.bind({});
+Width4SmallDefaultTheme.args = {
+	width: 4,
+	label: 'Year of birth',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageSmallDefaultTheme = Template.bind({});
+ErrorWithMessageSmallDefaultTheme.args = {
+	error: 'error',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SuccessWithMessageSmallDefaultTheme = Template.bind({});
+SuccessWithMessageSmallDefaultTheme.args = {
+	success: 'success',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithPrefixSmall = Template.bind({});
+WithPrefixSmall.args = {
+	prefixText: '£',
+	label: 'Contribution amount',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithSuffixSmall = Template.bind({});
+WithSuffixSmall.args = {
+	suffixText: 'kr.',
+	label: 'Contribution amount',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithPrefixAndSuffixSmall = Template.bind({});
+WithPrefixAndSuffixSmall.args = {
+	prefixText: '£',
+	suffixText: 'per month',
+	label: 'Contribution amount',
+	supporting: 'Will be charged monthly starting from today',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithPrefixAndErrorSmall = Template.bind({});
+WithPrefixAndErrorSmall.args = {
+	prefixText: '£',
+	label: 'Contribution amount',
+	error: 'The amount entered is not valid',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithSuffixAndSuccessSmall = Template.bind({});
+WithSuffixAndSuccessSmall.args = {
+	suffixText: 'kr.',
+	label: 'Contribution amount',
+	success: 'success',
+	size: 'small',
 };

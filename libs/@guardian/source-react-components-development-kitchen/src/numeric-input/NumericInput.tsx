@@ -91,12 +91,14 @@ export const NumericInput = ({
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textInputId)}>{error}</InlineError>
+						<InlineError id={descriptionId(textInputId)} size={size}>
+							{error}
+						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textInputId)}>
+						<InlineSuccess id={descriptionId(textInputId)} size={size}>
 							{success}
 						</InlineSuccess>
 					</div>
