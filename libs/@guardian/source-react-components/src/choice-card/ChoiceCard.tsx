@@ -76,6 +76,7 @@ export const ChoiceCard = ({
 	const isChecked = (): boolean => {
 		if (checked != null) {
 			return checked;
+			// make change
 		}
 
 		return !!defaultChecked;
