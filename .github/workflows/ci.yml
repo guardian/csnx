@@ -102,3 +102,4 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
           skip: ${{ github.event.pull_request.user.login == 'dependabot[bot]' || github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]' }}
+          debug: true
