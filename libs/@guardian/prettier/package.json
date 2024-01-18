@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/prettier",
-	"version": "7.0.0",
+	"version": "8.0.0",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
 	"main": "index.js",
 	"devDependencies": {
