@@ -13,7 +13,6 @@ module.exports = {
 	],
 	features: {
 		// used in composition
-		storyStoreV7: false,
 		buildStoriesJson: true,
 	},
 	webpackFinal: async (config, { configType }) => {
