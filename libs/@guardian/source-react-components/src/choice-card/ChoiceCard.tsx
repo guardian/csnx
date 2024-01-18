@@ -16,6 +16,7 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
+import { choiceCardThemeDefault } from './theme';
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -76,7 +77,6 @@ export const ChoiceCard = ({
 	const isChecked = (): boolean => {
 		if (checked != null) {
 			return checked;
-			// make change
 		}
 
 		return !!defaultChecked;
@@ -109,7 +109,10 @@ export const ChoiceCard = ({
 			/>
 			<label
 				css={(theme: Theme) => [
-					choiceCard(theme.choiceCard),
+					choiceCard({
+						...choiceCardThemeDefault.choiceCard,
+						textLabel: 'hotpink',
+					}),
 					error ? errorChoiceCard(theme.choiceCard) : '',
 				]}
 				htmlFor={id}
