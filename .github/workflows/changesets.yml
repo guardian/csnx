@@ -60,14 +60,12 @@ jobs:
         run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
 
       # down to business...
-      # See https://github.com/github/combine-prs/blob/main/docs/github-app-setup.md
       - name: Use GitHub App Token
-        uses: wow-actions/use-app-token@d7957e08172ca2e8e49b35b8d266ad585885edc7 # pinned to the hash of v2.0.2 to guarantee immutability
-        id: generate_token
+        uses: actions/create-github-app-token@v1
+        id: app-token
         with:
-          app_id: ${{ secrets.GU_CHANGESETS_APP_ID }}
-          private_key: ${{ secrets.GU_CHANGESETS_PRIVATE_KEY }}
-          fallback: ${{ secrets.GITHUB_TOKEN }} # fall back to the default token if the app token is not available
+          app-id: ${{ secrets.GU_CHANGESETS_APP_ID }}
+          private-key: ${{ secrets.GU_CHANGESETS_PRIVATE_KEY }}
       - name: Set git user to Gu Changesets app
         run: |
           git config user.name "gu-changesets-release-pr[bot]"
@@ -81,5 +79,5 @@ jobs:
           commit: 'Bump package versions'
           setupGitUser: false
         env:
-          GITHUB_TOKEN: ${{ steps.generate_token.outputs.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
