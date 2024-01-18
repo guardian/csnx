@@ -100,6 +100,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
+          untraced: '**/(package*.json|pnpm-lock.yaml)'
           onlyChanged: '!(main)' # turbosnap on non-main branches
           skip: ${{ github.event.pull_request.user.login == 'dependabot[bot]' || github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]' }}
           debug: true
