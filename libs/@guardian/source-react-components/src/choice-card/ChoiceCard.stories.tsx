@@ -1,11 +1,9 @@
-import { ThemeProvider } from '@emotion/react';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
-import { choiceCardThemeDefault } from './theme';
 
-export default {
+const meta: Meta<typeof ChoiceCard> = {
 	title: 'ChoiceCard',
 	component: ChoiceCard,
 	args: {
@@ -36,42 +34,34 @@ export default {
 	},
 };
 
-const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
-	<ThemeProvider
-		theme={{
-			choiceCard: {
-				...choiceCardThemeDefault.choiceCard,
-				textLabel: 'AntiqueWhite',
-			},
-		}}
-	>
-		<ChoiceCard {...args} />
-	</ThemeProvider>
-);
+export default meta;
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<ChoiceCardProps> = (
+	args: ChoiceCardProps,
+) => <ChoiceCard {...args} />;
 
 // *****************************************************************************
 
-export const CheckedDefaultTheme = Template.bind({});
-CheckedDefaultTheme.args = {
-	checked: true,
-};
+export const CheckedDefaultTheme: StoryFn<ChoiceCardProps> = (
+	args: ChoiceCardProps,
+) => <ChoiceCard {...args} checked={true} />;
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme = Template.bind({});
-ErrorDefaultTheme.args = {
-	error: true,
-};
+export const ErrorDefaultTheme: StoryFn<ChoiceCardProps> = (
+	args: ChoiceCardProps,
+) => <ChoiceCard {...args} error={true} />;
 
 // *****************************************************************************
 
-export const IconDefaultTheme = Template.bind({});
-IconDefaultTheme.args = {
-	label: 'Camera',
-	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
-	icon: 'JSX element',
-};
+export const IconDefaultTheme: StoryFn<ChoiceCardProps> = (
+	args: ChoiceCardProps,
+) => <ChoiceCard {...args} label="Camera" icon={<SvgCamera />} />;
+
+// *****************************************************************************
+
+export const NewOptionName: StoryFn<ChoiceCardProps> = (
+	args: ChoiceCardProps,
+) => <ChoiceCard {...args} label={'Option 2'} />;
