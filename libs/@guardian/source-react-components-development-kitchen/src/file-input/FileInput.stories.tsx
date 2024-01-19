@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { FileInput } from './FileInput';
 
 /**
@@ -11,7 +11,14 @@ import { FileInput } from './FileInput';
  * The following themes are supported: `light`.
  * */
 
-const fileInput = (): ReactElement => {
+const meta: Meta<typeof FileInput> = {
+	component: FileInput,
+	title: 'FileInput',
+};
+
+export default meta;
+
+export const FileInputDefault: StoryFn<typeof FileInput> = () => {
 	return (
 		<FileInput
 			id="file-input"
@@ -20,7 +27,8 @@ const fileInput = (): ReactElement => {
 		/>
 	);
 };
-const optionalFileInput = (): ReactElement => {
+
+export const OptionalFileInput: StoryFn<typeof FileInput> = () => {
 	return (
 		<FileInput
 			id="file-input"
@@ -31,7 +39,7 @@ const optionalFileInput = (): ReactElement => {
 	);
 };
 
-const fileInputWithError = (): ReactElement => {
+export const FileInputWithError: StoryFn<typeof FileInput> = () => {
 	return (
 		<FileInput
 			id="file-input"
@@ -42,7 +50,7 @@ const fileInputWithError = (): ReactElement => {
 	);
 };
 
-const fileTypeValidation = (): ReactElement => {
+export const FileTypeValidation: StoryFn<typeof FileInput> = () => {
 	return (
 		<FileInput
 			id="file-input"
@@ -53,7 +61,7 @@ const fileTypeValidation = (): ReactElement => {
 	);
 };
 
-const fileSizeValidation = (): ReactElement => {
+export const FileSizeValidation: StoryFn<typeof FileInput> = () => {
 	return (
 		<FileInput
 			id="file-input"
@@ -64,7 +72,7 @@ const fileSizeValidation = (): ReactElement => {
 	);
 };
 
-const fileInputSizes = (): ReactElement => {
+export const FileInputSizes: StoryFn<typeof FileInput> = () => {
 	return (
 		<>
 			There are three sizes of file input - Default, small and xsmall.
@@ -77,18 +85,4 @@ const fileInputSizes = (): ReactElement => {
 			/>
 		</>
 	);
-};
-
-export default {
-	component: fileInput,
-	title: 'FileInput',
-};
-
-export {
-	fileInput,
-	optionalFileInput,
-	fileInputWithError,
-	fileTypeValidation,
-	fileSizeValidation,
-	fileInputSizes,
 };
