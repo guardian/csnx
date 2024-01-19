@@ -1,9 +1,9 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { NumericInputProps } from './NumericInput';
 import { NumericInput } from './NumericInput';
 
-export default {
+const meta: Meta<typeof NumericInput> = {
 	title: 'NumericInput',
 	component: NumericInput,
 	args: {
@@ -35,7 +35,9 @@ export default {
 	},
 };
 
-const Template: Story<NumericInputProps> = (args: NumericInputProps) => {
+export default meta;
+
+const Template: StoryFn<typeof NumericInput> = (args: NumericInputProps) => {
 	const [state, setState] = useState('');
 	return (
 		<NumericInput
@@ -46,32 +48,40 @@ const Template: Story<NumericInputProps> = (args: NumericInputProps) => {
 	);
 };
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 
 // *****************************************************************************
 
-export const OptionalDefaultTheme = Template.bind({});
+export const OptionalDefaultTheme: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 OptionalDefaultTheme.args = {
 	optional: true,
 };
 
 // *****************************************************************************
 
-export const HideLabelDefaultTheme = Template.bind({});
+export const HideLabelDefaultTheme: StoryFn<typeof NumericInput> =
+	Template.bind({});
 HideLabelDefaultTheme.args = {
 	hideLabel: true,
 };
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme = Template.bind({});
+export const SupportingTextDefaultTheme: StoryFn<typeof NumericInput> =
+	Template.bind({});
 SupportingTextDefaultTheme.args = {
 	supporting: 'Must be between 6 and 8 digits long',
 };
 
 // *****************************************************************************
 
-export const Width30DefaultTheme = Template.bind({});
+export const Width30DefaultTheme: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 Width30DefaultTheme.args = {
 	width: 30,
 	label: 'Card number',
@@ -79,7 +89,9 @@ Width30DefaultTheme.args = {
 
 // *****************************************************************************
 
-export const Width10DefaultTheme = Template.bind({});
+export const Width10DefaultTheme: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 Width10DefaultTheme.args = {
 	width: 10,
 	label: 'Sort code',
@@ -87,7 +99,9 @@ Width10DefaultTheme.args = {
 
 // *****************************************************************************
 
-export const Width4DefaultTheme = Template.bind({});
+export const Width4DefaultTheme: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 Width4DefaultTheme.args = {
 	width: 4,
 	label: 'Year of birth',
@@ -95,34 +109,38 @@ Width4DefaultTheme.args = {
 
 // *****************************************************************************
 
-export const ErrorWithMessageDefaultTheme = Template.bind({});
+export const ErrorWithMessageDefaultTheme: StoryFn<typeof NumericInput> =
+	Template.bind({});
 ErrorWithMessageDefaultTheme.args = {
 	error: 'error',
 };
 
 // *****************************************************************************
 
-export const SuccessWithMessageDefaultTheme = Template.bind({});
+export const SuccessWithMessageDefaultTheme: StoryFn<typeof NumericInput> =
+	Template.bind({});
 SuccessWithMessageDefaultTheme.args = {
 	success: 'success',
 };
 
 // *****************************************************************************
-export const WithPrefix = Template.bind({});
+export const WithPrefix: StoryFn<typeof NumericInput> = Template.bind({});
 WithPrefix.args = {
 	prefixText: '£',
 	label: 'Contribution amount',
 };
 
 // *****************************************************************************
-export const WithSuffix = Template.bind({});
+export const WithSuffix: StoryFn<typeof NumericInput> = Template.bind({});
 WithSuffix.args = {
 	suffixText: 'kr.',
 	label: 'Contribution amount',
 };
 
 // *****************************************************************************
-export const WithPrefixAndSuffix = Template.bind({});
+export const WithPrefixAndSuffix: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 WithPrefixAndSuffix.args = {
 	prefixText: '£',
 	suffixText: 'per month',
@@ -131,7 +149,9 @@ WithPrefixAndSuffix.args = {
 };
 
 // *****************************************************************************
-export const WithPrefixAndError = Template.bind({});
+export const WithPrefixAndError: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 WithPrefixAndError.args = {
 	prefixText: '£',
 	label: 'Contribution amount',
@@ -139,7 +159,9 @@ WithPrefixAndError.args = {
 };
 
 // *****************************************************************************
-export const WithSuffixAndSuccess = Template.bind({});
+export const WithSuffixAndSuccess: StoryFn<typeof NumericInput> = Template.bind(
+	{},
+);
 WithSuffixAndSuccess.args = {
 	suffixText: 'kr.',
 	label: 'Contribution amount',
