@@ -15,6 +15,8 @@ import {
 	tickWithSupportingText,
 } from './styles';
 import { SupportingText } from './SupportingText';
+import { checkboxTheme as defaultTheme } from './theme';
+import type { CheckboxTheme } from './theme';
 
 export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -53,6 +55,10 @@ export interface CheckboxProps
 	 * @ignore passed down by the parent
 	 */
 	error?: boolean;
+	/**
+	 * A component level theme to override the colour palette of the choice card component
+	 */
+	theme?: Partial<CheckboxTheme>;
 }
 
 /**
@@ -75,6 +81,7 @@ export const Checkbox = ({
 	error,
 	indeterminate,
 	cssOverrides,
+	theme,
 	...props
 }: CheckboxProps): EmotionJSX.Element => {
 	const checkboxId = id ?? generateSourceId();
@@ -90,7 +97,29 @@ export const Checkbox = ({
 			el.indeterminate = !!indeterminate;
 		}
 	};
+	const transformOldProviderTheme = (
+		providerTheme: Theme['checkbox'],
+	): Partial<CheckboxTheme> => {
+		const transformedTheme: Partial<CheckboxTheme> = {};
 
+		if (providerTheme?.backgroundChecked) {
+			transformedTheme.backgroundSelected = providerTheme.backgroundChecked;
+		}
+		if (providerTheme?.borderChecked) {
+			transformedTheme.borderSelected = providerTheme.borderChecked;
+		}
+		if (providerTheme?.border) {
+			transformedTheme.borderUnselected = providerTheme.border;
+		}
+		return { ...transformedTheme, ...providerTheme };
+	};
+	const combineThemes = (providerTheme: Theme['checkbox']): CheckboxTheme => {
+		return {
+			...defaultTheme,
+			...transformOldProviderTheme(providerTheme),
+			...theme,
+		};
+	};
 	return (
 		<div
 			css={(theme: Theme) => [
@@ -101,9 +130,9 @@ export const Checkbox = ({
 			<input
 				id={checkboxId}
 				type="checkbox"
-				css={(theme: Theme) => [
-					checkbox(theme.checkbox, error),
-					error ? errorCheckbox(theme.checkbox) : '',
+				css={(providerTheme: Theme) => [
+					checkbox(combineThemes(providerTheme.checkbox), error),
+					error ? errorCheckbox(combineThemes(providerTheme.checkbox)) : '',
 					cssOverrides,
 				]}
 				aria-invalid={!!error}
@@ -113,9 +142,9 @@ export const Checkbox = ({
 				{...props}
 			/>
 			<span
-				css={(theme: Theme) => [
-					tick(theme.checkbox),
-					labelContent || supporting ? tickWithLabelText : '',
+				css={(providerTheme: Theme) => [
+					tick(combineThemes(providerTheme.checkbox)),
+					labelContent ?? supporting ? tickWithLabelText : '',
 					supporting ? tickWithSupportingText : '',
 				]}
 			/>

@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';
-import { checkboxThemeBrand } from './theme';
+import { checkboxBrandTheme } from './theme';
 
 const meta: Meta<typeof Checkbox> = {
 	title: 'Checkbox',
@@ -38,7 +38,9 @@ DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
@@ -58,10 +60,10 @@ SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Supporting text',
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
@@ -81,11 +83,11 @@ SupportingTextOnlyBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
 };
 SupportingTextOnlyBrandTheme.args = {
 	label: null,
 	supporting: 'Supporting text',
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
@@ -106,10 +108,10 @@ IndeterminateBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
 };
 IndeterminateBrandTheme.args = {
 	indeterminate: true,
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
