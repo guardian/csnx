@@ -77,7 +77,7 @@ export const checkbox = (
 	margin: 0 ${space[2]}px 0 0;
 
 	border: 1px solid currentColor;
-	background: ${checkbox.backgroundUnselected};
+	background: ${checkbox.background};
 	border-radius: 4px;
 	position: relative;
 	transition: box-shadow ${transitions.short};
