@@ -117,7 +117,7 @@ UnlabelledDefaultTheme.args = {
 export const CustomTheme: StoryFn<CheckboxProps> = Template.bind({});
 CustomTheme.args = {
 	theme: {
-		backgroundUnselected: palette.neutral[0],
+		background: palette.neutral[0],
 		backgroundTick: palette.lifestyle[500],
 		borderSelected: palette.lifestyle[500],
 		borderHover: palette.lifestyle[400],

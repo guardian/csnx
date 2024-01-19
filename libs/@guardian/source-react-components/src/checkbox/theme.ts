@@ -11,7 +11,7 @@ export type CheckboxTheme = {
 	borderSelected: string;
 	borderError: string;
 	backgroundTick: string;
-	backgroundUnselected: string;
+	background: string;
 	textLabel: string;
 	textLabelSupporting: string;
 	textIndeterminate: string;
@@ -54,7 +54,7 @@ export const checkboxTheme: CheckboxTheme = {
 	borderSelected: palette.brand[500],
 	borderError: palette.error[400],
 	backgroundTick: palette.brand[500],
-	backgroundUnselected: 'transparent',
+	background: 'transparent',
 	textLabel: palette.neutral[7],
 	textLabelSupporting: palette.neutral[46],
 	textIndeterminate: palette.neutral[46],
@@ -66,7 +66,7 @@ export const checkboxBrandTheme: CheckboxTheme = {
 	borderHover: palette.neutral[100],
 	borderError: palette.error[500],
 	backgroundTick: palette.neutral[100],
-	backgroundUnselected: 'transparent',
+	background: 'transparent',
 	textLabel: palette.neutral[100],
 	textLabelSupporting: palette.brand[800],
 	textIndeterminate: palette.brand[800],
