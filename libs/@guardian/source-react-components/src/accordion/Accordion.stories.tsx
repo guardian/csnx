@@ -32,7 +32,7 @@ export const WithCTALabelsDefaultTheme: StoryFn<typeof Accordion> =
 
 // *****************************************************************************
 
-export const WithoutCTALabelsDefaultTheme: StoryFn<AccordionProps> =
+export const WithoutCTALabelsDefaultTheme: StoryFn<typeof Accordion> =
 	Template.bind({});
 WithoutCTALabelsDefaultTheme.args = {
 	hideToggleLabel: true,
