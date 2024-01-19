@@ -1,4 +1,3 @@
-import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { CheckboxProps } from './Checkbox';
@@ -112,15 +111,4 @@ export const UnlabelledDefaultTheme: StoryFn = Template.bind({});
 UnlabelledDefaultTheme.args = {
 	label: null,
 	'aria-label': 'Checkbox',
-};
-
-export const CustomTheme: StoryFn<CheckboxProps> = Template.bind({});
-CustomTheme.args = {
-	theme: {
-		background: palette.neutral[0],
-		backgroundTick: palette.lifestyle[500],
-		borderSelected: palette.lifestyle[500],
-		borderHover: palette.lifestyle[400],
-		textLabel: palette.lifestyle[400],
-	},
 };

@@ -3,19 +3,18 @@ import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { LabelText } from './LabelText';
 import {
 	checkbox,
 	checkboxContainer,
 	checkboxContainerWithSupportingText,
 	errorCheckbox,
 	label,
-	labelText,
-	labelTextWithSupportingText,
-	supportingText,
 	tick,
 	tickWithLabelText,
 	tickWithSupportingText,
 } from './styles';
+import { SupportingText } from './SupportingText';
 import { checkboxTheme as defaultTheme } from './theme';
 import type { CheckboxTheme } from './theme';
 
@@ -104,7 +103,7 @@ export const Checkbox = ({
 		const transformedTheme: Partial<CheckboxTheme> = {};
 
 		if (providerTheme?.backgroundChecked) {
-			transformedTheme.backgroundTick = providerTheme.backgroundChecked;
+			transformedTheme.backgroundSelected = providerTheme.backgroundChecked;
 		}
 		if (providerTheme?.borderChecked) {
 			transformedTheme.borderSelected = providerTheme.borderChecked;
@@ -112,7 +111,6 @@ export const Checkbox = ({
 		if (providerTheme?.border) {
 			transformedTheme.borderUnselected = providerTheme.border;
 		}
-		console.log({ ...transformedTheme, ...providerTheme });
 		return { ...transformedTheme, ...providerTheme };
 	};
 	const combineThemes = (providerTheme: Theme['checkbox']): CheckboxTheme => {
@@ -122,46 +120,10 @@ export const Checkbox = ({
 			...theme,
 		};
 	};
-
-	const SupportingText = ({
-		children,
-	}: {
-		children: ReactNode;
-	}): EmotionJSX.Element => {
-		return (
-			<div
-				css={(providerTheme: Theme) =>
-					supportingText(combineThemes(providerTheme.checkbox))
-				}
-			>
-				{children}
-			</div>
-		);
-	};
-
-	const LabelText = ({
-		hasSupportingText,
-		children,
-	}: {
-		hasSupportingText?: boolean;
-		children: ReactNode;
-	}): EmotionJSX.Element => {
-		return (
-			<div
-				css={(providerTheme: Theme) => [
-					labelText(combineThemes(providerTheme.checkbox)),
-					hasSupportingText ? labelTextWithSupportingText : '',
-				]}
-			>
-				{children}
-			</div>
-		);
-	};
-
 	return (
 		<div
-			css={(providerTheme: Theme) => [
-				checkboxContainer(combineThemes(providerTheme.checkbox), error),
+			css={(theme: Theme) => [
+				checkboxContainer(theme.checkbox, error),
 				supporting ? checkboxContainerWithSupportingText : '',
 			]}
 		>
@@ -175,7 +137,7 @@ export const Checkbox = ({
 				]}
 				aria-invalid={!!error}
 				ref={setIndeterminate}
-				defaultChecked={defaultChecked ?? undefined}
+				defaultChecked={defaultChecked != null ? defaultChecked : undefined}
 				checked={checked != null ? isChecked() : undefined}
 				{...props}
 			/>

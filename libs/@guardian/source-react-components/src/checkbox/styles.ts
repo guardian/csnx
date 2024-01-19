@@ -10,7 +10,7 @@ import {
 	transitions,
 	width,
 } from '@guardian/source-foundations';
-import type { CheckboxTheme } from './theme';
+import { CheckboxTheme, checkboxThemeDefault } from './theme';
 
 export const fieldset = css`
 	${resets.fieldset};
@@ -20,7 +20,7 @@ export const fieldset = css`
 `;
 
 export const checkboxContainer = (
-	checkbox: CheckboxTheme,
+	checkbox = checkboxThemeDefault.checkbox,
 	error = false,
 ): SerializedStyles => css`
 	position: relative;
@@ -76,8 +76,8 @@ export const checkbox = (
 	height: ${height.inputXsmall}px;
 	margin: 0 ${space[2]}px 0 0;
 
-	border: 1px solid currentColor;
-	background: ${checkbox.background};
+	border: 1px solid ${checkbox.borderUnselected};
+	background: ${checkbox.backgroundUnselected};
 	border-radius: 4px;
 	position: relative;
 	transition: box-shadow ${transitions.short};
@@ -148,9 +148,9 @@ export const tick = (checkbox: CheckboxTheme): SerializedStyles => css`
 		height: 12px;
 		transform: rotate(45deg);
 		/*
-		these properties are very sensitive and are overridden
-		if the checkbox has a label or supporting text
-	*/
+			these properties are very sensitive and are overridden
+			if the checkbox has a label or supporting text
+		*/
 		top: 14px;
 		left: 9px;
 		/*
@@ -164,7 +164,7 @@ export const tick = (checkbox: CheckboxTheme): SerializedStyles => css`
 		&:before {
 			position: absolute;
 			display: block;
-			background-color: ${checkbox.backgroundTick};
+			background-color: ${checkbox.backgroundSelected};
 			transition: all ${transitions.short} ease-in-out;
 			content: '';
 		}
