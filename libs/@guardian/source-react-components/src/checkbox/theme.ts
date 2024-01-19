@@ -5,6 +5,19 @@ import {
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
 
+export type CheckboxTheme = {
+	borderUnselected: string;
+	borderHover: string;
+	borderSelected: string;
+	borderError: string;
+	backgroundSelected: string;
+	backgroundUnselected: string;
+	textLabel: string;
+	textLabelSupporting: string;
+	textIndeterminate: string;
+};
+/** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+
 export const checkboxThemeDefault = {
 	checkbox: {
 		border: palette.neutral[46],
@@ -19,7 +32,7 @@ export const checkboxThemeDefault = {
 	...userFeedbackThemeDefault,
 	...labelThemeDefault,
 };
-
+/** @deprecated Use `checkboxBrandTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeBrand = {
 	checkbox: {
 		border: palette.brand[800],
@@ -33,4 +46,28 @@ export const checkboxThemeBrand = {
 	},
 	...userFeedbackThemeBrand,
 	...labelThemeBrand,
+};
+
+export const checkboxTheme: CheckboxTheme = {
+	borderUnselected: palette.neutral[46],
+	borderHover: palette.brand[500],
+	borderSelected: palette.brand[500],
+	borderError: palette.error[400],
+	backgroundSelected: palette.brand[500],
+	backgroundUnselected: palette.brand[500],
+	textLabel: palette.neutral[7],
+	textLabelSupporting: palette.neutral[46],
+	textIndeterminate: palette.neutral[46],
+};
+
+export const checkboxBrandTheme: CheckboxTheme = {
+	borderUnselected: palette.brand[800],
+	borderSelected: palette.neutral[100],
+	borderHover: palette.neutral[100],
+	borderError: palette.error[500],
+	backgroundSelected: palette.neutral[100],
+	backgroundUnselected: palette.neutral[100],
+	textLabel: palette.neutral[100],
+	textLabelSupporting: palette.brand[800],
+	textIndeterminate: palette.brand[800],
 };

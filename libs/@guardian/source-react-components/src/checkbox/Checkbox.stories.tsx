@@ -1,10 +1,10 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';
-import { checkboxThemeBrand } from './theme';
+import { checkboxBrandTheme } from './theme';
 
-export default {
+const meta: Meta<typeof Checkbox> = {
 	title: 'Checkbox',
 	component: Checkbox,
 	argTypes: {},
@@ -15,7 +15,8 @@ export default {
 	},
 };
 
-const Template: Story<CheckboxProps> = (args: CheckboxProps) => {
+export default meta;
+const Template: StoryFn<CheckboxProps> = (args: CheckboxProps) => {
 	const [checked, setChecked] = useState(args.checked);
 
 	return (
@@ -27,41 +28,43 @@ const Template: Story<CheckboxProps> = (args: CheckboxProps) => {
 	);
 };
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn = Template.bind({});
 
 // *****************************************************************************
 
-export const DefaultBrandTheme = Template.bind({});
+export const DefaultBrandTheme: StoryFn = Template.bind({});
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme = Template.bind({});
+export const SupportingTextDefaultTheme: StoryFn = Template.bind({});
 SupportingTextDefaultTheme.args = {
 	supporting: 'Supporting text',
 };
 
 // *****************************************************************************
 
-export const SupportingTextBrandTheme = Template.bind({});
+export const SupportingTextBrandTheme: StoryFn = Template.bind({});
 SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Supporting text',
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
 
-export const SupportingTextOnlyDefaultTheme = Template.bind({});
+export const SupportingTextOnlyDefaultTheme: StoryFn = Template.bind({});
 SupportingTextOnlyDefaultTheme.args = {
 	label: null,
 	supporting: 'Supporting text',
@@ -69,21 +72,21 @@ SupportingTextOnlyDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingTextOnlyBrandTheme = Template.bind({});
+export const SupportingTextOnlyBrandTheme: StoryFn = Template.bind({});
 SupportingTextOnlyBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
 };
 SupportingTextOnlyBrandTheme.args = {
 	label: null,
 	supporting: 'Supporting text',
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
 
-export const IndeterminateDefaultTheme = Template.bind({});
+export const IndeterminateDefaultTheme: StoryFn = Template.bind({});
 IndeterminateDefaultTheme.args = {
 	checked: undefined,
 	indeterminate: true,
@@ -91,20 +94,20 @@ IndeterminateDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const IndeterminateBrandTheme = Template.bind({});
+export const IndeterminateBrandTheme: StoryFn = Template.bind({});
 IndeterminateBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
 };
 IndeterminateBrandTheme.args = {
 	indeterminate: true,
+	theme: checkboxBrandTheme,
 };
 
 // *****************************************************************************
 
-export const UnlabelledDefaultTheme = Template.bind({});
+export const UnlabelledDefaultTheme: StoryFn = Template.bind({});
 UnlabelledDefaultTheme.args = {
 	label: null,
 	'aria-label': 'Checkbox',
