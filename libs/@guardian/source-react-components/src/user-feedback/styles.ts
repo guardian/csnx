@@ -17,7 +17,7 @@ const inlineMessage = css`
 		a visual kick to vertically align the icon with the top row of text
 		and horizontally pull it to the beginning of the row
 		 */
-		transform: translate(-4px, -3px);
+		transform: translate(-4px, -4px);
 	}
 `;
 
