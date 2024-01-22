@@ -1,18 +1,19 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';
 import { AccordionRow } from './AccordionRow';
 
-export default {
+const meta: Meta<typeof Accordion> = {
 	title: 'Accordion',
 	component: Accordion,
-	subcomponents: { AccordionRow },
 	args: {
 		hideToggleLabel: false,
 	},
 };
 
-const Template: Story<AccordionProps> = (args: AccordionProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Accordion> = (args: AccordionProps) => (
 	<Accordion {...args}>
 		<AccordionRow label="Collecting from multiple newsagents">
 			Present your card to a newsagent each time you collect the paper. The
@@ -26,11 +27,13 @@ const Template: Story<AccordionProps> = (args: AccordionProps) => (
 	</Accordion>
 );
 
-export const WithCTALabelsDefaultTheme = Template.bind({});
+export const WithCTALabelsDefaultTheme: StoryFn<typeof Accordion> =
+	Template.bind({});
 
 // *****************************************************************************
 
-export const WithoutCTALabelsDefaultTheme = Template.bind({});
+export const WithoutCTALabelsDefaultTheme: StoryFn<typeof Accordion> =
+	Template.bind({});
 WithoutCTALabelsDefaultTheme.args = {
 	hideToggleLabel: true,
 };

@@ -1,8 +1,8 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Logo } from './Logo';
 
-export default {
+const meta: Meta<typeof Logo> = {
 	title: 'Logo',
 	component: Logo,
 	args: {
@@ -15,7 +15,9 @@ export default {
 	},
 };
 
-const TripleTemplate: Story = () => (
+export default meta;
+
+const TripleTemplate: StoryFn<typeof Logo> = () => (
 	<div>
 		<Logo logoType="standard" />
 		<br />
@@ -27,7 +29,7 @@ const TripleTemplate: Story = () => (
 
 // *****************************************************************************
 
-export const Desktop = TripleTemplate.bind({});
+export const Desktop: StoryFn<typeof Logo> = TripleTemplate.bind({});
 Desktop.parameters = {
 	viewport: {
 		defaultViewport: 'desktop',
@@ -39,7 +41,7 @@ Desktop.parameters = {
 
 // *****************************************************************************
 
-export const Tablet = TripleTemplate.bind({});
+export const Tablet: StoryFn<typeof Logo> = TripleTemplate.bind({});
 Tablet.parameters = {
 	viewport: {
 		defaultViewport: 'tablet',
@@ -51,7 +53,7 @@ Tablet.parameters = {
 
 // *****************************************************************************
 
-export const MobileMedium = TripleTemplate.bind({});
+export const MobileMedium: StoryFn<typeof Logo> = TripleTemplate.bind({});
 MobileMedium.parameters = {
 	viewport: {
 		defaultViewport: 'mobileMedium',
@@ -63,7 +65,7 @@ MobileMedium.parameters = {
 
 // *****************************************************************************
 
-export const Mobile = TripleTemplate.bind({});
+export const Mobile: StoryFn<typeof Logo> = TripleTemplate.bind({});
 Mobile.parameters = {
 	viewport: {
 		defaultViewport: 'mobile',

@@ -1,12 +1,11 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Option } from './Option';
 import type { SelectProps } from './Select';
 import { Select } from './Select';
 
-export default {
+const meta: Meta<typeof Select> = {
 	title: 'Select',
 	component: Select,
-	subcomponents: { Option },
 	argTypes: {
 		error: {
 			options: ['undefined', 'error'],
@@ -36,7 +35,9 @@ export default {
 	},
 };
 
-const Template: Story<SelectProps> = (args: SelectProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Select> = (args: SelectProps) => (
 	<Select {...args}>
 		<Option value="">Select a state</Option>
 		<Option value="al">Alabama</Option>
@@ -46,46 +47,52 @@ const Template: Story<SelectProps> = (args: SelectProps) => (
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof Select> = Template.bind({});
 
 // *****************************************************************************
 
-export const VisuallyHideLabelDefaultTheme = Template.bind({});
+export const VisuallyHideLabelDefaultTheme: StoryFn<typeof Select> =
+	Template.bind({});
 VisuallyHideLabelDefaultTheme.args = {
 	hideLabel: true,
 };
 
 // *****************************************************************************
 
-export const OptionalDefaultTheme = Template.bind({});
+export const OptionalDefaultTheme: StoryFn<typeof Select> = Template.bind({});
 OptionalDefaultTheme.args = {
 	optional: true,
 };
 
 // *****************************************************************************
 
-export const ErrorWithMessageDefaultTheme = Template.bind({});
+export const ErrorWithMessageDefaultTheme: StoryFn<typeof Select> =
+	Template.bind({});
 ErrorWithMessageDefaultTheme.args = {
 	error: 'error',
 };
 
 // *****************************************************************************
 
-export const SuccessWithMessageDefaultTheme = Template.bind({});
+export const SuccessWithMessageDefaultTheme: StoryFn<typeof Select> =
+	Template.bind({});
 SuccessWithMessageDefaultTheme.args = {
 	success: 'success',
 };
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme = Template.bind({});
+export const SupportingTextDefaultTheme: StoryFn<typeof Select> = Template.bind(
+	{},
+);
 SupportingTextDefaultTheme.args = {
 	supporting: 'Leave blank if you are not within the US',
 };
 
 // *****************************************************************************
 
-export const SupportingSuccessTextDefaultTheme = Template.bind({});
+export const SupportingSuccessTextDefaultTheme: StoryFn<typeof Select> =
+	Template.bind({});
 SupportingSuccessTextDefaultTheme.args = {
 	supporting: 'Leave blank if you are not within the US',
 
@@ -94,7 +101,8 @@ SupportingSuccessTextDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingErrorTextDefaultTheme = Template.bind({});
+export const SupportingErrorTextDefaultTheme: StoryFn<typeof Select> =
+	Template.bind({});
 SupportingErrorTextDefaultTheme.args = {
 	supporting: 'Leave blank if you are not within the US',
 	error:

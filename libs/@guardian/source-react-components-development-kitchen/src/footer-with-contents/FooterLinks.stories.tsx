@@ -1,8 +1,8 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { FooterLinksProps } from './FooterLinks';
 import { defaultGuardianLinks, FooterLinks } from './FooterLinks';
 
-export default {
+const meta: Meta<typeof FooterLinks> = {
 	title: 'FooterLinks',
 	component: FooterLinks,
 	parameters: {
@@ -10,17 +10,23 @@ export default {
 	},
 };
 
-const Template: Story<FooterLinksProps> = (args: FooterLinksProps) => (
+export default meta;
+
+const Template: StoryFn<typeof FooterLinks> = (args: FooterLinksProps) => (
 	<FooterLinks {...args} />
 );
 
 // *****************************************************************************
 
-export const DefaultFooterLinks = Template.bind({});
+export const DefaultFooterLinks: StoryFn<typeof FooterLinks> = Template.bind(
+	{},
+);
 
 // *****************************************************************************
 
-export const FooterLinksInColumns = Template.bind({});
+export const FooterLinksInColumns: StoryFn<typeof FooterLinks> = Template.bind(
+	{},
+);
 FooterLinksInColumns.args = {
 	links: [
 		...defaultGuardianLinks,
@@ -33,7 +39,8 @@ FooterLinksInColumns.args = {
 
 // *****************************************************************************
 
-export const FooterLinksWithFooterButton = Template.bind({});
+export const FooterLinksWithFooterButton: StoryFn<typeof FooterLinks> =
+	Template.bind({});
 FooterLinksWithFooterButton.args = {
 	links: [
 		...defaultGuardianLinks,
