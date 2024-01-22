@@ -78,8 +78,16 @@ describe.each([
 		expect(implementation.get('thisDoesNotExist')).toBeNull();
 	});
 
-	it(`does not return an expired item`, () => {
+	it(`does not return an expired item with ISO date string`, () => {
 		implementation.set('iAmExpired', 'data', new Date('1901-01-01'));
+		expect(implementation.get('iAmExpired')).toBeNull();
+
+		// check it's been deleted too
+		expect(native.getItem('iAmExpired')).toBeNull();
+	});
+
+	it(`does not return an expired item with numeric value (millis since epoch)`, () => {
+		implementation.set('iAmExpired', 'data', new Date('1901-01-01').getTime());
 		expect(implementation.get('iAmExpired')).toBeNull();
 
 		// check it's been deleted too
