@@ -124,17 +124,13 @@ const subdued = (
 	the button label is vertically centred visually.
 	TODO: find a more scalable solution to this (see https://css-tricks.com/how-to-tame-line-height-in-css/)
 */
-const fontSpacingVerticalOffset = css`
-	padding-bottom: 2px;
-`;
-
 const defaultSize = css`
 	${textSans.medium({ fontWeight: 'bold' })};
 	height: ${height.ctaMedium}px;
 	min-height: ${height.ctaMedium}px;
 	padding: 0 ${space[5]}px;
 	border-radius: ${height.ctaMedium}px;
-	${fontSpacingVerticalOffset};
+	padding-bottom: 2px;
 `;
 
 const smallSize = css`
@@ -143,16 +139,16 @@ const smallSize = css`
 	min-height: ${height.ctaSmall}px;
 	padding: 0 ${space[4]}px;
 	border-radius: ${height.ctaSmall}px;
-	${fontSpacingVerticalOffset};
+	padding-bottom: 2px;
 `;
 
 const xsmallSize = css`
-	${textSans.small({ fontWeight: 'bold' })};
+	${textSans.xsmall({ fontWeight: 'bold' })};
 	height: ${height.ctaXsmall}px;
 	min-height: ${height.ctaXsmall}px;
 	padding: 0 ${space[3]}px;
 	border-radius: ${height.ctaXsmall}px;
-	${fontSpacingVerticalOffset};
+	padding-bottom: 1px;
 `;
 
 const iconDefault = css`
