@@ -1,7 +1,5 @@
 import { css } from '@emotion/react';
-import type { Story } from '@storybook/react';
-// These types are the right types, but don't work with Storybook v6 which uses Emotion v10
-// import type { Args, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { SvgAlertPhone } from '../../vendor/icons/SvgAlertPhone';
 import { SvgAlertRound } from '../../vendor/icons/SvgAlertRound';
 import { SvgAlertTriangle } from '../../vendor/icons/SvgAlertTriangle';
@@ -257,18 +255,21 @@ const widePaymentIcons = {
 	SvgDirectDebitWide,
 };
 
-export default {
-	title: 'Icons',
-};
-
-// *****************************************************************************
-
 type IconChromaticStoryArgs = {
 	size: IconSize;
 	icons: Array<React.FunctionComponent<IconProps>>;
 	isAnnouncedByScreenReader: boolean;
 };
-const Template: Story<IconChromaticStoryArgs> = (
+
+const meta: Meta<IconChromaticStoryArgs> = {
+	title: 'Icons',
+};
+
+export default meta;
+
+// *****************************************************************************
+
+const Template: StoryFn<IconChromaticStoryArgs> = (
 	args: IconChromaticStoryArgs,
 ) => {
 	const icons = args.icons.map((Icon, index) => (
@@ -284,7 +285,8 @@ const Template: Story<IconChromaticStoryArgs> = (
 
 // *****************************************************************************
 
-export const XsmallIconsDefaultTheme = Template.bind({});
+export const XsmallIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
 XsmallIconsDefaultTheme.args = {
 	size: 'xsmall',
 	isAnnouncedByScreenReader: true,
@@ -293,7 +295,8 @@ XsmallIconsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const SmallIconsDefaultTheme = Template.bind({});
+export const SmallIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
 SmallIconsDefaultTheme.args = {
 	size: 'small',
 	isAnnouncedByScreenReader: true,
@@ -302,7 +305,8 @@ SmallIconsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const MediumIconsDefaultTheme = Template.bind({});
+export const MediumIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
 MediumIconsDefaultTheme.args = {
 	size: 'medium',
 	isAnnouncedByScreenReader: true,
@@ -311,7 +315,8 @@ MediumIconsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const MediumIconsBrandTheme = Template.bind({});
+export const MediumIconsBrandTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
 MediumIconsBrandTheme.args = {
 	size: 'medium',
 	isAnnouncedByScreenReader: true,
@@ -323,7 +328,7 @@ MediumIconsBrandTheme.parameters = {
 	},
 };
 MediumIconsBrandTheme.decorators = [
-	(Story: Story) => (
+	(Story: StoryFn) => (
 		<div
 			css={css`
 				svg {
@@ -338,7 +343,8 @@ MediumIconsBrandTheme.decorators = [
 
 // *****************************************************************************
 
-export const PaymentIconsDefaultTheme = Template.bind({});
+export const PaymentIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
 PaymentIconsDefaultTheme.args = {
 	size: 'medium',
 	isAnnouncedByScreenReader: true,
@@ -347,7 +353,8 @@ PaymentIconsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const WidePaymentIconsDefaultTheme = Template.bind({});
+export const WidePaymentIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
 WidePaymentIconsDefaultTheme.args = {
 	size: 'medium',
 	isAnnouncedByScreenReader: true,

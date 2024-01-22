@@ -1,8 +1,8 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { ErrorSummaryProps } from './ErrorSummary';
 import { ErrorSummary } from './ErrorSummary';
 
-export default {
+const meta: Meta<typeof ErrorSummary> = {
 	title: 'Error Summary',
 	component: ErrorSummary,
 	args: {
@@ -12,18 +12,22 @@ export default {
 	} as ErrorSummaryProps,
 };
 
-const Template: Story<ErrorSummaryProps> = (args: ErrorSummaryProps) => (
+export default meta;
+
+const Template: StoryFn<typeof ErrorSummary> = (args: ErrorSummaryProps) => (
 	<ErrorSummary {...args} />
 );
 
-export const ErrorOnly = Template.bind({});
+export const ErrorOnly: StoryFn<typeof ErrorSummary> = Template.bind({});
 ErrorOnly.args = {
 	message: 'This is an example with an error message only',
 };
 
 // *****************************************************************************
 
-export const ErrorOnlyAsReactNode = Template.bind({});
+export const ErrorOnlyAsReactNode: StoryFn<typeof ErrorSummary> = Template.bind(
+	{},
+);
 ErrorOnlyAsReactNode.args = {
 	message: (
 		<>
@@ -34,7 +38,7 @@ ErrorOnlyAsReactNode.args = {
 
 // *****************************************************************************
 
-export const WithContext = Template.bind({});
+export const WithContext: StoryFn<typeof ErrorSummary> = Template.bind({});
 WithContext.args = {
 	message: 'Here is an error',
 	context: 'This is some more information about this error message',
@@ -42,7 +46,8 @@ WithContext.args = {
 
 // *****************************************************************************
 
-export const WithContextAsReactNode = Template.bind({});
+export const WithContextAsReactNode: StoryFn<typeof ErrorSummary> =
+	Template.bind({});
 WithContextAsReactNode.args = {
 	message: 'Here is an error',
 	context: (
@@ -54,7 +59,7 @@ WithContextAsReactNode.args = {
 
 // *****************************************************************************
 
-export const WithReportLink = Template.bind({});
+export const WithReportLink: StoryFn<typeof ErrorSummary> = Template.bind({});
 WithReportLink.args = {
 	message: 'Here is an error',
 	context: 'This is some more information about this error message',

@@ -1,17 +1,19 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { TilesProps } from './Tiles';
 import { Tiles } from './Tiles';
 
-export default {
+const meta: Meta<typeof Tiles> = {
 	title: 'Tiles',
 	component: Tiles,
 	args: {
-		columns: '2',
+		columns: 2,
 	},
 };
 
-const Template: Story<TilesProps> = (args: TilesProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Tiles> = (args: TilesProps) => (
 	<Tiles {...args}>
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus nibh
@@ -43,35 +45,36 @@ const Template: Story<TilesProps> = (args: TilesProps) => (
 	</Tiles>
 );
 
-export const Columns2 = Template.bind({});
+export const Columns2: StoryFn<typeof Tiles> = Template.bind({});
 Columns2.args = {
 	columns: 2,
 };
 
 // *****************************************************************************
 
-export const Columns3 = Template.bind({});
+export const Columns3: StoryFn<typeof Tiles> = Template.bind({});
 Columns3.args = {
 	columns: 3,
 };
 
 // *****************************************************************************
 
-export const Columns4 = Template.bind({});
+export const Columns4: StoryFn<typeof Tiles> = Template.bind({});
 Columns4.args = {
 	columns: 4,
 };
 
 // *****************************************************************************
 
-export const Columns5 = Template.bind({});
+export const Columns5: StoryFn<typeof Tiles> = Template.bind({});
 Columns5.args = {
 	columns: 5,
 };
 
 // *****************************************************************************
 
-export const Columns5CollapseUntilTabletAtMobile = Template.bind({});
+export const Columns5CollapseUntilTabletAtMobile: StoryFn<typeof Tiles> =
+	Template.bind({});
 Columns5CollapseUntilTabletAtMobile.args = {
 	columns: 5,
 	collapseUntil: 'tablet',
@@ -85,7 +88,8 @@ Columns5CollapseUntilTabletAtMobile.parameters = {
 
 // *****************************************************************************
 
-export const Columns5CollapseUntilTabletAtTablet = Template.bind({});
+export const Columns5CollapseUntilTabletAtTablet: StoryFn<typeof Tiles> =
+	Template.bind({});
 Columns5CollapseUntilTabletAtTablet.args = {
 	columns: 5,
 	collapseUntil: 'tablet',

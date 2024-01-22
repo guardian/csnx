@@ -1,15 +1,17 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ToggleSwitchApps } from './ToggleSwitchApps';
 import type { ToggleSwitchAppsProps } from './ToggleSwitchApps';
 
-export default {
+const meta: Meta<typeof ToggleSwitchApps> = {
 	title: 'ToggleSwitchApps',
 	component: ToggleSwitchApps,
 	args: {},
 };
 
-const Template: Story<ToggleSwitchAppsProps> = (
+export default meta;
+
+const Template: StoryFn<typeof ToggleSwitchApps> = (
 	args: ToggleSwitchAppsProps,
 ) => {
 	const [checked, setChecked] = useState(args.checked);
@@ -24,21 +26,25 @@ const Template: Story<ToggleSwitchAppsProps> = (
 	);
 };
 
-export const AndroidNoLabel = Template.bind({});
+export const AndroidNoLabel: StoryFn<typeof ToggleSwitchApps> = Template.bind(
+	{},
+);
 AndroidNoLabel.args = {
 	platform: 'android',
 };
 
 // *****************************************************************************
 
-export const IosNoLabel = Template.bind({});
+export const IosNoLabel: StoryFn<typeof ToggleSwitchApps> = Template.bind({});
 IosNoLabel.args = {
 	platform: 'ios',
 };
 
 // *****************************************************************************
 
-export const AndroidWithLabel = Template.bind({});
+export const AndroidWithLabel: StoryFn<typeof ToggleSwitchApps> = Template.bind(
+	{},
+);
 AndroidWithLabel.args = {
 	label: 'Get alerts on this story',
 	platform: 'android',
@@ -46,7 +52,7 @@ AndroidWithLabel.args = {
 
 // *****************************************************************************
 
-export const IosWithLabel = Template.bind({});
+export const IosWithLabel: StoryFn<typeof ToggleSwitchApps> = Template.bind({});
 IosWithLabel.args = {
 	label: 'Get alerts on this story',
 	platform: 'ios',
@@ -54,7 +60,8 @@ IosWithLabel.args = {
 
 // *****************************************************************************
 
-export const AndroidWithLabelLeft = Template.bind({});
+export const AndroidWithLabelLeft: StoryFn<typeof ToggleSwitchApps> =
+	Template.bind({});
 AndroidWithLabelLeft.args = {
 	label: 'Get alerts on this story',
 	labelPosition: 'left',
@@ -63,7 +70,9 @@ AndroidWithLabelLeft.args = {
 
 // *****************************************************************************
 
-export const IosWithLabelLeft = Template.bind({});
+export const IosWithLabelLeft: StoryFn<typeof ToggleSwitchApps> = Template.bind(
+	{},
+);
 IosWithLabelLeft.args = {
 	label: 'Get alerts on this story',
 	labelPosition: 'left',

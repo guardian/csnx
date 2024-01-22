@@ -1,9 +1,9 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { FooterProps } from './Footer';
 import { Footer } from './Footer';
 
-export default {
+const meta: Meta<typeof Footer> = {
 	component: Footer,
 	title: 'Footer',
 	argTypes: {
@@ -28,12 +28,18 @@ export default {
 	},
 };
 
-const Template: Story = (args: FooterProps) => <Footer {...args} />;
+export default meta;
 
-export const DefaultDefaultTheme = Template.bind({});
+const Template: StoryFn<typeof Footer> = (args: FooterProps) => (
+	<Footer {...args} />
+);
+
+export const DefaultDefaultTheme: StoryFn<typeof Footer> = Template.bind({});
 DefaultDefaultTheme.args = { children: 'with' };
 
-export const DefaultTabletDefaultTheme = Template.bind({});
+export const DefaultTabletDefaultTheme: StoryFn<typeof Footer> = Template.bind(
+	{},
+);
 DefaultTabletDefaultTheme.args = { children: 'with' };
 DefaultTabletDefaultTheme.parameters = {
 	viewport: { defaultViewport: 'tablet' },
@@ -42,7 +48,9 @@ DefaultTabletDefaultTheme.parameters = {
 	},
 };
 
-export const DefaultMobileDefaultTheme = Template.bind({});
+export const DefaultMobileDefaultTheme: StoryFn<typeof Footer> = Template.bind(
+	{},
+);
 DefaultMobileDefaultTheme.args = { children: 'with' };
 DefaultMobileDefaultTheme.parameters = {
 	viewport: { defaultViewport: 'mobileMedium' },
@@ -51,10 +59,13 @@ DefaultMobileDefaultTheme.parameters = {
 	},
 };
 
-export const WithBackToTopDefaultTheme = Template.bind({});
+export const WithBackToTopDefaultTheme: StoryFn<typeof Footer> = Template.bind(
+	{},
+);
 WithBackToTopDefaultTheme.args = { showBackToTop: true, children: 'with' };
 
-export const WithBackToTopTabletDefaultTheme = Template.bind({});
+export const WithBackToTopTabletDefaultTheme: StoryFn<typeof Footer> =
+	Template.bind({});
 WithBackToTopTabletDefaultTheme.args = {
 	showBackToTop: true,
 	children: 'with',
@@ -66,7 +77,8 @@ WithBackToTopTabletDefaultTheme.parameters = {
 	},
 };
 
-export const WithBackToTopMobileDefaultTheme = Template.bind({});
+export const WithBackToTopMobileDefaultTheme: StoryFn<typeof Footer> =
+	Template.bind({});
 WithBackToTopMobileDefaultTheme.args = {
 	showBackToTop: true,
 	children: 'with',
@@ -78,10 +90,12 @@ WithBackToTopMobileDefaultTheme.parameters = {
 	},
 };
 
-export const WithoutChildrenDefaultTheme = Template.bind({});
+export const WithoutChildrenDefaultTheme: StoryFn<typeof Footer> =
+	Template.bind({});
 WithoutChildrenDefaultTheme.args = { children: 'without' };
 
-export const WithoutChildrenTabletDefaultTheme = Template.bind({});
+export const WithoutChildrenTabletDefaultTheme: StoryFn<typeof Footer> =
+	Template.bind({});
 WithoutChildrenTabletDefaultTheme.args = { children: 'without' };
 WithoutChildrenTabletDefaultTheme.parameters = {
 	viewport: { defaultViewport: 'tablet' },
@@ -90,7 +104,8 @@ WithoutChildrenTabletDefaultTheme.parameters = {
 	},
 };
 
-export const WithoutChildrenMobileDefaultTheme = Template.bind({});
+export const WithoutChildrenMobileDefaultTheme: StoryFn<typeof Footer> =
+	Template.bind({});
 WithoutChildrenMobileDefaultTheme.args = { children: 'without' };
 WithoutChildrenMobileDefaultTheme.parameters = {
 	viewport: { defaultViewport: 'mobileMedium' },
@@ -99,13 +114,16 @@ WithoutChildrenMobileDefaultTheme.parameters = {
 	},
 };
 
-export const WithoutChildrenWithBackToTopDefaultTheme = Template.bind({});
+export const WithoutChildrenWithBackToTopDefaultTheme: StoryFn<typeof Footer> =
+	Template.bind({});
 WithoutChildrenWithBackToTopDefaultTheme.args = {
 	showBackToTop: true,
 	children: 'without',
 };
 
-export const WithoutChildrenWithBackToTopTabletDefaultTheme = Template.bind({});
+export const WithoutChildrenWithBackToTopTabletDefaultTheme: StoryFn<
+	typeof Footer
+> = Template.bind({});
 WithoutChildrenWithBackToTopTabletDefaultTheme.args = {
 	showBackToTop: true,
 	children: 'without',
@@ -117,7 +135,9 @@ WithoutChildrenWithBackToTopTabletDefaultTheme.parameters = {
 	},
 };
 
-export const WithoutChildrenWithBackToTopMobileDefaultTheme = Template.bind({});
+export const WithoutChildrenWithBackToTopMobileDefaultTheme: StoryFn<
+	typeof Footer
+> = Template.bind({});
 WithoutChildrenWithBackToTopMobileDefaultTheme.args = {
 	showBackToTop: true,
 	children: 'without',

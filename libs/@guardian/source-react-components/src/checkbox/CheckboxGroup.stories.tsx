@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { Checkbox } from './Checkbox';
 import CheckboxStories from './Checkbox.stories';
@@ -6,10 +6,9 @@ import type { CheckboxGroupProps } from './CheckboxGroup';
 import { CheckboxGroup } from './CheckboxGroup';
 import { checkboxThemeBrand } from './theme';
 
-export default {
+const meta: Meta<typeof CheckboxGroup> = {
 	title: 'CheckboxGroup',
 	component: CheckboxGroup,
-	subcomponents: { Checkbox },
 	argTypes: {},
 	args: {
 		name: 'your-newsletters',
@@ -20,8 +19,10 @@ export default {
 	},
 };
 
-const Template: Story<CheckboxGroupProps> = (args: CheckboxGroupProps) => {
-	const [checked, setChecked] = useState(CheckboxStories.args.checked);
+export default meta;
+
+const Template: StoryFn<typeof CheckboxGroup> = (args: CheckboxGroupProps) => {
+	const [checked, setChecked] = useState(CheckboxStories.args?.checked);
 
 	return (
 		<CheckboxGroup {...args}>
@@ -34,11 +35,15 @@ const Template: Story<CheckboxGroupProps> = (args: CheckboxGroupProps) => {
 	);
 };
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof CheckboxGroup> = Template.bind(
+	{},
+);
 
 // *****************************************************************************
 
-export const DefaultBrandTheme = Template.bind({});
+export const DefaultBrandTheme: StoryFn<typeof CheckboxGroup> = Template.bind(
+	{},
+);
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -48,14 +53,16 @@ DefaultBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const VisuallyHideLegendDefaultTheme = Template.bind({});
+export const VisuallyHideLegendDefaultTheme: StoryFn<typeof CheckboxGroup> =
+	Template.bind({});
 VisuallyHideLegendDefaultTheme.args = {
 	hideLabel: true,
 };
 
 // *****************************************************************************
 
-export const VisuallyHideLegendBrandTheme = Template.bind({});
+export const VisuallyHideLegendBrandTheme: StoryFn<typeof CheckboxGroup> =
+	Template.bind({});
 VisuallyHideLegendBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -68,21 +75,24 @@ VisuallyHideLegendBrandTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme = Template.bind({});
+export const SupportingTextDefaultTheme: StoryFn<typeof CheckboxGroup> =
+	Template.bind({});
 SupportingTextDefaultTheme.args = {
 	supporting: 'Pick the issues and topics that interest you',
 };
 
 // *****************************************************************************
 
-export const OptionalDefaultTheme = Template.bind({});
+export const OptionalDefaultTheme: StoryFn<typeof CheckboxGroup> =
+	Template.bind({});
 OptionalDefaultTheme.args = {
 	optional: true,
 };
 
 // *****************************************************************************
 
-export const SupportingTextBrandTheme = Template.bind({});
+export const SupportingTextBrandTheme: StoryFn<typeof CheckboxGroup> =
+	Template.bind({});
 SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -95,14 +105,16 @@ SupportingTextBrandTheme.args = {
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme = Template.bind({});
+export const ErrorDefaultTheme: StoryFn<typeof CheckboxGroup> = Template.bind(
+	{},
+);
 ErrorDefaultTheme.args = {
 	error: 'This newsletter is not available in your region',
 };
 
 // *****************************************************************************
 
-export const ErrorBrandTheme = Template.bind({});
+export const ErrorBrandTheme: StoryFn<typeof CheckboxGroup> = Template.bind({});
 ErrorBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',

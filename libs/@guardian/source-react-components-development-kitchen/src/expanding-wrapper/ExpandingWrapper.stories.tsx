@@ -1,6 +1,6 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import { css } from '@emotion/react';
 import { palette } from '@guardian/source-foundations';
-import type { ReactElement } from 'react';
 import { ExpandingWrapper } from './ExpandingWrapper';
 import { expandingWrapperDarkTheme } from './theme';
 
@@ -14,6 +14,13 @@ import { expandingWrapperDarkTheme } from './theme';
  *
  * The following themes are supported: `light`.
  * */
+
+const meta: Meta<typeof ExpandingWrapper> = {
+	component: ExpandingWrapper,
+	title: 'ExpandingWrapper',
+};
+
+export default meta;
 
 const loremStyles = css`
 	padding: 0 10px;
@@ -113,64 +120,51 @@ const renderUpdatedText = () => (
 	</span>
 );
 
-const expandingWrapper = (): ReactElement => {
-	return (
-		<>
-			<ExpandingWrapper renderExtra={renderUpdatedText} name="Lorem Ipsum Text">
-				{Lorem}
-			</ExpandingWrapper>
-			<button>Click me!</button>
-		</>
-	);
-};
+export const ExpandingWrapperDefault: StoryFn<typeof ExpandingWrapper> = () => (
+	<>
+		<ExpandingWrapper renderExtra={renderUpdatedText} name="Lorem Ipsum Text">
+			{Lorem}
+		</ExpandingWrapper>
+		<button>Click me!</button>
+	</>
+);
 
-const expandingWrapperWithDarkTheme = (): ReactElement => {
-	return (
-		<>
-			<ExpandingWrapper
-				name="Lorem Ipsum Text Dark"
-				theme={expandingWrapperDarkTheme}
-			>
-				{Lorem}
-			</ExpandingWrapper>
-			<button>Click me!</button>
-		</>
-	);
-};
+export const ExpandingWrapperWithDarkTheme: StoryFn<
+	typeof ExpandingWrapper
+> = () => (
+	<>
+		<ExpandingWrapper
+			name="Lorem Ipsum Text Dark"
+			theme={expandingWrapperDarkTheme}
+		>
+			{Lorem}
+		</ExpandingWrapper>
+		<button>Click me!</button>
+	</>
+);
 
-const expandingWrapperWithCustomTheme = (): ReactElement => {
-	return (
-		<>
-			<ExpandingWrapper
-				name="Lorem Ipsum With Theme"
-				theme={{
-					'--text': palette.neutral[97],
-					'--background': palette.brand[400],
-					'--border': palette.brand[400],
-					'--collapseBackground': palette.brand[300],
-					'--collapseBackgroundHover': palette.brand[100],
-					'--collapseText': palette.brand[800],
-					'--collapseTextHover': palette.brand[800],
-					'--expandBackground': palette.brand[800],
-					'--expandBackgroundHover': palette.brand[800],
-					'--expandText': palette.brand[100],
-					'--horizontalRules': palette.brand[600],
-				}}
-			>
-				{Lorem}
-			</ExpandingWrapper>
-			<button>Click me!</button>
-		</>
-	);
-};
-
-export default {
-	component: expandingWrapper,
-	title: 'ExpandingWrapper',
-};
-
-export {
-	expandingWrapper,
-	expandingWrapperWithDarkTheme,
-	expandingWrapperWithCustomTheme,
-};
+export const ExpandingWrapperWithCustomTheme: StoryFn<
+	typeof ExpandingWrapper
+> = () => (
+	<>
+		<ExpandingWrapper
+			name="Lorem Ipsum With Theme"
+			theme={{
+				'--text': palette.neutral[97],
+				'--background': palette.brand[400],
+				'--border': palette.brand[400],
+				'--collapseBackground': palette.brand[300],
+				'--collapseBackgroundHover': palette.brand[100],
+				'--collapseText': palette.brand[800],
+				'--collapseTextHover': palette.brand[800],
+				'--expandBackground': palette.brand[800],
+				'--expandBackgroundHover': palette.brand[800],
+				'--expandText': palette.brand[100],
+				'--horizontalRules': palette.brand[600],
+			}}
+		>
+			{Lorem}
+		</ExpandingWrapper>
+		<button>Click me!</button>
+	</>
+);

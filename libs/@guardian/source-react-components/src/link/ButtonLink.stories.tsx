@@ -1,9 +1,9 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../../vendor/icons/SvgExternal';
 import type { ButtonLinkProps } from './ButtonLink';
 import { ButtonLink } from './ButtonLink';
 
-export default {
+const meta: Meta<typeof ButtonLink> = {
 	title: 'ButtonLink',
 	component: ButtonLink,
 	args: {
@@ -23,37 +23,44 @@ export default {
 	},
 };
 
-const Template: Story = (args: ButtonLinkProps) => (
+export default meta;
+
+const Template: StoryFn<typeof ButtonLink> = (args: ButtonLinkProps) => (
 	<ButtonLink {...args}>Return to home page</ButtonLink>
 );
 
-export const PrimaryButtonLinkDefaultTheme = Template.bind({});
+export const PrimaryButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
 PrimaryButtonLinkDefaultTheme.args = {
-	icon: 'undefined',
+	icon: undefined,
 };
 
 // *****************************************************************************
 
-export const SecondaryButtonLinkDefaultTheme = Template.bind({});
+export const SecondaryButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
 SecondaryButtonLinkDefaultTheme.args = {
 	priority: 'secondary',
-	icon: 'undefined',
+	icon: undefined,
 };
 
 // *****************************************************************************
 
-export const PrimaryIconButtonLinkDefaultTheme = Template.bind({});
+export const PrimaryIconButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
 
 // *****************************************************************************
 
-export const SecondaryIconButtonLinkDefaultTheme = Template.bind({});
+export const SecondaryIconButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
 SecondaryIconButtonLinkDefaultTheme.args = {
 	priority: 'secondary',
 };
 
 // *****************************************************************************
 
-export const RightIconButtonLinkDefaultTheme = Template.bind({});
+export const RightIconButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
 RightIconButtonLinkDefaultTheme.args = {
 	iconSide: 'right',
 };
