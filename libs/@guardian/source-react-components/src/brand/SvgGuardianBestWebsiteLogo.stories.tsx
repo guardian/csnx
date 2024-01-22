@@ -18,5 +18,5 @@ const Template: StoryFn<typeof SvgGuardianBestWebsiteLogo> = (
 	args: SvgGuardianBestWebsiteLogoProps,
 ) => <SvgGuardianBestWebsiteLogo {...args} />;
 
-export const DefaultStoryFn: StoryFn<typeof SvgGuardianBestWebsiteLogo> =
+export const Default: StoryFn<typeof SvgGuardianBestWebsiteLogo> =
 	Template.bind({});
