@@ -37,7 +37,7 @@ class StorageFactory {
 
 			// is this item has passed its sell-by-date, remove it
 			if (
-				(isString(expires) || typeof expires == 'number') &&
+				(isString(expires) || typeof expires === 'number') &&
 				new Date() > new Date(expires)
 			) {
 				this.remove(key);
