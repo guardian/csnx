@@ -1,9 +1,8 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { HTMLAttributes } from 'react';
 import { Container } from '../container/Container';
 import { Column } from './Column';
-import type { ColumnsProps } from './Columns';
 import { Columns } from './Columns';
 
 const style = { backgroundColor: 'rgba(255, 0, 0, 0.25)' };
@@ -11,13 +10,14 @@ const Code = (args: HTMLAttributes<HTMLElement>) => (
 	<code style={{ whiteSpace: 'nowrap' }} {...args} />
 );
 
-export default {
+const meta: Meta<typeof Column> = {
 	title: 'Columns',
 	component: Columns,
-	subcomponents: { Column },
 };
 
-const Template: Story<ColumnsProps> = (args) => (
+export default meta;
+
+const Template: StoryFn<typeof Columns> = (args) => (
 	<Columns {...args} style={style}>
 		<Column style={style}>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus nibh
@@ -49,7 +49,7 @@ const Template: Story<ColumnsProps> = (args) => (
 	</Columns>
 );
 
-export const Default = Template.bind({});
+export const Default: StoryFn<typeof Columns> = Template.bind({});
 Default.parameters = {
 	viewport: { defaultViewport: 'tablet' },
 	chromatic: {
@@ -61,7 +61,8 @@ Default.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithNoSpacing = Template.bind({});
+export const CollapseUntilTabletWithNoSpacing: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithNoSpacing.args = {
 	collapseUntil: 'tablet',
 };
@@ -76,7 +77,8 @@ CollapseUntilTabletWithNoSpacing.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace1 = Template.bind({});
+export const CollapseUntilTabletWithSpace1: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace1.args = {
 	collapseUntil: 'tablet',
 	spaceY: 1,
@@ -92,7 +94,8 @@ CollapseUntilTabletWithSpace1.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace2 = Template.bind({});
+export const CollapseUntilTabletWithSpace2: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace2.args = {
 	collapseUntil: 'tablet',
 	spaceY: 2,
@@ -108,7 +111,8 @@ CollapseUntilTabletWithSpace2.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace3 = Template.bind({});
+export const CollapseUntilTabletWithSpace3: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace3.args = {
 	collapseUntil: 'tablet',
 	spaceY: 3,
@@ -124,7 +128,8 @@ CollapseUntilTabletWithSpace3.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace4 = Template.bind({});
+export const CollapseUntilTabletWithSpace4: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace4.args = {
 	collapseUntil: 'tablet',
 	spaceY: 4,
@@ -140,7 +145,8 @@ CollapseUntilTabletWithSpace4.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace5 = Template.bind({});
+export const CollapseUntilTabletWithSpace5: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace5.args = {
 	collapseUntil: 'tablet',
 	spaceY: 5,
@@ -156,7 +162,8 @@ CollapseUntilTabletWithSpace5.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace6 = Template.bind({});
+export const CollapseUntilTabletWithSpace6: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace6.args = {
 	collapseUntil: 'tablet',
 	spaceY: 6,
@@ -172,7 +179,8 @@ CollapseUntilTabletWithSpace6.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace9 = Template.bind({});
+export const CollapseUntilTabletWithSpace9: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace9.args = {
 	collapseUntil: 'tablet',
 	spaceY: 9,
@@ -188,7 +196,8 @@ CollapseUntilTabletWithSpace9.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace12 = Template.bind({});
+export const CollapseUntilTabletWithSpace12: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace12.args = {
 	collapseUntil: 'tablet',
 	spaceY: 12,
@@ -204,7 +213,8 @@ CollapseUntilTabletWithSpace12.parameters = {
 
 // *****************************************************************************
 
-export const CollapseUntilTabletWithSpace24 = Template.bind({});
+export const CollapseUntilTabletWithSpace24: StoryFn<typeof Columns> =
+	Template.bind({});
 CollapseUntilTabletWithSpace24.args = {
 	collapseUntil: 'tablet',
 	spaceY: 24,
@@ -220,7 +230,7 @@ CollapseUntilTabletWithSpace24.parameters = {
 
 // *****************************************************************************
 
-export const WithContainer: Story<ColumnsProps> = (args, ctx) => (
+export const WithContainer: StoryFn<typeof Columns> = (args, ctx) => (
 	<Container style={style}>{Template(args, ctx)}</Container>
 );
 WithContainer.parameters = {
@@ -229,7 +239,7 @@ WithContainer.parameters = {
 
 // *****************************************************************************
 
-export const ResponsiveAtPhablet: Story<ColumnsProps> = (args) => (
+export const ResponsiveAtPhablet: StoryFn<typeof Columns> = (args) => (
 	<Container style={style}>
 		<Columns {...args}>
 			<Column width={[1 / 2, 1 / 4]} style={style}>
@@ -254,7 +264,7 @@ ResponsiveAtPhablet.parameters = {
 
 // *****************************************************************************
 
-export const ResponsiveAtTablet: Story<ColumnsProps> = (args) => (
+export const ResponsiveAtTablet: StoryFn<typeof Columns> = (args) => (
 	<Container style={style}>
 		<Columns {...args}>
 			<Column width={[1 / 2, 1 / 4]} style={style}>
@@ -278,7 +288,7 @@ ResponsiveAtTablet.parameters = {
 
 // *****************************************************************************
 
-export const ResponsiveHideAtTablet: Story<ColumnsProps> = (args) => (
+export const ResponsiveHideAtTablet: StoryFn<typeof Columns> = (args) => (
 	<Container style={style}>
 		<Columns {...args}>
 			<Column width={[0, 1 / 4]} style={style}>
@@ -302,7 +312,7 @@ ResponsiveHideAtTablet.parameters = {
 
 // *****************************************************************************
 
-export const ResponsiveHideAtMobile: Story<ColumnsProps> = (args) => (
+export const ResponsiveHideAtMobile: StoryFn<typeof Columns> = (args) => (
 	<Container style={style}>
 		<Columns {...args}>
 			<Column width={[0, 1 / 4]} style={style}>
@@ -326,7 +336,7 @@ ResponsiveHideAtMobile.parameters = {
 
 // *****************************************************************************
 
-export const WithSpan: Story<ColumnsProps> = () => (
+export const WithSpan: StoryFn<typeof Columns> = () => (
 	<>
 		<p>
 			Elements with a <Code>{'span'}</Code> prop will scale at our{' '}
@@ -423,7 +433,7 @@ WithSpan.parameters = {
 
 // *****************************************************************************
 
-export const WithWidth: Story<ColumnsProps> = () => (
+export const WithWidth: StoryFn<typeof Columns> = () => (
 	<>
 		<Container style={style}>
 			<Columns>

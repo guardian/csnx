@@ -1,8 +1,8 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { SuccessSummaryProps } from './SuccessSummary';
 import { SuccessSummary } from './SuccessSummary';
 
-export default {
+const meta: Meta<typeof SuccessSummary> = {
 	title: 'Success Summary',
 	component: SuccessSummary,
 	args: {
@@ -11,16 +11,19 @@ export default {
 	},
 };
 
-const Template: Story<SuccessSummaryProps> = (args: SuccessSummaryProps) => (
-	<SuccessSummary {...args} />
-);
+export default meta;
 
-export const SuccessOnly = Template.bind({});
+const Template: StoryFn<typeof SuccessSummary> = (
+	args: SuccessSummaryProps,
+) => <SuccessSummary {...args} />;
+
+export const SuccessOnly: StoryFn<typeof SuccessSummary> = Template.bind({});
 SuccessOnly.args = {
 	message: 'This is an example with a success message only',
 };
 
-export const SuccessOnlyAsReactNode = Template.bind({});
+export const SuccessOnlyAsReactNode: StoryFn<typeof SuccessSummary> =
+	Template.bind({});
 SuccessOnlyAsReactNode.args = {
 	message: (
 		<>
@@ -31,7 +34,7 @@ SuccessOnlyAsReactNode.args = {
 
 // *****************************************************************************
 
-export const WithContext = Template.bind({});
+export const WithContext: StoryFn<typeof SuccessSummary> = Template.bind({});
 WithContext.args = {
 	message: 'It was successful',
 	context: 'This is some more information about this success message',
@@ -39,7 +42,8 @@ WithContext.args = {
 
 // *****************************************************************************
 
-export const WithContextAsReactNode = Template.bind({});
+export const WithContextAsReactNode: StoryFn<typeof SuccessSummary> =
+	Template.bind({});
 WithContextAsReactNode.args = {
 	message: 'It was successful',
 	context: (

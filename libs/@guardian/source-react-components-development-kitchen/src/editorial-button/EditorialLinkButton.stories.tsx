@@ -6,7 +6,7 @@ import {
 	ArticleSpecial,
 } from '@guardian/libs';
 import { SvgCross } from '@guardian/source-react-components';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { EditorialLinkButton } from './EditorialLinkButton';
 import type { EditorialLinkButtonProps } from './EditorialLinkButton';
 
@@ -15,7 +15,7 @@ const defaultFormat = {
 	design: ArticleDesign.Standard,
 };
 
-export default {
+const meta: Meta<typeof EditorialLinkButton> = {
 	title: 'EditorialLinkButton',
 	component: EditorialLinkButton,
 	argTypes: {
@@ -55,14 +55,18 @@ export default {
 	args: {
 		size: 'default',
 		hideLabel: false,
-		icon: 'undefined',
+		icon: undefined,
 		priority: 'primary',
 		iconSide: 'left',
 		nudgeIcon: false,
 	},
 };
 
-const Template: Story = (args: EditorialLinkButtonProps) => {
+export default meta;
+
+const Template: StoryFn<typeof EditorialLinkButton> = (
+	args: EditorialLinkButtonProps,
+) => {
 	// Providing any value for cssOverrides, even undefined, overrides the custom styles
 	// for the editorial button so only pass through if it's defined
 	const { cssOverrides, ...rest } = args;
@@ -87,7 +91,7 @@ const pillars = [
 	ArticleSpecial.Labs,
 ];
 
-const RowTemplate: Story<EditorialLinkButtonProps> = (
+const RowTemplate: StoryFn<typeof EditorialLinkButton> = (
 	args: Partial<EditorialLinkButtonProps>,
 ) => (
 	<div
@@ -108,7 +112,8 @@ const RowTemplate: Story<EditorialLinkButtonProps> = (
 	</div>
 );
 
-export const WhenPrimary = RowTemplate.bind({});
+export const WhenPrimary: StoryFn<typeof EditorialLinkButton> =
+	RowTemplate.bind({});
 WhenPrimary.args = {
 	priority: 'primary',
 	size: 'small',
@@ -116,7 +121,8 @@ WhenPrimary.args = {
 
 // *****************************************************************************
 
-export const WhenSecondary = RowTemplate.bind({});
+export const WhenSecondary: StoryFn<typeof EditorialLinkButton> =
+	RowTemplate.bind({});
 WhenSecondary.args = {
 	priority: 'secondary',
 	size: 'small',
@@ -124,7 +130,8 @@ WhenSecondary.args = {
 
 // *****************************************************************************
 
-export const WhenTertiary = RowTemplate.bind({});
+export const WhenTertiary: StoryFn<typeof EditorialLinkButton> =
+	RowTemplate.bind({});
 WhenTertiary.args = {
 	priority: 'tertiary',
 	size: 'small',
@@ -132,7 +139,8 @@ WhenTertiary.args = {
 
 // *****************************************************************************
 
-export const WhenSubdued = RowTemplate.bind({});
+export const WhenSubdued: StoryFn<typeof EditorialLinkButton> =
+	RowTemplate.bind({});
 WhenSubdued.args = {
 	priority: 'subdued',
 	size: 'small',
@@ -140,7 +148,9 @@ WhenSubdued.args = {
 
 // *****************************************************************************
 
-export const WithOverrides = Template.bind({});
+export const WithOverrides: StoryFn<typeof EditorialLinkButton> = Template.bind(
+	{},
+);
 WithOverrides.args = {
 	cssOverrides: css`
 		background-color: pink;
@@ -149,5 +159,7 @@ WithOverrides.args = {
 
 // *****************************************************************************
 
-export const WithDefaults = Template.bind({});
+export const WithDefaults: StoryFn<typeof EditorialLinkButton> = Template.bind(
+	{},
+);
 WithDefaults.args = {};
