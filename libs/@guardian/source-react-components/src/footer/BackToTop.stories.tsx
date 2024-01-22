@@ -1,11 +1,13 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { BackToTop } from './BackToTop';
 
-export default {
-	component: BackToTop,
+const meta: Meta<typeof BackToTop> = {
+	component: () => BackToTop,
 	title: 'BackToTop',
 };
 
-const Template: Story = () => BackToTop;
+export default meta;
 
-export const Default = Template.bind({});
+const Template: StoryFn<typeof BackToTop> = () => BackToTop;
+
+export const Default: StoryFn<typeof BackToTop> = Template.bind({});

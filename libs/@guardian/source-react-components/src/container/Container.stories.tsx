@@ -1,8 +1,8 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { ContainerProps } from './Container';
 import { Container } from './Container';
 
-export default {
+const meta: Meta<typeof Container> = {
 	title: 'Container',
 	component: Container,
 	argTypes: {
@@ -18,7 +18,9 @@ export default {
 	},
 };
 
-const Template: Story = (args: ContainerProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Container> = (args: ContainerProps) => (
 	<Container {...args}>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliud igitur esse
 		censet gaudere, aliud non dolere. Quid turpius quam sapientis vitam ex
@@ -28,25 +30,25 @@ const Template: Story = (args: ContainerProps) => (
 	</Container>
 );
 
-export const Default = Template.bind({});
+export const Default: StoryFn<typeof Container> = Template.bind({});
 
 // *****************************************************************************
 
-export const WithSideBorders = Template.bind({});
+export const WithSideBorders: StoryFn<typeof Container> = Template.bind({});
 WithSideBorders.args = {
 	sideBorders: true,
 };
 
 // *****************************************************************************
 
-export const WithTopBorder = Template.bind({});
+export const WithTopBorder: StoryFn<typeof Container> = Template.bind({});
 WithTopBorder.args = {
 	topBorder: true,
 };
 
 // *****************************************************************************
 
-export const WithBorderColour = Template.bind({});
+export const WithBorderColour: StoryFn<typeof Container> = Template.bind({});
 WithBorderColour.args = {
 	sideBorders: true,
 	topBorder: true,
@@ -55,14 +57,16 @@ WithBorderColour.args = {
 
 // *****************************************************************************
 
-export const WithBackgroundColour = Template.bind({});
+export const WithBackgroundColour: StoryFn<typeof Container> = Template.bind(
+	{},
+);
 WithBackgroundColour.args = {
 	backgroundColor: 'red',
 };
 
 // *****************************************************************************
 
-export const WithAsideElement = Template.bind({});
+export const WithAsideElement: StoryFn<typeof Container> = Template.bind({});
 WithAsideElement.args = {
 	element: 'aside',
 };

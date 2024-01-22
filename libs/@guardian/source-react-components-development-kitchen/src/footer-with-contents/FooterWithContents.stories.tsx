@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import {
 	DefaultFooterLinks,
 	FooterLinksInColumns,
@@ -6,7 +6,7 @@ import {
 import type { FooterWithContentsProps } from './FooterWithContents';
 import { FooterWithContents } from './FooterWithContents';
 
-export default {
+const meta: Meta<typeof FooterWithContents> = {
 	title: 'FooterWithContents',
 	component: FooterWithContents,
 	parameters: {
@@ -14,20 +14,24 @@ export default {
 	},
 };
 
-const Template: Story<FooterWithContentsProps> = (
+export default meta;
+
+const Template: StoryFn<typeof FooterWithContents> = (
 	args: FooterWithContentsProps,
 ) => <FooterWithContents {...args} />;
 
 // *****************************************************************************
 
-export const DefaultFooterWithContents = Template.bind({});
+export const DefaultFooterWithContents: StoryFn<typeof FooterWithContents> =
+	Template.bind({});
 DefaultFooterWithContents.args = {
 	children: <DefaultFooterLinks />,
 };
 
 // *****************************************************************************
 
-export const FooterWithColumnLinks = Template.bind({});
+export const FooterWithColumnLinks: StoryFn<typeof FooterWithContents> =
+	Template.bind({});
 FooterWithColumnLinks.args = {
 	children: <FooterLinksInColumns {...FooterLinksInColumns.args} />,
 };

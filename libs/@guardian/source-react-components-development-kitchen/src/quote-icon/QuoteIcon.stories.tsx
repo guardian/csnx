@@ -4,7 +4,7 @@ import {
 	ArticlePillar,
 	ArticleSpecial,
 } from '@guardian/libs';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { QuoteIconProps } from './QuoteIcon';
 import { QuoteIcon } from './QuoteIcon';
 
@@ -13,7 +13,7 @@ const defaultFormat = {
 	design: ArticleDesign.Standard,
 };
 
-export default {
+const meta: Meta<typeof QuoteIcon> = {
 	title: 'QuoteIcon',
 	component: QuoteIcon,
 	argTypes: {
@@ -44,7 +44,9 @@ export default {
 	},
 };
 
-const Template: Story<QuoteIconProps> = (args: QuoteIconProps) => (
+export default meta;
+
+const Template: StoryFn<typeof QuoteIcon> = (args: QuoteIconProps) => (
 	<div>
 		<QuoteIcon {...args} />
 		<span>I look like a buffoon. I feel incredible. And then I vomit</span>
@@ -53,7 +55,7 @@ const Template: Story<QuoteIconProps> = (args: QuoteIconProps) => (
 
 // *****************************************************************************
 
-export const News = Template.bind({});
+export const News: StoryFn<typeof QuoteIcon> = Template.bind({});
 News.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
@@ -62,7 +64,7 @@ News.args = {
 
 // *****************************************************************************
 
-export const Sport = Template.bind({});
+export const Sport: StoryFn<typeof QuoteIcon> = Template.bind({});
 Sport.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Sport
@@ -71,7 +73,7 @@ Sport.args = {
 
 // *****************************************************************************
 
-export const Culture = Template.bind({});
+export const Culture: StoryFn<typeof QuoteIcon> = Template.bind({});
 Culture.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Culture
@@ -80,7 +82,7 @@ Culture.args = {
 
 // *****************************************************************************
 
-export const Lifestyle = Template.bind({});
+export const Lifestyle: StoryFn<typeof QuoteIcon> = Template.bind({});
 Lifestyle.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Lifestyle
@@ -89,7 +91,7 @@ Lifestyle.args = {
 
 // *****************************************************************************
 
-export const Opinion = Template.bind({});
+export const Opinion: StoryFn<typeof QuoteIcon> = Template.bind({});
 Opinion.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Opinion
@@ -98,7 +100,7 @@ Opinion.args = {
 
 // *****************************************************************************
 
-export const SpecialReport = Template.bind({});
+export const SpecialReport: StoryFn<typeof QuoteIcon> = Template.bind({});
 SpecialReport.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.SpecialReport
@@ -107,7 +109,7 @@ SpecialReport.args = {
 
 // *****************************************************************************
 
-export const Labs = Template.bind({});
+export const Labs: StoryFn<typeof QuoteIcon> = Template.bind({});
 Labs.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.Labs
@@ -116,7 +118,7 @@ Labs.args = {
 
 // *****************************************************************************
 
-export const XSmall = Template.bind({});
+export const XSmall: StoryFn<typeof QuoteIcon> = Template.bind({});
 XSmall.args = {
 	size: 'xsmall',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
@@ -125,7 +127,7 @@ XSmall.args = {
 
 // *****************************************************************************
 
-export const Small = Template.bind({});
+export const Small: StoryFn<typeof QuoteIcon> = Template.bind({});
 Small.args = {
 	size: 'small',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
@@ -134,7 +136,7 @@ Small.args = {
 
 // *****************************************************************************
 
-export const Medium = Template.bind({});
+export const Medium: StoryFn<typeof QuoteIcon> = Template.bind({});
 Medium.args = {
 	size: 'medium',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
@@ -143,7 +145,7 @@ Medium.args = {
 
 // *****************************************************************************
 
-export const Large = Template.bind({});
+export const Large: StoryFn<typeof QuoteIcon> = Template.bind({});
 Large.args = {
 	size: 'large',
 	// @ts-expect-error - Storybook maps 'news' to ArticlePillar.News
