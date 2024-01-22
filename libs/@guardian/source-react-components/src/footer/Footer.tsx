@@ -45,7 +45,7 @@ export const Footer = ({
 				]}
 			>
 				<div css={(theme: Theme) => links(theme.footer)}>{children}</div>
-				{showBackToTop ? <BackToTop /> : ''}
+				{showBackToTop ? BackToTop : ''}
 			</div>
 			<small css={[copyright, showBackToTop ? copyrightExtraPadding : '']}>
 				&copy; 2021 Guardian News and Media Limited or its affiliated companies.

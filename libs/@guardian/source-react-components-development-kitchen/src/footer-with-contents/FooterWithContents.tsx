@@ -32,9 +32,7 @@ export const FooterWithContents = ({
 			<ContainerComponent {...footerContainerProps}>
 				<div css={contentWrapperStyles}>
 					{children}
-					<div css={backToTopStyles}>
-						<BackToTop />
-					</div>
+					<div css={backToTopStyles}>{BackToTop}</div>
 				</div>
 			</ContainerComponent>
 			<ContainerComponent
