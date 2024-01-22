@@ -1,9 +1,9 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
 
-export default {
+const meta: Meta<typeof ChoiceCard> = {
 	title: 'ChoiceCard',
 	component: ChoiceCard,
 	args: {
@@ -34,31 +34,37 @@ export default {
 	},
 };
 
-const Template: Story<ChoiceCardProps> = (args: ChoiceCardProps) => (
+export default meta;
+
+const Template: StoryFn<typeof ChoiceCard> = (args: ChoiceCardProps) => (
 	<ChoiceCard {...args} />
 );
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind(
+	{},
+);
 
 // *****************************************************************************
 
-export const CheckedDefaultTheme = Template.bind({});
+export const CheckedDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind(
+	{},
+);
 CheckedDefaultTheme.args = {
 	checked: true,
 };
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme = Template.bind({});
+export const ErrorDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind({});
 ErrorDefaultTheme.args = {
 	error: true,
 };
 
 // *****************************************************************************
 
-export const IconDefaultTheme = Template.bind({});
+export const IconDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind({});
 IconDefaultTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>

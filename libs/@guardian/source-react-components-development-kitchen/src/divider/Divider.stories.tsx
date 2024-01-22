@@ -1,13 +1,15 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { DividerProps } from './Divider';
 import { Divider } from './Divider';
 
-export default {
+const meta: Meta<typeof Divider> = {
 	title: 'Divider',
 	component: Divider,
 };
 
-const Template: Story = (args: DividerProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Divider> = (args: DividerProps) => (
 	<span>
 		<p>
 			The individual responsible for one of the most significant leaks in US
@@ -28,25 +30,25 @@ const Template: Story = (args: DividerProps) => (
 	</span>
 );
 
-export const DefaultDivider = Template.bind({});
+export const DefaultDivider: StoryFn<typeof Divider> = Template.bind({});
 
 // *****************************************************************************
 
-export const TightDivider = Template.bind({});
+export const TightDivider: StoryFn<typeof Divider> = Template.bind({});
 TightDivider.args = {
 	spaceAbove: 'tight',
 };
 
 // *****************************************************************************
 
-export const FullDivider = Template.bind({});
+export const FullDivider: StoryFn<typeof Divider> = Template.bind({});
 FullDivider.args = {
 	size: 'full',
 };
 
 // *****************************************************************************
 
-export const TextDivider = Template.bind({});
+export const TextDivider: StoryFn<typeof Divider> = Template.bind({});
 TextDivider.args = {
 	displayText: 'I am centred',
 };
