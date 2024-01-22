@@ -1,15 +1,14 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ChoiceCard } from './ChoiceCard';
 import ChoiceCardStories from './ChoiceCard.stories';
 import { ChoiceCardGroup } from './ChoiceCardGroup';
 import type { ChoiceCardGroupProps } from './ChoiceCardGroup';
 
-export default {
+const meta: Meta<typeof ChoiceCardGroup> = {
 	title: 'ChoiceCardGroup',
 	component: ChoiceCardGroup,
-	subcomponents: { ChoiceCard },
 	args: {
 		name: 'colours',
 		label: 'Choose an option',
@@ -29,7 +28,11 @@ export default {
 	},
 };
 
-const Template: Story<ChoiceCardGroupProps> = (args: ChoiceCardGroupProps) => (
+export default meta;
+
+const Template: StoryFn<typeof ChoiceCardGroup> = (
+	args: ChoiceCardGroupProps,
+) => (
 	<ChoiceCardGroup {...args}>
 		<ChoiceCard
 			{...ChoiceCardStories.args}
@@ -76,7 +79,8 @@ const Template: Story<ChoiceCardGroupProps> = (args: ChoiceCardGroupProps) => (
 	</ChoiceCardGroup>
 );
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -84,7 +88,8 @@ DefaultDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const DefaultMobileDefaultTheme = Template.bind({});
+export const DefaultMobileDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultMobileDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -98,7 +103,8 @@ DefaultMobileDefaultTheme.parameters = {
 
 // *****************************************************************************
 
-export const DefaultTabletDefaultTheme = Template.bind({});
+export const DefaultTabletDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultTabletDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -112,7 +118,8 @@ DefaultTabletDefaultTheme.parameters = {
 
 // *****************************************************************************
 
-export const DefaultIn2ColumnsDefaultTheme = Template.bind({});
+export const DefaultIn2ColumnsDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultIn2ColumnsDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -121,7 +128,8 @@ DefaultIn2ColumnsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const DefaultIn3ColumnsDefaultTheme = Template.bind({});
+export const DefaultIn3ColumnsDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultIn3ColumnsDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -130,7 +138,8 @@ DefaultIn3ColumnsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const DefaultIn4ColumnsDefaultTheme = Template.bind({});
+export const DefaultIn4ColumnsDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultIn4ColumnsDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -139,7 +148,8 @@ DefaultIn4ColumnsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const DefaultIn5ColumnsDefaultTheme = Template.bind({});
+export const DefaultIn5ColumnsDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 DefaultIn5ColumnsDefaultTheme.args = {
 	label: undefined,
 	supporting: undefined,
@@ -148,16 +158,19 @@ DefaultIn5ColumnsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const WithLabelDefaultTheme = Template.bind({});
+export const WithLabelDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 WithLabelDefaultTheme.args = { supporting: undefined };
 
 // *****************************************************************************
 
-export const WithSupportingDefaultTheme = Template.bind({});
+export const WithSupportingDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 
 // *****************************************************************************
 
-export const WithErrorDefaultTheme = Template.bind({});
+export const WithErrorDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 WithErrorDefaultTheme.args = {
 	error: 'Please select a choice card to continue',
 	label: undefined,
@@ -166,7 +179,8 @@ WithErrorDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const WithLabelAndErrorDefaultTheme = Template.bind({});
+export const WithLabelAndErrorDefaultTheme: StoryFn<typeof ChoiceCardGroup> =
+	Template.bind({});
 WithLabelAndErrorDefaultTheme.args = {
 	error: 'Please select a choice card to continue',
 	supporting: undefined,
@@ -174,14 +188,18 @@ WithLabelAndErrorDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const WithLabelAndSupportingAndErrorDefaultTheme = Template.bind({});
+export const WithLabelAndSupportingAndErrorDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
+> = Template.bind({});
 WithLabelAndSupportingAndErrorDefaultTheme.args = {
 	error: 'Please select a choice card to continue',
 };
 
 // *****************************************************************************
 
-export const WithWildlyVaryingLengthsDefaultTheme = Template.bind({});
+export const WithWildlyVaryingLengthsDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
+> = Template.bind({});
 WithWildlyVaryingLengthsDefaultTheme.args = {
 	children: [
 		<ChoiceCard
@@ -202,7 +220,9 @@ WithWildlyVaryingLengthsDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const WithWildlyVaryingLengthsMobileDefaultTheme = Template.bind({});
+export const WithWildlyVaryingLengthsMobileDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
+> = Template.bind({});
 WithWildlyVaryingLengthsMobileDefaultTheme.args =
 	WithWildlyVaryingLengthsDefaultTheme.args;
 WithWildlyVaryingLengthsMobileDefaultTheme.parameters = {
@@ -214,7 +234,9 @@ WithWildlyVaryingLengthsMobileDefaultTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithWildlyVaryingLengthsTabletDefaultTheme = Template.bind({});
+export const WithWildlyVaryingLengthsTabletDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
+> = Template.bind({});
 WithWildlyVaryingLengthsTabletDefaultTheme.args =
 	WithWildlyVaryingLengthsDefaultTheme.args;
 WithWildlyVaryingLengthsTabletDefaultTheme.parameters = {
@@ -226,9 +248,9 @@ WithWildlyVaryingLengthsTabletDefaultTheme.parameters = {
 
 // *****************************************************************************
 
-export const ControlledMultiSelectDefaultTheme: Story<ChoiceCardGroupProps> = (
-	args: ChoiceCardGroupProps,
-) => {
+export const ControlledMultiSelectDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
+> = (args: ChoiceCardGroupProps) => {
 	const [state, setState] = useState({
 		opt1: true,
 		opt2: true,
@@ -265,9 +287,9 @@ ControlledMultiSelectDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const ControlledSingleSelectDefaultTheme: Story<ChoiceCardGroupProps> = (
-	args: ChoiceCardGroupProps,
-) => {
+export const ControlledSingleSelectDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
+> = (args: ChoiceCardGroupProps) => {
 	const [selected, setSelected] = useState<string | null>('option-2');
 
 	return (
@@ -302,8 +324,8 @@ ControlledSingleSelectDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const UnControlledMultiSelectDefaultTheme: Story<
-	ChoiceCardGroupProps
+export const UnControlledMultiSelectDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
 > = (args: ChoiceCardGroupProps) => (
 	<ChoiceCardGroup {...args}>
 		<ChoiceCard id="abc1" value="option-1" label="Option 1" defaultChecked />
@@ -317,8 +339,8 @@ UnControlledMultiSelectDefaultTheme.storyName = 'Un-controlled Multi Select';
 
 // *****************************************************************************
 
-export const UnControlledSingleSelectDefaultTheme: Story<
-	ChoiceCardGroupProps
+export const UnControlledSingleSelectDefaultTheme: StoryFn<
+	typeof ChoiceCardGroup
 > = (args: ChoiceCardGroupProps) => (
 	<ChoiceCardGroup {...args}>
 		<ChoiceCard id="abc1" value="option-1" label="Option 1" />

@@ -1,12 +1,9 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
 import { radioThemeBrand } from './theme';
 
-// These types are the right types, but don't work with Storybook v6 which uses Emotion v10
-// import type { Args, Story } from '@storybook/react';
-
-export default {
+const meta: Meta<typeof Radio> = {
 	title: 'Radio',
 	component: Radio,
 	argTypes: {
@@ -32,13 +29,17 @@ export default {
 	},
 };
 
-const Template: Story = (args: RadioProps) => <Radio {...args} />;
+export default meta;
 
-export const DefaultDefaultTheme = Template.bind({});
+const Template: StoryFn<typeof Radio> = (args: RadioProps) => (
+	<Radio {...args} />
+);
+
+export const DefaultDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
 
 // *****************************************************************************
 
-export const DefaultBrandTheme = Template.bind({});
+export const DefaultBrandTheme: StoryFn<typeof Radio> = Template.bind({});
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -48,14 +49,18 @@ DefaultBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme = Template.bind({});
+export const SupportingTextDefaultTheme: StoryFn<typeof Radio> = Template.bind(
+	{},
+);
 SupportingTextDefaultTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
 };
 
 // *****************************************************************************
 
-export const SupportingTextBrandTheme = Template.bind({});
+export const SupportingTextBrandTheme: StoryFn<typeof Radio> = Template.bind(
+	{},
+);
 SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -68,7 +73,8 @@ SupportingTextBrandTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingTextOnlyDefaultTheme = Template.bind({});
+export const SupportingTextOnlyDefaultTheme: StoryFn<typeof Radio> =
+	Template.bind({});
 SupportingTextOnlyDefaultTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
 	label: null,
@@ -76,7 +82,8 @@ SupportingTextOnlyDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingTextOnlyBrandTheme = Template.bind({});
+export const SupportingTextOnlyBrandTheme: StoryFn<typeof Radio> =
+	Template.bind({});
 SupportingTextOnlyBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -90,7 +97,7 @@ SupportingTextOnlyBrandTheme.args = {
 
 // *****************************************************************************
 
-export const UnlabelledDefaultTheme = Template.bind({});
+export const UnlabelledDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
 UnlabelledDefaultTheme.args = {
 	label: undefined,
 };

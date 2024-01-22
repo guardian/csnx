@@ -1,9 +1,9 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { InlineSuccess } from './InlineSuccess';
 import { userFeedbackThemeBrand } from './theme';
 import type { UserFeedbackProps } from './types';
 
-export default {
+const meta: Meta<typeof InlineSuccess> = {
 	title: 'InlineSuccess',
 	component: InlineSuccess,
 	args: {
@@ -11,15 +11,19 @@ export default {
 	},
 };
 
-const Template: Story<UserFeedbackProps> = (args: UserFeedbackProps) => (
+export default meta;
+
+const Template: StoryFn<typeof InlineSuccess> = (args: UserFeedbackProps) => (
 	<InlineSuccess {...args}>Your voucher code is valid</InlineSuccess>
 );
 
-export const InlineSuccessDefaultTheme = Template.bind({});
+export const InlineSuccessDefaultTheme: StoryFn<typeof InlineSuccess> =
+	Template.bind({});
 
 // *****************************************************************************
 
-export const InlineSuccessBrandTheme = Template.bind({});
+export const InlineSuccessBrandTheme: StoryFn<typeof InlineSuccess> =
+	Template.bind({});
 InlineSuccessBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -29,14 +33,16 @@ InlineSuccessBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const InlineSuccessSmallDefaultTheme = Template.bind({});
+export const InlineSuccessSmallDefaultTheme: StoryFn<typeof InlineSuccess> =
+	Template.bind({});
 InlineSuccessSmallDefaultTheme.args = {
 	size: 'small',
 };
 
 // *****************************************************************************
 
-export const InlineSuccessSmallBrandTheme = Template.bind({});
+export const InlineSuccessSmallBrandTheme: StoryFn<typeof InlineSuccess> =
+	Template.bind({});
 InlineSuccessSmallBrandTheme.args = {
 	size: 'small',
 };

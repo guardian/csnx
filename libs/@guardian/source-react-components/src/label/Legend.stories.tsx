@@ -1,11 +1,9 @@
-import type { Story } from '@storybook/react';
-// These types are the right types, but don't work with Storybook v6 which uses Emotion v10
-// import type { Args, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Legend } from './Legend';
 import { labelThemeBrand } from './theme';
 import type { LegendProps } from './types';
 
-export default {
+const meta: Meta<typeof Legend> = {
 	title: 'Legend',
 	args: {
 		text: 'Email',
@@ -31,7 +29,9 @@ export default {
 	component: Legend,
 };
 
-const Template: Story<LegendProps> = (args: LegendProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Legend> = (args: LegendProps) => (
 	<fieldset>
 		<Legend {...args} />
 	</fieldset>
@@ -39,39 +39,44 @@ const Template: Story<LegendProps> = (args: LegendProps) => (
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof Legend> = Template.bind({});
 
 // *****************************************************************************
 
-export const WithSupportingTextDefaultTheme = Template.bind({});
+export const WithSupportingTextDefaultTheme: StoryFn<typeof Legend> =
+	Template.bind({});
 WithSupportingTextDefaultTheme.args = {
 	supporting: 'text',
 };
 
 // *****************************************************************************
 
-export const WithSupportingComponentDefaultTheme = Template.bind({});
+export const WithSupportingComponentDefaultTheme: StoryFn<typeof Legend> =
+	Template.bind({});
 WithSupportingComponentDefaultTheme.args = {
 	supporting: 'component',
 };
 
 // *****************************************************************************
 
-export const WithOptionalDefaultTheme = Template.bind({});
+export const WithOptionalDefaultTheme: StoryFn<typeof Legend> = Template.bind(
+	{},
+);
 WithOptionalDefaultTheme.args = {
 	optional: true,
 };
 
 // *****************************************************************************
 
-export const WithHiddenLabelDefaultTheme = Template.bind({});
+export const WithHiddenLabelDefaultTheme: StoryFn<typeof Legend> =
+	Template.bind({});
 WithHiddenLabelDefaultTheme.args = {
 	hideLabel: true,
 };
 
 // *****************************************************************************
 
-export const DefaultBrandTheme = Template.bind({});
+export const DefaultBrandTheme: StoryFn<typeof Legend> = Template.bind({});
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -81,7 +86,8 @@ DefaultBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithSupportingTextBrandTheme = Template.bind({});
+export const WithSupportingTextBrandTheme: StoryFn<typeof Legend> =
+	Template.bind({});
 WithSupportingTextBrandTheme.args = {
 	supporting: 'text',
 };
@@ -94,7 +100,8 @@ WithSupportingTextBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithSupportingComponentBrandTheme = Template.bind({});
+export const WithSupportingComponentBrandTheme: StoryFn<typeof Legend> =
+	Template.bind({});
 WithSupportingComponentBrandTheme.args = {
 	supporting: 'component',
 };
@@ -107,7 +114,7 @@ WithSupportingComponentBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithOptionalBrandTheme = Template.bind({});
+export const WithOptionalBrandTheme: StoryFn<typeof Legend> = Template.bind({});
 WithOptionalBrandTheme.args = {
 	optional: true,
 };
@@ -120,7 +127,9 @@ WithOptionalBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithHiddenLabelBrandTheme = Template.bind({});
+export const WithHiddenLabelBrandTheme: StoryFn<typeof Legend> = Template.bind(
+	{},
+);
 WithHiddenLabelBrandTheme.args = {
 	hideLabel: true,
 };

@@ -15,7 +15,7 @@ import {
 	specialReport,
 	sport,
 } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ToggleSwitch } from './ToggleSwitch';
 import type { ToggleSwitchProps } from './ToggleSwitch';
@@ -59,12 +59,16 @@ const pillars = [
 	ArticleSpecial.Labs,
 ];
 
-export default {
+const meta: Meta<typeof ToggleSwitch> = {
 	title: 'ToggleSwitch',
 	component: ToggleSwitch,
 };
 
-const PillarsTemplate: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => {
+export default meta;
+
+const PillarsTemplate: StoryFn<typeof ToggleSwitch> = (
+	args: ToggleSwitchProps,
+) => {
 	return (
 		<div
 			css={css`
@@ -83,7 +87,7 @@ const PillarsTemplate: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => {
 	);
 };
 
-const Template: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => {
+const Template: StoryFn<typeof ToggleSwitch> = (args: ToggleSwitchProps) => {
 	const [checked, setChecked] = useState(args.checked);
 	return (
 		<div
@@ -105,18 +109,18 @@ const Template: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => {
 	);
 };
 
-export const WithNoLabel = Template.bind({});
+export const WithNoLabel: StoryFn<typeof ToggleSwitch> = Template.bind({});
 
 // *****************************************************************************
 
-export const WithLabel = Template.bind({});
+export const WithLabel: StoryFn<typeof ToggleSwitch> = Template.bind({});
 WithLabel.args = {
 	label: 'Get alerts on this story',
 };
 
 // *****************************************************************************
 
-export const WithLabelLeft = Template.bind({});
+export const WithLabelLeft: StoryFn<typeof ToggleSwitch> = Template.bind({});
 WithLabelLeft.args = {
 	label: 'Get alerts on this story',
 	labelPosition: 'left',
@@ -124,7 +128,7 @@ WithLabelLeft.args = {
 
 // *****************************************************************************
 
-export const WithBorder = Template.bind({});
+export const WithBorder: StoryFn<typeof ToggleSwitch> = Template.bind({});
 WithBorder.args = {
 	label: 'Get alerts on this story',
 	labelBorder: true,
@@ -132,14 +136,16 @@ WithBorder.args = {
 
 // *****************************************************************************
 
-export const WithFormat = PillarsTemplate.bind({});
+export const WithFormat: StoryFn<typeof ToggleSwitch> = PillarsTemplate.bind(
+	{},
+);
 WithFormat.args = {
 	label: 'Get alerts on this story',
 };
 
 // *****************************************************************************
 
-export const WithMediumFont = Template.bind({});
+export const WithMediumFont: StoryFn<typeof ToggleSwitch> = Template.bind({});
 WithMediumFont.args = {
 	label: 'Get alerts on this story',
 	fontSize: 'medium',
@@ -147,7 +153,7 @@ WithMediumFont.args = {
 
 // *****************************************************************************
 
-export const WithBoldFont = Template.bind({});
+export const WithBoldFont: StoryFn<typeof ToggleSwitch> = Template.bind({});
 WithBoldFont.args = {
 	label: 'Get alerts on this story',
 	fontWeight: 'bold',
@@ -155,7 +161,9 @@ WithBoldFont.args = {
 
 // *****************************************************************************
 
-export const WithBoldMediumFont = Template.bind({});
+export const WithBoldMediumFont: StoryFn<typeof ToggleSwitch> = Template.bind(
+	{},
+);
 WithBoldMediumFont.args = {
 	label: 'Get alerts on this story',
 	fontWeight: 'bold',
@@ -164,7 +172,8 @@ WithBoldMediumFont.args = {
 
 // *****************************************************************************
 
-export const WithMediumFontAndBorder = Template.bind({});
+export const WithMediumFontAndBorder: StoryFn<typeof ToggleSwitch> =
+	Template.bind({});
 WithMediumFontAndBorder.args = {
 	label: 'Get alerts on this story',
 	fontSize: 'medium',
@@ -173,7 +182,8 @@ WithMediumFontAndBorder.args = {
 
 // *****************************************************************************
 
-export const WithBoldMediumFontAndBorder = Template.bind({});
+export const WithBoldMediumFontAndBorder: StoryFn<typeof ToggleSwitch> =
+	Template.bind({});
 WithBoldMediumFontAndBorder.args = {
 	label: 'Get alerts on this story',
 	fontWeight: 'bold',

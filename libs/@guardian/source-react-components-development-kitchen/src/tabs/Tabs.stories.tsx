@@ -1,11 +1,18 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import { css } from '@emotion/react';
 import { palette } from '@guardian/source-foundations';
 import { SvgAppleBrand } from '@guardian/source-react-components';
 import { useState } from 'react';
-import type { ReactElement } from 'react';
 import { Tabs } from './tabs';
 import { tabsDarkTheme } from './theme';
 import type { TabProps } from './types';
+
+const meta: Meta<typeof Tabs> = {
+	component: Tabs,
+	title: 'Tabs',
+};
+
+export default meta;
 
 const tabsContent = [
 	{
@@ -60,7 +67,7 @@ const tabsContent = [
 	},
 ] as const satisfies readonly TabProps[];
 
-const tabs = (): ReactElement => {
+export const TabsDefault: StoryFn<typeof Tabs> = () => {
 	const [selectedTab, setSelectedTab] = useState<string>(tabsContent[1].id);
 	return (
 		<Tabs
@@ -73,7 +80,7 @@ const tabs = (): ReactElement => {
 	);
 };
 
-const singleTab = (): ReactElement => {
+export const SingleTab: StoryFn<typeof Tabs> = () => {
 	const dog = tabsContent[1];
 	return (
 		<Tabs
@@ -88,7 +95,7 @@ const singleTab = (): ReactElement => {
 	);
 };
 
-const tabWithNodeTitle = (): ReactElement => {
+export const TabWithNodeTitle: StoryFn<typeof Tabs> = () => {
 	const fruit = {
 		id: 'fruit',
 		text: (
@@ -118,7 +125,7 @@ const tabWithNodeTitle = (): ReactElement => {
 	);
 };
 
-const tabWithDarkTheme = (): ReactElement => {
+export const TabWithDarkTheme: StoryFn<typeof Tabs> = () => {
 	const [selectedTab, setSelectedTab] = useState<string>(tabsContent[0].id);
 	return (
 		<Tabs
@@ -132,7 +139,7 @@ const tabWithDarkTheme = (): ReactElement => {
 	);
 };
 
-const tabWithCustomTheme = (): ReactElement => {
+export const TabWithCustomTheme: StoryFn<typeof Tabs> = () => {
 	const [selectedTab, setSelectedTab] = useState<string>(tabsContent[0].id);
 	return (
 		<Tabs
@@ -149,17 +156,4 @@ const tabWithCustomTheme = (): ReactElement => {
 			}}
 		/>
 	);
-};
-
-export default {
-	component: tabs,
-	title: 'Tabs',
-};
-
-export {
-	tabs,
-	singleTab,
-	tabWithNodeTitle,
-	tabWithDarkTheme,
-	tabWithCustomTheme,
 };
