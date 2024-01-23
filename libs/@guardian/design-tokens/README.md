@@ -15,7 +15,7 @@ Once changes are made to the `tokens.json` file, the next step is to generate th
 To do this, run the following command.
 
 ```sh
-pnpm nx run @guardian/design-tokens:make-tokens
+pnpm nx run @guardian/design-tokens:build
 ```
 
 This command triggers the token generation process, which compiles the tokens.json file into different formats (like CSS, SCSS, JavaScript, TypeScript).

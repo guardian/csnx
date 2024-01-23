@@ -11,14 +11,13 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "@emotion/react",
 		"paths": {
-			"@csnx/design-tokens": ["libs/@csnx/design-tokens/tokens/index"],
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
 			"@guardian/ab-core": ["libs/@guardian/ab-core/src/index"],
 			"@guardian/ab-react": ["libs/@guardian/ab-react/src/index"],
 			"@guardian/cobalt-plugin-ts": ["libs/@guardian/cobalt-plugin-ts/index"],
 			"@guardian/core-web-vitals": ["libs/@guardian/core-web-vitals/src/index"],
-			"@guardian/design-tokens": ["libs/@guardian/design-tokens/tokens/index"],
+			"@guardian/design-tokens": ["libs/@guardian/design-tokens/tokens"],
 			"@guardian/eslint-plugin-source-foundations": [
 				"libs/@guardian/eslint-plugin-source-foundations/src/index"
 			],
