@@ -1,9 +1,5 @@
 ---
-'@guardian/ab-core': patch
+'@guardian/libs': patch
 ---
 
-test
-
-- hi
-  - tab
-  - sapces
+noop to test changesets and internal packages
