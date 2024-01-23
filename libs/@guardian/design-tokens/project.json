@@ -7,7 +7,7 @@
 		"generate-tokens": {
 			"executor": "nx:run-commands",
 			"options": {
-				"commands": ["rm -rf ./dist", "co build"],
+				"commands": ["co build"],
 				"parallel": false,
 				"cwd": "libs/@guardian/design-tokens",
 				"color": true
