@@ -2,7 +2,7 @@
 
 # don't run this on CI
 # https://typicode.github.io/husky/#/?id=with-env-variables
-[ -n "$CI" ] && exit 0
+# [ -n "$CI" ] && exit 0
 
 . "$(dirname "$0")/_/husky.sh"
 
