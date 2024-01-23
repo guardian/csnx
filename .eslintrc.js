@@ -16,7 +16,7 @@ module.exports = {
 					{
 						enforceBuildableLibDependency: true,
 						// These packages may not need to build because they are not published.
-						allow: ['@guardian/design-tokens'],
+						allow: ['@csnx/**', '@guardian/design-tokens'],
 						depConstraints: [
 							{
 								sourceTag: '*',
