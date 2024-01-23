@@ -1,12 +1,10 @@
 #!/bin/sh
 
-# don't run this on CI
-# https://typicode.github.io/husky/#/?id=with-env-variables
-# [ -n "$CI" ] && exit 0
-
 . "$(dirname "$0")/_/husky.sh"
 
-# make sure we're using the correct version of node
+# make sure we're using the correct version of node,
+# but not on CI:
+# https://typicode.github.io/husky/#/?id=with-env-variables
 if [ "$CI" != "true" ]; then
     . ./tools/scripts/check-node-version
 fi
