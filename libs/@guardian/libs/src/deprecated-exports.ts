@@ -12,3 +12,6 @@ export const ArticlePillar = Pillar;
 
 /** @deprecated Use `Subscription` instead. */
 export type TeamName = Subscription;
+
+/** @deprecated Use `@guardian/storage-and-cookies` instead. */
+export const storage = Pillar;

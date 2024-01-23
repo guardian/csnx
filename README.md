@@ -30,6 +30,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/source-foundations](libs/@guardian/source-foundations)
 - [@guardian/source-react-components](libs/@guardian/source-react-components)
 - [@guardian/source-react-components-development-kitchen](libs/@guardian/source-react-components-development-kitchen)
+- [@guardian/storage-and-cookies](libs/@guardian/storage-and-cookies)
 - [@guardian/tsconfig](libs/@guardian/tsconfig)
 
 <!-- END PUBLISHED_PACKAGES -->
@@ -157,6 +158,11 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/source-react-components-development-kitchen:lint`
 - `make @guardian/source-react-components-development-kitchen:storybook`
 - `make @guardian/source-react-components-development-kitchen:test`
+- `make @guardian/storage-and-cookies:build`
+- `make @guardian/storage-and-cookies:e2e`
+- `make @guardian/storage-and-cookies:fix`
+- `make @guardian/storage-and-cookies:lint`
+- `make @guardian/storage-and-cookies:test`
 - `make @guardian/tsconfig:build`
 - `make @guardian/tsconfig:e2e`
 </details>
