@@ -62,7 +62,7 @@ class StorageFactory {
 			key,
 			JSON.stringify({
 				value,
-				expires,
+				expires: expires ? new Date(expires) : undefined,
 			}),
 		);
 	}
