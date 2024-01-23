@@ -1,7 +1,7 @@
 {
-	"name": "@csnx/design-tokens",
+	"name": "@guardian/design-tokens",
 	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/@csnx/design-tokens/src",
+	"sourceRoot": "libs/@guardian/design-tokens/src",
 	"projectType": "library",
 	"targets": {
 		"make-tokens": {
@@ -9,7 +9,7 @@
 			"options": {
 				"commands": ["rm -rf ./tokens", "co build"],
 				"parallel": false,
-				"cwd": "libs/@csnx/design-tokens",
+				"cwd": "libs/@guardian/design-tokens",
 				"color": true
 			}
 		}

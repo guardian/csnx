@@ -484,12 +484,12 @@ importers:
         specifier: 1.4.4
         version: 1.4.4
     devDependencies:
-      '@csnx/design-tokens':
-        specifier: workspace:0.0.0
-        version: link:../../@csnx/design-tokens
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
+      '@guardian/design-tokens':
+        specifier: workspace:0.0.0
+        version: link:../../@csnx/design-tokens
       lightningcss:
         specifier: 1.23.0
         version: 1.23.0

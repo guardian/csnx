@@ -1,9 +1,9 @@
 module.exports = {
-	displayName: '@csnx/design-tokens',
+	displayName: '@guardian/design-tokens',
 	preset: '../../../jest.preset.js',
 	testEnvironment: 'node',
 	moduleFileExtensions: ['js', 'jsx'],
-	coverageDirectory: '../../../coverage/libs/@csnx/design-tokens',
+	coverageDirectory: '../../../coverage/libs/@guardian/design-tokens',
 	transform: {
 		'^.+\\.[tj]sx?$': 'ts-jest',
 	},

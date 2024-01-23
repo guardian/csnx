@@ -1,5 +1,5 @@
 {
-	"name": "@csnx/design-tokens",
+	"name": "@guardian/design-tokens",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",

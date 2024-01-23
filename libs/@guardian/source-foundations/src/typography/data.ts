@@ -1,4 +1,4 @@
-import { tokens } from '@csnx/design-tokens';
+import { tokens } from '@guardian/design-tokens';
 import {
 	fontArrayToString,
 	pxStringToNumber,
