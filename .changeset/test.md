@@ -1,9 +1,9 @@
 ---
-"@guardian/ab-core": patch
+'@guardian/ab-core': patch
 ---
 
 test
 
 - hi
-	- tab
-   - sapces
+  - tab
+  - sapces
