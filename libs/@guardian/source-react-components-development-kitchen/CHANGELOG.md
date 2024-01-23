@@ -26,31 +26,31 @@
   exported exported light (default) and dark themes are compatible with this API.
 
   ```jsx
-  import { css } from "@emotion/react";
+  import { css } from '@emotion/react';
   import {
-    ExpandingWrapper,
-    expandingWrapperThemeDefault,
-  } from "@guardian/source-react-components-development-kitchen";
+  	ExpandingWrapper,
+  	expandingWrapperThemeDefault,
+  } from '@guardian/source-react-components-development-kitchen';
 
   const Before = ({ children }) => (
-    <ExpandingWrapper
-      cssOverrides={css`
-        color: aquamarine;
-      `}
-    >
-      {children}
-    </ExpandingWrapper>
+  	<ExpandingWrapper
+  		cssOverrides={css`
+  			color: aquamarine;
+  		`}
+  	>
+  		{children}
+  	</ExpandingWrapper>
   );
 
   const After = ({ children }) => (
-    <ExpandingWrapper
-      theme={{
-        ...expandingWrapperThemeDefault,
-        "--text": "aquamarine",
-      }}
-    >
-      {children}
-    </ExpandingWrapper>
+  	<ExpandingWrapper
+  		theme={{
+  			...expandingWrapperThemeDefault,
+  			'--text': 'aquamarine',
+  		}}
+  	>
+  		{children}
+  	</ExpandingWrapper>
   );
   ```
 
@@ -61,26 +61,26 @@
   light (default) and dark themes are compatible with this API
 
   ```tsx
-  import { css } from "@emotion/react";
+  import { css } from '@emotion/react';
   import {
-    Tabs,
-    tabsThemeDefault,
-  } from "@guardian/source-react-components-development-kitchen";
+  	Tabs,
+  	tabsThemeDefault,
+  } from '@guardian/source-react-components-development-kitchen';
 
   const Before = () => (
-    <Tabs
-      tabs={tabs}
-      cssOverride={css`
-        border-color: darkbrown;
-      `}
-    />
+  	<Tabs
+  		tabs={tabs}
+  		cssOverride={css`
+  			border-color: darkbrown;
+  		`}
+  	/>
   );
 
   const After = () => (
-    <Tabs
-      tabs={tabs}
-      theme={{ ...tabsThemeDefault, "--border": "darkbrown" }}
-    />
+  	<Tabs
+  		tabs={tabs}
+  		theme={{ ...tabsThemeDefault, '--border': 'darkbrown' }}
+  	/>
   );
   ```
 
