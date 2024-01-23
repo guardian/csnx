@@ -84,7 +84,7 @@ export const toggleStyles = (format?: ArticleFormat): SerializedStyles => {
 			top: 5px;
 			height: 11px;
 			width: 6px;
-			right: 10px;
+			right: 8px;
 			opacity: 0;
 			border-bottom: 2px solid ${success[400]};
 			border-right: 2px solid ${success[400]};
@@ -121,7 +121,7 @@ export const toggleStyles = (format?: ArticleFormat): SerializedStyles => {
 		}
 
 		&[aria-checked='true']:after {
-			left: 22px;
+			left: 24px;
 			background: ${neutral[100]};
 		}
 
