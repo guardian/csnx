@@ -7,7 +7,9 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # make sure we're using the correct version of node
-. ./tools/scripts/check-node-version
+if [ "$CI" != "true" ]; then
+    . ./tools/scripts/check-node-version
+fi
 
 # keep docs up to date
 node tools/scripts/maintain-readme/index.mjs
