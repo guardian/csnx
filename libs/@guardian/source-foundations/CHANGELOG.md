@@ -16,7 +16,7 @@
 
 ### Minor Changes
 
-- 50e68bb: Typography now uses `@csnx/design-tokens` as the source of truth, but the token values and API remain the same
+- 50e68bb: Typography now uses `@guardian/design-tokens` as the source of truth, but the token values and API remain the same
 
 ## 14.0.0
 

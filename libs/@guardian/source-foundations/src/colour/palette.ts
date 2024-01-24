@@ -1,7 +1,7 @@
 // Arrays of colours should have pillar colors first
 // e.g. for sport:
 // const [sport300, sport400, sport500, sport600, sport800] = colors.blue
-import { tokens } from '@csnx/design-tokens';
+import { tokens } from '@guardian/design-tokens';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_palette--palette) •

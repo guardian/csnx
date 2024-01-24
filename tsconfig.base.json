@@ -11,38 +11,36 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "@emotion/react",
 		"paths": {
-			"@csnx/design-tokens": ["libs/@csnx/design-tokens/tokens/index"],
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
-			"@guardian/ab-core": ["libs/@guardian/ab-core/src/index.ts"],
-			"@guardian/ab-react": ["libs/@guardian/ab-react/src/index.ts"],
+			"@guardian/ab-core": ["libs/@guardian/ab-core/src/index"],
+			"@guardian/ab-react": ["libs/@guardian/ab-react/src/index"],
 			"@guardian/cobalt-plugin-ts": ["libs/@guardian/cobalt-plugin-ts/index"],
-			"@guardian/core-web-vitals": [
-				"libs/@guardian/core-web-vitals/src/index.ts"
-			],
+			"@guardian/core-web-vitals": ["libs/@guardian/core-web-vitals/src/index"],
+			"@guardian/design-tokens": ["libs/@guardian/design-tokens/tokens"],
 			"@guardian/eslint-plugin-source-foundations": [
-				"libs/@guardian/eslint-plugin-source-foundations/src/index.ts"
+				"libs/@guardian/eslint-plugin-source-foundations/src/index"
 			],
 			"@guardian/eslint-plugin-source-react-components": [
-				"libs/@guardian/eslint-plugin-source-react-components/src/index.ts"
+				"libs/@guardian/eslint-plugin-source-react-components/src/index"
 			],
-			"@guardian/identity-auth": ["libs/@guardian/identity-auth/src/index.ts"],
+			"@guardian/identity-auth": ["libs/@guardian/identity-auth/src/index"],
 			"@guardian/identity-auth-frontend": [
-				"libs/@guardian/identity-auth-frontend/src/index.ts"
+				"libs/@guardian/identity-auth-frontend/src/index"
 			],
-			"@guardian/libs": ["libs/@guardian/libs/src/index.ts"],
+			"@guardian/libs": ["libs/@guardian/libs/src/index"],
 			"@guardian/newsletters-types": [
-				"libs/@guardian/newsletters-types/src/index.ts"
+				"libs/@guardian/newsletters-types/src/index"
 			],
-			"@guardian/prettier": ["libs/@guardian/prettier/index.js"],
+			"@guardian/prettier": ["libs/@guardian/prettier/index"],
 			"@guardian/source-foundations": [
-				"libs/@guardian/source-foundations/src/index.ts"
+				"libs/@guardian/source-foundations/src/index"
 			],
 			"@guardian/source-react-components": [
-				"libs/@guardian/source-react-components/src/index.ts"
+				"libs/@guardian/source-react-components/src/index"
 			],
 			"@guardian/source-react-components-development-kitchen": [
-				"libs/@guardian/source-react-components-development-kitchen/src/index.ts"
+				"libs/@guardian/source-react-components-development-kitchen/src/index"
 			]
 		},
 		"rootDir": ".",

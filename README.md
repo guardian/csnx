@@ -83,7 +83,6 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`
 - `make csnx:storybooks`
-- `make @csnx/design-tokens:make-tokens`
 - `make @guardian/ab-core:build`
 - `make @guardian/ab-core:e2e`
 - `make @guardian/ab-core:fix`
@@ -102,6 +101,8 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/core-web-vitals:fix`
 - `make @guardian/core-web-vitals:lint`
 - `make @guardian/core-web-vitals:test`
+- `make @guardian/design-tokens:build`
+- `make @guardian/design-tokens:generate-tokens`
 - `make @guardian/eslint-config:build`
 - `make @guardian/eslint-config:e2e`
 - `make @guardian/eslint-config-typescript:build`
