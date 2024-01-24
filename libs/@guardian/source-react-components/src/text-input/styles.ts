@@ -4,7 +4,7 @@ import { focusHalo, size, space, textSans } from '@guardian/source-foundations';
 import type { InputSize } from '../@types/InputSize';
 import { textInputThemeDefault } from './theme';
 
-const inputSizeMediun = css`
+const inputSizeMedium = css`
 	${textSans.medium()};
 	height: ${size.medium}px;
 `;
@@ -17,7 +17,7 @@ const inputSizeSmall = css`
 const inputSize: {
 	[key in InputSize]: SerializedStyles;
 } = {
-	medium: inputSizeMediun,
+	medium: inputSizeMedium,
 	small: inputSizeSmall,
 };
 
