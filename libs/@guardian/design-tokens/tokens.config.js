@@ -25,7 +25,7 @@ export default {
 			filename: './variables.css',
 		}),
 		pluginTS({
-			filename: './index.js',
+			filename: './tokens.js',
 		}),
 	],
 };
