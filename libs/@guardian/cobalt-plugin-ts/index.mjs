@@ -49,8 +49,12 @@ export default function pluginTS(options) {
 			// files
 			const output = {};
 
+			// we need to create a fake file name to fool the compiler into
+			// thinking it's compiling a real file.
+			const fakeFileName = 'fakefile.ts';
+
 			const program = ts.createProgram(
-				['fakefile.ts'],
+				[fakeFileName],
 				{
 					declaration: true,
 					noEmit: false,
@@ -78,7 +82,7 @@ export default function pluginTS(options) {
 					getCanonicalFileName: (filename) => filename,
 					getCurrentDirectory: () => '',
 					getNewLine: () => '\n',
-					fileExists: (fileName) => fileName === 'fakefile.ts',
+					fileExists: (fileName) => fileName === fakeFileName,
 					readFile: () => undefined,
 				},
 			);
@@ -88,11 +92,11 @@ export default function pluginTS(options) {
 			return [
 				{
 					filename: options.filename,
-					contents: header + output['fakefile.js'],
+					contents: header + output[fakeFileName.replace(/\.ts$/, '.js')],
 				},
 				{
 					filename: options.filename.replace(/\.js$/, '.d.ts'),
-					contents: header + output['fakefile.d.ts'],
+					contents: header + output[fakeFileName.replace(/\.ts$/, '.d.ts')],
 				},
 			];
 		},
