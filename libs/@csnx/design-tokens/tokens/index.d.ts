@@ -4,361 +4,595 @@
  * DO NOT EDIT!
  */
 
-import {
-	ParsedColorToken,
-	ParsedDimensionToken,
-	ParsedFontFamilyToken,
-	ParsedNumberToken,
-	ParsedTypographyToken,
-} from '@cobalt-ui/core';
-
 export declare const tokens: {
-	breakpoint: {
-		desktop: ParsedDimensionToken['$value'];
-		leftCol: ParsedDimensionToken['$value'];
-		mobile: ParsedDimensionToken['$value'];
-		mobileLandscape: ParsedDimensionToken['$value'];
-		mobileMedium: ParsedDimensionToken['$value'];
-		phablet: ParsedDimensionToken['$value'];
-		tablet: ParsedDimensionToken['$value'];
-		wide: ParsedDimensionToken['$value'];
+	readonly breakpoint: {
+		readonly desktop: '980px';
+		readonly leftCol: '1140px';
+		readonly mobile: '320px';
+		readonly mobileLandscape: '480px';
+		readonly mobileMedium: '375px';
+		readonly phablet: '660px';
+		readonly tablet: '740px';
+		readonly wide: '1300px';
 	};
-	colour: {
-		blue: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-			'11': ParsedColorToken['$value'];
-			'12': ParsedColorToken['$value'];
+	readonly colour: {
+		readonly blue: {
+			readonly '1': '#003C60';
+			readonly '2': '#004E7C';
+			readonly '3': '#005689';
+			readonly '4': '#0077B6';
+			readonly '5': '#00B2FF';
+			readonly '6': '#90DCFF';
+			readonly '7': '#F1F8FC';
+			readonly '8': '#001536';
+			readonly '9': '#041F4A';
+			readonly '10': '#052962';
+			readonly '11': '#506991';
+			readonly '12': '#C1D8FC';
 		};
-		brown: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
+		readonly brown: {
+			readonly '1': '#2B2625';
+			readonly '2': '#3E3323';
+			readonly '3': '#574835';
+			readonly '4': '#6B5840';
+			readonly '5': '#866D50';
+			readonly '6': '#A1845C';
+			readonly '7': '#EACCA0';
+			readonly '8': '#E7D4B9';
+			readonly '9': '#EFE8DD';
+			readonly '10': '#FBF6EF';
 		};
-		gray: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-			'11': ParsedColorToken['$value'];
+		readonly gray: {
+			readonly '1': '#000000';
+			readonly '2': '#121212';
+			readonly '3': '#1A1A1A';
+			readonly '4': '#333333';
+			readonly '5': '#606060';
+			readonly '6': '#707070';
+			readonly '7': '#999999';
+			readonly '8': '#DCDCDC';
+			readonly '9': '#EDEDED';
+			readonly '10': '#F6F6F6';
+			readonly '11': '#FFFFFF';
 		};
-		green: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
+		readonly green: {
+			readonly '1': '#185E36';
+			readonly '2': '#22874D';
+			readonly '3': '#58D08B';
+			readonly '4': '#0C7A73';
+			readonly '5': '#65A897';
+			readonly '6': '#69D1CA';
 		};
-		orange: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
+		readonly orange: {
+			readonly '1': '#672005';
+			readonly '2': '#8D2700';
+			readonly '3': '#C74600';
+			readonly '4': '#E05E00';
+			readonly '5': '#FF7F0F';
+			readonly '6': '#FF9941';
+			readonly '7': '#F9B376';
+			readonly '8': '#FEF9F5';
 		};
-		pink: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
+		readonly pink: {
+			readonly '1': '#510043';
+			readonly '2': '#650054';
+			readonly '3': '#7D0068';
+			readonly '4': '#BB3B80';
+			readonly '5': '#F37ABC';
+			readonly '6': '#FFABDB';
+			readonly '7': '#FEC8D3';
+			readonly '8': '#FEEEF7';
 		};
-		red: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
+		readonly red: {
+			readonly '1': '#660505';
+			readonly '2': '#8B0000';
+			readonly '3': '#AB0613';
+			readonly '4': '#C70000';
+			readonly '5': '#FF5943';
+			readonly '6': '#FF9081';
+			readonly '7': '#FFBAC8';
+			readonly '8': '#FFF4F2';
 		};
-		special: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-			'4': ParsedColorToken['$value'];
-			'5': ParsedColorToken['$value'];
-			'6': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'8': ParsedColorToken['$value'];
-			'9': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-			'11': ParsedColorToken['$value'];
-			'12': ParsedColorToken['$value'];
-			'13': ParsedColorToken['$value'];
+		readonly special: {
+			readonly '1': '#222527';
+			readonly '2': '#303538';
+			readonly '3': '#3F464A';
+			readonly '4': '#595C5F';
+			readonly '5': '#9DA0A2';
+			readonly '6': '#ABC2C9';
+			readonly '7': '#E4E5E8';
+			readonly '8': '#EFF1F2';
+			readonly '9': '#2B2B2A';
+			readonly '10': '#B9300A';
+			readonly '11': '#FF663D';
+			readonly '12': '#EBE6E1';
+			readonly '13': '#F5F0EB';
 		};
-		yellow: {
-			'1': ParsedColorToken['$value'];
-			'2': ParsedColorToken['$value'];
-			'3': ParsedColorToken['$value'];
-		};
-	};
-	height: {
-		ctaMedium: ParsedDimensionToken['$value'];
-		ctaSmall: ParsedDimensionToken['$value'];
-		ctaXSmall: ParsedDimensionToken['$value'];
-		iconMedium: ParsedDimensionToken['$value'];
-		iconSmall: ParsedDimensionToken['$value'];
-		iconXSmall: ParsedDimensionToken['$value'];
-		inputMedium: ParsedDimensionToken['$value'];
-		inputXSmall: ParsedDimensionToken['$value'];
-	};
-	palette: {
-		brand: {
-			'100': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'600': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		brandAlt: {
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-		};
-		culture: {
-			'50': ParsedColorToken['$value'];
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'350': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'450': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'600': ParsedColorToken['$value'];
-			'700': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		error: {
-			'400': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-		};
-		focus: {
-			'400': ParsedColorToken['$value'];
-		};
-		labs: {
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-		};
-		lifestyle: {
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'450': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'600': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		neutral: {
-			'0': ParsedColorToken['$value'];
-			'7': ParsedColorToken['$value'];
-			'10': ParsedColorToken['$value'];
-			'20': ParsedColorToken['$value'];
-			'38': ParsedColorToken['$value'];
-			'46': ParsedColorToken['$value'];
-			'60': ParsedColorToken['$value'];
-			'86': ParsedColorToken['$value'];
-			'93': ParsedColorToken['$value'];
-			'97': ParsedColorToken['$value'];
-			'100': ParsedColorToken['$value'];
-		};
-		news: {
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'550': ParsedColorToken['$value'];
-			'600': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		opinion: {
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'450': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'550': ParsedColorToken['$value'];
-			'600': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		specialReport: {
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'450': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'700': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		specialReportAlt: {
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'700': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		sport: {
-			'100': ParsedColorToken['$value'];
-			'200': ParsedColorToken['$value'];
-			'300': ParsedColorToken['$value'];
-			'400': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
-			'600': ParsedColorToken['$value'];
-			'800': ParsedColorToken['$value'];
-		};
-		success: {
-			'400': ParsedColorToken['$value'];
-			'500': ParsedColorToken['$value'];
+		readonly yellow: {
+			readonly '1': '#F3C100';
+			readonly '2': '#FFD900';
+			readonly '3': '#FFE500';
 		};
 	};
-	size: {
-		icon: {
-			medium: ParsedDimensionToken['$value'];
-			small: ParsedDimensionToken['$value'];
-			xSmall: ParsedDimensionToken['$value'];
-		};
-		medium: ParsedDimensionToken['$value'];
-		small: ParsedDimensionToken['$value'];
-		xSmall: ParsedDimensionToken['$value'];
+	readonly height: {
+		readonly ctaMedium: '44px';
+		readonly ctaSmall: '36px';
+		readonly ctaXSmall: '24px';
+		readonly iconMedium: '30px';
+		readonly iconSmall: '26px';
+		readonly iconXSmall: '20px';
+		readonly inputMedium: '44px';
+		readonly inputXSmall: '24px';
 	};
-	space: {
-		'0': ParsedDimensionToken['$value'];
-		'1': ParsedDimensionToken['$value'];
-		'2': ParsedDimensionToken['$value'];
-		'3': ParsedDimensionToken['$value'];
-		'4': ParsedDimensionToken['$value'];
-		'5': ParsedDimensionToken['$value'];
-		'6': ParsedDimensionToken['$value'];
-		'8': ParsedDimensionToken['$value'];
-		'9': ParsedDimensionToken['$value'];
-		'10': ParsedDimensionToken['$value'];
-		'12': ParsedDimensionToken['$value'];
-		'14': ParsedDimensionToken['$value'];
-		'16': ParsedDimensionToken['$value'];
-		'18': ParsedDimensionToken['$value'];
-		'24': ParsedDimensionToken['$value'];
+	readonly palette: {
+		readonly brand: {
+			readonly '100': '#001536';
+			readonly '300': '#041F4A';
+			readonly '400': '#052962';
+			readonly '500': '#0077B6';
+			readonly '600': '#506991';
+			readonly '800': '#C1D8FC';
+		};
+		readonly brandAlt: {
+			readonly '200': '#F3C100';
+			readonly '300': '#FFD900';
+			readonly '400': '#FFE500';
+		};
+		readonly culture: {
+			readonly '50': '#2B2625';
+			readonly '100': '#3E3323';
+			readonly '200': '#574835';
+			readonly '300': '#6B5840';
+			readonly '350': '#866D50';
+			readonly '400': '#866D50';
+			readonly '450': '#A1845C';
+			readonly '500': '#EACCA0';
+			readonly '600': '#E7D4B9';
+			readonly '700': '#EFE8DD';
+			readonly '800': '#FBF6EF';
+		};
+		readonly error: {
+			readonly '400': '#C70000';
+			readonly '500': '#FF9081';
+		};
+		readonly focus: {
+			readonly '400': '#0077B6';
+		};
+		readonly labs: {
+			readonly '200': '#0C7A73';
+			readonly '300': '#65A897';
+			readonly '400': '#69D1CA';
+		};
+		readonly lifestyle: {
+			readonly '100': '#510043';
+			readonly '200': '#650054';
+			readonly '300': '#7D0068';
+			readonly '400': '#BB3B80';
+			readonly '450': '#F37ABC';
+			readonly '500': '#FFABDB';
+			readonly '600': '#FEC8D3';
+			readonly '800': '#FEEEF7';
+		};
+		readonly neutral: {
+			readonly '0': '#000000';
+			readonly '7': '#121212';
+			readonly '10': '#1A1A1A';
+			readonly '20': '#333333';
+			readonly '38': '#606060';
+			readonly '46': '#707070';
+			readonly '60': '#999999';
+			readonly '86': '#DCDCDC';
+			readonly '93': '#EDEDED';
+			readonly '97': '#F6F6F6';
+			readonly '100': '#FFFFFF';
+		};
+		readonly news: {
+			readonly '100': '#660505';
+			readonly '200': '#8B0000';
+			readonly '300': '#AB0613';
+			readonly '400': '#C70000';
+			readonly '500': '#FF5943';
+			readonly '550': '#FF9081';
+			readonly '600': '#FFBAC8';
+			readonly '800': '#FFF4F2';
+		};
+		readonly opinion: {
+			readonly '100': '#672005';
+			readonly '200': '#8D2700';
+			readonly '300': '#C74600';
+			readonly '400': '#C74600';
+			readonly '450': '#E05E00';
+			readonly '500': '#FF7F0F';
+			readonly '550': '#FF9941';
+			readonly '600': '#F9B376';
+			readonly '800': '#FEF9F5';
+		};
+		readonly specialReport: {
+			readonly '100': '#222527';
+			readonly '200': '#303538';
+			readonly '300': '#3F464A';
+			readonly '400': '#595C5F';
+			readonly '450': '#9DA0A2';
+			readonly '500': '#ABC2C9';
+			readonly '700': '#E4E5E8';
+			readonly '800': '#EFF1F2';
+		};
+		readonly specialReportAlt: {
+			readonly '100': '#2B2B2A';
+			readonly '200': '#B9300A';
+			readonly '300': '#FF663D';
+			readonly '700': '#EBE6E1';
+			readonly '800': '#F5F0EB';
+		};
+		readonly sport: {
+			readonly '100': '#003C60';
+			readonly '200': '#004E7C';
+			readonly '300': '#005689';
+			readonly '400': '#0077B6';
+			readonly '500': '#00B2FF';
+			readonly '600': '#90DCFF';
+			readonly '800': '#F1F8FC';
+		};
+		readonly success: {
+			readonly '400': '#22874D';
+			readonly '500': '#58D08B';
+		};
 	};
-	typography: {
-		body: {
-			medium: ParsedTypographyToken['$value'];
-			small: ParsedTypographyToken['$value'];
-			xSmall: ParsedTypographyToken['$value'];
+	readonly size: {
+		readonly icon: {
+			readonly medium: '30px';
+			readonly small: '26px';
+			readonly xSmall: '20px';
 		};
-		fontFamily: {
-			body: ParsedFontFamilyToken['$value'];
-			headline: ParsedFontFamilyToken['$value'];
-			textSans: ParsedFontFamilyToken['$value'];
-			titlepiece: ParsedFontFamilyToken['$value'];
+		readonly medium: '44px';
+		readonly small: '36px';
+		readonly xSmall: '24px';
+	};
+	readonly space: {
+		readonly '0': '2px';
+		readonly '1': '4px';
+		readonly '2': '8px';
+		readonly '3': '12px';
+		readonly '4': '16px';
+		readonly '5': '20px';
+		readonly '6': '24px';
+		readonly '8': '32px';
+		readonly '9': '36px';
+		readonly '10': '40px';
+		readonly '12': '48px';
+		readonly '14': '56px';
+		readonly '16': '64px';
+		readonly '18': '72px';
+		readonly '24': '96px';
+	};
+	readonly typography: {
+		readonly body: {
+			readonly medium: {
+				readonly fontFamily: readonly [
+					'GuardianTextEgyptian',
+					'Guardian Text Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '17px';
+				readonly lineHeight: 1.4;
+				readonly fontWeight: 400;
+			};
+			readonly small: {
+				readonly fontFamily: readonly [
+					'GuardianTextEgyptian',
+					'Guardian Text Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '15px';
+				readonly lineHeight: 1.4;
+				readonly fontWeight: 400;
+			};
+			readonly xSmall: {
+				readonly fontFamily: readonly [
+					'GuardianTextEgyptian',
+					'Guardian Text Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '14px';
+				readonly lineHeight: 1.4;
+				readonly fontWeight: 400;
+			};
 		};
-		fontSize: {
-			'12': ParsedDimensionToken['$value'];
-			'14': ParsedDimensionToken['$value'];
-			'15': ParsedDimensionToken['$value'];
-			'17': ParsedDimensionToken['$value'];
-			'20': ParsedDimensionToken['$value'];
-			'24': ParsedDimensionToken['$value'];
-			'28': ParsedDimensionToken['$value'];
-			'34': ParsedDimensionToken['$value'];
-			'42': ParsedDimensionToken['$value'];
-			'50': ParsedDimensionToken['$value'];
-			'70': ParsedDimensionToken['$value'];
+		readonly fontFamily: {
+			readonly body: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly headline: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly textSans: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly titlepiece: readonly [
+				'GT Guardian Titlepiece',
+				'Georgia',
+				'serif',
+			];
 		};
-		fontWeight: {
-			bold: ParsedNumberToken['$value'];
-			light: ParsedNumberToken['$value'];
-			medium: ParsedNumberToken['$value'];
-			regular: ParsedNumberToken['$value'];
+		readonly fontSize: {
+			readonly '12': '12px';
+			readonly '14': '14px';
+			readonly '15': '15px';
+			readonly '17': '17px';
+			readonly '20': '20px';
+			readonly '24': '24px';
+			readonly '28': '28px';
+			readonly '34': '34px';
+			readonly '42': '42px';
+			readonly '50': '50px';
+			readonly '70': '70px';
 		};
-		headline: {
-			large: ParsedTypographyToken['$value'];
-			medium: ParsedTypographyToken['$value'];
-			small: ParsedTypographyToken['$value'];
-			xLarge: ParsedTypographyToken['$value'];
-			xSmall: ParsedTypographyToken['$value'];
-			xxSmall: ParsedTypographyToken['$value'];
-			xxxSmall: ParsedTypographyToken['$value'];
+		readonly fontWeight: {
+			readonly bold: 700;
+			readonly light: 300;
+			readonly medium: 500;
+			readonly regular: 400;
 		};
-		lineHeight: {
-			loose: ParsedNumberToken['$value'];
-			regular: ParsedNumberToken['$value'];
-			tight: ParsedNumberToken['$value'];
+		readonly headline: {
+			readonly large: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '42px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
+			readonly medium: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '34px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
+			readonly small: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '28px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
+			readonly xLarge: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '50px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
+			readonly xSmall: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '24px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
+			readonly xxSmall: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '20px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
+			readonly xxxSmall: {
+				readonly fontFamily: readonly [
+					'GH Guardian Headline',
+					'Guardian Egyptian Web',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '17px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 500;
+			};
 		};
-		textDecorationThickness: {
-			'2': ParsedDimensionToken['$value'];
-			'3': ParsedDimensionToken['$value'];
-			'4': ParsedDimensionToken['$value'];
-			'5': ParsedDimensionToken['$value'];
-			'6': ParsedDimensionToken['$value'];
+		readonly lineHeight: {
+			readonly loose: 1.4;
+			readonly regular: 1.3;
+			readonly tight: 1.15;
 		};
-		textSans: {
-			large: ParsedTypographyToken['$value'];
-			medium: ParsedTypographyToken['$value'];
-			small: ParsedTypographyToken['$value'];
-			xLarge: ParsedTypographyToken['$value'];
-			xSmall: ParsedTypographyToken['$value'];
-			xxLarge: ParsedTypographyToken['$value'];
-			xxSmall: ParsedTypographyToken['$value'];
-			xxxLarge: ParsedTypographyToken['$value'];
+		readonly textDecorationThickness: {
+			readonly '2': '2px';
+			readonly '3': '3px';
+			readonly '4': '4px';
+			readonly '5': '5px';
+			readonly '6': '6px';
 		};
-		titlepiece: {
-			large: ParsedTypographyToken['$value'];
-			medium: ParsedTypographyToken['$value'];
-			small: ParsedTypographyToken['$value'];
+		readonly textSans: {
+			readonly large: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '20px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly medium: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '17px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly small: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '15px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly xLarge: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '24px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly xSmall: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '14px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly xxLarge: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '28px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly xxSmall: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '12px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+			readonly xxxLarge: {
+				readonly fontFamily: readonly [
+					'GuardianTextSans',
+					'Guardian Text Sans Web',
+					'Helvetica Neue',
+					'Helvetica',
+					'Arial',
+					'Lucida Grande',
+					'sans-serif',
+				];
+				readonly fontSize: '34px';
+				readonly lineHeight: 1.3;
+				readonly fontWeight: 400;
+			};
+		};
+		readonly titlepiece: {
+			readonly large: {
+				readonly fontFamily: readonly [
+					'GT Guardian Titlepiece',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '70px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 700;
+			};
+			readonly medium: {
+				readonly fontFamily: readonly [
+					'GT Guardian Titlepiece',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '50px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 700;
+			};
+			readonly small: {
+				readonly fontFamily: readonly [
+					'GT Guardian Titlepiece',
+					'Georgia',
+					'serif',
+				];
+				readonly fontSize: '42px';
+				readonly lineHeight: 1.15;
+				readonly fontWeight: 700;
+			};
 		};
 	};
-	width: {
-		ctaMedium: ParsedDimensionToken['$value'];
-		ctaSmall: ParsedDimensionToken['$value'];
-		ctaXSmall: ParsedDimensionToken['$value'];
-		iconMedium: ParsedDimensionToken['$value'];
-		iconSmall: ParsedDimensionToken['$value'];
-		iconXSmall: ParsedDimensionToken['$value'];
-		inputXSmall: ParsedDimensionToken['$value'];
+	readonly width: {
+		readonly ctaMedium: '44px';
+		readonly ctaSmall: '36px';
+		readonly ctaXSmall: '24px';
+		readonly iconMedium: '30px';
+		readonly iconSmall: '26px';
+		readonly iconXSmall: '20px';
+		readonly inputXSmall: '24px';
 	};
 };
-
-export declare const modes: Record<string, never>;
-
-export declare function token<K extends keyof typeof tokens>(
-	tokenID: K,
-	modeName?: never,
-): (typeof tokens)[K];
-export declare function token<
-	K extends keyof typeof modes,
-	M extends keyof (typeof modes)[K],
->(tokenID: K, modeName: M): (typeof modes)[K][M];

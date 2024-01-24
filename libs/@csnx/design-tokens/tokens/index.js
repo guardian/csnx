@@ -143,7 +143,6 @@ export const tokens = {
 			100: '#3E3323',
 			200: '#574835',
 			300: '#6B5840',
-			/** Deprecated: Use colour.culture.400 */
 			350: '#866D50',
 			400: '#866D50',
 			450: '#A1845C',
@@ -200,7 +199,6 @@ export const tokens = {
 		opinion: {
 			100: '#672005',
 			200: '#8D2700',
-			/** Deprecated: Use colour.opinion.400 */
 			300: '#C74600',
 			400: '#C74600',
 			450: '#E05E00',
@@ -582,12 +580,3 @@ export const tokens = {
 		inputXSmall: '24px',
 	},
 };
-
-export const modes = {};
-
-/** Get individual token */
-export function token(tokenID, modeName) {
-	if (modeName && modes[tokenID] && modeName in modes[tokenID])
-		return modes[tokenID][modeName];
-	return tokens[tokenID];
-}
