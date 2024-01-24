@@ -4,13 +4,10 @@
 	"private": true,
 	"type": "module",
 	"main": "./tokens/index.js",
-	"dependencies": {
-		"@cobalt-ui/core": "^1.6.1"
-	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "^1.6.2",
 		"@cobalt-ui/plugin-css": "^1.7.0",
-		"@cobalt-ui/plugin-js": "^1.4.2"
+		"@guardian/cobalt-plugin-ts": "workspace:*"
 	},
 	"peerDependencies": {
 		"tslib": "^2.5.3"

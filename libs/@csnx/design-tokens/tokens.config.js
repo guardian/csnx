@@ -1,5 +1,5 @@
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import pluginJS from '@cobalt-ui/plugin-js';
+import pluginTS from '@guardian/cobalt-plugin-ts';
 
 const prefixCustomProperty = (variableId) => {
 	return defaultNameGenerator(`source.${variableId}`);
@@ -20,10 +20,8 @@ export default {
 			generateName: prefixCustomProperty,
 			transform: pxToRem,
 		}),
-		pluginJS({
-			js: true,
-			meta: false,
-			deep: true,
+		pluginTS({
+			filename: 'index.js',
 		}),
 	],
 };

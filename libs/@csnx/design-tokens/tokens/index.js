@@ -582,12 +582,3 @@ export const tokens = {
 		inputXSmall: '24px',
 	},
 };
-
-export const modes = {};
-
-/** Get individual token */
-export function token(tokenID, modeName) {
-	if (modeName && modes[tokenID] && modeName in modes[tokenID])
-		return modes[tokenID][modeName];
-	return tokens[tokenID];
-}

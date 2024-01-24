@@ -96,6 +96,7 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/ab-react:test`
 - `make @guardian/browserslist-config:build`
 - `make @guardian/browserslist-config:e2e`
+- `make @guardian/cobalt-plugin-ts:build`
 - `make @guardian/core-web-vitals:build`
 - `make @guardian/core-web-vitals:e2e`
 - `make @guardian/core-web-vitals:fix`
