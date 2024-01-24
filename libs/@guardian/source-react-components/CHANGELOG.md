@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 19.0.1
+
+### Patch Changes
+
+- f4f275d: Fix footer backToTop icon
+
 ## 19.0.0
 
 ### Major Changes
