@@ -143,6 +143,7 @@ export declare const tokens: {
 			readonly '100': '#3E3323';
 			readonly '200': '#574835';
 			readonly '300': '#6B5840';
+			/** Deprecated: Use colour.culture.400 */
 			readonly '350': '#866D50';
 			readonly '400': '#866D50';
 			readonly '450': '#A1845C';
@@ -199,6 +200,7 @@ export declare const tokens: {
 		readonly opinion: {
 			readonly '100': '#672005';
 			readonly '200': '#8D2700';
+			/** Deprecated: Use colour.opinion.400 */
 			readonly '300': '#C74600';
 			readonly '400': '#C74600';
 			readonly '450': '#E05E00';

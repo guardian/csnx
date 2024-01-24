@@ -1,6 +1,6 @@
 // @ts-check
 
-import { defaultTransformer } from '@cobalt-ui/plugin-js';
+import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import ts from 'typescript';
 
@@ -24,14 +24,22 @@ export default function pluginTS(options) {
 			// this is where we'll store the transformed tokens
 			const transformedTokens = {};
 
+			/** @type {Object.<string, string>} */
+			const jsDoc = {};
+
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
 			for (const token of tokens) {
 				set(transformedTokens, token.id, defaultTransformer(token));
+				if (token.$description) jsDoc[token.id] = token.$description;
 			}
+
+			const serialisedJS = serializeJS(transformedTokens, {
+				comments: jsDoc,
+			}).trim();
 
 			// create a typescript source string containing the transformed
 			// tokens
-			const typescriptSource = `export const tokens = ${JSON.stringify(transformedTokens, null, 2)} as const;`;
+			const typescriptSource = `export const tokens = ${serialisedJS.replace(/;$/, '')} as const;`;
 
 			// now we create a ts program to create the JS and declaration file
 			// contents. the program would write to disk by default, so we
