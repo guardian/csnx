@@ -24,7 +24,7 @@ export default {
 			transform: pxToRem,
 			filename: './variables.css',
 		}),
-		pluginJS({
+		pluginTS({
 			filename: './index.js',
 		}),
 	],
