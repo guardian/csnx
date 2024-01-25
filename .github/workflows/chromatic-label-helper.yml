@@ -34,8 +34,8 @@ jobs:
             if (!hasChromaticLabel) {
               const commentLines = [
                 "> [!TIP]",
-                "> Once this PR is ready to go, add the `run_chromatic` label to run the Chromatic tests."
-                ">"
+                "> Once this PR is ready to go, add the `run_chromatic` label to run the Chromatic tests.",
+                ">",
                 "> This saves us a lot of money by not running the tests before we need them.",
               ];
               github.rest.issues.createComment({
