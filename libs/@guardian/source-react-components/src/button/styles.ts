@@ -29,6 +29,7 @@ const button = css`
 	transition: ${transitions.medium};
 	text-decoration: none;
 	white-space: nowrap;
+	vertical-align: middle;
 
 	:disabled {
 		cursor: not-allowed;
