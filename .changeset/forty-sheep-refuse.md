@@ -1,5 +1,5 @@
 ---
-'@guardian/source-react-components-development-kitchen': patch
+'@guardian/source-react-components-development-kitchen': major
 ---
 
 Update file input error border width
