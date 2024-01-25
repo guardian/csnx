@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.1.3
+
+### Patch Changes
+
+- a364e14: Restores explicit types (i.e. actual values) for exports.
+
 ## 14.1.2
 
 ### Patch Changes
