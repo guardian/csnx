@@ -148,9 +148,6 @@ importers:
       nx-cloud:
         specifier: latest
         version: 16.5.2
-      prebid.js:
-        specifier: github:guardian/prebid.js#91cabf5cdfc3c01745f4b10e55044f95a9d7d1b4
-        version: github.com/guardian/prebid.js/91cabf5cdfc3c01745f4b10e55044f95a9d7d1b4(tslib@2.6.2)(typescript@5.3.3)
       prettier:
         specifier: 3.2.2
         version: 3.2.2
@@ -8404,11 +8401,6 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js@3.35.1:
-    resolution: {integrity: sha512-IgdsbxNyMskrTFxa9lWHyMwAJU5gXOPP+1yO+K59d50VLVAIDAbs7gIv705KzALModfK3ZrSZTPNpC0PQgIZuw==}
-    requiresBuild: true
-    dev: true
-
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
@@ -8489,10 +8481,6 @@ packages:
   /create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
-  /criteo-direct-rsa-validate@1.1.0:
-    resolution: {integrity: sha512-7gQ3zX+d+hS/vOxzLrZ4aRAceB7qNJ0VzaGNpcWjDCmtOpASB50USJDupTik/H2nHgiSAA3VNZ3SFuONs8LR9Q==}
-    dev: true
-
   /cross-fetch@3.1.5:
     resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
     dependencies:
@@ -8523,10 +8511,6 @@ packages:
     dependencies:
       '@types/node': 17.0.45
     dev: false
-
-  /crypto-js@4.2.0:
-    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
-    dev: true
 
   /crypto-random-string@2.0.0:
     resolution: {integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==}
@@ -8885,10 +8869,6 @@ packages:
     dependencies:
       path-type: 4.0.0
 
-  /dlv@1.1.3:
-    resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
-    dev: true
-
   /doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
@@ -8987,11 +8967,6 @@ packages:
   /dotenv@16.3.1:
     resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
-
-  /dset@3.1.2:
-    resolution: {integrity: sha512-g/M9sqy3oHe477Ar4voQxWtaPIFw1jTdKZuomOjhCcBx9nHUNn0pu6NopuFFrTh/TRZIKEj+76vLWFu9BNKk+Q==}
-    engines: {node: '>=4'}
-    dev: true
 
   /duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -10025,12 +10000,6 @@ packages:
     os: [darwin]
     requiresBuild: true
     optional: true
-
-  /fun-hooks@0.9.10:
-    resolution: {integrity: sha512-7xBjdT+oMYOPWgwFxNiNzF4ubeUvim4zs1DnQqSSGyxu8UD7AW/6Z0iFsVRwuVSIZKUks2en2VHHotmNfj3ipw==}
-    dependencies:
-      typescript-tuple: 2.2.1
-    dev: true
 
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
@@ -11597,10 +11566,6 @@ packages:
     engines: {node: '>=12.20'}
     dev: false
 
-  /just-clone@1.0.2:
-    resolution: {integrity: sha512-p93GINPwrve0w3HUzpXmpTl7MyzzWz1B5ag44KEtq/hP1mtK8lA2b9Q0VQaPlnY87352osJcE6uBmN0e8kuFMw==}
-    dev: true
-
   /keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
     dependencies:
@@ -11781,19 +11746,6 @@ packages:
       log-update: 6.0.0
       rfdc: 1.3.0
       wrap-ansi: 9.0.0
-    dev: true
-
-  /live-connect-common@3.1.1:
-    resolution: {integrity: sha512-sV0oUvJnaTN41f30hOo3wDjZL2y8TYu5BQKvlxmek7Agpe2AGGN/dsPA8i2sHkessRKpcTfrPjmpnG2bIxq7Gg==}
-    engines: {node: '>=18'}
-    dev: true
-
-  /live-connect-js@6.4.5:
-    resolution: {integrity: sha512-MVlUGMmy3BbyFKvzMy2GItMMUzEc0XY308MoOQ3BNvT1zy4NXjIvxEXEvx0I9jRz21UZthxZpjzHxT/hbLD3ug==}
-    engines: {node: '>=18'}
-    dependencies:
-      live-connect-common: 3.1.1
-      tiny-hashes: 1.0.1
     dev: true
 
   /load-yaml-file@0.2.0:
@@ -14398,10 +14350,6 @@ packages:
   /through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
-  /tiny-hashes@1.0.1:
-    resolution: {integrity: sha512-knIN5zj4fl7kW4EBU5sLP20DWUvi/rVouvJezV0UAym2DkQaqm365Nyc8F3QEiOvunNDMxR8UhcXd1d5g+Wg1g==}
-    dev: true
-
   /tiny-invariant@1.3.1:
     resolution: {integrity: sha512-AD5ih2NlSssTCwsMznbvwMZpJ1cbhkGd2uueNxzv2jDlEeZdU04JQfRnggJQ8DrcVBGjAsCKwFBbDlVNtEMlzw==}
     dev: true
@@ -14797,22 +14745,6 @@ packages:
 
   /typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
-    dev: true
-
-  /typescript-compare@0.0.2:
-    resolution: {integrity: sha512-8ja4j7pMHkfLJQO2/8tut7ub+J3Lw2S3061eJLFQcvs3tsmJKp8KG5NtpLn7KcY2w08edF74BSVN7qJS0U6oHA==}
-    dependencies:
-      typescript-logic: 0.0.0
-    dev: true
-
-  /typescript-logic@0.0.0:
-    resolution: {integrity: sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==}
-    dev: true
-
-  /typescript-tuple@2.2.1:
-    resolution: {integrity: sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==}
-    dependencies:
-      typescript-compare: 0.0.2
     dev: true
 
   /typescript@5.2.2:
@@ -15481,34 +15413,4 @@ packages:
   /yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
-    dev: true
-
-  github.com/guardian/prebid.js/91cabf5cdfc3c01745f4b10e55044f95a9d7d1b4(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {tarball: https://codeload.github.com/guardian/prebid.js/tar.gz/91cabf5cdfc3c01745f4b10e55044f95a9d7d1b4}
-    id: github.com/guardian/prebid.js/91cabf5cdfc3c01745f4b10e55044f95a9d7d1b4
-    name: prebid.js
-    version: 8.24.0
-    engines: {node: '>=8.9.0'}
-    dependencies:
-      '@babel/core': 7.23.6
-      '@babel/plugin-transform-runtime': 7.23.6(@babel/core@7.23.6)
-      '@babel/preset-env': 7.23.5(@babel/core@7.23.6)
-      '@babel/runtime': 7.23.6
-      '@guardian/libs': 16.0.0(tslib@2.6.2)(typescript@5.3.3)
-      core-js: 3.35.1
-      core-js-pure: 3.34.0
-      criteo-direct-rsa-validate: 1.1.0
-      crypto-js: 4.2.0
-      dlv: 1.1.3
-      dset: 3.1.2
-      express: 4.18.2
-      fun-hooks: 0.9.10
-      just-clone: 1.0.2
-      live-connect-js: 6.4.5
-    optionalDependencies:
-      fsevents: 2.3.3
-    transitivePeerDependencies:
-      - supports-color
-      - tslib
-      - typescript
     dev: true
