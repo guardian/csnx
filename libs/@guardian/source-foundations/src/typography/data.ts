@@ -1,4 +1,4 @@
-import { tokens } from '@csnx/design-tokens';
+import { tokens } from '@guardian/design-tokens';
 import {
 	fontArrayToString,
 	pxStringToNumber,
@@ -14,33 +14,33 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  */
 export const pxTextSizes = {
 	textSans: {
-		xxsmall: pxStringToNumber(tokens.typography.textSans.xxSmall.fontSize!),
-		xsmall: pxStringToNumber(tokens.typography.textSans.xSmall.fontSize!),
-		small: pxStringToNumber(tokens.typography.textSans.small.fontSize!),
-		medium: pxStringToNumber(tokens.typography.textSans.medium.fontSize!),
-		large: pxStringToNumber(tokens.typography.textSans.large.fontSize!),
-		xlarge: pxStringToNumber(tokens.typography.textSans.xLarge.fontSize!),
-		xxlarge: pxStringToNumber(tokens.typography.textSans.xxLarge.fontSize!),
-		xxxlarge: pxStringToNumber(tokens.typography.textSans.xxxLarge.fontSize!),
+		xxsmall: pxStringToNumber(tokens.typography.textSans.xxSmall.fontSize),
+		xsmall: pxStringToNumber(tokens.typography.textSans.xSmall.fontSize),
+		small: pxStringToNumber(tokens.typography.textSans.small.fontSize),
+		medium: pxStringToNumber(tokens.typography.textSans.medium.fontSize),
+		large: pxStringToNumber(tokens.typography.textSans.large.fontSize),
+		xlarge: pxStringToNumber(tokens.typography.textSans.xLarge.fontSize),
+		xxlarge: pxStringToNumber(tokens.typography.textSans.xxLarge.fontSize),
+		xxxlarge: pxStringToNumber(tokens.typography.textSans.xxxLarge.fontSize),
 	},
 	body: {
-		xsmall: pxStringToNumber(tokens.typography.body.xSmall.fontSize!),
-		small: pxStringToNumber(tokens.typography.body.small.fontSize!),
-		medium: pxStringToNumber(tokens.typography.body.medium.fontSize!),
+		xsmall: pxStringToNumber(tokens.typography.body.xSmall.fontSize),
+		small: pxStringToNumber(tokens.typography.body.small.fontSize),
+		medium: pxStringToNumber(tokens.typography.body.medium.fontSize),
 	},
 	headline: {
-		xxxsmall: pxStringToNumber(tokens.typography.headline.xxxSmall.fontSize!),
-		xxsmall: pxStringToNumber(tokens.typography.headline.xxSmall.fontSize!),
-		xsmall: pxStringToNumber(tokens.typography.headline.xSmall.fontSize!),
-		small: pxStringToNumber(tokens.typography.headline.small.fontSize!),
-		medium: pxStringToNumber(tokens.typography.headline.medium.fontSize!),
-		large: pxStringToNumber(tokens.typography.headline.large.fontSize!),
-		xlarge: pxStringToNumber(tokens.typography.headline.xLarge.fontSize!),
+		xxxsmall: pxStringToNumber(tokens.typography.headline.xxxSmall.fontSize),
+		xxsmall: pxStringToNumber(tokens.typography.headline.xxSmall.fontSize),
+		xsmall: pxStringToNumber(tokens.typography.headline.xSmall.fontSize),
+		small: pxStringToNumber(tokens.typography.headline.small.fontSize),
+		medium: pxStringToNumber(tokens.typography.headline.medium.fontSize),
+		large: pxStringToNumber(tokens.typography.headline.large.fontSize),
+		xlarge: pxStringToNumber(tokens.typography.headline.xLarge.fontSize),
 	},
 	titlepiece: {
-		small: pxStringToNumber(tokens.typography.titlepiece.small.fontSize!),
-		medium: pxStringToNumber(tokens.typography.titlepiece.medium.fontSize!),
-		large: pxStringToNumber(tokens.typography.titlepiece.large.fontSize!),
+		small: pxStringToNumber(tokens.typography.titlepiece.small.fontSize),
+		medium: pxStringToNumber(tokens.typography.titlepiece.medium.fontSize),
+		large: pxStringToNumber(tokens.typography.titlepiece.large.fontSize),
 	},
 } as const;
 

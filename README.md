@@ -83,7 +83,6 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`
 - `make csnx:storybooks`
-- `make @csnx/design-tokens:make-tokens`
 - `make @guardian/ab-core:build`
 - `make @guardian/ab-core:e2e`
 - `make @guardian/ab-core:fix`
@@ -96,11 +95,14 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/ab-react:test`
 - `make @guardian/browserslist-config:build`
 - `make @guardian/browserslist-config:e2e`
+- `make @guardian/cobalt-plugin-ts:build`
 - `make @guardian/core-web-vitals:build`
 - `make @guardian/core-web-vitals:e2e`
 - `make @guardian/core-web-vitals:fix`
 - `make @guardian/core-web-vitals:lint`
 - `make @guardian/core-web-vitals:test`
+- `make @guardian/design-tokens:build`
+- `make @guardian/design-tokens:generate-tokens`
 - `make @guardian/eslint-config:build`
 - `make @guardian/eslint-config:e2e`
 - `make @guardian/eslint-config-typescript:build`
@@ -195,6 +197,14 @@ SKIP_NX_CACHE=true make test
 ### Chromatic
 
 To run Chromatic (for visual regression testing) on a PR, add the `run_chromatic` label to the PR in Github. The Chromatic tests are required to pass by CI, so this will _need_ to be done at least once before a PR is merged. We recommend you only add the label once you are happy with any changes made and have checked for visual regressions manually first.
+
+### Releasing a package
+
+Libs within CSNX are available as NPM packages. We use [Changesets](<[url](https://github.com/changesets/changesets)>) to automate this release process.
+
+To publish your changes to NPM, run `make changeset`. This will open the Changesets CLI, and you will be offered a list of packages to release. Once you've selected the changed package/s you'll be given the option of `major`, `minor` or `patch` release. Select one of these and add a description.
+
+This will create a "changeset": a `.md` file containing the release information. When you merge your branch, the changeset will be picked up by the Changests GHA, which will in turn create a release PR. To complete the NPM release merge this second PR.
 
 ## Troubleshooting
 

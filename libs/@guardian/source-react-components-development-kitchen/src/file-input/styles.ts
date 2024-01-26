@@ -77,7 +77,7 @@ export const customUpload = (
 	border-radius: ${remHeight.ctaMedium}rem;
 	color: ${fileInput.primary};
 	border: ${hasError
-		? `4px solid ${fileInput.error}`
+		? `2px solid ${fileInput.error}`
 		: `1px solid ${fileInput.primary}`};
 
 	&:focus-within,

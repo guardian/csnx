@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 16.0.1
+
+### Patch Changes
+
+- 8fba0a7: Fix toggle switch on position
+
 ## 16.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.1.3
+
+### Patch Changes
+
+- a364e14: Restores explicit types (i.e. actual values) for exports.
+
 ## 14.1.2
 
 ### Patch Changes
@@ -16,7 +22,7 @@
 
 ### Minor Changes
 
-- 50e68bb: Typography now uses `@csnx/design-tokens` as the source of truth, but the token values and API remain the same
+- 50e68bb: Typography now uses `@guardian/design-tokens` as the source of truth, but the token values and API remain the same
 
 ## 14.0.0
 
