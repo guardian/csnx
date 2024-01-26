@@ -6,7 +6,9 @@ import { space } from '@guardian/source-foundations';
 import type { Breakpoint } from '@guardian/source-foundations';
 
 type Space = keyof typeof space;
-export type StackSpace = Space | { [key in Breakpoint]?: Space };
+export type StackSpace =
+	| Space
+	| ({ base: Space } & { [key in Breakpoint]?: Space });
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
