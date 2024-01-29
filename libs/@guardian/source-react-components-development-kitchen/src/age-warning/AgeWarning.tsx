@@ -55,7 +55,7 @@ const ageWarningStyles = (
 const iconStyles = (isSmall: boolean): SerializedStyles => css`
 	position: relative;
 	top: 1px;
-	width: ${isSmall ? '11px' : '15px'};
+	width: ${isSmall ? '11px' : '14px'};
 	height: auto;
 `;
 
