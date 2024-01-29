@@ -27,6 +27,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/libs](libs/@guardian/libs)
 - [@guardian/newsletter-types](libs/@guardian/newsletter-types)
 - [@guardian/prettier](libs/@guardian/prettier)
+- [@guardian/source](libs/@guardian/source)
 - [@guardian/source-foundations](libs/@guardian/source-foundations)
 - [@guardian/source-react-components](libs/@guardian/source-react-components)
 - [@guardian/source-react-components-development-kitchen](libs/@guardian/source-react-components-development-kitchen)
@@ -138,6 +139,13 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/newsletter-types:test`
 - `make @guardian/prettier:build`
 - `make @guardian/prettier:e2e`
+- `make @guardian/source:build`
+- `make @guardian/source:build-storybook`
+- `make @guardian/source:e2e`
+- `make @guardian/source:fix`
+- `make @guardian/source:lint`
+- `make @guardian/source:storybook`
+- `make @guardian/source:test`
 - `make @guardian/source-foundations:build`
 - `make @guardian/source-foundations:build-storybook`
 - `make @guardian/source-foundations:e2e`
