@@ -11,6 +11,7 @@ const meta: Meta<typeof TextInput> = {
 		optional: false,
 		hideLabel: false,
 		supporting: '',
+		size: 'medium',
 		error: 'undefined',
 		success: 'undefined',
 	},
@@ -126,6 +127,102 @@ ConstraintDefaultTheme.args = {
 	pattern: '[0-9]{1,11}',
 	title: '11 digit phone number',
 	type: 'tel',
+};
+
+// *****************************************************************************
+
+export const DefaultSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+DefaultSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const OptionalSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+OptionalSmallDefaultTheme.args = {
+	optional: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const HideLabelSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+HideLabelSmallDefaultTheme.args = {
+	hideLabel: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SupportingTextSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+SupportingTextSmallDefaultTheme.args = {
+	supporting: 'alex@example.com',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const Width30SmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+Width30SmallDefaultTheme.args = {
+	width: 30,
+	label: 'First name',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const Width10SmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+Width10SmallDefaultTheme.args = {
+	width: 10,
+	label: 'Postcode',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const Width4SmallDefaultTheme: StoryFn<typeof TextInput> = Template.bind(
+	{},
+);
+Width4SmallDefaultTheme.args = {
+	width: 4,
+	label: 'Year of birth',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+ErrorWithMessageSmallDefaultTheme.args = {
+	error: 'error',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SuccessWithMessageSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+SuccessWithMessageSmallDefaultTheme.args = {
+	success: 'success',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const ConstraintSmallDefaultTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+ConstraintSmallDefaultTheme.args = {
+	label: 'Phone number',
+	pattern: '[0-9]{1,11}',
+	title: '11 digit phone number',
+	type: 'tel',
+	size: 'small',
 };
 
 // *****************************************************************************

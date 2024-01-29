@@ -9,6 +9,7 @@ const meta: Meta<typeof Label> = {
 		text: 'Email',
 		optional: false,
 		hideLabel: false,
+		size: 'medium',
 	},
 	component: Label,
 };
@@ -90,12 +91,84 @@ WithOptionalBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const WithHiddenLabelThemeBrandTheme: StoryFn<typeof Label> =
-	Template.bind({});
-WithHiddenLabelThemeBrandTheme.args = {
+export const WithHiddenLabelBrandTheme: StoryFn<typeof Label> = Template.bind(
+	{},
+);
+WithHiddenLabelBrandTheme.args = {
 	hideLabel: true,
 };
-WithHiddenLabelThemeBrandTheme.parameters = {
+WithHiddenLabelBrandTheme.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const DefaultSmallDefaultTheme: StoryFn<typeof Label> = Template.bind(
+	{},
+);
+DefaultSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithSupportingTextSmallDefaultTheme: StoryFn<typeof Label> =
+	Template.bind({});
+WithSupportingTextSmallDefaultTheme.args = {
+	supporting: 'alex@example.com',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithOptionalSmallDefaultTheme: StoryFn<typeof Label> =
+	Template.bind({});
+WithOptionalSmallDefaultTheme.args = {
+	optional: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const DefaultSmallBrandTheme: StoryFn<typeof Label> = Template.bind({});
+DefaultSmallBrandTheme.args = {
+	size: 'small',
+};
+DefaultSmallBrandTheme.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const WithSupportingTextSmallBrandTheme: StoryFn<typeof Label> =
+	Template.bind({});
+WithSupportingTextSmallBrandTheme.args = {
+	supporting: 'alex@example.com',
+	size: 'small',
+};
+WithSupportingTextSmallBrandTheme.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const WithOptionalSmallBrandTheme: StoryFn<typeof Label> = Template.bind(
+	{},
+);
+WithOptionalSmallBrandTheme.args = {
+	optional: true,
+	size: 'small',
+};
+WithOptionalSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},

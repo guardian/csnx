@@ -1,5 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import type { HTMLAttributes, LabelHTMLAttributes, ReactNode } from 'react';
+import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
 
 export interface LabelProps
@@ -21,6 +22,10 @@ export interface LabelProps
 	 * Visually hides the label
 	 */
 	hideLabel?: boolean;
+	/**
+	 * Size of label
+	 */
+	size?: InputSize;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
 	children?: ReactNode;
 }

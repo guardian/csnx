@@ -1,7 +1,15 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { resets, textSans } from '@guardian/source-foundations';
+import type { InputSize } from '../@types/InputSize';
 import { labelThemeDefault } from './theme';
+
+const textSize: {
+	[key in InputSize]: string;
+} = {
+	medium: textSans.medium({ fontWeight: 'bold' }),
+	small: textSans.xsmall({ fontWeight: 'bold' }),
+};
 
 export const legend = css`
 	${resets.legend};
@@ -9,15 +17,16 @@ export const legend = css`
 
 export const labelText = (
 	label = labelThemeDefault.label,
+	size: InputSize,
 ): SerializedStyles => css`
-	${textSans.medium({ fontWeight: 'bold' })};
+	${textSize[size]};
 	color: ${label.textLabel};
 `;
 
 export const optionalText = (
 	label = labelThemeDefault.label,
 ): SerializedStyles => css`
-	${textSans.small()};
+	${textSans.xsmall()};
 	color: ${label.textOptional};
 	font-style: italic;
 `;
@@ -25,7 +34,7 @@ export const optionalText = (
 export const supportingText = (
 	label = labelThemeDefault.label,
 ): SerializedStyles => css`
-	${textSans.small()};
+	${textSans.xsmall()};
 	color: ${label.textSupporting};
 	margin: 2px 0 0;
 `;

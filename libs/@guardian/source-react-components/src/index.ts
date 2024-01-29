@@ -186,6 +186,8 @@ export { SvgUpload } from '../vendor/icons/SvgUpload';
 
 export type { IconProps, IconSize } from './@types/Icons';
 
+export type { InputSize } from './@types/InputSize';
+
 export { labelThemeDefault, labelThemeBrand } from './label/theme';
 export { Label } from './label/Label';
 export type { LabelProps } from './label/types';
