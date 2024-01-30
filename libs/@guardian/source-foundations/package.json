@@ -1,15 +1,15 @@
 {
 	"name": "@guardian/source-foundations",
-	"version": "14.1.2",
+	"version": "14.1.3",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
-		"@csnx/design-tokens": "workspace:0.0.0",
 		"@emotion/react": "11.11.1",
-		"lightningcss": "1.22.1",
+		"@guardian/design-tokens": "workspace:0.1.0--pre.0",
+		"lightningcss": "1.23.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.6.2",

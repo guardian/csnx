@@ -19,6 +19,7 @@ import {
 	width4,
 	widthFluid,
 } from './styles';
+import type { InputSize } from '../@types/InputSize';
 
 export type Width = 30 | 10 | 4;
 
@@ -31,7 +32,7 @@ const widths: {
 };
 
 export interface TextInputProps
-	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'>,
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'size'>,
 		Props {
 	id?: string;
 	/**
@@ -50,6 +51,10 @@ export interface TextInputProps
 	 * Additional text that appears below the label
 	 */
 	supporting?: string;
+	/**
+	 * Size of the text input field, label and error message if visible.
+	 */
+	size?: InputSize;
 	/**
 	 * Determines the width of a fixed-length field, based on the specified character length of the user input. If unspecified,
 	 * the width will default to 100% of the field's container.
@@ -88,6 +93,7 @@ export const TextInput = ({
 	optional = false,
 	hideLabel = false,
 	supporting,
+	size = 'medium',
 	width,
 	error,
 	success,
@@ -102,16 +108,19 @@ export const TextInput = ({
 				optional={!!optional}
 				hideLabel={hideLabel}
 				supporting={supporting}
+				size={size}
 				htmlFor={textInputId}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textInputId)}>{error}</InlineError>
+						<InlineError id={descriptionId(textInputId)} size={size}>
+							{error}
+						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textInputId)}>
+						<InlineSuccess id={descriptionId(textInputId)} size={size}>
 							{success}
 						</InlineSuccess>
 					</div>
@@ -120,7 +129,7 @@ export const TextInput = ({
 			<input
 				css={(theme: Theme) => [
 					width ? widths[width] : widthFluid,
-					textInput(theme.textInput),
+					textInput(theme.textInput, size),
 					supporting ? supportingTextMargin : labelMargin,
 					error ? errorInput(theme.textInput) : '',
 					!error && success ? successInput(theme.textInput) : '',

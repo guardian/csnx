@@ -1,12 +1,25 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import {
-	focusHalo,
-	height,
-	space,
-	textSans,
-} from '@guardian/source-foundations';
+import { focusHalo, size, space, textSans } from '@guardian/source-foundations';
+import type { InputSize } from '../@types/InputSize';
 import { textInputThemeDefault } from './theme';
+
+const inputSizeMedium = css`
+	${textSans.medium()};
+	height: ${size.medium}px;
+`;
+
+const inputSizeSmall = css`
+	${textSans.xsmall()};
+	height: ${size.small}px;
+`;
+
+const inputSize: {
+	[key in InputSize]: SerializedStyles;
+} = {
+	medium: inputSizeMedium,
+	small: inputSizeSmall,
+};
 
 export const errorInput = (
 	textInput = textInputThemeDefault.textInput,
@@ -28,10 +41,10 @@ export const successInput = (
 
 export const textInput = (
 	textInput = textInputThemeDefault.textInput,
+	size: InputSize,
 ): SerializedStyles => css`
 	box-sizing: border-box;
-	height: ${height.inputMedium}px;
-	${textSans.medium()};
+	${inputSize[size]};
 	color: ${textInput.textUserInput};
 	background-color: ${textInput.backgroundInput};
 	border: 1px solid ${textInput.border};

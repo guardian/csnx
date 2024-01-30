@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.0.1
+
+### Patch Changes
+
+- 9c64a63: Make Storage handle numeric expiry value
+
 ## 16.0.0
 
 ### Major Changes

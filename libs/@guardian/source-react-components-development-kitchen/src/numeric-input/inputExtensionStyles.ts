@@ -2,12 +2,14 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { space } from '@guardian/source-foundations';
 import { textInputThemeDefault } from '@guardian/source-react-components';
+import type { InputSize } from '@guardian/source-react-components';
 import { inputBase } from './sharedStyles';
 
 export const inputExtension = (
 	input = textInputThemeDefault.textInput,
+	size: InputSize,
 ): SerializedStyles => css`
-	${inputBase(input)}
+	${inputBase(input, size)}
 	display: inline-flex;
 	align-items: center;
 `;

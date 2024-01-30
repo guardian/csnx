@@ -7,7 +7,8 @@
 	"access": "public",
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
-	"bumpVersionsWithWorkspaceProtocolOnly": true,
+	"bumpVersionsWithWorkspaceProtocolOnly": false,
+	"ignore": ["@csnx/*"],
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
 		"onlyUpdatePeerDependentsWhenOutOfRange": true
 	}

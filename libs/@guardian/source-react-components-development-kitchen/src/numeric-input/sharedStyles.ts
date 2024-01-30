@@ -1,14 +1,32 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { height, space, textSans } from '@guardian/source-foundations';
+import { size, space, textSans } from '@guardian/source-foundations';
 import { textInputThemeDefault } from '@guardian/source-react-components';
+import type { InputSize } from '@guardian/source-react-components';
+
+const inputSizeDefault = css`
+	${textSans.medium()};
+	height: ${size.medium}px;
+`;
+
+const inputSizeSmall = css`
+	${textSans.xsmall()};
+	height: ${size.small}px;
+`;
+
+const inputSize: {
+	[key in InputSize]: SerializedStyles;
+} = {
+	medium: inputSizeDefault,
+	small: inputSizeSmall,
+};
 
 export const inputBase = (
 	textInput = textInputThemeDefault.textInput,
+	size: InputSize,
 ): SerializedStyles => css`
 	box-sizing: border-box;
-	height: ${height.inputMedium}px;
-	${textSans.medium()};
+	${inputSize[size]};
 	color: ${textInput.textUserInput};
 	background-color: ${textInput.backgroundInput};
 	border: 1px solid ${textInput.border};

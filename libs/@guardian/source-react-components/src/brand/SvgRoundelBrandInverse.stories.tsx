@@ -1,8 +1,8 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { SvgRoundelBrandInverseProps } from './SvgRoundelBrandInverse';
 import { SvgRoundelBrandInverse } from './SvgRoundelBrandInverse';
 
-export default {
+const meta: Meta<typeof SvgRoundelBrandInverse> = {
 	title: 'SvgRoundelBrandInverse',
 	component: SvgRoundelBrandInverse,
 	argTypes: {
@@ -12,8 +12,12 @@ export default {
 	},
 };
 
-const Template: Story = (args: SvgRoundelBrandInverseProps) => (
-	<SvgRoundelBrandInverse {...args} />
-);
+export default meta;
 
-export const Default = Template.bind({});
+const Template: StoryFn<typeof SvgRoundelBrandInverse> = (
+	args: SvgRoundelBrandInverseProps,
+) => <SvgRoundelBrandInverse {...args} />;
+
+export const Default: StoryFn<typeof SvgRoundelBrandInverse> = Template.bind(
+	{},
+);

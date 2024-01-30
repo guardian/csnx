@@ -1,26 +1,34 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { InlineError } from './InlineError';
 import { userFeedbackThemeBrand } from './theme';
 import type { UserFeedbackProps } from './types';
 
-export default {
+const meta: Meta<typeof InlineError> = {
 	title: 'InlineError',
 	component: InlineError,
+	args: {
+		size: 'medium',
+	},
 };
 
-const Template: Story<UserFeedbackProps> = ({
+export default meta;
+
+const Template: StoryFn<typeof InlineError> = ({
 	children,
 	...args
 }: UserFeedbackProps) => (
 	<InlineError {...args}>{children ?? 'Please enter your name'}</InlineError>
 );
 
-export const InlineErrorDefaultTheme = Template.bind({});
+export const InlineErrorDefaultTheme: StoryFn<typeof InlineError> =
+	Template.bind({});
 
 // *****************************************************************************
 
-export const InlineErrorBrandTheme = Template.bind({});
+export const InlineErrorBrandTheme: StoryFn<typeof InlineError> = Template.bind(
+	{},
+);
 InlineErrorBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
@@ -30,7 +38,8 @@ InlineErrorBrandTheme.parameters = {
 
 // *****************************************************************************
 
-export const LongInlineErrorDefaultThemeMobile = Template.bind({});
+export const LongInlineErrorDefaultThemeMobile: StoryFn<typeof InlineError> =
+	Template.bind({});
 LongInlineErrorDefaultThemeMobile.parameters = {
 	viewport: { defaultViewport: 'mobileMedium' },
 	chromatic: {
@@ -42,3 +51,23 @@ LongInlineErrorDefaultThemeMobile.args = {
 };
 
 // *****************************************************************************
+
+export const InlineErrorSmallDefaultTheme: StoryFn<typeof InlineError> =
+	Template.bind({});
+InlineErrorSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const InlineErrorSmallBrandTheme: StoryFn<typeof InlineError> =
+	Template.bind({});
+InlineErrorSmallBrandTheme.args = {
+	size: 'small',
+};
+InlineErrorSmallBrandTheme.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: userFeedbackThemeBrand,
+};

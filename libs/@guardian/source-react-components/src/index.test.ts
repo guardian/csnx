@@ -37,6 +37,7 @@ export type {
 	UserFeedbackProps,
 	IconSize,
 	IconProps,
+	InputSize,
 	SvgGuardianLiveLogoProps,
 	SvgGuardianLogoProps,
 	SvgRoundelBrandProps,

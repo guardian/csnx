@@ -1,9 +1,9 @@
 import { breakpoints } from '@guardian/source-foundations';
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { HideProps } from './Hide';
 import { Hide } from './Hide';
 
-export default {
+const meta: Meta<typeof Hide> = {
 	title: 'Hide',
 	component: Hide,
 	argTypes: {
@@ -16,7 +16,9 @@ export default {
 	},
 };
 
-const Template: Story = (args: HideProps) => (
+export default meta;
+
+const Template: StoryFn<typeof Hide> = (args: HideProps) => (
 	<Hide {...args}>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliud igitur esse
 		censet gaudere, aliud non dolere. Quid turpius quam sapientis vitam ex
@@ -28,7 +30,7 @@ const Template: Story = (args: HideProps) => (
 
 // *****************************************************************************
 
-export const HiddenFromTabletAtMobile = Template.bind({});
+export const HiddenFromTabletAtMobile: StoryFn<typeof Hide> = Template.bind({});
 HiddenFromTabletAtMobile.args = {
 	from: 'tablet',
 };
@@ -41,7 +43,7 @@ HiddenFromTabletAtMobile.parameters = {
 
 // *****************************************************************************
 
-export const HiddenFromTabletAtTablet = Template.bind({});
+export const HiddenFromTabletAtTablet: StoryFn<typeof Hide> = Template.bind({});
 HiddenFromTabletAtTablet.args = {
 	from: 'tablet',
 };
@@ -54,7 +56,9 @@ HiddenFromTabletAtTablet.parameters = {
 
 // *****************************************************************************
 
-export const HiddenUntilTabletAtMobile = Template.bind({});
+export const HiddenUntilTabletAtMobile: StoryFn<typeof Hide> = Template.bind(
+	{},
+);
 HiddenUntilTabletAtMobile.args = {
 	until: 'tablet',
 };
@@ -67,7 +71,9 @@ HiddenUntilTabletAtMobile.parameters = {
 
 // *****************************************************************************
 
-export const HiddenUntilTabletAtTablet = Template.bind({});
+export const HiddenUntilTabletAtTablet: StoryFn<typeof Hide> = Template.bind(
+	{},
+);
 HiddenUntilTabletAtTablet.args = {
 	until: 'tablet',
 };

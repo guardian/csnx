@@ -37,31 +37,35 @@ const meta: Meta<typeof ChoiceCard> = {
 
 export default meta;
 
-const Template: StoryFn<ChoiceCardProps> = (args: ChoiceCardProps) => (
+const Template: StoryFn<typeof ChoiceCard> = (args: ChoiceCardProps) => (
 	<ChoiceCard {...args} />
 );
 
 // *****************************************************************************
 
-export const DefaultDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
+export const DefaultDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind(
+	{},
+);
 
 // *****************************************************************************
 
-export const CheckedDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
+export const CheckedDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind(
+	{},
+);
 CheckedDefaultTheme.args = {
 	checked: true,
 };
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
+export const ErrorDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind({});
 ErrorDefaultTheme.args = {
 	error: true,
 };
 
 // *****************************************************************************
 
-export const IconDefaultTheme: StoryFn<ChoiceCardProps> = Template.bind({});
+export const IconDefaultTheme: StoryFn<typeof ChoiceCard> = Template.bind({});
 IconDefaultTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
@@ -70,7 +74,7 @@ IconDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const CustomTheme: StoryFn<ChoiceCardProps> = Template.bind({});
+export const CustomTheme: StoryFn<typeof ChoiceCard> = Template.bind({});
 CustomTheme.args = {
 	theme: {
 		backgroundUnselected: palette.neutral[0],

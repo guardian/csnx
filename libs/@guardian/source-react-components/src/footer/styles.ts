@@ -84,6 +84,7 @@ export const backToTop = (
 	color: ${footer.anchor};
 	background-color: ${footer.background};
 	text-decoration: none;
+	white-space: nowrap;
 
 	& :hover {
 		color: ${footer.anchorHover};
