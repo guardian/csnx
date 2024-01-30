@@ -46,19 +46,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 
 _You'll be prompted to install any missing requirements if they are needed..._
 
-### Editor setup
-
-#### [VS Code](https://code.visualstudio.com/)
-
-You will be prompted to install the recommended extensions when you open the repo.
-
-There is also a suggested settings file (./.vscode/settings.json.default) with some defaults you may useful. It covers project-specific enhancements, useful settings for common extensions etc.
-
-If you want to use any/all of them, create a copy of the file and remove the `.default` extension.
-
-> n.b. these are your personal settings for this repo, so add anything else you find useful and remove/change anything you don't like.
-
-## Running tasks
+## Tasks
 
 Root-level tasks are defined in the [`Makefile`](./Makefile).
 
@@ -79,8 +67,10 @@ Root-level tasks are defined in the [`Makefile`](./Makefile).
 - `make test` _runs the unit tests for all projects_
 - `make validate` _makes sure absolutely everything is working_
 
-You can also run individual project's Nx targets by running `make <target>`. <details><summary>Nx targets</summary>
+You can also run individual project's Nx targets by running `make <target>`:
 
+<details>
+<summary>List of all targets</summary>
 - `make csnx:build-storybook`
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`
@@ -222,6 +212,18 @@ To publish your changes to NPM, run `make changeset`. This will open the Changes
 This will create a "changeset": a `.md` file containing the release information. When you merge your branch, the changeset will be picked up by the Changests GHA, which will in turn create a release PR. To complete the NPM release merge this second PR.
 
 ## Troubleshooting
+
+### Editor setup
+
+#### [VS Code](https://code.visualstudio.com/)
+
+You will be prompted to install the recommended extensions when you open the repo.
+
+There is also a suggested settings file (./.vscode/settings.json.default) with some defaults you may useful. It covers project-specific enhancements, useful settings for common extensions etc.
+
+If you want to use any/all of them, create a copy of the file and remove the `.default` extension.
+
+> n.b. these are your personal settings for this repo, so add anything else you find useful and remove/change anything you don't like.
 
 ### Unable to commit
 
