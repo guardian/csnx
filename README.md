@@ -248,4 +248,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm use
 ```
 
-See https://typicode.github.io/husky/#/?id=command-not-found for more info.
+See https://typicode.github.io/husky/how-to.html for more info.
