@@ -4,6 +4,19 @@ import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
 import type { SharedButtonProps } from './types';
 
+export type ButtonTheme = {
+	textPrimary: string;
+	backgroundPrimary: string;
+	backgroundPrimaryHover: string;
+	textSecondary?: string;
+	backgroundSecondary?: string;
+	backgroundSecondaryHover?: string;
+	textTertiary?: string;
+	backgroundTertiaryHover?: string;
+	borderTertiary?: string;
+	textSubdued?: string;
+};
+
 export interface ButtonProps
 	extends SharedButtonProps,
 		ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -29,29 +42,33 @@ export const Button = ({
 	loadingAnnouncement = 'Loading',
 	cssOverrides,
 	children,
+	theme,
 	...props
-}: ButtonProps): EmotionJSX.Element => (
-	<button
-		css={buttonStyles({
-			size,
-			priority,
-			icon: iconSvg,
-			hideLabel,
-			iconSide,
-			nudgeIcon,
-			cssOverrides,
-			isLoading,
-		})}
-		type={type}
-		aria-live="polite"
-		aria-label={isLoading ? loadingAnnouncement : undefined}
-		{...props}
-	>
-		{buttonContents({
-			hideLabel,
-			iconSvg,
-			isLoading,
-			children,
-		})}
-	</button>
-);
+}: ButtonProps): EmotionJSX.Element => {
+	return (
+		<button
+			css={buttonStyles({
+				size,
+				priority,
+				icon: iconSvg,
+				hideLabel,
+				iconSide,
+				nudgeIcon,
+				cssOverrides,
+				isLoading,
+				theme,
+			})}
+			type={type}
+			aria-live="polite"
+			aria-label={isLoading ? loadingAnnouncement : undefined}
+			{...props}
+		>
+			{buttonContents({
+				hideLabel,
+				iconSvg,
+				isLoading,
+				children,
+			})}
+		</button>
+	);
+};

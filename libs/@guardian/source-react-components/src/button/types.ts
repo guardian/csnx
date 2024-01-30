@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Props } from '../@types/Props';
+import type { ButtonTheme } from './Button';
 
 export type ButtonPriority = 'primary' | 'secondary' | 'tertiary' | 'subdued';
 export type IconSide = 'left' | 'right';
@@ -42,4 +43,6 @@ export interface SharedButtonProps extends Props {
 	 * screen reader. Defaults to "Loading".
 	 */
 	loadingAnnouncement?: string;
+
+	theme?: Partial<ButtonTheme>;
 }

@@ -1,12 +1,13 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCross } from '../../vendor/icons/SvgCross';
 import type { ButtonProps } from './Button';
 import { Button } from './Button';
-import { buttonThemeBrand, buttonThemeBrandAlt } from './theme';
+import { buttonBrandAltTheme, buttonBrandTheme } from './theme';
 import {
-	buttonThemeReaderRevenue,
-	buttonThemeReaderRevenueBrand,
-	buttonThemeReaderRevenueBrandAlt,
+	buttonReaderRevenueBrandAltTheme,
+	buttonReaderRevenueBrandTheme,
+	buttonReaderRevenueTheme,
 } from './theme-reader-revenue';
 
 const themeParameters = {
@@ -15,28 +16,21 @@ const themeParameters = {
 		backgrounds: {
 			default: 'brandBackground.primary',
 		},
-		theme: buttonThemeBrand,
 	},
 	brandAlt: {
 		backgrounds: {
 			default: 'brandAltBackground.primary',
 		},
-		theme: buttonThemeBrandAlt,
-	},
-	readerRevenue: {
-		theme: buttonThemeReaderRevenue,
 	},
 	readerRevenueBrand: {
 		backgrounds: {
 			default: 'brandBackground.primary',
 		},
-		theme: buttonThemeReaderRevenueBrand,
 	},
 	readerRevenueBrandAlt: {
 		backgrounds: {
 			default: 'brandAltBackground.primary',
 		},
-		theme: buttonThemeReaderRevenueBrandAlt,
 	},
 };
 
@@ -77,28 +71,24 @@ export const PrimaryPriorityDefaultTheme: StoryFn<typeof Button> =
 PrimaryPriorityDefaultTheme.args = {
 	priority: 'primary',
 };
-PrimaryPriorityDefaultTheme.parameters = themeParameters.default;
 
 export const SecondaryPriorityDefaultTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SecondaryPriorityDefaultTheme.args = {
 	priority: 'secondary',
 };
-SecondaryPriorityDefaultTheme.parameters = themeParameters.default;
 
 export const TertiaryPriorityDefaultTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityDefaultTheme.args = {
 	priority: 'tertiary',
 };
-TertiaryPriorityDefaultTheme.parameters = themeParameters.default;
 
 export const SubduedPriorityDefaultTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SubduedPriorityDefaultTheme.args = {
 	priority: 'subdued',
 };
-SubduedPriorityDefaultTheme.parameters = themeParameters.default;
 
 // *****************************************************************************
 
@@ -107,6 +97,7 @@ export const PrimaryPriorityBrandTheme: StoryFn<typeof Button> = Template.bind(
 );
 PrimaryPriorityBrandTheme.args = {
 	priority: 'primary',
+	theme: buttonBrandTheme,
 };
 PrimaryPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -122,6 +113,7 @@ export const TertiaryPriorityBrandTheme: StoryFn<typeof Button> = Template.bind(
 );
 TertiaryPriorityBrandTheme.args = {
 	priority: 'tertiary',
+	theme: buttonBrandTheme,
 };
 TertiaryPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -130,6 +122,7 @@ export const SubduedPriorityBrandTheme: StoryFn<typeof Button> = Template.bind(
 );
 SubduedPriorityBrandTheme.args = {
 	priority: 'subdued',
+	theme: buttonBrandTheme,
 };
 SubduedPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -139,6 +132,7 @@ export const PrimaryPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityBrandAltTheme.args = {
 	priority: 'primary',
+	theme: buttonBrandAltTheme,
 };
 PrimaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -146,6 +140,7 @@ export const SecondaryPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SecondaryPriorityBrandAltTheme.args = {
 	priority: 'secondary',
+	theme: buttonBrandAltTheme,
 };
 SecondaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -153,6 +148,7 @@ export const TertiaryPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityBrandAltTheme.args = {
 	priority: 'tertiary',
+	theme: buttonBrandAltTheme,
 };
 TertiaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -160,6 +156,7 @@ export const SubduedPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SubduedPriorityBrandAltTheme.args = {
 	priority: 'subdued',
+	theme: buttonBrandAltTheme,
 };
 SubduedPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -169,15 +166,15 @@ export const PrimaryPriorityReaderRevenueTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityReaderRevenueTheme.args = {
 	priority: 'primary',
+	theme: buttonReaderRevenueTheme,
 };
-PrimaryPriorityReaderRevenueTheme.parameters = themeParameters.readerRevenue;
 
 export const TertiaryPriorityReaderRevenueTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityReaderRevenueTheme.args = {
 	priority: 'tertiary',
+	theme: buttonReaderRevenueTheme,
 };
-TertiaryPriorityReaderRevenueTheme.parameters = themeParameters.readerRevenue;
 
 // *****************************************************************************
 
@@ -185,6 +182,7 @@ export const PrimaryPriorityReaderRevenueBrandTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityReaderRevenueBrandTheme.args = {
 	priority: 'primary',
+	theme: buttonReaderRevenueBrandTheme,
 };
 PrimaryPriorityReaderRevenueBrandTheme.parameters =
 	themeParameters.readerRevenueBrand;
@@ -193,6 +191,7 @@ export const TertiaryPriorityReaderRevenueBrandTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityReaderRevenueBrandTheme.args = {
 	priority: 'tertiary',
+	theme: buttonReaderRevenueBrandTheme,
 };
 TertiaryPriorityReaderRevenueBrandTheme.parameters =
 	themeParameters.readerRevenueBrand;
@@ -203,6 +202,7 @@ export const PrimaryPriorityReaderRevenueBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityReaderRevenueBrandAltTheme.args = {
 	priority: 'primary',
+	theme: buttonReaderRevenueBrandAltTheme,
 };
 PrimaryPriorityReaderRevenueBrandAltTheme.parameters =
 	themeParameters.readerRevenueBrandAlt;
@@ -212,6 +212,7 @@ export const TertiaryPriorityReaderRevenueBrandAltTheme: StoryFn<
 > = Template.bind({});
 TertiaryPriorityReaderRevenueBrandAltTheme.args = {
 	priority: 'tertiary',
+	theme: buttonReaderRevenueBrandAltTheme,
 };
 TertiaryPriorityReaderRevenueBrandAltTheme.parameters =
 	themeParameters.readerRevenueBrandAlt;
@@ -407,4 +408,13 @@ export const IsLoadingLabelHidden: StoryFn<typeof Button> = Template.bind({});
 IsLoadingLabelHidden.args = {
 	isLoading: true,
 	hideLabel: true,
+};
+
+export const CustomThemeButton: StoryFn<typeof Button> = Template.bind({});
+CustomThemeButton.args = {
+	theme: {
+		backgroundPrimary: palette.news[100],
+		backgroundPrimaryHover: palette.news[200],
+		textPrimary: palette.opinion[400],
+	},
 };

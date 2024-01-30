@@ -9,8 +9,8 @@ import {
 	width,
 } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
-import type { ButtonTheme } from './theme';
-import { buttonThemeDefault } from './theme';
+import type { ButtonTheme } from './Button';
+import { buttonThemeDefault, buttonTheme as defaultTheme } from './theme';
 import type {
 	ButtonPriority,
 	IconSide,
@@ -283,6 +283,16 @@ const iconOnlySizes: {
 	xsmall: iconOnlyXsmall,
 };
 
+const combineThemes = (
+	providerTheme: Theme['button'],
+	theme?: Partial<ButtonTheme>,
+): ButtonTheme => {
+	return {
+		...defaultTheme,
+		...providerTheme,
+		...theme,
+	};
+};
 export const buttonStyles =
 	({
 		priority = 'primary',
@@ -293,17 +303,20 @@ export const buttonStyles =
 		nudgeIcon,
 		cssOverrides,
 		isLoading,
+		theme,
 	}: SharedButtonProps) =>
 	(
-		theme: Theme,
-	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
-		button,
-		sizes[size],
-		priorities[priority](theme.button),
-		iconSvg ?? isLoading ? iconSizes[size] : '',
-		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
-		nudgeIcon ? iconNudgeAnimation : '',
-		hideLabel ? iconOnlySizes[size] : '',
-		isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
-		cssOverrides,
-	];
+		providerTheme: Theme,
+	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => {
+		return [
+			button,
+			sizes[size],
+			priorities[priority](combineThemes(providerTheme.button, theme)),
+			iconSvg ?? isLoading ? iconSizes[size] : '',
+			(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
+			nudgeIcon ? iconNudgeAnimation : '',
+			hideLabel ? iconOnlySizes[size] : '',
+			isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
+			cssOverrides,
+		];
+	};
