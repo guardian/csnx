@@ -654,8 +654,8 @@ importers:
         specifier: 14.0.0
         version: 14.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-react-components':
-        specifier: 18.0.0
-        version: 18.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@14.0.0)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
+        specifier: 20.0.0
+        version: link:../source-react-components
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
