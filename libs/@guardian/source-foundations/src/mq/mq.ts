@@ -8,10 +8,12 @@ export type BreakpointMap = {
 const minWidth = (from: number): string => `@media (min-width: ${`${from}px`})`;
 
 const maxWidth = (until: number): string =>
-	`@media (max-width: ${`${until - 1}px`})`;
+	`@media (max-width: ${`${until - 0.0001}px`})`;
 
 const minWidthMaxWidth = (from: number, until: number): string =>
-	`@media (min-width: ${`${from}px`}) and (max-width: ${`${until - 1}px`})`;
+	`@media (min-width: ${`${from}px`}) and (max-width: ${`${
+		until - 0.0001
+	}px`})`;
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_media-queries--page#from)
