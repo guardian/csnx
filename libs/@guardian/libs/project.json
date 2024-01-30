@@ -34,7 +34,7 @@
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
 			"options": {
 				"jestConfig": "libs/@guardian/libs/jest.config.ts",
-				"passWithNoTests": true
+				"passWithNoTests": false
 			}
 		},
 		"e2e": {
@@ -44,6 +44,15 @@
 				"jestConfig": "libs/@guardian/libs/jest.config.ts",
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
+			"options": {
+				"jestConfig": "libs/@guardian/libs/jest.config.ts",
+				"passWithNoTests": true,
+				"watch": true
 			}
 		}
 	},

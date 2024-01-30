@@ -50,6 +50,17 @@
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
 		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/source-react-components"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/source-react-components/jest.config.ts",
+				"passWithNoTests": true,
+				"watch": true
+			}
+		},
 		"storybook": {
 			"executor": "nx:run-commands",
 			"options": {
