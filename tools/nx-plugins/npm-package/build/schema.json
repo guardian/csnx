@@ -4,8 +4,16 @@
 	"cli": "nx",
 	"properties": {
 		"entry": {
-			"type": "string",
-			"description": "The name of the main entry-point file."
+			"oneOf": [
+				{ "type": "string" },
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			],
+			"description": "The main entry-point file(s)."
 		},
 		"outputPath": {
 			"type": "string",
