@@ -1,0 +1,24 @@
+{
+	"name": "@guardian/source",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/@guardian/source/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@csnx/npm-package:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"entry": {
+					"index": "libs/@guardian/source/src/foundations/index.ts",
+					"react": "libs/@guardian/source/src/components/react/index.ts",
+					"react/development-kitchen": "libs/@guardian/source/src/components/react-dev-kitchen/index.ts"
+				},
+				"tsConfig": "libs/@guardian/source/tsconfig.json",
+				"packageJson": "libs/@guardian/source/package.json",
+				"outputPath": "dist/libs/@guardian/source",
+				"assets": ["libs/@guardian/source/*.md"]
+			}
+		}
+	},
+	"tags": []
+}

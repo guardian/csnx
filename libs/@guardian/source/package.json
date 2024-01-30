@@ -1,15 +1,18 @@
 {
-	"name": "@guardian/source-react-components",
-	"version": "20.0.0",
+	"name": "@guardian/source",
+	"version": "0.1.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
-	"scripts": {
-		"create-icons": "ts-node scripts/create-icons"
+	"dependencies": {
+		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
 		"@babel/core": "7.23.6",
 		"@emotion/react": "11.11.1",
-		"@guardian/source-foundations": "14.0.0",
+		"@guardian/design-tokens": "workspace:0.1.0--pre.0",
+		"@guardian/source-foundations": "workspace:*",
+		"@guardian/source-react-components": "workspace:*",
+		"@guardian/source-react-components-development-kitchen": "workspace:*",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -18,22 +21,33 @@
 		"@types/mkdirp": "2.0.0",
 		"@types/prettier": "3.0.0",
 		"@types/react": "18.2.11",
-		"dotenv": "16.4.1",
+		"dotenv": "16.3.1",
+		"lightningcss": "1.23.0",
 		"mkdirp": "3.0.1",
 		"prettier": "3.2.2",
 		"react": "18.2.0",
+		"react-dom": "18.2.0",
 		"ts-node": "10.9.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
-		"@guardian/source-foundations": "^14.0.0",
 		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
 	},
 	"peerDependenciesMeta": {
+		"@emotion/react": {
+			"optional": true
+		},
+		"react": {
+			"optional": true
+		},
+		"react-dom": {
+			"optional": true
+		},
 		"typescript": {
 			"optional": true
 		}
