@@ -161,8 +161,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       sort-package-json:
-        specifier: 2.6.0
-        version: 2.6.0
+        specifier: 2.7.0
+        version: 2.7.0
       storybook:
         specifier: 7.6.5
         version: 7.6.5
@@ -710,14 +710,14 @@ importers:
         specifier: 3.4.5
         version: 3.4.5(@babel/core@7.23.5)(@babel/preset-env@7.23.5)(@babel/preset-typescript@7.23.3)(@swc/core@1.3.100)(@swc/helpers@0.5.3)(rollup@4.9.4)(typescript@5.3.3)
       sort-package-json:
-        specifier: 2.6.0
-        version: 2.6.0
+        specifier: 2.7.0
+        version: 2.7.0
       tslib:
         specifier: 2.6.2
         version: 2.6.2
       type-fest:
-        specifier: 4.9.0
-        version: 4.9.0
+        specifier: 4.10.1
+        version: 4.10.1
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -8901,8 +8901,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /detect-newline@4.0.0:
-    resolution: {integrity: sha512-1aXUEPdfGdzVPFpzGJJNgq9o81bGg1s09uxTWsqBlo9PI332uyJRQq13+LK/UN4JfxJbFdCXonUFQ9R/p7yCtw==}
+  /detect-newline@4.0.1:
+    resolution: {integrity: sha512-qE3Veg1YXzGHQhlA6jzebZN2qVf6NX+A7m7qlhCGG30dJixrAQhYOsJjsnBjJkCSmuOPpCk30145fr8FV0bzog==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   /detect-node-es@1.1.0:
@@ -10171,8 +10171,8 @@ packages:
       - supports-color
     dev: true
 
-  /git-hooks-list@3.0.0:
-    resolution: {integrity: sha512-XDfdemBGJIMAsHHOONHQxEH5dX2kCpE6MGZ1IsNvBuDPBZM3p4EAwAC7ygMjn/1/x+BJX0TK1ara1Zrh7JCFdQ==}
+  /git-hooks-list@3.1.0:
+    resolution: {integrity: sha512-LF8VeHeR7v+wAbXqfgRlTSX/1BJR9Q1vEMR8JAz1cEg6GX07+zyj3sAdDvYjj/xnlIfVuGgj4qBei1K3hKH+PA==}
 
   /github-slugger@1.5.0:
     resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
@@ -12771,7 +12771,7 @@ packages:
       '@babel/code-frame': 7.23.5
       index-to-position: 0.1.2
       json-parse-even-better-errors: 3.0.1
-      type-fest: 4.9.0
+      type-fest: 4.10.1
     dev: false
 
   /parse5@7.1.2:
@@ -13364,7 +13364,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 7.1.1
-      type-fest: 4.9.0
+      type-fest: 4.10.1
     dev: false
 
   /read-pkg@9.0.1:
@@ -13374,7 +13374,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 8.0.1
-      type-fest: 4.9.0
+      type-fest: 4.10.1
       unicorn-magic: 0.1.0
     dev: false
 
@@ -13945,14 +13945,14 @@ packages:
   /sort-object-keys@1.1.3:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==}
 
-  /sort-package-json@2.6.0:
-    resolution: {integrity: sha512-XSQ+lY9bAYA8ZsoChcEoPlgcSMaheziEp1beox1JVxy1SV4F2jSq9+h2rJ+3mC/Dhu9Ius1DLnInD5AWcsDXZw==}
+  /sort-package-json@2.7.0:
+    resolution: {integrity: sha512-6AayF8bp6L+WROgpbhTMUtB9JSFmpGHjmW7DyaNPS1HwlTw2oSVlUUtlkHSEZmg5o89F3zvLBZNvMeZ1T4fjQg==}
     hasBin: true
     dependencies:
       detect-indent: 7.0.1
-      detect-newline: 4.0.0
+      detect-newline: 4.0.1
       get-stdin: 9.0.0
-      git-hooks-list: 3.0.0
+      git-hooks-list: 3.1.0
       globby: 13.2.2
       is-plain-obj: 4.1.0
       sort-object-keys: 1.1.3
@@ -14751,8 +14751,8 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
-  /type-fest@4.9.0:
-    resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
+  /type-fest@4.10.1:
+    resolution: {integrity: sha512-7ZnJYTp6uc04uYRISWtiX3DSKB/fxNQT0B5o1OUeCqiQiwF+JC9+rJiZIDrPrNCLLuTqyQmh4VdQqh/ZOkv9MQ==}
     engines: {node: '>=16'}
     dev: false
 
@@ -15353,7 +15353,7 @@ packages:
       deepmerge-ts: 5.1.0
       read-pkg: 8.1.0
       sort-keys: 5.0.0
-      type-fest: 4.9.0
+      type-fest: 4.10.1
       write-json-file: 5.0.0
     dev: false
 
