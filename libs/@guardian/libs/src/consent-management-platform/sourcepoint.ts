@@ -1,4 +1,4 @@
-import { log } from '@guardian/libs';
+import { log } from '../logger/logger';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
@@ -89,23 +89,13 @@ export const init = (framework: Framework, pubData = {}): void => {
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
 				},
 
-				onMessageChoiceSelect: (
-					message_type,
-					choice_id,
-					choiceTypeID,
-				) => {
-					log(
-						'cmp',
-						`onMessageChoiceSelect message_type: ${message_type}`,
-					);
+				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
+					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
 					console.log();
 					if (message_type != frameworkMessageType) return;
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
-					log(
-						'cmp',
-						`onMessageChoiceSelect choice_type_id: ${choiceTypeID}`,
-					);
+					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
 					if (
 						// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
 						choiceTypeID === 11 ||
@@ -116,10 +106,7 @@ export const init = (framework: Framework, pubData = {}): void => {
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
-					log(
-						'cmp',
-						`onPrivacyManagerAction message_type: ${message_type}`,
-					);
+					log('cmp', `onPrivacyManagerAction message_type: ${message_type}`);
 					if (message_type != frameworkMessageType) return;
 
 					log('cmp', `onPrivacyManagerAction ${pmData}`);
@@ -137,12 +124,7 @@ export const init = (framework: Framework, pubData = {}): void => {
 				onSPPMObjectReady: function () {
 					log('cmp', 'onSPPMObjectReady');
 				},
-				onError: function (
-					message_type,
-					errorCode,
-					errorObject,
-					userReset,
-				) {
+				onError: function (message_type, errorCode, errorObject, userReset) {
 					log('cmp', `errorCode: ${message_type}`);
 					if (message_type != frameworkMessageType) return;
 

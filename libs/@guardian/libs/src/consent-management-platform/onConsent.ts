@@ -13,7 +13,7 @@ import type { ConsentState } from './types';
 const onConsent = (): Promise<ConsentState> =>
 	new Promise<ConsentState>((resolve, reject) => {
 		onConsentChange((consentState) => {
-			if (consentState.tcfv2 || consentState.ccpa || consentState.aus) {
+			if (consentState.tcfv2 ?? consentState.ccpa ?? consentState.aus) {
 				resolve(consentState);
 			}
 			reject('Unknown framework');

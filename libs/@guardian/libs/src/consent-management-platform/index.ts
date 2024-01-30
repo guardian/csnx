@@ -1,4 +1,4 @@
-import { log } from '@guardian/libs';
+import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
 import { getConsentFor as clientGetConsentFor } from './getConsentFor';
@@ -15,8 +15,8 @@ import {
 import type { CMP, InitCMP, WillShowPrivacyMessage } from './types';
 import { initVendorDataManager } from './vendorDataManager';
 
-export { cmpGetCookie, cmpSetCookie, cmpSetSessionCookie} from './cmpCookies';
-export { storage } from './cmpStorage'
+export { cmpGetCookie, cmpSetCookie, cmpSetSessionCookie } from './cmpCookies';
+export { storage } from './cmpStorage';
 
 // Store some bits in the global scope for reuse, in case there's more
 // than one instance of the CMP on the page in different scopes.
@@ -37,11 +37,12 @@ const init: InitCMP = ({ pubData, country }) => {
 	if (isDisabled() || isServerSide) return;
 
 	if (window.guCmpHotFix.initialised) {
-		if (window.guCmpHotFix.cmp?.version !== __PACKAGE_VERSION__)
+		if (window.guCmpHotFix.cmp?.version !== __PACKAGE_VERSION__) {
 			console.warn('Two different versions of the CMP are running:', [
 				__PACKAGE_VERSION__,
 				window.guCmpHotFix.cmp?.version,
 			]);
+		}
 		return;
 	}
 
@@ -103,7 +104,7 @@ export const cmp: CMP = isServerSide
 			__isDisabled: isDisabled,
 			__enable: enable,
 			__disable: disable,
-	  });
+		});
 
 export const onConsent = isServerSide
 	? serverOnConsent

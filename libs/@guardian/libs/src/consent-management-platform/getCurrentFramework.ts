@@ -1,4 +1,4 @@
-import { log } from '@guardian/libs';
+import { log } from '../logger/logger';
 import type { Framework } from './types';
 
 let currentFramework: Framework | undefined;

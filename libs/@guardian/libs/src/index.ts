@@ -4,6 +4,8 @@ export * from './deprecated-exports';
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
+export { getConsentFor } from './consent-management-platform/index';
+
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
 export { setCookie } from './cookies/setCookie';

@@ -1,9 +1,10 @@
-import { initVendorDataManager } from './vendorDataManager';
+import { removeCookie } from '../cookies/removeCookie';
+import { storage } from '../storage/storage';
 import { onConsentChange } from './onConsentChange';
-import { removeCookie, storage } from '@guardian/libs';
+import type { Callback, ConsentState } from './types';
+import type { TCFv2ConsentState } from './types/tcfv2';
+import { initVendorDataManager } from './vendorDataManager';
 import { vendorStorageIds } from './vendorStorageIds';
-import { Callback, ConsentState } from './types';
-import { TCFv2ConsentState } from './types/tcfv2';
 
 jest.mock('./onConsentChange');
 

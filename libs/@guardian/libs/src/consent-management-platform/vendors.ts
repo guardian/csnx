@@ -11,10 +11,7 @@
  * Important: Keep in sync with list of vendors in README.md
  * *********************/
 
-
-type VendorIDType = {
-	[key: string]: string[]
-}
+type VendorIDType = Record<string, string[]>;
 
 export const TCFV2VendorIDs: VendorIDType = {
 	// keep the list in README.md up to date with these values
@@ -45,12 +42,11 @@ export const TCFV2VendorIDs: VendorIDType = {
 
 export const AusVendorIDs: VendorIDType = {
 	redplanet: ['not-tcfv2-vendor'],
-}
+};
 
 export const VendorIDs: VendorIDType = {
 	...TCFV2VendorIDs,
 	...AusVendorIDs,
-}
-
+};
 
 export type VendorName = keyof typeof VendorIDs;

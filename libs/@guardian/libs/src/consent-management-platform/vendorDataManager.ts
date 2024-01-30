@@ -1,8 +1,10 @@
-import { removeCookie, storage } from '@guardian/libs';
+import { removeCookie } from '../cookies/removeCookie';
+import { storage } from '../storage/storage';
 import { getConsentFor } from './getConsentFor';
 import { onConsentChange } from './onConsentChange';
-import { VendorWithData, vendorStorageIds } from './vendorStorageIds';
-import { ConsentState } from './types';
+import type { ConsentState } from './types';
+import type { VendorWithData } from './vendorStorageIds';
+import { vendorStorageIds } from './vendorStorageIds';
 
 const removeData = (consent: ConsentState) =>
 	(<VendorWithData[]>Object.keys(vendorStorageIds)).forEach((vendor) => {

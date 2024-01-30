@@ -1,23 +1,26 @@
 //import { onConsent } from './onConsent';
-import { cmp } from '.';
 import { onConsent } from './onConsent';
-import { ConsentState } from './types';
+import type { ConsentState } from './types';
 import type { ConsentUseCases } from './types/consentUseCases';
+import { cmp } from '.';
 
-export const hasConsentForUseCase = async (useCase: ConsentUseCases): Promise<boolean> =>
-{
-	if(cmp.hasInitialised())
-	{
+export const hasConsentForUseCase = async (
+	useCase: ConsentUseCases,
+): Promise<boolean> => {
+	if (cmp.hasInitialised()) {
 		const consentState = await onConsent();
-		const hasconsent = hasConsentForUseCaseWithConsentState(useCase, consentState);
-		return(hasconsent);
-	}
-	else return(false);
-}
+		const hasconsent = hasConsentForUseCaseWithConsentState(
+			useCase,
+			consentState,
+		);
+		return hasconsent;
+	} else return false;
+};
 
-export const hasConsentForUseCaseWithConsentState = (useCase: ConsentUseCases, consentState: ConsentState): boolean =>
-{
-
+export const hasConsentForUseCaseWithConsentState = (
+	useCase: ConsentUseCases,
+	consentState: ConsentState,
+): boolean => {
 	/*console.log(`consentState.tcfv2?.consents['1']: ${consentState.tcfv2?.consents['1']}`);
 	console.log(`consentState.tcfv2?.consents['2']: ${consentState.tcfv2?.consents['2']}`);
 	console.log(`consentState.tcfv2?.consents['3']: ${consentState.tcfv2?.consents['3']}`);
@@ -32,21 +35,25 @@ export const hasConsentForUseCaseWithConsentState = (useCase: ConsentUseCases, c
 	console.log(`consentState.canTarget: ${consentState.canTarget}`);
 	*/
 
-	switch(useCase) {
-		case "Targeted advertising": return(consentState.canTarget)
- 		case "Targeted marketing":{
-			if((
-					consentState.tcfv2?.consents['1']
-					&& consentState.tcfv2?.consents['3']
-					&& consentState.tcfv2?.consents['7'])
-				|| !consentState.ccpa?.doNotSell
-				|| consentState.aus?.personalisedAdvertising)
-				return(true)
-			else return(false)
+	switch (useCase) {
+		case 'Targeted advertising':
+			return consentState.canTarget;
+		case 'Targeted marketing': {
+			if (
+				(consentState.tcfv2?.consents['1'] &&
+					consentState.tcfv2.consents['3'] &&
+					consentState.tcfv2.consents['7']) ||
+				!consentState.ccpa?.doNotSell ||
+				consentState.aus?.personalisedAdvertising
+			) {
+				return true;
+			} else return false;
 		}
-		case "Essential": return(true) //could check for allow-list of essential cookies/storage here in the future
-		case "No consent required": return(true) //Would we want a use-case like this, perhaps for internal tools?
-		default: return(false)
+		case 'Essential':
+			return true; //could check for allow-list of essential cookies/storage here in the future
+		case 'No consent required':
+			return true; //Would we want a use-case like this, perhaps for internal tools?
+		default:
+			return false;
 	}
-
-}
+};
