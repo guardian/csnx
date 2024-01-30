@@ -42,7 +42,7 @@
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/newsletter-types"],
 			"options": {
 				"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"watch": true
 			}
 		}
