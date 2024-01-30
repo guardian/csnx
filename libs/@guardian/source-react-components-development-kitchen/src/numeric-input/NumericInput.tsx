@@ -69,6 +69,7 @@ export const NumericInput = ({
 	optional = false,
 	hideLabel = false,
 	supporting,
+	size = 'medium',
 	width,
 	error,
 	success,
@@ -85,16 +86,19 @@ export const NumericInput = ({
 				optional={!!optional}
 				hideLabel={hideLabel}
 				supporting={supporting}
+				size={size}
 				htmlFor={textInputId}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textInputId)}>{error}</InlineError>
+						<InlineError id={descriptionId(textInputId)} size={size}>
+							{error}
+						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textInputId)}>
+						<InlineSuccess id={descriptionId(textInputId)} size={size}>
 							{success}
 						</InlineSuccess>
 					</div>
@@ -108,13 +112,18 @@ export const NumericInput = ({
 				]}
 			>
 				{prefixText && (
-					<InputExtension type="prefix" error={error} success={success}>
+					<InputExtension
+						type="prefix"
+						size={size}
+						error={error}
+						success={success}
+					>
 						{prefixText}
 					</InputExtension>
 				)}
 				<input
 					css={(theme: InputTheme) => [
-						textInput(theme.textInput),
+						textInput(theme.textInput, size),
 						error ? errorInput(theme.textInput) : '',
 						!error && success ? successInput(theme.textInput) : '',
 						hasExtensions(prefixText, suffixText),
@@ -130,7 +139,12 @@ export const NumericInput = ({
 					{...props}
 				/>
 				{suffixText && (
-					<InputExtension type="suffix" error={error} success={success}>
+					<InputExtension
+						type="suffix"
+						size={size}
+						error={error}
+						success={success}
+					>
 						{suffixText}
 					</InputExtension>
 				)}

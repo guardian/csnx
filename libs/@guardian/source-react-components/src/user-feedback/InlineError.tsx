@@ -16,11 +16,15 @@ import type { UserFeedbackProps } from './types';
  */
 export const InlineError = ({
 	children,
+	size = 'medium',
 	cssOverrides,
 	...props
 }: UserFeedbackProps): EmotionJSX.Element => (
 	<span
-		css={(theme: Theme) => [inlineError(theme.userFeedback), cssOverrides]}
+		css={(theme: Theme) => [
+			inlineError(theme.userFeedback, size),
+			cssOverrides,
+		]}
 		role="alert"
 		{...props}
 	>

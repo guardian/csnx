@@ -29,6 +29,7 @@ const meta: Meta<typeof TextArea> = {
 		optional: false,
 		hideLabel: false,
 		supporting: '',
+		size: 'medium',
 		error: 'undefined',
 		success: 'undefined',
 	},
@@ -109,6 +110,70 @@ WithMaxLengthDefaultTheme.args = {
 export const WithDefaultValue: StoryFn<typeof TextArea> = Template.bind({});
 WithDefaultValue.args = {
 	value: 'This is a value passed in as a prop',
+};
+
+// *****************************************************************************
+
+export const DefaultSmallDefaultTheme: StoryFn<typeof TextArea> = Template.bind(
+	{},
+);
+DefaultSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const WithRowsSmallDefaultTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+WithRowsSmallDefaultTheme.args = {
+	rows: 10,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const OptionalSmallDefaultTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+OptionalSmallDefaultTheme.args = {
+	optional: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const VisuallyHideLabelSmallDefaultTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+VisuallyHideLabelSmallDefaultTheme.args = {
+	hideLabel: true,
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SupportingTextSmallDefaultTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+SupportingTextSmallDefaultTheme.args = {
+	supporting:
+		'Please keep comments respectful and abide by the community guidelines.',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageSmallDefaultTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+ErrorWithMessageSmallDefaultTheme.args = {
+	error: 'error',
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SuccessWithMessageSmallDefaultTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+SuccessWithMessageSmallDefaultTheme.args = {
+	success: 'success',
+	size: 'small',
 };
 
 // *****************************************************************************
