@@ -124,3 +124,19 @@ ErrorBrandTheme.parameters = {
 ErrorBrandTheme.args = {
 	error: 'This newsletter is not available in your region',
 };
+
+// *****************************************************************************
+
+export const MultiLineLabels: StoryFn<typeof CheckboxGroup> = (
+	args: CheckboxGroupProps,
+) => (
+	<CheckboxGroup {...args}>
+		<Checkbox label="The Guardian Today" />
+		<Checkbox label="First Edition — Archie Bland and Nimo Omer take you through the top stories and what they mean, free every weekday morning" />
+		<Checkbox label="Feast — A weekly email from Yotam Ottolenghi, Meera Sodha, Felicity Cloake and Rachel Roddy, featuring the latest recipes and seasonal eating ideas" />
+		<Checkbox label="The Guide" />
+		<Checkbox label="This is Europe" />
+		<Checkbox label="What's On" />
+		<Checkbox label="Techscape" />
+	</CheckboxGroup>
+);
