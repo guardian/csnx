@@ -44,7 +44,7 @@ const border = {
 	},
 };
 
-export const buttonReaderRevenueTheme: ButtonTheme = {
+export const buttonReaderRevenueTheme: Partial<ButtonTheme> = {
 	textPrimary: text.readerRevenue.ctaPrimary,
 	backgroundPrimary: background.readerRevenue.ctaPrimary,
 	backgroundPrimaryHover: background.readerRevenue.ctaPrimaryHover,
@@ -52,7 +52,7 @@ export const buttonReaderRevenueTheme: ButtonTheme = {
 	backgroundTertiaryHover: background.readerRevenue.ctaTertiaryHover,
 	borderTertiary: border.readerRevenue.ctaTertiary,
 };
-export const buttonReaderRevenueBrandTheme: ButtonTheme = {
+export const buttonReaderRevenueBrandTheme: Partial<ButtonTheme> = {
 	textPrimary: text.readerRevenueBrand.ctaPrimary,
 	backgroundPrimary: background.readerRevenueBrand.ctaPrimary,
 	backgroundPrimaryHover: background.readerRevenueBrand.ctaPrimaryHover,
@@ -61,7 +61,7 @@ export const buttonReaderRevenueBrandTheme: ButtonTheme = {
 	borderTertiary: border.readerRevenueBrand.ctaTertiary,
 };
 
-export const buttonReaderRevenueBrandAltTheme: ButtonTheme = {
+export const buttonReaderRevenueBrandAltTheme: Partial<ButtonTheme> = {
 	textPrimary: text.readerRevenueBrandAlt.ctaPrimary,
 	backgroundPrimary: background.readerRevenueBrandAlt.ctaPrimary,
 	backgroundPrimaryHover: background.readerRevenueBrandAlt.ctaPrimaryHover,
@@ -71,16 +71,18 @@ export const buttonReaderRevenueBrandAltTheme: ButtonTheme = {
 };
 
 /** @deprecated Use `buttonReaderRevenueTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
-export const buttonThemeReaderRevenue: { button: ButtonTheme } = {
+export const buttonThemeReaderRevenue: { button: Partial<ButtonTheme> } = {
 	button: buttonReaderRevenueTheme,
 };
 /** @deprecated Use `buttonReaderRevenueBrandTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 
-export const buttonThemeReaderRevenueBrand: { button: ButtonTheme } = {
+export const buttonThemeReaderRevenueBrand: { button: Partial<ButtonTheme> } = {
 	button: buttonReaderRevenueBrandTheme,
 };
 /** @deprecated Use `buttonReaderRevenueBrandAltTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 
-export const buttonThemeReaderRevenueBrandAlt: { button: ButtonTheme } = {
+export const buttonThemeReaderRevenueBrandAlt: {
+	button: Partial<ButtonTheme>;
+} = {
 	button: buttonReaderRevenueBrandAltTheme,
 };

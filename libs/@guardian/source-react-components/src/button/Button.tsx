@@ -8,13 +8,13 @@ export type ButtonTheme = {
 	textPrimary: string;
 	backgroundPrimary: string;
 	backgroundPrimaryHover: string;
-	textSecondary?: string;
-	backgroundSecondary?: string;
-	backgroundSecondaryHover?: string;
-	textTertiary?: string;
-	backgroundTertiaryHover?: string;
-	borderTertiary?: string;
-	textSubdued?: string;
+	textSecondary: string;
+	backgroundSecondary: string;
+	backgroundSecondaryHover: string;
+	textTertiary: string;
+	backgroundTertiaryHover: string;
+	borderTertiary: string;
+	textSubdued: string;
 };
 
 export interface ButtonProps
