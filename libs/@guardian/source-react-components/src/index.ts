@@ -21,7 +21,7 @@ export {
 	buttonThemeBrandAlt,
 	buttonThemeDefault,
 } from './button/theme';
-export type { ButtonTheme } from './button/theme';
+export type { ButtonTheme } from './button/Button';
 
 export { SvgGuardianLogo } from './brand/SvgGuardianLogo';
 export type { SvgGuardianLogoProps } from './brand/SvgGuardianLogo';
@@ -56,7 +56,10 @@ export type {
 	ChoiceCardColumns,
 	ChoiceCardGroupProps,
 } from './choice-card/ChoiceCardGroup';
-export type { ChoiceCardProps } from './choice-card/ChoiceCard';
+export type {
+	ChoiceCardProps,
+	ChoiceCardTheme,
+} from './choice-card/ChoiceCard';
 export { choiceCardThemeDefault } from './choice-card/theme';
 
 export { Footer } from './footer/Footer';
