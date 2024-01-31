@@ -44,6 +44,7 @@ export const buttonThemeBrandAlt: { button: ButtonTheme } = {
 		textSecondary: palette.neutral[7],
 		backgroundSecondary: palette.brandAlt[200],
 		backgroundSecondaryHover: '#F2AE00', // One-off colour variant generated from palette.brandAlt[200]
+		textTertiary: palette.neutral[0],
 		backgroundTertiaryHover: '#FFD213', // One-off colour variant
 		borderTertiary: palette.neutral[7],
 		textSubdued: palette.neutral[7],
@@ -83,6 +84,7 @@ export const buttonBrandAltTheme: ButtonTheme = {
 	textSecondary: palette.neutral[7],
 	backgroundSecondary: palette.brandAlt[200],
 	backgroundSecondaryHover: '#F2AE00', // One-off colour variant generated from palette.brandAlt[200]
+	textTertiary: palette.neutral[0],
 	backgroundTertiaryHover: '#FFD213', // One-off colour variant
 	borderTertiary: palette.neutral[7],
 	textSubdued: palette.neutral[7],

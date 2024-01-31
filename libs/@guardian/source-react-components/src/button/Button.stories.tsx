@@ -105,6 +105,7 @@ export const SecondaryPriorityBrandTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SecondaryPriorityBrandTheme.args = {
 	priority: 'secondary',
+	theme: buttonBrandTheme,
 };
 SecondaryPriorityBrandTheme.parameters = themeParameters.brand;
 
