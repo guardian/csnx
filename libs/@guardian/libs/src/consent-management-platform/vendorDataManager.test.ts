@@ -65,7 +65,7 @@ jest.mock('@guardian/libs', () => ({
 }));
 
 describe('initVendorDataManager', () => {
-	it('should remove cookies and localStorage data only for vendors that the user has not consented to', async () => {
+	it('should remove cookies and localStorage data only for vendors that the user has not consented to', () => {
 		const consentState: ConsentState = {
 			tcfv2: tcfv2ConsentState,
 			canTarget: true,

@@ -8,7 +8,7 @@ See the documentation on how to retrieve the latest version:
 https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#stub-file
 */
 
-export const stub_ccpa = () => {
+export const stub_uspapi_ccpa = () => {
 	(function () {
 		var e = false;
 		var c = window;

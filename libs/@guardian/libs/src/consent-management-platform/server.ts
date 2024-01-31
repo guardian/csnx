@@ -16,9 +16,7 @@ export const serverSideWarn = (): void => {
 	);
 };
 
-export const serverSideWarnAndReturn = <T extends unknown>(
-	arg: T,
-): (() => T) => {
+export const serverSideWarnAndReturn = <T>(arg: T): (() => T) => {
 	return () => {
 		serverSideWarn();
 		return arg;
@@ -55,9 +53,7 @@ export const getConsentFor: GetConsentFor = (
 	consent: ConsentState,
 ) => {
 	console.log(
-		`Server-side call for getConsentFor(${vendor}, ${JSON.stringify(
-			consent,
-		)})`,
+		`Server-side call for getConsentFor(${vendor}, ${JSON.stringify(consent)})`,
 		'getConsentFor will always return false server-side',
 	);
 	serverSideWarn();
