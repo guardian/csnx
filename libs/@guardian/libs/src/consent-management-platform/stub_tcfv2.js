@@ -19,8 +19,7 @@ export const stub_tcfv2 = () => {
 		(n.m = t),
 			(n.c = e),
 			(n.d = function (t, e, r) {
-				n.o(t, e) ||
-					Object.defineProperty(t, e, { enumerable: !0, get: r });
+				n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: r });
 			}),
 			(n.r = function (t) {
 				'undefined' != typeof Symbol &&
@@ -32,8 +31,7 @@ export const stub_tcfv2 = () => {
 			}),
 			(n.t = function (t, e) {
 				if ((1 & e && (t = n(t)), 8 & e)) return t;
-				if (4 & e && 'object' == typeof t && t && t.__esModule)
-					return t;
+				if (4 & e && 'object' == typeof t && t && t.__esModule) return t;
 				var r = Object.create(null);
 				if (
 					(n.r(r),
@@ -58,10 +56,10 @@ export const stub_tcfv2 = () => {
 					t && t.__esModule
 						? function () {
 								return t.default;
-						  }
+							}
 						: function () {
 								return t;
-						  };
+							};
 				return n.d(e, 'a', e), e;
 			}),
 			(n.o = function (t, e) {
@@ -85,9 +83,7 @@ export const stub_tcfv2 = () => {
 		},
 		function (t, e) {
 			t.exports = function (t) {
-				return 'object' == typeof t
-					? null !== t
-					: 'function' == typeof t;
+				return 'object' == typeof t ? null !== t : 'function' == typeof t;
 			};
 		},
 		function (t, e) {
@@ -121,9 +117,7 @@ export const stub_tcfv2 = () => {
 							})() &&
 							((n.__tcfapi = function () {
 								for (
-									var n = arguments.length,
-										r = new Array(n),
-										o = 0;
+									var n = arguments.length, r = new Array(n), o = 0;
 									o < n;
 									o++
 								)
@@ -133,9 +127,7 @@ export const stub_tcfv2 = () => {
 									r.length > 3 &&
 										2 === parseInt(r[1], 10) &&
 										'boolean' == typeof r[3] &&
-										((t = r[3]),
-										'function' == typeof r[2] &&
-											r[2]('set', !0));
+										((t = r[3]), 'function' == typeof r[2] && r[2]('set', !0));
 								else if ('ping' === r[0]) {
 									var i = {
 										gdprApplies: t,
@@ -173,10 +165,7 @@ export const stub_tcfv2 = () => {
 													},
 												};
 												e && (i = JSON.stringify(i)),
-													t.source.postMessage(
-														i,
-														'*',
-													);
+													t.source.postMessage(i, '*');
 											},
 											o.parameter,
 										);
@@ -221,7 +210,7 @@ export const stub_tcfv2 = () => {
 						if ('get' in n || 'set' in n)
 							throw TypeError('Accessors not supported');
 						return 'value' in n && (t[e] = n.value), t;
-				  };
+					};
 		},
 		function (t, e, n) {
 			var r = n(0),
@@ -286,19 +275,11 @@ export const stub_tcfv2 = () => {
 			t.exports = function (t, e) {
 				if (!r(t)) return t;
 				var n, o;
-				if (
-					e &&
-					'function' == typeof (n = t.toString) &&
-					!r((o = n.call(t)))
-				)
+				if (e && 'function' == typeof (n = t.toString) && !r((o = n.call(t))))
 					return o;
 				if ('function' == typeof (n = t.valueOf) && !r((o = n.call(t))))
 					return o;
-				if (
-					!e &&
-					'function' == typeof (n = t.toString) &&
-					!r((o = n.call(t)))
-				)
+				if (!e && 'function' == typeof (n = t.toString) && !r((o = n.call(t))))
 					return o;
 				throw TypeError("Can't convert object to primitive value");
 			};

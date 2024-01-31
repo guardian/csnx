@@ -33,9 +33,7 @@ function showPrivacyManager(): void {
 			window._sp_?.ccpa?.loadPrivacyManagerModal?.(PRIVACY_MANAGER_CCPA);
 			break;
 		case 'aus':
-			window._sp_?.ccpa?.loadPrivacyManagerModal?.(
-				PRIVACY_MANAGER_AUSTRALIA,
-			);
+			window._sp_?.ccpa?.loadPrivacyManagerModal?.(PRIVACY_MANAGER_AUSTRALIA);
 			break;
 	}
 }

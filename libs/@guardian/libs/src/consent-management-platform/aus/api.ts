@@ -9,7 +9,7 @@ const api = (command: Command) =>
 				success
 					? resolve(result)
 					: /* istanbul ignore next */
-					  reject(new Error(`Unable to get ${command} data`)),
+						reject(new Error(`Unable to get ${command} data`)),
 			);
 		} else {
 			reject(new Error('No __uspapi found on window'));

@@ -15,15 +15,14 @@ const api = (command: Command) =>
 				success
 					? resolve(result)
 					: /* istanbul ignore next */
-					  reject(new Error(`Unable to get ${command} data`)),
+						reject(new Error(`Unable to get ${command} data`)),
 			);
 		} else {
 			reject(new Error('No __tcfapi found on window'));
 		}
 	});
 
-
- /**
+/**
  * This function previously used getTCData. However, this has been deprecated.
  * The documentation below suggests using the addEventListener which returns the same object
  * https://docs.sourcepoint.com/hc/en-us/articles/17344938802707-IAB-GDPR-TCF-v2-2-Transition-readiness-
@@ -31,7 +30,6 @@ const api = (command: Command) =>
  */
 export const getTCData = (): Promise<TCData> =>
 	api('addEventListener') as Promise<TCData>;
-
 
 export const getCustomVendorConsents = (): Promise<CustomVendorConsents> =>
 	api('getCustomVendorConsents') as Promise<CustomVendorConsents>;
