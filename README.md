@@ -212,12 +212,19 @@ This will create a "changeset": a `.md` file containing the release information.
 
 ### Unable to commit
 
-If you get a `command not found` error or a message saying you're using the wrong version of Node when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.huskyrc` file and load your Node version manager there.
+If you get a `command not found` error or a message saying you're using the wrong version of Node when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.config/husky/init.sh` file and load your Node version manager there.
+
+> [!NOTE]
+> This used be located in `~/.huskyrc`. If you set that up before, you will need to recreate it at `~/.config/husky/init.sh`.
+>
+> ```sh
+> mkdir -p ~/.config/husky && cp ~/.huskyrc $_/init.sh
+> ```
 
 For example, if you use [`fnm`](https://github.com/Schniz/fnm):
 
 ```sh
-# ~/.huskyrc
+# ~/.config/husky/init.sh
 eval "$(fnm env)"
 fnm use
 ```
@@ -225,26 +232,26 @@ fnm use
 Or for [`asdf`](https://asdf-vm.com/):
 
 ```sh
-# ~/.huskyrc (installed with git)
+# ~/.config/husky/init.sh (installed with git)
 . $HOME/.asdf/asdf.sh
 ```
 
 ```sh
-# ~/.huskyrc (installed with brew on intel macs)
+# ~/.config/husky/init.sh (installed with brew on intel macs)
 . /usr/local/opt/asdf/libexec/asdf.sh
 ```
 
 ```sh
-# ~/.huskyrc (installed with brew on apple silicon)
+# ~/.config/husky/init.sh (installed with brew on apple silicon)
 . /opt/homebrew/opt/asdf/asdf.sh
 ```
 
 Or for [`nvm`](https://github.com/nvm-sh/nvm):
 
 ```sh
-# ~/.huskyrc
+# ~/.config/husky/init.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm use
 ```
 
-See https://typicode.github.io/husky/#/?id=command-not-found for more info.
+See https://typicode.github.io/husky/how-to.html for more info.
