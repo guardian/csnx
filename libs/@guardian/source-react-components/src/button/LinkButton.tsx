@@ -26,6 +26,7 @@ export const LinkButton = ({
 	hideLabel,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: LinkButtonProps): EmotionJSX.Element => (
 	<a
@@ -37,6 +38,7 @@ export const LinkButton = ({
 			iconSide,
 			nudgeIcon,
 			cssOverrides,
+			theme,
 		})}
 		{...props}
 	>
