@@ -79,6 +79,7 @@ Root-level tasks are defined in the [`Makefile`](./Makefile).
 - `make validate` _makes sure absolutely everything is working_
 
 You can also run individual project's Nx targets by running `make <target>`. <details><summary>Nx targets</summary>
+
 - `make csnx:build-storybook`
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`
