@@ -14,7 +14,7 @@ export type BreakpointMap = {
  *
  * [1]: https://caniuse.com/css-media-range-syntax
  */
-const smidgen = 0.0001;
+const smidgen = 0.1;
 
 const minWidth = (from: number): string => `@media (min-width: ${`${from}px`})`;
 
