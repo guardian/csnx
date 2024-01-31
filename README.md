@@ -216,6 +216,7 @@ If you get a `command not found` error or a message saying you're using the wron
 
 > [!NOTE]
 > This used be located in `~/.huskyrc`. If you set that up before, you will need to recreate it at `~/.config/husky/init.sh`.
+>
 > ```sh
 > mkdir -p ~/.config/husky && cp ~/.huskyrc $_/init.sh
 > ```
