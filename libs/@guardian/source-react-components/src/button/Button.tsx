@@ -44,31 +44,29 @@ export const Button = ({
 	children,
 	theme,
 	...props
-}: ButtonProps): EmotionJSX.Element => {
-	return (
-		<button
-			css={buttonStyles({
-				size,
-				priority,
-				icon: iconSvg,
-				hideLabel,
-				iconSide,
-				nudgeIcon,
-				cssOverrides,
-				isLoading,
-				theme,
-			})}
-			type={type}
-			aria-live="polite"
-			aria-label={isLoading ? loadingAnnouncement : undefined}
-			{...props}
-		>
-			{buttonContents({
-				hideLabel,
-				iconSvg,
-				isLoading,
-				children,
-			})}
-		</button>
-	);
-};
+}: ButtonProps): EmotionJSX.Element => (
+	<button
+		css={buttonStyles({
+			size,
+			priority,
+			icon: iconSvg,
+			hideLabel,
+			iconSide,
+			nudgeIcon,
+			cssOverrides,
+			isLoading,
+			theme,
+		})}
+		type={type}
+		aria-live="polite"
+		aria-label={isLoading ? loadingAnnouncement : undefined}
+		{...props}
+	>
+		{buttonContents({
+			hideLabel,
+			iconSvg,
+			isLoading,
+			children,
+		})}
+	</button>
+);
