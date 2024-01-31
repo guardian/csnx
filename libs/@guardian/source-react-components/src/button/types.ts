@@ -43,6 +43,8 @@ export interface SharedButtonProps extends Props {
 	 * screen reader. Defaults to "Loading".
 	 */
 	loadingAnnouncement?: string;
-
+	/**
+	 * Overriding of partial or entire button theme.
+	 */
 	theme?: Partial<ButtonTheme>;
 }
