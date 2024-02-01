@@ -3,7 +3,7 @@ import { Radio } from './Radio';
 import RadioStories from './Radio.stories';
 import type { RadioGroupProps } from './RadioGroup';
 import { RadioGroup } from './RadioGroup';
-import { radioThemeBrand } from './theme';
+import { themeRadioBrand } from './theme';
 
 const meta: Meta<typeof RadioGroup> = {
 	title: 'RadioGroup',
@@ -41,8 +41,8 @@ const Image = () => (
 
 const Template: StoryFn<typeof RadioGroup> = (args: RadioGroupProps) => (
 	<RadioGroup {...args}>
-		<Radio {...RadioStories.args} key="radio-1" />
-		<Radio label="Blue" value="blue" key="radio-2" />
+		<Radio {...RadioStories.args} theme={args.theme} key="radio-1" />
+		<Radio label="Blue" value="blue" theme={args.theme} key="radio-2" />
 	</RadioGroup>
 );
 
@@ -57,7 +57,9 @@ DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -93,10 +95,10 @@ SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'You can always change it later',
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -119,12 +121,12 @@ ErrorDefaultTheme.args = {
 export const ErrorBrandTheme: StoryFn<typeof RadioGroup> = Template.bind({});
 ErrorBrandTheme.args = {
 	error: 'The selected colour is out of stock',
+	theme: themeRadioBrand,
 };
 ErrorBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 
 // *****************************************************************************
