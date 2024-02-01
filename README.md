@@ -71,6 +71,7 @@ You can also run individual project's Nx targets by running `make <target>`:
 
 <details>
 <summary>List of all targets</summary>
+
 - `make csnx:build-storybook`
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`

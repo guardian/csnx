@@ -30,9 +30,10 @@ const nxTargets = await getNxTargets();
 
 const nxTargetsList = [
 	"You can also run individual project's Nx targets by running `make <target>`:",
+	'',
 	'<details>',
 	'<summary>List of all targets</summary>',
-  '',
+	'',
 ];
 for (const target of nxTargets) {
 	nxTargetsList.push(`- \`make ${target}\``);
