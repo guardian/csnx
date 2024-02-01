@@ -8,8 +8,8 @@ export type ThemeAccordion = {
 };
 export const accordionThemeDefault = {
 	accordion: {
-		textPrimary: palette.opinion[400],
-		borderPrimary: palette.opinion[400],
+		textPrimary: palette.neutral[7],
+		borderPrimary: palette.neutral[60],
 	},
 };
 
