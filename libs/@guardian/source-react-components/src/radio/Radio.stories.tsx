@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
-import { radioThemeBrand } from './theme';
+import { themeRadioBrand } from './theme';
 
 const meta: Meta<typeof Radio> = {
 	title: 'Radio',
@@ -44,7 +44,9 @@ DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -65,10 +67,10 @@ SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -88,11 +90,11 @@ SupportingTextOnlyBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextOnlyBrandTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
 	label: null,
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************

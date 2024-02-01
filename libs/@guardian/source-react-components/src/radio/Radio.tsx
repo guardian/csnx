@@ -12,31 +12,7 @@ import {
 	radioContainer,
 	supportingText,
 } from './styles';
-
-const LabelText = ({
-	hasSupportingText,
-	children,
-}: {
-	hasSupportingText?: boolean;
-	children: ReactNode;
-}) => {
-	return (
-		<div
-			css={(theme: Theme) => [
-				hasSupportingText ? labelTextWithSupportingText : '',
-				labelText(theme.radio),
-			]}
-		>
-			{children}
-		</div>
-	);
-};
-
-const SupportingText = ({ children }: { children: ReactNode }) => {
-	return (
-		<div css={(theme: Theme) => supportingText(theme.radio)}>{children}</div>
-	);
-};
+import { ThemeRadio, themeRadio } from './theme';
 
 export interface RadioProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -67,6 +43,10 @@ export interface RadioProps
 	 * Additional text or a component that appears below the label
 	 */
 	supporting?: string | ReactNode;
+	/**
+	 * Partial or complete theme to override radio button's colour palette
+	 */
+	theme?: Partial<ThemeRadio>;
 }
 
 /**
@@ -87,6 +67,7 @@ export const Radio = ({
 	checked,
 	defaultChecked,
 	cssOverrides,
+	theme,
 	...props
 }: RadioProps): EmotionJSX.Element => {
 	const radioId = id ?? generateSourceId();
@@ -97,11 +78,71 @@ export const Radio = ({
 
 		return !!defaultChecked;
 	};
+
+	const transformOldProviderTheme = (
+		providerTheme: Theme['radio'],
+	): Partial<ThemeRadio> => {
+		const transformedTheme: Partial<ThemeRadio> = {};
+
+		if (providerTheme?.backgroundChecked) {
+			transformedTheme.fillSelected = providerTheme.backgroundChecked;
+		}
+		if (providerTheme?.border) {
+			transformedTheme.borderUnselected = providerTheme.border;
+		}
+		if (providerTheme?.textLabelSupporting) {
+			transformedTheme.textLabel = providerTheme.textLabelSupporting;
+		}
+		return { ...transformedTheme, ...providerTheme };
+	};
+
+	const combineThemes = (providerTheme: Theme['radio']): ThemeRadio => {
+		return {
+			...themeRadio,
+			...transformOldProviderTheme(providerTheme),
+			...theme,
+		};
+	};
+
+	const LabelText = ({
+		hasSupportingText,
+		children,
+	}: {
+		hasSupportingText?: boolean;
+		children: ReactNode;
+	}) => {
+		return (
+			<div
+				css={(providerTheme: Theme) => [
+					hasSupportingText ? labelTextWithSupportingText : '',
+					labelText(combineThemes(providerTheme.radio)),
+				]}
+			>
+				{children}
+			</div>
+		);
+	};
+
+	const SupportingText = ({ children }: { children: ReactNode }) => {
+		return (
+			<div
+				css={(providerTheme: Theme) =>
+					supportingText(combineThemes(providerTheme.radio))
+				}
+			>
+				{children}
+			</div>
+		);
+	};
+
 	const radioControl = (
 		<input
 			id={radioId}
 			type="radio"
-			css={(theme: Theme) => [radio(theme.radio), cssOverrides]}
+			css={(providerTheme: Theme) => [
+				radio(combineThemes(providerTheme.radio)),
+				cssOverrides,
+			]}
 			value={value}
 			defaultChecked={defaultChecked != null ? defaultChecked : undefined}
 			checked={checked != null ? isChecked() : undefined}
@@ -111,8 +152,8 @@ export const Radio = ({
 
 	const labelledRadioControl = (
 		<div
-			css={(theme: Theme) => [
-				radioContainer(theme.radio),
+			css={(providerTheme: Theme) => [
+				radioContainer(combineThemes(providerTheme.radio)),
 				supporting ? labelWithSupportingText : '',
 			]}
 		>
