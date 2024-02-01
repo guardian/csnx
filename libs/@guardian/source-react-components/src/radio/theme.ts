@@ -1,4 +1,5 @@
 import { palette } from '@guardian/source-foundations';
+import type { Theme } from '../@types/Theme';
 import { labelThemeBrand, labelThemeDefault } from '../label/theme';
 import {
 	userFeedbackThemeBrand,
@@ -36,6 +37,23 @@ export const themeRadioBrand: ThemeRadio = {
 	fillUnselected: 'transparent',
 	textLabel: palette.neutral[100],
 	textSupporting: palette.brand[800],
+};
+
+export const transformOldProviderTheme = (
+	providerTheme: Theme['radio'],
+): Partial<ThemeRadio> => {
+	const transformedTheme: Partial<ThemeRadio> = {};
+
+	if (providerTheme?.backgroundChecked) {
+		transformedTheme.fillSelected = providerTheme.backgroundChecked;
+	}
+	if (providerTheme?.border) {
+		transformedTheme.borderUnselected = providerTheme.border;
+	}
+	if (providerTheme?.textLabelSupporting) {
+		transformedTheme.textLabel = providerTheme.textLabelSupporting;
+	}
+	return { ...transformedTheme, ...providerTheme };
 };
 
 /** @deprecated Use `themeRadio` and component `theme` prop instead of emotion's `ThemeProvider` */

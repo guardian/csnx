@@ -12,7 +12,7 @@ import {
 	radioContainer,
 	supportingText,
 } from './styles';
-import { ThemeRadio, themeRadio } from './theme';
+import { ThemeRadio, themeRadio, transformOldProviderTheme } from './theme';
 
 export interface RadioProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -77,23 +77,6 @@ export const Radio = ({
 		}
 
 		return !!defaultChecked;
-	};
-
-	const transformOldProviderTheme = (
-		providerTheme: Theme['radio'],
-	): Partial<ThemeRadio> => {
-		const transformedTheme: Partial<ThemeRadio> = {};
-
-		if (providerTheme?.backgroundChecked) {
-			transformedTheme.fillSelected = providerTheme.backgroundChecked;
-		}
-		if (providerTheme?.border) {
-			transformedTheme.borderUnselected = providerTheme.border;
-		}
-		if (providerTheme?.textLabelSupporting) {
-			transformedTheme.textLabel = providerTheme.textLabelSupporting;
-		}
-		return { ...transformedTheme, ...providerTheme };
 	};
 
 	const combineThemes = (providerTheme: Theme['radio']): ThemeRadio => {
