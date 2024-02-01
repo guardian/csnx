@@ -5,6 +5,41 @@ import {
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
 
+export type ThemeRadio = {
+	borderSelected: string;
+	borderUnselected: string;
+	borderHover: string;
+	borderError: string;
+	fillSelected: string;
+	fillUnselected: string;
+	textLabel: string;
+	textSupporting: string;
+};
+
+export const themeRadio: ThemeRadio = {
+	borderSelected: palette.brand[500],
+	borderUnselected: palette.neutral[46],
+	borderHover: palette.brand[500],
+	borderError: palette.error[400],
+	fillSelected: palette.brand[500],
+	fillUnselected: 'transparent',
+	textLabel: palette.neutral[7],
+	textSupporting: palette.neutral[46],
+};
+
+export const themeRadioBrand: ThemeRadio = {
+	borderSelected: palette.neutral[100],
+	borderUnselected: palette.brand[800],
+	borderHover: palette.neutral[100],
+	borderError: palette.error[500],
+	fillSelected: palette.neutral[100],
+	fillUnselected: 'transparent',
+	textLabel: palette.neutral[100],
+	textSupporting: palette.brand[800],
+};
+
+/** @deprecated Use `themeRadio` and component `theme` prop instead of emotion's `ThemeProvider` */
+
 export const radioThemeDefault = {
 	radio: {
 		borderHover: palette.focus[400],
@@ -17,6 +52,8 @@ export const radioThemeDefault = {
 	...labelThemeDefault,
 	...userFeedbackThemeDefault,
 };
+
+/** @deprecated Use `themeRadioBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
 
 export const radioThemeBrand = {
 	radio: {
