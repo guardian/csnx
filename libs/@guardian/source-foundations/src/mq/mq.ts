@@ -5,13 +5,24 @@ export type BreakpointMap = {
 	[key in Breakpoint]: string;
 };
 
+/**
+ * Making this value much smaller than `1px` prevents
+ * media queries falling between entire pixel values.
+ *
+ * When the [range syntax is well supported][1],
+ * it may be a more expressive approach.
+ *
+ * [1]: https://caniuse.com/css-media-range-syntax
+ */
+const smidgen = 0.1;
+
 const minWidth = (from: number): string => `@media (min-width: ${`${from}px`})`;
 
 const maxWidth = (until: number): string =>
-	`@media (max-width: ${`${until - 1}px`})`;
+	`@media (max-width: ${`${until - smidgen}px`})`;
 
 const minWidthMaxWidth = (from: number, until: number): string =>
-	`@media (min-width: ${`${from}px`}) and (max-width: ${`${until - 1}px`})`;
+	`@media (min-width: ${`${from}px`}) and (max-width: ${`${until - smidgen}px`})`;
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_media-queries--page#from)

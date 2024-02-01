@@ -1,5 +1,21 @@
 # @guardian/source-react-components
 
+## 20.0.0
+
+### Major Changes
+
+- 6603b42: Reduces text size of `xsmall` buttons to `14px`.
+
+### Minor Changes
+
+- 9ef761a: Adds optional `size` prop to `TextInput`, `TextArea`, `Label`, `InlineError` and `InlineSuccess` components. `medium` is the default value if `size` is not set, matching current behaviour.
+
+## 19.0.1
+
+### Patch Changes
+
+- f4f275d: Fix footer backToTop icon
+
 ## 19.0.0
 
 ### Major Changes

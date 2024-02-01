@@ -14,9 +14,10 @@ import {
 	textArea,
 	widthFluid,
 } from './styles';
+import { InputSize } from '../@types/InputSize';
 
 export interface TextAreaProps
-	extends InputHTMLAttributes<HTMLTextAreaElement>,
+	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>,
 		Props {
 	id?: string;
 	/**
@@ -41,6 +42,10 @@ export interface TextAreaProps
 	 * Additional text that appears below the label
 	 */
 	supporting?: string;
+	/**
+	 * Size of the text area, label and error message if visible.
+	 */
+	size?: InputSize;
 	/**
 	 * Appears as an inline error message.
 	 */
@@ -70,6 +75,7 @@ export const TextArea = ({
 	optional = false,
 	hideLabel = false,
 	supporting,
+	size = 'medium',
 	error,
 	success,
 	cssOverrides,
@@ -99,17 +105,20 @@ export const TextArea = ({
 				text={labelText}
 				supporting={supporting}
 				optional={!!optional}
+				size={size}
 				hideLabel={hideLabel}
 				htmlFor={textAreaId}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textAreaId)}>{error}</InlineError>
+						<InlineError id={descriptionId(textAreaId)} size={size}>
+							{error}
+						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textAreaId)}>
+						<InlineSuccess id={descriptionId(textAreaId)} size={size}>
 							{success}
 						</InlineSuccess>
 					</div>
@@ -118,7 +127,7 @@ export const TextArea = ({
 			<textarea
 				css={[
 					widthFluid,
-					textArea,
+					textArea(size),
 					supporting ? supportingTextMargin : labelMargin,
 					error ? errorInput : '',
 					!error && success ? successInput : '',

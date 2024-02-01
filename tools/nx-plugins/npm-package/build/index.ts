@@ -1,6 +1,7 @@
 import childProcess from 'node:child_process';
 import path from 'node:path';
 import util from 'node:util';
+import { isObject, isUndefined } from '@guardian/libs';
 import type { ExecutorContext } from '@nx/devkit';
 import { logger } from '@nx/devkit';
 import commonjs from '@rollup/plugin-commonjs';
@@ -29,15 +30,19 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
 
 const exec = util.promisify(childProcess.exec);
 
-const formats = ['cjs', 'esm'] as const;
-export type Entries = {
-	[K in (typeof formats)[number]]: string;
-};
+// the order of these sets the order of the exports in the package.json
+const formats = ['esm', 'cjs'] as const;
+
+type Format = (typeof formats)[number];
+type ImportType = 'import' | 'require';
+
+// the exports field of the package.json
+export type Exports = Record<string, Record<ImportType, string> | undefined>;
 
 const getRollupConfig = (
 	options: BuildExecutorOptions,
 	context: ExecutorContext,
-	format: (typeof formats)[number],
+	format: Format,
 ) => {
 	const compilerOptions = getCompilerOptions(options, context);
 
@@ -92,13 +97,33 @@ export default async function buildExecutor(
 		// add a package.json with workspace deps resolved
 		await writeResolvedPackageJson(options, context);
 
-		let entries: Entries | undefined;
+		const packageExports: Exports = {};
 
-		if (options.tsConfig) {
-			if (!options.entry) {
+		if (options.entry) {
+			if (!options.tsConfig) {
 				logger.error(
-					"You must include a 'entry' option when using the 'tsConfig' option",
+					"You must include a 'tsConfig' option when using the 'entry' option",
 				);
+				return { success: false };
+			}
+
+			const input = isObject(options.entry)
+				? options.entry
+				: { index: options.entry };
+
+			if (isUndefined(input.index)) {
+				logger.error(
+					"You must include a 'index' field when passing an object to the 'entry' option",
+				);
+				return { success: false };
+			}
+
+			if (
+				Object.keys(input).some(
+					(key) => key.startsWith('.') || key.startsWith('/'),
+				)
+			) {
+				logger.error("Keys in 'entry' option must not start with '.' or '/'");
 				return { success: false };
 			}
 
@@ -107,36 +132,44 @@ export default async function buildExecutor(
 			const external = deps.map((dep) => new RegExp(`^${dep}`));
 
 			// create build for each module type
-			const outputs = await Promise.all(
+			const builds = await Promise.all(
 				formats.map(async (format) => {
 					const { plugins, output } = getRollupConfig(options, context, format);
+
 					const bundle = await rollup({
-						input: options.entry,
+						input,
 						plugins,
 						external,
 					});
 					const artefact = await bundle.write(output);
 					await bundle.close();
 
-					const outputEntry = artefact.output.filter(
+					const outputs = artefact.output.filter(
 						(file) => file.type === 'chunk' && file.isEntry,
 					) as OutputChunk[];
 
-					if (outputEntry.length === 1 && outputEntry[0]?.fileName) {
-						return [format, `${format}/${outputEntry[0].fileName}`];
-					}
-
-					// in reality, we control the entry option in the plugin, so we
-					// know there is only ever 1, but typescript doesn't know that
-					throw new Error('Expected a single entry file');
+					return outputs.map((output) => ({
+						name: output.name,
+						path: `${format}/${output.fileName}`,
+						format,
+					}));
 				}),
 			);
 
-			entries = Object.fromEntries(outputs) as Entries;
+			for (const { name, path, format } of builds.flat()) {
+				const exportName = '.' + (name === 'index' ? '' : '/' + name);
+
+				const packageExport = (packageExports[exportName] ||= {} as Record<
+					ImportType,
+					string
+				>);
+
+				packageExport[format === 'cjs' ? 'require' : 'import'] = './' + path;
+			}
 		}
 
 		// remove unwanted fields and set any necessary defaults in the package.json
-		await setPackageDefaults(options, entries);
+		await setPackageDefaults(options, packageExports);
 
 		return { success: true };
 	} catch (e) {

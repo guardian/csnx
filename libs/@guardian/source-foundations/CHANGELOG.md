@@ -1,5 +1,22 @@
 # @guardian/source-foundations
 
+## 14.1.4
+
+### Patch Changes
+
+- ed328fe: Make media queries `max-width` much closer to the breakpoint value.
+
+  As media queries can report fractional values, they can currently fall between entire pixels.
+  For example, `479.5px` is matching neither `max-width: 479px` nor `min-width: 480px`
+
+  The media range syntax would be more expressive, but [support is still sparse at ~80%](https://caniuse.com/css-media-range-syntax).
+
+## 14.1.3
+
+### Patch Changes
+
+- a364e14: Restores explicit types (i.e. actual values) for exports.
+
 ## 14.1.2
 
 ### Patch Changes
@@ -16,7 +33,7 @@
 
 ### Minor Changes
 
-- 50e68bb: Typography now uses `@csnx/design-tokens` as the source of truth, but the token values and API remain the same
+- 50e68bb: Typography now uses `@guardian/design-tokens` as the source of truth, but the token values and API remain the same
 
 ## 14.0.0
 

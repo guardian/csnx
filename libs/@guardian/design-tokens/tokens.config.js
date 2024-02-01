@@ -1,5 +1,7 @@
+// @ts-check
+
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import pluginJS from '@cobalt-ui/plugin-js';
+import pluginTS from '@guardian/cobalt-plugin-ts';
 
 const prefixCustomProperty = (variableId) => {
 	return defaultNameGenerator(`source.${variableId}`);
@@ -11,19 +13,19 @@ const pxToRem = (token) => {
 	}
 };
 
+/** @type {import('@cobalt-ui/core').Config} */
 export default {
-	tokens: './tokens.json',
-	outDir: './tokens',
+	tokens: 'src/tokens.json',
+	outDir: '.',
 	plugins: [
 		pluginCSS({
 			p3: false,
 			generateName: prefixCustomProperty,
 			transform: pxToRem,
+			filename: './variables.css',
 		}),
-		pluginJS({
-			js: true,
-			meta: false,
-			deep: true,
+		pluginTS({
+			filename: './tokens.js',
 		}),
 	],
 };

@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 3.0.0
+
+### Major Changes
+
+- 31aa63e: Update `identity-auth` to `2.0.1` to fix sign out bug
+
 ## 2.0.0
 
 ### Major Changes

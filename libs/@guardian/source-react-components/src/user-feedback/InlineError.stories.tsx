@@ -7,6 +7,9 @@ import type { UserFeedbackProps } from './types';
 const meta: Meta<typeof InlineError> = {
 	title: 'InlineError',
 	component: InlineError,
+	args: {
+		size: 'medium',
+	},
 };
 
 export default meta;
@@ -48,3 +51,23 @@ LongInlineErrorDefaultThemeMobile.args = {
 };
 
 // *****************************************************************************
+
+export const InlineErrorSmallDefaultTheme: StoryFn<typeof InlineError> =
+	Template.bind({});
+InlineErrorSmallDefaultTheme.args = {
+	size: 'small',
+};
+
+// *****************************************************************************
+
+export const InlineErrorSmallBrandTheme: StoryFn<typeof InlineError> =
+	Template.bind({});
+InlineErrorSmallBrandTheme.args = {
+	size: 'small',
+};
+InlineErrorSmallBrandTheme.parameters = {
+	backgrounds: {
+		default: 'brandBackground.primary',
+	},
+	theme: userFeedbackThemeBrand,
+};
