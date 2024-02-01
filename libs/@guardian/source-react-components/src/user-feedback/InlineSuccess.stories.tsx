@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { InlineSuccess } from './InlineSuccess';
 import { userFeedbackThemeBrand } from './theme';
@@ -51,4 +52,10 @@ InlineSuccessSmallBrandTheme.parameters = {
 		default: 'brandBackground.primary',
 	},
 	theme: userFeedbackThemeBrand,
+};
+
+export const InlineSuccessCustomTheme: StoryFn<typeof InlineSuccess> =
+	Template.bind({});
+InlineSuccessCustomTheme.args = {
+	theme: { textSuccess: palette.sport[400] },
 };
