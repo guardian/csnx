@@ -46,6 +46,7 @@ export const transformOldProviderTheme = (
 
 	if (providerTheme?.backgroundChecked) {
 		transformedTheme.fillSelected = providerTheme.backgroundChecked;
+		transformedTheme.borderSelected = providerTheme.backgroundChecked;
 	}
 	if (providerTheme?.border) {
 		transformedTheme.borderUnselected = providerTheme.border;
