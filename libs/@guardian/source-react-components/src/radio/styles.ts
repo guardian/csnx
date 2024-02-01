@@ -10,7 +10,7 @@ import {
 	transitions,
 	width,
 } from '@guardian/source-foundations';
-import { ThemeRadio } from './theme';
+import type { ThemeRadio } from './theme';
 
 export const fieldset = (radio: ThemeRadio): SerializedStyles => css`
 	${resets.fieldset};
