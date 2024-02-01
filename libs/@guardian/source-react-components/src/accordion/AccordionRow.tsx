@@ -7,6 +7,7 @@ import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { AccordionRowNoJS } from './AccordionRowNoJS';
+import { transformAccordionProviderTheme } from './shared';
 import {
 	accordionRow,
 	button,
@@ -19,6 +20,8 @@ import {
 	toggleIconWithLabel,
 	toggleLabel,
 } from './styles';
+import type { ThemeAccordion } from './theme';
+import { themeAccordion as defaultTheme } from './theme';
 
 const visuallyHidden = css`
 	${_visuallyHidden}
@@ -41,6 +44,10 @@ export interface AccordionRowProps
 	 * @ignore passed down by the parent <Accordion />
 	 */
 	hideToggleLabel?: boolean;
+	/**
+	 * Overriding of partial or entire Accordion Row theme.
+	 */
+	theme?: Partial<ThemeAccordion>;
 }
 
 /**
@@ -55,12 +62,20 @@ export const AccordionRow = ({
 	children,
 	cssOverrides,
 	onClick = () => undefined,
+	theme,
 }: AccordionRowProps): EmotionJSX.Element => {
 	const [expanded, setExpanded] = useState(false);
 	const collapse = () => setExpanded(false);
 	const expand = () => setExpanded(true);
 	const [isBrowser, setIsBrowser] = useState(false);
 
+	const combineTheme = (providerTheme: Theme['accordion']): ThemeAccordion => {
+		return {
+			...defaultTheme,
+			...transformAccordionProviderTheme(providerTheme),
+			...theme,
+		};
+	};
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
 		expanded ? collapse() : expand();
 		onClick(event);
@@ -73,14 +88,17 @@ export const AccordionRow = ({
 	if (isBrowser) {
 		return (
 			<div
-				css={(theme: Theme) => [accordionRow(theme.accordion), cssOverrides]}
+				css={(providerTheme: Theme) => [
+					accordionRow(combineTheme(providerTheme.accordion)),
+					cssOverrides,
+				]}
 			>
 				<button
 					type="button"
 					aria-expanded={expanded}
 					onClick={handleClick}
-					css={(theme: Theme) => [
-						button(theme.accordion),
+					css={(providerTheme: Theme) => [
+						button(combineTheme(providerTheme.accordion)),
 						expanded ? chevronIconUp : chevronIconDown,
 						!hideToggleLabel ? toggleIconWithLabel : '',
 					]}
@@ -92,7 +110,11 @@ export const AccordionRow = ({
 								{expanded ? 'Hide' : 'Show more'}
 							</span>
 						) : (
-							<span css={toggleLabel}>
+							<span
+								css={(providerTheme: Theme) =>
+									toggleLabel(combineTheme(providerTheme.accordion))
+								}
+							>
 								{expanded ? (
 									'Hide'
 								) : (
@@ -106,7 +128,13 @@ export const AccordionRow = ({
 						<SvgChevronDownSingle />
 					</div>
 				</button>
-				<div css={expanded ? expandedBody : collapsedBody}>
+				<div
+					css={(providerTheme: Theme) =>
+						expanded
+							? expandedBody(combineTheme(providerTheme.accordion))
+							: collapsedBody
+					}
+				>
 					<div hidden={!expanded}>{children}</div>
 				</div>
 			</div>

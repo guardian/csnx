@@ -4,6 +4,7 @@ import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations'
 import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Theme } from '../@types/Theme';
 import type { AccordionRowProps } from './AccordionRow';
+import { transformAccordionProviderTheme } from './shared';
 import {
 	accordionRow,
 	chevronIconDown,
@@ -16,6 +17,8 @@ import {
 	toggleIconWithLabel,
 	toggleLabel,
 } from './styles';
+import type { ThemeAccordion } from './theme';
+import { themeAccordion as defaultTheme } from './theme';
 
 const visuallyHidden = css`
 	${_visuallyHidden}
@@ -32,17 +35,36 @@ export const AccordionRowNoJS = ({
 	hideToggleLabel = false,
 	children,
 	cssOverrides,
+	theme,
 	...props
 }: Omit<AccordionRowProps, 'onClick'>): EmotionJSX.Element => {
+	const combineTheme = (providerTheme: Theme['accordion']): ThemeAccordion => {
+		return {
+			...defaultTheme,
+			...transformAccordionProviderTheme(providerTheme),
+			...theme,
+		};
+	};
 	return (
 		<div
-			css={(theme: Theme) => [accordionRow(theme.accordion), cssOverrides]}
+			css={(providerTheme: Theme) => [
+				accordionRow(combineTheme(providerTheme.accordion)),
+				cssOverrides,
+			]}
 			{...props}
 		>
 			<label>
-				<input type="checkbox" css={noJsInput} role="button" />
+				<input
+					type="checkbox"
+					css={(providerTheme: Theme) =>
+						noJsInput(combineTheme(providerTheme.accordion))
+					}
+					role="button"
+				/>
 				<div
-					css={(theme: Theme) => noJsButton(theme.accordion)}
+					css={(providerTheme: Theme) =>
+						noJsButton(combineTheme(providerTheme.accordion))
+					}
 					data-target="label"
 				>
 					<strong css={labelText}>{label}</strong>
@@ -55,7 +77,12 @@ export const AccordionRowNoJS = ({
 							]}
 							data-target="toggle-label-show"
 						>
-							<span css={[toggleLabel, hideToggleLabel ? visuallyHidden : '']}>
+							<span
+								css={(providerTheme: Theme) => [
+									toggleLabel(combineTheme(providerTheme.accordion)),
+									hideToggleLabel ? visuallyHidden : '',
+								]}
+							>
 								Show<span css={visuallyHidden}> more</span>
 							</span>
 							<SvgChevronDownSingle />
@@ -68,7 +95,12 @@ export const AccordionRowNoJS = ({
 							]}
 							data-target="toggle-label-hide"
 						>
-							<span css={[toggleLabel, hideToggleLabel ? visuallyHidden : '']}>
+							<span
+								css={(providerTheme: Theme) => [
+									toggleLabel(combineTheme(providerTheme.accordion)),
+									hideToggleLabel ? visuallyHidden : '',
+								]}
+							>
 								Hide
 							</span>
 							<SvgChevronDownSingle />

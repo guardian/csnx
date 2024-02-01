@@ -3,7 +3,10 @@ import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { transformAccordionProviderTheme } from './shared';
 import { accordion } from './styles';
+import type { ThemeAccordion } from './theme';
+import { themeAccordion as defaultTheme } from './theme';
 
 export interface AccordionProps extends Props {
 	/**
@@ -15,6 +18,7 @@ export interface AccordionProps extends Props {
 	 */
 	hideToggleLabel?: boolean;
 	children: ReactElement[];
+	theme?: Partial<ThemeAccordion>;
 }
 
 /**
@@ -30,12 +34,23 @@ export const Accordion = ({
 	hideToggleLabel = false,
 	children,
 	cssOverrides,
+	theme,
 	...props
 }: AccordionProps): EmotionJSX.Element => {
+	const combineTheme = (providerTheme: Theme['accordion']): ThemeAccordion => {
+		return {
+			...defaultTheme,
+			...transformAccordionProviderTheme(providerTheme),
+			...theme,
+		};
+	};
 	// AUDIT https://www.sarasoueidan.com/blog/accordion-markup/
 	return (
 		<div
-			css={(theme: Theme) => [accordion(theme.accordion), cssOverrides]}
+			css={(providerTheme: Theme) => [
+				accordion(combineTheme(providerTheme.accordion)),
+				cssOverrides,
+			]}
 			{...props}
 		>
 			{Children.map(children, (child) => {
