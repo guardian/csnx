@@ -52,8 +52,11 @@ const mockOnConsentChange = (consentState: ConsentState) =>
 		cb(consentState),
 	);
 
-jest.mock('@guardian/libs', () => ({
+jest.mock('../cookies/removeCookie', () => ({
 	removeCookie: jest.fn(),
+}));
+
+jest.mock('../storage/storage', () => ({
 	storage: {
 		local: {
 			remove: jest.fn(),
