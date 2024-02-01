@@ -66,7 +66,7 @@ export const radio = (radio: ThemeRadio): SerializedStyles => css`
 	color: ${radio.borderUnselected};
 
 	&:checked {
-		border: 2px solid currentColor;
+		border: 2px solid ${radio.borderSelected};
 		color: ${radio.fillSelected};
 	}
 
@@ -82,7 +82,7 @@ export const radio = (radio: ThemeRadio): SerializedStyles => css`
 	*/
 	@supports (${appearance}) {
 		appearance: none;
-		background-color: transparent;
+		background-color: ${radio.fillUnselected};
 
 		&:after {
 			background: currentColor;
