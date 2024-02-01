@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
 import { themeRadioBrand } from './theme';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Radio> = {
 	title: 'Radio',
@@ -102,4 +103,17 @@ SupportingTextOnlyBrandTheme.args = {
 export const UnlabelledDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
 UnlabelledDefaultTheme.args = {
 	label: undefined,
+};
+
+// *****************************************************************************
+
+export const CustomTheme: StoryFn<typeof Radio> = Template.bind({});
+CustomTheme.args = {
+	theme: {
+		fillUnselected: palette.lifestyle[500],
+		fillSelected: palette.lifestyle[400],
+		borderSelected: palette.lifestyle[300],
+		borderHover: palette.lifestyle[400],
+		textLabel: palette.lifestyle[400],
+	},
 };
