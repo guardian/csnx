@@ -253,7 +253,7 @@ importers:
     devDependencies:
       '@guardian/libs':
         specifier: 16.0.0
-        version: link:../libs
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -325,7 +325,7 @@ importers:
     devDependencies:
       '@guardian/libs':
         specifier: 16.0.0
-        version: link:../libs
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
         specifier: 14.0.0
         version: 14.0.0(tslib@2.6.2)(typescript@5.3.3)
@@ -359,13 +359,13 @@ importers:
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/libs':
         specifier: 16.0.0
-        version: link:../libs
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
         specifier: 14.0.0
         version: 14.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-react-components':
         specifier: 18.0.0
-        version: link:../source-react-components
+        version: 18.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@14.0.0)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@types/eslint':
         specifier: 8.56.1
         version: 8.56.1
@@ -389,7 +389,7 @@ importers:
     devDependencies:
       '@guardian/libs':
         specifier: 16.0.0
-        version: link:../libs
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       jest-fetch-mock:
         specifier: 3.0.3
         version: 3.0.3
@@ -404,10 +404,10 @@ importers:
     devDependencies:
       '@guardian/identity-auth':
         specifier: 2.0.0
-        version: 2.0.0(@guardian/libs@libs+@guardian+libs)(tslib@2.6.2)(typescript@5.3.3)
+        version: 2.0.0(@guardian/libs@16.0.0)(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/libs':
         specifier: 16.0.0
-        version: link:../libs
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       jest-fetch-mock:
         specifier: 3.0.3
         version: 3.0.3
@@ -435,6 +435,9 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      wait-for-expect:
+        specifier: ^3
+        version: 3.0.2
       wcag-contrast:
         specifier: 3.0.0
         version: 3.0.0
@@ -552,13 +555,13 @@ importers:
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/libs':
         specifier: 16.0.0
-        version: link:../libs
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
         specifier: 14.0.0
         version: 14.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-react-components':
         specifier: 18.0.0
-        version: link:../source-react-components
+        version: 18.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@14.0.0)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
@@ -3620,7 +3623,7 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/identity-auth@2.0.0(@guardian/libs@libs+@guardian+libs)(tslib@2.6.2)(typescript@5.3.3):
+  /@guardian/identity-auth@2.0.0(@guardian/libs@16.0.0)(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-lLO+O8ZMcUJ1e55+K+HN1eCKCMsZp/p10Yu7SRcDc69ohvLzMH6sCIXinj1eI+I2222tVAKFC0F3XRPAbPI/Wg==}
     peerDependencies:
       '@guardian/libs': ^16.0.0
@@ -3630,7 +3633,20 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@guardian/libs': link:libs/@guardian/libs
+      '@guardian/libs': 16.0.0(tslib@2.6.2)(typescript@5.3.3)
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
+  /@guardian/libs@16.0.0(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-2i9cN6htXnvABIGhfqJGb9Bh/DdQOayUjb5ruqBGTiXEeDBHztctdVsi7+rPfMlwyPxQ+0qYLhM19f6J94vvhQ==}
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
       tslib: 2.6.2
       typescript: 5.3.3
     dev: true
@@ -3645,6 +3661,25 @@ packages:
         optional: true
     dependencies:
       mini-svg-data-uri: 1.4.4
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
+  /@guardian/source-react-components@18.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@14.0.0)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-7mt6RDmViRdUKUlU8OaswIsYnR+yFEt5iYbRhmXB+A0XjiTeLYP8EHKmazISRlGXTZjjG701WgY5witaShI1YA==}
+    peerDependencies:
+      '@emotion/react': ^11.11.1
+      '@guardian/source-foundations': ^14.0.0
+      react: ^18.2.0
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@emotion/react': 11.11.1(@types/react@18.2.11)(react@18.2.0)
+      '@guardian/source-foundations': 14.0.0(tslib@2.6.2)(typescript@5.3.3)
+      react: 18.2.0
       tslib: 2.6.2
       typescript: 5.3.3
     dev: true
@@ -14956,6 +14991,10 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       xml-name-validator: 4.0.0
+    dev: true
+
+  /wait-for-expect@3.0.2:
+    resolution: {integrity: sha512-cfS1+DZxuav1aBYbaO/kE06EOS8yRw7qOFoD3XtjTkYvCvh3zUvNST8DXK/nPaeqIzIv3P3kL3lRJn8iwOiSag==}
     dev: true
 
   /walker@1.0.8:
