@@ -42,7 +42,7 @@
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-core"],
 			"options": {
 				"jestConfig": "libs/@guardian/ab-core/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
 			}
 		},
@@ -51,7 +51,7 @@
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-core"],
 			"options": {
 				"jestConfig": "libs/@guardian/ab-core/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"watch": true
 			}
 		}

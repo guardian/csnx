@@ -52,7 +52,7 @@
 			],
 			"options": {
 				"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
 		},
@@ -63,7 +63,7 @@
 			],
 			"options": {
 				"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"watch": true
 			}
 		},
