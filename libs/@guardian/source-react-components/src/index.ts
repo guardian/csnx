@@ -56,7 +56,10 @@ export type {
 	ChoiceCardColumns,
 	ChoiceCardGroupProps,
 } from './choice-card/ChoiceCardGroup';
-export type { ChoiceCardProps } from './choice-card/ChoiceCard';
+export type {
+	ChoiceCardProps,
+	ChoiceCardTheme,
+} from './choice-card/ChoiceCard';
 export { choiceCardThemeDefault } from './choice-card/theme';
 
 export { Footer } from './footer/Footer';
