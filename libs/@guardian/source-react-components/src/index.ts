@@ -21,7 +21,7 @@ export {
 	buttonThemeBrandAlt,
 	buttonThemeDefault,
 } from './button/theme';
-export type { ButtonTheme } from './button/Button';
+export type { ButtonTheme } from './button/theme';
 
 export { SvgGuardianLogo } from './brand/SvgGuardianLogo';
 export type { SvgGuardianLogoProps } from './brand/SvgGuardianLogo';
