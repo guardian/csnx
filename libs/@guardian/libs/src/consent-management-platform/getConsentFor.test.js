@@ -1,7 +1,5 @@
 // cSpell:ignore doesnotexist
 
-import { getConsentFor } from './getConsentFor.ts';
-
 const vendorOne = 'd3b07384d113edec49eaa623';
 const vendorAlt = 'c157a79031e1c40f85931829';
 
@@ -27,6 +25,8 @@ jest.mock('./vendors', () => ({
 		vendorOne: [vendorOne, vendorAlt],
 	},
 }));
+
+import { getConsentFor } from './getConsentFor.ts'; //import after jest.mock due to jest hoisting
 
 it('throws an error if the vendor found ', () => {
 	expect(() => {
