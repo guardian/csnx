@@ -45,6 +45,15 @@
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
 			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-core"],
+			"options": {
+				"jestConfig": "libs/@guardian/ab-core/jest.config.ts",
+				"passWithNoTests": true,
+				"watch": true
+			}
 		}
 	},
 	"tags": []

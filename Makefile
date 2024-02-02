@@ -17,6 +17,12 @@ storybooks: env
 	$(call log,"Starting storybooks")
 	@corepack pnpm nx run csnx:storybooks
 
+# runs the dev targets for all projects in single instance
+.PHONY: dev
+dev: env
+	$(call log,"Starting dev tasks")
+	@corepack pnpm nx run-many --target=dev --skip-nx-cache=$(SKIP_NX_CACHE)
+
 ################################# CODE QUALITY #################################
 
 # runs the unit tests for all projects

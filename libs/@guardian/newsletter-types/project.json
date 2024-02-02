@@ -36,6 +36,15 @@
 				"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
 				"passWithNoTests": true
 			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/newsletter-types"],
+			"options": {
+				"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
+				"passWithNoTests": true,
+				"watch": true
+			}
 		}
 	}
 }

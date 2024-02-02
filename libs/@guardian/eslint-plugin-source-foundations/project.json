@@ -53,6 +53,17 @@
 				"passWithNoTests": true,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
 			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-foundations"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
+				"passWithNoTests": true,
+				"watch": true
+			}
 		}
 	},
 	"tags": []
