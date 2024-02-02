@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../../vendor/icons/SvgExternal';
 import type { ButtonLinkProps } from './ButtonLink';
@@ -66,3 +67,24 @@ RightIconButtonLinkDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
+export const PrimaryIconButtonLinkCustomTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
+PrimaryIconButtonLinkCustomTheme.args = {
+	theme: {
+		textPrimary: palette.news[400],
+		textPrimaryHover: palette.news[550],
+	},
+};
+
+// *****************************************************************************
+
+export const SecondaryIconButtonLinkCustomTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
+SecondaryIconButtonLinkCustomTheme.args = {
+	priority: 'secondary',
+	theme: {
+		textSecondary: palette.opinion[400],
+		textSecondaryHover: palette.opinion[550],
+	},
+};
