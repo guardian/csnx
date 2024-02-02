@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Props } from '../@types/Props';
-import type { ButtonTheme } from './Button';
+import type { ThemeButton } from './theme';
 
 export type ButtonPriority = 'primary' | 'secondary' | 'tertiary' | 'subdued';
 export type IconSide = 'left' | 'right';
@@ -46,5 +46,5 @@ export interface SharedButtonProps extends Props {
 	/**
 	 * Overriding of partial or entire button theme.
 	 */
-	theme?: Partial<ButtonTheme>;
+	theme?: Partial<ThemeButton>;
 }

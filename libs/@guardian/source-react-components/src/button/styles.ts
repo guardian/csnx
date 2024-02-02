@@ -9,8 +9,8 @@ import {
 	width,
 } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
-import type { ButtonTheme } from './Button';
-import { buttonTheme as defaultTheme } from './theme';
+import type { ThemeButton } from './theme';
+import { themeButton as defaultTheme } from './theme';
 import type {
 	ButtonPriority,
 	IconSide,
@@ -68,7 +68,7 @@ const applyButtonStylesToLoadingSpinner = (size: Size) => {
 	`;
 };
 
-const primary = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
+const primary = (button: ThemeButton): SerializedStyles => css`
 	background-color: ${button.backgroundPrimary};
 	color: ${button.textPrimary};
 
@@ -77,7 +77,7 @@ const primary = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
 	}
 `;
 
-const secondary = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
+const secondary = (button: ThemeButton): SerializedStyles => css`
 	background-color: ${button.backgroundSecondary};
 	color: ${button.textSecondary};
 
@@ -86,7 +86,7 @@ const secondary = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
 	}
 `;
 
-const tertiary = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
+const tertiary = (button: ThemeButton): SerializedStyles => css`
 	color: ${button.textTertiary};
 	border: 1px solid ${button.borderTertiary};
 
@@ -95,7 +95,7 @@ const tertiary = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
 	}
 `;
 
-const subdued = (button: ButtonTheme = defaultTheme): SerializedStyles => css`
+const subdued = (button: ThemeButton): SerializedStyles => css`
 	padding: 0;
 	background-color: transparent;
 	color: ${button.textSubdued};
@@ -238,7 +238,7 @@ const iconNudgeAnimation = css`
 `;
 
 const priorities: {
-	[key in ButtonPriority]: (button?: ButtonTheme) => SerializedStyles;
+	[key in ButtonPriority]: (button: ThemeButton) => SerializedStyles;
 } = {
 	primary,
 	secondary,
@@ -277,8 +277,8 @@ const iconOnlySizes: {
 
 const combineThemes = (
 	providerTheme: Theme['button'],
-	theme?: Partial<ButtonTheme>,
-): ButtonTheme => {
+	theme?: Partial<ThemeButton>,
+): ThemeButton => {
 	return {
 		...defaultTheme,
 		...providerTheme,

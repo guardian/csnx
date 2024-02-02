@@ -3,11 +3,11 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCross } from '../../vendor/icons/SvgCross';
 import type { ButtonProps } from './Button';
 import { Button } from './Button';
-import { buttonBrandAltTheme, buttonBrandTheme } from './theme';
+import { themeButtonBrand, themeButtonBrandAlt } from './theme';
 import {
-	buttonReaderRevenueBrandAltTheme,
-	buttonReaderRevenueBrandTheme,
-	buttonReaderRevenueTheme,
+	themeButtonReaderRevenue,
+	themeButtonReaderRevenueBrand,
+	themeButtonReaderRevenueBrandAlt,
 } from './theme-reader-revenue';
 
 const themeParameters = {
@@ -97,7 +97,7 @@ export const PrimaryPriorityBrandTheme: StoryFn<typeof Button> = Template.bind(
 );
 PrimaryPriorityBrandTheme.args = {
 	priority: 'primary',
-	theme: buttonBrandTheme,
+	theme: themeButtonBrand,
 };
 PrimaryPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -105,7 +105,7 @@ export const SecondaryPriorityBrandTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SecondaryPriorityBrandTheme.args = {
 	priority: 'secondary',
-	theme: buttonBrandTheme,
+	theme: themeButtonBrand,
 };
 SecondaryPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -114,7 +114,7 @@ export const TertiaryPriorityBrandTheme: StoryFn<typeof Button> = Template.bind(
 );
 TertiaryPriorityBrandTheme.args = {
 	priority: 'tertiary',
-	theme: buttonBrandTheme,
+	theme: themeButtonBrand,
 };
 TertiaryPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -123,7 +123,7 @@ export const SubduedPriorityBrandTheme: StoryFn<typeof Button> = Template.bind(
 );
 SubduedPriorityBrandTheme.args = {
 	priority: 'subdued',
-	theme: buttonBrandTheme,
+	theme: themeButtonBrand,
 };
 SubduedPriorityBrandTheme.parameters = themeParameters.brand;
 
@@ -133,7 +133,7 @@ export const PrimaryPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityBrandAltTheme.args = {
 	priority: 'primary',
-	theme: buttonBrandAltTheme,
+	theme: themeButtonBrandAlt,
 };
 PrimaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -141,7 +141,7 @@ export const SecondaryPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SecondaryPriorityBrandAltTheme.args = {
 	priority: 'secondary',
-	theme: buttonBrandAltTheme,
+	theme: themeButtonBrandAlt,
 };
 SecondaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -149,7 +149,7 @@ export const TertiaryPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityBrandAltTheme.args = {
 	priority: 'tertiary',
-	theme: buttonBrandAltTheme,
+	theme: themeButtonBrandAlt,
 };
 TertiaryPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -157,7 +157,7 @@ export const SubduedPriorityBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 SubduedPriorityBrandAltTheme.args = {
 	priority: 'subdued',
-	theme: buttonBrandAltTheme,
+	theme: themeButtonBrandAlt,
 };
 SubduedPriorityBrandAltTheme.parameters = themeParameters.brandAlt;
 
@@ -167,14 +167,14 @@ export const PrimaryPriorityReaderRevenueTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityReaderRevenueTheme.args = {
 	priority: 'primary',
-	theme: buttonReaderRevenueTheme,
+	theme: themeButtonReaderRevenue,
 };
 
 export const TertiaryPriorityReaderRevenueTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityReaderRevenueTheme.args = {
 	priority: 'tertiary',
-	theme: buttonReaderRevenueTheme,
+	theme: themeButtonReaderRevenue,
 };
 
 // *****************************************************************************
@@ -183,7 +183,7 @@ export const PrimaryPriorityReaderRevenueBrandTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityReaderRevenueBrandTheme.args = {
 	priority: 'primary',
-	theme: buttonReaderRevenueBrandTheme,
+	theme: themeButtonReaderRevenueBrand,
 };
 PrimaryPriorityReaderRevenueBrandTheme.parameters =
 	themeParameters.readerRevenueBrand;
@@ -192,7 +192,7 @@ export const TertiaryPriorityReaderRevenueBrandTheme: StoryFn<typeof Button> =
 	Template.bind({});
 TertiaryPriorityReaderRevenueBrandTheme.args = {
 	priority: 'tertiary',
-	theme: buttonReaderRevenueBrandTheme,
+	theme: themeButtonReaderRevenueBrand,
 };
 TertiaryPriorityReaderRevenueBrandTheme.parameters =
 	themeParameters.readerRevenueBrand;
@@ -203,7 +203,7 @@ export const PrimaryPriorityReaderRevenueBrandAltTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityReaderRevenueBrandAltTheme.args = {
 	priority: 'primary',
-	theme: buttonReaderRevenueBrandAltTheme,
+	theme: themeButtonReaderRevenueBrandAlt,
 };
 PrimaryPriorityReaderRevenueBrandAltTheme.parameters =
 	themeParameters.readerRevenueBrandAlt;
@@ -213,7 +213,7 @@ export const TertiaryPriorityReaderRevenueBrandAltTheme: StoryFn<
 > = Template.bind({});
 TertiaryPriorityReaderRevenueBrandAltTheme.args = {
 	priority: 'tertiary',
-	theme: buttonReaderRevenueBrandAltTheme,
+	theme: themeButtonReaderRevenueBrandAlt,
 };
 TertiaryPriorityReaderRevenueBrandAltTheme.parameters =
 	themeParameters.readerRevenueBrandAlt;

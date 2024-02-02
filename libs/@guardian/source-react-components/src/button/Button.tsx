@@ -4,19 +4,6 @@ import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
 import type { SharedButtonProps } from './types';
 
-export type ButtonTheme = {
-	textPrimary: string;
-	backgroundPrimary: string;
-	backgroundPrimaryHover: string;
-	textSecondary: string;
-	backgroundSecondary: string;
-	backgroundSecondaryHover: string;
-	textTertiary: string;
-	backgroundTertiaryHover: string;
-	borderTertiary: string;
-	textSubdued: string;
-};
-
 export interface ButtonProps
 	extends SharedButtonProps,
 		ButtonHTMLAttributes<HTMLButtonElement> {}

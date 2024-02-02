@@ -1,7 +1,33 @@
 import { palette } from '@guardian/source-foundations';
-import type { ButtonTheme } from './Button';
 
-/** @deprecated Use `buttonTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+/** @deprecated Use Partial<ThemeButton> instead */
+export type ButtonTheme = {
+	textPrimary: string;
+	backgroundPrimary: string;
+	backgroundPrimaryHover: string;
+	textSecondary?: string;
+	backgroundSecondary?: string;
+	backgroundSecondaryHover?: string;
+	textTertiary?: string;
+	backgroundTertiaryHover?: string;
+	borderTertiary?: string;
+	textSubdued?: string;
+};
+
+export type ThemeButton = {
+	textPrimary: string;
+	backgroundPrimary: string;
+	backgroundPrimaryHover: string;
+	textSecondary: string;
+	backgroundSecondary: string;
+	backgroundSecondaryHover: string;
+	textTertiary: string;
+	backgroundTertiaryHover: string;
+	borderTertiary: string;
+	textSubdued: string;
+};
+
+/** @deprecated Use `themeButton` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeDefault: { button: ButtonTheme } = {
 	button: {
 		textPrimary: palette.neutral[100],
@@ -17,8 +43,7 @@ export const buttonThemeDefault: { button: ButtonTheme } = {
 	},
 };
 
-/** @deprecated Use `buttonBrandTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
-
+/** @deprecated Use `themeButtonBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeBrand: { button: ButtonTheme } = {
 	button: {
 		textPrimary: palette.brand[400],
@@ -34,8 +59,7 @@ export const buttonThemeBrand: { button: ButtonTheme } = {
 	},
 };
 
-/** @deprecated Use `buttonBrandAltTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
-
+/** @deprecated Use `themeButtonBrandAlt` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeBrandAlt: { button: ButtonTheme } = {
 	button: {
 		textPrimary: palette.neutral[100],
@@ -51,7 +75,7 @@ export const buttonThemeBrandAlt: { button: ButtonTheme } = {
 	},
 };
 
-export const buttonTheme: ButtonTheme = {
+export const themeButton: ThemeButton = {
 	textPrimary: palette.neutral[100],
 	backgroundPrimary: palette.brand[400],
 	backgroundPrimaryHover: '#234B8A', // One-off colour variant generated from palette.brand[400]
@@ -64,7 +88,7 @@ export const buttonTheme: ButtonTheme = {
 	textSubdued: palette.brand[400],
 };
 
-export const buttonBrandTheme: ButtonTheme = {
+export const themeButtonBrand: ThemeButton = {
 	textPrimary: palette.brand[400],
 	backgroundPrimary: palette.neutral[100],
 	backgroundPrimaryHover: '#E0E0E0', // One-off colour variant generated from palette.neutral[100]
@@ -77,7 +101,7 @@ export const buttonBrandTheme: ButtonTheme = {
 	textSubdued: palette.neutral[100],
 };
 
-export const buttonBrandAltTheme: ButtonTheme = {
+export const themeButtonBrandAlt: ThemeButton = {
 	textPrimary: palette.neutral[100],
 	backgroundPrimary: palette.neutral[7],
 	backgroundPrimaryHover: '#454545', // One-off colour variant generated from palette.neutral[7]
