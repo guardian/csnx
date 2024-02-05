@@ -2,6 +2,7 @@ import type { SerializedStyles } from '@emotion/react';
 import type { HTMLAttributes, LabelHTMLAttributes, ReactNode } from 'react';
 import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
+import type { ThemeLabel } from './theme';
 
 export interface LabelProps
 	extends LabelHTMLAttributes<HTMLLabelElement>,
@@ -28,6 +29,7 @@ export interface LabelProps
 	size?: InputSize;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
 	children?: ReactNode;
+	theme?: Partial<ThemeLabel>;
 }
 
 export interface LegendProps extends HTMLAttributes<HTMLLegendElement>, Props {
@@ -48,4 +50,5 @@ export interface LegendProps extends HTMLAttributes<HTMLLegendElement>, Props {
 	 */
 	hideLabel?: boolean;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
+	theme?: Partial<ThemeLabel>;
 }

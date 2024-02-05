@@ -1,10 +1,17 @@
 import { palette } from '@guardian/source-foundations';
-import { labelThemeBrand, labelThemeDefault } from '../label/theme';
+import type { ThemeLabel } from '../label/theme';
+import { labelThemeBrand, labelThemeDefault, themeLabel } from '../label/theme';
+import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
+	themeUserFeedback,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
 
+export type ThemeCheckboxGroup = {
+	label: Partial<ThemeLabel>;
+	userFeedback: Partial<ThemeUserFeedback>;
+};
 export const checkboxThemeDefault = {
 	checkbox: {
 		border: palette.neutral[46],
@@ -33,4 +40,9 @@ export const checkboxThemeBrand = {
 	},
 	...userFeedbackThemeBrand,
 	...labelThemeBrand,
+};
+
+export const themeCheckbox = {
+	label: themeLabel,
+	userFeedback: themeUserFeedback,
 };
