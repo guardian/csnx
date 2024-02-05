@@ -2,7 +2,7 @@ import waitForExpect from 'wait-for-expect';
 import { CMP as actualCMP } from './consent-management-platform/cmp';
 import { disable, enable } from './consent-management-platform/disable';
 import { getCurrentFramework } from './consent-management-platform/getCurrentFramework';
-import type { CMP } from './consent-management-platform/types';
+import { CMP } from './consent-management-platform/types';
 import * as packageExports from './index';
 import { cmp } from './index';
 
@@ -125,7 +125,8 @@ describe('hotfix cmp.init', () => {
 	});
 
 	it('warn if two versions are running simultaneously', () => {
-		global.console.warn = jest.fn();
+		const consoleWarn = jest.spyOn(global.console, 'warn');
+
 		cmp.init({ country: 'GB' });
 		const currentVersion = window.guCmpHotFix.cmp?.version;
 		const mockedVersion = 'X.X.X-mock';
@@ -139,7 +140,7 @@ describe('hotfix cmp.init', () => {
 
 		cmp.init({ country: 'GB' });
 
-		expect(global.console.warn).toHaveBeenCalledWith(
+		expect(consoleWarn).toHaveBeenCalledWith(
 			'Two different versions of the CMP are running:',
 			[currentVersion, mockedVersion],
 		);
