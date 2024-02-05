@@ -2,6 +2,7 @@ import waitForExpect from 'wait-for-expect';
 import { CMP as actualCMP } from './consent-management-platform/cmp';
 import { disable, enable } from './consent-management-platform/disable';
 import { getCurrentFramework } from './consent-management-platform/getCurrentFramework';
+import type { CMP } from './consent-management-platform/types';
 import * as packageExports from './index';
 import { cmp } from './index';
 
@@ -14,8 +15,10 @@ describe('The package', () => {
 			'ArticlePillar',
 			'ArticleSpecial',
 			'Pillar',
+			'cmp',
 			'countries',
 			'debug',
+			'getConsentFor',
 			'getCookie',
 			'getCountryByCountryCode',
 			'getLocale',
@@ -30,6 +33,8 @@ describe('The package', () => {
 			'joinUrl',
 			'loadScript',
 			'log',
+			'onConsent',
+			'onConsentChange',
 			'removeCookie',
 			'setCookie',
 			'setSessionCookie',
@@ -122,9 +127,15 @@ describe('hotfix cmp.init', () => {
 	it('warn if two versions are running simultaneously', () => {
 		global.console.warn = jest.fn();
 		cmp.init({ country: 'GB' });
-		const currentVersion = window.guCmpHotFix.cmp.version;
+		const currentVersion = window.guCmpHotFix.cmp?.version;
 		const mockedVersion = 'X.X.X-mock';
-		global.guCmpHotFix.cmp.version = mockedVersion;
+
+		const globalWithguCmpHotFix = global as typeof globalThis & {
+			guCmpHotFix: typeof window.guCmpHotFix;
+		};
+		if (globalWithguCmpHotFix.guCmpHotFix.cmp) {
+			globalWithguCmpHotFix.guCmpHotFix.cmp.version = mockedVersion;
+		}
 
 		cmp.init({ country: 'GB' });
 
@@ -148,12 +159,16 @@ describe('hotfix cmp.init', () => {
 	});
 
 	it('uses window.guCmpHotFix instances if they exist', () => {
-		const mockCmp = {
+		const mockCmp: CMP = {
 			init: () => undefined,
-			willShowPrivacyMessage: () => true,
+			willShowPrivacyMessage: () => new Promise(() => true),
 			willShowPrivacyMessageSync: () => true,
 			hasInitialised: () => true,
-			mocked: 'mocked',
+			showPrivacyManager: () => {},
+			version: 'mocked',
+			__isDisabled: () => false,
+			__disable: () => {},
+			__enable: () => {},
 		};
 
 		window.guCmpHotFix = {
@@ -164,7 +179,7 @@ describe('hotfix cmp.init', () => {
 		import('./index').then((module) => {
 			expect(module.cmp).toEqual(mockCmp);
 
-			delete window.guCmpHotFix;
+			window.guCmpHotFix = {};
 			jest.resetModules();
 			import('./index');
 		});

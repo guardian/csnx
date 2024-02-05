@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-//---- consent-management-platform ----//
+import { version as __PACKAGE_VERSION__ } from '../package.json';
 import { CMP as UnifiedCMP } from './consent-management-platform/cmp';
 import {
 	disable,
@@ -25,6 +25,8 @@ import type {
 } from './consent-management-platform/types';
 import { initVendorDataManager } from './consent-management-platform/vendorDataManager';
 import { log } from './logger/logger';
+
+//---- consent-management-platform ----//
 
 export * from './deprecated-exports';
 
