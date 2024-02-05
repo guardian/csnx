@@ -5,8 +5,8 @@
 	"type": "module",
 	"main": "./index.mjs",
 	"devDependencies": {
-		"@cobalt-ui/cli": "^1.6.2",
-		"@cobalt-ui/core": "^1.6.1",
+		"@cobalt-ui/cli": "^1.7.0",
+		"@cobalt-ui/core": "^1.7.0",
 		"@cobalt-ui/plugin-css": "^1.7.0",
 		"@cobalt-ui/plugin-js": "^1.4.3",
 		"@cobalt-ui/utils": "^1.2.2",
