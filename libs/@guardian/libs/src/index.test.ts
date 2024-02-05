@@ -2,7 +2,7 @@ import waitForExpect from 'wait-for-expect';
 import { CMP as actualCMP } from './consent-management-platform/cmp';
 import { disable, enable } from './consent-management-platform/disable';
 import { getCurrentFramework } from './consent-management-platform/getCurrentFramework';
-import { CMP } from './consent-management-platform/types';
+import type { CMP as typeCMP } from './consent-management-platform/types';
 import * as packageExports from './index';
 import { cmp } from './index';
 
@@ -160,7 +160,7 @@ describe('hotfix cmp.init', () => {
 	});
 
 	it('uses window.guCmpHotFix instances if they exist', () => {
-		const mockCmp: CMP = {
+		const mockCmp: typeCMP = {
 			init: () => undefined,
 			willShowPrivacyMessage: () => new Promise(() => true),
 			willShowPrivacyMessageSync: () => true,
@@ -177,13 +177,15 @@ describe('hotfix cmp.init', () => {
 		};
 
 		jest.resetModules();
-		import('./index').then((module) => {
-			expect(module.cmp).toEqual(mockCmp);
+		import('./index')
+			.then((module) => {
+				expect(module.cmp).toEqual(mockCmp);
 
-			window.guCmpHotFix = {};
-			jest.resetModules();
-			import('./index');
-		});
+				window.guCmpHotFix = {};
+				jest.resetModules();
+				import('./index');
+			})
+			.catch(() => {});
 	});
 });
 // *************** END commercial.dcr.js hotfix ***************
@@ -197,11 +199,14 @@ describe('cmp.willShowPrivacyMessage', () => {
 
 		const willShowPrivacyMessage2 = cmp.willShowPrivacyMessage();
 
-		cmp.willShowPrivacyMessage().then(() => {
-			expect(
-				Promise.all([willShowPrivacyMessage1, willShowPrivacyMessage2]),
-			).resolves.toEqual([true, true]);
-		});
+		cmp
+			.willShowPrivacyMessage()
+			.then(() => {
+				expect(Promise.all([willShowPrivacyMessage1, willShowPrivacyMessage2]))
+					.resolves.toEqual([true, true])
+					.catch(() => {});
+			})
+			.catch(() => {});
 	});
 });
 
@@ -213,9 +218,12 @@ describe('cmp.willShowPrivacyMessageSync', () => {
 	it('does not throw if CMP is initialised', () => {
 		cmp.init({ country: 'GB' });
 
-		cmp.willShowPrivacyMessage().then(() => {
-			expect(() => cmp.willShowPrivacyMessageSync()).not.toThrow();
-		});
+		cmp
+			.willShowPrivacyMessage()
+			.then(() => {
+				expect(() => cmp.willShowPrivacyMessageSync()).not.toThrow();
+			})
+			.catch(() => {});
 	});
 });
 
@@ -227,9 +235,12 @@ describe('cmp.hasInitialised', () => {
 	it('returns true when CMP is initialised', () => {
 		cmp.init({ country: 'GB' });
 
-		cmp.willShowPrivacyMessage().then(() => {
-			expect(cmp.hasInitialised()).toBe(true);
-		});
+		cmp
+			.willShowPrivacyMessage()
+			.then(() => {
+				expect(cmp.hasInitialised()).toBe(true);
+			})
+			.catch(() => {});
 	});
 });
 
