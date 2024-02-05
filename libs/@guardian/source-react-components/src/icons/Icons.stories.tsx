@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgAlertPhone } from '../../vendor/icons/SvgAlertPhone';
 import { SvgAlertRound } from '../../vendor/icons/SvgAlertRound';
@@ -123,6 +123,7 @@ import { SvgWhatsApp } from '../../vendor/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../../vendor/icons/SvgWhatsAppBrand';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgSpinner } from './SvgSpinner';
+import type { ThemeIcon } from './theme';
 
 const uiIcons = {
 	SvgExclamation,
@@ -257,6 +258,7 @@ const widePaymentIcons = {
 
 type IconChromaticStoryArgs = {
 	size: IconSize;
+	theme: ThemeIcon;
 	icons: Array<React.FunctionComponent<IconProps>>;
 	isAnnouncedByScreenReader: boolean;
 };
@@ -276,6 +278,7 @@ const Template: StoryFn<IconChromaticStoryArgs> = (
 		<Icon
 			key={index}
 			size={args.size}
+			theme={args.theme}
 			isAnnouncedByScreenReader={args.isAnnouncedByScreenReader}
 		/>
 	));
@@ -318,6 +321,7 @@ MediumIconsDefaultTheme.args = {
 export const MediumIconsBrandTheme: StoryFn<IconChromaticStoryArgs> =
 	Template.bind({});
 MediumIconsBrandTheme.args = {
+	theme: { fill: palette.neutral[100] },
 	size: 'medium',
 	isAnnouncedByScreenReader: true,
 	icons: Object.values(uiIcons),
@@ -327,19 +331,6 @@ MediumIconsBrandTheme.parameters = {
 		default: 'brandBackground.primary',
 	},
 };
-MediumIconsBrandTheme.decorators = [
-	(Story: StoryFn) => (
-		<div
-			css={css`
-				svg {
-					fill: white;
-				}
-			`}
-		>
-			<Story />
-		</div>
-	),
-];
 
 // *****************************************************************************
 

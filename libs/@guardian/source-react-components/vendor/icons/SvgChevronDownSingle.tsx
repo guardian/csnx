@@ -3,9 +3,9 @@
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-import type { IconProps } from '../../src/@types/Icons';
+import type { IconProps } from '../../src';
 
-const Svg = ({ size }: IconProps): EmotionJSX.Element => (
+const Svg = ({ size, theme }: IconProps): EmotionJSX.Element => (
 	<svg
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
@@ -18,16 +18,18 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 			fillRule="evenodd"
 			clipRule="evenodd"
 			d="m1 7.224 10.498 10.498h1.004L23 7.224l-.98-.954L12 14.708 1.98 6.27 1 7.224Z"
+			fill={theme?.fill}
 		/>
 	</svg>
 );
 
 export const SvgChevronDownSingle = ({
 	size,
+	theme,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
 	<>
-		<Svg size={size} />
+		<Svg size={size} theme={theme} />
 		{isAnnouncedByScreenReader ? (
 			<span
 				css={css`
