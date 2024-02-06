@@ -11,6 +11,6 @@ export const mergeThemes = <ComponentTheme, ProviderTheme>(
 	transform?: (providerTheme: ProviderTheme) => Partial<ComponentTheme>,
 ): ComponentTheme => ({
 	...defaultTheme,
-	...(transform ? transform(providerTheme) : {}),
+	...(transform ? transform(providerTheme) : providerTheme),
 	...themeOverrides,
 });
