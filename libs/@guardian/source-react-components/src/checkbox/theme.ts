@@ -19,6 +19,7 @@ export type ThemeCheckbox = {
 	textSupporting: string;
 	textIndeterminate: string;
 };
+
 export type ThemeCheckboxGroup = {
 	label: Partial<ThemeLabel>;
 	userFeedback: Partial<ThemeUserFeedback>;
@@ -55,12 +56,12 @@ export const checkboxThemeBrand = {
 	...labelThemeBrand,
 };
 
-export const themeCheckbox = {
+export const themeCheckboxGroup = {
 	label: themeLabel,
 	userFeedback: themeUserFeedback,
 };
 
-export const checkboxTheme: ThemeCheckbox = {
+export const themeCheckbox: ThemeCheckbox = {
 	borderUnselected: palette.neutral[46],
 	borderHover: palette.brand[500],
 	borderSelected: palette.brand[500],
