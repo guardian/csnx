@@ -12,7 +12,8 @@ import {
 	radioContainer,
 	supportingText,
 } from './styles';
-import { ThemeRadio, themeRadio, transformOldProviderTheme } from './theme';
+import { ThemeRadio, themeRadio, transformProviderTheme } from './theme';
+import { mergeThemes } from '../utils/themes';
 
 export interface RadioProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -79,13 +80,13 @@ export const Radio = ({
 		return !!defaultChecked;
 	};
 
-	const combineThemes = (providerTheme: Theme['radio']): ThemeRadio => {
-		return {
-			...themeRadio,
-			...transformOldProviderTheme(providerTheme),
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme) =>
+		mergeThemes<ThemeRadio, Theme['radio']>(
+			themeRadio,
+			theme,
+			providerTheme.radio,
+			transformProviderTheme,
+		);
 
 	const LabelText = ({
 		hasSupportingText,
@@ -98,7 +99,7 @@ export const Radio = ({
 			<div
 				css={(providerTheme: Theme) => [
 					hasSupportingText ? labelTextWithSupportingText : '',
-					labelText(combineThemes(providerTheme.radio)),
+					labelText(mergedTheme(providerTheme)),
 				]}
 			>
 				{children}
@@ -110,7 +111,7 @@ export const Radio = ({
 		return (
 			<div
 				css={(providerTheme: Theme) =>
-					supportingText(combineThemes(providerTheme.radio))
+					supportingText(mergedTheme(providerTheme))
 				}
 			>
 				{children}
@@ -123,7 +124,7 @@ export const Radio = ({
 			id={radioId}
 			type="radio"
 			css={(providerTheme: Theme) => [
-				radio(combineThemes(providerTheme.radio)),
+				radio(mergedTheme(providerTheme)),
 				cssOverrides,
 			]}
 			value={value}
@@ -136,7 +137,7 @@ export const Radio = ({
 	const labelledRadioControl = (
 		<div
 			css={(providerTheme: Theme) => [
-				radioContainer(combineThemes(providerTheme.radio)),
+				radioContainer(mergedTheme(providerTheme)),
 				supporting ? labelWithSupportingText : '',
 			]}
 		>

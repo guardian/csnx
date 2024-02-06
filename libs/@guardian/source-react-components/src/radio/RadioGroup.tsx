@@ -9,7 +9,8 @@ import { Legend } from '../label/Legend';
 import { Stack } from '../stack/Stack';
 import { InlineError } from '../user-feedback/InlineError';
 import { fieldset } from './styles';
-import { ThemeRadio, themeRadio, transformOldProviderTheme } from './theme';
+import { ThemeRadio, themeRadio, transformProviderTheme } from './theme';
+import { mergeThemes } from '../utils/themes';
 
 type Orientation = 'vertical' | 'horizontal';
 
@@ -96,20 +97,20 @@ export const RadioGroup = ({
 		</>
 	);
 
-	const combineThemes = (providerTheme: Theme['radio']): ThemeRadio => {
-		return {
-			...themeRadio,
-			...transformOldProviderTheme(providerTheme),
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme) =>
+		mergeThemes<ThemeRadio, Theme['radio']>(
+			themeRadio,
+			theme,
+			providerTheme.radio,
+			transformProviderTheme,
+		);
 
 	return (
 		<fieldset
 			aria-invalid={!!error}
 			id={groupId}
 			css={(providerTheme: Theme) => [
-				fieldset(combineThemes(providerTheme.radio)),
+				fieldset(mergedTheme(providerTheme)),
 				cssOverrides,
 			]}
 			{...props}
