@@ -17,7 +17,7 @@ import {
 	tickWithSupportingText,
 } from './styles';
 import { checkboxTheme as defaultTheme } from './theme';
-import type { CheckboxTheme } from './theme';
+import type { ThemeCheckbox } from './theme';
 
 export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -59,7 +59,7 @@ export interface CheckboxProps
 	/**
 	 * A component level theme to override the colour palette of the choice card component
 	 */
-	theme?: Partial<CheckboxTheme>;
+	theme?: Partial<ThemeCheckbox>;
 }
 
 /**
@@ -100,11 +100,11 @@ export const Checkbox = ({
 	};
 	const transformOldProviderTheme = (
 		providerTheme: Theme['checkbox'],
-	): Partial<CheckboxTheme> => {
-		const transformedTheme: Partial<CheckboxTheme> = {};
+	): Partial<ThemeCheckbox> => {
+		const transformedTheme: Partial<ThemeCheckbox> = {};
 
 		if (providerTheme?.backgroundChecked) {
-			transformedTheme.backgroundTick = providerTheme.backgroundChecked;
+			transformedTheme.fillSelected = providerTheme.backgroundChecked;
 		}
 		if (providerTheme?.borderChecked) {
 			transformedTheme.borderSelected = providerTheme.borderChecked;
@@ -112,10 +112,12 @@ export const Checkbox = ({
 		if (providerTheme?.border) {
 			transformedTheme.borderUnselected = providerTheme.border;
 		}
-		console.log({ ...transformedTheme, ...providerTheme });
+		if (providerTheme?.textLabelSupporting) {
+			transformedTheme.textSupporting = providerTheme.textLabelSupporting;
+		}
 		return { ...transformedTheme, ...providerTheme };
 	};
-	const combineThemes = (providerTheme: Theme['checkbox']): CheckboxTheme => {
+	const combineThemes = (providerTheme: Theme['checkbox']): ThemeCheckbox => {
 		return {
 			...defaultTheme,
 			...transformOldProviderTheme(providerTheme),

@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';
-import { checkboxBrandTheme } from './theme';
+import { themeCheckboxBrand } from './theme';
 
 const meta: Meta<typeof Checkbox> = {
 	title: 'Checkbox',
@@ -40,7 +40,7 @@ DefaultBrandTheme.parameters = {
 	},
 };
 DefaultBrandTheme.args = {
-	theme: checkboxBrandTheme,
+	theme: themeCheckboxBrand,
 };
 
 // *****************************************************************************
@@ -60,7 +60,7 @@ SupportingTextBrandTheme.parameters = {
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Supporting text',
-	theme: checkboxBrandTheme,
+	theme: themeCheckboxBrand,
 };
 
 // *****************************************************************************
@@ -82,7 +82,7 @@ SupportingTextOnlyBrandTheme.parameters = {
 SupportingTextOnlyBrandTheme.args = {
 	label: null,
 	supporting: 'Supporting text',
-	theme: checkboxBrandTheme,
+	theme: themeCheckboxBrand,
 };
 
 // *****************************************************************************
@@ -103,7 +103,7 @@ IndeterminateBrandTheme.parameters = {
 };
 IndeterminateBrandTheme.args = {
 	indeterminate: true,
-	theme: checkboxBrandTheme,
+	theme: themeCheckboxBrand,
 };
 
 // *****************************************************************************
@@ -117,8 +117,8 @@ UnlabelledDefaultTheme.args = {
 export const CustomTheme: StoryFn<CheckboxProps> = Template.bind({});
 CustomTheme.args = {
 	theme: {
-		backgroundUnselected: palette.neutral[0],
-		backgroundTick: palette.lifestyle[500],
+		fillUnselected: palette.neutral[0],
+		fillSelected: palette.lifestyle[500],
 		borderSelected: palette.lifestyle[500],
 		borderHover: palette.lifestyle[400],
 		textLabel: palette.lifestyle[400],

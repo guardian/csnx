@@ -10,7 +10,7 @@ import {
 	transitions,
 	width,
 } from '@guardian/source-foundations';
-import type { CheckboxTheme } from './theme';
+import type { ThemeCheckbox } from './theme';
 
 export const fieldset = css`
 	${resets.fieldset};
@@ -20,7 +20,7 @@ export const fieldset = css`
 `;
 
 export const checkboxContainer = (
-	checkbox: CheckboxTheme,
+	checkbox: ThemeCheckbox,
 	error = false,
 ): SerializedStyles => css`
 	position: relative;
@@ -65,7 +65,7 @@ export const checkboxContainerWithSupportingText = css`
 `;
 
 export const checkbox = (
-	checkbox: CheckboxTheme,
+	checkbox: ThemeCheckbox,
 	error = false,
 ): SerializedStyles => css`
 	flex: 0 0 auto;
@@ -77,7 +77,7 @@ export const checkbox = (
 	margin: 0 ${space[2]}px 0 0;
 
 	border: 1px solid currentColor;
-	background: ${checkbox.backgroundUnselected};
+	background: ${checkbox.fillUnselected};
 	border-radius: 4px;
 	position: relative;
 	transition: box-shadow ${transitions.short};
@@ -116,7 +116,7 @@ export const checkbox = (
 	}
 `;
 
-export const labelText = (checkbox: CheckboxTheme): SerializedStyles => css`
+export const labelText = (checkbox: ThemeCheckbox): SerializedStyles => css`
 	${textSans.medium()};
 	color: ${checkbox.textLabel};
 	width: 100%;
@@ -132,13 +132,13 @@ export const labelTextWithSupportingText = css`
 `;
 
 export const supportingText = (
-	checkbox: CheckboxTheme,
+	checkbox: ThemeCheckbox,
 ): SerializedStyles => css`
 	${textSans.small()};
-	color: ${checkbox.textLabelSupporting};
+	color: ${checkbox.textSupporting};
 `;
 
-export const tick = (checkbox: CheckboxTheme): SerializedStyles => css`
+export const tick = (checkbox: ThemeCheckbox): SerializedStyles => css`
 	@supports (
 		(appearance: none) or (-webkit-appearance: none) or (-moz-appearance: none)
 	) {
@@ -164,7 +164,7 @@ export const tick = (checkbox: CheckboxTheme): SerializedStyles => css`
 		&:before {
 			position: absolute;
 			display: block;
-			background-color: ${checkbox.backgroundTick};
+			background-color: ${checkbox.fillSelected};
 			transition: all ${transitions.short} ease-in-out;
 			content: '';
 		}
@@ -202,7 +202,7 @@ export const tickWithSupportingText = css`
 	}
 `;
 
-export const errorCheckbox = (checkbox: CheckboxTheme): SerializedStyles => css`
+export const errorCheckbox = (checkbox: ThemeCheckbox): SerializedStyles => css`
 	border: 2px solid ${checkbox.borderError};
 	border-radius: 4px;
 	&:not(:checked):hover,

@@ -5,15 +5,15 @@ import {
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
 
-export type CheckboxTheme = {
+export type ThemeCheckbox = {
 	borderUnselected: string;
 	borderHover: string;
 	borderSelected: string;
 	borderError: string;
-	backgroundTick: string;
-	backgroundUnselected: string;
+	fillSelected: string;
+	fillUnselected: string;
 	textLabel: string;
-	textLabelSupporting: string;
+	textSupporting: string;
 	textIndeterminate: string;
 };
 /** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
@@ -48,26 +48,26 @@ export const checkboxThemeBrand = {
 	...labelThemeBrand,
 };
 
-export const checkboxTheme: CheckboxTheme = {
+export const checkboxTheme: ThemeCheckbox = {
 	borderUnselected: palette.neutral[46],
 	borderHover: palette.brand[500],
 	borderSelected: palette.brand[500],
 	borderError: palette.error[400],
-	backgroundTick: palette.brand[500],
-	backgroundUnselected: 'transparent',
+	fillSelected: palette.brand[500],
+	fillUnselected: 'transparent',
 	textLabel: palette.neutral[7],
-	textLabelSupporting: palette.neutral[46],
+	textSupporting: palette.neutral[46],
 	textIndeterminate: palette.neutral[46],
 };
 
-export const checkboxBrandTheme: CheckboxTheme = {
+export const themeCheckboxBrand: ThemeCheckbox = {
 	borderUnselected: palette.brand[800],
 	borderSelected: palette.neutral[100],
 	borderHover: palette.neutral[100],
 	borderError: palette.error[500],
-	backgroundTick: palette.neutral[100],
-	backgroundUnselected: 'transparent',
+	fillSelected: palette.neutral[100],
+	fillUnselected: 'transparent',
 	textLabel: palette.neutral[100],
-	textLabelSupporting: palette.brand[800],
+	textSupporting: palette.brand[800],
 	textIndeterminate: palette.brand[800],
 };
