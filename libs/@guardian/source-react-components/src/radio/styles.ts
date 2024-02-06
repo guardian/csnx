@@ -10,11 +10,9 @@ import {
 	transitions,
 	width,
 } from '@guardian/source-foundations';
-import { radioThemeDefault } from './theme';
+import type { ThemeRadio } from './theme';
 
-export const fieldset = (
-	radio = radioThemeDefault.radio,
-): SerializedStyles => css`
+export const fieldset = (radio: ThemeRadio): SerializedStyles => css`
 	${resets.fieldset};
 
 	&[aria-invalid='true'] input {
@@ -27,9 +25,7 @@ export const fieldset = (
 	}
 `;
 
-export const radioContainer = (
-	radio = radioThemeDefault.radio,
-): SerializedStyles => css`
+export const radioContainer = (radio: ThemeRadio): SerializedStyles => css`
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -52,7 +48,7 @@ export const labelWithSupportingText = css`
 	margin-bottom: ${space[3]}px;
 `;
 
-export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
+export const radio = (radio: ThemeRadio): SerializedStyles => css`
 	flex: 0 0 auto;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -67,11 +63,11 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	transition: box-shadow ${transitions.short};
 	transition-delay: 0.08s;
 
-	color: ${radio.border};
+	color: ${radio.borderUnselected};
 
 	&:checked {
-		border: 2px solid currentColor;
-		color: ${radio.backgroundChecked};
+		border: 2px solid ${radio.borderSelected};
+		color: ${radio.fillSelected};
 	}
 
 	&:focus {
@@ -86,7 +82,7 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	*/
 	@supports (${appearance}) {
 		appearance: none;
-		background-color: transparent;
+		background-color: ${radio.fillUnselected};
 
 		&:after {
 			background: currentColor;
@@ -110,9 +106,7 @@ export const radio = (radio = radioThemeDefault.radio): SerializedStyles => css`
 	}
 `;
 
-export const labelText = (
-	radio = radioThemeDefault.radio,
-): SerializedStyles => css`
+export const labelText = (radio: ThemeRadio): SerializedStyles => css`
 	${textSans.medium()};
 	color: ${radio.textLabel};
 	width: 100%;
@@ -127,9 +121,7 @@ export const labelTextWithSupportingText = css`
 	}
 `;
 
-export const supportingText = (
-	radio = radioThemeDefault.radio,
-): SerializedStyles => css`
+export const supportingText = (radio: ThemeRadio): SerializedStyles => css`
 	${textSans.small()};
-	color: ${radio.textLabelSupporting};
+	color: ${radio.textSupporting};
 `;

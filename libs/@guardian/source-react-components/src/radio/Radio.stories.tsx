@@ -1,7 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
-import { radioThemeBrand } from './theme';
+import { themeRadioBrand } from './theme';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Radio> = {
 	title: 'Radio',
@@ -44,7 +45,9 @@ DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -65,10 +68,10 @@ SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -88,11 +91,11 @@ SupportingTextOnlyBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextOnlyBrandTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
 	label: null,
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -100,4 +103,17 @@ SupportingTextOnlyBrandTheme.args = {
 export const UnlabelledDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
 UnlabelledDefaultTheme.args = {
 	label: undefined,
+};
+
+// *****************************************************************************
+
+export const CustomTheme: StoryFn<typeof Radio> = Template.bind({});
+CustomTheme.args = {
+	theme: {
+		fillUnselected: palette.lifestyle[500],
+		fillSelected: palette.lifestyle[400],
+		borderSelected: palette.lifestyle[300],
+		borderHover: palette.lifestyle[400],
+		textLabel: palette.lifestyle[400],
+	},
 };
