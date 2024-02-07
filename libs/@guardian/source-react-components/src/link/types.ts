@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
+import type { ThemeLink } from './theme';
 
 export type LinkPriority = 'primary' | 'secondary';
 
@@ -25,4 +26,5 @@ export interface SharedLinkProps extends Props {
 	 */
 	iconSide?: IconSide;
 	children?: ReactNode;
+	theme?: Partial<ThemeLink>;
 }

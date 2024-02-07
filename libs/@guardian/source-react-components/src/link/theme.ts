@@ -1,5 +1,12 @@
 import { palette } from '@guardian/source-foundations';
 
+export type ThemeLink = {
+	textPrimary: string;
+	textPrimaryHover: string;
+	textSecondary: string;
+	textSecondaryHover: string;
+};
+
 export type LinkTheme = {
 	textPrimary: string;
 	textPrimaryHover: string;
@@ -28,4 +35,11 @@ export const linkThemeBrandAlt: { link: LinkTheme } = {
 		textPrimary: palette.neutral[7],
 		textPrimaryHover: palette.neutral[7],
 	},
+};
+
+export const themeLink: ThemeLink = {
+	textPrimary: palette.brand[500],
+	textPrimaryHover: palette.brand[500],
+	textSecondary: palette.neutral[7],
+	textSecondaryHover: palette.neutral[7],
 };
