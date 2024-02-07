@@ -1,12 +1,8 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import {
-	focusHalo,
-	palette,
-	space,
-	textSans,
-} from '@guardian/source-foundations';
+import { focusHalo, space, textSans } from '@guardian/source-foundations';
 import type { InputSize } from '../@types/InputSize';
+import type { ThemeTextArea } from './theme';
 
 const textAreaSize: {
 	[key in InputSize]: string;
@@ -15,26 +11,29 @@ const textAreaSize: {
 	small: textSans.xsmall(),
 };
 
-export const errorInput = css`
-	border: 2px solid ${palette.error[400]};
+export const errorInput = (textArea: ThemeTextArea): SerializedStyles => css`
+	border: 2px solid ${textArea.borderError};
 	border-radius: 4px;
-	color: ${palette.neutral[7]};
+	color: ${textArea.textError};
 	margin-top: 0;
 `;
 
-export const successInput = css`
-	border: 2px solid ${palette.success[400]};
+export const successInput = (textArea: ThemeTextArea): SerializedStyles => css`
+	border: 2px solid ${textArea.borderSuccess};
 	border-radius: 4px;
-	color: ${palette.success[400]};
+	color: ${textArea.textSuccess};
 	margin-top: 0;
 `;
 
-export const textArea = (size: InputSize): SerializedStyles => css`
+export const textArea = (
+	textArea: ThemeTextArea,
+	size: InputSize,
+): SerializedStyles => css`
 	box-sizing: border-box;
 	${textAreaSize[size]};
-	color: ${palette.neutral[7]};
-	background-color: ${palette.neutral[100]};
-	border: 1px solid ${palette.neutral[46]};
+	color: ${textArea.text};
+	background-color: ${textArea.background};
+	border: 1px solid ${textArea.border};
 	border-radius: 4px;
 	padding: ${space[2]}px ${space[2]}px 0 ${space[2]}px;
 
@@ -54,7 +53,7 @@ export const textArea = (size: InputSize): SerializedStyles => css`
 		component: https://reactjs.org/docs/forms.html#controlled-components
 		*/
 		.src-has-value {
-			${errorInput}
+			${errorInput(textArea)}
 		}
 	}
 `;
