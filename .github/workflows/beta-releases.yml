@@ -1,0 +1,88 @@
+name: Publish Beta Versions
+
+# This workflow is triggered on a label being added to a PR, and will publish a beta version of the bundle to npm
+# Use `yarn changeset add` to add a new change
+# This action will release the changeset as a pre-release, and add a comment to the PR with the version number
+on:
+  pull_request:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-beta:
+    if: github.event.label.name == 'trigger beta release 🐣'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # This makes Actions fetch all Git history so that Changesets can
+          # generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v4
+      - uses: pnpm/action-setup@v2.4.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm nx run-many --target=build --all=true
+
+      # The Nx convention is to build projects to a root `dist` directory
+      # (outside their source directories), but changesets uses pnpm's workspace
+      # to look for the source directory of candidate packages when trying to
+      # publish.
+      #
+      # Therefore, after building the packages we are going to publish, we will
+      # rewrite the pnpm workspace file to point to the root `dist` directory
+      # instead.
+      #
+      # This will allow changesets to find the newly built assets to publish.
+      #
+      # Inspired by this article:
+      # https://dev.to/jmcdo29/automating-your-package-deployment-in-an-nx-monorepo-with-changeset-4em8
+      - name: Prepare workspace for publishing
+        run: echo -e "packages:\n  - 'dist/libs/**'" > pnpm-workspace.yaml
+
+      # This is a workaround for bug in changesets where it throws if you tell
+      # it ignore a package it cannot find. We're ignoring @csnx/* packages to
+      # stop it trying to create release PRs for them, which works fine. But at
+      # this point in the lifecycle, we don't build any @csnx/* packages, so it
+      # throws an error looking for them in `dist/libs` (see above) to ignore.
+      - name: Create fake @csnx package (workaround for changesets bug)
+        run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
+
+      - name: Version
+        run: pnpm changeset version --snapshot beta
+
+      - name: Release
+        uses: changesets/action@v1
+        id: changeset
+        with:
+          publish: pnpm changeset publish --no-git-tag --snapshot beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - uses: actions/github-script@v6
+        if: steps.changeset.outputs.published == 'true'
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const publishedPackages = ${{ steps.changeset.outputs.publishedPackages }};
+            const version = publishedPackages[0].version;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: [
+                `> [!TIP]`,
+                `> 🐣 The following beta versions were published to NPM:`,
+                `>`,
+                ...publishedPackages.map((pkg) => `> - [\`${pkg.name}@${pkg.version}\`](https://www.npmjs.com/package/${pkg.name}/v/${pkg.version})`),
+              ].join('\n')
+            })
