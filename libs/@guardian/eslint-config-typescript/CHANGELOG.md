@@ -1,5 +1,14 @@
 # @guardian/eslint-config-typescript
 
+## 9.0.3
+
+### Patch Changes
+
+- a6eb679: Update @typescript-eslint/eslint-plugin and @typescript-eslint/parser
+- 0f595f1: Use new `recommended-type-checked` config name.
+
+  https://typescript-eslint.io/linting/configs/#recommended-configurations
+
 ## 9.0.2
 
 ### Patch Changes

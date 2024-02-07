@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.0.2
+
+### Patch Changes
+
+- af5a0fe: use `=>` to always bind storage methods to their parent scope
+
 ## 16.0.1
 
 ### Patch Changes
