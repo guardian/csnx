@@ -1,6 +1,9 @@
 import { palette } from '@guardian/source-foundations';
-import { labelThemeBrand, labelThemeDefault } from '../label/theme';
+import type { ThemeLabel } from '../label/theme';
+import { labelThemeBrand, labelThemeDefault, themeLabel } from '../label/theme';
+import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
+	themeUserFeedback,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
@@ -16,8 +19,13 @@ export type ThemeCheckbox = {
 	textSupporting: string;
 	textIndeterminate: string;
 };
-/** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 
+export type ThemeCheckboxGroup = {
+	label: Partial<ThemeLabel>;
+	userFeedback: Partial<ThemeUserFeedback>;
+};
+
+/** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeDefault = {
 	checkbox: {
 		border: palette.neutral[46],
@@ -48,7 +56,12 @@ export const checkboxThemeBrand = {
 	...labelThemeBrand,
 };
 
-export const checkboxTheme: ThemeCheckbox = {
+export const themeCheckboxGroup = {
+	label: themeLabel,
+	userFeedback: themeUserFeedback,
+};
+
+export const themeCheckbox: ThemeCheckbox = {
 	borderUnselected: palette.neutral[46],
 	borderHover: palette.brand[500],
 	borderSelected: palette.brand[500],

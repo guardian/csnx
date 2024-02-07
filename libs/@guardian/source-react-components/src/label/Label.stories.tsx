@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Label } from './Label';
-import { labelThemeBrand } from './theme';
+import { themeBrandLabel } from './theme';
 import type { LabelProps } from './types';
 
 const meta: Meta<typeof Label> = {
@@ -55,11 +55,13 @@ WithHiddenLabelDefaultTheme.args = {
 // *****************************************************************************
 
 export const DefaultBrandTheme: StoryFn<typeof Label> = Template.bind({});
+DefaultBrandTheme.args = {
+	theme: themeBrandLabel,
+};
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };
 
 // *****************************************************************************
@@ -68,12 +70,12 @@ export const WithSupportingTextBrandTheme: StoryFn<typeof Label> =
 	Template.bind({});
 WithSupportingTextBrandTheme.args = {
 	supporting: 'alex@example.com',
+	theme: themeBrandLabel,
 };
 WithSupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };
 
 // *****************************************************************************
@@ -81,12 +83,12 @@ WithSupportingTextBrandTheme.parameters = {
 export const WithOptionalBrandTheme: StoryFn<typeof Label> = Template.bind({});
 WithOptionalBrandTheme.args = {
 	optional: true,
+	theme: themeBrandLabel,
 };
 WithOptionalBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };
 
 // *****************************************************************************
@@ -96,12 +98,12 @@ export const WithHiddenLabelBrandTheme: StoryFn<typeof Label> = Template.bind(
 );
 WithHiddenLabelBrandTheme.args = {
 	hideLabel: true,
+	theme: themeBrandLabel,
 };
 WithHiddenLabelBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };
 
 // *****************************************************************************
@@ -136,12 +138,12 @@ WithOptionalSmallDefaultTheme.args = {
 export const DefaultSmallBrandTheme: StoryFn<typeof Label> = Template.bind({});
 DefaultSmallBrandTheme.args = {
 	size: 'small',
+	theme: themeBrandLabel,
 };
 DefaultSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };
 
 // *****************************************************************************
@@ -151,12 +153,12 @@ export const WithSupportingTextSmallBrandTheme: StoryFn<typeof Label> =
 WithSupportingTextSmallBrandTheme.args = {
 	supporting: 'alex@example.com',
 	size: 'small',
+	theme: themeBrandLabel,
 };
 WithSupportingTextSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };
 
 // *****************************************************************************
@@ -167,10 +169,10 @@ export const WithOptionalSmallBrandTheme: StoryFn<typeof Label> = Template.bind(
 WithOptionalSmallBrandTheme.args = {
 	optional: true,
 	size: 'small',
+	theme: themeBrandLabel,
 };
 WithOptionalSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: labelThemeBrand,
 };

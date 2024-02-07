@@ -5,6 +5,7 @@ import type { Props } from '../@types/Props';
 import { Legend } from '../label/Legend';
 import { InlineError } from '../user-feedback/InlineError';
 import { fieldset } from './styles';
+import type { ThemeCheckboxGroup } from './theme';
 
 export interface CheckboxGroupProps extends Props {
 	id?: string;
@@ -34,6 +35,7 @@ export interface CheckboxGroupProps extends Props {
 	 */
 	error?: string;
 	children: JSX.Element | JSX.Element[];
+	theme?: Partial<ThemeCheckboxGroup>;
 }
 
 /**
@@ -57,6 +59,7 @@ export const CheckboxGroup = ({
 	error,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: CheckboxGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
@@ -66,6 +69,7 @@ export const CheckboxGroup = ({
 			supporting={supporting}
 			hideLabel={hideLabel}
 			optional={optional}
+			theme={theme?.label}
 		/>
 	) : (
 		''
@@ -73,7 +77,9 @@ export const CheckboxGroup = ({
 
 	const message =
 		typeof error === 'string' ? (
-			<InlineError id={descriptionId(groupId)}>{error}</InlineError>
+			<InlineError theme={theme?.userFeedback} id={descriptionId(groupId)}>
+				{error}
+			</InlineError>
 		) : (
 			''
 		);

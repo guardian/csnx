@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { Checkbox } from './Checkbox';
@@ -122,5 +123,16 @@ ErrorBrandTheme.parameters = {
 	theme: checkboxThemeBrand,
 };
 ErrorBrandTheme.args = {
+	error: 'This newsletter is not available in your region',
+};
+
+export const ErrorCustomTheme: StoryFn<typeof CheckboxGroup> = Template.bind(
+	{},
+);
+ErrorCustomTheme.args = {
+	theme: {
+		label: { textLabel: palette.sport[400] },
+		userFeedback: { textError: palette.sport[400] },
+	},
 	error: 'This newsletter is not available in your region',
 };

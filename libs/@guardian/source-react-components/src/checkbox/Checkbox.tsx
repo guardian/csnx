@@ -16,7 +16,7 @@ import {
 	tickWithLabelText,
 	tickWithSupportingText,
 } from './styles';
-import { checkboxTheme as defaultTheme } from './theme';
+import { themeCheckbox as defaultTheme } from './theme';
 import type { ThemeCheckbox } from './theme';
 
 export interface CheckboxProps
