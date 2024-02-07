@@ -82,7 +82,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: [
-                `> [!TIP]`,
+                `> [!NOTE]`,
                 `> 🐣 The following beta versions were published to NPM:`,
                 `>`,
                 ...publishedPackages.map((pkg) => `> - [\`${pkg.name}@${pkg.version}\`](https://www.npmjs.com/package/${pkg.name}/v/${pkg.version})`),
