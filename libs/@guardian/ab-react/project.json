@@ -48,8 +48,17 @@
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-react"],
 			"options": {
 				"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/ab-react"],
+			"options": {
+				"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
+				"passWithNoTests": false,
+				"watch": true
 			}
 		}
 	},

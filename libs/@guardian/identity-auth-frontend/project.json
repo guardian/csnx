@@ -46,8 +46,19 @@
 			],
 			"options": {
 				"jestConfig": "libs/@guardian/identity-auth-frontend/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/identity-auth-frontend"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/identity-auth-frontend/jest.config.ts",
+				"passWithNoTests": false,
+				"watch": true
 			}
 		}
 	},

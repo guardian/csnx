@@ -1,12 +1,12 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "9.0.2",
+	"version": "9.0.3",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": "index.js",
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "6.18.0",
-		"@typescript-eslint/parser": "6.18.0",
+		"@typescript-eslint/eslint-plugin": "6.21.0",
+		"@typescript-eslint/parser": "6.21.0",
 		"eslint-import-resolver-typescript": "3.6.1",
 		"eslint-plugin-import": "2.29.1"
 	},

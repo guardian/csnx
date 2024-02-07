@@ -52,12 +52,17 @@
 		}
 	},
 	"namedInputs": {
-		"default": ["{projectRoot}/**/*", "sharedGlobals"],
+		"default": ["{projectRoot}/**/*", "sharedGlobals", "internalTools"],
 		"sharedGlobals": [
 			"{workspaceRoot}/**/tsconfig*.json",
-			"{workspaceRoot}/tools/nx-plugins/**/*",
 			"{workspaceRoot}/.storybook/main.js",
-			"{workspaceRoot}/.nvmrc"
+			"{workspaceRoot}/.nvmrc",
+			"{workspaceRoot}/.eslintrc.*"
+		],
+		"internalTools": [
+			"{workspaceRoot}/libs/@guardian/eslint-*/**/*",
+			"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
+			"{workspaceRoot}/tools/nx-plugins/**/*"
 		],
 		"production": ["default"]
 	}
