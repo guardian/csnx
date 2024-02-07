@@ -20,6 +20,12 @@ import {
 	widthFluid,
 } from './styles';
 import type { InputSize } from '../@types/InputSize';
+import {
+	ThemeTextInput,
+	themeTextInput,
+	transformProviderTheme,
+} from './theme';
+import { mergeThemes } from '../utils/themes';
 
 export type Width = 30 | 10 | 4;
 
@@ -75,6 +81,10 @@ export interface TextInputProps
 	 * _Note: if you pass the `value` prop, you MUST also pass an `onChange` handler, or the field will be rendered as read-only_
 	 */
 	value?: string;
+	/**
+	 * Partial or complete theme to override text input's colour palette
+	 */
+	theme?: Partial<ThemeTextInput>;
 }
 
 /**
@@ -97,10 +107,18 @@ export const TextInput = ({
 	width,
 	error,
 	success,
+	theme,
 	cssOverrides,
 	...props
 }: TextInputProps): EmotionJSX.Element => {
 	const textInputId = id ?? generateSourceId();
+	const mergedTheme = (providerTheme: Theme) =>
+		mergeThemes<ThemeTextInput, Theme['textInput']>(
+			themeTextInput,
+			theme,
+			providerTheme.textInput,
+			transformProviderTheme,
+		);
 	return (
 		<>
 			<Label
@@ -127,12 +145,12 @@ export const TextInput = ({
 				)}
 			</Label>
 			<input
-				css={(theme: Theme) => [
+				css={(providerTheme: Theme) => [
 					width ? widths[width] : widthFluid,
-					textInput(theme.textInput, size),
+					textInput(mergedTheme(providerTheme), size),
 					supporting ? supportingTextMargin : labelMargin,
-					error ? errorInput(theme.textInput) : '',
-					!error && success ? successInput(theme.textInput) : '',
+					error ? errorInput(mergedTheme(providerTheme)) : '',
+					!error && success ? successInput(mergedTheme(providerTheme)) : '',
 					cssOverrides,
 				]}
 				type="text"
