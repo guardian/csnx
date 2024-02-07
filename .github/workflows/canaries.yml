@@ -1,8 +1,7 @@
-name: Publish Beta Versions
+name: Publish Canaries
 
-# This workflow is triggered on a label being added to a PR, and will publish a beta version of the bundle to npm
-# Use `yarn changeset add` to add a new change
-# This action will release the changeset as a pre-release, and add a comment to the PR with the version number
+# This workflow is triggered on a label being added to a PR, and will publish a canary versions of all packages with waiting changesets to npm.
+# Use `make changeset` to add a new changeset.
 on:
   pull_request:
     types: [labeled]
@@ -12,8 +11,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  release-beta:
-    if: github.event.label.name == 'trigger beta release 🐣'
+  release:
+    if: github.event.label.name == '🐥 Canaries '
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -57,34 +56,35 @@ jobs:
         run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
 
       - name: Version
-        run: pnpm changeset version --snapshot beta
+        run: pnpm changeset version --snapshot canary
 
       - name: Release
         uses: changesets/action@v1
-        id: publish-betas
+        id: publish-canary
         with:
           # currently, you have to tag releases in git to get the action output to appear
           # https://github.com/changesets/action/issues/141
-          # publish: pnpm changeset publish --no-git-tag --snapshot beta
-          publish: pnpm changeset publish --tag beta
+          # publish: pnpm changeset publish --no-git-tag --snapshot canary
+          publish: pnpm changeset publish --tag canary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: actions/github-script@v6
-        if: steps.publish-betas.outputs.published == 'true'
+        if: steps.publish-canary.outputs.published == 'true'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const publishedPackages = ${{ steps.publish-betas.outputs.publishedPackages }};
+            const publishedPackages = ${{ steps.publish-canary.outputs.publishedPackages }};
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: [
                 `> [!NOTE]`,
-                `> 🐣 The following beta versions were published to NPM:`,
+                `> The following canaries were published to NPM:`,
                 `>`,
                 ...publishedPackages.map((pkg) => `> - [\`${pkg.name}@${pkg.version}\`](https://www.npmjs.com/package/${pkg.name}/v/${pkg.version})`),
+                '🐥'
               ].join('\n')
             })
