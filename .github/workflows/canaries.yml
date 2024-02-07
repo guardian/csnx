@@ -11,8 +11,31 @@ permissions:
   pull-requests: write
 
 jobs:
+  check-label:
+    runs-on: ubuntu-latest
+    outputs:
+      has-label: ${{ steps.label-check.outputs.has-label }}
+    steps:
+      - name: Check for Canary label on PR
+        id: label-check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = await github.rest.issues
+              .listLabelsOnIssue({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+              })
+            .then(({ data }) => data);
+            const hasLabel = labels.some(
+              (label) => label.name === '🐥 Canaries',
+            );
+            core.setOutput('has-label', hasLabel.toString());
+
   release:
-    if: github.event.label.name == '🐥 Canaries'
+    needs: check-label
+    if: needs.check-label.outputs.has-label == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
