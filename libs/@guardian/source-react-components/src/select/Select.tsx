@@ -7,6 +7,7 @@ import type { Theme } from '../@types/Theme';
 import { Label } from '../label/Label';
 import { InlineError } from '../user-feedback/InlineError';
 import { InlineSuccess } from '../user-feedback/InlineSuccess';
+import { mergeThemes } from '../utils/themes';
 import {
 	errorChevron,
 	errorInput,
@@ -17,6 +18,8 @@ import {
 	successInput,
 	supportingTextMargin,
 } from './styles';
+import type { ThemeSelect } from './theme';
+import { themeSelect as defaultTheme, transformProviderTheme } from './theme';
 
 export interface SelectProps
 	extends SelectHTMLAttributes<HTMLSelectElement>,
@@ -47,6 +50,7 @@ export interface SelectProps
 	 */
 	success?: string;
 	children: JSX.Element | JSX.Element[];
+	theme?: Partial<ThemeSelect>;
 }
 
 /**
@@ -69,9 +73,18 @@ export const Select = ({
 	success,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: SelectProps): EmotionJSX.Element => {
 	const selectId = id ?? generateSourceId();
+	const mergedTheme = (providerTheme: Theme['select']) =>
+		mergeThemes<ThemeSelect, Theme['select']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
+
 	return (
 		<>
 			<Label
@@ -80,15 +93,18 @@ export const Select = ({
 				supporting={supporting}
 				hideLabel={hideLabel}
 				htmlFor={selectId}
+				theme={theme}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(selectId)}>{error}</InlineError>
+						<InlineError id={descriptionId(selectId)} theme={theme}>
+							{error}
+						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(selectId)}>
+						<InlineSuccess id={descriptionId(selectId)} theme={theme}>
 							{success}
 						</InlineSuccess>
 					</div>
@@ -96,28 +112,30 @@ export const Select = ({
 			</Label>
 			<div
 				css={(theme: Theme) => [
-					selectWrapper(theme.select),
-					error ? errorChevron(theme.select) : '',
-					!error && success ? successChevron(theme.select) : '',
+					selectWrapper(mergedTheme(theme.select)),
+					error ? errorChevron(mergedTheme(theme.select)) : '',
+					!error && success ? successChevron(mergedTheme(theme.select)) : '',
 					!error && !success ? supportingTextMargin : '',
 				]}
 			>
 				<select
 					css={(theme: Theme) => [
-						select(theme.select),
-						error ? errorInput(theme.select) : '',
-						!error && success ? successInput(theme.select) : '',
+						select(mergedTheme(theme.select)),
+						error ? errorInput(mergedTheme(theme.select)) : '',
+						!error && success ? successInput(mergedTheme(theme.select)) : '',
 						cssOverrides,
 					]}
 					aria-required={!optional}
 					aria-invalid={!!error}
-					aria-describedby={error || success ? descriptionId(selectId) : ''}
+					aria-describedby={error ?? success ? descriptionId(selectId) : ''}
 					id={selectId}
 					{...props}
 				>
 					{children}
 				</select>
-				<SvgChevronDownSingle />
+				<SvgChevronDownSingle
+					theme={theme?.iconFill ? { fill: theme.iconFill } : undefined}
+				/>
 			</div>
 		</>
 	);

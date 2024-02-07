@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Option } from './Option';
 import type { SelectProps } from './Select';
@@ -110,3 +111,11 @@ SupportingErrorTextDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
+export const CustomTheme: StoryFn<typeof Select> = Template.bind({});
+CustomTheme.args = {
+	theme: {
+		textUserInput: palette.brandAlt[200],
+		iconFill: palette.labs[400],
+	},
+};
