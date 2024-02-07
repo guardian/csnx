@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source",
-	"version": "0.1.0",
+	"version": "0.0.0-beta-20240207171220",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"dependencies": {

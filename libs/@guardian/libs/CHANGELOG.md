@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 0.0.0-beta-20240207171220
+
+### Patch Changes
+
+- 8ab77c8: noop - testing beta releases
+
 ## 16.0.2
 
 ### Patch Changes
