@@ -52,7 +52,7 @@ export const selectWrapper = (select: ThemeSelect): SerializedStyles => css`
 		top: ${space[2]}px;
 		width: ${width.iconMedium}px;
 		height: ${height.iconMedium}px;
-		fill: ${select.iconFill};
+		fill: ${select.textUserInput};
 		pointer-events: none;
 	}
 `;
