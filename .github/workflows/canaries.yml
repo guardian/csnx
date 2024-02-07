@@ -85,6 +85,7 @@ jobs:
                 `> The following canaries were published to NPM:`,
                 `>`,
                 ...publishedPackages.map((pkg) => `> - [\`${pkg.name}@${pkg.version}\`](https://www.npmjs.com/package/${pkg.name}/v/${pkg.version})`),
+                '',
                 '🐥'
               ].join('\n')
             })
