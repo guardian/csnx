@@ -10,6 +10,7 @@
 		"isolatedModules": true,
 		"jsx": "react-jsx",
 		"jsxImportSource": "@emotion/react",
+		"noEmit": true,
 		"paths": {
 			"@csnx/eslint": ["tools/nx-plugins/eslint"],
 			"@csnx/npm-package": ["tools/nx-plugins/npm-package"],
