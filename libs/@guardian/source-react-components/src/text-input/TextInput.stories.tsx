@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { TextInput } from './TextInput';
 import type { TextInputProps } from './TextInput';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof TextInput> = {
 	title: 'TextInput',
@@ -223,6 +224,18 @@ ConstraintSmallDefaultTheme.args = {
 	title: '11 digit phone number',
 	type: 'tel',
 	size: 'small',
+};
+// *****************************************************************************
+
+export const ErrorWithMessageCustomTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+ErrorWithMessageCustomTheme.args = {
+	error: 'error',
+	theme: {
+		textError: palette.lifestyle[300],
+		borderError: palette.lifestyle[300],
+		background: palette.lifestyle[800],
+	},
 };
 
 // *****************************************************************************
