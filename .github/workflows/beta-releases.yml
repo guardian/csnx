@@ -56,11 +56,13 @@ jobs:
       - name: Create fake @csnx package (workaround for changesets bug)
         run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
 
+      - name: Version
+        run: pnpm changeset version --snapshot beta
+
       - name: Release
         uses: changesets/action@v1
         id: publish-betas
         with:
-          version: pnpm changeset version --snapshot beta
           publish: pnpm changeset publish --no-git-tag --snapshot beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
