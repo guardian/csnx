@@ -110,3 +110,14 @@ SupportingErrorTextDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
+export const ErrorWithMessageCustomTheme: StoryFn<typeof Select> =
+	Template.bind({});
+ErrorWithMessageCustomTheme.args = {
+	theme: {
+		textError: 'hotpink',
+		borderError: 'hotpink',
+		textUserInput: 'hotpink',
+	},
+	error: 'error',
+};

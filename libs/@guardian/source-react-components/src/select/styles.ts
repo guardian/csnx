@@ -8,11 +8,9 @@ import {
 	textSans,
 	width,
 } from '@guardian/source-foundations';
-import { selectThemeDefault } from './theme';
+import type { ThemeSelect } from './theme';
 
-export const errorInput = (
-	select = selectThemeDefault.select,
-): SerializedStyles => css`
+export const errorInput = (select: ThemeSelect): SerializedStyles => css`
 	border: 2px solid ${select.borderError};
 	border-radius: 4px;
 	color: ${select.textError};
@@ -22,9 +20,7 @@ export const errorInput = (
 	}
 `;
 
-export const successInput = (
-	select = selectThemeDefault.select,
-): SerializedStyles => css`
+export const successInput = (select: ThemeSelect): SerializedStyles => css`
 	border: 2px solid ${select.borderSuccess};
 	border-radius: 4px;
 	color: ${select.textSuccess};
@@ -34,25 +30,19 @@ export const successInput = (
 	}
 `;
 
-export const errorChevron = (
-	select = selectThemeDefault.select,
-): SerializedStyles => css`
+export const errorChevron = (select: ThemeSelect): SerializedStyles => css`
 	svg {
 		fill: ${select.textError};
 	}
 `;
 
-export const successChevron = (
-	select = selectThemeDefault.select,
-): SerializedStyles => css`
+export const successChevron = (select: ThemeSelect): SerializedStyles => css`
 	svg {
 		fill: ${select.textSuccess};
 	}
 `;
 
-export const selectWrapper = (
-	select = selectThemeDefault.select,
-): SerializedStyles => css`
+export const selectWrapper = (select: ThemeSelect): SerializedStyles => css`
 	position: relative;
 
 	svg {
@@ -67,9 +57,7 @@ export const selectWrapper = (
 	}
 `;
 
-export const select = (
-	select = selectThemeDefault.select,
-): SerializedStyles => css`
+export const select = (select: ThemeSelect): SerializedStyles => css`
 	color: ${select.textUserInput};
 	box-sizing: border-box;
 	height: ${height.inputMedium}px;
