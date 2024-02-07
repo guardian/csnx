@@ -15,7 +15,7 @@ ls:
 .PHONY: storybooks
 storybooks: env
 	$(call log,"Starting storybooks")
-	@corepack pnpm nx run csnx:storybooks
+	@corepack pnpm nx run csnx:storybooks --skip-nx-cache=$(SKIP_NX_CACHE)
 
 # runs the dev targets for all projects in single instance
 .PHONY: dev
@@ -121,5 +121,5 @@ install: check-node-version
 .PHONY: %
 # The '|' make the prerequisites order-only, which maintains the value of $@.
 %: | env
-	@corepack pnpm nx run $@
+	@corepack pnpm nx run $@ --skip-nx-cache=$(SKIP_NX_CACHE)
 
