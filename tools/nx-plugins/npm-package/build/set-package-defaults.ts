@@ -22,7 +22,7 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
  */
 export const setPackageDefaults = async (
 	options: BuildExecutorOptions,
-	packageExports: Exports | undefined,
+	packageExports: Exports,
 ) => {
 	const { readPackage } = (await esmModuleImport(
 		'read-pkg',
@@ -60,17 +60,19 @@ export const setPackageDefaults = async (
 		};
 	}
 
-	if (packageExports) {
-		if (Object.keys(packageExports).length > 1) {
-			pkg.exports = packageExports;
-		} else {
-			pkg.main = packageExports['.']?.require;
-			pkg.module = packageExports['.']?.import;
+	const numberOfExports = Object.keys(packageExports).length;
+
+	if (numberOfExports === 0) {
+		if (!pkg.main) {
+			throw new Error(
+				"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
+			);
 		}
-	} else if (!pkg.main) {
-		throw new Error(
-			"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
-		);
+	} else if (numberOfExports === 1) {
+		pkg.main = packageExports['.']?.require;
+		pkg.module = packageExports['.']?.import;
+	} else {
+		pkg.exports = packageExports;
 	}
 
 	const { default: sortPkgJson } = (await esmModuleImport(
