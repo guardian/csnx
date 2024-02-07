@@ -39,7 +39,7 @@ export const themeRadioBrand: ThemeRadio = {
 	textSupporting: palette.brand[800],
 };
 
-export const transformOldProviderTheme = (
+export const transformProviderTheme = (
 	providerTheme: Theme['radio'],
 ): Partial<ThemeRadio> => {
 	const transformedTheme: Partial<ThemeRadio> = {};
