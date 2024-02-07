@@ -16,6 +16,8 @@ export type ThemeSelect = {
 	borderSuccess: string;
 	iconFill: string;
 };
+
+/** @deprecated Use `themeSelect` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const selectThemeDefault = {
 	select: {
 		textUserInput: palette.neutral[7],
