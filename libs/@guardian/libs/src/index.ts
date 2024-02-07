@@ -24,6 +24,7 @@ import type {
 	WillShowPrivacyMessage,
 } from './consent-management-platform/types';
 import { initVendorDataManager } from './consent-management-platform/vendorDataManager';
+import type { CountryCode } from './countries/@types/CountryCode';
 import { log } from './logger/logger';
 
 //---- consent-management-platform ----//
@@ -126,7 +127,7 @@ const init: InitCMP = ({ pubData, country }) => {
 		);
 	}
 
-	const framework = getFramework(country);
+	const framework = getFramework(country as CountryCode);
 
 	UnifiedCMP.init(framework, pubData ?? {});
 

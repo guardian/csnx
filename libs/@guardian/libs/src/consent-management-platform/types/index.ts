@@ -1,7 +1,7 @@
+import type { CountryCode } from '../../countries/@types/CountryCode';
 import type { VendorName } from '../vendors';
 import type { AUSConsentState } from './aus';
 import type { CCPAConsentState } from './ccpa';
-import type { Country } from './countries';
 import type { TCFv2ConsentState } from './tcfv2';
 
 export type Framework = 'tcfv2' | 'ccpa' | 'aus';
@@ -18,7 +18,10 @@ export type CMP = {
 	__enable: () => void;
 };
 
-export type InitCMP = (arg0: { pubData?: PubData; country?: Country }) => void;
+export type InitCMP = (arg0: {
+	pubData?: PubData;
+	country?: CountryCode;
+}) => void;
 
 export type OnConsentChange = (fn: Callback) => void;
 export type GetConsentFor = (

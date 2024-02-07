@@ -3,6 +3,7 @@ import { CMP as actualCMP } from './consent-management-platform/cmp';
 import { disable, enable } from './consent-management-platform/disable';
 import { getCurrentFramework } from './consent-management-platform/getCurrentFramework';
 import type { CMP as typeCMP } from './consent-management-platform/types';
+import type { CountryCode } from './countries/@types/CountryCode';
 import * as packageExports from './index';
 import { cmp } from './index';
 
@@ -155,7 +156,7 @@ describe('hotfix cmp.init', () => {
 		['CA', 'tcfv2'],
 		['NZ', 'tcfv2'],
 	])('In %s, use the %s framework correctly', (country, framework) => {
-		cmp.init({ country });
+		cmp.init({ country: country as CountryCode });
 		expect(getCurrentFramework()).toEqual(framework);
 	});
 
