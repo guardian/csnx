@@ -63,13 +63,16 @@ jobs:
         uses: changesets/action@v1
         id: publish-betas
         with:
-          publish: pnpm changeset publish --no-git-tag --snapshot beta
+          # currently, you have to tag releases in git to get the action output to appear
+          # https://github.com/changesets/action/issues/141
+          # publish: pnpm changeset publish --no-git-tag --snapshot beta
+          publish: pnpm changeset publish --snapshot beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: actions/github-script@v6
-        # if: steps.publish-betas.outputs.published == 'true'
+        if: steps.publish-betas.outputs.published == 'true'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
