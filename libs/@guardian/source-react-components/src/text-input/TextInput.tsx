@@ -126,19 +126,28 @@ export const TextInput = ({
 				optional={!!optional}
 				hideLabel={hideLabel}
 				supporting={supporting}
+				theme={theme}
 				size={size}
 				htmlFor={textInputId}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textInputId)} size={size}>
+						<InlineError
+							id={descriptionId(textInputId)}
+							theme={theme}
+							size={size}
+						>
 							{error}
 						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textInputId)} size={size}>
+						<InlineSuccess
+							id={descriptionId(textInputId)}
+							theme={theme}
+							size={size}
+						>
 							{success}
 						</InlineSuccess>
 					</div>

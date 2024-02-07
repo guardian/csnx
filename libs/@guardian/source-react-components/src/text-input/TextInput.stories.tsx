@@ -232,6 +232,7 @@ export const ErrorWithMessageCustomTheme: StoryFn<typeof TextInput> =
 ErrorWithMessageCustomTheme.args = {
 	error: 'error',
 	theme: {
+		textLabel: palette.lifestyle[100],
 		textError: palette.lifestyle[300],
 		borderError: palette.lifestyle[300],
 		background: palette.lifestyle[800],

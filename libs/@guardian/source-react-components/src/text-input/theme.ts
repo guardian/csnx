@@ -4,6 +4,9 @@ import { userFeedbackThemeDefault } from '../user-feedback/theme';
 
 export type ThemeTextInput = {
 	text: string;
+	textLabel: string;
+	textOptional: string;
+	textSupporting: string;
 	textError: string;
 	textSuccess: string;
 	background: string;
@@ -14,6 +17,9 @@ export type ThemeTextInput = {
 
 export const themeTextInput: ThemeTextInput = {
 	text: palette.neutral[7],
+	textLabel: palette.neutral[7],
+	textOptional: palette.neutral[46],
+	textSupporting: palette.neutral[46],
 	textError: palette.neutral[7],
 	textSuccess: palette.success[400],
 	background: palette.neutral[100],
