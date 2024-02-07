@@ -56,25 +56,22 @@ jobs:
       - name: Create fake @csnx package (workaround for changesets bug)
         run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
 
-      - name: Version
-        run: pnpm changeset version --snapshot beta
-
       - name: Release
         uses: changesets/action@v1
-        id: changeset
+        id: publish-betas
         with:
+          version: pnpm changeset version --snapshot beta
           publish: pnpm changeset publish --no-git-tag --snapshot beta
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - uses: actions/github-script@v6
-        if: steps.changeset.outputs.published == 'true'
+        # if: steps.publish-betas.outputs.published == 'true'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const publishedPackages = ${{ steps.changeset.outputs.publishedPackages }};
-            const version = publishedPackages[0].version;
+            const publishedPackages = ${{ steps.publish-betas.outputs.publishedPackages }};
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
