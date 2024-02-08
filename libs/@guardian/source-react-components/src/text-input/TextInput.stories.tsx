@@ -225,6 +225,27 @@ ConstraintSmallDefaultTheme.args = {
 	type: 'tel',
 	size: 'small',
 };
+
+// *****************************************************************************
+
+export const SupportingTextCustomTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+SupportingTextCustomTheme.args = {
+	supporting: 'alex@example.com',
+	theme: {
+		text: palette.neutral[86],
+		textLabel: palette.neutral[86],
+		textSupporting: palette.neutral[60],
+		border: palette.neutral[60],
+		background: palette.neutral[20],
+	},
+};
+SupportingTextCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};
+
 // *****************************************************************************
 
 export const ErrorWithMessageCustomTheme: StoryFn<typeof TextInput> =
@@ -232,10 +253,15 @@ export const ErrorWithMessageCustomTheme: StoryFn<typeof TextInput> =
 ErrorWithMessageCustomTheme.args = {
 	error: 'error',
 	theme: {
-		textLabel: palette.lifestyle[100],
-		textError: palette.lifestyle[300],
-		borderError: palette.lifestyle[300],
-		background: palette.lifestyle[800],
+		textLabel: palette.neutral[86],
+		textError: palette.error[500],
+		borderError: palette.error[500],
+		background: palette.neutral[20],
+	},
+};
+ErrorWithMessageCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };
 
