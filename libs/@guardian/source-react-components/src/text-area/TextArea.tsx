@@ -15,6 +15,7 @@ import {
 	widthFluid,
 } from './styles';
 import { InputSize } from '../@types/InputSize';
+import { ThemeTextArea, themeTextArea } from './theme';
 
 export interface TextAreaProps
 	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>,
@@ -59,6 +60,10 @@ export interface TextAreaProps
 	 * Specify the number of rows the component should display by default.
 	 */
 	rows?: number;
+	/**
+	 * Partial or complete theme to override text area's colour palette
+	 */
+	theme?: Partial<ThemeTextArea>;
 }
 
 /**
@@ -82,6 +87,7 @@ export const TextArea = ({
 	rows = 3,
 	className,
 	value,
+	theme,
 	...props
 }: TextAreaProps): EmotionJSX.Element => {
 	const textAreaId = id ?? generateSourceId();
@@ -98,6 +104,7 @@ export const TextArea = ({
 
 		return undefined;
 	};
+	const mergedTheme = { ...themeTextArea, ...theme };
 
 	return (
 		<>
@@ -105,20 +112,29 @@ export const TextArea = ({
 				text={labelText}
 				supporting={supporting}
 				optional={!!optional}
+				theme={theme}
 				size={size}
 				hideLabel={hideLabel}
 				htmlFor={textAreaId}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textAreaId)} size={size}>
+						<InlineError
+							id={descriptionId(textAreaId)}
+							theme={theme}
+							size={size}
+						>
 							{error}
 						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textAreaId)} size={size}>
+						<InlineSuccess
+							id={descriptionId(textAreaId)}
+							theme={theme}
+							size={size}
+						>
 							{success}
 						</InlineSuccess>
 					</div>
@@ -127,10 +143,10 @@ export const TextArea = ({
 			<textarea
 				css={[
 					widthFluid,
-					textArea(size),
+					textArea(mergedTheme, size),
 					supporting ? supportingTextMargin : labelMargin,
-					error ? errorInput : '',
-					!error && success ? successInput : '',
+					error ? errorInput(mergedTheme) : '',
+					!error && success ? successInput(mergedTheme) : '',
 					cssOverrides,
 				]}
 				id={textAreaId}

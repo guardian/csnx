@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof TextArea> = {
 	title: 'TextArea',
@@ -174,6 +175,20 @@ export const SuccessWithMessageSmallDefaultTheme: StoryFn<typeof TextArea> =
 SuccessWithMessageSmallDefaultTheme.args = {
 	success: 'success',
 	size: 'small',
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageCustomTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+ErrorWithMessageCustomTheme.args = {
+	error: 'error',
+	theme: {
+		textLabel: palette.lifestyle[100],
+		textError: palette.lifestyle[300],
+		borderError: palette.lifestyle[300],
+		background: palette.lifestyle[800],
+	},
 };
 
 // *****************************************************************************
