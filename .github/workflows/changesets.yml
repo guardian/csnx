@@ -1,22 +1,23 @@
 name: Manage Changesets
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [CI]
+    branches: [main]
+    types: [completed]
 
 permissions:
   contents: write
   pull-requests: write
 
-env:
-  NX_BRANCH: ${{ github.event.pull_request.head.ref }}
-  NX_RUN_GROUP: ${{ github.run_id }}
-
 jobs:
   changesets-version:
     name: Manage Changesets Pull Request
     runs-on: ubuntu-latest
+
+    # only run if CI is successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,7 +28,6 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
       - uses: ./.github/actions/setup-node-env
 
-      # - run: pnpm nx affected --target=build
       - run: pnpm nx run-many --target=build --all=true
 
       - name: Prepare Nx project for changesets
