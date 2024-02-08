@@ -19,29 +19,15 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const labels = await github.rest.issues
-              .listLabelsOnIssue({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-              })
-              .then(({ data }) => data);
-
-            const hasChromaticLabel = labels.some(
-              (label) => label.name === 'run-chromatic',
-            );
-
-            if (!hasChromaticLabel) {
-              const commentLines = [
-                "> [!TIP]",
-                "> Once this PR is ready to go, add the `run_chromatic` label to run the Chromatic tests.",
-                ">",
-                "> This saves us a lot of money by not running the tests before we need them.",
-              ];
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: commentLines.join('\n'),
-              });
-            }
+            const comment = [
+              "> [!TIP]",
+              "> Once this PR is ready to go, add the `run_chromatic` label to run the Chromatic tests.",
+              ">",
+              "> _This saves us a lot of money by not running the tests before we need them._",
+            ].join('\n');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment,
+            });
