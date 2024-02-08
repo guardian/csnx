@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
+      - uses: pnpm/action-setup@v3.0.0
 
       - uses: actions/setup-node@v4
         with:
@@ -73,7 +73,7 @@ jobs:
           fetch-depth: 0 # for chromatic to work
 
       # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
+      - uses: pnpm/action-setup@v3.0.0
 
       - uses: actions/setup-node@v4
         with:
