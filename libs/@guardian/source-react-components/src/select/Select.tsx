@@ -133,9 +133,7 @@ export const Select = ({
 				>
 					{children}
 				</select>
-				<SvgChevronDownSingle
-					theme={theme?.iconFill ? { fill: theme.iconFill } : undefined}
-				/>
+				<SvgChevronDownSingle theme={{ fill: theme?.iconFill }} />
 			</div>
 		</>
 	);

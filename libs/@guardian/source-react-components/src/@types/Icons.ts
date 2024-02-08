@@ -4,6 +4,6 @@ export type IconSize = 'xsmall' | 'small' | 'medium';
 
 export interface IconProps {
 	size?: IconSize;
-	theme?: ThemeIcon;
+	theme?: Partial<ThemeIcon>;
 	isAnnouncedByScreenReader?: boolean;
 }
