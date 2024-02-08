@@ -4,6 +4,7 @@ import RadioStories from './Radio.stories';
 import type { RadioGroupProps } from './RadioGroup';
 import { RadioGroup } from './RadioGroup';
 import { themeRadioBrand } from './theme';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof RadioGroup> = {
 	title: 'RadioGroup',
@@ -136,4 +137,23 @@ export const SupportingMediaWithErrorDefaultTheme: StoryFn<typeof RadioGroup> =
 SupportingMediaWithErrorDefaultTheme.args = {
 	error: 'Please select a colour',
 	supporting: <Image />,
+};
+
+// *****************************************************************************
+
+export const DefaultCustomTheme: StoryFn<typeof RadioGroup> = Template.bind({});
+DefaultCustomTheme.args = {
+	theme: {
+		fillSelected: palette.brand[800],
+		fillUnselected: palette.neutral[20],
+		borderSelected: palette.brand[800],
+		borderUnselected: palette.neutral[60],
+		borderHover: palette.brand[800],
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

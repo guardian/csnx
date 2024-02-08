@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Label } from './Label';
 import { themeBrandLabel } from './theme';
 import type { LabelProps } from './types';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Label> = {
 	title: 'Label',
@@ -174,5 +175,19 @@ WithOptionalSmallBrandTheme.args = {
 WithOptionalSmallBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
+	},
+};
+
+// *****************************************************************************
+
+export const DefaultCustomTheme: StoryFn<typeof Label> = Template.bind({});
+DefaultCustomTheme.args = {
+	theme: {
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };
