@@ -25,13 +25,8 @@ jobs:
           fetch-depth: 0
 
       - uses: nrwl/nx-set-shas@v4
-      - uses: pnpm/action-setup@v2.4.0
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
+      - uses: ./.github/actions/setup-node-env
 
-      - run: pnpm install --frozen-lockfile
       # - run: pnpm nx affected --target=build
       - run: pnpm nx run-many --target=build --all=true
 
