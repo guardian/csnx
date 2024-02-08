@@ -11,8 +11,8 @@ import {
 	visuallyHidden,
 	width,
 } from '@guardian/source-foundations';
-import type { ChoiceCardTheme } from './ChoiceCard';
 import type { ChoiceCardColumns } from './ChoiceCardGroup';
+import type { ThemeChoiceCard } from './theme';
 
 export const fieldset = css`
 	${resets.fieldset};
@@ -61,7 +61,7 @@ export const gridColumns: { [key in ChoiceCardColumns]: SerializedStyles } = {
 	5: gridColumnsStyle(5),
 };
 
-export const input = (theme: ChoiceCardTheme): SerializedStyles => css`
+export const input = (theme: ThemeChoiceCard): SerializedStyles => css`
 	${visuallyHidden};
 
 	&:focus + label {
@@ -131,7 +131,7 @@ export const tickAnimation = css`
 	}
 `;
 
-export const choiceCard = (theme: ChoiceCardTheme): SerializedStyles => css`
+export const choiceCard = (theme: ThemeChoiceCard): SerializedStyles => css`
 	flex: 1;
 	display: flex;
 	justify-content: center;
@@ -203,7 +203,7 @@ export const contentWrapperLabelOnly = css`
 
 // TODO: most of this is duplicated in the checkbox component
 // We should extract it into its own module somewhere
-export const tick = (theme: ChoiceCardTheme): SerializedStyles => css`
+export const tick = (theme: ThemeChoiceCard): SerializedStyles => css`
 	/* overall positional properties */
 	position: absolute;
 	top: 50%;
@@ -243,7 +243,7 @@ export const tick = (theme: ChoiceCardTheme): SerializedStyles => css`
 `;
 
 export const errorChoiceCard = (
-	theme: ChoiceCardTheme,
+	theme: ThemeChoiceCard,
 ): SerializedStyles => css`
 	box-shadow: inset 0 0 0 2px ${theme.borderError};
 

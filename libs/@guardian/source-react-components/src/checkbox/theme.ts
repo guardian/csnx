@@ -1,4 +1,5 @@
 import { palette } from '@guardian/source-foundations';
+import type { Theme } from '../@types/Theme';
 import type { ThemeLabel } from '../label/theme';
 import { labelThemeBrand, labelThemeDefault, themeLabel } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
@@ -83,4 +84,24 @@ export const themeCheckboxBrand: ThemeCheckbox = {
 	textLabel: palette.neutral[100],
 	textSupporting: palette.brand[800],
 	textIndeterminate: palette.brand[800],
+};
+
+export const transformProviderTheme = (
+	providerTheme: Theme['checkbox'],
+): Partial<ThemeCheckbox> => {
+	const transformedTheme: Partial<ThemeCheckbox> = {};
+
+	if (providerTheme?.backgroundChecked) {
+		transformedTheme.fillSelected = providerTheme.backgroundChecked;
+	}
+	if (providerTheme?.borderChecked) {
+		transformedTheme.borderSelected = providerTheme.borderChecked;
+	}
+	if (providerTheme?.border) {
+		transformedTheme.borderUnselected = providerTheme.border;
+	}
+	if (providerTheme?.textLabelSupporting) {
+		transformedTheme.textSupporting = providerTheme.textLabelSupporting;
+	}
+	return { ...transformedTheme, ...providerTheme };
 };

@@ -8,9 +8,10 @@ import { Inline } from '../inline/Inline';
 import { Legend } from '../label/Legend';
 import { Stack } from '../stack/Stack';
 import { InlineError } from '../user-feedback/InlineError';
-import { fieldset } from './styles';
-import { ThemeRadio, themeRadio, transformProviderTheme } from './theme';
 import { mergeThemes } from '../utils/themes';
+import { fieldset } from './styles';
+import type { ThemeRadio } from './theme';
+import { themeRadio, transformProviderTheme } from './theme';
 
 type Orientation = 'vertical' | 'horizontal';
 

@@ -58,7 +58,7 @@ export type {
 } from './choice-card/ChoiceCardGroup';
 export type {
 	ChoiceCardProps,
-	ChoiceCardTheme,
+	ThemeChoiceCard,
 } from './choice-card/ChoiceCard';
 export { choiceCardThemeDefault } from './choice-card/theme';
 

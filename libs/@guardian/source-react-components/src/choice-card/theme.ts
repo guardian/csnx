@@ -1,6 +1,21 @@
 import { palette } from '@guardian/source-foundations';
+import type { Theme } from '../@types/Theme';
 import { userFeedbackThemeDefault } from '../user-feedback/theme';
-import type { ChoiceCardTheme } from './ChoiceCard';
+
+export type ThemeChoiceCard = {
+	textUnselected: string;
+	textSelected: string;
+	textHover: string;
+	textError: string;
+	borderUnselected: string;
+	borderSelected: string;
+	borderHover: string;
+	borderError: string;
+	backgroundUnselected: string;
+	backgroundHover: string;
+	backgroundSelected: string;
+	backgroundTick: string;
+};
 
 /** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const choiceCardThemeDefault = {
@@ -22,7 +37,7 @@ export const choiceCardThemeDefault = {
 	...userFeedbackThemeDefault,
 } as const;
 
-export const choiceCardTheme: ChoiceCardTheme = {
+export const themeChoiceCard: ThemeChoiceCard = {
 	textUnselected: palette.neutral[46],
 	textSelected: palette.brand[400],
 	textHover: palette.brand[500],
@@ -36,3 +51,26 @@ export const choiceCardTheme: ChoiceCardTheme = {
 	backgroundSelected: '#E3F6FF',
 	backgroundTick: palette.brand[500],
 } as const;
+
+export const transformProviderTheme = (
+	providerTheme: Theme['choiceCard'],
+): Partial<ThemeChoiceCard> => {
+	const transformedTheme: Partial<ThemeChoiceCard> = {};
+
+	if (providerTheme?.textLabel) {
+		transformedTheme.textUnselected = providerTheme.textLabel;
+	}
+	if (providerTheme?.textChecked) {
+		transformedTheme.textSelected = providerTheme.textChecked;
+	}
+	if (providerTheme?.border) {
+		transformedTheme.borderUnselected = providerTheme.border;
+	}
+	if (providerTheme?.borderChecked) {
+		transformedTheme.borderSelected = providerTheme.borderChecked;
+	}
+	if (providerTheme?.backgroundChecked) {
+		transformedTheme.backgroundSelected = providerTheme.backgroundChecked;
+	}
+	return { ...transformedTheme, ...providerTheme };
+};

@@ -3,10 +3,13 @@ import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
-import { transformAccordionProviderTheme } from './shared';
+import { mergeThemes } from '../utils/themes';
 import { accordion } from './styles';
 import type { ThemeAccordion } from './theme';
-import { themeAccordion as defaultTheme } from './theme';
+import {
+	themeAccordion as defaultTheme,
+	transformProviderTheme,
+} from './theme';
 
 export interface AccordionProps extends Props {
 	/**
@@ -37,18 +40,18 @@ export const Accordion = ({
 	theme,
 	...props
 }: AccordionProps): EmotionJSX.Element => {
-	const combineTheme = (providerTheme: Theme['accordion']): ThemeAccordion => {
-		return {
-			...defaultTheme,
-			...transformAccordionProviderTheme(providerTheme),
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme['accordion']) =>
+		mergeThemes<ThemeAccordion, Theme['accordion']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
 	// AUDIT https://www.sarasoueidan.com/blog/accordion-markup/
 	return (
 		<div
 			css={(providerTheme: Theme) => [
-				accordion(combineTheme(providerTheme.accordion)),
+				accordion(mergedTheme(providerTheme.accordion)),
 				cssOverrides,
 			]}
 			{...props}

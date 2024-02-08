@@ -3,6 +3,7 @@ import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import {
 	checkbox,
 	checkboxContainer,
@@ -16,7 +17,7 @@ import {
 	tickWithLabelText,
 	tickWithSupportingText,
 } from './styles';
-import { themeCheckbox as defaultTheme } from './theme';
+import { themeCheckbox as defaultTheme, transformProviderTheme } from './theme';
 import type { ThemeCheckbox } from './theme';
 
 export interface CheckboxProps
@@ -98,32 +99,13 @@ export const Checkbox = ({
 			el.indeterminate = !!indeterminate;
 		}
 	};
-	const transformOldProviderTheme = (
-		providerTheme: Theme['checkbox'],
-	): Partial<ThemeCheckbox> => {
-		const transformedTheme: Partial<ThemeCheckbox> = {};
-
-		if (providerTheme?.backgroundChecked) {
-			transformedTheme.fillSelected = providerTheme.backgroundChecked;
-		}
-		if (providerTheme?.borderChecked) {
-			transformedTheme.borderSelected = providerTheme.borderChecked;
-		}
-		if (providerTheme?.border) {
-			transformedTheme.borderUnselected = providerTheme.border;
-		}
-		if (providerTheme?.textLabelSupporting) {
-			transformedTheme.textSupporting = providerTheme.textLabelSupporting;
-		}
-		return { ...transformedTheme, ...providerTheme };
-	};
-	const combineThemes = (providerTheme: Theme['checkbox']): ThemeCheckbox => {
-		return {
-			...defaultTheme,
-			...transformOldProviderTheme(providerTheme),
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme['checkbox']) =>
+		mergeThemes<ThemeCheckbox, Theme['checkbox']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
 
 	const SupportingText = ({
 		children,
@@ -133,7 +115,7 @@ export const Checkbox = ({
 		return (
 			<div
 				css={(providerTheme: Theme) =>
-					supportingText(combineThemes(providerTheme.checkbox))
+					supportingText(mergedTheme(providerTheme.checkbox))
 				}
 			>
 				{children}
@@ -151,7 +133,7 @@ export const Checkbox = ({
 		return (
 			<div
 				css={(providerTheme: Theme) => [
-					labelText(combineThemes(providerTheme.checkbox)),
+					labelText(mergedTheme(providerTheme.checkbox)),
 					hasSupportingText ? labelTextWithSupportingText : '',
 				]}
 			>
@@ -163,7 +145,7 @@ export const Checkbox = ({
 	return (
 		<div
 			css={(providerTheme: Theme) => [
-				checkboxContainer(combineThemes(providerTheme.checkbox), error),
+				checkboxContainer(mergedTheme(providerTheme.checkbox), error),
 				supporting ? checkboxContainerWithSupportingText : '',
 			]}
 		>
@@ -171,8 +153,8 @@ export const Checkbox = ({
 				id={checkboxId}
 				type="checkbox"
 				css={(providerTheme: Theme) => [
-					checkbox(combineThemes(providerTheme.checkbox), error),
-					error ? errorCheckbox(combineThemes(providerTheme.checkbox)) : '',
+					checkbox(mergedTheme(providerTheme.checkbox), error),
+					error ? errorCheckbox(mergedTheme(providerTheme.checkbox)) : '',
 					cssOverrides,
 				]}
 				aria-invalid={!!error}
@@ -183,7 +165,7 @@ export const Checkbox = ({
 			/>
 			<span
 				css={(providerTheme: Theme) => [
-					tick(combineThemes(providerTheme.checkbox)),
+					tick(mergedTheme(providerTheme.checkbox)),
 					labelContent ?? supporting ? tickWithLabelText : '',
 					supporting ? tickWithSupportingText : '',
 				]}

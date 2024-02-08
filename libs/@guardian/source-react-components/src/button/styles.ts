@@ -9,6 +9,7 @@ import {
 	width,
 } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import type { ThemeButton } from './theme';
 import { themeButton as defaultTheme } from './theme';
 import type {
@@ -275,16 +276,11 @@ const iconOnlySizes: {
 	xsmall: iconOnlyXsmall,
 };
 
-const combineThemes = (
+const mergedTheme = (
 	providerTheme: Theme['button'],
 	theme?: Partial<ThemeButton>,
-): ThemeButton => {
-	return {
-		...defaultTheme,
-		...providerTheme,
-		...theme,
-	};
-};
+) =>
+	mergeThemes<ThemeButton, Theme['button']>(defaultTheme, theme, providerTheme);
 export const buttonStyles =
 	({
 		priority = 'primary',
@@ -302,7 +298,7 @@ export const buttonStyles =
 	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
 		button,
 		sizes[size],
-		priorities[priority](combineThemes(providerTheme.button, theme)),
+		priorities[priority](mergedTheme(providerTheme.button, theme)),
 		iconSvg ?? isLoading ? iconSizes[size] : '',
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',

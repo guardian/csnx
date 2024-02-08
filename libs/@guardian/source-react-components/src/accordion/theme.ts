@@ -1,4 +1,20 @@
 import { palette } from '@guardian/source-foundations';
+import type { Theme } from '../@types/Theme';
+
+export const transformProviderTheme = (
+	providerTheme: Theme['accordion'],
+): Partial<ThemeAccordion> => {
+	const transformedTheme: Partial<ThemeAccordion> = {};
+
+	if (providerTheme?.textPrimary) {
+		transformedTheme.label = providerTheme.textPrimary;
+	}
+	if (providerTheme?.borderPrimary) {
+		transformedTheme.border = providerTheme.borderPrimary;
+	}
+
+	return transformedTheme;
+};
 
 export type ThemeAccordion = {
 	text: string;

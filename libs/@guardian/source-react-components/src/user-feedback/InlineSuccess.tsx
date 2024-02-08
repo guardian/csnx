@@ -1,7 +1,7 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { SvgTickRound } from '../../vendor/icons/SvgTickRound';
 import type { Theme } from '../@types/Theme';
-import { combineUserFeedbackThemes } from './shared';
+import { mergedTheme } from './shared';
 import { inlineSuccess } from './styles';
 import type { UserFeedbackProps } from './types';
 
@@ -24,10 +24,7 @@ export const InlineSuccess = ({
 }: UserFeedbackProps): EmotionJSX.Element => (
 	<span
 		css={(providerTheme: Theme) => [
-			inlineSuccess(
-				combineUserFeedbackThemes(providerTheme.userFeedback, theme),
-				size,
-			),
+			inlineSuccess(mergedTheme(providerTheme.userFeedback, theme), size),
 			cssOverrides,
 		]}
 		role="alert"
