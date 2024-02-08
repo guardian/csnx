@@ -2,4 +2,4 @@
 '@guardian/libs': patch
 ---
 
-noop testing canary release process
+noop testing canary release process (edit)
