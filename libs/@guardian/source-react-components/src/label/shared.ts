@@ -3,7 +3,7 @@ import { mergeThemes } from '../utils/themes';
 import type { ThemeLabel } from './theme';
 import { themeLabel as defaultTheme } from './theme';
 
-export const mergedThemes = (
+export const mergedTheme = (
 	providerTheme: Theme['label'],
 	themeProp?: Partial<ThemeLabel>,
 ): ThemeLabel =>

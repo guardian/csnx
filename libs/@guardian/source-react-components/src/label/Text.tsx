@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
-import { mergedThemes } from './shared';
+import { mergedTheme } from './shared';
 import { labelText, optionalText } from './styles';
 import type { LabelProps } from './types';
 
@@ -19,7 +19,7 @@ export const Text = ({
 }: LabelProps): EmotionJSX.Element => (
 	<div
 		css={(providerTheme: Theme) => [
-			labelText(mergedThemes(providerTheme.label, theme), size),
+			labelText(mergedTheme(providerTheme.label, theme), size),
 			hideLabel ? visuallyHidden : '',
 		]}
 	>
@@ -27,7 +27,7 @@ export const Text = ({
 		{optional ? (
 			<span
 				css={(providerTheme: Theme) =>
-					optionalText(mergedThemes(providerTheme.label, theme))
+					optionalText(mergedTheme(providerTheme.label, theme))
 				}
 			>
 				Optional
