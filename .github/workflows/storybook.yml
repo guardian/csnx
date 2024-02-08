@@ -18,8 +18,12 @@ on:
     types: [completed]
 
 jobs:
-  on-success: # only run if CI is successful
+  publish-storybook:
     runs-on: ubuntu-latest
+
+    # only run if CI is successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     permissions:
       contents: write
       pull-requests: write
