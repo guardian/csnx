@@ -69,12 +69,19 @@ export const RadioGroup = ({
 }: RadioGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
-		<Legend text={label} supporting={supporting} hideLabel={hideLabel} />
+		<Legend
+			text={label}
+			supporting={supporting}
+			hideLabel={hideLabel}
+			theme={theme}
+		/>
 	) : (
 		''
 	);
 	const message = error && (
-		<InlineError id={descriptionId(groupId)}>{error}</InlineError>
+		<InlineError id={descriptionId(groupId)} theme={theme}>
+			{error}
+		</InlineError>
 	);
 
 	const radioContainers = (
