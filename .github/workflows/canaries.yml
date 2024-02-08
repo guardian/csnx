@@ -31,29 +31,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx run-many --target=build --all=true
 
-      # The Nx convention is to build projects to a root `dist` directory
-      # (outside their source directories), but changesets uses pnpm's workspace
-      # to look for the source directory of candidate packages when trying to
-      # publish.
-      #
-      # Therefore, after building the packages we are going to publish, we will
-      # rewrite the pnpm workspace file to point to the root `dist` directory
-      # instead.
-      #
-      # This will allow changesets to find the newly built assets to publish.
-      #
-      # Inspired by this article:
-      # https://dev.to/jmcdo29/automating-your-package-deployment-in-an-nx-monorepo-with-changeset-4em8
-      - name: Prepare workspace for publishing
-        run: echo -e "packages:\n  - 'dist/libs/**'" > pnpm-workspace.yaml
-
-      # This is a workaround for bug in changesets where it throws if you tell
-      # it ignore a package it cannot find. We're ignoring @csnx/* packages to
-      # stop it trying to create release PRs for them, which works fine. But at
-      # this point in the lifecycle, we don't build any @csnx/* packages, so it
-      # throws an error looking for them in `dist/libs` (see above) to ignore.
-      - name: Create fake @csnx package (workaround for changesets bug)
-        run: mkdir -p dist/libs/@csnx/null && echo -e "{\"name\":\"@csnx/null\",\"private\":true}" > dist/libs/@csnx/null/package.json
+      - name: Prepare Nx project for changesets
+        uses: ./.github/actions/prepare-for-changesets
 
       - name: Version
         run: pnpm changeset version --snapshot canary
