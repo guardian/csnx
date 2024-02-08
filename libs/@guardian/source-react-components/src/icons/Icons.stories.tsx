@@ -351,3 +351,19 @@ WidePaymentIconsDefaultTheme.args = {
 	isAnnouncedByScreenReader: true,
 	icons: Object.values(widePaymentIcons),
 };
+
+// *****************************************************************************
+
+export const MediumIconsCustomTheme: StoryFn<IconChromaticStoryArgs> =
+	Template.bind({});
+MediumIconsCustomTheme.args = {
+	theme: { fill: palette.neutral[86] },
+	size: 'medium',
+	isAnnouncedByScreenReader: true,
+	icons: Object.values(uiIcons),
+};
+MediumIconsCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};
