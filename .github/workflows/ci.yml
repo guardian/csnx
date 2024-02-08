@@ -39,6 +39,10 @@ jobs:
     uses: ./.github/workflows/chromatic.yml
     permissions:
       checks: write
+    secrets:
+      CHROMATIC_SOURCE_FOUNDATIONS_TOKEN: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
+      CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
+      CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}
     if: |
       github.ref == 'refs/heads/main' ||
       contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
