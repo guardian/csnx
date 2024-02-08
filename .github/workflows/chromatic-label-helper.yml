@@ -1,7 +1,6 @@
-# The DCR repo has a required status check on the Chromatic UI Tests
-# To save £££, we only run the Chromatic tests once the `run_chromatic`
-# label is applied. This workflow reminds people to add the label
-# because it isn't always obvious.
+# To save £££, we only run the Chromatic tests once the `run_chromatic` label is
+# applied. This workflow reminds people to add the label because it isn't always
+# obvious.
 
 name: Chromatic Label Helper
 
