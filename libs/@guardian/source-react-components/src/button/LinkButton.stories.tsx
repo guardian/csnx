@@ -194,8 +194,13 @@ PrimaryPriorityCustomTheme.args = {
 	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
 	icon: 'arrow',
 	theme: {
-		backgroundPrimary: palette.opinion['500'],
-		backgroundPrimaryHover: palette.opinion['600'],
-		textPrimary: palette.neutral['0'],
+		textPrimary: palette.brand[400],
+		backgroundPrimary: palette.brandAlt[400],
+		backgroundPrimaryHover: palette.brandAlt[200],
+	},
+};
+PrimaryPriorityCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };

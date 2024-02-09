@@ -114,13 +114,21 @@ UnlabelledDefaultTheme.args = {
 	'aria-label': 'Checkbox',
 };
 
-export const CustomTheme: StoryFn<CheckboxProps> = Template.bind({});
-CustomTheme.args = {
+// *****************************************************************************
+
+export const DefaultCustomTheme: StoryFn<CheckboxProps> = Template.bind({});
+DefaultCustomTheme.args = {
 	theme: {
-		fillUnselected: palette.neutral[0],
-		fillSelected: palette.lifestyle[500],
-		borderSelected: palette.lifestyle[500],
-		borderHover: palette.lifestyle[400],
-		textLabel: palette.lifestyle[400],
+		fillSelected: palette.brand[800],
+		fillUnselected: palette.neutral[20],
+		borderSelected: palette.brand[800],
+		borderUnselected: palette.neutral[60],
+		borderHover: palette.brand[800],
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };
