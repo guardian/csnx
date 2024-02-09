@@ -131,8 +131,8 @@ export const ErrorCustomTheme: StoryFn<typeof CheckboxGroup> = Template.bind(
 );
 ErrorCustomTheme.args = {
 	theme: {
-		label: { textLabel: palette.sport[400] },
-		userFeedback: { textError: palette.sport[400] },
+		textLabel: palette.sport[400],
+		textError: palette.sport[400],
 	},
 	error: 'This newsletter is not available in your region',
 };

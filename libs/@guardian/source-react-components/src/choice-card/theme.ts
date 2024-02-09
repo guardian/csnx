@@ -1,5 +1,7 @@
 import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
+import type { ThemeLabel } from '../label/theme';
+import type { ThemeUserFeedback } from '../user-feedback/theme';
 import { userFeedbackThemeDefault } from '../user-feedback/theme';
 
 export type ThemeChoiceCard = {
@@ -52,6 +54,7 @@ export const themeChoiceCard: ThemeChoiceCard = {
 	backgroundTick: palette.brand[500],
 } as const;
 
+export type ThemeChoiceCardGroup = ThemeLabel & ThemeUserFeedback;
 export const transformProviderTheme = (
 	providerTheme: Theme['choiceCard'],
 ): Partial<ThemeChoiceCard> => {

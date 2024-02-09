@@ -10,9 +10,9 @@ import {
 	transitions,
 	width,
 } from '@guardian/source-foundations';
-import type { ThemeRadio } from './theme';
+import type { ThemeRadio, ThemeRadioGroup } from './theme';
 
-export const fieldset = (radio: ThemeRadio): SerializedStyles => css`
+export const fieldset = (radio: ThemeRadioGroup): SerializedStyles => css`
 	${resets.fieldset};
 
 	&[aria-invalid='true'] input {
