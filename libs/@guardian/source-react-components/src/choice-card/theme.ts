@@ -1,8 +1,11 @@
 import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
-import type { ThemeLabel } from '../label/theme';
+import { themeLabel, type ThemeLabel } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
-import { userFeedbackThemeDefault } from '../user-feedback/theme';
+import {
+	themeUserFeedback,
+	userFeedbackThemeDefault,
+} from '../user-feedback/theme';
 
 export type ThemeChoiceCard = {
 	textUnselected: string;
@@ -17,6 +20,28 @@ export type ThemeChoiceCard = {
 	backgroundHover: string;
 	backgroundSelected: string;
 	backgroundTick: string;
+};
+
+export type ThemeChoiceCardGroup = ThemeLabel & ThemeUserFeedback;
+
+export const themeChoiceCard: ThemeChoiceCard = {
+	textUnselected: palette.neutral[46],
+	textSelected: palette.brand[400],
+	textHover: palette.brand[500],
+	textError: palette.error[400],
+	borderUnselected: palette.neutral[46],
+	borderSelected: palette.brand[500],
+	borderHover: palette.brand[500],
+	borderError: palette.error[400],
+	backgroundUnselected: 'transparent',
+	backgroundHover: 'transparent',
+	backgroundSelected: '#E3F6FF',
+	backgroundTick: palette.brand[500],
+} as const;
+
+export const themeChoiceCardGroup: ThemeChoiceCardGroup = {
+	...themeLabel,
+	...themeUserFeedback,
 };
 
 /** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
@@ -39,22 +64,6 @@ export const choiceCardThemeDefault = {
 	...userFeedbackThemeDefault,
 } as const;
 
-export const themeChoiceCard: ThemeChoiceCard = {
-	textUnselected: palette.neutral[46],
-	textSelected: palette.brand[400],
-	textHover: palette.brand[500],
-	textError: palette.error[400],
-	borderUnselected: palette.neutral[46],
-	borderSelected: palette.brand[500],
-	borderHover: palette.brand[500],
-	borderError: palette.error[400],
-	backgroundUnselected: 'transparent',
-	backgroundHover: 'transparent',
-	backgroundSelected: '#E3F6FF',
-	backgroundTick: palette.brand[500],
-} as const;
-
-export type ThemeChoiceCardGroup = ThemeLabel & ThemeUserFeedback;
 export const transformProviderTheme = (
 	providerTheme: Theme['choiceCard'],
 ): Partial<ThemeChoiceCard> => {

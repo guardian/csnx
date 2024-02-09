@@ -5,7 +5,7 @@ import { Checkbox } from './Checkbox';
 import CheckboxStories from './Checkbox.stories';
 import type { CheckboxGroupProps } from './CheckboxGroup';
 import { CheckboxGroup } from './CheckboxGroup';
-import { checkboxThemeBrand } from './theme';
+import { themeCheckboxBrand } from './theme';
 
 const meta: Meta<typeof CheckboxGroup> = {
 	title: 'CheckboxGroup',
@@ -49,7 +49,7 @@ DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
+	theme: themeCheckboxBrand,
 };
 
 // *****************************************************************************
@@ -68,7 +68,7 @@ VisuallyHideLegendBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
+	theme: themeCheckboxBrand,
 };
 VisuallyHideLegendBrandTheme.args = {
 	hideLabel: true,
@@ -98,7 +98,7 @@ SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
+	theme: themeCheckboxBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Pick the issues and topics that interest you',
@@ -120,11 +120,13 @@ ErrorBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: checkboxThemeBrand,
+	theme: themeCheckboxBrand,
 };
 ErrorBrandTheme.args = {
 	error: 'This newsletter is not available in your region',
 };
+
+// *****************************************************************************
 
 export const ErrorCustomTheme: StoryFn<typeof CheckboxGroup> = Template.bind(
 	{},

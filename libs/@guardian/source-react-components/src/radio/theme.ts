@@ -1,10 +1,16 @@
 import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
 import type { ThemeLabel } from '../label/theme';
-import { labelThemeBrand, labelThemeDefault, themeLabel } from '../label/theme';
+import {
+	labelThemeBrand,
+	labelThemeDefault,
+	themeLabelBrand,
+	themeLabel,
+} from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
 	themeUserFeedback,
+	themeUserFeedbackBrand,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
@@ -40,9 +46,10 @@ export const themeRadio: ThemeRadio = {
 export const themeRadioGroup: ThemeRadioGroup = {
 	borderHover: palette.brand[500],
 	borderError: palette.error[400],
-	...themeUserFeedback,
 	...themeLabel,
+	...themeUserFeedback,
 };
+
 export const themeRadioBrand: ThemeRadio = {
 	borderSelected: palette.neutral[100],
 	borderUnselected: palette.brand[800],
@@ -52,6 +59,13 @@ export const themeRadioBrand: ThemeRadio = {
 	fillUnselected: 'transparent',
 	textLabel: palette.neutral[100],
 	textSupporting: palette.brand[800],
+};
+
+export const themeRadioGroupBrand: ThemeRadioGroup = {
+	borderHover: palette.neutral[100],
+	borderError: palette.error[500],
+	...themeLabelBrand,
+	...themeUserFeedbackBrand,
 };
 
 export const transformProviderTheme = (

@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Label } from './Label';
-import { themeBrandLabel } from './theme';
+import { themeLabelBrand } from './theme';
 import type { LabelProps } from './types';
 import { palette } from '@guardian/source-foundations';
 
@@ -57,7 +57,7 @@ WithHiddenLabelDefaultTheme.args = {
 
 export const DefaultBrandTheme: StoryFn<typeof Label> = Template.bind({});
 DefaultBrandTheme.args = {
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 DefaultBrandTheme.parameters = {
 	backgrounds: {
@@ -71,7 +71,7 @@ export const WithSupportingTextBrandTheme: StoryFn<typeof Label> =
 	Template.bind({});
 WithSupportingTextBrandTheme.args = {
 	supporting: 'alex@example.com',
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 WithSupportingTextBrandTheme.parameters = {
 	backgrounds: {
@@ -84,7 +84,7 @@ WithSupportingTextBrandTheme.parameters = {
 export const WithOptionalBrandTheme: StoryFn<typeof Label> = Template.bind({});
 WithOptionalBrandTheme.args = {
 	optional: true,
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 WithOptionalBrandTheme.parameters = {
 	backgrounds: {
@@ -99,7 +99,7 @@ export const WithHiddenLabelBrandTheme: StoryFn<typeof Label> = Template.bind(
 );
 WithHiddenLabelBrandTheme.args = {
 	hideLabel: true,
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 WithHiddenLabelBrandTheme.parameters = {
 	backgrounds: {
@@ -139,7 +139,7 @@ WithOptionalSmallDefaultTheme.args = {
 export const DefaultSmallBrandTheme: StoryFn<typeof Label> = Template.bind({});
 DefaultSmallBrandTheme.args = {
 	size: 'small',
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 DefaultSmallBrandTheme.parameters = {
 	backgrounds: {
@@ -154,7 +154,7 @@ export const WithSupportingTextSmallBrandTheme: StoryFn<typeof Label> =
 WithSupportingTextSmallBrandTheme.args = {
 	supporting: 'alex@example.com',
 	size: 'small',
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 WithSupportingTextSmallBrandTheme.parameters = {
 	backgrounds: {
@@ -170,7 +170,7 @@ export const WithOptionalSmallBrandTheme: StoryFn<typeof Label> = Template.bind(
 WithOptionalSmallBrandTheme.args = {
 	optional: true,
 	size: 'small',
-	theme: themeBrandLabel,
+	theme: themeLabelBrand,
 };
 WithOptionalSmallBrandTheme.parameters = {
 	backgrounds: {

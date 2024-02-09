@@ -1,7 +1,12 @@
 import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
 import type { ThemeLabel } from '../label/theme';
-import { labelThemeBrand, labelThemeDefault } from '../label/theme';
+import {
+	labelThemeBrand,
+	labelThemeDefault,
+	themeLabelBrand,
+	themeLabel,
+} from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
 	userFeedbackThemeBrand,
@@ -21,6 +26,38 @@ export type ThemeCheckbox = {
 };
 
 export type ThemeCheckboxGroup = ThemeLabel & ThemeUserFeedback;
+
+export const themeCheckbox: ThemeCheckbox = {
+	borderUnselected: palette.neutral[46],
+	borderHover: palette.brand[500],
+	borderSelected: palette.brand[500],
+	borderError: palette.error[400],
+	fillSelected: palette.brand[500],
+	fillUnselected: 'transparent',
+	textLabel: palette.neutral[7],
+	textSupporting: palette.neutral[46],
+	textIndeterminate: palette.neutral[46],
+};
+
+export const themeCheckboxGroup: ThemeCheckboxGroup = {
+	...themeLabel,
+};
+
+export const themeCheckboxBrand: ThemeCheckbox = {
+	borderUnselected: palette.brand[800],
+	borderSelected: palette.neutral[100],
+	borderHover: palette.neutral[100],
+	borderError: palette.error[500],
+	fillSelected: palette.neutral[100],
+	fillUnselected: 'transparent',
+	textLabel: palette.neutral[100],
+	textSupporting: palette.brand[800],
+	textIndeterminate: palette.brand[800],
+};
+
+export const themeCheckboxGroupBrand: ThemeCheckboxGroup = {
+	...themeLabelBrand,
+};
 
 /** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeDefault = {
@@ -51,30 +88,6 @@ export const checkboxThemeBrand = {
 	},
 	...userFeedbackThemeBrand,
 	...labelThemeBrand,
-};
-
-export const themeCheckbox: ThemeCheckbox = {
-	borderUnselected: palette.neutral[46],
-	borderHover: palette.brand[500],
-	borderSelected: palette.brand[500],
-	borderError: palette.error[400],
-	fillSelected: palette.brand[500],
-	fillUnselected: 'transparent',
-	textLabel: palette.neutral[7],
-	textSupporting: palette.neutral[46],
-	textIndeterminate: palette.neutral[46],
-};
-
-export const themeCheckboxBrand: ThemeCheckbox = {
-	borderUnselected: palette.brand[800],
-	borderSelected: palette.neutral[100],
-	borderHover: palette.neutral[100],
-	borderError: palette.error[500],
-	fillSelected: palette.neutral[100],
-	fillUnselected: 'transparent',
-	textLabel: palette.neutral[100],
-	textSupporting: palette.brand[800],
-	textIndeterminate: palette.brand[800],
 };
 
 export const transformProviderTheme = (
