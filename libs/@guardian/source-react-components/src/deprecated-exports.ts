@@ -36,3 +36,40 @@ export const SvgPlay = SvgMediaControlsPlay;
 
 /** @deprecated Use `SvgPayPalBrand` instead. */
 export const SvgPayPal = SvgPayPalBrand;
+
+export type { ButtonTheme } from './button/theme';
+
+export { accordionThemeDefault } from './accordion/theme';
+
+export {
+	buttonThemeReaderRevenue,
+	buttonThemeReaderRevenueBrand,
+	buttonThemeReaderRevenueBrandAlt,
+} from './button/theme-reader-revenue';
+
+export {
+	buttonThemeBrand,
+	buttonThemeBrandAlt,
+	buttonThemeDefault,
+} from './button/theme';
+
+export { checkboxThemeBrand, checkboxThemeDefault } from './checkbox/theme';
+
+export { choiceCardThemeDefault } from './choice-card/theme';
+export { labelThemeDefault, labelThemeBrand } from './label/theme';
+
+export {
+	linkThemeDefault,
+	linkThemeBrand,
+	linkThemeBrandAlt,
+} from './link/theme';
+
+export { radioThemeBrand, radioThemeDefault } from './radio/theme';
+
+export { selectThemeDefault } from './select/theme';
+export { textInputThemeDefault } from './text-input/theme';
+
+export {
+	userFeedbackThemeBrand,
+	userFeedbackThemeDefault,
+} from './user-feedback/theme';
