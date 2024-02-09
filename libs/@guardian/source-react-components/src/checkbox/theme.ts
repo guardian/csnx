@@ -9,6 +9,8 @@ import {
 } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
+	themeUserFeedback,
+	themeUserFeedbackBrand,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
@@ -41,6 +43,7 @@ export const themeCheckbox: ThemeCheckbox = {
 
 export const themeCheckboxGroup: ThemeCheckboxGroup = {
 	...themeLabel,
+	...themeUserFeedback,
 };
 
 export const themeCheckboxBrand: ThemeCheckbox = {
@@ -57,6 +60,7 @@ export const themeCheckboxBrand: ThemeCheckbox = {
 
 export const themeCheckboxGroupBrand: ThemeCheckboxGroup = {
 	...themeLabelBrand,
+	...themeUserFeedbackBrand,
 };
 
 /** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
