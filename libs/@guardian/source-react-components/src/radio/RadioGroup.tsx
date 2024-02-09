@@ -10,8 +10,8 @@ import { Stack } from '../stack/Stack';
 import { InlineError } from '../user-feedback/InlineError';
 import { mergeThemes } from '../utils/themes';
 import { fieldset } from './styles';
-import type { ThemeRadio } from './theme';
-import { themeRadio, transformProviderTheme } from './theme';
+import type { ThemeRadioGroup } from './theme';
+import { themeRadioGroup } from './theme';
 
 type Orientation = 'vertical' | 'horizontal';
 
@@ -42,7 +42,7 @@ export interface RadioGroupProps
 	/**
 	 * Partial or complete theme to override radio button's colour palette
 	 */
-	theme?: Partial<ThemeRadio>;
+	theme?: Partial<ThemeRadioGroup>;
 }
 
 /**
@@ -106,11 +106,10 @@ export const RadioGroup = ({
 	);
 
 	const mergedTheme = (providerTheme: Theme) =>
-		mergeThemes<ThemeRadio, Theme['radio']>(
-			themeRadio,
+		mergeThemes<ThemeRadioGroup, Theme['radio']>(
+			themeRadioGroup,
 			theme,
 			providerTheme.radio,
-			transformProviderTheme,
 		);
 
 	return (

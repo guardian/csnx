@@ -1,10 +1,19 @@
 import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
-import { labelThemeBrand, labelThemeDefault } from '../label/theme';
+import type { ThemeLabel } from '../label/theme';
+import { labelThemeBrand, labelThemeDefault, themeLabel } from '../label/theme';
+import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
+	themeUserFeedback,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
+
+export type ThemeRadioGroup = ThemeLabel &
+	ThemeUserFeedback & {
+		borderHover: string;
+		borderError: string;
+	};
 
 export type ThemeRadio = {
 	borderSelected: string;
@@ -14,10 +23,7 @@ export type ThemeRadio = {
 	fillSelected: string;
 	fillUnselected: string;
 	textLabel: string;
-	textOptional: string;
 	textSupporting: string;
-	textError: string;
-	textSuccess: string;
 };
 
 export const themeRadio: ThemeRadio = {
@@ -28,12 +34,15 @@ export const themeRadio: ThemeRadio = {
 	fillSelected: palette.brand[500],
 	fillUnselected: 'transparent',
 	textLabel: palette.neutral[7],
-	textOptional: palette.neutral[46],
 	textSupporting: palette.neutral[46],
-	textError: palette.error[400],
-	textSuccess: palette.success[400],
 };
 
+export const themeRadioGroup: ThemeRadioGroup = {
+	borderHover: palette.brand[500],
+	borderError: palette.error[400],
+	...themeUserFeedback,
+	...themeLabel,
+};
 export const themeRadioBrand: ThemeRadio = {
 	borderSelected: palette.neutral[100],
 	borderUnselected: palette.brand[800],
@@ -42,10 +51,7 @@ export const themeRadioBrand: ThemeRadio = {
 	fillSelected: palette.neutral[100],
 	fillUnselected: 'transparent',
 	textLabel: palette.neutral[100],
-	textOptional: palette.brand[800],
 	textSupporting: palette.brand[800],
-	textError: palette.error[500],
-	textSuccess: palette.success[500],
 };
 
 export const transformProviderTheme = (
