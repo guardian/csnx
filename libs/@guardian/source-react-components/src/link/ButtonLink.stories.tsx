@@ -68,23 +68,16 @@ RightIconButtonLinkDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const PrimaryIconButtonLinkCustomTheme: StoryFn<typeof ButtonLink> =
+export const PrimaryIconLinkCustomTheme: StoryFn<typeof ButtonLink> =
 	Template.bind({});
-PrimaryIconButtonLinkCustomTheme.args = {
+PrimaryIconLinkCustomTheme.args = {
 	theme: {
-		textPrimary: palette.news[400],
-		textPrimaryHover: palette.news[550],
+		textPrimary: palette.neutral[86],
+		textPrimaryHover: palette.brand[800],
 	},
 };
-
-// *****************************************************************************
-
-export const SecondaryIconButtonLinkCustomTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-SecondaryIconButtonLinkCustomTheme.args = {
-	priority: 'secondary',
-	theme: {
-		textSecondary: palette.opinion[400],
-		textSecondaryHover: palette.opinion[550],
+PrimaryIconLinkCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };
