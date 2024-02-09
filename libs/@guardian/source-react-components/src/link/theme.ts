@@ -14,6 +14,8 @@ export type LinkTheme = {
 	textSecondaryHover?: string;
 };
 
+/** @deprecated Use `themeLink` and component `theme` prop instead of emotion's `ThemeProvider` */
+
 export const linkThemeDefault: { link: LinkTheme } = {
 	link: {
 		textPrimary: palette.brand[500],
@@ -23,6 +25,8 @@ export const linkThemeDefault: { link: LinkTheme } = {
 	},
 };
 
+/** @deprecated Use `themeLinkBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
+
 export const linkThemeBrand: { link: LinkTheme } = {
 	link: {
 		textPrimary: palette.neutral[100],
@@ -30,6 +34,7 @@ export const linkThemeBrand: { link: LinkTheme } = {
 	},
 };
 
+/** @deprecated Use `themeLinkBrandAlt` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const linkThemeBrandAlt: { link: LinkTheme } = {
 	link: {
 		textPrimary: palette.neutral[7],
@@ -42,4 +47,14 @@ export const themeLink: ThemeLink = {
 	textPrimaryHover: palette.brand[500],
 	textSecondary: palette.neutral[7],
 	textSecondaryHover: palette.neutral[7],
+};
+
+export const themeLinkBrand: Partial<ThemeLink> = {
+	textPrimary: palette.neutral[100],
+	textPrimaryHover: palette.neutral[100],
+};
+
+export const themeLinkBrandAlt: Partial<ThemeLink> = {
+	textPrimary: palette.neutral[7],
+	textPrimaryHover: palette.neutral[7],
 };

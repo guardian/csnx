@@ -70,17 +70,17 @@ export const themeButtonReaderRevenueBrandAlt: Partial<ThemeButton> = {
 	borderTertiary: border.readerRevenueBrandAlt.ctaTertiary,
 };
 
-/** @deprecated Use `buttonReaderRevenueTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+/** @deprecated Use `themeButtonReaderRevenue` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeReaderRevenue: { button: Partial<ButtonTheme> } = {
 	button: themeButtonReaderRevenue,
 };
-/** @deprecated Use `buttonReaderRevenueBrandTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 
+/** @deprecated Use `themeButtonReaderRevenueBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeReaderRevenueBrand: { button: Partial<ButtonTheme> } = {
 	button: themeButtonReaderRevenueBrand,
 };
-/** @deprecated Use `buttonReaderRevenueBrandAltTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 
+/** @deprecated Use `themeButtonReaderRevenueBrandAlt` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeReaderRevenueBrandAlt: {
 	button: Partial<ButtonTheme>;
 } = {

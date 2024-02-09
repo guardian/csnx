@@ -22,7 +22,7 @@ export type ThemeCheckbox = {
 
 export type ThemeCheckboxGroup = ThemeLabel & ThemeUserFeedback;
 
-/** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+/** @deprecated Use `themeCheckbox` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeDefault = {
 	checkbox: {
 		border: palette.neutral[46],
@@ -37,7 +37,7 @@ export const checkboxThemeDefault = {
 	...userFeedbackThemeDefault,
 	...labelThemeDefault,
 };
-/** @deprecated Use `checkboxBrandTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+/** @deprecated Use `themeCheckboxBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeBrand = {
 	checkbox: {
 		border: palette.brand[800],
