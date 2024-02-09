@@ -6,8 +6,8 @@ import type { HTMLAttributes } from 'react';
 import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import { AccordionRowNoJS } from './AccordionRowNoJS';
-import { transformAccordionProviderTheme } from './shared';
 import {
 	accordionRow,
 	button,
@@ -21,7 +21,10 @@ import {
 	toggleLabel,
 } from './styles';
 import type { ThemeAccordion } from './theme';
-import { themeAccordion as defaultTheme } from './theme';
+import {
+	themeAccordion as defaultTheme,
+	transformProviderTheme,
+} from './theme';
 
 const visuallyHidden = css`
 	${_visuallyHidden}
@@ -69,13 +72,13 @@ export const AccordionRow = ({
 	const expand = () => setExpanded(true);
 	const [isBrowser, setIsBrowser] = useState(false);
 
-	const combineTheme = (providerTheme: Theme['accordion']): ThemeAccordion => {
-		return {
-			...defaultTheme,
-			...transformAccordionProviderTheme(providerTheme),
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme['accordion']) =>
+		mergeThemes<ThemeAccordion, Theme['accordion']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
 		expanded ? collapse() : expand();
 		onClick(event);
@@ -89,7 +92,7 @@ export const AccordionRow = ({
 		return (
 			<div
 				css={(providerTheme: Theme) => [
-					accordionRow(combineTheme(providerTheme.accordion)),
+					accordionRow(mergedTheme(providerTheme.accordion)),
 					cssOverrides,
 				]}
 			>
@@ -98,7 +101,7 @@ export const AccordionRow = ({
 					aria-expanded={expanded}
 					onClick={handleClick}
 					css={(providerTheme: Theme) => [
-						button(combineTheme(providerTheme.accordion)),
+						button(mergedTheme(providerTheme.accordion)),
 						expanded ? chevronIconUp : chevronIconDown,
 						!hideToggleLabel ? toggleIconWithLabel : '',
 					]}
@@ -112,7 +115,7 @@ export const AccordionRow = ({
 						) : (
 							<span
 								css={(providerTheme: Theme) =>
-									toggleLabel(combineTheme(providerTheme.accordion))
+									toggleLabel(mergedTheme(providerTheme.accordion))
 								}
 							>
 								{expanded ? (
@@ -131,7 +134,7 @@ export const AccordionRow = ({
 				<div
 					css={(providerTheme: Theme) =>
 						expanded
-							? expandedBody(combineTheme(providerTheme.accordion))
+							? expandedBody(mergedTheme(providerTheme.accordion))
 							: collapsedBody
 					}
 				>

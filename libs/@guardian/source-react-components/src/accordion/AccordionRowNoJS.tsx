@@ -3,8 +3,8 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import type { AccordionRowProps } from './AccordionRow';
-import { transformAccordionProviderTheme } from './shared';
 import {
 	accordionRow,
 	chevronIconDown,
@@ -18,7 +18,10 @@ import {
 	toggleLabel,
 } from './styles';
 import type { ThemeAccordion } from './theme';
-import { themeAccordion as defaultTheme } from './theme';
+import {
+	themeAccordion as defaultTheme,
+	transformProviderTheme,
+} from './theme';
 
 const visuallyHidden = css`
 	${_visuallyHidden}
@@ -38,17 +41,17 @@ export const AccordionRowNoJS = ({
 	theme,
 	...props
 }: Omit<AccordionRowProps, 'onClick'>): EmotionJSX.Element => {
-	const combineTheme = (providerTheme: Theme['accordion']): ThemeAccordion => {
-		return {
-			...defaultTheme,
-			...transformAccordionProviderTheme(providerTheme),
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme['accordion']) =>
+		mergeThemes<ThemeAccordion, Theme['accordion']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
 	return (
 		<div
 			css={(providerTheme: Theme) => [
-				accordionRow(combineTheme(providerTheme.accordion)),
+				accordionRow(mergedTheme(providerTheme.accordion)),
 				cssOverrides,
 			]}
 			{...props}
@@ -57,13 +60,13 @@ export const AccordionRowNoJS = ({
 				<input
 					type="checkbox"
 					css={(providerTheme: Theme) =>
-						noJsInput(combineTheme(providerTheme.accordion))
+						noJsInput(mergedTheme(providerTheme.accordion))
 					}
 					role="button"
 				/>
 				<div
 					css={(providerTheme: Theme) =>
-						noJsButton(combineTheme(providerTheme.accordion))
+						noJsButton(mergedTheme(providerTheme.accordion))
 					}
 					data-target="label"
 				>
@@ -79,7 +82,7 @@ export const AccordionRowNoJS = ({
 						>
 							<span
 								css={(providerTheme: Theme) => [
-									toggleLabel(combineTheme(providerTheme.accordion)),
+									toggleLabel(mergedTheme(providerTheme.accordion)),
 									hideToggleLabel ? visuallyHidden : '',
 								]}
 							>
@@ -97,7 +100,7 @@ export const AccordionRowNoJS = ({
 						>
 							<span
 								css={(providerTheme: Theme) => [
-									toggleLabel(combineTheme(providerTheme.accordion)),
+									toggleLabel(mergedTheme(providerTheme.accordion)),
 									hideToggleLabel ? visuallyHidden : '',
 								]}
 							>

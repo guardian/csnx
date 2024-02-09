@@ -3,6 +3,7 @@ import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import {
 	label,
 	labelText,
@@ -12,8 +13,8 @@ import {
 	radioContainer,
 	supportingText,
 } from './styles';
-import { ThemeRadio, themeRadio, transformProviderTheme } from './theme';
-import { mergeThemes } from '../utils/themes';
+import type { ThemeRadio } from './theme';
+import { themeRadio, transformProviderTheme } from './theme';
 
 export interface RadioProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -128,7 +129,7 @@ export const Radio = ({
 				cssOverrides,
 			]}
 			value={value}
-			defaultChecked={defaultChecked != null ? defaultChecked : undefined}
+			defaultChecked={defaultChecked ?? undefined}
 			checked={checked != null ? isChecked() : undefined}
 			{...props}
 		/>
@@ -156,6 +157,6 @@ export const Radio = ({
 	);
 
 	return (
-		<>{labelContent || supporting ? labelledRadioControl : radioControl}</>
+		<>{labelContent ?? supporting ? labelledRadioControl : radioControl}</>
 	);
 };

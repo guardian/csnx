@@ -8,6 +8,7 @@ import {
 } from '@guardian/source-foundations';
 import type { ReactElement } from 'react';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import type { ThemeLink } from './theme';
 import { themeLink as defaultTheme } from './theme';
 import type { IconSide, LinkPriority } from './types';
@@ -113,19 +114,14 @@ export const linkStyles = ({
 	cssOverrides?: SerializedStyles | SerializedStyles[];
 	theme?: Partial<ThemeLink>;
 }) => {
-	const combineThemes = (providerTheme: Theme['link']): ThemeLink => {
-		return {
-			...defaultTheme,
-			...providerTheme,
-			...theme,
-		};
-	};
+	const mergedTheme = (providerTheme: Theme['link']): ThemeLink =>
+		mergeThemes<ThemeLink, Theme['link']>(defaultTheme, theme, providerTheme);
 	return (
 		providerTheme: Theme,
 	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
 		link,
 		isButton ? buttonLink : '',
-		priorities[priority](combineThemes(providerTheme.link)),
+		priorities[priority](mergedTheme(providerTheme.link)),
 		iconSvg ? icon : '',
 		iconSvg ? iconSides[iconSide] : '',
 		cssOverrides,

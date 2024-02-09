@@ -3,7 +3,7 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import type { ReactNode } from 'react';
 import type { Theme } from '../@types/Theme';
-import { combineLabelThemes } from './shared';
+import { mergedTheme } from './shared';
 import { supportingText } from './styles';
 import type { ThemeLabel } from './theme';
 
@@ -23,7 +23,7 @@ export const SupportingText = ({
 	return (
 		<p
 			css={(providerTheme: Theme) => [
-				supportingText(combineLabelThemes(providerTheme.label, theme)),
+				supportingText(mergedTheme(providerTheme.label, theme)),
 				hideLabel ? visuallyHidden : '',
 			]}
 		>

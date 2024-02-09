@@ -7,6 +7,7 @@ import type {
 import { useState } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import {
 	choiceCard,
 	contentWrapper,
@@ -16,22 +17,11 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
-import { choiceCardTheme as defaultTheme } from './theme';
-
-export type ChoiceCardTheme = {
-	textUnselected: string;
-	textSelected: string;
-	textHover: string;
-	textError: string;
-	borderUnselected: string;
-	borderSelected: string;
-	borderHover: string;
-	borderError: string;
-	backgroundUnselected: string;
-	backgroundHover: string;
-	backgroundSelected: string;
-	backgroundTick: string;
-};
+import type { ThemeChoiceCard } from './theme';
+import {
+	themeChoiceCard as defaultTheme,
+	transformProviderTheme,
+} from './theme';
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -68,7 +58,7 @@ export interface ChoiceCardProps
 	/**
 	 * A component level theme to override the colour palette of the choice card component
 	 */
-	theme?: Partial<ChoiceCardTheme>;
+	theme?: Partial<ThemeChoiceCard>;
 }
 
 /**
@@ -103,38 +93,15 @@ export const ChoiceCard = ({
 	};
 
 	/** Transforms an old shaped `ThemeProvider` theme to ChoiceCardTheme  */
-	const transformOldProviderTheme = (
-		providerTheme: Theme['choiceCard'],
-	): Partial<ChoiceCardTheme> => {
-		const transformedTheme: Partial<ChoiceCardTheme> = {};
 
-		if (providerTheme?.textLabel) {
-			transformedTheme.textUnselected = providerTheme.textLabel;
-		}
-		if (providerTheme?.textChecked) {
-			transformedTheme.textSelected = providerTheme.textChecked;
-		}
-		if (providerTheme?.border) {
-			transformedTheme.borderUnselected = providerTheme.border;
-		}
-		if (providerTheme?.borderChecked) {
-			transformedTheme.borderSelected = providerTheme.borderChecked;
-		}
-		if (providerTheme?.backgroundChecked) {
-			transformedTheme.backgroundSelected = providerTheme.backgroundChecked;
-		}
-		return { ...transformedTheme, ...providerTheme };
-	};
+	const mergedTheme = (providerTheme: Theme['choiceCard']) =>
+		mergeThemes<ThemeChoiceCard, Theme['choiceCard']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
 
-	const combineThemes = (
-		providerTheme: Theme['choiceCard'],
-	): ChoiceCardTheme => {
-		return {
-			...defaultTheme,
-			...transformOldProviderTheme(providerTheme),
-			...theme,
-		};
-	};
 	// prevent the animation firing if a Choice Card has been checked by default
 	const [userChanged, setUserChanged] = useState(false);
 
@@ -142,7 +109,7 @@ export const ChoiceCard = ({
 		<>
 			<input
 				css={(providerTheme: Theme) => [
-					input(combineThemes(providerTheme.choiceCard)),
+					input(mergedTheme(providerTheme.choiceCard)),
 					userChanged ? tickAnimation : '',
 					cssOverrides,
 				]}
@@ -162,8 +129,8 @@ export const ChoiceCard = ({
 			/>
 			<label
 				css={(providerTheme: Theme) => [
-					choiceCard(combineThemes(providerTheme.choiceCard)),
-					error ? errorChoiceCard(combineThemes(providerTheme.choiceCard)) : '',
+					choiceCard(mergedTheme(providerTheme.choiceCard)),
+					error ? errorChoiceCard(mergedTheme(providerTheme.choiceCard)) : '',
 				]}
 				htmlFor={id}
 			>
@@ -173,7 +140,7 @@ export const ChoiceCard = ({
 				</div>
 				<span
 					css={(providerTheme: Theme) => [
-						tick(combineThemes(providerTheme.choiceCard)),
+						tick(mergedTheme(providerTheme.choiceCard)),
 					]}
 				/>
 			</label>

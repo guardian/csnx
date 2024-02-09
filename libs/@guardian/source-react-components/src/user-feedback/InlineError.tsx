@@ -1,7 +1,7 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { SvgAlertRound } from '../../vendor/icons/SvgAlertRound';
 import type { Theme } from '../@types/Theme';
-import { combineUserFeedbackThemes } from './shared';
+import { mergedTheme } from './shared';
 import { inlineError } from './styles';
 import type { UserFeedbackProps } from './types';
 
@@ -25,10 +25,7 @@ export const InlineError = ({
 	return (
 		<span
 			css={(providerTheme: Theme) => [
-				inlineError(
-					combineUserFeedbackThemes(providerTheme.userFeedback, theme),
-					size,
-				),
+				inlineError(mergedTheme(providerTheme.userFeedback, theme), size),
 				cssOverrides,
 			]}
 			role="alert"
