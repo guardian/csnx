@@ -38,7 +38,7 @@ jobs:
         with:
           # currently, you have to tag releases in git to get the action output to appear
           # https://github.com/changesets/action/issues/141
-          # publish: pnpm changeset publish --no-git-tag --snapshot canary
+          # publish: pnpm changeset publish --no-git-tag --tag canary
           publish: pnpm changeset publish --tag canary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
