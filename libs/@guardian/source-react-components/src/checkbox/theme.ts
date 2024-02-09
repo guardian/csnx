@@ -1,10 +1,9 @@
 import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
 import type { ThemeLabel } from '../label/theme';
-import { labelThemeBrand, labelThemeDefault, themeLabel } from '../label/theme';
+import { labelThemeBrand, labelThemeDefault } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
-	themeUserFeedback,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
@@ -52,11 +51,6 @@ export const checkboxThemeBrand = {
 	},
 	...userFeedbackThemeBrand,
 	...labelThemeBrand,
-};
-
-export const themeCheckboxGroup = {
-	label: themeLabel,
-	userFeedback: themeUserFeedback,
 };
 
 export const themeCheckbox: ThemeCheckbox = {
