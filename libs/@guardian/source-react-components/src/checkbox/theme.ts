@@ -4,8 +4,8 @@ import type { ThemeLabel } from '../label/theme';
 import {
 	labelThemeBrand,
 	labelThemeDefault,
-	themeLabelBrand,
 	themeLabel,
+	themeLabelBrand,
 } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {

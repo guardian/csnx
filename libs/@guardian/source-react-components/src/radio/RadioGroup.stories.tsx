@@ -1,14 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import RadioStories from './Radio.stories';
-import type { RadioGroupProps } from './RadioGroup';
 import { RadioGroup } from './RadioGroup';
-import {
-	ThemeRadio,
-	themeRadioBrand,
-	themeRadioGroup,
-	themeRadioGroupBrand,
-} from './theme';
+import { ThemeRadio, themeRadioBrand, themeRadioGroupBrand } from './theme';
 import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof RadioGroup> = {
