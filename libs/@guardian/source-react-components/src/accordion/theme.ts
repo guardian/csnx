@@ -22,6 +22,8 @@ export type ThemeAccordion = {
 	label: string;
 	ctaText: string;
 };
+
+/** @deprecated Use `themeAccordion` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const accordionThemeDefault = {
 	accordion: {
 		textPrimary: palette.neutral[7],

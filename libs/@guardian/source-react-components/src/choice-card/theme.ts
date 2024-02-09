@@ -19,7 +19,7 @@ export type ThemeChoiceCard = {
 	backgroundTick: string;
 };
 
-/** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+/** @deprecated Use `themeChoiceCard` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const choiceCardThemeDefault = {
 	choiceCard: {
 		textLabel: palette.neutral[46],
