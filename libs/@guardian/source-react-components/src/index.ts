@@ -60,7 +60,10 @@ export type {
 } from './choice-card/ChoiceCardGroup';
 export type { ChoiceCardProps } from './choice-card/ChoiceCard';
 export { themeChoiceCard } from './choice-card/theme';
-export type { ThemeChoiceCardGroup } from './choice-card/theme';
+export type {
+	ThemeChoiceCardGroup,
+	ThemeChoiceCard,
+} from './choice-card/theme';
 
 export { Footer } from './footer/Footer';
 export { BackToTop } from './footer/BackToTop';
@@ -233,7 +236,7 @@ export type { RadioGroupProps } from './radio/RadioGroup';
 export { Radio } from './radio/Radio';
 export type { RadioProps } from './radio/Radio';
 export { themeRadioGroup, themeRadio, themeRadioBrand } from './radio/theme';
-export type { ThemeRadioGroup } from './radio/theme';
+export type { ThemeRadioGroup, ThemeRadio } from './radio/theme';
 
 export { Option } from './select/Option';
 export type { OptionProps } from './select/Option';
