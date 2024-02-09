@@ -21,10 +21,7 @@ export type ThemeCheckbox = {
 	textIndeterminate: string;
 };
 
-export type ThemeCheckboxGroup = {
-	label: Partial<ThemeLabel>;
-	userFeedback: Partial<ThemeUserFeedback>;
-};
+export type ThemeCheckboxGroup = ThemeLabel & ThemeUserFeedback;
 
 /** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeDefault = {

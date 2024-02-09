@@ -69,7 +69,7 @@ export const CheckboxGroup = ({
 			supporting={supporting}
 			hideLabel={hideLabel}
 			optional={optional}
-			theme={theme?.label}
+			theme={theme}
 		/>
 	) : (
 		''
@@ -77,7 +77,7 @@ export const CheckboxGroup = ({
 
 	const message =
 		typeof error === 'string' ? (
-			<InlineError theme={theme?.userFeedback} id={descriptionId(groupId)}>
+			<InlineError theme={theme} id={descriptionId(groupId)}>
 				{error}
 			</InlineError>
 		) : (
