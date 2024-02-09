@@ -29,17 +29,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
       - uses: nrwl/nx-set-shas@v4
-
-      - run: pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup-node-env
 
       - run: make ${{ matrix.task }}
 
@@ -72,15 +63,7 @@ jobs:
         with:
           fetch-depth: 0 # for chromatic to work
 
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - run: pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup-node-env
 
       # This will just retrieve the output created in `validate` from Nx's build
       # cache. It's simpler than using github actions cache.
