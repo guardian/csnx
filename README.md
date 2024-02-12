@@ -27,6 +27,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/libs](libs/@guardian/libs)
 - [@guardian/newsletter-types](libs/@guardian/newsletter-types)
 - [@guardian/prettier](libs/@guardian/prettier)
+- [@guardian/source](libs/@guardian/source)
 - [@guardian/source-foundations](libs/@guardian/source-foundations)
 - [@guardian/source-react-components](libs/@guardian/source-react-components)
 - [@guardian/source-react-components-development-kitchen](libs/@guardian/source-react-components-development-kitchen)
@@ -45,19 +46,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 
 _You'll be prompted to install any missing requirements if they are needed..._
 
-### Editor setup
-
-#### [VS Code](https://code.visualstudio.com/)
-
-You will be prompted to install the recommended extensions when you open the repo.
-
-There is also a suggested settings file (./.vscode/settings.json.default) with some defaults you may useful. It covers project-specific enhancements, useful settings for common extensions etc.
-
-If you want to use any/all of them, create a copy of the file and remove the `.default` extension.
-
-> n.b. these are your personal settings for this repo, so add anything else you find useful and remove/change anything you don't like.
-
-## Running tasks
+## Tasks
 
 Root-level tasks are defined in the [`Makefile`](./Makefile).
 
@@ -69,6 +58,7 @@ Root-level tasks are defined in the [`Makefile`](./Makefile).
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
 - `make check-formatting` _check repo for formatting errors_
 - `make clean` _removes all build artifacts_
+- `make dev` _runs the dev targets for all projects in single instance_
 - `make e2e` _runs the e2e tests for all projects_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make lint` _checks all projects for lint errors_
@@ -77,18 +67,23 @@ Root-level tasks are defined in the [`Makefile`](./Makefile).
 - `make test` _runs the unit tests for all projects_
 - `make validate` _makes sure absolutely everything is working_
 
-You can also run individual project's Nx targets by running `make <target>`. <details><summary>Nx targets</summary>
+You can also run individual project's Nx targets by running `make <target>`:
+
+<details>
+<summary>List of all targets</summary>
 
 - `make csnx:build-storybook`
 - `make csnx:composed-storybooks`
 - `make csnx:project-storybooks`
 - `make csnx:storybooks`
 - `make @guardian/ab-core:build`
+- `make @guardian/ab-core:dev`
 - `make @guardian/ab-core:e2e`
 - `make @guardian/ab-core:fix`
 - `make @guardian/ab-core:lint`
 - `make @guardian/ab-core:test`
 - `make @guardian/ab-react:build`
+- `make @guardian/ab-react:dev`
 - `make @guardian/ab-react:e2e`
 - `make @guardian/ab-react:fix`
 - `make @guardian/ab-react:lint`
@@ -97,6 +92,7 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/browserslist-config:e2e`
 - `make @guardian/cobalt-plugin-ts:build`
 - `make @guardian/core-web-vitals:build`
+- `make @guardian/core-web-vitals:dev`
 - `make @guardian/core-web-vitals:e2e`
 - `make @guardian/core-web-vitals:fix`
 - `make @guardian/core-web-vitals:lint`
@@ -108,38 +104,46 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/eslint-config-typescript:build`
 - `make @guardian/eslint-config-typescript:e2e`
 - `make @guardian/eslint-plugin-source-foundations:build`
+- `make @guardian/eslint-plugin-source-foundations:dev`
 - `make @guardian/eslint-plugin-source-foundations:e2e`
 - `make @guardian/eslint-plugin-source-foundations:fix`
 - `make @guardian/eslint-plugin-source-foundations:lint`
 - `make @guardian/eslint-plugin-source-foundations:test`
 - `make @guardian/eslint-plugin-source-react-components:build`
+- `make @guardian/eslint-plugin-source-react-components:dev`
 - `make @guardian/eslint-plugin-source-react-components:e2e`
 - `make @guardian/eslint-plugin-source-react-components:fix`
 - `make @guardian/eslint-plugin-source-react-components:lint`
 - `make @guardian/eslint-plugin-source-react-components:test`
 - `make @guardian/identity-auth:build`
+- `make @guardian/identity-auth:dev`
 - `make @guardian/identity-auth:e2e`
 - `make @guardian/identity-auth:fix`
 - `make @guardian/identity-auth:lint`
 - `make @guardian/identity-auth:test`
 - `make @guardian/identity-auth-frontend:build`
+- `make @guardian/identity-auth-frontend:dev`
 - `make @guardian/identity-auth-frontend:e2e`
 - `make @guardian/identity-auth-frontend:fix`
 - `make @guardian/identity-auth-frontend:lint`
 - `make @guardian/identity-auth-frontend:test`
 - `make @guardian/libs:build`
+- `make @guardian/libs:dev`
 - `make @guardian/libs:e2e`
 - `make @guardian/libs:fix`
 - `make @guardian/libs:lint`
 - `make @guardian/libs:test`
 - `make @guardian/newsletter-types:build`
+- `make @guardian/newsletter-types:dev`
 - `make @guardian/newsletter-types:fix`
 - `make @guardian/newsletter-types:lint`
 - `make @guardian/newsletter-types:test`
 - `make @guardian/prettier:build`
 - `make @guardian/prettier:e2e`
+- `make @guardian/source:build`
 - `make @guardian/source-foundations:build`
 - `make @guardian/source-foundations:build-storybook`
+- `make @guardian/source-foundations:dev`
 - `make @guardian/source-foundations:e2e`
 - `make @guardian/source-foundations:fix`
 - `make @guardian/source-foundations:lint`
@@ -147,6 +151,7 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/source-foundations:test`
 - `make @guardian/source-react-components:build`
 - `make @guardian/source-react-components:build-storybook`
+- `make @guardian/source-react-components:dev`
 - `make @guardian/source-react-components:e2e`
 - `make @guardian/source-react-components:fix`
 - `make @guardian/source-react-components:lint`
@@ -154,6 +159,7 @@ You can also run individual project's Nx targets by running `make <target>`. <de
 - `make @guardian/source-react-components:test`
 - `make @guardian/source-react-components-development-kitchen:build`
 - `make @guardian/source-react-components-development-kitchen:build-storybook`
+- `make @guardian/source-react-components-development-kitchen:dev`
 - `make @guardian/source-react-components-development-kitchen:e2e`
 - `make @guardian/source-react-components-development-kitchen:fix`
 - `make @guardian/source-react-components-development-kitchen:lint`
@@ -208,14 +214,33 @@ This will create a "changeset": a `.md` file containing the release information.
 
 ## Troubleshooting
 
+### Editor setup
+
+#### [VS Code](https://code.visualstudio.com/)
+
+You will be prompted to install the recommended extensions when you open the repo.
+
+There is also a suggested settings file (./.vscode/settings.json.default) with some defaults you may useful. It covers project-specific enhancements, useful settings for common extensions etc.
+
+If you want to use any/all of them, create a copy of the file and remove the `.default` extension.
+
+> n.b. these are your personal settings for this repo, so add anything else you find useful and remove/change anything you don't like.
+
 ### Unable to commit
 
-If you get a `command not found` error or a message saying you're using the wrong version of Node when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.huskyrc` file and load your Node version manager there.
+If you get a `command not found` error or a message saying you're using the wrong version of Node when commiting using a GUI (VSCode, GitHub desktop etc), add a `~/.config/husky/init.sh` file and load your Node version manager there.
+
+> [!NOTE]
+> This used be located in `~/.huskyrc`. If you set that up before, you will need to recreate it at `~/.config/husky/init.sh`.
+>
+> ```sh
+> mkdir -p ~/.config/husky && cp ~/.huskyrc $_/init.sh
+> ```
 
 For example, if you use [`fnm`](https://github.com/Schniz/fnm):
 
 ```sh
-# ~/.huskyrc
+# ~/.config/husky/init.sh
 eval "$(fnm env)"
 fnm use
 ```
@@ -223,26 +248,26 @@ fnm use
 Or for [`asdf`](https://asdf-vm.com/):
 
 ```sh
-# ~/.huskyrc (installed with git)
+# ~/.config/husky/init.sh (installed with git)
 . $HOME/.asdf/asdf.sh
 ```
 
 ```sh
-# ~/.huskyrc (installed with brew on intel macs)
+# ~/.config/husky/init.sh (installed with brew on intel macs)
 . /usr/local/opt/asdf/libexec/asdf.sh
 ```
 
 ```sh
-# ~/.huskyrc (installed with brew on apple silicon)
+# ~/.config/husky/init.sh (installed with brew on apple silicon)
 . /opt/homebrew/opt/asdf/asdf.sh
 ```
 
 Or for [`nvm`](https://github.com/nvm-sh/nvm):
 
 ```sh
-# ~/.huskyrc
+# ~/.config/husky/init.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm use
 ```
 
-See https://typicode.github.io/husky/#/?id=command-not-found for more info.
+See https://typicode.github.io/husky/how-to.html for more info.

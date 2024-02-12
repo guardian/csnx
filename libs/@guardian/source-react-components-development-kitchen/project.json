@@ -52,8 +52,19 @@
 			],
 			"options": {
 				"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
+			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
+				"passWithNoTests": false,
+				"watch": true
 			}
 		},
 		"storybook": {

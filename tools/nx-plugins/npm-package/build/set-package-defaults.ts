@@ -4,7 +4,7 @@ import type * as SortPkgJson from 'sort-package-json';
 import type { JsonObject } from 'type-fest';
 import type * as WritePackage from 'write-pkg';
 import type { BuildExecutorOptions } from './schema';
-import type { Entries } from './index';
+import type { Exports } from './index';
 
 /**
  * THIS IS KLUDGE #ES_NODE_MODULES
@@ -22,7 +22,7 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
  */
 export const setPackageDefaults = async (
 	options: BuildExecutorOptions,
-	entries: Entries | undefined,
+	packageExports: Exports,
 ) => {
 	const { readPackage } = (await esmModuleImport(
 		'read-pkg',
@@ -60,13 +60,19 @@ export const setPackageDefaults = async (
 		};
 	}
 
-	if (entries) {
-		pkgDefaults.main = entries.cjs;
-		pkgDefaults.module = entries.esm;
-	} else if (!pkg.main) {
-		throw new Error(
-			"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
-		);
+	const numberOfExports = Object.keys(packageExports).length;
+
+	if (numberOfExports === 0) {
+		if (!pkg.main) {
+			throw new Error(
+				"You must add a 'main' field to your package.json, or pass an 'entry' option to the build executor",
+			);
+		}
+	} else if (numberOfExports === 1) {
+		pkg.main = packageExports['.']?.require;
+		pkg.module = packageExports['.']?.import;
+	} else {
+		pkg.exports = packageExports;
 	}
 
 	const { default: sortPkgJson } = (await esmModuleImport(

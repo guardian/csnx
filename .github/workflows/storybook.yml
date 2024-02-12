@@ -18,23 +18,19 @@ on:
     types: [completed]
 
 jobs:
-  on-success: # only run if CI is successful
+  publish-storybook:
     runs-on: ubuntu-latest
+
+    # only run if CI is successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     permissions:
       contents: write
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
 
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - run: pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup-node-env
 
       - name: Build root storybook
         run: pnpm nx run csnx:build-storybook

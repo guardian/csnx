@@ -1,10 +1,10 @@
 name: CI
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    types: [opened, labeled, synchronize]
+    types: [opened, synchronize]
 
 env:
   # The `accessToken` in `nx.json` is a read-only token for use in dev.
@@ -29,69 +29,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
       - uses: nrwl/nx-set-shas@v4
-
-      - run: pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup-node-env
 
       - run: make ${{ matrix.task }}
 
   chromatic:
-    # Kick Chromatic off only once all other steps have passed. This stops us
-    # wasting money running checks on PRs that are going to fail anyway.
-    # Chromatic is only run if the PR is labelled with `run_chromatic`, this is
-    # the `main` branch, or this is a Dependabot PR. For Dependabot PRs we then
-    # apply the `skip` flag as we don't want to create snapshots, but this
-    # ensures the UI tests are marked as passing allowing the PR to be merged.
+    needs: validate
+    uses: ./.github/workflows/chromatic.yml
     permissions:
       checks: write
-    needs: validate
+    secrets:
+      CHROMATIC_SOURCE_FOUNDATIONS_TOKEN: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
+      CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
+      CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}
     if: |
-      contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
       github.ref == 'refs/heads/main' ||
-      github.event.pull_request.user.login == 'dependabot[bot]'
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - lib: source-foundations
-            token: CHROMATIC_SOURCE_FOUNDATIONS_TOKEN
-          - lib: source-react-components
-            token: CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN
-          - lib: source-react-components-development-kitchen
-            token: CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # for chromatic to work
-
-      # enables use to use the cache in actions/setup-node
-      - uses: pnpm/action-setup@v2.4.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - run: pnpm install --frozen-lockfile
-
-      # This will just retrieve the output created in `validate` from Nx's build
-      # cache. It's simpler than using github actions cache.
-      - run: make build-storybooks
-
-      - uses: chromaui/action@v10
-        with:
-          projectToken: ${{ secrets[matrix.token] }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
-          storybookBaseDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
-          exitOnceUploaded: true
-          onlyChanged: '!(main)' # turbosnap on non-main branches
-          skip: ${{ github.event.pull_request.user.login == 'dependabot[bot]' || github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]' }}
+      contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||
+      github.event.pull_request.user.login == 'dependabot[bot]' ||
+      github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]'

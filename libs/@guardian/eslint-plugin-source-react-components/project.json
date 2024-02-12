@@ -50,8 +50,19 @@
 			],
 			"options": {
 				"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
-				"passWithNoTests": true,
+				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
+			}
+		},
+		"dev": {
+			"executor": "@nx/jest:jest",
+			"outputs": [
+				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
+			],
+			"options": {
+				"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
+				"passWithNoTests": false,
+				"watch": true
 			}
 		}
 	},

@@ -2,7 +2,7 @@
 	"name": "@csnx/eslint",
 	"private": true,
 	"dependencies": {
-		"@nx/eslint": "17.2.5",
+		"@nx/eslint": "18.0.2",
 		"typescript": "5.3.3"
 	},
 	"executors": "./executors.json"

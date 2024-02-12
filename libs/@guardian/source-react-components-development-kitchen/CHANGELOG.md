@@ -1,5 +1,21 @@
 # @guardian/source-react-components-development-kitchen
 
+## 17.0.0
+
+### Major Changes
+
+- ce1d2a2: Update file input error border width
+
+### Minor Changes
+
+- 9ef761a: Adds optional `size` prop to `NumericInput` component to mirror `TextInput` which it extends. `medium` is the default value if `size` is not set, matching current behaviour.
+
+### Patch Changes
+
+- Updated dependencies [6603b42]
+- Updated dependencies [9ef761a]
+  - @guardian/source-react-components@20.0.0
+
 ## 16.0.1
 
 ### Patch Changes

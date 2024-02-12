@@ -1,0 +1,20 @@
+# To save £££, we only run the Chromatic tests once the `run_chromatic` label is
+# applied. This workflow triggers Chromatic tests if the label is applied to a
+# PR.
+
+name: Chromatic
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  deploy:
+    if: contains(github.event.pull_request.labels.*.name, 'run_chromatic')
+    uses: ./.github/workflows/chromatic.yml
+    permissions:
+      checks: write
+    secrets:
+      CHROMATIC_SOURCE_FOUNDATIONS_TOKEN: ${{ secrets.CHROMATIC_SOURCE_FOUNDATIONS_TOKEN }}
+      CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN }}
+      CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN: ${{ secrets.CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN }}

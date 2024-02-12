@@ -1,10 +1,10 @@
 {
 	"name": "@guardian/eslint-plugin-source-foundations",
-	"version": "17.0.1",
+	"version": "17.0.2",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "6.18.0",
-		"@typescript-eslint/parser": "6.18.0",
+		"@typescript-eslint/eslint-plugin": "6.21.0",
+		"@typescript-eslint/parser": "6.21.0",
 		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
