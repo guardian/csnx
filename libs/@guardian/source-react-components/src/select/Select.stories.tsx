@@ -3,7 +3,6 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Option } from './Option';
 import type { SelectProps } from './Select';
 import { Select } from './Select';
-import { pathToFileURL } from 'url';
 
 const meta: Meta<typeof Select> = {
 	title: 'Select',
@@ -143,7 +142,7 @@ ErrorWithMessageCustomTheme.args = {
 		textLabel: palette.neutral[86],
 		textError: palette.error[500],
 		iconFill: palette.error[500],
-		border: palette.error[500],
+		borderError: palette.error[500],
 		backgroundInput: palette.neutral[20],
 	},
 };
