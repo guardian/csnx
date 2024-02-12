@@ -62,7 +62,6 @@ export type {
 } from './index';
 
 it('Should have exactly these exports', () => {
-	console.log(Object.keys(pkgExports).sort());
 	expect(Object.keys(pkgExports).sort()).toEqual([
 		'Accordion',
 		'AccordionRow',
