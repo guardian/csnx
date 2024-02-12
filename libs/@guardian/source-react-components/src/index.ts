@@ -195,7 +195,7 @@ export type { ThemeIcon } from './icons/theme';
 
 export type { InputSize } from './@types/InputSize';
 
-export { themeLabel, themeBrandLabel } from './label/theme';
+export { themeLabel, themeLabelBrand } from './label/theme';
 export type { ThemeLabel } from './label/theme';
 export { Label } from './label/Label';
 export type { LabelProps } from './label/types';
