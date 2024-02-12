@@ -36,4 +36,4 @@ export const themeAccordion: ThemeAccordion = {
 	text: palette.neutral[7],
 	border: palette.neutral[60],
 	ctaText: palette.neutral[7],
-};
+} as const;
