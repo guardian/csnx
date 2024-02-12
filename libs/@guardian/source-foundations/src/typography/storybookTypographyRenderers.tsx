@@ -1,6 +1,8 @@
+import { css } from '@emotion/react';
 import {
 	bodyObjectStyles,
 	fontWeights,
+	headline,
 	headlineObjectStyles,
 	textSansObjectStyles,
 } from '../index';
@@ -119,4 +121,68 @@ export const ItalicsRenderer = () => (
 			textSans regular
 		</li>
 	</ul>
+);
+
+/**
+ * Test code
+ */
+
+export const FontApiTest = () => (
+	<>
+		<ul
+			css={css`
+				list-style: none;
+			`}
+		>
+			<li
+				css={css`
+					${headline.xxxsmall()}
+				`}
+			>
+				headline.xxxsmall
+			</li>
+			<li
+				css={css`
+					${headline.xxsmall()}
+				`}
+			>
+				headline.xxsmall
+			</li>
+			<li
+				css={css`
+					${headline.xsmall()}
+				`}
+			>
+				headline.xsmall
+			</li>
+			<li
+				css={css`
+					${headline.small()}
+				`}
+			>
+				headline.small
+			</li>
+			<li
+				css={css`
+					${headline.medium()}
+				`}
+			>
+				headline.medium
+			</li>
+			<li
+				css={css`
+					${headline.large()}
+				`}
+			>
+				headline.large
+			</li>
+			<li
+				css={css`
+					${headline.xlarge()}
+				`}
+			>
+				headline.xlarge
+			</li>
+		</ul>
+	</>
 );
