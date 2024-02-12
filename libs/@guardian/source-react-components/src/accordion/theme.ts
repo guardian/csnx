@@ -35,7 +35,6 @@ export const transformProviderTheme = (
 		transformedTheme.textLabel = providerTheme.textPrimary;
 		transformedTheme.textBody = providerTheme.textPrimary;
 		transformedTheme.textCta = providerTheme.textPrimary;
-		transformedTheme.iconFill = providerTheme.textPrimary;
 	}
 	if (providerTheme?.borderPrimary) {
 		transformedTheme.border = providerTheme.borderPrimary;
