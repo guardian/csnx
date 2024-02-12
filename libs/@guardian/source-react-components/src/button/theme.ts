@@ -86,7 +86,7 @@ export const themeButton: ThemeButton = {
 	backgroundTertiaryHover: '#E5E5E5', // One-off colour variant
 	borderTertiary: palette.brand[400],
 	textSubdued: palette.brand[400],
-};
+} as const;
 
 export const themeButtonBrand: ThemeButton = {
 	textPrimary: palette.brand[400],
@@ -99,7 +99,7 @@ export const themeButtonBrand: ThemeButton = {
 	backgroundTertiaryHover: palette.brand[300],
 	borderTertiary: palette.neutral[100],
 	textSubdued: palette.neutral[100],
-};
+} as const;
 
 export const themeButtonBrandAlt: ThemeButton = {
 	textPrimary: palette.neutral[100],
@@ -112,4 +112,4 @@ export const themeButtonBrandAlt: ThemeButton = {
 	backgroundTertiaryHover: '#FFD213', // One-off colour variant
 	borderTertiary: palette.neutral[7],
 	textSubdued: palette.neutral[7],
-};
+} as const;

@@ -9,8 +9,6 @@ import {
 } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
-	themeUserFeedback,
-	themeUserFeedbackBrand,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
@@ -41,14 +39,13 @@ export const themeRadio: ThemeRadio = {
 	fillUnselected: 'transparent',
 	textLabel: palette.neutral[7],
 	textSupporting: palette.neutral[46],
-};
+} as const;
 
 export const themeRadioGroup: ThemeRadioGroup = {
 	borderHover: palette.brand[500],
 	borderError: palette.error[400],
 	...themeLabel,
-	...themeUserFeedback,
-};
+} as const;
 
 export const themeRadioBrand: ThemeRadio = {
 	borderSelected: palette.neutral[100],
@@ -59,14 +56,13 @@ export const themeRadioBrand: ThemeRadio = {
 	fillUnselected: 'transparent',
 	textLabel: palette.neutral[100],
 	textSupporting: palette.brand[800],
-};
+} as const;
 
 export const themeRadioGroupBrand: ThemeRadioGroup = {
 	borderHover: palette.neutral[100],
 	borderError: palette.error[500],
 	...themeLabelBrand,
-	...themeUserFeedbackBrand,
-};
+} as const;
 
 export const transformProviderTheme = (
 	providerTheme: Theme['radio'],
@@ -87,7 +83,6 @@ export const transformProviderTheme = (
 };
 
 /** @deprecated Use `themeRadio` and component `theme` prop instead of emotion's `ThemeProvider` */
-
 export const radioThemeDefault = {
 	radio: {
 		borderHover: palette.focus[400],
@@ -102,7 +97,6 @@ export const radioThemeDefault = {
 };
 
 /** @deprecated Use `themeRadioBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
-
 export const radioThemeBrand = {
 	radio: {
 		borderHover: palette.neutral[100],
