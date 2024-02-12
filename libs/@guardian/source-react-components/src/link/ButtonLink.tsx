@@ -39,7 +39,7 @@ export const ButtonLink = ({
 			})}
 			{...props}
 		>
-			{linkContents({ children, iconSvg, iconSide })}
+			{linkContents({ children, iconSvg, iconSide, theme })}
 		</button>
 	);
 };

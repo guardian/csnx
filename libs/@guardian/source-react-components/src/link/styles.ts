@@ -59,7 +59,6 @@ export const secondary = (link: ThemeLink): SerializedStyles => css`
 
 export const icon = css`
 	svg {
-		fill: currentColor;
 		/*
 		TODO: hardcoded bottom margin to vertically align
 		icons with text. This needs to be revisited when
