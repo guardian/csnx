@@ -2,14 +2,15 @@
 '@guardian/source-react-components': major
 ---
 
-- Added new Theming to component props
-- Deprecated Emotion themes
+- Added `theme` prop to support applying custom colour schemes to components with a complete or partial theme, avoiding the need for style overrides
+- Deprecated existing `ThemeProvider` themes
 
-new theme prop example usage
+`theme` prop example usage:
 
 ```tsx
-const myTheme: Partial<ChoiceCardTheme> = {backgroundSelected: palette.brand[500]}
-<ChoiceCard theme={myTheme}>
-  Select
-</ChoiceCard>
+const myTheme: Partial<ThemeChoiceCard> = {
+	backgroundSelected: palette.brand[500],
+};
+
+<ChoiceCard theme={myTheme}>Select</ChoiceCard>;
 ```
