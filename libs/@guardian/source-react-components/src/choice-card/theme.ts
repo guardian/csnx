@@ -38,7 +38,6 @@ export const themeChoiceCardGroup: ThemeChoiceCardGroup = {
 	...themeLabel,
 } as const;
 
-/** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 /** @deprecated Use `themeChoiceCard` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const choiceCardThemeDefault = {
 	choiceCard: {
