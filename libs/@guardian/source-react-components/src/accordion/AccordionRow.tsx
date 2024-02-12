@@ -128,7 +128,7 @@ export const AccordionRow = ({
 								)}
 							</span>
 						)}
-						<SvgChevronDownSingle />
+						<SvgChevronDownSingle theme={{ fill: theme?.iconFill }} />
 					</div>
 				</button>
 				<div

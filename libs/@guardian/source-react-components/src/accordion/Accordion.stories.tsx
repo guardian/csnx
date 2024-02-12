@@ -45,10 +45,11 @@ export const WithCTALabelsCustomTheme: StoryFn<typeof Accordion> =
 	Template.bind({});
 WithCTALabelsCustomTheme.args = {
 	theme: {
+		textCta: palette.neutral[86],
+		textLabel: palette.neutral[86],
+		textBody: palette.neutral[86],
 		border: palette.neutral[60],
-		text: palette.neutral[86],
-		label: palette.neutral[86],
-		ctaText: palette.neutral[86],
+		iconFill: palette.neutral[86],
 	},
 };
 WithCTALabelsCustomTheme.parameters = {
@@ -63,9 +64,11 @@ export const WithoutCTALabelsCustomTheme: StoryFn<typeof Accordion> =
 WithoutCTALabelsCustomTheme.args = {
 	hideToggleLabel: true,
 	theme: {
+		textLabel: palette.neutral[86],
+		textBody: palette.neutral[86],
+		textCta: palette.neutral[86],
 		border: palette.neutral[60],
-		text: palette.neutral[86],
-		label: palette.neutral[86],
+		iconFill: palette.neutral[86],
 	},
 };
 WithoutCTALabelsCustomTheme.parameters = {

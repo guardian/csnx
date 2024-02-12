@@ -34,7 +34,7 @@ const buttonStyles = css`
 
 export const button = (accordion: ThemeAccordion): SerializedStyles => css`
 	${buttonStyles};
-	color: ${accordion.label};
+	color: ${accordion.textCta};
 
 	/* user agent overrides */
 	background: none;
@@ -49,7 +49,7 @@ export const button = (accordion: ThemeAccordion): SerializedStyles => css`
 
 export const noJsButton = (accordion: ThemeAccordion): SerializedStyles => css`
 	${buttonStyles};
-	color: ${accordion.text};
+	color: ${accordion.textCta};
 `;
 
 export const labelText = css`
@@ -66,7 +66,7 @@ const expandedBodyStyles = (accordion: ThemeAccordion): SerializedStyles => css`
 	Otherwise, for short content we'll always see a flash
 	of a scrollbar as the row height is transitioning
 	*/
-	color: ${accordion.text};
+	color: ${accordion.textBody};
 	max-height: 500px;
 	transition: max-height ${transitions.medium};
 	overflow: hidden;
@@ -128,7 +128,7 @@ export const toggle = css`
 
 export const toggleLabel = (accordion: ThemeAccordion): SerializedStyles => css`
 	${textSans.small({ fontWeight: 'bold' })};
-	color: ${accordion.ctaText};
+	color: ${accordion.textLabel};
 	${until.tablet} {
 		${visuallyHidden}
 	}
