@@ -9,7 +9,6 @@ import {
 } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
-	themeUserFeedbackBrand,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';
@@ -63,7 +62,6 @@ export const themeRadioGroupBrand: ThemeRadioGroup = {
 	borderHover: palette.neutral[100],
 	borderError: palette.error[500],
 	...themeLabelBrand,
-	...themeUserFeedbackBrand,
 } as const;
 
 export const transformProviderTheme = (

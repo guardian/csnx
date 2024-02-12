@@ -240,7 +240,12 @@ export { RadioGroup } from './radio/RadioGroup';
 export type { RadioGroupProps } from './radio/RadioGroup';
 export { Radio } from './radio/Radio';
 export type { RadioProps } from './radio/Radio';
-export { themeRadioGroup, themeRadio, themeRadioBrand } from './radio/theme';
+export {
+	themeRadio,
+	themeRadioBrand,
+	themeRadioGroup,
+	themeRadioGroupBrand,
+} from './radio/theme';
 export type { ThemeRadioGroup, ThemeRadio } from './radio/theme';
 
 export { Option } from './select/Option';
