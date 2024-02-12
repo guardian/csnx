@@ -24,4 +24,4 @@ export const themeTextArea: ThemeTextArea = {
 	border: palette.neutral[46],
 	borderError: palette.error[400],
 	borderSuccess: palette.success[400],
-};
+} as const;

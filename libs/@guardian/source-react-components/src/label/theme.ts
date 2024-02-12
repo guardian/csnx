@@ -7,6 +7,8 @@ export type ThemeLabel = {
 	textError: string;
 	textSuccess: string;
 };
+
+/** @deprecated Use `themeLabel` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const labelThemeDefault = {
 	label: {
 		textLabel: palette.neutral[7],
@@ -17,6 +19,7 @@ export const labelThemeDefault = {
 	},
 };
 
+/** @deprecated Use `themeLabelBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const labelThemeBrand = {
 	label: {
 		textLabel: palette.neutral[100],
@@ -33,7 +36,7 @@ export const themeLabel = {
 	textSupporting: palette.neutral[46],
 	textError: palette.error[400],
 	textSuccess: palette.success[400],
-};
+} as const;
 
 export const themeLabelBrand = {
 	textLabel: palette.neutral[100],
@@ -41,4 +44,4 @@ export const themeLabelBrand = {
 	textSupporting: palette.brand[800],
 	textError: palette.error[500],
 	textSuccess: palette.success[500],
-};
+} as const;
