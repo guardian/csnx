@@ -7,6 +7,7 @@ export type ThemeLink = {
 	textSecondaryHover: string;
 };
 
+/** @deprecated Use `Partial<ThemeLink>` and component `theme` prop instead of `LinkTheme` */
 export type LinkTheme = {
 	textPrimary: string;
 	textPrimaryHover: string;
