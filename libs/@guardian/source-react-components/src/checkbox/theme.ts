@@ -59,7 +59,7 @@ export const themeCheckboxGroupBrand: ThemeCheckboxGroup = {
 	...themeLabelBrand,
 } as const;
 
-/** @deprecated Use `checkboxTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
+/** @deprecated Use `themeCheckbox` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const checkboxThemeDefault = {
 	checkbox: {
 		border: palette.neutral[46],
