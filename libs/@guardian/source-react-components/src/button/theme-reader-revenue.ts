@@ -51,7 +51,7 @@ export const themeButtonReaderRevenue: Partial<ThemeButton> = {
 	textTertiary: text.readerRevenue.ctaTertiary,
 	backgroundTertiaryHover: background.readerRevenue.ctaTertiaryHover,
 	borderTertiary: border.readerRevenue.ctaTertiary,
-};
+} as const;
 export const themeButtonReaderRevenueBrand: Partial<ThemeButton> = {
 	textPrimary: text.readerRevenueBrand.ctaPrimary,
 	backgroundPrimary: background.readerRevenueBrand.ctaPrimary,
@@ -59,7 +59,7 @@ export const themeButtonReaderRevenueBrand: Partial<ThemeButton> = {
 	textTertiary: text.readerRevenueBrand.ctaTertiary,
 	backgroundTertiaryHover: background.readerRevenueBrand.ctaTertiaryHover,
 	borderTertiary: border.readerRevenueBrand.ctaTertiary,
-};
+} as const;
 
 export const themeButtonReaderRevenueBrandAlt: Partial<ThemeButton> = {
 	textPrimary: text.readerRevenueBrandAlt.ctaPrimary,
@@ -68,7 +68,7 @@ export const themeButtonReaderRevenueBrandAlt: Partial<ThemeButton> = {
 	textTertiary: text.readerRevenueBrandAlt.ctaTertiary,
 	backgroundTertiaryHover: background.readerRevenueBrandAlt.ctaTertiaryHover,
 	borderTertiary: border.readerRevenueBrandAlt.ctaTertiary,
-};
+} as const;
 
 /** @deprecated Use `themeButtonReaderRevenue` and component `theme` prop instead of emotion's `ThemeProvider` */
 export const buttonThemeReaderRevenue: { button: Partial<ButtonTheme> } = {

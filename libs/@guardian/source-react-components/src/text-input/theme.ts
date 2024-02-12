@@ -26,7 +26,7 @@ export const themeTextInput: ThemeTextInput = {
 	border: palette.neutral[46],
 	borderError: palette.error[400],
 	borderSuccess: palette.success[400],
-};
+} as const;
 
 export const transformProviderTheme = (
 	providerTheme: Theme['textInput'],

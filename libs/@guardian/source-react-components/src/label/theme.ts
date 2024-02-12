@@ -36,7 +36,7 @@ export const themeLabel = {
 	textSupporting: palette.neutral[46],
 	textError: palette.error[400],
 	textSuccess: palette.success[400],
-};
+} as const;
 
 export const themeLabelBrand = {
 	textLabel: palette.neutral[100],
@@ -44,4 +44,4 @@ export const themeLabelBrand = {
 	textSupporting: palette.brand[800],
 	textError: palette.error[500],
 	textSuccess: palette.success[500],
-};
+} as const;

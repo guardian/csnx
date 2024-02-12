@@ -59,7 +59,7 @@ export type {
 	ChoiceCardGroupProps,
 } from './choice-card/ChoiceCardGroup';
 export type { ChoiceCardProps } from './choice-card/ChoiceCard';
-export { themeChoiceCard } from './choice-card/theme';
+export { themeChoiceCard, themeChoiceCardGroup } from './choice-card/theme';
 export type {
 	ThemeChoiceCardGroup,
 	ThemeChoiceCard,

@@ -47,14 +47,14 @@ export const themeLink: ThemeLink = {
 	textPrimaryHover: palette.brand[500],
 	textSecondary: palette.neutral[7],
 	textSecondaryHover: palette.neutral[7],
-};
+} as const;
 
 export const themeLinkBrand: Partial<ThemeLink> = {
 	textPrimary: palette.neutral[100],
 	textPrimaryHover: palette.neutral[100],
-};
+} as const;
 
 export const themeLinkBrandAlt: Partial<ThemeLink> = {
 	textPrimary: palette.neutral[7],
 	textPrimaryHover: palette.neutral[7],
-};
+} as const;

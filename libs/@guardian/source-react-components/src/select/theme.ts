@@ -48,7 +48,7 @@ export const themeSelect: ThemeSelect = {
 	borderError: palette.error[400],
 	borderSuccess: palette.success[400],
 	iconFill: palette.neutral[7],
-};
+} as const;
 
 export const transformProviderTheme = (
 	providerTheme: Theme['select'],

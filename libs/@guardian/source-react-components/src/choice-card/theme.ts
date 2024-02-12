@@ -2,10 +2,7 @@ import { palette } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
 import { themeLabel, type ThemeLabel } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';
-import {
-	themeUserFeedback,
-	userFeedbackThemeDefault,
-} from '../user-feedback/theme';
+import { userFeedbackThemeDefault } from '../user-feedback/theme';
 
 export type ThemeChoiceCard = {
 	textUnselected: string;
@@ -39,8 +36,7 @@ export const themeChoiceCard: ThemeChoiceCard = {
 
 export const themeChoiceCardGroup: ThemeChoiceCardGroup = {
 	...themeLabel,
-	...themeUserFeedback,
-};
+} as const;
 
 /** @deprecated Use `choiceCardTheme` and component `theme` prop instead of emotion's `ThemeProvider` */
 /** @deprecated Use `themeChoiceCard` and component `theme` prop instead of emotion's `ThemeProvider` */
