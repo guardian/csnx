@@ -3,6 +3,7 @@ import { SvgAlertRound } from '../../vendor/icons/SvgAlertRound';
 import type { Theme } from '../@types/Theme';
 import { mergedTheme } from './shared';
 import { inlineError } from './styles';
+import { themeUserFeedback } from './theme';
 import type { UserFeedbackProps } from './types';
 
 /**
@@ -31,7 +32,9 @@ export const InlineError = ({
 			role="alert"
 			{...props}
 		>
-			<SvgAlertRound />
+			<SvgAlertRound
+				theme={{ fill: theme?.textError ?? themeUserFeedback.textError }}
+			/>
 			{children}
 		</span>
 	);
