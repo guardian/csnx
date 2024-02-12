@@ -1,4 +1,4 @@
-import { breakpoints } from '@guardian/source-foundations';
+import { breakpoints, palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ChoiceCard } from './ChoiceCard';
@@ -351,3 +351,58 @@ UnControlledSingleSelectDefaultTheme.args = {
 	multi: false,
 };
 UnControlledSingleSelectDefaultTheme.storyName = 'Un-controlled Single Select';
+
+// *****************************************************************************
+
+export const WithSupportingCustomTheme: StoryFn<typeof ChoiceCardGroup> = (
+	args: ChoiceCardGroupProps,
+) => {
+	const themeChoiceCard = {
+		textUnselected: palette.neutral[86],
+		borderUnselected: palette.neutral[86],
+		backgroundUnselected: palette.neutral[20],
+		textSelected: palette.brand[400],
+		borderSelected: palette.brand[800],
+		backgroundSelected: palette.neutral[100],
+		textHover: palette.brand[800],
+		borderHover: palette.brand[800],
+		backgroundHover: palette.neutral[20],
+		backgroundTick: palette.brand[400],
+	};
+	return (
+		<ChoiceCardGroup {...args}>
+			<ChoiceCard
+				id="abc1"
+				value="option-1"
+				label="Option 1"
+				key={1}
+				theme={themeChoiceCard}
+			/>
+			<ChoiceCard
+				id="abc2"
+				value="option-2"
+				label="Option 2"
+				key={2}
+				theme={themeChoiceCard}
+			/>
+			<ChoiceCard
+				id="abc3"
+				value="option-3"
+				label="Option 3"
+				key={3}
+				theme={themeChoiceCard}
+			/>
+		</ChoiceCardGroup>
+	);
+};
+WithSupportingCustomTheme.args = {
+	theme: {
+		textLabel: palette.neutral[86],
+		textSupporting: palette.neutral[60],
+	},
+};
+WithSupportingCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};

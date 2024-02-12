@@ -411,11 +411,18 @@ IsLoadingLabelHidden.args = {
 	hideLabel: true,
 };
 
-export const CustomThemeButton: StoryFn<typeof Button> = Template.bind({});
-CustomThemeButton.args = {
+// *****************************************************************************
+
+export const CustomTheme: StoryFn<typeof Button> = Template.bind({});
+CustomTheme.args = {
 	theme: {
-		backgroundPrimary: palette.news[100],
-		backgroundPrimaryHover: palette.news[200],
-		textPrimary: palette.opinion[400],
+		textPrimary: palette.brand[400],
+		backgroundPrimary: palette.brandAlt[400],
+		backgroundPrimaryHover: palette.brandAlt[200],
+	},
+};
+CustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };

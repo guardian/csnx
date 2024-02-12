@@ -107,13 +107,19 @@ UnlabelledDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const CustomTheme: StoryFn<typeof Radio> = Template.bind({});
-CustomTheme.args = {
+export const DefaultCustomTheme: StoryFn<typeof Radio> = Template.bind({});
+DefaultCustomTheme.args = {
 	theme: {
-		fillUnselected: palette.lifestyle[500],
-		fillSelected: palette.lifestyle[400],
-		borderSelected: palette.lifestyle[300],
-		borderHover: palette.lifestyle[400],
-		textLabel: palette.lifestyle[400],
+		fillSelected: palette.brand[800],
+		fillUnselected: palette.neutral[20],
+		borderSelected: palette.brand[800],
+		borderUnselected: palette.neutral[60],
+		borderHover: palette.brand[800],
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };

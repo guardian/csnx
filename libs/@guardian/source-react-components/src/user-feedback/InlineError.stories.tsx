@@ -72,8 +72,15 @@ InlineErrorSmallBrandTheme.parameters = {
 	theme: userFeedbackThemeBrand,
 };
 
+// *****************************************************************************
+
 export const InlineErrorCustomTheme: StoryFn<typeof InlineError> =
 	Template.bind({});
 InlineErrorCustomTheme.args = {
-	theme: { textError: palette.brandAlt[300] },
+	theme: { textError: palette.error[500] },
+};
+InlineErrorCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

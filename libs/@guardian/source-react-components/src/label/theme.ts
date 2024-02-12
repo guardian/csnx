@@ -38,7 +38,7 @@ export const themeLabel = {
 	textSuccess: palette.success[400],
 };
 
-export const themeBrandLabel = {
+export const themeLabelBrand = {
 	textLabel: palette.neutral[100],
 	textOptional: palette.brand[800],
 	textSupporting: palette.brand[800],

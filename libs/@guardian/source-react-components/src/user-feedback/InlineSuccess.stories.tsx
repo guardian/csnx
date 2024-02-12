@@ -54,8 +54,15 @@ InlineSuccessSmallBrandTheme.parameters = {
 	theme: userFeedbackThemeBrand,
 };
 
+// *****************************************************************************
+
 export const InlineSuccessCustomTheme: StoryFn<typeof InlineSuccess> =
 	Template.bind({});
 InlineSuccessCustomTheme.args = {
-	theme: { textSuccess: palette.sport[400] },
+	theme: { textSuccess: palette.success[500] },
+};
+InlineSuccessCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

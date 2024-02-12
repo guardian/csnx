@@ -190,22 +190,19 @@ UnderlineHoverTextSans.args = {
 	icon: undefined,
 };
 
+// *****************************************************************************
+
 export const PrimaryIconLinkCustomTheme: StoryFn<typeof Link> = Template.bind(
 	{},
 );
 PrimaryIconLinkCustomTheme.args = {
 	theme: {
-		textPrimary: palette.news[400],
-		textPrimaryHover: palette.news[500],
+		textPrimary: palette.neutral[86],
+		textPrimaryHover: palette.brand[800],
 	},
 };
-
-export const SecondaryIconLinkCustomTheme: StoryFn<typeof Link> = Template.bind(
-	{},
-);
-SecondaryIconLinkCustomTheme.args = {
-	theme: {
-		textSecondary: palette.news[400],
-		textSecondaryHover: palette.news[500],
+PrimaryIconLinkCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
 	},
 };
