@@ -88,7 +88,7 @@ export const AccordionRowNoJS = ({
 							>
 								Show<span css={visuallyHidden}> more</span>
 							</span>
-							<SvgChevronDownSingle />
+							<SvgChevronDownSingle theme={{ fill: theme?.iconFill }} />
 						</div>
 						<div
 							css={[
