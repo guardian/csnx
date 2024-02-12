@@ -49,7 +49,12 @@ export { CheckboxGroup } from './checkbox/CheckboxGroup';
 export type { CheckboxGroupProps } from './checkbox/CheckboxGroup';
 export { Checkbox } from './checkbox/Checkbox';
 export type { CheckboxProps } from './checkbox/Checkbox';
-export { themeCheckbox, themeCheckboxBrand } from './checkbox/theme';
+export {
+	themeCheckbox,
+	themeCheckboxBrand,
+	themeCheckboxGroup,
+	themeCheckboxGroupBrand,
+} from './checkbox/theme';
 export type { ThemeCheckbox } from './checkbox/theme';
 
 export { ChoiceCardGroup } from './choice-card/ChoiceCardGroup';
