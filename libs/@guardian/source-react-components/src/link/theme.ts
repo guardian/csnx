@@ -15,7 +15,6 @@ export type LinkTheme = {
 };
 
 /** @deprecated Use `themeLink` and component `theme` prop instead of emotion's `ThemeProvider` */
-
 export const linkThemeDefault: { link: LinkTheme } = {
 	link: {
 		textPrimary: palette.brand[500],
@@ -26,7 +25,6 @@ export const linkThemeDefault: { link: LinkTheme } = {
 };
 
 /** @deprecated Use `themeLinkBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
-
 export const linkThemeBrand: { link: LinkTheme } = {
 	link: {
 		textPrimary: palette.neutral[100],

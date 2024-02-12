@@ -42,7 +42,6 @@ export const transformProviderTheme = (
 };
 
 /** @deprecated Use `themeTextInput` and component `theme` prop instead of emotion's `ThemeProvider` */
-
 export const textInputThemeDefault = {
 	textInput: {
 		textUserInput: palette.neutral[7],
