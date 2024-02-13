@@ -185,11 +185,11 @@ SupportingTextCustomTheme.args = {
 	supporting:
 		'Please keep comments respectful and abide by the community guidelines.',
 	theme: {
-		text: palette.neutral[86],
+		textUserInput: palette.neutral[86],
 		textLabel: palette.neutral[86],
 		textSupporting: palette.neutral[60],
 		border: palette.neutral[60],
-		background: palette.neutral[20],
+		backgroundInput: palette.neutral[20],
 	},
 };
 SupportingTextCustomTheme.parameters = {
@@ -208,7 +208,7 @@ ErrorWithMessageCustomTheme.args = {
 		textLabel: palette.neutral[86],
 		textError: palette.error[500],
 		borderError: palette.error[500],
-		background: palette.neutral[20],
+		backgroundInput: palette.neutral[20],
 	},
 };
 ErrorWithMessageCustomTheme.parameters = {

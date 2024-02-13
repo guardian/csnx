@@ -20,11 +20,7 @@ import {
 	widthFluid,
 } from './styles';
 import type { InputSize } from '../@types/InputSize';
-import {
-	ThemeTextInput,
-	themeTextInput,
-	transformProviderTheme,
-} from './theme';
+import { ThemeTextInput, themeTextInput } from './theme';
 import { mergeThemes } from '../utils/themes';
 
 export type Width = 30 | 10 | 4;
@@ -117,7 +113,6 @@ export const TextInput = ({
 			themeTextInput,
 			theme,
 			providerTheme.textInput,
-			transformProviderTheme,
 		);
 	return (
 		<>

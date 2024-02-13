@@ -31,8 +31,8 @@ export const textArea = (
 ): SerializedStyles => css`
 	box-sizing: border-box;
 	${textAreaSize[size]};
-	color: ${textArea.text};
-	background-color: ${textArea.background};
+	color: ${textArea.textUserInput};
+	background-color: ${textArea.backgroundInput};
 	border: 1px solid ${textArea.border};
 	border-radius: 4px;
 	padding: ${space[2]}px ${space[2]}px 0 ${space[2]}px;

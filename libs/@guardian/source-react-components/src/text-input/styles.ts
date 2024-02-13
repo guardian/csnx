@@ -43,8 +43,8 @@ export const textInput = (
 ): SerializedStyles => css`
 	box-sizing: border-box;
 	${inputSize[size]};
-	color: ${textInput.text};
-	background-color: ${textInput.background};
+	color: ${textInput.textUserInput};
+	background-color: ${textInput.backgroundInput};
 	border: 1px solid ${textInput.border};
 	border-radius: 4px;
 	padding: 0 ${space[2]}px;
