@@ -38,7 +38,7 @@ export const Link = ({
 			})}
 			{...props}
 		>
-			{linkContents({ children, iconSvg, iconSide, theme })}
+			{linkContents({ children, iconSvg, iconSide })}
 		</a>
 	);
 };

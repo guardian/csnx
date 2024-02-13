@@ -24,7 +24,6 @@ export const ButtonLink = ({
 	iconSide = 'left',
 	cssOverrides,
 	children,
-	theme,
 	...props
 }: ButtonLinkProps): EmotionJSX.Element => {
 	return (
@@ -35,11 +34,10 @@ export const ButtonLink = ({
 				iconSvg,
 				iconSide,
 				cssOverrides,
-				theme,
 			})}
 			{...props}
 		>
-			{linkContents({ children, iconSvg, iconSide, theme })}
+			{linkContents({ children, iconSvg, iconSide })}
 		</button>
 	);
 };
