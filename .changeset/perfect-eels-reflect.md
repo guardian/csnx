@@ -1,5 +1,5 @@
 ---
-'@guardian/source-react-components': patch
+'@guardian/source-react-components': major
 ---
 
 Updated dependencies
