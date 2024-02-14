@@ -63,12 +63,7 @@ export const FileTypeValidation: StoryFn<typeof FileInput> = () => {
 
 export const FileSizeValidation: StoryFn<typeof FileInput> = () => {
 	return (
-		<FileInput
-			id="file-input"
-			label="Upload a file"
-			supporting="Only supports very very small images"
-			maxFileSize={1}
-		/>
+		<FileInput id="file-input" label="Upload a file" maxFileSize={5_000_000} />
 	);
 };
 
