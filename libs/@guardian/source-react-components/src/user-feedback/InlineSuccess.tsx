@@ -3,7 +3,6 @@ import { SvgTickRound } from '../../vendor/icons/SvgTickRound';
 import type { Theme } from '../@types/Theme';
 import { mergedTheme } from './shared';
 import { inlineSuccess } from './styles';
-import { themeUserFeedback } from './theme';
 import type { UserFeedbackProps } from './types';
 
 /**
@@ -31,9 +30,7 @@ export const InlineSuccess = ({
 		role="alert"
 		{...props}
 	>
-		<SvgTickRound
-			theme={{ fill: theme?.textSuccess ?? themeUserFeedback.textSuccess }}
-		/>
+		<SvgTickRound />
 		{children}
 	</span>
 );
