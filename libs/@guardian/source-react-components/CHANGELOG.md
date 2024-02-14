@@ -1,5 +1,13 @@
 # @guardian/source-react-components
 
+## 22.0.0
+
+### Major Changes
+
+- 93eff4d: Updated dependencies
+
+  - @guardian/source-foundations@14.1.4
+
 ## 21.0.0
 
 ### Major Changes
