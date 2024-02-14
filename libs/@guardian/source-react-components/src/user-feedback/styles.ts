@@ -9,6 +9,7 @@ const inlineMessage = css`
 	align-items: flex-start;
 
 	svg {
+		fill: currentColor;
 		/* we don't want the SVG to change size depending on available space */
 		flex: none;
 
