@@ -6,8 +6,8 @@
 		"@babel/core": "7.23.6",
 		"@emotion/react": "11.11.1",
 		"@guardian/libs": "16.0.0",
-		"@guardian/source-foundations": "14.0.0",
-		"@guardian/source-react-components": "20.0.0",
+		"@guardian/source-foundations": "14.1.4",
+		"@guardian/source-react-components": "22.0.0",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
 		"tslib": "2.6.2",
@@ -16,8 +16,8 @@
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
 		"@guardian/libs": "^16.0.0",
-		"@guardian/source-foundations": "^14.0.0",
-		"@guardian/source-react-components": "^20.0.0",
+		"@guardian/source-foundations": "^14.1.4",
+		"@guardian/source-react-components": "^22.0.0",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
