@@ -1,4 +1,4 @@
-import { breakpoints } from '@guardian/source-foundations';
+import { breakpoints, palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { InlineError } from './InlineError';
 import { userFeedbackThemeBrand } from './theme';
@@ -70,4 +70,17 @@ InlineErrorSmallBrandTheme.parameters = {
 		default: 'brandBackground.primary',
 	},
 	theme: userFeedbackThemeBrand,
+};
+
+// *****************************************************************************
+
+export const InlineErrorCustomTheme: StoryFn<typeof InlineError> =
+	Template.bind({});
+InlineErrorCustomTheme.args = {
+	theme: { textError: palette.error[500] },
+};
+InlineErrorCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof TextArea> = {
 	title: 'TextArea',
@@ -174,6 +175,46 @@ export const SuccessWithMessageSmallDefaultTheme: StoryFn<typeof TextArea> =
 SuccessWithMessageSmallDefaultTheme.args = {
 	success: 'success',
 	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SupportingTextCustomTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+SupportingTextCustomTheme.args = {
+	supporting:
+		'Please keep comments respectful and abide by the community guidelines.',
+	theme: {
+		textUserInput: palette.neutral[86],
+		textLabel: palette.neutral[86],
+		textSupporting: palette.neutral[60],
+		border: palette.neutral[60],
+		backgroundInput: palette.neutral[20],
+	},
+};
+SupportingTextCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageCustomTheme: StoryFn<typeof TextArea> =
+	Template.bind({});
+ErrorWithMessageCustomTheme.args = {
+	error: 'error',
+	theme: {
+		textLabel: palette.neutral[86],
+		textError: palette.error[500],
+		borderError: palette.error[500],
+		backgroundInput: palette.neutral[20],
+	},
+};
+ErrorWithMessageCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };
 
 // *****************************************************************************

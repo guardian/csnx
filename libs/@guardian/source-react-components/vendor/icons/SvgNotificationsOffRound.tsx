@@ -3,9 +3,9 @@
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-import type { IconProps } from '../../src/@types/Icons';
+import type { IconProps } from '../../src';
 
-const Svg = ({ size }: IconProps): EmotionJSX.Element => (
+const Svg = ({ size, theme }: IconProps): EmotionJSX.Element => (
 	<svg
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
@@ -18,16 +18,18 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 			fillRule="evenodd"
 			clipRule="evenodd"
 			d="M12 21.167a9.167 9.167 0 1 0 0-18.334 9.167 9.167 0 0 0 0 18.334ZM12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10ZM6.836 11.995c0 1.328.467 2.545 1.217 3.529l-.258.258A4.872 4.872 0 0 1 6 11.995c0-1.537.7-2.89 1.795-3.787l.258.259c-.75.983-1.217 2.2-1.217 3.528Zm10.303 0c0-1.328-.43-2.545-1.217-3.528l.283-.259A4.872 4.872 0 0 1 18 11.995c0 1.537-.7 2.89-1.795 3.787l-.283-.258c.787-.984 1.217-2.2 1.217-3.529Zm-8.545 0c0 .787.234 1.488.64 2.066l-.332.32a3.314 3.314 0 0 1-.984-2.386c0-.934.357-1.795.984-2.385l.332.307a3.617 3.617 0 0 0-.64 2.078Zm6.812 0c0-.787-.234-1.487-.627-2.078l.307-.307c.627.59.996 1.45.996 2.385 0 .935-.369 1.759-.996 2.386l-.307-.32a3.632 3.632 0 0 0 .627-2.066Zm-1.439 0A1.957 1.957 0 0 1 12 13.963a1.957 1.957 0 0 1-1.967-1.968c0-1.094.873-1.967 1.967-1.967s1.967.873 1.967 1.967Zm-.737 0c0-.676-.566-1.23-1.23-1.23-.7 0-1.23.554-1.23 1.23 0 .677.53 1.23 1.23 1.23.664 0 1.23-.553 1.23-1.23Z"
+			fill={theme?.fill}
 		/>
 	</svg>
 );
 
 export const SvgNotificationsOffRound = ({
 	size,
+	theme,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
 	<>
-		<Svg size={size} />
+		<Svg size={size} theme={theme} />
 		{isAnnouncedByScreenReader ? (
 			<span
 				css={css`

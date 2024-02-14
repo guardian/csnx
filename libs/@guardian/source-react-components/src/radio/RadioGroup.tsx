@@ -8,7 +8,10 @@ import { Inline } from '../inline/Inline';
 import { Legend } from '../label/Legend';
 import { Stack } from '../stack/Stack';
 import { InlineError } from '../user-feedback/InlineError';
+import { mergeThemes } from '../utils/themes';
 import { fieldset } from './styles';
+import type { ThemeRadioGroup } from './theme';
+import { themeRadioGroup } from './theme';
 
 type Orientation = 'vertical' | 'horizontal';
 
@@ -36,6 +39,10 @@ export interface RadioGroupProps
 	 * If passed, error styling should applies to this radio group. The string appears as an inline error message.
 	 */
 	error?: string;
+	/**
+	 * Partial or complete theme to override radio button's colour palette
+	 */
+	theme?: Partial<ThemeRadioGroup>;
 }
 
 /**
@@ -58,16 +65,24 @@ export const RadioGroup = ({
 	error,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: RadioGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
-		<Legend text={label} supporting={supporting} hideLabel={hideLabel} />
+		<Legend
+			text={label}
+			supporting={supporting}
+			hideLabel={hideLabel}
+			theme={theme}
+		/>
 	) : (
 		''
 	);
 	const message = error && (
-		<InlineError id={descriptionId(groupId)}>{error}</InlineError>
+		<InlineError id={descriptionId(groupId)} theme={theme}>
+			{error}
+		</InlineError>
 	);
 
 	const radioContainers = (
@@ -90,11 +105,21 @@ export const RadioGroup = ({
 		</>
 	);
 
+	const mergedTheme = (providerTheme: Theme) =>
+		mergeThemes<ThemeRadioGroup, Theme['radio']>(
+			themeRadioGroup,
+			theme,
+			providerTheme.radio,
+		);
+
 	return (
 		<fieldset
 			aria-invalid={!!error}
 			id={groupId}
-			css={(theme: Theme) => [fieldset(theme.radio), cssOverrides]}
+			css={(providerTheme: Theme) => [
+				fieldset(mergedTheme(providerTheme)),
+				cssOverrides,
+			]}
 			{...props}
 		>
 			{legend}

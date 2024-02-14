@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { TextInput } from './TextInput';
 import type { TextInputProps } from './TextInput';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof TextInput> = {
 	title: 'TextInput',
@@ -223,6 +224,45 @@ ConstraintSmallDefaultTheme.args = {
 	title: '11 digit phone number',
 	type: 'tel',
 	size: 'small',
+};
+
+// *****************************************************************************
+
+export const SupportingTextCustomTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+SupportingTextCustomTheme.args = {
+	supporting: 'alex@example.com',
+	theme: {
+		textUserInput: palette.neutral[86],
+		textLabel: palette.neutral[86],
+		textSupporting: palette.neutral[60],
+		border: palette.neutral[60],
+		backgroundInput: palette.neutral[20],
+	},
+};
+SupportingTextCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageCustomTheme: StoryFn<typeof TextInput> =
+	Template.bind({});
+ErrorWithMessageCustomTheme.args = {
+	error: 'error',
+	theme: {
+		textLabel: palette.neutral[86],
+		textError: palette.error[500],
+		borderError: palette.error[500],
+		backgroundInput: palette.neutral[20],
+	},
+};
+ErrorWithMessageCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };
 
 // *****************************************************************************

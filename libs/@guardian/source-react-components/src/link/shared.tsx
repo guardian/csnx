@@ -19,9 +19,19 @@ export const linkContents = ({
 
 	if (iconSvg) {
 		if (iconSide === 'left') {
-			linkContents.unshift(spacer, cloneElement(iconSvg, { key: 'svg' }));
+			linkContents.unshift(
+				spacer,
+				cloneElement(iconSvg, {
+					key: 'svg',
+				}),
+			);
 		} else {
-			linkContents.push(spacer, cloneElement(iconSvg, { key: 'svg' }));
+			linkContents.push(
+				spacer,
+				cloneElement(iconSvg, {
+					key: 'svg',
+				}),
+			);
 		}
 	}
 

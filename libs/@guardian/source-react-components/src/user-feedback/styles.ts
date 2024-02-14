@@ -2,14 +2,13 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { remHeight, remWidth, textSans } from '@guardian/source-foundations';
 import type { InputSize } from '../@types/InputSize';
-import { userFeedbackThemeDefault } from './theme';
+import type { ThemeUserFeedback } from './theme';
 
 const inlineMessage = css`
 	display: flex;
 	align-items: flex-start;
 
 	svg {
-		fill: currentColor;
 		/* we don't want the SVG to change size depending on available space */
 		flex: none;
 
@@ -45,7 +44,7 @@ const inlineMessageSize: {
 };
 
 export const inlineError = (
-	userFeedback = userFeedbackThemeDefault.userFeedback,
+	userFeedback: ThemeUserFeedback,
 	size: InputSize,
 ): SerializedStyles => css`
 	${inlineMessage};
@@ -54,7 +53,7 @@ export const inlineError = (
 `;
 
 export const inlineSuccess = (
-	userFeedback = userFeedbackThemeDefault.userFeedback,
+	userFeedback: ThemeUserFeedback,
 	size: InputSize,
 ): SerializedStyles => css`
 	${inlineMessage};

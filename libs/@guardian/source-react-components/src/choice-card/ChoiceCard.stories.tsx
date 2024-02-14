@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCamera } from '../../vendor/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
@@ -69,4 +70,30 @@ IconDefaultTheme.args = {
 	label: 'Camera',
 	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
 	icon: 'JSX element',
+};
+
+// *****************************************************************************
+
+export const IconCustomTheme: StoryFn<typeof ChoiceCard> = Template.bind({});
+IconCustomTheme.args = {
+	label: 'Camera',
+	// @ts-expect-error - Storybook maps 'JSX element' to <em>Option 1</em>
+	icon: 'JSX element',
+	theme: {
+		textUnselected: palette.neutral[86],
+		borderUnselected: palette.neutral[86],
+		backgroundUnselected: palette.neutral[20],
+		textSelected: palette.brand[400],
+		borderSelected: palette.brand[800],
+		backgroundSelected: palette.neutral[100],
+		textHover: palette.brand[800],
+		borderHover: palette.brand[800],
+		backgroundHover: palette.neutral[20],
+		backgroundTick: palette.brand[400],
+	},
+};
+IconCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

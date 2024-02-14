@@ -3,9 +3,9 @@
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-import type { IconProps } from '../../src/@types/Icons';
+import type { IconProps } from '../../src';
 
-const Svg = ({ size }: IconProps): EmotionJSX.Element => (
+const Svg = ({ size, theme }: IconProps): EmotionJSX.Element => (
 	<svg
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
@@ -18,16 +18,18 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 			fillRule="evenodd"
 			clipRule="evenodd"
 			d="M18.404 1 4.397 15.2l2.121 2.149 2.122 2.15L20.759 7.215l-4.24-4.298.73-.74 4.24 4.298 1.187-1.204L18.405 1Zm-3.622 5.71-9.38 9.507.67.679 9.38-9.506-.67-.68ZM3.69 15.915 2.63 16.992 2 21.369l.554.561 4.32-.639 1.058-1.077-4.243-4.3Z"
+			fill={theme?.fill}
 		/>
 	</svg>
 );
 
 export const SvgEdit = ({
 	size,
+	theme,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
 	<>
-		<Svg size={size} />
+		<Svg size={size} theme={theme} />
 		{isAnnouncedByScreenReader ? (
 			<span
 				css={css`
