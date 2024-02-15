@@ -2,7 +2,7 @@ import { breakpoints, palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { InlineError } from './InlineError';
 import { userFeedbackThemeBrand } from './theme';
-import type { UserFeedbackProps } from './types';
+import type { UserFeedbackProps } from './userFeedbackTypes';
 
 const meta: Meta<typeof InlineError> = {
 	title: 'InlineError',
