@@ -2,8 +2,10 @@ import { css } from '@emotion/react';
 import {
 	bodyObjectStyles,
 	fontWeights,
+	fonts,
 	headline,
 	headlineObjectStyles,
+	lineHeights,
 	textSansObjectStyles,
 } from '../index';
 import type { Category, FontScaleFunction, FontWeight } from './types';
@@ -127,7 +129,58 @@ export const ItalicsRenderer = () => (
  * Test code
  */
 
-export const FontApiTest = () => (
+const headlineMed = () => `
+	font-family: ${fonts.headline};
+	line-height: ${lineHeights.tight};
+	font-weight: ${fontWeights.medium};
+`;
+
+export const headlineMed14 = () => `
+	${headlineMed()};
+	font-size: 14px;
+`;
+
+export const headlineMed17 = () => `
+	${headlineMed()};
+	font-size: 17px;
+`;
+
+export const headlineMed20 = () => `
+	${headlineMed()};
+	font-size: 20px;
+`;
+
+export const headlineMed24 = () => `
+	${headlineMed()};
+	font-size: 24px;
+`;
+
+export const headlineMed28 = () => `
+	${headlineMed()};
+	font-size: 28px;
+`;
+
+export const headlineMed34 = () => `
+	${headlineMed()};
+	font-size: 34px;
+`;
+
+export const headlineMed42 = () => `
+	${headlineMed()};
+	font-size: 42px;
+`;
+
+export const headlineMed50 = () => `
+	${headlineMed()};
+	font-size: 50px;
+`;
+
+export const headlineMed70 = () => `
+	${headlineMed()};
+	font-size: 70px;
+`;
+
+export const HeadlineTypographyTokens = () => (
 	<>
 		<ul
 			css={css`
@@ -136,52 +189,66 @@ export const FontApiTest = () => (
 		>
 			<li
 				css={css`
-					${headline.xxxsmall()}
+					${headlineMed14()}
 				`}
 			>
-				headline.xxxsmall
+				headline.med.14
 			</li>
 			<li
 				css={css`
-					${headline.xxsmall()}
+					${headlineMed17()}
 				`}
 			>
-				headline.xxsmall
+				headline.med.17
 			</li>
 			<li
 				css={css`
-					${headline.xsmall()}
+					${headlineMed20()}
 				`}
 			>
-				headline.xsmall
+				headline.med.20
 			</li>
 			<li
 				css={css`
-					${headline.small()}
+					${headlineMed24()}
 				`}
 			>
-				headline.small
+				headline.med.24
 			</li>
 			<li
 				css={css`
-					${headline.medium()}
+					${headlineMed28()}
 				`}
 			>
-				headline.medium
+				headline.med.28
 			</li>
 			<li
 				css={css`
-					${headline.large()}
+					${headlineMed34()}
 				`}
 			>
-				headline.large
+				headline.med.34
 			</li>
 			<li
 				css={css`
-					${headline.xlarge()}
+					${headlineMed42()}
 				`}
 			>
-				headline.xlarge
+				headline.med.42
+			</li>
+			<li
+				css={css`
+					${headlineMed50()}
+				`}
+			>
+				headline.med.50
+			</li>
+			<li
+				css={css`
+					${headlineMed70()}
+				`}
+			>
+				headline.med.70
 			</li>
 		</ul>
 	</>
