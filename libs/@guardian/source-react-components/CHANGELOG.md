@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 22.0.1
+
+### Patch Changes
+
+- 7de7e01: Fix issue with types in build
+
 ## 22.0.0
 
 ### Major Changes
