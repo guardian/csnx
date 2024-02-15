@@ -1,5 +1,11 @@
 # @guardian/eslint-plugin-source-foundations
 
+## 18.0.0
+
+### Major Changes
+
+- 145ba2a: Updated dependencies
+
 ## 17.0.2
 
 ### Patch Changes

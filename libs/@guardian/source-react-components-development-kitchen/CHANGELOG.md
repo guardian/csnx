@@ -1,5 +1,12 @@
 # @guardian/source-react-components-development-kitchen
 
+## 18.0.0
+
+### Major Changes
+
+- 145ba2a: Updated dependencies
+- 6cc6c8c: Displays a warning about the file size limit on uploads if a max file size has been provided.
+
 ## 17.0.0
 
 ### Major Changes
