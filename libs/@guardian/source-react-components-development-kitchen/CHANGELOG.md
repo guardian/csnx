@@ -5,6 +5,7 @@
 ### Major Changes
 
 - 145ba2a: Updated dependencies
+  - @guardian/source-react-components@22.0.0
 - 6cc6c8c: Displays a warning about the file size limit on uploads if a max file size has been provided.
 
 ## 17.0.0

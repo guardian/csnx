@@ -5,6 +5,7 @@
 ### Major Changes
 
 - 145ba2a: Updated dependencies
+  - @guardian/source-foundations@14.1.4
 
 ## 17.0.2
 

@@ -5,6 +5,8 @@
 ### Major Changes
 
 - 145ba2a: Updated dependencies
+  - @guardian/source-foundations@14.1.4
+  - @guardian/source-react-components@22.0.0
 
 ## 22.0.1
 
