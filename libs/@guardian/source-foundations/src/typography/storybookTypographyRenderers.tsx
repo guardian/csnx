@@ -2,13 +2,21 @@ import { css } from '@emotion/react';
 import {
 	bodyObjectStyles,
 	fontWeights,
-	fonts,
-	headline,
 	headlineObjectStyles,
-	lineHeights,
 	textSansObjectStyles,
 } from '../index';
 import type { Category, FontScaleFunction, FontWeight } from './types';
+import {
+	headlineMed14,
+	headlineMed17,
+	headlineMed20,
+	headlineMed24,
+	headlineMed28,
+	headlineMed34,
+	headlineMed42,
+	headlineMed50,
+	headlineMed70,
+} from './presets';
 
 type FontFunctions = {
 	[key in Category]: FontScaleFunction;
@@ -128,57 +136,6 @@ export const ItalicsRenderer = () => (
 /**
  * Test code
  */
-
-const headlineMed = () => `
-	font-family: ${fonts.headline};
-	line-height: ${lineHeights.tight};
-	font-weight: ${fontWeights.medium};
-`;
-
-export const headlineMed14 = () => `
-	${headlineMed()};
-	font-size: 14px;
-`;
-
-export const headlineMed17 = () => `
-	${headlineMed()};
-	font-size: 17px;
-`;
-
-export const headlineMed20 = () => `
-	${headlineMed()};
-	font-size: 20px;
-`;
-
-export const headlineMed24 = () => `
-	${headlineMed()};
-	font-size: 24px;
-`;
-
-export const headlineMed28 = () => `
-	${headlineMed()};
-	font-size: 28px;
-`;
-
-export const headlineMed34 = () => `
-	${headlineMed()};
-	font-size: 34px;
-`;
-
-export const headlineMed42 = () => `
-	${headlineMed()};
-	font-size: 42px;
-`;
-
-export const headlineMed50 = () => `
-	${headlineMed()};
-	font-size: 50px;
-`;
-
-export const headlineMed70 = () => `
-	${headlineMed()};
-	font-size: 70px;
-`;
 
 export const HeadlineTypographyTokens = () => (
 	<>
