@@ -1,5 +1,13 @@
 # @guardian/source-react-components-development-kitchen
 
+## 19.0.0
+
+### Major Changes
+
+- b4b6940: Updated dependencies
+
+  - @guardian/source-react-components@22.0.1
+
 ## 18.0.0
 
 ### Major Changes
