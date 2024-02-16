@@ -3,9 +3,9 @@
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-import type { IconProps } from '../../src/@types/Icons';
+import type { IconProps } from '../../src';
 
-const Svg = ({ size }: IconProps): EmotionJSX.Element => (
+const Svg = ({ size, theme }: IconProps): EmotionJSX.Element => (
 	<svg
 		width={size ? iconSize[size] : undefined}
 		height={undefined}
@@ -14,17 +14,24 @@ const Svg = ({ size }: IconProps): EmotionJSX.Element => (
 		focusable={false}
 		aria-hidden={true}
 	>
-		<path d="M2.571 4 1 5.699l9.952 7.926h2.096L23 5.699 21.429 4H2.57Z" />
-		<path d="M1 17.625v-9.5l9.952 7h2.096l9.952-7v9.5l-1.571 1.5H2.57L1 17.625Z" />
+		<path
+			d="M2.571 4 1 5.699l9.952 7.926h2.096L23 5.699 21.429 4H2.57Z"
+			fill={theme?.fill}
+		/>
+		<path
+			d="M1 17.625v-9.5l9.952 7h2.096l9.952-7v9.5l-1.571 1.5H2.57L1 17.625Z"
+			fill={theme?.fill}
+		/>
 	</svg>
 );
 
 export const SvgEnvelope = ({
 	size,
+	theme,
 	isAnnouncedByScreenReader = false,
 }: IconProps): EmotionJSX.Element => (
 	<>
-		<Svg size={size} />
+		<Svg size={size} theme={theme} />
 		{isAnnouncedByScreenReader ? (
 			<span
 				css={css`

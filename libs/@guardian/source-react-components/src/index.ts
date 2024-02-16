@@ -4,24 +4,25 @@ export type { AccordionProps } from './accordion/Accordion';
 export { Accordion } from './accordion/Accordion';
 export { AccordionRow } from './accordion/AccordionRow';
 export type { AccordionRowProps } from './accordion/AccordionRow';
-export { accordionThemeDefault } from './accordion/theme';
+export { themeAccordion } from './accordion/theme';
+export type { ThemeAccordion } from './accordion/theme';
 
 export { Button } from './button/Button';
 export { LinkButton } from './button/LinkButton';
 export type { LinkButtonProps } from './button/LinkButton';
 export {
-	buttonThemeReaderRevenue,
-	buttonThemeReaderRevenueBrand,
-	buttonThemeReaderRevenueBrandAlt,
+	themeButtonReaderRevenue,
+	themeButtonReaderRevenueBrand,
+	themeButtonReaderRevenueBrandAlt,
 } from './button/theme-reader-revenue';
 export type { ButtonProps } from './button/Button';
 export type { ButtonPriority, IconSide, Size } from './button/types';
 export {
-	buttonThemeBrand,
-	buttonThemeBrandAlt,
-	buttonThemeDefault,
+	themeButton,
+	themeButtonBrand,
+	themeButtonBrandAlt,
 } from './button/theme';
-export type { ButtonTheme } from './button/theme';
+export type { ThemeButton } from './button/theme';
 
 export { SvgGuardianLogo } from './brand/SvgGuardianLogo';
 export type { SvgGuardianLogoProps } from './brand/SvgGuardianLogo';
@@ -48,7 +49,13 @@ export { CheckboxGroup } from './checkbox/CheckboxGroup';
 export type { CheckboxGroupProps } from './checkbox/CheckboxGroup';
 export { Checkbox } from './checkbox/Checkbox';
 export type { CheckboxProps } from './checkbox/Checkbox';
-export { checkboxThemeBrand, checkboxThemeDefault } from './checkbox/theme';
+export {
+	themeCheckbox,
+	themeCheckboxBrand,
+	themeCheckboxGroup,
+	themeCheckboxGroupBrand,
+} from './checkbox/theme';
+export type { ThemeCheckbox } from './checkbox/theme';
 
 export { ChoiceCardGroup } from './choice-card/ChoiceCardGroup';
 export { ChoiceCard } from './choice-card/ChoiceCard';
@@ -57,7 +64,11 @@ export type {
 	ChoiceCardGroupProps,
 } from './choice-card/ChoiceCardGroup';
 export type { ChoiceCardProps } from './choice-card/ChoiceCard';
-export { choiceCardThemeDefault } from './choice-card/theme';
+export { themeChoiceCard, themeChoiceCardGroup } from './choice-card/theme';
+export type {
+	ThemeChoiceCardGroup,
+	ThemeChoiceCard,
+} from './choice-card/theme';
 
 export { Footer } from './footer/Footer';
 export { BackToTop } from './footer/BackToTop';
@@ -185,10 +196,12 @@ export { SvgTextSmall } from '../vendor/icons/SvgTextSmall';
 export { SvgUpload } from '../vendor/icons/SvgUpload';
 
 export type { IconProps, IconSize } from './@types/Icons';
+export type { ThemeIcon } from './icons/theme';
 
 export type { InputSize } from './@types/InputSize';
 
-export { labelThemeDefault, labelThemeBrand } from './label/theme';
+export { themeLabel, themeLabelBrand } from './label/theme';
+export type { ThemeLabel } from './label/theme';
 export { Label } from './label/Label';
 export type { LabelProps } from './label/types';
 export { Legend } from './label/Legend';
@@ -215,11 +228,8 @@ export type { TilesProps } from './tiles/Tiles';
 export { Inline } from './inline/Inline';
 export type { InlineProps } from './inline/Inline';
 
-export {
-	linkThemeDefault,
-	linkThemeBrand,
-	linkThemeBrandAlt,
-} from './link/theme';
+export { themeLink, themeLinkBrand, themeLinkBrandAlt } from './link/theme';
+export type { ThemeLink } from './link/theme';
 export type { LinkPriority } from './link/types';
 export { Link } from './link/Link';
 export type { LinkProps } from './link/Link';
@@ -230,13 +240,20 @@ export { RadioGroup } from './radio/RadioGroup';
 export type { RadioGroupProps } from './radio/RadioGroup';
 export { Radio } from './radio/Radio';
 export type { RadioProps } from './radio/Radio';
-export { radioThemeBrand, radioThemeDefault } from './radio/theme';
+export {
+	themeRadio,
+	themeRadioBrand,
+	themeRadioGroup,
+	themeRadioGroupBrand,
+} from './radio/theme';
+export type { ThemeRadioGroup, ThemeRadio } from './radio/theme';
 
 export { Option } from './select/Option';
 export type { OptionProps } from './select/Option';
 export { Select } from './select/Select';
 export type { SelectProps } from './select/Select';
-export { selectThemeDefault } from './select/theme';
+export { themeSelect } from './select/theme';
+export type { ThemeSelect } from './select/theme';
 
 export { TextArea } from './text-area/TextArea';
 export type { TextAreaProps } from './text-area/TextArea';
@@ -244,12 +261,17 @@ export type { TextAreaProps } from './text-area/TextArea';
 export { TextInput } from './text-input/TextInput';
 export type { TextInputProps } from './text-input/TextInput';
 
-export { textInputThemeDefault } from './text-input/theme';
+export { themeTextArea } from './text-area/theme';
+export type { ThemeTextArea } from './text-area/theme';
+
+export { themeTextInput } from './text-input/theme';
+export type { ThemeTextInput } from './text-input/theme';
 
 export { InlineError } from './user-feedback/InlineError';
 export { InlineSuccess } from './user-feedback/InlineSuccess';
-export type { UserFeedbackProps } from './user-feedback/types';
+export type { UserFeedbackProps } from './user-feedback/userFeedbackTypes';
 export {
-	userFeedbackThemeBrand,
-	userFeedbackThemeDefault,
+	themeUserFeedback,
+	themeUserFeedbackBrand,
 } from './user-feedback/theme';
+export type { ThemeUserFeedback } from './user-feedback/theme';

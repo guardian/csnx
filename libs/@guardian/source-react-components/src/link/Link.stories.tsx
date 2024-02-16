@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { headline, textSans } from '@guardian/source-foundations';
+import { headline, palette, textSans } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../../vendor/icons/SvgExternal';
 import { Link } from './Link';
@@ -188,4 +188,21 @@ export const UnderlineHoverTextSans: StoryFn<typeof Link> =
 
 UnderlineHoverTextSans.args = {
 	icon: undefined,
+};
+
+// *****************************************************************************
+
+export const PrimaryIconLinkCustomTheme: StoryFn<typeof Link> = Template.bind(
+	{},
+);
+PrimaryIconLinkCustomTheme.args = {
+	theme: {
+		textPrimary: palette.neutral[86],
+		textPrimaryHover: palette.brand[800],
+	},
+};
+PrimaryIconLinkCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

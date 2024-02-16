@@ -18,6 +18,21 @@ const createBabelConfig = ({ retainFill }: { retainFill: boolean }) => {
 				attributes: ['fill'],
 			},
 		]);
+		plugins.push([
+			'@svgr/babel-plugin-add-jsx-attribute',
+			{
+				elements: ['path'],
+				attributes: [
+					{
+						name: 'fill',
+						value: 'theme?.fill',
+						spread: false,
+						literal: true,
+						position: 'end',
+					},
+				],
+			},
+		]);
 	}
 
 	// replace viewbox with legacy 30x30 viewbox
@@ -56,11 +71,28 @@ export const createIconComponent = async ({
 	// SVGR template
 	// https://react-svgr.com/docs/node-api/
 	const template: Config['template'] = (variables, { tpl }) => {
+		if (!retainFill) {
+			return tpl`
+			import { css } from '@emotion/react';
+			import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
+			import type { IconProps } from '../../src';
+
+			${variables.imports};
+
+			const ${variables.componentName} = ({
+				size,
+				theme,
+			}: IconProps): EmotionJSX.Element => (
+				${variables.jsx}
+			);
+		  `;
+		}
 		return tpl`
 			import { css } from '@emotion/react';
 			import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-			import type { IconProps } from '../../src/@types/Icons';
+			import type { IconProps } from '../../src';
 
 			${variables.imports};
 
@@ -135,11 +167,11 @@ export const createIconComponent = async ({
 
 	const iconComponentExport = `
 		export const ${iconComponentName} = ({
-			size,
+			size,${!retainFill ? '\ntheme,' : ''}
 			isAnnouncedByScreenReader = false,
 		}: IconProps): EmotionJSX.Element => (
 			<>
-				<${svgComponentName} size={size} />
+				<${svgComponentName} size={size} ${!retainFill ? 'theme={theme}' : ''} />
 				{isAnnouncedByScreenReader ? (
 					<span
 						css={css\`

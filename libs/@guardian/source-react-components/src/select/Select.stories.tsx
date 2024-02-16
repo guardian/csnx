@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Option } from './Option';
 import type { SelectProps } from './Select';
@@ -110,3 +111,43 @@ SupportingErrorTextDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
+export const SupportingTextCustomTheme: StoryFn<typeof Select> = Template.bind(
+	{},
+);
+SupportingTextCustomTheme.args = {
+	supporting: 'Leave blank if you are not within the US',
+	theme: {
+		textLabel: palette.neutral[86],
+		textSupporting: palette.neutral[60],
+		textUserInput: palette.neutral[86],
+		iconFill: palette.neutral[86],
+		border: palette.neutral[60],
+		backgroundInput: palette.neutral[20],
+	},
+};
+SupportingTextCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};
+
+// *****************************************************************************
+
+export const ErrorWithMessageCustomTheme: StoryFn<typeof Select> =
+	Template.bind({});
+ErrorWithMessageCustomTheme.args = {
+	error: 'error',
+	theme: {
+		textLabel: palette.neutral[86],
+		textError: palette.error[500],
+		iconFill: palette.error[500],
+		borderError: palette.error[500],
+		backgroundInput: palette.neutral[20],
+	},
+};
+ErrorWithMessageCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};

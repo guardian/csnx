@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgArrowRightStraight } from '../../vendor/icons/SvgArrowRightStraight';
 import { LinkButton } from './LinkButton';
@@ -181,4 +182,25 @@ IconOnlyXSmallSizeDefaultTheme.args = {
 	icon: 'arrow',
 	size: 'xsmall',
 	hideLabel: true,
+};
+
+// *****************************************************************************
+
+export const PrimaryPriorityCustomTheme: StoryFn<typeof LinkButton> =
+	Template.bind({});
+PrimaryPriorityCustomTheme.args = {
+	priority: 'primary',
+	iconSide: 'right',
+	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
+	icon: 'arrow',
+	theme: {
+		textPrimary: palette.brand[400],
+		backgroundPrimary: palette.brandAlt[400],
+		backgroundPrimaryHover: palette.brandAlt[200],
+	},
+};
+PrimaryPriorityCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

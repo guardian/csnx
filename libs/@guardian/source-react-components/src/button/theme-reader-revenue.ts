@@ -1,5 +1,5 @@
 import { brand, brandAlt, neutral } from '@guardian/source-foundations';
-import type { ButtonTheme } from './theme';
+import type { ButtonTheme, ThemeButton } from './theme';
 
 const text = {
 	readerRevenue: {
@@ -44,34 +44,45 @@ const border = {
 	},
 };
 
-export const buttonThemeReaderRevenue: { button: ButtonTheme } = {
-	button: {
-		textPrimary: text.readerRevenue.ctaPrimary,
-		backgroundPrimary: background.readerRevenue.ctaPrimary,
-		backgroundPrimaryHover: background.readerRevenue.ctaPrimaryHover,
-		textTertiary: text.readerRevenue.ctaTertiary,
-		backgroundTertiaryHover: background.readerRevenue.ctaTertiaryHover,
-		borderTertiary: border.readerRevenue.ctaTertiary,
-	},
-};
-export const buttonThemeReaderRevenueBrand: { button: ButtonTheme } = {
-	button: {
-		textPrimary: text.readerRevenueBrand.ctaPrimary,
-		backgroundPrimary: background.readerRevenueBrand.ctaPrimary,
-		backgroundPrimaryHover: background.readerRevenueBrand.ctaPrimaryHover,
-		textTertiary: text.readerRevenueBrand.ctaTertiary,
-		backgroundTertiaryHover: background.readerRevenueBrand.ctaTertiaryHover,
-		borderTertiary: border.readerRevenueBrand.ctaTertiary,
-	},
+export const themeButtonReaderRevenue: Partial<ThemeButton> = {
+	textPrimary: text.readerRevenue.ctaPrimary,
+	backgroundPrimary: background.readerRevenue.ctaPrimary,
+	backgroundPrimaryHover: background.readerRevenue.ctaPrimaryHover,
+	textTertiary: text.readerRevenue.ctaTertiary,
+	backgroundTertiaryHover: background.readerRevenue.ctaTertiaryHover,
+	borderTertiary: border.readerRevenue.ctaTertiary,
+} as const;
+export const themeButtonReaderRevenueBrand: Partial<ThemeButton> = {
+	textPrimary: text.readerRevenueBrand.ctaPrimary,
+	backgroundPrimary: background.readerRevenueBrand.ctaPrimary,
+	backgroundPrimaryHover: background.readerRevenueBrand.ctaPrimaryHover,
+	textTertiary: text.readerRevenueBrand.ctaTertiary,
+	backgroundTertiaryHover: background.readerRevenueBrand.ctaTertiaryHover,
+	borderTertiary: border.readerRevenueBrand.ctaTertiary,
+} as const;
+
+export const themeButtonReaderRevenueBrandAlt: Partial<ThemeButton> = {
+	textPrimary: text.readerRevenueBrandAlt.ctaPrimary,
+	backgroundPrimary: background.readerRevenueBrandAlt.ctaPrimary,
+	backgroundPrimaryHover: background.readerRevenueBrandAlt.ctaPrimaryHover,
+	textTertiary: text.readerRevenueBrandAlt.ctaTertiary,
+	backgroundTertiaryHover: background.readerRevenueBrandAlt.ctaTertiaryHover,
+	borderTertiary: border.readerRevenueBrandAlt.ctaTertiary,
+} as const;
+
+/** @deprecated Use `themeButtonReaderRevenue` and component `theme` prop instead of emotion's `ThemeProvider` */
+export const buttonThemeReaderRevenue: { button: Partial<ButtonTheme> } = {
+	button: themeButtonReaderRevenue,
 };
 
-export const buttonThemeReaderRevenueBrandAlt: { button: ButtonTheme } = {
-	button: {
-		textPrimary: text.readerRevenueBrandAlt.ctaPrimary,
-		backgroundPrimary: background.readerRevenueBrandAlt.ctaPrimary,
-		backgroundPrimaryHover: background.readerRevenueBrandAlt.ctaPrimaryHover,
-		textTertiary: text.readerRevenueBrandAlt.ctaTertiary,
-		backgroundTertiaryHover: background.readerRevenueBrandAlt.ctaTertiaryHover,
-		borderTertiary: border.readerRevenueBrandAlt.ctaTertiary,
-	},
+/** @deprecated Use `themeButtonReaderRevenueBrand` and component `theme` prop instead of emotion's `ThemeProvider` */
+export const buttonThemeReaderRevenueBrand: { button: Partial<ButtonTheme> } = {
+	button: themeButtonReaderRevenueBrand,
+};
+
+/** @deprecated Use `themeButtonReaderRevenueBrandAlt` and component `theme` prop instead of emotion's `ThemeProvider` */
+export const buttonThemeReaderRevenueBrandAlt: {
+	button: Partial<ButtonTheme>;
+} = {
+	button: themeButtonReaderRevenueBrandAlt,
 };

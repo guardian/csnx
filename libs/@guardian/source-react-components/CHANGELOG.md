@@ -1,5 +1,37 @@
 # @guardian/source-react-components
 
+## 22.0.1
+
+### Patch Changes
+
+- 7de7e01: Fix issue with types in build
+
+## 22.0.0
+
+### Major Changes
+
+- 93eff4d: Updated dependencies
+
+  - @guardian/source-foundations@14.1.4
+
+## 21.0.0
+
+### Major Changes
+
+- ad1627f: - Added `theme` prop to support applying custom colour schemes to components with a complete or partial theme, avoiding the need for style overrides
+
+  - Deprecated existing `ThemeProvider` themes
+
+  `theme` prop example usage:
+
+  ```tsx
+  const myTheme: Partial<ThemeChoiceCard> = {
+  	backgroundSelected: palette.brand[500],
+  };
+
+  <ChoiceCard theme={myTheme}>Select</ChoiceCard>;
+  ```
+
 ## 20.0.0
 
 ### Major Changes

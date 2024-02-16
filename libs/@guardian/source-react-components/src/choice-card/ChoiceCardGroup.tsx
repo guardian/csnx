@@ -12,6 +12,7 @@ import {
 	gridColumns,
 	gridContainer,
 } from './styles';
+import type { ThemeChoiceCardGroup } from './theme';
 
 export type ChoiceCardColumns = 2 | 3 | 4 | 5;
 
@@ -50,6 +51,7 @@ export interface ChoiceCardGroupProps
 	 */
 	columns?: ChoiceCardColumns;
 	children: JSX.Element | JSX.Element[];
+	theme?: Partial<ThemeChoiceCardGroup>;
 }
 
 /**
@@ -71,6 +73,7 @@ export const ChoiceCardGroup = ({
 	columns,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: ChoiceCardGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
@@ -81,12 +84,19 @@ export const ChoiceCardGroup = ({
 	return (
 		<fieldset css={[fieldset, cssOverrides]} id={groupId} {...props}>
 			{label ? (
-				<Legend text={label} supporting={supporting} hideLabel={hideLabel} />
+				<Legend
+					text={label}
+					supporting={supporting}
+					hideLabel={hideLabel}
+					theme={theme}
+				/>
 			) : (
 				''
 			)}
 			{typeof error === 'string' && (
-				<InlineError id={descriptionId(groupId)}>{error}</InlineError>
+				<InlineError id={descriptionId(groupId)} theme={theme}>
+					{error}
+				</InlineError>
 			)}
 			<div
 				css={[

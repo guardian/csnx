@@ -29,6 +29,7 @@ export const Button = ({
 	loadingAnnouncement = 'Loading',
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: ButtonProps): EmotionJSX.Element => (
 	<button
@@ -41,6 +42,7 @@ export const Button = ({
 			nudgeIcon,
 			cssOverrides,
 			isLoading,
+			theme,
 		})}
 		type={type}
 		aria-live="polite"

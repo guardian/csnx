@@ -1,9 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import RadioStories from './Radio.stories';
-import type { RadioGroupProps } from './RadioGroup';
 import { RadioGroup } from './RadioGroup';
-import { radioThemeBrand } from './theme';
+import { ThemeRadio, themeRadioBrand, themeRadioGroupBrand } from './theme';
+import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof RadioGroup> = {
 	title: 'RadioGroup',
@@ -39,39 +39,47 @@ const Image = () => (
 	/>
 );
 
-const Template: StoryFn<typeof RadioGroup> = (args: RadioGroupProps) => (
+type RadioGroupPropsAndChildTheme = React.ComponentProps<typeof RadioGroup> & {
+	themeChild?: Partial<ThemeRadio>;
+};
+
+const Template: StoryFn<RadioGroupPropsAndChildTheme> = (
+	args: RadioGroupPropsAndChildTheme,
+) => (
 	<RadioGroup {...args}>
-		<Radio {...RadioStories.args} key="radio-1" />
-		<Radio label="Blue" value="blue" key="radio-2" />
+		<Radio {...RadioStories.args} theme={args.themeChild} key="radio-1" />
+		<Radio label="Blue" value="blue" theme={args.themeChild} key="radio-2" />
 	</RadioGroup>
 );
 
-export const DefaultDefaultTheme: StoryFn<typeof RadioGroup> = Template.bind(
-	{},
-);
+export const DefaultDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
+	Template.bind({});
 
 // *****************************************************************************
 
-export const DefaultBrandTheme: StoryFn<typeof RadioGroup> = Template.bind({});
+export const DefaultBrandTheme: StoryFn<RadioGroupPropsAndChildTheme> =
+	Template.bind({});
 DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: themeRadioGroupBrand,
+	themeChild: themeRadioBrand,
 };
 
 // *****************************************************************************
 
-export const HorizontalDefaultTheme: StoryFn<typeof RadioGroup> = Template.bind(
-	{},
-);
+export const HorizontalDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
+	Template.bind({});
 HorizontalDefaultTheme.args = {
 	orientation: 'horizontal',
 };
 
 // *****************************************************************************
 
-export const VisuallyHideLegendDefaultTheme: StoryFn<typeof RadioGroup> =
+export const VisuallyHideLegendDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
 	Template.bind({});
 VisuallyHideLegendDefaultTheme.args = {
 	hideLabel: true,
@@ -79,7 +87,7 @@ VisuallyHideLegendDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingTextDefaultTheme: StoryFn<typeof RadioGroup> =
+export const SupportingTextDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
 	Template.bind({});
 SupportingTextDefaultTheme.args = {
 	supporting: 'You can always change it later',
@@ -87,21 +95,22 @@ SupportingTextDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const SupportingTextBrandTheme: StoryFn<typeof RadioGroup> =
+export const SupportingTextBrandTheme: StoryFn<RadioGroupPropsAndChildTheme> =
 	Template.bind({});
 SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'You can always change it later',
+	theme: themeRadioGroupBrand,
+	themeChild: themeRadioBrand,
 };
 
 // *****************************************************************************
 
-export const SupportingMediaDefaultTheme: StoryFn<typeof RadioGroup> =
+export const SupportingMediaDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
 	Template.bind({});
 SupportingMediaDefaultTheme.args = {
 	supporting: <Image />,
@@ -109,29 +118,53 @@ SupportingMediaDefaultTheme.args = {
 
 // *****************************************************************************
 
-export const ErrorDefaultTheme: StoryFn<typeof RadioGroup> = Template.bind({});
+export const ErrorDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
+	Template.bind({});
 ErrorDefaultTheme.args = {
 	error: 'The selected colour is out of stock',
 };
 
 // *****************************************************************************
 
-export const ErrorBrandTheme: StoryFn<typeof RadioGroup> = Template.bind({});
+export const ErrorBrandTheme: StoryFn<RadioGroupPropsAndChildTheme> =
+	Template.bind({});
 ErrorBrandTheme.args = {
 	error: 'The selected colour is out of stock',
+	theme: themeRadioGroupBrand,
+	themeChild: themeRadioBrand,
 };
 ErrorBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 
 // *****************************************************************************
 
-export const SupportingMediaWithErrorDefaultTheme: StoryFn<typeof RadioGroup> =
+export const SupportingMediaWithErrorDefaultTheme: StoryFn<RadioGroupPropsAndChildTheme> =
 	Template.bind({});
 SupportingMediaWithErrorDefaultTheme.args = {
 	error: 'Please select a colour',
 	supporting: <Image />,
+};
+
+// *****************************************************************************
+
+export const DefaultCustomTheme: StoryFn<RadioGroupPropsAndChildTheme> =
+	Template.bind({});
+DefaultCustomTheme.args = {
+	theme: { textLabel: palette.neutral[86] },
+	themeChild: {
+		fillSelected: palette.brand[800],
+		fillUnselected: palette.neutral[20],
+		borderSelected: palette.brand[800],
+		borderUnselected: palette.neutral[60],
+		borderHover: palette.brand[800],
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

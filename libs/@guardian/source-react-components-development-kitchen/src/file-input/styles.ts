@@ -36,6 +36,14 @@ const xsmallUpload = css`
 	font-weight: ${fontWeights.bold};
 `;
 
+export const warningText = (
+	fileInput = fileInputThemeDefault.fileInput,
+): SerializedStyles => css`
+	${textSans.xsmall()};
+	color: ${fileInput.supporting};
+	margin: 2px 0 0;
+`;
+
 export const uploadSizes: {
 	[key in SizeType]: SerializedStyles;
 } = {

@@ -24,13 +24,22 @@ export const Label = ({
 	size,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: LabelProps): EmotionJSX.Element => {
 	return (
 		<label css={cssOverrides} {...props}>
-			<Text hideLabel={hideLabel} text={text} optional={optional} size={size} />
+			<Text
+				hideLabel={hideLabel}
+				text={text}
+				optional={optional}
+				size={size}
+				theme={theme}
+			/>
 			{supporting ? (
-				<SupportingText hideLabel={hideLabel}>{supporting}</SupportingText>
+				<SupportingText hideLabel={hideLabel} theme={theme}>
+					{supporting}
+				</SupportingText>
 			) : (
 				''
 			)}

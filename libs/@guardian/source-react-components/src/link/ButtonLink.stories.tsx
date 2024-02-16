@@ -1,3 +1,4 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../../vendor/icons/SvgExternal';
 import type { ButtonLinkProps } from './ButtonLink';
@@ -66,3 +67,17 @@ RightIconButtonLinkDefaultTheme.args = {
 };
 
 // *****************************************************************************
+
+export const PrimaryIconLinkCustomTheme: StoryFn<typeof ButtonLink> =
+	Template.bind({});
+PrimaryIconLinkCustomTheme.args = {
+	theme: {
+		textPrimary: palette.neutral[86],
+		textPrimaryHover: palette.brand[800],
+	},
+};
+PrimaryIconLinkCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
+};
