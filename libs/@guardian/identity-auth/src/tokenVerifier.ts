@@ -182,4 +182,78 @@ export class TokenVerifier {
 
 		return decodedToken;
 	}
+
+	/**
+	 * @name accessTokenIssuedAfterTime
+	 * @description Check if the access token was issued after a given time.
+	 * This is useful for checking if the access token was issued after the
+	 * user's last sign-out time.
+	 * @param accessToken - The access token to check, as a raw JWT string
+	 * @param timestamp - The time to check against, as a Unix timestamp in seconds
+	 * @returns Whether the access token was issued after the given time
+	 */
+	public async accessTokenIssuedAfterTime({
+		accessToken,
+		timestamp,
+	}: {
+		accessToken: string;
+		timestamp: number;
+	}): Promise<boolean> {
+		// get the local time in seconds
+		const localTime = Math.floor(Date.now() / 1000);
+
+		if (!timestamp || typeof timestamp !== 'number') {
+			throw new Error('Timestamp must be a number');
+		}
+		const decodedToken = await this.#decodeAndVerifyToken(accessToken);
+		const iat = decodedToken.payload.iat;
+		if (!iat || typeof iat !== 'number') {
+			throw new Error('iat claim must be a number');
+		}
+		if (timestamp >= localTime) {
+			throw new Error('Timestamp must be in the past');
+		}
+		return iat > timestamp;
+	}
+
+	/**
+	 * @name idTokenAuthTimeAfterTime
+	 * @description Check if the auth_time claim of the ID token is
+	 * after a given time. The auth_time claim is defined in the OIDC
+	 * spec as "Time when the End-User authentication occurred", and
+	 * should be present in the ID token if the authentication was
+	 * performed with the "max_age" parameter. For this reason, we also
+	 * check that the auth_time claim is present at all.
+	 * @param idToken - The ID token to check, as a raw JWT string
+	 * @param timestamp - The time to check against, as a Unix timestamp in seconds
+	 * @returns Whether the auth_time claim of the ID token is after the given time
+	 */
+	public async idTokenAuthTimeAfterTime({
+		idToken,
+		timestamp,
+	}: {
+		idToken: string;
+		timestamp: number;
+	}): Promise<boolean> {
+		// get the local time in seconds
+		const localTime = Math.floor(Date.now() / 1000);
+
+		if (!timestamp || typeof timestamp !== 'number') {
+			throw new Error('Timestamp must be a number');
+		}
+		const decodedToken = await this.#decodeAndVerifyToken(idToken);
+		const authTime = decodedToken.payload.auth_time;
+		if (
+			!authTime ||
+			typeof authTime !== 'number' ||
+			authTime < 0 ||
+			authTime > localTime
+		) {
+			throw new Error('auth_time claim must be set and valid');
+		}
+		if (timestamp >= localTime) {
+			throw new Error('Timestamp must be in the past');
+		}
+		return authTime > timestamp;
+	}
 }
