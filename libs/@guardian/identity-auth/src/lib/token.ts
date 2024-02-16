@@ -283,17 +283,17 @@ export const verifySignature = async (
 
 interface VerifyIdTokenParams {
 	claims: JWTPayload;
-	issuer: string;
-	clientId: string;
-	nonce?: string;
+	expectedIssuer: string;
+	expectedClientId: string;
+	expectedNonce?: string;
 	clockSkew?: number;
 }
 
 export const genericVerifyIdTokenClaims = ({
 	claims,
-	issuer,
-	clientId,
-	nonce,
+	expectedIssuer,
+	expectedClientId,
+	expectedNonce,
 	clockSkew = 0,
 }: VerifyIdTokenParams): void => {
 	// get the local time in seconds
@@ -311,7 +311,7 @@ export const genericVerifyIdTokenClaims = ({
 	}
 
 	// aud claim matches clientId
-	if (claims.aud !== clientId) {
+	if (claims.aud !== expectedClientId) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token `aud` claim does not match expected `clientId`',
@@ -320,7 +320,7 @@ export const genericVerifyIdTokenClaims = ({
 	}
 
 	// iss claim matches issuer
-	if (claims.iss !== issuer) {
+	if (claims.iss !== expectedIssuer) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token issuer does not match expected issuer',
@@ -329,7 +329,7 @@ export const genericVerifyIdTokenClaims = ({
 	}
 
 	// if the token contains a nonce claim, but no nonce was provided, throw an error
-	if (claims.nonce && !nonce) {
+	if (claims.nonce && !expectedNonce) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token contains nonce but nonce was not provided',
@@ -337,8 +337,8 @@ export const genericVerifyIdTokenClaims = ({
 		});
 	}
 
-	// nonce claim matches nonce (if it exists)
-	if (nonce && claims.nonce !== nonce) {
+	// nonce claim matches expected nonce (if it exists)
+	if (expectedNonce && claims.nonce !== expectedNonce) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token nonce does not match expected nonce',
@@ -367,17 +367,17 @@ export const genericVerifyIdTokenClaims = ({
 
 interface VerifyAccessTokenParams {
 	claims: JWTPayload;
-	audience: string;
-	issuer: string;
-	clientId?: string;
+	expectedAudience: string;
+	expectedIssuer: string;
+	expectedClientId?: string;
 	clockSkew?: number;
 }
 
 export const genericVerifyAccessTokenClaims = ({
 	claims,
-	audience,
-	issuer,
-	clientId,
+	expectedAudience,
+	expectedIssuer,
+	expectedClientId,
 	clockSkew = 0,
 }: VerifyAccessTokenParams): void => {
 	// get the local time in seconds
@@ -431,7 +431,7 @@ export const genericVerifyAccessTokenClaims = ({
 	}
 
 	// check audience claim
-	if (claims.aud !== audience) {
+	if (claims.aud !== expectedAudience) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token audience does not match expected audience',
@@ -440,7 +440,7 @@ export const genericVerifyAccessTokenClaims = ({
 	}
 
 	// check issuer claim
-	if (claims.iss !== issuer) {
+	if (claims.iss !== expectedIssuer) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token issuer does not match expected issuer',
@@ -449,7 +449,7 @@ export const genericVerifyAccessTokenClaims = ({
 	}
 
 	// check client ID claim (if it exists)
-	if (clientId && claims.cid !== clientId) {
+	if (expectedClientId && claims.cid !== expectedClientId) {
 		throw new OAuthError({
 			error: 'invalid_token',
 			error_description: 'Token client ID does not match expected client ID',

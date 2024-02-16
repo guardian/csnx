@@ -495,9 +495,9 @@ export const verifyTokens = async (
 		// verify the claims
 		genericVerifyIdTokenClaims({
 			claims: idTokenJWT.payload,
-			issuer: options.issuer,
-			clientId: options.clientId,
-			nonce: idToken.nonce,
+			expectedIssuer: options.issuer,
+			expectedClientId: options.clientId,
+			expectedNonce: idToken.nonce,
 			clockSkew: idToken.clockSkew,
 		});
 
@@ -515,9 +515,9 @@ export const verifyTokens = async (
 		// verify access token claims
 		genericVerifyAccessTokenClaims({
 			claims: accessTokenJWT.payload,
-			audience: 'todo',
-			issuer: options.issuer,
-			clientId: options.clientId,
+			expectedAudience: 'todo',
+			expectedIssuer: options.issuer,
+			expectedClientId: options.clientId,
 			clockSkew: accessToken.clockSkew,
 		});
 
