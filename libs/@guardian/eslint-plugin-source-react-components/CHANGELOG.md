@@ -1,5 +1,13 @@
 # @guardian/eslint-plugin-source-react-components
 
+## 24.0.0
+
+### Major Changes
+
+- b4b6940: Updated dependencies
+
+  - @guardian/source-react-components@22.0.1
+
 ## 23.0.0
 
 ### Major Changes

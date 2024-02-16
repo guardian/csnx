@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "18.0.0",
+	"version": "19.0.0",
 	"sideEffects": false,
 	"devDependencies": {
 		"@babel/core": "7.23.6",
