@@ -3,7 +3,7 @@ import { SvgAlertRound } from '../../vendor/icons/SvgAlertRound';
 import type { Theme } from '../@types/Theme';
 import { mergedTheme } from './shared';
 import { inlineError } from './styles';
-import type { UserFeedbackProps } from './userFeedbackTypes';
+import type { UserFeedbackProps } from './types';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_inlineerror--inline-error-default-theme) •

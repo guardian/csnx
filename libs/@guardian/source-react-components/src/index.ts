@@ -269,7 +269,7 @@ export type { ThemeTextInput } from './text-input/theme';
 
 export { InlineError } from './user-feedback/InlineError';
 export { InlineSuccess } from './user-feedback/InlineSuccess';
-export type { UserFeedbackProps } from './user-feedback/userFeedbackTypes';
+export type { UserFeedbackProps } from './user-feedback/types';
 export {
 	themeUserFeedback,
 	themeUserFeedbackBrand,

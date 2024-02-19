@@ -7,11 +7,11 @@ import { logger } from '@nx/devkit';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import type Cpy from 'cpy';
 import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
-import ts from 'rollup-plugin-ts';
-import { ScriptTarget } from 'typescript';
+import { findConfigFile, ScriptTarget, sys } from 'typescript';
 import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
@@ -44,13 +44,18 @@ const getRollupConfig = (
 	context: ExecutorContext,
 	format: Format,
 ) => {
+	const tsconfigPath = findConfigFile(
+		context.root,
+		sys.fileExists,
+		options.tsConfig,
+	);
 	const compilerOptions = getCompilerOptions(options, context);
 
 	if (format === 'cjs') {
 		// Node 14 is eol 2023-04-30, so we should still support it
 		compilerOptions.target = ScriptTarget.ES2018;
 	}
-
+	console.log(`${JSON.stringify(Object.keys(context))}`);
 	return {
 		strictDeprecations: true,
 		output: {
@@ -64,8 +69,14 @@ const getRollupConfig = (
 			nodeResolve({
 				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
 			}),
-			ts({
-				tsconfig: compilerOptions,
+			typescript({
+				tsconfig: tsconfigPath,
+				compilerOptions: {
+					...compilerOptions,
+					outDir: `${options.outputPath}/${format}`,
+					declaration: true,
+					declarationDir: `${options.outputPath}/${format}`,
+				},
 			}),
 			json(),
 			commonjs(),

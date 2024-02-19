@@ -3,7 +3,7 @@ import { SvgTickRound } from '../../vendor/icons/SvgTickRound';
 import type { Theme } from '../@types/Theme';
 import { mergedTheme } from './shared';
 import { inlineSuccess } from './styles';
-import type { UserFeedbackProps } from './userFeedbackTypes';
+import type { UserFeedbackProps } from './types';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_inlinesuccess--inline-success-default-theme) •
