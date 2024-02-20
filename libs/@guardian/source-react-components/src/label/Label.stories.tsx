@@ -1,8 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { LabelProps } from './@types/LabelProps';
 import { Label } from './Label';
 import { themeLabelBrand } from './theme';
-import type { LabelProps } from './types';
-import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Label> = {
 	title: 'Label',

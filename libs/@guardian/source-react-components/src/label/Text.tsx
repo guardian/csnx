@@ -2,9 +2,9 @@ import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
+import type { LabelProps } from './@types/LabelProps';
 import { mergedTheme } from './shared';
 import { labelText, optionalText } from './styles';
-import type { LabelProps } from './types';
 
 const visuallyHidden = css`
 	${_visuallyHidden}

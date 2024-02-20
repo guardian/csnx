@@ -1,9 +1,9 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { SvgTickRound } from '../../vendor/icons/SvgTickRound';
 import type { Theme } from '../@types/Theme';
+import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { mergedTheme } from './shared';
 import { inlineSuccess } from './styles';
-import type { UserFeedbackProps } from './userFeedbackTypes';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_inlinesuccess--inline-success-default-theme) •

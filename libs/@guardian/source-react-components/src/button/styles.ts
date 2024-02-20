@@ -10,14 +10,14 @@ import {
 } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
-import type { ThemeButton } from './theme';
-import { themeButton as defaultTheme } from './theme';
 import type {
 	ButtonPriority,
 	IconSide,
 	SharedButtonProps,
 	Size,
-} from './types';
+} from './@types/SharedButtonProps';
+import type { ThemeButton } from './theme';
+import { themeButton as defaultTheme } from './theme';
 
 const button = css`
 	display: inline-flex;

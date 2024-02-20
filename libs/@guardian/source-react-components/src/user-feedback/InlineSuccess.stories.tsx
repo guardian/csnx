@@ -1,8 +1,8 @@
 import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { InlineSuccess } from './InlineSuccess';
 import { userFeedbackThemeBrand } from './theme';
-import type { UserFeedbackProps } from './userFeedbackTypes';
 
 const meta: Meta<typeof InlineSuccess> = {
 	title: 'InlineSuccess',

@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { ButtonHTMLAttributes } from 'react';
+import type { SharedLinkProps } from './@types/SharedLinkProps';
 import { linkContents } from './shared';
 import { linkStyles } from './styles';
-import type { SharedLinkProps } from './types';
 
 export interface ButtonLinkProps
 	extends ButtonHTMLAttributes<HTMLButtonElement>,

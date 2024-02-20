@@ -9,9 +9,9 @@ import {
 import type { ReactElement } from 'react';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
+import type { IconSide, LinkPriority } from './@types/SharedLinkProps';
 import type { ThemeLink } from './theme';
 import { themeLink as defaultTheme } from './theme';
-import type { IconSide, LinkPriority } from './types';
 
 export const link = css`
 	position: relative;

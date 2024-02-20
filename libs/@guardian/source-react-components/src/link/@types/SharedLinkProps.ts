@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
-import type { Props } from '../@types/Props';
-import type { ThemeLink } from './theme';
+import type { Props } from '../../@types/Props';
+import type { ThemeLink } from '../theme';
 
 export type LinkPriority = 'primary' | 'secondary';
 
