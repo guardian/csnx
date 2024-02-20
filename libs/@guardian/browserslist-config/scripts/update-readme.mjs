@@ -35,7 +35,7 @@ for (const { key, value } of replacements) {
 	readme = readme.replace(regex, `<!-- ${key} -->\n${value}\n<!-- /${key} -->`);
 }
 
-readme = prettier.format(readme, {
+readme = await prettier.format(readme, {
 	parser: 'markdown',
 });
 
