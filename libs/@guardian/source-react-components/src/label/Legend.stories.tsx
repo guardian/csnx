@@ -1,8 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { LegendProps } from './@types/LegendProps';
 import { Legend } from './Legend';
 import { labelThemeBrand } from './theme';
-import type { LegendProps } from './types';
-import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Legend> = {
 	title: 'Legend',

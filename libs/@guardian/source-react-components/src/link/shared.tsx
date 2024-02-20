@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement, Fragment } from 'react';
-import type { IconSide } from './types';
+import type { IconSide } from './@types/SharedLinkProps';
 
 export const linkContents = ({
 	children,

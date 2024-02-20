@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
-import type { InputSize } from '../@types/InputSize';
-import type { Props } from '../@types/Props';
-import type { ThemeUserFeedback } from './theme';
+import type { InputSize } from '../../@types/InputSize';
+import type { Props } from '../../@types/Props';
+import type { ThemeUserFeedback } from '../theme';
 
 export interface UserFeedbackProps
 	extends Props,

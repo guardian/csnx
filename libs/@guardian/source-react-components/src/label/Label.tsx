@@ -1,7 +1,7 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { LabelProps } from './@types/LabelProps';
 import { SupportingText } from './SupportingText';
 import { Text } from './Text';
-import type { LabelProps } from './types';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_label--default-default-theme) •

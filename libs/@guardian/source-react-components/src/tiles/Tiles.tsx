@@ -3,6 +3,7 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { Breakpoint } from '@guardian/source-foundations';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
+import type { Columns } from './@types/Columns';
 import {
 	collapseUntilDesktopTiles,
 	collapseUntilLeftColTiles,
@@ -15,7 +16,6 @@ import {
 	tilesCollapseUntilWide,
 	tilesGridContainer,
 } from './styles';
-import type { Columns } from './types';
 
 type GridBreakpoint = Extract<
 	Breakpoint,

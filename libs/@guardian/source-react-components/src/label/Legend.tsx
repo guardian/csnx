@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { LegendProps } from './@types/LegendProps';
 import { legend } from './styles';
 import { SupportingText } from './SupportingText';
 import { Text } from './Text';
-import type { LegendProps } from './types';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_legend--default-default-theme) •

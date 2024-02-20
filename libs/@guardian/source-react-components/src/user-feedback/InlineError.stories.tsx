@@ -1,8 +1,8 @@
 import { breakpoints, palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { InlineError } from './InlineError';
 import { userFeedbackThemeBrand } from './theme';
-import type { UserFeedbackProps } from './userFeedbackTypes';
 
 const meta: Meta<typeof InlineError> = {
 	title: 'InlineError',

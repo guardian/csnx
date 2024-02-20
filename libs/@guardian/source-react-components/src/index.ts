@@ -16,7 +16,11 @@ export {
 	themeButtonReaderRevenueBrandAlt,
 } from './button/theme-reader-revenue';
 export type { ButtonProps } from './button/Button';
-export type { ButtonPriority, IconSide, Size } from './button/types';
+export type {
+	ButtonPriority,
+	IconSide,
+	Size,
+} from './button/@types/SharedButtonProps';
 export {
 	themeButton,
 	themeButtonBrand,
@@ -203,9 +207,9 @@ export type { InputSize } from './@types/InputSize';
 export { themeLabel, themeLabelBrand } from './label/theme';
 export type { ThemeLabel } from './label/theme';
 export { Label } from './label/Label';
-export type { LabelProps } from './label/types';
+export type { LabelProps } from './label/@types/LabelProps';
 export { Legend } from './label/Legend';
-export type { LegendProps } from './label/types';
+export type { LegendProps } from './label/@types/LegendProps';
 
 export { Columns } from './columns/Columns';
 export type { ColumnsProps } from './columns/Columns';
@@ -230,7 +234,7 @@ export type { InlineProps } from './inline/Inline';
 
 export { themeLink, themeLinkBrand, themeLinkBrandAlt } from './link/theme';
 export type { ThemeLink } from './link/theme';
-export type { LinkPriority } from './link/types';
+export type { LinkPriority } from './link/@types/SharedLinkProps';
 export { Link } from './link/Link';
 export type { LinkProps } from './link/Link';
 export { ButtonLink } from './link//ButtonLink';
@@ -269,7 +273,7 @@ export type { ThemeTextInput } from './text-input/theme';
 
 export { InlineError } from './user-feedback/InlineError';
 export { InlineSuccess } from './user-feedback/InlineSuccess';
-export type { UserFeedbackProps } from './user-feedback/userFeedbackTypes';
+export type { UserFeedbackProps } from './user-feedback/@types/UserFeedbackProps';
 export {
 	themeUserFeedback,
 	themeUserFeedbackBrand,
