@@ -1,13 +1,7 @@
 # This deploys the root-level storybook to GitHub Pages once CI has completed on main.
 #
 # It composes the individual project storybooks, which are built and deployed
-# by AWS Amplify projects on commits to main branch.
-#
-# To add another project storybook, you need to add a new AWS Amplify project.
-#
-# See the existing projects (prefixed with "csnx/storybooks-") at
-# https://eu-west-1.console.aws.amazon.com/amplify/home?region=eu-west-1 for
-# examples of how to do this.
+# by Chromatic as part of our visual regression testing.
 
 name: Storybook
 on:
