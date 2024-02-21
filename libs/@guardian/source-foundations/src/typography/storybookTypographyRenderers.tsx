@@ -182,315 +182,315 @@ export const HeadlineTypographyTokens = () => (
 		>
 			<li
 				css={css`
-					${headlineLit14()}
+					${headlineLit14}
 				`}
 			>
 				headline.lit.14
 			</li>
 			<li
 				css={css`
-					${headlineLit17()}
+					${headlineLit17}
 				`}
 			>
 				headline.lit.17
 			</li>
 			<li
 				css={css`
-					${headlineLit20()}
+					${headlineLit20}
 				`}
 			>
 				headline.lit.20
 			</li>
 			<li
 				css={css`
-					${headlineLit24()}
+					${headlineLit24}
 				`}
 			>
 				headline.lit.24
 			</li>
 			<li
 				css={css`
-					${headlineLit28()}
+					${headlineLit28}
 				`}
 			>
 				headline.lit.28
 			</li>
 			<li
 				css={css`
-					${headlineLit34()}
+					${headlineLit34}
 				`}
 			>
 				headline.lit.34
 			</li>
 			<li
 				css={css`
-					${headlineLit42()}
+					${headlineLit42}
 				`}
 			>
 				headline.lit.42
 			</li>
 			<li
 				css={css`
-					${headlineLit50()}
+					${headlineLit50}
 				`}
 			>
 				headline.lit.50
 			</li>
 			<li
 				css={css`
-					${headlineLit70()}
+					${headlineLit70}
 				`}
 			>
 				headline.lit.70
 			</li>
 			<li
 				css={css`
-					${headlineLitIta14()}
+					${headlineLitIta14}
 				`}
 			>
 				headline.lit.ita.14
 			</li>
 			<li
 				css={css`
-					${headlineLitIta17()}
+					${headlineLitIta17}
 				`}
 			>
 				headline.lit.ita.17
 			</li>
 			<li
 				css={css`
-					${headlineLitIta20()}
+					${headlineLitIta20}
 				`}
 			>
 				headline.lit.ita.20
 			</li>
 			<li
 				css={css`
-					${headlineLitIta24()}
+					${headlineLitIta24}
 				`}
 			>
 				headline.lit.ita.24
 			</li>
 			<li
 				css={css`
-					${headlineLitIta28()}
+					${headlineLitIta28}
 				`}
 			>
 				headline.lit.ita.28
 			</li>
 			<li
 				css={css`
-					${headlineLitIta34()}
+					${headlineLitIta34}
 				`}
 			>
 				headline.lit.ita.34
 			</li>
 			<li
 				css={css`
-					${headlineLitIta42()}
+					${headlineLitIta42}
 				`}
 			>
 				headline.lit.ita.42
 			</li>
 			<li
 				css={css`
-					${headlineLitIta50()}
+					${headlineLitIta50}
 				`}
 			>
 				headline.lit.ita.50
 			</li>
 			<li
 				css={css`
-					${headlineLitIta70()}
+					${headlineLitIta70}
 				`}
 			>
 				headline.lit.ita.70
 			</li>
 			<li
 				css={css`
-					${headlineMed14()}
+					${headlineMed14}
 				`}
 			>
 				headline.med.14
 			</li>
 			<li
 				css={css`
-					${headlineMed17()}
+					${headlineMed17}
 				`}
 			>
 				headline.med.17
 			</li>
 			<li
 				css={css`
-					${headlineMed20()}
+					${headlineMed20}
 				`}
 			>
 				headline.med.20
 			</li>
 			<li
 				css={css`
-					${headlineMed24()}
+					${headlineMed24}
 				`}
 			>
 				headline.med.24
 			</li>
 			<li
 				css={css`
-					${headlineMed28()}
+					${headlineMed28}
 				`}
 			>
 				headline.med.28
 			</li>
 			<li
 				css={css`
-					${headlineMed34()}
+					${headlineMed34}
 				`}
 			>
 				headline.med.34
 			</li>
 			<li
 				css={css`
-					${headlineMed42()}
+					${headlineMed42}
 				`}
 			>
 				headline.med.42
 			</li>
 			<li
 				css={css`
-					${headlineMed50()}
+					${headlineMed50}
 				`}
 			>
 				headline.med.50
 			</li>
 			<li
 				css={css`
-					${headlineMed70()}
+					${headlineMed70}
 				`}
 			>
 				headline.med.70
 			</li>
 			<li
 				css={css`
-					${headlineMedIta14()}
+					${headlineMedIta14}
 				`}
 			>
 				headline.med.ita.14
 			</li>
 			<li
 				css={css`
-					${headlineMedIta17()}
+					${headlineMedIta17}
 				`}
 			>
 				headline.med.ita.17
 			</li>
 			<li
 				css={css`
-					${headlineMedIta20()}
+					${headlineMedIta20}
 				`}
 			>
 				headline.med.ita.20
 			</li>
 			<li
 				css={css`
-					${headlineMedIta24()}
+					${headlineMedIta24}
 				`}
 			>
 				headline.med.ita.24
 			</li>
 			<li
 				css={css`
-					${headlineMedIta28()}
+					${headlineMedIta28}
 				`}
 			>
 				headline.med.ita.28
 			</li>
 			<li
 				css={css`
-					${headlineMedIta34()}
+					${headlineMedIta34}
 				`}
 			>
 				headline.med.ita.34
 			</li>
 			<li
 				css={css`
-					${headlineMedIta42()}
+					${headlineMedIta42}
 				`}
 			>
 				headline.med.ita.42
 			</li>
 			<li
 				css={css`
-					${headlineMedIta50()}
+					${headlineMedIta50}
 				`}
 			>
 				headline.med.ita.50
 			</li>
 			<li
 				css={css`
-					${headlineMedIta70()}
+					${headlineMedIta70}
 				`}
 			>
 				headline.med.ita.70
 			</li>
 			<li
 				css={css`
-					${headlineBld14()}
+					${headlineBld14}
 				`}
 			>
 				headline.bld.14
 			</li>
 			<li
 				css={css`
-					${headlineBld17()}
+					${headlineBld17}
 				`}
 			>
 				headline.bld.17
 			</li>
 			<li
 				css={css`
-					${headlineBld20()}
+					${headlineBld20}
 				`}
 			>
 				headline.bld.20
 			</li>
 			<li
 				css={css`
-					${headlineBld24()}
+					${headlineBld24}
 				`}
 			>
 				headline.bld.24
 			</li>
 			<li
 				css={css`
-					${headlineBld28()}
+					${headlineBld28}
 				`}
 			>
 				headline.bld.28
 			</li>
 			<li
 				css={css`
-					${headlineBld34()}
+					${headlineBld34}
 				`}
 			>
 				headline.bld.34
 			</li>
 			<li
 				css={css`
-					${headlineBld42()}
+					${headlineBld42}
 				`}
 			>
 				headline.bld.42
 			</li>
 			<li
 				css={css`
-					${headlineBld50()}
+					${headlineBld50}
 				`}
 			>
 				headline.bld.50
 			</li>
 			<li
 				css={css`
-					${headlineBld70()}
+					${headlineBld70}
 				`}
 			>
 				headline.bld.70

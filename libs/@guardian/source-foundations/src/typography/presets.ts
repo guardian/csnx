@@ -10,267 +10,267 @@ const { fontFamily, lineHeight, fontWeight, fontSize } = tokens.typography;
  * and titles.
  */
 
-const headline = () => `
+const headline = `
 	font-family: ${fontArrayToString(fontFamily.headline)};
 	line-height: ${lineHeight.tight};
 `;
 
-const headlineLit = () => `
-	${headline()};
+const headlineLit = `
+	${headline};
 	font-weight: ${fontWeight.light};
 `;
 
-const headlineLitIta = () => `
-	${headlineLit()};
+const headlineLitIta = `
+	${headlineLit};
 	font-style: italic;
 `;
 
-const headlineMed = () => `
-	${headline()};
+const headlineMed = `
+	${headline};
 	font-weight: ${fontWeight.medium};
 `;
 
-const headlineMedIta = () => `
-	${headlineMed()};
+const headlineMedIta = `
+	${headlineMed};
 	font-style: italic;
 `;
 
-const headlineBld = () => `
-	${headline()};
+const headlineBld = `
+	${headline};
 	font-weight: ${fontWeight.bold};
 `;
 
 // headline.lit.x
 
-export const headlineLit14 = () => `
-	${headlineLit()};
+export const headlineLit14 = `
+	${headlineLit};
 	font-size: ${fontSize[14]};
 `;
 
-export const headlineLit17 = () => `
-	${headlineLit()};
+export const headlineLit17 = `
+	${headlineLit};
 	font-size: ${fontSize[17]};
 `;
 
-export const headlineLit20 = () => `
-	${headlineLit()};
+export const headlineLit20 = `
+	${headlineLit};
 	font-size: ${fontSize[20]};
 `;
 
-export const headlineLit24 = () => `
-	${headlineLit()};
+export const headlineLit24 = `
+	${headlineLit};
 	font-size: ${fontSize[24]};
 `;
 
-export const headlineLit28 = () => `
-	${headlineLit()};
+export const headlineLit28 = `
+	${headlineLit};
 	font-size: ${fontSize[28]};
 `;
 
-export const headlineLit34 = () => `
-	${headlineLit()};
+export const headlineLit34 = `
+	${headlineLit};
 	font-size: ${fontSize[34]};
 `;
 
-export const headlineLit42 = () => `
-	${headlineLit()};
+export const headlineLit42 = `
+	${headlineLit};
 	font-size: ${fontSize[42]};
 `;
 
-export const headlineLit50 = () => `
-	${headlineLit()};
+export const headlineLit50 = `
+	${headlineLit};
 	font-size: ${fontSize[50]};
 `;
 
-export const headlineLit70 = () => `
-	${headlineMed()};
+export const headlineLit70 = `
+	${headlineMed};
 	font-size: ${fontSize[70]};
 `;
 
 // headline.lit.ita.x
 
-export const headlineLitIta14 = () => `
-	${headlineLitIta()};
+export const headlineLitIta14 = `
+	${headlineLitIta};
 	font-size: ${fontSize[14]};
 `;
 
-export const headlineLitIta17 = () => `
-	${headlineLitIta()};
+export const headlineLitIta17 = `
+	${headlineLitIta};
 	font-size: ${fontSize[17]};
 `;
 
-export const headlineLitIta20 = () => `
-	${headlineLitIta()};
+export const headlineLitIta20 = `
+	${headlineLitIta};
 	font-size: ${fontSize[20]};
 `;
 
-export const headlineLitIta24 = () => `
-	${headlineLitIta()};
+export const headlineLitIta24 = `
+	${headlineLitIta};
 	font-size: ${fontSize[24]};
 `;
 
-export const headlineLitIta28 = () => `
-	${headlineLitIta()};
+export const headlineLitIta28 = `
+	${headlineLitIta};
 	font-size: ${fontSize[28]};
 `;
 
-export const headlineLitIta34 = () => `
-	${headlineLitIta()};
+export const headlineLitIta34 = `
+	${headlineLitIta};
 	font-size: ${fontSize[34]};
 `;
 
-export const headlineLitIta42 = () => `
-	${headlineLitIta()};
+export const headlineLitIta42 = `
+	${headlineLitIta};
 	font-size: ${fontSize[42]};
 `;
 
-export const headlineLitIta50 = () => `
-	${headlineLitIta()};
+export const headlineLitIta50 = `
+	${headlineLitIta};
 	font-size: ${fontSize[50]};
 `;
 
-export const headlineLitIta70 = () => `
-	${headlineLitIta()};
+export const headlineLitIta70 = `
+	${headlineLitIta};
 	font-size: ${fontSize[70]};
 `;
 
 // headline.med.x
 
-export const headlineMed14 = () => `
-	${headlineMed()};
+export const headlineMed14 = `
+	${headlineMed};
 	font-size: ${fontSize[14]};
 `;
 
-export const headlineMed17 = () => `
-	${headlineMed()};
+export const headlineMed17 = `
+	${headlineMed};
 	font-size: ${fontSize[17]};
 `;
 
-export const headlineMed20 = () => `
-	${headlineMed()};
+export const headlineMed20 = `
+	${headlineMed};
 	font-size: ${fontSize[20]};
 `;
 
-export const headlineMed24 = () => `
-	${headlineMed()};
+export const headlineMed24 = `
+	${headlineMed};
 	font-size: ${fontSize[24]};
 `;
 
-export const headlineMed28 = () => `
-	${headlineMed()};
+export const headlineMed28 = `
+	${headlineMed};
 	font-size: ${fontSize[28]};
 `;
 
-export const headlineMed34 = () => `
-	${headlineMed()};
+export const headlineMed34 = `
+	${headlineMed};
 	font-size: ${fontSize[34]};
 `;
 
-export const headlineMed42 = () => `
-	${headlineMed()};
+export const headlineMed42 = `
+	${headlineMed};
 	font-size: ${fontSize[42]};
 `;
 
-export const headlineMed50 = () => `
-	${headlineMed()};
+export const headlineMed50 = `
+	${headlineMed};
 	font-size: ${fontSize[50]};
 `;
 
-export const headlineMed70 = () => `
-	${headlineMed()};
+export const headlineMed70 = `
+	${headlineMed};
 	font-size: ${fontSize[70]};
 `;
 
 // headline.med.ita.x
 
-export const headlineMedIta14 = () => `
-	${headlineMedIta()};
+export const headlineMedIta14 = `
+	${headlineMedIta};
 	font-size: ${fontSize[14]};
 `;
 
-export const headlineMedIta17 = () => `
-	${headlineMedIta()};
+export const headlineMedIta17 = `
+	${headlineMedIta};
 	font-size: ${fontSize[17]};
 `;
 
-export const headlineMedIta20 = () => `
-	${headlineMedIta()};
+export const headlineMedIta20 = `
+	${headlineMedIta};
 	font-size: ${fontSize[20]};
 `;
 
-export const headlineMedIta24 = () => `
-	${headlineMedIta()};
+export const headlineMedIta24 = `
+	${headlineMedIta};
 	font-size: ${fontSize[24]};
 `;
 
-export const headlineMedIta28 = () => `
-	${headlineMedIta()};
+export const headlineMedIta28 = `
+	${headlineMedIta};
 	font-size: ${fontSize[28]};
 `;
 
-export const headlineMedIta34 = () => `
-	${headlineMedIta()};
+export const headlineMedIta34 = `
+	${headlineMedIta};
 	font-size: ${fontSize[34]};
 `;
 
-export const headlineMedIta42 = () => `
-	${headlineMedIta()};
+export const headlineMedIta42 = `
+	${headlineMedIta};
 	font-size: ${fontSize[42]};
 `;
 
-export const headlineMedIta50 = () => `
-	${headlineMedIta()};
+export const headlineMedIta50 = `
+	${headlineMedIta};
 	font-size: ${fontSize[50]};
 `;
 
-export const headlineMedIta70 = () => `
-	${headlineMedIta()};
+export const headlineMedIta70 = `
+	${headlineMedIta};
 	font-size: ${fontSize[70]};
 `;
 
 // headline.bld.x
 
-export const headlineBld14 = () => `
-${headlineBld()};
+export const headlineBld14 = `
+${headlineBld};
 	font-size: ${fontSize[14]};
 `;
 
-export const headlineBld17 = () => `
-	${headlineBld()};
+export const headlineBld17 = `
+	${headlineBld};
 	font-size: ${fontSize[17]};
 `;
 
-export const headlineBld20 = () => `
-	${headlineBld()};
+export const headlineBld20 = `
+	${headlineBld};
 	font-size: ${fontSize[20]};
 `;
 
-export const headlineBld24 = () => `
-	${headlineBld()};
+export const headlineBld24 = `
+	${headlineBld};
 	font-size: ${fontSize[24]};
 `;
 
-export const headlineBld28 = () => `
-	${headlineBld()};
+export const headlineBld28 = `
+	${headlineBld};
 	font-size: ${fontSize[28]};
 `;
 
-export const headlineBld34 = () => `
-	${headlineBld()};
+export const headlineBld34 = `
+	${headlineBld};
 	font-size: ${fontSize[34]};
 `;
 
-export const headlineBld42 = () => `
-	${headlineBld()};
+export const headlineBld42 = `
+	${headlineBld};
 	font-size: ${fontSize[42]};
 `;
 
-export const headlineBld50 = () => `
-	${headlineBld()};
+export const headlineBld50 = `
+	${headlineBld};
 	font-size: ${fontSize[50]};
 `;
 
-export const headlineBld70 = () => `
-	${headlineBld()};
+export const headlineBld70 = `
+	${headlineBld};
 	font-size: ${fontSize[70]};
 `;
