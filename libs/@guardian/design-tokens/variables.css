@@ -352,6 +352,564 @@
 	--source-typography-lineHeight-loose: 1.4;
 	--source-typography-lineHeight-regular: 1.3;
 	--source-typography-lineHeight-tight: 1.15;
+	--source-typography-presets-headlineBld14-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-presets-headlineBld14-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld17-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-presets-headlineBld17-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld17-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld20-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld20-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-presets-headlineBld20-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld20-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld24-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld24-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-presets-headlineBld24-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld24-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld28-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld28-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-presets-headlineBld28-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld28-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld34-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld34-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-presets-headlineBld34-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld34-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld42-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-presets-headlineBld42-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld42-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld50-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld50-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-presets-headlineBld50-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld50-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineBld70-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineBld70-font-size: var(
+		--source-typography-fontSize-70
+	);
+	--source-typography-presets-headlineBld70-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typography-presets-headlineBld70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit14-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-presets-headlineLit14-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit17-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-presets-headlineLit17-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit17-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit20-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit20-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-presets-headlineLit20-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit20-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit24-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit24-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-presets-headlineLit24-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit24-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit28-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit28-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-presets-headlineLit28-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit28-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit34-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit34-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-presets-headlineLit34-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit34-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit42-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-presets-headlineLit42-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit42-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit50-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit50-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-presets-headlineLit50-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit50-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLit70-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLit70-font-size: var(
+		--source-typography-fontSize-70
+	);
+	--source-typography-presets-headlineLit70-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLit70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta14-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-presets-headlineLitIta14-font-style: italic;
+	--source-typography-presets-headlineLitIta14-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta17-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-presets-headlineLitIta17-font-style: italic;
+	--source-typography-presets-headlineLitIta17-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta17-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta20-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta20-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-presets-headlineLitIta20-font-style: italic;
+	--source-typography-presets-headlineLitIta20-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta20-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta24-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta24-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-presets-headlineLitIta24-font-style: italic;
+	--source-typography-presets-headlineLitIta24-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta24-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta28-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta28-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-presets-headlineLitIta28-font-style: italic;
+	--source-typography-presets-headlineLitIta28-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta28-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta34-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta34-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-presets-headlineLitIta34-font-style: italic;
+	--source-typography-presets-headlineLitIta34-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta34-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta42-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-presets-headlineLitIta42-font-style: italic;
+	--source-typography-presets-headlineLitIta42-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta42-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta50-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta50-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-presets-headlineLitIta50-font-style: italic;
+	--source-typography-presets-headlineLitIta50-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta50-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineLitIta70-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineLitIta70-font-size: var(
+		--source-typography-fontSize-70
+	);
+	--source-typography-presets-headlineLitIta70-font-style: italic;
+	--source-typography-presets-headlineLitIta70-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typography-presets-headlineLitIta70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed14-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-presets-headlineMed14-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed17-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-presets-headlineMed17-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed17-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed20-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed20-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-presets-headlineMed20-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed20-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed24-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed24-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-presets-headlineMed24-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed24-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed28-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed28-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-presets-headlineMed28-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed28-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed34-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed34-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-presets-headlineMed34-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed34-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed42-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-presets-headlineMed42-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed42-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed50-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed50-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-presets-headlineMed50-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed50-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMed70-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMed70-font-size: var(
+		--source-typography-fontSize-70
+	);
+	--source-typography-presets-headlineMed70-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMed70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta14-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-typography-presets-headlineMedIta14-font-style: italic;
+	--source-typography-presets-headlineMedIta14-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta17-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-typography-presets-headlineMedIta17-font-style: italic;
+	--source-typography-presets-headlineMedIta17-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta17-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta20-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta20-font-size: var(
+		--source-typography-fontSize-20
+	);
+	--source-typography-presets-headlineMedIta20-font-style: italic;
+	--source-typography-presets-headlineMedIta20-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta20-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta24-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta24-font-size: var(
+		--source-typography-fontSize-24
+	);
+	--source-typography-presets-headlineMedIta24-font-style: italic;
+	--source-typography-presets-headlineMedIta24-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta24-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta28-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta28-font-size: var(
+		--source-typography-fontSize-28
+	);
+	--source-typography-presets-headlineMedIta28-font-style: italic;
+	--source-typography-presets-headlineMedIta28-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta28-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta34-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta34-font-size: var(
+		--source-typography-fontSize-34
+	);
+	--source-typography-presets-headlineMedIta34-font-style: italic;
+	--source-typography-presets-headlineMedIta34-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta34-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta42-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typography-presets-headlineMedIta42-font-style: italic;
+	--source-typography-presets-headlineMedIta42-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta42-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta50-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta50-font-size: var(
+		--source-typography-fontSize-50
+	);
+	--source-typography-presets-headlineMedIta50-font-style: italic;
+	--source-typography-presets-headlineMedIta50-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta50-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typography-presets-headlineMedIta70-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typography-presets-headlineMedIta70-font-size: var(
+		--source-typography-fontSize-70
+	);
+	--source-typography-presets-headlineMedIta70-font-style: italic;
+	--source-typography-presets-headlineMedIta70-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typography-presets-headlineMedIta70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-typography-textDecorationThickness-2: 0.125rem;
 	--source-typography-textDecorationThickness-3: 0.1875rem;
 	--source-typography-textDecorationThickness-4: 0.25rem;
