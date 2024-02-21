@@ -31,13 +31,17 @@ export const TCFV2VendorIDs: VendorIDType = {
 	nielsen: ['5ef5c3a5b8e05c69980eaa5b'],
 	ophan: ['5f203dbeeaaaa8768fd3226a'],
 	permutive: ['5f369a02b8e05c2f2d546a40'],
-	prebid: ['5f92a62aa22863685f4daa4c'],
+	prebidCustom: ['5f22bfd82a6b6c1afd1181a9'],
 	qm: ['5f295fa4b8e05c76a44c3149'],
 	remarketing: ['5ed0eb688a76503f1016578f'],
 	sentry: ['5f0f39014effda6e8bbd2006'],
 	teads: ['5eab3d5ab8e05c2bbe33f399'],
 	twitter: ['5e71760b69966540e4554f01'],
 	'youtube-player': ['5e7ac3fae30e7d1bc1ebf5e8'],
+};
+
+export const MiscVendorID: VendorIDType = {
+	prebid: ['5f92a62aa22863685f4daa4c'],
 };
 
 export const AusVendorIDs: VendorIDType = {
