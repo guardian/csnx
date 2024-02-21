@@ -64,4 +64,4 @@ export {
 	getConsentFor,
 	onConsentChange,
 	onConsent,
-} from './consent-management-platform/index';
+} from './consent-management-platform';
