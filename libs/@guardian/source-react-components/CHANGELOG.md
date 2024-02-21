@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 22.0.2
+
+### Patch Changes
+
+- 759a692: Move shared component types in the source code into `@types` dirs.
+
 ## 22.0.1
 
 ### Patch Changes
