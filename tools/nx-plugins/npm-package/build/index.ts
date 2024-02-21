@@ -10,7 +10,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import type Cpy from 'cpy';
 import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
-import ts from 'rollup-plugin-ts';
+import typescript from 'rollup-plugin-typescript2';
 import { ScriptTarget } from 'typescript';
 import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
@@ -64,8 +64,13 @@ const getRollupConfig = (
 			nodeResolve({
 				extensions: ['.ts', '.tsx', '.mjs', '.jsx', '.js', '.json'],
 			}),
-			ts({
-				tsconfig: compilerOptions,
+			typescript({
+				tsconfig: options.tsConfig,
+				tsconfigOverride: {
+					compilerOptions: {},
+				},
+				verbosity: 2, // 3 for debugging
+				abortOnError: true,
 			}),
 			json(),
 			commonjs(),
@@ -132,29 +137,33 @@ export default async function buildExecutor(
 			const external = deps.map((dep) => new RegExp(`^${dep}`));
 
 			// create build for each module type
-			const builds = await Promise.all(
-				formats.map(async (format) => {
-					const { plugins, output } = getRollupConfig(options, context, format);
+			const builds = [];
 
-					const bundle = await rollup({
-						input,
-						plugins,
-						external,
-					});
-					const artefact = await bundle.write(output);
-					await bundle.close();
+			for (const format of formats) {
+				logger.log(`Building ${format}...`);
 
-					const outputs = artefact.output.filter(
-						(file) => file.type === 'chunk' && file.isEntry,
-					) as OutputChunk[];
+				const { plugins, output } = getRollupConfig(options, context, format);
 
-					return outputs.map((output) => ({
+				const bundle = await rollup({
+					input,
+					plugins,
+					external,
+				});
+				const artefact = await bundle.write(output);
+				await bundle.close();
+
+				const outputs = artefact.output.filter(
+					(file) => file.type === 'chunk' && file.isEntry,
+				) as OutputChunk[];
+
+				builds.push(
+					outputs.map((output) => ({
 						name: output.name,
 						path: `${format}/${output.fileName}`,
 						format,
-					}));
-				}),
-			);
+					})),
+				);
+			}
 
 			for (const { name, path, format } of builds.flat()) {
 				const exportName = '.' + (name === 'index' ? '' : '/' + name);

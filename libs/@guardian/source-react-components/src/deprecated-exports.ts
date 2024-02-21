@@ -20,22 +20,22 @@ import type { Props as InternalPropsType } from './@types/Props';
 export type Props = InternalPropsType;
 
 /** @deprecated Use `SvgCrossedOutCloud` instead. */
-export const SvgOfflineCloud = SvgCrossedOutCloud;
+export const SvgOfflineCloud: typeof SvgCrossedOutCloud = SvgCrossedOutCloud;
 
 /** @deprecated Use `SvgExclamation` instead. */
-export const SvgAlert = SvgExclamation;
+export const SvgAlert: typeof SvgExclamation = SvgExclamation;
 
 /** @deprecated Use `SvgFacebookMessenger` instead. */
-export const SvgMessenger = SvgFacebookMessenger;
+export const SvgMessenger: typeof SvgFacebookMessenger = SvgFacebookMessenger;
 
 /** @deprecated Use `SvgInfoRound` instead. */
-export const SvgInfo = SvgInfoRound;
+export const SvgInfo: typeof SvgInfoRound = SvgInfoRound;
 
 /** @deprecated Use `SvgMediaControlsPlay` instead. */
-export const SvgPlay = SvgMediaControlsPlay;
+export const SvgPlay: typeof SvgMediaControlsPlay = SvgMediaControlsPlay;
 
 /** @deprecated Use `SvgPayPalBrand` instead. */
-export const SvgPayPal = SvgPayPalBrand;
+export const SvgPayPal: typeof SvgPayPalBrand = SvgPayPalBrand;
 
 export type { ButtonTheme } from './button/theme';
 
