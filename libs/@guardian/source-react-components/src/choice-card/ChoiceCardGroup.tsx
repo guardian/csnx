@@ -51,6 +51,18 @@ export interface ChoiceCardGroupProps
 	 */
 	columns?: ChoiceCardColumns;
 	children: JSX.Element | JSX.Element[];
+	/**
+	 * A component level theme to override the theme.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textLabel`<br>
+	 *  `textOptional`<br>
+	 *  `textSupporting`<br>
+	 *  `textError`<br>
+	 *  `textSuccess`<br>
+	 *
+	 */
 	theme?: Partial<ThemeChoiceCardGroup>;
 }
 

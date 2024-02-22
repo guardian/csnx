@@ -21,5 +21,16 @@ export interface LegendProps extends HTMLAttributes<HTMLLegendElement>, Props {
 	 */
 	hideLabel?: boolean;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textLabel`<br>
+	 *  `textOptional`<br>
+	 *  `textSupporting`<br>
+	 *  `textError`<br>
+	 *  `textSuccess`<br>
+	 */
 	theme?: Partial<ThemeLabel>;
 }

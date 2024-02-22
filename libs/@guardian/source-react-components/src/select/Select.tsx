@@ -50,6 +50,25 @@ export interface SelectProps
 	 */
 	success?: string;
 	children: JSX.Element | JSX.Element[];
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textUserInput`<br>
+	 *  `textLabel`<br>
+	 *  `textOptional`<br>
+	 *  `textSupporting`<br>
+	 *  `textError`<br>
+	 *  `textSuccess`<br>
+	 *  `backgroundInput`<br>
+	 *  `border`<br>
+	 *  `borderActive`<br>
+	 *  `borderError`<br>
+	 *  `borderSuccess`<br>
+	 *  `iconFill`<br>
+	 *
+	 */
 	theme?: Partial<ThemeSelect>;
 }
 

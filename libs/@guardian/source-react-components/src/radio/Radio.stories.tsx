@@ -1,8 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
 import { themeRadioBrand } from './theme';
-import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Radio> = {
 	title: 'Radio',
@@ -33,7 +33,7 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 
 const Template: StoryFn<typeof Radio> = (args: RadioProps) => (
-	<Radio {...args} />
+	<Radio {...args} css />
 );
 
 export const DefaultDefaultTheme: StoryFn<typeof Radio> = Template.bind({});

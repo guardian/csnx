@@ -56,7 +56,23 @@ export interface ChoiceCardProps
 	 */
 	type?: 'radio' | 'checkbox';
 	/**
-	 * A component level theme to override the colour palette of the choice card component
+	 * A component level theme to override the theme.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textUnselected` <br>
+	 *  `textSelected` <br>
+	 *  `textHover` <br>
+	 *  `textError` <br>
+	 *  `borderUnselected` <br>
+	 *  `borderSelected` <br>
+	 *  `borderHover` <br>
+	 *  `borderError` <br>
+	 *  `backgroundUnselected` <br>
+	 *  `backgroundHover` <br>
+	 *  `backgroundSelected` <br>
+	 *  `backgroundTick` <br>
+	 *
 	 */
 	theme?: Partial<ThemeChoiceCard>;
 }

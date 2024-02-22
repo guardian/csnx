@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ChoiceCard } from './ChoiceCard';
 import ChoiceCardStories from './ChoiceCard.stories';
 import { ChoiceCardGroup } from './ChoiceCardGroup';
-import { ThemeChoiceCard } from './theme';
+import type { ThemeChoiceCard } from './theme';
 
 const meta: Meta<typeof ChoiceCardGroup> = {
 	title: 'ChoiceCardGroup',

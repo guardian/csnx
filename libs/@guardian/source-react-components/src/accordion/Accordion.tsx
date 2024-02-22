@@ -21,6 +21,19 @@ export interface AccordionProps extends Props {
 	 */
 	hideToggleLabel?: boolean;
 	children: ReactElement[];
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * Sanctioned colours to change have been set out by the design system team.
+	 *
+	 *  The theme colours available to change are:
+	 *
+	 *  `textLabel`<br>
+	 *  `textBody`<br>
+	 *  `textCta`<br>
+	 *  `border`<br>
+	 *  `iconFill`
+	 *
+	 */
 	theme?: Partial<ThemeAccordion>;
 }
 
