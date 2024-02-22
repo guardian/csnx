@@ -441,6 +441,7 @@ export const tokens = {
 				fontSize: '14px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld17: {
 				fontFamily: [
@@ -452,6 +453,7 @@ export const tokens = {
 				fontSize: '17px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld20: {
 				fontFamily: [
@@ -463,6 +465,7 @@ export const tokens = {
 				fontSize: '20px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld24: {
 				fontFamily: [
@@ -474,6 +477,7 @@ export const tokens = {
 				fontSize: '24px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld28: {
 				fontFamily: [
@@ -485,6 +489,7 @@ export const tokens = {
 				fontSize: '28px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld34: {
 				fontFamily: [
@@ -496,6 +501,7 @@ export const tokens = {
 				fontSize: '34px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld42: {
 				fontFamily: [
@@ -507,6 +513,7 @@ export const tokens = {
 				fontSize: '42px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld50: {
 				fontFamily: [
@@ -518,6 +525,7 @@ export const tokens = {
 				fontSize: '50px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineBld70: {
 				fontFamily: [
@@ -529,6 +537,7 @@ export const tokens = {
 				fontSize: '70px',
 				lineHeight: 1.15,
 				fontWeight: 700,
+				fontStyle: 'normal',
 			},
 			headlineLit14: {
 				fontFamily: [
@@ -540,6 +549,7 @@ export const tokens = {
 				fontSize: '14px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit17: {
 				fontFamily: [
@@ -551,6 +561,7 @@ export const tokens = {
 				fontSize: '17px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit20: {
 				fontFamily: [
@@ -562,6 +573,7 @@ export const tokens = {
 				fontSize: '20px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit24: {
 				fontFamily: [
@@ -573,6 +585,7 @@ export const tokens = {
 				fontSize: '24px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit28: {
 				fontFamily: [
@@ -584,6 +597,7 @@ export const tokens = {
 				fontSize: '28px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit34: {
 				fontFamily: [
@@ -595,6 +609,7 @@ export const tokens = {
 				fontSize: '34px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit42: {
 				fontFamily: [
@@ -606,6 +621,7 @@ export const tokens = {
 				fontSize: '42px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit50: {
 				fontFamily: [
@@ -617,6 +633,7 @@ export const tokens = {
 				fontSize: '50px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLit70: {
 				fontFamily: [
@@ -628,6 +645,7 @@ export const tokens = {
 				fontSize: '70px',
 				lineHeight: 1.15,
 				fontWeight: 300,
+				fontStyle: 'normal',
 			},
 			headlineLitIta14: {
 				fontFamily: [
@@ -747,6 +765,7 @@ export const tokens = {
 				fontSize: '14px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed17: {
 				fontFamily: [
@@ -758,6 +777,7 @@ export const tokens = {
 				fontSize: '17px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed20: {
 				fontFamily: [
@@ -769,6 +789,7 @@ export const tokens = {
 				fontSize: '20px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed24: {
 				fontFamily: [
@@ -780,6 +801,7 @@ export const tokens = {
 				fontSize: '24px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed28: {
 				fontFamily: [
@@ -791,6 +813,7 @@ export const tokens = {
 				fontSize: '28px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed34: {
 				fontFamily: [
@@ -802,6 +825,7 @@ export const tokens = {
 				fontSize: '34px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed42: {
 				fontFamily: [
@@ -813,6 +837,7 @@ export const tokens = {
 				fontSize: '42px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed50: {
 				fontFamily: [
@@ -824,6 +849,7 @@ export const tokens = {
 				fontSize: '50px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMed70: {
 				fontFamily: [
@@ -835,6 +861,7 @@ export const tokens = {
 				fontSize: '70px',
 				lineHeight: 1.15,
 				fontWeight: 500,
+				fontStyle: 'normal',
 			},
 			headlineMedIta14: {
 				fontFamily: [

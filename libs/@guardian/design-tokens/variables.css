@@ -358,6 +358,7 @@
 	--source-typography-presets-headlineBld14-font-size: var(
 		--source-typography-fontSize-14
 	);
+	--source-typography-presets-headlineBld14-font-style: normal;
 	--source-typography-presets-headlineBld14-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -370,6 +371,7 @@
 	--source-typography-presets-headlineBld17-font-size: var(
 		--source-typography-fontSize-17
 	);
+	--source-typography-presets-headlineBld17-font-style: normal;
 	--source-typography-presets-headlineBld17-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -382,6 +384,7 @@
 	--source-typography-presets-headlineBld20-font-size: var(
 		--source-typography-fontSize-20
 	);
+	--source-typography-presets-headlineBld20-font-style: normal;
 	--source-typography-presets-headlineBld20-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -394,6 +397,7 @@
 	--source-typography-presets-headlineBld24-font-size: var(
 		--source-typography-fontSize-24
 	);
+	--source-typography-presets-headlineBld24-font-style: normal;
 	--source-typography-presets-headlineBld24-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -406,6 +410,7 @@
 	--source-typography-presets-headlineBld28-font-size: var(
 		--source-typography-fontSize-28
 	);
+	--source-typography-presets-headlineBld28-font-style: normal;
 	--source-typography-presets-headlineBld28-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -418,6 +423,7 @@
 	--source-typography-presets-headlineBld34-font-size: var(
 		--source-typography-fontSize-34
 	);
+	--source-typography-presets-headlineBld34-font-style: normal;
 	--source-typography-presets-headlineBld34-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -430,6 +436,7 @@
 	--source-typography-presets-headlineBld42-font-size: var(
 		--source-typography-fontSize-42
 	);
+	--source-typography-presets-headlineBld42-font-style: normal;
 	--source-typography-presets-headlineBld42-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -442,6 +449,7 @@
 	--source-typography-presets-headlineBld50-font-size: var(
 		--source-typography-fontSize-50
 	);
+	--source-typography-presets-headlineBld50-font-style: normal;
 	--source-typography-presets-headlineBld50-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -454,6 +462,7 @@
 	--source-typography-presets-headlineBld70-font-size: var(
 		--source-typography-fontSize-70
 	);
+	--source-typography-presets-headlineBld70-font-style: normal;
 	--source-typography-presets-headlineBld70-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
@@ -466,6 +475,7 @@
 	--source-typography-presets-headlineLit14-font-size: var(
 		--source-typography-fontSize-14
 	);
+	--source-typography-presets-headlineLit14-font-style: normal;
 	--source-typography-presets-headlineLit14-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -478,6 +488,7 @@
 	--source-typography-presets-headlineLit17-font-size: var(
 		--source-typography-fontSize-17
 	);
+	--source-typography-presets-headlineLit17-font-style: normal;
 	--source-typography-presets-headlineLit17-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -490,6 +501,7 @@
 	--source-typography-presets-headlineLit20-font-size: var(
 		--source-typography-fontSize-20
 	);
+	--source-typography-presets-headlineLit20-font-style: normal;
 	--source-typography-presets-headlineLit20-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -502,6 +514,7 @@
 	--source-typography-presets-headlineLit24-font-size: var(
 		--source-typography-fontSize-24
 	);
+	--source-typography-presets-headlineLit24-font-style: normal;
 	--source-typography-presets-headlineLit24-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -514,6 +527,7 @@
 	--source-typography-presets-headlineLit28-font-size: var(
 		--source-typography-fontSize-28
 	);
+	--source-typography-presets-headlineLit28-font-style: normal;
 	--source-typography-presets-headlineLit28-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -526,6 +540,7 @@
 	--source-typography-presets-headlineLit34-font-size: var(
 		--source-typography-fontSize-34
 	);
+	--source-typography-presets-headlineLit34-font-style: normal;
 	--source-typography-presets-headlineLit34-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -538,6 +553,7 @@
 	--source-typography-presets-headlineLit42-font-size: var(
 		--source-typography-fontSize-42
 	);
+	--source-typography-presets-headlineLit42-font-style: normal;
 	--source-typography-presets-headlineLit42-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -550,6 +566,7 @@
 	--source-typography-presets-headlineLit50-font-size: var(
 		--source-typography-fontSize-50
 	);
+	--source-typography-presets-headlineLit50-font-style: normal;
 	--source-typography-presets-headlineLit50-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -562,6 +579,7 @@
 	--source-typography-presets-headlineLit70-font-size: var(
 		--source-typography-fontSize-70
 	);
+	--source-typography-presets-headlineLit70-font-style: normal;
 	--source-typography-presets-headlineLit70-font-weight: var(
 		--source-typography-fontWeight-light
 	);
@@ -691,6 +709,7 @@
 	--source-typography-presets-headlineMed14-font-size: var(
 		--source-typography-fontSize-14
 	);
+	--source-typography-presets-headlineMed14-font-style: normal;
 	--source-typography-presets-headlineMed14-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -703,6 +722,7 @@
 	--source-typography-presets-headlineMed17-font-size: var(
 		--source-typography-fontSize-17
 	);
+	--source-typography-presets-headlineMed17-font-style: normal;
 	--source-typography-presets-headlineMed17-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -715,6 +735,7 @@
 	--source-typography-presets-headlineMed20-font-size: var(
 		--source-typography-fontSize-20
 	);
+	--source-typography-presets-headlineMed20-font-style: normal;
 	--source-typography-presets-headlineMed20-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -727,6 +748,7 @@
 	--source-typography-presets-headlineMed24-font-size: var(
 		--source-typography-fontSize-24
 	);
+	--source-typography-presets-headlineMed24-font-style: normal;
 	--source-typography-presets-headlineMed24-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -739,6 +761,7 @@
 	--source-typography-presets-headlineMed28-font-size: var(
 		--source-typography-fontSize-28
 	);
+	--source-typography-presets-headlineMed28-font-style: normal;
 	--source-typography-presets-headlineMed28-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -751,6 +774,7 @@
 	--source-typography-presets-headlineMed34-font-size: var(
 		--source-typography-fontSize-34
 	);
+	--source-typography-presets-headlineMed34-font-style: normal;
 	--source-typography-presets-headlineMed34-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -763,6 +787,7 @@
 	--source-typography-presets-headlineMed42-font-size: var(
 		--source-typography-fontSize-42
 	);
+	--source-typography-presets-headlineMed42-font-style: normal;
 	--source-typography-presets-headlineMed42-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -775,6 +800,7 @@
 	--source-typography-presets-headlineMed50-font-size: var(
 		--source-typography-fontSize-50
 	);
+	--source-typography-presets-headlineMed50-font-style: normal;
 	--source-typography-presets-headlineMed50-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
@@ -787,6 +813,7 @@
 	--source-typography-presets-headlineMed70-font-size: var(
 		--source-typography-fontSize-70
 	);
+	--source-typography-presets-headlineMed70-font-style: normal;
 	--source-typography-presets-headlineMed70-font-weight: var(
 		--source-typography-fontWeight-medium
 	);

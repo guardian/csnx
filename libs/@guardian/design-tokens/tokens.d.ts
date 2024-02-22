@@ -445,6 +445,7 @@ export declare const tokens: {
 				readonly fontSize: '14px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld17: {
 				readonly fontFamily: readonly [
@@ -456,6 +457,7 @@ export declare const tokens: {
 				readonly fontSize: '17px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld20: {
 				readonly fontFamily: readonly [
@@ -467,6 +469,7 @@ export declare const tokens: {
 				readonly fontSize: '20px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld24: {
 				readonly fontFamily: readonly [
@@ -478,6 +481,7 @@ export declare const tokens: {
 				readonly fontSize: '24px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld28: {
 				readonly fontFamily: readonly [
@@ -489,6 +493,7 @@ export declare const tokens: {
 				readonly fontSize: '28px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld34: {
 				readonly fontFamily: readonly [
@@ -500,6 +505,7 @@ export declare const tokens: {
 				readonly fontSize: '34px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld42: {
 				readonly fontFamily: readonly [
@@ -511,6 +517,7 @@ export declare const tokens: {
 				readonly fontSize: '42px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld50: {
 				readonly fontFamily: readonly [
@@ -522,6 +529,7 @@ export declare const tokens: {
 				readonly fontSize: '50px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineBld70: {
 				readonly fontFamily: readonly [
@@ -533,6 +541,7 @@ export declare const tokens: {
 				readonly fontSize: '70px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 700;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit14: {
 				readonly fontFamily: readonly [
@@ -544,6 +553,7 @@ export declare const tokens: {
 				readonly fontSize: '14px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit17: {
 				readonly fontFamily: readonly [
@@ -555,6 +565,7 @@ export declare const tokens: {
 				readonly fontSize: '17px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit20: {
 				readonly fontFamily: readonly [
@@ -566,6 +577,7 @@ export declare const tokens: {
 				readonly fontSize: '20px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit24: {
 				readonly fontFamily: readonly [
@@ -577,6 +589,7 @@ export declare const tokens: {
 				readonly fontSize: '24px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit28: {
 				readonly fontFamily: readonly [
@@ -588,6 +601,7 @@ export declare const tokens: {
 				readonly fontSize: '28px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit34: {
 				readonly fontFamily: readonly [
@@ -599,6 +613,7 @@ export declare const tokens: {
 				readonly fontSize: '34px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit42: {
 				readonly fontFamily: readonly [
@@ -610,6 +625,7 @@ export declare const tokens: {
 				readonly fontSize: '42px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit50: {
 				readonly fontFamily: readonly [
@@ -621,6 +637,7 @@ export declare const tokens: {
 				readonly fontSize: '50px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLit70: {
 				readonly fontFamily: readonly [
@@ -632,6 +649,7 @@ export declare const tokens: {
 				readonly fontSize: '70px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 300;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineLitIta14: {
 				readonly fontFamily: readonly [
@@ -751,6 +769,7 @@ export declare const tokens: {
 				readonly fontSize: '14px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed17: {
 				readonly fontFamily: readonly [
@@ -762,6 +781,7 @@ export declare const tokens: {
 				readonly fontSize: '17px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed20: {
 				readonly fontFamily: readonly [
@@ -773,6 +793,7 @@ export declare const tokens: {
 				readonly fontSize: '20px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed24: {
 				readonly fontFamily: readonly [
@@ -784,6 +805,7 @@ export declare const tokens: {
 				readonly fontSize: '24px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed28: {
 				readonly fontFamily: readonly [
@@ -795,6 +817,7 @@ export declare const tokens: {
 				readonly fontSize: '28px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed34: {
 				readonly fontFamily: readonly [
@@ -806,6 +829,7 @@ export declare const tokens: {
 				readonly fontSize: '34px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed42: {
 				readonly fontFamily: readonly [
@@ -817,6 +841,7 @@ export declare const tokens: {
 				readonly fontSize: '42px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed50: {
 				readonly fontFamily: readonly [
@@ -828,6 +853,7 @@ export declare const tokens: {
 				readonly fontSize: '50px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMed70: {
 				readonly fontFamily: readonly [
@@ -839,6 +865,7 @@ export declare const tokens: {
 				readonly fontSize: '70px';
 				readonly lineHeight: 1.15;
 				readonly fontWeight: 500;
+				readonly fontStyle: 'normal';
 			};
 			readonly headlineMedIta14: {
 				readonly fontFamily: readonly [
