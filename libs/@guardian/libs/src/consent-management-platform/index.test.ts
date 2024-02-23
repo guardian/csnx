@@ -128,8 +128,8 @@ describe('hotfix cmp.init', () => {
 				jest.resetModules();
 				import('./index');
 			})
-			.catch(() => {
-				fail;
+			.catch((error) => {
+				console.error(error);
 			});
 	});
 });
@@ -149,12 +149,12 @@ describe('cmp.willShowPrivacyMessage', () => {
 			.then(() => {
 				expect(Promise.all([willShowPrivacyMessage1, willShowPrivacyMessage2]))
 					.resolves.toEqual([true, true])
-					.catch(() => {
-						fail;
+					.catch((error) => {
+						console.error(error);
 					});
 			})
-			.catch(() => {
-				fail;
+			.catch((error) => {
+				console.error(error);
 			});
 	});
 });
@@ -172,8 +172,8 @@ describe('cmp.willShowPrivacyMessageSync', () => {
 			.then(() => {
 				expect(() => cmp.willShowPrivacyMessageSync()).not.toThrow();
 			})
-			.catch(() => {
-				fail;
+			.catch((error) => {
+				console.error(error);
 			});
 	});
 });
@@ -191,8 +191,8 @@ describe('cmp.hasInitialised', () => {
 			.then(() => {
 				expect(cmp.hasInitialised()).toBe(true);
 			})
-			.catch(() => {
-				fail;
+			.catch((error) => {
+				console.error(error);
 			});
 	});
 });
