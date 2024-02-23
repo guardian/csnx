@@ -456,9 +456,6 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
-      wait-for-expect:
-        specifier: ^3
-        version: 3.0.2
       wcag-contrast:
         specifier: 3.0.0
         version: 3.0.0
@@ -15193,10 +15190,6 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       xml-name-validator: 4.0.0
-    dev: true
-
-  /wait-for-expect@3.0.2:
-    resolution: {integrity: sha512-cfS1+DZxuav1aBYbaO/kE06EOS8yRw7qOFoD3XtjTkYvCvh3zUvNST8DXK/nPaeqIzIv3P3kL3lRJn8iwOiSag==}
     dev: true
 
   /walker@1.0.8:

@@ -1,10 +1,12 @@
-import waitForExpect from 'wait-for-expect';
 import type { CountryCode } from '../countries/@types/CountryCode';
 import { CMP as actualCMP } from './cmp';
 import { disable, enable } from './disable';
 import { getCurrentFramework } from './getCurrentFramework';
 import type { CMP as typeCMP } from './types';
 import { cmp } from './index';
+
+const resolveAllPromises = () =>
+	new Promise((resolve) => process.nextTick(resolve));
 
 const CMP = {
 	init: jest.spyOn(actualCMP, 'init'),
@@ -196,32 +198,29 @@ describe('cmp.hasInitialised', () => {
 });
 
 describe('cmp.showPrivacyManager', () => {
-	it('shows CMP privacy manager when in the US', () => {
+	it('shows CMP privacy manager when in the US', async () => {
 		cmp.init({ country: 'US' });
 
 		cmp.showPrivacyManager();
+		await resolveAllPromises();
 
-		return waitForExpect(() =>
-			expect(CMP.showPrivacyManager).toHaveBeenCalledTimes(1),
-		);
+		expect(CMP.showPrivacyManager).toHaveBeenCalledTimes(1);
 	});
 
-	it('shows CMP privacy manager when in Australia', () => {
+	it('shows CMP privacy manager when in Australia', async () => {
 		cmp.init({ country: 'AU' });
 
 		cmp.showPrivacyManager();
+		await resolveAllPromises();
 
-		return waitForExpect(() =>
-			expect(CMP.showPrivacyManager).toHaveBeenCalledTimes(1),
-		);
+		expect(CMP.showPrivacyManager).toHaveBeenCalledTimes(1);
 	});
-	it('shows TCF privacy manager when neither in the US or Australia', () => {
+	it('shows TCF privacy manager when neither in the US or Australia', async () => {
 		cmp.init({ country: 'GB' });
 
 		cmp.showPrivacyManager();
+		await resolveAllPromises();
 
-		return waitForExpect(() =>
-			expect(CMP.showPrivacyManager).toHaveBeenCalledTimes(1),
-		);
+		expect(CMP.showPrivacyManager).toHaveBeenCalledTimes(1);
 	});
 });
