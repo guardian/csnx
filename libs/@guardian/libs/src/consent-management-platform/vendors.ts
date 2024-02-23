@@ -51,6 +51,7 @@ export const AusVendorIDs: VendorIDType = {
 export const VendorIDs: VendorIDType = {
 	...TCFV2VendorIDs,
 	...AusVendorIDs,
+	...MiscVendorID,
 };
 
 export type VendorName = keyof typeof VendorIDs;
