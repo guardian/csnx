@@ -296,9 +296,7 @@ export const buttonStyles =
 	(
 		providerTheme: Theme,
 	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
-		button,
 		sizes[size],
-		priorities[priority](mergedTheme(providerTheme.button, theme)),
 		iconSvg ?? isLoading ? iconSizes[size] : '',
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',

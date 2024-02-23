@@ -1,0 +1,79 @@
+@import '../../../design-tokens/variables.css';
+
+:root {
+	/* TODO: Add transitions to design tokens */
+	--source-transitions-medium: 0.3s ease-in-out;
+	/* Default theme */
+	--source-button-text-primary: var(--source-palette-neutral-100);
+	--source-button-background-primary: var(--source-palette-brand-400);
+	--source-button-background-primary-hover: #234b8a;
+	--source-button-text-secondary: var(--source-palette-brand-400);
+	--source-button-background-secondary: var(--source-palette-brand-800);
+	--source-button-background-secondary-hover: #acc9f7;
+	--source-button-text-tertiary: var(--source-palette-brand-400);
+	--source-button-background-tertiary-hover: #e5e5e5;
+	--source-button-border-tertiary: var(--source-palette-brand-400);
+	--source-button-text-subdued: var(--source-palette-brand-400);
+}
+
+.c-source-button {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	transition: var(--source-transitions-medium);
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+
+	&:focus {
+		outline: 0;
+		html:not(.src-focus-disabled) & {
+			outline: 5px solid var(--source-palette-focus-400);
+			outline-offset: 3px;
+		}
+	}
+}
+
+.c-source-button--primary {
+	background-color: var(--source-button-background-primary);
+	color: var(--source-button-text-primary);
+	&:hover {
+		background-color: var(--source-button-background-primary-hover);
+	}
+}
+
+.c-source-button--secondary {
+	background-color: var(--source-button-background-secondary);
+	color: var(--source-button-text-secondary);
+	&:hover {
+		background-color: var(--source-button-background-secondary-hover);
+	}
+}
+
+.c-source-button--tertiary {
+	color: var(--source-button-text-tertiary);
+	border: 1px solid var(--source-button-border-tertiary);
+	&:hover {
+		background-color: var(--source-button-background-tertiary-hover);
+	}
+}
+
+.c-source-button--subdued {
+	padding: 0;
+	background-color: transparent;
+	color: var(--source-button-text-subdued);
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	border-radius: 0;
+	&:hover {
+		text-decoration-thickness: 4px;
+	}
+}

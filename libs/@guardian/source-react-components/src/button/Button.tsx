@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes } from 'react';
 import type { SharedButtonProps } from './@types/SharedButtonProps';
 import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
+import './styles.css';
 
 export interface ButtonProps
 	extends SharedButtonProps,
@@ -18,7 +19,7 @@ export interface ButtonProps
  *
  */
 export const Button = ({
-	priority,
+	priority = 'primary',
 	size,
 	icon: iconSvg,
 	iconSide,
@@ -31,29 +32,41 @@ export const Button = ({
 	children,
 	theme,
 	...props
-}: ButtonProps): EmotionJSX.Element => (
-	<button
-		css={buttonStyles({
-			size,
-			priority,
-			icon: iconSvg,
-			hideLabel,
-			iconSide,
-			nudgeIcon,
-			cssOverrides,
-			isLoading,
-			theme,
-		})}
-		type={type}
-		aria-live="polite"
-		aria-label={isLoading ? loadingAnnouncement : undefined}
-		{...props}
-	>
-		{buttonContents({
-			hideLabel,
-			iconSvg,
-			isLoading,
-			children,
-		})}
-	</button>
-);
+}: ButtonProps): EmotionJSX.Element => {
+	const classes = [
+		'c-source-button',
+		priority === 'primary' && 'c-source-button--primary',
+		priority === 'secondary' && 'c-source-button--secondary',
+		priority === 'tertiary' && 'c-source-button--tertiary',
+		priority === 'subdued' && 'c-source-button--subdued',
+	]
+		.filter(Boolean)
+		.join(' ');
+
+	return (
+		<button
+			className={classes}
+			css={buttonStyles({
+				size,
+				icon: iconSvg,
+				hideLabel,
+				iconSide,
+				nudgeIcon,
+				cssOverrides,
+				isLoading,
+				theme,
+			})}
+			type={type}
+			aria-live="polite"
+			aria-label={isLoading ? loadingAnnouncement : undefined}
+			{...props}
+		>
+			{buttonContents({
+				hideLabel,
+				iconSvg,
+				isLoading,
+				children,
+			})}
+		</button>
+	);
+};
