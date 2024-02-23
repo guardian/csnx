@@ -22,7 +22,7 @@ export const Button = ({
 	priority = 'primary',
 	size = 'default',
 	icon: iconSvg,
-	iconSide,
+	iconSide = 'left',
 	hideLabel,
 	nudgeIcon,
 	type = 'button',
@@ -33,15 +33,13 @@ export const Button = ({
 	theme,
 	...props
 }: ButtonProps): EmotionJSX.Element => {
+	const hasIcon = iconSvg || isLoading;
+	const hasIconAndLabel = hasIcon && !hideLabel;
 	const classes = [
 		'c-source-button',
-		size === 'default' && 'c-source-button--default',
-		size === 'small' && 'c-source-button--small',
-		size === 'xsmall' && 'c-source-button--xsmall',
-		priority === 'primary' && 'c-source-button--primary',
-		priority === 'secondary' && 'c-source-button--secondary',
-		priority === 'tertiary' && 'c-source-button--tertiary',
-		priority === 'subdued' && 'c-source-button--subdued',
+		`c-source-button--${size}`,
+		`c-source-button--${priority}`,
+		hasIconAndLabel && `c-source-button--icon-${iconSide}`,
 	]
 		.filter(Boolean)
 		.join(' ');

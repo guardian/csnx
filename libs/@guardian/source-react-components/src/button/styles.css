@@ -127,6 +127,23 @@
 }
 
 /*
+ * Button with icon
+ */
+
+.c-source-button--icon-left {
+	flex-direction: row-reverse;
+	svg {
+		margin-left: -(var(--source-space-1));
+	}
+}
+
+.c-source-button--icon-right {
+	svg {
+		margin-right: -(var(--source-space-1));
+	}
+}
+
+/*
  * Button priorities
  */
 
