@@ -20,7 +20,7 @@ export interface ButtonProps
  */
 export const Button = ({
 	priority = 'primary',
-	size,
+	size = 'default',
 	icon: iconSvg,
 	iconSide,
 	hideLabel,
@@ -35,6 +35,9 @@ export const Button = ({
 }: ButtonProps): EmotionJSX.Element => {
 	const classes = [
 		'c-source-button',
+		size === 'default' && 'c-source-button--default',
+		size === 'small' && 'c-source-button--small',
+		size === 'xsmall' && 'c-source-button--xsmall',
 		priority === 'primary' && 'c-source-button--primary',
 		priority === 'secondary' && 'c-source-button--secondary',
 		priority === 'tertiary' && 'c-source-button--tertiary',

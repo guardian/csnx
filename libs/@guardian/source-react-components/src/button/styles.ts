@@ -1,45 +1,11 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import {
-	focusHaloSpaced,
-	height,
-	space,
-	textSans,
-	transitions,
-	width,
-} from '@guardian/source-foundations';
-import type { Theme } from '../@types/Theme';
-import { mergeThemes } from '../utils/themes';
+import { space, transitions, width } from '@guardian/source-foundations';
 import type {
-	ButtonPriority,
 	IconSide,
 	SharedButtonProps,
 	Size,
 } from './@types/SharedButtonProps';
-import type { ThemeButton } from './theme';
-import { themeButton as defaultTheme } from './theme';
-
-const button = css`
-	display: inline-flex;
-	justify-content: space-between;
-	align-items: center;
-	box-sizing: border-box;
-	border: none;
-	background: transparent;
-	cursor: pointer;
-	transition: ${transitions.medium};
-	text-decoration: none;
-	white-space: nowrap;
-	vertical-align: middle;
-
-	:disabled {
-		cursor: not-allowed;
-	}
-
-	&:focus {
-		${focusHaloSpaced};
-	}
-`;
 
 // Width of the loading spinner in pixels for each button size.
 const loadingSpinnerSizes: Record<Size, number> = {
@@ -68,124 +34,6 @@ const applyButtonStylesToLoadingSpinner = (size: Size) => {
 		}
 	`;
 };
-
-const primary = (button: ThemeButton): SerializedStyles => css`
-	background-color: ${button.backgroundPrimary};
-	color: ${button.textPrimary};
-
-	&:hover {
-		background-color: ${button.backgroundPrimaryHover};
-	}
-`;
-
-const secondary = (button: ThemeButton): SerializedStyles => css`
-	background-color: ${button.backgroundSecondary};
-	color: ${button.textSecondary};
-
-	&:hover {
-		background-color: ${button.backgroundSecondaryHover};
-	}
-`;
-
-const tertiary = (button: ThemeButton): SerializedStyles => css`
-	color: ${button.textTertiary};
-	border: 1px solid ${button.borderTertiary};
-
-	&:hover {
-		background-color: ${button.backgroundTertiaryHover};
-	}
-`;
-
-const subdued = (button: ThemeButton): SerializedStyles => css`
-	padding: 0;
-	background-color: transparent;
-	color: ${button.textSubdued};
-	text-decoration: underline;
-	text-underline-offset: 4px;
-
-	&:hover {
-		text-decoration-thickness: 4px;
-	}
-
-	/* Why is this zero? Because the default is to have rounded corners but here, when
-	   there is only text, it is more natural to show a rectangle for the focus halo */
-	border-radius: 0;
-`;
-
-/*
-	Guardian Text Sans appears to be encoded with slightly more space above the lettering
-	than below. We add a small amount of padding to the bottom of the button to ensure
-	the button label is vertically centred visually.
-	TODO: find a more scalable solution to this (see https://css-tricks.com/how-to-tame-line-height-in-css/)
-*/
-const defaultSize = css`
-	${textSans.medium({ fontWeight: 'bold' })};
-	height: ${height.ctaMedium}px;
-	min-height: ${height.ctaMedium}px;
-	padding: 0 ${space[5]}px;
-	border-radius: ${height.ctaMedium}px;
-	padding-bottom: 2px;
-`;
-
-const smallSize = css`
-	${textSans.medium({ fontWeight: 'bold' })};
-	height: ${height.ctaSmall}px;
-	min-height: ${height.ctaSmall}px;
-	padding: 0 ${space[4]}px;
-	border-radius: ${height.ctaSmall}px;
-	padding-bottom: 2px;
-`;
-
-const xsmallSize = css`
-	${textSans.xsmall({ fontWeight: 'bold' })};
-	height: ${height.ctaXsmall}px;
-	min-height: ${height.ctaXsmall}px;
-	padding: 0 ${space[3]}px;
-	border-radius: ${height.ctaXsmall}px;
-	padding-bottom: 1px;
-`;
-
-const iconDefault = css`
-	svg {
-		flex: 0 0 auto;
-		display: block;
-		fill: currentColor;
-		position: relative;
-		width: ${width.iconMedium}px;
-		height: auto;
-	}
-	.src-button-space {
-		width: ${space[3]}px;
-	}
-`;
-
-const iconSmall = css`
-	svg {
-		flex: 0 0 auto;
-		display: block;
-		fill: currentColor;
-		position: relative;
-		width: ${width.iconSmall}px;
-		height: auto;
-	}
-	.src-button-space {
-		width: ${space[2]}px;
-	}
-`;
-
-const iconXsmall = css`
-	svg {
-		flex: 0 0 auto;
-		display: block;
-		fill: currentColor;
-		position: relative;
-		width: ${width.iconXsmall}px;
-		height: auto;
-	}
-	.src-button-space {
-		width: ${space[1]}px;
-	}
-`;
 
 /* TODO: we add some negative margin to icons to account for
  the extra space encoded into the SVG. We should consider removing
@@ -238,15 +86,6 @@ const iconNudgeAnimation = css`
 	}
 `;
 
-const priorities: {
-	[key in ButtonPriority]: (button: ThemeButton) => SerializedStyles;
-} = {
-	primary,
-	secondary,
-	tertiary,
-	subdued,
-};
-
 const iconSides: {
 	[key in IconSide]: SerializedStyles;
 } = {
@@ -254,20 +93,6 @@ const iconSides: {
 	left: iconLeft,
 };
 
-const sizes: {
-	[key in Size]: SerializedStyles;
-} = {
-	default: defaultSize,
-	small: smallSize,
-	xsmall: xsmallSize,
-};
-const iconSizes: {
-	[key in Size]: SerializedStyles;
-} = {
-	default: iconDefault,
-	small: iconSmall,
-	xsmall: iconXsmall,
-};
 const iconOnlySizes: {
 	[key in Size]: SerializedStyles;
 } = {
@@ -276,31 +101,18 @@ const iconOnlySizes: {
 	xsmall: iconOnlyXsmall,
 };
 
-const mergedTheme = (
-	providerTheme: Theme['button'],
-	theme?: Partial<ThemeButton>,
-) =>
-	mergeThemes<ThemeButton, Theme['button']>(defaultTheme, theme, providerTheme);
 export const buttonStyles =
 	({
-		priority = 'primary',
 		size = 'default',
 		icon: iconSvg,
 		hideLabel,
 		iconSide = 'left',
 		nudgeIcon,
-		cssOverrides,
 		isLoading,
-		theme,
 	}: SharedButtonProps) =>
-	(
-		providerTheme: Theme,
-	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
-		sizes[size],
-		iconSvg ?? isLoading ? iconSizes[size] : '',
+	(): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',
 		hideLabel ? iconOnlySizes[size] : '',
 		isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
-		cssOverrides,
 	];

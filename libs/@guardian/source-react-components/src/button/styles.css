@@ -3,7 +3,8 @@
 :root {
 	/* TODO: Add transitions to design tokens */
 	--source-transitions-medium: 0.3s ease-in-out;
-	/* Default theme */
+
+	/* Default Theme */
 	--source-button-text-primary: var(--source-palette-neutral-100);
 	--source-button-background-primary: var(--source-palette-brand-400);
 	--source-button-background-primary-hover: #234b8a;
@@ -15,6 +16,10 @@
 	--source-button-border-tertiary: var(--source-palette-brand-400);
 	--source-button-text-subdued: var(--source-palette-brand-400);
 }
+
+/*
+ * Base button styles
+ */
 
 .c-source-button {
 	display: inline-flex;
@@ -41,6 +46,89 @@
 		}
 	}
 }
+
+/*
+ * Button sizes
+ *
+ * TODO: These have been copied over as is from the existing styles, but would
+ * benefit from refactoring as there's some duplication. The default styles
+ * could be moved into the base button styles.
+ *
+ * The separate icon size styles have been combined with these.
+ */
+
+.c-source-button--default {
+	font-family: var(--source-typography-textSans-medium-font-family);
+	font-size: var(--source-typography-textSans-medium-font-size);
+	line-height: var(--source-typography-textSans-medium-line-height);
+	font-weight: var(--source-typography-fontWeight-bold);
+	height: var(--source-height-ctaMedium);
+	min-height: var(--source-height-ctaMedium);
+	border-radius: var(--source-height-ctaMedium);
+	padding: 0 var(--source-space-5);
+	padding-bottom: 2px;
+	svg {
+		flex: 0 0 auto;
+		display: block;
+		fill: currentColor;
+		position: relative;
+		width: var(--source-width-iconMedium);
+		height: auto;
+	}
+	.src-button-space {
+		width: var(--source-space-3);
+	}
+}
+
+.c-source-button--small {
+	font-family: var(--source-typography-textSans-medium-font-family);
+	font-size: var(--source-typography-textSans-medium-font-size);
+	line-height: var(--source-typography-textSans-medium-line-height);
+	font-weight: var(--source-typography-fontWeight-bold);
+	height: var(--source-height-ctaSmall);
+	min-height: var(--source-height-ctaSmall);
+	border-radius: var(--source-height-ctaSmall);
+	padding: 0 var(--source-space-4);
+	padding-bottom: 2px;
+	svg {
+		flex: 0 0 auto;
+		display: block;
+		fill: currentColor;
+		position: relative;
+		width: var(--source-width-iconSmall);
+		height: auto;
+	}
+	.src-button-space {
+		width: var(--source-space-2);
+	}
+}
+
+.c-source-button--xsmall {
+	font-family: var(--source-typography-textSans-xSmall-font-family);
+	font-size: var(--source-typography-textSans-xSmall-font-size);
+	line-height: var(--source-typography-textSans-xSmall-line-height);
+	font-weight: var(--source-typography-fontWeight-bold);
+	height: var(--source-height-ctaXSmall);
+	min-height: var(--source-height-ctaXSmall);
+	border-radius: var(--source-height-ctaXSmall);
+	padding: 0 var(--source-space-3);
+	padding-bottom: 1px;
+	svg {
+		flex: 0 0 auto;
+		display: block;
+		fill: currentColor;
+		position: relative;
+		width: var(--source-width-iconXSmall);
+		height: auto;
+	}
+	.src-button-space {
+		width: var(--source-space-1);
+	}
+}
+
+/*
+ * Button priorities
+ */
 
 .c-source-button--primary {
 	background-color: var(--source-button-background-primary);
