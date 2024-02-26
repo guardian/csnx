@@ -68,7 +68,7 @@ WithoutCTALabelsCustomTheme.args = {
 		textBody: palette.neutral[86],
 		textCta: palette.neutral[86],
 		border: palette.neutral[60],
-		iconFill: palette.neutral[86],
+		iconFill: palette.brand[500],
 	},
 };
 WithoutCTALabelsCustomTheme.parameters = {
