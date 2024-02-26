@@ -33,7 +33,7 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 
 const Template: StoryFn<typeof Radio> = (args: RadioProps) => (
-	<Radio {...args} css />
+	<Radio {...args} />
 );
 
 export const DefaultDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
