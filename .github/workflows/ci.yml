@@ -21,6 +21,7 @@ jobs:
           - task: check-formatting
           - task: lint
           - task: test
+          - task: e2e
           - task: build
           - task: verify-dist
           - task: build-storybooks

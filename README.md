@@ -59,6 +59,7 @@ Root-level tasks are defined in the [`Makefile`](./Makefile).
 - `make check-formatting` _check repo for formatting errors_
 - `make clean` _removes all build artifacts_
 - `make dev` _runs the dev targets for all projects in single instance_
+- `make e2e` _runs the e2e tests for all projects_
 - `make fix` _attemps to fix lint errors across all projects_
 - `make lint` _checks all projects for lint errors_
 - `make ls` _lists available `make` targets_

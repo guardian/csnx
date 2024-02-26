@@ -64,6 +64,19 @@
 			"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
 			"{workspaceRoot}/tools/nx-plugins/**/*"
 		],
-		"production": ["default"]
-	}
+		"production": [
+			"default",
+			"!{projectRoot}/cypress/**/*",
+			"!{projectRoot}/**/*.cy.[jt]s?(x)",
+			"!{projectRoot}/cypress.config.[jt]s"
+		]
+	},
+	"plugins": [
+		{
+			"plugin": "@nx/cypress/plugin",
+			"options": {
+				"targetName": "e2e"
+			}
+		}
+	]
 }
