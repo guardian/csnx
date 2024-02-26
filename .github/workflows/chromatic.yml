@@ -50,10 +50,11 @@ jobs:
         with:
           projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           storybookBaseDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
+          storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
+          debug: true
           skip: |
             github.event.pull_request.user.login == 'dependabot[bot]' ||
             github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]'
