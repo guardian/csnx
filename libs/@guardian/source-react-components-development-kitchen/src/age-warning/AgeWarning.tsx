@@ -2,8 +2,8 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
-	from,
 	palette,
+	space,
 	textSans,
 	visuallyHidden,
 } from '@guardian/source-foundations';
@@ -45,19 +45,18 @@ const ageWarningStyles = (
 		font-weight: bold;
 	}
 
-	padding: ${isSmall ? '3px 5px' : '6px 10px'};
-
-	${from.mobileLandscape} {
-		padding-left: ${isSmall ? '6px' : '12px'};
-	}
-
-	${from.leftCol} {
-		padding-left: ${isSmall ? '5px' : '10px'};
-	}
+	padding: ${isSmall ? `3px ${space[1]}px` : `6px ${space[2]}px`};
 
 	${darkModeCss(supportsDarkMode)`
 		background-color: ${palette.brandAlt[200]};
-    `}
+	`}
+`;
+
+const iconStyles = (isSmall: boolean): SerializedStyles => css`
+	position: relative;
+	top: 1px;
+	width: ${isSmall ? '11px' : '14px'};
+	height: auto;
 `;
 
 const ageWarningScreenReader = css`
@@ -65,7 +64,7 @@ const ageWarningScreenReader = css`
 `;
 
 const prefixStyle = css`
-	padding-left: 2px;
+	padding-left: ${space[1]}px;
 `;
 
 const ensureOldText = (age: string): string =>
@@ -87,7 +86,7 @@ export const AgeWarning = ({
 
 	return (
 		<div css={ageWarningStyles(isSmall, supportsDarkMode)} aria-hidden="true">
-			<svg width="11" height="11" viewBox="0 0 11 11">
+			<svg css={iconStyles(isSmall)} viewBox="0 0 11 11">
 				<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"></path>
 			</svg>
 			<span css={prefixStyle}>{warningPrefix}</span>
