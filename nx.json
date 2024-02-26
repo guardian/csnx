@@ -9,6 +9,9 @@
 			"dependsOn": ["^build"],
 			"inputs": ["production", "^production"]
 		},
+		"e2e": {
+			"dependsOn": ["^build"]
+		},
 		"test": {
 			"dependsOn": ["^build"]
 		},
@@ -22,10 +25,11 @@
 				"accessToken": "ZDI5NGQyNWMtYzRiNS00YjM0LWJkNDItMWEzMGQ2NWMwNWJkfHJlYWQtb25seQ==",
 				"cacheableOperations": [
 					"build",
+					"build-storybook",
+					"e2e",
 					"lint",
 					"test",
-					"verify-dist",
-					"build-storybook"
+					"verify-dist"
 				]
 			},
 			"runner": "nx-cloud"
