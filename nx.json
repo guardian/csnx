@@ -12,7 +12,7 @@
 		"test": {
 			"dependsOn": ["^build"]
 		},
-		"e2e": {
+		"verify-dist": {
 			"dependsOn": ["build", "^build"]
 		}
 	},
@@ -24,7 +24,7 @@
 					"build",
 					"lint",
 					"test",
-					"e2e",
+					"verify-dist",
 					"build-storybook"
 				]
 			},

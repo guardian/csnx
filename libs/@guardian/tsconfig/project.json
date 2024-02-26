@@ -16,7 +16,7 @@
 				"packageJson": "libs/@guardian/tsconfig/package.json"
 			}
 		},
-		"e2e": {
+		"verify-dist": {
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/tsconfig"],
 			"options": {

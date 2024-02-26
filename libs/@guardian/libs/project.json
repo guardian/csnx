@@ -37,13 +37,13 @@
 				"passWithNoTests": false
 			}
 		},
-		"e2e": {
+		"verify-dist": {
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
 			"options": {
 				"jestConfig": "libs/@guardian/libs/jest.config.ts",
 				"passWithNoTests": false,
-				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+				"setupFilesAfterEnv": ["./jest.dist.setup.js"]
 			}
 		},
 		"dev": {

@@ -22,7 +22,7 @@ jobs:
           - task: lint
           - task: test
           - task: build
-          - task: e2e
+          - task: verify-dist
           - task: build-storybooks
     steps:
       - uses: actions/checkout@v4
