@@ -25,20 +25,9 @@ jobs:
           - lib: source-react-components-development-kitchen
             token: CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN
     steps:
-      - name: Checkout - On Pull Request
-        uses: actions/checkout@v4
-        if: ${{ github.event_name == 'pull_request'}}
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          # By default the pull_request event will run on a ephermeral merge commit which simulates a merge between the pull request
-          # and the target branch. This can cause issues with Chromatic https://www.chromatic.com/docs/turbosnap#github-pullrequest-triggers
-          # Hopefully by checking out the HEAD commit of a PR instead of the merge commit we can avoid some of those issues.
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Checkout - On Push Event
-        uses: actions/checkout@v4
-        if: ${{ github.event_name == 'push'}}
-        with:
-          fetch-depth: 0
+          fetch-depth: 0 # for chromatic to work
 
       - uses: ./.github/actions/setup-node-env
 
@@ -54,7 +43,6 @@ jobs:
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
-          debug: true
           skip: |
             github.event.pull_request.user.login == 'dependabot[bot]' ||
             github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]'
