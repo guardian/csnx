@@ -39,8 +39,8 @@ jobs:
         with:
           projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBaseDir: 'libs/@guardian/${{ matrix.lib }}'
           storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
-          storybookBaseDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
           skip: |
