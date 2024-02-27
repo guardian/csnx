@@ -15,7 +15,7 @@ runs:
     - run: pnpm install --frozen-lockfile
       shell: bash
 
-    - run: cypress install
+    - run: pnpm cypress install
       shell: bash
 
     # Restores cypress binary cache. If the binary is missing, it will be
