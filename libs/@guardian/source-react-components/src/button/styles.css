@@ -210,3 +210,33 @@
 		text-decoration-thickness: 4px;
 	}
 }
+
+/*
+ * Loading spinner
+ */
+
+.c-source-button--loading {
+	path,
+	circle {
+		transition: stroke var(--source-transitions-medium);
+		stroke: transparent;
+	}
+	path {
+		stroke: currentColor;
+	}
+	&.c-source-button--default {
+		svg {
+			width: 24px;
+		}
+	}
+	&.c-source-button--small {
+		svg {
+			width: 20px;
+		}
+	}
+	&.c-source-button--xsmall {
+		svg {
+			width: 16px;
+		}
+	}
+}

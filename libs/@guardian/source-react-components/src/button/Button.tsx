@@ -2,7 +2,6 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { ButtonHTMLAttributes } from 'react';
 import type { SharedButtonProps } from './@types/SharedButtonProps';
 import { buttonContents } from './shared';
-import { buttonStyles } from './styles';
 import './styles.css';
 
 export interface ButtonProps
@@ -42,6 +41,7 @@ export const Button = ({
 		hasIconAndLabel && `c-source-button--icon-${iconSide}`,
 		hideLabel && 'c-source-button--icon-only',
 		nudgeIcon && 'c-source-button--icon-nudge',
+		isLoading && 'c-source-button--loading',
 	]
 		.filter(Boolean)
 		.join(' ');
@@ -49,16 +49,7 @@ export const Button = ({
 	return (
 		<button
 			className={classes}
-			css={buttonStyles({
-				size,
-				icon: iconSvg,
-				hideLabel,
-				iconSide,
-				nudgeIcon,
-				cssOverrides,
-				isLoading,
-				theme,
-			})}
+			css={cssOverrides}
 			type={type}
 			aria-live="polite"
 			aria-label={isLoading ? loadingAnnouncement : undefined}
