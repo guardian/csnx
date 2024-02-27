@@ -40,6 +40,8 @@ export const Button = ({
 		`c-source-button--${size}`,
 		`c-source-button--${priority}`,
 		hasIconAndLabel && `c-source-button--icon-${iconSide}`,
+		hideLabel && 'c-source-button--icon-only',
+		nudgeIcon && 'c-source-button--icon-nudge',
 	]
 		.filter(Boolean)
 		.join(' ');

@@ -2,6 +2,7 @@
 
 :root {
 	/* TODO: Add transitions to design tokens */
+	--source-transitions-short: 0.2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
 	--source-transitions-medium: 0.3s ease-in-out;
 
 	/* Default Theme */
@@ -140,6 +141,33 @@
 .c-source-button--icon-right {
 	svg {
 		margin-right: -(var(--source-space-1));
+	}
+}
+
+.c-source-button--icon-only {
+	justify-content: center;
+	padding: 0;
+	&.c-source-button--default {
+		width: var(--source-width-ctaMedium);
+	}
+	&.c-source-button--small {
+		width: var(--source-width-ctaSmall);
+	}
+	&.c-source-button--xsmall {
+		width: var(--source-width-ctaXSmall);
+	}
+}
+
+.c-source-button--icon-nudge {
+	svg {
+		transform: translate(0, 0);
+		transition: var(--source-transitions-short);
+	}
+	&:hover,
+	&:focus {
+		svg {
+			transform: translate(calc(var(--source-space-1) / 2), 0);
+		}
 	}
 }
 
