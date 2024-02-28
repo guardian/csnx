@@ -426,8 +426,8 @@ importers:
   libs/@guardian/identity-auth-frontend:
     devDependencies:
       '@guardian/identity-auth':
-        specifier: 2.0.1
-        version: link:../identity-auth
+        specifier: 0.0.0-canary-20240228092959
+        version: 0.0.0-canary-20240228092959(@guardian/libs@16.0.0)(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/libs':
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
@@ -3760,6 +3760,21 @@ packages:
       typescript:
         optional: true
     dependencies:
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
+  /@guardian/identity-auth@0.0.0-canary-20240228092959(@guardian/libs@16.0.0)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-26UhB3zCfaAJ2QhU6C0JiE4pxpLLfG/CgRwRyIw1WXh6jroHsP7EbZdM7KrBTnWNp6xr0PyNV6vFZ/WKW8o0+Q==}
+    peerDependencies:
+      '@guardian/libs': ^16.0.0
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@guardian/libs': 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       tslib: 2.6.2
       typescript: 5.3.3
     dev: true
