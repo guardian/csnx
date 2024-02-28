@@ -116,17 +116,15 @@ export class IdentityAuth<
 					// compare the GU_SO cookie to the id token's iat value
 					guSoCookie > authState.idToken.claims.iat
 				) {
+					// clear the tokens
+					// we don't return a blank auth state here,
+					// as the user * might * still be signed in, so we go to the next check
 					this.tokenManager.clear();
-					return {
-						accessToken: undefined,
-						idToken: undefined,
-						isAuthenticated: false,
-					};
+				} else {
+					// otherwise the user is signed in, so return the auth state
+					// if the id token is valid, return the auth state
+					return authState;
 				}
-
-				// otherwise the user is signed in, so return the auth state
-				// if the id token is valid, return the auth state
-				return authState;
 			}
 
 			// if the user doesn't have tokens, but they have a GU_U cookie, they are "maybe" signed in
