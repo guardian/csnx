@@ -426,7 +426,7 @@ importers:
   libs/@guardian/identity-auth-frontend:
     devDependencies:
       '@guardian/identity-auth':
-        specifier: 2.0.1
+        specifier: 2.1.0
         version: link:../identity-auth
       '@guardian/libs':
         specifier: 16.0.0
