@@ -1342,6 +1342,39 @@ export declare const tokens: {
 			readonly fontWeight: 400;
 			readonly fontStyle: 'italic';
 		};
+		readonly titlepiece42: {
+			readonly fontFamily: readonly [
+				'GT Guardian Titlepiece',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '42px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly titlepiece50: {
+			readonly fontFamily: readonly [
+				'GT Guardian Titlepiece',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '50px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly titlepiece70: {
+			readonly fontFamily: readonly [
+				'GT Guardian Titlepiece',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '70px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
 	};
 	readonly size: {
 		readonly icon: {

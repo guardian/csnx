@@ -1297,6 +1297,39 @@
 	--source-presets-textSansItalic34-line-height: var(
 		--source-typography-lineHeight-regular
 	);
+	--source-presets-titlepiece42-font-family: var(
+		--source-typography-fontFamily-titlepiece
+	);
+	--source-presets-titlepiece42-font-size: var(--source-typography-fontSize-42);
+	--source-presets-titlepiece42-font-style: normal;
+	--source-presets-titlepiece42-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-titlepiece42-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-titlepiece50-font-family: var(
+		--source-typography-fontFamily-titlepiece
+	);
+	--source-presets-titlepiece50-font-size: var(--source-typography-fontSize-50);
+	--source-presets-titlepiece50-font-style: normal;
+	--source-presets-titlepiece50-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-titlepiece50-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-titlepiece70-font-family: var(
+		--source-typography-fontFamily-titlepiece
+	);
+	--source-presets-titlepiece70-font-size: var(--source-typography-fontSize-70);
+	--source-presets-titlepiece70-font-style: normal;
+	--source-presets-titlepiece70-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-titlepiece70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-size-icon-medium: 1.875rem;
 	--source-size-icon-small: 1.625rem;
 	--source-size-icon-xSmall: 1.25rem;

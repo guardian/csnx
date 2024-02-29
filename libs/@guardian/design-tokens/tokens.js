@@ -1342,6 +1342,27 @@ export const tokens = {
 			fontWeight: 400,
 			fontStyle: 'italic',
 		},
+		titlepiece42: {
+			fontFamily: ['GT Guardian Titlepiece', 'Georgia', 'serif'],
+			fontSize: '42px',
+			lineHeight: 1.15,
+			fontWeight: 700,
+			fontStyle: 'normal',
+		},
+		titlepiece50: {
+			fontFamily: ['GT Guardian Titlepiece', 'Georgia', 'serif'],
+			fontSize: '50px',
+			lineHeight: 1.15,
+			fontWeight: 700,
+			fontStyle: 'normal',
+		},
+		titlepiece70: {
+			fontFamily: ['GT Guardian Titlepiece', 'Georgia', 'serif'],
+			fontSize: '70px',
+			lineHeight: 1.15,
+			fontWeight: 700,
+			fontStyle: 'normal',
+		},
 	},
 	size: {
 		icon: {
