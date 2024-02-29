@@ -845,6 +845,162 @@
 	--source-presets-kicker34-line-height: var(
 		--source-typography-lineHeight-tight
 	);
+	--source-presets-textEgyptian14-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptian14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-presets-textEgyptian14-font-style: normal;
+	--source-presets-textEgyptian14-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-textEgyptian14-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptian15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptian15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-textEgyptian15-font-style: normal;
+	--source-presets-textEgyptian15-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-textEgyptian15-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptian17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptian17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-textEgyptian17-font-style: normal;
+	--source-presets-textEgyptian17-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-textEgyptian17-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianBold14-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianBold14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-presets-textEgyptianBold14-font-style: normal;
+	--source-presets-textEgyptianBold14-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-textEgyptianBold14-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianBold15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianBold15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-textEgyptianBold15-font-style: normal;
+	--source-presets-textEgyptianBold15-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-textEgyptianBold15-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianBold17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianBold17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-textEgyptianBold17-font-style: normal;
+	--source-presets-textEgyptianBold17-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-textEgyptianBold17-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianBoldItalic14-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianBoldItalic14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-presets-textEgyptianBoldItalic14-font-style: italic;
+	--source-presets-textEgyptianBoldItalic14-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-textEgyptianBoldItalic14-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianBoldItalic15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianBoldItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-textEgyptianBoldItalic15-font-style: italic;
+	--source-presets-textEgyptianBoldItalic15-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-textEgyptianBoldItalic15-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianBoldItalic17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianBoldItalic17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-textEgyptianBoldItalic17-font-style: italic;
+	--source-presets-textEgyptianBoldItalic17-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-textEgyptianBoldItalic17-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianItalic14-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianItalic14-font-size: var(
+		--source-typography-fontSize-14
+	);
+	--source-presets-textEgyptianItalic14-font-style: italic;
+	--source-presets-textEgyptianItalic14-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-textEgyptianItalic14-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianItalic15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-textEgyptianItalic15-font-style: italic;
+	--source-presets-textEgyptianItalic15-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-textEgyptianItalic15-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-presets-textEgyptianItalic17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-textEgyptianItalic17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-textEgyptianItalic17-font-style: italic;
+	--source-presets-textEgyptianItalic17-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-textEgyptianItalic17-line-height: var(
+		--source-typography-lineHeight-regular
+	);
 	--source-size-icon-medium: 1.875rem;
 	--source-size-icon-small: 1.625rem;
 	--source-size-icon-xSmall: 1.25rem;

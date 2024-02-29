@@ -838,6 +838,150 @@ export declare const tokens: {
 			readonly fontWeight: 700;
 			readonly fontStyle: 'normal';
 		};
+		readonly textEgyptian14: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textEgyptian15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textEgyptian17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textEgyptianBold14: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textEgyptianBold15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textEgyptianBold17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textEgyptianBoldItalic14: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'italic';
+		};
+		readonly textEgyptianBoldItalic15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'italic';
+		};
+		readonly textEgyptianBoldItalic17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'italic';
+		};
+		readonly textEgyptianItalic14: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textEgyptianItalic15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textEgyptianItalic17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
 	};
 	readonly size: {
 		readonly icon: {
