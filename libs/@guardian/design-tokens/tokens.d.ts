@@ -142,6 +142,102 @@ export declare const tokens: {
 		};
 	};
 	readonly presets: {
+		readonly article15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly article17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly articleBold15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly articleBold17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly articleBoldItalic15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'italic';
+		};
+		readonly articleBoldItalic17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'italic';
+		};
+		readonly articleItalic15: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '15px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly articleItalic17: {
+			readonly fontFamily: readonly [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.4;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
 		readonly headlineBold14: {
 			readonly fontFamily: readonly [
 				'GH Guardian Headline',

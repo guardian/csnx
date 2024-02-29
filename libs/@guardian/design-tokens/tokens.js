@@ -142,6 +142,102 @@ export const tokens = {
 		},
 	},
 	presets: {
+		article15: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '15px',
+			lineHeight: 1.4,
+			fontWeight: 400,
+			fontStyle: 'normal',
+		},
+		article17: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '17px',
+			lineHeight: 1.4,
+			fontWeight: 400,
+			fontStyle: 'normal',
+		},
+		articleBold15: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '15px',
+			lineHeight: 1.4,
+			fontWeight: 700,
+			fontStyle: 'normal',
+		},
+		articleBold17: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '17px',
+			lineHeight: 1.4,
+			fontWeight: 700,
+			fontStyle: 'normal',
+		},
+		articleBoldItalic15: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '15px',
+			lineHeight: 1.4,
+			fontWeight: 700,
+			fontStyle: 'italic',
+		},
+		articleBoldItalic17: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '17px',
+			lineHeight: 1.4,
+			fontWeight: 700,
+			fontStyle: 'italic',
+		},
+		articleItalic15: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '15px',
+			lineHeight: 1.4,
+			fontWeight: 400,
+			fontStyle: 'italic',
+		},
+		articleItalic17: {
+			fontFamily: [
+				'GuardianTextEgyptian',
+				'Guardian Text Egyptian Web',
+				'Georgia',
+				'serif',
+			],
+			fontSize: '17px',
+			lineHeight: 1.4,
+			fontWeight: 400,
+			fontStyle: 'italic',
+		},
 		headlineBold14: {
 			fontFamily: [
 				'GH Guardian Headline',

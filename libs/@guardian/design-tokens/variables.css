@@ -105,6 +105,106 @@
 	--source-palette-sport-800: #f1f8fc;
 	--source-palette-success-400: #22874d;
 	--source-palette-success-500: #58d08b;
+	--source-presets-article15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-article15-font-size: var(--source-typography-fontSize-15);
+	--source-presets-article15-font-style: normal;
+	--source-presets-article15-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-article15-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-article17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-article17-font-size: var(--source-typography-fontSize-17);
+	--source-presets-article17-font-style: normal;
+	--source-presets-article17-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-article17-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-articleBold15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-articleBold15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-articleBold15-font-style: normal;
+	--source-presets-articleBold15-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-articleBold15-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-articleBold17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-articleBold17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-articleBold17-font-style: normal;
+	--source-presets-articleBold17-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-articleBold17-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-articleBoldItalic15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-articleBoldItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-articleBoldItalic15-font-style: italic;
+	--source-presets-articleBoldItalic15-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-articleBoldItalic15-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-articleBoldItalic17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-articleBoldItalic17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-articleBoldItalic17-font-style: italic;
+	--source-presets-articleBoldItalic17-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-articleBoldItalic17-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-articleItalic15-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-articleItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-presets-articleItalic15-font-style: italic;
+	--source-presets-articleItalic15-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-articleItalic15-line-height: var(
+		--source-typography-lineHeight-loose
+	);
+	--source-presets-articleItalic17-font-family: var(
+		--source-typography-fontFamily-body
+	);
+	--source-presets-articleItalic17-font-size: var(
+		--source-typography-fontSize-17
+	);
+	--source-presets-articleItalic17-font-style: italic;
+	--source-presets-articleItalic17-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-presets-articleItalic17-line-height: var(
+		--source-typography-lineHeight-loose
+	);
 	--source-presets-headlineBold14-font-family: var(
 		--source-typography-fontFamily-headline
 	);
