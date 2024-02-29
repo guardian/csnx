@@ -141,6 +141,548 @@ export declare const tokens: {
 			readonly '500': '#58D08B';
 		};
 	};
+	readonly presets: {
+		readonly headlineBold14: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold17: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold20: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '20px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold24: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '24px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold28: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '28px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold34: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '34px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold42: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '42px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold50: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '50px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineBold70: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '70px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight14: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight17: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight20: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '20px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight24: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '24px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight28: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '28px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight34: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '34px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight42: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '42px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight50: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '50px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLight70: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '70px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineLightItalic14: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic17: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic20: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '20px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic24: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '24px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic28: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '28px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic34: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '34px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic42: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '42px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic50: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '50px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineLightItalic70: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '70px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 300;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMedium14: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium17: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium20: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '20px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium24: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '24px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium28: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '28px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium34: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '34px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium42: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '42px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium50: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '50px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMedium70: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '70px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'normal';
+		};
+		readonly headlineMediumItalic14: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '14px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic17: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '17px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic20: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '20px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic24: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '24px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic28: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '28px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic34: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '34px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic42: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '42px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic50: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '50px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+		readonly headlineMediumItalic70: {
+			readonly fontFamily: readonly [
+				'GH Guardian Headline',
+				'Guardian Egyptian Web',
+				'Georgia',
+				'serif',
+			];
+			readonly fontSize: '70px';
+			readonly lineHeight: 1.15;
+			readonly fontWeight: 500;
+			readonly fontStyle: 'italic';
+		};
+	};
 	readonly size: {
 		readonly icon: {
 			readonly medium: '30px';
