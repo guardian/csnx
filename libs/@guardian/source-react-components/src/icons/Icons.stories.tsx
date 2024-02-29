@@ -265,6 +265,37 @@ type IconChromaticStoryArgs = {
 
 const meta: Meta<IconChromaticStoryArgs> = {
 	title: 'Icons',
+	args: {
+		theme: undefined,
+		isAnnouncedByScreenReader: false,
+		size: 'small',
+	},
+	argTypes: {
+		theme: {
+			description:
+				" Partial or complete theme to override the component's colour palette.\n" +
+				'The sanctioned colours have have been set out by the design system team.\n',
+			table: {
+				type: {
+					summary: 'Partial<ThemeIcon>',
+					detail: '{\n' + '\tfill?: string;\n' + '}',
+				},
+			},
+		},
+		size: {
+			control: 'select',
+			options: ['xsmall', 'small', 'medium'],
+			description: 'The size of the Icon',
+			table: {
+				type: { summary: 'xsmall | small | medium' },
+			},
+		},
+		icons: {
+			table: {
+				disable: true,
+			},
+		},
+	},
 };
 
 export default meta;

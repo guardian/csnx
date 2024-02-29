@@ -4,11 +4,8 @@ import { useState } from 'react';
 import { Checkbox } from './Checkbox';
 import CheckboxStories from './Checkbox.stories';
 import { CheckboxGroup } from './CheckboxGroup';
-import {
-	ThemeCheckbox,
-	themeCheckboxBrand,
-	themeCheckboxGroupBrand,
-} from './theme';
+import type { ThemeCheckbox } from './theme';
+import { themeCheckboxBrand, themeCheckboxGroupBrand } from './theme';
 
 const meta: Meta<typeof CheckboxGroup> = {
 	title: 'CheckboxGroup',

@@ -1,8 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
 import { themeRadioBrand } from './theme';
-import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Radio> = {
 	title: 'Radio',

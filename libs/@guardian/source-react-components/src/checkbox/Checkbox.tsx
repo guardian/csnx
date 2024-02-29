@@ -58,7 +58,20 @@ export interface CheckboxProps
 	 */
 	error?: boolean;
 	/**
-	 * A component level theme to override the colour palette of the choice card component
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `borderUnselected`<br>
+	 *  `borderHover`<br>
+	 *  `borderSelected`<br>
+	 *  `borderError`<br>
+	 *  `fillSelected`<br>
+	 *  `fillUnselected`<br>
+	 *  `textLabel`<br>
+	 *  `textSupporting`<br>
+	 *  `textIndeterminate`
+	 *
 	 */
 	theme?: Partial<ThemeCheckbox>;
 }

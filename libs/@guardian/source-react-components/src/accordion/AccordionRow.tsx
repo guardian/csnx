@@ -48,7 +48,16 @@ export interface AccordionRowProps
 	 */
 	hideToggleLabel?: boolean;
 	/**
-	 * Overriding of partial or entire Accordion Row theme.
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textLabel`<br>
+	 *  `textBody`<br>
+	 *  `textCta`<br>
+	 *  `border`<br>
+	 *  `iconFill`
+	 *
 	 */
 	theme?: Partial<ThemeAccordion>;
 }

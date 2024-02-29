@@ -44,7 +44,21 @@ export interface SharedButtonProps extends Props {
 	 */
 	loadingAnnouncement?: string;
 	/**
-	 * Overriding of partial or entire button theme.
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textPrimary`<br>
+	 *  `backgroundPrimary`<br>
+	 *  `backgroundPrimaryHover`<br>
+	 *  `textSecondary`<br>
+	 *  `backgroundSecondary`<br>
+	 *  `backgroundSecondaryHover`<br>
+	 *  `textTertiary`<br>
+	 *  `backgroundTertiaryHover`<br>
+	 *  `borderTertiary`<br>
+	 *  `textSubdued`<br>
+	 *
 	 */
 	theme?: Partial<ThemeButton>;
 }
