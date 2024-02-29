@@ -3,6 +3,7 @@
 		"nrwl.angular-console",
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
-		"EditorConfig.EditorConfig"
+		"EditorConfig.EditorConfig",
+		"astro-build.astro-vscode"
 	]
 }
