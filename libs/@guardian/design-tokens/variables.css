@@ -685,9 +685,64 @@
 	);
 	--source-presets-headlineMediumItalic70-font-style: italic;
 	--source-presets-headlineMediumItalic70-font-weight: var(
-		--source-typography-fontWeight-medium
+		--source-typography-fontWeight-bold
 	);
 	--source-presets-headlineMediumItalic70-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-kicker14-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-presets-kicker14-font-size: var(--source-typography-fontSize-14);
+	--source-presets-kicker14-font-style: normal;
+	--source-presets-kicker14-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-kicker14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-kicker17-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-presets-kicker17-font-size: var(--source-typography-fontSize-17);
+	--source-presets-kicker17-font-style: normal;
+	--source-presets-kicker17-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-kicker17-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-kicker20-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-presets-kicker20-font-size: var(--source-typography-fontSize-20);
+	--source-presets-kicker20-font-style: normal;
+	--source-presets-kicker20-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-kicker20-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-kicker24-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-presets-kicker24-font-size: var(--source-typography-fontSize-24);
+	--source-presets-kicker24-font-style: normal;
+	--source-presets-kicker24-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-kicker24-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-presets-kicker34-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-presets-kicker34-font-size: var(--source-typography-fontSize-34);
+	--source-presets-kicker34-font-style: normal;
+	--source-presets-kicker34-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-presets-kicker34-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-size-icon-medium: 1.875rem;
