@@ -982,6 +982,366 @@ export declare const tokens: {
 			readonly fontWeight: 400;
 			readonly fontStyle: 'italic';
 		};
+		readonly textSans12: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans14: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans15: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans17: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans20: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans24: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans28: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSans34: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold12: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold14: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold15: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold17: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold20: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold24: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold28: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansBold34: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 700;
+			readonly fontStyle: 'normal';
+		};
+		readonly textSansItalic12: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textSansItalic14: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'Italic';
+		};
+		readonly textSansItalic15: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textSansItalic17: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textSansItalic20: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textSansItalic24: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textSansItalic28: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
+		readonly textSansItalic34: {
+			readonly fontFamily: readonly [
+				'GuardianTextSans',
+				'Guardian Text Sans Web',
+				'Helvetica Neue',
+				'Helvetica',
+				'Arial',
+				'Lucida Grande',
+				'sans-serif',
+			];
+			readonly fontSize: '12px';
+			readonly lineHeight: 1.3;
+			readonly fontWeight: 400;
+			readonly fontStyle: 'italic';
+		};
 	};
 	readonly size: {
 		readonly icon: {
