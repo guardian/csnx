@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import Nav from '../components/Nav.svelte';
+import Nav from '../components/Nav.astro';
 ---
 
 <!doctype html>
@@ -19,14 +19,44 @@ import Nav from '../components/Nav.svelte';
 	</head>
 	<body>
 		<Nav />
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
 <style is:global>
-
-	html {
-		font-family: system-ui, sans-serif;
-
+	* {
+		font-family:
+			SFMono-Regular,
+			Consolas,
+			Liberation Mono,
+			Menlo,
+			monospace;
+		font-size: 12px;
 	}
 
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		height: 100%;
+	}
+
+	body {
+		display: flex;
+		flex-direction: column;
+		min-height: 100%;
+		margin: 0;
+	}
+</style>
+<style>
+	main {
+		flex: 1;
+		position: relative;
+	}
 </style>
