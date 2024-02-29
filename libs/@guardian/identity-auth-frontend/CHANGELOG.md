@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 4.0.0
+
+### Major Changes
+
+- 2407ec8: Update peer dependency `@guardian/identity-auth` to `2.1.0`
+
 ## 3.0.0
 
 ### Major Changes

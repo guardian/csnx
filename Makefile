@@ -15,7 +15,7 @@ ls:
 .PHONY: storybooks
 storybooks: env
 	$(call log,"Starting storybooks")
-	@corepack pnpm nx run csnx:storybooks --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm nx run storybooks:dev --skip-nx-cache=$(SKIP_NX_CACHE)
 
 # runs the dev targets for all projects in single instance
 .PHONY: dev

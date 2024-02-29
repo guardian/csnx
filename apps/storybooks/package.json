@@ -1,0 +1,6 @@
+{
+	"name": "storybooks",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Collates storybooks of the CSNX monorepo."
+}

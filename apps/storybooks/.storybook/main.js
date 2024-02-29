@@ -17,35 +17,19 @@ module.exports = {
 
 		return config;
 	},
-	refs: (config, { configType }) => {
-		if (configType === 'DEVELOPMENT') {
-			return {
-				'source-foundations': {
-					title: 'source-foundations',
-					url: 'http://localhost:4401',
-				},
-				'source-react-components': {
-					title: 'source-react-components',
-					url: 'http://localhost:4402',
-				},
-				'source-react-components-development-kitchen': {
-					title: 'source-react-components-development-kitchen',
-					url: 'http://localhost:4403',
-				},
-			};
-		}
+	refs: () => {
 		return {
 			'source-foundations': {
 				title: 'source-foundations',
-				url: 'https://main--635a6aa8070dfdbfdac36f65.chromatic.com',
+				url: 'http://localhost:4401',
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://main--635a6fffacd30d393597c1ff.chromatic.com',
+				url: 'http://localhost:4402',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
-				url: 'https://main--635a7057acd30d393597c208.chromatic.com',
+				url: 'http://localhost:4403',
 			},
 		};
 	},
