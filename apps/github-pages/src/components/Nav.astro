@@ -1,12 +1,18 @@
 ---
+import { normaliseUrl } from "../utils/normaliseUrl";
 const pathname = new URL(Astro.request.url).pathname;
+
+const pages = {
+	CSNX: normaliseUrl('/'),
+	"CMP Test Page": normaliseUrl("/cmp-test-page"),
+}
 ---
 
 <nav>
-	<a class={pathname === '/' ? 'active' : ''} href="/">CSNX</a>
-	<a class={pathname === '/cmp' ? 'active' : ''} href="/cmp-test-page"
-		>CMP Test Page</a
-	>
+
+	{Object.entries(pages).map(([name, url]) => {
+		return <a class={pathname === url ? 'active' : ''} href={url}>{name}</a>
+	})}
 	<div class="external-links">
 		<a href="https://guardian.github.io/storybooks">Storybooks</a>
 	</div>
