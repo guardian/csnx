@@ -1,10 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
+// The test page is written in svelte, but astro doesn't support svelte pages:
+// https://docs.astro.build/en/basics/astro-pages/#supported-page-files
+// Therefore we import it here and use it as a component below...
 import CmpTest from '../components/CmpTest.svelte';
-
-export const title = 'CMP Test Page';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title={title}>
+<Layout title="CMP Test Page">
 	<CmpTest client:only="svelte" />
 </Layout>
