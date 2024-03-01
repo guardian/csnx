@@ -69,6 +69,51 @@ describe('under CCPA', () => {
 
 		expect(callback).toHaveBeenCalledTimes(2);
 	});
+
+	it('callbacks executed in correct order', async () => {
+		let callbackLastExecuted = {};
+		const setCallbackLastExecuted = (callback) => {
+			const now = window.performance.now();
+			callbackLastExecuted[callback] = now;
+		};
+		const callback1 = jest.fn(() => setCallbackLastExecuted(1));
+		const callback2 = jest.fn(() => setCallbackLastExecuted(2));
+		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
+		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
+
+		uspData.uspString = '1YYN';
+
+		// callback 3 and 4 registered first with final flag
+		onConsentChange(callback3, true);
+		onConsentChange(callback4, true);
+		onConsentChange(callback1);
+		onConsentChange(callback2);
+
+		await resolveAllPromises();
+		expect(callback1).toHaveBeenCalledTimes(1);
+		expect(callback2).toHaveBeenCalledTimes(1);
+		expect(callback3).toHaveBeenCalledTimes(1);
+		expect(callback4).toHaveBeenCalledTimes(1);
+
+		// callbacks initially executed in order they were registered in
+		expect(callbackLastExecuted[3]).toBeLessThan(callbackLastExecuted[4]);
+		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
+		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
+
+		uspData.uspString = '1YNN';
+		invokeCallbacks();
+
+		await resolveAllPromises();
+		expect(callback1).toHaveBeenCalledTimes(2);
+		expect(callback2).toHaveBeenCalledTimes(2);
+		expect(callback3).toHaveBeenCalledTimes(2);
+		expect(callback4).toHaveBeenCalledTimes(2);
+
+		// after consent state change, callbacks were executed in order 1, 2, 3, 4
+		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
+		expect(callbackLastExecuted[2]).toBeLessThan(callbackLastExecuted[3]);
+		expect(callbackLastExecuted[3]).toBeLessThan(callbackLastExecuted[4]);
+	});
 });
 
 describe('under AUS', () => {
@@ -121,6 +166,51 @@ describe('under AUS', () => {
 		await resolveAllPromises();
 
 		expect(callback).toHaveBeenCalledTimes(2);
+	});
+
+	it('callbacks executed in correct order', async () => {
+		let callbackLastExecuted = {};
+		const setCallbackLastExecuted = (callback) => {
+			const now = window.performance.now();
+			callbackLastExecuted[callback] = now;
+		};
+		const callback1 = jest.fn(() => setCallbackLastExecuted(1));
+		const callback2 = jest.fn(() => setCallbackLastExecuted(2));
+		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
+		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
+
+		ausData.uspString = '1YYN';
+
+		// callback 3 and 4 registered first with final flag
+		onConsentChange(callback3, true);
+		onConsentChange(callback4, true);
+		onConsentChange(callback1);
+		onConsentChange(callback2);
+
+		await resolveAllPromises();
+		expect(callback1).toHaveBeenCalledTimes(1);
+		expect(callback2).toHaveBeenCalledTimes(1);
+		expect(callback3).toHaveBeenCalledTimes(1);
+		expect(callback4).toHaveBeenCalledTimes(1);
+
+		// callbacks initially executed in order they were registered in
+		expect(callbackLastExecuted[3]).toBeLessThan(callbackLastExecuted[4]);
+		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
+		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
+
+		ausData.uspString = '1YNN';
+		invokeCallbacks();
+
+		await resolveAllPromises();
+		expect(callback1).toHaveBeenCalledTimes(2);
+		expect(callback2).toHaveBeenCalledTimes(2);
+		expect(callback3).toHaveBeenCalledTimes(2);
+		expect(callback4).toHaveBeenCalledTimes(2);
+
+		// after consent state change, callbacks were executed in order 1, 2, 3, 4
+		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
+		expect(callbackLastExecuted[2]).toBeLessThan(callbackLastExecuted[3]);
+		expect(callbackLastExecuted[3]).toBeLessThan(callbackLastExecuted[4]);
 	});
 });
 
@@ -200,5 +290,46 @@ describe('under TCFv2', () => {
 		await resolveAllPromises();
 
 		expect(callback).toHaveBeenCalledTimes(2);
+	});
+
+	it('callbacks executed in correct order', async () => {
+		let callbackLastExecuted = {};
+		const setCallbackLastExecuted = (callback) => {
+			const now = window.performance.now();
+			callbackLastExecuted[callback] = now;
+		};
+		const callback1 = jest.fn(() => setCallbackLastExecuted(1));
+		const callback2 = jest.fn(() => setCallbackLastExecuted(2));
+		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
+		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
+
+		tcData.eventStatus = 'cmpuishown';
+
+		// callback 3 and 4 registered first with final flag
+		onConsentChange(callback3, true);
+		onConsentChange(callback4, true);
+		onConsentChange(callback1);
+		onConsentChange(callback2);
+
+		await resolveAllPromises();
+		expect(callback1).toHaveBeenCalledTimes(0);
+		expect(callback2).toHaveBeenCalledTimes(0);
+		expect(callback3).toHaveBeenCalledTimes(0);
+		expect(callback4).toHaveBeenCalledTimes(0);
+
+		tcData.eventStatus = 'useractioncomplete';
+
+		invokeCallbacks();
+
+		await resolveAllPromises();
+		expect(callback1).toHaveBeenCalledTimes(1);
+		expect(callback2).toHaveBeenCalledTimes(1);
+		expect(callback3).toHaveBeenCalledTimes(1);
+		expect(callback4).toHaveBeenCalledTimes(1);
+
+		// callbacks were executed in order 1, 2, 3, 4
+		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
+		expect(callbackLastExecuted[2]).toBeLessThan(callbackLastExecuted[3]);
+		expect(callbackLastExecuted[3]).toBeLessThan(callbackLastExecuted[4]);
 	});
 });
