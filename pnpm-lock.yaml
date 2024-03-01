@@ -196,9 +196,6 @@ importers:
       '@astrojs/svelte':
         specifier: 5.2.0
         version: 5.2.0(astro@4.4.6)(svelte@4.2.12)(typescript@5.3.3)(vite@5.1.4)
-      '@guardian/consent-management-platform':
-        specifier: ^13.11.1
-        version: 13.11.1(@guardian/libs@libs+@guardian+libs)
       astro:
         specifier: 4.4.6
         version: 4.4.6(@types/node@18.19.3)(typescript@5.3.3)
@@ -4146,14 +4143,6 @@ packages:
     dependencies:
       tslib: 2.6.2
       typescript: 5.3.3
-    dev: true
-
-  /@guardian/consent-management-platform@13.11.1(@guardian/libs@libs+@guardian+libs):
-    resolution: {integrity: sha512-cU9ssmMVV6EpX7H9QVAf0gdPrIdrGkvi/5ylGXF6xGvyvJ6CwUxM+vZhhm5tujoCiq6EuAVJX1tiZ3oHQMEdZg==}
-    peerDependencies:
-      '@guardian/libs': ^15.0.0 || ^16.0.0
-    dependencies:
-      '@guardian/libs': link:libs/@guardian/libs
     dev: true
 
   /@guardian/libs@16.0.0(tslib@2.6.2)(typescript@5.3.3):
