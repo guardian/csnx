@@ -14,15 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: corepack enable
+      - uses: ./.github/actions/setup-node-env
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'pnpm'
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm nx run github-pages:build
+      - run: make github-pages:build
 
       - uses: actions/upload-pages-artifact@v3
         with:
