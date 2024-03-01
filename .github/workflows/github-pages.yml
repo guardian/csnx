@@ -1,6 +1,5 @@
 name: Publish github pages
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -23,7 +22,7 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm nx github-pages:build
+      - run: pnpm nx run github-pages:build
 
       - uses: actions/upload-pages-artifact@v3
         with:
