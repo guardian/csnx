@@ -43,7 +43,7 @@
 				"passWithNoTests": true
 			}
 		},
-		"e2e": {
+		"verify-dist": {
 			"executor": "@nx/jest:jest",
 			"outputs": [
 				"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-foundations"
@@ -51,7 +51,7 @@
 			"options": {
 				"jestConfig": "libs/@guardian/eslint-plugin-source-foundations/jest.config.ts",
 				"passWithNoTests": false,
-				"setupFilesAfterEnv": ["./jest.e2e.setup.ts"]
+				"setupFilesAfterEnv": ["./jest.dist.setup.ts"]
 			}
 		},
 		"dev": {

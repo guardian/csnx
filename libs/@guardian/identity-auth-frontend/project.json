@@ -39,7 +39,7 @@
 				"passWithNoTests": true
 			}
 		},
-		"e2e": {
+		"verify-dist": {
 			"executor": "@nx/jest:jest",
 			"outputs": [
 				"{workspaceRoot}/coverage/libs/@guardian/identity-auth-frontend"
@@ -47,7 +47,7 @@
 			"options": {
 				"jestConfig": "libs/@guardian/identity-auth-frontend/jest.config.ts",
 				"passWithNoTests": false,
-				"setupFilesAfterEnv": ["./jest.e2e.setup.js"]
+				"setupFilesAfterEnv": ["./jest.dist.setup.js"]
 			}
 		},
 		"dev": {

@@ -18,10 +18,15 @@
 			"rules": {}
 		},
 		{
+			// Be more lenient in tests.
+			// We may be testing things the compiler may not be able to check anyway.
 			"files": ["*.test.ts"],
 			"rules": {
+				"@typescript-eslint/no-unsafe-argument": "off",
+				"@typescript-eslint/no-unsafe-assignment": "off",
 				"@typescript-eslint/no-unsafe-call": "off",
-				"@typescript-eslint/no-unsafe-assignment": "off"
+				"@typescript-eslint/no-unsafe-member-access": "off",
+				"@typescript-eslint/no-unsafe-return": "off"
 			}
 		}
 	]
