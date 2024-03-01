@@ -1,9 +1,9 @@
 ---
 import { normaliseUrl } from "../utils/normaliseUrl";
-const pathname = new URL(Astro.request.url).pathname;
+const pathname = new URL(Astro.request.url).pathname.replace(/\/$/, '');;
 
 const pages = {
-	CSNX: normaliseUrl('/'),
+	CSNX: normaliseUrl(''),
 	"CMP Test Page": normaliseUrl("/cmp-test-page"),
 }
 ---
