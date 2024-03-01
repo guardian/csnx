@@ -66,107 +66,107 @@ Root-level tasks are defined in the [`Makefile`](./Makefile).
 - `make storybooks` _runs storybook for all projects in single instance_
 - `make test` _runs the unit tests for all projects_
 - `make validate` _makes sure absolutely everything is working_
+- `make verify-dist` _runs unit tests against dist for all projects_
 
 You can also run individual project's Nx targets by running `make <target>`:
 
 <details>
 <summary>List of all targets</summary>
 
-- `make csnx:build-storybook`
-- `make csnx:composed-storybooks`
-- `make csnx:project-storybooks`
-- `make csnx:storybooks`
+- `make github-pages:build`
+- `make github-pages:dev`
+- `make storybooks:dev`
 - `make @guardian/ab-core:build`
 - `make @guardian/ab-core:dev`
-- `make @guardian/ab-core:e2e`
 - `make @guardian/ab-core:fix`
 - `make @guardian/ab-core:lint`
 - `make @guardian/ab-core:test`
+- `make @guardian/ab-core:verify-dist`
 - `make @guardian/ab-react:build`
 - `make @guardian/ab-react:dev`
-- `make @guardian/ab-react:e2e`
 - `make @guardian/ab-react:fix`
 - `make @guardian/ab-react:lint`
 - `make @guardian/ab-react:test`
+- `make @guardian/ab-react:verify-dist`
 - `make @guardian/browserslist-config:build`
-- `make @guardian/browserslist-config:e2e`
+- `make @guardian/browserslist-config:verify-dist`
 - `make @guardian/cobalt-plugin-ts:build`
 - `make @guardian/core-web-vitals:build`
 - `make @guardian/core-web-vitals:dev`
-- `make @guardian/core-web-vitals:e2e`
 - `make @guardian/core-web-vitals:fix`
 - `make @guardian/core-web-vitals:lint`
 - `make @guardian/core-web-vitals:test`
+- `make @guardian/core-web-vitals:verify-dist`
 - `make @guardian/design-tokens:build`
 - `make @guardian/design-tokens:generate-tokens`
 - `make @guardian/eslint-config:build`
-- `make @guardian/eslint-config:e2e`
+- `make @guardian/eslint-config:verify-dist`
 - `make @guardian/eslint-config-typescript:build`
-- `make @guardian/eslint-config-typescript:e2e`
+- `make @guardian/eslint-config-typescript:verify-dist`
 - `make @guardian/eslint-plugin-source-foundations:build`
 - `make @guardian/eslint-plugin-source-foundations:dev`
-- `make @guardian/eslint-plugin-source-foundations:e2e`
 - `make @guardian/eslint-plugin-source-foundations:fix`
 - `make @guardian/eslint-plugin-source-foundations:lint`
 - `make @guardian/eslint-plugin-source-foundations:test`
+- `make @guardian/eslint-plugin-source-foundations:verify-dist`
 - `make @guardian/eslint-plugin-source-react-components:build`
 - `make @guardian/eslint-plugin-source-react-components:dev`
-- `make @guardian/eslint-plugin-source-react-components:e2e`
 - `make @guardian/eslint-plugin-source-react-components:fix`
 - `make @guardian/eslint-plugin-source-react-components:lint`
 - `make @guardian/eslint-plugin-source-react-components:test`
+- `make @guardian/eslint-plugin-source-react-components:verify-dist`
 - `make @guardian/identity-auth:build`
 - `make @guardian/identity-auth:dev`
-- `make @guardian/identity-auth:e2e`
 - `make @guardian/identity-auth:fix`
 - `make @guardian/identity-auth:lint`
 - `make @guardian/identity-auth:test`
+- `make @guardian/identity-auth:verify-dist`
 - `make @guardian/identity-auth-frontend:build`
 - `make @guardian/identity-auth-frontend:dev`
-- `make @guardian/identity-auth-frontend:e2e`
 - `make @guardian/identity-auth-frontend:fix`
 - `make @guardian/identity-auth-frontend:lint`
 - `make @guardian/identity-auth-frontend:test`
+- `make @guardian/identity-auth-frontend:verify-dist`
 - `make @guardian/libs:build`
 - `make @guardian/libs:dev`
-- `make @guardian/libs:e2e`
 - `make @guardian/libs:fix`
 - `make @guardian/libs:lint`
 - `make @guardian/libs:test`
+- `make @guardian/libs:verify-dist`
 - `make @guardian/newsletter-types:build`
 - `make @guardian/newsletter-types:dev`
 - `make @guardian/newsletter-types:fix`
 - `make @guardian/newsletter-types:lint`
 - `make @guardian/newsletter-types:test`
 - `make @guardian/prettier:build`
-- `make @guardian/prettier:e2e`
+- `make @guardian/prettier:verify-dist`
 - `make @guardian/source:build`
 - `make @guardian/source-foundations:build`
 - `make @guardian/source-foundations:build-storybook`
 - `make @guardian/source-foundations:dev`
-- `make @guardian/source-foundations:e2e`
 - `make @guardian/source-foundations:fix`
 - `make @guardian/source-foundations:lint`
 - `make @guardian/source-foundations:storybook`
 - `make @guardian/source-foundations:test`
+- `make @guardian/source-foundations:verify-dist`
 - `make @guardian/source-react-components:build`
 - `make @guardian/source-react-components:build-storybook`
 - `make @guardian/source-react-components:dev`
-- `make @guardian/source-react-components:e2e`
 - `make @guardian/source-react-components:fix`
 - `make @guardian/source-react-components:lint`
 - `make @guardian/source-react-components:storybook`
 - `make @guardian/source-react-components:test`
+- `make @guardian/source-react-components:verify-dist`
 - `make @guardian/source-react-components-development-kitchen:build`
 - `make @guardian/source-react-components-development-kitchen:build-storybook`
 - `make @guardian/source-react-components-development-kitchen:dev`
-- `make @guardian/source-react-components-development-kitchen:e2e`
 - `make @guardian/source-react-components-development-kitchen:fix`
 - `make @guardian/source-react-components-development-kitchen:lint`
 - `make @guardian/source-react-components-development-kitchen:storybook`
 - `make @guardian/source-react-components-development-kitchen:test`
+- `make @guardian/source-react-components-development-kitchen:verify-dist`
 - `make @guardian/tsconfig:build`
-- `make @guardian/tsconfig:e2e`
+- `make @guardian/tsconfig:verify-dist`
 </details>
 
 <!-- END TASKS -->
@@ -178,7 +178,7 @@ The repo is managed by [Nx](https://nx.dev/).
 <!-- START CACHED_TASKS -->
 <!-- THIS CONTENT IS AUTOGENERATED BY tools/scripts/maintain-readme/index.mjs -->
 
-[Nx remotely caches the output](https://nx.dev/using-nx/mental-model#computation-hashing-and-caching) of `build`, `lint`, `test`, `e2e`, and `build-storybook`.
+[Nx remotely caches the output](https://nx.dev/using-nx/mental-model#computation-hashing-and-caching) of `build`, `build-storybook`, `e2e`, `lint`, `test`, and `verify-dist`.
 
 <!-- END CACHED_TASKS -->
 

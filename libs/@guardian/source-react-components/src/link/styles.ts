@@ -8,9 +8,10 @@ import {
 } from '@guardian/source-foundations';
 import type { ReactElement } from 'react';
 import type { Theme } from '../@types/Theme';
-import type { LinkTheme } from './theme';
-import { linkThemeDefault } from './theme';
-import type { IconSide, LinkPriority } from './types';
+import { mergeThemes } from '../utils/themes';
+import type { IconSide, LinkPriority } from './@types/SharedLinkProps';
+import type { ThemeLink } from './theme';
+import { themeLink as defaultTheme } from './theme';
 
 export const link = css`
 	position: relative;
@@ -40,9 +41,7 @@ export const buttonLink = css`
 	padding: 0;
 `;
 
-export const primary = (
-	link: LinkTheme = linkThemeDefault.link,
-): SerializedStyles => css`
+export const primary = (link: ThemeLink): SerializedStyles => css`
 	color: ${link.textPrimary};
 
 	&:hover {
@@ -50,9 +49,7 @@ export const primary = (
 	}
 `;
 
-export const secondary = (
-	link: LinkTheme = linkThemeDefault.link,
-): SerializedStyles => css`
+export const secondary = (link: ThemeLink): SerializedStyles => css`
 	color: ${link.textSecondary};
 
 	&:hover {
@@ -88,7 +85,7 @@ export const iconLeft = css`
 `;
 
 const priorities: {
-	[key in LinkPriority]: (link?: LinkTheme) => SerializedStyles;
+	[key in LinkPriority]: (link: ThemeLink) => SerializedStyles;
 } = {
 	primary,
 	secondary,
@@ -107,6 +104,7 @@ export const linkStyles = ({
 	iconSvg,
 	iconSide = 'left',
 	cssOverrides,
+	theme,
 }: {
 	isButton?: boolean;
 	priority: LinkPriority;
@@ -114,13 +112,16 @@ export const linkStyles = ({
 	iconSvg?: ReactElement;
 	iconSide?: IconSide;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
+	theme?: Partial<ThemeLink>;
 }) => {
+	const mergedTheme = (providerTheme: Theme['link']): ThemeLink =>
+		mergeThemes<ThemeLink, Theme['link']>(defaultTheme, theme, providerTheme);
 	return (
-		theme: Theme,
+		providerTheme: Theme,
 	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
 		link,
 		isButton ? buttonLink : '',
-		priorities[priority](theme.link),
+		priorities[priority](mergedTheme(providerTheme.link)),
 		iconSvg ? icon : '',
 		iconSvg ? iconSides[iconSide] : '',
 		cssOverrides,

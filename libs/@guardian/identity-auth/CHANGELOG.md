@@ -1,5 +1,15 @@
 # @guardian/identity-auth
 
+## 2.1.0
+
+### Minor Changes
+
+- 145fb9b: Optimise `isSignedInWithAuthState` method so that it does one call simultaneously if called multiple times
+
+### Patch Changes
+
+- 707a035: Correctly handle `GU_SO` check in `isSignedInWithAuthState` method
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { LegendProps } from './@types/LegendProps';
 import { legend } from './styles';
 import { SupportingText } from './SupportingText';
 import { Text } from './Text';
-import type { LegendProps } from './types';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_legend--default-default-theme) •
@@ -23,15 +23,23 @@ export const Legend = ({
 	optional = false,
 	hideLabel = false,
 	cssOverrides,
+	theme,
 	...props
 }: LegendProps): EmotionJSX.Element => {
 	return (
 		<>
 			<legend css={[legend, cssOverrides]} {...props}>
-				<Text text={text} optional={optional} hideLabel={hideLabel} />
+				<Text
+					text={text}
+					optional={optional}
+					hideLabel={hideLabel}
+					theme={theme}
+				/>
 			</legend>
 			{supporting ? (
-				<SupportingText hideLabel={hideLabel}>{supporting}</SupportingText>
+				<SupportingText hideLabel={hideLabel} theme={theme}>
+					{supporting}
+				</SupportingText>
 			) : (
 				''
 			)}

@@ -9,14 +9,15 @@ import {
 	width,
 } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
-import type { ButtonTheme } from './theme';
-import { buttonThemeDefault } from './theme';
+import { mergeThemes } from '../utils/themes';
 import type {
 	ButtonPriority,
 	IconSide,
 	SharedButtonProps,
 	Size,
-} from './types';
+} from './@types/SharedButtonProps';
+import type { ThemeButton } from './theme';
+import { themeButton as defaultTheme } from './theme';
 
 const button = css`
 	display: inline-flex;
@@ -68,9 +69,7 @@ const applyButtonStylesToLoadingSpinner = (size: Size) => {
 	`;
 };
 
-const primary = (
-	button: ButtonTheme = buttonThemeDefault.button,
-): SerializedStyles => css`
+const primary = (button: ThemeButton): SerializedStyles => css`
 	background-color: ${button.backgroundPrimary};
 	color: ${button.textPrimary};
 
@@ -79,9 +78,7 @@ const primary = (
 	}
 `;
 
-const secondary = (
-	button: ButtonTheme = buttonThemeDefault.button,
-): SerializedStyles => css`
+const secondary = (button: ThemeButton): SerializedStyles => css`
 	background-color: ${button.backgroundSecondary};
 	color: ${button.textSecondary};
 
@@ -90,9 +87,7 @@ const secondary = (
 	}
 `;
 
-const tertiary = (
-	button: ButtonTheme = buttonThemeDefault.button,
-): SerializedStyles => css`
+const tertiary = (button: ThemeButton): SerializedStyles => css`
 	color: ${button.textTertiary};
 	border: 1px solid ${button.borderTertiary};
 
@@ -101,9 +96,7 @@ const tertiary = (
 	}
 `;
 
-const subdued = (
-	button: ButtonTheme = buttonThemeDefault.button,
-): SerializedStyles => css`
+const subdued = (button: ThemeButton): SerializedStyles => css`
 	padding: 0;
 	background-color: transparent;
 	color: ${button.textSubdued};
@@ -246,7 +239,7 @@ const iconNudgeAnimation = css`
 `;
 
 const priorities: {
-	[key in ButtonPriority]: (button?: ButtonTheme) => SerializedStyles;
+	[key in ButtonPriority]: (button: ThemeButton) => SerializedStyles;
 } = {
 	primary,
 	secondary,
@@ -283,6 +276,11 @@ const iconOnlySizes: {
 	xsmall: iconOnlyXsmall,
 };
 
+const mergedTheme = (
+	providerTheme: Theme['button'],
+	theme?: Partial<ThemeButton>,
+) =>
+	mergeThemes<ThemeButton, Theme['button']>(defaultTheme, theme, providerTheme);
 export const buttonStyles =
 	({
 		priority = 'primary',
@@ -293,13 +291,14 @@ export const buttonStyles =
 		nudgeIcon,
 		cssOverrides,
 		isLoading,
+		theme,
 	}: SharedButtonProps) =>
 	(
-		theme: Theme,
+		providerTheme: Theme,
 	): Array<string | SerializedStyles | SerializedStyles[] | undefined> => [
 		button,
 		sizes[size],
-		priorities[priority](theme.button),
+		priorities[priority](mergedTheme(providerTheme.button, theme)),
 		iconSvg ?? isLoading ? iconSizes[size] : '',
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',

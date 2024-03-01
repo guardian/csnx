@@ -5,6 +5,7 @@ import type { Props } from '../@types/Props';
 import { Legend } from '../label/Legend';
 import { InlineError } from '../user-feedback/InlineError';
 import { fieldset } from './styles';
+import type { ThemeCheckboxGroup } from './theme';
 
 export interface CheckboxGroupProps extends Props {
 	id?: string;
@@ -34,6 +35,19 @@ export interface CheckboxGroupProps extends Props {
 	 */
 	error?: string;
 	children: JSX.Element | JSX.Element[];
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textLabel`<br>
+	 *  `textOptional`<br>
+	 *  `textSupporting`<br>
+	 *  `textError`<br>
+	 *  `textSuccess`<br>
+	 *
+	 */
+	theme?: Partial<ThemeCheckboxGroup>;
 }
 
 /**
@@ -57,6 +71,7 @@ export const CheckboxGroup = ({
 	error,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: CheckboxGroupProps): EmotionJSX.Element => {
 	const groupId = id ?? generateSourceId();
@@ -66,6 +81,7 @@ export const CheckboxGroup = ({
 			supporting={supporting}
 			hideLabel={hideLabel}
 			optional={optional}
+			theme={theme}
 		/>
 	) : (
 		''
@@ -73,7 +89,9 @@ export const CheckboxGroup = ({
 
 	const message =
 		typeof error === 'string' ? (
-			<InlineError id={descriptionId(groupId)}>{error}</InlineError>
+			<InlineError theme={theme} id={descriptionId(groupId)}>
+				{error}
+			</InlineError>
 		) : (
 			''
 		);

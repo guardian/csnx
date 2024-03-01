@@ -1,7 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { LegendProps } from './@types/LegendProps';
 import { Legend } from './Legend';
 import { labelThemeBrand } from './theme';
-import type { LegendProps } from './types';
 
 const meta: Meta<typeof Legend> = {
 	title: 'Legend',
@@ -138,6 +139,20 @@ WithHiddenLabelBrandTheme.parameters = {
 		default: 'brandBackground.primary',
 	},
 	theme: labelThemeBrand,
+};
+
+// *****************************************************************************
+
+export const DefaultCustomTheme: StoryFn<typeof Legend> = Template.bind({});
+DefaultCustomTheme.args = {
+	theme: {
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };
 
 // *****************************************************************************

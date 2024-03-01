@@ -3,18 +3,22 @@ import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
-import { LabelText } from './LabelText';
+import { mergeThemes } from '../utils/themes';
 import {
 	checkbox,
 	checkboxContainer,
 	checkboxContainerWithSupportingText,
 	errorCheckbox,
 	label,
+	labelText,
+	labelTextWithSupportingText,
+	supportingText,
 	tick,
 	tickWithLabelText,
 	tickWithSupportingText,
 } from './styles';
-import { SupportingText } from './SupportingText';
+import { themeCheckbox as defaultTheme, transformProviderTheme } from './theme';
+import type { ThemeCheckbox } from './theme';
 
 export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
@@ -53,6 +57,23 @@ export interface CheckboxProps
 	 * @ignore passed down by the parent
 	 */
 	error?: boolean;
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `borderUnselected`<br>
+	 *  `borderHover`<br>
+	 *  `borderSelected`<br>
+	 *  `borderError`<br>
+	 *  `fillSelected`<br>
+	 *  `fillUnselected`<br>
+	 *  `textLabel`<br>
+	 *  `textSupporting`<br>
+	 *  `textIndeterminate`
+	 *
+	 */
+	theme?: Partial<ThemeCheckbox>;
 }
 
 /**
@@ -75,6 +96,7 @@ export const Checkbox = ({
 	error,
 	indeterminate,
 	cssOverrides,
+	theme,
 	...props
 }: CheckboxProps): EmotionJSX.Element => {
 	const checkboxId = id ?? generateSourceId();
@@ -90,32 +112,74 @@ export const Checkbox = ({
 			el.indeterminate = !!indeterminate;
 		}
 	};
+	const mergedTheme = (providerTheme: Theme['checkbox']) =>
+		mergeThemes<ThemeCheckbox, Theme['checkbox']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
+
+	const SupportingText = ({
+		children,
+	}: {
+		children: ReactNode;
+	}): EmotionJSX.Element => {
+		return (
+			<div
+				css={(providerTheme: Theme) =>
+					supportingText(mergedTheme(providerTheme.checkbox))
+				}
+			>
+				{children}
+			</div>
+		);
+	};
+
+	const LabelText = ({
+		hasSupportingText,
+		children,
+	}: {
+		hasSupportingText?: boolean;
+		children: ReactNode;
+	}): EmotionJSX.Element => {
+		return (
+			<div
+				css={(providerTheme: Theme) => [
+					labelText(mergedTheme(providerTheme.checkbox)),
+					hasSupportingText ? labelTextWithSupportingText : '',
+				]}
+			>
+				{children}
+			</div>
+		);
+	};
 
 	return (
 		<div
-			css={(theme: Theme) => [
-				checkboxContainer(theme.checkbox, error),
+			css={(providerTheme: Theme) => [
+				checkboxContainer(mergedTheme(providerTheme.checkbox), error),
 				supporting ? checkboxContainerWithSupportingText : '',
 			]}
 		>
 			<input
 				id={checkboxId}
 				type="checkbox"
-				css={(theme: Theme) => [
-					checkbox(theme.checkbox, error),
-					error ? errorCheckbox(theme.checkbox) : '',
+				css={(providerTheme: Theme) => [
+					checkbox(mergedTheme(providerTheme.checkbox), error),
+					error ? errorCheckbox(mergedTheme(providerTheme.checkbox)) : '',
 					cssOverrides,
 				]}
 				aria-invalid={!!error}
 				ref={setIndeterminate}
-				defaultChecked={defaultChecked != null ? defaultChecked : undefined}
+				defaultChecked={defaultChecked ?? undefined}
 				checked={checked != null ? isChecked() : undefined}
 				{...props}
 			/>
 			<span
-				css={(theme: Theme) => [
-					tick(theme.checkbox),
-					labelContent || supporting ? tickWithLabelText : '',
+				css={(providerTheme: Theme) => [
+					tick(mergedTheme(providerTheme.checkbox)),
+					labelContent ?? supporting ? tickWithLabelText : '',
 					supporting ? tickWithSupportingText : '',
 				]}
 			/>

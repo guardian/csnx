@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { ButtonHTMLAttributes } from 'react';
+import type { SharedButtonProps } from './@types/SharedButtonProps';
 import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
-import type { SharedButtonProps } from './types';
 
 export interface ButtonProps
 	extends SharedButtonProps,
@@ -29,6 +29,7 @@ export const Button = ({
 	loadingAnnouncement = 'Loading',
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: ButtonProps): EmotionJSX.Element => (
 	<button
@@ -41,6 +42,7 @@ export const Button = ({
 			nudgeIcon,
 			cssOverrides,
 			isLoading,
+			theme,
 		})}
 		type={type}
 		aria-live="polite"

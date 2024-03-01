@@ -1,0 +1,25 @@
+name: 'Setup Environment'
+description: 'Sets up Node.js environment and installs dependencies'
+
+runs:
+  using: 'composite'
+  steps:
+    - run: corepack enable
+      shell: bash
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'pnpm'
+
+    - run: pnpm install --frozen-lockfile
+      shell: bash
+
+    # Restores cypress binary cache. If the binary is missing, it will be
+    # downloaded and cached for next time.
+    # https://docs.cypress.io/guides/continuous-integration/introduction#Caching
+    - name: Cache Cypress binary
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/Cypress
+        key: cypress-${{ runner.os }}-${{ hashFiles('pnpm-workspace.yaml') }}

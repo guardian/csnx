@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
+import type { InlineSpace } from './@types/InlineSpace';
 import { inline, inlineSpace } from './styles';
-import type { InlineSpace } from './types';
 
 export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**

@@ -121,4 +121,5 @@ export const labels: Record<string, string> = {
 	video: 'Video',
 	'whats-app': 'WhatsApp logo',
 	'whats-app-brand': 'WhatsApp logo',
+	'plus-on-round': 'Plus On Round',
 };

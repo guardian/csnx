@@ -6,6 +6,7 @@ import type { HTMLAttributes } from 'react';
 import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { mergeThemes } from '../utils/themes';
 import { AccordionRowNoJS } from './AccordionRowNoJS';
 import {
 	accordionRow,
@@ -19,6 +20,11 @@ import {
 	toggleIconWithLabel,
 	toggleLabel,
 } from './styles';
+import type { ThemeAccordion } from './theme';
+import {
+	themeAccordion as defaultTheme,
+	transformProviderTheme,
+} from './theme';
 
 const visuallyHidden = css`
 	${_visuallyHidden}
@@ -41,6 +47,19 @@ export interface AccordionRowProps
 	 * @ignore passed down by the parent <Accordion />
 	 */
 	hideToggleLabel?: boolean;
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textLabel`<br>
+	 *  `textBody`<br>
+	 *  `textCta`<br>
+	 *  `border`<br>
+	 *  `iconFill`
+	 *
+	 */
+	theme?: Partial<ThemeAccordion>;
 }
 
 /**
@@ -55,12 +74,20 @@ export const AccordionRow = ({
 	children,
 	cssOverrides,
 	onClick = () => undefined,
+	theme,
 }: AccordionRowProps): EmotionJSX.Element => {
 	const [expanded, setExpanded] = useState(false);
 	const collapse = () => setExpanded(false);
 	const expand = () => setExpanded(true);
 	const [isBrowser, setIsBrowser] = useState(false);
 
+	const mergedTheme = (providerTheme: Theme['accordion']) =>
+		mergeThemes<ThemeAccordion, Theme['accordion']>(
+			defaultTheme,
+			theme,
+			providerTheme,
+			transformProviderTheme,
+		);
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
 		expanded ? collapse() : expand();
 		onClick(event);
@@ -73,14 +100,17 @@ export const AccordionRow = ({
 	if (isBrowser) {
 		return (
 			<div
-				css={(theme: Theme) => [accordionRow(theme.accordion), cssOverrides]}
+				css={(providerTheme: Theme) => [
+					accordionRow(mergedTheme(providerTheme.accordion)),
+					cssOverrides,
+				]}
 			>
 				<button
 					type="button"
 					aria-expanded={expanded}
 					onClick={handleClick}
-					css={(theme: Theme) => [
-						button(theme.accordion),
+					css={(providerTheme: Theme) => [
+						button(mergedTheme(providerTheme.accordion)),
 						expanded ? chevronIconUp : chevronIconDown,
 						!hideToggleLabel ? toggleIconWithLabel : '',
 					]}
@@ -92,7 +122,11 @@ export const AccordionRow = ({
 								{expanded ? 'Hide' : 'Show more'}
 							</span>
 						) : (
-							<span css={toggleLabel}>
+							<span
+								css={(providerTheme: Theme) =>
+									toggleLabel(mergedTheme(providerTheme.accordion))
+								}
+							>
 								{expanded ? (
 									'Hide'
 								) : (
@@ -103,10 +137,16 @@ export const AccordionRow = ({
 								)}
 							</span>
 						)}
-						<SvgChevronDownSingle />
+						<SvgChevronDownSingle theme={{ fill: theme?.iconFill }} />
 					</div>
 				</button>
-				<div css={expanded ? expandedBody : collapsedBody}>
+				<div
+					css={(providerTheme: Theme) =>
+						expanded
+							? expandedBody(mergedTheme(providerTheme.accordion))
+							: collapsedBody
+					}
+				>
 					<div hidden={!expanded}>{children}</div>
 				</div>
 			</div>

@@ -17,35 +17,19 @@ module.exports = {
 
 		return config;
 	},
-	refs: (config, { configType }) => {
-		if (configType === 'DEVELOPMENT') {
-			return {
-				'source-foundations': {
-					title: 'source-foundations',
-					url: 'http://localhost:4401',
-				},
-				'source-react-components': {
-					title: 'source-react-components',
-					url: 'http://localhost:4402',
-				},
-				'source-react-components-development-kitchen': {
-					title: 'source-react-components-development-kitchen',
-					url: 'http://localhost:4403',
-				},
-			};
-		}
+	refs: () => {
 		return {
 			'source-foundations': {
 				title: 'source-foundations',
-				url: 'https://main.diy95zty49kdd.amplifyapp.com',
+				url: 'http://localhost:4401',
 			},
 			'source-react-components': {
 				title: 'source-react-components',
-				url: 'https://main.d2zt1j33ncruvj.amplifyapp.com',
+				url: 'http://localhost:4402',
 			},
 			'source-react-components-development-kitchen': {
 				title: 'source-react-components-development-kitchen',
-				url: 'https://main.d25xfnd702qjsd.amplifyapp.com',
+				url: 'http://localhost:4403',
 			},
 		};
 	},

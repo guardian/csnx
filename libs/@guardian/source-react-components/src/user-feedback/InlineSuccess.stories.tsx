@@ -1,7 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { InlineSuccess } from './InlineSuccess';
 import { userFeedbackThemeBrand } from './theme';
-import type { UserFeedbackProps } from './types';
 
 const meta: Meta<typeof InlineSuccess> = {
 	title: 'InlineSuccess',
@@ -51,4 +52,17 @@ InlineSuccessSmallBrandTheme.parameters = {
 		default: 'brandBackground.primary',
 	},
 	theme: userFeedbackThemeBrand,
+};
+
+// *****************************************************************************
+
+export const InlineSuccessCustomTheme: StoryFn<typeof InlineSuccess> =
+	Template.bind({});
+InlineSuccessCustomTheme.args = {
+	theme: { textSuccess: palette.success[500] },
+};
+InlineSuccessCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

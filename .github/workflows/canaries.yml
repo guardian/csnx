@@ -1,0 +1,65 @@
+name: Publish Canaries
+
+# This workflow is triggered on a label being added to a PR, and will publish a canary versions of all packages with waiting changesets to npm.
+# Use `make changeset` to add a new changeset.
+on:
+  pull_request:
+    types: [labeled, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    if: contains(github.event.pull_request.labels.*.name, '🐥 Canaries')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # This makes Actions fetch all Git history so that Changesets can
+          # generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v4
+      - uses: ./.github/actions/setup-node-env
+
+      - run: pnpm nx run-many --target=build --all=true
+
+      - name: Prepare Nx project for changesets
+        uses: ./.github/actions/prepare-for-changesets
+
+      - name: Version
+        run: pnpm changeset version --snapshot canary
+
+      - name: Release
+        uses: changesets/action@v1
+        id: publish-canary
+        with:
+          # currently, you have to tag releases in git to get the action output to appear
+          # https://github.com/changesets/action/issues/141
+          # publish: pnpm changeset publish --no-git-tag --tag canary
+          publish: pnpm changeset publish --tag canary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - uses: actions/github-script@v7
+        if: steps.publish-canary.outputs.published == 'true'
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const publishedPackages = ${{ steps.publish-canary.outputs.publishedPackages }};
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: [
+                `> [!NOTE]`,
+                `> The following canaries were published to NPM:`,
+                `>`,
+                ...publishedPackages.map((pkg) => `> - [\`${pkg.name}@${pkg.version}\`](https://www.npmjs.com/package/${pkg.name}/v/${pkg.version})`),
+                '',
+                '🐥'
+              ].join('\n')
+            })

@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { AnchorHTMLAttributes } from 'react';
+import type { SharedLinkProps } from './@types/SharedLinkProps';
 import { linkContents } from './shared';
 import { linkStyles } from './styles';
-import type { SharedLinkProps } from './types';
 
 export interface LinkProps
 	extends AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -24,6 +24,7 @@ export const Link = ({
 	iconSide = 'left',
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: LinkProps): EmotionJSX.Element => {
 	return (
@@ -33,6 +34,7 @@ export const Link = ({
 				iconSvg,
 				iconSide,
 				cssOverrides,
+				theme,
 			})}
 			{...props}
 		>

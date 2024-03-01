@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { space } from '@guardian/source-foundations';
-import type { InlineSpace } from './types';
+import type { InlineSpace } from './@types/InlineSpace';
 
 export const inline = css`
 	display: flex;

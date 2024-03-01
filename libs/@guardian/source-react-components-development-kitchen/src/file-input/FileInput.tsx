@@ -9,6 +9,7 @@ import {
 	fileName as fileNameStyle,
 	fontSizes,
 	uploadSizes,
+	warningText,
 } from './styles';
 import type { Theme } from './theme';
 import type { FileInputProps } from './types';
@@ -87,6 +88,13 @@ export const FileInput: FC<FileInputProps> = ({
 				hideLabel={hideLabel}
 				cssOverrides={fontSizes[size]}
 			>
+				{maxFileSize && (
+					<p css={(theme: Theme) => warningText(theme.fileInput)}>
+						Please note, the maximum file size is{' '}
+						{getReadableFileSize(maxFileSize)}.
+					</p>
+				)}
+
 				{!!errorText && <InlineError>{errorText}</InlineError>}
 				<div
 					css={[
@@ -107,6 +115,7 @@ export const FileInput: FC<FileInputProps> = ({
 					/>
 				</div>
 			</Label>
+
 			{fileName && (
 				<>
 					{optional && (

@@ -1,6 +1,7 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes } from 'react';
+import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
 import { Label } from '../label/Label';
 import { InlineError } from '../user-feedback/InlineError';
@@ -14,7 +15,8 @@ import {
 	textArea,
 	widthFluid,
 } from './styles';
-import { InputSize } from '../@types/InputSize';
+import type { ThemeTextArea } from './theme';
+import { themeTextArea } from './theme';
 
 export interface TextAreaProps
 	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>,
@@ -59,6 +61,24 @@ export interface TextAreaProps
 	 * Specify the number of rows the component should display by default.
 	 */
 	rows?: number;
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textUserInput`<br>
+	 *  `textLabel`<br>
+	 *  `textOptional`<br>
+	 *  `textSupporting`<br>
+	 *  `textError`<br>
+	 *  `textSuccess`<br>
+	 *  `backgroundInput`<br>
+	 *  `border`<br>
+	 *  `borderError`<br>
+	 *  `borderSuccess`<br>
+	 *
+	 */
+	theme?: Partial<ThemeTextArea>;
 }
 
 /**
@@ -82,6 +102,7 @@ export const TextArea = ({
 	rows = 3,
 	className,
 	value,
+	theme,
 	...props
 }: TextAreaProps): EmotionJSX.Element => {
 	const textAreaId = id ?? generateSourceId();
@@ -98,6 +119,7 @@ export const TextArea = ({
 
 		return undefined;
 	};
+	const mergedTheme = { ...themeTextArea, ...theme };
 
 	return (
 		<>
@@ -105,20 +127,29 @@ export const TextArea = ({
 				text={labelText}
 				supporting={supporting}
 				optional={!!optional}
+				theme={theme}
 				size={size}
 				hideLabel={hideLabel}
 				htmlFor={textAreaId}
 			>
 				{error && (
 					<div css={inlineMessageMargin}>
-						<InlineError id={descriptionId(textAreaId)} size={size}>
+						<InlineError
+							id={descriptionId(textAreaId)}
+							theme={theme}
+							size={size}
+						>
 							{error}
 						</InlineError>
 					</div>
 				)}
 				{!error && success && (
 					<div css={inlineMessageMargin}>
-						<InlineSuccess id={descriptionId(textAreaId)} size={size}>
+						<InlineSuccess
+							id={descriptionId(textAreaId)}
+							theme={theme}
+							size={size}
+						>
 							{success}
 						</InlineSuccess>
 					</div>
@@ -127,16 +158,16 @@ export const TextArea = ({
 			<textarea
 				css={[
 					widthFluid,
-					textArea(size),
+					textArea(mergedTheme, size),
 					supporting ? supportingTextMargin : labelMargin,
-					error ? errorInput : '',
-					!error && success ? successInput : '',
+					error ? errorInput(mergedTheme) : '',
+					!error && success ? successInput(mergedTheme) : '',
 					cssOverrides,
 				]}
 				id={textAreaId}
 				aria-required={!optional}
 				aria-invalid={!!error}
-				aria-describedby={error || success ? descriptionId(textAreaId) : ''}
+				aria-describedby={error ?? success ? descriptionId(textAreaId) : ''}
 				required={!optional}
 				rows={rows}
 				className={getClassName()}

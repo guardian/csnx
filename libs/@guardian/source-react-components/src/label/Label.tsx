@@ -1,7 +1,7 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { LabelProps } from './@types/LabelProps';
 import { SupportingText } from './SupportingText';
 import { Text } from './Text';
-import type { LabelProps } from './types';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_label--default-default-theme) •
@@ -24,13 +24,22 @@ export const Label = ({
 	size,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: LabelProps): EmotionJSX.Element => {
 	return (
 		<label css={cssOverrides} {...props}>
-			<Text hideLabel={hideLabel} text={text} optional={optional} size={size} />
+			<Text
+				hideLabel={hideLabel}
+				text={text}
+				optional={optional}
+				size={size}
+				theme={theme}
+			/>
 			{supporting ? (
-				<SupportingText hideLabel={hideLabel}>{supporting}</SupportingText>
+				<SupportingText hideLabel={hideLabel} theme={theme}>
+					{supporting}
+				</SupportingText>
 			) : (
 				''
 			)}

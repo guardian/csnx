@@ -1,8 +1,8 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { AnchorHTMLAttributes } from 'react';
+import type { SharedButtonProps } from './@types/SharedButtonProps';
 import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
-import type { SharedButtonProps } from './types';
 
 export interface LinkButtonProps
 	extends SharedButtonProps,
@@ -26,6 +26,7 @@ export const LinkButton = ({
 	hideLabel,
 	cssOverrides,
 	children,
+	theme,
 	...props
 }: LinkButtonProps): EmotionJSX.Element => (
 	<a
@@ -37,6 +38,7 @@ export const LinkButton = ({
 			iconSide,
 			nudgeIcon,
 			cssOverrides,
+			theme,
 		})}
 		{...props}
 	>

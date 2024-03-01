@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement, Fragment } from 'react';
-import type { IconSide } from './types';
+import type { IconSide } from './@types/SharedLinkProps';
 
 export const linkContents = ({
 	children,
@@ -19,9 +19,19 @@ export const linkContents = ({
 
 	if (iconSvg) {
 		if (iconSide === 'left') {
-			linkContents.unshift(spacer, cloneElement(iconSvg, { key: 'svg' }));
+			linkContents.unshift(
+				spacer,
+				cloneElement(iconSvg, {
+					key: 'svg',
+				}),
+			);
 		} else {
-			linkContents.push(spacer, cloneElement(iconSvg, { key: 'svg' }));
+			linkContents.push(
+				spacer,
+				cloneElement(iconSvg, {
+					key: 'svg',
+				}),
+			);
 		}
 	}
 

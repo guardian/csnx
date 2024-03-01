@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
-import type { Props } from '../@types/Props';
+import type { Props } from '../../@types/Props';
+import type { ThemeButton } from '../theme';
 
 export type ButtonPriority = 'primary' | 'secondary' | 'tertiary' | 'subdued';
 export type IconSide = 'left' | 'right';
@@ -42,4 +43,22 @@ export interface SharedButtonProps extends Props {
 	 * screen reader. Defaults to "Loading".
 	 */
 	loadingAnnouncement?: string;
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textPrimary`<br>
+	 *  `backgroundPrimary`<br>
+	 *  `backgroundPrimaryHover`<br>
+	 *  `textSecondary`<br>
+	 *  `backgroundSecondary`<br>
+	 *  `backgroundSecondaryHover`<br>
+	 *  `textTertiary`<br>
+	 *  `backgroundTertiaryHover`<br>
+	 *  `borderTertiary`<br>
+	 *  `textSubdued`<br>
+	 *
+	 */
+	theme?: Partial<ThemeButton>;
 }

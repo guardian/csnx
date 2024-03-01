@@ -11,18 +11,16 @@ import {
 	until,
 	visuallyHidden,
 } from '@guardian/source-foundations';
-import { accordionThemeDefault } from './theme';
+import type { ThemeAccordion } from './theme';
 
-export const accordion = (
-	accordion = accordionThemeDefault.accordion,
-): SerializedStyles => css`
-	border-bottom: 1px solid ${accordion.borderPrimary};
+export const accordion = (accordion: ThemeAccordion): SerializedStyles => css`
+	border-bottom: 1px solid ${accordion.border};
 `;
 
 export const accordionRow = (
-	accordion = accordionThemeDefault.accordion,
+	accordion: ThemeAccordion,
 ): SerializedStyles => css`
-	border-top: 1px solid ${accordion.borderPrimary};
+	border-top: 1px solid ${accordion.border};
 `;
 
 const buttonStyles = css`
@@ -34,11 +32,9 @@ const buttonStyles = css`
 	cursor: pointer;
 `;
 
-export const button = (
-	accordion = accordionThemeDefault.accordion,
-): SerializedStyles => css`
+export const button = (accordion: ThemeAccordion): SerializedStyles => css`
 	${buttonStyles};
-	color: ${accordion.textPrimary};
+	color: ${accordion.textCta};
 
 	/* user agent overrides */
 	background: none;
@@ -51,11 +47,9 @@ export const button = (
 	}
 `;
 
-export const noJsButton = (
-	accordion = accordionThemeDefault.accordion,
-): SerializedStyles => css`
+export const noJsButton = (accordion: ThemeAccordion): SerializedStyles => css`
 	${buttonStyles};
-	color: ${accordion.textPrimary};
+	color: ${accordion.textCta};
 `;
 
 export const labelText = css`
@@ -63,7 +57,7 @@ export const labelText = css`
 	margin-right: ${remSpace[4]};
 `;
 
-const expandedBodyStyles = css`
+const expandedBodyStyles = (accordion: ThemeAccordion): SerializedStyles => css`
 	/*
 	TODO:
 	Hardcoded max-height because auto is invalid.
@@ -72,6 +66,7 @@ const expandedBodyStyles = css`
 	Otherwise, for short content we'll always see a flash
 	of a scrollbar as the row height is transitioning
 	*/
+	color: ${accordion.textBody};
 	max-height: 500px;
 	transition: max-height ${transitions.medium};
 	overflow: hidden;
@@ -79,8 +74,10 @@ const expandedBodyStyles = css`
 	padding-bottom: ${remSpace[5]};
 `;
 
-export const expandedBody = css`
-	${expandedBodyStyles};
+export const expandedBody = (
+	accordion: ThemeAccordion,
+): SerializedStyles => css`
+	${expandedBodyStyles(accordion)};
 `;
 
 export const collapsedBodyStyles = css`
@@ -98,7 +95,7 @@ export const collapsedBody = css`
 	${collapsedBodyStyles};
 `;
 
-export const noJsInput = css`
+export const noJsInput = (accordion: ThemeAccordion): SerializedStyles => css`
 	${visuallyHidden};
 
 	&:focus + [data-target='label'] > [data-target='toggle'] {
@@ -111,7 +108,7 @@ export const noJsInput = css`
 	}
 
 	&:checked ~ [data-target='body'] {
-		${expandedBodyStyles};
+		${expandedBodyStyles(accordion)};
 	}
 
 	&:not(:checked) + [data-target='label'] [data-target='toggle-label-hide'] {
@@ -129,9 +126,9 @@ export const toggle = css`
 	align-items: center;
 `;
 
-export const toggleLabel = css`
+export const toggleLabel = (accordion: ThemeAccordion): SerializedStyles => css`
 	${textSans.small({ fontWeight: 'bold' })};
-
+	color: ${accordion.textLabel};
 	${until.tablet} {
 		${visuallyHidden}
 	}

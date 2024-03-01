@@ -1,7 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
-import { radioThemeBrand } from './theme';
+import { themeRadioBrand } from './theme';
 
 const meta: Meta<typeof Radio> = {
 	title: 'Radio',
@@ -44,7 +45,9 @@ DefaultBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
+};
+DefaultBrandTheme.args = {
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -65,10 +68,10 @@ SupportingTextBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextBrandTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -88,11 +91,11 @@ SupportingTextOnlyBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: radioThemeBrand,
 };
 SupportingTextOnlyBrandTheme.args = {
 	supporting: 'Hex colour code: #ff0000',
 	label: null,
+	theme: themeRadioBrand,
 };
 
 // *****************************************************************************
@@ -100,4 +103,23 @@ SupportingTextOnlyBrandTheme.args = {
 export const UnlabelledDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
 UnlabelledDefaultTheme.args = {
 	label: undefined,
+};
+
+// *****************************************************************************
+
+export const DefaultCustomTheme: StoryFn<typeof Radio> = Template.bind({});
+DefaultCustomTheme.args = {
+	theme: {
+		fillSelected: palette.brand[800],
+		fillUnselected: palette.neutral[20],
+		borderSelected: palette.brand[800],
+		borderUnselected: palette.neutral[60],
+		borderHover: palette.brand[800],
+		textLabel: palette.neutral[86],
+	},
+};
+DefaultCustomTheme.parameters = {
+	backgrounds: {
+		default: 'background.inverse',
+	},
 };

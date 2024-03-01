@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
-import type { Props } from '../@types/Props';
+import type { Props } from '../../@types/Props';
+import type { ThemeLink } from '../theme';
 
 export type LinkPriority = 'primary' | 'secondary';
 
@@ -25,4 +26,16 @@ export interface SharedLinkProps extends Props {
 	 */
 	iconSide?: IconSide;
 	children?: ReactNode;
+	/**
+	 * Partial or complete theme to override the component's colour palette.
+	 * The sanctioned colours have been set out by the design system team.
+	 * The colours which can be changed are:
+	 *
+	 *  `textPrimary`<br>
+	 *  `textPrimaryHover`<br>
+	 *  `textSecondary`<br>
+	 *  `textSecondaryHover`<br>
+	 *
+	 */
+	theme?: Partial<ThemeLink>;
 }
