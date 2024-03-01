@@ -15,6 +15,8 @@ for (const [module, modulePath] of Object.entries(
 // https://astro.build/config
 export default defineConfig({
 	outDir: '../../dist/apps/github-pages',
+	site: 'https://guardian.github.io',
+	base: '/csnx',
 	integrations: [svelte()],
 	vite: {
 		resolve: {
