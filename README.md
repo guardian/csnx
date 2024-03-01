@@ -73,6 +73,8 @@ You can also run individual project's Nx targets by running `make <target>`:
 <details>
 <summary>List of all targets</summary>
 
+- `make github-pages:build`
+- `make github-pages:dev`
 - `make storybooks:dev`
 - `make @guardian/ab-core:build`
 - `make @guardian/ab-core:dev`

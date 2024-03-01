@@ -1,0 +1,63 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<nav>
+	<a class={pathname === '/' ? 'active' : ''} href="/">CSNX</a>
+	<a class={pathname === '/cmp' ? 'active' : ''} href="/cmp-test-page"
+		>CMP Test Page</a
+	>
+	<div class="external-links">
+		<a href="https://guardian.github.io/storybooks">Storybooks</a>
+	</div>
+</nav>
+
+<style>
+	nav {
+		padding: 1em;
+		background-color: black;
+		display: flex;
+	}
+
+	a {
+		margin-right: 1em;
+		color: white;
+		padding: 0.3em 0.4em;
+		text-decoration: none;
+		word-spacing: -0.3ch;
+
+		&[href='/'] {
+			font-weight: bold;
+		}
+
+		&.active {
+			color: black;
+			background-color: white;
+			text-decoration: none;
+		}
+
+		&:hover {
+			color: black;
+			background-color: white;
+		}
+
+		&[href^="https://"]
+		{
+			&::after {
+				content: '➜';
+				margin-left: 0.25em;
+			}
+		}
+	}
+
+	.external-links {
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
+
+		a {
+			margin-right: 0;
+			margin-left: 1em;
+		}
+	}
+</style>

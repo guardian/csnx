@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CmpTest from '../components/CmpTest.svelte';
+
+export const title = 'CMP Test Page';
+---
+
+<Layout title={title}>
+	<CmpTest client:only="svelte" />
+</Layout>
