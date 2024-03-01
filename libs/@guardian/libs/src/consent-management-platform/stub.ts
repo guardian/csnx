@@ -1,4 +1,3 @@
-import { stub_gpp_ccpa } from './stub_gpp_ccpa';
 import { stub_tcfv2 } from './stub_tcfv2';
 import { stub_uspapi_ccpa } from './stub_uspapi_ccpa';
 import type { Framework } from './types';
@@ -14,7 +13,6 @@ export const stub = (framework: Framework): void => {
 			break;
 		case 'ccpa':
 			stub_uspapi_ccpa();
-			stub_gpp_ccpa();
 			break;
 		case 'aus':
 			stub_uspapi_ccpa();

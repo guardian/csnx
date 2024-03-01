@@ -23,7 +23,7 @@ export type InitCMP = (arg0: {
 	country?: CountryCode;
 }) => void;
 
-export type OnConsentChange = (fn: Callback) => void;
+export type OnConsentChange = (fn: Callback, final?: boolean) => void;
 export type GetConsentFor = (
 	vendor: VendorName,
 	consent: ConsentState,

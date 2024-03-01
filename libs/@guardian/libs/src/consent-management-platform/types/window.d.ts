@@ -3,7 +3,7 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
-import type { CCPAData, GPPData } from './ccpa';
+import type { CCPAData } from './ccpa';
 import type { TCData } from './tcfv2/TCData';
 import type { CMP, Framework, PubData } from '.';
 
@@ -37,7 +37,6 @@ declare global {
 					framework: Framework;
 				};
 				ccpa?: {
-					includeGppApi?: boolean;
 					targetingParams?: {
 						framework: Framework;
 					};
@@ -96,10 +95,6 @@ declare global {
 			version: number,
 			callback: (tcData: TCData, success: boolean) => void,
 			vendorIDs?: number[],
-		) => void;
-		__gpp?: (
-			command: string,
-			callback: (gppData: GPPData, success: boolean) => void,
 		) => void;
 	}
 }
