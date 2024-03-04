@@ -22,7 +22,7 @@
 		"@types/prettier": "3.0.0",
 		"@types/react": "18.2.11",
 		"dotenv": "16.4.1",
-		"lightningcss": "1.23.0",
+		"lightningcss": "1.24.0",
 		"mkdirp": "3.0.1",
 		"prettier": "3.2.2",
 		"react": "18.2.0",

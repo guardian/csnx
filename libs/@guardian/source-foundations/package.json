@@ -9,7 +9,7 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
 		"@guardian/design-tokens": "workspace:0.1.0--pre.0",
-		"lightningcss": "1.23.0",
+		"lightningcss": "1.24.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.6.2",
