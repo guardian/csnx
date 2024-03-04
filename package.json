@@ -19,7 +19,7 @@
 		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
-		"@nx/cypress": "18.0.1",
+		"@nx/cypress": "18.1.0",
 		"@nx/devkit": "18.0.1",
 		"@nx/eslint-plugin": "18.0.2",
 		"@nx/jest": "18.0.1",
