@@ -50,8 +50,8 @@ importers:
         specifier: 18.0.1
         version: 18.0.1(@swc-node/register@1.8.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.6.6)(nx@18.0.1)(typescript@5.3.3)
       '@nx/devkit':
-        specifier: 18.0.1
-        version: 18.0.1(nx@18.0.1)
+        specifier: 18.1.0
+        version: 18.1.0(nx@18.0.1)
       '@nx/eslint-plugin':
         specifier: 18.0.2
         version: 18.0.2(@swc-node/register@1.8.0)(@swc/core@1.4.0)(@types/node@18.19.3)(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(nx@18.0.1)(typescript@5.3.3)
@@ -4613,6 +4613,14 @@ packages:
     transitivePeerDependencies:
       - nx
 
+  /@nrwl/devkit@18.1.0(nx@18.0.1):
+    resolution: {integrity: sha512-5XockF9oq25kKItqpvSQTS/vAXP+3aJNgCLzRYA6FjjcS3rBTRvDOkTY56a7arxJ9rZ5l48l11EcNFpHvv5OMA==}
+    dependencies:
+      '@nx/devkit': 18.1.0(nx@18.0.1)
+    transitivePeerDependencies:
+      - nx
+    dev: true
+
   /@nrwl/eslint-plugin-nx@18.0.2(@swc-node/register@1.8.0)(@swc/core@1.4.0)(@types/node@18.19.3)(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(nx@18.0.1)(typescript@5.3.3):
     resolution: {integrity: sha512-cCwO5AnIU3HrwerB95uqmms9UkV+CtpICpYRHEucJLzC7AKbJ4PMzUXwKHDCW5X6n8z1E5IvGt9uGLAC7BEH9A==}
     dependencies:
@@ -4820,6 +4828,25 @@ packages:
       tmp: 0.2.1
       tslib: 2.6.2
       yargs-parser: 21.1.1
+
+  /@nx/devkit@18.1.0(nx@18.0.1):
+    resolution: {integrity: sha512-wOXCVk05lRRNRJeMEpNGrre3+EeResNFyhGCXLBRx2rKbH6jIwnGIcxvsvYUw3UZCbO/9oVv+yWLYPeyr/joAw==}
+    peerDependencies:
+      nx: '>= 16 <= 18'
+    peerDependenciesMeta:
+      nx:
+        optional: true
+    dependencies:
+      '@nrwl/devkit': 18.1.0(nx@18.0.1)
+      ejs: 3.1.9
+      enquirer: 2.3.6
+      ignore: 5.3.1
+      nx: 18.0.1(@swc-node/register@1.8.0)(@swc/core@1.4.0)
+      semver: 7.5.4
+      tmp: 0.2.1
+      tslib: 2.6.2
+      yargs-parser: 21.1.1
+    dev: true
 
   /@nx/eslint-plugin@18.0.2(@swc-node/register@1.8.0)(@swc/core@1.4.0)(@types/node@18.19.3)(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(nx@18.0.1)(typescript@5.3.3):
     resolution: {integrity: sha512-9Bn1w7WkNFwELz5TL64R+450rhWWAXXqJneC6K4y9Uoxd6qB/8tRK0fAydAT+JN3TMk5DjfejhpW2emPHlyr2w==}
@@ -10778,7 +10805,7 @@ packages:
       glob-parent: 6.0.2
       globals: 13.24.0
       graphemer: 1.4.0
-      ignore: 5.3.0
+      ignore: 5.3.1
       imurmurhash: 0.1.4
       is-glob: 4.0.3
       is-path-inside: 3.0.3
@@ -12050,10 +12077,6 @@ packages:
 
   /ignore@5.2.1:
     resolution: {integrity: sha512-d2qQLzTJ9WxQftPAuEQpSPmKqzxePjzVbpAVv62AQ64NTL+wR4JkrVqR/LqFsFEUsHDAiId52mJteHDFuDkElA==}
-    engines: {node: '>= 4'}
-
-  /ignore@5.3.0:
-    resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
     engines: {node: '>= 4'}
 
   /ignore@5.3.1:
