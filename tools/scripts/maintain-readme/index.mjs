@@ -29,17 +29,20 @@ const makeTargetsList = makeTargets
 const nxTargets = await getNxTargets();
 
 const nxTargetsList = [
-	"You can also run individual project's Nx targets by running `make <target>`:",
-	'',
-	'<details>',
-	'<summary>List of all targets</summary>',
+	'### Project-specific tasks',
+	'Project-specific are defined in their `project.json`, and can be run with `make <project>:<task>`:',
 	'',
 ];
+
+let currentProject = '';
 for (const target of nxTargets) {
+	const thisProject = target.split(':')[0];
+	if (thisProject !== currentProject) {
+		currentProject = thisProject;
+		nxTargetsList.push(`#### ${currentProject}`);
+	}
 	nxTargetsList.push(`- \`make ${target}\``);
 }
-
-nxTargetsList.push('</details>');
 
 readme = updateReadmeSection({
 	readme,
