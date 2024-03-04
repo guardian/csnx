@@ -3,6 +3,9 @@
 	"version": "14.1.4",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"build-type-presets": "tsx scripts/build-type-presets.ts"
+	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
@@ -13,6 +16,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.6.2",
+		"tsx": "^4.7.1",
 		"typescript": "5.3.3"
 	},
 	"peerDependencies": {
