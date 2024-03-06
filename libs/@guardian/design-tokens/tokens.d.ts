@@ -1201,7 +1201,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1216,7 +1216,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '15px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1231,7 +1231,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '17px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1246,7 +1246,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '20px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1261,7 +1261,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '24px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1276,7 +1276,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '28px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1291,7 +1291,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '34px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1321,7 +1321,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1336,7 +1336,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '15px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1351,7 +1351,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '17px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1366,7 +1366,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '20px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1381,7 +1381,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '24px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1396,7 +1396,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '28px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1411,7 +1411,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '34px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1441,7 +1441,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'Italic';
@@ -1456,7 +1456,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '15px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1471,7 +1471,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '17px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1486,7 +1486,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '20px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1501,7 +1501,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '24px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1516,7 +1516,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '28px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1531,7 +1531,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '34px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
