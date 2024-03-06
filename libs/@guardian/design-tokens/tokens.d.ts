@@ -1570,7 +1570,7 @@ export declare const tokens: {
 				readonly fontStyle: 'normal';
 			};
 		};
-		readonly textDecorationThickness: {
+		readonly textDecorationThicknessForFontSize: {
 			readonly '12': '2px';
 			readonly '14': '2px';
 			readonly '15': '2px';

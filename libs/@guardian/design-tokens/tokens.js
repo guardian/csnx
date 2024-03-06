@@ -1554,7 +1554,7 @@ export const tokens = {
 				fontStyle: 'normal',
 			},
 		},
-		textDecorationThickness: {
+		textDecorationThicknessForFontSize: {
 			12: '2px',
 			14: '2px',
 			15: '2px',
