@@ -72,6 +72,14 @@
 				"cwd": "libs/@guardian/source-foundations",
 				"color": true
 			}
+		},
+		"build-type-presets": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "tsx ./scripts/build-type-presets.ts",
+				"cwd": "libs/@guardian/source-foundations",
+				"color": true
+			}
 		}
 	},
 	"tags": []

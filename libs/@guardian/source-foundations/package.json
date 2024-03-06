@@ -3,9 +3,6 @@
 	"version": "14.1.4",
 	"license": "Apache-2.0",
 	"sideEffects": false,
-	"scripts": {
-		"build-type-presets": "tsx scripts/build-type-presets.ts"
-	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
