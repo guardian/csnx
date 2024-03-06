@@ -200,6 +200,7 @@ Project-specific are defined in their `project.json`, and can be run with `make 
 
 - `make @guardian/source-foundations:build`
 - `make @guardian/source-foundations:build-storybook`
+- `make @guardian/source-foundations:build-type-presets`
 - `make @guardian/source-foundations:dev`
 - `make @guardian/source-foundations:fix`
 - `make @guardian/source-foundations:lint`
