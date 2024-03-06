@@ -74,13 +74,5 @@
 			"!{projectRoot}/**/*.cy.[jt]s?(x)",
 			"!{projectRoot}/cypress.config.[jt]s"
 		]
-	},
-	"plugins": [
-		{
-			"plugin": "@nx/cypress/plugin",
-			"options": {
-				"targetName": "e2e"
-			}
-		}
-	]
+	}
 }

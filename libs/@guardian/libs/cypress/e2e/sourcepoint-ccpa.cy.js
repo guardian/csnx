@@ -1,14 +1,11 @@
 import 'cypress-wait-until';
-import {
-	ENDPOINT,
-	PRIVACY_MANAGER_CCPA,
-} from '../../src/consent-management-platform/lib/sourcepointConfig';
+import { ENDPOINT, PRIVACY_MANAGER_CCPA } from '../fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_CCPA}`;
 
 // TODO add checkbox in UI, default to production
-const url = `/#ccpa`;
+const url = `/cmp-test-page#ccpa`;
 
 const doNotSellIs = (boolean) => {
 	cy.get('[data-donotsell]').should(

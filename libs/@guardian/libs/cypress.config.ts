@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export -- that's what cypress likes */
-
 import { defineConfig } from 'cypress';
+import plugins from './cypress/plugins/index.js';
 
 export default defineConfig({
 	viewportWidth: 1440,
@@ -16,8 +16,7 @@ export default defineConfig({
 		// We've imported your old cypress plugins here.
 		// You may want to clean this up later by importing these.
 		setupNodeEvents(on, config) {
-			return require('./cypress/plugins/index.js').default(on, config);
+			return plugins(on, config);
 		},
-		baseUrl: 'http://localhost:10001/',
 	},
 });
