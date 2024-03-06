@@ -2,11 +2,14 @@ import fs from 'node:fs';
 import { tokens } from '@guardian/design-tokens';
 import { fontArrayToString, pxStringToRem } from '../src/utils/convert-value';
 
-const { presets } = tokens.typography;
-const outputPath = `${process.cwd()}/src/typography/presets.ts`;
+console.log('Building typography presets…');
 
 const STRIP_WHITESPACE = /^\s+/gm;
 const STRIP_TABS = /^\t{3}|\t{2}/gm;
+
+const { presets } = tokens.typography;
+const presetTotal = Object.keys(presets).length;
+const outputPath = `${process.cwd()}/src/typography/presets.ts`;
 
 const banner = `
 	// Typography presets
@@ -29,5 +32,5 @@ const css = Object.entries(presets)
 	.join('')
 	.replace(STRIP_TABS, '');
 
-console.log('Writing typography presets.');
 fs.writeFileSync(outputPath, banner + css);
+console.log(`✓ ${presetTotal} presets built`);
