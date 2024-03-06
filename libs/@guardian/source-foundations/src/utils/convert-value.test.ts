@@ -1,15 +1,15 @@
 import {
 	fontArrayToString,
 	pxStringToNumber,
+	pxStringToRem,
 	pxToRem,
-	rootPixelFontSize,
 } from './convert-value';
 
 describe('pxToRem', () => {
 	it('should calculate a rem equivalent of a pixel value', () => {
 		const value = 17;
 		const result = pxToRem(value);
-		expect(result).toBe(value / rootPixelFontSize);
+		expect(result).toBe(1.0625);
 	});
 });
 
@@ -18,6 +18,15 @@ describe('pxStringToNumber', () => {
 		const value = '16px';
 		const result = pxStringToNumber(value);
 		expect(result).toBe(16);
+		expect(typeof result).toBe('number');
+	});
+});
+
+describe('pxStringToRem', () => {
+	it('should convert a value with a px unit to rem equivalent', () => {
+		const value = '20px';
+		const result = pxStringToRem(value);
+		expect(result).toBe(1.25);
 		expect(typeof result).toBe('number');
 	});
 });
