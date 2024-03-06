@@ -43,6 +43,7 @@ import {
 	titlepieceSizes,
 	underlineThickness,
 } from './typography/data';
+import * as presets from './typography/presets';
 import {
 	bodyObjectStyles,
 	headlineObjectStyles,
@@ -900,6 +901,151 @@ describe('Typography API object style output', () => {
 			lineHeight: 1.15,
 			textDecorationThickness: 6,
 		});
+	});
+});
+
+describe('Typography preset CSS output', () => {
+	it('should match expected output', () => {
+		expect(presets.article15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 15px;
+			line-height: 1.4;
+			font-weight: 400;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.articleBold15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 15px;
+			line-height: 1.4;
+			font-weight: 700;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.articleBoldItalic15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 15px;
+			line-height: 1.4;
+			font-weight: 700;
+			font-style: italic;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.headlineBold50).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 50px;
+			line-height: 1.15;
+			font-weight: 700;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.headlineLight50).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 50px;
+			line-height: 1.15;
+			font-weight: 300;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.headlineLightItalic50).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 50px;
+			line-height: 1.15;
+			font-weight: 300;
+			font-style: italic;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.kicker20).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 20px;
+			line-height: 1.15;
+			font-weight: 700;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.textEgyptian17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 17px;
+			line-height: 1.3;
+			font-weight: 400;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.textEgyptianBold17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 17px;
+			line-height: 1.3;
+			font-weight: 700;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.textEgyptianBoldItalic17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 17px;
+			line-height: 1.3;
+			font-weight: 700;
+			font-style: italic;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.textSans12).toMatchCSS(
+			`
+			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 12px;
+			line-height: 1.3;
+			font-weight: 400;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.textSansBold12).toMatchCSS(
+			`
+			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 12px;
+			line-height: 1.3;
+			font-weight: 700;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.textSansItalic12).toMatchCSS(
+			`
+			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 12px;
+			line-height: 1.3;
+			font-weight: 400;
+			font-style: italic;
+		`,
+			{ isFragment: true },
+		);
+		expect(presets.titlepiece42).toMatchCSS(
+			`
+			font-family: "GT Guardian Titlepiece", Georgia, serif;
+			font-size: 42px;
+			line-height: 1.15;
+			font-weight: 700;
+			font-style: normal;
+		`,
+			{ isFragment: true },
+		);
 	});
 });
 
