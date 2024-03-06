@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { tokens } from '@guardian/design-tokens';
-import { fontArrayToString } from '../src/utils/convert-value';
+import { fontArrayToString, pxStringToRem } from '../src/utils/convert-value';
 
 const { presets } = tokens.typography;
 const outputPath = `${process.cwd()}/src/typography/presets.ts`;
@@ -19,7 +19,7 @@ const css = Object.entries(presets)
 		([preset, properties]) => `
 			export const ${preset} = \`
 				font-family: ${fontArrayToString(properties.fontFamily)};
-				font-size: ${properties.fontSize};
+				font-size: ${pxStringToRem(properties.fontSize)}rem;
 				line-height: ${properties.lineHeight};
 				font-weight: ${properties.fontWeight};
 				font-style: ${properties.fontStyle};

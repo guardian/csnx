@@ -909,7 +909,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.article15).toMatchCSS(
 			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 15px;
+			font-size: 0.9375rem;
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: normal;
@@ -919,7 +919,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.articleBold15).toMatchCSS(
 			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 15px;
+			font-size: 0.9375rem;
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: normal;
@@ -929,7 +929,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.articleBoldItalic15).toMatchCSS(
 			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 15px;
+			font-size: 0.9375rem;
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: italic;
@@ -939,7 +939,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.headlineBold50).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 50px;
+			font-size: 3.125rem;
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
@@ -949,7 +949,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.headlineLight50).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 50px;
+			font-size: 3.125rem;
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
@@ -959,7 +959,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.headlineLightItalic50).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 50px;
+			font-size: 3.125rem;
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
@@ -969,7 +969,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.kicker20).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 20px;
+			font-size: 1.25rem;
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
@@ -979,7 +979,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.textEgyptian17).toMatchCSS(
 			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 17px;
+			font-size: 1.0625rem;
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
@@ -989,7 +989,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.textEgyptianBold17).toMatchCSS(
 			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 17px;
+			font-size: 1.0625rem;
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
@@ -999,7 +999,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.textEgyptianBoldItalic17).toMatchCSS(
 			`
 			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 17px;
+			font-size: 1.0625rem;
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
@@ -1009,7 +1009,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.textSans12).toMatchCSS(
 			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 12px;
+			font-size: 0.75rem;
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
@@ -1019,7 +1019,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.textSansBold12).toMatchCSS(
 			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 12px;
+			font-size: 0.75rem;
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
@@ -1029,7 +1029,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.textSansItalic12).toMatchCSS(
 			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 12px;
+			font-size: 0.75rem;
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
@@ -1039,7 +1039,7 @@ describe('Typography preset CSS output', () => {
 		expect(presets.titlepiece42).toMatchCSS(
 			`
 			font-family: "GT Guardian Titlepiece", Georgia, serif;
-			font-size: 42px;
+			font-size: 2.625rem;
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
