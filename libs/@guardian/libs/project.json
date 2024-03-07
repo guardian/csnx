@@ -50,7 +50,7 @@
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
 			"options": {
-				"jestConfig": "libs/@guardian/libs/jest.dist.config.js",
+				"jestConfig": "libs/@guardian/libs/jest.config.ts",
 				"passWithNoTests": false,
 				"setupFilesAfterEnv": ["./jest.dist.setup.js"]
 			}
