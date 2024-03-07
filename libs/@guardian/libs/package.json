@@ -6,6 +6,7 @@
 	"sideEffects": false,
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",
+		"cypress": "13.6.6",
 		"cypress-wait-until": "^3.0.1",
 		"eslint-plugin-cypress": "^2.15.1",
 		"jest-fetch-mock": "3.0.3",
