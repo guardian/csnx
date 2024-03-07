@@ -40,7 +40,7 @@
 		"e2e": {
 			"executor": "@nx/cypress:cypress",
 			"options": {
-				"cypressConfig": "libs/@guardian/libs/cypress.config.ts",
+				"cypressConfig": "libs/@guardian/libs/cypress.config.js",
 				"testingType": "e2e",
 				"devServerTarget": "github-pages:serve"
 			}
