@@ -5,7 +5,7 @@
 	},
 	"extends": ["plugin:cypress/recommended"],
 	"rules": {
-		// cypress wants to use default exports
+		// cypress wants default exports
 		"import/no-default-export": 0
 	}
 }
