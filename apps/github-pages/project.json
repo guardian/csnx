@@ -21,6 +21,16 @@
 				"cwd": "{workspaceRoot}/apps/github-pages",
 				"color": true
 			}
+		},
+		"serve:e2e": {
+			"executor": "nx:run-commands",
+			"options": {
+				"description": "Run server for e2e testing with cypress. Exits when finished (see readyWhen option).",
+				"command": "astro preview",
+				"cwd": "{workspaceRoot}/apps/github-pages",
+				"color": true,
+				"readyWhen": "use --host to expose"
+			}
 		}
 	}
 }
