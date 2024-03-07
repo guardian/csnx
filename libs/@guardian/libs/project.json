@@ -37,6 +37,15 @@
 				"passWithNoTests": false
 			}
 		},
+		"e2e": {
+			"dependsOn": ["github-pages:build"],
+			"executor": "@nx/cypress:cypress",
+			"options": {
+				"cypressConfig": "libs/@guardian/libs/cypress.config.js",
+				"testingType": "e2e",
+				"devServerTarget": "github-pages:serve:e2e"
+			}
+		},
 		"verify-dist": {
 			"executor": "@nx/jest:jest",
 			"outputs": ["{workspaceRoot}/coverage/libs/@guardian/libs"],
