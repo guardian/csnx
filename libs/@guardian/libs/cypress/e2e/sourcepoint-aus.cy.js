@@ -3,13 +3,13 @@ import {
 	ACCOUNT_ID,
 	ENDPOINT,
 	PRIVACY_MANAGER_AUSTRALIA,
-} from '../../src/consent-management-platform/lib/sourcepointConfig';
+} from '../fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_AUSTRALIA}`;
 
 // TODO add checkbox in UI, default to production
-const url = `/#aus`;
+const url = `/cmp-test-page#aus`;
 
 const personalisedAdvertisingIs = (boolean) => {
 	cy.get('[data-personalised-advertising]').should(

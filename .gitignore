@@ -10,3 +10,5 @@ dist
 # Speed up TSC builds
 # https://www.typescriptlang.org/tsconfig#incremental
 tsconfig.tsbuildinfo
+
+**/cypress/screenshots

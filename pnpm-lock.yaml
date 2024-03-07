@@ -122,15 +122,9 @@ importers:
       cypress:
         specifier: ^13.6.3
         version: 13.6.6
-      cypress-wait-until:
-        specifier: ^3.0.1
-        version: 3.0.1
       eslint:
         specifier: 8.56.0
         version: 8.56.0
-      eslint-plugin-cypress:
-        specifier: ^2.15.1
-        version: 2.15.1(eslint@8.56.0)
       eslint-plugin-eslint-comments:
         specifier: 3.2.0
         version: 3.2.0(eslint@8.56.0)
@@ -477,6 +471,12 @@ importers:
       '@types/wcag-contrast':
         specifier: 3.0.3
         version: 3.0.3
+      cypress-wait-until:
+        specifier: ^3.0.1
+        version: 3.0.1
+      eslint-plugin-cypress:
+        specifier: ^2.15.1
+        version: 2.15.1(eslint@8.56.0)
       jest-fetch-mock:
         specifier: 3.0.3
         version: 3.0.3

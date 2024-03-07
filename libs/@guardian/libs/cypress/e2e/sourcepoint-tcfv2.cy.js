@@ -1,10 +1,10 @@
-import { ENDPOINT } from '../../src/consent-management-platform/lib/sourcepointConfig';
+import { ENDPOINT } from '../fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = '#sp_message_iframe_106842';
 
 // TODO add checkbox in UI, default to production
-const url = `/#tcfv2`;
+const url = `/cmp-test-page#tcfv2`;
 
 describe('Window', () => {
 	it('has the guCmpHotFix object', () => {
