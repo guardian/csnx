@@ -1,5 +1,9 @@
+/* eslint-env jest -- this is a jest setup file */
+
 // Mock `./src/index` with whatever `package.json` points at in dist.
 // This means we can run the unit tests against `dist` instead.
+
+/** @typedef { import("@jest/types").jest } */
 
 const dist = require('../../../dist/libs/@guardian/libs');
 
