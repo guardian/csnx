@@ -78,6 +78,7 @@ Project-specific are defined in their `project.json`, and can be run with `make 
 
 - `make github-pages:build`
 - `make github-pages:dev`
+- `make github-pages:serve`
 
 #### storybooks
 
@@ -174,6 +175,7 @@ Project-specific are defined in their `project.json`, and can be run with `make 
 
 - `make @guardian/libs:build`
 - `make @guardian/libs:dev`
+- `make @guardian/libs:e2e`
 - `make @guardian/libs:fix`
 - `make @guardian/libs:lint`
 - `make @guardian/libs:test`

@@ -21,6 +21,16 @@
 				"cwd": "{workspaceRoot}/apps/github-pages",
 				"color": true
 			}
+		},
+		"serve": {
+			"dependsOn": ["build"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "astro preview",
+				"cwd": "{workspaceRoot}/apps/github-pages",
+				"color": true,
+				"readyWhen": "use --host to expose"
+			}
 		}
 	}
 }
