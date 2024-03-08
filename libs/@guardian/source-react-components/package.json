@@ -2,7 +2,9 @@
 	"name": "@guardian/source-react-components",
 	"version": "22.0.2",
 	"license": "Apache-2.0",
-	"sideEffects": false,
+	"sideEffects": [
+		"./src/button/source-button.ts"
+	],
 	"scripts": {
 		"create-icons": "ts-node scripts/create-icons"
 	},
