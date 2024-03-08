@@ -2,6 +2,10 @@
 	"name": "@guardian/source-react-components-development-kitchen",
 	"version": "19.0.0",
 	"sideEffects": false,
+	"scripts": {
+		"build-storybook": "wireit",
+		"storybook": "storybook dev"
+	},
 	"devDependencies": {
 		"@babel/core": "7.23.6",
 		"@emotion/react": "11.11.1",
@@ -25,6 +29,19 @@
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
+		}
+	},
+	"wireit": {
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"files": [
+				"**/*.{ts,tsx,js,json,mdx,md}",
+				"!storybook-static/**",
+				"!jest*"
+			],
+			"output": [
+				"storybook-static"
+			]
 		}
 	}
 }

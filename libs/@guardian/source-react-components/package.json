@@ -4,7 +4,9 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
-		"create-icons": "ts-node scripts/create-icons"
+		"build-storybook": "wireit",
+		"create-icons": "ts-node scripts/create-icons",
+		"storybook": "storybook dev"
 	},
 	"devDependencies": {
 		"@babel/core": "7.23.6",
@@ -36,6 +38,19 @@
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
+		}
+	},
+	"wireit": {
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"files": [
+				"**/*.{ts,tsx,js,json,mdx,md}",
+				"!storybook-static/**",
+				"!jest*"
+			],
+			"output": [
+				"storybook-static"
+			]
 		}
 	}
 }
