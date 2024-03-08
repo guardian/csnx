@@ -262,3 +262,17 @@ class Button extends HTMLElement {
 }
 
 customElements.define('source-button', Button);
+
+declare global {
+	namespace JSX {
+		interface IntrinsicElements {
+			'source-button': SourceButtonProps;
+		}
+	}
+}
+
+interface SourceButtonProps
+	extends React.DetailedHTMLProps<
+		React.HTMLAttributes<HTMLElement>,
+		HTMLElement
+	> {}
