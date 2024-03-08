@@ -1,8 +1,6 @@
 <script>
-	// always use the dist version
-
-	import { cmp, onConsentChange } from '@guardian/consent-management-platform';
-	import { log } from '@guardian/libs';
+	// this maps to the version in libs/@guardian/libs
+	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 	switch (window.location.hash) {
