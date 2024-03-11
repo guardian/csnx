@@ -752,8 +752,8 @@ importers:
         specifier: 2.6.2
         version: 2.6.2
       type-fest:
-        specifier: 4.10.1
-        version: 4.10.1
+        specifier: 4.12.0
+        version: 4.12.0
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -13959,7 +13959,7 @@ packages:
       '@babel/code-frame': 7.23.5
       index-to-position: 0.1.2
       json-parse-even-better-errors: 3.0.1
-      type-fest: 4.10.1
+      type-fest: 4.12.0
     dev: false
 
   /parse-latin@5.0.1:
@@ -14664,7 +14664,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 7.1.1
-      type-fest: 4.10.1
+      type-fest: 4.12.0
     dev: false
 
   /read-pkg@9.0.1:
@@ -14674,7 +14674,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 8.0.1
-      type-fest: 4.10.1
+      type-fest: 4.12.0
       unicorn-magic: 0.1.0
     dev: false
 
@@ -16404,8 +16404,8 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
-  /type-fest@4.10.1:
-    resolution: {integrity: sha512-7ZnJYTp6uc04uYRISWtiX3DSKB/fxNQT0B5o1OUeCqiQiwF+JC9+rJiZIDrPrNCLLuTqyQmh4VdQqh/ZOkv9MQ==}
+  /type-fest@4.12.0:
+    resolution: {integrity: sha512-5Y2/pp2wtJk8o08G0CMkuFPCO354FGwk/vbidxrdhRGZfd0tFnb4Qb8anp9XxXriwBgVPjdWbKpGl4J9lJY2jQ==}
     engines: {node: '>=16'}
     dev: false
 
@@ -17413,7 +17413,7 @@ packages:
       deepmerge-ts: 5.1.0
       read-pkg: 8.1.0
       sort-keys: 5.0.0
-      type-fest: 4.10.1
+      type-fest: 4.12.0
       write-json-file: 5.0.0
     dev: false
 
