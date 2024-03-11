@@ -3,7 +3,7 @@
 	"version": "19.0.0",
 	"sideEffects": false,
 	"devDependencies": {
-		"@babel/core": "7.23.6",
+		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
 		"@guardian/libs": "16.0.0",
 		"@guardian/source-foundations": "14.1.4",
