@@ -1200,7 +1200,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans14-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-14
 	);
 	--source-typography-presets-textSans14-font-style: normal;
 	--source-typography-presets-textSans14-font-weight: var(
@@ -1213,7 +1213,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans15-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-15
 	);
 	--source-typography-presets-textSans15-font-style: normal;
 	--source-typography-presets-textSans15-font-weight: var(
@@ -1226,7 +1226,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans17-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-17
 	);
 	--source-typography-presets-textSans17-font-style: normal;
 	--source-typography-presets-textSans17-font-weight: var(
@@ -1239,7 +1239,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans20-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-20
 	);
 	--source-typography-presets-textSans20-font-style: normal;
 	--source-typography-presets-textSans20-font-weight: var(
@@ -1252,7 +1252,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans24-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-24
 	);
 	--source-typography-presets-textSans24-font-style: normal;
 	--source-typography-presets-textSans24-font-weight: var(
@@ -1265,7 +1265,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans28-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-28
 	);
 	--source-typography-presets-textSans28-font-style: normal;
 	--source-typography-presets-textSans28-font-weight: var(
@@ -1278,7 +1278,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSans34-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-34
 	);
 	--source-typography-presets-textSans34-font-style: normal;
 	--source-typography-presets-textSans34-font-weight: var(
@@ -1304,7 +1304,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold14-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-14
 	);
 	--source-typography-presets-textSansBold14-font-style: normal;
 	--source-typography-presets-textSansBold14-font-weight: var(
@@ -1317,7 +1317,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold15-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-15
 	);
 	--source-typography-presets-textSansBold15-font-style: normal;
 	--source-typography-presets-textSansBold15-font-weight: var(
@@ -1330,7 +1330,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold17-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-17
 	);
 	--source-typography-presets-textSansBold17-font-style: normal;
 	--source-typography-presets-textSansBold17-font-weight: var(
@@ -1343,7 +1343,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold20-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-20
 	);
 	--source-typography-presets-textSansBold20-font-style: normal;
 	--source-typography-presets-textSansBold20-font-weight: var(
@@ -1356,7 +1356,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold24-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-24
 	);
 	--source-typography-presets-textSansBold24-font-style: normal;
 	--source-typography-presets-textSansBold24-font-weight: var(
@@ -1369,7 +1369,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold28-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-28
 	);
 	--source-typography-presets-textSansBold28-font-style: normal;
 	--source-typography-presets-textSansBold28-font-weight: var(
@@ -1382,7 +1382,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansBold34-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-34
 	);
 	--source-typography-presets-textSansBold34-font-style: normal;
 	--source-typography-presets-textSansBold34-font-weight: var(
@@ -1408,7 +1408,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic14-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-14
 	);
 	--source-typography-presets-textSansItalic14-font-style: Italic;
 	--source-typography-presets-textSansItalic14-font-weight: var(
@@ -1421,7 +1421,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic15-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-15
 	);
 	--source-typography-presets-textSansItalic15-font-style: italic;
 	--source-typography-presets-textSansItalic15-font-weight: var(
@@ -1434,7 +1434,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic17-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-17
 	);
 	--source-typography-presets-textSansItalic17-font-style: italic;
 	--source-typography-presets-textSansItalic17-font-weight: var(
@@ -1447,7 +1447,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic20-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-20
 	);
 	--source-typography-presets-textSansItalic20-font-style: italic;
 	--source-typography-presets-textSansItalic20-font-weight: var(
@@ -1460,7 +1460,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic24-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-24
 	);
 	--source-typography-presets-textSansItalic24-font-style: italic;
 	--source-typography-presets-textSansItalic24-font-weight: var(
@@ -1473,7 +1473,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic28-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-28
 	);
 	--source-typography-presets-textSansItalic28-font-style: italic;
 	--source-typography-presets-textSansItalic28-font-weight: var(
@@ -1486,7 +1486,7 @@
 		--source-typography-fontFamily-textSans
 	);
 	--source-typography-presets-textSansItalic34-font-size: var(
-		--source-typography-fontSize-12
+		--source-typography-fontSize-34
 	);
 	--source-typography-presets-textSansItalic34-font-style: italic;
 	--source-typography-presets-textSansItalic34-font-weight: var(

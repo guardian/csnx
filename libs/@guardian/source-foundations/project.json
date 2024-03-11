@@ -5,6 +5,7 @@
 	"projectType": "library",
 	"targets": {
 		"build": {
+			"dependsOn": ["build-type-presets"],
 			"executor": "@csnx/npm-package:build",
 			"outputs": ["{options.outputPath}"],
 			"options": {
@@ -69,6 +70,14 @@
 			],
 			"options": {
 				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-foundations --webpack-stats-json",
+				"cwd": "libs/@guardian/source-foundations",
+				"color": true
+			}
+		},
+		"build-type-presets": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "tsx ./scripts/build-type-presets.ts",
 				"cwd": "libs/@guardian/source-foundations",
 				"color": true
 			}
