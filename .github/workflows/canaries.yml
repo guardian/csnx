@@ -24,13 +24,13 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
       - uses: ./.github/actions/setup-node-env
 
+      - name: Version
+        run: pnpm changeset version --snapshot canary
+
       - run: pnpm nx run-many --target=build --all=true
 
       - name: Prepare Nx project for changesets
         uses: ./.github/actions/prepare-for-changesets
-
-      - name: Version
-        run: pnpm changeset version --snapshot canary
 
       - name: Release
         uses: changesets/action@v1
