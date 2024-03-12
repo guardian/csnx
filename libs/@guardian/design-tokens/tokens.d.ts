@@ -1570,12 +1570,18 @@ export declare const tokens: {
 				readonly fontStyle: 'normal';
 			};
 		};
-		readonly textDecorationThickness: {
-			readonly '2': '2px';
-			readonly '3': '3px';
-			readonly '4': '4px';
-			readonly '5': '5px';
-			readonly '6': '6px';
+		readonly textDecorationThicknessForFontSize: {
+			readonly '12': '2px';
+			readonly '14': '2px';
+			readonly '15': '2px';
+			readonly '17': '2px';
+			readonly '20': '3px';
+			readonly '24': '3px';
+			readonly '28': '3px';
+			readonly '34': '4px';
+			readonly '42': '5px';
+			readonly '50': '6px';
+			readonly '70': '6px';
 		};
 		readonly textSans: {
 			readonly large: {
