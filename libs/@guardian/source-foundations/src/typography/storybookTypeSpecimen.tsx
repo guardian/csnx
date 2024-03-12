@@ -52,20 +52,20 @@ export const TypographyPresets = () => (
 					<span css={presetNameCss}>{preset}</span>
 					<span css={specimenCss}>
 						<dl css={propertiesCss}>
-							<span>
+							<div>
 								<dt>Family</dt>
 								<dd>
 									{token.fontFamily[0]} ({token.fontWeight})
 								</dd>
-							</span>
-							<span>
+							</div>
+							<div>
 								<dt>Size</dt>
 								<dd>{token.fontSize}</dd>
-							</span>
-							<span>
+							</div>
+							<div>
 								<dt>Line height</dt>
 								<dd>{token.lineHeight}</dd>
-							</span>
+							</div>
 						</dl>
 						<span
 							css={css`
