@@ -59,6 +59,7 @@ export { storage } from './storage/storage';
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
 
+export type { ConsentState } from './consent-management-platform/types';
 export {
 	cmp,
 	getConsentFor,
