@@ -43,7 +43,7 @@ import {
 	titlepieceSizes,
 	underlineThickness,
 } from './typography/data';
-import * as presets from './typography/presets';
+import * as presets from './typography/css';
 import {
 	bodyObjectStyles,
 	headlineObjectStyles,
