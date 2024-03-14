@@ -61,6 +61,7 @@ export { getSwitches } from './switches/getSwitches';
 
 export type {
 	Callback,
+	CMP,
 	ConsentState,
 	Framework,
 	VendorName,
