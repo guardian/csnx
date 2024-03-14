@@ -1,6 +1,6 @@
 import { tokens } from '@guardian/design-tokens';
 import { css } from '@emotion/react';
-import * as presets from './presets';
+import * as presets from './css';
 import { space } from '../space/space';
 import { palette } from '../colour/palette';
 
