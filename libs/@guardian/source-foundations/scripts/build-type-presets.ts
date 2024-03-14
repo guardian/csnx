@@ -2,12 +2,19 @@ import fs from 'node:fs';
 import { tokens } from '@guardian/design-tokens';
 import { fontArrayToString, pxStringToRem } from '../src/utils/convert-value';
 
-console.log('Building typography presets…');
-
 const STRIP_WHITESPACE = /^\s+/gm;
 const STRIP_TABS = /^\t{3}|\t{2}/gm;
 
-const { presets } = tokens.typography;
+const { presets, fontSize, textDecorationThicknessForFontSize } =
+	tokens.typography;
+
+type FontSize = keyof typeof fontSize;
+
+const textDecorationThickness = (size: string) =>
+	textDecorationThicknessForFontSize[size.slice(0, -2) as FontSize];
+
+console.log('Building typography presets…');
+
 const presetTotal = Object.keys(presets).length;
 const outputPath = `${process.cwd()}/src/typography/presets.ts`;
 
@@ -26,6 +33,7 @@ const css = Object.entries(presets)
 				line-height: ${properties.lineHeight};
 				font-weight: ${properties.fontWeight};
 				font-style: ${properties.fontStyle};
+				--source-text-decoration-thickness: ${textDecorationThickness(properties.fontSize)};
 			\`;
 		`,
 	)

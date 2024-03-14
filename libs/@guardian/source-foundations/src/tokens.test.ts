@@ -913,7 +913,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.article17).toMatchCSS(
@@ -923,7 +924,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.articleBold15).toMatchCSS(
@@ -933,7 +935,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.articleBold17).toMatchCSS(
@@ -943,7 +946,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.articleBoldItalic15).toMatchCSS(
@@ -953,7 +957,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.articleBoldItalic17).toMatchCSS(
@@ -963,7 +968,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.articleItalic15).toMatchCSS(
@@ -973,7 +979,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.articleItalic17).toMatchCSS(
@@ -983,7 +990,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold14).toMatchCSS(
@@ -993,7 +1001,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold17).toMatchCSS(
@@ -1003,7 +1012,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold20).toMatchCSS(
@@ -1013,7 +1023,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold24).toMatchCSS(
@@ -1023,7 +1034,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold28).toMatchCSS(
@@ -1033,7 +1045,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold34).toMatchCSS(
@@ -1043,7 +1056,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold42).toMatchCSS(
@@ -1053,7 +1067,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 5px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold50).toMatchCSS(
@@ -1063,7 +1078,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineBold70).toMatchCSS(
@@ -1073,7 +1089,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight14).toMatchCSS(
@@ -1083,7 +1100,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight17).toMatchCSS(
@@ -1093,7 +1111,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight20).toMatchCSS(
@@ -1103,7 +1122,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight24).toMatchCSS(
@@ -1113,7 +1133,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight28).toMatchCSS(
@@ -1123,7 +1144,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight34).toMatchCSS(
@@ -1133,7 +1155,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight42).toMatchCSS(
@@ -1143,7 +1166,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 5px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight50).toMatchCSS(
@@ -1153,7 +1177,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLight70).toMatchCSS(
@@ -1163,7 +1188,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic14).toMatchCSS(
@@ -1173,7 +1199,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic17).toMatchCSS(
@@ -1183,7 +1210,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic20).toMatchCSS(
@@ -1193,7 +1221,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic24).toMatchCSS(
@@ -1203,7 +1232,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic28).toMatchCSS(
@@ -1213,7 +1243,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic34).toMatchCSS(
@@ -1223,7 +1254,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic42).toMatchCSS(
@@ -1233,7 +1265,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 5px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic50).toMatchCSS(
@@ -1243,7 +1276,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineLightItalic70).toMatchCSS(
@@ -1253,7 +1287,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium14).toMatchCSS(
@@ -1263,7 +1298,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium17).toMatchCSS(
@@ -1273,7 +1309,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium20).toMatchCSS(
@@ -1283,7 +1320,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium24).toMatchCSS(
@@ -1293,7 +1331,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium28).toMatchCSS(
@@ -1303,7 +1342,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium34).toMatchCSS(
@@ -1313,7 +1353,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium42).toMatchCSS(
@@ -1323,7 +1364,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 5px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium50).toMatchCSS(
@@ -1333,7 +1375,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMedium70).toMatchCSS(
@@ -1343,7 +1386,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic14).toMatchCSS(
@@ -1353,7 +1397,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic17).toMatchCSS(
@@ -1363,7 +1408,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic20).toMatchCSS(
@@ -1373,7 +1419,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic24).toMatchCSS(
@@ -1383,7 +1430,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic28).toMatchCSS(
@@ -1393,7 +1441,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic34).toMatchCSS(
@@ -1403,7 +1452,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic42).toMatchCSS(
@@ -1413,7 +1463,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 5px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic50).toMatchCSS(
@@ -1423,7 +1474,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.headlineMediumItalic70).toMatchCSS(
@@ -1433,7 +1485,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.kicker14).toMatchCSS(
@@ -1443,7 +1496,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.kicker17).toMatchCSS(
@@ -1453,7 +1507,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.kicker20).toMatchCSS(
@@ -1463,7 +1518,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.kicker24).toMatchCSS(
@@ -1473,7 +1529,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.kicker34).toMatchCSS(
@@ -1483,7 +1540,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptian14).toMatchCSS(
@@ -1493,7 +1551,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptian15).toMatchCSS(
@@ -1503,7 +1562,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptian17).toMatchCSS(
@@ -1513,7 +1573,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianBold14).toMatchCSS(
@@ -1523,7 +1584,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianBold15).toMatchCSS(
@@ -1533,7 +1595,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianBold17).toMatchCSS(
@@ -1543,7 +1606,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianBoldItalic14).toMatchCSS(
@@ -1553,7 +1617,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianBoldItalic15).toMatchCSS(
@@ -1563,7 +1628,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianBoldItalic17).toMatchCSS(
@@ -1573,7 +1639,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianItalic14).toMatchCSS(
@@ -1583,6 +1650,7 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
+			--source-text-decoration-thickness: 2px;
 		`,
 			{ isFragment: true },
 		);
@@ -1593,7 +1661,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textEgyptianItalic17).toMatchCSS(
@@ -1603,7 +1672,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans12).toMatchCSS(
@@ -1613,7 +1683,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans14).toMatchCSS(
@@ -1623,7 +1694,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans15).toMatchCSS(
@@ -1633,7 +1705,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans17).toMatchCSS(
@@ -1643,7 +1716,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans20).toMatchCSS(
@@ -1653,7 +1727,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans24).toMatchCSS(
@@ -1663,7 +1738,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans28).toMatchCSS(
@@ -1673,7 +1749,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSans34).toMatchCSS(
@@ -1683,7 +1760,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold12).toMatchCSS(
@@ -1693,7 +1771,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold14).toMatchCSS(
@@ -1703,7 +1782,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold15).toMatchCSS(
@@ -1713,7 +1793,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold17).toMatchCSS(
@@ -1723,7 +1804,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold20).toMatchCSS(
@@ -1733,7 +1815,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold24).toMatchCSS(
@@ -1743,7 +1826,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold28).toMatchCSS(
@@ -1753,7 +1837,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansBold34).toMatchCSS(
@@ -1763,7 +1848,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic12).toMatchCSS(
@@ -1773,7 +1859,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic14).toMatchCSS(
@@ -1783,7 +1870,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: Italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic15).toMatchCSS(
@@ -1793,7 +1881,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic17).toMatchCSS(
@@ -1803,7 +1892,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 2px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic20).toMatchCSS(
@@ -1813,7 +1903,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic24).toMatchCSS(
@@ -1823,7 +1914,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic28).toMatchCSS(
@@ -1833,7 +1925,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 3px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.textSansItalic34).toMatchCSS(
@@ -1843,7 +1936,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-		`,
+			--source-text-decoration-thickness: 4px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.titlepiece42).toMatchCSS(
@@ -1853,7 +1947,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 5px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.titlepiece50).toMatchCSS(
@@ -1863,7 +1958,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 		expect(presets.titlepiece70).toMatchCSS(
@@ -1873,7 +1969,8 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-		`,
+			--source-text-decoration-thickness: 6px;
+			`,
 			{ isFragment: true },
 		);
 	});
