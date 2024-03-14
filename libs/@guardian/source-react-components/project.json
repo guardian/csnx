@@ -60,24 +60,6 @@
 				"passWithNoTests": false,
 				"watch": true
 			}
-		},
-		"storybook": {
-			"executor": "nx:run-commands",
-			"options": {
-				"commands": ["storybook dev"],
-				"cwd": "libs/@guardian/source-react-components"
-			}
-		},
-		"build-storybook": {
-			"executor": "nx:run-commands",
-			"outputs": [
-				"{workspaceRoot}/dist/storybook/libs/@guardian/source-react-components"
-			],
-			"options": {
-				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-react-components --webpack-stats-json",
-				"cwd": "libs/@guardian/source-react-components",
-				"color": true
-			}
 		}
 	},
 	"tags": []
