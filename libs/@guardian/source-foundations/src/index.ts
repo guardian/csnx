@@ -72,7 +72,8 @@ export {
 export { space, remSpace } from './space/space';
 
 // typography
-export * from './typography/presets';
+export * from './typography/css';
+export * from './typography/objects';
 export {
 	titlepiece,
 	headline,
