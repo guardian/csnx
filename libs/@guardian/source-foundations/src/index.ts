@@ -106,6 +106,7 @@ export type {
 	FontWeightDefinition,
 	Option,
 	TypographyStyles,
+	TypographyPreset,
 	TypographySizes,
 	TitlepieceSizes,
 	HeadlineSizes,
@@ -123,3 +124,4 @@ export { FocusStyleManager } from './accessibility/focus-style-manager';
 export { pxToRem, rootPixelFontSize } from './utils/convert-value';
 export { resets } from './utils/resets';
 export { svgBackgroundImage } from './utils/svg-background-image';
+export { textDecorationThicknessFromPreset } from './typography/helpers';

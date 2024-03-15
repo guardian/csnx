@@ -25,6 +25,7 @@ export const Link = ({
 	cssOverrides,
 	children,
 	theme,
+	typography,
 	...props
 }: LinkProps): EmotionJSX.Element => {
 	return (
@@ -35,6 +36,7 @@ export const Link = ({
 				iconSide,
 				cssOverrides,
 				theme,
+				typography,
 			})}
 			{...props}
 		>

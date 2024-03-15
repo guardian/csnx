@@ -115,3 +115,11 @@ export type Fs = <
 		unit: ScaleUnit;
 	},
 ) => TypographyStyles;
+
+export type TypographyPreset = `
+	font-family: ${string};
+	font-size: ${number}rem;
+	line-height: ${number};
+	font-weight: ${number};
+	font-style: ${'normal' | 'italic'};
+`;
