@@ -44,9 +44,9 @@ module.exports = {
 		});
 
 		// update storybook webpack config to transpile *all* JS
-		config.module.rules.find(
-			(rule) => String(rule.test) === String(/\.(mjs|tsx?|jsx?)$/),
-		).exclude = nodeModulesExclude;
+		// config.module.rules.find(
+		// 	(rule) => String(rule.test) === String(/\.(mjs|tsx?|jsx?)$/),
+		// ).exclude = nodeModulesExclude;
 		config.resolve.plugins ||= [];
 		config.resolve.plugins.push(
 			new TsconfigPathsPlugin({

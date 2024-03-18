@@ -9,7 +9,7 @@ module.exports = {
 
 	stories: [
 		...rootMain.stories,
-		'../src/**/*.stories.mdx',
+		'../src/**/*.mdx',
 		'../src/**/*.stories.@(js|jsx|ts|tsx)',
 	],
 	addons: [...rootMain.addons],

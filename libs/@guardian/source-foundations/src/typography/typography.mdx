@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta, Canvas, Story } from '@storybook/blocks';
 import {
 	headlineObjectStyles,
 	bodyObjectStyles,
@@ -11,11 +11,9 @@ import {
 	FontWeightRenderer,
 	ItalicsRenderer,
 } from './storybookTypographyRenderers';
+import * as TypographyStories from './typography.stories';
 
-<Meta
-	title="Typography"
-	parameters={{ previewTabs: { canvas: { hidden: true } }, viewMode: 'docs' }}
-/>
+<Meta of={TypographyStories} />
 
 # Typography
 
@@ -74,9 +72,7 @@ font-family: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif';
 ```
 
 <Canvas>
-	<Story name="headline">
-		<FontStylesRenderer fontName="headline" fontStyles={headlineObjectStyles} />
-	</Story>
+	<Story of={TypographyStories.Headline} />
 </Canvas>
 
 #### Line height
@@ -84,9 +80,7 @@ font-family: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif';
 The default for headline is `tight`. This maps to `1.15 (115%)`.
 
 <Canvas>
-	<Story name="headline-lineheight">
-		<LineHeightRenderer getFontStyles={headlineObjectStyles.large} />
-	</Story>
+	<Story of={TypographyStories.HeadlineLineheight} />
 </Canvas>
 
 ### Body
@@ -96,9 +90,7 @@ font-family: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif';
 ```
 
 <Canvas>
-	<Story name="body">
-		<FontStylesRenderer fontName="body" fontStyles={bodyObjectStyles} />
-	</Story>
+	<Story of={TypographyStories.Body} />
 </Canvas>
 
 #### Line height
@@ -108,9 +100,7 @@ The default for body is `loose`. This maps to `1.40 (140%)`.
 This meets the [WCAG 2.1 AAA success criterion for visual presentation](https://www.w3.org/TR/WCAG21/#visual-presentation).
 
 <Canvas>
-	<Story name="body-lineheight">
-		<LineHeightRenderer getFontStyles={bodyObjectStyles.small} />
-	</Story>
+	<Story of={TypographyStories.BodyLineheight} />
 </Canvas>
 
 ### Text sans
@@ -120,9 +110,7 @@ font-family: 'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetic
 ```
 
 <Canvas>
-	<Story name="textSans">
-		<FontStylesRenderer fontName="textSans" fontStyles={textSansObjectStyles} />
-	</Story>
+	<Story of={TypographyStories.TextSans} />
 </Canvas>
 
 #### Line height
@@ -130,9 +118,7 @@ font-family: 'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetic
 The default for text-sans is `regular`. This maps to `1.3 (130%)`.
 
 <Canvas>
-	<Story name="text-sans-lineheight">
-		<LineHeightRenderer getFontStyles={textSansObjectStyles.medium} />
-	</Story>
+	<Story of={TypographyStories.TextSansLineheight} />
 </Canvas>
 
 ### Titlepiece
@@ -142,12 +128,7 @@ font-family: 'GT Guardian Titlepiece, Georgia, serif';
 ```
 
 <Canvas>
-	<Story name="titlepiece">
-		<FontStylesRenderer
-			fontName="titlepiece"
-			fontStyles={titlepieceObjectStyles}
-		/>
-	</Story>
+	<Story of={TypographyStories.Titlepiece} />
 </Canvas>
 
 #### Line height
@@ -155,9 +136,7 @@ font-family: 'GT Guardian Titlepiece, Georgia, serif';
 The default for titlepiece is `tight`. This maps to `1.15 (115%)`.
 
 <Canvas>
-	<Story name="titlepiece-lineheight">
-		<LineHeightRenderer getFontStyles={titlepieceObjectStyles.medium} />
-	</Story>
+	<Story of={TypographyStories.TitlepieceLineheight} />
 </Canvas>
 
 ### Options
@@ -169,22 +148,27 @@ Each method may receive an `options` object. Missing options are merged with sen
 The available options for line height are documented in the table below.
 
 <table>
-	<tr>
-		<th>Alias in Source</th>
-		<th>Line height</th>
-	</tr>
-	<tr>
-		<td>loose</td>
-		<td>140% (1.4)</td>
-	</tr>
-	<tr>
-		<td>regular</td>
-		<td>130% (1.30)</td>
-	</tr>
-	<tr>
-		<td>tight</td>
-		<td>115% (1.15)</td>
-	</tr>
+  <tr>
+    <th>Alias in Source</th>
+    <th>Line height</th>
+  </tr>
+
+{' '}
+<tr>
+	<td>loose</td>
+	<td>140% (1.4)</td>
+</tr>
+
+{' '}
+<tr>
+	<td>regular</td>
+	<td>130% (1.30)</td>
+</tr>
+
+  <tr>
+    <td>tight</td>
+    <td>115% (1.15)</td>
+  </tr>
 </table>
 
 We calculate the final line height based on the font size using the following formula:
@@ -212,9 +196,7 @@ headline.medium({ fontWeight: 'bold' });
 ```
 
 <Canvas>
-	<Story name="font weight">
-		<FontWeightRenderer />
-	</Story>
+	<Story of={TypographyStories.FontWeight} />
 </Canvas>
 
 The default for body and textSans is `regular`. The `light` and `medium` font weights are not available for these fonts.
@@ -234,9 +216,7 @@ headline.medium({ fontStyle: 'italic' });
 `italic` is available for the following fonts:
 
 <Canvas>
-	<Story name="italics">
-		<ItalicsRenderer />
-	</Story>
+	<Story of={TypographyStories.Italics} />
 </Canvas>
 
 #### Unit
