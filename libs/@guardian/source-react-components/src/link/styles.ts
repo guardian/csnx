@@ -34,7 +34,8 @@ export const link = (typographyPreset = textSans17) => {
 		}
 
 		&:hover {
-			/* If the hover text decoration thickness is not set, we default to the initial value. */
+			/* If the hover text decoration thickness custom property is not set,
+			   we default to the value calculated from preset. */
 			text-decoration-thickness: var(
 				--source-text-decoration-thickness,
 				${textDecorationThicknessBackup}
