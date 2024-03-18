@@ -49,7 +49,7 @@ importers:
         version: 2.2.0
       '@nx/cypress':
         specifier: 18.0.7
-        version: 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.6.6)(nx@18.0.7)(typescript@5.3.3)
+        version: 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.0)(nx@18.0.7)(typescript@5.3.3)
       '@nx/devkit':
         specifier: 18.0.7
         version: 18.0.7(nx@18.0.7)
@@ -91,7 +91,7 @@ importers:
         version: 8.0.0(react-dom@18.2.0)(react@18.2.0)
       '@swc-node/register':
         specifier: 1.9.0
-        version: 1.9.0(@swc/core@1.4.0)(@swc/types@0.1.5)(typescript@5.3.3)
+        version: 1.9.0(@swc/core@1.4.0)(@swc/types@0.1.6)(typescript@5.3.3)
       '@swc/core':
         specifier: 1.4.0
         version: 1.4.0(@swc/helpers@0.5.3)
@@ -120,8 +120,8 @@ importers:
         specifier: 2.0.20
         version: 2.0.20
       cypress:
-        specifier: ^13.0.0
-        version: 13.6.6
+        specifier: ^13.7.0
+        version: 13.7.0
       eslint:
         specifier: 8.56.0
         version: 8.56.0
@@ -263,17 +263,17 @@ importers:
   libs/@guardian/cobalt-plugin-ts:
     devDependencies:
       '@cobalt-ui/cli':
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.1
+        version: 1.8.1
       '@cobalt-ui/core':
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.1
+        version: 1.8.1
       '@cobalt-ui/plugin-css':
         specifier: ^1.7.0
-        version: 1.7.0(@cobalt-ui/cli@1.7.0)
+        version: 1.7.0(@cobalt-ui/cli@1.8.1)
       '@cobalt-ui/plugin-js':
         specifier: ^1.4.3
-        version: 1.4.3(@cobalt-ui/cli@1.7.0)
+        version: 1.4.3(@cobalt-ui/cli@1.8.1)
       '@cobalt-ui/utils':
         specifier: ^1.2.2
         version: 1.2.2
@@ -306,11 +306,11 @@ importers:
         version: 2.6.2
     devDependencies:
       '@cobalt-ui/cli':
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.1
+        version: 1.8.1
       '@cobalt-ui/plugin-css':
         specifier: ^1.7.0
-        version: 1.7.0(@cobalt-ui/cli@1.7.0)
+        version: 1.7.0(@cobalt-ui/cli@1.8.1)
       '@guardian/cobalt-plugin-ts':
         specifier: workspace:*
         version: link:../cobalt-plugin-ts
@@ -2447,36 +2447,36 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@cobalt-ui/cli@1.7.0:
-    resolution: {integrity: sha512-kXejMvl1B3Om5tewr2oYuILexAAnhrlFnZzY0MGpIYqUJjbz2wUaZFlXM2iLcAZPWfBVimLMguZAWXMpxZHBlg==}
+  /@cobalt-ui/cli@1.8.1:
+    resolution: {integrity: sha512-hDczrNzeWgKjpkbkAQhBwssLo3lMCFBUK5Oo0pBHGwlNwSaLWdaVRUNTIpvDDVQelOVpC8Fr2bgxU5xbQ+EK7A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
-      '@cobalt-ui/core': 1.7.0
-      '@cobalt-ui/utils': 1.2.3
-      chokidar: 3.5.3
+      '@cobalt-ui/core': 1.8.1
+      '@cobalt-ui/utils': 1.2.4
+      chokidar: 3.6.0
       culori: 3.3.0
-      dotenv: 16.4.1
+      dotenv: 16.4.5
       js-yaml: 4.1.0
       piscina: 3.2.0
       svgo: 3.2.0
       yargs-parser: 21.1.1
     dev: true
 
-  /@cobalt-ui/core@1.7.0:
-    resolution: {integrity: sha512-FcFwnSmzwpaqYfBmcxVaVFp/1L7VIA1tJ3lojARMWi45bFhc2I1iD3c8NxGMFAzTqQ07KuR0+uQUMvddAz3xAg==}
+  /@cobalt-ui/core@1.8.1:
+    resolution: {integrity: sha512-asuYAgEkybl6kSq8N6n9AJZM2dvcMynLsfg/VtYPJuEhE4mY6qNNQ0QCgZXqp/5VClmxsEgXjsyOW5Fd0DTbCw==}
     dependencies:
-      '@cobalt-ui/utils': 1.2.3
-      '@types/culori': 2.0.4
+      '@cobalt-ui/utils': 1.2.4
+      '@types/culori': 2.1.0
       culori: 4.0.1
     dev: true
 
-  /@cobalt-ui/plugin-css@1.7.0(@cobalt-ui/cli@1.7.0):
+  /@cobalt-ui/plugin-css@1.7.0(@cobalt-ui/cli@1.8.1):
     resolution: {integrity: sha512-bMGAa+44hC1mJSJqoSBjmt63wbPIbbjuupUnkpQJkXDYiTYyKU51r0YJ5w6oHElRtianbCEwqTaM14MO58FviA==}
     peerDependencies:
       '@cobalt-ui/cli': ^1.6.2
     dependencies:
-      '@cobalt-ui/cli': 1.7.0
+      '@cobalt-ui/cli': 1.8.1
       '@cobalt-ui/utils': 1.2.2
       '@types/culori': 2.0.4
       '@types/mime': 3.0.4
@@ -2485,12 +2485,12 @@ packages:
       svgo: 3.0.4
     dev: true
 
-  /@cobalt-ui/plugin-js@1.4.3(@cobalt-ui/cli@1.7.0):
+  /@cobalt-ui/plugin-js@1.4.3(@cobalt-ui/cli@1.8.1):
     resolution: {integrity: sha512-tsQokFmsVIejjqKDnPYwhi4I/ntsU+5dp4y7/MN+9PMUvHfaqcrOURjWIcv36EVQ73uOIcnfRajGnVgaHoolsg==}
     peerDependencies:
       '@cobalt-ui/cli': 1.x
     dependencies:
-      '@cobalt-ui/cli': 1.7.0
+      '@cobalt-ui/cli': 1.8.1
       '@cobalt-ui/utils': 1.2.2
     dev: true
 
@@ -2498,8 +2498,8 @@ packages:
     resolution: {integrity: sha512-voWozqrKi2SmlCcwd2iJqnnmpmDGEcQy3E/PWNOByYy+fTOQ4o1iSvuijCEp6LBV6tBSo6f31HR6yRAnl9RiZA==}
     dev: true
 
-  /@cobalt-ui/utils@1.2.3:
-    resolution: {integrity: sha512-NDEJ8f/ndpR0AEj0RArJLGmaMQlevVdQE0/CJUQeKD1VfDyp7xKthJVUdUuyp9h5Cnlsq1rBqpGwO3bSyiUF6Q==}
+  /@cobalt-ui/utils@1.2.4:
+    resolution: {integrity: sha512-gw0XnsEUPi1mPl480CL5le2UsHAfE0g9Gc7spkLjkgY4SOcbNumIOYPTHDr6jXFDkCYNnguI0gtQbjFwDHwAJQ==}
     dev: true
 
   /@colors/colors@1.5.0:
@@ -3577,10 +3577,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
 
-  /@nrwl/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.6.6)(nx@18.0.7)(typescript@5.3.3):
+  /@nrwl/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.0)(nx@18.0.7)(typescript@5.3.3):
     resolution: {integrity: sha512-hKBwHuukCEyTonq8VKoBjTnYEmZ3AEyT30wMZTQZ/vdpdgYNSD1vIwFM6VUJfaBoj4kdnQfDMS9ti4nsTRDRIQ==}
     dependencies:
-      '@nx/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.6.6)(nx@18.0.7)(typescript@5.3.3)
+      '@nx/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.0)(nx@18.0.7)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3737,7 +3737,7 @@ packages:
       - debug
     dev: true
 
-  /@nx/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.6.6)(nx@18.0.7)(typescript@5.3.3):
+  /@nx/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.0)(nx@18.0.7)(typescript@5.3.3):
     resolution: {integrity: sha512-bOCBr8OGGEjUHMkc+DgaXz2YQbC65DX8pPZ+teAXZiiZrs8/CsmkiN6sw00POOPC24hMDqSZgLKdayYZPxlLMQ==}
     peerDependencies:
       cypress: '>= 3 < 14'
@@ -3745,12 +3745,12 @@ packages:
       cypress:
         optional: true
     dependencies:
-      '@nrwl/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.6.6)(nx@18.0.7)(typescript@5.3.3)
+      '@nrwl/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.0)(nx@18.0.7)(typescript@5.3.3)
       '@nx/devkit': 18.0.7(nx@18.0.7)
       '@nx/eslint': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)
       '@nx/js': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.3.3)
-      cypress: 13.6.6
+      cypress: 13.7.0
       detect-port: 1.5.1
       semver: 7.5.4
       tslib: 2.6.2
@@ -5573,7 +5573,7 @@ packages:
       svgo: 3.0.4
     dev: true
 
-  /@swc-node/core@1.13.0(@swc/core@1.4.0)(@swc/types@0.1.5):
+  /@swc-node/core@1.13.0(@swc/core@1.4.0)(@swc/types@0.1.6):
     resolution: {integrity: sha512-lFPD4nmy4ifAOVMChFjwlpXN5KQXvegqeyuzz1KQz42q1lf+cL3Qux1/GteGuZjh8HC+Rj1RdNrHpE/MCfJSTw==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -5581,15 +5581,15 @@ packages:
       '@swc/types': '>= 0.1'
     dependencies:
       '@swc/core': 1.4.0(@swc/helpers@0.5.3)
-      '@swc/types': 0.1.5
+      '@swc/types': 0.1.6
 
-  /@swc-node/register@1.9.0(@swc/core@1.4.0)(@swc/types@0.1.5)(typescript@5.3.3):
+  /@swc-node/register@1.9.0(@swc/core@1.4.0)(@swc/types@0.1.6)(typescript@5.3.3):
     resolution: {integrity: sha512-i0iYInD4q5v3xQC6bKvs0QtfUxu197CU5qKALmpxEqTYs7sIhQ7KFLe3kP+eAR4gRkJTvAgjQgrokXLN2jZrOw==}
     peerDependencies:
       '@swc/core': '>= 1.3'
       typescript: '>= 4.3'
     dependencies:
-      '@swc-node/core': 1.13.0(@swc/core@1.4.0)(@swc/types@0.1.5)
+      '@swc-node/core': 1.13.0(@swc/core@1.4.0)(@swc/types@0.1.6)
       '@swc-node/sourcemap-support': 0.5.0
       '@swc/core': 1.4.0(@swc/helpers@0.5.3)
       colorette: 2.0.20
@@ -5723,6 +5723,11 @@ packages:
   /@swc/types@0.1.5:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
 
+  /@swc/types@0.1.6:
+    resolution: {integrity: sha512-/JLo/l2JsT/LRd80C3HfbmVpxOAJ11FO2RCEslFrgzLltoP9j8XIbsyDcfCt2WWyX+CM96rBoNM+IToAkFOugg==}
+    dependencies:
+      '@swc/counter': 0.1.3
+
   /@testing-library/dom@9.3.1:
     resolution: {integrity: sha512-0DGPd9AR3+iDTjGoMpxIkAsUihHZ3Ai6CneU6bRRrffXMgzCdlNk43jTrD2/5LT6CBb3MWTP8v510JzYtahD2w==}
     engines: {node: '>=14'}
@@ -5837,6 +5842,10 @@ packages:
 
   /@types/culori@2.0.4:
     resolution: {integrity: sha512-GeLW8+KBRkwqIgeGrU8EnNbBE2D7waYbQHkx2xnI5exlzSGTMpjWtDaHzLWK1PTYmyJN9u6dPvMYumFevDe+VA==}
+    dev: true
+
+  /@types/culori@2.1.0:
+    resolution: {integrity: sha512-4uJT5CcC9Mi8mACkWShsPHqILMWL0OqoTsfoLJUGzN1mcipcepmmEdzU8b9L1KwyRNN3rnQO39ylI/2VR850zw==}
     dev: true
 
   /@types/debug@4.1.12:
@@ -8263,8 +8272,8 @@ packages:
     resolution: {integrity: sha512-kpoa8yL6Bi/JNsThGBbrrm7g4SNzYyBUv9M5pF6/NTVm/ClY0HnJzeuWnHiAUZKIZ5l86Oedb12wQyjx7/CWPg==}
     dev: true
 
-  /cypress@13.6.6:
-    resolution: {integrity: sha512-S+2S9S94611hXimH9a3EAYt81QM913ZVA03pUmGDfLTFa5gyp85NJ8dJGSlEAEmyRsYkioS1TtnWtbv/Fzt11A==}
+  /cypress@13.7.0:
+    resolution: {integrity: sha512-UimjRSJJYdTlvkChcdcfywKJ6tUYuwYuk/n1uMMglrvi+ZthNhoRYcxnWgTqUtkl17fXrPAsD5XT2rcQYN1xKA==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     requiresBuild: true
@@ -8286,7 +8295,7 @@ packages:
       common-tags: 1.8.2
       dayjs: 1.11.10
       debug: 4.3.4(supports-color@8.1.1)
-      enquirer: 2.3.6
+      enquirer: 2.4.1
       eventemitter2: 6.4.7
       execa: 4.1.0
       executable: 4.1.1
@@ -8297,7 +8306,7 @@ packages:
       is-ci: 3.0.1
       is-installed-globally: 0.4.0
       lazy-ass: 1.6.0
-      listr2: 3.14.0(enquirer@2.3.6)
+      listr2: 3.14.0(enquirer@2.4.1)
       lodash: 4.17.21
       log-symbols: 4.1.0
       minimist: 1.2.8
@@ -8308,7 +8317,7 @@ packages:
       request-progress: 3.0.0
       semver: 7.5.4
       supports-color: 8.1.1
-      tmp: 0.2.1
+      tmp: 0.2.3
       untildify: 4.0.0
       yauzl: 2.10.0
     dev: true
@@ -8816,6 +8825,14 @@ packages:
     engines: {node: '>=8.6'}
     dependencies:
       ansi-colors: 4.1.3
+
+  /enquirer@2.4.1:
+    resolution: {integrity: sha512-rRqJg/6gd538VHvR3PSrdRBb/1Vy2YfzHqzvbhGIQpDRKIa4FgV/54b5Q1xYSxOOwKvjXweS26E0Q+nAMwp2pQ==}
+    engines: {node: '>=8.6'}
+    dependencies:
+      ansi-colors: 4.1.3
+      strip-ansi: 6.0.1
+    dev: true
 
   /entities@2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
@@ -9429,7 +9446,7 @@ packages:
       human-signals: 5.0.0
       is-stream: 3.0.0
       merge-stream: 2.0.0
-      npm-run-path: 5.2.0
+      npm-run-path: 5.3.0
       onetime: 6.0.0
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
@@ -11769,7 +11786,7 @@ packages:
     engines: {node: '>=14.0.0'}
     dependencies:
       app-root-dir: 1.0.2
-      dotenv: 16.4.5
+      dotenv: 16.4.1
       dotenv-expand: 10.0.0
     dev: true
 
@@ -11914,7 +11931,7 @@ packages:
       - supports-color
     dev: true
 
-  /listr2@3.14.0(enquirer@2.3.6):
+  /listr2@3.14.0(enquirer@2.4.1):
     resolution: {integrity: sha512-TyWI8G99GX9GjE54cJ+RrNMcIFBfwMPxc3XTFiAYGN4s10hWROGtOg7+O6u6LE3mNkyld7RSLE6nrKBvTfcs3g==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -11925,10 +11942,10 @@ packages:
     dependencies:
       cli-truncate: 2.1.0
       colorette: 2.0.20
-      enquirer: 2.3.6
+      enquirer: 2.4.1
       log-update: 4.0.0
       p-map: 4.0.0
-      rfdc: 1.3.0
+      rfdc: 1.3.1
       rxjs: 7.8.1
       through: 2.3.8
       wrap-ansi: 7.0.0
@@ -11942,7 +11959,7 @@ packages:
       colorette: 2.0.20
       eventemitter3: 5.0.1
       log-update: 6.0.0
-      rfdc: 1.3.0
+      rfdc: 1.3.1
       wrap-ansi: 9.0.0
     dev: true
 
@@ -12938,8 +12955,8 @@ packages:
       path-key: 4.0.0
     dev: false
 
-  /npm-run-path@5.2.0:
-    resolution: {integrity: sha512-W4/tgAXFqFA0iL7fk0+uQ3g7wkL8xJmx3XdK0VGb4cHW//eZTtKGvFBBoRKVTpY7n6ze4NL9ly7rgXcHufqXKg==}
+  /npm-run-path@5.3.0:
+    resolution: {integrity: sha512-ppwTtiJZq0O/ai0z7yfudtBpWIoxM8yE6nHi1X47eFR2EWORqfbu6CnPlNsjeN683eT0qG6H/Pyf9fCcvjnnnQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       path-key: 4.0.0
@@ -12987,7 +13004,7 @@ packages:
         optional: true
     dependencies:
       '@nrwl/tao': 18.0.2(@swc-node/register@1.9.0)(@swc/core@1.4.0)
-      '@swc-node/register': 1.9.0(@swc/core@1.4.0)(@swc/types@0.1.5)(typescript@5.3.3)
+      '@swc-node/register': 1.9.0(@swc/core@1.4.0)(@swc/types@0.1.6)(typescript@5.3.3)
       '@swc/core': 1.4.0(@swc/helpers@0.5.3)
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.46
@@ -13017,7 +13034,7 @@ packages:
       string-width: 4.2.3
       strong-log-transformer: 2.1.0
       tar-stream: 2.2.0
-      tmp: 0.2.1
+      tmp: 0.2.3
       tsconfig-paths: 4.2.0
       tslib: 2.6.2
       yargs: 17.7.2
@@ -13051,7 +13068,7 @@ packages:
         optional: true
     dependencies:
       '@nrwl/tao': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)
-      '@swc-node/register': 1.9.0(@swc/core@1.4.0)(@swc/types@0.1.5)(typescript@5.3.3)
+      '@swc-node/register': 1.9.0(@swc/core@1.4.0)(@swc/types@0.1.6)(typescript@5.3.3)
       '@swc/core': 1.4.0(@swc/helpers@0.5.3)
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.46
@@ -14438,8 +14455,8 @@ packages:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  /rfdc@1.3.0:
-    resolution: {integrity: sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==}
+  /rfdc@1.3.1:
+    resolution: {integrity: sha512-r5a3l5HzYlIC68TpmYKlxWjmOP6wiPJ1vWv2HeLhNsRZMrCkxeqxiHlQ21oXmQ4F3SiryXBHhAD7JZqvOJjFmg==}
     dev: true
 
   /rimraf@2.6.3:
@@ -15465,6 +15482,10 @@ packages:
     engines: {node: '>=8.17.0'}
     dependencies:
       rimraf: 3.0.2
+
+  /tmp@0.2.3:
+    resolution: {integrity: sha512-nZD7m9iCPC5g0pYmcaxogYKggSfLsdxl8of3Q/oIbqCqLLIO9IAF0GWjX1z9NZRHPiXv8Wex4yDCaZsgEw0Y8w==}
+    engines: {node: '>=14.14'}
 
   /tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==}
