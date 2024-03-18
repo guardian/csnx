@@ -1,26 +1,30 @@
 # If you would like to be notified about changes in particular part of this repo,
+
 # please add your team to a path in a PR.
 
 # N.B. This file is matched from top down; the last matching pattern has the most precedence.
+
 # So if a file is matched by multiple patterns, the last pattern that matches will be used.
+
 # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # By default all files are owned by these teams:
-* 																@guardian/client-side-infra
 
-/.changeset/ 													@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity @guardian/source @guardian/transparency-consent
+-     															@guardian/client-side-infra
 
-/libs/@guardian/source-foundations/ 							@guardian/client-side-infra @guardian/source
-/libs/@guardian/source-react-components/ 						@guardian/client-side-infra @guardian/source
-/libs/@guardian/source-react-components-development-kitchen/ 	@guardian/client-side-infra @guardian/source
-/libs/@guardian/eslint-plugin-source-foundations/ 				@guardian/client-side-infra @guardian/source
-/libs/@guardian/eslint-plugin-source-react-components/ 			@guardian/client-side-infra @guardian/source
+/.changeset/ @guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity @guardian/transparency-consent
 
-/libs/@guardian/browserlist-config/  							@guardian/client-side-infra @guardian/dotcom-platform
+/libs/@guardian/source-foundations/ @guardian/client-side-infra @guardian/source
+/libs/@guardian/source-react-components/ @guardian/client-side-infra @guardian/source
+/libs/@guardian/source-react-components-development-kitchen/ @guardian/client-side-infra @guardian/source
+/libs/@guardian/eslint-plugin-source-foundations/ @guardian/client-side-infra @guardian/source
+/libs/@guardian/eslint-plugin-source-react-components/ @guardian/client-side-infra @guardian/source
 
-/libs/@guardian/libs/ 											@guardian/client-side-infra @guardian/apps-rendering @guardian/dotcom-platform
-/libs/@guardian/libs/src/consent-management-platform/ 			@guardian/client-side-infra @guardian/transparency-consent
+/libs/@guardian/browserlist-config/ @guardian/client-side-infra @guardian/dotcom-platform
 
-/libs/@guardian/identity-auth-frontend/ 						@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity
+/libs/@guardian/libs/ @guardian/client-side-infra @guardian/apps-rendering @guardian/dotcom-platform
+/libs/@guardian/libs/src/consent-management-platform/ @guardian/client-side-infra @guardian/transparency-consent
 
-/libs/@guardian/identity-auth/ 									@guardian/client-side-infra @guardian/identity
+/libs/@guardian/identity-auth-frontend/ @guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity
+
+/libs/@guardian/identity-auth/ @guardian/client-side-infra @guardian/identity
