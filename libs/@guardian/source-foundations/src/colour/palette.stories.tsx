@@ -17,15 +17,12 @@ export default {
 
 export const Palette = {
 	render: () => (
-		/* Storybook is adding displayName and __docgenInfo to exported TS enum:
-          https://github.com/storybookjs/storybook/issues/9832 */
-		// These colours have been deprecated and should not be used.
-		// Skip deprecated colours
 		<ColorPalette>
 			{Object.entries(colours).map(([category, shades]) => {
-				{
-				}
-
+				/* Storybook is adding displayName and __docgenInfo to exported TS enum:
+						https://github.com/storybookjs/storybook/issues/9832 */
+				// These colours have been deprecated and should not be used.
+				// Skip deprecated colours
 				if (category !== '__docgenInfo' && category !== 'displayName') {
 					const deprecatedColours = {
 						opinion: ['300'],
