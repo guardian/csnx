@@ -18,7 +18,7 @@ jobs:
           private-key: ${{ secrets.ADD_TO_PROJECT_PRIVATE_KEY }} # The private key of the GitHub App
 
       - name: add action
-        uses: actions/add-to-project@v0.6.0
+        uses: actions/add-to-project@v0.6.1
         with:
           # You can target a repository in a different organization
           # to the issue
