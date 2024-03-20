@@ -3,7 +3,11 @@
 	"version": "14.1.4",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"codemod": "node ./scripts/runCodemod.js"
+	},
 	"dependencies": {
+		"jscodeshift": "0.15.2",
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
