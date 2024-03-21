@@ -131,6 +131,39 @@ export const italicsFontWeights = {
 	body: { regular: true, bold: true },
 	textSans: { regular: true, bold: false },
 } as ItalicsFontWeights;
+
+export const underlineThickness = {
+	textSans: {
+		xxsmall: 2,
+		xsmall: 2,
+		small: 2,
+		medium: 2,
+		large: 3,
+		xlarge: 3,
+		xxlarge: 3,
+		xxxlarge: 4,
+	},
+	body: {
+		xsmall: 2,
+		small: 2,
+		medium: 2,
+	},
+	headline: {
+		xxxsmall: 2,
+		xxsmall: 3,
+		xsmall: 3,
+		small: 3,
+		medium: 4,
+		large: 5,
+		xlarge: 6,
+	},
+	titlepiece: {
+		small: 5,
+		medium: 6,
+		large: 6,
+	},
+} as const;
+
 // Pixel font size exports
 export const textSansSizes = pxTextSizes.textSans;
 

@@ -914,7 +914,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -925,7 +924,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -936,7 +934,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -947,7 +944,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -958,7 +954,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -969,7 +964,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 700;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -980,7 +974,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -991,7 +984,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.4;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1002,7 +994,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1013,7 +1004,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1024,7 +1014,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1035,7 +1024,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1046,7 +1034,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1057,7 +1044,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1068,7 +1054,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);
@@ -1079,7 +1064,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1090,7 +1074,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1101,7 +1084,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1112,7 +1094,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1123,7 +1104,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1134,7 +1114,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1145,7 +1124,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1156,7 +1134,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1167,7 +1144,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);
@@ -1178,7 +1154,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1189,7 +1164,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1200,7 +1174,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1211,7 +1184,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1222,7 +1194,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1233,7 +1204,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1244,7 +1214,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1255,7 +1224,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1266,7 +1234,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);
@@ -1277,7 +1244,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1288,7 +1254,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1299,7 +1264,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1310,7 +1274,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1321,7 +1284,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1332,7 +1294,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1343,7 +1304,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1354,7 +1314,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1365,7 +1324,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);
@@ -1376,7 +1334,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1387,7 +1344,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1398,7 +1354,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1409,7 +1364,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1420,7 +1374,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1431,7 +1384,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1442,7 +1394,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1453,7 +1404,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1464,7 +1414,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);
@@ -1475,7 +1424,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1486,7 +1434,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: italic;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1497,7 +1444,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1508,7 +1454,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1519,7 +1464,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1530,7 +1474,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1541,7 +1484,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1552,7 +1494,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1563,7 +1504,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1574,7 +1514,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1585,7 +1524,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1596,7 +1534,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1607,7 +1544,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1618,7 +1554,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1629,7 +1564,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1640,7 +1574,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1651,7 +1584,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 		`,
 			{ isFragment: true },
 		);
@@ -1662,7 +1594,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1673,7 +1604,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1684,7 +1614,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1695,7 +1624,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1706,7 +1634,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1717,7 +1644,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1728,7 +1654,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1739,7 +1664,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1750,7 +1674,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1761,7 +1684,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: normal;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1772,7 +1694,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1783,7 +1704,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1794,7 +1714,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1805,7 +1724,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1816,7 +1734,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1827,7 +1744,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1838,7 +1754,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1849,7 +1764,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1860,7 +1774,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1871,7 +1784,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: Italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1882,7 +1794,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1893,7 +1804,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
 		);
@@ -1904,7 +1814,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1915,7 +1824,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1926,7 +1834,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 3px;
 			`,
 			{ isFragment: true },
 		);
@@ -1937,7 +1844,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.3;
 			font-weight: 400;
 			font-style: italic;
-			--source-text-decoration-thickness: 4px;
 			`,
 			{ isFragment: true },
 		);
@@ -1948,7 +1854,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);
@@ -1959,7 +1864,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -1970,7 +1874,6 @@ describe('Typography preset CSS output', () => {
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
-			--source-text-decoration-thickness: 6px;
 			`,
 			{ isFragment: true },
 		);
@@ -2681,7 +2584,7 @@ describe('Typography preset object output', () => {
 			fontSize: '0.875rem',
 			lineHeight: 1.3,
 			fontWeight: 400,
-			fontStyle: 'Italic',
+			fontStyle: 'italic',
 		});
 		expect(typePresetObject.textSansItalic15Object).toEqual({
 			fontFamily:
