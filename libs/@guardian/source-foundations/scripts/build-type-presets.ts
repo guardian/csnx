@@ -16,7 +16,8 @@ const textDecorationThickness = (size: string) =>
 console.log('Building typography presets…');
 
 const presetTotal = Object.keys(presets).length;
-const outputPath = `${process.cwd()}/src/typography/presets.ts`;
+const cssOutputPath = `${process.cwd()}/src/typography/css.ts`;
+const objectOutputPath = `${process.cwd()}/src/typography/objects.ts`;
 
 const banner = `
 	// Typography presets
@@ -27,6 +28,7 @@ const banner = `
 
 `.replace(STRIP_WHITESPACE, '');
 
+// Generate CSS representation of presets as a string
 const css = Object.entries(presets)
 	.map(
 		([preset, properties]) => `
@@ -43,5 +45,22 @@ const css = Object.entries(presets)
 	.join('')
 	.replace(STRIP_TABS, '');
 
-fs.writeFileSync(outputPath, banner + css);
+// Generate object literal representation of presets
+const object = Object.entries(presets)
+	.map(
+		([preset, properties]) => `
+			export const ${preset}Object = {
+				fontFamily: '${fontArrayToString(properties.fontFamily)}',
+				fontSize: '${pxStringToRem(properties.fontSize)}rem',
+				lineHeight: ${properties.lineHeight},
+				fontWeight: ${properties.fontWeight},
+				fontStyle: '${properties.fontStyle}',
+			};
+		`,
+	)
+	.join('')
+	.replace(STRIP_TABS, '');
+
+fs.writeFileSync(cssOutputPath, banner + css);
+fs.writeFileSync(objectOutputPath, banner + object);
 console.log(`✓ ${presetTotal} presets built`);
