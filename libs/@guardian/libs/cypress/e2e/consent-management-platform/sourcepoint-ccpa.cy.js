@@ -1,5 +1,5 @@
 import 'cypress-wait-until';
-import { ENDPOINT, PRIVACY_MANAGER_CCPA } from '../fixtures/sourcepointConfig';
+import { ENDPOINT, PRIVACY_MANAGER_CCPA } from './fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_CCPA}`;

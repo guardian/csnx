@@ -58,3 +58,21 @@ export { storage } from './storage/storage';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
+
+export type {
+	Callback,
+	CMP,
+	ConsentState,
+	Framework,
+	VendorName,
+} from './consent-management-platform/types';
+export type {
+	TCEventStatusCode,
+	TCFv2ConsentState,
+} from './consent-management-platform/types/tcfv2';
+export {
+	cmp,
+	getConsentFor,
+	onConsentChange,
+	onConsent,
+} from './consent-management-platform';

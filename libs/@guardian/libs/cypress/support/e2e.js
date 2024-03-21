@@ -14,4 +14,4 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands';
+import '../e2e/consent-management-platform/support/commands';
