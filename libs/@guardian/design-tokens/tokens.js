@@ -1554,19 +1554,6 @@ export const tokens = {
 				fontStyle: 'normal',
 			},
 		},
-		textDecorationThicknessForFontSize: {
-			12: '2px',
-			14: '2px',
-			15: '2px',
-			17: '2px',
-			20: '3px',
-			24: '3px',
-			28: '3px',
-			34: '4px',
-			42: '5px',
-			50: '6px',
-			70: '6px',
-		},
 		textSans: {
 			large: {
 				fontFamily: [

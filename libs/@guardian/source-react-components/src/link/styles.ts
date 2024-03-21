@@ -4,7 +4,6 @@ import type { TypographyPreset } from '@guardian/source-foundations';
 import {
 	focusHalo,
 	space,
-	textDecorationThicknessFromPreset,
 	textSans17,
 	width,
 } from '@guardian/source-foundations';
@@ -16,9 +15,6 @@ import type { ThemeLink } from './theme';
 import { themeLink as defaultTheme } from './theme';
 
 export const link = (typographyPreset = textSans17) => {
-	const textDecorationThicknessBackup =
-		textDecorationThicknessFromPreset(typographyPreset);
-
 	return css`
 		position: relative;
 		cursor: pointer;
@@ -27,6 +23,8 @@ export const link = (typographyPreset = textSans17) => {
 		text-underline-offset: 5%;
 		${typographyPreset};
 		display: inline;
+		text-decoration-thickness: 0.1em;
+
 		align-items: center;
 
 		&:focus {
@@ -36,10 +34,7 @@ export const link = (typographyPreset = textSans17) => {
 		&:hover {
 			/* If the hover text decoration thickness custom property is not set,
 			   we default to the value calculated from preset. */
-			text-decoration-thickness: var(
-				--source-text-decoration-thickness,
-				${textDecorationThicknessBackup}
-			);
+			text-decoration-thickness: calc(0.1em + 1px);
 		}
 	`;
 };
