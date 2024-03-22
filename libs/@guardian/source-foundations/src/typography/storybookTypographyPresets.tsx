@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import * as presets from './css';
 import { space } from '../space/space';
 import { palette } from '../colour/palette';
+import { typographyPresetPx } from '../utils/typography';
 
 const presetTokens = tokens.typography.presets;
 type Preset = keyof typeof presetTokens;
