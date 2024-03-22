@@ -22,7 +22,7 @@ export const vendorStorageIds = {
 		],
 	},
 	comscore: {
-		cookies: ['comScore'],
+		cookies: ['comScore', '_scor_uid'],
 	},
 
 	ipsos: {
