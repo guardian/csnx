@@ -2,6 +2,14 @@
 
 ## Testing
 
+### e2e Tests
+
+From the csnx directory run
+
+```sh
+make e2e
+```
+
 ### Github Pages
 
 From the csnx directory run
