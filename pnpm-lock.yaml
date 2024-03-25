@@ -469,8 +469,8 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       cypress:
-        specifier: 13.7.0
-        version: 13.7.0
+        specifier: 13.7.1
+        version: 13.7.1
       cypress-wait-until:
         specifier: ^3.0.1
         version: 3.0.1
@@ -3158,7 +3158,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@emotion/react': 11.11.1(@types/react@18.2.11)(react@18.2.0)
+      '@emotion/react': 11.11.1(@types/react@18.2.66)(react@18.2.0)
       '@guardian/source-foundations': link:libs/@guardian/source-foundations
       react: 18.2.0
       tslib: 2.6.2
@@ -8391,8 +8391,8 @@ packages:
     resolution: {integrity: sha512-kpoa8yL6Bi/JNsThGBbrrm7g4SNzYyBUv9M5pF6/NTVm/ClY0HnJzeuWnHiAUZKIZ5l86Oedb12wQyjx7/CWPg==}
     dev: true
 
-  /cypress@13.7.0:
-    resolution: {integrity: sha512-UimjRSJJYdTlvkChcdcfywKJ6tUYuwYuk/n1uMMglrvi+ZthNhoRYcxnWgTqUtkl17fXrPAsD5XT2rcQYN1xKA==}
+  /cypress@13.7.1:
+    resolution: {integrity: sha512-4u/rpFNxOFCoFX/Z5h+uwlkBO4mWzAjveURi3vqdSu56HPvVdyGTxGw4XKGWt399Y1JwIn9E1L9uMXQpc0o55w==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     requiresBuild: true
