@@ -22,4 +22,4 @@ runs:
       uses: actions/cache@v4
       with:
         path: ~/.cache/Cypress
-        key: cypress-${{ runner.os }}-${{ hashFiles('pnpm-workspace.yaml') }}
+        key: cypress-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
