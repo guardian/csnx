@@ -4,7 +4,7 @@
 [![ES version](https://badgen.net/badge/ES/2020/cyan)](https://tc39.es/ecma262/2020/)
 [![npm type definitions](https://img.shields.io/npm/types/@guardian/libs)](https://www.typescriptlang.org/)
 
-> A collection of JavaScript libraries and TypeScript types for Guardian projects
+> A collection of JavaScript libraries and TypeScript types for the Guardian projects
 
 ### [`ArticleElementRole`](./src/ArticleElementRole)
 
