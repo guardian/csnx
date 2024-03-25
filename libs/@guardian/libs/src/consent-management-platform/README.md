@@ -14,8 +14,6 @@ and TCFv2 to everyone else.
 
 <!-- toc -->
 
-- [Installation](#installation)
-  - [Bundling](#bundling)
 - [Managing Consent](#managing-consent)
   - [`cmp.init(options)`](#cmpinitoptions)
   - [`cmp.hasInitialised()`](#cmphasinitialised)
@@ -34,32 +32,10 @@ and TCFv2 to everyone else.
   - [Using Cypress](#using-cypress)
 - [Development](#development)
 
-<!-- tocstop -->
-
-## Installation
-
-[![Generic badge](https://img.shields.io/badge/google-chat-259082.svg)](https://chat.google.com/room/AAAAhlhgDTU)
-
-```bash
-yarn add @guardian/consent-management-platform
-```
-
-or
-
-```bash
-npm install @guardian/consent-management-platform
-```
-
-### Bundling
-
-This package uses `ES2020`.
-
-If your target environment does not support that, make sure you transpile this package when bundling your application.
-
 ## Managing Consent
 
 ```js
-import { cmp } from '@guardian/consent-management-platform';
+import { cmp } from '@guardian/libs';
 ```
 
 ### `cmp.init(options)`
@@ -72,8 +48,8 @@ If necessary, it will also display the initial privacy message.
 
 #### `options.country`
 
-type: `string`
-values: any [2-letter, ISO_3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Decoding_table), e.g. `GB`, `US`, `AU`, …
+type: `CountryCode` from `@guardian/libs`
+values: e.g. `GB`, `US`, `AU`, …
 
 Declare which country your user is in. Required – *throws an error if
 it's missing.*
