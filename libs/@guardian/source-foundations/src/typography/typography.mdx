@@ -1,10 +1,7 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { TypographyPresets } from './storybookTypographyPresets';
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import * as TypographyStories from './typography.stories';
 
-<Meta
-	title="Typography"
-	parameters={{ previewTabs: { canvas: { hidden: true } }, viewMode: 'docs' }}
-/>
+<Meta of={TypographyStories} />
 
 # Typography
 
@@ -96,6 +93,6 @@ _Note:_ this font is not available on [theguardian.com](https://theguardian.com)
 
 ### Specimen
 
-<Story name="Presets">
-	<TypographyPresets />
-</Story>
+<Canvas>
+	<Story of={TypographyStories.Presets} />
+</Canvas>
