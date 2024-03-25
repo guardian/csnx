@@ -478,10 +478,10 @@ importers:
         specifier: 13.7.1
         version: 13.7.1
       cypress-wait-until:
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1
       eslint-plugin-cypress:
-        specifier: ^2.15.1
+        specifier: 2.15.1
         version: 2.15.1(eslint@8.56.0)
       jest-fetch-mock:
         specifier: 3.0.3
