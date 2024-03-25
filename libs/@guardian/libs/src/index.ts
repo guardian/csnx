@@ -60,10 +60,10 @@ export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
 
 export type {
-	Callback,
+	Callback as OnConsentChangeCallback,
 	CMP,
 	ConsentState,
-	Framework,
+	Framework as ConsentFramework,
 	VendorName,
 } from './consent-management-platform/types';
 export type {
