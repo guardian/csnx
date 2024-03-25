@@ -10,6 +10,10 @@
 
 Type that describes the role of an element in an article.
 
+### [Consent](./src/consent-management-platform)
+
+The Guardian's consent management platform.
+
 ### [Cookies](./src/cookies)
 
 API over `document.cookies`.
@@ -82,10 +86,6 @@ Robust API over `localStorage` and `sessionStorage`.
 
 Format absolute dates as time-ago strings.
 
-### [`consent-management-platform`](./src/consent-management-platform)
-
-The CMP (consent management platform) for consent banner for cookies and storage.
-
 ## Installation
 
 [![Generic badge](https://img.shields.io/badge/google-chat-259082.svg)](https://chat.google.com/room/AAAAWwBdSMs)
@@ -112,9 +112,9 @@ This package uses `ES2020`.
 
 If your target environment does not support that, make sure you transpile this package when bundling your application.
 
-### Local Testing with Symlink
+### Local Testing Using Linking
 
-1. In the command line in your terminal, navigate to the csnx base directory. Run:
+1. In the command line in your terminal, navigate to the csnx root directory. Run:
 
 ```sh
 make @guardian/libs:build
@@ -135,5 +135,5 @@ After re-building the '@guardian/libs' in step 1. this command does not have to 
 3. Once you’ve developed your changes and tested, you can unlink from the repo where you are testing the changes
 
 ```sh
-npm/yarn/pnpm link ../csnx/dist/libs/@guardian/libs
+npm/yarn/pnpm unlink ../csnx/dist/libs/@guardian/libs
 ```
