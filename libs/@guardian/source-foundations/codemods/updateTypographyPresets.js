@@ -11,6 +11,11 @@ const sizeToPresetMapping = {
 	},
 };
 
+const lineHeightMapping = {
+	tight: '1.15',
+	regular: '1.3',
+	loose: '1.4',
+};
 module.exports = function (fileInfo, api) {
 	const j = api.jscodeshift;
 	const root = j(fileInfo.source);
@@ -28,8 +33,48 @@ module.exports = function (fileInfo, api) {
 				},
 			})
 			.forEach((path) => {
-				// Replace with new preset if no arguments
-				if (path.node.arguments.length === 0) {
+				if (path.node.arguments.length >= 1) {
+					console.log(path.node.arguments[0].properties);
+					const optionsArg = path.node.arguments[0];
+					if (optionsArg.type === 'ObjectExpression') {
+						const lineHeightProp = optionsArg.properties.find(
+							(prop) => prop.key.name === 'lineHeight',
+						);
+						console.log(lineHeightProp);
+						if (
+							lineHeightProp &&
+							lineHeightMapping[lineHeightProp.value.value]
+						) {
+							console.log('here OATA');
+							// Found a lineHeight argument, insert the comment and CSS line
+							const cssValue = lineHeightMapping[lineHeightProp.value.value];
+							const comment = j.commentLine(
+								' @todo consider not overriding lineHeights ',
+							);
+							const cssLine = j.expressionStatement(
+								j.templateLiteral(
+									[
+										j.templateElement(
+											{
+												raw: `line-height: ${cssValue};`,
+												cooked: `line-height: ${cssValue};`,
+											},
+											true,
+										),
+									],
+									[],
+								),
+							);
+
+							// Add the comment and CSS line after the current path
+							j(path).insertAfter(comment);
+							j(path).insertAfter(cssLine);
+						}
+					}
+					const newIdentifier = j.identifier(newSize);
+					j(path).replaceWith(newIdentifier);
+					usedPresets.add(newSize);
+				} else if (path.node.arguments.length === 0) {
 					const newIdentifier = j.identifier(newSize);
 					j(path).replaceWith(newIdentifier);
 					usedPresets.add(newSize);
