@@ -49,7 +49,7 @@ importers:
         version: 2.2.0
       '@nx/cypress':
         specifier: 18.0.7
-        version: 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.1)(nx@18.0.7)(typescript@5.3.3)
+        version: 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
       '@nx/devkit':
         specifier: 18.0.7
         version: 18.0.7(nx@18.0.7)
@@ -119,9 +119,6 @@ importers:
       colorette:
         specifier: 2.0.20
         version: 2.0.20
-      cypress:
-        specifier: ^13.7.0
-        version: 13.7.1
       eslint:
         specifier: 8.56.0
         version: 8.56.0
@@ -3574,10 +3571,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
 
-  /@nrwl/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.1)(nx@18.0.7)(typescript@5.3.3):
+  /@nrwl/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3):
     resolution: {integrity: sha512-hKBwHuukCEyTonq8VKoBjTnYEmZ3AEyT30wMZTQZ/vdpdgYNSD1vIwFM6VUJfaBoj4kdnQfDMS9ti4nsTRDRIQ==}
     dependencies:
-      '@nx/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.1)(nx@18.0.7)(typescript@5.3.3)
+      '@nx/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3734,7 +3731,7 @@ packages:
       - debug
     dev: false
 
-  /@nx/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.1)(nx@18.0.7)(typescript@5.3.3):
+  /@nx/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3):
     resolution: {integrity: sha512-bOCBr8OGGEjUHMkc+DgaXz2YQbC65DX8pPZ+teAXZiiZrs8/CsmkiN6sw00POOPC24hMDqSZgLKdayYZPxlLMQ==}
     peerDependencies:
       cypress: '>= 3 < 14'
@@ -3742,12 +3739,11 @@ packages:
       cypress:
         optional: true
     dependencies:
-      '@nrwl/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(cypress@13.7.1)(nx@18.0.7)(typescript@5.3.3)
+      '@nrwl/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
       '@nx/devkit': 18.0.7(nx@18.0.7)
       '@nx/eslint': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)
       '@nx/js': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.3.3)
-      cypress: 13.7.1
       detect-port: 1.5.1
       semver: 7.5.4
       tslib: 2.6.2
