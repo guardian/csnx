@@ -1444,7 +1444,7 @@ export declare const tokens: {
 				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
-				readonly fontStyle: 'Italic';
+				readonly fontStyle: 'italic';
 			};
 			readonly textSansItalic15: {
 				readonly fontFamily: readonly [
@@ -1569,19 +1569,6 @@ export declare const tokens: {
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
 			};
-		};
-		readonly textDecorationThicknessForFontSize: {
-			readonly '12': '2px';
-			readonly '14': '2px';
-			readonly '15': '2px';
-			readonly '17': '2px';
-			readonly '20': '3px';
-			readonly '24': '3px';
-			readonly '28': '3px';
-			readonly '34': '4px';
-			readonly '42': '5px';
-			readonly '50': '6px';
-			readonly '70': '6px';
 		};
 		readonly textSans: {
 			readonly large: {

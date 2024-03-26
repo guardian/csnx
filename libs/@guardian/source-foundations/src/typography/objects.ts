@@ -741,7 +741,7 @@ export const textSansItalic14Object = {
 	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
-	fontStyle: 'Italic',
+	fontStyle: 'italic',
 };
 
 export const textSansItalic15Object = {

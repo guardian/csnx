@@ -1,3 +1,4 @@
+import type { TypographyPreset } from '@guardian/source-foundations';
 import type { ReactElement, ReactNode } from 'react';
 import type { Props } from '../../@types/Props';
 import type { ThemeLink } from '../theme';
@@ -38,4 +39,5 @@ export interface SharedLinkProps extends Props {
 	 *
 	 */
 	theme?: Partial<ThemeLink>;
+	typography?: TypographyPreset;
 }

@@ -134,75 +134,33 @@ export const italicsFontWeights = {
 
 export const underlineThickness = {
 	textSans: {
-		xxsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[12],
-		),
-		xsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[14],
-		),
-		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[15],
-		),
-		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[17],
-		),
-		large: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[20],
-		),
-		xlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[24],
-		),
-		xxlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[28],
-		),
-		xxxlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[34],
-		),
+		xxsmall: 2,
+		xsmall: 2,
+		small: 2,
+		medium: 2,
+		large: 3,
+		xlarge: 3,
+		xxlarge: 3,
+		xxxlarge: 4,
 	},
 	body: {
-		xsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[14],
-		),
-		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[15],
-		),
-		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[17],
-		),
+		xsmall: 2,
+		small: 2,
+		medium: 2,
 	},
 	headline: {
-		xxxsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[17],
-		),
-		xxsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[20],
-		),
-		xsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[24],
-		),
-		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[28],
-		),
-		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[34],
-		),
-		large: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[42],
-		),
-		xlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[50],
-		),
+		xxxsmall: 2,
+		xxsmall: 3,
+		xsmall: 3,
+		small: 3,
+		medium: 4,
+		large: 5,
+		xlarge: 6,
 	},
 	titlepiece: {
-		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[42],
-		),
-		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[50],
-		),
-		large: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[70],
-		),
+		small: 5,
+		medium: 6,
+		large: 6,
 	},
 } as const;
 
