@@ -84,7 +84,7 @@ export const themeButton: ThemeButton = {
 	backgroundSecondary: palette.brand[800],
 	backgroundSecondaryHover: '#ACC9F7', // One-off colour variant generated from palette.brand[800]
 	textTertiary: palette.brand[400],
-	backgroundTertiary:  'transparent',
+	backgroundTertiary: 'transparent',
 	backgroundTertiaryHover: '#E5E5E5', // One-off colour variant
 	borderTertiary: palette.brand[400],
 	textSubdued: palette.brand[400],
