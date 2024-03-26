@@ -9,7 +9,7 @@ export const article15Object = {
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const article17Object = {
 	fontFamily:
@@ -18,7 +18,7 @@ export const article17Object = {
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const articleBold15Object = {
 	fontFamily:
@@ -27,7 +27,7 @@ export const articleBold15Object = {
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const articleBold17Object = {
 	fontFamily:
@@ -36,7 +36,7 @@ export const articleBold17Object = {
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const articleBoldItalic15Object = {
 	fontFamily:
@@ -45,7 +45,7 @@ export const articleBoldItalic15Object = {
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const articleBoldItalic17Object = {
 	fontFamily:
@@ -54,7 +54,7 @@ export const articleBoldItalic17Object = {
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const articleItalic15Object = {
 	fontFamily:
@@ -63,7 +63,7 @@ export const articleItalic15Object = {
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const articleItalic17Object = {
 	fontFamily:
@@ -72,7 +72,7 @@ export const articleItalic17Object = {
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineBold14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -80,7 +80,7 @@ export const headlineBold14Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -88,7 +88,7 @@ export const headlineBold17Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -96,7 +96,7 @@ export const headlineBold20Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -104,7 +104,7 @@ export const headlineBold24Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -112,7 +112,7 @@ export const headlineBold28Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -120,7 +120,7 @@ export const headlineBold34Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -128,7 +128,7 @@ export const headlineBold42Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -136,7 +136,7 @@ export const headlineBold50Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineBold70Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -144,7 +144,7 @@ export const headlineBold70Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -152,7 +152,7 @@ export const headlineLight14Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -160,7 +160,7 @@ export const headlineLight17Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -168,7 +168,7 @@ export const headlineLight20Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -176,7 +176,7 @@ export const headlineLight24Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -184,7 +184,7 @@ export const headlineLight28Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -192,7 +192,7 @@ export const headlineLight34Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -200,7 +200,7 @@ export const headlineLight42Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -208,7 +208,7 @@ export const headlineLight50Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLight70Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -216,7 +216,7 @@ export const headlineLight70Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineLightItalic14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -224,7 +224,7 @@ export const headlineLightItalic14Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -232,7 +232,7 @@ export const headlineLightItalic17Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -240,7 +240,7 @@ export const headlineLightItalic20Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -248,7 +248,7 @@ export const headlineLightItalic24Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -256,7 +256,7 @@ export const headlineLightItalic28Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -264,7 +264,7 @@ export const headlineLightItalic34Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -272,7 +272,7 @@ export const headlineLightItalic42Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -280,7 +280,7 @@ export const headlineLightItalic50Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineLightItalic70Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -288,7 +288,7 @@ export const headlineLightItalic70Object = {
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMedium14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -296,7 +296,7 @@ export const headlineMedium14Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -304,7 +304,7 @@ export const headlineMedium17Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -312,7 +312,7 @@ export const headlineMedium20Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -320,7 +320,7 @@ export const headlineMedium24Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -328,7 +328,7 @@ export const headlineMedium28Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -336,7 +336,7 @@ export const headlineMedium34Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -344,7 +344,7 @@ export const headlineMedium42Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -352,7 +352,7 @@ export const headlineMedium50Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMedium70Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -360,7 +360,7 @@ export const headlineMedium70Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const headlineMediumItalic14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -368,7 +368,7 @@ export const headlineMediumItalic14Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -376,7 +376,7 @@ export const headlineMediumItalic17Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -384,7 +384,7 @@ export const headlineMediumItalic20Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -392,7 +392,7 @@ export const headlineMediumItalic24Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -400,7 +400,7 @@ export const headlineMediumItalic28Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -408,7 +408,7 @@ export const headlineMediumItalic34Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -416,7 +416,7 @@ export const headlineMediumItalic42Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -424,7 +424,7 @@ export const headlineMediumItalic50Object = {
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const headlineMediumItalic70Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -432,7 +432,7 @@ export const headlineMediumItalic70Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const kicker14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -440,7 +440,7 @@ export const kicker14Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const kicker17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -448,7 +448,7 @@ export const kicker17Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const kicker20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -456,7 +456,7 @@ export const kicker20Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const kicker24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -464,7 +464,7 @@ export const kicker24Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const kicker34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -472,7 +472,7 @@ export const kicker34Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptian14Object = {
 	fontFamily:
@@ -481,7 +481,7 @@ export const textEgyptian14Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptian15Object = {
 	fontFamily:
@@ -490,7 +490,7 @@ export const textEgyptian15Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptian17Object = {
 	fontFamily:
@@ -499,7 +499,7 @@ export const textEgyptian17Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptianBold14Object = {
 	fontFamily:
@@ -508,7 +508,7 @@ export const textEgyptianBold14Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptianBold15Object = {
 	fontFamily:
@@ -517,7 +517,7 @@ export const textEgyptianBold15Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptianBold17Object = {
 	fontFamily:
@@ -526,7 +526,7 @@ export const textEgyptianBold17Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textEgyptianBoldItalic14Object = {
 	fontFamily:
@@ -535,7 +535,7 @@ export const textEgyptianBoldItalic14Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textEgyptianBoldItalic15Object = {
 	fontFamily:
@@ -544,7 +544,7 @@ export const textEgyptianBoldItalic15Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textEgyptianBoldItalic17Object = {
 	fontFamily:
@@ -553,7 +553,7 @@ export const textEgyptianBoldItalic17Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textEgyptianItalic14Object = {
 	fontFamily:
@@ -562,7 +562,7 @@ export const textEgyptianItalic14Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textEgyptianItalic15Object = {
 	fontFamily:
@@ -571,7 +571,7 @@ export const textEgyptianItalic15Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textEgyptianItalic17Object = {
 	fontFamily:
@@ -580,7 +580,7 @@ export const textEgyptianItalic17Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSans12Object = {
 	fontFamily:
@@ -589,7 +589,7 @@ export const textSans12Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans14Object = {
 	fontFamily:
@@ -598,7 +598,7 @@ export const textSans14Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans15Object = {
 	fontFamily:
@@ -607,7 +607,7 @@ export const textSans15Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans17Object = {
 	fontFamily:
@@ -616,7 +616,7 @@ export const textSans17Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans20Object = {
 	fontFamily:
@@ -625,7 +625,7 @@ export const textSans20Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans24Object = {
 	fontFamily:
@@ -634,7 +634,7 @@ export const textSans24Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans28Object = {
 	fontFamily:
@@ -643,7 +643,7 @@ export const textSans28Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSans34Object = {
 	fontFamily:
@@ -652,7 +652,7 @@ export const textSans34Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold12Object = {
 	fontFamily:
@@ -661,7 +661,7 @@ export const textSansBold12Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold14Object = {
 	fontFamily:
@@ -670,7 +670,7 @@ export const textSansBold14Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold15Object = {
 	fontFamily:
@@ -679,7 +679,7 @@ export const textSansBold15Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold17Object = {
 	fontFamily:
@@ -688,7 +688,7 @@ export const textSansBold17Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold20Object = {
 	fontFamily:
@@ -697,7 +697,7 @@ export const textSansBold20Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold24Object = {
 	fontFamily:
@@ -706,7 +706,7 @@ export const textSansBold24Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold28Object = {
 	fontFamily:
@@ -715,7 +715,7 @@ export const textSansBold28Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansBold34Object = {
 	fontFamily:
@@ -724,7 +724,7 @@ export const textSansBold34Object = {
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const textSansItalic12Object = {
 	fontFamily:
@@ -733,7 +733,7 @@ export const textSansItalic12Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSansItalic14Object = {
 	fontFamily:
@@ -742,7 +742,7 @@ export const textSansItalic14Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'Italic',
-};
+} as const;
 
 export const textSansItalic15Object = {
 	fontFamily:
@@ -751,7 +751,7 @@ export const textSansItalic15Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSansItalic17Object = {
 	fontFamily:
@@ -760,7 +760,7 @@ export const textSansItalic17Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSansItalic20Object = {
 	fontFamily:
@@ -769,7 +769,7 @@ export const textSansItalic20Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSansItalic24Object = {
 	fontFamily:
@@ -778,7 +778,7 @@ export const textSansItalic24Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSansItalic28Object = {
 	fontFamily:
@@ -787,7 +787,7 @@ export const textSansItalic28Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const textSansItalic34Object = {
 	fontFamily:
@@ -796,7 +796,7 @@ export const textSansItalic34Object = {
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
-};
+} as const;
 
 export const titlepiece42Object = {
 	fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
@@ -804,7 +804,7 @@ export const titlepiece42Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const titlepiece50Object = {
 	fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
@@ -812,7 +812,7 @@ export const titlepiece50Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
 
 export const titlepiece70Object = {
 	fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
@@ -820,4 +820,4 @@ export const titlepiece70Object = {
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
-};
+} as const;
