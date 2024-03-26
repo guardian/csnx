@@ -19,10 +19,45 @@ const lineHeightMapping = {
 module.exports = function (fileInfo, api) {
 	const j = api.jscodeshift;
 	const root = j(fileInfo.source);
-
-	// Track which new presets we've actually used
 	const usedPresets = new Set();
 
+	root.find(j.TaggedTemplateExpression).forEach((templatePath) => {
+		templatePath.node.quasi.expressions.forEach((expr, index) => {
+			if (
+				expr.type === 'CallExpression' &&
+				expr.callee.object &&
+				expr.callee.object.name === 'textSans' &&
+				sizeToPresetMapping.textSans[expr.callee.property.name]
+			) {
+				const newSize = sizeToPresetMapping.textSans[expr.callee.property.name];
+				usedPresets.add(newSize);
+
+				if (expr.arguments.length > 0) {
+					const optionsArg = expr.arguments[0];
+					if (optionsArg.type === 'ObjectExpression') {
+						const lineHeightProp = optionsArg.properties.find(
+							(prop) => prop.key.name === 'lineHeight',
+						);
+						if (lineHeightProp) {
+							const lineHeightKey = lineHeightProp.value.value; // Assuming it's a string literal
+							const lineHeightValue = lineHeightMapping[lineHeightKey];
+							if (lineHeightValue) {
+								// Find the corresponding quasi to insert the comment
+								const nextQuasi = templatePath.node.quasi.quasis[index + 1];
+								if (nextQuasi) {
+									const commentLine = `;
+/** @todo consider not overriding lineHeights */
+line-height: ${lineHeightValue};`;
+									nextQuasi.value.raw = commentLine + nextQuasi.value.raw;
+									nextQuasi.value.cooked = commentLine + nextQuasi.value.cooked;
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+	});
 	// Transform textSans.size() calls to new preset identifiers
 	Object.entries(sizeToPresetMapping.textSans).forEach(([oldSize, newSize]) => {
 		root
@@ -33,55 +68,12 @@ module.exports = function (fileInfo, api) {
 				},
 			})
 			.forEach((path) => {
-				if (path.node.arguments.length >= 1) {
-					console.log(path.node.arguments[0].properties);
-					const optionsArg = path.node.arguments[0];
-					if (optionsArg.type === 'ObjectExpression') {
-						const lineHeightProp = optionsArg.properties.find(
-							(prop) => prop.key.name === 'lineHeight',
-						);
-						console.log(lineHeightProp);
-						if (
-							lineHeightProp &&
-							lineHeightMapping[lineHeightProp.value.value]
-						) {
-							console.log('here OATA');
-							// Found a lineHeight argument, insert the comment and CSS line
-							const cssValue = lineHeightMapping[lineHeightProp.value.value];
-							const comment = j.commentLine(
-								' @todo consider not overriding lineHeights ',
-							);
-							const cssLine = j.expressionStatement(
-								j.templateLiteral(
-									[
-										j.templateElement(
-											{
-												raw: `line-height: ${cssValue};`,
-												cooked: `line-height: ${cssValue};`,
-											},
-											true,
-										),
-									],
-									[],
-								),
-							);
-
-							// Add the comment and CSS line after the current path
-							j(path).insertAfter(comment);
-							j(path).insertAfter(cssLine);
-						}
-					}
-					const newIdentifier = j.identifier(newSize);
-					j(path).replaceWith(newIdentifier);
-					usedPresets.add(newSize);
-				} else if (path.node.arguments.length === 0) {
-					const newIdentifier = j.identifier(newSize);
-					j(path).replaceWith(newIdentifier);
-					usedPresets.add(newSize);
-				}
+				// Replace the function call with the preset identifier
+				const newIdentifier = j.identifier(newSize);
+				j(path).replaceWith(newIdentifier);
+				usedPresets.add(newSize);
 			});
 	});
-
 	// Find the @guardian/source-foundations import declaration
 	const importDeclaration = root.find(j.ImportDeclaration, {
 		source: { value: '@guardian/source-foundations' },
