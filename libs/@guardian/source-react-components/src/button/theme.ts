@@ -9,7 +9,6 @@ export type ButtonTheme = {
 	backgroundSecondary?: string;
 	backgroundSecondaryHover?: string;
 	textTertiary?: string;
-	backgroundTertiary?: string;
 	backgroundTertiaryHover?: string;
 	borderTertiary?: string;
 	textSubdued?: string;
@@ -38,8 +37,7 @@ export const buttonThemeDefault: { button: ButtonTheme } = {
 		textSecondary: palette.brand[400],
 		backgroundSecondary: palette.brand[800],
 		backgroundSecondaryHover: '#ACC9F7', // One-off colour variant generated from palette.brand[800]
-		textTertiary: palette.neutral[100],
-		backgroundTertiary: palette.neutral[100],
+		textTertiary: palette.brand[400],
 		backgroundTertiaryHover: '#E5E5E5', // One-off colour variant
 		borderTertiary: palette.brand[400],
 		textSubdued: palette.brand[400],
