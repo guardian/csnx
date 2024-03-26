@@ -52,7 +52,7 @@ const object = Object.entries(presets)
 				lineHeight: ${properties.lineHeight},
 				fontWeight: ${properties.fontWeight},
 				fontStyle: '${properties.fontStyle}',
-			};
+			} as const;
 		`,
 	)
 	.join('')
