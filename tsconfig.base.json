@@ -42,12 +42,6 @@
 			],
 			"@guardian/source-react-components-development-kitchen": [
 				"libs/@guardian/source-react-components-development-kitchen/src/index"
-			],
-			"@guardian/source/react": [
-				"libs/@guardian/source/src/components/react/index"
-			],
-			"@guardian/source/react/development-kitchen": [
-				"libs/@guardian/source/src/components/react-dev-kitchen/index"
 			]
 		},
 		"rootDir": ".",
