@@ -59,6 +59,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
 - `make check-formatting` _check repo for formatting errors_
 - `make clean` _removes all build artifacts_
+- `make clear-caches` _clears the build caches for all projects_
 - `make dev` _runs the dev targets for all projects in single instance_
 - `make e2e` _runs the e2e tests for all projects_
 - `make fix` _attemps to fix lint errors across all projects_
