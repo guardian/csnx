@@ -1,8 +1,9 @@
-/*
- * Convert font size in typography preset from default rem value to pixels
- */
+import type { TypographyPreset } from '../typography/types';
 
-export const presetToPx = (preset: string) => {
+/*
+ * Convert `font-size` value in typography preset from rem to px
+ */
+export const presetToPx = (preset: TypographyPreset) => {
 	const REGEX_FONT_SIZE = /font-size:\s(\d+\.\d+)rem/;
 
 	const matches = preset.match(REGEX_FONT_SIZE);
