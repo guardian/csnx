@@ -1870,7 +1870,7 @@ describe('Typography preset CSS output', () => {
 			font-size: 0.875rem;
 			line-height: 1.3;
 			font-weight: 400;
-			font-style: Italic;
+			font-style: italic;
 			--source-text-decoration-thickness: 2px;
 			`,
 			{ isFragment: true },
@@ -2681,7 +2681,7 @@ describe('Typography preset object output', () => {
 			fontSize: '0.875rem',
 			lineHeight: 1.3,
 			fontWeight: 400,
-			fontStyle: 'Italic',
+			fontStyle: 'italic',
 		});
 		expect(typePresetObject.textSansItalic15Object).toEqual({
 			fontFamily:

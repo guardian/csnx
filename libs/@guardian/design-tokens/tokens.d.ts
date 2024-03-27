@@ -1444,7 +1444,7 @@ export declare const tokens: {
 				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
-				readonly fontStyle: 'Italic';
+				readonly fontStyle: 'italic';
 			};
 			readonly textSansItalic15: {
 				readonly fontFamily: readonly [
