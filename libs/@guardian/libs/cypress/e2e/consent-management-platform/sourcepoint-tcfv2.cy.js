@@ -1,4 +1,4 @@
-import { ENDPOINT } from '../fixtures/sourcepointConfig';
+import { ENDPOINT } from './fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = '#sp_message_iframe_106842';
