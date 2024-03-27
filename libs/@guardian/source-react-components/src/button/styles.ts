@@ -88,6 +88,7 @@ const secondary = (button: ThemeButton): SerializedStyles => css`
 `;
 
 const tertiary = (button: ThemeButton): SerializedStyles => css`
+	background-color: ${button.backgroundTertiary};
 	color: ${button.textTertiary};
 	border: 1px solid ${button.borderTertiary};
 
