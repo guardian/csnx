@@ -260,17 +260,17 @@ importers:
   libs/@guardian/cobalt-plugin-ts:
     devDependencies:
       '@cobalt-ui/cli':
-        specifier: ^1.8.1
-        version: 1.8.1
+        specifier: ^1.10.0
+        version: 1.10.0
       '@cobalt-ui/core':
-        specifier: ^1.8.1
-        version: 1.8.1
+        specifier: ^1.10.1
+        version: 1.10.1
       '@cobalt-ui/plugin-css':
         specifier: ^1.7.0
-        version: 1.7.0(@cobalt-ui/cli@1.8.1)
+        version: 1.7.0(@cobalt-ui/cli@1.10.0)
       '@cobalt-ui/plugin-js':
         specifier: ^1.4.3
-        version: 1.4.3(@cobalt-ui/cli@1.8.1)
+        version: 1.4.3(@cobalt-ui/cli@1.10.0)
       '@cobalt-ui/utils':
         specifier: ^1.2.2
         version: 1.2.2
@@ -303,11 +303,11 @@ importers:
         version: 2.6.2
     devDependencies:
       '@cobalt-ui/cli':
-        specifier: ^1.8.1
-        version: 1.8.1
+        specifier: ^1.10.0
+        version: 1.10.0
       '@cobalt-ui/plugin-css':
         specifier: ^1.7.0
-        version: 1.7.0(@cobalt-ui/cli@1.8.1)
+        version: 1.7.0(@cobalt-ui/cli@1.10.0)
       '@guardian/cobalt-plugin-ts':
         specifier: workspace:*
         version: link:../cobalt-plugin-ts
@@ -2441,36 +2441,39 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@cobalt-ui/cli@1.8.1:
-    resolution: {integrity: sha512-hDczrNzeWgKjpkbkAQhBwssLo3lMCFBUK5Oo0pBHGwlNwSaLWdaVRUNTIpvDDVQelOVpC8Fr2bgxU5xbQ+EK7A==}
+  /@cobalt-ui/cli@1.10.0:
+    resolution: {integrity: sha512-jj77qKm1dQjZ7fAYVfaHLof+IUx+8p0hb1Dsc5kJcbe4wUZi+1+y2Ggfp4q6/BCSd48Qo1u1BfXvTNOQDyvBWw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
-      '@cobalt-ui/core': 1.8.1
+      '@cobalt-ui/core': 1.10.1
       '@cobalt-ui/utils': 1.2.4
       chokidar: 3.6.0
       culori: 3.3.0
       dotenv: 16.4.5
-      js-yaml: 4.1.0
+      parse-json: 8.1.0
       piscina: 3.2.0
       svgo: 3.2.0
+      yaml: 2.4.1
       yargs-parser: 21.1.1
     dev: true
 
-  /@cobalt-ui/core@1.8.1:
-    resolution: {integrity: sha512-asuYAgEkybl6kSq8N6n9AJZM2dvcMynLsfg/VtYPJuEhE4mY6qNNQ0QCgZXqp/5VClmxsEgXjsyOW5Fd0DTbCw==}
+  /@cobalt-ui/core@1.10.1:
+    resolution: {integrity: sha512-MSqCQbEbkE5c1jsLB4lokSieurotXlVDNezWdsLCb9E5RsNuMQDwedo/lr1NDzCjY/ae03zk86jTgRgdS+vvkQ==}
     dependencies:
       '@cobalt-ui/utils': 1.2.4
       '@types/culori': 2.1.0
       culori: 4.0.1
+      parse-json: 8.1.0
+      yaml: 2.4.1
     dev: true
 
-  /@cobalt-ui/plugin-css@1.7.0(@cobalt-ui/cli@1.8.1):
+  /@cobalt-ui/plugin-css@1.7.0(@cobalt-ui/cli@1.10.0):
     resolution: {integrity: sha512-bMGAa+44hC1mJSJqoSBjmt63wbPIbbjuupUnkpQJkXDYiTYyKU51r0YJ5w6oHElRtianbCEwqTaM14MO58FviA==}
     peerDependencies:
       '@cobalt-ui/cli': ^1.6.2
     dependencies:
-      '@cobalt-ui/cli': 1.8.1
+      '@cobalt-ui/cli': 1.10.0
       '@cobalt-ui/utils': 1.2.2
       '@types/culori': 2.0.4
       '@types/mime': 3.0.4
@@ -2479,12 +2482,12 @@ packages:
       svgo: 3.0.4
     dev: true
 
-  /@cobalt-ui/plugin-js@1.4.3(@cobalt-ui/cli@1.8.1):
+  /@cobalt-ui/plugin-js@1.4.3(@cobalt-ui/cli@1.10.0):
     resolution: {integrity: sha512-tsQokFmsVIejjqKDnPYwhi4I/ntsU+5dp4y7/MN+9PMUvHfaqcrOURjWIcv36EVQ73uOIcnfRajGnVgaHoolsg==}
     peerDependencies:
       '@cobalt-ui/cli': 1.x
     dependencies:
-      '@cobalt-ui/cli': 1.8.1
+      '@cobalt-ui/cli': 1.10.0
       '@cobalt-ui/utils': 1.2.2
     dev: true
 
@@ -8326,7 +8329,7 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     dependencies:
       mdn-data: 2.0.28
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: true
 
   /css-tree@2.3.1:
@@ -8334,7 +8337,7 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: true
 
   /css-what@6.1.0:
@@ -10838,7 +10841,6 @@ packages:
   /index-to-position@0.1.2:
     resolution: {integrity: sha512-MWDKS3AS1bGCHLBA2VLImJz42f7bJh8wQsTGCzI3j519/CASStoDONUBVz2I/VID0MpiX3SGSnbOD2xUalbE5g==}
     engines: {node: '>=18'}
-    dev: false
 
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
@@ -13691,6 +13693,15 @@ packages:
       type-fest: 4.12.0
     dev: false
 
+  /parse-json@8.1.0:
+    resolution: {integrity: sha512-rum1bPifK5SSar35Z6EKZuYPJx85pkNaFrxBK3mwdfSJ1/WKbYrjoW/zTPSjRRamfmVX1ACBIdFAO0VRErW/EA==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@babel/code-frame': 7.23.5
+      index-to-position: 0.1.2
+      type-fest: 4.12.0
+    dev: true
+
   /parse-latin@5.0.1:
     resolution: {integrity: sha512-b/K8ExXaWC9t34kKeDV8kGXBkXZ1HCSAZRYE7HR14eA1GlXX5L8iWhs8USJNhQU9q5ci413jCKF0gOyovvyRBg==}
     dependencies:
@@ -13933,7 +13944,7 @@ packages:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.0.0
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: true
 
   /postcss@8.4.38:
@@ -15111,11 +15122,6 @@ packages:
       is-plain-obj: 4.1.0
       sort-object-keys: 1.1.3
 
-  /source-map-js@1.0.2:
-    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
-    engines: {node: '>=0.10.0'}
-    dev: true
-
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
@@ -16045,7 +16051,6 @@ packages:
   /type-fest@4.12.0:
     resolution: {integrity: sha512-5Y2/pp2wtJk8o08G0CMkuFPCO354FGwk/vbidxrdhRGZfd0tFnb4Qb8anp9XxXriwBgVPjdWbKpGl4J9lJY2jQ==}
     engines: {node: '>=16'}
-    dev: false
 
   /type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
@@ -17076,6 +17081,12 @@ packages:
   /yaml@2.3.4:
     resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
     engines: {node: '>= 14'}
+    dev: true
+
+  /yaml@2.4.1:
+    resolution: {integrity: sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==}
+    engines: {node: '>= 14'}
+    hasBin: true
     dev: true
 
   /yargs-parser@18.1.3:
