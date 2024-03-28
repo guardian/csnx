@@ -3,12 +3,32 @@
 	"version": "0.0.1",
 	"private": true,
 	"type": "module",
+	"scripts": {
+		"build": "wireit",
+		"dev": "wireit"
+	},
 	"devDependencies": {
 		"@astrojs/check": "0.5.6",
 		"@astrojs/svelte": "5.2.0",
 		"@guardian/consent-management-platform": "13.12.0",
 		"astro": "4.5.1",
 		"svelte": "4.2.12",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
+	},
+	"wireit": {
+		"build": {
+			"command": "astro check && astro build",
+			"files": [
+				"**/*",
+				"!dist/**/*"
+			],
+			"output": [
+				"dist/**/*"
+			]
+		},
+		"dev": {
+			"command": "astro dev"
+		}
 	}
 }
