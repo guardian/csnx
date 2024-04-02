@@ -72,13 +72,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 
 ### Project-specific tasks
 
-Project-specific are defined in their `project.json`, and can be run with `make <project>:<task>`:
-
-#### github-pages
-
-- `make github-pages:build`
-- `make github-pages:dev`
-- `make github-pages:serve:e2e`
+Project-specific tasks are defined as `scripts` in a `package.json` or `targets` in a `project.json` files, and can be run with `make <project>:<script>`/`make <project>:<target>`:
 
 #### @guardian/ab-core
 
@@ -101,6 +95,7 @@ Project-specific are defined in their `project.json`, and can be run with `make 
 #### @guardian/browserslist-config
 
 - `make @guardian/browserslist-config:build`
+- `make @guardian/browserslist-config:update-readme`
 - `make @guardian/browserslist-config:verify-dist`
 
 #### @guardian/cobalt-plugin-ts
@@ -197,27 +192,34 @@ Project-specific are defined in their `project.json`, and can be run with `make 
 #### @guardian/source-foundations
 
 - `make @guardian/source-foundations:build`
+- `make @guardian/source-foundations:build-storybook`
 - `make @guardian/source-foundations:dev`
 - `make @guardian/source-foundations:fix`
 - `make @guardian/source-foundations:lint`
+- `make @guardian/source-foundations:storybook`
 - `make @guardian/source-foundations:test`
 - `make @guardian/source-foundations:verify-dist`
 
 #### @guardian/source-react-components
 
 - `make @guardian/source-react-components:build`
+- `make @guardian/source-react-components:build-storybook`
+- `make @guardian/source-react-components:create-icons`
 - `make @guardian/source-react-components:dev`
 - `make @guardian/source-react-components:fix`
 - `make @guardian/source-react-components:lint`
+- `make @guardian/source-react-components:storybook`
 - `make @guardian/source-react-components:test`
 - `make @guardian/source-react-components:verify-dist`
 
 #### @guardian/source-react-components-development-kitchen
 
 - `make @guardian/source-react-components-development-kitchen:build`
+- `make @guardian/source-react-components-development-kitchen:build-storybook`
 - `make @guardian/source-react-components-development-kitchen:dev`
 - `make @guardian/source-react-components-development-kitchen:fix`
 - `make @guardian/source-react-components-development-kitchen:lint`
+- `make @guardian/source-react-components-development-kitchen:storybook`
 - `make @guardian/source-react-components-development-kitchen:test`
 - `make @guardian/source-react-components-development-kitchen:verify-dist`
 
@@ -225,6 +227,16 @@ Project-specific are defined in their `project.json`, and can be run with `make 
 
 - `make @guardian/tsconfig:build`
 - `make @guardian/tsconfig:verify-dist`
+
+#### github-pages
+
+- `make github-pages:build`
+- `make github-pages:dev`
+- `make github-pages:serve:e2e`
+
+#### storybooks
+
+- `make storybooks:dev`
 
 <!-- END TASKS -->
 
