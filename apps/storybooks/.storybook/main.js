@@ -5,7 +5,7 @@ module.exports = {
 
 	core: { ...rootMain.core },
 
-	stories: ['../src/README.stories.mdx'],
+	stories: ['../src/README.mdx'],
 	addons: [...rootMain.addons],
 	webpackFinal: async (config, { configType }) => {
 		// apply any global webpack configs that might have been specified in .storybook/main.js

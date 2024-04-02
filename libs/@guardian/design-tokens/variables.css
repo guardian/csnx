@@ -1534,11 +1534,17 @@
 	--source-typography-presets-titlepiece70-line-height: var(
 		--source-typography-lineHeight-tight
 	);
-	--source-typography-textDecorationThickness-2: 0.125rem;
-	--source-typography-textDecorationThickness-3: 0.1875rem;
-	--source-typography-textDecorationThickness-4: 0.25rem;
-	--source-typography-textDecorationThickness-5: 0.3125rem;
-	--source-typography-textDecorationThickness-6: 0.375rem;
+	--source-typography-textDecorationThicknessForFontSize-12: 0.125rem;
+	--source-typography-textDecorationThicknessForFontSize-14: 0.125rem;
+	--source-typography-textDecorationThicknessForFontSize-15: 0.125rem;
+	--source-typography-textDecorationThicknessForFontSize-17: 0.125rem;
+	--source-typography-textDecorationThicknessForFontSize-20: 0.1875rem;
+	--source-typography-textDecorationThicknessForFontSize-24: 0.1875rem;
+	--source-typography-textDecorationThicknessForFontSize-28: 0.1875rem;
+	--source-typography-textDecorationThicknessForFontSize-34: 0.25rem;
+	--source-typography-textDecorationThicknessForFontSize-42: 0.3125rem;
+	--source-typography-textDecorationThicknessForFontSize-50: 0.375rem;
+	--source-typography-textDecorationThicknessForFontSize-70: 0.375rem;
 	--source-typography-textSans-large-font-family: var(
 		--source-typography-fontFamily-textSans
 	);

@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components",
-	"version": "22.0.2",
+	"version": "22.1.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
@@ -9,7 +9,7 @@
 		"storybook": "storybook dev"
 	},
 	"devDependencies": {
-		"@babel/core": "7.23.6",
+		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
 		"@guardian/source-foundations": "14.1.4",
 		"@svgr/babel-preset": "8.1.0",
