@@ -1,16 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/blocks';
-import {
-	headlineObjectStyles,
-	bodyObjectStyles,
-	textSansObjectStyles,
-	titlepieceObjectStyles,
-} from '@guardian/source-foundations';
-import {
-	FontStylesRenderer,
-	LineHeightRenderer,
-	FontWeightRenderer,
-	ItalicsRenderer,
-} from './storybookTypographyRenderers';
+import { Meta, Canvas } from '@storybook/blocks';
 import * as TypographyStories from './typography.stories';
 
 <Meta of={TypographyStories} />
@@ -71,17 +59,13 @@ typography API assigns font size in rems.
 font-family: 'GH Guardian Headline, Guardian Egyptian Web, Georgia, serif';
 ```
 
-<Canvas>
-	<Story of={TypographyStories.Headline} />
-</Canvas>
+<Canvas of={TypographyStories.Headline} />
 
 #### Line height
 
 The default for headline is `tight`. This maps to `1.15 (115%)`.
 
-<Canvas>
-	<Story of={TypographyStories.HeadlineLineheight} />
-</Canvas>
+<Canvas of={TypographyStories.HeadlineLineheight} />
 
 ### Body
 
@@ -89,9 +73,7 @@ The default for headline is `tight`. This maps to `1.15 (115%)`.
 font-family: 'GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif';
 ```
 
-<Canvas>
-	<Story of={TypographyStories.Body} />
-</Canvas>
+<Canvas of={TypographyStories.Body} />
 
 #### Line height
 
@@ -99,9 +81,7 @@ The default for body is `loose`. This maps to `1.40 (140%)`.
 
 This meets the [WCAG 2.1 AAA success criterion for visual presentation](https://www.w3.org/TR/WCAG21/#visual-presentation).
 
-<Canvas>
-	<Story of={TypographyStories.BodyLineheight} />
-</Canvas>
+<Canvas of={TypographyStories.BodyLineheight} />
 
 ### Text sans
 
@@ -109,17 +89,13 @@ This meets the [WCAG 2.1 AAA success criterion for visual presentation](https://
 font-family: 'GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif';
 ```
 
-<Canvas>
-	<Story of={TypographyStories.TextSans} />
-</Canvas>
+<Canvas of={TypographyStories.TextSans} />
 
 #### Line height
 
 The default for text-sans is `regular`. This maps to `1.3 (130%)`.
 
-<Canvas>
-	<Story of={TypographyStories.TextSansLineheight} />
-</Canvas>
+<Canvas of={TypographyStories.TextSansLineheight} />
 
 ### Titlepiece
 
@@ -127,17 +103,13 @@ The default for text-sans is `regular`. This maps to `1.3 (130%)`.
 font-family: 'GT Guardian Titlepiece, Georgia, serif';
 ```
 
-<Canvas>
-	<Story of={TypographyStories.Titlepiece} />
-</Canvas>
+<Canvas of={TypographyStories.Titlepiece} />
 
 #### Line height
 
 The default for titlepiece is `tight`. This maps to `1.15 (115%)`.
 
-<Canvas>
-	<Story of={TypographyStories.TitlepieceLineheight} />
-</Canvas>
+<Canvas of={TypographyStories.TitlepieceLineheight} />
 
 ### Options
 
@@ -197,9 +169,7 @@ const lineHeight =
 headline.medium({ fontWeight: 'bold' });
 ```
 
-<Canvas>
-	<Story of={TypographyStories.FontWeight} />
-</Canvas>
+<Canvas of={TypographyStories.FontWeight} />
 
 The default for body and textSans is `regular`. The `light` and `medium` font weights are not available for these fonts.
 
@@ -217,9 +187,7 @@ headline.medium({ fontStyle: 'italic' });
 
 `italic` is available for the following fonts:
 
-<Canvas>
-	<Story of={TypographyStories.Italics} />
-</Canvas>
+<Canvas of={TypographyStories.Italics} />
 
 #### Unit
 
