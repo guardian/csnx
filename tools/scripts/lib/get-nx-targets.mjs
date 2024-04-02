@@ -4,6 +4,7 @@ import { readFile } from 'fs/promises';
 export const getNxTargets = async () => {
 	const projects = await fg(['libs/**/project.json', 'apps/**/project.json'], {
 		followSymbolicLinks: false,
+		ignore: ['**/storybook-static'],
 	});
 
 	const nxTargets = [];
