@@ -25,7 +25,7 @@ export const getMakeTargets = async () => {
 			}
 
 			targets.push({
-				target: target.join(':').replace('\\', '').trim(),
+				target: target.join(':').replace(/\\/g, '').trim(),
 				description: description.join(' '),
 			});
 		}
