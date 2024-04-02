@@ -48,8 +48,10 @@ const tasksList = [
 ];
 
 for (const task of tasks) {
-	tasksList.push(`.PHONY: ${task.replace(/:/g, '\\:')}`);
-	tasksList.push(`${task.replace(/:/g, '\\:')}: env`);
+	const escapedTaskName = task.replace(/:/g, '\\:');
+
+	tasksList.push(`.PHONY: ${escapedTaskName}`);
+	tasksList.push(`${escapedTaskName}: env`);
 	tasksList.push(
 		`	@corepack pnpm nx run ${task} --skip-nx-cache=$(SKIP_NX_CACHE)`,
 	);
