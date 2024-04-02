@@ -51,8 +51,8 @@ lint: install
 	@node ./tools/scripts/check-packages-for-tslib.mjs
 
 # check repo for formatting errors
-.PHONY: check-formatting
-check-formatting: install
+.PHONY: formatting\:check
+formatting\:check: install
 	$(call log,"Checking formatting across repo")
 	@corepack pnpm prettier --ignore-unknown --cache --check .
 
@@ -65,7 +65,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean lint test e2e build verify-dist build-storybooks
+validate: env clean lint test e2e build verify-dist build\:storybooks
 
 ##################################### BUILD ####################################
 
@@ -82,8 +82,8 @@ build: env clean
 	@corepack pnpm nx run-many --target=build --skip-nx-cache=$(SKIP_NX_CACHE)
 
 # builds all storybooks
-.PHONY: build-storybooks
-build-storybooks: env
+.PHONY: build\:storybooks
+build\:storybooks: env
 	$(call log,"Building storybooks")
 	@corepack pnpm run -r build-storybook
 

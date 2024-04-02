@@ -15,7 +15,7 @@ export const getMakeTargets = async () => {
 			break;
 		}
 		if (line.startsWith('.PHONY')) {
-			const target = line.split(':')[1].trim();
+			const [, ...target] = line.split(':');
 
 			const description = [];
 			let i = lineNumber - 1;
@@ -25,7 +25,7 @@ export const getMakeTargets = async () => {
 			}
 
 			targets.push({
-				target,
+				target: target.join(':').replace('\\', '').trim(),
 				description: description.join(' '),
 			});
 		}
