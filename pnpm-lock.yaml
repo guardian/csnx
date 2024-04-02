@@ -188,9 +188,6 @@ importers:
       webpack:
         specifier: 5.90.0
         version: 5.90.0(@swc/core@1.4.0)(esbuild@0.18.20)
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
 
   apps/github-pages:
     devDependencies:
@@ -213,7 +210,11 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
-  apps/storybooks: {}
+  apps/storybooks:
+    devDependencies:
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
 
   libs/@guardian/ab-core:
     devDependencies:
@@ -620,6 +621,9 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
 
   libs/@guardian/source-react-components:
     devDependencies:
@@ -677,6 +681,9 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
 
   libs/@guardian/source-react-components-development-kitchen:
     devDependencies:
@@ -707,6 +714,9 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
 
   libs/@guardian/tsconfig: {}
 

@@ -65,8 +65,7 @@
 		"tsconfig-paths-webpack-plugin": "4.1.0",
 		"typescript": "5.3.3",
 		"update-section": "0.3.3",
-		"webpack": "5.90.0",
-		"wireit": "0.14.4"
+		"webpack": "5.90.0"
 	},
 	"packageManager": "pnpm@8.14.0",
 	"pnpm": {

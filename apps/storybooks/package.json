@@ -6,6 +6,9 @@
 	"scripts": {
 		"dev": "wireit"
 	},
+	"devDependencies": {
+		"wireit": "0.14.4"
+	},
 	"wireit": {
 		"dev": {
 			"command": "sleep 5 && storybook dev --port 4400 --quiet",
