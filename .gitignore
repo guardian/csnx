@@ -12,3 +12,10 @@ dist
 tsconfig.tsbuildinfo
 
 **/cypress/screenshots
+
+# wireit cache dirs
+# https://github.com/google/wireit
+.wireit
+
+# storybook build dirs
+storybook-static
