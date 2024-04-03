@@ -18,13 +18,13 @@ jobs:
     strategy:
       matrix:
         include:
-          - task: check-formatting
+          - task: formatting:check
           - task: lint
           - task: test
           - task: e2e
           - task: build
           - task: verify-dist
-          - task: build-storybooks
+          - task: build:storybooks
     steps:
       - uses: actions/checkout@v4
         with:
