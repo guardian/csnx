@@ -27,11 +27,6 @@ export type TypographyStyles<Unit extends ScaleUnit = ScaleUnit> = {
 	textDecorationThickness?: number;
 };
 
-/** @deprecated will be removed in the next major version */
-export type TypographySizes = {
-	[key in string]: number;
-};
-
 export type TitlepieceSizes =
 	| typeof titlepieceSizes
 	| typeof remTitlepieceSizes;

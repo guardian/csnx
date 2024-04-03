@@ -11,7 +11,7 @@ import {
 	brandText,
 	line,
 	text,
-} from './_deprecated/palette';
+} from './_deprecated/colour/palette';
 import { transitions } from './animation/transitions';
 import { breakpoints } from './breakpoints/breakpoints';
 import { palette } from './colour/palette';

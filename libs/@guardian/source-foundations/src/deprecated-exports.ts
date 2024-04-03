@@ -4,7 +4,7 @@
  * These will be removed in a future major release and should not be used.
  */
 
-/* @deprecated Colours should now be imported from the `palette` object */
+/** @deprecated Colours should now be imported from the `palette` object */
 export {
 	background,
 	brandBackground,
@@ -18,9 +18,9 @@ export {
 	text,
 	brandText,
 	brandAltText,
-} from './_deprecated/palette';
+} from './_deprecated/colour/palette';
 
-/* @deprecated Colours should now be imported from the `palette` object */
+/** @deprecated Colours should now be imported from the `palette` object */
 export {
 	brand,
 	brandAlt,
@@ -35,4 +35,7 @@ export {
 	labs,
 	specialReport,
 	focus,
-} from './_deprecated/palette';
+} from './_deprecated/colour/palette';
+
+/** @deprecated Type will be removed in a future major release */
+export type { TypographySizes } from './_deprecated/typography/types';

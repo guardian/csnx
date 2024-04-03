@@ -1,4 +1,4 @@
-import { palette } from '../colour/palette';
+import { palette } from '../../colour/palette';
 
 export const {
 	brand,
