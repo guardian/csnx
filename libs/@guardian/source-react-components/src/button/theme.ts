@@ -22,6 +22,7 @@ export type ThemeButton = {
 	backgroundSecondary: string;
 	backgroundSecondaryHover: string;
 	textTertiary: string;
+	backgroundTertiary: string;
 	backgroundTertiaryHover: string;
 	borderTertiary: string;
 	textSubdued: string;
@@ -83,6 +84,7 @@ export const themeButton: ThemeButton = {
 	backgroundSecondary: palette.brand[800],
 	backgroundSecondaryHover: '#ACC9F7', // One-off colour variant generated from palette.brand[800]
 	textTertiary: palette.brand[400],
+	backgroundTertiary: 'transparent',
 	backgroundTertiaryHover: '#E5E5E5', // One-off colour variant
 	borderTertiary: palette.brand[400],
 	textSubdued: palette.brand[400],
@@ -96,6 +98,7 @@ export const themeButtonBrand: ThemeButton = {
 	backgroundSecondary: palette.brand[600],
 	backgroundSecondaryHover: '#234B8A', // One-off colour variant generated from palette.brand[600]
 	textTertiary: palette.neutral[100],
+	backgroundTertiary: 'transparent',
 	backgroundTertiaryHover: palette.brand[300],
 	borderTertiary: palette.neutral[100],
 	textSubdued: palette.neutral[100],
@@ -109,6 +112,7 @@ export const themeButtonBrandAlt: ThemeButton = {
 	backgroundSecondary: palette.brandAlt[200],
 	backgroundSecondaryHover: '#F2AE00', // One-off colour variant generated from palette.brandAlt[200]
 	textTertiary: palette.neutral[0],
+	backgroundTertiary: 'transparent',
 	backgroundTertiaryHover: '#FFD213', // One-off colour variant
 	borderTertiary: palette.neutral[7],
 	textSubdued: palette.neutral[7],

@@ -3,17 +3,22 @@
 	"version": "14.1.4",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"build-storybook": "wireit",
+		"storybook": "storybook dev"
+	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
-		"@guardian/design-tokens": "workspace:0.1.0--pre.0",
+		"@guardian/design-tokens": "workspace:*",
 		"lightningcss": "1.24.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
@@ -22,6 +27,19 @@
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
+		}
+	},
+	"wireit": {
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"files": [
+				"**/*.{ts,tsx,js,json,mdx,md}",
+				"!storybook-static/**",
+				"!jest*"
+			],
+			"output": [
+				"storybook-static/**/*"
+			]
 		}
 	}
 }

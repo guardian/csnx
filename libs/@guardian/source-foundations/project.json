@@ -54,24 +54,6 @@
 				"passWithNoTests": false,
 				"watch": true
 			}
-		},
-		"storybook": {
-			"executor": "nx:run-commands",
-			"options": {
-				"commands": ["storybook dev"],
-				"cwd": "libs/@guardian/source-foundations"
-			}
-		},
-		"build-storybook": {
-			"executor": "nx:run-commands",
-			"outputs": [
-				"{workspaceRoot}/dist/storybook/libs/@guardian/source-foundations"
-			],
-			"options": {
-				"command": "NODE_ENV=production storybook build -o ../../../dist/storybook/libs/@guardian/source-foundations --webpack-stats-json",
-				"cwd": "libs/@guardian/source-foundations",
-				"color": true
-			}
 		}
 	},
 	"tags": []

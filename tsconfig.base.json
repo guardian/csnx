@@ -34,7 +34,6 @@
 				"libs/@guardian/newsletters-types/src/index"
 			],
 			"@guardian/prettier": ["libs/@guardian/prettier/index"],
-			"@guardian/source": ["libs/@guardian/source/src/foundations/index"],
 			"@guardian/source-foundations": [
 				"libs/@guardian/source-foundations/src/index"
 			],
@@ -43,12 +42,6 @@
 			],
 			"@guardian/source-react-components-development-kitchen": [
 				"libs/@guardian/source-react-components-development-kitchen/src/index"
-			],
-			"@guardian/source/react": [
-				"libs/@guardian/source/src/components/react/index"
-			],
-			"@guardian/source/react/development-kitchen": [
-				"libs/@guardian/source/src/components/react-dev-kitchen/index"
 			]
 		},
 		"rootDir": ".",

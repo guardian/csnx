@@ -2,5 +2,34 @@
 	"name": "storybooks",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Collates storybooks of the CSNX monorepo."
+	"description": "Collates storybooks of the CSNX monorepo.",
+	"scripts": {
+		"dev": "wireit"
+	},
+	"devDependencies": {
+		"wireit": "0.14.4"
+	},
+	"wireit": {
+		"dev": {
+			"command": "sleep 5 && storybook dev --port 4400 --quiet",
+			"dependencies": [
+				"dev:foundations",
+				"dev:react-components",
+				"dev:react-components-development-kitchen"
+			],
+			"service": true
+		},
+		"dev:foundations": {
+			"command": "cd ../../libs/@guardian/source-foundations && storybook dev --no-open --port 4401 --quiet",
+			"service": true
+		},
+		"dev:react-components": {
+			"command": "cd ../../libs/@guardian/source-react-components && storybook dev --no-open --port 4402 --quiet",
+			"service": true
+		},
+		"dev:react-components-development-kitchen": {
+			"command": "cd ../../libs/@guardian/source-react-components-development-kitchen && storybook dev --no-open --port 4403 --quiet",
+			"service": true
+		}
+	}
 }

@@ -1,10 +1,12 @@
 {
 	"name": "@guardian/source-react-components",
-	"version": "22.0.2",
+	"version": "22.1.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
-		"create-icons": "ts-node scripts/create-icons"
+		"build-storybook": "wireit",
+		"create-icons": "ts-node scripts/create-icons",
+		"storybook": "storybook dev"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
@@ -24,7 +26,8 @@
 		"react": "18.2.0",
 		"ts-node": "10.9.2",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
@@ -36,6 +39,19 @@
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
+		}
+	},
+	"wireit": {
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"files": [
+				"**/*.{ts,tsx,js,json,mdx,md}",
+				"!storybook-static/**",
+				"!jest*"
+			],
+			"output": [
+				"storybook-static"
+			]
 		}
 	}
 }
