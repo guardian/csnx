@@ -1,5 +1,6 @@
 import { palette } from '../../colour/palette';
 
+/** @deprecated Colours should now be imported from the `palette` object */
 export const {
 	brand,
 	brandAlt,
@@ -18,6 +19,8 @@ export const {
 
 /**
  * Default theme background colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const background = {
 	primary: palette.neutral[100],
@@ -34,6 +37,8 @@ export const background = {
 
 /**
  * Brand theme background colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandBackground = {
 	primary: palette.brand[400],
@@ -47,6 +52,8 @@ export const brandBackground = {
 
 /**
  * Alternative brand theme background colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandAltBackground = {
 	primary: palette.brandAlt[400],
@@ -59,6 +66,8 @@ export const brandAltBackground = {
 
 /**
  * Default theme border colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const border = {
 	primary: palette.neutral[60],
@@ -75,6 +84,8 @@ export const border = {
 
 /**
  * Brand theme border colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandBorder = {
 	primary: palette.brand[600],
@@ -89,6 +100,8 @@ export const brandBorder = {
 
 /**
  * Alternative brand theme border colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandAltBorder = {
 	ctaTertiary: palette.neutral[7],
@@ -96,6 +109,8 @@ export const brandAltBorder = {
 
 /**
  * Default theme line colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const line = {
 	primary: palette.neutral[86],
@@ -103,6 +118,8 @@ export const line = {
 
 /**
  * Brand theme line colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandLine = {
 	primary: palette.brand[600],
@@ -110,6 +127,8 @@ export const brandLine = {
 
 /**
  * Alternative brand theme line colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandAltLine = {
 	primary: palette.neutral[7],
@@ -117,6 +136,8 @@ export const brandAltLine = {
 
 /**
  * Default theme text colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const text = {
 	primary: palette.neutral[7],
@@ -141,6 +162,8 @@ export const text = {
 
 /**
  * Brand theme text colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandText = {
 	primary: palette.neutral[100],
@@ -159,6 +182,8 @@ export const brandText = {
 
 /**
  * Alternative brand theme text colours
+ *
+ * @deprecated Colours should now be imported from the `palette` object
  */
 export const brandAltText = {
 	primary: palette.neutral[7],
