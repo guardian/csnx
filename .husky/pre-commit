@@ -9,4 +9,8 @@ fi
 node tools/scripts/maintain-readme/index.mjs
 git add README.md
 
+# keep makefile up to date
+node tools/scripts/maintain-makefile/index.mjs
+git add Makefile
+
 corepack pnpm lint-staged
