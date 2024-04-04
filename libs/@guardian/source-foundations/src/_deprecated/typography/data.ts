@@ -3,7 +3,7 @@ import {
 	fontArrayToString,
 	pxStringToNumber,
 	pxToRem,
-} from '../utils/convert-value';
+} from '../../utils/convert-value';
 import type { AvailableFontWeights, ItalicsFontWeights } from './types';
 
 /**
