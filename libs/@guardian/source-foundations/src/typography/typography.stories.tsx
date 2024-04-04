@@ -1,4 +1,4 @@
-import { TypographyPresets } from './storybookTypographyPresets';
+import { TypographyPresets } from './TypographyPresets';
 
 export default {
 	title: 'Typography',

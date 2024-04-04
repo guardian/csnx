@@ -12,20 +12,7 @@ import {
 	line,
 	text,
 } from './_deprecated/colour/palette';
-import { transitions } from './animation/transitions';
-import { breakpoints } from './breakpoints/breakpoints';
-import { palette } from './colour/palette';
-import {
-	height,
-	iconSize,
-	remHeight,
-	remWidth,
-	size,
-	width,
-} from './size/size';
-import { remSpace, space } from './space/space';
-import { body, headline, textSans, titlepiece } from './typography';
-import * as typePresetCss from './typography/css';
+import { body, headline, textSans, titlepiece } from './_deprecated/typography';
 import {
 	availableFontWeights,
 	bodySizes,
@@ -43,7 +30,20 @@ import {
 	textSansSizes,
 	titlepieceSizes,
 	underlineThickness,
-} from './typography/data';
+} from './_deprecated/typography/data';
+import { transitions } from './animation/transitions';
+import { breakpoints } from './breakpoints/breakpoints';
+import { palette } from './colour/palette';
+import {
+	height,
+	iconSize,
+	remHeight,
+	remWidth,
+	size,
+	width,
+} from './size/size';
+import { remSpace, space } from './space/space';
+import * as typePresetCss from './typography/css';
 import * as typePresetObject from './typography/objects';
 import {
 	bodyObjectStyles,

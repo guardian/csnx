@@ -1,9 +1,9 @@
+import { fontWeights } from '.';
 import {
-	bodyObjectStyles,
-	fontWeights,
-	headlineObjectStyles,
-	textSansObjectStyles,
-} from '../index';
+	body as bodyObjectStyles,
+	headline as headlineObjectStyles,
+	textSans as textSansObjectStyles,
+} from './obj';
 import type { Category, FontScaleFunction, FontWeight } from './types';
 
 type FontFunctions = {

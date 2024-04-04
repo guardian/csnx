@@ -35,48 +35,6 @@ export { space, remSpace } from './space/space';
 // typography
 export * from './typography/css';
 export * from './typography/objects';
-export {
-	titlepiece,
-	headline,
-	body,
-	textSans,
-	titlepieceSizes,
-	headlineSizes,
-	bodySizes,
-	textSansSizes,
-	remTitlepieceSizes,
-	remHeadlineSizes,
-	remBodySizes,
-	remTextSansSizes,
-	fonts,
-	fontWeights,
-	lineHeights,
-} from './typography';
-
-export {
-	body as bodyObjectStyles,
-	headline as headlineObjectStyles,
-	textSans as textSansObjectStyles,
-	titlepiece as titlepieceObjectStyles,
-} from './typography/obj';
-export type {
-	ScaleUnit,
-	Category,
-	LineHeight,
-	FontWeight,
-	FontStyle,
-	FontWeightDefinition,
-	Option,
-	TypographyStyles,
-	TitlepieceSizes,
-	HeadlineSizes,
-	BodySizes,
-	TextSansSizes,
-	Fs,
-	FontScaleFunction,
-	FontScaleFunctionStr,
-	FontScaleArgs,
-} from './typography/types';
 
 // utils
 export { appearance } from './utils/supports-queries';

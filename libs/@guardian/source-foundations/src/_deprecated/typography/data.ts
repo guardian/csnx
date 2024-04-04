@@ -3,7 +3,7 @@ import {
 	fontArrayToString,
 	pxStringToNumber,
 	pxToRem,
-} from '../utils/convert-value';
+} from '../../utils/convert-value';
 import type { AvailableFontWeights, ItalicsFontWeights } from './types';
 
 /**
@@ -11,6 +11,8 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  *
  * We assert that the values match the guardian type scale in our
  * {@link [unit test suite](./typography.test.ts)}.
+ *
+ * @deprecated Please typography presets rather than setting individual values
  */
 export const pxTextSizes = {
 	textSans: {
@@ -52,6 +54,8 @@ export const pxTextSizes = {
  * in our {@link [unit test suite](./typography.test.ts)}.
  *
  * See {@link [pxToRem](../utils/convert-value.ts)} for more details.
+ *
+ * @deprecated Please typography presets rather than setting individual values
  */
 export const remTextSizes = {
 	textSans: {
@@ -85,6 +89,9 @@ export const remTextSizes = {
 	},
 } as const;
 
+/**
+ * @deprecated Please typography presets rather than setting individual values
+ */
 export const fonts = {
 	titlepiece: fontArrayToString(tokens.typography.fontFamily.titlepiece),
 	headline: fontArrayToString(tokens.typography.fontFamily.headline),
@@ -104,6 +111,8 @@ export const fonts = {
  * can be overridden by users.
  *
  * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
+ *
+ * @deprecated Please typography presets rather than setting individual values
  */
 export const lineHeights = {
 	tight: tokens.typography.lineHeight.tight,
@@ -111,6 +120,7 @@ export const lineHeights = {
 	loose: tokens.typography.lineHeight.loose,
 } as const;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const fontWeights = {
 	light: tokens.typography.fontWeight.light,
 	regular: tokens.typography.fontWeight.regular,
@@ -118,6 +128,7 @@ export const fontWeights = {
 	bold: tokens.typography.fontWeight.bold,
 } as const;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const availableFontWeights = {
 	titlepiece: { bold: true },
 	headline: { light: true, medium: true, bold: true },
@@ -125,6 +136,7 @@ export const availableFontWeights = {
 	textSans: { regular: true, bold: true },
 } as AvailableFontWeights;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const italicsFontWeights = {
 	titlepiece: { bold: false },
 	headline: { light: true, medium: true, bold: false },
@@ -132,6 +144,7 @@ export const italicsFontWeights = {
 	textSans: { regular: true, bold: false },
 } as ItalicsFontWeights;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const underlineThickness = {
 	textSans: {
 		xxsmall: pxStringToNumber(
@@ -207,19 +220,29 @@ export const underlineThickness = {
 } as const;
 
 // Pixel font size exports
+
+/** @deprecated Please typography presets rather than setting individual values */
 export const textSansSizes = pxTextSizes.textSans;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const bodySizes = pxTextSizes.body;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const headlineSizes = pxTextSizes.headline;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const titlepieceSizes = pxTextSizes.titlepiece;
 
 // Computed rem font size exports
+
+/** @deprecated Please typography presets rather than setting individual values */
 export const remBodySizes = remTextSizes.body;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const remTitlepieceSizes = remTextSizes.titlepiece;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const remHeadlineSizes = remTextSizes.headline;
 
+/** @deprecated Please typography presets rather than setting individual values */
 export const remTextSansSizes = remTextSizes.textSans;
