@@ -790,7 +790,7 @@ export const textSansItalic14 = `
 	font-size: 0.875rem;
 	line-height: 1.3;
 	font-weight: 400;
-	font-style: Italic;
+	font-style: italic;
 	--source-text-decoration-thickness: 2px;
 `;
 

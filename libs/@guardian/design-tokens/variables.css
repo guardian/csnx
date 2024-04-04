@@ -1410,7 +1410,7 @@
 	--source-typography-presets-textSansItalic14-font-size: var(
 		--source-typography-fontSize-14
 	);
-	--source-typography-presets-textSansItalic14-font-style: Italic;
+	--source-typography-presets-textSansItalic14-font-style: italic;
 	--source-typography-presets-textSansItalic14-font-weight: var(
 		--source-typography-fontWeight-regular
 	);
