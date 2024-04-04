@@ -1440,7 +1440,7 @@ export const tokens = {
 				fontSize: '14px',
 				lineHeight: 1.3,
 				fontWeight: 400,
-				fontStyle: 'Italic',
+				fontStyle: 'italic',
 			},
 			textSansItalic15: {
 				fontFamily: [
