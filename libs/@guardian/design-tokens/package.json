@@ -4,6 +4,9 @@
 	"private": true,
 	"type": "module",
 	"main": "./tokens.js",
+	"scripts": {
+		"generate-tokens": "co build && prettier --write tokens.d.ts tokens.js variables.css"
+	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "^1.8.1",
 		"@cobalt-ui/plugin-css": "^1.7.0",
@@ -11,5 +14,39 @@
 	},
 	"peerDependencies": {
 		"tslib": "^2.5.3"
+	},
+	"nx": {
+		"targets": {
+			"generate-tokens": {
+				"inputs": [
+					"{projectRoot}/!(tokens|node_modules)/*",
+					"!{projectRoot}/**/*.md"
+				],
+				"outputs": [
+					"{projectRoot}/tokens.js",
+					"{projectRoot}/tokens.d.ts",
+					"{projectRoot}/variables.css"
+				]
+			},
+			"build": {
+				"dependsOn": [
+					"generate-tokens"
+				],
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"packageJson": "libs/@guardian/design-tokens/package.json",
+					"outputPath": "dist/libs/@guardian/design-tokens",
+					"assets": [
+						"libs/@guardian/design-tokens/*.md",
+						"libs/@guardian/design-tokens/tokens.js",
+						"libs/@guardian/design-tokens/tokens.d.ts",
+						"libs/@guardian/design-tokens/variables.css"
+					]
+				}
+			}
+		}
 	}
 }
