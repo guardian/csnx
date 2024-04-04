@@ -20,6 +20,8 @@ import type {
  * ```
  * font-family: 'GT Guardian Titlepiece';
  * ```
+ *
+ * @deprecated Web typography presets should be used instead
  */
 export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
 	small: fontStyleToStringFunction(titlepieceAsObj.small),
@@ -34,6 +36,8 @@ export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
  * ```
  * font-family: 'GH Guardian Headline';
  * ```
+ *
+ * @deprecated Web typography presets should be used instead
  */
 export const headline: TypographyStrFunctions<HeadlineSizes> = {
 	xxxsmall: fontStyleToStringFunction(headlineAsObj.xxxsmall),
@@ -52,6 +56,8 @@ export const headline: TypographyStrFunctions<HeadlineSizes> = {
  * ```
  * font-family: 'GuardianTextEgyptian';
  * ```
+ *
+ * @deprecated Web typography presets should be used instead
  */
 export const body: TypographyStrFunctions<BodySizes> = {
 	xsmall: fontStyleToStringFunction(bodyAsObj.xsmall),
@@ -66,6 +72,8 @@ export const body: TypographyStrFunctions<BodySizes> = {
  * ```
  * font-family: 'GuardianTextSans';
  * ```
+ *
+ * @deprecated Web typography presets should be used instead
  */
 export const textSans: TypographyStrFunctions<TextSansSizes> = {
 	xxsmall: fontStyleToStringFunction(textSansAsObj.xxsmall),
