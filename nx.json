@@ -23,14 +23,7 @@
 		"default": {
 			"options": {
 				"accessToken": "ZDI5NGQyNWMtYzRiNS00YjM0LWJkNDItMWEzMGQ2NWMwNWJkfHJlYWQtb25seQ==",
-				"cacheableOperations": [
-					"build",
-					"build-storybook",
-					"e2e",
-					"lint",
-					"test",
-					"verify-dist"
-				]
+				"cacheableOperations": ["build", "e2e", "lint", "test", "verify-dist"]
 			},
 			"runner": "nx-cloud"
 		}

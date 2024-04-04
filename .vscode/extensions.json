@@ -4,6 +4,7 @@
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
 		"EditorConfig.EditorConfig",
-		"astro-build.astro-vscode"
+		"astro-build.astro-vscode",
+		"google.wireit"
 	]
 }

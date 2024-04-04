@@ -1,5 +1,12 @@
 # @guardian/source-react-components
 
+## 22.1.0
+
+### Minor Changes
+
+- b3d79ac: Enable theming of the `Button` tertiary background colour.
+  Defaults to `transparent` to be backwards-compatible.
+
 ## 22.0.2
 
 ### Patch Changes

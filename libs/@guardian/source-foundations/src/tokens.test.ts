@@ -1,5 +1,3 @@
-import { transitions } from './animation/transitions';
-import { breakpoints } from './breakpoints/breakpoints';
 import {
 	background,
 	border,
@@ -12,9 +10,11 @@ import {
 	brandLine,
 	brandText,
 	line,
-	palette,
 	text,
-} from './colour/palette';
+} from './_deprecated/colour/palette';
+import { transitions } from './animation/transitions';
+import { breakpoints } from './breakpoints/breakpoints';
+import { palette } from './colour/palette';
 import {
 	height,
 	iconSize,

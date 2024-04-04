@@ -33,14 +33,14 @@ jobs:
 
       # This will just retrieve the output from Nx's build cache.
       # It's simpler than using github actions cache.
-      - run: make build-storybooks
+      - run: make build:storybooks
 
       - uses: chromaui/action@v11
         with:
           projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBaseDir: 'libs/@guardian/${{ matrix.lib }}'
-          storybookBuildDir: 'dist/storybook/libs/@guardian/${{ matrix.lib }}'
+          storybookBuildDir: 'libs/@guardian/${{ matrix.lib }}/storybook-static'
           exitOnceUploaded: true
           onlyChanged: '!(main)' # turbosnap on non-main branches
           skip: |
