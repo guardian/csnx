@@ -6,7 +6,7 @@
 	"scripts": {
 		"build-storybook": "wireit",
 		"create-icons": "ts-node scripts/create-icons",
-		"storybook": "storybook dev"
+		"storybook": "storybook dev --port 4402"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
