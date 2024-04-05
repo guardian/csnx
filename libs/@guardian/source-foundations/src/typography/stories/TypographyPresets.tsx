@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import { tokens } from '@guardian/design-tokens';
+import * as presets from '../../../vendor/typography/css';
 import { palette } from '../../colour/palette';
 import { space } from '../../space/space';
-import * as presets from '../css';
 
 const presetTokens = tokens.typography.presets;
 type Preset = keyof typeof presetTokens;

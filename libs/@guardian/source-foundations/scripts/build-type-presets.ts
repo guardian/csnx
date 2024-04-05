@@ -16,8 +16,12 @@ const textDecorationThickness = (size: string) =>
 console.log('Building typography presets…');
 
 const presetTotal = Object.keys(presets).length;
-const cssOutputPath = `${process.cwd()}/src/typography/css.ts`;
-const objectOutputPath = `${process.cwd()}/src/typography/objects.ts`;
+
+const outputPath = `${process.cwd()}/vendor/typography`;
+fs.mkdirSync(outputPath, { recursive: true });
+
+const cssOutputPath = `${outputPath}/css.ts`;
+const objectOutputPath = `${outputPath}/objects.ts`;
 
 const banner = `
 	// Typography presets
