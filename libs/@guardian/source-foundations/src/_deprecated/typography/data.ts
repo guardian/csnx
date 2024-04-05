@@ -12,7 +12,8 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  * We assert that the values match the guardian type scale in our
  * {@link [unit test suite](./typography.test.ts)}.
  *
- * @deprecated Please typography presets rather than setting individual values
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const pxTextSizes = {
 	textSans: {
@@ -55,7 +56,8 @@ export const pxTextSizes = {
  *
  * See {@link [pxToRem](../utils/convert-value.ts)} for more details.
  *
- * @deprecated Please typography presets rather than setting individual values
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const remTextSizes = {
 	textSans: {
@@ -90,7 +92,8 @@ export const remTextSizes = {
 } as const;
 
 /**
- * @deprecated Please typography presets rather than setting individual values
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const fonts = {
 	titlepiece: fontArrayToString(tokens.typography.fontFamily.titlepiece),
@@ -112,7 +115,8 @@ export const fonts = {
  *
  * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
  *
- * @deprecated Please typography presets rather than setting individual values
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const lineHeights = {
 	tight: tokens.typography.lineHeight.tight,
@@ -120,7 +124,10 @@ export const lineHeights = {
 	loose: tokens.typography.lineHeight.loose,
 } as const;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const fontWeights = {
 	light: tokens.typography.fontWeight.light,
 	regular: tokens.typography.fontWeight.regular,
@@ -128,7 +135,10 @@ export const fontWeights = {
 	bold: tokens.typography.fontWeight.bold,
 } as const;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const availableFontWeights = {
 	titlepiece: { bold: true },
 	headline: { light: true, medium: true, bold: true },
@@ -136,7 +146,10 @@ export const availableFontWeights = {
 	textSans: { regular: true, bold: true },
 } as AvailableFontWeights;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const italicsFontWeights = {
 	titlepiece: { bold: false },
 	headline: { light: true, medium: true, bold: false },
@@ -144,7 +157,10 @@ export const italicsFontWeights = {
 	textSans: { regular: true, bold: false },
 } as ItalicsFontWeights;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const underlineThickness = {
 	textSans: {
 		xxsmall: pxStringToNumber(
@@ -221,28 +237,52 @@ export const underlineThickness = {
 
 // Pixel font size exports
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const textSansSizes = pxTextSizes.textSans;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const bodySizes = pxTextSizes.body;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const headlineSizes = pxTextSizes.headline;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const titlepieceSizes = pxTextSizes.titlepiece;
 
 // Computed rem font size exports
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const remBodySizes = remTextSizes.body;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const remTitlepieceSizes = remTextSizes.titlepiece;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const remHeadlineSizes = remTextSizes.headline;
 
-/** @deprecated Please typography presets rather than setting individual values */
+/**
+ * @deprecated Use typography presets rather than setting individual values
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ */
 export const remTextSansSizes = remTextSizes.textSans;
