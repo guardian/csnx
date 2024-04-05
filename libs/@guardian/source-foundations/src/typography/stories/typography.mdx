@@ -30,8 +30,15 @@ const copyright = css`
 `;
 ```
 
-_Note:_ [object literal versions](https://emotion.sh/docs/object-styles) of the
-presets are not currently available, but will be added in a future update.
+Typography presets are strings by default, but can also be used as [Emotion object styles](https://emotion.sh/docs/object-styles).
+
+```tsx
+import { headlineMedium42Object } from '@guardian/source-foundations';
+
+const h1 = {
+	...headlineMedium42Object,
+};
+```
 
 ## Where can I find the Guardian's fonts?
 
@@ -94,4 +101,3 @@ _Note:_ this font is not available on [theguardian.com](https://theguardian.com)
 ### Specimen
 
 <Canvas of={TypographyStories.Presets} />
-../typography.stories../typography.stories./typography.stories
