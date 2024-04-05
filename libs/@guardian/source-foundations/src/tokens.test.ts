@@ -1,3 +1,5 @@
+import * as typePresetCss from '../vendor/typography/css';
+import * as typePresetObject from '../vendor/typography/objects';
 import {
 	background,
 	border,
@@ -43,8 +45,6 @@ import {
 	width,
 } from './size/size';
 import { remSpace, space } from './space/space';
-import * as typePresetCss from './typography/css';
-import * as typePresetObject from './typography/objects';
 import {
 	bodyObjectStyles,
 	headlineObjectStyles,
