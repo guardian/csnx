@@ -1,5 +1,10 @@
-import { body, headline, textSans, titlepiece } from '.';
-import * as presets from './css';
+import {
+	body,
+	headline,
+	textSans,
+	titlepiece,
+} from '../_deprecated/typography';
+import * as presets from '../../vendor/typography/css';
 
 /*
  * No typography API equivalent:
@@ -75,43 +80,22 @@ const typographyApiMapping = {
 	}),
 	// headlineLightItalic70: () => {},
 	// headlineMedium14: () => {},
-	headlineMedium17: headline.xxxsmall({ fontWeight: 'medium' }),
-	headlineMedium20: headline.xxsmall({ fontWeight: 'medium' }),
-	headlineMedium24: headline.xsmall({ fontWeight: 'medium' }),
-	headlineMedium28: headline.small({ fontWeight: 'medium' }),
-	headlineMedium34: headline.medium({ fontWeight: 'medium' }),
-	headlineMedium42: headline.large({ fontWeight: 'medium' }),
-	headlineMedium50: headline.xlarge({ fontWeight: 'medium' }),
+	headlineMedium17: headline.xxxsmall(),
+	headlineMedium20: headline.xxsmall(),
+	headlineMedium24: headline.xsmall(),
+	headlineMedium28: headline.small(),
+	headlineMedium34: headline.medium(),
+	headlineMedium42: headline.large(),
+	headlineMedium50: headline.xlarge(),
 	// headlineMedium70: () => {},
 	// headlineMediumItalic14: () => {},
-	headlineMediumItalic17: headline.xxxsmall({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
-	headlineMediumItalic20: headline.xxsmall({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
-	headlineMediumItalic24: headline.xsmall({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
-	headlineMediumItalic28: headline.small({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
-	headlineMediumItalic34: headline.medium({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
-	headlineMediumItalic42: headline.large({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
-	headlineMediumItalic50: headline.xlarge({
-		fontWeight: 'medium',
-		fontStyle: 'italic',
-	}),
+	headlineMediumItalic17: headline.xxxsmall({ fontStyle: 'italic' }),
+	headlineMediumItalic20: headline.xxsmall({ fontStyle: 'italic' }),
+	headlineMediumItalic24: headline.xsmall({ fontStyle: 'italic' }),
+	headlineMediumItalic28: headline.small({ fontStyle: 'italic' }),
+	headlineMediumItalic34: headline.medium({ fontStyle: 'italic' }),
+	headlineMediumItalic42: headline.large({ fontStyle: 'italic' }),
+	headlineMediumItalic50: headline.xlarge({ fontStyle: 'italic' }),
 	// headlineMediumItalic70: () => {},
 	// kicker14: () => {},
 	kicker17: headline.xxxsmall({ fontWeight: 'bold' }),
