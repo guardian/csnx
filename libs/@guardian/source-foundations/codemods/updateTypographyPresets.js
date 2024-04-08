@@ -9,6 +9,9 @@ const sizeToPresetMapping = {
 		xxlarge: 'textSans28',
 		xxxlarge: 'textSans34',
 	},
+	headline: {
+		medium: 'HeadlineMedium34',
+	},
 };
 
 const lineHeightMapping = {
@@ -16,46 +19,53 @@ const lineHeightMapping = {
 	regular: '1.3',
 	loose: '1.4',
 };
+
 module.exports = function (fileInfo, api) {
 	const j = api.jscodeshift;
 	const root = j(fileInfo.source);
 	const usedPresets = new Set();
-
 	root.find(j.TaggedTemplateExpression).forEach((templatePath) => {
 		templatePath.node.quasi.expressions.forEach((expr, index) => {
 			if (
-				expr.type === 'CallExpression' &&
-				expr.callee.object &&
-				expr.callee.object.name === 'textSans' &&
+				!(expr.type === 'CallExpression') ||
+				!expr.callee.object ||
+				expr.callee.object.name !== 'textSans' ||
 				sizeToPresetMapping.textSans[expr.callee.property.name]
 			) {
-				const newSize = sizeToPresetMapping.textSans[expr.callee.property.name];
-				usedPresets.add(newSize);
+				return;
+			}
 
-				if (expr.arguments.length > 0) {
-					const optionsArg = expr.arguments[0];
-					if (optionsArg.type === 'ObjectExpression') {
-						const lineHeightProp = optionsArg.properties.find(
-							(prop) => prop.key.name === 'lineHeight',
-						);
-						if (lineHeightProp) {
-							const lineHeightKey = lineHeightProp.value.value; // Assuming it's a string literal
-							const lineHeightValue = lineHeightMapping[lineHeightKey];
-							if (lineHeightValue) {
-								// Find the corresponding quasi to insert the comment
-								const nextQuasi = templatePath.node.quasi.quasis[index + 1];
-								if (nextQuasi) {
-									const commentLine = `;
+			const newSize = sizeToPresetMapping.textSans[expr.callee.property.name];
+			usedPresets.add(newSize);
+			if (expr.arguments.length === 0) return;
+
+			const optionsArg = expr.arguments[0];
+
+			// Proceed only if the argument is an object expression
+			if (optionsArg.type !== 'ObjectExpression') return;
+
+			// Try to find the lineHeight property
+			const lineHeightProp = optionsArg.properties.find(
+				(prop) => prop.key.name === 'lineHeight',
+			);
+			if (!lineHeightProp) return;
+
+			// Assuming the value is a string literal, retrieve the key for lineHeight
+			const lineHeightKey = lineHeightProp.value.value;
+			const lineHeightValue = lineHeightMapping[lineHeightKey];
+			if (!lineHeightValue) return;
+
+			// Locate the next template literal segment to insert the comment
+			const nextQuasi = templatePath.node.quasi.quasis[index + 1];
+			if (!nextQuasi) return;
+
+			// Construct and insert the comment about lineHeight
+			const commentLine = `;
 /** @todo consider not overriding lineHeights */
 line-height: ${lineHeightValue};`;
-									nextQuasi.value.raw = commentLine + nextQuasi.value.raw;
-									nextQuasi.value.cooked = commentLine + nextQuasi.value.cooked;
-								}
-							}
-						}
-					}
-				}
-			}
+
+			nextQuasi.value.raw = commentLine + nextQuasi.value.raw;
+			nextQuasi.value.cooked = commentLine + nextQuasi.value.cooked;
 		});
 	});
 	// Transform textSans.size() calls to new preset identifiers
