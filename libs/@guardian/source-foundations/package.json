@@ -5,7 +5,7 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
-		"storybook": "storybook dev"
+		"storybook": "storybook dev --port 4401"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"

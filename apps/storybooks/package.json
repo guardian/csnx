@@ -11,25 +11,20 @@
 	},
 	"wireit": {
 		"dev": {
-			"command": "sleep 5 && storybook dev --port 4400 --quiet",
+			"command": "storybook dev --port 4400 --quiet",
 			"dependencies": [
-				"dev:foundations",
-				"dev:react-components",
-				"dev:react-components-development-kitchen"
+				"storybooks",
+				"wait"
 			],
 			"service": true
 		},
-		"dev:foundations": {
-			"command": "cd ../../libs/@guardian/source-foundations && storybook dev --no-open --port 4401 --quiet",
+		"storybooks": {
+			"command": "pnpm -r --parallel storybook --no-open --quiet",
 			"service": true
 		},
-		"dev:react-components": {
-			"command": "cd ../../libs/@guardian/source-react-components && storybook dev --no-open --port 4402 --quiet",
-			"service": true
-		},
-		"dev:react-components-development-kitchen": {
-			"command": "cd ../../libs/@guardian/source-react-components-development-kitchen && storybook dev --no-open --port 4403 --quiet",
-			"service": true
+		"wait": {
+			"//": "wait for project storybooks to start before starting the composed one",
+			"command": "sleep 5"
 		}
 	}
 }
