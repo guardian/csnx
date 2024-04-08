@@ -8,4 +8,5 @@ From now on, these presets should be used instead of [the old typography API](ht
 
 _A forthcoming update will provide a codemod to convert existing uses of the old API to the new presets._
 
-For the curious, here is how the new presets map to the old API: https://github.com/guardian/csnx/commit/ab79273308f103fae10210f708e75254348dbc8f.
+For the curious, here is how the new presets map to the old API:
+https://github.com/guardian/csnx/blob/jm/map-type-presets/libs/%40guardian/source-foundations/src/typography/preset.test.ts
