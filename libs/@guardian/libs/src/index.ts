@@ -4,6 +4,24 @@ export * from './deprecated-exports';
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
+export type {
+	OnConsentChangeCallback,
+	CMP,
+	ConsentState,
+	ConsentFramework,
+	VendorName,
+} from './consent-management-platform/types';
+export type {
+	TCEventStatusCode,
+	TCFv2ConsentState,
+} from './consent-management-platform/types/tcfv2';
+export {
+	cmp,
+	getConsentFor,
+	onConsentChange,
+	onConsent,
+} from './consent-management-platform';
+
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
 export { setCookie } from './cookies/setCookie';
@@ -58,21 +76,3 @@ export { storage } from './storage/storage';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
-
-export type {
-	Callback as OnConsentChangeCallback,
-	CMP,
-	ConsentState,
-	Framework as ConsentFramework,
-	VendorName,
-} from './consent-management-platform/types';
-export type {
-	TCEventStatusCode,
-	TCFv2ConsentState,
-} from './consent-management-platform/types/tcfv2';
-export {
-	cmp,
-	getConsentFor,
-	onConsentChange,
-	onConsent,
-} from './consent-management-platform';

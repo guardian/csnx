@@ -5,7 +5,7 @@ import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
 import type { CCPAData } from './ccpa';
 import type { TCData } from './tcfv2/TCData';
-import type { CMP, Framework, PubData } from '.';
+import type { CMP, ConsentFramework, PubData } from '.';
 
 type OnMessageChoiceSelect = (
 	message_type: string,
@@ -34,16 +34,16 @@ declare global {
 				propertyHref: Property;
 				propertyId?: string;
 				targetingParams: {
-					framework: Framework;
+					framework: ConsentFramework;
 				};
 				ccpa?: {
 					targetingParams?: {
-						framework: Framework;
+						framework: ConsentFramework;
 					};
 				};
 				gdpr?: {
 					targetingParams?: {
-						framework: Framework;
+						framework: ConsentFramework;
 					};
 				};
 				pubData: PubData;

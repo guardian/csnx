@@ -1,7 +1,7 @@
 import { removeCookie } from '../cookies/removeCookie';
 import { storage } from '../storage/storage';
 import { onConsentChange } from './onConsentChange';
-import type { Callback, ConsentState } from './types';
+import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { TCFv2ConsentState } from './types/tcfv2';
 import { initVendorDataManager } from './vendorDataManager';
 import { vendorStorageIds } from './vendorStorageIds';
@@ -43,8 +43,8 @@ jest.mock('./vendorStorageIds', () => ({
 }));
 
 const mockOnConsentChange = (consentState: ConsentState) =>
-	(onConsentChange as jest.Mock).mockImplementation((cb: Callback) =>
-		cb(consentState),
+	(onConsentChange as jest.Mock).mockImplementation(
+		(cb: OnConsentChangeCallback) => cb(consentState),
 	);
 
 jest.mock('../cookies/removeCookie', () => ({

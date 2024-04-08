@@ -6,7 +6,7 @@ import type { Property } from './lib/property';
 import { ACCOUNT_ID, ENDPOINT } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
-import type { Framework } from './types';
+import type { ConsentFramework } from './types';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -14,18 +14,18 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
 });
 
 /**
- * @param  {Framework} framework
+ * @param  {ConsentFramework} framework
  * @returns Property
  * Given a CMP framework, returns the SourcePoint property associated with it.
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-const getProperty = (framework: Framework): Property => {
+const getProperty = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') return 'https://au.theguardian.com';
 	return isGuardianDomain() ? null : 'https://test.theguardian.com';
 };
 
-export const init = (framework: Framework, pubData = {}): void => {
+export const init = (framework: ConsentFramework, pubData = {}): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally

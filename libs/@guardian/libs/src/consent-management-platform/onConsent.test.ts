@@ -1,6 +1,6 @@
 import { onConsent } from './onConsent';
 import { onConsentChange } from './onConsentChange';
-import type { Callback, ConsentState } from './types';
+import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { AUSConsentState } from './types/aus';
 import type { CCPAConsentState } from './types/ccpa';
 import type { TCFv2ConsentState } from './types/tcfv2';
@@ -27,8 +27,8 @@ const ausConsentState: AUSConsentState = {
 };
 
 const mockOnConsentChange = (consentState: ConsentState) =>
-	(onConsentChange as jest.Mock).mockImplementation((cb: Callback) =>
-		cb(consentState),
+	(onConsentChange as jest.Mock).mockImplementation(
+		(cb: OnConsentChangeCallback) => cb(consentState),
 	);
 
 describe('onConsent returns a promise that resolves the initial consent state', () => {

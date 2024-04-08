@@ -1,8 +1,8 @@
 import type { CountryCode } from '../countries/@types/CountryCode';
-import type { Framework } from './types';
+import type { ConsentFramework } from './types';
 
-export const getFramework = (countryCode: CountryCode): Framework => {
-	let framework: Framework;
+export const getFramework = (countryCode: CountryCode): ConsentFramework => {
+	let framework: ConsentFramework;
 	switch (countryCode) {
 		case 'US':
 			framework = 'ccpa';

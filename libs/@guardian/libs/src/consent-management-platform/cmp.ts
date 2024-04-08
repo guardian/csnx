@@ -10,13 +10,13 @@ import {
 	willShowPrivacyMessage as sourcepointWillShowPrivacyMessage,
 } from './sourcepoint';
 import type {
-	Framework,
+	ConsentFramework,
 	PubData,
 	SourcepointImplementation,
 	WillShowPrivacyMessage,
 } from './types';
 
-const init = (framework: Framework, pubData?: PubData): void => {
+const init = (framework: ConsentFramework, pubData?: PubData): void => {
 	mark('cmp-init');
 	initSourcepoint(framework, pubData);
 };

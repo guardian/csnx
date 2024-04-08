@@ -4,7 +4,7 @@ import type { AUSConsentState } from './aus';
 import type { CCPAConsentState } from './ccpa';
 import type { TCFv2ConsentState } from './tcfv2';
 
-export type Framework = 'tcfv2' | 'ccpa' | 'aus';
+export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus';
 
 export type CMP = {
 	init: InitCMP;
@@ -23,7 +23,10 @@ export type InitCMP = (arg0: {
 	country?: CountryCode;
 }) => void;
 
-export type OnConsentChange = (fn: Callback, final?: boolean) => void;
+export type OnConsentChange = (
+	fn: OnConsentChangeCallback,
+	final?: boolean,
+) => void;
 export type GetConsentFor = (
 	vendor: VendorName,
 	consent: ConsentState,
@@ -35,7 +38,7 @@ export interface ConsentState {
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
 	canTarget: boolean;
-	framework: Framework | null;
+	framework: ConsentFramework | null;
 }
 export interface PubData {
 	browserId?: string;
@@ -43,14 +46,17 @@ export interface PubData {
 	[propName: string]: unknown;
 }
 export interface SourcepointImplementation {
-	init: (framework: Framework, pubData?: PubData) => void;
+	init: (framework: ConsentFramework, pubData?: PubData) => void;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
 	showPrivacyManager: () => void;
 }
 export type WillShowPrivacyMessage = () => Promise<boolean>;
 
-export type Callback = (arg0: ConsentState) => void;
-export type CallbackQueueItem = { fn: Callback; lastState?: string };
+export type OnConsentChangeCallback = (arg0: ConsentState) => void;
+export type CallbackQueueItem = {
+	fn: OnConsentChangeCallback;
+	lastState?: string;
+};
 
 // https://documentation.sourcepoint.com/web-implementation/sourcepoint-gdpr-and-tcf-v2-support/__tcfapi-getcustomvendorconsents-api
 export interface VendorConsents {

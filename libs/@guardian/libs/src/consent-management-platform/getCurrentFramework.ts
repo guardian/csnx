@@ -1,15 +1,15 @@
 import { log } from '../logger/logger';
-import type { Framework } from './types';
+import type { ConsentFramework } from './types';
 
-let currentFramework: Framework | undefined;
+let currentFramework: ConsentFramework | undefined;
 
 export const unsetFramework = (): void => {
 	log('cmp', 'Framework set to undefined');
 	currentFramework = undefined;
 };
-export const setCurrentFramework = (framework: Framework): void => {
+export const setCurrentFramework = (framework: ConsentFramework): void => {
 	log('cmp', `Framework set to ${framework}`);
 	currentFramework = framework;
 };
-export const getCurrentFramework = (): Framework | undefined =>
+export const getCurrentFramework = (): ConsentFramework | undefined =>
 	currentFramework;
