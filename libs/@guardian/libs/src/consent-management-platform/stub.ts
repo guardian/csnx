@@ -1,3 +1,4 @@
+import { stub_gpp_ccpa } from './stub_gpp_ccpa';
 import { stub_tcfv2 } from './stub_tcfv2';
 import { stub_uspapi_ccpa } from './stub_uspapi_ccpa';
 import type { ConsentFramework } from './types';
@@ -12,6 +13,7 @@ export const stub = (framework: ConsentFramework): void => {
 			stub_tcfv2();
 			break;
 		case 'ccpa':
+			stub_gpp_ccpa();
 			stub_uspapi_ccpa();
 			break;
 		case 'aus':

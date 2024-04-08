@@ -39,7 +39,22 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	// invoke callbacks before we receive Sourcepoint events
 	invokeCallbacks();
 
-	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
+	let frameworkMessageType: string;
+	switch (framework) {
+		case 'tcfv2':
+			frameworkMessageType = 'gdpr';
+			break;
+		case 'ccpa':
+			frameworkMessageType = 'usnat';
+			break;
+
+		case 'aus':
+			frameworkMessageType = 'ccpa';
+			break;
+		default:
+			frameworkMessageType = 'gdpr';
+			break;
+	}
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -51,6 +66,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getProperty(framework),
+			campaignEnv: 'stage',
 			targetingParams: {
 				framework,
 			},
@@ -151,10 +167,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			};
 			break;
 		case 'ccpa':
-			window._sp_.config.ccpa = {
+			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
 				},
+				includeUspApi: true,
+				transitionCCPAAuth: true,
 			};
 			break;
 		case 'aus':

@@ -3,7 +3,7 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
-import type { CCPAData } from './ccpa';
+import type { CCPAData, GPPData } from './ccpa';
 import type { TCData } from './tcfv2/TCData';
 import type { CMP, ConsentFramework, PubData } from '.';
 
@@ -33,6 +33,7 @@ declare global {
 				accountId: number;
 				propertyHref: Property;
 				propertyId?: string;
+				campaignEnv?: string;
 				targetingParams: {
 					framework: ConsentFramework;
 				};
@@ -42,6 +43,13 @@ declare global {
 					};
 				};
 				gdpr?: {
+					targetingParams?: {
+						framework: ConsentFramework;
+					};
+				};
+				usnat?: {
+					includeUspApi?: boolean;
+					transitionCCPAAuth?: boolean;
 					targetingParams?: {
 						framework: ConsentFramework;
 					};
@@ -82,6 +90,9 @@ declare global {
 			ccpa?: {
 				loadPrivacyManagerModal?: (id: number) => void;
 			};
+			usnat?: {
+				loadPrivacyManagerModal?: (id: number) => void;
+			};
 		};
 
 		// IAB interfaces - only one should be present at a time
@@ -95,6 +106,10 @@ declare global {
 			version: number,
 			callback: (tcData: TCData, success: boolean) => void,
 			vendorIDs?: number[],
+		) => void;
+		__gpp?: (
+			command: string,
+			callback: (gppData: GPPData, success: boolean) => void,
 		) => void;
 	}
 }
