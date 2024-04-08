@@ -12,8 +12,8 @@ hierarchy and legibility.
 
 ```tsx
 import {
-	article17,
 	headlineMedium42,
+	textEgyptian17,
 	textSans14,
 } from '@guardian/source-foundations';
 
@@ -22,7 +22,7 @@ const h1 = css`
 `;
 
 const p = css`
-	${article17};
+	${textEgyptian17};
 `;
 
 const copyright = css`
@@ -79,10 +79,6 @@ presets.
 Use for headlines, headings and any short form text like pull quotes, bylines
 and titles.
 
-#### Kicker — Guardian Headline
-
-Use for a kicker in the fronts card.
-
 #### Guardian Text Sans
 
 Use for interactive page elements like buttons and text input fields and for
@@ -101,3 +97,4 @@ _Note:_ this font is not available on [theguardian.com](https://theguardian.com)
 ### Specimen
 
 <Canvas of={TypographyStories.Presets} />
+import {textEgyptian17} from 'libs/@guardian/source-foundations/vendor/typography/css';
