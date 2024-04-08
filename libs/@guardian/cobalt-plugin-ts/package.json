@@ -15,5 +15,23 @@
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"packageJson": "libs/@guardian/cobalt-plugin-ts/package.json",
+					"outputPath": "dist/libs/@guardian/cobalt-plugin-ts",
+					"assets": [
+						"libs/@guardian/cobalt-plugin-ts/*.md",
+						"libs/@guardian/cobalt-plugin-ts/index.mjs"
+					]
+				}
+			}
+		}
 	}
 }

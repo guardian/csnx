@@ -2,5 +2,32 @@
 	"name": "@guardian/tsconfig",
 	"version": "0.2.0",
 	"description": "TSConfig base for Guardian TypeScript projects",
-	"main": "tsconfig.json"
+	"main": "tsconfig.json",
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"outputPath": "dist/libs/@guardian/tsconfig",
+					"assets": [
+						"libs/@guardian/tsconfig/tsconfig.json",
+						"libs/@guardian/tsconfig/*.md"
+					],
+					"packageJson": "libs/@guardian/tsconfig/package.json"
+				}
+			},
+			"verify-dist": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/tsconfig"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/tsconfig/jest.config.js"
+				}
+			}
+		}
+	}
 }

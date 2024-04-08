@@ -19,5 +19,67 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "libs/@guardian/newsletter-types/src/index.ts",
+					"tsConfig": "libs/@guardian/newsletter-types/tsconfig.json",
+					"packageJson": "libs/@guardian/newsletter-types/package.json",
+					"outputPath": "dist/libs/@guardian/newsletter-types",
+					"assets": [
+						"libs/@guardian/newsletter-types/*.md"
+					]
+				}
+			},
+			"lint": {
+				"executor": "@csnx/eslint:check",
+				"outputs": [
+					"{options.outputFile}"
+				],
+				"options": {
+					"lintFilePatterns": [
+						"libs/@guardian/newsletter-types/**/*.ts"
+					]
+				}
+			},
+			"fix": {
+				"executor": "@csnx/eslint:fix",
+				"outputs": [
+					"{options.outputFile}"
+				],
+				"options": {
+					"lintFilePatterns": [
+						"libs/@guardian/newsletter-types/**/*.ts"
+					]
+				}
+			},
+			"test": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/newsletter-types"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
+					"passWithNoTests": true
+				}
+			},
+			"dev": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/newsletter-types"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
+					"passWithNoTests": false,
+					"watch": true
+				}
+			}
+		}
 	}
 }
