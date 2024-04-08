@@ -44,7 +44,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		case 'tcfv2':
 			frameworkMessageType = 'gdpr';
 			break;
-		case 'ccpa':
+		case 'usnat':
 			frameworkMessageType = 'usnat';
 			break;
 
@@ -166,7 +166,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 			};
 			break;
-		case 'ccpa':
+		case 'usnat':
 			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,

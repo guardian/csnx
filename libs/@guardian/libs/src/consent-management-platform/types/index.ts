@@ -4,7 +4,7 @@ import type { AUSConsentState } from './aus';
 import type { CCPAConsentState } from './ccpa';
 import type { TCFv2ConsentState } from './tcfv2';
 
-export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus';
+export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus' | 'usnat';
 
 export type CMP = {
 	init: InitCMP;

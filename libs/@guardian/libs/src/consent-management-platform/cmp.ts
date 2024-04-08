@@ -29,7 +29,7 @@ function showPrivacyManager(): void {
 		case 'tcfv2':
 			window._sp_?.gdpr?.loadPrivacyManagerModal?.(PRIVACY_MANAGER_TCFV2);
 			break;
-		case 'ccpa':
+		case 'usnat':
 			window._sp_?.usnat?.loadPrivacyManagerModal?.(PRIVACY_MANAGER_CCPA);
 			break;
 		case 'aus':
