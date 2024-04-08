@@ -1,4 +1,4 @@
-import { palette } from './colour/palette';
+export * from './deprecated-exports';
 
 // accessibility
 export { descriptionId } from './accessibility/description-id';
@@ -17,46 +17,7 @@ export { breakpoints } from './breakpoints/breakpoints';
 export { between, from, until } from './mq/mq';
 
 // palette
-export { palette };
-
-/**
- * @deprecated exports - to be removed in a future major version.
- * Colours should now be imported from the `palette` object.
- */
-export {
-	background,
-	brandBackground,
-	brandAltBackground,
-	border,
-	brandBorder,
-	brandAltBorder,
-	line,
-	brandLine,
-	brandAltLine,
-	text,
-	brandText,
-	brandAltText,
-} from './colour/palette';
-
-/**
- * @deprecated exports - to be removed in a future major version.
- * Colours should now be imported from the `palette` object.
- */
-export const {
-	brand,
-	brandAlt,
-	neutral,
-	error,
-	success,
-	news,
-	opinion,
-	sport,
-	culture,
-	lifestyle,
-	labs,
-	specialReport,
-	focus,
-} = palette;
+export { palette } from './colour/palette';
 
 // size
 export {
@@ -105,7 +66,6 @@ export type {
 	FontWeightDefinition,
 	Option,
 	TypographyStyles,
-	TypographySizes,
 	TitlepieceSizes,
 	HeadlineSizes,
 	BodySizes,
