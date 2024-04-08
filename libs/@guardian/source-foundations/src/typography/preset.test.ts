@@ -23,14 +23,6 @@ import * as presets from '../../vendor/typography/css';
  */
 
 const typographyApiMapping = {
-	article15: body.small(),
-	article17: body.medium(),
-	articleBold15: body.small({ fontWeight: 'bold' }),
-	articleBold17: body.medium({ fontWeight: 'bold' }),
-	articleBoldItalic15: body.small({ fontWeight: 'bold', fontStyle: 'italic' }),
-	articleBoldItalic17: body.medium({ fontWeight: 'bold', fontStyle: 'italic' }),
-	articleItalic15: body.small({ fontStyle: 'italic' }),
-	articleItalic17: body.medium({ fontStyle: 'italic' }),
 	// headlineBold14: () => {},
 	headlineBold17: headline.xxxsmall({ fontWeight: 'bold' }),
 	headlineBold20: headline.xxsmall({ fontWeight: 'bold' }),
@@ -97,11 +89,6 @@ const typographyApiMapping = {
 	headlineMediumItalic42: headline.large({ fontStyle: 'italic' }),
 	headlineMediumItalic50: headline.xlarge({ fontStyle: 'italic' }),
 	// headlineMediumItalic70: () => {},
-	// kicker14: () => {},
-	kicker17: headline.xxxsmall({ fontWeight: 'bold' }),
-	kicker20: headline.xxsmall({ fontWeight: 'bold' }),
-	kicker24: headline.xsmall({ fontWeight: 'bold' }),
-	kicker34: headline.medium({ fontWeight: 'bold' }),
 	textEgyptian14: body.xsmall({ lineHeight: 'regular' }),
 	textEgyptian15: body.small({ lineHeight: 'regular' }),
 	textEgyptian17: body.medium({ lineHeight: 'regular' }),
