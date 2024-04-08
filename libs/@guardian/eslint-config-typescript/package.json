@@ -19,5 +19,32 @@
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"outputPath": "dist/libs/@guardian/eslint-config-typescript",
+					"packageJson": "libs/@guardian/eslint-config-typescript/package.json",
+					"assets": [
+						"libs/@guardian/eslint-config-typescript/index.js",
+						"libs/@guardian/eslint-config-typescript/*.md"
+					]
+				}
+			},
+			"verify-dist": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/eslint-config-typescript"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/eslint-config-typescript/jest.config.js"
+				}
+			}
+		}
 	}
 }

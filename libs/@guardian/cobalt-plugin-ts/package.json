@@ -5,8 +5,8 @@
 	"type": "module",
 	"main": "./index.mjs",
 	"devDependencies": {
-		"@cobalt-ui/cli": "^1.8.1",
-		"@cobalt-ui/core": "^1.8.1",
+		"@cobalt-ui/cli": "^1.11.0",
+		"@cobalt-ui/core": "^1.11.0",
 		"@cobalt-ui/plugin-css": "^1.7.0",
 		"@cobalt-ui/plugin-js": "^1.4.3",
 		"@cobalt-ui/utils": "^1.2.2",
@@ -15,5 +15,23 @@
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"packageJson": "libs/@guardian/cobalt-plugin-ts/package.json",
+					"outputPath": "dist/libs/@guardian/cobalt-plugin-ts",
+					"assets": [
+						"libs/@guardian/cobalt-plugin-ts/*.md",
+						"libs/@guardian/cobalt-plugin-ts/index.mjs"
+					]
+				}
+			}
+		}
 	}
 }

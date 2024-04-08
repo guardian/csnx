@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "16.0.2",
+	"version": "16.1.0",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
@@ -26,5 +26,91 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "libs/@guardian/libs/src/index.ts",
+					"tsConfig": "libs/@guardian/libs/tsconfig.json",
+					"packageJson": "libs/@guardian/libs/package.json",
+					"outputPath": "dist/libs/@guardian/libs",
+					"assets": [
+						"libs/@guardian/libs/*.md"
+					]
+				}
+			},
+			"lint": {
+				"executor": "@csnx/eslint:check",
+				"outputs": [
+					"{options.outputFile}"
+				],
+				"options": {
+					"lintFilePatterns": [
+						"libs/@guardian/libs/**/*.ts"
+					]
+				}
+			},
+			"fix": {
+				"executor": "@csnx/eslint:fix",
+				"outputs": [
+					"{options.outputFile}"
+				],
+				"options": {
+					"lintFilePatterns": [
+						"libs/@guardian/libs/**/*.ts"
+					]
+				}
+			},
+			"test": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/libs"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/libs/jest.config.ts",
+					"passWithNoTests": false
+				}
+			},
+			"e2e": {
+				"dependsOn": [
+					"github-pages:build"
+				],
+				"executor": "@nx/cypress:cypress",
+				"options": {
+					"cypressConfig": "libs/@guardian/libs/cypress.config.js",
+					"testingType": "e2e",
+					"devServerTarget": "github-pages:serve:e2e"
+				}
+			},
+			"verify-dist": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/libs"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/libs/jest.dist.config.ts",
+					"passWithNoTests": false,
+					"setupFilesAfterEnv": [
+						"./jest.dist.setup.js"
+					]
+				}
+			},
+			"dev": {
+				"executor": "@nx/jest:jest",
+				"outputs": [
+					"{workspaceRoot}/coverage/libs/@guardian/libs"
+				],
+				"options": {
+					"jestConfig": "libs/@guardian/libs/jest.config.ts",
+					"passWithNoTests": false,
+					"watch": true
+				}
+			}
+		}
 	}
 }
