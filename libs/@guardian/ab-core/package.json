@@ -5,6 +5,10 @@
 	"description": "A client-side library for A/B & multivariate testing",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
@@ -39,26 +43,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/ab-core/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/ab-core/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/ab-core/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/ab-core/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/ab-core/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

@@ -1,0 +1,12 @@
+{
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
+	"overrides": [
+		{
+			"files": ["**/*.test.*"],
+			"env": {
+				"jest": true
+			}
+		}
+	]
+}

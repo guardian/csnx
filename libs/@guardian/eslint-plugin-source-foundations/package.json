@@ -2,6 +2,10 @@
 	"name": "@guardian/eslint-plugin-source-foundations",
 	"version": "18.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "6.21.0",
 		"@typescript-eslint/parser": "6.21.0",
@@ -14,7 +18,8 @@
 		"@types/estree": "1.0.5",
 		"eslint": "8.56.0",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "^16.0.0",
@@ -46,26 +51,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/eslint-plugin-source-foundations/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-foundations/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-foundations/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/eslint-plugin-source-foundations/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-foundations/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

@@ -11,6 +11,9 @@ dist
 # https://www.typescriptlang.org/tsconfig#incremental
 tsconfig.tsbuildinfo
 
+# Speed up eslint
+.eslintcache
+
 **/cypress/screenshots
 
 # wireit cache dirs

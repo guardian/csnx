@@ -1,4 +1,5 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { InputSize } from '@guardian/source-react-components';
 import {
 	inputExtension,
 	inputPrefix,
@@ -6,7 +7,6 @@ import {
 } from './inputExtensionStyles';
 import type { InputTheme } from './NumericInput';
 import { errorInput, successInput } from './sharedStyles';
-import type { InputSize } from '@guardian/source-react-components';
 
 type InputExtensionProps = {
 	children: string;

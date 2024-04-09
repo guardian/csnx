@@ -3,6 +3,10 @@
 	"version": "7.0.1",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
@@ -31,6 +35,21 @@
 						"libs/@guardian/eslint-config/*.md"
 					]
 				}
+			},
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-config/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-config/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-config/"
+				]
 			},
 			"verify-dist": {
 				"executor": "@nx/jest:jest",

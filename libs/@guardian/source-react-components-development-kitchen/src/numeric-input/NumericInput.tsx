@@ -134,7 +134,7 @@ export const NumericInput = ({
 					id={textInputId}
 					aria-required={!optional}
 					aria-invalid={!!error}
-					aria-describedby={error || success ? descriptionId(textInputId) : ''}
+					aria-describedby={error ?? success ? descriptionId(textInputId) : ''}
 					required={!optional}
 					{...props}
 				/>

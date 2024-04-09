@@ -5,6 +5,10 @@
 	"description": "A React library for A/B & multivariate testing",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
 		"@guardian/ab-core": "7.0.0",
@@ -48,28 +52,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/ab-react/**/*.ts",
-						"libs/@guardian/ab-react/**/*.tsx"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/ab-react/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/ab-react/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/ab-react/**/*.ts",
-						"libs/@guardian/ab-react/**/*.tsx"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/ab-react/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

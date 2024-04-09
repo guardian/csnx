@@ -4,6 +4,10 @@
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",
 		"cypress": "13.7.1",
@@ -45,26 +49,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/libs/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/libs/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/libs/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/libs/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/libs/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",
