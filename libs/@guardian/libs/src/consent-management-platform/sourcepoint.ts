@@ -47,7 +47,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		case 'usnat':
 			frameworkMessageType = 'usnat';
 			break;
-
 		case 'aus':
 			frameworkMessageType = 'ccpa';
 			break;
@@ -66,7 +65,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getProperty(framework),
-			campaignEnv: 'stage',
+			campaignEnv: 'stage', // TODO: REMOVE AFTER TESTING
 			targetingParams: {
 				framework,
 			},
@@ -171,7 +170,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				targetingParams: {
 					framework,
 				},
-				includeUspApi: true,
+				includeUspApi: true, // TODO: TO CONFIRM
 				transitionCCPAAuth: true,
 			};
 			break;
