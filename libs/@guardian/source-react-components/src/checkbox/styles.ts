@@ -6,7 +6,9 @@ import {
 	height,
 	resets,
 	space,
-	textSans,
+	textSans15,
+	textSans17,
+	textSans24,
 	transitions,
 	width,
 } from '@guardian/source-foundations';
@@ -104,7 +106,7 @@ export const checkbox = (
 
 		&:indeterminate {
 			&:after {
-				${textSans.xlarge()};
+				${textSans24};
 				color: ${checkbox.textIndeterminate};
 				content: '-';
 				position: absolute;
@@ -117,13 +119,13 @@ export const checkbox = (
 `;
 
 export const labelText = (checkbox: ThemeCheckbox): SerializedStyles => css`
-	${textSans.medium()};
+	${textSans17};
 	color: ${checkbox.textLabel};
 	width: 100%;
 `;
 
 export const labelTextWithSupportingText = css`
-	${textSans.medium()};
+	${textSans17};
 	margin-top: 1px;
 	/* If label text is empty, add additional spacing to align supporting text */
 	&:empty {
@@ -134,7 +136,7 @@ export const labelTextWithSupportingText = css`
 export const supportingText = (
 	checkbox: ThemeCheckbox,
 ): SerializedStyles => css`
-	${textSans.small()};
+	${textSans15};
 	color: ${checkbox.textSupporting};
 `;
 
