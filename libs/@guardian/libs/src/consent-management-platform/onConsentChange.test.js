@@ -1,5 +1,5 @@
 import ausData from './aus/__fixtures__/api.getUSPData.json';
-import gppData from './ccpa/__fixtures__/api.getGPPData.success.json';
+import gppData from './usnat/__fixtures__/api.getGPPData.success.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
@@ -21,13 +21,13 @@ it('throws an error if no framework is present', () => {
 	);
 });
 
-describe('under CCPA', () => {
+describe('under USNAT', () => {
 	beforeEach(() => {
 		window.__gpp = jest.fn((command, callback) => {
 			if (command === 'ping') callback(gppData, true);
 		});
 
-		setCurrentFramework('ccpa');
+		setCurrentFramework('usnat');
 	});
 
 	it('invokes callbacks correctly', async () => {

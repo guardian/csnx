@@ -1,7 +1,7 @@
 import type { CountryCode } from '../../countries/@types/CountryCode';
 import type { VendorName } from '../vendors';
 import type { AUSConsentState } from './aus';
-import type { CCPAConsentState } from './ccpa';
+import type { USNATConsentState } from './usnat';
 import type { TCFv2ConsentState } from './tcfv2';
 
 export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus' | 'usnat';
@@ -34,7 +34,7 @@ export type GetConsentFor = (
 
 export interface ConsentState {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: CCPAConsentState;
+	ccpa?: USNATConsentState; // TODO: Should we change to `usa`?
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
 	canTarget: boolean;

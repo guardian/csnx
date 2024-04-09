@@ -1,4 +1,4 @@
-export interface CCPAConsentState {
+export interface USNATConsentState {
 	doNotSell: boolean;
 }
 

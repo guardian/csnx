@@ -1,4 +1,4 @@
-import type { GPPData } from '../types/ccpa';
+import type { GPPData } from '../types/usnat';
 
 type Command = 'ping';
 

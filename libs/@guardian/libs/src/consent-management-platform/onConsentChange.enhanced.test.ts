@@ -1,11 +1,11 @@
 import { getConsentState as getAUSConsentState } from './aus/getConsentState';
-import { getConsentState as getCCPAConsentState } from './ccpa/getConsentState';
+import { getConsentState as getCCPAConsentState } from './usnat/getConsentState';
 import { setCurrentFramework, unsetFramework } from './getCurrentFramework';
 import { _ } from './onConsentChange';
 import { getConsentState as getTCFv2ConsentState } from './tcfv2/getConsentState';
 import type { ConsentFramework, ConsentState } from './types';
 import type { AUSConsentState } from './types/aus';
-import type { CCPAConsentState } from './types/ccpa';
+import type { CCPAConsentState } from './types/usnat';
 import type { TCFv2ConsentState } from './types/tcfv2';
 
 jest.mock('./tcfv2/getConsentState');

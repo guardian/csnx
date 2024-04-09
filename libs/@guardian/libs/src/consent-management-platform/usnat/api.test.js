@@ -1,4 +1,4 @@
-import { getGPPData } from './api.ts';
+import { getGPPData } from './api.js';
 
 it('calls the correct IAB api with the correct methods', async () => {
 	expect(getGPPData()).rejects.toThrow();

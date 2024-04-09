@@ -2,7 +2,7 @@ import { onConsent } from './onConsent';
 import { onConsentChange } from './onConsentChange';
 import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { AUSConsentState } from './types/aus';
-import type { CCPAConsentState } from './types/ccpa';
+import type { CCPAConsentState } from './types/usnat';
 import type { TCFv2ConsentState } from './types/tcfv2';
 
 jest.mock('./onConsentChange');
