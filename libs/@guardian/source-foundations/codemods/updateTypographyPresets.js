@@ -404,26 +404,26 @@ module.exports = function (fileInfo, api) {
 		}
 	});
 
-	// Assuming importDeclaration is defined as the specific import declaration
-	// for '@guardian/source-foundations'
-	const importDeclaration = root
-		.find(j.ImportDeclaration, {
-			source: { value: '@guardian/source-foundations' },
-		})
-		.get(0);
+	const importDeclaration = root.find(j.ImportDeclaration, {
+		source: { value: '@guardian/source-foundations' },
+	});
 
 	// Add missing preset imports
-	usedPresets.forEach((preset) => {
-		if (
-			!importDeclaration.node.specifiers.some(
-				(specifier) => specifier.imported.name === preset,
-			)
-		) {
-			importDeclaration.node.specifiers.push(
-				j.importSpecifier(j.identifier(preset)),
-			);
-		}
-	});
+	if (importDeclaration.length > 0) {
+		usedPresets.forEach((preset) => {
+			if (
+				!importDeclaration
+					.get(0)
+					.node.specifiers.some(
+						(specifier) => specifier.imported.name === preset,
+					)
+			) {
+				importDeclaration
+					.get(0)
+					.node.specifiers.push(j.importSpecifier(j.identifier(preset)));
+			}
+		});
+	}
 
 	return root.toSource({ quote: 'single' });
 };
