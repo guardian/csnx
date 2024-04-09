@@ -3,8 +3,9 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
-import type { CCPAData, GPPData } from './usnat';
+import type { CCPAData } from './aus';
 import type { TCData } from './tcfv2/TCData';
+import type { GPPData } from './usnat';
 import type { CMP, ConsentFramework, PubData } from '.';
 
 type OnMessageChoiceSelect = (

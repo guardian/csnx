@@ -1,8 +1,8 @@
 import type { CountryCode } from '../../countries/@types/CountryCode';
 import type { VendorName } from '../vendors';
 import type { AUSConsentState } from './aus';
-import type { USNATConsentState } from './usnat';
 import type { TCFv2ConsentState } from './tcfv2';
+import type { USNATConsentState } from './usnat';
 
 export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus' | 'usnat';
 

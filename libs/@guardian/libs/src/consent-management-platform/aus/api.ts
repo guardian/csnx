@@ -1,4 +1,4 @@
-import type { CCPAData } from '../types/usnat';
+import type { CCPAData } from '../types/aus';
 
 type Command = 'getUSPData';
 

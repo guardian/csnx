@@ -2,11 +2,6 @@ export interface USNATConsentState {
 	doNotSell: boolean;
 }
 
-export interface CCPAData {
-	version: number;
-	uspString: string;
-}
-
 interface GppParsedSections {
 	usnatv1?: {
 		Version: number;
