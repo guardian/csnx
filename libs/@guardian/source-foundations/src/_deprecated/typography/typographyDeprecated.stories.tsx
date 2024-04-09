@@ -1,9 +1,9 @@
 import {
-	headlineObjectStyles,
 	bodyObjectStyles,
+	headlineObjectStyles,
 	textSansObjectStyles,
 	titlepieceObjectStyles,
-} from '@guardian/source-foundations';
+} from '../..';
 import {
 	FontStylesRenderer,
 	LineHeightRenderer,
