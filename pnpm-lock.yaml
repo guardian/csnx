@@ -564,8 +564,8 @@ importers:
         specifier: 11.11.1
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/source-foundations':
-        specifier: 14.1.4
-        version: link:../source-foundations
+        specifier: 0.0.0-canary-20240409104240
+        version: 0.0.0-canary-20240409104240(tslib@2.6.2)(typescript@5.3.3)
       '@svgr/babel-preset':
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.24.0)
@@ -3142,6 +3142,20 @@ packages:
       typescript:
         optional: true
     dependencies:
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
+  /@guardian/source-foundations@0.0.0-canary-20240409104240(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-IzcE0g2XJq6qbENcd4iyiy9f2ZDgZqpO40Mh7eCaje5GNADtYgJWQdTYOkFSvy5S+YE2184WkHSVDmtdnMqI6g==}
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
       tslib: 2.6.2
       typescript: 5.3.3
     dev: true
@@ -12564,7 +12578,6 @@ packages:
   /mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
