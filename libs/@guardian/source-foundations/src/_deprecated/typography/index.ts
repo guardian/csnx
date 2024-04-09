@@ -20,6 +20,9 @@ import type {
  * ```
  * font-family: 'GT Guardian Titlepiece';
  * ```
+ *
+ * @deprecated Use web typography presets instead
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
 	small: fontStyleToStringFunction(titlepieceAsObj.small),
@@ -34,6 +37,9 @@ export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
  * ```
  * font-family: 'GH Guardian Headline';
  * ```
+ *
+ * @deprecated Use web typography presets instead
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const headline: TypographyStrFunctions<HeadlineSizes> = {
 	xxxsmall: fontStyleToStringFunction(headlineAsObj.xxxsmall),
@@ -52,6 +58,9 @@ export const headline: TypographyStrFunctions<HeadlineSizes> = {
  * ```
  * font-family: 'GuardianTextEgyptian';
  * ```
+ *
+ * @deprecated Use web typography presets instead
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const body: TypographyStrFunctions<BodySizes> = {
 	xsmall: fontStyleToStringFunction(bodyAsObj.xsmall),
@@ -66,6 +75,9 @@ export const body: TypographyStrFunctions<BodySizes> = {
  * ```
  * font-family: 'GuardianTextSans';
  * ```
+ *
+ * @deprecated Use web typography presets instead
+ * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const textSans: TypographyStrFunctions<TextSansSizes> = {
 	xxsmall: fontStyleToStringFunction(textSansAsObj.xxsmall),
