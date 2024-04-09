@@ -1,7 +1,7 @@
 /* eslint-disable -- this is third party code */
 /* istanbul ignore file */
 // Reference : https://docs.sourcepoint.com/hc/en-us/articles/18007731422099-Enable-GPP-Multi-State-Privacy-String-MSPS-with-U-S-Privacy-CCPA-solution
-export const stub_gpp_ccpa = () => {
+export const stub_gpp_usnat = () => {
 	(window.__gpp_addFrame = function (e) {
 		if (!window.frames[e])
 			if (document.body) {
