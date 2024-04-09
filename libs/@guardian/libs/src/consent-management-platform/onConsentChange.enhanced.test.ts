@@ -5,8 +5,8 @@ import { _ } from './onConsentChange';
 import { getConsentState as getTCFv2ConsentState } from './tcfv2/getConsentState';
 import type { ConsentFramework, ConsentState } from './types';
 import type { AUSConsentState } from './types/aus';
-import type { CCPAConsentState } from './types/usnat';
 import type { TCFv2ConsentState } from './types/tcfv2';
+import type { USNATConsentState } from './types/usnat';
 
 jest.mock('./tcfv2/getConsentState');
 jest.mock('./ccpa/getConsentState');
@@ -23,7 +23,7 @@ const tcfv2ConsentState: TCFv2ConsentState = {
 	tcString: 'YAAA',
 };
 
-const ccpaConsentState: CCPAConsentState = {
+const usnatConsentState: USNATConsentState = {
 	doNotSell: false,
 };
 
@@ -32,8 +32,8 @@ const ausConsentState: AUSConsentState = {
 };
 
 const setAPI = (framework: ConsentFramework | null) => {
-	if (framework === 'ccpa') {
-		setCurrentFramework('ccpa');
+	if (framework === 'usnat') {
+		setCurrentFramework('usnat');
 		return;
 	} else if (framework === 'aus') {
 		setCurrentFramework('aus');
@@ -83,11 +83,11 @@ describe('onConsentChange enhances basic consent state', () => {
 	});
 	test('ccpa can target', async () => {
 		(getCCPAConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<CCPAConsentState>(ccpaConsentState),
+			Promise.resolve<USNATConsentState>(usnatConsentState),
 		);
 		setAPI('ccpa');
 		const expectedConsentState: ConsentState = {
-			ccpa: ccpaConsentState,
+			ccpa: usnatConsentState,
 			canTarget: true,
 			framework: 'ccpa',
 		};
@@ -96,7 +96,7 @@ describe('onConsentChange enhances basic consent state', () => {
 	});
 	test('ccpa can NOT target', async () => {
 		(getCCPAConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<CCPAConsentState>({ doNotSell: true }),
+			Promise.resolve<USNATConsentState>({ doNotSell: true }),
 		);
 		setAPI('ccpa');
 		const expectedConsentState: ConsentState = {
@@ -146,11 +146,11 @@ describe('onConsentChange enhances basic consent state', () => {
 	test('notices a GPC signal', async () => {
 		setGpc(true);
 		(getCCPAConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<CCPAConsentState>(ccpaConsentState),
+			Promise.resolve<USNATConsentState>(usnatConsentState),
 		);
 		setAPI('ccpa');
 		const expectedConsentState: ConsentState = {
-			ccpa: ccpaConsentState,
+			ccpa: usnatConsentState,
 			canTarget: true,
 			framework: 'ccpa',
 			gpcSignal: true,

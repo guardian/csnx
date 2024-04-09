@@ -5,12 +5,12 @@ import { getGpcSignal } from './lib/signals';
 import { getConsentState as getTCFv2ConsentState } from './tcfv2/getConsentState';
 import type { CallbackQueueItem, ConsentState, OnConsentChange } from './types';
 import type { AUSConsentState } from './types/aus';
-import type { CCPAConsentState } from './types/usnat';
 import type { TCFv2ConsentState } from './types/tcfv2';
+import type { USNATConsentState } from './types/usnat';
 
 interface ConsentStateBasic {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: CCPAConsentState;
+	ccpa?: USNATConsentState;
 	aus?: AUSConsentState;
 }
 
@@ -88,7 +88,7 @@ const getConsentState: () => Promise<ConsentState> = async () => {
 	switch (getCurrentFramework()) {
 		case 'aus':
 			return enhanceConsentState({ aus: await getAUSConsentState() });
-		case 'ccpa':
+		case 'usnat':
 			return enhanceConsentState({ ccpa: await getCCPAConsentState() });
 		case 'tcfv2':
 			return enhanceConsentState({ tcfv2: await getTCFv2ConsentState() });
