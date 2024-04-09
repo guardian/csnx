@@ -564,8 +564,8 @@ importers:
         specifier: 11.11.1
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/source-foundations':
-        specifier: 0.0.0-canary-20240409104240
-        version: 0.0.0-canary-20240409104240(tslib@2.6.2)(typescript@5.3.3)
+        specifier: 0.0.0-canary-20240409134123
+        version: 0.0.0-canary-20240409134123(tslib@2.6.2)(typescript@5.3.3)
       '@svgr/babel-preset':
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.24.0)
@@ -3146,8 +3146,8 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/source-foundations@0.0.0-canary-20240409104240(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-IzcE0g2XJq6qbENcd4iyiy9f2ZDgZqpO40Mh7eCaje5GNADtYgJWQdTYOkFSvy5S+YE2184WkHSVDmtdnMqI6g==}
+  /@guardian/source-foundations@0.0.0-canary-20240409134123(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-OOrOdRuFEeR5MDZIh3xJ1/ZFWVBBkMub+Rww6loq4/0anRXJz51axs3QBCyziFMjkD4qMxve6HC6HqHV/kBNrQ==}
     peerDependencies:
       tslib: ^2.6.2
       typescript: ~5.3.3
