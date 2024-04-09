@@ -1,9 +1,9 @@
 import ausData from './aus/__fixtures__/api.getUSPData.json';
-import gppData from './usnat/__fixtures__/api.getGPPData.success.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
 import tcData from './tcfv2/__fixtures__/api.getTCData.json';
+import gppData from './usnat/__fixtures__/api.getGPPData.canSell.json';
 
 const resolveAllPromises = () =>
 	new Promise((resolve) => process.nextTick(resolve));

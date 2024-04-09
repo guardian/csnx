@@ -88,7 +88,7 @@ describe('hotfix cmp.init', () => {
 	it.each([
 		['GB', 'tcfv2'],
 		['AU', 'aus'],
-		['US', 'ccpa'],
+		['US', 'usnat'],
 		['YT', 'tcfv2'],
 		['FR', 'tcfv2'],
 		['CA', 'tcfv2'],

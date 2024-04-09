@@ -42,7 +42,7 @@ describe('Sourcepoint unified', () => {
 				expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeUndefined();
 				expect(window.__gpp).toBeUndefined();
-			} else if (framework == 'ccpa') {
+			} else if (framework == 'usnat') {
 				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
 				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
 				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(

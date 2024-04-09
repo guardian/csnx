@@ -1,5 +1,4 @@
 import { getConsentState as getAUSConsentState } from './aus/getConsentState';
-import { getConsentState as getCCPAConsentState } from './usnat/getConsentState';
 import { getCurrentFramework } from './getCurrentFramework';
 import { getGpcSignal } from './lib/signals';
 import { getConsentState as getTCFv2ConsentState } from './tcfv2/getConsentState';
@@ -7,6 +6,7 @@ import type { CallbackQueueItem, ConsentState, OnConsentChange } from './types';
 import type { AUSConsentState } from './types/aus';
 import type { TCFv2ConsentState } from './types/tcfv2';
 import type { USNATConsentState } from './types/usnat';
+import { getConsentState as getCCPAConsentState } from './usnat/getConsentState';
 
 interface ConsentStateBasic {
 	tcfv2?: TCFv2ConsentState;
@@ -65,7 +65,7 @@ const enhanceConsentState = (consentState: ConsentStateBasic): ConsentState => {
 		return {
 			...consentState,
 			canTarget: !consentState.ccpa.doNotSell,
-			framework: 'ccpa',
+			framework: 'usnat',
 			gpcSignal,
 		};
 	} else if (consentState.aus) {
