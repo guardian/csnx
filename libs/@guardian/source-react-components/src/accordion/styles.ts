@@ -3,10 +3,10 @@ import { css } from '@emotion/react';
 import {
 	focusHalo,
 	from,
-	headline,
+	headlineBold17,
 	remSpace,
 	space,
-	textSans,
+	textSansBold15,
 	transitions,
 	until,
 	visuallyHidden,
@@ -53,7 +53,7 @@ export const noJsButton = (accordion: ThemeAccordion): SerializedStyles => css`
 `;
 
 export const labelText = css`
-	${headline.xxxsmall({ fontWeight: 'bold' })};
+	${headlineBold17};
 	margin-right: ${remSpace[4]};
 `;
 
@@ -127,7 +127,7 @@ export const toggle = css`
 `;
 
 export const toggleLabel = (accordion: ThemeAccordion): SerializedStyles => css`
-	${textSans.small({ fontWeight: 'bold' })};
+	${textSansBold15};
 	color: ${accordion.textLabel};
 	${until.tablet} {
 		${visuallyHidden}

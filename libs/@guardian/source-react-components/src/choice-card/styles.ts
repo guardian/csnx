@@ -6,7 +6,7 @@ import {
 	palette,
 	resets,
 	space,
-	textSans,
+	textSansBold17,
 	transitions,
 	visuallyHidden,
 	width,
@@ -173,7 +173,7 @@ export const contentWrapper = css`
 	}
 
 	& > * {
-		${textSans.medium({ fontWeight: 'bold' })};
+		${textSansBold17};
 		text-align: center;
 	}
 

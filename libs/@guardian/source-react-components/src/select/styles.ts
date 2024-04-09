@@ -5,7 +5,7 @@ import {
 	focusHalo,
 	height,
 	space,
-	textSans,
+	textSans17,
 	width,
 } from '@guardian/source-foundations';
 import type { ThemeSelect } from './theme';
@@ -62,7 +62,7 @@ export const select = (select: ThemeSelect): SerializedStyles => css`
 	box-sizing: border-box;
 	height: ${height.inputMedium}px;
 	width: 100%;
-	${textSans.medium()};
+	${textSans17};
 	background-color: ${select.backgroundInput};
 	border: 1px solid ${select.border};
 	border-radius: 4px;

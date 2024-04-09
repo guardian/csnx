@@ -1,14 +1,19 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { focusHalo, space, textSans } from '@guardian/source-foundations';
+import {
+	focusHalo,
+	space,
+	textSans14,
+	textSans17,
+} from '@guardian/source-foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeTextArea } from './theme';
 
 const textAreaSize: {
 	[key in InputSize]: string;
 } = {
-	medium: textSans.medium(),
-	small: textSans.xsmall(),
+	medium: textSans17,
+	small: textSans14,
 };
 
 export const errorInput = (textArea: ThemeTextArea): SerializedStyles => css`
