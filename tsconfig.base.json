@@ -34,9 +34,6 @@
 				"libs/@guardian/newsletters-types/src/index"
 			],
 			"@guardian/prettier": ["libs/@guardian/prettier/index"],
-			// "@guardian/source-foundations": [
-			// 	"libs/@guardian/source-foundations/src/index"
-			// ],
 			"@guardian/source-react-components": [
 				"libs/@guardian/source-react-components/src/index"
 			],
