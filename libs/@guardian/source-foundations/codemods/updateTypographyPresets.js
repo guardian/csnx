@@ -384,6 +384,27 @@ font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */;'}`;
 		});
 	});
 
+	const importDeclaration = root.find(j.ImportDeclaration, {
+		source: { value: '@guardian/source-foundations' },
+	});
+
+	// Add missing preset imports
+	if (importDeclaration.length > 0) {
+		usedPresets.forEach((preset) => {
+			if (
+				!importDeclaration
+					.get(0)
+					.node.specifiers.some(
+						(specifier) => specifier.imported.name === preset,
+					)
+			) {
+				importDeclaration
+					.get(0)
+					.node.specifiers.push(j.importSpecifier(j.identifier(preset)));
+			}
+		});
+	}
+
 	// Dynamically check and remove unused typographic element imports
 	Object.keys(sizeToPresetMapping).forEach((element) => {
 		const isElementCalled =
@@ -415,25 +436,5 @@ font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */;'}`;
 		}
 	});
 
-	const importDeclaration = root.find(j.ImportDeclaration, {
-		source: { value: '@guardian/source-foundations' },
-	});
-
-	// Add missing preset imports
-	if (importDeclaration.length > 0) {
-		usedPresets.forEach((preset) => {
-			if (
-				!importDeclaration
-					.get(0)
-					.node.specifiers.some(
-						(specifier) => specifier.imported.name === preset,
-					)
-			) {
-				importDeclaration
-					.get(0)
-					.node.specifiers.push(j.importSpecifier(j.identifier(preset)));
-			}
-		});
-	}
 	return root.toSource({ quote: 'single' });
 };
