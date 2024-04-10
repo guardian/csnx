@@ -306,35 +306,39 @@ module.exports = function (fileInfo, api) {
 
 				const optionsArg = expr.arguments[0];
 				if (optionsArg.type !== 'ObjectExpression') return;
-
 				const args = getArgumentsFromObjectExpression(optionsArg);
 				const newPresetName = buildPresetName(newSize, args);
 				let addComment = false;
 				let comment = `;
-/** @todo consider not overriding lineHeights */
-`;
+/** @todo consider not overriding lineHeights */`;
 				if (
-					args['fontWeight'] &&
-					typographyApiMapping[newPresetName].fontWeight !== args['fontWeight']
+					'fontWeight' in args &&
+					(typographyApiMapping[newPresetName].fontWeight !==
+						args['fontWeight'] ||
+						!typographyApiMapping[newPresetName].fontWeight)
 				) {
-					comment += `font-weight: ${args['fontWeight']};
-					`;
+					comment += `
+font-weight: ${args['fontWeight'] ?? ';/** @todo Unknown font weight */'} ;`;
 					addComment = true;
 				}
 				if (
-					args['lineHeight'] &&
-					typographyApiMapping[newPresetName].lineHeight !== args['lineHeight']
+					'lineHeight' in args &&
+					(typographyApiMapping[newPresetName].lineHeight !==
+						args['lineHeight'] ||
+						!typographyApiMapping[newPresetName].lineHeight)
 				) {
-					comment += `line-height: ${lineHeightMapping[args['lineHeight']]};
-					`;
+					comment += `
+line-height: ${lineHeightMapping[args['lineHeight']]};`;
 					addComment = true;
 				}
 				if (
-					args['fontStyle'] &&
-					typographyApiMapping[newPresetName].fontStyle !== args['fontStyle']
+					'fontStyle' in args &&
+					(typographyApiMapping[newPresetName].fontStyle !==
+						args['fontStyle'] ||
+						!typographyApiMapping[newPresetName].fontStyle)
 				) {
-					comment += `font-style: ${args['fontStyle']};
-					`;
+					comment += `
+font-style: ${args['fontStyle'] ?? ';/** @todo Unknown font style */'}`;
 					addComment = true;
 				}
 
@@ -424,6 +428,5 @@ module.exports = function (fileInfo, api) {
 			}
 		});
 	}
-
 	return root.toSource({ quote: 'single' });
 };
