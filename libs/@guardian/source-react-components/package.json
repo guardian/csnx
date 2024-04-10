@@ -13,7 +13,7 @@
 	"devDependencies": {
 		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
-		"@guardian/source-foundations": "0.0.0-canary-20240409134123",
+		"@guardian/source-foundations": "0.0.0-canary-20240410091047",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -33,7 +33,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
-		"@guardian/source-foundations": "^0.0.0-canary-20240409134123",
+		"@guardian/source-foundations": "^0.0.0-canary-20240410091047",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
