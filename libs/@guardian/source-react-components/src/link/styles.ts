@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import {
 	focusHalo,
 	space,
-	textSans,
+	textSans17,
 	width,
 } from '@guardian/source-foundations';
 import type { ReactElement } from 'react';
@@ -15,7 +15,7 @@ import { themeLink as defaultTheme } from './theme';
 
 export const link = css`
 	position: relative;
-	${textSans.medium()};
+	${textSans17};
 	cursor: pointer;
 	text-decoration: underline;
 	text-underline-position: under;

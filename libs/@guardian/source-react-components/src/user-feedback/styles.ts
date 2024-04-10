@@ -1,6 +1,11 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { remHeight, remWidth, textSans } from '@guardian/source-foundations';
+import {
+	remHeight,
+	remWidth,
+	textSans14,
+	textSans17,
+} from '@guardian/source-foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeUserFeedback } from './theme';
 
@@ -22,7 +27,7 @@ const inlineMessage = css`
 `;
 
 const inlineMessageSmall = css`
-	${textSans.xsmall()};
+	${textSans14};
 	svg {
 		width: ${remWidth.iconSmall}rem;
 		height: ${remHeight.iconSmall}rem;
@@ -30,7 +35,7 @@ const inlineMessageSmall = css`
 `;
 
 const inlineMessageMedium = css`
-	${textSans.medium()};
+	${textSans17};
 	svg {
 		width: ${remWidth.iconMedium}rem;
 		height: ${remHeight.iconMedium}rem;
