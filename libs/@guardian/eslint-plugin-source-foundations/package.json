@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
-		"@guardian/source-foundations": "14.1.4",
+		"@guardian/source-foundations": "0.0.0-canary-20240410091047",
 		"@types/eslint": "8.56.1",
 		"@types/estree": "1.0.5",
 		"eslint": "8.56.0",
@@ -23,7 +23,7 @@
 	},
 	"peerDependencies": {
 		"@guardian/libs": "^16.0.0",
-		"@guardian/source-foundations": "^14.1.4",
+		"@guardian/source-foundations": "^0.0.0-canary-20240410091047",
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
