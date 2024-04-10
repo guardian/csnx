@@ -310,7 +310,10 @@ module.exports = function (fileInfo, api) {
 				const newPresetName = buildPresetName(newSize, args);
 				let addComment = false;
 				let comment = `;
-/** @todo consider not overriding lineHeights */`;
+/**
+ * @TODO Typography preset styles should not be overridden.
+ * Please speak to your team's designer and update this to use a more appropriate preset.
+*/`;
 				if (
 					'fontWeight' in args &&
 					(typographyApiMapping[newPresetName].fontWeight !==
@@ -318,7 +321,7 @@ module.exports = function (fileInfo, api) {
 						!typographyApiMapping[newPresetName].fontWeight)
 				) {
 					comment += `
-font-weight: ${args['fontWeight'] ?? ';/** @todo Unknown font weight */'} ;`;
+font-weight: ${args['fontWeight'] ?? ';/** @TODO - Unknown font weight */'}`;
 					addComment = true;
 				}
 				if (
@@ -338,7 +341,7 @@ line-height: ${lineHeightMapping[args['lineHeight']]};`;
 						!typographyApiMapping[newPresetName].fontStyle)
 				) {
 					comment += `
-font-style: ${args['fontStyle'] ?? ';/** @todo Unknown font style */'}`;
+font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */;'}`;
 					addComment = true;
 				}
 
