@@ -29,7 +29,7 @@ const sizeToPresetMapping = {
 		medium: 'textEgyptian17',
 	},
 };
-const existingpresets = [
+const existingPresets = [
 	'headlineBold17',
 	'headlineBold20',
 	'headlineBold24',
@@ -240,6 +240,12 @@ const lineHeightMapping = {
 	regular: '1.3',
 	loose: '1.4',
 };
+const fontWeightMapping = {
+	light: 300,
+	normal: 400,
+	medium: 500,
+	bold: 700,
+};
 
 const getArgumentsFromObjectExpression = (arg) => {
 	const args = [];
@@ -254,7 +260,7 @@ const buildPresetName = (preset, args) => {
 	// Extract the numeric part (size) and the base name from the preset
 	const sizeMatch = preset.match(/\d+$/);
 	const size = sizeMatch ? sizeMatch[0] : '';
-	const baseName = preset.replace(size, '');
+	let baseName = preset.replace(size, '');
 
 	// Initialize variables for fontWeight and fontStyle, if they are provided
 	let fontWeight = args['fontWeight']
@@ -263,17 +269,18 @@ const buildPresetName = (preset, args) => {
 	let fontStyle = args['fontStyle']
 		? args['fontStyle'].charAt(0).toUpperCase() + args['fontStyle'].slice(1)
 		: '';
-
+	console.log(args['fontWeight']);
 	// Remove `Medium` if font weight is specified
 	if (fontWeight && baseName.includes('Medium')) {
-		baseName.replace('Medium', '');
+		baseName = baseName.replace('Medium', '');
 	}
 
+	console.log(baseName);
 	// Reassemble the modified preset name
 	const modifiedPreset = `${baseName}${fontWeight}${fontStyle}${size}`;
-
+	console.log(modifiedPreset);
 	// Check if the modified preset exists in the existing presets
-	if (existingpresets.includes(modifiedPreset)) {
+	if (existingPresets.includes(modifiedPreset)) {
 		return modifiedPreset;
 	} else {
 		// If not, return the original preset
@@ -321,7 +328,7 @@ module.exports = function (fileInfo, api) {
 						!typographyApiMapping[newPresetName].fontWeight)
 				) {
 					comment += `
-font-weight: ${args['fontWeight'] ?? ';/** @TODO - Unknown font weight */'}`;
+font-weight: ${fontWeightMapping[args['fontWeight']] ?? ';/** @TODO - Unknown font weight */'}`;
 					addComment = true;
 				}
 				if (
