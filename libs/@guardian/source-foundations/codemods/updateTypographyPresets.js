@@ -269,16 +269,13 @@ const buildPresetName = (preset, args) => {
 	let fontStyle = args['fontStyle']
 		? args['fontStyle'].charAt(0).toUpperCase() + args['fontStyle'].slice(1)
 		: '';
-	console.log(args['fontWeight']);
 	// Remove `Medium` if font weight is specified
 	if (fontWeight && baseName.includes('Medium')) {
 		baseName = baseName.replace('Medium', '');
 	}
 
-	console.log(baseName);
 	// Reassemble the modified preset name
 	const modifiedPreset = `${baseName}${fontWeight}${fontStyle}${size}`;
-	console.log(modifiedPreset);
 	// Check if the modified preset exists in the existing presets
 	if (existingPresets.includes(modifiedPreset)) {
 		return modifiedPreset;
