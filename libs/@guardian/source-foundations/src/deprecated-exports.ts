@@ -35,4 +35,47 @@ export {
 	focus,
 } from './_deprecated/colour/palette';
 
-export type { TypographySizes } from './_deprecated/typography/types';
+export {
+	titlepiece,
+	headline,
+	body,
+	textSans,
+	titlepieceSizes,
+	headlineSizes,
+	bodySizes,
+	textSansSizes,
+	remTitlepieceSizes,
+	remHeadlineSizes,
+	remBodySizes,
+	remTextSansSizes,
+	fonts,
+	fontWeights,
+	lineHeights,
+} from './_deprecated/typography';
+
+export {
+	bodyObjectStyles,
+	headlineObjectStyles,
+	textSansObjectStyles,
+	titlepieceObjectStyles,
+} from './_deprecated/typography/obj';
+
+export type {
+	ScaleUnit,
+	Category,
+	LineHeight,
+	FontWeight,
+	FontStyle,
+	FontWeightDefinition,
+	Option,
+	TypographySizes,
+	TypographyStyles,
+	TitlepieceSizes,
+	HeadlineSizes,
+	BodySizes,
+	TextSansSizes,
+	Fs,
+	FontScaleFunction,
+	FontScaleFunctionStr,
+	FontScaleArgs,
+} from './_deprecated/typography/types';

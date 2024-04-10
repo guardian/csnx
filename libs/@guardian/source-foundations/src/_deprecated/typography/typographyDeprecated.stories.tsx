@@ -1,9 +1,9 @@
 import {
-	headlineObjectStyles,
 	bodyObjectStyles,
+	headlineObjectStyles,
 	textSansObjectStyles,
 	titlepieceObjectStyles,
-} from '@guardian/source-foundations';
+} from '../..';
 import {
 	FontStylesRenderer,
 	LineHeightRenderer,
@@ -12,7 +12,7 @@ import {
 } from './storybookTypographyRenderers';
 
 export default {
-	title: 'Typography',
+	title: 'Typography API (deprecated)',
 
 	parameters: {
 		previewTabs: {

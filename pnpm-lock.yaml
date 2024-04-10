@@ -376,8 +376,8 @@ importers:
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
-        specifier: 14.1.4
-        version: link:../source-foundations
+        specifier: 0.0.0-canary-20240410091047
+        version: 0.0.0-canary-20240410091047(tslib@2.6.2)(typescript@5.3.3)
       '@types/eslint':
         specifier: 8.56.1
         version: 8.56.1
@@ -410,11 +410,11 @@ importers:
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
-        specifier: 14.1.4
-        version: link:../source-foundations
+        specifier: 0.0.0-canary-20240410091047
+        version: 0.0.0-canary-20240410091047(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-react-components':
         specifier: 22.0.1
-        version: 22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@libs+@guardian+source-foundations)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
+        version: 22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@0.0.0-canary-20240410091047)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@types/eslint':
         specifier: 8.56.1
         version: 8.56.1
@@ -539,6 +539,9 @@ importers:
       tslib:
         specifier: 2.6.2
         version: 2.6.2
+      tsx:
+        specifier: 4.7.1
+        version: 4.7.1
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -555,8 +558,8 @@ importers:
         specifier: 11.11.1
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/source-foundations':
-        specifier: 14.1.4
-        version: link:../source-foundations
+        specifier: 0.0.0-canary-20240410091047
+        version: 0.0.0-canary-20240410091047(tslib@2.6.2)(typescript@5.3.3)
       '@svgr/babel-preset':
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.24.0)
@@ -618,11 +621,11 @@ importers:
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
-        specifier: 14.1.4
-        version: link:../source-foundations
+        specifier: 0.0.0-canary-20240410091047
+        version: 0.0.0-canary-20240410091047(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-react-components':
         specifier: 22.0.1
-        version: 22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@libs+@guardian+source-foundations)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
+        version: 22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@0.0.0-canary-20240410091047)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
@@ -3189,7 +3192,21 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/source-react-components@22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@libs+@guardian+source-foundations)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
+  /@guardian/source-foundations@0.0.0-canary-20240410091047(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-5F07lzRRNiicpVooNnplOqgWTQSL+U20KqmKHrTPEogR6I68+8xTDHE7hGqAhdN/hh9MhXV+h/L86H5kTQgBhQ==}
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
+  /@guardian/source-react-components@22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@0.0.0-canary-20240410091047)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-jpnFdc/fIRQswufgFDjlv0RQvtNpWd5PL7PJa4r7oNp8H8f+LEVn1D/WkuLFQwtP+T3S/wGF5GrcOmTMyFTlYA==}
     peerDependencies:
       '@emotion/react': ^11.11.1
@@ -3202,7 +3219,7 @@ packages:
         optional: true
     dependencies:
       '@emotion/react': 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/source-foundations': link:libs/@guardian/source-foundations
+      '@guardian/source-foundations': 0.0.0-canary-20240410091047(tslib@2.6.2)(typescript@5.3.3)
       react: 18.2.0
       tslib: 2.6.2
       typescript: 5.3.3
@@ -10117,7 +10134,6 @@ packages:
     resolution: {integrity: sha512-wuMsz4leaj5hbGgg4IvDU0bqJagpftG5l5cXIAvo8uZrqn0NJqwtfupTN00VnkQJPcIRrxYrm1Ue24btpCha2A==}
     dependencies:
       resolve-pkg-maps: 1.0.0
-    dev: false
 
   /getos@3.2.1:
     resolution: {integrity: sha512-U56CfOK17OKgTVqozZjUKNdkfEv6jk5WISBJ8SHoagjE6L69zOwl3Z+O8myjY9MEW3i2HPWQBt/LTbCgcC973Q==}
@@ -12799,7 +12815,6 @@ packages:
   /mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -14513,7 +14528,6 @@ packages:
 
   /resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
-    dev: false
 
   /resolve.exports@1.1.0:
     resolution: {integrity: sha512-J1l+Zxxp4XK3LUDZ9m60LRJF/mAe4z6a4xyabPHk7pvK5t35dACV32iIjJDFeWZFfZlO29w6SZ67knR0tHzJtQ==}
@@ -15872,6 +15886,17 @@ packages:
     dependencies:
       tslib: 1.14.1
       typescript: 5.3.3
+    dev: true
+
+  /tsx@4.7.1:
+    resolution: {integrity: sha512-8d6VuibXHtlN5E3zFkgY8u4DX7Y3Z27zvvPKVmLon/D4AjuKzarkUBTLDBgj9iTQ0hg5xM7c/mYiRVM+HETf0g==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    dependencies:
+      esbuild: 0.19.12
+      get-tsconfig: 4.7.2
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: true
 
   /tty-table@4.1.6:
