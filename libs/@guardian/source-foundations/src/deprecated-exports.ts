@@ -54,10 +54,10 @@ export {
 } from './_deprecated/typography';
 
 export {
-	body as bodyObjectStyles,
-	headline as headlineObjectStyles,
-	textSans as textSansObjectStyles,
-	titlepiece as titlepieceObjectStyles,
+	bodyObjectStyles,
+	headlineObjectStyles,
+	textSansObjectStyles,
+	titlepieceObjectStyles,
 } from './_deprecated/typography/obj';
 
 export type {

@@ -1,8 +1,8 @@
 import {
-	body as bodyAsObj,
-	headline as headlineAsObj,
-	textSans as textSansAsObj,
-	titlepiece as titlepieceAsObj,
+	bodyObjectStyles,
+	headlineObjectStyles,
+	textSansObjectStyles,
+	titlepieceObjectStyles,
 } from './api';
 import { fontStyleToStringFunction } from './font-styles';
 import type {
@@ -25,9 +25,9 @@ import type {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
-	small: fontStyleToStringFunction(titlepieceAsObj.small),
-	medium: fontStyleToStringFunction(titlepieceAsObj.medium),
-	large: fontStyleToStringFunction(titlepieceAsObj.large),
+	small: fontStyleToStringFunction(titlepieceObjectStyles.small),
+	medium: fontStyleToStringFunction(titlepieceObjectStyles.medium),
+	large: fontStyleToStringFunction(titlepieceObjectStyles.large),
 };
 
 /**
@@ -42,13 +42,13 @@ export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const headline: TypographyStrFunctions<HeadlineSizes> = {
-	xxxsmall: fontStyleToStringFunction(headlineAsObj.xxxsmall),
-	xxsmall: fontStyleToStringFunction(headlineAsObj.xxsmall),
-	xsmall: fontStyleToStringFunction(headlineAsObj.xsmall),
-	small: fontStyleToStringFunction(headlineAsObj.small),
-	medium: fontStyleToStringFunction(headlineAsObj.medium),
-	large: fontStyleToStringFunction(headlineAsObj.large),
-	xlarge: fontStyleToStringFunction(headlineAsObj.xlarge),
+	xxxsmall: fontStyleToStringFunction(headlineObjectStyles.xxxsmall),
+	xxsmall: fontStyleToStringFunction(headlineObjectStyles.xxsmall),
+	xsmall: fontStyleToStringFunction(headlineObjectStyles.xsmall),
+	small: fontStyleToStringFunction(headlineObjectStyles.small),
+	medium: fontStyleToStringFunction(headlineObjectStyles.medium),
+	large: fontStyleToStringFunction(headlineObjectStyles.large),
+	xlarge: fontStyleToStringFunction(headlineObjectStyles.xlarge),
 };
 
 /**
@@ -63,9 +63,9 @@ export const headline: TypographyStrFunctions<HeadlineSizes> = {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const body: TypographyStrFunctions<BodySizes> = {
-	xsmall: fontStyleToStringFunction(bodyAsObj.xsmall),
-	small: fontStyleToStringFunction(bodyAsObj.small),
-	medium: fontStyleToStringFunction(bodyAsObj.medium),
+	xsmall: fontStyleToStringFunction(bodyObjectStyles.xsmall),
+	small: fontStyleToStringFunction(bodyObjectStyles.small),
+	medium: fontStyleToStringFunction(bodyObjectStyles.medium),
 };
 
 /**
@@ -80,14 +80,14 @@ export const body: TypographyStrFunctions<BodySizes> = {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const textSans: TypographyStrFunctions<TextSansSizes> = {
-	xxsmall: fontStyleToStringFunction(textSansAsObj.xxsmall),
-	xsmall: fontStyleToStringFunction(textSansAsObj.xsmall),
-	small: fontStyleToStringFunction(textSansAsObj.small),
-	medium: fontStyleToStringFunction(textSansAsObj.medium),
-	large: fontStyleToStringFunction(textSansAsObj.large),
-	xlarge: fontStyleToStringFunction(textSansAsObj.xlarge),
-	xxlarge: fontStyleToStringFunction(textSansAsObj.xxlarge),
-	xxxlarge: fontStyleToStringFunction(textSansAsObj.xxxlarge),
+	xxsmall: fontStyleToStringFunction(textSansObjectStyles.xxsmall),
+	xsmall: fontStyleToStringFunction(textSansObjectStyles.xsmall),
+	small: fontStyleToStringFunction(textSansObjectStyles.small),
+	medium: fontStyleToStringFunction(textSansObjectStyles.medium),
+	large: fontStyleToStringFunction(textSansObjectStyles.large),
+	xlarge: fontStyleToStringFunction(textSansObjectStyles.xlarge),
+	xxlarge: fontStyleToStringFunction(textSansObjectStyles.xxlarge),
+	xxxlarge: fontStyleToStringFunction(textSansObjectStyles.xxxlarge),
 };
 
 export {

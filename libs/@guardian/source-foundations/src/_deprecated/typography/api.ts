@@ -19,7 +19,7 @@ const titlepieceDefaults: TypographyConfiguration = {
  * @deprecated Use web typography presets instead
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
-export const titlepiece: TypographyFunctions<TitlepieceSizes> = {
+export const titlepieceObjectStyles: TypographyFunctions<TitlepieceSizes> = {
 	small: fontStyleFunction('titlepiece', 'small', titlepieceDefaults),
 	medium: fontStyleFunction('titlepiece', 'medium', titlepieceDefaults),
 	large: fontStyleFunction('titlepiece', 'large', titlepieceDefaults),
@@ -36,7 +36,7 @@ const headlineDefaults: TypographyConfiguration = {
  * @deprecated Use web typography presets instead
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
-export const headline: TypographyFunctions<HeadlineSizes> = {
+export const headlineObjectStyles: TypographyFunctions<HeadlineSizes> = {
 	xxxsmall: fontStyleFunction('headline', 'xxxsmall', headlineDefaults),
 	xxsmall: fontStyleFunction('headline', 'xxsmall', headlineDefaults),
 	xsmall: fontStyleFunction('headline', 'xsmall', headlineDefaults),
@@ -57,7 +57,7 @@ const bodyDefaults: TypographyConfiguration = {
  * @deprecated Use web typography presets instead
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
-export const body: TypographyFunctions<BodySizes> = {
+export const bodyObjectStyles: TypographyFunctions<BodySizes> = {
 	xsmall: fontStyleFunction('body', 'xsmall', bodyDefaults),
 	small: fontStyleFunction('body', 'small', bodyDefaults),
 	medium: fontStyleFunction('body', 'medium', bodyDefaults),
@@ -74,7 +74,7 @@ const textSansDefaults: TypographyConfiguration = {
  * @deprecated Use web typography presets instead
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
-export const textSans: TypographyFunctions<TextSansSizes> = {
+export const textSansObjectStyles: TypographyFunctions<TextSansSizes> = {
 	xxsmall: fontStyleFunction('textSans', 'xxsmall', textSansDefaults),
 	xsmall: fontStyleFunction('textSans', 'xsmall', textSansDefaults),
 	small: fontStyleFunction('textSans', 'small', textSansDefaults),
