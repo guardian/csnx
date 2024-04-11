@@ -1,5 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
+import type { Breakpoint } from '@guardian/source-foundations';
 import {
 	focusHaloSpaced,
 	height,
@@ -7,6 +8,7 @@ import {
 	textSansBold14,
 	textSansBold17,
 	transitions,
+	until,
 	width,
 } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
@@ -278,6 +280,13 @@ const iconOnlySizes: {
 	xsmall: iconOnlyXsmall,
 };
 
+const fullWidth = (breakpoint: Breakpoint) => css`
+	${until[breakpoint]} {
+		justify-content: center;
+		width: 100%;
+	}
+`;
+
 const mergedTheme = (
 	providerTheme: Theme['button'],
 	theme?: Partial<ThemeButton>,
@@ -294,6 +303,7 @@ export const buttonStyles =
 		cssOverrides,
 		isLoading,
 		theme,
+		fullWidthUntil,
 	}: SharedButtonProps) =>
 	(
 		providerTheme: Theme,
@@ -307,4 +317,5 @@ export const buttonStyles =
 		hideLabel ? iconOnlySizes[size] : '',
 		isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
 		cssOverrides,
+		fullWidthUntil ? fullWidth(fullWidthUntil) : '',
 	];
