@@ -106,6 +106,25 @@ const existingPresets = [
 	'titlepiece70',
 ];
 
+const defaults = {
+	titlepiece: {
+		lineHeight: 'tight',
+		fontWeight: 'bold',
+	},
+	headline: {
+		lineHeight: 'tight',
+		fontWeight: 'medium',
+	},
+	body: {
+		lineHeight: 'regular',
+		fontWeight: 'regular',
+	},
+	textSans: {
+		lineHeight: 'regular',
+		fontWeight: 'regular',
+	},
+};
+
 const typographyApiMapping = {
 	headlineBold17: { fontWeight: 'bold' },
 	headlineBold20: { fontWeight: 'bold' },
@@ -242,7 +261,7 @@ const lineHeightMapping = {
 };
 const fontWeightMapping = {
 	light: 300,
-	normal: 400,
+	regular: 400,
 	medium: 500,
 	bold: 700,
 };
@@ -298,28 +317,35 @@ module.exports = function (fileInfo, api) {
 				sizeToPresetMapping[expr.callee.object.name] &&
 				sizeToPresetMapping[expr.callee.object.name][expr.callee.property.name]
 			) {
-				const newSize =
+				const newBasePreset =
 					sizeToPresetMapping[expr.callee.object.name][
 						expr.callee.property.name
 					];
-
-				if (expr.arguments.length === 0) {
-					usedPresets.add(newSize);
+				console.log(expr.callee.object.name);
+				if (expr.arguments.length === 0 && expr.callee.object.name !== 'body') {
+					usedPresets.add(newBasePreset);
 					return;
 				}
-
-				const optionsArg = expr.arguments[0];
-				if (optionsArg.type !== 'ObjectExpression') return;
-				const args = getArgumentsFromObjectExpression(optionsArg);
-				const newPresetName = buildPresetName(newSize, args);
+				let args = [];
+				if (expr.arguments.length !== 0) {
+					const optionsArg = expr.arguments[0];
+					if (optionsArg.type !== 'ObjectExpression') return;
+					args = getArgumentsFromObjectExpression(optionsArg);
+				}
+				if (expr.callee.object.name === 'body' && !args['lineHeight']) {
+					args['lineHeight'] = 'loose';
+				}
+				console.log(args);
+				const newPresetName = buildPresetName(newBasePreset, args);
 				let addComment = false;
 				let comment = `;
 /**
- * @TODO Typography preset styles should not be overridden.
+ * @TODO (2) Typography preset styles should not be overridden.
  * Please speak to your team's designer and update this to use a more appropriate preset.
 */`;
 				if (
 					'fontWeight' in args &&
+					defaults[expr.callee.object.name].fontWeight !== args['fontWeight'] &&
 					(typographyApiMapping[newPresetName].fontWeight !==
 						args['fontWeight'] ||
 						!typographyApiMapping[newPresetName].fontWeight)
@@ -330,6 +356,7 @@ font-weight: ${fontWeightMapping[args['fontWeight']] ?? ';/** @TODO - Unknown fo
 				}
 				if (
 					'lineHeight' in args &&
+					defaults[expr.callee.object.name].lineHeight !== args['lineHeight'] &&
 					(typographyApiMapping[newPresetName].lineHeight !==
 						args['lineHeight'] ||
 						!typographyApiMapping[newPresetName].lineHeight)
@@ -373,7 +400,7 @@ font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */;'}`;
 					let args = [];
 					path.node.arguments.forEach((arg) => {
 						if (arg.type === 'ObjectExpression') {
-							args = getArgumentsFromObjectExpression(arg);
+							args = getArgumentsFromObjectExpression(arg, element);
 						}
 					});
 					const preset = buildPresetName(newSize, args);
