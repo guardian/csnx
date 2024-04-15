@@ -16,7 +16,7 @@ const prefixCustomProperty = (variableId) => {
  * @param {import('@cobalt-ui/core').Token} token
  */
 const pxToRem = (token) => {
-	if (token.$type === 'dimension' && token.$value.slice(-2) === 'px') {
+	if (token.$type === 'dimension' && token.$value.endsWith('px')) {
 		return Number(token.$value.slice(0, -2)) / 16 + 'rem';
 	}
 	return undefined;
