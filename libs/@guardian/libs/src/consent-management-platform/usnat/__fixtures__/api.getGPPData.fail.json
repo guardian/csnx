@@ -1,6 +1,7 @@
 {
-	"applicableSections": [],
+	"applicableSections": [-1],
 	"gppString": "DBAA",
 	"gppVersion": "1.1",
+	"supportedAPIs": [],
 	"parsedSections": {}
 }
