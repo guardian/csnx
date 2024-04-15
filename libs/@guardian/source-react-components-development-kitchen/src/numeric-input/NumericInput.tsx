@@ -134,7 +134,8 @@ export const NumericInput = ({
 					id={textInputId}
 					aria-required={!optional}
 					aria-invalid={!!error}
-					aria-describedby={error ?? success ? descriptionId(textInputId) : ''}
+					// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- `success` can be an empty string (should it be?)
+					aria-describedby={error || success ? descriptionId(textInputId) : ''}
 					required={!optional}
 					{...props}
 				/>
