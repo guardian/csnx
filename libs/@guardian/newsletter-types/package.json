@@ -10,8 +10,7 @@
 	},
 	"devDependencies": {
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
-		"wireit": "0.14.4"
+		"typescript": "5.3.3"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
