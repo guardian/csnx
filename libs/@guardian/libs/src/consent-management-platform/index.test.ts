@@ -65,7 +65,9 @@ describe('hotfix cmp.init', () => {
 	});
 
 	it('warn if two versions are running simultaneously', () => {
-		const consoleWarn = jest.spyOn(global.console, 'warn');
+		const consoleWarn = jest
+			.spyOn(global.console, 'warn')
+			.mockImplementation(() => undefined);
 		cmp.init({ country: 'GB' });
 		const currentVersion = window.guCmpHotFix.cmp?.version;
 		const mockedVersion = 'X.X.X-mock';
