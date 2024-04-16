@@ -6,7 +6,7 @@ Adds [web typography presets](https://guardian.github.io/storybooks/?path=/story
 
 From now on, these presets should be used instead of [the old typography API](https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography-api-deprecated--docs), which this release deprecates.
 
-_Please get in touch with the CSTI team if you need any guidance or assistance with migrating existing uses of the API to the new presets._
+_If you need assistance with migrating existing uses of the API to the new presets, please contact the CSTI team._
 
 For the curious, here is how the new presets map to the old API:
 https://github.com/guardian/csnx/blob/jm/map-type-presets/libs/%40guardian/source-foundations/src/typography/preset.test.ts
