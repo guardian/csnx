@@ -47,9 +47,6 @@ importers:
       '@manypkg/get-packages':
         specifier: 2.2.0
         version: 2.2.0
-      '@nx/cypress':
-        specifier: 18.0.7
-        version: 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
       '@nx/devkit':
         specifier: 18.0.7
         version: 18.0.7(nx@18.0.7)
@@ -203,6 +200,9 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
 
   apps/storybooks:
     devDependencies:
@@ -505,6 +505,9 @@ importers:
       wcag-contrast:
         specifier: 3.0.0
         version: 3.0.0
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
 
   libs/@guardian/newsletter-types:
     devDependencies:
@@ -3561,25 +3564,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
 
-  /@nrwl/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3):
-    resolution: {integrity: sha512-hKBwHuukCEyTonq8VKoBjTnYEmZ3AEyT30wMZTQZ/vdpdgYNSD1vIwFM6VUJfaBoj4kdnQfDMS9ti4nsTRDRIQ==}
-    dependencies:
-      '@nx/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
-    transitivePeerDependencies:
-      - '@babel/traverse'
-      - '@swc-node/register'
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-      - cypress
-      - debug
-      - js-yaml
-      - nx
-      - supports-color
-      - typescript
-      - verdaccio
-    dev: true
-
   /@nrwl/devkit@18.0.7(nx@18.0.7):
     resolution: {integrity: sha512-oUhwGI6JkrH9HHP+Uw8rV7uEV6o4uzrHASnhrRfs4CiaPLvSnO0fheomyIRdEuXWI3/ME9Q7Q5GvrGyqSjk+CA==}
     dependencies:
@@ -3675,36 +3659,6 @@ packages:
       - debug
     dev: true
 
-  /@nx/cypress@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3):
-    resolution: {integrity: sha512-bOCBr8OGGEjUHMkc+DgaXz2YQbC65DX8pPZ+teAXZiiZrs8/CsmkiN6sw00POOPC24hMDqSZgLKdayYZPxlLMQ==}
-    peerDependencies:
-      cypress: '>= 3 < 14'
-    peerDependenciesMeta:
-      cypress:
-        optional: true
-    dependencies:
-      '@nrwl/cypress': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
-      '@nx/devkit': 18.0.7(nx@18.0.7)
-      '@nx/eslint': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)
-      '@nx/js': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
-      '@phenomnomnominal/tsquery': 5.0.1(typescript@5.3.3)
-      detect-port: 1.5.1
-      semver: 7.5.4
-      tslib: 2.6.2
-    transitivePeerDependencies:
-      - '@babel/traverse'
-      - '@swc-node/register'
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-      - debug
-      - js-yaml
-      - nx
-      - supports-color
-      - typescript
-      - verdaccio
-    dev: true
-
   /@nx/devkit@18.0.7(nx@18.0.7):
     resolution: {integrity: sha512-Xm+o4pbSNQ5YL0LJk4Gfbws0qIZhqa7H8I6z7rRQuxP9tqei7Q+cTaI4WJG7Y5l8lbgzScM4WeW2sGMvLFtITA==}
     peerDependencies:
@@ -3755,32 +3709,6 @@ packages:
       - nx
       - supports-color
       - typescript
-      - verdaccio
-    dev: true
-
-  /@nx/eslint@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7):
-    resolution: {integrity: sha512-+Coo15q99k1jqANrwBDpLRI3+hn9GAR8jze9ynX/EgNCsGUSb6GZSmPqEWZtSXpX7cqekixUF4RfN/DUgn4tCQ==}
-    peerDependencies:
-      js-yaml: 4.1.0
-    peerDependenciesMeta:
-      js-yaml:
-        optional: true
-    dependencies:
-      '@nx/devkit': 18.0.7(nx@18.0.7)
-      '@nx/js': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)(typescript@5.3.3)
-      '@nx/linter': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)
-      eslint: 8.56.0
-      tslib: 2.6.2
-      typescript: 5.3.3
-    transitivePeerDependencies:
-      - '@babel/traverse'
-      - '@swc-node/register'
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-      - debug
-      - nx
-      - supports-color
       - verdaccio
     dev: true
 
@@ -3865,23 +3793,6 @@ packages:
       - nx
       - supports-color
       - typescript
-    dev: true
-
-  /@nx/linter@18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7):
-    resolution: {integrity: sha512-nuAO28nXktvirkra7bH6jB9MkC9Q5w57kGMoExvnXbYj/rtXN6UlaXS0eEU04elEny+WV3g69VbSFGe4MeorSQ==}
-    dependencies:
-      '@nx/eslint': 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)(@types/node@18.19.3)(nx@18.0.7)
-    transitivePeerDependencies:
-      - '@babel/traverse'
-      - '@swc-node/register'
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-      - debug
-      - js-yaml
-      - nx
-      - supports-color
-      - verdaccio
     dev: true
 
   /@nx/nx-darwin-arm64@18.0.7:

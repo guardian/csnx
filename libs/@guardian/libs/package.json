@@ -5,6 +5,7 @@
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
 	"scripts": {
+		"e2e": "wireit",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
@@ -17,7 +18,8 @@
 		"mockdate": "3.0.5",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
-		"wcag-contrast": "3.0.0"
+		"wcag-contrast": "3.0.0",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
@@ -73,17 +75,6 @@
 					"passWithNoTests": false
 				}
 			},
-			"e2e": {
-				"dependsOn": [
-					"github-pages:build"
-				],
-				"executor": "@nx/cypress:cypress",
-				"options": {
-					"cypressConfig": "libs/@guardian/libs/cypress.config.js",
-					"testingType": "e2e",
-					"devServerTarget": "github-pages:serve:e2e"
-				}
-			},
 			"verify-dist": {
 				"executor": "@nx/jest:jest",
 				"outputs": [
@@ -108,6 +99,19 @@
 					"watch": true
 				}
 			}
+		}
+	},
+	"wireit": {
+		"e2e": {
+			"command": "cypress run --headless",
+			"files": [
+				"**",
+				"!(jest*)"
+			],
+			"output": [],
+			"dependencies": [
+				"../../../apps/github-pages:start"
+			]
 		}
 	}
 }

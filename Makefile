@@ -574,9 +574,9 @@ github-pages\:build: env
 github-pages\:dev: env
 	@corepack pnpm nx run github-pages:dev --skip-nx-cache=$(SKIP_NX_CACHE)
 
-.PHONY: github-pages\:serve\:e2e
-github-pages\:serve\:e2e: env
-	@corepack pnpm nx run github-pages:serve:e2e --skip-nx-cache=$(SKIP_NX_CACHE)
+.PHONY: github-pages\:start
+github-pages\:start: env
+	@corepack pnpm nx run github-pages:start --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: storybooks\:dev
 storybooks\:dev: env
