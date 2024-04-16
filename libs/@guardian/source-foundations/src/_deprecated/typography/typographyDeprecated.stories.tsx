@@ -6,9 +6,9 @@ import {
 } from '../..';
 import {
 	FontStylesRenderer,
-	LineHeightRenderer,
 	FontWeightRenderer,
 	ItalicsRenderer,
+	LineHeightRenderer,
 } from './storybookTypographyRenderers';
 
 export default {

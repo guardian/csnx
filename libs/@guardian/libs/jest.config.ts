@@ -2,7 +2,7 @@
 export default {
 	displayName: '@guardian/libs',
 	preset: '../../../jest.preset.js',
-	testEnvironment: 'jest-environment-jsdom',
+	testEnvironment: './jest.testEnvironment.js',
 	transform: {
 		'^.+\\.[tj]sx?$': [
 			'ts-jest',

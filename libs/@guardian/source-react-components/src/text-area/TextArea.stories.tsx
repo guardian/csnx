@@ -1,8 +1,8 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
-import { palette } from '@guardian/source-foundations';
 
 const meta: Meta<typeof TextArea> = {
 	title: 'TextArea',

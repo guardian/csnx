@@ -18,7 +18,10 @@
 			"rules": {}
 		},
 		{
-			"files": ["*.test.ts"],
+			"files": ["*.test.*", "jest.*"],
+			"env": {
+				"jest": true
+			},
 			"rules": {
 				"@typescript-eslint/no-unsafe-call": "off",
 				"@typescript-eslint/no-unsafe-assignment": "off"

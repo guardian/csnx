@@ -1,6 +1,10 @@
 {
 	"name": "@csnx/npm-package",
 	"private": true,
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"dependencies": {
 		"@guardian/libs": "workspace:*",
 		"@rollup/plugin-commonjs": "25.0.7",
@@ -17,5 +21,28 @@
 		"typescript": "5.3.3",
 		"write-pkg": "7.0.0"
 	},
-	"executors": "./executors.json"
+	"executors": "./executors.json",
+	"nx": {
+		"projectType": "library",
+		"tags": [
+			"scope:tool"
+		],
+		"targets": {
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/tools/nx-plugins/npm-package/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/tools/nx-plugins/npm-package/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/tools/nx-plugins/npm-package/"
+				]
+			}
+		}
+	}
 }

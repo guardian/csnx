@@ -5,11 +5,14 @@
 	"type": "module",
 	"main": "./tokens.js",
 	"scripts": {
-		"generate-tokens": "co build && prettier --write tokens.d.ts tokens.js variables.css"
+		"fix": "pnpm lint --fix",
+		"generate-tokens": "co build && prettier --write tokens.d.ts tokens.js variables.css",
+		"lint": "eslint --cache ."
 	},
 	"devDependencies": {
-		"@cobalt-ui/cli": "^1.11.0",
-		"@cobalt-ui/plugin-css": "^1.7.0",
+		"@cobalt-ui/cli": "1.11.0",
+		"@cobalt-ui/core": "1.11.0",
+		"@cobalt-ui/plugin-css": "1.7.0",
 		"@guardian/cobalt-plugin-ts": "workspace:*"
 	},
 	"peerDependencies": {
@@ -46,6 +49,21 @@
 						"libs/@guardian/design-tokens/variables.css"
 					]
 				}
+			},
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/design-tokens/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/design-tokens/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/design-tokens/"
+				]
 			}
 		}
 	}

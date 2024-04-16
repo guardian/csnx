@@ -4,6 +4,10 @@
 	"private": true,
 	"type": "module",
 	"main": "./index.mjs",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "^1.11.0",
 		"@cobalt-ui/core": "^1.11.0",
@@ -31,6 +35,21 @@
 						"libs/@guardian/cobalt-plugin-ts/index.mjs"
 					]
 				}
+			},
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/cobalt-plugin-ts/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/cobalt-plugin-ts/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/cobalt-plugin-ts/"
+				]
 			}
 		}
 	}

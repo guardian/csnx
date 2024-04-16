@@ -3,6 +3,10 @@
 	"version": "9.0.4",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": "index.js",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
 		"@typescript-eslint/eslint-plugin": "7.3.1",
@@ -35,6 +39,21 @@
 						"libs/@guardian/eslint-config-typescript/*.md"
 					]
 				}
+			},
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-config-typescript/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-config-typescript/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-config-typescript/"
+				]
 			},
 			"verify-dist": {
 				"executor": "@nx/jest:jest",

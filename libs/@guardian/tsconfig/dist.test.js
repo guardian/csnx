@@ -1,5 +1,5 @@
-const srcExports = require('.');
 const bundleExports = require('../../../dist/libs/@guardian/tsconfig');
+const srcExports = require('.');
 
 describe('The bundle', () => {
 	it('exports everything it should', () => {

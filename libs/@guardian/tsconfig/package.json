@@ -3,6 +3,10 @@
 	"version": "0.2.0",
 	"description": "TSConfig base for Guardian TypeScript projects",
 	"main": "tsconfig.json",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"nx": {
 		"targets": {
 			"build": {
@@ -18,6 +22,21 @@
 					],
 					"packageJson": "libs/@guardian/tsconfig/package.json"
 				}
+			},
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/tsconfig/"
+				]
 			},
 			"verify-dist": {
 				"executor": "@nx/jest:jest",

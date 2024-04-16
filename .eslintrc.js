@@ -26,11 +26,11 @@ module.exports = {
 			},
 		},
 		{
-			files: ['*.js', '*.jsx'],
+			files: ['*.js', '*.jsx', '*.mjs', '*.cjs'],
 			extends: ['plugin:@nx/javascript', '@guardian/eslint-config'],
 		},
 		{
-			files: ['*.ts', '*.tsx'],
+			files: ['*.ts', '*.tsx', '*.mts', '*.cts', '*.d.ts'],
 			extends: ['plugin:@nx/typescript', '@guardian/eslint-config-typescript'],
 			settings: {
 				'import/resolver': {
@@ -43,6 +43,13 @@ module.exports = {
 		{
 			files: ['.lintstagedrc.js'],
 			rules: {
+				'import/no-default-export': 'off',
+			},
+		},
+		{
+			files: ['*.stories.*'],
+			rules: {
+				// stories require default exports
 				'import/no-default-export': 'off',
 			},
 		},

@@ -1,0 +1,17 @@
+{
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
+	"overrides": [
+		{
+			"files": ["*.d.ts"],
+			"parserOptions": {
+				"project": ["libs/@guardian/cobalt-plugin-ts/tsconfig.json"]
+			},
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.mjs"],
+			"rules": {}
+		}
+	]
+}
