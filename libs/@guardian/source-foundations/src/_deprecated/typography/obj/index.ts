@@ -1,4 +1,9 @@
-import { body, headline, textSans, titlepiece } from '../api';
+import {
+	bodyObjectStyles,
+	headlineObjectStyles,
+	textSansObjectStyles,
+	titlepieceObjectStyles,
+} from '../api';
 import {
 	bodySizes,
 	fonts,
@@ -14,10 +19,10 @@ import {
 } from '../data';
 
 export {
-	titlepiece,
-	headline,
-	body,
-	textSans,
+	titlepieceObjectStyles,
+	headlineObjectStyles,
+	bodyObjectStyles,
+	textSansObjectStyles,
 	titlepieceSizes,
 	headlineSizes,
 	bodySizes,

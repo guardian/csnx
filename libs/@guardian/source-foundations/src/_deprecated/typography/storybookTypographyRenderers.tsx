@@ -1,18 +1,19 @@
 import {
 	bodyObjectStyles,
-	fontWeights,
 	headlineObjectStyles,
 	textSansObjectStyles,
-} from '../index';
-import type { Category, FontScaleFunction, FontWeight } from './types';
-
-type FontFunctions = {
-	[key in Category]: FontScaleFunction;
-};
+} from '../..';
+import type {
+	AvailableSizes,
+	FontScaleFunction,
+	FontWeight,
+	TypographyFunctions,
+} from './types';
+import { fontWeights } from '.';
 
 interface FontStylesRendererProps {
 	fontName: string;
-	fontStyles: FontFunctions;
+	fontStyles: TypographyFunctions<AvailableSizes>;
 }
 
 export const FontStylesRenderer = ({

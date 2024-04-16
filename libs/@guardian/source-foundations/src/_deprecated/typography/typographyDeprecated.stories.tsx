@@ -3,7 +3,7 @@ import {
 	headlineObjectStyles,
 	textSansObjectStyles,
 	titlepieceObjectStyles,
-} from '../index';
+} from '../..';
 import {
 	FontStylesRenderer,
 	FontWeightRenderer,
@@ -12,7 +12,7 @@ import {
 } from './storybookTypographyRenderers';
 
 export default {
-	title: 'Typography',
+	title: 'Typography API (deprecated)',
 
 	parameters: {
 		previewTabs: {

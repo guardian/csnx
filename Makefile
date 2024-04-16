@@ -454,6 +454,10 @@ install: check-node-version
 @guardian/source-foundations\:build-storybook: env
 	@corepack pnpm nx run @guardian/source-foundations:build-storybook --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/source-foundations\:build-type-presets
+@guardian/source-foundations\:build-type-presets: env
+	@corepack pnpm nx run @guardian/source-foundations:build-type-presets --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/source-foundations\:dev
 @guardian/source-foundations\:dev: env
 	@corepack pnpm nx run @guardian/source-foundations:dev --skip-nx-cache=$(SKIP_NX_CACHE)

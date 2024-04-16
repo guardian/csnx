@@ -1,9 +1,18 @@
 import { Meta, Canvas } from '@storybook/blocks';
-import * as TypographyStories from './typography.stories';
+import {
+	FontStylesRenderer,
+	LineHeightRenderer,
+	FontWeightRenderer,
+	ItalicsRenderer,
+} from './storybookTypographyRenderers';
+import * as TypographyStories from './typographyDeprecated.stories';
 
 <Meta of={TypographyStories} />
 
-# Typography
+# Typography API (deprecated)
+
+_Note:_ the typography API is deprecated and will be removed in a future
+release. Please use the typography presets in all new code.
 
 Typographic choices affect how textual content is interpreted; influencing tone,
 hierarchy and legibility.

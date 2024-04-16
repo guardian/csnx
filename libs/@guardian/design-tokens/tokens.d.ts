@@ -336,102 +336,6 @@ export declare const tokens: {
 			readonly tight: 1.15;
 		};
 		readonly presets: {
-			readonly article15: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '15px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 400;
-				readonly fontStyle: 'normal';
-			};
-			readonly article17: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '17px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 400;
-				readonly fontStyle: 'normal';
-			};
-			readonly articleBold15: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '15px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
-			readonly articleBold17: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '17px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
-			readonly articleBoldItalic15: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '15px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'italic';
-			};
-			readonly articleBoldItalic17: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '17px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'italic';
-			};
-			readonly articleItalic15: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '15px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 400;
-				readonly fontStyle: 'italic';
-			};
-			readonly articleItalic17: {
-				readonly fontFamily: readonly [
-					'GuardianTextEgyptian',
-					'Guardian Text Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '17px';
-				readonly lineHeight: 1.4;
-				readonly fontWeight: 400;
-				readonly fontStyle: 'italic';
-			};
 			readonly headlineBold14: {
 				readonly fontFamily: readonly [
 					'GH Guardian Headline',
@@ -972,66 +876,6 @@ export declare const tokens: {
 				readonly fontWeight: 700;
 				readonly fontStyle: 'italic';
 			};
-			readonly kicker14: {
-				readonly fontFamily: readonly [
-					'GH Guardian Headline',
-					'Guardian Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '14px';
-				readonly lineHeight: 1.15;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
-			readonly kicker17: {
-				readonly fontFamily: readonly [
-					'GH Guardian Headline',
-					'Guardian Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '17px';
-				readonly lineHeight: 1.15;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
-			readonly kicker20: {
-				readonly fontFamily: readonly [
-					'GH Guardian Headline',
-					'Guardian Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '20px';
-				readonly lineHeight: 1.15;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
-			readonly kicker24: {
-				readonly fontFamily: readonly [
-					'GH Guardian Headline',
-					'Guardian Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '24px';
-				readonly lineHeight: 1.15;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
-			readonly kicker34: {
-				readonly fontFamily: readonly [
-					'GH Guardian Headline',
-					'Guardian Egyptian Web',
-					'Georgia',
-					'serif',
-				];
-				readonly fontSize: '34px';
-				readonly lineHeight: 1.15;
-				readonly fontWeight: 700;
-				readonly fontStyle: 'normal';
-			};
 			readonly textEgyptian14: {
 				readonly fontFamily: readonly [
 					'GuardianTextEgyptian',
@@ -1201,7 +1045,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1216,7 +1060,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '15px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1231,7 +1075,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '17px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1246,7 +1090,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '20px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1261,7 +1105,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '24px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1276,7 +1120,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '28px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1291,7 +1135,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '34px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'normal';
@@ -1321,7 +1165,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1336,7 +1180,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '15px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1351,7 +1195,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '17px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1366,7 +1210,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '20px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1381,7 +1225,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '24px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1396,7 +1240,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '28px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1411,7 +1255,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '34px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 700;
 				readonly fontStyle: 'normal';
@@ -1441,10 +1285,10 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '14px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
-				readonly fontStyle: 'Italic';
+				readonly fontStyle: 'italic';
 			};
 			readonly textSansItalic15: {
 				readonly fontFamily: readonly [
@@ -1456,7 +1300,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '15px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1471,7 +1315,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '17px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1486,7 +1330,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '20px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1501,7 +1345,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '24px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1516,7 +1360,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '28px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';
@@ -1531,7 +1375,7 @@ export declare const tokens: {
 					'Lucida Grande',
 					'sans-serif',
 				];
-				readonly fontSize: '12px';
+				readonly fontSize: '34px';
 				readonly lineHeight: 1.3;
 				readonly fontWeight: 400;
 				readonly fontStyle: 'italic';

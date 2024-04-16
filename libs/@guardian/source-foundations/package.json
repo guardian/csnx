@@ -19,6 +19,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.6.2",
+		"tsx": "4.7.1",
 		"typescript": "5.3.3",
 		"wireit": "0.14.4"
 	},
@@ -95,6 +96,14 @@
 					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
 					"passWithNoTests": false,
 					"watch": true
+				}
+			},
+			"build-type-presets": {
+				"executor": "nx:run-commands",
+				"options": {
+					"command": "tsx ./scripts/build-type-presets.ts",
+					"cwd": "libs/@guardian/source-foundations",
+					"color": true
 				}
 			}
 		}
