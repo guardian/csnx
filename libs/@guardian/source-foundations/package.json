@@ -5,6 +5,8 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
 		"storybook": "storybook dev --port 4401"
 	},
 	"dependencies": {
@@ -47,26 +49,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/source-foundations/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/source-foundations/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/source-foundations/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/source-foundations/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/source-foundations/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

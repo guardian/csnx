@@ -5,11 +5,16 @@
 	"description": "",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
 		"jest-fetch-mock": "3.0.3",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "^16.0.0",
@@ -38,28 +43,6 @@
 					"outputPath": "dist/libs/@guardian/identity-auth",
 					"assets": [
 						"libs/@guardian/identity-auth/*.md"
-					]
-				}
-			},
-			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/identity-auth/**/*.ts"
-					]
-				}
-			},
-			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/identity-auth/**/*.ts"
 					]
 				}
 			},
@@ -97,6 +80,35 @@
 					"watch": true
 				}
 			}
+		}
+	},
+	"wireit": {
+		"lint": {
+			"// W!RE!T": [
+				"This is too restrictive but it recreates the old Nx config.",
+				"We should remove the --ext flag."
+			],
+			"command": "eslint --cache . --ext .ts",
+			"files": [
+				"**",
+				"../../../.eslintrc.js"
+			],
+			"output": []
+		},
+		"fix": {
+			"// W!RE!T": [
+				"This is too restrictive but it recreates the old Nx config.",
+				"We should remove the --ext flag."
+			],
+			"command": "eslint --cache . --ext .ts --fix",
+			"files": [
+				"**",
+				"../../../.eslintrc.js"
+			],
+			"output": [
+				"**"
+			],
+			"clean": false
 		}
 	}
 }

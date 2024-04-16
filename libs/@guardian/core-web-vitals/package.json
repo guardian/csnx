@@ -4,6 +4,10 @@
 	"private": false,
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
 		"tslib": "2.6.2",
@@ -42,26 +46,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/core-web-vitals/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/core-web-vitals/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/core-web-vitals/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/core-web-vitals/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/core-web-vitals/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

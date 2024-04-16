@@ -20,7 +20,10 @@
 		{
 			// Be more lenient in tests.
 			// We may be testing things the compiler may not be able to check anyway.
-			"files": ["*.test.ts"],
+			"files": ["*.test.*", "jest.*"],
+			"env": {
+				"jest": true
+			},
 			"rules": {
 				"@typescript-eslint/no-unsafe-argument": "off",
 				"@typescript-eslint/no-unsafe-assignment": "off",

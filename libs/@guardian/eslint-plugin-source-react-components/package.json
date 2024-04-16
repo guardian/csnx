@@ -2,6 +2,10 @@
 	"name": "@guardian/eslint-plugin-source-react-components",
 	"version": "24.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-react-components` package.",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "6.21.0",
 		"@typescript-eslint/parser": "6.21.0"
@@ -49,26 +53,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/eslint-plugin-source-react-components/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-react-components/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-react-components/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/eslint-plugin-source-react-components/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-react-components/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

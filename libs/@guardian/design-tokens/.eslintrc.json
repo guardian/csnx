@@ -1,0 +1,17 @@
+{
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
+	"overrides": [
+		{
+			"files": ["tokens.d.ts"],
+			"parserOptions": {
+				"project": ["libs/@guardian/design-tokens/tsconfig.json"]
+			},
+			"rules": {}
+		},
+		{
+			"files": ["*.js", "*.mjs"],
+			"rules": {}
+		}
+	]
+}

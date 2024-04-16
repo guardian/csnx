@@ -4,6 +4,8 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
 		"storybook": "storybook dev --port 4403"
 	},
 	"devDependencies": {
@@ -50,26 +52,19 @@
 				}
 			},
 			"lint": {
-				"executor": "@csnx/eslint:check",
-				"outputs": [
-					"{options.outputFile}"
-				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/source-react-components-development-kitchen/**/*.ts"
-					]
-				}
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/source-react-components-development-kitchen/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
 			},
 			"fix": {
-				"executor": "@csnx/eslint:fix",
-				"outputs": [
-					"{options.outputFile}"
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/source-react-components-development-kitchen/**/*",
+					"{workspaceRoot}/.eslintrc.js"
 				],
-				"options": {
-					"lintFilePatterns": [
-						"libs/@guardian/source-react-components-development-kitchen/**/*.ts"
-					]
-				}
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/source-react-components-development-kitchen/"
+				]
 			},
 			"test": {
 				"executor": "@nx/jest:jest",

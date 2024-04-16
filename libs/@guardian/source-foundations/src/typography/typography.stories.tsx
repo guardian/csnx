@@ -1,14 +1,14 @@
 import {
-	headlineObjectStyles,
 	bodyObjectStyles,
+	headlineObjectStyles,
 	textSansObjectStyles,
 	titlepieceObjectStyles,
-} from '@guardian/source-foundations';
+} from '../index';
 import {
 	FontStylesRenderer,
-	LineHeightRenderer,
 	FontWeightRenderer,
 	ItalicsRenderer,
+	LineHeightRenderer,
 } from './storybookTypographyRenderers';
 
 export default {

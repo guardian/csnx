@@ -1,0 +1,19 @@
+{
+	"extends": ["../../../.eslintrc.js"],
+	"ignorePatterns": ["!**/*", "node_modules"],
+	"overrides": [
+		{
+			"files": ["**/*.test.*"],
+			"env": {
+				"jest": true
+			}
+		},
+		{
+			"files": ["*.d.ts"],
+			"parserOptions": {
+				"project": ["libs/@guardian/prettier/tsconfig.json"]
+			},
+			"rules": {}
+		}
+	]
+}

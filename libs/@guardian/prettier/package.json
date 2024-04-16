@@ -3,6 +3,10 @@
 	"version": "8.0.0",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
 	"main": "index.js",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"prettier": "3.2.2",
 		"tslib": "2.6.2"
@@ -27,6 +31,21 @@
 						"libs/@guardian/prettier/*.md"
 					]
 				}
+			},
+			"lint": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/prettier/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{workspaceRoot}/libs/@guardian/prettier/**/*",
+					"{workspaceRoot}/.eslintrc.js"
+				],
+				"outputs": [
+					"{workspaceRoot}/libs/@guardian/prettier/"
+				]
 			},
 			"verify-dist": {
 				"executor": "@nx/jest:jest",

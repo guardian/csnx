@@ -1,6 +1,6 @@
 module.exports = {
 	extends: ['../../../.eslintrc.js'],
-	ignorePatterns: ['!**/*', 'node_modules'],
+	ignorePatterns: ['!**/*', 'node_modules', '.wireit', 'vendor'],
 	overrides: [
 		{
 			files: ['*.ts', '*.tsx'],

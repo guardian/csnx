@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
 import { css } from '@emotion/react';
 import { palette } from '@guardian/source-foundations';
+import type { Meta, StoryFn } from '@storybook/react';
 import { ExpandingWrapper } from './ExpandingWrapper';
 import { expandingWrapperDarkTheme } from './theme';
 
