@@ -1,4 +1,3 @@
-import { fontWeights } from '.';
 import {
 	bodyObjectStyles,
 	headlineObjectStyles,
@@ -10,6 +9,7 @@ import type {
 	FontWeight,
 	TypographyFunctions,
 } from './types';
+import { fontWeights } from '.';
 
 interface FontStylesRendererProps {
 	fontName: string;
