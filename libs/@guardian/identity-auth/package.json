@@ -54,13 +54,13 @@
 			"lint": {
 				"inputs": [
 					"{projectRoot}/**",
-					"{workspaceRoot}/.eslintrc.js"
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
 					"{projectRoot}/**",
-					"{workspaceRoot}/.eslintrc.js"
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
 					"{projectRoot}"

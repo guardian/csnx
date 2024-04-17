@@ -25,17 +25,17 @@
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/tsconfig/"
+					"{projectRoot}"
 				]
 			},
 			"verify-dist": {

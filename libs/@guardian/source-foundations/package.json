@@ -51,17 +51,17 @@
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/source-foundations/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/source-foundations/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/source-foundations/"
+					"{projectRoot}"
 				]
 			},
 			"test": {

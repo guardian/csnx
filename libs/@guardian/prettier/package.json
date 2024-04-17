@@ -34,17 +34,17 @@
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/prettier/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/prettier/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/prettier/"
+					"{projectRoot}"
 				]
 			},
 			"verify-dist": {

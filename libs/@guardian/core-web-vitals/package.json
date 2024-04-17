@@ -47,17 +47,17 @@
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/core-web-vitals/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/core-web-vitals/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/core-web-vitals/"
+					"{projectRoot}"
 				]
 			},
 			"test": {

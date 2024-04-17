@@ -52,17 +52,17 @@
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/libs/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/libs/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/libs/"
+					"{projectRoot}"
 				]
 			},
 			"test": {

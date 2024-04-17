@@ -1,16 +1,12 @@
 module.exports = {
-	extends: ['../../../.eslintrc.js'],
-	ignorePatterns: ['!**/*', 'node_modules', '.wireit', 'vendor'],
+	extends: ['../../../.eslintrc.cjs'],
+	ignorePatterns: ['!**/*', 'node_modules', '.wireit'],
 	overrides: [
 		{
 			files: ['*.ts', '*.tsx'],
 			parserOptions: {
-				project: ['libs/@guardian/source-react-components/tsconfig.json'],
+				tsconfigRootDir: __dirname,
 			},
-			rules: {},
-		},
-		{
-			files: ['*.ts', '*.tsx'],
 			rules: {},
 		},
 		{

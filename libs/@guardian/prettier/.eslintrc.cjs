@@ -5,11 +5,14 @@ module.exports = {
 		{
 			files: ['*.ts', '*.tsx'],
 			parserOptions: {
-				project: ['tools/nx-plugins/npm-package/tsconfig.json'],
+				tsconfigRootDir: __dirname,
 			},
-			rules: {
-				'import/no-default-export': 'off', // Nx plugins export defaults
-				'@typescript-eslint/unbound-method': 'off',
+			rules: {},
+		},
+		{
+			files: ['**/*.test.*'],
+			env: {
+				jest: true,
 			},
 		},
 	],
