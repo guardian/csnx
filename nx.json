@@ -23,7 +23,7 @@
 		"default": {
 			"options": {
 				"accessToken": "ZDI5NGQyNWMtYzRiNS00YjM0LWJkNDItMWEzMGQ2NWMwNWJkfHJlYWQtb25seQ==",
-				"cacheableOperations": ["build", "e2e", "lint", "test", "verify-dist"]
+				"cacheableOperations": ["build", "lint", "test", "verify-dist"]
 			},
 			"runner": "nx-cloud"
 		}
@@ -61,11 +61,6 @@
 			"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
 			"{workspaceRoot}/tools/nx-plugins/**/*"
 		],
-		"production": [
-			"default",
-			"!{projectRoot}/cypress/**/*",
-			"!{projectRoot}/**/*.cy.[jt]s?(x)",
-			"!{projectRoot}/cypress.config.[jt]s"
-		]
+		"production": ["default"]
 	}
 }
