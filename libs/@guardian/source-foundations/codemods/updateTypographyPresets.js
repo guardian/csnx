@@ -266,6 +266,13 @@ const fontWeightMapping = {
 	bold: 700,
 };
 
+const addCommentToTemplate = (templatePath, comment, index) => {
+	const nextQuasi = templatePath.node.quasi.quasis[index + 1];
+	if (!nextQuasi) return;
+
+	nextQuasi.value.raw = comment + nextQuasi.value.raw;
+	nextQuasi.value.cooked = comment + nextQuasi.value.cooked;
+};
 const getArgumentsFromObjectExpression = (arg) => {
 	const args = [];
 	arg.properties.forEach((prop) => {
@@ -321,21 +328,26 @@ module.exports = function (fileInfo, api) {
 					sizeToPresetMapping[expr.callee.object.name][
 						expr.callee.property.name
 					];
-				console.log(expr.callee.object.name);
+
 				if (expr.arguments.length === 0 && expr.callee.object.name !== 'body') {
-					usedPresets.add(newBasePreset);
 					return;
 				}
 				let args = [];
 				if (expr.arguments.length !== 0) {
 					const optionsArg = expr.arguments[0];
-					if (optionsArg.type !== 'ObjectExpression') return;
+					if (optionsArg.type !== 'ObjectExpression') {
+						addCommentToTemplate(
+							templatePath,
+							'/** TODO (1) - Unknown argument please manually update */',
+							index,
+						);
+						return;
+					}
 					args = getArgumentsFromObjectExpression(optionsArg);
 				}
 				if (expr.callee.object.name === 'body' && !args['lineHeight']) {
 					args['lineHeight'] = 'loose';
 				}
-				console.log(args);
 				const newPresetName = buildPresetName(newBasePreset, args);
 				let addComment = false;
 				let comment = `;
@@ -350,8 +362,8 @@ module.exports = function (fileInfo, api) {
 						args['fontWeight'] ||
 						!typographyApiMapping[newPresetName].fontWeight)
 				) {
-					comment += `
-font-weight: ${fontWeightMapping[args['fontWeight']] ?? ';/** @TODO - Unknown font weight */'}`;
+					comment += `${addComment ? ';' : ''}
+font-weight: ${fontWeightMapping[args['fontWeight']] ? fontWeightMapping[args['fontWeight']] : ';/** @TODO - Unknown font weight */'}`;
 					addComment = true;
 				}
 				if (
@@ -361,8 +373,8 @@ font-weight: ${fontWeightMapping[args['fontWeight']] ?? ';/** @TODO - Unknown fo
 						args['lineHeight'] ||
 						!typographyApiMapping[newPresetName].lineHeight)
 				) {
-					comment += `
-line-height: ${lineHeightMapping[args['lineHeight']]};`;
+					comment += `${addComment ? ';' : ''}
+line-height: ${lineHeightMapping[args['lineHeight']] ? lineHeightMapping[args['lineHeight']] : ';/** @TODO - Unknown line height*/'}`;
 					addComment = true;
 				}
 				if (
@@ -371,17 +383,13 @@ line-height: ${lineHeightMapping[args['lineHeight']]};`;
 						args['fontStyle'] ||
 						!typographyApiMapping[newPresetName].fontStyle)
 				) {
-					comment += `
-font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */;'}`;
+					comment += `${addComment ? ';' : ''}
+font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */'}`;
 					addComment = true;
 				}
 
 				if (!addComment) return;
-				const nextQuasi = templatePath.node.quasi.quasis[index + 1];
-				if (!nextQuasi) return;
-
-				nextQuasi.value.raw = comment + nextQuasi.value.raw;
-				nextQuasi.value.cooked = comment + nextQuasi.value.cooked;
+				addCommentToTemplate(templatePath, comment, index);
 			}
 		});
 	});
@@ -401,8 +409,13 @@ font-style: ${args['fontStyle'] ?? ';/** @TODO - Unknown font style */;'}`;
 					path.node.arguments.forEach((arg) => {
 						if (arg.type === 'ObjectExpression') {
 							args = getArgumentsFromObjectExpression(arg, element);
+						} else {
+							args = false;
 						}
 					});
+					if (args === false) {
+						return;
+					}
 					const preset = buildPresetName(newSize, args);
 					const newIdentifier = j.identifier(preset);
 					j(path).replaceWith(newIdentifier);
