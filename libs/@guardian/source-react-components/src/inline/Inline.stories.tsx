@@ -107,66 +107,9 @@ Space24.args = {
 export const LotsOfItems: StoryFn<typeof Inline> = Template.bind({});
 LotsOfItems.args = {
 	space: 2,
-	children: [
-		<div key={1} css={box}>
-			1
-		</div>,
-		<div key={2} css={box}>
-			2
-		</div>,
-		<div key={3} css={box}>
-			3
-		</div>,
-		<div key={4} css={box}>
-			4
-		</div>,
-		<div key={5} css={box}>
-			5
-		</div>,
-		<div key={6} css={box}>
-			6
-		</div>,
-		<div key={7} css={box}>
-			7
-		</div>,
-		<div key={8} css={box}>
-			8
-		</div>,
-		<div key={9} css={box}>
-			9
-		</div>,
-		<div key={10} css={box}>
-			10
-		</div>,
-		<div key={11} css={box}>
-			11
-		</div>,
-		<div key={12} css={box}>
-			12
-		</div>,
-		<div key={13} css={box}>
-			13
-		</div>,
-		<div key={14} css={box}>
-			14
-		</div>,
-		<div key={15} css={box}>
-			15
-		</div>,
-		<div key={16} css={box}>
-			16
-		</div>,
-		<div key={17} css={box}>
-			17
-		</div>,
-		<div key={18} css={box}>
-			18
-		</div>,
-		<div key={19} css={box}>
-			19
-		</div>,
-		<div key={20} css={box}>
-			20
-		</div>,
-	],
+	children: Array.from({ length: 20 }, (_, i) => (
+		<div key={i} css={box}>
+			{i + 1}
+		</div>
+	)),
 };
