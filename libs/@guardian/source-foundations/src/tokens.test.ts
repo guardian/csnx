@@ -907,6 +907,94 @@ describe('Typography API object style output', () => {
 
 describe('Typography preset CSS output', () => {
 	it('should match expected output', () => {
+		expect(typePresetCss.article15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.4;
+			font-weight: 400;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.article17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 1.0625rem;
+			line-height: 1.4;
+			font-weight: 400;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.articleBold15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.4;
+			font-weight: 700;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.articleBold17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 1.0625rem;
+			line-height: 1.4;
+			font-weight: 700;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.articleBoldItalic15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.4;
+			font-weight: 700;
+			font-style: italic;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.articleBoldItalic17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 1.0625rem;
+			line-height: 1.4;
+			font-weight: 700;
+			font-style: italic;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.articleItalic15).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.4;
+			font-weight: 400;
+			font-style: italic;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.articleItalic17).toMatchCSS(
+			`
+			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+			font-size: 1.0625rem;
+			line-height: 1.4;
+			font-weight: 400;
+			font-style: italic;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
 		expect(typePresetCss.headlineBold14).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
