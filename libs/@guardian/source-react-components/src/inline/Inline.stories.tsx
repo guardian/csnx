@@ -1,6 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
+import { css } from '@emotion/react';
+import { palette, space } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Inline> = {
 	title: 'Inline',
@@ -9,16 +11,30 @@ const meta: Meta<typeof Inline> = {
 
 export default meta;
 
+const wrapper = css`
+	outline: 1px dashed ${palette.neutral[46]};
+`;
+
+const box = css`
+	display: grid;
+	place-items: center;
+	width: ${space[12]}px;
+	height: ${space[12]}px;
+	background: ${palette.news[600]};
+`;
+
 const Template: StoryFn<typeof Inline> = (args: InlineProps) => (
-	<Inline {...args}>
-		{args.children ?? (
-			<>
-				<div>[Item 1]</div>
-				<div>[Item 2]</div>
-				<div>[Item 3]</div>
-			</>
-		)}
-	</Inline>
+	<div css={wrapper}>
+		<Inline {...args}>
+			{args.children ?? (
+				<>
+					<div css={box}>1</div>
+					<div css={box}>2</div>
+					<div css={box}>3</div>
+				</>
+			)}
+		</Inline>
+	</div>
 );
 
 export const NoSpace: StoryFn<typeof Inline> = Template.bind({});
@@ -90,26 +106,67 @@ Space24.args = {
 
 export const LotsOfItems: StoryFn<typeof Inline> = Template.bind({});
 LotsOfItems.args = {
+	space: 2,
 	children: [
-		<div key={1}>[Item 1]</div>,
-		<div key={2}>[Item 2]</div>,
-		<div key={3}>[Item 3]</div>,
-		<div key={4}>[Item 4]</div>,
-		<div key={5}>[Item 5]</div>,
-		<div key={6}>[Item 6]</div>,
-		<div key={7}>[Item 7]</div>,
-		<div key={8}>[Item 8]</div>,
-		<div key={9}>[Item 9]</div>,
-		<div key={10}>[Item 10]</div>,
-		<div key={11}>[Item 11]</div>,
-		<div key={12}>[Item 12]</div>,
-		<div key={13}>[Item 13]</div>,
-		<div key={14}>[Item 14]</div>,
-		<div key={15}>[Item 15]</div>,
-		<div key={16}>[Item 16]</div>,
-		<div key={17}>[Item 17]</div>,
-		<div key={18}>[Item 18]</div>,
-		<div key={19}>[Item 19]</div>,
-		<div key={20}>[Item 20]</div>,
+		<div key={1} css={box}>
+			1
+		</div>,
+		<div key={2} css={box}>
+			2
+		</div>,
+		<div key={3} css={box}>
+			3
+		</div>,
+		<div key={4} css={box}>
+			4
+		</div>,
+		<div key={5} css={box}>
+			5
+		</div>,
+		<div key={6} css={box}>
+			6
+		</div>,
+		<div key={7} css={box}>
+			7
+		</div>,
+		<div key={8} css={box}>
+			8
+		</div>,
+		<div key={9} css={box}>
+			9
+		</div>,
+		<div key={10} css={box}>
+			10
+		</div>,
+		<div key={11} css={box}>
+			11
+		</div>,
+		<div key={12} css={box}>
+			12
+		</div>,
+		<div key={13} css={box}>
+			13
+		</div>,
+		<div key={14} css={box}>
+			14
+		</div>,
+		<div key={15} css={box}>
+			15
+		</div>,
+		<div key={16} css={box}>
+			16
+		</div>,
+		<div key={17} css={box}>
+			17
+		</div>,
+		<div key={18} css={box}>
+			18
+		</div>,
+		<div key={19} css={box}>
+			19
+		</div>,
+		<div key={20} css={box}>
+			20
+		</div>,
 	],
 };
