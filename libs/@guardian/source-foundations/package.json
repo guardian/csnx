@@ -7,7 +7,9 @@
 		"build-storybook": "wireit",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
-		"storybook": "storybook dev --port 4401"
+		"storybook": "storybook dev --port 4401",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -65,27 +67,16 @@
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-foundations"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-foundations"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.ts"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
 				"executor": "@nx/jest:jest",

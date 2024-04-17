@@ -6,7 +6,9 @@
 	"sideEffects": false,
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
@@ -61,27 +63,16 @@
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/core-web-vitals"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/core-web-vitals"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.js"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
 				"executor": "@nx/jest:jest",

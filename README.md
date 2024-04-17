@@ -187,7 +187,6 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/newsletter-types:dev`
 - `make @guardian/newsletter-types:fix`
 - `make @guardian/newsletter-types:lint`
-- `make @guardian/newsletter-types:test`
 
 #### @guardian/prettier
 

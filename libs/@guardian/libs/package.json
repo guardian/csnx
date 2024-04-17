@@ -7,7 +7,9 @@
 	"scripts": {
 		"e2e": "wireit",
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",
@@ -66,27 +68,16 @@
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/libs"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/libs/jest.config.ts",
-					"passWithNoTests": false
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/libs"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/libs/jest.dist.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.js"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
 				"executor": "@nx/jest:jest",

@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"verify-dist": "jest"
 	},
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
@@ -56,13 +57,10 @@
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/eslint-config-typescript"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/eslint-config-typescript/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

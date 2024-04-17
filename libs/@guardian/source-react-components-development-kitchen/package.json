@@ -6,7 +6,9 @@
 		"build-storybook": "wireit",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
-		"storybook": "storybook dev --port 4403"
+		"storybook": "storybook dev --port 4403",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
@@ -67,27 +69,16 @@
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.ts"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
 				"executor": "@nx/jest:jest",

@@ -7,7 +7,9 @@
 	"sideEffects": false,
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
@@ -67,27 +69,16 @@
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/ab-react"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/ab-react"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.js"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
 				"executor": "@nx/jest:jest",
