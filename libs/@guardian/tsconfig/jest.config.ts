@@ -4,10 +4,5 @@ import { config } from '../../../configs/jest.config';
 
 export default {
 	...config,
-	displayName: '@guardian/source-foundations',
-	testEnvironment: 'node',
-	setupFilesAfterEnv: [
-		'./lib/jest-matchers/toBeValidCSS.ts',
-		'./lib/jest-matchers/toMatchCSS.ts',
-	],
+	displayName: '@guardian/tsconfig',
 };

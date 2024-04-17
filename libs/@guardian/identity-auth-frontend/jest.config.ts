@@ -1,8 +1,9 @@
 /* eslint-disable import/no-default-export -- that's what jest likes */
+// eslint-disable-next-line @nx/enforce-module-boundaries -- nx!
+import { config } from '../../../configs/jest.config';
+
 export default {
+	...config,
 	displayName: '@guardian/identity-auth-frontend',
-	preset: '../../../jest.preset.js',
 	testEnvironment: 'jest-environment-jsdom',
-	moduleFileExtensions: ['ts', 'js'],
-	coverageDirectory: '../../../coverage/libs/@guardian/identity-auth-frontend',
 };

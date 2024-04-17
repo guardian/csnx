@@ -6,12 +6,18 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
+		"jest": "29.7.0",
+		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
+		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},
@@ -36,63 +42,41 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/identity-auth/src/index.ts",
-					"tsConfig": "libs/@guardian/identity-auth/tsconfig.json",
-					"packageJson": "libs/@guardian/identity-auth/package.json",
-					"outputPath": "dist/libs/@guardian/identity-auth",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/identity-auth/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/identity-auth/**/*",
+					"{projectRoot}/**",
 					"{workspaceRoot}/.eslintrc.js"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/identity-auth/**/*",
+					"{projectRoot}/**",
 					"{workspaceRoot}/.eslintrc.js"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/identity-auth/"
+					"{projectRoot}"
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/identity-auth"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/identity-auth/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/identity-auth"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/identity-auth/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.js"
-					]
-				}
-			},
-			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/identity-auth"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/identity-auth/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

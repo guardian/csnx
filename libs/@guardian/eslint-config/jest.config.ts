@@ -4,10 +4,6 @@ import { config } from '../../../configs/jest.config';
 
 export default {
 	...config,
-	displayName: '@guardian/source-foundations',
+	displayName: '@guardian/eslint-config',
 	testEnvironment: 'node',
-	setupFilesAfterEnv: [
-		'./lib/jest-matchers/toBeValidCSS.ts',
-		'./lib/jest-matchers/toMatchCSS.ts',
-	],
 };

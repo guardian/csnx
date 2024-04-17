@@ -2,12 +2,8 @@
 // eslint-disable-next-line @nx/enforce-module-boundaries -- nx!
 import { config } from '../../../configs/jest.config';
 
-export default {
+module.exports = {
 	...config,
-	displayName: '@guardian/source-foundations',
+	displayName: '@guardian/browserslist-config',
 	testEnvironment: 'node',
-	setupFilesAfterEnv: [
-		'./lib/jest-matchers/toBeValidCSS.ts',
-		'./lib/jest-matchers/toMatchCSS.ts',
-	],
 };
