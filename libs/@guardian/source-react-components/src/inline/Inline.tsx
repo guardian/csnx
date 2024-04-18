@@ -1,14 +1,14 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
-import type { InlineSpace } from './@types/InlineSpace';
+import type { Space } from '../@types/Space';
 import { inline, inlineSpace, inlineWrapper } from './styles';
 
 export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
 	 * [Units of space](https://www.theguardian.design/2a1e5182b/p/449bd5-space) between inline items (one unit is 4px).
 	 */
-	space?: InlineSpace;
+	space?: Space;
 }
 
 /**

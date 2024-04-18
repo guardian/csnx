@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { space } from '@guardian/source-foundations';
-import type { InlineSpace } from './@types/InlineSpace';
+import type { Space } from '../@types/Space';
 
 export const inline = css`
 	overflow: hidden;
@@ -12,7 +12,7 @@ export const inlineWrapper = css`
 	flex-wrap: wrap;
 `;
 
-export const inlineSpace = (number: InlineSpace): SerializedStyles => css`
+export const inlineSpace = (number: Space): SerializedStyles => css`
 	margin: -${space[number] / 2}px;
 	> * {
 		margin: ${space[number] / 2}px;
