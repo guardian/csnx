@@ -2,7 +2,7 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import type { InlineSpace } from './@types/InlineSpace';
-import { inline, inlineSpace } from './styles';
+import { inline, inlineSpace, inlineWrapper } from './styles';
 
 export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
@@ -26,11 +26,13 @@ export const Inline = ({
 	...props
 }: InlineProps): EmotionJSX.Element => {
 	return (
-		<div
-			css={[inline, space ? inlineSpace[space] : '', cssOverrides]}
-			{...props}
-		>
-			{children}
+		<div css={inline}>
+			<div
+				css={[inlineWrapper, space && inlineSpace(space), cssOverrides]}
+				{...props}
+			>
+				{children}
+			</div>
 		</div>
 	);
 };
