@@ -1,8 +1,8 @@
+import { css } from '@emotion/react';
+import { palette, space } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
-import { css } from '@emotion/react';
-import { palette, space } from '@guardian/source-foundations';
 
 const meta: Meta<typeof Inline> = {
 	title: 'Inline',
