@@ -5,7 +5,8 @@
 	"main": "tsconfig.json",
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"verify-dist": "jest"
 	},
 	"nx": {
 		"targets": {
@@ -15,37 +16,34 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"outputPath": "dist/libs/@guardian/tsconfig",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/tsconfig/tsconfig.json",
-						"libs/@guardian/tsconfig/*.md"
+						"{projectRoot}/tsconfig.json",
+						"{projectRoot}/*.md"
 					],
-					"packageJson": "libs/@guardian/tsconfig/package.json"
+					"packageJson": "{projectRoot}/package.json"
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/tsconfig/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/tsconfig/"
+					"{projectRoot}"
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/tsconfig"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/tsconfig/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

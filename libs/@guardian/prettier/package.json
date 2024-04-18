@@ -23,38 +23,35 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"packageJson": "libs/@guardian/prettier/package.json",
-					"outputPath": "dist/libs/@guardian/prettier",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/prettier/index.js",
-						"libs/@guardian/prettier/index.d.ts",
-						"libs/@guardian/prettier/*.md"
+						"{projectRoot}/index.js",
+						"{projectRoot}/index.d.ts",
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/prettier/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/prettier/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/prettier/"
+					"{projectRoot}"
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/prettier"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/prettier/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

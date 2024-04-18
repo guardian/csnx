@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"verify-dist": "jest"
 	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
@@ -28,37 +29,34 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"outputPath": "dist/libs/@guardian/eslint-config",
-					"packageJson": "libs/@guardian/eslint-config/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"packageJson": "{projectRoot}/package.json",
 					"assets": [
-						"libs/@guardian/eslint-config/index.js",
-						"libs/@guardian/eslint-config/*.md"
+						"{projectRoot}/index.js",
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/eslint-config/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/eslint-config/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/eslint-config/"
+					"{projectRoot}"
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/eslint-config"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/eslint-config/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

@@ -4,9 +4,12 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
-		"storybook": "storybook dev --port 4403"
+		"storybook": "storybook dev --port 4403",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
@@ -42,63 +45,47 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
-					"tsConfig": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
-					"packageJson": "libs/@guardian/source-react-components-development-kitchen/package.json",
-					"outputPath": "dist/libs/@guardian/source-react-components-development-kitchen",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/source-react-components-development-kitchen/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/source-react-components-development-kitchen/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/source-react-components-development-kitchen/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/source-react-components-development-kitchen/"
+					"{projectRoot}"
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.ts"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	},

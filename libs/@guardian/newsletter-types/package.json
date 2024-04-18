@@ -5,6 +5,7 @@
 	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
@@ -32,50 +33,35 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/newsletter-types/src/index.ts",
-					"tsConfig": "libs/@guardian/newsletter-types/tsconfig.json",
-					"packageJson": "libs/@guardian/newsletter-types/package.json",
-					"outputPath": "dist/libs/@guardian/newsletter-types",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/newsletter-types/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/newsletter-types/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/newsletter-types/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/newsletter-types/"
+					"{projectRoot}"
 				]
 			},
-			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/newsletter-types"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
-					"passWithNoTests": true
-				}
-			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/newsletter-types"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

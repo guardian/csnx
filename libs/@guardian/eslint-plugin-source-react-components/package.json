@@ -3,8 +3,11 @@
 	"version": "24.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-react-components` package.",
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "6.21.0",
@@ -43,63 +46,47 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/eslint-plugin-source-react-components/src/index.ts",
-					"tsConfig": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.json",
-					"packageJson": "libs/@guardian/eslint-plugin-source-react-components/package.json",
-					"outputPath": "dist/libs/@guardian/eslint-plugin-source-react-components",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/eslint-plugin-source-react-components/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-react-components/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-react-components/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/eslint-plugin-source-react-components/"
+					"{projectRoot}"
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.ts"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

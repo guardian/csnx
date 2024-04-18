@@ -426,10 +426,6 @@ install: check-node-version
 @guardian/newsletter-types\:lint: env
 	@corepack pnpm nx run @guardian/newsletter-types:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
-.PHONY: @guardian/newsletter-types\:test
-@guardian/newsletter-types\:test: env
-	@corepack pnpm nx run @guardian/newsletter-types:test --skip-nx-cache=$(SKIP_NX_CACHE)
-
 .PHONY: @guardian/prettier\:build
 @guardian/prettier\:build: env
 	@corepack pnpm nx run @guardian/prettier:build --skip-nx-cache=$(SKIP_NX_CACHE)

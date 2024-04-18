@@ -6,7 +6,8 @@
 	"scripts": {
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
-		"update-readme": "node ./scripts/update-readme.mjs"
+		"update-readme": "node ./scripts/update-readme.mjs",
+		"verify-dist": "jest"
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
@@ -28,39 +29,36 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"outputPath": "dist/libs/@guardian/browserslist-config",
-					"packageJson": "libs/@guardian/browserslist-config/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"packageJson": "{projectRoot}/package.json",
 					"assets": [
-						"libs/@guardian/browserslist-config/.browserslistrc",
-						"libs/@guardian/browserslist-config/browserslist-stats.json",
-						"libs/@guardian/browserslist-config/browserslist.js",
-						"libs/@guardian/browserslist-config/*.md"
+						"{projectRoot}/.browserslistrc",
+						"{projectRoot}/browserslist-stats.json",
+						"{projectRoot}/browserslist.js",
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/browserslist-config/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/browserslist-config/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/browserslist-config/"
+					"{projectRoot}"
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/browserslist-config"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/browserslist-config/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

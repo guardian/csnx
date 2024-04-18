@@ -35,7 +35,7 @@ const figmaApi = async <T>(url: string): Promise<T> => {
 		`https://api.figma.com/v1/${url}`,
 		FIGMA_API_OPTIONS,
 	);
-	return response.json();
+	return response.json() as Promise<T>;
 };
 
 export const getIconsFromFigma = async () => {

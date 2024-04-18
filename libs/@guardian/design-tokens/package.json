@@ -40,29 +40,29 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"packageJson": "libs/@guardian/design-tokens/package.json",
-					"outputPath": "dist/libs/@guardian/design-tokens",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/design-tokens/*.md",
-						"libs/@guardian/design-tokens/tokens.js",
-						"libs/@guardian/design-tokens/tokens.d.ts",
-						"libs/@guardian/design-tokens/variables.css"
+						"{projectRoot}/*.md",
+						"{projectRoot}/tokens.js",
+						"{projectRoot}/tokens.d.ts",
+						"{projectRoot}/variables.css"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/design-tokens/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/design-tokens/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/design-tokens/"
+					"{projectRoot}"
 				]
 			}
 		}

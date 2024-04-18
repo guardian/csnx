@@ -5,9 +5,12 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
-		"storybook": "storybook dev --port 4401"
+		"storybook": "storybook dev --port 4401",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -40,69 +43,53 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/source-foundations/src/index.ts",
-					"tsConfig": "libs/@guardian/source-foundations/tsconfig.json",
-					"packageJson": "libs/@guardian/source-foundations/package.json",
-					"outputPath": "dist/libs/@guardian/source-foundations",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/source-foundations/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},
 			"lint": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/source-foundations/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				]
 			},
 			"fix": {
 				"inputs": [
-					"{workspaceRoot}/libs/@guardian/source-foundations/**/*",
-					"{workspaceRoot}/.eslintrc.js"
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
 				],
 				"outputs": [
-					"{workspaceRoot}/libs/@guardian/source-foundations/"
+					"{projectRoot}"
 				]
 			},
 			"test": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-foundations"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
-					"passWithNoTests": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-foundations"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
-					"passWithNoTests": false,
-					"setupFilesAfterEnv": [
-						"./jest.dist.setup.ts"
-					]
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-foundations"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"build-type-presets": {
 				"executor": "nx:run-commands",
 				"options": {
 					"command": "tsx ./scripts/build-type-presets.ts",
-					"cwd": "libs/@guardian/source-foundations",
+					"cwd": "{projectRoot}",
 					"color": true
 				}
 			}
