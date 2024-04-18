@@ -6,18 +6,19 @@ import { inline, inlineSpace, inlineWrapper } from './styles';
 
 export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
-	 * [Units of space](https://www.theguardian.design/2a1e5182b/p/449bd5-space) between inline items (one unit is 4px).
+	 * [Units of space](https://guardian.github.io/storybooks/?path=/docs/source-foundations_space--docs)
+	 * between children.
 	 */
 	space?: Space;
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_inline--no-space) •
- * [Design System](https://theguardian.design/2a1e5182b/p/99f3c1-inline) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source-react-components_inline--docs) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/inline/Inline.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  *
- * `Inline` components will be laid out one next to the other.
+ * `Inline` child elements are laid out horizontally, wrapping on to another row
+ * if there isn't enough room. Spacing is applied between adjacent children.
  */
 export const Inline = ({
 	cssOverrides,

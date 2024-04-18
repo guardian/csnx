@@ -104,10 +104,10 @@ Space24.args = {
 
 // *****************************************************************************
 
-export const LotsOfItems: StoryFn<typeof Inline> = Template.bind({});
-LotsOfItems.args = {
+export const MultipleChildElements: StoryFn<typeof Inline> = Template.bind({});
+MultipleChildElements.args = {
 	space: 2,
-	children: Array.from({ length: 20 }, (_, i) => (
+	children: Array.from({ length: 24 }, (_, i) => (
 		<div key={i} css={box}>
 			{i + 1}
 		</div>
