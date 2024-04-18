@@ -5,6 +5,7 @@
 	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
@@ -57,15 +58,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/newsletter-types"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/newsletter-types/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

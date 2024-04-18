@@ -5,6 +5,7 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"storybook": "storybook dev --port 4401",
@@ -79,21 +80,16 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-foundations"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-foundations/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			},
 			"build-type-presets": {
 				"executor": "nx:run-commands",
 				"options": {
 					"command": "tsx ./scripts/build-type-presets.ts",
-					"cwd": "libs/@guardian/source-foundations",
+					"cwd": "{projectRoot}",
 					"color": true
 				}
 			}

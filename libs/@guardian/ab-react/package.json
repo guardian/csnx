@@ -6,6 +6,7 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
@@ -81,15 +82,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/ab-react"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/ab-react/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

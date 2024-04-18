@@ -4,6 +4,7 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"storybook": "storybook dev --port 4403",
@@ -81,15 +82,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/source-react-components-development-kitchen"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/source-react-components-development-kitchen/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	},

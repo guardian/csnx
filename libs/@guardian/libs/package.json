@@ -5,6 +5,7 @@
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"e2e": "wireit",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
@@ -80,15 +81,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/libs"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/libs/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	},

@@ -3,6 +3,7 @@
 	"version": "24.0.0",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-react-components` package.",
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
@@ -82,15 +83,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/eslint-plugin-source-react-components"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/eslint-plugin-source-react-components/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

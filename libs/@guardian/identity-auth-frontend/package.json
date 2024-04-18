@@ -6,6 +6,7 @@
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
@@ -77,15 +78,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/identity-auth-frontend"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/identity-auth-frontend/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

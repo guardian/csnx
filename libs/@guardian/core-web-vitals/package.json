@@ -5,6 +5,7 @@
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
 	"scripts": {
+		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
@@ -75,15 +76,10 @@
 				]
 			},
 			"dev": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/core-web-vitals"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/core-web-vitals/jest.config.ts",
-					"passWithNoTests": false,
-					"watch": true
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}
