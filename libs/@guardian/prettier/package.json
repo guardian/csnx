@@ -48,13 +48,10 @@
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/prettier"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/prettier/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

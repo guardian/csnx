@@ -8,7 +8,7 @@
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv jest.dist.setup.ts"
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",

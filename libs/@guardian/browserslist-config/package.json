@@ -6,7 +6,8 @@
 	"scripts": {
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
-		"update-readme": "node ./scripts/update-readme.mjs"
+		"update-readme": "node ./scripts/update-readme.mjs",
+		"verify-dist": "jest"
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
@@ -54,13 +55,10 @@
 				]
 			},
 			"verify-dist": {
-				"executor": "@nx/jest:jest",
-				"outputs": [
-					"{workspaceRoot}/coverage/libs/@guardian/browserslist-config"
-				],
-				"options": {
-					"jestConfig": "libs/@guardian/browserslist-config/jest.config.js"
-				}
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
 			}
 		}
 	}

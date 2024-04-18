@@ -9,7 +9,7 @@
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv jest.dist.setup.ts"
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"tslib": "2.6.2",

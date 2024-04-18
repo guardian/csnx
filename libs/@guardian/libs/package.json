@@ -9,7 +9,7 @@
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
+		"verify-dist": "jest -c=./jest.dist.config.ts --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",

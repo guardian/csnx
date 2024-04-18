@@ -6,4 +6,7 @@ export default {
 	...config,
 	displayName: '@guardian/eslint-config-typescript',
 	testEnvironment: 'node',
+	transform: {
+		'^.+\\.[tj]sx?$': 'ts-jest',
+	},
 };

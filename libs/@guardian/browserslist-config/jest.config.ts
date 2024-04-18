@@ -7,4 +7,7 @@ export default {
 	...config,
 	displayName: '@guardian/browserslist-config',
 	testEnvironment: 'node',
+	transform: {
+		'^.+\\.[tj]sx?$': 'ts-jest',
+	},
 };

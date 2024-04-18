@@ -5,4 +5,7 @@ import { config } from '../../../configs/jest.config';
 export default {
 	...config,
 	displayName: '@guardian/tsconfig',
+	transform: {
+		'^.+\\.[tj]sx?$': 'ts-jest',
+	},
 };
