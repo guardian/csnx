@@ -1,12 +1,16 @@
+/* eslint-disable @nx/enforce-module-boundaries -- out root config lives in the root */
 /* eslint-disable import/no-default-export -- that's what jest likes */
-// eslint-disable-next-line @nx/enforce-module-boundaries -- nx!
-import { config } from '../../../configs/jest.config';
 
-export default {
-	...config,
+import type { Config } from 'jest';
+import { config as baseConfig } from '../../../configs/jest.config';
+
+const config: Config = {
+	...baseConfig,
 	displayName: '@guardian/eslint-config-typescript',
 	testEnvironment: 'node',
 	transform: {
 		'^.+\\.[tj]sx?$': 'ts-jest',
 	},
 };
+
+export default config;
