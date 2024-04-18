@@ -2,7 +2,19 @@
 	"name": "@guardian/source-react-components-development-kitchen",
 	"version": "19.0.0",
 	"sideEffects": false,
+	"exports": {
+		".": {
+			"import": "./dist/source-react-components-development-kitchen.mjs",
+			"require": "./dist/source-react-components-development-kitchen.js"
+		}
+	},
+	"main": "./dist/source-react-components-development-kitchen.js",
+	"module": "./dist/source-react-components-development-kitchen.mjs",
+	"files": [
+		"dist"
+	],
 	"scripts": {
+		"build": "vite build",
 		"build-storybook": "wireit",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
@@ -17,10 +29,13 @@
 		"@guardian/libs": "16.0.0",
 		"@guardian/source-foundations": "14.1.4",
 		"@guardian/source-react-components": "22.0.1",
+		"@rollup/plugin-node-resolve": "15.2.3",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
+		"vite": "5.2.9",
+		"vite-plugin-dts": "^3.8.3",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
@@ -39,21 +54,6 @@
 	},
 	"nx": {
 		"targets": {
-			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
-				],
-				"options": {
-					"entry": "{projectRoot}/src/index.ts",
-					"tsConfig": "{projectRoot}/tsconfig.json",
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md"
-					]
-				}
-			},
 			"lint": {
 				"inputs": [
 					"{projectRoot}/**",
