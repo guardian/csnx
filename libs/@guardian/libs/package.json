@@ -44,12 +44,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/libs/src/index.ts",
-					"tsConfig": "libs/@guardian/libs/tsconfig.json",
-					"packageJson": "libs/@guardian/libs/package.json",
-					"outputPath": "dist/libs/@guardian/libs",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/libs/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

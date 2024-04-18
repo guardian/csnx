@@ -41,12 +41,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/identity-auth-frontend/src/index.ts",
-					"tsConfig": "libs/@guardian/identity-auth-frontend/tsconfig.json",
-					"packageJson": "libs/@guardian/identity-auth-frontend/package.json",
-					"outputPath": "dist/libs/@guardian/identity-auth-frontend",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/identity-auth-frontend/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

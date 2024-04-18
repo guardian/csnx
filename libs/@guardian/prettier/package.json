@@ -23,12 +23,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"packageJson": "libs/@guardian/prettier/package.json",
-					"outputPath": "dist/libs/@guardian/prettier",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/prettier/index.js",
-						"libs/@guardian/prettier/index.d.ts",
-						"libs/@guardian/prettier/*.md"
+						"{projectRoot}/index.js",
+						"{projectRoot}/index.d.ts",
+						"{projectRoot}/*.md"
 					]
 				}
 			},

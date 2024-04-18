@@ -39,12 +39,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/core-web-vitals/src/index.ts",
-					"tsConfig": "libs/@guardian/core-web-vitals/tsconfig.json",
-					"packageJson": "libs/@guardian/core-web-vitals/package.json",
-					"outputPath": "dist/libs/@guardian/core-web-vitals",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/core-web-vitals/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

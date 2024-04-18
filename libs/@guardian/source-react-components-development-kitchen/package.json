@@ -45,12 +45,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/source-react-components-development-kitchen/src/index.ts",
-					"tsConfig": "libs/@guardian/source-react-components-development-kitchen/tsconfig.json",
-					"packageJson": "libs/@guardian/source-react-components-development-kitchen/package.json",
-					"outputPath": "dist/libs/@guardian/source-react-components-development-kitchen",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/source-react-components-development-kitchen/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

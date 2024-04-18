@@ -33,11 +33,11 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"outputPath": "dist/libs/@guardian/eslint-config-typescript",
-					"packageJson": "libs/@guardian/eslint-config-typescript/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"packageJson": "{projectRoot}/package.json",
 					"assets": [
-						"libs/@guardian/eslint-config-typescript/index.js",
-						"libs/@guardian/eslint-config-typescript/*.md"
+						"{projectRoot}/index.js",
+						"{projectRoot}/*.md"
 					]
 				}
 			},

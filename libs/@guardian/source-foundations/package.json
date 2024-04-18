@@ -43,12 +43,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/source-foundations/src/index.ts",
-					"tsConfig": "libs/@guardian/source-foundations/tsconfig.json",
-					"packageJson": "libs/@guardian/source-foundations/package.json",
-					"outputPath": "dist/libs/@guardian/source-foundations",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/source-foundations/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

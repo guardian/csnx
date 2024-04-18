@@ -46,12 +46,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/eslint-plugin-source-react-components/src/index.ts",
-					"tsConfig": "libs/@guardian/eslint-plugin-source-react-components/tsconfig.json",
-					"packageJson": "libs/@guardian/eslint-plugin-source-react-components/package.json",
-					"outputPath": "dist/libs/@guardian/eslint-plugin-source-react-components",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/eslint-plugin-source-react-components/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

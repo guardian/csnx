@@ -36,12 +36,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/ab-core/src/index.ts",
-					"tsConfig": "libs/@guardian/ab-core/tsconfig.json",
-					"packageJson": "libs/@guardian/ab-core/package.json",
-					"outputPath": "dist/libs/@guardian/ab-core",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/ab-core/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

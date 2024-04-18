@@ -29,13 +29,13 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"outputPath": "dist/libs/@guardian/browserslist-config",
-					"packageJson": "libs/@guardian/browserslist-config/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"packageJson": "{projectRoot}/package.json",
 					"assets": [
-						"libs/@guardian/browserslist-config/.browserslistrc",
-						"libs/@guardian/browserslist-config/browserslist-stats.json",
-						"libs/@guardian/browserslist-config/browserslist.js",
-						"libs/@guardian/browserslist-config/*.md"
+						"{projectRoot}/.browserslistrc",
+						"{projectRoot}/browserslist-stats.json",
+						"{projectRoot}/browserslist.js",
+						"{projectRoot}/*.md"
 					]
 				}
 			},

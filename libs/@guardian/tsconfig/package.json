@@ -16,12 +16,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"outputPath": "dist/libs/@guardian/tsconfig",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/tsconfig/tsconfig.json",
-						"libs/@guardian/tsconfig/*.md"
+						"{projectRoot}/tsconfig.json",
+						"{projectRoot}/*.md"
 					],
-					"packageJson": "libs/@guardian/tsconfig/package.json"
+					"packageJson": "{projectRoot}/package.json"
 				}
 			},
 			"lint": {

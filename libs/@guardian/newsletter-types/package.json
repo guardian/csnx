@@ -33,12 +33,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/newsletter-types/src/index.ts",
-					"tsConfig": "libs/@guardian/newsletter-types/tsconfig.json",
-					"packageJson": "libs/@guardian/newsletter-types/package.json",
-					"outputPath": "dist/libs/@guardian/newsletter-types",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/newsletter-types/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},

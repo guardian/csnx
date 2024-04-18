@@ -28,11 +28,11 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"packageJson": "libs/@guardian/cobalt-plugin-ts/package.json",
-					"outputPath": "dist/libs/@guardian/cobalt-plugin-ts",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/cobalt-plugin-ts/*.md",
-						"libs/@guardian/cobalt-plugin-ts/index.mjs"
+						"{projectRoot}/*.md",
+						"{projectRoot}/index.mjs"
 					]
 				}
 			},

@@ -45,12 +45,12 @@
 					"{options.outputPath}"
 				],
 				"options": {
-					"entry": "libs/@guardian/ab-react/src/index.ts",
-					"tsConfig": "libs/@guardian/ab-react/tsconfig.json",
-					"packageJson": "libs/@guardian/ab-react/package.json",
-					"outputPath": "dist/libs/@guardian/ab-react",
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 					"assets": [
-						"libs/@guardian/ab-react/*.md"
+						"{projectRoot}/*.md"
 					]
 				}
 			},
