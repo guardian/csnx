@@ -10,6 +10,7 @@
 	},
 	"main": "./dist/source-react-components-development-kitchen.js",
 	"module": "./dist/source-react-components-development-kitchen.mjs",
+	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 import pkg from './package.json';
+import dts from 'vite-plugin-dts';
 
 const packageDependencies = [
 	...Object.keys(pkg.dependencies || {}),
@@ -21,4 +22,11 @@ export default defineConfig({
 			external: [...packageDependencies, ...packageAdditionalDependencies],
 		},
 	},
+	plugins: [
+		dts({
+			insertTypesEntry: true,
+			include: ['./src/**'],
+			exclude: ['./src/**/*.test.ts'],
+		}),
+	],
 });
