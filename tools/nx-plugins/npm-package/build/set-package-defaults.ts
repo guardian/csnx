@@ -40,6 +40,8 @@ export const setPackageDefaults = async (
 	delete pkg.packageManager;
 	delete pkg.scripts;
 	delete pkg.devDependencies;
+	delete pkg.nx;
+	delete pkg.wireit;
 
 	const pkgDefaults: Record<string, unknown> = {
 		license: 'MIT',
@@ -69,11 +71,14 @@ export const setPackageDefaults = async (
 			);
 		}
 	} else if (numberOfExports === 1) {
-		pkg.main = packageExports['.']?.require;
-		pkg.module = packageExports['.']?.import;
+		// pkg.main = packageExports['.']?.require;
+		// pkg.module = packageExports['.']?.import;
+		pkg.main = packageExports['.']?.import;
 	} else {
 		pkg.exports = packageExports;
 	}
+
+	pkg.type = 'module';
 
 	const { default: sortPkgJson } = (await esmModuleImport(
 		'sort-package-json',
