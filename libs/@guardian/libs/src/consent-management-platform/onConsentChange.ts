@@ -11,6 +11,7 @@ import { getConsentState as getCCPAConsentState } from './usnat/getConsentState'
 interface ConsentStateBasic {
 	tcfv2?: TCFv2ConsentState;
 	ccpa?: USNATConsentState;
+	usnat?: USNATConsentState;
 	aus?: AUSConsentState;
 }
 
@@ -65,6 +66,13 @@ const enhanceConsentState = (consentState: ConsentStateBasic): ConsentState => {
 		return {
 			...consentState,
 			canTarget: !consentState.ccpa.doNotSell,
+			framework: 'usnat',
+			gpcSignal,
+		};
+	} else if (consentState.usnat) {
+		return {
+			...consentState,
+			canTarget: !consentState.usnat.doNotSell,
 			framework: 'usnat',
 			gpcSignal,
 		};
