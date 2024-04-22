@@ -11,7 +11,7 @@ import type Cpy from 'cpy';
 import type { OutputChunk } from 'rollup';
 import { rollup } from 'rollup';
 import ts from 'rollup-plugin-ts';
-import { ScriptTarget } from 'typescript';
+// import { ScriptTarget } from 'typescript';
 import { getCompilerOptions } from './get-compiler-options';
 import { getDeclaredDeps } from './get-declared-deps';
 import type { BuildExecutorOptions } from './schema';
@@ -31,7 +31,8 @@ const esmModuleImport = new Function('specifier', 'return import(specifier)');
 const exec = util.promisify(childProcess.exec);
 
 // the order of these sets the order of the exports in the package.json
-const formats = ['esm', 'cjs'] as const;
+// const formats = ['esm', 'cjs'] as const;
+const formats = ['esm'] as const;
 
 type Format = (typeof formats)[number];
 type ImportType = 'import' | 'require';
@@ -46,10 +47,10 @@ const getRollupConfig = (
 ) => {
 	const compilerOptions = getCompilerOptions(options, context);
 
-	if (format === 'cjs') {
-		// Node 14 is eol 2023-04-30, so we should still support it
-		compilerOptions.target = ScriptTarget.ES2018;
-	}
+	// if (format === 'cjs') {
+	// 	// Node 14 is eol 2023-04-30, so we should still support it
+	// 	compilerOptions.target = ScriptTarget.ES2018;
+	// }
 
 	return {
 		strictDeprecations: true,
@@ -156,7 +157,8 @@ export default async function buildExecutor(
 				}),
 			);
 
-			for (const { name, path, format } of builds.flat()) {
+			// for (const { name, path, format } of builds.flat()) {
+			for (const { name, path } of builds.flat()) {
 				const exportName = '.' + (name === 'index' ? '' : '/' + name);
 
 				const packageExport = (packageExports[exportName] ||= {} as Record<
@@ -164,7 +166,8 @@ export default async function buildExecutor(
 					string
 				>);
 
-				packageExport[format === 'cjs' ? 'require' : 'import'] = './' + path;
+				// packageExport[format === 'cjs' ? 'require' : 'import'] = './' + path;
+				packageExport['import'] = './' + path;
 			}
 		}
 
