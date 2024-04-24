@@ -1,10 +1,29 @@
 import { css } from '@emotion/react';
-import { headline, palette, textSans } from '@guardian/source-foundations';
+import {
+	headlineMedium14,
+	headlineMedium17,
+	headlineMedium20,
+	headlineMedium24,
+	headlineMedium28,
+	headlineMedium34,
+	headlineMedium42,
+	headlineMedium50,
+	headlineMedium70,
+	palette,
+	textSans12,
+	textSans14,
+	textSans15,
+	textSans17,
+	textSans20,
+	textSans24,
+	textSans28,
+	textSans34,
+} from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../../vendor/icons/SvgExternal';
 import { Link } from './Link';
 import type { LinkProps } from './Link';
-import { linkThemeBrand, linkThemeBrandAlt } from './theme';
+import { themeLinkBrand, themeLinkBrandAlt } from './theme';
 
 const meta: Meta<typeof Link> = {
 	title: 'Link',
@@ -29,6 +48,29 @@ const meta: Meta<typeof Link> = {
 
 export default meta;
 
+const textSans = [
+	textSans34,
+	textSans28,
+	textSans24,
+	textSans20,
+	textSans17,
+	textSans15,
+	textSans14,
+	textSans12,
+];
+
+const headline = [
+	headlineMedium70,
+	headlineMedium50,
+	headlineMedium42,
+	headlineMedium34,
+	headlineMedium28,
+	headlineMedium24,
+	headlineMedium20,
+	headlineMedium17,
+	headlineMedium14,
+];
+
 const Template: StoryFn<typeof Link> = (args: LinkProps) => (
 	<Link {...args}>Return to home page</Link>
 );
@@ -49,19 +91,17 @@ const UnderlineHoverHeadlineTemplate: StoryFn<typeof Link> = (
 				}
 			`}
 		>
-			{Object.values(headline)
-				.reverse()
-				.map((size, i) => (
-					<Link
-						key={i}
-						{...args}
-						cssOverrides={css`
-							${size()}
-						`}
-					>
-						{headlineText}
-					</Link>
-				))}
+			{headline.map((preset, i) => (
+				<Link
+					key={i}
+					{...args}
+					cssOverrides={css`
+						${preset}
+					`}
+				>
+					{headlineText}
+				</Link>
+			))}
 		</div>
 	);
 };
@@ -82,28 +122,26 @@ const UnderlineHoverTextSansTemplate: StoryFn<typeof Link> = (
 				}
 			`}
 		>
-			{Object.values(textSans)
-				.reverse()
-				.map((size, i) => (
-					<div
-						css={css`
-							padding: 10px 0;
-							${size()}
+			{textSans.map((preset, i) => (
+				<div
+					css={css`
+						padding: 10px 0;
+						${preset}
+					`}
+					key={i}
+				>
+					Some text sans, with a{' '}
+					<Link
+						{...args}
+						cssOverrides={css`
+							${preset}
 						`}
-						key={i}
 					>
-						Some text sans, with a{' '}
-						<Link
-							{...args}
-							cssOverrides={css`
-								${size()}
-							`}
-						>
-							{headlineText}
-						</Link>{' '}
-						in the middle of it
-					</div>
-				))}
+						{headlineText}
+					</Link>{' '}
+					in the middle of it
+				</div>
+			))}
 		</div>
 	);
 };
@@ -118,12 +156,12 @@ PrimaryLinkDefaultTheme.args = {
 export const PrimaryLinkBrandTheme: StoryFn<typeof Link> = Template.bind({});
 PrimaryLinkBrandTheme.args = {
 	icon: undefined,
+	theme: themeLinkBrand,
 };
 PrimaryLinkBrandTheme.parameters = {
 	backgrounds: {
 		default: 'brandBackground.primary',
 	},
-	theme: linkThemeBrand,
 };
 
 // *****************************************************************************
@@ -131,12 +169,12 @@ PrimaryLinkBrandTheme.parameters = {
 export const PrimaryLinkBrandAltTheme: StoryFn<typeof Link> = Template.bind({});
 PrimaryLinkBrandAltTheme.args = {
 	icon: undefined,
+	theme: themeLinkBrandAlt,
 };
 PrimaryLinkBrandAltTheme.parameters = {
 	backgrounds: {
 		default: 'brandAltBackground.primary',
 	},
-	theme: linkThemeBrandAlt,
 };
 
 // *****************************************************************************
