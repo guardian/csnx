@@ -1,5 +1,6 @@
 ---
 '@guardian/eslint-config': major
+'@guardian/eslint-config-typescript': major
 ---
 
 Requires curly braces in all circumstances.
