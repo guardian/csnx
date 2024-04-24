@@ -23,7 +23,9 @@ it('throws an error if no framework is present', () => {
 describe('under CCPA', () => {
 	beforeEach(() => {
 		window.__uspapi = jest.fn((command, b, callback) => {
-			if (command === 'getUSPData') callback(uspData, true);
+			if (command === 'getUSPData') {
+				callback(uspData, true);
+			}
 		});
 
 		setCurrentFramework('ccpa');
@@ -119,7 +121,9 @@ describe('under CCPA', () => {
 describe('under AUS', () => {
 	beforeEach(() => {
 		window.__uspapi = jest.fn((command, b, callback) => {
-			if (command === 'getUSPData') callback(ausData, true);
+			if (command === 'getUSPData') {
+				callback(ausData, true);
+			}
 		});
 
 		// needed to distinguish from US
@@ -217,7 +221,9 @@ describe('under AUS', () => {
 describe('under TCFv2', () => {
 	beforeEach(() => {
 		window.__tcfapi = jest.fn((command, b, callback) => {
-			if (command === 'addEventListener') callback(tcData, true);
+			if (command === 'addEventListener') {
+				callback(tcData, true);
+			}
 			if (command === 'getCustomVendorConsents') {
 				callback(customVendorConsents, true);
 			}

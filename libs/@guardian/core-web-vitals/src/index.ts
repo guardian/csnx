@@ -30,11 +30,15 @@ const setEndpoint = (isDev: boolean) => {
 
 let queued = false;
 const sendData = (): void => {
-	if (queued) return;
+	if (queued) {
+		return;
+	}
 
 	// If we’re missing FCP, the data is unusable in the lake,
 	// So we’re not sending anything.
-	if (coreWebVitalsPayload.fcp === null) return;
+	if (coreWebVitalsPayload.fcp === null) {
+		return;
+	}
 
 	queued = navigator.sendBeacon(endpoint, JSON.stringify(coreWebVitalsPayload));
 
@@ -81,7 +85,9 @@ const onReport: ReportCallback = (metric) => {
 const listener = (e: Event): void => {
 	switch (e.type) {
 		case 'visibilitychange':
-			if (document.visibilityState === 'hidden') sendData();
+			if (document.visibilityState === 'hidden') {
+				sendData();
+			}
 			return;
 		case 'pagehide':
 			sendData();
@@ -146,7 +152,9 @@ export const initCoreWebVitals = async ({
 
 	initialised = true;
 
-	if (team) teamsForLogging.add(team);
+	if (team) {
+		teamsForLogging.add(team);
+	}
 
 	setEndpoint(isDev);
 
@@ -167,14 +175,20 @@ export const initCoreWebVitals = async ({
 			sampling,
 		);
 	}
-	if (sampling === 0) console.warn('Core Web Vitals are sampled at 0%');
-	if (sampling === 1) console.warn('Core Web Vitals are sampled at 100%');
+	if (sampling === 0) {
+		console.warn('Core Web Vitals are sampled at 0%');
+	}
+	if (sampling === 1) {
+		console.warn('Core Web Vitals are sampled at 100%');
+	}
 
 	const pageViewInSample = Math.random() < sampling;
 	const bypassWithHash =
 		window.location.hash === '#bypassCoreWebVitalsSampling';
 
-	if (pageViewInSample || bypassWithHash) return getCoreWebVitals();
+	if (pageViewInSample || bypassWithHash) {
+		return getCoreWebVitals();
+	}
 };
 
 /**
@@ -188,7 +202,9 @@ export const bypassCoreWebVitalsSampling = async (
 		console.warn('initCoreWebVitals not yet initialised');
 		return;
 	}
-	if (team) teamsForLogging.add(team);
+	if (team) {
+		teamsForLogging.add(team);
+	}
 	return getCoreWebVitals();
 };
 

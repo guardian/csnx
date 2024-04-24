@@ -42,7 +42,9 @@ export const genAbTest = (genAbConfig: GenAbConfig): ABTest => {
 		audience,
 		author: 'n/a',
 		canRun: (): boolean => {
-			if (canRun !== undefined) return !!canRun;
+			if (canRun !== undefined) {
+				return !!canRun;
+			}
 			return true;
 		},
 		description: 'n/a',
@@ -64,7 +66,9 @@ export const genRunnableAbTestWhereControlIsRunnable = (
 	const abTest = genAbTest({ id, canRun, variants });
 
 	const variantToRun = abTest.variants[0];
-	if (!variantToRun) throw new Error('Invalid variant to run');
+	if (!variantToRun) {
+		throw new Error('Invalid variant to run');
+	}
 
 	return {
 		...abTest,
@@ -79,7 +83,9 @@ export const genRunnableAbTestWhereVariantIsRunnable = (
 	const abTest = genAbTest({ id, canRun });
 
 	const variantToRun = abTest.variants[1];
-	if (!variantToRun) throw new Error('Invalid variant to run');
+	if (!variantToRun) {
+		throw new Error('Invalid variant to run');
+	}
 
 	return {
 		...abTest,

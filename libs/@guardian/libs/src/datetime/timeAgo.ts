@@ -65,33 +65,55 @@ export const timeAgo = (
 	const length = Math.round(rawLength);
 
 	// Dates in the future are not supported
-	if (length < 0) return false;
+	if (length < 0) {
+		return false;
+	}
 
 	switch (unit) {
 		case 'second': {
-			if (length > 55) return verbose ? '1 minute ago' : '1m ago';
-			if (length < 15) return 'now';
-			if (!verbose) return `${length}s ago`;
+			if (length > 55) {
+				return verbose ? '1 minute ago' : '1m ago';
+			}
+			if (length < 15) {
+				return 'now';
+			}
+			if (!verbose) {
+				return `${length}s ago`;
+			}
 			return `${length} seconds ago`;
 		}
 		case 'minute': {
-			if (length > 55) return verbose ? '1 hour ago' : '1h ago';
-			if (!verbose) return `${length}m ago`;
-			if (length == 1) return '1 minute ago';
+			if (length > 55) {
+				return verbose ? '1 hour ago' : '1h ago';
+			}
+			if (!verbose) {
+				return `${length}m ago`;
+			}
+			if (length == 1) {
+				return '1 minute ago';
+			}
 			return `${length} minutes ago`;
 		}
 		case 'hour': {
-			if (!verbose) return `${length}h ago`;
-			if (length == 1) return '1 hour ago';
+			if (!verbose) {
+				return `${length}h ago`;
+			}
+			if (length == 1) {
+				return '1 hour ago';
+			}
 			return `${length} hours ago`;
 		}
 		case 'day': {
 			if (rawLength < (options?.daysUntilAbsolute ?? 7)) {
-				if (!verbose) return `${length}d ago`;
+				if (!verbose) {
+					return `${length}d ago`;
+				}
 				if (isYesterday(then, now)) {
 					return `Yesterday ${withTime(new Date(then))}`;
 				}
-				if (length == 1) return '1 day ago';
+				if (length == 1) {
+					return '1 day ago';
+				}
 				return `${length} days ago`;
 			}
 
