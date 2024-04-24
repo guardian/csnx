@@ -6,7 +6,9 @@ type Node = (ImportDeclaration | ExportAllDeclaration) &
 
 const isSourcePackage = (node: Node): boolean => {
 	const source = node.source.raw;
-	if (!source) return false;
+	if (!source) {
+		return false;
+	}
 
 	return (
 		source.startsWith("'@guardian/src-") ||
@@ -27,13 +29,17 @@ export const noStarImportsOrExports: Rule.RuleModule = {
 	create(context: Rule.RuleContext): Rule.RuleListener {
 		return {
 			ImportDeclaration(node) {
-				if (!isSourcePackage(node)) return;
+				if (!isSourcePackage(node)) {
+					return;
+				}
 
 				const anyNamespaceSpecifiers = !node.specifiers.every(
 					(s) => s.type !== 'ImportNamespaceSpecifier',
 				);
 
-				if (!anyNamespaceSpecifiers) return;
+				if (!anyNamespaceSpecifiers) {
+					return;
+				}
 
 				return context.report({
 					node,
@@ -43,7 +49,9 @@ export const noStarImportsOrExports: Rule.RuleModule = {
 			},
 			ExportAllDeclaration(node) {
 				// e.g. export * from '@guardian/src-foundations'`
-				if (!isSourcePackage(node)) return;
+				if (!isSourcePackage(node)) {
+					return;
+				}
 				return context.report({
 					node,
 					message:

@@ -41,7 +41,9 @@ export const FileInput: FC<FileInputProps> = ({
 	): Promise<void> => {
 		setUploadError(undefined);
 		const file = event.target.files?.[0];
-		if (!file) return;
+		if (!file) {
+			return;
+		}
 
 		if (!validFileTypes.includes(file.type)) {
 			const typeErrorMessage = `Sorry there was a problem with the file you uploaded. We accept ${validFileTypes.join(

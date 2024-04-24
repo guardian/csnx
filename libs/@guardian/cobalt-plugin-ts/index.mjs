@@ -33,7 +33,9 @@ export default function pluginTS(options) {
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
 			for (const token of tokens) {
 				set(transformedTokens, token.id, defaultTransformer(token));
-				if (token.$description) jsDoc[token.id] = token.$description;
+				if (token.$description) {
+					jsDoc[token.id] = token.$description;
+				}
 			}
 
 			const serialisedJS = serializeJS(transformedTokens, {

@@ -20,7 +20,9 @@ const setTabIndex = (name: string, isExpanded: boolean) => {
 	const collapsibleBody = document.getElementById(
 		`expander-${name}__collapsible-body`,
 	);
-	if (!collapsibleBody) return;
+	if (!collapsibleBody) {
+		return;
+	}
 
 	const tabbableElements: TabbableElementType[] = Array.from(
 		collapsibleBody.querySelectorAll('input,textarea,select,button,a'),

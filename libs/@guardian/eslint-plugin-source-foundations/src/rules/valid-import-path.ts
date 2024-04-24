@@ -136,7 +136,9 @@ const getRenameImportFixers = (
 	// Also add a new line which imports the removed exports from the original source
 	if (removedExports.length) {
 		for (const i of removedExports) {
-			if (!i.range) break;
+			if (!i.range) {
+				break;
+			}
 			// Account for a possible comma after the import (e.g. import {one, two} from 'source')
 			const end = i.range[1];
 			const comma = nodeSource.slice(end, end + 1);
@@ -263,7 +265,9 @@ const relevantImportSource = (importSource: string, pkg: Package): boolean => {
 const createReport = (context: Rule.RuleContext, node: Node, pkg: Package) => {
 	const importSource = node.source?.raw;
 
-	if (!importSource || !relevantImportSource(importSource, pkg)) return;
+	if (!importSource || !relevantImportSource(importSource, pkg)) {
+		return;
+	}
 
 	const newPackage = getNewPackage(importSource);
 

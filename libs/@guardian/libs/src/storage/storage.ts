@@ -11,7 +11,9 @@ class StorageFactory {
 			storage.setItem(uid, uid);
 			const available = storage.getItem(uid) == uid;
 			storage.removeItem(uid);
-			if (available) this.#storage = storage;
+			if (available) {
+				this.#storage = storage;
+			}
 		} catch (e) {
 			// do nothing
 		}
@@ -30,7 +32,9 @@ class StorageFactory {
 	get = (key: string): unknown => {
 		try {
 			const data: unknown = JSON.parse(this.#storage?.getItem(key) ?? '');
-			if (!isObject(data)) return null;
+			if (!isObject(data)) {
+				return null;
+			}
 			const { value, expires } = data;
 
 			// is this item has passed its sell-by-date, remove it

@@ -22,7 +22,9 @@ const DummyTest = {
 
 const Example = () => {
 	const AB = useAB();
-	if (AB.isUserInVariant('DummyTest', 'variant')) return <p>InTheTest</p>;
+	if (AB.isUserInVariant('DummyTest', 'variant')) {
+		return <p>InTheTest</p>;
+	}
 	return <p>NotInTest</p>;
 };
 

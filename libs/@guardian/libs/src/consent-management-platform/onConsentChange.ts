@@ -27,7 +27,9 @@ const awaitingUserInteractionInTCFv2 = (state: ConsentState): boolean =>
 	state.tcfv2?.eventStatus === 'cmpuishown';
 
 const invokeCallback = (callback: CallbackQueueItem, state: ConsentState) => {
-	if (awaitingUserInteractionInTCFv2(state)) return;
+	if (awaitingUserInteractionInTCFv2(state)) {
+		return;
+	}
 
 	const stateString = JSON.stringify(state);
 
@@ -100,9 +102,13 @@ const getConsentState: () => Promise<ConsentState> = async () => {
 // invokes all stored callbacks with the current consent state
 export const invokeCallbacks = (): void => {
 	const callbacksToInvoke = callBackQueue.concat(finalCallbackQueue);
-	if (callbacksToInvoke.length === 0) return;
+	if (callbacksToInvoke.length === 0) {
+		return;
+	}
 	void getConsentState().then((state) => {
-		if (awaitingUserInteractionInTCFv2(state)) return;
+		if (awaitingUserInteractionInTCFv2(state)) {
+			return;
+		}
 
 		callbacksToInvoke.forEach((callback) => invokeCallback(callback, state));
 	});

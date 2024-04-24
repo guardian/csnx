@@ -20,7 +20,9 @@ import { initVendorDataManager } from './vendorDataManager';
 // Store some bits in the global scope for reuse, in case there's more
 // than one instance of the CMP on the page in different scopes.
 if (!isServerSide) {
-	if (typeof window.guCmpHotFix === 'undefined') window.guCmpHotFix = {};
+	if (typeof window.guCmpHotFix === 'undefined') {
+		window.guCmpHotFix = {};
+	}
 }
 
 let _willShowPrivacyMessage: undefined | boolean;
@@ -33,7 +35,9 @@ const initialised = new Promise((resolve) => {
 });
 
 const init: InitCMP = ({ pubData, country }) => {
-	if (isDisabled() || isServerSide) return;
+	if (isDisabled() || isServerSide) {
+		return;
+	}
 
 	if (window.guCmpHotFix.initialised) {
 		if (window.guCmpHotFix.cmp?.version !== version) {
