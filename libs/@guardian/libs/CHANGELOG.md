@@ -4,8 +4,7 @@
 
 ### Patch Changes
 
-- becac1a: Slightly larger source code but more consistent
-
+- becac1a: Improvements to readability of if else statements cleanup after update to linting rules
 ## 16.1.0
 
 ### Minor Changes
