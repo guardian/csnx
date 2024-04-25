@@ -1,6 +1,5 @@
 import ausData from './aus/__fixtures__/api.getUSPData.json';
 import gppData from './ccpa/__fixtures__/api.getGPPData.canSell.json';
-import uspData from './ccpa/__fixtures__/api.getUSPData.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
@@ -104,7 +103,7 @@ describe('under CCPA', () => {
 		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
-		uspData.uspString = '1YNN';
+		// uspData.uspString = '1YNN';
 		gppData.parsedSections.usnatv1.SaleOptOut = 2;
 		invokeCallbacks();
 
