@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.1.1
+
+### Patch Changes
+
+- becac1a: Slightly larger source code but more consistent
+
 ## 16.1.0
 
 ### Minor Changes
