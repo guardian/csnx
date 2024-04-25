@@ -15,14 +15,13 @@ export const duration = ({
 	const difference = now - then;
 	if (difference < units.minute) {
 		return { length: difference / units.second, unit: 'second' };
-	}
-	if (difference < units.hour) {
+	} else if (difference < units.hour) {
 		return { length: difference / units.minute, unit: 'minute' };
-	}
-	if (difference < units.day) {
+	} else if (difference < units.day) {
 		return { length: difference / units.hour, unit: 'hour' };
+	} else {
+		return { length: difference / units.day, unit: 'day' };
 	}
-	return { length: difference / units.day, unit: 'day' };
 };
 
 const isYesterday = (then: number, now: number): boolean => {
@@ -73,48 +72,45 @@ export const timeAgo = (
 		case 'second': {
 			if (length > 55) {
 				return verbose ? '1 minute ago' : '1m ago';
-			}
-			if (length < 15) {
+			} else if (length < 15) {
 				return 'now';
-			}
-			if (!verbose) {
+			} else if (!verbose) {
 				return `${length}s ago`;
+			} else {
+				return `${length} seconds ago`;
 			}
-			return `${length} seconds ago`;
 		}
 		case 'minute': {
 			if (length > 55) {
 				return verbose ? '1 hour ago' : '1h ago';
-			}
-			if (!verbose) {
+			} else if (!verbose) {
 				return `${length}m ago`;
-			}
-			if (length == 1) {
+			} else if (length == 1) {
 				return '1 minute ago';
+			} else {
+				return `${length} minutes ago`;
 			}
-			return `${length} minutes ago`;
 		}
 		case 'hour': {
 			if (!verbose) {
 				return `${length}h ago`;
-			}
-			if (length == 1) {
+			} else if (length == 1) {
 				return '1 hour ago';
+			} else {
+				return `${length} hours ago`;
 			}
-			return `${length} hours ago`;
 		}
 		case 'day': {
 			if (rawLength < (options?.daysUntilAbsolute ?? 7)) {
 				if (!verbose) {
 					return `${length}d ago`;
-				}
-				if (isYesterday(then, now)) {
+				} else if (isYesterday(then, now)) {
 					return `Yesterday ${withTime(new Date(then))}`;
-				}
-				if (length == 1) {
+				} else if (length == 1) {
 					return '1 day ago';
+				} else {
+					return `${length} days ago`;
 				}
-				return `${length} days ago`;
 			}
 
 			// Simple date - "9 Nov 2019"
