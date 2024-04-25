@@ -1,4 +1,4 @@
-import { size as tokens} from '@guardian/design-tokens';
+import { size as tokens } from '@guardian/design-tokens';
 import { pxStringToNumber, pxToRem } from '../utils/convert-value';
 
 /**

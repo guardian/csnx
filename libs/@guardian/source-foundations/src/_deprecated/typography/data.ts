@@ -166,21 +166,11 @@ export const underlineThickness = {
 		xxsmall: pxStringToNumber(
 			typography.textDecorationThicknessForFontSize[12],
 		),
-		xsmall: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[14],
-		),
-		small: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[15],
-		),
-		medium: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[17],
-		),
-		large: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[20],
-		),
-		xlarge: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[24],
-		),
+		xsmall: pxStringToNumber(typography.textDecorationThicknessForFontSize[14]),
+		small: pxStringToNumber(typography.textDecorationThicknessForFontSize[15]),
+		medium: pxStringToNumber(typography.textDecorationThicknessForFontSize[17]),
+		large: pxStringToNumber(typography.textDecorationThicknessForFontSize[20]),
+		xlarge: pxStringToNumber(typography.textDecorationThicknessForFontSize[24]),
 		xxlarge: pxStringToNumber(
 			typography.textDecorationThicknessForFontSize[28],
 		),
@@ -189,15 +179,9 @@ export const underlineThickness = {
 		),
 	},
 	body: {
-		xsmall: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[14],
-		),
-		small: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[15],
-		),
-		medium: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[17],
-		),
+		xsmall: pxStringToNumber(typography.textDecorationThicknessForFontSize[14]),
+		small: pxStringToNumber(typography.textDecorationThicknessForFontSize[15]),
+		medium: pxStringToNumber(typography.textDecorationThicknessForFontSize[17]),
 	},
 	headline: {
 		xxxsmall: pxStringToNumber(
@@ -206,32 +190,16 @@ export const underlineThickness = {
 		xxsmall: pxStringToNumber(
 			typography.textDecorationThicknessForFontSize[20],
 		),
-		xsmall: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[24],
-		),
-		small: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[28],
-		),
-		medium: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[34],
-		),
-		large: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[42],
-		),
-		xlarge: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[50],
-		),
+		xsmall: pxStringToNumber(typography.textDecorationThicknessForFontSize[24]),
+		small: pxStringToNumber(typography.textDecorationThicknessForFontSize[28]),
+		medium: pxStringToNumber(typography.textDecorationThicknessForFontSize[34]),
+		large: pxStringToNumber(typography.textDecorationThicknessForFontSize[42]),
+		xlarge: pxStringToNumber(typography.textDecorationThicknessForFontSize[50]),
 	},
 	titlepiece: {
-		small: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[42],
-		),
-		medium: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[50],
-		),
-		large: pxStringToNumber(
-			typography.textDecorationThicknessForFontSize[70],
-		),
+		small: pxStringToNumber(typography.textDecorationThicknessForFontSize[42]),
+		medium: pxStringToNumber(typography.textDecorationThicknessForFontSize[50]),
+		large: pxStringToNumber(typography.textDecorationThicknessForFontSize[70]),
 	},
 } as const;
 
