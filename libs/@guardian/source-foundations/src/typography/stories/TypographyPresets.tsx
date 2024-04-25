@@ -1,11 +1,10 @@
 import { css } from '@emotion/react';
-import { tokens } from '@guardian/design-tokens';
+import { typographyPresets } from '@guardian/design-tokens';
 import * as presets from '../../../vendor/typography/css';
 import { palette } from '../../colour/palette';
 import { space } from '../../space/space';
 
-const presetTokens = tokens.typography.presets;
-type Preset = keyof typeof presetTokens;
+type Preset = keyof typeof typographyPresets;
 
 const listCss = css`
 	list-style: none;
@@ -46,7 +45,7 @@ const propertiesCss = css`
 export const TypographyPresets = () => (
 	<ul css={listCss}>
 		{Object.entries(presets).map(([preset, styles]) => {
-			const token = presetTokens[preset as Preset];
+			const token = typographyPresets[preset as Preset];
 			return (
 				<li>
 					<span css={presetNameCss}>{preset}</span>

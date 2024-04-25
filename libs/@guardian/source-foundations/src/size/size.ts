@@ -1,4 +1,4 @@
-import { tokens } from '@guardian/design-tokens';
+import { size as tokens} from '@guardian/design-tokens';
 import { pxStringToNumber, pxToRem } from '../utils/convert-value';
 
 /**
@@ -8,9 +8,9 @@ import { pxStringToNumber, pxToRem } from '../utils/convert-value';
  * May be used for call to action buttons and user input fields.
  */
 export const size = {
-	xsmall: pxStringToNumber(tokens.size.xSmall),
-	small: pxStringToNumber(tokens.size.small),
-	medium: pxStringToNumber(tokens.size.medium), // meets WCAG 2.1 AAA compliance for touch targets.
+	xsmall: pxStringToNumber(tokens.xSmall),
+	small: pxStringToNumber(tokens.small),
+	medium: pxStringToNumber(tokens.medium), // meets WCAG 2.1 AAA compliance for touch targets.
 } as const;
 
 /**
@@ -36,9 +36,9 @@ const remSize: { [K in keyof typeof size]: number } = {
    component.
 */
 export const iconSize = {
-	xsmall: pxStringToNumber(tokens.size.icon.xSmall),
-	small: pxStringToNumber(tokens.size.icon.small),
-	medium: pxStringToNumber(tokens.size.icon.medium),
+	xsmall: pxStringToNumber(tokens.icon.xSmall),
+	small: pxStringToNumber(tokens.icon.small),
+	medium: pxStringToNumber(tokens.icon.medium),
 } as const;
 
 const remIconSize: { [K in keyof typeof iconSize]: number } = {

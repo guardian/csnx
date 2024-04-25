@@ -1,4 +1,4 @@
-import { tokens } from '@guardian/design-tokens';
+import { typography } from '@guardian/design-tokens';
 import {
 	fontArrayToString,
 	pxStringToNumber,
@@ -17,33 +17,33 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  */
 export const pxTextSizes = {
 	textSans: {
-		xxsmall: pxStringToNumber(tokens.typography.textSans.xxSmall.fontSize),
-		xsmall: pxStringToNumber(tokens.typography.textSans.xSmall.fontSize),
-		small: pxStringToNumber(tokens.typography.textSans.small.fontSize),
-		medium: pxStringToNumber(tokens.typography.textSans.medium.fontSize),
-		large: pxStringToNumber(tokens.typography.textSans.large.fontSize),
-		xlarge: pxStringToNumber(tokens.typography.textSans.xLarge.fontSize),
-		xxlarge: pxStringToNumber(tokens.typography.textSans.xxLarge.fontSize),
-		xxxlarge: pxStringToNumber(tokens.typography.textSans.xxxLarge.fontSize),
+		xxsmall: pxStringToNumber(typography.textSans.xxSmall.fontSize),
+		xsmall: pxStringToNumber(typography.textSans.xSmall.fontSize),
+		small: pxStringToNumber(typography.textSans.small.fontSize),
+		medium: pxStringToNumber(typography.textSans.medium.fontSize),
+		large: pxStringToNumber(typography.textSans.large.fontSize),
+		xlarge: pxStringToNumber(typography.textSans.xLarge.fontSize),
+		xxlarge: pxStringToNumber(typography.textSans.xxLarge.fontSize),
+		xxxlarge: pxStringToNumber(typography.textSans.xxxLarge.fontSize),
 	},
 	body: {
-		xsmall: pxStringToNumber(tokens.typography.body.xSmall.fontSize),
-		small: pxStringToNumber(tokens.typography.body.small.fontSize),
-		medium: pxStringToNumber(tokens.typography.body.medium.fontSize),
+		xsmall: pxStringToNumber(typography.body.xSmall.fontSize),
+		small: pxStringToNumber(typography.body.small.fontSize),
+		medium: pxStringToNumber(typography.body.medium.fontSize),
 	},
 	headline: {
-		xxxsmall: pxStringToNumber(tokens.typography.headline.xxxSmall.fontSize),
-		xxsmall: pxStringToNumber(tokens.typography.headline.xxSmall.fontSize),
-		xsmall: pxStringToNumber(tokens.typography.headline.xSmall.fontSize),
-		small: pxStringToNumber(tokens.typography.headline.small.fontSize),
-		medium: pxStringToNumber(tokens.typography.headline.medium.fontSize),
-		large: pxStringToNumber(tokens.typography.headline.large.fontSize),
-		xlarge: pxStringToNumber(tokens.typography.headline.xLarge.fontSize),
+		xxxsmall: pxStringToNumber(typography.headline.xxxSmall.fontSize),
+		xxsmall: pxStringToNumber(typography.headline.xxSmall.fontSize),
+		xsmall: pxStringToNumber(typography.headline.xSmall.fontSize),
+		small: pxStringToNumber(typography.headline.small.fontSize),
+		medium: pxStringToNumber(typography.headline.medium.fontSize),
+		large: pxStringToNumber(typography.headline.large.fontSize),
+		xlarge: pxStringToNumber(typography.headline.xLarge.fontSize),
 	},
 	titlepiece: {
-		small: pxStringToNumber(tokens.typography.titlepiece.small.fontSize),
-		medium: pxStringToNumber(tokens.typography.titlepiece.medium.fontSize),
-		large: pxStringToNumber(tokens.typography.titlepiece.large.fontSize),
+		small: pxStringToNumber(typography.titlepiece.small.fontSize),
+		medium: pxStringToNumber(typography.titlepiece.medium.fontSize),
+		large: pxStringToNumber(typography.titlepiece.large.fontSize),
 	},
 } as const;
 
@@ -96,10 +96,10 @@ export const remTextSizes = {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const fonts = {
-	titlepiece: fontArrayToString(tokens.typography.fontFamily.titlepiece),
-	headline: fontArrayToString(tokens.typography.fontFamily.headline),
-	body: fontArrayToString(tokens.typography.fontFamily.body),
-	textSans: fontArrayToString(tokens.typography.fontFamily.textSans),
+	titlepiece: fontArrayToString(typography.fontFamily.titlepiece),
+	headline: fontArrayToString(typography.fontFamily.headline),
+	body: fontArrayToString(typography.fontFamily.body),
+	textSans: fontArrayToString(typography.fontFamily.textSans),
 } as const;
 
 /**
@@ -119,9 +119,9 @@ export const fonts = {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const lineHeights = {
-	tight: tokens.typography.lineHeight.tight,
-	regular: tokens.typography.lineHeight.regular,
-	loose: tokens.typography.lineHeight.loose,
+	tight: typography.lineHeight.tight,
+	regular: typography.lineHeight.regular,
+	loose: typography.lineHeight.loose,
 } as const;
 
 /**
@@ -129,10 +129,10 @@ export const lineHeights = {
  * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
  */
 export const fontWeights = {
-	light: tokens.typography.fontWeight.light,
-	regular: tokens.typography.fontWeight.regular,
-	medium: tokens.typography.fontWeight.medium,
-	bold: tokens.typography.fontWeight.bold,
+	light: typography.fontWeight.light,
+	regular: typography.fontWeight.regular,
+	medium: typography.fontWeight.medium,
+	bold: typography.fontWeight.bold,
 } as const;
 
 /**
@@ -164,73 +164,73 @@ export const italicsFontWeights = {
 export const underlineThickness = {
 	textSans: {
 		xxsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[12],
+			typography.textDecorationThicknessForFontSize[12],
 		),
 		xsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[14],
+			typography.textDecorationThicknessForFontSize[14],
 		),
 		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[15],
+			typography.textDecorationThicknessForFontSize[15],
 		),
 		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[17],
+			typography.textDecorationThicknessForFontSize[17],
 		),
 		large: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[20],
+			typography.textDecorationThicknessForFontSize[20],
 		),
 		xlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[24],
+			typography.textDecorationThicknessForFontSize[24],
 		),
 		xxlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[28],
+			typography.textDecorationThicknessForFontSize[28],
 		),
 		xxxlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[34],
+			typography.textDecorationThicknessForFontSize[34],
 		),
 	},
 	body: {
 		xsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[14],
+			typography.textDecorationThicknessForFontSize[14],
 		),
 		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[15],
+			typography.textDecorationThicknessForFontSize[15],
 		),
 		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[17],
+			typography.textDecorationThicknessForFontSize[17],
 		),
 	},
 	headline: {
 		xxxsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[17],
+			typography.textDecorationThicknessForFontSize[17],
 		),
 		xxsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[20],
+			typography.textDecorationThicknessForFontSize[20],
 		),
 		xsmall: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[24],
+			typography.textDecorationThicknessForFontSize[24],
 		),
 		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[28],
+			typography.textDecorationThicknessForFontSize[28],
 		),
 		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[34],
+			typography.textDecorationThicknessForFontSize[34],
 		),
 		large: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[42],
+			typography.textDecorationThicknessForFontSize[42],
 		),
 		xlarge: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[50],
+			typography.textDecorationThicknessForFontSize[50],
 		),
 	},
 	titlepiece: {
 		small: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[42],
+			typography.textDecorationThicknessForFontSize[42],
 		),
 		medium: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[50],
+			typography.textDecorationThicknessForFontSize[50],
 		),
 		large: pxStringToNumber(
-			tokens.typography.textDecorationThicknessForFontSize[70],
+			typography.textDecorationThicknessForFontSize[70],
 		),
 	},
 } as const;

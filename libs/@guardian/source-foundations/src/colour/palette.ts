@@ -1,4 +1,4 @@
-import { tokens } from '@guardian/design-tokens';
+import { palette as tokens } from '@guardian/design-tokens';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_palette--palette) •
@@ -7,18 +7,18 @@ import { tokens } from '@guardian/design-tokens';
  * Colour palette organised by type e.g. 'error', or pillar e.g. 'opinion'
  */
 export const palette = {
-	brand: tokens.palette.brand,
-	brandAlt: tokens.palette.brandAlt,
-	neutral: tokens.palette.neutral,
-	error: tokens.palette.error,
-	success: tokens.palette.success,
-	news: tokens.palette.news,
-	opinion: tokens.palette.opinion,
-	sport: tokens.palette.sport,
-	culture: tokens.palette.culture,
-	lifestyle: tokens.palette.lifestyle,
-	labs: tokens.palette.labs,
-	specialReport: tokens.palette.specialReport,
-	specialReportAlt: tokens.palette.specialReportAlt,
-	focus: tokens.palette.focus,
+	brand: tokens.brand,
+	brandAlt: tokens.brandAlt,
+	neutral: tokens.neutral,
+	error: tokens.error,
+	success: tokens.success,
+	news: tokens.news,
+	opinion: tokens.opinion,
+	sport: tokens.sport,
+	culture: tokens.culture,
+	lifestyle: tokens.lifestyle,
+	labs: tokens.labs,
+	specialReport: tokens.specialReport,
+	specialReportAlt: tokens.specialReportAlt,
+	focus: tokens.focus,
 } as const;
