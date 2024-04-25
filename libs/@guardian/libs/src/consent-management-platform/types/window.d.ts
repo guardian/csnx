@@ -38,18 +38,13 @@ declare global {
 					framework: ConsentFramework;
 				};
 				ccpa?: {
+					includeUspApi?: boolean;
+					transitionCCPAAuth?: boolean;
 					targetingParams?: {
 						framework: ConsentFramework;
 					};
 				};
 				gdpr?: {
-					targetingParams?: {
-						framework: ConsentFramework;
-					};
-				};
-				usnat?: {
-					includeUspApi?: boolean;
-					transitionCCPAAuth?: boolean;
 					targetingParams?: {
 						framework: ConsentFramework;
 					};
