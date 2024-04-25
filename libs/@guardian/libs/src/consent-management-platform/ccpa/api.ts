@@ -1,20 +1,36 @@
-import type { CCPAData } from '../types/ccpa';
+import type { GPPData } from '../types/ccpa';
 
-type Command = 'getUSPData';
+type Command = 'ping';
+
+// const api = (command: Command) =>
+// 	new Promise((resolve, reject) => {
+// 		if (window.__uspapi) {
+// 			window.__uspapi(command, 1, (result, success) =>
+// 				success
+// 					? resolve(result)
+// 					: /* istanbul ignore next */
+// 						reject(new Error(`Unable to get ${command} data`)),
+// 			);
+// 		} else {
+// 			reject(new Error('No __uspapi found on window'));
+// 		}
+// 	});
 
 const api = (command: Command) =>
 	new Promise((resolve, reject) => {
-		if (window.__uspapi) {
-			window.__uspapi(command, 1, (result, success) =>
+		if (window.__gpp) {
+			window.__gpp(command, (result, success) =>
 				success
 					? resolve(result)
 					: /* istanbul ignore next */
 						reject(new Error(`Unable to get ${command} data`)),
 			);
 		} else {
-			reject(new Error('No __uspapi found on window'));
+			reject(new Error('No __gpp found on window'));
 		}
 	});
+// export const getUSPData = (): Promise<CCPAData> =>
+// 	api('getUSPData') as Promise<CCPAData>;
 
-export const getUSPData = (): Promise<CCPAData> =>
-	api('getUSPData') as Promise<CCPAData>;
+export const getGPPData = (): Promise<GPPData> =>
+	api('ping') as Promise<GPPData>;

@@ -1,4 +1,5 @@
 import ausData from './aus/__fixtures__/api.getUSPData.json';
+import gppData from './ccpa/__fixtures__/api.getGPPData.canSell.json';
 import uspData from './ccpa/__fixtures__/api.getUSPData.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
@@ -11,6 +12,7 @@ const resolveAllPromises = () =>
 beforeEach(() => {
 	window.__uspapi = undefined;
 	window.__tcfapi = undefined;
+	window.__gpp = undefined;
 	window.guCmpHotFix = undefined;
 });
 
@@ -22,8 +24,8 @@ it('throws an error if no framework is present', () => {
 
 describe('under CCPA', () => {
 	beforeEach(() => {
-		window.__uspapi = jest.fn((command, b, callback) => {
-			if (command === 'getUSPData') callback(uspData, true);
+		window.__gpp = jest.fn((command, gppCallback) => {
+			if (command === 'ping') gppCallback(gppData, true);
 		});
 
 		setCurrentFramework('ccpa');
@@ -63,7 +65,8 @@ describe('under CCPA', () => {
 
 		expect(callback).toHaveBeenCalledTimes(1);
 
-		uspData.uspString = '1YNN';
+		// uspData.uspString = '1YNN';
+		gppData.parsedSections.usnatv1.SaleOptOut = 1;
 		invokeCallbacks();
 		await resolveAllPromises();
 
@@ -81,7 +84,8 @@ describe('under CCPA', () => {
 		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
 		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
 
-		uspData.uspString = '1YYN';
+		// uspData.uspString = '1YYN';
+		gppData.parsedSections.usnatv1.SaleOptOut = 1;
 
 		// callback 3 and 4 registered first with final flag
 		onConsentChange(callback3, true);
@@ -101,6 +105,7 @@ describe('under CCPA', () => {
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
 		uspData.uspString = '1YNN';
+		gppData.parsedSections.usnatv1.SaleOptOut = 2;
 		invokeCallbacks();
 
 		await resolveAllPromises();

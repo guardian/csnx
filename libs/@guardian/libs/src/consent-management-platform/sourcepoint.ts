@@ -51,6 +51,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getProperty(framework),
+			campaignEnv: 'stage',
 			targetingParams: {
 				framework,
 			},
@@ -151,10 +152,18 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			};
 			break;
 		case 'ccpa':
-			window._sp_.config.ccpa = {
+			// window._sp_.config.ccpa = {
+			// 	targetingParams: {
+			// 		framework,
+			// 	},
+			// };
+
+			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
 				},
+				includeUspApi: true,
+				transitionCCPAAuth: true,
 			};
 			break;
 		case 'aus':
