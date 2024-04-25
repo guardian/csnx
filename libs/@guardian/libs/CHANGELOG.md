@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- becac1a: Improvements to readability of if else statements cleanup after update to linting rules
+- becac1a: Improvements to readability of if else statements. Cleanup after update to linting rules
 ## 16.1.0
 
 ### Minor Changes
