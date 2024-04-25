@@ -51,7 +51,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getProperty(framework),
-			campaignEnv: 'stage',
+			campaignEnv: 'stage', // TODO: TEMPORARY
 			targetingParams: {
 				framework,
 			},
