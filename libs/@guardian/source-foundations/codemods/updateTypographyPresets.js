@@ -24,9 +24,8 @@ const sizeToPresetMapping = {
 		large: 'titlepiece70',
 	},
 	body: {
-		xsmall: 'textEgyptian14',
-		small: 'textEgyptian15',
-		medium: 'textEgyptian17',
+		small: 'article15',
+		medium: 'article17',
 	},
 };
 const existingPresets = [
@@ -104,6 +103,14 @@ const existingPresets = [
 	'titlepiece42',
 	'titlepiece50',
 	'titlepiece70',
+	'article15',
+	'article17',
+	'articleBold15',
+	'articleBold17',
+	'articleBoldItalic15',
+	'articleBoldItalic17',
+	'articleItalic15',
+	'articleItalic17',
 ];
 
 const defaults = {
@@ -116,7 +123,7 @@ const defaults = {
 		fontWeight: 'medium',
 	},
 	body: {
-		lineHeight: 'regular',
+		lineHeight: 'loose',
 		fontWeight: 'regular',
 	},
 	textSans: {
@@ -329,7 +336,7 @@ module.exports = function (fileInfo, api) {
 						expr.callee.property.name
 					];
 
-				if (expr.arguments.length === 0 && expr.callee.object.name !== 'body') {
+				if (expr.arguments.length === 0) {
 					return;
 				}
 				let args = [];
@@ -345,9 +352,7 @@ module.exports = function (fileInfo, api) {
 					}
 					args = getArgumentsFromObjectExpression(optionsArg);
 				}
-				if (expr.callee.object.name === 'body' && !args['lineHeight']) {
-					args['lineHeight'] = 'loose';
-				}
+
 				const newPresetName = buildPresetName(newBasePreset, args);
 				let addComment = false;
 				let comment = `;
