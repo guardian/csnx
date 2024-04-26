@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.2.2
+
+### Patch Changes
+
+- 0854bfa: fix for build issue with palette types
+
 ## 14.2.1
 
 ### Patch Changes
