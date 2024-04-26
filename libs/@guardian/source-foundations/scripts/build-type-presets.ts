@@ -1,12 +1,11 @@
 import fs from 'node:fs';
-import { tokens } from '@guardian/design-tokens';
+import { typography, typographyPresets } from '@guardian/design-tokens';
 import { fontArrayToString, pxStringToRem } from '../src/utils/convert-value';
 
 const STRIP_WHITESPACE = /^\s+/gm;
 const STRIP_TABS = /^\t{3}|\t{2}/gm;
 
-const { presets, fontSize, textDecorationThicknessForFontSize } =
-	tokens.typography;
+const { fontSize, textDecorationThicknessForFontSize } = typography;
 
 type FontSize = keyof typeof fontSize;
 
@@ -15,7 +14,7 @@ const textDecorationThickness = (size: string) =>
 
 console.log('Building typography presets…');
 
-const presetTotal = Object.keys(presets).length;
+const presetTotal = Object.keys(typographyPresets).length;
 
 const outputPath = `${process.cwd()}/vendor/typography`;
 fs.mkdirSync(outputPath, { recursive: true });
@@ -30,7 +29,7 @@ const banner = `
 `.replace(STRIP_WHITESPACE, '');
 
 // Generate CSS representation of presets as a string
-const css = Object.entries(presets)
+const css = Object.entries(typographyPresets)
 	.map(
 		([preset, properties]) => `
 			export const ${preset} = \`
@@ -47,7 +46,7 @@ const css = Object.entries(presets)
 	.replace(STRIP_TABS, '');
 
 // Generate object literal representation of presets
-const object = Object.entries(presets)
+const object = Object.entries(typographyPresets)
 	.map(
 		([preset, properties]) => `
 			export const ${preset}Object = {
