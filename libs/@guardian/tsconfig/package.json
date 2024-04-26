@@ -5,25 +5,10 @@
 	"main": "tsconfig.json",
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
-		"verify-dist": "jest"
+		"lint": "eslint --cache ."
 	},
 	"nx": {
 		"targets": {
-			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
-				],
-				"options": {
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/tsconfig.json",
-						"{projectRoot}/*.md"
-					],
-					"packageJson": "{projectRoot}/package.json"
-				}
-			},
 			"lint": {
 				"inputs": [
 					"{projectRoot}/**",
@@ -37,12 +22,6 @@
 				],
 				"outputs": [
 					"{projectRoot}"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
 				]
 			}
 		}

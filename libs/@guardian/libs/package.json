@@ -4,13 +4,27 @@
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
+		"build": "rm -rf dist && pkgroll",
 		"dev": "jest --watch",
 		"e2e": "wireit",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
-		"verify-dist": "jest -c=./jest.dist.config.ts --setupFilesAfterEnv ./jest.dist.setup.ts"
+		"verify-dist": "jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js"
 	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",
@@ -19,6 +33,7 @@
 		"eslint-plugin-cypress": "2.15.1",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
+		"pkgroll": "2.0.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
 		"wcag-contrast": "3.0.0",
@@ -39,19 +54,14 @@
 	"nx": {
 		"targets": {
 			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
+				"inputs": [
+					"{projectRoot}/src/**",
+					"{projectRoot}/package.json",
+					"{projectRoot}/tsconfig.json"
 				],
-				"options": {
-					"entry": "{projectRoot}/src/index.ts",
-					"tsConfig": "{projectRoot}/tsconfig.json",
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md"
-					]
-				}
+				"outputs": [
+					"{projectRoot}/dist"
+				]
 			},
 			"lint": {
 				"inputs": [
