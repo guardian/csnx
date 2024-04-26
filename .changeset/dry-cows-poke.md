@@ -2,4 +2,4 @@
 '@guardian/source-foundations': patch
 ---
 
-fix for palette types
+fix for build issue with palette types
