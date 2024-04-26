@@ -25,6 +25,9 @@
 			],
 			"output": [
 				"dist"
+			],
+			"dependencies": [
+				"../../libs/@guardian/libs:build"
 			]
 		},
 		"start": {
