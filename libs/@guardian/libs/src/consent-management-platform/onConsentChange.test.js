@@ -24,7 +24,9 @@ it('throws an error if no framework is present', () => {
 describe('under USNAT', () => {
 	beforeEach(() => {
 		window.__gpp = jest.fn((command, callback) => {
-			if (command === 'ping') callback(gppData, true);
+			if (command === 'ping') {
+				callback(gppData, true);
+			}
 		});
 
 		setCurrentFramework('usnat');

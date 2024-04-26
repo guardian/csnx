@@ -1,8 +1,8 @@
 import gppDataCanSell from './__fixtures__/api.getGPPData.canSell.json';
 import gppDataDoNotSell from './__fixtures__/api.getGPPData.doNotSell.json';
 import gppDataFail from './__fixtures__/api.getGPPData.fail.json';
-import { getGPPData } from './api';
-import { getConsentState } from './getConsentState';
+import { getGPPData } from './api.ts';
+import { getConsentState } from './getConsentState.ts';
 
 jest.mock('./api');
 // getGPPData.mockResolvedValue(gppDataSuccess);
