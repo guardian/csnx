@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 14.2.1
+
+### Patch Changes
+
+- a8195c6: improved tree shaking by splitting tokens into separate objects
+
 ## 14.2.0
 
 ### Minor Changes
