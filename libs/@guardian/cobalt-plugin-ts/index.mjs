@@ -23,8 +23,8 @@ export default function pluginTS(options) {
 */
 
 `;
-
 			// this is where we'll store the transformed tokens
+			/** @type {Object.<string, string>} */
 			const transformedTokens = {};
 
 			/** @type {Object.<string, string>} */
@@ -54,6 +54,7 @@ export default function pluginTS(options) {
 			// override that behaviour to capture the output in memory instead.
 
 			// this is where we'll store the output for the JS and declaration files
+			/** @type {Object.<string, string>} */
 			const output = {};
 
 			// we need to create a fake file name to fool the compiler into
