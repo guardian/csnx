@@ -5,17 +5,32 @@
 	"description": "",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
+		"build": "rm -rf dist && pkgroll",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js"
 	},
 	"devDependencies": {
 		"@guardian/identity-auth": "2.1.0",
 		"@guardian/libs": "16.0.0",
 		"jest-fetch-mock": "3.0.3",
+		"pkgroll": "2.0.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},
@@ -36,19 +51,14 @@
 	"nx": {
 		"targets": {
 			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
+				"inputs": [
+					"{projectRoot}/src/**",
+					"{projectRoot}/package.json",
+					"{projectRoot}/tsconfig.json"
 				],
-				"options": {
-					"entry": "{projectRoot}/src/index.ts",
-					"tsConfig": "{projectRoot}/tsconfig.json",
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md"
-					]
-				}
+				"outputs": [
+					"{projectRoot}/dist"
+				]
 			},
 			"lint": {
 				"inputs": [

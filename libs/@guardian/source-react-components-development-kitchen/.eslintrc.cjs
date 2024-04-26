@@ -1,6 +1,12 @@
 module.exports = {
 	extends: ['../../../.eslintrc.cjs'],
-	ignorePatterns: ['!**/*', 'node_modules', '.wireit'],
+	ignorePatterns: [
+		'!**/*',
+		'node_modules',
+		'jest.dist.*', // depends on build output, so don't lint it
+		'.wireit',
+		'dist',
+	],
 	overrides: [
 		{
 			files: ['*.ts', '*.tsx'],
