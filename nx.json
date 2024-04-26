@@ -15,6 +15,12 @@
 		"test": {
 			"dependsOn": ["^build"]
 		},
+		"lint": {
+			"dependsOn": ["^build"]
+		},
+		"fix": {
+			"dependsOn": ["^build"]
+		},
 		"verify-dist": {
 			"dependsOn": ["build", "^build"]
 		}

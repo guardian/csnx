@@ -2,6 +2,7 @@
 	"name": "@guardian/csnx",
 	"version": "0.1.0",
 	"private": "true",
+	"type": "module",
 	"scripts": {
 		"build": "./tools/scripts/use-make-instead",
 		"prepare": "husky",
