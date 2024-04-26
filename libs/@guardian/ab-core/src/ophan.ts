@@ -76,7 +76,9 @@ const registerCompleteEvent =
 		const variant = test.variantToRun;
 		const listener = complete ? variant.success : variant.impression;
 
-		if (!listener) return;
+		if (!listener) {
+			return;
+		}
 
 		try {
 			listener(buildOphanSubmitter(test, variant, complete, ophanRecord));

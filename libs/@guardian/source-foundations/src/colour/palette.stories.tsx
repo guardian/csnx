@@ -1,5 +1,5 @@
 import { palette as colours } from './palette';
-import { ColorPalette, ColorItem } from './storybookColorPalette';
+import { ColorItem, ColorPalette } from './storybookColorPalette';
 
 export default {
 	title: 'palette',
@@ -33,8 +33,7 @@ export const Palette = {
 
 					for (const shade in shades) {
 						const isShadeDeprecated =
-							deprecatedColours[category] &&
-							deprecatedColours[category].includes(shade);
+							deprecatedColours[category]?.includes(shade);
 
 						if (isShadeDeprecated) {
 							continue;

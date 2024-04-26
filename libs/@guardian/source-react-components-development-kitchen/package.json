@@ -4,7 +4,12 @@
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
-		"storybook": "storybook dev"
+		"dev": "jest --watch",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"storybook": "storybook dev --port 4403",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
@@ -30,6 +35,58 @@
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
+		}
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"test": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"dev": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
 		}
 	},
 	"wireit": {

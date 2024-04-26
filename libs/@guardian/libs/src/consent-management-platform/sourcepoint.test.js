@@ -1,5 +1,3 @@
-import http from 'http';
-import url from 'url';
 import { ACCOUNT_ID, ENDPOINT } from './lib/sourcepointConfig.ts';
 import { init } from './sourcepoint.ts';
 
@@ -64,17 +62,13 @@ describe('Sourcepoint unified', () => {
 		},
 	);
 
-	it.each(frameworks)('points at a real file', (framework, done) => {
+	it.each(frameworks)('points at a real file', async (framework) => {
 		init(framework);
 		expect(document.getElementById('sourcepoint-lib')).toBeTruthy();
 		const src = document.getElementById('sourcepoint-lib')?.getAttribute('src');
 
-		const { host, path } = url.parse(src ?? '');
-
-		const req = http.request({ method: 'HEAD', host, port: 80, path }, () =>
-			done(),
-		);
-		req.end();
+		const response = await fetch(src);
+		expect(response.ok).toBe(true);
 	});
 
 	it.each(frameworks)('should accept pubData', (framework) => {

@@ -1,11 +1,16 @@
 {
 	"name": "@guardian/source-foundations",
-	"version": "14.1.4",
+	"version": "14.2.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",
-		"storybook": "storybook dev"
+		"dev": "jest --watch",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"storybook": "storybook dev --port 4401",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -17,6 +22,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"tslib": "2.6.2",
+		"tsx": "4.7.1",
 		"typescript": "5.3.3",
 		"wireit": "0.14.4"
 	},
@@ -27,6 +33,66 @@
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
+		}
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"test": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"dev": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"build-type-presets": {
+				"executor": "nx:run-commands",
+				"options": {
+					"command": "tsx ./scripts/build-type-presets.ts",
+					"cwd": "{projectRoot}",
+					"color": true
+				}
+			}
 		}
 	},
 	"wireit": {

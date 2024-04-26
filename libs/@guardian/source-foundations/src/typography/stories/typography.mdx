@@ -1,0 +1,100 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as TypographyStories from './typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+Typographic choices affect how textual content is interpreted; influencing tone,
+hierarchy and legibility.
+
+## Example
+
+```tsx
+import {
+	headlineMedium42,
+	textEgyptian17,
+	textSans14,
+} from '@guardian/source-foundations';
+
+const h1 = css`
+	${headlineMedium42};
+`;
+
+const p = css`
+	${textEgyptian17};
+`;
+
+const copyright = css`
+	${textSans14};
+`;
+```
+
+Typography presets are strings by default, but can also be used as [Emotion object styles](https://emotion.sh/docs/object-styles).
+
+```tsx
+import { headlineMedium42Object } from '@guardian/source-foundations';
+
+const h1 = {
+	...headlineMedium42Object,
+};
+```
+
+## Where can I find the Guardian's fonts?
+
+The canonical source of fonts is [https://github.com/guardian/fonts](https://github.com/guardian/fonts)
+
+They should be loaded from the locations specified in [`font-faces.css`](https://github.com/guardian/fonts/blob/main/fonts/web/font-faces.css). This optimises for consistency and performance across The Guardian's digital products.
+
+## API
+
+The [typography presets](https://theguardian.design/2a1e5182b/p/01555f-typography-presets/b/830670)
+are exported as variables that return a snippet of CSS. Each preset encapsulates
+a specific combination of font family, size, line height, weight and style.
+
+The names of the presets reference font sizes in pixels for ease of
+understanding, but the API returns font sizes in rem and unitless line heights.
+
+_Note:_ whilst rem font sizes and unitless line heights are recommended, a
+method to convert these back to pixel values where required will be added in a
+future update.
+
+## Typography presets
+
+The Guardian has four bespoke typefaces, which were created for different
+purposes. When used effectively, they create contrast and alter the tone in
+which text is read.
+
+### Where do we use web typography presets?
+
+Any content in a web browser or a webview in the app uses web typography
+presets.
+
+- _Browser_ — All [theguardian.com](https://www.theguardian.com) content
+  (front and article pages) and supporter revenue pages.
+- _App webview_ — Article pages, sign-in and registration pages
+
+#### Guardian Headline
+
+Use for headlines, headings and any short form text like pull quotes, bylines
+and titles.
+
+#### Guardian Text Sans
+
+Use for interactive page elements like buttons and text input fields and for
+meta information like datelines, image captions and data visualisations.
+
+_Note:_ Text Sans is used across the board on paid content templates to help
+differentiate from editorial content.
+
+#### Guardian Titlepiece
+
+Use for impact. Ideal for marketing messages, page headers and numerals. Use
+sparingly and at large sizes only.
+
+_Note:_ this font is not available on [theguardian.com](https://theguardian.com)
+
+### Specimen
+
+<Canvas of={TypographyStories.Presets} />
+import {textEgyptian17} from 'libs/@guardian/source-foundations/vendor/typography/css';

@@ -1,8 +1,13 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "7.0.1",
+	"version": "8.0.0",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"verify-dist": "jest"
+	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
@@ -15,5 +20,44 @@
 	"peerDependencies": {
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"packageJson": "{projectRoot}/package.json",
+					"assets": [
+						"{projectRoot}/index.js",
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
+		}
 	}
 }

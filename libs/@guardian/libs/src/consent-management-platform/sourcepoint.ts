@@ -21,7 +21,9 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
 const getProperty = (framework: ConsentFramework): Property => {
-	if (framework == 'aus') return 'https://au.theguardian.com';
+	if (framework == 'aus') {
+		return 'https://au.theguardian.com';
+	}
 	return isGuardianDomain() ? null : 'https://test.theguardian.com';
 };
 
@@ -76,7 +78,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			events: {
 				onConsentReady: (message_type, consentUUID, euconsent) => {
 					log('cmp', `onConsentReady ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
 					log('cmp', `euconsent ${euconsent}`);
@@ -88,7 +92,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 				onMessageReady: (message_type) => {
 					log('cmp', `onMessageReady ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
@@ -98,7 +104,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					// Event fires when a message is displayed to the user and sends data about the message and campaign to the callback.
 					// The data sent to the callback is in the following structure:
 					log('cmp', `onMessageReceiveData ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					log('cmp', 'onMessageReceiveData ', data);
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
@@ -107,7 +115,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
 					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
 					console.log();
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
@@ -122,26 +132,34 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
 					log('cmp', `onPrivacyManagerAction message_type: ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					log('cmp', `onPrivacyManagerAction ${pmData}`);
 				},
 				onMessageChoiceError: function (message_type, err) {
 					log('cmp', `onMessageChoiceError ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					log('cmp', `onMessageChoiceError ${err}`);
 				},
 				onPMCancel: function (message_type) {
 					log('cmp', `onPMCancel ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 				},
 				onSPPMObjectReady: function () {
 					log('cmp', 'onSPPMObjectReady');
 				},
 				onError: function (message_type, errorCode, errorObject, userReset) {
 					log('cmp', `errorCode: ${message_type}`);
-					if (message_type != frameworkMessageType) return;
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 
 					log('cmp', `errorCode: ${errorCode}`);
 					log('cmp', errorObject);

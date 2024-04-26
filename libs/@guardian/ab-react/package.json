@@ -5,6 +5,13 @@
 	"description": "A React library for A/B & multivariate testing",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"dev": "jest --watch",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
+	},
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
 		"@guardian/ab-core": "7.0.0",
@@ -29,5 +36,57 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"test": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"dev": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
+		}
 	}
 }

@@ -1,9 +1,10 @@
+import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Radio } from './Radio';
 import RadioStories from './Radio.stories';
 import { RadioGroup } from './RadioGroup';
-import { ThemeRadio, themeRadioBrand, themeRadioGroupBrand } from './theme';
-import { palette } from '@guardian/source-foundations';
+import type { ThemeRadio } from './theme';
+import { themeRadioBrand, themeRadioGroupBrand } from './theme';
 
 const meta: Meta<typeof RadioGroup> = {
 	title: 'RadioGroup',

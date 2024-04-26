@@ -4,6 +4,11 @@
 	"private": false,
 	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
+	"scripts": {
+		"dev": "jest --watch",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
@@ -19,5 +24,45 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"dev": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
+		}
 	}
 }

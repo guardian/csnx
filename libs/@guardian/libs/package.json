@@ -1,9 +1,17 @@
 {
 	"name": "@guardian/libs",
-	"version": "16.1.0",
+	"version": "16.1.1",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
+	"scripts": {
+		"dev": "jest --watch",
+		"e2e": "wireit",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest -c=./jest.dist.config.ts --setupFilesAfterEnv ./jest.dist.setup.ts"
+	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",
 		"cypress": "13.7.1",
@@ -13,7 +21,8 @@
 		"mockdate": "3.0.5",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
-		"wcag-contrast": "3.0.0"
+		"wcag-contrast": "3.0.0",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
@@ -26,5 +35,70 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"test": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"dev": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
+		}
+	},
+	"wireit": {
+		"e2e": {
+			"command": "cypress run --headless",
+			"files": [
+				"**",
+				"!(jest*)"
+			],
+			"output": [],
+			"dependencies": [
+				"../../../apps/github-pages:start"
+			]
+		}
 	}
 }

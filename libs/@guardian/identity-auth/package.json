@@ -5,9 +5,19 @@
 	"description": "",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"scripts": {
+		"dev": "jest --watch",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"test": "jest",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
+	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
+		"jest": "29.7.0",
+		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
+		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},
@@ -23,5 +33,51 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"entry": "{projectRoot}/src/index.ts",
+					"tsConfig": "{projectRoot}/tsconfig.json",
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"test": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
+		}
 	}
 }

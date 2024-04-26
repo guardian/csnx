@@ -1,5 +1,20 @@
 # @guardian/eslint-config-typescript
 
+## 10.0.0
+
+### Major Changes
+
+- cc7aa7d: Requires curly braces in all circumstances.
+
+  This should help reduce noise in diffs, and remove ambiguity about when you should use curly braces (and possibly when a block starts and ends), especially for people unfamiliar with the language.
+
+  _Note that this rule is fixable, so running eslint with the `--fix` flag will automatically update your code to comply with the new setting._
+
+### Patch Changes
+
+- Updated dependencies [cc7aa7d]
+  - @guardian/eslint-config@8.0.0
+
 ## 9.0.4
 
 ### Patch Changes

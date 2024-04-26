@@ -4,9 +4,13 @@
 	"private": true,
 	"type": "module",
 	"main": "./index.mjs",
+	"scripts": {
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache ."
+	},
 	"devDependencies": {
-		"@cobalt-ui/cli": "^1.8.1",
-		"@cobalt-ui/core": "^1.8.1",
+		"@cobalt-ui/cli": "^1.11.0",
+		"@cobalt-ui/core": "^1.11.0",
 		"@cobalt-ui/plugin-css": "^1.7.0",
 		"@cobalt-ui/plugin-js": "^1.4.3",
 		"@cobalt-ui/utils": "^1.2.2",
@@ -15,5 +19,38 @@
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2"
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"executor": "@csnx/npm-package:build",
+				"outputs": [
+					"{options.outputPath}"
+				],
+				"options": {
+					"packageJson": "{projectRoot}/package.json",
+					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+					"assets": [
+						"{projectRoot}/*.md",
+						"{projectRoot}/index.mjs"
+					]
+				}
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			}
+		}
 	}
 }

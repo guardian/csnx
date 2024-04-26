@@ -1,5 +1,11 @@
 # @guardian/ab-core
 
+## 7.0.2
+
+### Patch Changes
+
+- a247de9: Smaller source code
+
 ## 7.0.1
 
 ### Patch Changes

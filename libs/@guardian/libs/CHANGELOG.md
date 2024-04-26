@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.1.1
+
+### Patch Changes
+
+- becac1a: Improvements to readability of if else statements. Cleanup after update to linting rules
+
 ## 16.1.0
 
 ### Minor Changes

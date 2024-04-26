@@ -186,6 +186,14 @@ install: check-node-version
 @guardian/browserslist-config\:build: env
 	@corepack pnpm nx run @guardian/browserslist-config:build --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/browserslist-config\:fix
+@guardian/browserslist-config\:fix: env
+	@corepack pnpm nx run @guardian/browserslist-config:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/browserslist-config\:lint
+@guardian/browserslist-config\:lint: env
+	@corepack pnpm nx run @guardian/browserslist-config:lint --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/browserslist-config\:update-readme
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm nx run @guardian/browserslist-config:update-readme --skip-nx-cache=$(SKIP_NX_CACHE)
@@ -197,6 +205,14 @@ install: check-node-version
 .PHONY: @guardian/cobalt-plugin-ts\:build
 @guardian/cobalt-plugin-ts\:build: env
 	@corepack pnpm nx run @guardian/cobalt-plugin-ts:build --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/cobalt-plugin-ts\:fix
+@guardian/cobalt-plugin-ts\:fix: env
+	@corepack pnpm nx run @guardian/cobalt-plugin-ts:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/cobalt-plugin-ts\:lint
+@guardian/cobalt-plugin-ts\:lint: env
+	@corepack pnpm nx run @guardian/cobalt-plugin-ts:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
@@ -226,13 +242,29 @@ install: check-node-version
 @guardian/design-tokens\:build: env
 	@corepack pnpm nx run @guardian/design-tokens:build --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/design-tokens\:fix
+@guardian/design-tokens\:fix: env
+	@corepack pnpm nx run @guardian/design-tokens:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/design-tokens\:generate-tokens
 @guardian/design-tokens\:generate-tokens: env
 	@corepack pnpm nx run @guardian/design-tokens:generate-tokens --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/design-tokens\:lint
+@guardian/design-tokens\:lint: env
+	@corepack pnpm nx run @guardian/design-tokens:lint --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/eslint-config\:build
 @guardian/eslint-config\:build: env
 	@corepack pnpm nx run @guardian/eslint-config:build --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/eslint-config\:fix
+@guardian/eslint-config\:fix: env
+	@corepack pnpm nx run @guardian/eslint-config:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/eslint-config\:lint
+@guardian/eslint-config\:lint: env
+	@corepack pnpm nx run @guardian/eslint-config:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: @guardian/eslint-config\:verify-dist
 @guardian/eslint-config\:verify-dist: env
@@ -241,6 +273,14 @@ install: check-node-version
 .PHONY: @guardian/eslint-config-typescript\:build
 @guardian/eslint-config-typescript\:build: env
 	@corepack pnpm nx run @guardian/eslint-config-typescript:build --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/eslint-config-typescript\:fix
+@guardian/eslint-config-typescript\:fix: env
+	@corepack pnpm nx run @guardian/eslint-config-typescript:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/eslint-config-typescript\:lint
+@guardian/eslint-config-typescript\:lint: env
+	@corepack pnpm nx run @guardian/eslint-config-typescript:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: @guardian/eslint-config-typescript\:verify-dist
 @guardian/eslint-config-typescript\:verify-dist: env
@@ -386,13 +426,17 @@ install: check-node-version
 @guardian/newsletter-types\:lint: env
 	@corepack pnpm nx run @guardian/newsletter-types:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
-.PHONY: @guardian/newsletter-types\:test
-@guardian/newsletter-types\:test: env
-	@corepack pnpm nx run @guardian/newsletter-types:test --skip-nx-cache=$(SKIP_NX_CACHE)
-
 .PHONY: @guardian/prettier\:build
 @guardian/prettier\:build: env
 	@corepack pnpm nx run @guardian/prettier:build --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/prettier\:fix
+@guardian/prettier\:fix: env
+	@corepack pnpm nx run @guardian/prettier:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/prettier\:lint
+@guardian/prettier\:lint: env
+	@corepack pnpm nx run @guardian/prettier:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: @guardian/prettier\:verify-dist
 @guardian/prettier\:verify-dist: env
@@ -405,6 +449,10 @@ install: check-node-version
 .PHONY: @guardian/source-foundations\:build-storybook
 @guardian/source-foundations\:build-storybook: env
 	@corepack pnpm nx run @guardian/source-foundations:build-storybook --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/source-foundations\:build-type-presets
+@guardian/source-foundations\:build-type-presets: env
+	@corepack pnpm nx run @guardian/source-foundations:build-type-presets --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: @guardian/source-foundations\:dev
 @guardian/source-foundations\:dev: env
@@ -502,6 +550,14 @@ install: check-node-version
 @guardian/tsconfig\:build: env
 	@corepack pnpm nx run @guardian/tsconfig:build --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/tsconfig\:fix
+@guardian/tsconfig\:fix: env
+	@corepack pnpm nx run @guardian/tsconfig:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/tsconfig\:lint
+@guardian/tsconfig\:lint: env
+	@corepack pnpm nx run @guardian/tsconfig:lint --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/tsconfig\:verify-dist
 @guardian/tsconfig\:verify-dist: env
 	@corepack pnpm nx run @guardian/tsconfig:verify-dist --skip-nx-cache=$(SKIP_NX_CACHE)
@@ -514,9 +570,9 @@ github-pages\:build: env
 github-pages\:dev: env
 	@corepack pnpm nx run github-pages:dev --skip-nx-cache=$(SKIP_NX_CACHE)
 
-.PHONY: github-pages\:serve\:e2e
-github-pages\:serve\:e2e: env
-	@corepack pnpm nx run github-pages:serve:e2e --skip-nx-cache=$(SKIP_NX_CACHE)
+.PHONY: github-pages\:start
+github-pages\:start: env
+	@corepack pnpm nx run github-pages:start --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: storybooks\:dev
 storybooks\:dev: env

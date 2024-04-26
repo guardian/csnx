@@ -29,7 +29,9 @@ expect.extend({
 			};
 		} catch (error) {
 			const message = (error as Warning).message;
-			if (!message) throw error;
+			if (!message) {
+				throw error;
+			}
 			return {
 				pass: false,
 				message: () => message,

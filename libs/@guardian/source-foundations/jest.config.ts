@@ -1,20 +1,17 @@
+/* eslint-disable @nx/enforce-module-boundaries -- out root config lives in the root */
 /* eslint-disable import/no-default-export -- that's what jest likes */
-export default {
+
+import type { Config } from 'jest';
+import { config as baseConfig } from '../../../configs/jest.config';
+
+const config: Config = {
+	...baseConfig,
 	displayName: '@guardian/source-foundations',
-	preset: '../../../jest.preset.js',
 	testEnvironment: 'node',
-	transform: {
-		'^.+\\.[tj]sx?$': [
-			'ts-jest',
-			{
-				tsconfig: '<rootDir>/tsconfig.spec.json',
-			},
-		],
-	},
-	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-	coverageDirectory: '../../../coverage/libs/@guardian/source-foundations',
 	setupFilesAfterEnv: [
 		'./lib/jest-matchers/toBeValidCSS.ts',
 		'./lib/jest-matchers/toMatchCSS.ts',
 	],
 };
+
+export default config;
