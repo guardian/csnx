@@ -39,8 +39,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	setCurrentFramework(framework);
 
 	// invoke callbacks before we receive Sourcepoint events
-	log('cmp', `invokeCallbacks`);
-	invokeCallbacks();
+	// invokeCallbacks();
 
 	let frameworkMessageType: string;
 	switch (framework) {
