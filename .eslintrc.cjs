@@ -6,32 +6,19 @@ module.exports = {
 	// disable eslint on all files by default, for perf reasons
 	// re-enabled in each projects own eslint config (ignorePatterns: ['!**/*'])
 	ignorePatterns: ['**/*'],
-	plugins: ['@nx'],
+	parser: '@typescript-eslint/parser',
+	parserOptions: {
+		sourceType: 'module',
+		ecmaVersion: 2020,
+	},
 	overrides: [
 		{
-			files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-			rules: {
-				'@nx/enforce-module-boundaries': [
-					'error',
-					{
-						enforceBuildableLibDependency: true,
-						depConstraints: [
-							{
-								sourceTag: '*',
-								onlyDependOnLibsWithTags: ['*'],
-							},
-						],
-					},
-				],
-			},
-		},
-		{
 			files: ['*.js', '*.jsx', '*.mjs', '*.cjs'],
-			extends: ['plugin:@nx/javascript', '@guardian/eslint-config'],
+			extends: ['@guardian/eslint-config'],
 		},
 		{
 			files: ['*.ts', '*.tsx', '*.mts', '*.cts', '*.d.ts'],
-			extends: ['plugin:@nx/typescript', '@guardian/eslint-config-typescript'],
+			extends: ['@guardian/eslint-config-typescript'],
 			settings: {
 				'import/resolver': {
 					typescript: {

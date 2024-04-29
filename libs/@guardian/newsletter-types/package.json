@@ -4,12 +4,25 @@
 	"private": false,
 	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
+		"build": "rm -rf dist && pkgroll",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
 	"devDependencies": {
+		"pkgroll": "2.0.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},
@@ -28,19 +41,14 @@
 	"nx": {
 		"targets": {
 			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
+				"inputs": [
+					"{projectRoot}/src/**",
+					"{projectRoot}/package.json",
+					"{projectRoot}/tsconfig.json"
 				],
-				"options": {
-					"entry": "{projectRoot}/src/index.ts",
-					"tsConfig": "{projectRoot}/tsconfig.json",
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md"
-					]
-				}
+				"outputs": [
+					"{projectRoot}/dist"
+				]
 			},
 			"lint": {
 				"inputs": [
