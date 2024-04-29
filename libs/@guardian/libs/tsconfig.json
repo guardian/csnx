@@ -9,10 +9,5 @@
 	],
 	"compilerOptions": {
 		"incremental": false
-	},
-	"ts-node": {
-		"moduleTypes": {
-			"jest.config.ts": "cjs"
-		}
 	}
 }
