@@ -123,10 +123,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
 					if (
 						// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
-						choiceTypeID === 11 ||
-						choiceTypeID === 13 ||
-						choiceTypeID === 15
+						(choiceTypeID === 11 ||
+							choiceTypeID === 13 ||
+							choiceTypeID === 15) &&
+						frameworkMessageType != 'usnat'
 					) {
+						console.log('Boop');
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
