@@ -39,7 +39,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	setCurrentFramework(framework);
 
 	// invoke callbacks before we receive Sourcepoint events
-	// invokeCallbacks();
+	invokeCallbacks();
 
 	let frameworkMessageType: string;
 	switch (framework) {
@@ -88,7 +88,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					mark('cmp-got-consent');
 
 					// onConsentReady is triggered before SP update the consent settings :(
-					log('cmp', `invokeCallbacks onConsentReady`);
 					setTimeout(invokeCallbacks, 0);
 				},
 				onMessageReady: (message_type) => {
@@ -128,7 +127,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						choiceTypeID === 13 ||
 						choiceTypeID === 15
 					) {
-						log('cmp', `invokeCallbacks onMessageChoiceSelect`);
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
