@@ -39,9 +39,24 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	setCurrentFramework(framework);
 
 	// invoke callbacks before we receive Sourcepoint events
+	log('cmp', `invokeCallbacks`);
 	invokeCallbacks();
 
-	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
+	let frameworkMessageType: string;
+	switch (framework) {
+		case 'tcfv2':
+			frameworkMessageType = 'gdpr';
+			break;
+		case 'usnat':
+			frameworkMessageType = 'usnat';
+			break;
+		case 'aus':
+			frameworkMessageType = 'ccpa';
+			break;
+		default:
+			frameworkMessageType = 'gdpr';
+			break;
+	}
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -53,6 +68,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getProperty(framework),
+			campaignEnv: 'stage', // TODO: REMOVE AFTER TESTING
 			targetingParams: {
 				framework,
 			},
@@ -73,6 +89,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					mark('cmp-got-consent');
 
 					// onConsentReady is triggered before SP update the consent settings :(
+					log('cmp', `invokeCallbacks onConsentReady`);
 					setTimeout(invokeCallbacks, 0);
 				},
 				onMessageReady: (message_type) => {
@@ -112,6 +129,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						choiceTypeID === 13 ||
 						choiceTypeID === 15
 					) {
+						log('cmp', `invokeCallbacks onMessageChoiceSelect`);
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
@@ -168,11 +186,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 			};
 			break;
-		case 'ccpa':
-			window._sp_.config.ccpa = {
+		case 'usnat':
+			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
 				},
+				includeUspApi: true, // TODO: TO CONFIRM
+				transitionCCPAAuth: true,
 			};
 			break;
 		case 'aus':
