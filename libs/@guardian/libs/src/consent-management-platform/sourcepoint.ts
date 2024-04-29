@@ -41,7 +41,21 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	// invoke callbacks before we receive Sourcepoint events
 	invokeCallbacks();
 
-	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
+	let frameworkMessageType: string;
+	switch (framework) {
+		case 'tcfv2':
+			frameworkMessageType = 'gdpr';
+			break;
+		case 'usnat':
+			frameworkMessageType = 'usnat';
+			break;
+		case 'aus':
+			frameworkMessageType = 'ccpa';
+			break;
+		default:
+			frameworkMessageType = 'gdpr';
+			break;
+	}
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -53,6 +67,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getProperty(framework),
+			campaignEnv: 'stage', // TODO: REMOVE AFTER TESTING
 			targetingParams: {
 				framework,
 			},
@@ -108,10 +123,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
 					if (
 						// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
-						choiceTypeID === 11 ||
-						choiceTypeID === 13 ||
-						choiceTypeID === 15
+						(choiceTypeID === 11 ||
+							choiceTypeID === 13 ||
+							choiceTypeID === 15) &&
+						frameworkMessageType != 'usnat'
 					) {
+						console.log('Boop');
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
@@ -168,11 +185,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 			};
 			break;
-		case 'ccpa':
-			window._sp_.config.ccpa = {
+		case 'usnat':
+			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
 				},
+				includeUspApi: true, // TODO: TO CONFIRM
+				transitionCCPAAuth: true,
 			};
 			break;
 		case 'aus':
