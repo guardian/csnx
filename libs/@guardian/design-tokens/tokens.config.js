@@ -24,8 +24,8 @@ const pxToRem = (token) => {
 
 /** @type {import('@cobalt-ui/core').Config} */
 export default {
-	tokens: 'tokens.json',
-	outDir: './dist',
+	tokens: 'src/tokens.json',
+	outDir: './vendor',
 	plugins: [
 		pluginCSS({
 			p3: false,
