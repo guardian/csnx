@@ -1,5 +1,7 @@
 export interface USNATConsentState {
 	doNotSell: boolean;
+	cmpStatus: string;
+	signalStatus: string;
 }
 
 type GppParsedSections = Record<
@@ -16,4 +18,6 @@ export interface GPPData {
 	applicableSections: number[];
 	supportedAPIs: string[];
 	parsedSections: GppParsedSections;
+	signalStatus: string;
+	cmpDisplayStatus: string;
 }
