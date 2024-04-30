@@ -15,7 +15,7 @@
 		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
 		"@guardian/libs": "16.0.0",
-		"@guardian/source-foundations": "14.1.4",
+		"@guardian/source-foundations": "14.2.2",
 		"@guardian/source-react-components": "22.0.1",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
