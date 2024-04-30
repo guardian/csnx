@@ -1,0 +1,12 @@
+{
+	"applicableSections": [7],
+	"gppString": "DBABLA~BEAgAAAAAgA.QA",
+	"gppVersion": "1.1",
+	"supportedAPIs": ["7:usnatv1"],
+	"parsedSections": {
+		"usnatv1": {
+			"Version": 1,
+			"SaleOptOut": 1
+		}
+	}
+}
