@@ -1,5 +1,13 @@
 # @guardian/tsconfig
 
+## 0.3.0
+
+### Minor Changes
+
+- 1a7deef: Removes the `"incremental": true` setting, deferring [the TypeScript defaults](https://www.typescriptlang.org/tsconfig/#incremental).
+
+  _This should be project-specific, not a default for all configs._
+
 ## 0.2.0
 
 ### Minor Changes
