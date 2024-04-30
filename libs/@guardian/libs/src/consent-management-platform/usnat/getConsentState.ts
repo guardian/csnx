@@ -16,5 +16,9 @@ export const getConsentState: () => Promise<USNATConsentState> = async () => {
 		//0 Not Applicable. SharingOptOutNotice value was not applicable or no notice was provided, 1 Opted Out, 2 Did Not Opt Out
 	}
 
-	return { doNotSell };
+	return {
+		doNotSell,
+		signalStatus: gppData.signalStatus,
+		cmpStatus: gppData.cmpDisplayStatus,
+	};
 };
