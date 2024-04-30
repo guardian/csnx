@@ -5,7 +5,6 @@ import { getGPPData } from './api.ts';
 import { getConsentState } from './getConsentState.ts';
 
 jest.mock('./api');
-// getGPPData.mockResolvedValue(gppDataSuccess);
 
 describe('getConsentState', () => {
 	it('gets the gpp consent state correctly - doNotSell is false', async () => {
