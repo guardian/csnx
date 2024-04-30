@@ -25,6 +25,8 @@ const tcfv2ConsentState: TCFv2ConsentState = {
 
 const usnatConsentState: USNATConsentState = {
 	doNotSell: false,
+	cmpStatus: 'hidden',
+	signalStatus: 'ready',
 };
 
 const ausConsentState: AUSConsentState = {
@@ -96,11 +98,15 @@ describe('onConsentChange enhances basic consent state', () => {
 	});
 	test('ccpa can NOT target', async () => {
 		(getUSNATConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<USNATConsentState>({ doNotSell: true }),
+			Promise.resolve<USNATConsentState>({
+				doNotSell: true,
+				cmpStatus: 'hidden',
+				signalStatus: 'ready',
+			}),
 		);
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
-			ccpa: { doNotSell: true },
+			ccpa: { doNotSell: true, cmpStatus: 'hidden', signalStatus: 'ready' },
 			canTarget: false,
 			framework: 'usnat',
 		};
