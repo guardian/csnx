@@ -2,6 +2,7 @@
 	"applicableSections": [-1],
 	"gppString": "DBAA",
 	"gppVersion": "1.1",
+	"signalStatus": "not ready",
 	"supportedAPIs": [],
 	"parsedSections": {}
 }

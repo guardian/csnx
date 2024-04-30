@@ -28,7 +28,7 @@ const awaitingUserInteractionInTCFv2 = (state: ConsentState): boolean =>
 	state.tcfv2?.eventStatus === 'cmpuishown';
 
 const awaitingUserInteractionInUSNAT = (state: ConsentState): boolean =>
-	state.ccpa?.signalStatus === 'ready';
+	state.ccpa?.signalStatus === 'not ready';
 
 const invokeCallback = (callback: CallbackQueueItem, state: ConsentState) => {
 	if (
@@ -122,7 +122,10 @@ export const invokeCallbacks = (): void => {
 		return;
 	}
 	void getConsentState().then((state) => {
-		if (awaitingUserInteractionInTCFv2(state)) {
+		if (
+			awaitingUserInteractionInTCFv2(state) ||
+			awaitingUserInteractionInUSNAT(state)
+		) {
 			return;
 		}
 

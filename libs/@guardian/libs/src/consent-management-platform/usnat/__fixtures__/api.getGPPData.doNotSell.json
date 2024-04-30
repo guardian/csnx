@@ -3,6 +3,7 @@
 	"gppString": "DBABLA~BEAgAAAAAgA.QA",
 	"gppVersion": "1.1",
 	"supportedAPIs": ["7:usnatv1"],
+	"signalStatus": "ready",
 	"parsedSections": {
 		"usnatv1": {
 			"Version": 1,
