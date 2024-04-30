@@ -34,7 +34,7 @@ export type GetConsentFor = (
 
 export interface ConsentState {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: USNATConsentState; // TODO: Should we change to `usa`?
+	ccpa?: USNATConsentState;
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
 	canTarget: boolean;

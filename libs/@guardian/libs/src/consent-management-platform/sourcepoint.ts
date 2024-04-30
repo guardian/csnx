@@ -188,7 +188,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				targetingParams: {
 					framework,
 				},
-				includeUspApi: true, // TODO: TO CONFIRM
+				includeUspApi: true,
 				transitionCCPAAuth: true,
 			};
 			break;

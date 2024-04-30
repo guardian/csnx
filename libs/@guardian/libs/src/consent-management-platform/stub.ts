@@ -14,7 +14,7 @@ export const stub = (framework: ConsentFramework): void => {
 			break;
 		case 'usnat':
 			stub_gpp_usnat();
-			stub_uspapi_ccpa(); // TODO: TO bE confirmed
+			stub_uspapi_ccpa();
 			break;
 		case 'aus':
 			stub_uspapi_ccpa();
