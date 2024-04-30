@@ -20,7 +20,6 @@ const tcfv2ConsentState: TCFv2ConsentState = {
 
 const usnatConsentState: USNATConsentState = {
 	doNotSell: false,
-	cmpStatus: 'hidden',
 	signalStatus: 'ready',
 };
 

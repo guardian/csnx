@@ -1,10 +1,8 @@
 export interface USNATConsentState {
 	doNotSell: boolean;
-	cmpStatus: GPPCmpStatus;
 	signalStatus: GPPSignalStatus;
 }
 
-export type GPPCmpStatus = 'hidden' | 'visible' | 'disabled';
 export type GPPSignalStatus = 'not ready' | 'ready';
 
 type GppParsedSections = Record<
@@ -22,5 +20,4 @@ export interface GPPData {
 	supportedAPIs: string[];
 	parsedSections: GppParsedSections;
 	signalStatus: GPPSignalStatus;
-	cmpDisplayStatus: GPPCmpStatus;
 }

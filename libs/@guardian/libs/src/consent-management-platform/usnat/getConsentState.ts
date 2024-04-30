@@ -19,6 +19,5 @@ export const getConsentState: () => Promise<USNATConsentState> = async () => {
 	return {
 		doNotSell,
 		signalStatus: gppData.signalStatus,
-		cmpStatus: gppData.cmpDisplayStatus,
 	};
 };
