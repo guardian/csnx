@@ -23,8 +23,8 @@ export default function pluginTS(options) {
 */
 
 `;
-
 			// this is where we'll store the transformed tokens
+			/** @type {Object.<string, string>} */
 			const transformedTokens = {};
 
 			/** @type {Object.<string, string>} */
@@ -38,20 +38,23 @@ export default function pluginTS(options) {
 				}
 			}
 
-			const serialisedJS = serializeJS(transformedTokens, {
-				comments: jsDoc,
-			}).trim();
+			let typescriptSource = '';
 
-			// create a typescript source string containing the transformed
-			// tokens
-			const typescriptSource = `export const tokens = ${serialisedJS.replace(/;$/, '')} as const;`;
+			Object.keys(transformedTokens).forEach((tokenGroup) => {
+				const serialisedJS = serializeJS(transformedTokens[tokenGroup], {
+					comments: jsDoc,
+				}).trim();
+
+				// create a typescript source string containing the transformed tokens
+				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;`;
+			});
 
 			// now we create a ts program to create the JS and declaration file
 			// contents. the program would write to disk by default, so we
 			// override that behaviour to capture the output in memory instead.
 
-			// this is where we'll store the output for the JS and declaration
-			// files
+			// this is where we'll store the output for the JS and declaration files
+			/** @type {Object.<string, string>} */
 			const output = {};
 
 			// we need to create a fake file name to fool the compiler into
