@@ -5,7 +5,8 @@ import {
 	brandAlt,
 	from,
 	space,
-	textSans,
+	textSans15,
+	textSans17,
 	until,
 } from '@guardian/source-foundations';
 
@@ -108,12 +109,14 @@ export function getItemStyles(useColumns: boolean) {
 export const linkElementStyles = css`
 	display: block;
 	text-decoration: none;
-	${textSans.small({ lineHeight: 'tight' })}
+	${textSans15};
+	line-height: 1.15;
 	:hover {
 		text-decoration: underline;
 		color: ${brandAlt[400]};
 	}
 	${from.mobileMedium} {
-		${textSans.medium({ lineHeight: 'tight' })}
+		${textSans17};
+		line-height: 1.15;
 	}
 `;

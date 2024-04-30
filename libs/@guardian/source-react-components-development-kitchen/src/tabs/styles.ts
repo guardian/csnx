@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { from, space, textSans } from '@guardian/source-foundations';
+import { from, space, textSansBold17 } from '@guardian/source-foundations';
 import { tabThemeColour } from './theme';
 
 export const tabList = css`
@@ -10,9 +10,7 @@ export const tabList = css`
 
 export const tabButton = css`
 	background-color: ${tabThemeColour('--background')};
-	${textSans.medium({
-		fontWeight: 'bold',
-	})}
+	${textSansBold17};
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -42,9 +40,7 @@ export const tabButton = css`
 	}
 
 	${from.phablet} {
-		${textSans.medium({
-			fontWeight: 'bold',
-		})}
+		${textSansBold17}
 		width: 210px;
 	}
 

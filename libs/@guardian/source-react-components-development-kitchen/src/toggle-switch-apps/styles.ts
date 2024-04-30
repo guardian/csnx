@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { neutral, success, textSans } from '@guardian/source-foundations';
+import { neutral, success, textSans15 } from '@guardian/source-foundations';
 import type { LabelPosition } from './ToggleSwitchApps';
 
 export const buttonStyles = (labelPosition: LabelPosition) => css`
@@ -88,7 +88,7 @@ export const androidStyles = css`
 `;
 
 export const labelStyles = css`
-	${textSans.small()};
+	${textSans15};
 	display: flex;
 	color: ${neutral[7]};
 	align-items: center;
