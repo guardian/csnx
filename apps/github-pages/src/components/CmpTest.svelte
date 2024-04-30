@@ -7,8 +7,8 @@
 		case '#tcfv2':
 			localStorage.setItem('framework', JSON.stringify('tcfv2'));
 			break;
-		case '#ccpa':
-			localStorage.setItem('framework', JSON.stringify('ccpa'));
+		case '#usnat':
+			localStorage.setItem('framework', JSON.stringify('usnat'));
 			break;
 		case '#aus':
 			localStorage.setItem('framework', JSON.stringify('aus'));
@@ -81,7 +81,7 @@
 				country = 'GB';
 				break;
 
-			case 'ccpa':
+			case 'usnat':
 				country = 'US';
 				break;
 
@@ -113,15 +113,15 @@
 			/>
 			in RoW:<strong>TCFv2</strong>
 		</label>
-		<label class={framework == 'ccpa' ? 'selected' : 'none'}>
+		<label class={framework == 'usnat' ? 'selected' : 'none'}>
 			<input
 				type="radio"
-				value="ccpa"
+				value="usnat"
 				bind:group={framework}
 				on:change={setLocation}
 			/>
 			in USA:
-			<strong>CCPA</strong>
+			<strong>USNAT</strong>
 		</label>
 		<label class={framework == 'aus' ? 'selected' : 'none'}>
 			<input
