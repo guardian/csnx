@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 23.0.0
+
+### Major Changes
+
+- e0bb19e: Updates dependencies to `@guardian/source-foundations@14.2.2` and replaces use of deprecated typography API with typography presets
+
 ## 22.1.0
 
 ### Minor Changes
