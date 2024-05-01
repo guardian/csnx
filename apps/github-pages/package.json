@@ -10,8 +10,8 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.5.6",
-		"@astrojs/svelte": "5.3.0",
-		"astro": "4.5.16",
+		"@astrojs/svelte": "5.4.0",
+		"astro": "4.7.0",
 		"svelte": "4.2.12",
 		"typescript": "5.3.3",
 		"wireit": "0.14.4"
