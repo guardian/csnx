@@ -1,4 +1,4 @@
-import type { CCPAData } from '../types/ccpa';
+import type { CCPAData } from '../types/aus';
 
 type Command = 'getUSPData';
 
