@@ -1,14 +1,19 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { resets, textSans } from '@guardian/source-foundations';
+import {
+	resets,
+	textSans14,
+	textSansBold14,
+	textSansBold17,
+} from '@guardian/source-foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeLabel } from './theme';
 
 const textSize: {
 	[key in InputSize]: string;
 } = {
-	medium: textSans.medium({ fontWeight: 'bold' }),
-	small: textSans.xsmall({ fontWeight: 'bold' }),
+	medium: textSansBold17,
+	small: textSansBold14,
 };
 
 export const legend = css`
@@ -24,13 +29,13 @@ export const labelText = (
 `;
 
 export const optionalText = (label: ThemeLabel): SerializedStyles => css`
-	${textSans.xsmall()};
+	${textSans14};
 	color: ${label.textOptional};
 	font-style: italic;
 `;
 
 export const supportingText = (label: ThemeLabel): SerializedStyles => css`
-	${textSans.xsmall()};
+	${textSans14};
 	color: ${label.textSupporting};
 	margin: 2px 0 0;
 `;

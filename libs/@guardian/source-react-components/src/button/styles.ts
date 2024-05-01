@@ -4,7 +4,8 @@ import {
 	focusHaloSpaced,
 	height,
 	space,
-	textSans,
+	textSansBold14,
+	textSansBold17,
 	transitions,
 	width,
 } from '@guardian/source-foundations';
@@ -120,7 +121,7 @@ const subdued = (button: ThemeButton): SerializedStyles => css`
 	TODO: find a more scalable solution to this (see https://css-tricks.com/how-to-tame-line-height-in-css/)
 */
 const defaultSize = css`
-	${textSans.medium({ fontWeight: 'bold' })};
+	${textSansBold17};
 	height: ${height.ctaMedium}px;
 	min-height: ${height.ctaMedium}px;
 	padding: 0 ${space[5]}px;
@@ -129,7 +130,7 @@ const defaultSize = css`
 `;
 
 const smallSize = css`
-	${textSans.medium({ fontWeight: 'bold' })};
+	${textSansBold17};
 	height: ${height.ctaSmall}px;
 	min-height: ${height.ctaSmall}px;
 	padding: 0 ${space[4]}px;
@@ -138,7 +139,7 @@ const smallSize = css`
 `;
 
 const xsmallSize = css`
-	${textSans.xsmall({ fontWeight: 'bold' })};
+	${textSansBold14};
 	height: ${height.ctaXsmall}px;
 	min-height: ${height.ctaXsmall}px;
 	padding: 0 ${space[3]}px;

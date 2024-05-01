@@ -6,7 +6,9 @@ import {
 	height,
 	resets,
 	space,
-	textSans,
+	textSans15,
+	textSans17,
+	textSansBold17,
 	transitions,
 	width,
 } from '@guardian/source-foundations';
@@ -107,13 +109,13 @@ export const radio = (radio: ThemeRadio): SerializedStyles => css`
 `;
 
 export const labelText = (radio: ThemeRadio): SerializedStyles => css`
-	${textSans.medium()};
+	${textSans17};
 	color: ${radio.textLabel};
 	width: 100%;
 `;
 
 export const labelTextWithSupportingText = css`
-	${textSans.medium({ fontWeight: 'bold' })};
+	${textSansBold17};
 	margin-top: 1px;
 	/* If label text is empty, add additional spacing to align supporting text */
 	&:empty {
@@ -122,6 +124,6 @@ export const labelTextWithSupportingText = css`
 `;
 
 export const supportingText = (radio: ThemeRadio): SerializedStyles => css`
-	${textSans.small()};
+	${textSans15};
 	color: ${radio.textSupporting};
 `;
