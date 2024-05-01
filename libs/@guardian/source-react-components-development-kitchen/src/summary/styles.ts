@@ -1,6 +1,11 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { size, space, textSans } from '@guardian/source-foundations';
+import {
+	size,
+	space,
+	textSans17,
+	textSansBold17,
+} from '@guardian/source-foundations';
 
 export const wrapperStyles = (color: string): SerializedStyles => css`
 	border: 2px solid ${color};
@@ -24,10 +29,8 @@ export const messageStyles = (
 	color: string,
 	isBold = true,
 ): SerializedStyles => css`
-	${textSans.medium({
-		fontWeight: isBold ? 'bold' : 'regular',
-		lineHeight: 'loose',
-	})}
+	${isBold ? textSansBold17 : textSans17};
+	line-height: 1.4;
 	color: ${color};
 `;
 
@@ -36,5 +39,5 @@ export const messageWrapperStyles = css`
 `;
 
 export const contextStyles = css`
-	${textSans.medium()}
+	${textSans17};
 `;

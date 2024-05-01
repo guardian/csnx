@@ -4,7 +4,7 @@ import {
 	focusHalo,
 	remHeight,
 	remSpace,
-	textSans,
+	textSansBold15,
 } from '@guardian/source-foundations';
 import { themeColour } from './theme';
 
@@ -71,7 +71,7 @@ export const overlayStyles = css`
 `;
 
 export const showHideLabelStyles = css`
-	${textSans.small({ fontWeight: 'bold' })};
+	${textSansBold15};
 	display: inline-flex;
 	justify-content: space-between;
 	box-shadow: none;
