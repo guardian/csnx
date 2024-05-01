@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import {
 	palette,
 	space,
@@ -77,7 +77,7 @@ export const AgeWarning = ({
 	size = 'medium',
 	warningPrefix = 'This article is more than ',
 	supportsDarkMode = false,
-}: AgeWarningProps): EmotionJSX.Element => {
+}: AgeWarningProps): JSX.Element => {
 	const isSmall = size === 'small';
 	const ageOld = ensureOldText(age);
 

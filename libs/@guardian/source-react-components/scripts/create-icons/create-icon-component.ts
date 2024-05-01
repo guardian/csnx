@@ -74,7 +74,7 @@ export const createIconComponent = async ({
 		if (!retainFill) {
 			return tpl`
 			import { css } from '@emotion/react';
-			import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+			import type { JSX } from '@emotion/react/jsx-runtime';
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
 			import type { IconProps } from '../../src';
 
@@ -83,14 +83,14 @@ export const createIconComponent = async ({
 			const ${variables.componentName} = ({
 				size,
 				theme,
-			}: IconProps): EmotionJSX.Element => (
+			}: IconProps): JSX.Element => (
 				${variables.jsx}
 			);
 		  `;
 		}
 		return tpl`
 			import { css } from '@emotion/react';
-			import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+			import type { JSX } from '@emotion/react/jsx-runtime';
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
 			import type { IconProps } from '../../src';
 
@@ -98,7 +98,7 @@ export const createIconComponent = async ({
 
 			const ${variables.componentName} = ({
 				size,
-			}: IconProps): EmotionJSX.Element => (
+			}: IconProps): JSX.Element => (
 				${variables.jsx}
 			);
 		  `;
@@ -169,7 +169,7 @@ export const createIconComponent = async ({
 		export const ${iconComponentName} = ({
 			size,${!retainFill ? '\ntheme,' : ''}
 			isAnnouncedByScreenReader = false,
-		}: IconProps): EmotionJSX.Element => (
+		}: IconProps): JSX.Element => (
 			<>
 				<${svgComponentName} size={size} ${!retainFill ? 'theme={theme}' : ''} />
 				{isAnnouncedByScreenReader ? (

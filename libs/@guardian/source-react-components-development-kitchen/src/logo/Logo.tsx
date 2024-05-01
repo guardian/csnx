@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import {
 	brandAlt,
 	brandText,
@@ -136,7 +136,7 @@ const logoStyles = css`
 export const Logo = ({
 	logoType = 'standard',
 	cssOverrides,
-}: LogoProps): EmotionJSX.Element => (
+}: LogoProps): JSX.Element => (
 	<a
 		href="https://www.theguardian.com"
 		title="The Guardian Homepage"

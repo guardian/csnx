@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { visuallyHidden } from '@guardian/source-foundations';
 
 export type SvgGuardianLogoProps = {
@@ -29,7 +29,7 @@ export type SvgGuardianLogoProps = {
 export const SvgGuardianLogo = ({
 	textColor,
 	width,
-}: SvgGuardianLogoProps): EmotionJSX.Element => {
+}: SvgGuardianLogoProps): JSX.Element => {
 	return (
 		<>
 			{/* Code from https://www.figma.com/file/HH2LEmJBGHdjCZdrwcm4Io/%E2%97%90-Brand?node-id=1%3A86 */}

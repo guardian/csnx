@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import type { OptionHTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 
@@ -12,7 +12,7 @@ export const Option = ({
 	cssOverrides,
 	children,
 	...props
-}: OptionProps): EmotionJSX.Element => {
+}: OptionProps): JSX.Element => {
 	return (
 		<option css={cssOverrides} {...props}>
 			{children}

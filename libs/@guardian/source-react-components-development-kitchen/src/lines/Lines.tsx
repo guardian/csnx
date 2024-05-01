@@ -1,5 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { neutral } from '@guardian/source-foundations';
 import { DashedLines } from './DashedLines';
 import { DottedLines } from './DottedLines';
@@ -43,7 +43,7 @@ export const Lines = ({
 	count = 4,
 	color = neutral[86],
 	cssOverrides,
-}: LinesProps): EmotionJSX.Element => {
+}: LinesProps): JSX.Element => {
 	switch (effect) {
 		case 'squiggly':
 			return (

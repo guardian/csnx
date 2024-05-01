@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { brand as brandColors, text } from '@guardian/source-foundations';
 import { SvgInfo } from '@guardian/source-react-components';
 import {
@@ -17,7 +17,7 @@ export const InfoSummary = ({
 	context,
 	cssOverrides,
 	...props
-}: InfoSummaryProps): EmotionJSX.Element => (
+}: InfoSummaryProps): JSX.Element => (
 	<div css={[wrapperStyles(brandColors[500]), cssOverrides]} {...props}>
 		<div css={iconStyles(brandColors[500])}>
 			<SvgInfo />

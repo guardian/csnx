@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { brand } from '@guardian/source-foundations';
 import { SvgRoundel } from './SvgRoundel';
 
@@ -18,7 +18,7 @@ export type SvgRoundelBrandInverseProps = {
  */
 export const SvgRoundelBrandInverse = (
 	args: SvgRoundelBrandInverseProps,
-): EmotionJSX.Element => {
+): JSX.Element => {
 	return (
 		<SvgRoundel textColor={brand[400]} backgroundColor="white" {...args} />
 	);
