@@ -5,44 +5,47 @@ import { dts } from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
 import { nodeExternals } from 'rollup-plugin-node-externals';
 
-const config = {
-	input: 'src/index.ts',
+/** @type {import("rollup").RollupOptions.input}  */
+const input = 'src/index.ts';
 
-	plugins: [
-		nodeResolve({
-			extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
-		}),
-		commonjs(),
-		json(),
-		esbuild(),
-		nodeExternals(),
-	],
+/** @type {import("rollup").RollupOptions.output}  */
+const output = {
+	dir: 'dist',
+	format: 'esm',
+	preserveModules: true,
+	preserveModulesRoot: 'src',
 };
 
+/** @type {import("rollup").RollupOptions.plugins}  */
+const plugins = [
+	nodeResolve({
+		extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
+	}),
+	commonjs(),
+	json(),
+	esbuild(),
+	nodeExternals(),
+];
+
+/** @type {import("rollup").RollupOptions}  */
 export default [
 	{
-		...config,
-		output: {
-			dir: 'dist',
-			format: 'esm',
-			preserveModules: true,
-		},
+		input,
+		output,
+		plugins,
 	},
 	{
-		...config,
+		input,
 		output: {
-			dir: 'dist',
+			...output,
 			format: 'cjs',
-			preserveModules: true,
 			entryFileNames: '[name].cjs',
 		},
+		plugins,
 	},
 	{
-		...config,
+		input,
+		output,
 		plugins: [dts()],
-		output: {
-			dir: 'dist',
-			preserveModules: true,
-		},
 	},
 ];
