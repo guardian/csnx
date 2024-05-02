@@ -14,7 +14,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && pkgroll",
+		"build": "rm -rf dist && rollup -c",
 		"build-storybook": "wireit",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
@@ -30,8 +30,8 @@
 		"@guardian/source-foundations": "14.2.2",
 		"@guardian/source-react-components": "23.0.0",
 		"@types/react": "18.2.11",
-		"pkgroll": "2.0.2",
 		"react": "18.2.0",
+		"rollup": "^4.16.4",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
 		"wireit": "0.14.4"
