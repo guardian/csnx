@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "20.0.0",
+	"version": "20.0.1",
 	"sideEffects": false,
 	"scripts": {
 		"build-storybook": "wireit",

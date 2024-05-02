@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.1.2
+
+### Patch Changes
+
+- 92688c7: Make consent 11 false by default, currently undefined
+
 ## 16.1.1
 
 ### Patch Changes

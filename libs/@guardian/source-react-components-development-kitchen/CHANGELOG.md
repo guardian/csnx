@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 20.0.1
+
+### Patch Changes
+
+- 5e280ac: Adds compatability with projects that consume `package.json#exports`
+
 ## 20.0.0
 
 ### Major Changes
