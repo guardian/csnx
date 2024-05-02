@@ -13,6 +13,7 @@ const defaultConsents: TCFv2ConsentList = {
 	'8': false,
 	'9': false,
 	'10': false,
+	'11': false,
 };
 
 // get the current constent state using the official IAB method
