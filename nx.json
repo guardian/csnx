@@ -15,6 +15,12 @@
 		"test": {
 			"dependsOn": ["^build"]
 		},
+		"lint": {
+			"dependsOn": ["^build"]
+		},
+		"fix": {
+			"dependsOn": ["^build"]
+		},
 		"verify-dist": {
 			"dependsOn": ["build", "^build"]
 		}
@@ -54,7 +60,8 @@
 			"{workspaceRoot}/**/tsconfig*.json",
 			"{workspaceRoot}/.storybook/main.js",
 			"{workspaceRoot}/.nvmrc",
-			"{workspaceRoot}/.eslintrc.*"
+			"{workspaceRoot}/.eslintrc.*",
+			"{workspaceRoot}/configs/rollup.config.js"
 		],
 		"internalTools": [
 			"{workspaceRoot}/libs/@guardian/eslint-*/**/*",

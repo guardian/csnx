@@ -27,10 +27,7 @@ jobs:
       - name: Version
         run: pnpm changeset version --snapshot canary
 
-      - run: pnpm nx run-many --target=build --all=true
-
-      - name: Prepare Nx project for changesets
-        uses: ./.github/actions/prepare-for-changesets
+      - run: make build
 
       - name: Release
         uses: changesets/action@v1

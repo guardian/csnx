@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"type": "module",
-	"main": "./index.mjs",
+	"main": "./index.js",
 	"scripts": {
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
@@ -22,20 +22,6 @@
 	},
 	"nx": {
 		"targets": {
-			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
-				],
-				"options": {
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md",
-						"{projectRoot}/index.mjs"
-					]
-				}
-			},
 			"lint": {
 				"inputs": [
 					"{projectRoot}/**",

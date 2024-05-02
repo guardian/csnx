@@ -3,6 +3,9 @@
 	"version": "8.0.0",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
 	"main": "index.js",
+	"files": [
+		"index.d.ts"
+	],
 	"scripts": {
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
@@ -17,21 +20,6 @@
 	},
 	"nx": {
 		"targets": {
-			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
-				],
-				"options": {
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/index.js",
-						"{projectRoot}/index.d.ts",
-						"{projectRoot}/*.md"
-					]
-				}
-			},
 			"lint": {
 				"inputs": [
 					"{projectRoot}/**",
@@ -45,12 +33,6 @@
 				],
 				"outputs": [
 					"{projectRoot}"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
 				]
 			}
 		}
