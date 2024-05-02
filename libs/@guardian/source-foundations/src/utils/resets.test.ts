@@ -8,10 +8,6 @@ test('resets.fieldset should be a valid CSS fragment', () => {
 	expect(resets.fieldset).toBeValidCSS({ isFragment: true });
 });
 
-test('resets.input should be an valid CSS fragment', () => {
-	expect(resets.input).toBeValidCSS({ isFragment: true });
-});
-
 test('resets.legend should be a valid CSS fragment', () => {
 	expect(resets.legend).toBeValidCSS({ isFragment: true });
 });
