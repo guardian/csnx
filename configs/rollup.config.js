@@ -6,7 +6,7 @@ import esbuild from 'rollup-plugin-esbuild';
 import { nodeExternals } from 'rollup-plugin-node-externals';
 
 /** @type {import("rollup").RollupOptions.input}  */
-const input = 'src/index.ts';
+const input = { index: 'src/index.ts' };
 
 /** @type {import("rollup").RollupOptions.output}  */
 const output = {
