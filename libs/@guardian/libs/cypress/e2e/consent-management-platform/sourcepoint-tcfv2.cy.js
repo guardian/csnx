@@ -39,7 +39,7 @@ describe('Document', () => {
 });
 
 describe('Interaction', () => {
-	const buttonTitle = 'Yes, I’m happy';
+	const buttonTitle = 'Yes, I accept';
 
 	it(`should give all consents when clicking "${buttonTitle}"`, () => {
 		cy.visit(url);
