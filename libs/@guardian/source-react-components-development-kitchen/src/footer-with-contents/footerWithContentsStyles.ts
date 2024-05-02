@@ -4,14 +4,15 @@ import {
 	from,
 	neutral,
 	space,
-	textSans,
+	textSans12,
+	textSans17,
 } from '@guardian/source-foundations';
 
 export const footer = css`
 	background-color: ${brand[400]};
 	color: ${neutral[100]};
 	padding-bottom: ${space[1]}px;
-	${textSans.medium()};
+	${textSans17};
 `;
 
 export const contentWrapperStyles = css`
@@ -21,7 +22,7 @@ export const contentWrapperStyles = css`
 
 export const copyrightStyles = css`
 	display: block;
-	${textSans.xxsmall()};
+	${textSans12};
 	padding-top: ${space[6]}px;
 	padding-bottom: 18px;
 	${from.tablet} {

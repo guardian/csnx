@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
-import { border, space, text, textSans } from '@guardian/source-foundations';
+import { border, space, text, textSans15 } from '@guardian/source-foundations';
 import type { Props } from '@guardian/source-react-components';
 import { fullStyles, partialStyles } from './styles';
 
@@ -50,7 +50,7 @@ export const Divider = ({
 					css`
 						display: flex;
 						flex-direction: row;
-						${textSans.small()};
+						${textSans15};
 						color: ${text.supporting};
 						margin-bottom: -10px;
 						width: 100%;
