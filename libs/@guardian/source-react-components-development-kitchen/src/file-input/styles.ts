@@ -7,7 +7,9 @@ import {
 	remHeight,
 	remSpace,
 	space,
-	textSans,
+	textSans14,
+	textSans15,
+	textSans17,
 } from '@guardian/source-foundations';
 import { fileInputThemeDefault } from './theme';
 import type { Size as SizeType } from './types';
@@ -39,7 +41,7 @@ const xsmallUpload = css`
 export const warningText = (
 	fileInput = fileInputThemeDefault.fileInput,
 ): SerializedStyles => css`
-	${textSans.xsmall()};
+	${textSans14};
 	color: ${fileInput.supporting};
 	margin: 2px 0 0;
 `;
@@ -56,13 +58,13 @@ export const fontSizes: {
 	[key in SizeType]: SerializedStyles;
 } = {
 	default: css`
-		${textSans.medium()};
+		${textSans17};
 	`,
 	small: css`
-		${textSans.small()};
+		${textSans15};
 	`,
 	xsmall: css`
-		${textSans.xsmall()};
+		${textSans14};
 	`,
 };
 

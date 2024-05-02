@@ -4,7 +4,8 @@ import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
 	palette,
 	space,
-	textSans,
+	textSans12,
+	textSans17,
 	visuallyHidden,
 } from '@guardian/source-foundations';
 import { darkModeCss } from './styles';
@@ -36,7 +37,7 @@ const ageWarningStyles = (
 	isSmall: boolean,
 	supportsDarkMode: boolean,
 ): SerializedStyles => css`
-	${isSmall ? textSans.xxsmall() : textSans.medium()};
+	${isSmall ? textSans12 : textSans17}
 	color: ${palette.neutral[7]};
 	background-color: ${palette.brandAlt[400]};
 	display: inline-block;

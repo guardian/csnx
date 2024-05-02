@@ -6,7 +6,8 @@ import {
 	from,
 	height,
 	space,
-	textSans,
+	textSans12,
+	textSansBold15,
 	width,
 } from '@guardian/source-foundations';
 import { footerThemeBrand } from './theme';
@@ -61,7 +62,7 @@ export const links = (
 `;
 
 export const copyright = css`
-	${textSans.xxsmall()};
+	${textSans12};
 	display: block;
 `;
 
@@ -80,7 +81,7 @@ export const backToTop = (
 	height: ${height.ctaMedium}px;
 	padding-left: ${space[2]}px;
 
-	${textSans.small({ fontWeight: 'bold' })};
+	${textSansBold15};
 	color: ${footer.anchor};
 	background-color: ${footer.background};
 	text-decoration: none;
