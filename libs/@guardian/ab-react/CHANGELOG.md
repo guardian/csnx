@@ -1,5 +1,11 @@
 # @guardian/ab-react
 
+## 8.0.1
+
+### Patch Changes
+
+- 5e280ac: Adds compatability with projects that consume `package.json#exports`
+
 ## 8.0.0
 
 ### Major Changes
