@@ -1,5 +1,5 @@
 {
-	"name": "config",
+	"name": "configs",
 	"version": "0.1.0",
 	"type": "module",
 	"devDependencies": {
