@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import type { ButtonHTMLAttributes } from 'react';
 import type { SharedButtonProps } from './@types/SharedButtonProps';
 import { buttonContents } from './shared';
@@ -31,7 +31,7 @@ export const Button = ({
 	children,
 	theme,
 	...props
-}: ButtonProps): EmotionJSX.Element => (
+}: ButtonProps): JSX.Element => (
 	<button
 		css={buttonStyles({
 			size,

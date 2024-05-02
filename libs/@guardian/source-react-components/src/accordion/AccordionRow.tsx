@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import { useEffect, useState } from 'react';
 import type { HTMLAttributes } from 'react';
@@ -75,7 +75,7 @@ export const AccordionRow = ({
 	cssOverrides,
 	onClick = () => undefined,
 	theme,
-}: AccordionRowProps): EmotionJSX.Element => {
+}: AccordionRowProps): JSX.Element => {
 	const [expanded, setExpanded] = useState(false);
 	const collapse = () => setExpanded(false);
 	const expand = () => setExpanded(true);

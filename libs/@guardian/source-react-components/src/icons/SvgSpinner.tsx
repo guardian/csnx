@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { brand, iconSize } from '@guardian/source-foundations';
 import type { IconProps } from '../@types/Icons';
 
@@ -24,9 +24,7 @@ const darkblueStyles = css`
 	fill: transparent;
 `;
 
-export const SvgSpinner = ({
-	size,
-}: LoadingCircleIconProps): EmotionJSX.Element => {
+export const SvgSpinner = ({ size }: LoadingCircleIconProps): JSX.Element => {
 	return (
 		<svg width={size ? iconSize[size] : undefined} viewBox="0 0 30 30">
 			<g>

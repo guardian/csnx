@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { SelectHTMLAttributes } from 'react';
 import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
@@ -94,7 +94,7 @@ export const Select = ({
 	children,
 	theme,
 	...props
-}: SelectProps): EmotionJSX.Element => {
+}: SelectProps): JSX.Element => {
 	const selectId = id ?? generateSourceId();
 	const mergedTheme = (providerTheme: Theme['select']) =>
 		mergeThemes<ThemeSelect, Theme['select']>(

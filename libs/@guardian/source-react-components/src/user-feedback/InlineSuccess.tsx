@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { SvgTickRound } from '../../vendor/icons/SvgTickRound';
 import type { Theme } from '../@types/Theme';
 import type { UserFeedbackProps } from './@types/UserFeedbackProps';
@@ -21,7 +21,7 @@ export const InlineSuccess = ({
 	cssOverrides,
 	theme,
 	...props
-}: UserFeedbackProps): EmotionJSX.Element => (
+}: UserFeedbackProps): JSX.Element => (
 	<span
 		css={(providerTheme: Theme) => [
 			inlineSuccess(mergedTheme(providerTheme.userFeedback, theme), size),

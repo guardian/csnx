@@ -45,7 +45,8 @@
 			]
 		},
 		"rootDir": ".",
-		"sourceMap": true
+		"sourceMap": true,
+		"moduleResolution": "bundler"
 	},
 	"exclude": ["node_modules", "tmp"],
 	"ts-node": {

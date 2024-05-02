@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import { Children, cloneElement } from 'react';
 import type { Props } from '../@types/Props';
@@ -73,7 +73,7 @@ export const CheckboxGroup = ({
 	children,
 	theme,
 	...props
-}: CheckboxGroupProps): EmotionJSX.Element => {
+}: CheckboxGroupProps): JSX.Element => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
 		<Legend
