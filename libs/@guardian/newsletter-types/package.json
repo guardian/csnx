@@ -16,13 +16,13 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && pkgroll",
+		"build": "rm -rf dist && rollup -c",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
 	"devDependencies": {
-		"pkgroll": "2.0.2",
+		"rollup": "^4.16.4",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},

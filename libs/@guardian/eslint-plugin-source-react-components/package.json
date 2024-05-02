@@ -14,7 +14,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && pkgroll",
+		"build": "rm -rf dist && rollup -c",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
@@ -33,8 +33,8 @@
 		"@types/eslint": "8.56.1",
 		"@types/estree": "1.0.5",
 		"eslint": "8.56.0",
-		"pkgroll": "2.0.2",
 		"react": "18.2.0",
+		"rollup": "^4.16.4",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},

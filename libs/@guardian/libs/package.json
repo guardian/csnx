@@ -16,7 +16,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && pkgroll",
+		"build": "rm -rf dist && rollup -c",
 		"dev": "jest --watch",
 		"e2e": "wireit",
 		"fix": "pnpm lint --fix",
@@ -31,7 +31,7 @@
 		"eslint-plugin-cypress": "2.15.1",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
-		"pkgroll": "2.0.2",
+		"rollup": "^4.16.4",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
 		"wcag-contrast": "3.0.0",

@@ -15,7 +15,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && pkgroll",
+		"build": "rm -rf dist && rollup -c",
 		"build-storybook": "wireit",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
@@ -31,9 +31,9 @@
 		"@emotion/react": "11.11.1",
 		"@guardian/design-tokens": "workspace:*",
 		"lightningcss": "1.24.0",
-		"pkgroll": "2.0.2",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
+		"rollup": "^4.16.4",
 		"tslib": "2.6.2",
 		"tsx": "4.7.1",
 		"typescript": "5.3.3",
