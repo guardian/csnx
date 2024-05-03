@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { neutral } from '@guardian/source-foundations';
 import { SvgRoundel } from './SvgRoundel';
 
@@ -16,9 +15,7 @@ export type SvgRoundelInverseProps = {
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/brand/SvgRoundelInverse.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  */
-export const SvgRoundelInverse = (
-	args: SvgRoundelInverseProps,
-): JSX.Element => {
+export const SvgRoundelInverse = (args: SvgRoundelInverseProps) => {
 	return (
 		<SvgRoundel textColor={neutral[7]} backgroundColor="white" {...args} />
 	);

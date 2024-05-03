@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { Props } from '@guardian/source-react-components';
 import { androidStyles, buttonStyles, iosStyles, labelStyles } from './styles';
@@ -66,7 +65,7 @@ export const ToggleSwitchApps = ({
 	platform = 'ios',
 	onClick = () => undefined,
 	...props
-}: ToggleSwitchAppsProps): JSX.Element => {
+}: ToggleSwitchAppsProps) => {
 	const buttonId = id ?? generateSourceId();
 	const labelId = descriptionId(buttonId);
 

@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { brand } from '@guardian/source-foundations';
 import { BackToTop, Container } from '@guardian/source-react-components';
 import type { ReactNode } from 'react';
@@ -26,7 +25,7 @@ const footerContainerProps = {
 export const FooterWithContents = ({
 	children,
 	ContainerComponent = Container,
-}: FooterWithContentsProps): JSX.Element => {
+}: FooterWithContentsProps) => {
 	return (
 		<footer css={footer}>
 			<ContainerComponent {...footerContainerProps}>

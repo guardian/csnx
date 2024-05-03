@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
@@ -32,7 +31,7 @@ export const Footer = ({
 	children,
 	cssOverrides,
 	...props
-}: FooterProps): JSX.Element => {
+}: FooterProps) => {
 	return (
 		<footer
 			css={(theme: Theme) => [footer(theme.footer), cssOverrides]}

@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { brand } from '@guardian/source-foundations';
 import { SvgRoundel } from './SvgRoundel';
 
@@ -16,9 +15,7 @@ export type SvgRoundelBrandInverseProps = {
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/brand/SvgRoundelBrandInverse.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  */
-export const SvgRoundelBrandInverse = (
-	args: SvgRoundelBrandInverseProps,
-): JSX.Element => {
+export const SvgRoundelBrandInverse = (args: SvgRoundelBrandInverseProps) => {
 	return (
 		<SvgRoundel textColor={brand[400]} backgroundColor="white" {...args} />
 	);

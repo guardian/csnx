@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { from as fromMq, until as untilMq } from '@guardian/source-foundations';
 import type { Breakpoint } from '@guardian/source-foundations';
 import type { HTMLAttributes } from 'react';
@@ -46,7 +45,7 @@ export const Hide = ({
 	below, // deprecated
 	from = above,
 	until = below,
-}: HideProps): JSX.Element => {
+}: HideProps) => {
 	let whenToHide;
 	if (until) {
 		whenToHide = css`

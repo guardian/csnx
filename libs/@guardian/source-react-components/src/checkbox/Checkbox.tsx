@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
@@ -98,7 +97,7 @@ export const Checkbox = ({
 	cssOverrides,
 	theme,
 	...props
-}: CheckboxProps): JSX.Element => {
+}: CheckboxProps) => {
 	const checkboxId = id ?? generateSourceId();
 	const isChecked = (): boolean => {
 		if (checked != null) {
@@ -120,11 +119,7 @@ export const Checkbox = ({
 			transformProviderTheme,
 		);
 
-	const SupportingText = ({
-		children,
-	}: {
-		children: ReactNode;
-	}): JSX.Element => {
+	const SupportingText = ({ children }: { children: ReactNode }) => {
 		return (
 			<div
 				css={(providerTheme: Theme) =>
@@ -142,7 +137,7 @@ export const Checkbox = ({
 	}: {
 		hasSupportingText?: boolean;
 		children: ReactNode;
-	}): JSX.Element => {
+	}) => {
 		return (
 			<div
 				css={(providerTheme: Theme) => [

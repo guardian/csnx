@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { visuallyHidden } from '@guardian/source-foundations';
 
 export type SvgGuardianLiveLogoProps = {
@@ -27,7 +26,7 @@ export type SvgGuardianLiveLogoProps = {
 export const SvgGuardianLiveLogo = ({
 	textColor,
 	width,
-}: SvgGuardianLiveLogoProps): JSX.Element => {
+}: SvgGuardianLiveLogoProps) => {
 	return (
 		<>
 			<svg

@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { success as successColors } from '@guardian/source-foundations';
 import { SvgTickRound } from '@guardian/source-react-components';
 import {
@@ -17,7 +16,7 @@ export const SuccessSummary = ({
 	context,
 	cssOverrides,
 	...props
-}: SuccessSummaryProps): JSX.Element => (
+}: SuccessSummaryProps) => (
 	<div css={[wrapperStyles(successColors[400]), cssOverrides]} {...props}>
 		<div css={iconStyles(successColors[400])}>
 			<SvgTickRound />

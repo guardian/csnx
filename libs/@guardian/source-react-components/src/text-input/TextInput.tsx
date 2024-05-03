@@ -1,5 +1,4 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes } from 'react';
 import type { InputSize } from '../@types/InputSize';
@@ -121,7 +120,7 @@ export const TextInput = ({
 	theme,
 	cssOverrides,
 	...props
-}: TextInputProps): JSX.Element => {
+}: TextInputProps) => {
 	const textInputId = id ?? generateSourceId();
 	const mergedTheme = (providerTheme: Theme) =>
 		mergeThemes<ThemeTextInput, Theme['textInput']>(

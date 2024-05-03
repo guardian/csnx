@@ -1,5 +1,4 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { breakpoints, neutral, space } from '@guardian/source-foundations';
 import type { LineCount } from './Lines';
 
@@ -20,7 +19,7 @@ export const DashedLines = ({
 	count?: LineCount;
 	color?: string;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
-}): JSX.Element => {
+}) => {
 	const height = getHeight(count);
 	const viewBox = `0 0 ${width} ${height}`;
 

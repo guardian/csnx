@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { visuallyHidden } from '@guardian/source-foundations';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
@@ -15,7 +14,7 @@ export const buttonContents = ({
 	iconSvg?: ReactElement;
 	isLoading?: boolean;
 	children: ReactNode;
-}): JSX.Element | ReactNode[] => {
+}) => {
 	const contents = [children];
 
 	if (isLoading) {

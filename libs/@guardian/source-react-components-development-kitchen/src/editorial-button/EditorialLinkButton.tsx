@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { LinkButtonProps as CoreLinkButtonProps } from '@guardian/source-react-components';
 import { LinkButton as CoreLinkButton } from '@guardian/source-react-components';
 import {
@@ -28,7 +27,7 @@ export const EditorialLinkButton = ({
 	children,
 	priority = 'primary',
 	...props
-}: EditorialLinkButtonProps): JSX.Element => {
+}: EditorialLinkButtonProps) => {
 	const backgroundOverrides = decideBackground(format, priority);
 	const borderOverrides = decideBorder(format, priority);
 	const fontOverrides = decideFont(format, priority);

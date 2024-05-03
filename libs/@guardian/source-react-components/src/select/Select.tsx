@@ -1,6 +1,5 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
-import type { SelectHTMLAttributes } from 'react';
+import type { ReactNode, SelectHTMLAttributes } from 'react';
 import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
@@ -49,7 +48,7 @@ export interface SelectProps
 	 * Whether success styling should apply to this select box. The string appears as an inline success message. This prop should not have a value set at the same time as the error prop. In the event that both are set, errors take precedence.
 	 */
 	success?: string;
-	children: JSX.Element | JSX.Element[];
+	children: ReactNode;
 	/**
 	 * Partial or complete theme to override the component's colour palette.
 	 * The sanctioned colours have been set out by the design system team.
@@ -94,7 +93,7 @@ export const Select = ({
 	children,
 	theme,
 	...props
-}: SelectProps): JSX.Element => {
+}: SelectProps) => {
 	const selectId = id ?? generateSourceId();
 	const mergedTheme = (providerTheme: Theme['select']) =>
 		mergeThemes<ThemeSelect, Theme['select']>(

@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
@@ -82,7 +81,7 @@ export const Radio = ({
 	cssOverrides,
 	theme,
 	...props
-}: RadioProps): JSX.Element => {
+}: RadioProps) => {
 	const radioId = id ?? generateSourceId();
 	const isChecked = (): boolean => {
 		if (checked != null) {
