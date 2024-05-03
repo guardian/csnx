@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import {
@@ -65,7 +64,7 @@ export const Container = ({
 	cssOverrides,
 	children,
 	...props
-}: ContainerProps): JSX.Element => {
+}: ContainerProps) => {
 	return (
 		<Element
 			css={[

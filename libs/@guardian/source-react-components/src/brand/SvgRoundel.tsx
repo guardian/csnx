@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { visuallyHidden } from '@guardian/source-foundations';
 
 export type SvgRoundelProps = {
@@ -33,7 +32,7 @@ export const SvgRoundel = ({
 	textColor = '#fff',
 	backgroundColor: bgColor = '#000',
 	width,
-}: SvgRoundelProps): JSX.Element => {
+}: SvgRoundelProps) => {
 	return (
 		<>
 			<svg

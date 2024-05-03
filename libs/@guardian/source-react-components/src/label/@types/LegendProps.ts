@@ -1,4 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../../@types/Props';
 import type { ThemeLabel } from '../theme';

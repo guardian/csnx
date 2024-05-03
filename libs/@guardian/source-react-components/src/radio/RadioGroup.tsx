@@ -77,7 +77,7 @@ export const RadioGroup = ({
 	children,
 	theme,
 	...props
-}: RadioGroupProps): JSX.Element => {
+}: RadioGroupProps) => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
 		<Legend

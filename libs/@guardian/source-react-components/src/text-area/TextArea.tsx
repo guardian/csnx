@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes } from 'react';
 import type { InputSize } from '../@types/InputSize';
@@ -104,7 +103,7 @@ export const TextArea = ({
 	value,
 	theme,
 	...props
-}: TextAreaProps): JSX.Element => {
+}: TextAreaProps) => {
 	const textAreaId = id ?? generateSourceId();
 	const getClassName = () => {
 		const HAS_VALUE_CLASS = 'src-has-value';

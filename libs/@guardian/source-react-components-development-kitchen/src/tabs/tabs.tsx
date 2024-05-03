@@ -10,7 +10,7 @@ const Tabs = ({
 	selectedTab,
 	onTabChange,
 	theme = tabsThemeDefault,
-}: TabContainerProps): JSX.Element => {
+}: TabContainerProps) => {
 	const TabControllerElement = tabElement;
 	return (
 		<div

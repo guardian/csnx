@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
 import type { Props } from '../@types/Props';
@@ -52,7 +51,7 @@ export const Accordion = ({
 	cssOverrides,
 	theme,
 	...props
-}: AccordionProps): JSX.Element => {
+}: AccordionProps) => {
 	const mergedTheme = (providerTheme: Theme['accordion']) =>
 		mergeThemes<ThemeAccordion, Theme['accordion']>(
 			defaultTheme,

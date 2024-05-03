@@ -74,7 +74,7 @@ export const createIconComponent = async ({
 		if (!retainFill) {
 			return tpl`
 			import { css } from '@emotion/react';
-			import type { JSX } from '@emotion/react/jsx-runtime';
+
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
 			import type { IconProps } from '../../src';
 
@@ -83,14 +83,14 @@ export const createIconComponent = async ({
 			const ${variables.componentName} = ({
 				size,
 				theme,
-			}: IconProps): JSX.Element => (
+			}: IconProps) => (
 				${variables.jsx}
 			);
 		  `;
 		}
 		return tpl`
 			import { css } from '@emotion/react';
-			import type { JSX } from '@emotion/react/jsx-runtime';
+
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
 			import type { IconProps } from '../../src';
 
@@ -98,7 +98,7 @@ export const createIconComponent = async ({
 
 			const ${variables.componentName} = ({
 				size,
-			}: IconProps): JSX.Element => (
+			}: IconProps) => (
 				${variables.jsx}
 			);
 		  `;
@@ -169,7 +169,7 @@ export const createIconComponent = async ({
 		export const ${iconComponentName} = ({
 			size,${!retainFill ? '\ntheme,' : ''}
 			isAnnouncedByScreenReader = false,
-		}: IconProps): JSX.Element => (
+		}: IconProps) => (
 			<>
 				<${svgComponentName} size={size} ${!retainFill ? 'theme={theme}' : ''} />
 				{isAnnouncedByScreenReader ? (

@@ -87,7 +87,7 @@ export const ChoiceCardGroup = ({
 	children,
 	theme,
 	...props
-}: ChoiceCardGroupProps): JSX.Element => {
+}: ChoiceCardGroupProps) => {
 	const groupId = id ?? generateSourceId();
 	const showLabel = !!(label && !hideLabel);
 	const topMargin =

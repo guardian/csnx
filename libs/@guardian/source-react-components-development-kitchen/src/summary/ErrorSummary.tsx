@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import { error as errorColors } from '@guardian/source-foundations';
 import { SvgAlertTriangle } from '@guardian/source-react-components';
 import {
@@ -23,7 +22,7 @@ export const ErrorSummary = ({
 	context,
 	cssOverrides,
 	...props
-}: ErrorSummaryProps): JSX.Element => (
+}: ErrorSummaryProps) => (
 	<div css={[wrapperStyles(errorColors[400]), cssOverrides]} {...props}>
 		<div css={iconStyles(errorColors[400])}>
 			<SvgAlertTriangle />

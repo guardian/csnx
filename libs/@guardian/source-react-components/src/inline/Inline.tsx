@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import type { Space } from '../@types/Space';
@@ -25,7 +24,7 @@ export const Inline = ({
 	children,
 	space,
 	...props
-}: InlineProps): JSX.Element => {
+}: InlineProps) => {
 	return (
 		<div css={inline}>
 			<div

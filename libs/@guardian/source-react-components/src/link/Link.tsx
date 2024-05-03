@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { AnchorHTMLAttributes } from 'react';
 import type { SharedLinkProps } from './@types/SharedLinkProps';
 import { linkContents } from './shared';
@@ -26,7 +25,7 @@ export const Link = ({
 	children,
 	theme,
 	...props
-}: LinkProps): JSX.Element => {
+}: LinkProps) => {
 	return (
 		<a
 			css={linkStyles({

@@ -1,4 +1,3 @@
-import type { JSX } from '@emotion/react/jsx-runtime';
 import type { ArticleFormat } from '@guardian/libs';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { Props } from '@guardian/source-react-components';
@@ -92,7 +91,7 @@ export const ToggleSwitch = ({
 	cssOverrides,
 	onClick,
 	...props
-}: ToggleSwitchProps): JSX.Element => {
+}: ToggleSwitchProps) => {
 	const buttonId = id ?? generateSourceId();
 	const labelId = descriptionId(buttonId);
 	const [isBrowser, setIsBrowser] = useState(false);

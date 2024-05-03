@@ -73,7 +73,7 @@ export const CheckboxGroup = ({
 	children,
 	theme,
 	...props
-}: CheckboxGroupProps): JSX.Element => {
+}: CheckboxGroupProps) => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
 		<Legend
