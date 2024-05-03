@@ -2,4 +2,4 @@
 '@guardian/source-foundations': major
 ---
 
-Removed deprecated input reset style
+Removed deprecated `resets.input` reset style.
