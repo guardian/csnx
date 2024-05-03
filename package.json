@@ -61,7 +61,6 @@
 		"sort-package-json": "2.10.0",
 		"storybook": "8.0.5",
 		"ts-jest": "29.1.1",
-		"tsconfig-paths-webpack-plugin": "4.1.0",
 		"typescript": "5.3.3",
 		"update-section": "0.3.3",
 		"webpack": "5.91.0"
