@@ -10,8 +10,8 @@
 		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
 	},
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "6.21.0",
-		"@typescript-eslint/parser": "6.21.0"
+		"@typescript-eslint/eslint-plugin": "7.8.0",
+		"@typescript-eslint/parser": "7.8.0"
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.1",
@@ -20,7 +20,7 @@
 		"@guardian/source-react-components": "22.0.1",
 		"@types/eslint": "8.56.1",
 		"@types/estree": "1.0.5",
-		"eslint": "8.56.0",
+		"eslint": "9.2.0",
 		"react": "18.2.0",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
