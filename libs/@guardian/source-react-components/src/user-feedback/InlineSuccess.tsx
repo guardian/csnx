@@ -1,4 +1,4 @@
-import { SvgTickRound } from '../../vendor/icons/SvgTickRound';
+import { SvgTickRound } from '.././__generated__/icons/SvgTickRound';
 import type { Theme } from '../@types/Theme';
 import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { mergedTheme } from './shared';

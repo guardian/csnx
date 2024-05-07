@@ -3,12 +3,13 @@
 	"version": "0.1.0--pre.0",
 	"private": true,
 	"type": "module",
-	"main": "./vendor/tokens.js",
+	"main": "src/__generated__/tokens.js",
+	"types": "src/__generated__/tokens.d.ts",
 	"files": [
-		"vendor"
+		"src/__generated__"
 	],
 	"scripts": {
-		"build": "co build && prettier --write vendor/**",
+		"build": "co build && prettier --write src/__generated__/**",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
@@ -29,7 +30,7 @@
 					"{projectRoot}/package.json"
 				],
 				"outputs": [
-					"{projectRoot}/vendor"
+					"{projectRoot}/src/__generated__"
 				]
 			},
 			"lint": {

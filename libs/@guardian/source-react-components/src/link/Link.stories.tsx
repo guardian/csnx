@@ -20,7 +20,7 @@ import {
 	textSans34,
 } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
-import { SvgExternal } from '../../vendor/icons/SvgExternal';
+import { SvgExternal } from '.././__generated__/icons/SvgExternal';
 import { Link } from './Link';
 import type { LinkProps } from './Link';
 import { themeLinkBrand, themeLinkBrandAlt } from './theme';

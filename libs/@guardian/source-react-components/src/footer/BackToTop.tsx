@@ -1,4 +1,4 @@
-import { SvgChevronUpSingle } from '../../vendor/icons/SvgChevronUpSingle';
+import { SvgChevronUpSingle } from '.././__generated__/icons/SvgChevronUpSingle';
 import type { Theme } from '../@types/Theme';
 import { backToTop, backToTopIcon } from './styles';
 
