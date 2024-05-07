@@ -465,7 +465,7 @@ importers:
     devDependencies:
       '@guardian/identity-auth':
         specifier: 2.1.0
-        version: 2.1.0(@guardian/libs@16.0.0)(tslib@2.6.2)(typescript@5.3.3)
+        version: link:../identity-auth
       '@guardian/libs':
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
@@ -574,7 +574,7 @@ importers:
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/source-foundations':
         specifier: 14.2.2
-        version: 14.2.2(tslib@2.6.2)(typescript@5.3.3)
+        version: link:../source-foundations
       '@svgr/babel-preset':
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.24.0)
@@ -646,10 +646,10 @@ importers:
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source-foundations':
         specifier: 14.2.2
-        version: 14.2.2(tslib@2.6.2)(typescript@5.3.3)
+        version: link:../source-foundations
       '@guardian/source-react-components':
         specifier: 23.0.0
-        version: 23.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@14.2.2)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
+        version: 23.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@libs+@guardian+source-foundations)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
@@ -3151,21 +3151,6 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/identity-auth@2.1.0(@guardian/libs@16.0.0)(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-+AM0pcmRvRZUf92RYGJ2Q6KK1JpnQIxZ6pafsaBMGnF0IwiIk9DdfhaYZl0cyPQ3PwLTJJw2aSl453ivPAmHbw==}
-    peerDependencies:
-      '@guardian/libs': ^16.0.0
-      tslib: ^2.6.2
-      typescript: ~5.3.3
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@guardian/libs': 16.0.0(tslib@2.6.2)(typescript@5.3.3)
-      tslib: 2.6.2
-      typescript: 5.3.3
-    dev: true
-
   /@guardian/libs@16.0.0(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-2i9cN6htXnvABIGhfqJGb9Bh/DdQOayUjb5ruqBGTiXEeDBHztctdVsi7+rPfMlwyPxQ+0qYLhM19f6J94vvhQ==}
     peerDependencies:
@@ -3181,20 +3166,6 @@ packages:
 
   /@guardian/source-foundations@14.1.4(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-SHkFVBxsE2dSNTKfzmGY1hD9BA7qJ2+bGY1plrUJlYJBCRQdno/YuNummO+wm0Q+kMgxRT0iz5md2DjKYERzQw==}
-    peerDependencies:
-      tslib: ^2.6.2
-      typescript: ~5.3.3
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      mini-svg-data-uri: 1.4.4
-      tslib: 2.6.2
-      typescript: 5.3.3
-    dev: true
-
-  /@guardian/source-foundations@14.2.2(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-198Akw1RqufsX6Iu/qzqeR4eC9L3ezHURVzMqJeB3ZRZtabdkL2Q562mS1UnSdyACeCLRMqlOXqZDO38gsjP/g==}
     peerDependencies:
       tslib: ^2.6.2
       typescript: ~5.3.3
@@ -3226,7 +3197,7 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/source-react-components@23.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@14.2.2)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
+  /@guardian/source-react-components@23.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@libs+@guardian+source-foundations)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-jBa9fsiG+V4DLfQwmPFy8sleJCDOYP5A1X0SeIPrPhQPDGXBAuwl9qNJMlR7N0MHCv7z1OchgDlHDQUf9S+Qlw==}
     peerDependencies:
       '@emotion/react': ^11.11.1
@@ -3239,7 +3210,7 @@ packages:
         optional: true
     dependencies:
       '@emotion/react': 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/source-foundations': 14.2.2(tslib@2.6.2)(typescript@5.3.3)
+      '@guardian/source-foundations': link:libs/@guardian/source-foundations
       react: 18.2.0
       tslib: 2.6.2
       typescript: 5.3.3
@@ -3742,7 +3713,7 @@ packages:
         optional: true
     dependencies:
       '@nrwl/devkit': 18.0.7(nx@18.0.7)
-      ejs: 3.1.9
+      ejs: 3.1.10
       enquirer: 2.3.6
       ignore: 5.3.1
       nx: 18.0.7(@swc-node/register@1.9.0)(@swc/core@1.4.0)
@@ -4385,7 +4356,7 @@ packages:
       '@types/ejs': 3.1.5
       '@yarnpkg/esbuild-plugin-pnp': 3.0.0-rc.15(esbuild@0.20.2)
       browser-assert: 1.2.1
-      ejs: 3.1.9
+      ejs: 3.1.10
       esbuild: 0.20.2
       esbuild-plugin-alias: 0.2.1
       express: 4.19.2
@@ -8541,8 +8512,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /ejs@3.1.9:
-    resolution: {integrity: sha512-rC+QVNMJWv+MtPgkt0y+0rVEIdbtxVADApW9JXrUVlzHetgcyczP/E7DJmWJ4fJCZF2cPcBk0laWO9ZHMG3DmQ==}
+  /ejs@3.1.10:
+    resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
     engines: {node: '>=0.10.0'}
     hasBin: true
     dependencies:
