@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components",
-	"version": "23.0.1",
+	"version": "24.0.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"scripts": {

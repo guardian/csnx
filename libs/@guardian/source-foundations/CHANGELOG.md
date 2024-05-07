@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 15.0.0
+
+### Major Changes
+
+- e798525: Removed deprecated `resets.input` reset style.
+
 ## 14.2.2
 
 ### Patch Changes
