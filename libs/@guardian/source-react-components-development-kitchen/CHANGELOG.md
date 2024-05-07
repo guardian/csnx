@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 20.0.2
+
+### Patch Changes
+
+- fbaa879: Components are no longer explicitly typed as `JSX.Element`, which may be too wide. The TypeScript compiler will now be able to infer the correct type itself.
+
 ## 20.0.1
 
 ### Patch Changes
