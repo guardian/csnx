@@ -1,5 +1,4 @@
 const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const nodeModulesExclude = {
 	and: [/node_modules/],
 	not: [/@guardian\//],
@@ -49,13 +48,6 @@ module.exports = {
 		).exclude = nodeModulesExclude;
 
 		config.resolve.plugins ||= [];
-		config.resolve.plugins.push(
-			new TsconfigPathsPlugin({
-				configFile: path.resolve(__dirname, '..', 'tsconfig.base.json'),
-				extensions: config.resolve.extensions,
-				mainFields: config.resolve.mainFields,
-			}),
-		);
 		return config;
 	},
 	framework: {

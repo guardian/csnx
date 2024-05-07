@@ -16,7 +16,7 @@ console.log('Building typography presets…');
 
 const presetTotal = Object.keys(typographyPresets).length;
 
-const outputPath = `${process.cwd()}/vendor/typography`;
+const outputPath = `${process.cwd()}/src/__generated__/typography`;
 fs.mkdirSync(outputPath, { recursive: true });
 
 const cssOutputPath = `${outputPath}/css.ts`;
