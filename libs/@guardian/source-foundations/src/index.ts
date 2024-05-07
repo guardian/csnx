@@ -33,8 +33,8 @@ export {
 export { space, remSpace } from './space/space';
 
 // typography
-export * from '../vendor/typography/css';
-export * from '../vendor/typography/objects';
+export * from './__generated__/typography/css';
+export * from './__generated__/typography/objects';
 
 // utils
 export { appearance } from './utils/supports-queries';

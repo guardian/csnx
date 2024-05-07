@@ -24,7 +24,14 @@ const SPECIAL_CASES = {
 	isWide: ['direct-debit-wide'],
 };
 
-const VENDOR_ICON_PATH = path.resolve(__dirname, '..', '..', 'vendor', 'icons');
+const VENDOR_ICON_PATH = path.resolve(
+	__dirname,
+	'..',
+	'..',
+	'src',
+	'__generated__',
+	'icons',
+);
 
 const warning = [
 	'// DO NOT EDIT',

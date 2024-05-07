@@ -76,7 +76,7 @@ export const createIconComponent = async ({
 			import { css } from '@emotion/react';
 
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-			import type { IconProps } from '../../src';
+			import type { IconProps } from '../..';
 
 			${variables.imports};
 
@@ -92,7 +92,7 @@ export const createIconComponent = async ({
 			import { css } from '@emotion/react';
 
 			import { iconSize, visuallyHidden } from '@guardian/source-foundations';
-			import type { IconProps } from '../../src';
+			import type { IconProps } from '../..';
 
 			${variables.imports};
 

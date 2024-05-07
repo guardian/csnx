@@ -1,6 +1,6 @@
 import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
-import { SvgArrowRightStraight } from '../../vendor/icons/SvgArrowRightStraight';
+import { SvgArrowRightStraight } from '../__generated__/icons/SvgArrowRightStraight';
 import { LinkButton } from './LinkButton';
 import type { LinkButtonProps } from './LinkButton';
 
