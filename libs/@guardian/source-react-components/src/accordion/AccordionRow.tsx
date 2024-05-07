@@ -2,9 +2,9 @@ import { css } from '@emotion/react';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import { useEffect, useState } from 'react';
 import type { HTMLAttributes } from 'react';
-import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import { mergeThemes } from '../utils/themes';
 import { AccordionRowNoJS } from './AccordionRowNoJS';
 import {

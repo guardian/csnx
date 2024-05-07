@@ -1,5 +1,6 @@
 import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAlertPhone } from '../__generated__/icons/SvgAlertPhone';
 import { SvgAlertRound } from '../__generated__/icons/SvgAlertRound';
 import { SvgAlertTriangle } from '../__generated__/icons/SvgAlertTriangle';
@@ -121,7 +122,6 @@ import { SvgUpload } from '../__generated__/icons/SvgUpload';
 import { SvgVideo } from '../__generated__/icons/SvgVideo';
 import { SvgWhatsApp } from '../__generated__/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../__generated__/icons/SvgWhatsAppBrand';
-import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgSpinner } from './SvgSpinner';
 import type { ThemeIcon } from './theme';
 
