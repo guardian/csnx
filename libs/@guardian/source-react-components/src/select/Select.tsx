@@ -1,8 +1,8 @@
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { ReactNode, SelectHTMLAttributes } from 'react';
-import { SvgChevronDownSingle } from '.././__generated__/icons/SvgChevronDownSingle';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
+import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import { Label } from '../label/Label';
 import { InlineError } from '../user-feedback/InlineError';
 import { InlineSuccess } from '../user-feedback/InlineSuccess';

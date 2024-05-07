@@ -1,5 +1,5 @@
-import { SvgAlertRound } from '.././__generated__/icons/SvgAlertRound';
 import type { Theme } from '../@types/Theme';
+import { SvgAlertRound } from '../__generated__/icons/SvgAlertRound';
 import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { mergedTheme } from './shared';
 import { inlineError } from './styles';

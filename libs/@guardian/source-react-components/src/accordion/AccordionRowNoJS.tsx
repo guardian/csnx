@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
-import { SvgChevronDownSingle } from '.././__generated__/icons/SvgChevronDownSingle';
+import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import type { AccordionRowProps } from './AccordionRow';

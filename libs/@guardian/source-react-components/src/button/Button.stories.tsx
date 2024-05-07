@@ -1,6 +1,6 @@
 import { palette } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
-import { SvgCross } from '.././__generated__/icons/SvgCross';
+import { SvgCross } from '../__generated__/icons/SvgCross';
 import type { ButtonProps } from './Button';
 import { Button } from './Button';
 import { themeButtonBrand, themeButtonBrandAlt } from './theme';
