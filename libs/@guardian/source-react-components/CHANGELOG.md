@@ -9,8 +9,6 @@
 ### Patch Changes
 
 - fbaa879: Components are no longer explicitly typed as `JSX.Element`, which may be too wide. The TypeScript compiler will now be able to infer the correct type itself.
-- Updated dependencies [e798525]
-  - @guardian/source-foundations@15.0.0
 
 ## 23.0.1
 
