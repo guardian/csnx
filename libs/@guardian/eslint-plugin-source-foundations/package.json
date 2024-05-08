@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-plugin-source-foundations",
-	"version": "18.0.0",
+	"version": "18.0.1",
 	"description": "ESLint plugin for Guardian projects using the `@guardian/source-foundations` package.",
 	"type": "module",
 	"exports": {

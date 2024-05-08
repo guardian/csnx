@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "8.0.0",
+	"version": "8.0.1",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
 	"scripts": {
