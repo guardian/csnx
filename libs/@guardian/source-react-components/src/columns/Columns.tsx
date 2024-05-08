@@ -2,11 +2,12 @@ import type { SerializedStyles } from '@emotion/react';
 import type { Breakpoint } from '@guardian/source-foundations';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
+import type { Space } from '../@types/Space';
 import {
 	collapseBelowColumnsCSS,
 	collapseBelowDesktop,
 	collapseBelowleftCol,
-	collapseBelowSpaceY,
+	collapseBelowSpaceYCSS,
 	collapseBelowTablet,
 	collapseBelowWide,
 	columns,
@@ -21,8 +22,6 @@ export type CollapseBreakpoint = Extract<
 	GridBreakpoint,
 	'tablet' | 'desktop' | 'leftCol' | 'wide'
 >;
-
-export type ColumnsSpaceY = 1 | 2 | 3 | 4 | 5 | 6 | 9 | 12 | 24;
 
 const collapseBelowMap: { [key in CollapseBreakpoint]: SerializedStyles } = {
 	tablet: collapseBelowTablet,
@@ -60,7 +59,7 @@ export interface ColumnsProps extends HTMLAttributes<HTMLDivElement>, Props {
 	 * space](https://www.theguardian.design/2a1e5182b/p/449bd5-space) between
 	 * between columns vertically when collapsed (one unit is 4px).
 	 */
-	spaceY?: ColumnsSpaceY;
+	spaceY?: Space;
 }
 
 /**
@@ -90,7 +89,7 @@ export const Columns = ({
 				columns,
 				collapseUntil ? collapseBelowColumnsMap[collapseUntil] : '',
 				collapseUntil ? collapseBelowMap[collapseUntil] : '',
-				spaceY ? collapseBelowSpaceY[spaceY] : '',
+				spaceY ? collapseBelowSpaceYCSS(spaceY) : '',
 				cssOverrides,
 			]}
 			{...props}
