@@ -1,3 +1,5 @@
+import { css } from '@emotion/react';
+import { palette, space } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { StackProps } from './Stack';
 import { Stack } from './Stack';
@@ -9,12 +11,25 @@ const meta: Meta<typeof Stack> = {
 
 export default meta;
 
+const wrapper = css`
+	outline: 1px dashed ${palette.neutral[46]};
+`;
+
+const box = css`
+	display: grid;
+	place-items: center;
+	height: ${space[12]}px;
+	background: ${palette.news[600]};
+`;
+
 const Template: StoryFn<typeof Stack> = (args: StackProps) => (
-	<Stack {...args}>
-		<div>Item 1</div>
-		<div>Item 2</div>
-		<div>Item 3</div>
-	</Stack>
+	<div css={wrapper}>
+		<Stack {...args}>
+			<div css={box}>1</div>
+			<div css={box}>2</div>
+			<div css={box}>3</div>
+		</Stack>
+	</div>
 );
 
 export const Default: StoryFn<typeof Stack> = Template.bind({});
