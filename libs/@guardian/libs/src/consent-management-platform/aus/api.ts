@@ -1,4 +1,4 @@
-import type { CCPAData } from '../types/aus';
+import type { AUSData } from '../types/aus';
 
 type Command = 'getUSPData';
 
@@ -16,5 +16,5 @@ const api = (command: Command) =>
 		}
 	});
 
-export const getUSPData = (): Promise<CCPAData> =>
-	api('getUSPData') as Promise<CCPAData>;
+export const getUSPData = (): Promise<AUSData> =>
+	api('getUSPData') as Promise<AUSData>;

@@ -2,7 +2,7 @@ export interface AUSConsentState {
 	personalisedAdvertising: boolean;
 }
 
-export interface CCPAData {
+export interface AUSData {
 	version: number;
 	uspString: string;
 }
