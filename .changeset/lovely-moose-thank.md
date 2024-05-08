@@ -10,7 +10,6 @@
 '@guardian/cobalt-plugin-ts': patch
 '@guardian/newsletter-types': patch
 '@guardian/core-web-vitals': patch
-'@guardian/design-tokens': patch
 '@guardian/eslint-config': patch
 '@guardian/identity-auth': patch
 '@guardian/ab-react': patch
