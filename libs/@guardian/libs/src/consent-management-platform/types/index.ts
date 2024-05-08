@@ -4,7 +4,7 @@ import type { AUSConsentState } from './aus';
 import type { TCFv2ConsentState } from './tcfv2';
 import type { USNATConsentState } from './usnat';
 
-export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus' | 'usnat';
+export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus' | 'usnat'; // TODO: Remove ccpa but look how consumers use
 
 export type CMP = {
 	init: InitCMP;
@@ -34,11 +34,12 @@ export type GetConsentFor = (
 
 export interface ConsentState {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: USNATConsentState;
+	ccpa?: USNATConsentState; // TODO : mark as deprecated go to usant
+	usnat?: USNATConsentState;
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
 	canTarget: boolean;
-	framework: ConsentFramework | null;
+	framework: ConsentFramework | null; // TODO
 }
 export interface PubData {
 	browserId?: string;
