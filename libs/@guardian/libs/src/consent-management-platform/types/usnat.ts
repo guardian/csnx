@@ -3,7 +3,7 @@ export interface USNATConsentState {
 	signalStatus: GPPSignalStatus;
 }
 
-export type GPPSignalStatus = 'not ready' | 'ready';
+type GPPSignalStatus = 'not ready' | 'ready';
 
 type GppParsedSections = Record<
 	string,
