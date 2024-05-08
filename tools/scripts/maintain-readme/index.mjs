@@ -5,7 +5,6 @@ import { pathFromRoot, projectRoot } from '../project-paths.mjs';
 import { getPackageList } from './get-package-list.mjs';
 import { getMakeTargets } from '../lib/get-make-targets.mjs';
 import { getTasks } from '../lib/get-tasks.mjs';
-import { getCachedTasks } from './get-cached-tasks.mjs';
 import _updateSection from 'update-section';
 
 const updateSection = ({ contents, tag, updates, updater }) => {
@@ -75,13 +74,6 @@ contents = updateSection({
 	contents,
 	tag: 'TASKS',
 	updates: makeTargetsList + '\n\n' + tasksList.join('\n'),
-	updater: thisFilePathFromRoot,
-});
-
-contents = updateSection({
-	contents,
-	tag: 'CACHED_TASKS',
-	updates: await getCachedTasks(),
 	updater: thisFilePathFromRoot,
 });
 

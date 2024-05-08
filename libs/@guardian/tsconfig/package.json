@@ -4,26 +4,31 @@
 	"description": "TSConfig base for Guardian TypeScript projects",
 	"main": "tsconfig.json",
 	"scripts": {
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"fix": "wireit",
+		"lint": "wireit"
 	},
-	"nx": {
-		"targets": {
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			}
+	"devDependencies": {
+		"wireit": "0.14.4"
+	},
+	"wireit": {
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": []
 		}
 	}
 }

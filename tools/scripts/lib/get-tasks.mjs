@@ -10,18 +10,14 @@ export const getTasks = async () => {
 	const tasks = new Set();
 
 	for (const pkg of packages) {
-		const { scripts, name, nx } = JSON.parse(await readFile(pkg, 'utf8'));
+		const { scripts, name } = JSON.parse(await readFile(pkg, 'utf8'));
 
-		if (!scripts && !nx) {
+		if (!scripts) {
 			continue;
 		}
 
 		for (const script of Object.keys(scripts ?? {})) {
 			tasks.add(`${name}:${script}`);
-		}
-
-		for (const nxTarget of Object.keys(nx?.targets ?? {})) {
-			tasks.add(`${name}:${nxTarget}`);
 		}
 	}
 
