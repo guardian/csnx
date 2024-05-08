@@ -1,5 +1,5 @@
-import { SvgChevronUpSingle } from '../../vendor/icons/SvgChevronUpSingle';
 import type { Theme } from '../@types/Theme';
+import { SvgChevronUpSingle } from '../__generated__/icons/SvgChevronUpSingle';
 import { backToTop, backToTopIcon } from './styles';
 
 export const BackToTop = (

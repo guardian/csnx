@@ -3,10 +3,14 @@
 	"version": "0.1.0--pre.0",
 	"private": true,
 	"type": "module",
-	"main": "./tokens.js",
+	"main": "src/__generated__/tokens.js",
+	"types": "src/__generated__/tokens.d.ts",
+	"files": [
+		"src/__generated__"
+	],
 	"scripts": {
+		"build": "co build && prettier --write src/__generated__/**",
 		"fix": "pnpm lint --fix",
-		"generate-tokens": "co build && prettier --write tokens.d.ts tokens.js variables.css",
 		"lint": "eslint --cache ."
 	},
 	"devDependencies": {
@@ -20,35 +24,14 @@
 	},
 	"nx": {
 		"targets": {
-			"generate-tokens": {
-				"inputs": [
-					"{projectRoot}/!(tokens|node_modules)/*",
-					"!{projectRoot}/**/*.md"
-				],
-				"outputs": [
-					"{projectRoot}/tokens.js",
-					"{projectRoot}/tokens.d.ts",
-					"{projectRoot}/variables.css"
-				]
-			},
 			"build": {
-				"dependsOn": [
-					"generate-tokens"
+				"inputs": [
+					"{projectRoot}/tokens.config.js",
+					"{projectRoot}/package.json"
 				],
-				"executor": "@csnx/npm-package:build",
 				"outputs": [
-					"{options.outputPath}"
-				],
-				"options": {
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md",
-						"{projectRoot}/tokens.js",
-						"{projectRoot}/tokens.d.ts",
-						"{projectRoot}/variables.css"
-					]
-				}
+					"{projectRoot}/src/__generated__"
+				]
 			},
 			"lint": {
 				"inputs": [

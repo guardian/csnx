@@ -93,15 +93,12 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 
 #### @guardian/browserslist-config
 
-- `make @guardian/browserslist-config:build`
 - `make @guardian/browserslist-config:fix`
 - `make @guardian/browserslist-config:lint`
 - `make @guardian/browserslist-config:update-readme`
-- `make @guardian/browserslist-config:verify-dist`
 
 #### @guardian/cobalt-plugin-ts
 
-- `make @guardian/cobalt-plugin-ts:build`
 - `make @guardian/cobalt-plugin-ts:fix`
 - `make @guardian/cobalt-plugin-ts:lint`
 
@@ -118,22 +115,17 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 
 - `make @guardian/design-tokens:build`
 - `make @guardian/design-tokens:fix`
-- `make @guardian/design-tokens:generate-tokens`
 - `make @guardian/design-tokens:lint`
 
 #### @guardian/eslint-config
 
-- `make @guardian/eslint-config:build`
 - `make @guardian/eslint-config:fix`
 - `make @guardian/eslint-config:lint`
-- `make @guardian/eslint-config:verify-dist`
 
 #### @guardian/eslint-config-typescript
 
-- `make @guardian/eslint-config-typescript:build`
 - `make @guardian/eslint-config-typescript:fix`
 - `make @guardian/eslint-config-typescript:lint`
-- `make @guardian/eslint-config-typescript:verify-dist`
 
 #### @guardian/eslint-plugin-source-foundations
 
@@ -190,10 +182,8 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 
 #### @guardian/prettier
 
-- `make @guardian/prettier:build`
 - `make @guardian/prettier:fix`
 - `make @guardian/prettier:lint`
-- `make @guardian/prettier:verify-dist`
 
 #### @guardian/source-foundations
 
@@ -232,10 +222,8 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 
 #### @guardian/tsconfig
 
-- `make @guardian/tsconfig:build`
 - `make @guardian/tsconfig:fix`
 - `make @guardian/tsconfig:lint`
-- `make @guardian/tsconfig:verify-dist`
 
 #### github-pages
 

@@ -30,9 +30,6 @@ jobs:
 
       - run: pnpm nx run-many --target=build --all=true
 
-      - name: Prepare Nx project for changesets
-        uses: ./.github/actions/prepare-for-changesets
-
       # down to business...
       - name: Use GitHub App Token
         uses: actions/create-github-app-token@v1
