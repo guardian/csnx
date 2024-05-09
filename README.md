@@ -71,101 +71,75 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make verify-dist` _runs unit tests against dist for all projects_
 
 ### Project-specific tasks
-
 Project-specific tasks are defined as `scripts` in a `package.json` or `targets` in a `project.json` files, and can be run with `make <project>:<script>`/`make <project>:<target>`:
 
 #### @guardian/ab-core
-
 - `make @guardian/ab-core:build`
 - `make @guardian/ab-core:dev`
 - `make @guardian/ab-core:fix`
 - `make @guardian/ab-core:lint`
 - `make @guardian/ab-core:test`
 - `make @guardian/ab-core:verify-dist`
-
 #### @guardian/ab-react
-
 - `make @guardian/ab-react:build`
 - `make @guardian/ab-react:dev`
 - `make @guardian/ab-react:fix`
 - `make @guardian/ab-react:lint`
 - `make @guardian/ab-react:test`
 - `make @guardian/ab-react:verify-dist`
-
 #### @guardian/browserslist-config
-
 - `make @guardian/browserslist-config:fix`
 - `make @guardian/browserslist-config:lint`
 - `make @guardian/browserslist-config:update-readme`
-
 #### @guardian/cobalt-plugin-ts
-
 - `make @guardian/cobalt-plugin-ts:fix`
 - `make @guardian/cobalt-plugin-ts:lint`
-
 #### @guardian/core-web-vitals
-
 - `make @guardian/core-web-vitals:build`
 - `make @guardian/core-web-vitals:dev`
 - `make @guardian/core-web-vitals:fix`
 - `make @guardian/core-web-vitals:lint`
 - `make @guardian/core-web-vitals:test`
 - `make @guardian/core-web-vitals:verify-dist`
-
 #### @guardian/design-tokens
-
 - `make @guardian/design-tokens:build`
 - `make @guardian/design-tokens:fix`
 - `make @guardian/design-tokens:lint`
-
 #### @guardian/eslint-config
-
 - `make @guardian/eslint-config:fix`
 - `make @guardian/eslint-config:lint`
-
 #### @guardian/eslint-config-typescript
-
 - `make @guardian/eslint-config-typescript:fix`
 - `make @guardian/eslint-config-typescript:lint`
-
 #### @guardian/eslint-plugin-source-foundations
-
 - `make @guardian/eslint-plugin-source-foundations:build`
 - `make @guardian/eslint-plugin-source-foundations:dev`
 - `make @guardian/eslint-plugin-source-foundations:fix`
 - `make @guardian/eslint-plugin-source-foundations:lint`
 - `make @guardian/eslint-plugin-source-foundations:test`
 - `make @guardian/eslint-plugin-source-foundations:verify-dist`
-
 #### @guardian/eslint-plugin-source-react-components
-
 - `make @guardian/eslint-plugin-source-react-components:build`
 - `make @guardian/eslint-plugin-source-react-components:dev`
 - `make @guardian/eslint-plugin-source-react-components:fix`
 - `make @guardian/eslint-plugin-source-react-components:lint`
 - `make @guardian/eslint-plugin-source-react-components:test`
 - `make @guardian/eslint-plugin-source-react-components:verify-dist`
-
 #### @guardian/identity-auth
-
 - `make @guardian/identity-auth:build`
 - `make @guardian/identity-auth:dev`
 - `make @guardian/identity-auth:fix`
 - `make @guardian/identity-auth:lint`
 - `make @guardian/identity-auth:test`
 - `make @guardian/identity-auth:verify-dist`
-
 #### @guardian/identity-auth-frontend
-
 - `make @guardian/identity-auth-frontend:build`
 - `make @guardian/identity-auth-frontend:dev`
 - `make @guardian/identity-auth-frontend:fix`
 - `make @guardian/identity-auth-frontend:lint`
 - `make @guardian/identity-auth-frontend:test`
 - `make @guardian/identity-auth-frontend:verify-dist`
-
 #### @guardian/libs
-
 - `make @guardian/libs:build`
 - `make @guardian/libs:dev`
 - `make @guardian/libs:e2e`
@@ -173,25 +147,17 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/libs:lint`
 - `make @guardian/libs:test`
 - `make @guardian/libs:verify-dist`
-
 #### @guardian/newsletter-types
-
 - `make @guardian/newsletter-types:build`
 - `make @guardian/newsletter-types:dev`
 - `make @guardian/newsletter-types:fix`
 - `make @guardian/newsletter-types:lint`
-
 #### @guardian/prettier
-
 - `make @guardian/prettier:fix`
 - `make @guardian/prettier:lint`
-
 #### @guardian/source
-
 - `make @guardian/source:build`
-
 #### @guardian/source-foundations
-
 - `make @guardian/source-foundations:build`
 - `make @guardian/source-foundations:build-storybook`
 - `make @guardian/source-foundations:build-type-presets`
@@ -201,9 +167,7 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source-foundations:storybook`
 - `make @guardian/source-foundations:test`
 - `make @guardian/source-foundations:verify-dist`
-
 #### @guardian/source-react-components
-
 - `make @guardian/source-react-components:build`
 - `make @guardian/source-react-components:build-storybook`
 - `make @guardian/source-react-components:create-icons`
@@ -213,9 +177,7 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source-react-components:storybook`
 - `make @guardian/source-react-components:test`
 - `make @guardian/source-react-components:verify-dist`
-
 #### @guardian/source-react-components-development-kitchen
-
 - `make @guardian/source-react-components-development-kitchen:build`
 - `make @guardian/source-react-components-development-kitchen:build-storybook`
 - `make @guardian/source-react-components-development-kitchen:dev`
@@ -224,20 +186,14 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source-react-components-development-kitchen:storybook`
 - `make @guardian/source-react-components-development-kitchen:test`
 - `make @guardian/source-react-components-development-kitchen:verify-dist`
-
 #### @guardian/tsconfig
-
 - `make @guardian/tsconfig:fix`
 - `make @guardian/tsconfig:lint`
-
 #### github-pages
-
 - `make github-pages:build`
 - `make github-pages:dev`
 - `make github-pages:start`
-
 #### storybooks
-
 - `make storybooks:dev`
 
 <!-- END TASKS -->
