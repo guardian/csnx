@@ -1,0 +1,14 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"include": ["."],
+	"compilerOptions": {
+		"paths": {
+			"@guardian/source-foundations": [
+				"libs/@guardian/source/foundations/src/index.ts"
+			],
+			"@guardian/source-react-components": [
+				"libs/@guardian/source/react-components/src/index.ts"
+			]
+		}
+	}
+}
