@@ -402,6 +402,10 @@ install: check-node-version
 @guardian/prettier\:lint: env
 	@corepack pnpm nx run @guardian/prettier:lint --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/source\:build
+@guardian/source\:build: env
+	@corepack pnpm nx run @guardian/source:build --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/source-foundations\:build
 @guardian/source-foundations\:build: env
 	@corepack pnpm nx run @guardian/source-foundations:build --skip-nx-cache=$(SKIP_NX_CACHE)
