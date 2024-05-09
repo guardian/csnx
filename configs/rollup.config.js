@@ -22,7 +22,7 @@ const output = {
 /** @type {Plugins} */
 const defaultPlugins = [
 	nodeResolve({
-		extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
+		extensions: ['.cjs', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
 	}),
 	commonjs(),
 	json(),
@@ -39,7 +39,7 @@ export default ({ input = defaultInput, plugins = [] }) => [
 	{
 		input,
 		output,
-		plugins: [...defaultPlugins, esbuild(), ...plugins],
+		plugins: [...defaultPlugins, ...plugins, esbuild()],
 	},
 	{
 		input,
@@ -48,11 +48,11 @@ export default ({ input = defaultInput, plugins = [] }) => [
 			format: 'cjs',
 			entryFileNames: '[name].cjs',
 		},
-		plugins: [...defaultPlugins, esbuild()],
+		plugins: [...defaultPlugins, ...plugins, esbuild()],
 	},
 	{
 		input,
 		output,
-		plugins: [...defaultPlugins, dts()],
+		plugins: [...defaultPlugins, ...plugins, dts()],
 	},
 ];
