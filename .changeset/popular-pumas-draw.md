@@ -1,5 +1,5 @@
 ---
-"@guardian/source": minor
+'@guardian/source': minor
 ---
 
 third attempt
