@@ -9,8 +9,8 @@ import { resolve } from 'node:path';
 
 /** @type {import("rollup").RollupOptions.input}  */
 const input = {
-	foundations: 'foundations/src/index.ts',
-	'react-components': 'react-components/src/index.ts',
+	foundations: 'src/foundations/index.ts',
+	'react-components': 'src/react-components/index.ts',
 };
 
 /** @type {import("rollup").RollupOptions.output}  */
@@ -26,11 +26,11 @@ const plugins = [
 		entries: [
 			{
 				find: '@guardian/source-foundations',
-				replacement: resolve('./foundations/src/index.ts'),
+				replacement: resolve('./src/foundations/index.ts'),
 			},
 			{
 				find: '@guardian/source-react-components',
-				replacement: resolve('./react-components/src/index.ts'),
+				replacement: resolve('./src/react-components/index.ts'),
 			},
 		],
 	}),
