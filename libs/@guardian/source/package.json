@@ -21,22 +21,19 @@
 		"foundations/package.json",
 		"react-components/package.json"
 	],
+	"scripts": {
+		"build": "rm -rf dist && rollup -c"
+	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
 		"@guardian/design-tokens": "workspace:*",
-		"rollup": "4.17.2",
+		"@rollup/plugin-alias": "5.1.0",
 		"lightningcss": "1.24.0",
-		"@rollup/plugin-commonjs": "25.0.7",
-		"@rollup/plugin-json": "6.1.0",
-		"@rollup/plugin-node-resolve": "15.2.3",
-		"rollup-plugin-dts": "6.1.0",
-		"rollup-plugin-esbuild": "6.1.1",
-		"rollup-plugin-node-externals": "7.1.2",
+		"rollup": "4.17.2",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
-		"@rollup/plugin-alias": "5.1.0"
+		"typescript": "5.3.3"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
@@ -52,8 +49,5 @@
 		"typescript": {
 			"optional": true
 		}
-	},
-	"scripts": {
-		"build": "rm -rf dist && rollup -c"
 	}
 }

@@ -1,3 +1,6 @@
+/** @typedef {import("rollup").RollupOptions.plugins} Plugins  */
+/** @typedef {import("rollup").RollupOptions["input"]} Input  */
+
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -5,8 +8,8 @@ import { dts } from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
 import { nodeExternals } from 'rollup-plugin-node-externals';
 
-/** @type {import("rollup").RollupOptions.input}  */
-const input = { index: 'src/index.ts' };
+/** @type {Input}  */
+const defaultInput = { index: 'src/index.ts' };
 
 /** @type {import("rollup").RollupOptions.output}  */
 const output = {
@@ -16,23 +19,27 @@ const output = {
 	preserveModulesRoot: 'src',
 };
 
-/** @type {import("rollup").RollupOptions.plugins}  */
-const plugins = [
+/** @type {Plugins} */
+const defaultPlugins = [
 	nodeResolve({
 		extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
 	}),
 	commonjs(),
 	json(),
-	esbuild(),
 	nodeExternals(),
 ];
 
-/** @type {import("rollup").RollupOptions}  */
-export default [
+/**
+ * @param {object} param0
+ * @param {Plugins} param0.plugins
+ * @param {Input} [param0.input]
+ * @returns {import("rollup").RollupOptions[]}
+ */
+export default ({ input = defaultInput, plugins = [] }) => [
 	{
 		input,
 		output,
-		plugins,
+		plugins: [...defaultPlugins, esbuild(), ...plugins],
 	},
 	{
 		input,
@@ -41,11 +48,11 @@ export default [
 			format: 'cjs',
 			entryFileNames: '[name].cjs',
 		},
-		plugins,
+		plugins: [...defaultPlugins, esbuild()],
 	},
 	{
 		input,
 		output,
-		plugins: [dts()],
+		plugins: [...defaultPlugins, dts()],
 	},
 ];
