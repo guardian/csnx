@@ -78,9 +78,10 @@ export declare const palette: {
 		readonly '7': '#121212';
 		readonly '10': '#1A1A1A';
 		readonly '20': '#333333';
-		readonly '38': '#606060';
+		readonly '38': '#545454';
 		readonly '46': '#707070';
 		readonly '60': '#999999';
+		readonly '73': '#BABABA';
 		readonly '86': '#DCDCDC';
 		readonly '93': '#EDEDED';
 		readonly '97': '#F6F6F6';
