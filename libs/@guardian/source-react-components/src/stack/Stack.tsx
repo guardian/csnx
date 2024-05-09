@@ -1,3 +1,4 @@
+import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import type { Space } from '../@types/Space';
@@ -25,7 +26,10 @@ export const Stack = ({
 	...props
 }: StackProps) => {
 	return (
-		<div css={[stack, space && stackSpace(space), cssOverrides]} {...props}>
+		<div
+			css={[stack, isUndefined(space) ? '' : stackSpace(space), cssOverrides]}
+			{...props}
+		>
 			{children}
 		</div>
 	);

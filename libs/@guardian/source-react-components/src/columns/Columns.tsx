@@ -1,4 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import type { Breakpoint } from '@guardian/source-foundations';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
@@ -89,7 +90,7 @@ export const Columns = ({
 				columns,
 				collapseUntil ? collapseBelowColumnsMap[collapseUntil] : '',
 				collapseUntil ? collapseBelowMap[collapseUntil] : '',
-				spaceY ? collapseBelowSpaceYCSS(spaceY) : '',
+				isUndefined(spaceY) ? '' : collapseBelowSpaceYCSS(spaceY),
 				cssOverrides,
 			]}
 			{...props}

@@ -1,3 +1,4 @@
+import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import type { Space } from '../@types/Space';
@@ -28,7 +29,11 @@ export const Inline = ({
 	return (
 		<div css={inline}>
 			<div
-				css={[inlineWrapper, space && inlineSpace(space), cssOverrides]}
+				css={[
+					inlineWrapper,
+					isUndefined(space) ? '' : inlineSpace(space),
+					cssOverrides,
+				]}
 				{...props}
 			>
 				{children}
