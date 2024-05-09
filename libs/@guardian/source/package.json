@@ -1,0 +1,59 @@
+{
+	"name": "@guardian/source",
+	"version": "0.2.0",
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"./foundations": {
+			"types": "./dist/foundations.d.ts",
+			"import": "./dist/foundations.js",
+			"require": "./dist/foundations.cjs"
+		},
+		"./react-components": {
+			"types": "./dist/react-components.d.ts",
+			"import": "./dist/react-components.js",
+			"require": "./dist/react-components.cjs"
+		}
+	},
+	"files": [
+		"dist",
+		"foundations/package.json",
+		"react-components/package.json"
+	],
+	"dependencies": {
+		"mini-svg-data-uri": "1.4.4"
+	},
+	"devDependencies": {
+		"@guardian/design-tokens": "workspace:*",
+		"rollup": "4.17.2",
+		"lightningcss": "1.24.0",
+		"@rollup/plugin-commonjs": "25.0.7",
+		"@rollup/plugin-json": "6.1.0",
+		"@rollup/plugin-node-resolve": "15.2.3",
+		"rollup-plugin-dts": "6.1.0",
+		"rollup-plugin-esbuild": "6.1.1",
+		"rollup-plugin-node-externals": "7.1.2",
+		"tslib": "2.6.2",
+		"typescript": "5.3.3",
+		"@rollup/plugin-alias": "5.1.0"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.11.1",
+		"@types/react": "^18.2.11",
+		"react": "^18.2.0",
+		"tslib": "^2.6.2",
+		"typescript": "~5.3.3"
+	},
+	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
+		"typescript": {
+			"optional": true
+		}
+	},
+	"scripts": {
+		"build": "rm -rf dist && rollup -c"
+	}
+}
