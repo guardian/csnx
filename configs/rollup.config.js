@@ -1,4 +1,4 @@
-/** @typedef {import("rollup").RollupOptions.plugins} Plugins  */
+/** @typedef {import("rollup").RollupOptions["plugins"]} Plugins  */
 /** @typedef {import("rollup").RollupOptions["input"]} Input  */
 
 import commonjs from '@rollup/plugin-commonjs';
@@ -32,7 +32,7 @@ const defaultPlugins = [
 /**
  * @param {object} param0
  * @param {Plugins} param0.plugins
- * @param {Input} [param0.input]
+ * @param {Input} param0.input
  * @returns {import("rollup").RollupOptions[]}
  */
 export default ({ input = defaultInput, plugins = [] }) => [
