@@ -602,30 +602,12 @@ importers:
       '@rollup/plugin-alias':
         specifier: 5.1.0
         version: 5.1.0(rollup@4.17.2)
-      '@rollup/plugin-commonjs':
-        specifier: 25.0.7
-        version: 25.0.7(rollup@4.17.2)
-      '@rollup/plugin-json':
-        specifier: 6.1.0
-        version: 6.1.0(rollup@4.17.2)
-      '@rollup/plugin-node-resolve':
-        specifier: 15.2.3
-        version: 15.2.3(rollup@4.17.2)
       lightningcss:
         specifier: 1.24.0
         version: 1.24.0
       rollup:
         specifier: 4.17.2
         version: 4.17.2
-      rollup-plugin-dts:
-        specifier: 6.1.0
-        version: 6.1.0(rollup@4.17.2)(typescript@5.3.3)
-      rollup-plugin-esbuild:
-        specifier: 6.1.1
-        version: 6.1.1(esbuild@0.20.2)(rollup@4.17.2)
-      rollup-plugin-node-externals:
-        specifier: 7.1.2
-        version: 7.1.2(rollup@4.17.2)
       tslib:
         specifier: 2.6.2
         version: 2.6.2
