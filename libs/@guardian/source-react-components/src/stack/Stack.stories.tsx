@@ -36,6 +36,13 @@ export const Default: StoryFn<typeof Stack> = Template.bind({});
 
 // *****************************************************************************
 
+export const Space0: StoryFn<typeof Stack> = Template.bind({});
+Space0.args = {
+	space: 0,
+};
+
+// *****************************************************************************
+
 export const Space1: StoryFn<typeof Stack> = Template.bind({});
 Space1.args = {
 	space: 1,
@@ -78,6 +85,13 @@ Space6.args = {
 
 // *****************************************************************************
 
+export const Space8: StoryFn<typeof Stack> = Template.bind({});
+Space8.args = {
+	space: 8,
+};
+
+// *****************************************************************************
+
 export const Space9: StoryFn<typeof Stack> = Template.bind({});
 Space9.args = {
 	space: 9,
@@ -85,9 +99,37 @@ Space9.args = {
 
 // *****************************************************************************
 
+export const Space10: StoryFn<typeof Stack> = Template.bind({});
+Space10.args = {
+	space: 10,
+};
+
+// *****************************************************************************
+
 export const Space12: StoryFn<typeof Stack> = Template.bind({});
 Space12.args = {
 	space: 12,
+};
+
+// *****************************************************************************
+
+export const Space14: StoryFn<typeof Stack> = Template.bind({});
+Space14.args = {
+	space: 14,
+};
+
+// *****************************************************************************
+
+export const Space16: StoryFn<typeof Stack> = Template.bind({});
+Space16.args = {
+	space: 16,
+};
+
+// *****************************************************************************
+
+export const Space18: StoryFn<typeof Stack> = Template.bind({});
+Space18.args = {
+	space: 18,
 };
 
 // *****************************************************************************
