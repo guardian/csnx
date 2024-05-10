@@ -410,6 +410,14 @@ install: check-node-version
 @guardian/source\:build-storybook: env
 	@corepack pnpm nx run @guardian/source:build-storybook --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/source\:build-type-presets
+@guardian/source\:build-type-presets: env
+	@corepack pnpm nx run @guardian/source:build-type-presets --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/source\:create-icons
+@guardian/source\:create-icons: env
+	@corepack pnpm nx run @guardian/source:create-icons --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/source\:dev
 @guardian/source\:dev: env
 	@corepack pnpm nx run @guardian/source:dev --skip-nx-cache=$(SKIP_NX_CACHE)
