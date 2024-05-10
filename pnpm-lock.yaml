@@ -44,6 +44,9 @@ importers:
       '@guardian/prettier':
         specifier: workspace:*
         version: link:libs/@guardian/prettier
+      '@guardian/source':
+        specifier: workspace:*
+        version: link:libs/@guardian/source
       '@manypkg/get-packages':
         specifier: 2.2.0
         version: 2.2.0

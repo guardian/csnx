@@ -5,6 +5,11 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
+		"./eslint-plugin": {
+			"types": "./dist/eslint-plugin.d.ts",
+			"import": "./dist/eslint-plugin.js",
+			"require": "./dist/eslint-plugin.cjs"
+		},
 		"./foundations": {
 			"types": "./dist/foundations.d.ts",
 			"import": "./dist/foundations.js",
@@ -19,7 +24,8 @@
 	"files": [
 		"dist",
 		"foundations/package.json",
-		"react-components/package.json"
+		"react-components/package.json",
+		"eslint-plugin/package.json"
 	],
 	"scripts": {
 		"build": "rm -rf dist && rollup -c",

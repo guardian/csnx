@@ -6,6 +6,7 @@ export default config({
 	input: {
 		foundations: 'src/foundations/index.ts',
 		'react-components': 'src/react-components/index.ts',
+		'eslint-plugin': 'src/eslint-plugin/index.ts',
 	},
 	// only needed while we're using symlinks
 	plugins: [

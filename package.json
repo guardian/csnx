@@ -19,6 +19,7 @@
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/prettier": "workspace:*",
+		"@guardian/source": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
 		"@nx/devkit": "18.3.4",
 		"@nx/eslint-plugin": "18.3.4",
