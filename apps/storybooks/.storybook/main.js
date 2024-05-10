@@ -34,6 +34,11 @@ module.exports = {
 				// port set in libs/@guardian/source-react-components-development-kitchen/package.json
 				url: 'http://localhost:4403',
 			},
+			source: {
+				title: 'source',
+				// port set in libs/@guardian/source/package.json
+				url: 'http://localhost:4404',
+			},
 		};
 	},
 };

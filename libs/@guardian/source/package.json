@@ -22,7 +22,9 @@
 		"react-components/package.json"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c"
+		"build": "rm -rf dist && rollup -c",
+		"build-storybook": "wireit",
+		"storybook": "storybook dev --port 4404"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -33,7 +35,8 @@
 		"lightningcss": "1.24.0",
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
@@ -48,6 +51,19 @@
 		},
 		"typescript": {
 			"optional": true
+		}
+	},
+	"wireit": {
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"files": [
+				"**/*.{ts,tsx,js,json,mdx,md}",
+				"!storybook-static/**",
+				"!jest*"
+			],
+			"output": [
+				"storybook-static"
+			]
 		}
 	}
 }
