@@ -410,9 +410,29 @@ install: check-node-version
 @guardian/source\:build-storybook: env
 	@corepack pnpm nx run @guardian/source:build-storybook --skip-nx-cache=$(SKIP_NX_CACHE)
 
+.PHONY: @guardian/source\:dev
+@guardian/source\:dev: env
+	@corepack pnpm nx run @guardian/source:dev --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/source\:fix
+@guardian/source\:fix: env
+	@corepack pnpm nx run @guardian/source:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/source\:lint
+@guardian/source\:lint: env
+	@corepack pnpm nx run @guardian/source:lint --skip-nx-cache=$(SKIP_NX_CACHE)
+
 .PHONY: @guardian/source\:storybook
 @guardian/source\:storybook: env
 	@corepack pnpm nx run @guardian/source:storybook --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/source\:test
+@guardian/source\:test: env
+	@corepack pnpm nx run @guardian/source:test --skip-nx-cache=$(SKIP_NX_CACHE)
+
+.PHONY: @guardian/source\:verify-dist
+@guardian/source\:verify-dist: env
+	@corepack pnpm nx run @guardian/source:verify-dist --skip-nx-cache=$(SKIP_NX_CACHE)
 
 .PHONY: @guardian/source-foundations\:build
 @guardian/source-foundations\:build: env

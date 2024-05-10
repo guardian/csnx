@@ -24,7 +24,12 @@
 	"scripts": {
 		"build": "rm -rf dist && rollup -c",
 		"build-storybook": "wireit",
-		"storybook": "storybook dev --port 4404"
+		"dev": "jest --watch",
+		"fix": "pnpm lint --fix",
+		"lint": "eslint --cache .",
+		"storybook": "storybook dev --port 4404",
+		"test": "jest --passWithNoTests",
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js --passWithNoTests"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -51,6 +56,47 @@
 		},
 		"typescript": {
 			"optional": true
+		}
+	},
+	"nx": {
+		"targets": {
+			"build": {
+				"inputs": [
+					"{projectRoot}/src/**",
+					"{projectRoot}/package.json",
+					"{projectRoot}/tsconfig.json"
+				],
+				"outputs": [
+					"{projectRoot}/dist"
+				]
+			},
+			"lint": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				]
+			},
+			"fix": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/.eslint*"
+				],
+				"outputs": [
+					"{projectRoot}"
+				]
+			},
+			"test": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			},
+			"verify-dist": {
+				"inputs": [
+					"{projectRoot}/**",
+					"{workspaceRoot}/jest.*"
+				]
+			}
 		}
 	},
 	"wireit": {

@@ -190,7 +190,12 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 
 - `make @guardian/source:build`
 - `make @guardian/source:build-storybook`
+- `make @guardian/source:dev`
+- `make @guardian/source:fix`
+- `make @guardian/source:lint`
 - `make @guardian/source:storybook`
+- `make @guardian/source:test`
+- `make @guardian/source:verify-dist`
 
 #### @guardian/source-foundations
 
