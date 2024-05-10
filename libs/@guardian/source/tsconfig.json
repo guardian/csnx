@@ -1,6 +1,6 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"include": ["."],
+	"include": [".", ".storybook/*"],
 	"compilerOptions": {
 		"paths": {
 			"@guardian/source-foundations": [
@@ -10,5 +10,10 @@
 				"libs/@guardian/source/src/react-components/index.ts"
 			]
 		}
-	}
+	},
+	"references": [
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	]
 }
