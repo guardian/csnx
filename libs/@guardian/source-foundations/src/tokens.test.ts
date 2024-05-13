@@ -1,5 +1,5 @@
-import * as typePresetCss from '../vendor/typography/css';
-import * as typePresetObject from '../vendor/typography/objects';
+import * as typePresetCss from './__generated__/typography/css';
+import * as typePresetObject from './__generated__/typography/objects';
 import {
 	background,
 	border,

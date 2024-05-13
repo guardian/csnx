@@ -1,4 +1,3 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { LegendProps } from './@types/LegendProps';
 import { legend } from './styles';
 import { SupportingText } from './SupportingText';
@@ -25,7 +24,7 @@ export const Legend = ({
 	cssOverrides,
 	theme,
 	...props
-}: LegendProps): EmotionJSX.Element => {
+}: LegendProps) => {
 	return (
 		<>
 			<legend css={[legend, cssOverrides]} {...props}>

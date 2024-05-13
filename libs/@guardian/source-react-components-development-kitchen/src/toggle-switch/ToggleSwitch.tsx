@@ -1,4 +1,3 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { ArticleFormat } from '@guardian/libs';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { Props } from '@guardian/source-react-components';
@@ -92,7 +91,7 @@ export const ToggleSwitch = ({
 	cssOverrides,
 	onClick,
 	...props
-}: ToggleSwitchProps): EmotionJSX.Element => {
+}: ToggleSwitchProps) => {
 	const buttonId = id ?? generateSourceId();
 	const labelId = descriptionId(buttonId);
 	const [isBrowser, setIsBrowser] = useState(false);

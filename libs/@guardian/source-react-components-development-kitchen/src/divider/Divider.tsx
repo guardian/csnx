@@ -1,6 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { border, space, text, textSans15 } from '@guardian/source-foundations';
 import type { Props } from '@guardian/source-react-components';
 import { fullStyles, partialStyles } from './styles';
@@ -42,7 +41,7 @@ export const Divider = ({
 	spaceAbove = 'loose',
 	displayText,
 	cssOverrides,
-}: DividerProps): EmotionJSX.Element => {
+}: DividerProps) => {
 	if (displayText) {
 		return (
 			<div

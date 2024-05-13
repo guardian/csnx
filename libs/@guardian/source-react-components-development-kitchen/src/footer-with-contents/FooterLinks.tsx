@@ -1,5 +1,4 @@
 import { ThemeProvider } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
 	ButtonLink,
 	Column,
@@ -91,7 +90,7 @@ const getButtonLink = ({ text, onClick, ...linkAttrs }: FooterButton) => (
 export const FooterLinks = ({
 	links = defaultGuardianLinks,
 	forceColumns = false,
-}: FooterLinksProps): EmotionJSX.Element => {
+}: FooterLinksProps) => {
 	const useColumns = links.length > 3 || forceColumns;
 
 	return (

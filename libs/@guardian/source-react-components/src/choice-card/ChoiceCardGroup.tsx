@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { FieldsetHTMLAttributes } from 'react';
 import { Children, cloneElement } from 'react';
@@ -87,7 +87,7 @@ export const ChoiceCardGroup = ({
 	children,
 	theme,
 	...props
-}: ChoiceCardGroupProps): EmotionJSX.Element => {
+}: ChoiceCardGroupProps) => {
 	const groupId = id ?? generateSourceId();
 	const showLabel = !!(label && !hideLabel);
 	const topMargin =

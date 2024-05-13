@@ -1,4 +1,3 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { brand } from '@guardian/source-foundations';
 import { SvgRoundel } from './SvgRoundel';
 
@@ -16,9 +15,7 @@ export type SvgRoundelBrandProps = {
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/brand/SvgRoundelBrand.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
  */
-export const SvgRoundelBrand = (
-	args: SvgRoundelBrandProps,
-): EmotionJSX.Element => {
+export const SvgRoundelBrand = (args: SvgRoundelBrandProps) => {
 	return (
 		<SvgRoundel textColor="white" backgroundColor={brand[400]} {...args} />
 	);

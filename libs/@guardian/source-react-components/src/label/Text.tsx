@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
 import type { Theme } from '../@types/Theme';
 import type { LabelProps } from './@types/LabelProps';
@@ -16,7 +15,7 @@ export const Text = ({
 	hideLabel,
 	size = 'medium',
 	theme,
-}: LabelProps): EmotionJSX.Element => (
+}: LabelProps) => (
 	<div
 		css={(providerTheme: Theme) => [
 			labelText(mergedTheme(providerTheme.label, theme), size),

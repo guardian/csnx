@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden } from '@guardian/source-foundations';
 
 export type SvgGuardianBestWebsiteLogoProps = {
@@ -37,7 +36,7 @@ export const SvgGuardianBestWebsiteLogo = ({
 	textColor,
 	textAccentColor,
 	width,
-}: SvgGuardianBestWebsiteLogoProps): EmotionJSX.Element => {
+}: SvgGuardianBestWebsiteLogoProps) => {
 	return (
 		<>
 			<svg

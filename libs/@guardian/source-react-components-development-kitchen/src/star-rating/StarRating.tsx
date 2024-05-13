@@ -1,6 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
 	neutral,
 	remSpace,
@@ -68,7 +67,7 @@ export const StarRating = ({
 	size,
 	cssOverrides,
 	...props
-}: StarRatingProps): EmotionJSX.Element => {
+}: StarRatingProps) => {
 	return (
 		<figure css={[figureStyles(size), cssOverrides]} {...props}>
 			<svg

@@ -1,4 +1,3 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type {
 	ChangeEventHandler,
 	InputHTMLAttributes,
@@ -99,7 +98,7 @@ export const ChoiceCard = ({
 	theme = {},
 	type = 'radio',
 	...props
-}: ChoiceCardProps): EmotionJSX.Element => {
+}: ChoiceCardProps) => {
 	const isChecked = (): boolean => {
 		if (checked != null) {
 			return checked;

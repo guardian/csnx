@@ -1,5 +1,4 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { breakpoints, neutral } from '@guardian/source-foundations';
 import type { LineCount } from './Lines';
 
@@ -29,7 +28,7 @@ export const SquigglyLines = ({
 	count?: LineCount;
 	color?: string;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
-}): EmotionJSX.Element => {
+}) => {
 	const repeatedLines = [];
 	for (let index = 1; index < count; index++) {
 		repeatedLines.push(

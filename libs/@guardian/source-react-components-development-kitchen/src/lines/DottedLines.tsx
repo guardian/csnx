@@ -1,5 +1,4 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { breakpoints, neutral } from '@guardian/source-foundations';
 import type { LineCount } from './Lines';
 
@@ -17,7 +16,7 @@ export const DottedLines = ({
 	count?: LineCount;
 	color?: string;
 	cssOverrides?: SerializedStyles | SerializedStyles[];
-}): EmotionJSX.Element => {
+}) => {
 	const dots = [];
 	for (let index = 1; index <= count; index++) {
 		dots.push(

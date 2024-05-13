@@ -34,6 +34,7 @@ describe('getConsentState', () => {
 			8: true,
 			9: true,
 			10: true,
+			11: true,
 		});
 		expect(eventStatus).toBe('tcloaded');
 		expect(vendorConsents).toMatchSnapshot();

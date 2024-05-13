@@ -22,3 +22,6 @@ tsconfig.tsbuildinfo
 
 # storybook build dirs
 storybook-static
+
+# cypress stuff
+**/cypress/downloads/

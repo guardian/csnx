@@ -1,12 +1,11 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "8.0.0",
+	"version": "8.0.1",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
 	"scripts": {
 		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
-		"verify-dist": "jest"
+		"lint": "eslint --cache ."
 	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
@@ -23,20 +22,6 @@
 	},
 	"nx": {
 		"targets": {
-			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
-				],
-				"options": {
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"packageJson": "{projectRoot}/package.json",
-					"assets": [
-						"{projectRoot}/index.js",
-						"{projectRoot}/*.md"
-					]
-				}
-			},
 			"lint": {
 				"inputs": [
 					"{projectRoot}/**",
@@ -50,12 +35,6 @@
 				],
 				"outputs": [
 					"{projectRoot}"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
 				]
 			}
 		}

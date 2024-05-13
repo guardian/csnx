@@ -4,13 +4,13 @@
  * To be removed from the public interface in the next major version.
  */
 
-import { SvgCrossedOutCloud } from '../vendor/icons/SvgCrossedOutCloud';
-import { SvgExclamation } from '../vendor/icons/SvgExclamation';
-import { SvgFacebookMessenger } from '../vendor/icons/SvgFacebookMessenger';
-import { SvgInfoRound } from '../vendor/icons/SvgInfoRound';
-import { SvgMediaControlsPlay } from '../vendor/icons/SvgMediaControlsPlay';
-import { SvgPayPalBrand } from '../vendor/icons/SvgPayPalBrand';
 import type { Props as InternalPropsType } from './@types/Props';
+import { SvgCrossedOutCloud } from './__generated__/icons/SvgCrossedOutCloud';
+import { SvgExclamation } from './__generated__/icons/SvgExclamation';
+import { SvgFacebookMessenger } from './__generated__/icons/SvgFacebookMessenger';
+import { SvgInfoRound } from './__generated__/icons/SvgInfoRound';
+import { SvgMediaControlsPlay } from './__generated__/icons/SvgMediaControlsPlay';
+import { SvgPayPalBrand } from './__generated__/icons/SvgPayPalBrand';
 
 /**
  * @deprecated This is for internal use only.

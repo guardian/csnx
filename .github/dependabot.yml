@@ -67,8 +67,6 @@ updates:
       dependencies:
         dependency-type: 'production'
         update-types: ['minor', 'patch']
-        exclude-patterns:
-          - '@csnx*' # don't treat csnx packages as public
       devDependencies:
         dependency-type: 'development'
         update-types: ['minor', 'patch']

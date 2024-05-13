@@ -1,4 +1,4 @@
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
+import type { JSX } from '@emotion/react/jsx-runtime';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type { FieldsetHTMLAttributes } from 'react';
 import { Children, cloneElement } from 'react';
@@ -77,7 +77,7 @@ export const RadioGroup = ({
 	children,
 	theme,
 	...props
-}: RadioGroupProps): EmotionJSX.Element => {
+}: RadioGroupProps) => {
 	const groupId = id ?? generateSourceId();
 	const legend = label ? (
 		<Legend

@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
-import { SvgChevronDownSingle } from '../../vendor/icons/SvgChevronDownSingle';
 import type { Theme } from '../@types/Theme';
+import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import { mergeThemes } from '../utils/themes';
 import type { AccordionRowProps } from './AccordionRow';
 import {
@@ -40,7 +39,7 @@ export const AccordionRowNoJS = ({
 	cssOverrides,
 	theme,
 	...props
-}: Omit<AccordionRowProps, 'onClick'>): EmotionJSX.Element => {
+}: Omit<AccordionRowProps, 'onClick'>) => {
 	const mergedTheme = (providerTheme: Theme['accordion']) =>
 		mergeThemes<ThemeAccordion, Theme['accordion']>(
 			defaultTheme,

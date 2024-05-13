@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { typographyPresets } from '@guardian/design-tokens';
-import * as presets from '../../../vendor/typography/css';
+import * as presets from '../../__generated__/typography/css';
 import { palette } from '../../colour/palette';
 import { space } from '../../space/space';
 

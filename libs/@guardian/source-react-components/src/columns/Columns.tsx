@@ -1,5 +1,4 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import type { Breakpoint } from '@guardian/source-foundations';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
@@ -84,7 +83,7 @@ export const Columns = ({
 	children,
 	spaceY,
 	...props
-}: ColumnsProps): EmotionJSX.Element => {
+}: ColumnsProps) => {
 	return (
 		<div
 			css={[

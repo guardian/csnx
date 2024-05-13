@@ -1,5 +1,23 @@
 # @guardian/source-react-components-development-kitchen
 
+## 20.0.3
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 20.0.2
+
+### Patch Changes
+
+- fbaa879: Components are no longer explicitly typed as `JSX.Element`, which may be too wide. The TypeScript compiler will now be able to infer the correct type itself.
+
+## 20.0.1
+
+### Patch Changes
+
+- 5e280ac: Adds compatability with projects that consume `package.json#exports`
+
 ## 20.0.0
 
 ### Major Changes

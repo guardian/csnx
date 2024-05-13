@@ -1,5 +1,7 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"files": [],
-	"include": ["."]
+	"include": ["."],
+	"compilerOptions": {
+		"jsxImportSource": "react"
+	}
 }

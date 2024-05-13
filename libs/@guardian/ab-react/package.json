@@ -1,35 +1,51 @@
 {
 	"name": "@guardian/ab-react",
-	"version": "8.0.0",
+	"version": "8.0.2",
 	"private": false,
 	"description": "A React library for A/B & multivariate testing",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
+		"build": "rm -rf dist && rollup -c",
 		"dev": "jest --watch",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache .",
 		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js"
 	},
 	"devDependencies": {
-		"@emotion/react": "11.11.1",
 		"@guardian/ab-core": "7.0.0",
 		"@testing-library/react": "14.2.1",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
+		"rollup": "4.17.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3"
 	},
 	"peerDependencies": {
 		"@guardian/ab-core": "^7.0.0",
+		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
 	},
 	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
 		"typescript": {
 			"optional": true
 		}
@@ -40,19 +56,14 @@
 	"nx": {
 		"targets": {
 			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
+				"inputs": [
+					"{projectRoot}/src/**",
+					"{projectRoot}/package.json",
+					"{projectRoot}/tsconfig.json"
 				],
-				"options": {
-					"entry": "{projectRoot}/src/index.ts",
-					"tsConfig": "{projectRoot}/tsconfig.json",
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md"
-					]
-				}
+				"outputs": [
+					"{projectRoot}/dist"
+				]
 			},
 			"lint": {
 				"inputs": [

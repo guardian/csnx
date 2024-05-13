@@ -1,5 +1,4 @@
 import type { SerializedStyles, Theme } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { descriptionId, generateSourceId } from '@guardian/source-foundations';
 import type {
 	TextInputProps,
@@ -77,7 +76,7 @@ export const NumericInput = ({
 	suffixText,
 	cssOverrides,
 	...props
-}: NumericInputProps): EmotionJSX.Element => {
+}: NumericInputProps) => {
 	const textInputId = id ?? generateSourceId();
 	return (
 		<>

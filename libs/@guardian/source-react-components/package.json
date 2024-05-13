@@ -1,9 +1,21 @@
 {
 	"name": "@guardian/source-react-components",
-	"version": "23.0.0",
+	"version": "24.0.1",
 	"license": "Apache-2.0",
 	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
+		"build": "rm -rf dist && rollup -c",
 		"build-storybook": "wireit",
 		"create-icons": "ts-node scripts/create-icons",
 		"dev": "jest --watch",
@@ -11,7 +23,7 @@
 		"lint": "eslint --cache .",
 		"storybook": "storybook dev --port 4402",
 		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.ts"
+		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
@@ -31,6 +43,7 @@
 		"mkdirp": "3.0.1",
 		"prettier": "3.2.2",
 		"react": "18.2.0",
+		"rollup": "4.17.2",
 		"ts-jest": "29.1.1",
 		"ts-node": "10.9.2",
 		"tslib": "2.6.2",
@@ -40,11 +53,15 @@
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
 		"@guardian/source-foundations": "^14.2.2",
+		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
 	},
 	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
 		"typescript": {
 			"optional": true
 		}
@@ -52,19 +69,14 @@
 	"nx": {
 		"targets": {
 			"build": {
-				"executor": "@csnx/npm-package:build",
-				"outputs": [
-					"{options.outputPath}"
+				"inputs": [
+					"{projectRoot}/src/**",
+					"{projectRoot}/package.json",
+					"{projectRoot}/tsconfig.json"
 				],
-				"options": {
-					"entry": "{projectRoot}/src/index.ts",
-					"tsConfig": "{projectRoot}/tsconfig.json",
-					"packageJson": "{projectRoot}/package.json",
-					"outputPath": "{workspaceRoot}/dist/{projectRoot}",
-					"assets": [
-						"{projectRoot}/*.md"
-					]
-				}
+				"outputs": [
+					"{projectRoot}/dist"
+				]
 			},
 			"lint": {
 				"inputs": [

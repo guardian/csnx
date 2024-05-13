@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import {
 	brandAlt,
 	brandText,
@@ -133,10 +132,7 @@ const logoStyles = css`
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
  */
-export const Logo = ({
-	logoType = 'standard',
-	cssOverrides,
-}: LogoProps): EmotionJSX.Element => (
+export const Logo = ({ logoType = 'standard', cssOverrides }: LogoProps) => (
 	<a
 		href="https://www.theguardian.com"
 		title="The Guardian Homepage"
