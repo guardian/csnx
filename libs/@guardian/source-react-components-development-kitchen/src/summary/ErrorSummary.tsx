@@ -1,5 +1,5 @@
-import { error as errorColors } from '@guardian/source-foundations';
-import { SvgAlertTriangle } from '@guardian/source-react-components';
+import { error as errorColors } from '@guardian/source/foundations';
+import { SvgAlertTriangle } from '@guardian/source/react-components';
 import {
 	contextStyles,
 	iconStyles,

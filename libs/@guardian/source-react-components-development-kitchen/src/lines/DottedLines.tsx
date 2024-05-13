@@ -1,5 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
-import { breakpoints, neutral } from '@guardian/source-foundations';
+import { breakpoints, neutral } from '@guardian/source/foundations';
 import type { LineCount } from './Lines';
 
 const dotRadius = 1;

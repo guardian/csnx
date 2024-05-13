@@ -6,7 +6,7 @@ import {
 	space,
 	textSans12,
 	textSans17,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 
 export const footer = css`
 	background-color: ${brand[400]};

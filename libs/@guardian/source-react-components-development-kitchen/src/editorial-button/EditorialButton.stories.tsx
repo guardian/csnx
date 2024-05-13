@@ -5,7 +5,7 @@ import {
 	ArticlePillar,
 	ArticleSpecial,
 } from '@guardian/libs';
-import { SvgCross } from '@guardian/source-react-components';
+import { SvgCross } from '@guardian/source/react-components';
 import type { Meta, StoryFn } from '@storybook/react';
 import { EditorialButton } from './EditorialButton';
 import type { EditorialButtonProps } from './EditorialButton';

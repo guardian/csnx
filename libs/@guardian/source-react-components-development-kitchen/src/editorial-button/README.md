@@ -9,13 +9,13 @@ Also exported is `EditorialLinkButton` which, like in core, offers a href versio
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ yarn add @guardian/source/react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source/react-components-development-kitchen
 ```
 
 ## Use

@@ -10,8 +10,8 @@ import {
 	palette,
 	specialReport,
 	sport,
-} from '@guardian/source-foundations';
-import { SvgQuote } from '@guardian/source-react-components';
+} from '@guardian/source/foundations';
+import { SvgQuote } from '@guardian/source/react-components';
 
 const quoteColor = (format: ArticleFormat) => {
 	switch (format.theme) {
@@ -131,8 +131,8 @@ export type QuoteIconProps = {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_quoteicon--news) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/quote-icon/QuoteIcon.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/quote-icon/QuoteIcon.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source/react-components-development-kitchen)
  *
  * The Guardian quote icon is used in kickers, headlines, drop caps and pull quotes to denote quoted text.
  *

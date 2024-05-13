@@ -1,5 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
-import { neutral } from '@guardian/source-foundations';
+import { neutral } from '@guardian/source/foundations';
 import { DashedLines } from './DashedLines';
 import { DottedLines } from './DottedLines';
 import { SquigglyLines } from './SquigglyLines';
@@ -28,8 +28,8 @@ export interface LinesProps {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_lines--default-lines) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/lines/Lines.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/lines/Lines.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source/react-components-development-kitchen)
  *
  * @deprecated prefer using the right line type component directly:
  * - `StraightLines`

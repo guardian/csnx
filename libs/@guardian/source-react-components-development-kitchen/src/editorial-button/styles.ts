@@ -17,8 +17,8 @@ import {
 	palette,
 	specialReport,
 	sport,
-} from '@guardian/source-foundations';
-import type { ButtonPriority } from '@guardian/source-react-components';
+} from '@guardian/source/foundations';
+import type { ButtonPriority } from '@guardian/source/react-components';
 
 export const defaultFormat = {
 	display: ArticleDisplay.Standard,

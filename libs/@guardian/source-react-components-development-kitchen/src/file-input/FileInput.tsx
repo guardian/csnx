@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { visuallyHidden } from '@guardian/source-foundations';
-import { InlineError, Label } from '@guardian/source-react-components';
+import { visuallyHidden } from '@guardian/source/foundations';
+import { InlineError, Label } from '@guardian/source/react-components';
 import { useState } from 'react';
 import type { FC } from 'react';
 import { getReadableFileSize, stringifyFileBase64 } from './fileHelpers';

@@ -1,5 +1,5 @@
-import { brand as brandColors, text } from '@guardian/source-foundations';
-import { SvgInfo } from '@guardian/source-react-components';
+import { brand as brandColors, text } from '@guardian/source/foundations';
+import { SvgInfo } from '@guardian/source/react-components';
 import {
 	contextStyles,
 	iconStyles,

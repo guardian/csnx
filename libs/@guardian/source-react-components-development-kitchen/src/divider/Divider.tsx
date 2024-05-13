@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { border, space, text, textSans15 } from '@guardian/source-foundations';
-import type { Props } from '@guardian/source-react-components';
+import { border, space, text, textSans15 } from '@guardian/source/foundations';
+import type { Props } from '@guardian/source/react-components';
 import { fullStyles, partialStyles } from './styles';
 
 type Size = 'full' | 'partial';

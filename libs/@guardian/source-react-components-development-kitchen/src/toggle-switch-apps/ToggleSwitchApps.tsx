@@ -1,5 +1,5 @@
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
-import type { Props } from '@guardian/source-react-components';
+import { descriptionId, generateSourceId } from '@guardian/source/foundations';
+import type { Props } from '@guardian/source/react-components';
 import { androidStyles, buttonStyles, iosStyles, labelStyles } from './styles';
 
 export type Platform = 'android' | 'ios';
@@ -47,8 +47,8 @@ export interface ToggleSwitchAppsProps extends Props {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_toggleswitchapps--android-no-label) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/toggle-switch-apps/ToggleSwitchApps.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source/react-components-development-kitchen)
  *
  * Displays an on/off toggle switch. This toggle has default styling and can be used on android, ios or web.
  * These styles are driven by the 'platform' prop.
