@@ -1,5 +1,11 @@
 # @guardian/source-react-components
 
+## 25.0.0
+
+### Major Changes
+
+- Update dependency on `@guardian/source-foundations`.
+
 ## 24.0.1
 
 ### Patch Changes
