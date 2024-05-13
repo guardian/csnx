@@ -1,5 +1,5 @@
-import { success as successColors } from '@guardian/source-foundations';
-import { SvgTickRound } from '@guardian/source-react-components';
+import { success as successColors } from '@guardian/source/foundations';
+import { SvgTickRound } from '@guardian/source/react-components';
 import {
 	contextStyles,
 	iconStyles,

@@ -65,7 +65,7 @@ fix: install
 
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env clean lint test e2e build verify-dist build\:storybooks
+validate: env clean lint test e2e build verify-dist build-storybook
 
 ##################################### BUILD ####################################
 
@@ -78,13 +78,13 @@ clean: env
 # builds all projects
 .PHONY: build
 build: env clean
-	$(call log,"Building projects")
+	$(call log,"Building all projects")
 	@corepack pnpm nx run-many --target=build --skip-nx-cache=$(SKIP_NX_CACHE)
 
 # builds all storybooks
-.PHONY: build\:storybooks
-build\:storybooks: env
-	$(call log,"Building storybooks")
+.PHONY: build-storybook
+build-storybook: env
+	$(call log,"Building all storybooks")
 	@corepack pnpm run -r build-storybook
 
 ############################### MANAGING PACKAGES ##############################

@@ -1,4 +1,4 @@
-import type { Props } from '@guardian/source-react-components';
+import type { Props } from '@guardian/source/react-components';
 
 export interface SummaryProps extends Props {
 	/**

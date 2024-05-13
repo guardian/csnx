@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { visuallyHidden } from '@guardian/source-foundations';
-import { SvgMinus, SvgPlus } from '@guardian/source-react-components';
+import { visuallyHidden } from '@guardian/source/foundations';
+import { SvgMinus, SvgPlus } from '@guardian/source/react-components';
 import { useEffect, useState } from 'react';
 import type { CSSProperties, FC } from 'react';
 import {

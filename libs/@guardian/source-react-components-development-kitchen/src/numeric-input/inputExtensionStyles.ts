@@ -1,8 +1,8 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { space } from '@guardian/source-foundations';
-import { textInputThemeDefault } from '@guardian/source-react-components';
-import type { InputSize } from '@guardian/source-react-components';
+import { space } from '@guardian/source/foundations';
+import { textInputThemeDefault } from '@guardian/source/react-components';
+import type { InputSize } from '@guardian/source/react-components';
 import { inputBase } from './sharedStyles';
 
 export const inputExtension = (

@@ -7,13 +7,13 @@ Displays a rating, 1-5, using star SVGs. See the accompanying stories for visual
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ yarn add @guardian/source/react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source/react-components-development-kitchen
 ```
 
 ## Use

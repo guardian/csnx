@@ -1,5 +1,5 @@
-import { brand } from '@guardian/source-foundations';
-import { BackToTop, Container } from '@guardian/source-react-components';
+import { brand } from '@guardian/source/foundations';
+import { BackToTop, Container } from '@guardian/source/react-components';
 import type { ReactNode } from 'react';
 import {
 	backToTopStyles,

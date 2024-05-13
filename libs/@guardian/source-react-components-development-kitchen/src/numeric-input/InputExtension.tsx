@@ -1,4 +1,4 @@
-import type { InputSize } from '@guardian/source-react-components';
+import type { InputSize } from '@guardian/source/react-components';
 import {
 	inputExtension,
 	inputPrefix,

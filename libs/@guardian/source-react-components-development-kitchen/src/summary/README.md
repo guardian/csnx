@@ -7,13 +7,13 @@ There are three components available, `ErrorSummary`, `SuccessSummary`, and `Inf
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ yarn add @guardian/source/react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source/react-components-development-kitchen
 ```
 
 ## Use

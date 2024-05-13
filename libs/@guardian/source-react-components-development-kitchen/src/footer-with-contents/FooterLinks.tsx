@@ -6,7 +6,7 @@ import {
 	Hide,
 	Link,
 	linkThemeBrand,
-} from '@guardian/source-react-components';
+} from '@guardian/source/react-components';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import {
 	fullWidthContainer,

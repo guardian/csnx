@@ -10,7 +10,7 @@ import {
 	textSans14,
 	textSans15,
 	textSans17,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 import { fileInputThemeDefault } from './theme';
 import type { Size as SizeType } from './types';
 

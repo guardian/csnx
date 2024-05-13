@@ -5,7 +5,7 @@ import {
 	remHeight,
 	remSpace,
 	textSansBold15,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 import { themeColour } from './theme';
 
 export const containerStyles = css`

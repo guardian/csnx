@@ -5,7 +5,7 @@ import {
 	space,
 	textSans17,
 	textSansBold17,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 
 export const wrapperStyles = (color: string): SerializedStyles => css`
 	border: 2px solid ${color};

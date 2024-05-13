@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { from, space, textSansBold17 } from '@guardian/source-foundations';
+import { from, space, textSansBold17 } from '@guardian/source/foundations';
 import { tabThemeColour } from './theme';
 
 export const tabList = css`

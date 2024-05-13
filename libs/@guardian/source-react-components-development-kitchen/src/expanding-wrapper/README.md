@@ -5,13 +5,13 @@ The Expanding Wrapper wraps around any children, and collapses the block so it t
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ yarn add @guardian/source/react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source/react-components-development-kitchen
 ```
 
 ## Use

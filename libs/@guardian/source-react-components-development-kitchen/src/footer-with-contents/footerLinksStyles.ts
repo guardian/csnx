@@ -8,7 +8,7 @@ import {
 	textSans15,
 	textSans17,
 	until,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 
 export const fullWidthContainer = css`
 	width: 100%;

@@ -14,7 +14,7 @@ import {
 	opinion,
 	specialReport,
 	sport,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ToggleSwitch } from './ToggleSwitch';

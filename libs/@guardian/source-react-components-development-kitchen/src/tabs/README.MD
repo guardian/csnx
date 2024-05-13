@@ -5,13 +5,13 @@ The Tabs Component takes a number of pieces of content and wraps them in a tab i
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ yarn add @guardian/source/react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source/react-components-development-kitchen
 ```
 
 ## Use

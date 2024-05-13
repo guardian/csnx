@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '@guardian/source/foundations';
 
 export const tabsThemeDefault = {
 	['--background']: palette.neutral[97],

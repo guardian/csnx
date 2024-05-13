@@ -1,14 +1,15 @@
 import type { SerializedStyles, Theme } from '@emotion/react';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
+import { isUndefined } from '@guardian/libs';
+import { descriptionId, generateSourceId } from '@guardian/source/foundations';
 import type {
 	TextInputProps,
 	textInputThemeDefault,
-} from '@guardian/source-react-components';
+} from '@guardian/source/react-components';
 import {
 	InlineError,
 	InlineSuccess,
 	Label,
-} from '@guardian/source-react-components';
+} from '@guardian/source/react-components';
 import { InputExtension } from './InputExtension';
 import {
 	hasExtensions,
@@ -54,8 +55,8 @@ export type NumericInputProps = Omit<TextInputProps, 'inputmode'> & {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_numericinput--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/097455-text-input-field/b/050445) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/numeric-input/NumericInput.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/numeric-input/NumericInput.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/@guardian/source/react-components-development-kitchen)
  *
  * This is an iteration on the core TextInput component for taking numeric input, such as currency amounts.
  * It can optionally display a prefix and/or suffix to add additonal visual context.
@@ -133,8 +134,11 @@ export const NumericInput = ({
 					id={textInputId}
 					aria-required={!optional}
 					aria-invalid={!!error}
-					// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- `success` can be an empty string (should it be?)
-					aria-describedby={error || success ? descriptionId(textInputId) : ''}
+					aria-describedby={
+						isUndefined(error) && isUndefined(success)
+							? ''
+							: descriptionId(textInputId)
+					}
 					required={!optional}
 					{...props}
 				/>

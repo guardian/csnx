@@ -6,7 +6,7 @@ import {
 	textSans12,
 	textSans17,
 	visuallyHidden,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 import { darkModeCss } from './styles';
 
 export interface AgeWarningProps {

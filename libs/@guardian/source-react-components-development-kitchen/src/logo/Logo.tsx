@@ -4,9 +4,9 @@ import {
 	brandText,
 	from,
 	visuallyHidden,
-} from '@guardian/source-foundations';
-import { SvgGuardianLogo } from '@guardian/source-react-components';
-import type { Props } from '@guardian/source-react-components';
+} from '@guardian/source/foundations';
+import { SvgGuardianLogo } from '@guardian/source/react-components';
+import type { Props } from '@guardian/source/react-components';
 
 type LogoType = 'standard' | 'anniversary' | 'bestWebsite';
 
@@ -129,8 +129,8 @@ const logoStyles = css`
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_logo--desktop) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/logo/Logo.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source/react-components-development-kitchen)
  */
 export const Logo = ({ logoType = 'standard', cssOverrides }: LogoProps) => (
 	<a

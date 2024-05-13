@@ -1,5 +1,5 @@
 import type { Theme as EmotionTheme } from '@emotion/react';
-import { palette } from '@guardian/source-foundations';
+import { palette } from '@guardian/source/foundations';
 
 export const fileInputThemeDefault = {
 	fileInput: {

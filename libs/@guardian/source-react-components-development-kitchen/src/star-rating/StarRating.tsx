@@ -4,7 +4,7 @@ import {
 	neutral,
 	remSpace,
 	visuallyHidden,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 
 // https://docs.google.com/spreadsheets/d/1QUa5Kh734J4saFc8ERjCYHZu10_-Hj7llNa2rr8urNg/edit?usp=sharing
 // A list style variations for each breakpoint
@@ -56,8 +56,8 @@ export interface StarRatingProps {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_star-rating--no-star) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/star-rating/StarRating.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/star-rating/StarRating.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source/react-components-development-kitchen)
  *
  * Displays a rating, 1-5, using star SVGs. See the accompanying stories for visual examples.
  *
