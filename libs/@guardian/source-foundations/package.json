@@ -54,7 +54,8 @@
 				"inputs": [
 					"{projectRoot}/src/**",
 					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
+					"{projectRoot}/tsconfig.json",
+					"{workspaceRoot}/libs/@guardian/design-tokens/__generated__/**"
 				],
 				"outputs": [
 					"{projectRoot}/dist"
