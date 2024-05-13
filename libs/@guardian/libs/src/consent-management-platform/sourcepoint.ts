@@ -43,15 +43,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	let frameworkMessageType: string;
 	switch (framework) {
-		case 'tcfv2':
-			frameworkMessageType = 'gdpr';
-			break;
 		case 'usnat':
 			frameworkMessageType = 'usnat';
 			break;
 		case 'aus':
 			frameworkMessageType = 'ccpa';
 			break;
+		case 'tcfv2':
 		default:
 			frameworkMessageType = 'gdpr';
 			break;
