@@ -1,4 +1,5 @@
 import type { SerializedStyles, Theme } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { descriptionId, generateSourceId } from '@guardian/source/foundations';
 import type {
 	TextInputProps,
@@ -133,7 +134,11 @@ export const NumericInput = ({
 					id={textInputId}
 					aria-required={!optional}
 					aria-invalid={!!error}
-					aria-describedby={error || success ? descriptionId(textInputId) : ''}
+					aria-describedby={
+						isUndefined(error) && isUndefined(success)
+							? ''
+							: descriptionId(textInputId)
+					}
 					required={!optional}
 					{...props}
 				/>
