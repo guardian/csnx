@@ -1,5 +1,11 @@
 # @guardian/source-foundations
 
+## 16.0.0
+
+### Major Changes
+
+- 84c7ccd: Updates value of `neutral.38` and adds new `neutral.73` colour to palette
+
 ## 15.0.1
 
 ### Patch Changes
