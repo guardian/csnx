@@ -4,12 +4,7 @@
 
 ### Major Changes
 
-- Update dependency on `@guardian/source-foundations`.
-
-### Patch Changes
-
-- Updated dependencies
-  - @guardian/source-react-components@25.0.0
+- Update dependency on `@guardian/source-foundations` and `@guardian/source-react-components`
 
 ## 20.0.3
 
