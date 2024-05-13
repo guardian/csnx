@@ -1,15 +1,15 @@
 {
 	"name": "@guardian/design-tokens",
-	"version": "0.1.0--pre.0",
+	"version": "0.1.0",
 	"private": true,
 	"type": "module",
-	"main": "src/__generated__/tokens.js",
-	"types": "src/__generated__/tokens.d.ts",
+	"main": "__generated__/tokens.js",
+	"types": "__generated__/tokens.d.ts",
 	"files": [
-		"src/__generated__"
+		"__generated__"
 	],
 	"scripts": {
-		"build": "co build && prettier --write src/__generated__/**",
+		"build": "co build && prettier --write __generated__/**",
 		"fix": "pnpm lint --fix",
 		"lint": "eslint --cache ."
 	},
@@ -27,10 +27,11 @@
 			"build": {
 				"inputs": [
 					"{projectRoot}/tokens.config.js",
+					"{projectRoot}/tokens.json",
 					"{projectRoot}/package.json"
 				],
 				"outputs": [
-					"{projectRoot}/src/__generated__"
+					"{projectRoot}/__generated__"
 				]
 			},
 			"lint": {
