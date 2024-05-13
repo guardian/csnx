@@ -102,7 +102,9 @@
 	"wireit": {
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [],
+			"dependencies": [
+				"../source:build"
+			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
