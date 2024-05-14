@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { palette, space } from '@guardian/source-foundations';
+import { breakpoints, palette, space } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
@@ -18,8 +18,8 @@ const wrapper = css`
 const box = css`
 	display: grid;
 	place-items: center;
-	width: ${space[12]}px;
-	height: ${space[12]}px;
+	min-width: ${space[12]}px;
+	min-height: ${space[12]}px;
 	background: ${palette.news[600]};
 `;
 
@@ -112,4 +112,18 @@ MultipleChildElements.args = {
 			{i + 1}
 		</div>
 	)),
+};
+
+// *****************************************************************************
+
+export const CollapseUntilTablet: StoryFn<typeof Inline> = Template.bind({});
+CollapseUntilTablet.args = {
+	space: 2,
+	collapseUntil: 'tablet',
+};
+CollapseUntilTablet.parameters = {
+	viewport: { defaultViewport: 'mobile' },
+	chromatic: {
+		viewports: [breakpoints.mobile],
+	},
 };
