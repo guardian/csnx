@@ -29,7 +29,6 @@ export const Button = ({
 	cssOverrides,
 	children,
 	theme,
-	fullWidthUntil,
 	...props
 }: ButtonProps) => (
 	<button
@@ -43,7 +42,6 @@ export const Button = ({
 			cssOverrides,
 			isLoading,
 			theme,
-			fullWidthUntil,
 		})}
 		type={type}
 		aria-live="polite"

@@ -70,7 +70,6 @@ export const PrimaryPriorityDefaultTheme: StoryFn<typeof Button> =
 	Template.bind({});
 PrimaryPriorityDefaultTheme.args = {
 	priority: 'primary',
-	fullWidthUntil: 'tablet',
 };
 
 export const SecondaryPriorityDefaultTheme: StoryFn<typeof Button> =
@@ -426,11 +425,4 @@ CustomTheme.parameters = {
 	backgrounds: {
 		default: 'background.inverse',
 	},
-};
-
-// *****************************************************************************
-
-export const FullWidthUntilTablet: StoryFn<typeof Button> = Template.bind({});
-FullWidthUntilTablet.args = {
-	fullWidthUntil: 'tablet',
 };

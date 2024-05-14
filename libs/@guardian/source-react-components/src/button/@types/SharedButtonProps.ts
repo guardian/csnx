@@ -1,4 +1,3 @@
-import type { Breakpoint } from '@guardian/source-foundations';
 import type { ReactElement } from 'react';
 import type { Props } from '../../@types/Props';
 import type { ThemeButton } from '../theme';
@@ -62,8 +61,4 @@ export interface SharedButtonProps extends Props {
 	 *
 	 */
 	theme?: Partial<ThemeButton>;
-	/**
-	 * If set, button will stretch to full width up to the specified breakpoint
-	 */
-	fullWidthUntil?: Breakpoint;
 }
