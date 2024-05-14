@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { breakpoints, palette, space } from '@guardian/source-foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Button } from '../button/Button';
 import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
 
@@ -125,5 +126,35 @@ CollapseUntilTablet.parameters = {
 	viewport: { defaultViewport: 'mobile' },
 	chromatic: {
 		viewports: [breakpoints.mobile],
+	},
+};
+
+// *****************************************************************************
+
+export const ButtonGroupMobile: StoryFn<typeof Inline> = () => (
+	<Inline space={2} collapseUntil="tablet">
+		<Button>Subscribe now</Button>
+		<Button priority="tertiary">Cancel</Button>
+	</Inline>
+);
+ButtonGroupMobile.parameters = {
+	viewport: { defaultViewport: 'mobileMedium' },
+	chromatic: {
+		viewports: [breakpoints.mobileMedium],
+	},
+};
+
+// *****************************************************************************
+
+export const ButtonGroupTablet: StoryFn<typeof Inline> = () => (
+	<Inline space={2} collapseUntil="tablet">
+		<Button>Subscribe now</Button>
+		<Button priority="tertiary">Cancel</Button>
+	</Inline>
+);
+ButtonGroupTablet.parameters = {
+	viewport: { defaultViewport: 'tablet' },
+	chromatic: {
+		viewports: [breakpoints.tablet],
 	},
 };
