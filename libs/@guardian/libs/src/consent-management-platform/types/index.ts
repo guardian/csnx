@@ -34,7 +34,8 @@ export type GetConsentFor = (
 
 export interface ConsentState {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: USNATConsentState; // TODO : mark as deprecated go to usant
+	/** @deprecated CCPA has been deprecated. Please use usnat */
+	ccpa?: USNATConsentState;
 	usnat?: USNATConsentState;
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
