@@ -76,7 +76,7 @@ describe('Interaction', () => {
 		doNotSellIs(false);
 	});
 
-	it(`should be able to retract consent`, () => {
+	it(`should be able to interact with the toggle privacy manager`, () => {
 		cy.visit(url);
 
 		doNotSellIs(false);
