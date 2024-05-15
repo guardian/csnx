@@ -64,6 +64,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
+			campaignEnv: 'stage', // TODO: USING FOR TESTING. REMOVE BEFORE MERGING
 			propertyHref: getProperty(framework),
 			targetingParams: {
 				framework,

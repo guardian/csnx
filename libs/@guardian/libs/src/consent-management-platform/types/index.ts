@@ -40,7 +40,7 @@ export interface ConsentState {
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
 	canTarget: boolean;
-	framework: ConsentFramework | null; // TODO
+	framework: ConsentFramework | null;
 }
 export interface PubData {
 	browserId?: string;
