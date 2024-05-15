@@ -25,12 +25,12 @@ describe('getConsentState', () => {
 		expect(doNotSell).toBe(true);
 	});
 
-	it('gets the gpp consent state correctly if it fails - doNotSell is true', async () => {
+	it('gets the gpp consent state correctly if it fails - doNotSell is false', async () => {
 		getGPPData.mockResolvedValue(gppDataFail);
 
 		const { doNotSell } = await getConsentState();
 
 		expect(getGPPData).toHaveBeenCalledTimes(1);
-		expect(doNotSell).toBe(true);
+		expect(doNotSell).toBe(false);
 	});
 });
