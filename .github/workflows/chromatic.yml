@@ -33,7 +33,7 @@ jobs:
 
       # This will just retrieve the output from Nx's build cache.
       # It's simpler than using github actions cache.
-      - run: make build-storybook
+      - run: make build:storybooks
 
       - uses: chromaui/action@v11
         with:

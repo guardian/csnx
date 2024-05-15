@@ -24,7 +24,7 @@ jobs:
           - task: e2e
           - task: build
           - task: verify-dist
-          - task: build-storybook
+          - task: build:storybooks
     steps:
       - uses: actions/checkout@v4
         with:
