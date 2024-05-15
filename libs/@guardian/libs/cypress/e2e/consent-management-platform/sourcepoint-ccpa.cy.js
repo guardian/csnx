@@ -1,11 +1,16 @@
 import 'cypress-wait-until';
-import { ENDPOINT, PRIVACY_MANAGER_CCPA } from './fixtures/sourcepointConfig';
+import {
+	ENDPOINT,
+	PRIVACY_MANAGER_USNAT,
+	PRIVACY_MANAGER_USNAT_SECOND_LAYER,
+} from './fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
-const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_CCPA}`;
+const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
+const iframePrivacyManagerSecondLayer = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT_SECOND_LAYER}`;
 
 // TODO add checkbox in UI, default to production
-const url = `/cmp-test-page#ccpa`;
+const url = `/cmp-test-page#usnat`;
 
 const doNotSellIs = (boolean) => {
 	cy.get('[data-donotsell]').should(
@@ -54,7 +59,7 @@ describe('Interaction', () => {
 		doNotSellIs(false);
 	});
 
-	it(`should retract consent when clicking "${buttonTitle}"`, () => {
+	it(`should open privacy manager when clicking "${buttonTitle}"`, () => {
 		cy.visit(url);
 		cy.getIframeBody(iframeMessage)
 			.find(`button[title="${buttonTitle}"]`)
@@ -63,10 +68,15 @@ describe('Interaction', () => {
 		// eslint-disable-next-line cypress/no-unnecessary-waiting -- should we do this?
 		cy.wait(2000);
 
-		doNotSellIs(true);
+		cy.getIframeBody(iframePrivacyManagerSecondLayer)
+			.find(`.sp_choice_type_13`)
+			.should('be.visible')
+			.click();
+
+		doNotSellIs(false);
 	});
 
-	it(`should be able to retract consent`, () => {
+	it(`should be able to interact with the toggle privacy manager`, () => {
 		cy.visit(url);
 
 		doNotSellIs(false);
@@ -76,13 +86,8 @@ describe('Interaction', () => {
 		cy.getIframeBody(iframePrivacyManager).find('.pm-toggle .off').click();
 
 		cy.getIframeBody(iframePrivacyManager)
-			.find('.sp_choice_type_SAVE_AND_EXIT')
+			.find('.sp_choice_type_SE')
 			.should('be.visible')
 			.click();
-
-		// eslint-disable-next-line cypress/no-unnecessary-waiting -- should we do this?
-		cy.wait(2000);
-
-		doNotSellIs(true);
 	});
 });
