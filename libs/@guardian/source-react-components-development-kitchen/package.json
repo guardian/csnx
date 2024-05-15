@@ -57,6 +57,10 @@
 	"wireit": {
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"../source-foundations:build",
+				"../source-react-components:build"
+			],
 			"files": [
 				"../../../configs/rollup.config.js",
 				"./rollup.config.js",
@@ -70,7 +74,10 @@
 		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [],
+			"dependencies": [
+				"../source-foundations:build",
+				"../source-react-components:build"
+			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
