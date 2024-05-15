@@ -110,9 +110,6 @@
 	"wireit": {
 		"build-storybook": {
 			"command": "pnpm nx run @guardian/source-foundations:build && NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [
-				"../source-foundations:build"
-			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
