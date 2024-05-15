@@ -709,8 +709,8 @@ importers:
         specifier: 11.11.1
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/source-foundations':
-        specifier: 14.2.2
-        version: 14.2.2(tslib@2.6.2)(typescript@5.3.3)
+        specifier: 16.0.0
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@svgr/babel-preset':
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.24.0)
@@ -3572,6 +3572,20 @@ packages:
 
   /@guardian/source-foundations@14.2.2(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-198Akw1RqufsX6Iu/qzqeR4eC9L3ezHURVzMqJeB3ZRZtabdkL2Q562mS1UnSdyACeCLRMqlOXqZDO38gsjP/g==}
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.3.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tslib: 2.6.2
+      typescript: 5.3.3
+    dev: true
+
+  /@guardian/source-foundations@16.0.0(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-bdRcJTEJ6tGmibGRwhQcY70NMACHCcsnNsiWRwW1fSPpvcAuR4xvXmn3UlaL1U/RO4Yk1YvJjPiV/n9WHnjbjQ==}
     peerDependencies:
       tslib: ^2.6.2
       typescript: ~5.3.3

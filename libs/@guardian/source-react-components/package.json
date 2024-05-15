@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
-		"@guardian/source-foundations": "14.2.2",
+		"@guardian/source-foundations": "16.0.0",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -52,7 +52,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
-		"@guardian/source-foundations": "^14.2.2",
+		"@guardian/source-foundations": "^16.0.0",
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
