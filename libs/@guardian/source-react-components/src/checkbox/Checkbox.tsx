@@ -1,5 +1,5 @@
-import { generateSourceId } from '@guardian/source-foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
+import { useId } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
@@ -98,7 +98,7 @@ export const Checkbox = ({
 	theme,
 	...props
 }: CheckboxProps) => {
-	const checkboxId = id ?? generateSourceId();
+	const checkboxId = id ?? useId();
 	const isChecked = (): boolean => {
 		if (checked != null) {
 			return checked;

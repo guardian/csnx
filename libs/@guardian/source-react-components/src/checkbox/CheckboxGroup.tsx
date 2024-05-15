@@ -1,6 +1,6 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
-import { Children, cloneElement } from 'react';
+import { descriptionId } from '@guardian/source-foundations';
+import { Children, cloneElement, useId } from 'react';
 import type { Props } from '../@types/Props';
 import { Legend } from '../label/Legend';
 import { InlineError } from '../user-feedback/InlineError';
@@ -74,7 +74,7 @@ export const CheckboxGroup = ({
 	theme,
 	...props
 }: CheckboxGroupProps) => {
-	const groupId = id ?? generateSourceId();
+	const groupId = id ?? useId();
 	const legend = label ? (
 		<Legend
 			text={label}

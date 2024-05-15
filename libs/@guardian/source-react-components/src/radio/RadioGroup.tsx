@@ -1,7 +1,7 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
+import { descriptionId } from '@guardian/source-foundations';
 import type { FieldsetHTMLAttributes } from 'react';
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, useId } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { Inline } from '../inline/Inline';
@@ -78,7 +78,7 @@ export const RadioGroup = ({
 	theme,
 	...props
 }: RadioGroupProps) => {
-	const groupId = id ?? generateSourceId();
+	const groupId = id ?? useId();
 	const legend = label ? (
 		<Legend
 			text={label}
