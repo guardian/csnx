@@ -2,12 +2,8 @@ import { type USNATConsentState } from '../types/usnat';
 import { getGPPData } from './api';
 
 export const getConsentState: () => Promise<USNATConsentState> = async () => {
-	let doNotSell = true; // Opt-Out
+	let doNotSell = false; // Opt-Out
 	const gppData = await getGPPData();
-
-	if (gppData.supportedAPIs.length === 0) {
-		doNotSell = true;
-	}
 
 	const supportedAPIs = gppData.supportedAPIs[0]?.split(':')[1]; // E.G: '7:usnatv1', '8:uscav1'
 
