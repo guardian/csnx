@@ -104,7 +104,7 @@
 	"wireit": {
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [
+			"dependancies": [
 				"../source-foundations:build"
 			],
 			"files": [
