@@ -21,7 +21,7 @@ $ make storybooks
 Build all storybooks:
 
 ```shell
-$ make build:storybooks
+$ make build-storybook
 ```
 
 ## Guidelines

@@ -31,7 +31,9 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
-      - run: make build:storybooks
+      # This will just retrieve the output from Nx's build cache.
+      # It's simpler than using github actions cache.
+      - run: make build-storybook
 
       - uses: chromaui/action@v11
         with:
