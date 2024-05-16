@@ -28,6 +28,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/newsletter-types](libs/@guardian/newsletter-types)
 - [@guardian/prettier](libs/@guardian/prettier)
 - [@guardian/source](libs/@guardian/source)
+- [@guardian/source-development-kitchen](libs/@guardian/source-development-kitchen)
 - [@guardian/source-foundations](libs/@guardian/source-foundations)
 - [@guardian/source-react-components](libs/@guardian/source-react-components)
 - [@guardian/source-react-components-development-kitchen](libs/@guardian/source-react-components-development-kitchen)
@@ -198,6 +199,17 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source:storybook`
 - `make @guardian/source:test`
 - `make @guardian/source:verify-dist`
+
+#### @guardian/source-development-kitchen
+
+- `make @guardian/source-development-kitchen:build`
+- `make @guardian/source-development-kitchen:build-storybook`
+- `make @guardian/source-development-kitchen:dev`
+- `make @guardian/source-development-kitchen:fix`
+- `make @guardian/source-development-kitchen:lint`
+- `make @guardian/source-development-kitchen:storybook`
+- `make @guardian/source-development-kitchen:test`
+- `make @guardian/source-development-kitchen:verify-dist`
 
 #### @guardian/source-foundations
 

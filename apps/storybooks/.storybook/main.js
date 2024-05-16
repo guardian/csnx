@@ -39,6 +39,11 @@ module.exports = {
 				// port set in libs/@guardian/source/package.json
 				url: 'http://localhost:4404',
 			},
+			'source-development-kitchen': {
+				title: 'source-development-kitchen',
+				// port set in libs/@guardian/source-development-kitchen/package.json
+				url: 'http://localhost:4405',
+			},
 		};
 	},
 };

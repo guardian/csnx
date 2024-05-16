@@ -445,6 +445,38 @@ install: check-node-version
 @guardian/source\:verify-dist: env
 	@corepack pnpm --filter @guardian/source verify-dist
 
+.PHONY: @guardian/source-development-kitchen\:build
+@guardian/source-development-kitchen\:build: env
+	@corepack pnpm --filter @guardian/source-development-kitchen build
+
+.PHONY: @guardian/source-development-kitchen\:build-storybook
+@guardian/source-development-kitchen\:build-storybook: env
+	@corepack pnpm --filter @guardian/source-development-kitchen build-storybook
+
+.PHONY: @guardian/source-development-kitchen\:dev
+@guardian/source-development-kitchen\:dev: env
+	@corepack pnpm --filter @guardian/source-development-kitchen dev
+
+.PHONY: @guardian/source-development-kitchen\:fix
+@guardian/source-development-kitchen\:fix: env
+	@corepack pnpm --filter @guardian/source-development-kitchen fix
+
+.PHONY: @guardian/source-development-kitchen\:lint
+@guardian/source-development-kitchen\:lint: env
+	@corepack pnpm --filter @guardian/source-development-kitchen lint
+
+.PHONY: @guardian/source-development-kitchen\:storybook
+@guardian/source-development-kitchen\:storybook: env
+	@corepack pnpm --filter @guardian/source-development-kitchen storybook
+
+.PHONY: @guardian/source-development-kitchen\:test
+@guardian/source-development-kitchen\:test: env
+	@corepack pnpm --filter @guardian/source-development-kitchen test
+
+.PHONY: @guardian/source-development-kitchen\:verify-dist
+@guardian/source-development-kitchen\:verify-dist: env
+	@corepack pnpm --filter @guardian/source-development-kitchen verify-dist
+
 .PHONY: @guardian/source-foundations\:build
 @guardian/source-foundations\:build: env
 	@corepack pnpm --filter @guardian/source-foundations build

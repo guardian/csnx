@@ -6,7 +6,7 @@
 > [Source Design System](https://theguardian.design).
 
 [![npm](https://img.shields.io/npm/v/@guardian/source)](https://www.npmjs.com/package/@guardian/source)
-<a href="https://guardian.github.io/storybooks/?path=/docs/source" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
+<a href="https://guardian.github.io/storybooks" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
 
 ## Install
 
@@ -31,8 +31,7 @@ $ npm install @guardian/source
 
 ## Documentation
 
-Full documentation for components and foundations
-is available in the [Source storybook](https://guardian.github.io/storybooks/?path=/docs/source).
+Full documentation is available in the [Source storybook](https://guardian.github.io/storybooks).
 
 ## Contributing
 
