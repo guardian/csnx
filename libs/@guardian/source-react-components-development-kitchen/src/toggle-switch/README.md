@@ -5,13 +5,13 @@ Displays an on/off switch for web. See the accompanying stories for visual examp
 ## Install
 
 ```sh
-$ yarn add @guardian/source/react-components-development-kitchen
+$ yarn add @guardian/source-react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source/react-components-development-kitchen
+$ npm i @guardian/source-react-components-development-kitchen
 ```
 
 ## Use

@@ -6,7 +6,7 @@ import { expandingWrapperDarkTheme } from './theme';
 
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_expandingwrapper--expanding-wrapper)
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.tsx) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/expanding-wrapper/ExpandingWrapper.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source/react-components)
  *
  * An Expanding Wrapper surrounds a bit of content that can be collapsed and expanded

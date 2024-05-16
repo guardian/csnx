@@ -5,13 +5,13 @@ The File Input is a styled input for files. If it is mandatory, the file may be 
 ## Install
 
 ```sh
-$ yarn add @guardian/source/react-components-development-kitchen
+$ yarn add @guardian/source-react-components-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source/react-components-development-kitchen
+$ npm i @guardian/source-react-components-development-kitchen
 ```
 
 ## Use
