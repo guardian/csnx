@@ -2,12 +2,19 @@
  * Runs all npm-scripts in the workspace one at a time, with no caching or old build files in place.
  *
  * This should help pinpoint eny issues with how we've orchestrated running them, defined dependent tasks etc.
+ *
+ * If you only want to run a specific package, you can pass the package name as an argument, e.g.
+ *
+ * ```sh
+ * deno run -A scripts/deno/check-npm-scripts.ts @guardian/libs
+ * ```
  */
 
 import { exists } from 'https://deno.land/std@0.224.0/fs/exists.ts';
-import * as colors from 'https://deno.land/std@0.224.0/fmt/colors.ts';
+import * as fmt from 'https://deno.land/std@0.224.0/fmt/colors.ts';
 import { expandGlob } from 'https://deno.land/std@0.224.0/fs/expand_glob.ts';
 import { existsSync } from 'https://deno.land/std@0.224.0/fs/exists.ts';
+import { relative } from 'https://deno.land/std@0.224.0/path/mod.ts';
 
 interface Package {
 	path: string;
@@ -20,46 +27,58 @@ interface ErrorLog {
 	error: string;
 }
 
-async function getWorkspacePackages(): Promise<Package[]> {
-	const command = new Deno.Command('pnpm', {
-		args: ['-r', 'ls', '--json'],
-	});
-	const { code: _code, stdout } = await command.output();
-	const result = new TextDecoder().decode(stdout);
+async function getWorkspacePackages(pkgName: string | undefined) {
+	try {
+		const command = new Deno.Command('pnpm', {
+			args: [...(pkgName ? [`--filter`, pkgName] : ['-r']), 'ls', '--json'],
+		});
+		const { success, stderr, stdout } = await command.output();
 
-	const packages = JSON.parse(result) as { path: string }[];
-	const packageDetails: Package[] = [];
+		if (!success) {
+			throw new Error(new TextDecoder().decode(stderr));
+		}
 
-	for (const pkg of packages) {
-		const packageJsonPath = `${pkg.path}/package.json`;
-		if (await exists(packageJsonPath)) {
-			const packageJson = JSON.parse(await Deno.readTextFile(packageJsonPath));
-			if (packageJson.scripts) {
-				packageDetails.push({
-					path: pkg.path,
-					scripts: packageJson.scripts,
-				});
+		const result = new TextDecoder().decode(stdout);
+
+		const packages = JSON.parse(result) as { path: string }[];
+		const packageDetails: Package[] = [];
+
+		for (const pkg of packages) {
+			const packageJsonPath = `${pkg.path}/package.json`;
+			if (await exists(packageJsonPath)) {
+				const packageJson = JSON.parse(
+					await Deno.readTextFile(packageJsonPath),
+				);
+				if (packageJson.scripts) {
+					packageDetails.push({
+						path: pkg.path,
+						scripts: packageJson.scripts,
+					});
+				}
 			}
 		}
-	}
 
-	return packageDetails;
+		return packageDetails;
+	} catch (error) {
+		console.error('Failed to get workspace packages');
+		console.error(error);
+	}
 }
 
-async function deleteDirs(name: string) {
-	const distDirectories = expandGlob(`**/${name}`, {
+async function deleteDirs(dirName: string) {
+	const distDirectories = expandGlob(`**/${dirName}`, {
 		globstar: true,
 		exclude: ['**/node_modules/**'],
 	});
 
 	for await (const distDir of distDirectories) {
 		if (distDir.isDirectory && existsSync(distDir.path)) {
-			console.log(`Removing directory: ${distDir.path}`);
+			const relativePath = relative(Deno.cwd(), distDir.path);
 			try {
 				await Deno.remove(distDir.path, { recursive: true });
-				console.log(`Successfully removed: ${distDir.path}`);
+				console.log(fmt.green('✓') + fmt.dim(` deleted ${relativePath}`));
 			} catch (error) {
-				console.error(`Failed to remove: ${distDir.path}`);
+				console.error(`Failed to remove: ${relativePath}`);
 				console.error(error);
 			}
 		}
@@ -87,26 +106,30 @@ async function runNpmScript(pkgPath: string, script: string) {
 	throw new Error(new TextDecoder().decode(stderr));
 }
 
-async function main() {
-	const packages = await getWorkspacePackages();
+async function main(pkgName: string | undefined) {
+	const packages = (await getWorkspacePackages(pkgName)) ?? [];
 	const errorLogs: ErrorLog[] = [];
 
 	for (const pkg of packages) {
 		for (const [scriptName] of Object.entries(pkg.scripts)) {
-			console.log(`Removing wireit caches`);
+			console.log(`Cleaning wireit caches...`);
 			await deleteDirs('.wireit');
 
-			console.log(`Removing dist folders`);
+			console.log(`Cleaning dist folders...`);
 			await deleteDirs('dist');
 
+			const relativePath = [relative(Deno.cwd(), pkg.path), 'package.json']
+				.filter(Boolean)
+				.join('/');
+
 			try {
-				console.log(`Running ${scriptName} in ${pkg.path}`);
-				await runNpmScript(pkg.path, scriptName);
 				console.log(
-					colors.green(`Successfully ran ${scriptName} in ${pkg.path}`),
+					`Running ${fmt.blue(scriptName)} from ${fmt.cyan(relativePath)}...`,
 				);
+				await runNpmScript(pkg.path, scriptName);
+				console.log(fmt.green('✓') + fmt.dim(` success`));
 			} catch (error) {
-				console.log(colors.red(`Failed to run ${scriptName} in ${pkg.path}`));
+				console.log(fmt.red(`❌ Failed`));
 				console.error(error.message);
 
 				errorLogs.push({
@@ -132,5 +155,5 @@ async function main() {
 }
 
 if (import.meta.main) {
-	await main();
+	await main(Deno.args[0]);
 }
