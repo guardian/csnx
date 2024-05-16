@@ -321,8 +321,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       web-vitals:
-        specifier: 3.5.0
-        version: 3.5.0
+        specifier: 4.0.0
+        version: 4.0.0
       wireit:
         specifier: 0.14.4
         version: 0.14.4
@@ -15872,8 +15872,8 @@ packages:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
     dev: true
 
-  /web-vitals@3.5.0:
-    resolution: {integrity: sha512-f5YnCHVG9Y6uLCePD4tY8bO/Ge15NPEQWtvm3tPzDKygloiqtb4SVqRHBcrIAqo2ztqX5XueqDn97zHF0LdT6w==}
+  /web-vitals@4.0.0:
+    resolution: {integrity: sha512-8wQd4jkwFRwY5q3yAmHZAJ5MjnKR1vRACK+g2OEC8nUqi0WOxBrXfOxGNlJ+QtxzzSn/TkQO58wkW0coE68n0Q==}
     dev: true
 
   /webidl-conversions@3.0.1:

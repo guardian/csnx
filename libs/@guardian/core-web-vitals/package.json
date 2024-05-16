@@ -28,7 +28,7 @@
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
-		"web-vitals": "3.5.0",
+		"web-vitals": "4.0.0",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
