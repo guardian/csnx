@@ -51,11 +51,16 @@
 		}
 	},
 	"wireit": {
-		"build": {
-			"command": "rollup -c",
+		"_deps": {
 			"dependencies": [
 				"../design-tokens:build",
 				"build-type-presets"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
 			],
 			"files": [
 				"../../../configs/rollup.config.js",
@@ -97,6 +102,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"clean": false,
 			"files": [
 				"!(dist)/**",
@@ -109,6 +117,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -119,7 +130,7 @@
 		"test": {
 			"command": "jest",
 			"dependencies": [
-				"../design-tokens:build"
+				"_deps"
 			],
 			"files": [
 				"!(dist)/**",

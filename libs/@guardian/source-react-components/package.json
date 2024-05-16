@@ -67,10 +67,15 @@
 		}
 	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../source-foundations:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
 			"dependencies": [
-				"../source-foundations:build"
+				"_deps"
 			],
 			"files": [
 				"../../../configs/rollup.config.js",
@@ -86,7 +91,7 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"dependencies": [
-				"../source-foundations:build"
+				"_deps"
 			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
@@ -99,6 +104,9 @@
 		},
 		"fix": {
 			"command": "pnpm lint --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"clean": false,
 			"files": [
 				"!(dist|storybook-static)/**",
@@ -110,6 +118,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist|storybook-static)/**",
 				"../../../.eslint*"
@@ -118,6 +129,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist|storybook-static)/**",
 				"../../../jest.*"
