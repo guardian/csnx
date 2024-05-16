@@ -1,6 +1,6 @@
 packages:
   - 'apps/**'
   - 'libs/**'
-  - '!**/libs/@guardian/source/*/**'
+  - '!**/libs/@guardian/*/*/**'
   - 'tools/**'
   - 'configs/**'
