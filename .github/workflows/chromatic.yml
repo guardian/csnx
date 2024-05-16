@@ -31,7 +31,7 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
-      - run: make build:storybooks
+      - run: make build-storybook
 
       - uses: chromaui/action@v11
         with:
