@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -46,16 +46,16 @@
 		"typescript": "~5.3.3"
 	},
 	"peerDependenciesMeta": {
-		"@types/react": {
+		"@emotion/react": {
 			"optional": true
 		},
-		"typescript": {
+		"@types/react": {
 			"optional": true
 		},
 		"react": {
 			"optional": true
 		},
-		"@emotion/react": {
+		"typescript": {
 			"optional": true
 		}
 	},
