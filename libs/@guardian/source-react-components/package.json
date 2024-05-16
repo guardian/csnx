@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components",
-	"version": "24.0.1",
+	"version": "25.0.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -15,20 +15,20 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"build-storybook": "wireit",
 		"create-icons": "ts-node scripts/create-icons",
 		"dev": "jest --watch",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
+		"fix": "wireit",
+		"lint": "wireit",
 		"storybook": "storybook dev --port 4402",
-		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js"
+		"test": "wireit",
+		"verify-dist": "wireit"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
-		"@guardian/source-foundations": "14.2.2",
+		"@guardian/source-foundations": "16.0.0",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -52,7 +52,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
-		"@guardian/source-foundations": "^14.2.2",
+		"@guardian/source-foundations": "^16.0.0",
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
@@ -66,61 +66,88 @@
 			"optional": true
 		}
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"test": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
-		}
-	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../source-foundations:build"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"../../../configs/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"dependencies": [
-				"../source-foundations:build"
+				"_deps"
 			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
-				"!storybook-static/**",
-				"!jest*"
+				"!(dist|storybook-static)/**",
+				"!(jest*)"
 			],
 			"output": [
 				"storybook-static"
 			]
+		},
+		"fix": {
+			"command": "pnpm lint --fix",
+			"dependencies": [
+				"_deps"
+			],
+			"clean": false,
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../jest.*"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../jest.*"
+			],
+			"output": []
 		}
 	}
 }

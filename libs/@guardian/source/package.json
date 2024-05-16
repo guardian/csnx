@@ -22,16 +22,16 @@
 		"react-components/package.json"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"build-storybook": "wireit",
-		"build-type-presets": "tsx ./scripts/build-type-presets.ts",
+		"build-type-presets": "wireit",
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
+		"fix": "wireit",
+		"lint": "wireit",
 		"storybook": "storybook dev --port 4404",
-		"test": "jest --passWithNoTests",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js --passWithNoTests"
+		"test": "wireit",
+		"verify-dist": "wireit"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -78,48 +78,29 @@
 			"optional": true
 		}
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"test": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
-		}
-	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../source-foundations:build",
+				"../source-react-components:build"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"../../../configs/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"files": [
@@ -130,6 +111,66 @@
 			"output": [
 				"storybook-static"
 			]
+		},
+		"build-type-presets": {
+			"command": "tsx ./scripts/build-type-presets.ts",
+			"dependencies": [
+				"../design-tokens:build"
+			],
+			"files": [
+				"./scripts/build-type-presets.ts",
+				"./src/utils/convert-value"
+			],
+			"output": [
+				"src/__generated__/typography"
+			]
+		},
+		"fix": {
+			"command": "pnpm lint --fix",
+			"dependencies": [
+				"_deps"
+			],
+			"clean": false,
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest --passWithNoTests",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../jest.*"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../jest.*"
+			],
+			"output": []
 		}
 	}
 }

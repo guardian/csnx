@@ -37,11 +37,6 @@ updates:
       babel:
         patterns:
           - '@babel/*'
-      nx:
-        patterns:
-          - '@nx*'
-          - '@nrwl*'
-          - 'nx*'
       eslint:
         patterns:
           - '*eslint*'
@@ -74,9 +69,6 @@ updates:
           - '@storybook*'
           - 'storybook'
           - '@babel*'
-          - '@nx*'
-          - '@nrwl*'
-          - 'nx*'
           - '*eslint*'
           - '@rollup*'
           - 'rollup'

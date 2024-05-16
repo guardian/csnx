@@ -6,6 +6,7 @@ module.exports = {
 		'jest.dist.*', // depends on build output, so don't lint it
 		'dist',
 		'storybook-static',
+		'.wireit',
 	],
 	overrides: [
 		{

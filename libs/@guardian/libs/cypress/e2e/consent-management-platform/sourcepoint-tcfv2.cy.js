@@ -53,7 +53,7 @@ describe('Interaction', () => {
 		// eslint-disable-next-line cypress/no-unnecessary-waiting -- should we do this?
 		cy.wait(2000);
 
-		[(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)].forEach((purpose) => {
+		[(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)].forEach((purpose) => {
 			cy.get(`[data-purpose="${purpose}"]`).should(
 				'have.data',
 				'consent',
@@ -92,7 +92,7 @@ describe('Interaction', () => {
 			.should('have.data', 'consent')
 			.should('equal', false);
 
-		[2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((purpose) => {
+		[2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach((purpose) => {
 			cy.get(`[data-purpose="${purpose}"]`)
 				.should('have.data', 'consent')
 				.should('equal', true);
@@ -128,7 +128,7 @@ describe('Interaction', () => {
 			.should('have.data', 'consent')
 			.should('equal', true);
 
-		[2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((purpose) => {
+		[2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach((purpose) => {
 			cy.get(`[data-purpose="${purpose}"]`)
 				.should('have.data', 'consent')
 				.should('equal', false);
