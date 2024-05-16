@@ -1,5 +1,11 @@
 # @guardian/source-react-components-development-kitchen
 
+## 21.0.0
+
+### Major Changes
+
+- Update dependency on `@guardian/source-foundations` and `@guardian/source-react-components`
+
 ## 20.0.3
 
 ### Patch Changes

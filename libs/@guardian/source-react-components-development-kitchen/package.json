@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-react-components-development-kitchen",
-	"version": "20.0.3",
+	"version": "21.0.0",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -27,8 +27,8 @@
 		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
 		"@guardian/libs": "16.0.0",
-		"@guardian/source-foundations": "14.2.2",
-		"@guardian/source-react-components": "23.0.1",
+		"@guardian/source-foundations": "16.0.0",
+		"@guardian/source-react-components": "25.0.0",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
 		"rollup": "4.17.2",
@@ -39,8 +39,8 @@
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
 		"@guardian/libs": "^16.0.0",
-		"@guardian/source-foundations": "^14.2.2",
-		"@guardian/source-react-components": "^23.0.1",
+		"@guardian/source-foundations": "^16.0.0",
+		"@guardian/source-react-components": "^25.0.0",
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
@@ -55,11 +55,16 @@
 		}
 	},
 	"wireit": {
-		"build": {
-			"command": "rollup -c",
+		"_deps": {
 			"dependencies": [
 				"../source-foundations:build",
 				"../source-react-components:build"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
 			],
 			"files": [
 				"../../../configs/rollup.config.js",
@@ -75,8 +80,7 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"dependencies": [
-				"../source-foundations:build",
-				"../source-react-components:build"
+				"_deps"
 			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
@@ -89,6 +93,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"clean": false,
 			"files": [
 				"!(dist)/**",
@@ -101,6 +108,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -110,6 +120,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
