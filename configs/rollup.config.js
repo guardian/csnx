@@ -35,7 +35,7 @@ const defaultPlugins = [
  * @param {Input} param0.input
  * @returns {import("rollup").RollupOptions[]}
  */
-export default ({ input = defaultInput, plugins = [] }) => [
+export default ({ input = defaultInput, plugins = [] } = {}) => [
 	{
 		input,
 		output,
