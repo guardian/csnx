@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import { typography, typographyPresets } from '@guardian/design-tokens';
+import prettierConfig from '@guardian/prettier';
+import { format } from 'prettier';
 import { fontArrayToString, pxStringToRem } from '../src/utils/convert-value';
 
 const STRIP_WHITESPACE = /^\s+/gm;
@@ -61,6 +63,17 @@ const object = Object.entries(typographyPresets)
 	.join('')
 	.replace(STRIP_TABS, '');
 
-fs.writeFileSync(cssOutputPath, banner + css);
-fs.writeFileSync(objectOutputPath, banner + object);
-console.log(`✓ ${presetTotal} presets built`);
+void (async () => {
+	fs.writeFileSync(
+		cssOutputPath,
+		await format(banner + css, { filepath: cssOutputPath, ...prettierConfig }),
+	);
+	fs.writeFileSync(
+		objectOutputPath,
+		await format(banner + object, {
+			filepath: objectOutputPath,
+			...prettierConfig,
+		}),
+	);
+	console.log(`✓ ${presetTotal} presets built`);
+})();
