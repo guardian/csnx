@@ -55,8 +55,7 @@
 	"wireit": {
 		"_deps": {
 			"dependencies": [
-				"../source-foundations:build",
-				"../source-react-components:build"
+				"../source:build"
 			]
 		},
 		"build": {
