@@ -620,6 +620,9 @@ importers:
       '@guardian/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
+      '@guardian/libs':
+        specifier: workspace:*
+        version: link:../libs
       '@rollup/plugin-alias':
         specifier: 5.1.0
         version: 5.1.0(rollup@4.17.2)
@@ -737,7 +740,7 @@ importers:
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
       '@guardian/libs':
         specifier: 16.1.3
-        version: 16.1.3(tslib@2.6.2)(typescript@5.3.3)
+        version: link:../libs
       '@guardian/source-foundations':
         specifier: 16.0.0
         version: link:../source-foundations
@@ -3525,19 +3528,6 @@ packages:
 
   /@guardian/libs@16.0.0(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-2i9cN6htXnvABIGhfqJGb9Bh/DdQOayUjb5ruqBGTiXEeDBHztctdVsi7+rPfMlwyPxQ+0qYLhM19f6J94vvhQ==}
-    peerDependencies:
-      tslib: ^2.6.2
-      typescript: ~5.3.3
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      tslib: 2.6.2
-      typescript: 5.3.3
-    dev: true
-
-  /@guardian/libs@16.1.3(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-n8iv8De6lGSGcIyagbK79gv5tK5o+bRbsWSsYH+v6ob2HNwjVSkwY+Ang+snQWp6DPed+iHvnQQK5pWXnXMfOA==}
     peerDependencies:
       tslib: ^2.6.2
       typescript: ~5.3.3
