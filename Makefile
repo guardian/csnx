@@ -407,43 +407,43 @@ install: check-node-version
 
 .PHONY: @guardian/source\:build
 @guardian/source\:build: env
-	@corepack pnpm nx run @guardian/source:build --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source build
 
 .PHONY: @guardian/source\:build-storybook
 @guardian/source\:build-storybook: env
-	@corepack pnpm nx run @guardian/source:build-storybook --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source build-storybook
 
 .PHONY: @guardian/source\:build-type-presets
 @guardian/source\:build-type-presets: env
-	@corepack pnpm nx run @guardian/source:build-type-presets --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source build-type-presets
 
 .PHONY: @guardian/source\:create-icons
 @guardian/source\:create-icons: env
-	@corepack pnpm nx run @guardian/source:create-icons --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source create-icons
 
 .PHONY: @guardian/source\:dev
 @guardian/source\:dev: env
-	@corepack pnpm nx run @guardian/source:dev --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source dev
 
 .PHONY: @guardian/source\:fix
 @guardian/source\:fix: env
-	@corepack pnpm nx run @guardian/source:fix --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source fix
 
 .PHONY: @guardian/source\:lint
 @guardian/source\:lint: env
-	@corepack pnpm nx run @guardian/source:lint --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source lint
 
 .PHONY: @guardian/source\:storybook
 @guardian/source\:storybook: env
-	@corepack pnpm nx run @guardian/source:storybook --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source storybook
 
 .PHONY: @guardian/source\:test
 @guardian/source\:test: env
-	@corepack pnpm nx run @guardian/source:test --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source test
 
 .PHONY: @guardian/source\:verify-dist
 @guardian/source\:verify-dist: env
-	@corepack pnpm nx run @guardian/source:verify-dist --skip-nx-cache=$(SKIP_NX_CACHE)
+	@corepack pnpm --filter @guardian/source verify-dist
 
 .PHONY: @guardian/source-foundations\:build
 @guardian/source-foundations\:build: env
