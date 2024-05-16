@@ -14,14 +14,14 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"build-storybook": "wireit",
 		"dev": "jest --watch",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
+		"fix": "wireit",
+		"lint": "wireit",
 		"storybook": "storybook dev --port 4403",
-		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js"
+		"test": "wireit",
+		"verify-dist": "wireit"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.0",
@@ -54,65 +54,80 @@
 			"optional": true
 		}
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"test": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"dev": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
-		}
-	},
 	"wireit": {
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"../source-foundations:build",
+				"../source-react-components:build"
+			],
+			"files": [
+				"../../../configs/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [],
+			"dependencies": [
+				"../source-foundations:build",
+				"../source-react-components:build"
+			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
-				"!jest*"
+				"!(jest*)"
 			],
 			"output": [
 				"storybook-static"
 			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../jest.*"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../jest.*"
+			],
+			"output": []
 		}
 	}
 }

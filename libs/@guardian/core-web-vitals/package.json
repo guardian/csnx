@@ -16,19 +16,20 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"dev": "jest --watch",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
-		"test": "jest",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js"
+		"fix": "wireit",
+		"lint": "wireit",
+		"test": "wireit",
+		"verify-dist": "wireit"
 	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
-		"web-vitals": "3.5.0"
+		"web-vitals": "3.5.0",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "^16.0.0",
@@ -44,51 +45,61 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"test": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"dev": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
+	"wireit": {
+		"build": {
+			"command": "rollup -c",
+			"files": [
+				"../../../configs/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../jest.*"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../jest.*"
+			],
+			"output": []
 		}
 	}
 }

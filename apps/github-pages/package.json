@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "wireit",
-		"dev": "astro dev",
+		"dev": "wireit",
 		"start": "wireit"
 	},
 	"devDependencies": {
@@ -26,6 +26,17 @@
 			"output": [
 				"dist"
 			],
+			"dependencies": [
+				"../../libs/@guardian/libs:build"
+			]
+		},
+		"dev": {
+			"command": "astro dev",
+			"service": {
+				"readyWhen": {
+					"lineMatches": "use --host to expose"
+				}
+			},
 			"dependencies": [
 				"../../libs/@guardian/libs:build"
 			]
