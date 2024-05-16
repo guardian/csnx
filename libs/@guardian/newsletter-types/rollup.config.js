@@ -1,1 +1,3 @@
-export * as default from '../../../configs/rollup.config.js';
+import baseConfigs from '../../../configs/rollup.config.js';
+
+export default baseConfigs()[2];

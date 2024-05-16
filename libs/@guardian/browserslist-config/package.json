@@ -8,14 +8,15 @@
 		"browserslist-stats.json"
 	],
 	"scripts": {
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
+		"fix": "wireit",
+		"lint": "wireit",
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
 		"browserslist": "4.23.0",
-		"tslib": "2.6.2"
+		"tslib": "2.6.2",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"browserslist": "^4.22.2",
@@ -24,23 +25,25 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"nx": {
-		"targets": {
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			}
+	"wireit": {
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": []
 		}
 	}
 }
