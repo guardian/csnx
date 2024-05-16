@@ -27,10 +27,10 @@ interface ErrorLog {
 	error: string;
 }
 
-async function getWorkspacePackages(pkg: string | undefined) {
+async function getWorkspacePackages(pkgName: string | undefined) {
 	try {
 		const command = new Deno.Command('pnpm', {
-			args: [...(pkg ? [`--filter`, pkg] : ['-r']), 'ls', '--json'],
+			args: [...(pkgName ? [`--filter`, pkgName] : ['-r']), 'ls', '--json'],
 		});
 		const { success, stderr, stdout } = await command.output();
 
@@ -65,8 +65,8 @@ async function getWorkspacePackages(pkg: string | undefined) {
 	}
 }
 
-async function deleteDirs(name: string) {
-	const distDirectories = expandGlob(`**/${name}`, {
+async function deleteDirs(dirName: string) {
+	const distDirectories = expandGlob(`**/${dirName}`, {
 		globstar: true,
 		exclude: ['**/node_modules/**'],
 	});
@@ -106,41 +106,39 @@ async function runNpmScript(pkgPath: string, script: string) {
 	throw new Error(new TextDecoder().decode(stderr));
 }
 
-async function main(pkg: string | undefined) {
-	const packages = await getWorkspacePackages(pkg);
+async function main(pkgName: string | undefined) {
+	const packages = (await getWorkspacePackages(pkgName)) ?? [];
 	const errorLogs: ErrorLog[] = [];
 
-	if (packages) {
-		for (const pkg of packages) {
-			for (const [scriptName] of Object.entries(pkg.scripts)) {
-				console.log(`Cleaning wireit caches...`);
-				await deleteDirs('.wireit');
+	for (const pkg of packages) {
+		for (const [scriptName] of Object.entries(pkg.scripts)) {
+			console.log(`Cleaning wireit caches...`);
+			await deleteDirs('.wireit');
 
-				console.log(`Cleaning dist folders...`);
-				await deleteDirs('dist');
+			console.log(`Cleaning dist folders...`);
+			await deleteDirs('dist');
 
-				const relativePath = [relative(Deno.cwd(), pkg.path), 'package.json']
-					.filter(Boolean)
-					.join('/');
+			const relativePath = [relative(Deno.cwd(), pkg.path), 'package.json']
+				.filter(Boolean)
+				.join('/');
 
-				try {
-					console.log(
-						`Running ${fmt.blue(scriptName)} from ${fmt.cyan(relativePath)}...`,
-					);
-					await runNpmScript(pkg.path, scriptName);
-					console.log(fmt.green('✓') + fmt.dim(` success`));
-				} catch (error) {
-					console.log(fmt.red(`❌ Failed`));
-					console.error(error.message);
+			try {
+				console.log(
+					`Running ${fmt.blue(scriptName)} from ${fmt.cyan(relativePath)}...`,
+				);
+				await runNpmScript(pkg.path, scriptName);
+				console.log(fmt.green('✓') + fmt.dim(` success`));
+			} catch (error) {
+				console.log(fmt.red(`❌ Failed`));
+				console.error(error.message);
 
-					errorLogs.push({
-						packageName: pkg.path,
-						script: scriptName,
-						error: error.message,
-					});
-				}
-				console.log('');
+				errorLogs.push({
+					packageName: pkg.path,
+					script: scriptName,
+					error: error.message,
+				});
 			}
+			console.log('');
 		}
 	}
 
