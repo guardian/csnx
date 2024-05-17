@@ -195,7 +195,7 @@ importers:
         specifier: 0.14.4
         version: 0.14.4
 
-  configs:
+  configs/rollup:
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: 25.0.7
@@ -1422,7 +1422,7 @@ packages:
     resolution: {integrity: sha512-Yac1ao4flkTxTteCDZLEvdxg2fZfz1v8M4QpaGypq/WPDqg3ijHYbDfs+LG5hvzSoqaSZ9/Z9lKSP3CjZjv+pA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/helper-validator-identifier': 7.22.20
+      '@babel/helper-validator-identifier': 7.24.5
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.0.0
@@ -2562,8 +2562,8 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.24.2
-      '@babel/parser': 7.24.4
-      '@babel/types': 7.24.0
+      '@babel/parser': 7.24.5
+      '@babel/types': 7.24.5
     dev: true
 
   /@babel/traverse@7.24.1:
@@ -5404,8 +5404,8 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@tsconfig/node10@1.0.9:
-    resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
+  /@tsconfig/node10@1.0.11:
+    resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
     dev: true
 
   /@tsconfig/node12@1.0.11:
@@ -5691,7 +5691,7 @@ packages:
     resolution: {integrity: sha512-mFMBfMOz8QxhYVbuINtswBp9VL2b4Y0QqYHwqLz3YbgtfAcat2Dl6Y1o4e22S/OVE6Ebl9m7wWiMT2lSbAs1wA==}
     deprecated: This is a stub types definition. prettier provides its own type definitions, so you do not need this installed.
     dependencies:
-      prettier: 3.2.2
+      prettier: 3.2.5
     dev: true
 
   /@types/pretty-hrtime@1.0.3:
@@ -15007,7 +15007,7 @@ packages:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@swc/core': 1.4.0(@swc/helpers@0.5.3)
-      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4

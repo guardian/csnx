@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 import alias from '@rollup/plugin-alias';
-import config from '../../../configs/rollup.config.js';
+import config from '../../../configs/rollup/rollup.config.js';
 
 export default config({
 	input: {
