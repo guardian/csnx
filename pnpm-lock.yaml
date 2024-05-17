@@ -621,7 +621,7 @@ importers:
         specifier: workspace:*
         version: link:../design-tokens
       '@guardian/libs':
-        specifier: workspace:*
+        specifier: 16.1.3
         version: link:../libs
       '@rollup/plugin-alias':
         specifier: 5.1.0
