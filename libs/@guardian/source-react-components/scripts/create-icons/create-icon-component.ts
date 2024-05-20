@@ -53,7 +53,7 @@ const createBabelConfig = ({ retainFill }: { retainFill: boolean }) => {
 		return {};
 	}
 
-	babelConfig.plugins = plugins;
+	babelConfig.plugins ||= plugins;
 
 	return babelConfig;
 };

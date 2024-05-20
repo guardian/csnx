@@ -42,6 +42,7 @@
 		"@guardian/design-tokens": "workspace:*",
 		"@rollup/plugin-alias": "5.1.0",
 		"@storybook/manager-api": "8.0.5",
+		"@storybook/react": "8.0.5",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
