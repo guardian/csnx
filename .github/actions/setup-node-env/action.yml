@@ -13,7 +13,7 @@ runs:
         cache: 'pnpm'
 
     # Set up GitHub Actions caching for Wireit.
-    # - uses: google/wireit@setup-github-actions-caching/v1
+    - uses: google/wireit@setup-github-actions-caching/v1
 
     - run: pnpm install --frozen-lockfile
       shell: bash
@@ -22,8 +22,8 @@ runs:
     # need to do a single run with this uncommented...
     # don't forget to check the version.
     # i hate cypress.
-    - run: pnpm dlx cypress@13.7.1 install --force
-      shell: bash
+    # - run: pnpm dlx cypress@13.7.1 install --force
+    #   shell: bash
 
     # Restores cypress binary cache. If the binary is missing, it will be
     # downloaded and cached for next time.
