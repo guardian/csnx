@@ -25,7 +25,7 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@guardian/libs": "16.0.0",
+		"@guardian/libs": "workspace:*",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
@@ -36,7 +36,7 @@
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^16.0.0",
+		"@guardian/libs": "workspace:^",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
 	},
@@ -49,8 +49,16 @@
 		"access": "public"
 	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../libs:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"../../../configs/rollup/rollup.config.js",
 				"./rollup.config.js",
@@ -64,6 +72,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"clean": false,
 			"files": [
 				"!(dist)/**",
@@ -76,6 +87,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -85,6 +99,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",

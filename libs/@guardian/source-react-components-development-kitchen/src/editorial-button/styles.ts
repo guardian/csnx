@@ -20,7 +20,7 @@ import {
 } from '@guardian/source-foundations';
 import type { ButtonPriority } from '@guardian/source-react-components';
 
-export const defaultFormat = {
+export const defaultFormat: ArticleFormat = {
 	display: ArticleDisplay.Standard,
 	design: ArticleDesign.Standard,
 	theme: ArticlePillar.News,

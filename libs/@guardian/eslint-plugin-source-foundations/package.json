@@ -27,8 +27,8 @@
 		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
-		"@guardian/libs": "16.0.0",
-		"@guardian/source-foundations": "14.1.4",
+		"@guardian/libs": "workspace:*",
+		"@guardian/source-foundations": "workspace:*",
 		"@types/eslint": "8.56.1",
 		"@types/estree": "1.0.5",
 		"eslint": "8.56.0",
@@ -38,8 +38,8 @@
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^16.0.0",
-		"@guardian/source-foundations": "^14.1.4",
+		"@guardian/libs": "workspace:^",
+		"@guardian/source-foundations": "workspace:^",
 		"@types/eslint": "^8.56.1",
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2",

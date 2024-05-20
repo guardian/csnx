@@ -2,6 +2,14 @@
 import * as libs from '@guardian/libs';
 import { cookieRefreshIfRequired } from '../cookieRefresh';
 
+jest.mock('@guardian/libs', () => {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-return -- expected
+	return {
+		__esModule: true,
+		...jest.requireActual('@guardian/libs'),
+	};
+});
+
 const mockedSetLocal = jest.spyOn(libs.storage.local, 'set');
 const mockedGetLocal = jest.spyOn(libs.storage.local, 'get');
 const mockedLocalIsAvailable = jest.spyOn(libs.storage.local, 'isAvailable');

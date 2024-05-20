@@ -55,8 +55,16 @@
 		"access": "public"
 	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../ab-core:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"../../../configs/rollup/rollup.config.js",
 				"./rollup.config.js",
@@ -70,6 +78,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"clean": false,
 			"files": [
 				"!(dist)/**",
@@ -82,6 +93,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -91,6 +105,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
