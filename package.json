@@ -55,7 +55,7 @@
 		"sort-package-json": "2.10.0",
 		"storybook": "8.0.5",
 		"ts-jest": "29.1.1",
-		"typescript": "5.3.3",
+		"typescript": "5.4.5",
 		"update-section": "0.3.3",
 		"webpack": "5.91.0",
 		"wireit": "0.14.4"

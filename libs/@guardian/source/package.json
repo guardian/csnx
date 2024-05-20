@@ -60,7 +60,7 @@
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"tsx": "4.7.1",
-		"typescript": "5.3.3",
+		"typescript": "5.4.5",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
@@ -68,7 +68,7 @@
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3"
+		"typescript": "~5.4.5"
 	},
 	"peerDependenciesMeta": {
 		"@types/react": {

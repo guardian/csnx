@@ -25,23 +25,23 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@guardian/ab-core": "7.0.0",
+		"@guardian/ab-core": "workspace:*",
 		"@testing-library/react": "14.2.1",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
+		"typescript": "5.4.5",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/ab-core": "^7.0.0",
+		"@guardian/ab-core": "workspace:^",
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3"
+		"typescript": "~5.4.5"
 	},
 	"peerDependenciesMeta": {
 		"@types/react": {

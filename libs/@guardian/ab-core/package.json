@@ -27,12 +27,12 @@
 	"devDependencies": {
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
+		"typescript": "5.4.5",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3"
+		"typescript": "~5.4.5"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {

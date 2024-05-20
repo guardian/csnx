@@ -17,13 +17,13 @@
 	"devDependencies": {
 		"eslint": "8.56.0",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
+		"typescript": "5.4.5",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3"
+		"typescript": "~5.4.5"
 	},
 	"wireit": {
 		"lint": {
