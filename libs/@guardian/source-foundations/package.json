@@ -36,6 +36,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"rollup": "4.17.2",
+		"storybook": "8.0.5",
 		"tslib": "2.6.2",
 		"tsx": "4.7.1",
 		"typescript": "5.3.3",
@@ -79,6 +80,8 @@
 				"build"
 			],
 			"files": [
+				"../../../../configs/storybook/**",
+				"./.storybook/**",
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
 				"!(jest*)"

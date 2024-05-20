@@ -1,8 +1,10 @@
-const path = require('path');
+const fs = require('node:fs');
+
 const nodeModulesExclude = {
 	and: [/node_modules/],
 	not: [/@guardian\//],
 };
+
 module.exports = {
 	stories: [],
 	addons: [
@@ -42,6 +44,11 @@ module.exports = {
 			],
 		});
 
+		config.module.rules.push({
+			test: /\.html$/i,
+			loader: 'html-loader',
+		});
+
 		// update storybook webpack config to transpile *all* JS
 		config.module.rules.find(
 			(rule) => String(rule.test) === String(/\.(cjs|mjs|tsx?|jsx?)$/),
@@ -57,4 +64,6 @@ module.exports = {
 	docs: {
 		autodocs: true,
 	},
+	previewHead: (head) =>
+		head + fs.readFileSync(require.resolve('./preview-head.html'), 'utf8'),
 };

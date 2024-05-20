@@ -29,9 +29,11 @@
 		"@guardian/libs": "16.0.0",
 		"@guardian/source-foundations": "16.0.0",
 		"@guardian/source-react-components": "25.0.0",
+		"@storybook/manager-api": "8.0.5",
 		"@types/react": "18.2.11",
 		"react": "18.2.0",
 		"rollup": "4.17.2",
+		"storybook": "8.0.5",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
 		"wireit": "0.14.4"
@@ -83,6 +85,8 @@
 				"_deps"
 			],
 			"files": [
+				"../../../../configs/storybook/**",
+				"./.storybook/**",
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
 				"!(jest*)"
