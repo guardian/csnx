@@ -22,8 +22,8 @@
 		"verify-dist": "wireit"
 	},
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "6.21.0",
-		"@typescript-eslint/parser": "6.21.0",
+		"@typescript-eslint/eslint-plugin": "7.9.0",
+		"@typescript-eslint/parser": "7.9.0",
 		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
@@ -31,7 +31,7 @@
 		"@guardian/source-foundations": "14.1.4",
 		"@types/eslint": "8.56.1",
 		"@types/estree": "1.0.5",
-		"eslint": "8.56.0",
+		"eslint": "9.3.0",
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
