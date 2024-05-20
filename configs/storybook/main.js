@@ -44,11 +44,6 @@ module.exports = {
 			],
 		});
 
-		config.module.rules.push({
-			test: /\.html$/i,
-			loader: 'html-loader',
-		});
-
 		// update storybook webpack config to transpile *all* JS
 		config.module.rules.find(
 			(rule) => String(rule.test) === String(/\.(cjs|mjs|tsx?|jsx?)$/),
