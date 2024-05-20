@@ -107,7 +107,7 @@
 			]
 		},
 		"fix": {
-			"command": "pnpm lint --fix",
+			"command": "eslint --cache --color . --fix",
 			"dependencies": [
 				"_deps"
 			],
