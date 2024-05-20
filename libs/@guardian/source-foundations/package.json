@@ -63,7 +63,7 @@
 				"_deps"
 			],
 			"files": [
-				"../../../configs/rollup.config.js",
+				"../../../configs/rollup/rollup.config.js",
 				"./rollup.config.js",
 				"src/**",
 				"package.json",

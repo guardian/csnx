@@ -3,4 +3,4 @@ packages:
   - 'libs/**'
   - '!**/libs/@guardian/source/*/**'
   - 'tools/**'
-  - 'configs'
+  - 'configs/**'
