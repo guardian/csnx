@@ -702,6 +702,48 @@ importers:
         specifier: 0.14.4
         version: 0.14.4
 
+  libs/@guardian/source-development-kitchen:
+    devDependencies:
+      '@babel/core':
+        specifier: 7.24.0
+        version: 7.24.0
+      '@emotion/react':
+        specifier: 11.11.1
+        version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
+      '@guardian/libs':
+        specifier: 16.0.0
+        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
+      '@guardian/source':
+        specifier: workspace:*
+        version: link:../source
+      '@storybook/manager-api':
+        specifier: 8.0.5
+        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/react':
+        specifier: 8.0.5
+        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+      '@types/react':
+        specifier: 18.2.11
+        version: 18.2.11
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      rollup:
+        specifier: 4.17.2
+        version: 4.17.2
+      storybook:
+        specifier: 8.0.5
+        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
+      tslib:
+        specifier: 2.6.2
+        version: 2.6.2
+      typescript:
+        specifier: 5.3.3
+        version: 5.3.3
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
+
   libs/@guardian/source-foundations:
     dependencies:
       mini-svg-data-uri:
