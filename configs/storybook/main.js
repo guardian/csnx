@@ -1,8 +1,10 @@
-const path = require('path');
+const fs = require('node:fs');
+
 const nodeModulesExclude = {
 	and: [/node_modules/],
 	not: [/@guardian\//],
 };
+
 module.exports = {
 	stories: [],
 	addons: [
@@ -57,4 +59,6 @@ module.exports = {
 	docs: {
 		autodocs: true,
 	},
+	previewHead: (head) =>
+		head + fs.readFileSync(require.resolve('./preview-head.html'), 'utf8'),
 };
