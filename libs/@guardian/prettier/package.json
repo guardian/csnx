@@ -7,34 +7,37 @@
 		"index.d.ts"
 	],
 	"scripts": {
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"fix": "wireit",
+		"lint": "wireit"
 	},
 	"devDependencies": {
 		"prettier": "3.2.2",
-		"tslib": "2.6.2"
+		"tslib": "2.6.2",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"prettier": "^3.2.2",
 		"tslib": "^2.6.2"
 	},
-	"nx": {
-		"targets": {
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			}
+	"wireit": {
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": []
 		}
 	}
 }

@@ -1,6 +1,6 @@
 import { addons } from '@storybook/manager-api';
-import { theme } from './theme';
+import { createTheme } from '../../../../configs/storybook/theme';
 
 addons.setConfig({
-	theme,
+	theme: createTheme('@guardian/source'),
 });

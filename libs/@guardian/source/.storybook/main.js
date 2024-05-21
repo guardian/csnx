@@ -1,4 +1,4 @@
-const rootMain = require('../../../../.storybook/main');
+const rootMain = require('../../../../configs/storybook/main');
 
 // To customise your Storybook config for this project, update this file
 

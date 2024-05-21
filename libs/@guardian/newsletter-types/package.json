@@ -6,25 +6,23 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
-		"types": "./dist/index.d.ts",
-		"import": "./dist/index.js",
-		"require": "./dist/index.cjs"
+		"types": "./dist/index.d.ts"
 	},
-	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"dev": "jest --watch",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"fix": "wireit",
+		"lint": "wireit"
 	},
 	"devDependencies": {
 		"rollup": "4.17.2",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
@@ -38,39 +36,40 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"dev": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
+	"wireit": {
+		"build": {
+			"command": "rollup -c",
+			"files": [
+				"../../../configs/rollup/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": []
 		}
 	}
 }

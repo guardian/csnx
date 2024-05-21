@@ -1,6 +1,7 @@
 {
 	"extends": "../../../tsconfig.base.json",
 	"include": [".", ".storybook/*"],
+	"exclude": ["node_modules", "dist", ".wireit", "storybook-static"],
 	"compilerOptions": {
 		"paths": {
 			"@guardian/source-foundations": [

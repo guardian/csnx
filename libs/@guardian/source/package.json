@@ -22,16 +22,16 @@
 		"react-components/package.json"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"build-storybook": "wireit",
-		"build-type-presets": "tsx ./scripts/build-type-presets.ts",
+		"build-type-presets": "wireit",
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
+		"fix": "wireit",
+		"lint": "wireit",
 		"storybook": "storybook dev --port 4404",
-		"test": "jest --passWithNoTests",
-		"verify-dist": "jest --setupFilesAfterEnv ./jest.dist.setup.js --passWithNoTests"
+		"test": "wireit",
+		"verify-dist": "wireit"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -41,6 +41,8 @@
 		"@emotion/react": "11.11.1",
 		"@guardian/design-tokens": "workspace:*",
 		"@rollup/plugin-alias": "5.1.0",
+		"@storybook/manager-api": "8.0.5",
+		"@storybook/react": "8.0.5",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -57,6 +59,7 @@
 		"prettier": "3.2.2",
 		"react": "18.2.0",
 		"rollup": "4.17.2",
+		"storybook": "8.0.5",
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"tsx": "4.7.1",
@@ -78,51 +81,34 @@
 			"optional": true
 		}
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"test": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
-		}
-	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../source-foundations:build",
+				"../source-react-components:build"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"../../../configs/rollup/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"files": [
+				"../../../../configs/storybook/**",
+				"./.storybook/**",
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
 				"!jest*"
@@ -130,6 +116,66 @@
 			"output": [
 				"storybook-static"
 			]
+		},
+		"build-type-presets": {
+			"command": "tsx ./scripts/build-type-presets.ts",
+			"dependencies": [
+				"../design-tokens:build"
+			],
+			"files": [
+				"./scripts/build-type-presets.ts",
+				"./src/utils/convert-value"
+			],
+			"output": [
+				"src/__generated__/typography"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
+			"clean": false,
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest --passWithNoTests",
+			"dependencies": [
+				"_deps"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../jest.*"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"!(dist|storybook-static)/**",
+				"../../../jest.*"
+			],
+			"output": []
 		}
 	}
 }

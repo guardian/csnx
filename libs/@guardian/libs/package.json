@@ -16,13 +16,13 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "rm -rf dist && rollup -c",
+		"build": "wireit",
 		"dev": "jest --watch",
 		"e2e": "wireit",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache .",
-		"test": "jest",
-		"verify-dist": "jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js"
+		"fix": "wireit",
+		"lint": "wireit",
+		"test": "wireit",
+		"verify-dist": "wireit"
 	},
 	"devDependencies": {
 		"@types/wcag-contrast": "3.0.3",
@@ -49,64 +49,73 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/src/**",
-					"{projectRoot}/package.json",
-					"{projectRoot}/tsconfig.json"
-				],
-				"outputs": [
-					"{projectRoot}/dist"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			},
-			"test": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"verify-dist": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			},
-			"dev": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/jest.*"
-				]
-			}
-		}
-	},
 	"wireit": {
+		"build": {
+			"command": "rollup -c",
+			"files": [
+				"../../../configs/rollup/rollup.config.js",
+				"./rollup.config.js",
+				"src/**",
+				"package.json",
+				"tsconfig.json"
+			],
+			"output": [
+				"dist"
+			]
+		},
 		"e2e": {
 			"command": "cypress run --headless",
 			"files": [
-				"**",
+				"!(dist)/**",
+				"!(.eslintcache)",
 				"!(jest*)"
 			],
 			"output": [],
 			"dependencies": [
 				"../../../apps/github-pages:start"
 			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../jest.*"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../jest.*"
+			],
+			"output": []
 		}
 	}
 }

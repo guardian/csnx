@@ -4,7 +4,7 @@ Source uses [Storybook][storybook] for its API documentation as well as for visu
 
 [storybook]: https://storybook.js.org/
 
-The Source are created within the CSNX storybooks, which can be run locally using `make storybooks` and built using `make build:storybooks`.
+The Source are created within the CSNX storybooks, which can be run locally using `make storybooks` and built using `make build-storybook`.
 
 ## Story Configuration
 
