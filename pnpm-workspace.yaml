@@ -1,6 +1,7 @@
 packages:
   - 'apps/**'
   - 'libs/**'
-  - '!**/libs/@guardian/*/*/**'
+  - '!**/libs/@guardian/source/*/**'
+  - '!**/libs/@guardian/source-development-kitchen/*/**'
   - 'tools/**'
   - 'configs/**'
