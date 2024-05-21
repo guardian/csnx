@@ -716,6 +716,12 @@ importers:
       '@guardian/source':
         specifier: workspace:*
         version: link:../source
+      '@storybook/manager-api':
+        specifier: 8.0.5
+        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/react':
+        specifier: 8.0.5
+        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
@@ -725,6 +731,9 @@ importers:
       rollup:
         specifier: 4.17.2
         version: 4.17.2
+      storybook:
+        specifier: 8.0.5
+        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: 2.6.2
         version: 2.6.2
