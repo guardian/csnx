@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { brand, iconSize } from '@guardian/source-foundations';
+import { iconSize, palette } from '@guardian/source-foundations';
 import type { IconProps } from '../@types/Icons';
 
 interface LoadingCircleIconProps extends IconProps {
@@ -9,14 +9,14 @@ interface LoadingCircleIconProps extends IconProps {
 
 const circleLineThickness = 5;
 
-const lightblueStyles = css`
-	stroke: #a5c0e8;
+const backgroundCircleStyles = css`
+	stroke: ${palette.brand[800]};
 	stroke-width: ${circleLineThickness};
 	fill: transparent;
 `;
 
-const darkblueStyles = css`
-	stroke: ${brand['400']};
+const foregroundCircleStyles = css`
+	stroke: ${palette.brand[400]};
 	stroke-dasharray: 82;
 	stroke-dashoffset: 82;
 	stroke-width: ${circleLineThickness};
@@ -36,18 +36,15 @@ export const SvgSpinner = ({ size }: LoadingCircleIconProps) => {
 					dur="2.5s"
 					repeatCount="indefinite"
 				/>
-				<circle cx="15" cy="15" r="12.6" css={lightblueStyles} />
-				<path
-					css={darkblueStyles}
-					d="M15,15 m0,-12.6 a 12.6,12.6 0 0,1 0,25.2 a 12.6,12.6 0 0,1 0,-25.2"
-				>
+				<circle cx="15" cy="15" r="12.6" css={backgroundCircleStyles} />
+				<circle cx="15" cy="15" r="12.6" css={foregroundCircleStyles}>
 					<animate
 						attributeName="stroke-dashoffset"
 						dur="3.5s"
 						to="-82"
 						repeatCount="indefinite"
 					/>
-				</path>
+				</circle>
 			</g>
 		</svg>
 	);
