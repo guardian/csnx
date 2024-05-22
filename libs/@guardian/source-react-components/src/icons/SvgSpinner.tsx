@@ -25,7 +25,12 @@ const foregroundCircleStyles = css`
 
 export const SvgSpinner = ({ size }: LoadingCircleIconProps) => {
 	return (
-		<svg width={size ? iconSize[size] : undefined} viewBox="0 0 30 30">
+		<svg
+			width={size ? iconSize[size] : undefined}
+			viewBox="0 0 30 30"
+			focusable={false}
+			aria-hidden={true}
+		>
 			<g>
 				<animateTransform
 					attributeName="transform"
