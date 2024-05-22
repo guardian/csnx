@@ -141,7 +141,7 @@
 			"output": []
 		},
 		"test": {
-			"command": "jest --passWithNoTests",
+			"command": "jest",
 			"files": [
 				"!(dist|storybook-static)/**",
 				"../../../jest.*"
@@ -149,7 +149,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],

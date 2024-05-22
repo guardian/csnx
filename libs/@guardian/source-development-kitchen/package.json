@@ -109,7 +109,7 @@
 			"output": []
 		},
 		"test": {
-			"command": "jest --passWithNoTests",
+			"command": "jest",
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -118,7 +118,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],
