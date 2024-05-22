@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { space } from '@guardian/source-foundations';
+import { space } from '../../foundations';
 import type { Space } from '../@types/Space';
 
 export const inline = css`

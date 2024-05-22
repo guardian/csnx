@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '../../foundations';
 
 /** @deprecated Use Partial<ThemeButton> instead */
 export type ButtonTheme = {

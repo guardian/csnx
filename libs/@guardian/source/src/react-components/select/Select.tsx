@@ -1,4 +1,4 @@
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
+import { descriptionId, generateSourceId } from '../../foundations';
 import type { ReactNode, SelectHTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';

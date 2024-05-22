@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgCamera } from '../__generated__/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';

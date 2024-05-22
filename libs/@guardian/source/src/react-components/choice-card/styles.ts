@@ -10,7 +10,7 @@ import {
 	transitions,
 	visuallyHidden,
 	width,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { ChoiceCardColumns } from './ChoiceCardGroup';
 import type { ThemeChoiceCard } from './theme';
 

@@ -11,7 +11,7 @@ import {
 	textSans24,
 	transitions,
 	width,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { ThemeCheckbox } from './theme';
 
 export const fieldset = css`

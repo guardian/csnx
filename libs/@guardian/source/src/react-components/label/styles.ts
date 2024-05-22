@@ -5,7 +5,7 @@ import {
 	textSans14,
 	textSansBold14,
 	textSansBold17,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeLabel } from './theme';
 

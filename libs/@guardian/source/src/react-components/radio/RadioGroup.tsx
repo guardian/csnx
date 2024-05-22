@@ -1,5 +1,5 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
+import { descriptionId, generateSourceId } from '../../foundations';
 import type { FieldsetHTMLAttributes } from 'react';
 import { Children, cloneElement } from 'react';
 import type { Props } from '../@types/Props';

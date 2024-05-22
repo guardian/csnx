@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAlertPhone } from '../__generated__/icons/SvgAlertPhone';

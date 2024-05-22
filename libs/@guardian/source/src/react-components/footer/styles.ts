@@ -9,7 +9,7 @@ import {
 	textSans12,
 	textSansBold15,
 	width,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import { footerThemeBrand } from './theme';
 
 export const footer = (

@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '../../foundations';
 
 export type ThemeLabel = {
 	textLabel: string;

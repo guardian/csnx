@@ -11,7 +11,7 @@ import {
 	textSansBold17,
 	transitions,
 	width,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { ThemeRadio, ThemeRadioGroup } from './theme';
 
 export const fieldset = (radio: ThemeRadioGroup): SerializedStyles => css`

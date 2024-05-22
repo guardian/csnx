@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { visuallyHidden as _visuallyHidden } from '@guardian/source-foundations';
+import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import { useEffect, useState } from 'react';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';

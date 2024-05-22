@@ -1,4 +1,4 @@
-import { breakpoints } from '@guardian/source-foundations';
+import { breakpoints } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { HideProps } from './Hide';
 import { Hide } from './Hide';

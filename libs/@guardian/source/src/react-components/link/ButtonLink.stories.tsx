@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import type { ButtonLinkProps } from './ButtonLink';

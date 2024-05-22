@@ -1,4 +1,4 @@
-import { brand } from '@guardian/source-foundations';
+import { brand } from '../../foundations';
 import { SvgRoundel } from './SvgRoundel';
 
 export type SvgRoundelBrandProps = {

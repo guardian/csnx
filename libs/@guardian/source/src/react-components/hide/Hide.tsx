@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { from as fromMq, until as untilMq } from '@guardian/source-foundations';
-import type { Breakpoint } from '@guardian/source-foundations';
+import { from as fromMq, until as untilMq } from '../../foundations';
+import type { Breakpoint } from '../../foundations';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 

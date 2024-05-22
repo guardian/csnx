@@ -1,4 +1,4 @@
-import { breakpoints } from '@guardian/source-foundations';
+import { breakpoints } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { FooterProps } from './Footer';
 import { Footer } from './Footer';

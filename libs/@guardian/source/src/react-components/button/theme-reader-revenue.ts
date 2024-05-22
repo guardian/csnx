@@ -1,4 +1,4 @@
-import { brand, brandAlt, neutral } from '@guardian/source-foundations';
+import { brand, brandAlt, neutral } from '../../foundations';
 import type { ButtonTheme, ThemeButton } from './theme';
 
 const text = {

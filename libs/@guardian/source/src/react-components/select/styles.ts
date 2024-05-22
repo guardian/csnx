@@ -7,7 +7,7 @@ import {
 	space,
 	textSans17,
 	width,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { ThemeSelect } from './theme';
 
 export const errorInput = (select: ThemeSelect): SerializedStyles => css`

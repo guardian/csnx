@@ -18,7 +18,7 @@ import {
 	textSans24,
 	textSans28,
 	textSans34,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import { Link } from './Link';

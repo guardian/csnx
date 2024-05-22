@@ -1,5 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
+import { descriptionId, generateSourceId } from '../../foundations';
 import type { InputHTMLAttributes } from 'react';
 import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';

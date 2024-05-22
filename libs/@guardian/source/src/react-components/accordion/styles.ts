@@ -10,7 +10,7 @@ import {
 	transitions,
 	until,
 	visuallyHidden,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { ThemeAccordion } from './theme';
 
 export const accordion = (accordion: ThemeAccordion): SerializedStyles => css`

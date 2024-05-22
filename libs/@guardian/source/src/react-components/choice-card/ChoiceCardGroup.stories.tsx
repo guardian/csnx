@@ -1,4 +1,4 @@
-import { breakpoints, palette } from '@guardian/source-foundations';
+import { breakpoints, palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ChoiceCard } from './ChoiceCard';

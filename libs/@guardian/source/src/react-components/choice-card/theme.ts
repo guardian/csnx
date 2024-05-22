@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source-foundations';
+import { palette } from '../../foundations';
 import type { Theme } from '../@types/Theme';
 import { themeLabel, type ThemeLabel } from '../label/theme';
 import type { ThemeUserFeedback } from '../user-feedback/theme';

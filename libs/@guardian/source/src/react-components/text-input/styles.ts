@@ -6,7 +6,7 @@ import {
 	space,
 	textSans14,
 	textSans17,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeTextInput } from './theme';
 

@@ -1,4 +1,4 @@
-import { generateSourceId } from '@guardian/source-foundations';
+import { generateSourceId } from '../../foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';

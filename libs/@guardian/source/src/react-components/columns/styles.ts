@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import type { Breakpoint } from '@guardian/source-foundations';
-import { between, from, space, until } from '@guardian/source-foundations';
+import type { Breakpoint } from '../../foundations';
+import { between, from, space, until } from '../../foundations';
 import type { ColumnsSpaceY } from './Columns';
 
 type ColumnBreakpoint = {

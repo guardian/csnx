@@ -1,4 +1,4 @@
-import { neutral } from '@guardian/source-foundations';
+import { neutral } from '../../foundations';
 import { SvgRoundel } from './SvgRoundel';
 
 export type SvgRoundelInverseProps = {

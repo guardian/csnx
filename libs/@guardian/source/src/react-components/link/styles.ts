@@ -1,11 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import {
-	focusHalo,
-	space,
-	textSans17,
-	width,
-} from '@guardian/source-foundations';
+import { focusHalo, space, textSans17, width } from '../../foundations';
 import type { ReactElement } from 'react';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';

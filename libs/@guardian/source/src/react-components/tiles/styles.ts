@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { from, space, until } from '@guardian/source-foundations';
+import { from, space, until } from '../../foundations';
 import type { Columns } from './@types/Columns';
 
 const collapseUntilTilesSpacing = css`

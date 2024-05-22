@@ -1,11 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import {
-	breakpoints,
-	from,
-	palette,
-	space,
-} from '@guardian/source-foundations';
+import { breakpoints, from, palette, space } from '../../foundations';
 
 export const container = css`
 	margin: 0 auto;

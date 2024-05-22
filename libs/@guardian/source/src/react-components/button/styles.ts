@@ -8,7 +8,7 @@ import {
 	textSansBold17,
 	transitions,
 	width,
-} from '@guardian/source-foundations';
+} from '../../foundations';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import type {
