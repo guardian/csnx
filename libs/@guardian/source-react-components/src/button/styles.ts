@@ -51,12 +51,11 @@ const loadingSpinnerSizes: Record<Size, number> = {
 
 const applyButtonStylesToLoadingSpinner = (size: Size) => {
 	return css`
-		path,
 		circle {
 			transition: stroke ${transitions.medium};
 			stroke: transparent;
 		}
-		path {
+		circle + circle {
 			stroke: currentColor;
 		}
 		svg {
