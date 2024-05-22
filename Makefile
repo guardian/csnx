@@ -477,38 +477,6 @@ install: check-node-version
 @guardian/source-development-kitchen\:verify-dist: env
 	@corepack pnpm --filter @guardian/source-development-kitchen verify-dist
 
-.PHONY: @guardian/source-react-components-development-kitchen\:build
-@guardian/source-react-components-development-kitchen\:build: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen build
-
-.PHONY: @guardian/source-react-components-development-kitchen\:build-storybook
-@guardian/source-react-components-development-kitchen\:build-storybook: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen build-storybook
-
-.PHONY: @guardian/source-react-components-development-kitchen\:dev
-@guardian/source-react-components-development-kitchen\:dev: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen dev
-
-.PHONY: @guardian/source-react-components-development-kitchen\:fix
-@guardian/source-react-components-development-kitchen\:fix: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen fix
-
-.PHONY: @guardian/source-react-components-development-kitchen\:lint
-@guardian/source-react-components-development-kitchen\:lint: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen lint
-
-.PHONY: @guardian/source-react-components-development-kitchen\:storybook
-@guardian/source-react-components-development-kitchen\:storybook: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen storybook
-
-.PHONY: @guardian/source-react-components-development-kitchen\:test
-@guardian/source-react-components-development-kitchen\:test: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen test
-
-.PHONY: @guardian/source-react-components-development-kitchen\:verify-dist
-@guardian/source-react-components-development-kitchen\:verify-dist: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen verify-dist
-
 .PHONY: @guardian/tsconfig\:fix
 @guardian/tsconfig\:fix: env
 	@corepack pnpm --filter @guardian/tsconfig fix
