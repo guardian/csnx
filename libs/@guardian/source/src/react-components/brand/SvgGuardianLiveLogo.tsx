@@ -19,8 +19,8 @@ export type SvgGuardianLiveLogoProps = {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_svgguardianlivelogo--default) •
  * [Design System](https://theguardian.design/2a1e5182b/p/8909e0-assets/t/05bdd0) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/brand/SvgGuardianLiveLogo.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/brand/SvgGuardianLiveLogo.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
  */
 
 export const SvgGuardianLiveLogo = ({

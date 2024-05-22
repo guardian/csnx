@@ -29,8 +29,8 @@ const visuallyHidden = css`
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_accordion--with-cta-labels-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/38c5aa-accordion/b/92b71e) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/accordion/AccordionRowNoJS.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/accordion/AccordionRowNoJS.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
  */
 export const AccordionRowNoJS = ({
 	label,

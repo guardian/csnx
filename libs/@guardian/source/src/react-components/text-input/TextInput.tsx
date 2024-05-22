@@ -100,8 +100,8 @@ export interface TextInputProps
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_textinput--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/097455-text-input-field/b/050445) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/text-input/TextInput.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/text-input/TextInput.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
  *
  * Single line fields that allow users to enter freeform data.
  *

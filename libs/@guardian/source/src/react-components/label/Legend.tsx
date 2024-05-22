@@ -6,8 +6,8 @@ import { Text } from './Text';
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_legend--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/40151e-label/b/86af7d) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/label/Legend.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/label/Legend.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
  *
  * A legend describes a group of fields, such as a checkbox group or radio group.
  *

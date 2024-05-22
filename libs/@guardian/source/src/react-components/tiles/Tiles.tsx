@@ -65,8 +65,8 @@ export interface TilesProps extends HTMLAttributes<HTMLDivElement>, Props {
 /**
  * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_textinput--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/00e9f5-tiles) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/layout/Tiles.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/layout/Tiles.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
  *
  * Child components will be arranged with equal width and spacing with the specified number of columns,
  * wrapping onto a new row as necessary.

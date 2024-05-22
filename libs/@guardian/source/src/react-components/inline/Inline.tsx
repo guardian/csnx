@@ -13,8 +13,8 @@ export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source-react-components_inline--docs) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components/src/inline/Inline.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/inline/Inline.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
  *
  * `Inline` child elements are laid out horizontally, wrapping on to another row
  * if there isn't enough room. Spacing is applied between adjacent children.
