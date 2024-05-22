@@ -2,7 +2,7 @@ import { palette as colours } from './palette';
 import { ColorItem, ColorPalette } from './storybookColorPalette';
 
 export default {
-	title: 'palette',
+	title: 'Foundations/palette',
 
 	parameters: {
 		previewTabs: {

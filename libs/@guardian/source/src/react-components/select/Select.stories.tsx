@@ -5,7 +5,7 @@ import type { SelectProps } from './Select';
 import { Select } from './Select';
 
 const meta: Meta<typeof Select> = {
-	title: 'Select',
+	title: 'React Components/Select',
 	component: Select,
 	argTypes: {
 		error: {

@@ -3,7 +3,7 @@ import type { ContainerProps } from './Container';
 import { Container } from './Container';
 
 const meta: Meta<typeof Container> = {
-	title: 'Container',
+	title: 'React Components/Container',
 	component: Container,
 	argTypes: {
 		border: {

@@ -3,7 +3,7 @@ import type { SvgGuardianLiveLogoProps } from './SvgGuardianLiveLogo';
 import { SvgGuardianLiveLogo } from './SvgGuardianLiveLogo';
 
 const meta: Meta<typeof SvgGuardianLiveLogo> = {
-	title: 'SvgGuardianLiveLogo',
+	title: 'React Components/SvgGuardianLiveLogo',
 	component: SvgGuardianLiveLogo,
 	argTypes: {
 		width: {

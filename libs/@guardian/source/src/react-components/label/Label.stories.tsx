@@ -5,7 +5,7 @@ import { Label } from './Label';
 import { themeLabelBrand } from './theme';
 
 const meta: Meta<typeof Label> = {
-	title: 'Label',
+	title: 'React Components/Label',
 	args: {
 		text: 'Email',
 		optional: false,

@@ -6,7 +6,7 @@ import { Checkbox } from './Checkbox';
 import { themeCheckboxBrand } from './theme';
 
 const meta: Meta<typeof Checkbox> = {
-	title: 'Checkbox',
+	title: 'React Components/Checkbox',
 	component: Checkbox,
 	argTypes: {},
 	args: {

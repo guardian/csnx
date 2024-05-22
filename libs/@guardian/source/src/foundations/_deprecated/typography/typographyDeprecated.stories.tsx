@@ -12,7 +12,7 @@ import {
 } from './storybookTypographyRenderers';
 
 export default {
-	title: 'Typography API (deprecated)',
+	title: 'Foundations/Typography API (deprecated)',
 
 	parameters: {
 		previewTabs: {

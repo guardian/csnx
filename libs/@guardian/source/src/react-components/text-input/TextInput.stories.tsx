@@ -5,7 +5,7 @@ import { TextInput } from './TextInput';
 import type { TextInputProps } from './TextInput';
 
 const meta: Meta<typeof TextInput> = {
-	title: 'TextInput',
+	title: 'React Components/TextInput',
 	component: TextInput,
 	args: {
 		label: 'Email',
@@ -126,7 +126,7 @@ export const ConstraintDefaultTheme: StoryFn<typeof TextInput> = Template.bind(
 ConstraintDefaultTheme.args = {
 	label: 'Phone number',
 	pattern: '[0-9]{1,11}',
-	title: '11 digit phone number',
+	title: 'React Components/11 digit phone number',
 	type: 'tel',
 };
 
@@ -221,7 +221,7 @@ export const ConstraintSmallDefaultTheme: StoryFn<typeof TextInput> =
 ConstraintSmallDefaultTheme.args = {
 	label: 'Phone number',
 	pattern: '[0-9]{1,11}',
-	title: '11 digit phone number',
+	title: 'React Components/11 digit phone number',
 	type: 'tel',
 	size: 'small',
 };

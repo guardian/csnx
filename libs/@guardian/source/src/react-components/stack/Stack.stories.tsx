@@ -3,7 +3,7 @@ import type { StackProps } from './Stack';
 import { Stack } from './Stack';
 
 const meta: Meta<typeof Stack> = {
-	title: 'Stack',
+	title: 'React Components/Stack',
 	component: Stack,
 };
 

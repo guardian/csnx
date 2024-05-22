@@ -5,7 +5,7 @@ import { InlineSuccess } from './InlineSuccess';
 import { userFeedbackThemeBrand } from './theme';
 
 const meta: Meta<typeof InlineSuccess> = {
-	title: 'InlineSuccess',
+	title: 'React Components/InlineSuccess',
 	component: InlineSuccess,
 	args: {
 		size: 'medium',

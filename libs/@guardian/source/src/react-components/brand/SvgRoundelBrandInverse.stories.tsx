@@ -3,7 +3,7 @@ import type { SvgRoundelBrandInverseProps } from './SvgRoundelBrandInverse';
 import { SvgRoundelBrandInverse } from './SvgRoundelBrandInverse';
 
 const meta: Meta<typeof SvgRoundelBrandInverse> = {
-	title: 'SvgRoundelBrandInverse',
+	title: 'React Components/SvgRoundelBrandInverse',
 	component: SvgRoundelBrandInverse,
 	argTypes: {
 		width: {

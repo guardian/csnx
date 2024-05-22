@@ -3,7 +3,7 @@ import type { SvgRoundelInverseProps } from './SvgRoundelInverse';
 import { SvgRoundelInverse } from './SvgRoundelInverse';
 
 const meta: Meta<typeof SvgRoundelInverse> = {
-	title: 'SvgRoundelInverse',
+	title: 'React Components/SvgRoundelInverse',
 	component: SvgRoundelInverse,
 	argTypes: {
 		width: {

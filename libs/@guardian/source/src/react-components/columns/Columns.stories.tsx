@@ -11,7 +11,7 @@ const Code = (args: HTMLAttributes<HTMLElement>) => (
 );
 
 const meta: Meta<typeof Column> = {
-	title: 'Columns',
+	title: 'React Components/Columns',
 	component: Columns,
 };
 
