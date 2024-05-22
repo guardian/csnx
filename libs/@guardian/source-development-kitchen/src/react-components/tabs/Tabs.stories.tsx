@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { palette } from '@guardian/source-foundations';
-import { SvgAppleBrand } from '@guardian/source-react-components';
+import { palette } from '@guardian/source/foundations';
+import { SvgAppleBrand } from '@guardian/source/react-components';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { Tabs } from './tabs';

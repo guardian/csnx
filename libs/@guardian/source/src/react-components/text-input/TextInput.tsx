@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
-import { descriptionId, generateSourceId } from '../../foundations';
 import type { InputHTMLAttributes } from 'react';
+import { descriptionId, generateSourceId } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';

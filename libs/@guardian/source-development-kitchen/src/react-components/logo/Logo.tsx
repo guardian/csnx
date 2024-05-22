@@ -4,9 +4,9 @@ import {
 	brandText,
 	from,
 	visuallyHidden,
-} from '@guardian/source-foundations';
-import { SvgGuardianLogo } from '@guardian/source-react-components';
-import type { Props } from '@guardian/source-react-components';
+} from '@guardian/source/foundations';
+import { SvgGuardianLogo } from '@guardian/source/react-components';
+import type { Props } from '@guardian/source/react-components';
 
 type LogoType = 'standard' | 'anniversary' | 'bestWebsite';
 

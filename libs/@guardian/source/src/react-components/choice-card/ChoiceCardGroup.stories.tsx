@@ -1,6 +1,6 @@
-import { breakpoints, palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
+import { breakpoints, palette } from '../../foundations';
 import { ChoiceCard } from './ChoiceCard';
 import ChoiceCardStories from './ChoiceCard.stories';
 import { ChoiceCardGroup } from './ChoiceCardGroup';

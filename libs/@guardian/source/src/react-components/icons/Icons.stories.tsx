@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAlertPhone } from '../__generated__/icons/SvgAlertPhone';
 import { SvgAlertRound } from '../__generated__/icons/SvgAlertRound';

@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { focusHalo, space, textSans17, width } from '../../foundations';
 import type { ReactElement } from 'react';
+import { focusHalo, space, textSans17, width } from '../../foundations';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import type { IconSide, LinkPriority } from './@types/SharedLinkProps';

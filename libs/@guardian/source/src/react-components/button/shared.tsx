@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { visuallyHidden } from '../../foundations';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
+import { visuallyHidden } from '../../foundations';
 import { SvgSpinner } from '../icons/SvgSpinner';
 
 export const buttonContents = ({

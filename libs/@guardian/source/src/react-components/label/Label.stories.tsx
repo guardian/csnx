@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import type { LabelProps } from './@types/LabelProps';
 import { Label } from './Label';
 import { themeLabelBrand } from './theme';

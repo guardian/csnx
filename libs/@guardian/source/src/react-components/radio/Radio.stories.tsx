@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import { Radio } from './Radio';
 import type { RadioProps } from './Radio';
 import { themeRadioBrand } from './theme';

@@ -10,8 +10,8 @@ import {
 	palette,
 	specialReport,
 	sport,
-} from '@guardian/source-foundations';
-import { SvgQuote } from '@guardian/source-react-components';
+} from '@guardian/source/foundations';
+import { SvgQuote } from '@guardian/source/react-components';
 
 const quoteColor = (format: ArticleFormat) => {
 	switch (format.theme) {

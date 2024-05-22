@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import type { ReactNode } from 'react';
+import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import type { Theme } from '../@types/Theme';
 import { mergedTheme } from './shared';
 import { supportingText } from './styles';

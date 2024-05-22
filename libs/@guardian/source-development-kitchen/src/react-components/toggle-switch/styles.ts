@@ -7,7 +7,7 @@ import {
 	space,
 	success,
 	textSans,
-} from '@guardian/source-foundations';
+} from '@guardian/source/foundations';
 import type {
 	LabelPosition,
 	ToggleSwitchFontSize,

@@ -1,5 +1,5 @@
-import type { ButtonProps as CoreButtonProps } from '@guardian/source-react-components';
-import { Button as CoreButton } from '@guardian/source-react-components';
+import type { ButtonProps as CoreButtonProps } from '@guardian/source/react-components';
+import { Button as CoreButton } from '@guardian/source/react-components';
 import {
 	decideBackground,
 	decideBorder,

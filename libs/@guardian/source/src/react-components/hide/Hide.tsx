@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
+import type { HTMLAttributes } from 'react';
 import { from as fromMq, until as untilMq } from '../../foundations';
 import type { Breakpoint } from '../../foundations';
-import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
 
 export interface HideProps extends HTMLAttributes<HTMLDivElement>, Props {

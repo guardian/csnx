@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { Breakpoint } from '../../foundations';
 import type { HTMLAttributes } from 'react';
+import type { Breakpoint } from '../../foundations';
 import type { Props } from '../@types/Props';
 import {
 	collapseBelowColumnsCSS,

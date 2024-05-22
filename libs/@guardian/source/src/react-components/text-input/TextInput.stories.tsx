@@ -1,6 +1,6 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
+import { palette } from '../../foundations';
 import { TextInput } from './TextInput';
 import type { TextInputProps } from './TextInput';
 

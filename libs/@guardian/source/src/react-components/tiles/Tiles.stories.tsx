@@ -1,5 +1,5 @@
-import { breakpoints } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { breakpoints } from '../../foundations';
 import type { TilesProps } from './Tiles';
 import { Tiles } from './Tiles';
 

@@ -5,9 +5,9 @@ import {
 	space,
 	textSans14,
 	textSans17,
-} from '@guardian/source-foundations';
-import { textInputThemeDefault } from '@guardian/source-react-components';
-import type { InputSize } from '@guardian/source-react-components';
+} from '@guardian/source/foundations';
+import { textInputThemeDefault } from '@guardian/source/react-components';
+import type { InputSize } from '@guardian/source/react-components';
 
 const inputSizeDefault = css`
 	${textSans17};

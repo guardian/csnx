@@ -1,5 +1,5 @@
-import type { LinkButtonProps as CoreLinkButtonProps } from '@guardian/source-react-components';
-import { LinkButton as CoreLinkButton } from '@guardian/source-react-components';
+import type { LinkButtonProps as CoreLinkButtonProps } from '@guardian/source/react-components';
+import { LinkButton as CoreLinkButton } from '@guardian/source/react-components';
 import {
 	decideBackground,
 	decideBorder,

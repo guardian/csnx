@@ -1,14 +1,14 @@
 import type { SerializedStyles, Theme } from '@emotion/react';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
+import { descriptionId, generateSourceId } from '@guardian/source/foundations';
 import type {
 	TextInputProps,
 	textInputThemeDefault,
-} from '@guardian/source-react-components';
+} from '@guardian/source/react-components';
 import {
 	InlineError,
 	InlineSuccess,
 	Label,
-} from '@guardian/source-react-components';
+} from '@guardian/source/react-components';
 import { InputExtension } from './InputExtension';
 import {
 	hasExtensions,

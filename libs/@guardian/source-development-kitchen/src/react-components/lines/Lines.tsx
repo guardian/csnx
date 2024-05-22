@@ -1,5 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
-import { neutral } from '@guardian/source-foundations';
+import { neutral } from '@guardian/source/foundations';
 import { DashedLines } from './DashedLines';
 import { DottedLines } from './DottedLines';
 import { SquigglyLines } from './SquigglyLines';

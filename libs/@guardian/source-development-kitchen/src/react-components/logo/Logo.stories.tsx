@@ -1,4 +1,4 @@
-import { breakpoints } from '@guardian/source-foundations';
+import { breakpoints } from '@guardian/source/foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Logo } from './Logo';
 

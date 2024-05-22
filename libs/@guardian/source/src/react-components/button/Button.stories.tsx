@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import { SvgCross } from '../__generated__/icons/SvgCross';
 import type { ButtonProps } from './Button';
 import { Button } from './Button';

@@ -1,6 +1,6 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
+import { palette } from '../../foundations';
 import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
 

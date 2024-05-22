@@ -1,5 +1,5 @@
-import { generateSourceId } from '../../foundations';
 import type { InputHTMLAttributes, ReactNode } from 'react';
+import { generateSourceId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';

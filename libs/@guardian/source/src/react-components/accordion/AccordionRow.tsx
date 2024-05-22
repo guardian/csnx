@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import { useEffect, useState } from 'react';
 import type { HTMLAttributes } from 'react';
+import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';

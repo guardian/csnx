@@ -1,6 +1,6 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
+import { palette } from '../../foundations';
 import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';
 import { themeCheckboxBrand } from './theme';

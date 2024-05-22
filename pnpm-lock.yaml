@@ -73,7 +73,7 @@ importers:
         version: 9.0.6
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+        version: 29.7.0(@types/node@20.12.11)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -182,9 +182,9 @@ importers:
       '@emotion/react':
         specifier: 11.11.1
         version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/source-foundations':
+      '@guardian/source':
         specifier: workspace:*
-        version: link:../../libs/@guardian/source-foundations
+        version: link:../../libs/@guardian/source
       '@storybook/addon-a11y':
         specifier: 8.0.5
         version: 8.0.5
@@ -501,7 +501,7 @@ importers:
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+        version: 29.7.0(@types/node@20.12.11)
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
@@ -667,7 +667,7 @@ importers:
         version: 16.4.1
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+        version: 29.7.0(@types/node@20.12.11)
       lightningcss:
         specifier: 1.24.0
         version: 1.24.0
@@ -714,180 +714,8 @@ importers:
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source':
-        specifier: workspace:*
-        version: link:../source
-      '@storybook/manager-api':
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/react':
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
-      '@types/react':
-        specifier: 18.2.11
-        version: 18.2.11
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      rollup:
-        specifier: 4.17.2
-        version: 4.17.2
-      storybook:
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
-
-  libs/@guardian/source-foundations:
-    dependencies:
-      mini-svg-data-uri:
-        specifier: 1.4.4
-        version: 1.4.4
-    devDependencies:
-      '@emotion/react':
-        specifier: 11.11.1
-        version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/design-tokens':
-        specifier: workspace:*
-        version: link:../design-tokens
-      lightningcss:
-        specifier: 1.24.0
-        version: 1.24.0
-      prettier:
-        specifier: 3.2.5
-        version: 3.2.5
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      rollup:
-        specifier: 4.17.2
-        version: 4.17.2
-      storybook:
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
-      tsx:
-        specifier: 4.7.1
-        version: 4.7.1
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
-
-  libs/@guardian/source-react-components:
-    devDependencies:
-      '@babel/core':
-        specifier: 7.24.0
-        version: 7.24.0
-      '@emotion/react':
-        specifier: 11.11.1
-        version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/source-foundations':
-        specifier: 16.0.0
-        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
-      '@storybook/manager-api':
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/react':
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
-      '@svgr/babel-preset':
-        specifier: 8.1.0
-        version: 8.1.0(@babel/core@7.24.0)
-      '@svgr/core':
-        specifier: 8.1.0
-        version: 8.1.0(typescript@5.3.3)
-      '@svgr/plugin-jsx':
-        specifier: 8.1.0
-        version: 8.1.0(@svgr/core@8.1.0)
-      '@svgr/plugin-prettier':
-        specifier: 8.1.0
-        version: 8.1.0(@svgr/core@8.1.0)
-      '@svgr/plugin-svgo':
-        specifier: 8.1.0
-        version: 8.1.0(@svgr/core@8.1.0)(typescript@5.3.3)
-      '@types/babel__core':
-        specifier: 7.20.5
-        version: 7.20.5
-      '@types/jest':
-        specifier: 29.5.8
-        version: 29.5.8
-      '@types/mkdirp':
-        specifier: 2.0.0
-        version: 2.0.0
-      '@types/prettier':
-        specifier: 3.0.0
-        version: 3.0.0
-      '@types/react':
-        specifier: 18.2.11
-        version: 18.2.11
-      dotenv:
-        specifier: 16.4.1
-        version: 16.4.1
-      jest:
-        specifier: 29.7.0
-        version: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
-      mkdirp:
-        specifier: 3.0.1
-        version: 3.0.1
-      prettier:
-        specifier: 3.2.2
-        version: 3.2.2
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      rollup:
-        specifier: 4.17.2
-        version: 4.17.2
-      storybook:
-        specifier: 8.0.5
-        version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
-      ts-jest:
-        specifier: 29.1.1
-        version: 29.1.1(@babel/core@7.24.0)(esbuild@0.20.2)(jest@29.7.0)(typescript@5.3.3)
-      ts-node:
-        specifier: 10.9.2
-        version: 10.9.2(@swc/core@1.4.0)(@types/node@20.12.11)(typescript@5.3.3)
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
-
-  libs/@guardian/source-react-components-development-kitchen:
-    devDependencies:
-      '@babel/core':
-        specifier: 7.24.0
-        version: 7.24.0
-      '@emotion/react':
-        specifier: 11.11.1
-        version: 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/libs':
-        specifier: 16.0.0
-        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
-      '@guardian/source-foundations':
-        specifier: 16.0.0
-        version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
-      '@guardian/source-react-components':
-        specifier: 25.0.0
-        version: 25.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@16.0.0)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
+        specifier: 0.3.0
+        version: 0.3.0(@emotion/react@11.11.1)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@storybook/manager-api':
         specifier: 8.0.5
         version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
@@ -2701,13 +2529,6 @@ packages:
     dev: true
     optional: true
 
-  /@cspotcode/source-map-support@0.8.1:
-    resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.9
-    dev: true
-
   /@cypress/request@3.0.1:
     resolution: {integrity: sha512-TWivJlJi8ZDx2wGOw1dbLuHJKUYX7bWySw377nlnGOW3hP9/MUKIsEdXT/YngWxVdgNCHRBmFlBipE+5/2ZZlQ==}
     engines: {node: '>= 6'}
@@ -3326,20 +3147,6 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/source-foundations@16.0.0(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-bdRcJTEJ6tGmibGRwhQcY70NMACHCcsnNsiWRwW1fSPpvcAuR4xvXmn3UlaL1U/RO4Yk1YvJjPiV/n9WHnjbjQ==}
-    peerDependencies:
-      tslib: ^2.6.2
-      typescript: ~5.3.3
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      mini-svg-data-uri: 1.4.4
-      tslib: 2.6.2
-      typescript: 5.3.3
-    dev: true
-
   /@guardian/source-react-components@22.0.1(@emotion/react@11.11.1)(@guardian/source-foundations@14.1.4)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
     resolution: {integrity: sha512-jpnFdc/fIRQswufgFDjlv0RQvtNpWd5PL7PJa4r7oNp8H8f+LEVn1D/WkuLFQwtP+T3S/wGF5GrcOmTMyFTlYA==}
     peerDependencies:
@@ -3359,11 +3166,10 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/source-react-components@25.0.0(@emotion/react@11.11.1)(@guardian/source-foundations@16.0.0)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-9llnT6DUiLmdhklciMO75SBC9DbBqLw+jBWxhu60J+uAyw7B2WqG9Bmk8wPBCSrRe4hNvsosJyVMI+KiRb48Bw==}
+  /@guardian/source@0.3.0(@emotion/react@11.11.1)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-3PwArI4TZtL7KY9yCK5oZDidwuJzUV2rzz1PkrNaT+N5Mvxt3Xb4a6oHs+1+T55ec3cH/0RQ9cvNGpPW6ohQlA==}
     peerDependencies:
       '@emotion/react': ^11.11.1
-      '@guardian/source-foundations': ^16.0.0
       '@types/react': ^18.2.11
       react: ^18.2.0
       tslib: ^2.6.2
@@ -3375,8 +3181,8 @@ packages:
         optional: true
     dependencies:
       '@emotion/react': 11.11.1(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/source-foundations': 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@types/react': 18.2.11
+      mini-svg-data-uri: 1.4.4
       react: 18.2.0
       tslib: 2.6.2
       typescript: 5.3.3
@@ -3438,7 +3244,7 @@ packages:
       slash: 3.0.0
     dev: true
 
-  /@jest/core@29.7.0(ts-node@10.9.2):
+  /@jest/core@29.7.0:
     resolution: {integrity: sha512-n7aeXWKMnGtDA48y8TLWJPJmLmmZ642Ceo78cYWEpiD7FzDgmNDV/GCVRorPABdXLJZ/9wzzgZAlHjXjxDHGsg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -3459,7 +3265,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@20.12.11)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -3677,13 +3483,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
-
-  /@jridgewell/trace-mapping@0.3.9:
-    resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
-    dependencies:
-      '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
 
   /@manypkg/find-root@1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -5177,22 +4976,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /@tsconfig/node10@1.0.11:
-    resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
-    dev: true
-
-  /@tsconfig/node12@1.0.11:
-    resolution: {integrity: sha512-cqefuRsh12pWyGsIoBKJA9luFu3mRxCA+ORZvA4ktLSzIuCUtWVxGIuXigEwO5/ywWFMZ2QEGKWvkZG1zDMTag==}
-    dev: true
-
-  /@tsconfig/node14@1.0.3:
-    resolution: {integrity: sha512-ysT8mhdixWK6Hw3i1V2AeRqZ5WfXg1G43mqoYlM2nc6388Fq5jcXyr5mRsqViLx/GJYdoL0bfXD8nmF+Zn/Iow==}
-    dev: true
-
-  /@tsconfig/node16@1.0.4:
-    resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
-    dev: true
-
   /@types/aria-query@5.0.1:
     resolution: {integrity: sha512-XTIieEY+gvJ39ChLcB4If5zHtPxt3Syj5rgZR+e1ctpmK8NjPf0zFqsz4JpLJT0xla9GFDKjy8Cpu331nrmE1Q==}
     dev: true
@@ -6283,10 +6066,6 @@ packages:
 
   /arch@2.2.0:
     resolution: {integrity: sha512-Of/R0wqp83cgHozfIYLbBMnej79U/SVGOOyuB3VVFv1NRM/PSFMK12x9KVtiYzJqmnU5WR2qp0Z5rHb7sWGnFQ==}
-    dev: true
-
-  /arg@4.1.3:
-    resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
     dev: true
 
   /argparse@1.0.10:
@@ -7392,7 +7171,7 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /create-jest@29.7.0(@types/node@20.12.11)(ts-node@10.9.2):
+  /create-jest@29.7.0(@types/node@20.12.11):
     resolution: {integrity: sha512-Adz2bdH0Vq3F53KEMJOoftQFutWCukm6J24wbPWRO4k1kMY7gS7ds/uoJkNuV8wDCtWWnuwGcJwpWcih+zEW1Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -7401,7 +7180,7 @@ packages:
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@20.12.11)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -7409,10 +7188,6 @@ packages:
       - babel-plugin-macros
       - supports-color
       - ts-node
-    dev: true
-
-  /create-require@1.1.1:
-    resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
     dev: true
 
   /cross-fetch@3.1.5:
@@ -7901,11 +7676,6 @@ packages:
   /diff-sequences@29.6.3:
     resolution: {integrity: sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-    dev: true
-
-  /diff@4.0.2:
-    resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
-    engines: {node: '>=0.3.1'}
     dev: true
 
   /diff@5.2.0:
@@ -10405,7 +10175,7 @@ packages:
       - supports-color
     dev: true
 
-  /jest-cli@29.7.0(@types/node@20.12.11)(ts-node@10.9.2):
+  /jest-cli@29.7.0(@types/node@20.12.11):
     resolution: {integrity: sha512-OVVobw2IubN/GSYsxETi+gOe7Ka59EFMR/twOU3Jb2GnKKeMGJB5SGUUrEz3SFVmJASUdZUzy83sLNNQ2gZslg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -10415,14 +10185,14 @@ packages:
       node-notifier:
         optional: true
     dependencies:
-      '@jest/core': 29.7.0(ts-node@10.9.2)
+      '@jest/core': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+      create-jest: 29.7.0(@types/node@20.12.11)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@20.12.11)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -10433,7 +10203,7 @@ packages:
       - ts-node
     dev: true
 
-  /jest-config@29.7.0(@types/node@20.12.11)(ts-node@10.9.2):
+  /jest-config@29.7.0(@types/node@20.12.11):
     resolution: {integrity: sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -10468,7 +10238,6 @@ packages:
       pretty-format: 29.7.0
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.9.2(@swc/core@1.4.0)(@types/node@20.12.11)(typescript@5.3.3)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -10797,7 +10566,7 @@ packages:
       supports-color: 8.1.1
     dev: true
 
-  /jest@29.7.0(@types/node@20.12.11)(ts-node@10.9.2):
+  /jest@29.7.0(@types/node@20.12.11):
     resolution: {integrity: sha512-NIy3oAFp9shda19hy4HK0HRTWKtPJmGdnvywu01nOqNC2vZg+Z+fvJDxpMQA88eb2I9EcafcdjYgsDthnYTvGw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -10807,10 +10576,10 @@ packages:
       node-notifier:
         optional: true
     dependencies:
-      '@jest/core': 29.7.0(ts-node@10.9.2)
+      '@jest/core': 29.7.0
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+      jest-cli: 29.7.0(@types/node@20.12.11)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -14489,7 +14258,7 @@ packages:
       bs-logger: 0.2.6
       esbuild: 0.20.2
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.12.11)(ts-node@10.9.2)
+      jest: 29.7.0(@types/node@20.12.11)
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -14497,40 +14266,6 @@ packages:
       semver: 7.5.4
       typescript: 5.3.3
       yargs-parser: 21.1.1
-    dev: true
-
-  /ts-node@10.9.2(@swc/core@1.4.0)(@types/node@20.12.11)(typescript@5.3.3):
-    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-      '@types/node':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@swc/core': 1.4.0(@swc/helpers@0.5.11)
-      '@tsconfig/node10': 1.0.11
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.12.11
-      acorn: 8.11.3
-      acorn-walk: 8.3.2
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.3.3
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
     dev: true
 
   /tsconfck@3.0.2(typescript@5.3.3):
@@ -14983,10 +14718,6 @@ packages:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
     dev: false
-
-  /v8-compile-cache-lib@3.0.1:
-    resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
-    dev: true
 
   /v8-to-istanbul@9.2.0:
     resolution: {integrity: sha512-/EH/sDgxU2eGxajKdwLCDmQ4FWq+kpi3uCmBGpw1xJtnAxEjlD8j8PEiGWpCIMIs3ciNAgH0d3TTJiUkYzyZjA==}
@@ -15733,11 +15464,6 @@ packages:
     dependencies:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
-    dev: true
-
-  /yn@3.1.1:
-    resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
-    engines: {node: '>=6'}
     dev: true
 
   /yocto-queue@0.1.0:

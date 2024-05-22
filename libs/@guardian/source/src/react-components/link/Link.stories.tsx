@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import {
 	headlineMedium14,
 	headlineMedium17,
@@ -19,7 +20,6 @@ import {
 	textSans28,
 	textSans34,
 } from '../../foundations';
-import type { Meta, StoryFn } from '@storybook/react';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import { Link } from './Link';
 import type { LinkProps } from './Link';

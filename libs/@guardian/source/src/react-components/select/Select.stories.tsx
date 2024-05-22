@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import { Option } from './Option';
 import type { SelectProps } from './Select';
 import { Select } from './Select';

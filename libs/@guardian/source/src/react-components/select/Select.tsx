@@ -1,5 +1,5 @@
-import { descriptionId, generateSourceId } from '../../foundations';
 import type { ReactNode, SelectHTMLAttributes } from 'react';
+import { descriptionId, generateSourceId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';

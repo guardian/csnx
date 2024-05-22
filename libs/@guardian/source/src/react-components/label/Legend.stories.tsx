@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import type { LegendProps } from './@types/LegendProps';
 import { Legend } from './Legend';
 import { labelThemeBrand } from './theme';

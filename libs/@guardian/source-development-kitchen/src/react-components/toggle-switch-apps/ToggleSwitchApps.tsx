@@ -1,5 +1,5 @@
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
-import type { Props } from '@guardian/source-react-components';
+import { descriptionId, generateSourceId } from '@guardian/source/foundations';
+import type { Props } from '@guardian/source/react-components';
 import { androidStyles, buttonStyles, iosStyles, labelStyles } from './styles';
 
 export type Platform = 'android' | 'ios';

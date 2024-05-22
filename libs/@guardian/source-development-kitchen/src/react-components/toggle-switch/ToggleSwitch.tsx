@@ -1,6 +1,6 @@
 import type { ArticleFormat } from '@guardian/libs';
-import { descriptionId, generateSourceId } from '@guardian/source-foundations';
-import type { Props } from '@guardian/source-react-components';
+import { descriptionId, generateSourceId } from '@guardian/source/foundations';
+import type { Props } from '@guardian/source/react-components';
 import { useEffect, useState } from 'react';
 import {
 	buttonStyles,

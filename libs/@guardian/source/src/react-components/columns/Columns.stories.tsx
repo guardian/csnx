@@ -1,6 +1,6 @@
-import { breakpoints } from '../../foundations';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { HTMLAttributes } from 'react';
+import { breakpoints } from '../../foundations';
 import { Container } from '../container/Container';
 import { Column } from './Column';
 import { Columns } from './Columns';
