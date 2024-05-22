@@ -9,7 +9,7 @@ import type { TabProps } from './types';
 
 const meta: Meta<typeof Tabs> = {
 	component: Tabs,
-	title: 'Tabs',
+	title: 'React Components/Tabs',
 };
 
 export default meta;

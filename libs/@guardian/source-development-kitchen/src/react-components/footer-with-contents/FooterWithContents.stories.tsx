@@ -7,7 +7,7 @@ import type { FooterWithContentsProps } from './FooterWithContents';
 import { FooterWithContents } from './FooterWithContents';
 
 const meta: Meta<typeof FooterWithContents> = {
-	title: 'FooterWithContents',
+	title: 'React Components/FooterWithContents',
 	component: FooterWithContents,
 	parameters: {
 		layout: 'fullscreen',

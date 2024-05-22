@@ -135,7 +135,7 @@ const logoStyles = css`
 export const Logo = ({ logoType = 'standard', cssOverrides }: LogoProps) => (
 	<a
 		href="https://www.theguardian.com"
-		title="The Guardian Homepage"
+		title="React Components/The Guardian Homepage"
 		css={[logoStyles, cssOverrides]}
 	>
 		<span

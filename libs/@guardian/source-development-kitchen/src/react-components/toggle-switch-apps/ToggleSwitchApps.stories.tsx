@@ -4,7 +4,7 @@ import { ToggleSwitchApps } from './ToggleSwitchApps';
 import type { ToggleSwitchAppsProps } from './ToggleSwitchApps';
 
 const meta: Meta<typeof ToggleSwitchApps> = {
-	title: 'ToggleSwitchApps',
+	title: 'React Components/ToggleSwitchApps',
 	component: ToggleSwitchApps,
 	args: {},
 };

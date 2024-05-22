@@ -3,7 +3,7 @@ import type { StarRatingProps } from './StarRating';
 import { StarRating } from './StarRating';
 
 const meta: Meta<typeof StarRating> = {
-	title: 'Star Rating',
+	title: 'React Components/Star Rating',
 	component: StarRating,
 	args: {
 		size: 'medium',

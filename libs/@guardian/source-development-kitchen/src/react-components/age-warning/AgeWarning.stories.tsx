@@ -4,7 +4,7 @@ import { AgeWarning } from './AgeWarning';
 
 const meta: Meta<typeof AgeWarning> = {
 	component: AgeWarning,
-	title: 'AgeWarning',
+	title: 'React Components/AgeWarning',
 };
 
 export default meta;

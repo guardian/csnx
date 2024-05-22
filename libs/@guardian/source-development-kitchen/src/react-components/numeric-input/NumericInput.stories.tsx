@@ -4,7 +4,7 @@ import type { NumericInputProps } from './NumericInput';
 import { NumericInput } from './NumericInput';
 
 const meta: Meta<typeof NumericInput> = {
-	title: 'NumericInput',
+	title: 'React Components/NumericInput',
 	component: NumericInput,
 	args: {
 		label: 'Account number',

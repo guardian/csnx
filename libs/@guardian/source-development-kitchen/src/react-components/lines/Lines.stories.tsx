@@ -6,7 +6,7 @@ import { SquigglyLines as SquigglyLinesComponent } from './SquigglyLines';
 import { StraightLines as StraightLinesComponent } from './StraightLines';
 
 const meta: Meta<LinesProps> = {
-	title: 'Lines',
+	title: 'React Components/Lines',
 	component: StraightLinesComponent,
 	args: {
 		count: 4,
