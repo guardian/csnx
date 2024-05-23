@@ -628,8 +628,8 @@ importers:
         specifier: 16.0.0
         version: 16.0.0(tslib@2.6.2)(typescript@5.3.3)
       '@guardian/source':
-        specifier: 0.3.0
-        version: 0.3.0(@emotion/react@11.11.1)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
+        specifier: 1.0.0
+        version: 1.0.0(@emotion/react@11.11.1)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3)
       '@storybook/manager-api':
         specifier: 8.0.5
         version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
@@ -3040,8 +3040,8 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /@guardian/source@0.3.0(@emotion/react@11.11.1)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-3PwArI4TZtL7KY9yCK5oZDidwuJzUV2rzz1PkrNaT+N5Mvxt3Xb4a6oHs+1+T55ec3cH/0RQ9cvNGpPW6ohQlA==}
+  /@guardian/source@1.0.0(@emotion/react@11.11.1)(@types/react@18.2.11)(react@18.2.0)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-UnBWVVyf45lSShKHaN8sqrAnItgrUYBUhQomGPU440QKrhiK6QpaKJfNrSIdTtOyFCPB9x9FljfoYWVj9sgZOg==}
     peerDependencies:
       '@emotion/react': ^11.11.1
       '@types/react': ^18.2.11
