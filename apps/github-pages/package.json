@@ -6,7 +6,8 @@
 	"scripts": {
 		"build": "wireit",
 		"dev": "wireit",
-		"start": "wireit"
+		"start": "wireit",
+		"tsc": "tsc"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.7.0",

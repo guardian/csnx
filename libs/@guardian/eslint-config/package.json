@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"fix": "wireit",
-		"lint": "wireit"
+		"lint": "wireit",
+		"tsc": "tsc"
 	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",

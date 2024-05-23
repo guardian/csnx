@@ -21,6 +21,7 @@
 		"fix": "wireit",
 		"lint": "wireit",
 		"test": "wireit",
+		"tsc": "tsc",
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {

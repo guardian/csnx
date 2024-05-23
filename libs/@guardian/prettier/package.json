@@ -8,7 +8,8 @@
 	],
 	"scripts": {
 		"fix": "wireit",
-		"lint": "wireit"
+		"lint": "wireit",
+		"tsc": "tsc"
 	},
 	"devDependencies": {
 		"prettier": "3.2.2",

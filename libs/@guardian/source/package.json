@@ -31,6 +31,7 @@
 		"lint": "wireit",
 		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
+		"tsc": "tsc",
 		"verify-dist": "wireit"
 	},
 	"dependencies": {

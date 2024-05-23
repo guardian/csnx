@@ -11,7 +11,8 @@
 	"scripts": {
 		"build": "wireit",
 		"fix": "wireit",
-		"lint": "wireit"
+		"lint": "wireit",
+		"tsc": "tsc"
 	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "1.11.0",

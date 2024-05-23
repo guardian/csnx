@@ -10,6 +10,7 @@
 	"scripts": {
 		"fix": "wireit",
 		"lint": "wireit",
+		"tsc": "tsc",
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},
 	"devDependencies": {
