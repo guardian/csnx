@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 1.0.1
+
+### Patch Changes
+
+- be759ac: Improve README
+
 ## 0.3.0
 
 ### Minor Changes
