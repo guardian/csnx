@@ -1,5 +1,4 @@
 import { version } from '../../package.json';
-import type { CountryCode } from '../countries/@types/CountryCode';
 import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
@@ -60,7 +59,7 @@ const init: InitCMP = ({ pubData, country }) => {
 		);
 	}
 
-	const framework = getFramework(country as CountryCode);
+	const framework = getFramework(country);
 
 	UnifiedCMP.init(framework, pubData ?? {});
 
