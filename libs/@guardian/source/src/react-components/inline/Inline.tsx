@@ -5,14 +5,14 @@ import { inline, inlineSpace, inlineWrapper } from './styles';
 
 export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
-	 * [Units of space](https://guardian.github.io/storybooks/?path=/docs/source-foundations_space--docs)
+	 * [Units of space](https://guardian.github.io/storybooks/?path=/docs/source_foundations-space--docs)
 	 * between children.
 	 */
 	space?: Space;
 }
 
 /**
- * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source-react-components_inline--docs) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-inline--docs) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/inline/Inline.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)
  *

@@ -5,13 +5,13 @@ The Tabs Component takes a number of pieces of content and wraps them in a tab i
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
@@ -20,7 +20,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 #### `Tabs`
 
-See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_tabs--tabs)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-development-kitchen_tabs--tabs)
 
 ### How to use
 

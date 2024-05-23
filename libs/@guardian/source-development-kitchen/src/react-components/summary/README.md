@@ -7,13 +7,13 @@ There are three components available, `ErrorSummary`, `SuccessSummary`, and `Inf
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
@@ -22,15 +22,15 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 #### `ErrorSummary`
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_error-summary--error-only)
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-error-summary--error-only)
 
 #### `Success Summary`
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_success-summary--success-only)
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-success-summary--success-only)
 
 #### `Info Summary`
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_info-summary--info-only)
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-info-summary--info-only)
 
 ### How to use
 

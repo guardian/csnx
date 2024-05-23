@@ -13,7 +13,7 @@ import type { AvailableFontWeights, ItalicsFontWeights } from './types';
  * {@link [unit test suite](./typography.test.ts)}.
  *
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const pxTextSizes = {
 	textSans: {
@@ -57,7 +57,7 @@ export const pxTextSizes = {
  * See {@link [pxToRem](../utils/convert-value.ts)} for more details.
  *
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const remTextSizes = {
 	textSans: {
@@ -93,7 +93,7 @@ export const remTextSizes = {
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const fonts = {
 	titlepiece: fontArrayToString(typography.fontFamily.titlepiece),
@@ -116,7 +116,7 @@ export const fonts = {
  * @see https://www.w3.org/WAI/WCAG21/Understanding/text-spacing
  *
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const lineHeights = {
 	tight: typography.lineHeight.tight,
@@ -126,7 +126,7 @@ export const lineHeights = {
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const fontWeights = {
 	light: typography.fontWeight.light,
@@ -137,7 +137,7 @@ export const fontWeights = {
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const availableFontWeights = {
 	titlepiece: { bold: true },
@@ -148,7 +148,7 @@ export const availableFontWeights = {
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const italicsFontWeights = {
 	titlepiece: { bold: false },
@@ -159,7 +159,7 @@ export const italicsFontWeights = {
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const underlineThickness = {
 	textSans: {
@@ -207,25 +207,25 @@ export const underlineThickness = {
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const textSansSizes = pxTextSizes.textSans;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const bodySizes = pxTextSizes.body;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const headlineSizes = pxTextSizes.headline;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const titlepieceSizes = pxTextSizes.titlepiece;
 
@@ -233,24 +233,24 @@ export const titlepieceSizes = pxTextSizes.titlepiece;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const remBodySizes = remTextSizes.body;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const remTitlepieceSizes = remTextSizes.titlepiece;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const remHeadlineSizes = remTextSizes.headline;
 
 /**
  * @deprecated Use typography presets rather than setting individual values
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const remTextSansSizes = remTextSizes.textSans;

@@ -5,13 +5,13 @@ The File Input is a styled input for files. If it is mandatory, the file may be 
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
@@ -20,7 +20,7 @@ $ npm i @guardian/source-react-components-development-kitchen
 
 #### `FileInput`
 
-See [storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_fileinput--file-input)
+See [storybook](https://guardian.github.io/csnx/?path=/story/source-development-kitchen_fileinput--file-input)
 
 ### How to use
 

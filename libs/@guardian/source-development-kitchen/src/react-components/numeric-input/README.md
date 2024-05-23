@@ -5,20 +5,20 @@ A component for taking numeric input such as currency. Can display a prefix and/
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
 
 ### API
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_numericinput--default-default-theme)
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-numericinput--default-default-theme)
 
 ### How to use
 

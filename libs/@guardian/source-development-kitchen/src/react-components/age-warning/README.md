@@ -5,20 +5,20 @@ Inserts a yellow warning banner on the page showing how old the content is
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
 
 ### API
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_agewarning--age-warning)
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-agewarning--age-warning)
 
 ### How to use
 

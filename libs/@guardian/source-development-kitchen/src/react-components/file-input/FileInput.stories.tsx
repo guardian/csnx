@@ -2,9 +2,9 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { FileInput } from './FileInput';
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components-development-kitchen_fileinput--optional-file-input&globals=backgrounds.value:transparent)
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/file-input)
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [Storybook](https://guardian.github.io/csnx/?path=/story/source-development-kitchen_fileinput--optional-file-input&globals=backgrounds.value:transparent)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/file-input)
+ * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
  * An input for files
  *

@@ -1,7 +1,7 @@
 import { palette } from '../colour/palette';
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_focushalo--page)
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-focushalo--page)
  *
  * CSS rules that provide a clear visual focus state to support keyboard navigation.
  */

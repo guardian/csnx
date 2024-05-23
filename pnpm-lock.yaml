@@ -540,9 +540,6 @@ importers:
       '@guardian/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
-      '@rollup/plugin-alias':
-        specifier: 5.1.0
-        version: 5.1.0(rollup@4.17.2)
       '@storybook/manager-api':
         specifier: 8.0.5
         version: 8.0.5(react-dom@18.2.0)(react@18.2.0)
@@ -3476,19 +3473,6 @@ packages:
       '@types/react': 18.2.11
       react: 18.2.0
     dev: false
-
-  /@rollup/plugin-alias@5.1.0(rollup@4.17.2):
-    resolution: {integrity: sha512-lpA3RZ9PdIG7qqhEfv79tBffNaoDuukFDrmhLqg9ifv99u/ehn+lOg30x2zmhf8AQqQUZaMk/B9fZraQ6/acDQ==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-    dependencies:
-      rollup: 4.17.2
-      slash: 4.0.0
-    dev: true
 
   /@rollup/plugin-commonjs@25.0.7(rollup@4.17.2):
     resolution: {integrity: sha512-nEvcR+LRjEjsaSsc4x3XZfCCvZIaSMenZu/OiwOKGN2UhQpAYI7ru7czFvyWbErlpoGjnSX3D5Ch5FcMA3kRWQ==}

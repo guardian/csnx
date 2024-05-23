@@ -51,7 +51,7 @@ export interface CheckboxGroupProps extends Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_checkboxgroup--default-default-theme) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-checkboxgroup--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/466fad-checkbox/b/33fc2f) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/checkbox/CheckboxGroup.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)

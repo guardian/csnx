@@ -5,13 +5,13 @@ A footer component that can have content added inside of it, and a footer links 
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
@@ -24,7 +24,7 @@ A `FooterLink` object can be used if you want to include an anchor tag with an h
 
 If your site uses the Guardian CMP `@guardian/consent-management-platform`, you should include a `FooterButton` object in the `links` prop with an `onClick` callback that launches the CMP and the text "Privacy Settings".
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_divider--default-divider) for examples.
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-divider--default-divider) for examples.
 
 ### How to use
 

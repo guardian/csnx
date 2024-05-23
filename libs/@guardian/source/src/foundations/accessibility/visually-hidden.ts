@@ -1,5 +1,5 @@
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_visuallyhidden--page)
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-visuallyhidden--page)
  *
  * CSS rules that hide something from sight while still being available to screen readers.
  *

@@ -8,7 +8,7 @@ export interface LinkButtonProps
 		AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_linkbutton--primary-priority-default-theme) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-linkbutton--primary-priority-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/435225-button) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/button/LinkButton.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)
