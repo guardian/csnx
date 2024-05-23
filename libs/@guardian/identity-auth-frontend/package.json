@@ -103,7 +103,7 @@
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
-				"../../../jest.*"
+				"../../../configs/jest.*"
 			],
 			"output": []
 		},
@@ -115,7 +115,7 @@
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
-				"../../../jest.*"
+				"../../../configs/jest.*"
 			],
 			"output": []
 		}
