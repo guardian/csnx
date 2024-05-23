@@ -28,4 +28,4 @@ import { palette } from '@guardian/source/foundations'
 import { Button } from '@guardian/source/react-components'
 ```
 
-_There will be no more updates the two separate packages. From now on, all updates to Source will come via this single package._
+_There will be no more updates to the two separate packages. From now on, all updates to Source will come via this single package._
