@@ -20,8 +20,6 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/core-web-vitals](libs/@guardian/core-web-vitals)
 - [@guardian/eslint-config](libs/@guardian/eslint-config)
 - [@guardian/eslint-config-typescript](libs/@guardian/eslint-config-typescript)
-- [@guardian/eslint-plugin-source-foundations](libs/@guardian/eslint-plugin-source-foundations)
-- [@guardian/eslint-plugin-source-react-components](libs/@guardian/eslint-plugin-source-react-components)
 - [@guardian/identity-auth](libs/@guardian/identity-auth)
 - [@guardian/identity-auth-frontend](libs/@guardian/identity-auth-frontend)
 - [@guardian/libs](libs/@guardian/libs)
@@ -125,24 +123,6 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 
 - `make @guardian/eslint-config-typescript:fix`
 - `make @guardian/eslint-config-typescript:lint`
-
-#### @guardian/eslint-plugin-source-foundations
-
-- `make @guardian/eslint-plugin-source-foundations:build`
-- `make @guardian/eslint-plugin-source-foundations:dev`
-- `make @guardian/eslint-plugin-source-foundations:fix`
-- `make @guardian/eslint-plugin-source-foundations:lint`
-- `make @guardian/eslint-plugin-source-foundations:test`
-- `make @guardian/eslint-plugin-source-foundations:verify-dist`
-
-#### @guardian/eslint-plugin-source-react-components
-
-- `make @guardian/eslint-plugin-source-react-components:build`
-- `make @guardian/eslint-plugin-source-react-components:dev`
-- `make @guardian/eslint-plugin-source-react-components:fix`
-- `make @guardian/eslint-plugin-source-react-components:lint`
-- `make @guardian/eslint-plugin-source-react-components:test`
-- `make @guardian/eslint-plugin-source-react-components:verify-dist`
 
 #### @guardian/identity-auth
 

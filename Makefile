@@ -257,54 +257,6 @@ install: check-node-version
 @guardian/eslint-config-typescript\:lint: env
 	@corepack pnpm --filter @guardian/eslint-config-typescript lint
 
-.PHONY: @guardian/eslint-plugin-source-foundations\:build
-@guardian/eslint-plugin-source-foundations\:build: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations build
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:dev
-@guardian/eslint-plugin-source-foundations\:dev: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations dev
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:fix
-@guardian/eslint-plugin-source-foundations\:fix: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations fix
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:lint
-@guardian/eslint-plugin-source-foundations\:lint: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations lint
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:test
-@guardian/eslint-plugin-source-foundations\:test: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations test
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:verify-dist
-@guardian/eslint-plugin-source-foundations\:verify-dist: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations verify-dist
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:build
-@guardian/eslint-plugin-source-react-components\:build: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components build
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:dev
-@guardian/eslint-plugin-source-react-components\:dev: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components dev
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:fix
-@guardian/eslint-plugin-source-react-components\:fix: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components fix
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:lint
-@guardian/eslint-plugin-source-react-components\:lint: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components lint
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:test
-@guardian/eslint-plugin-source-react-components\:test: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components test
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:verify-dist
-@guardian/eslint-plugin-source-react-components\:verify-dist: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components verify-dist
-
 .PHONY: @guardian/identity-auth\:build
 @guardian/identity-auth\:build: env
 	@corepack pnpm --filter @guardian/identity-auth build
