@@ -29,7 +29,7 @@
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
-		"storybook": "storybook dev --port 4404",
+		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
 		"verify-dist": "wireit"
 	},
