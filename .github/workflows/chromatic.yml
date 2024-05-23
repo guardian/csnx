@@ -3,11 +3,9 @@ name: Chromatic
 on:
   workflow_call:
     secrets:
-      CHROMATIC_SOURCE_FOUNDATIONS_TOKEN:
+      CHROMATIC_SOURCE_TOKEN:
         required: true
-      CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN:
-        required: true
-      CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN:
+      CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN:
         required: true
 
 jobs:
