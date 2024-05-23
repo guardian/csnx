@@ -10,7 +10,20 @@
 
 ### Major Changes
 
-#### Production release of single development kitchen.
+#### First production release of single Source Development Kitchen.
 
-Creating a parent package for development kitchens.
-Allows extending development kitchen to add additional support
+Allows extending Source Development Kitchen to add potential support beyond React components...
+
+#### Before
+
+```
+import { StarRating } from '@guardian/source-react-components-development-kitchen'
+```
+
+#### After
+
+```
+import { StarRating } from '@guardian/source-development-kitchen/react-components'
+```
+
+_There will be no more updates to the old package. From now on, all updates to Source Development Kitchen will come via this package._
