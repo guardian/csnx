@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source",
-	"version": "0.3.0",
+	"version": "1.0.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -29,7 +29,7 @@
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
-		"storybook": "storybook dev --port 4404",
+		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
 		"verify-dist": "wireit"
 	},
@@ -82,17 +82,8 @@
 		}
 	},
 	"wireit": {
-		"_deps": {
-			"dependencies": [
-				"../source-foundations:build",
-				"../source-react-components:build"
-			]
-		},
 		"build": {
 			"command": "rollup -c",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
 				"../../../configs/rollup/rollup.config.js",
 				"./rollup.config.js",
@@ -132,9 +123,6 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"dependencies": [
-				"_deps"
-			],
 			"clean": false,
 			"files": [
 				"!(dist|storybook-static)/**",
@@ -146,9 +134,6 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
 				"!(dist|storybook-static)/**",
 				"../../../.eslint*"
@@ -156,10 +141,7 @@
 			"output": []
 		},
 		"test": {
-			"command": "jest --passWithNoTests",
-			"dependencies": [
-				"_deps"
-			],
+			"command": "jest",
 			"files": [
 				"!(dist|storybook-static)/**",
 				"../../../jest.*"
@@ -167,7 +149,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],

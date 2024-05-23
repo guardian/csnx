@@ -20,7 +20,7 @@
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
-		"storybook": "storybook dev --port 4405",
+		"storybook": "storybook dev --port 4402",
 		"test": "wireit",
 		"verify-dist": "wireit"
 	},
@@ -63,16 +63,8 @@
 		}
 	},
 	"wireit": {
-		"_deps": {
-			"dependencies": [
-				"../source:build"
-			]
-		},
 		"build": {
 			"command": "rollup -c",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
 				"../../../configs/rollup.config.js",
 				"./rollup.config.js",
@@ -86,9 +78,6 @@
 		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
@@ -100,9 +89,6 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"dependencies": [
-				"_deps"
-			],
 			"clean": false,
 			"files": [
 				"!(dist)/**",
@@ -115,9 +101,6 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -126,10 +109,7 @@
 			"output": []
 		},
 		"test": {
-			"command": "jest --passWithNoTests",
-			"dependencies": [
-				"_deps"
-			],
+			"command": "jest",
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -138,7 +118,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],

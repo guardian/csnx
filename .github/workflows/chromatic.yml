@@ -3,11 +3,9 @@ name: Chromatic
 on:
   workflow_call:
     secrets:
-      CHROMATIC_SOURCE_FOUNDATIONS_TOKEN:
+      CHROMATIC_SOURCE_TOKEN:
         required: true
-      CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN:
-        required: true
-      CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN:
+      CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN:
         required: true
 
 jobs:
@@ -18,12 +16,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - lib: source-foundations
-            token: CHROMATIC_SOURCE_FOUNDATIONS_TOKEN
-          - lib: source-react-components
-            token: CHROMATIC_SOURCE_REACT_COMPONENTS_TOKEN
-          - lib: source-react-components-development-kitchen
-            token: CHROMATIC_SOURCE_REACT_COMPONENTS_DEVELOPMENT_KITCHEN_TOKEN
+          - lib: source
+            token: CHROMATIC_SOURCE_TOKEN
+          - lib: source-development-kitchen
+            token: CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN
     steps:
       - uses: actions/checkout@v4
         with:

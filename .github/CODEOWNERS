@@ -13,8 +13,6 @@
 /libs/@guardian/source-foundations/ 							@guardian/client-side-infra @guardian/source
 /libs/@guardian/source-react-components/ 						@guardian/client-side-infra @guardian/source
 /libs/@guardian/source-react-components-development-kitchen/ 	@guardian/client-side-infra @guardian/source
-/libs/@guardian/eslint-plugin-source-foundations/ 				@guardian/client-side-infra @guardian/source
-/libs/@guardian/eslint-plugin-source-react-components/ 			@guardian/client-side-infra @guardian/source
 
 /libs/@guardian/browserlist-config/  							@guardian/client-side-infra @guardian/dotcom-platform
 
