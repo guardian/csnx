@@ -8,10 +8,7 @@ import { octokit } from '../octokit.ts';
 
 // localStorage.clear();
 
-const packages = [
-	'@guardian/source-foundations',
-	'@guardian/source-react-components',
-] as const;
+const packages = ['@guardian/source'] as const;
 
 export type UsageData = {
 	[name in (typeof packages)[number]]: {

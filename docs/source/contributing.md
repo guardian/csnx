@@ -28,7 +28,7 @@ $ make build-storybook
 
 ### Creating new components
 
-- New components should be added to the [Development Kitchen](https://github.com/guardian/csnx/tree/main/libs/%40guardian/source-react-components-development-kitchen).
+- New components should be added to the [Development Kitchen](https://github.com/guardian/csnx/tree/main/libs/%40guardian/source-development-kitchen).
 - New components must have a CODEOWNER.
 
 ### Using Emotion

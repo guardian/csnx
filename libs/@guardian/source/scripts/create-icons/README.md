@@ -1,4 +1,4 @@
-# `@guardian/source-react-components` scripts
+# `@guardian/source` scripts
 
 ## `create-icons`
 
@@ -25,7 +25,7 @@ The token is passed to the script via an environment variable called `FIGMA_TOKE
 FIGMA_TOKEN=TOKEN_GOES_HERE pnpm --filter @guardian/source create-icons
 ```
 
-Or you can create a `.env` file in the root of the `source-react-components` package and set the variable there to avoid having to provide it every time you run the script:
+Or you can create a `.env` file in the root of the `source` package and set the variable there to avoid having to provide it every time you run the script:
 
 ```env
 FIGMA_TOKEN=TOKEN_GOES_HERE

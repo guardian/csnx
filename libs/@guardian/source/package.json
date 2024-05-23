@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source",
-	"version": "0.3.0",
+	"version": "1.0.1",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -29,7 +29,7 @@
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
-		"storybook": "storybook dev --port 4404",
+		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
 		"verify-dist": "wireit"
 	},
@@ -41,7 +41,8 @@
 		"@emotion/react": "11.11.1",
 		"@guardian/design-tokens": "workspace:*",
 		"@guardian/libs": "16.1.3",
-		"@rollup/plugin-alias": "5.1.0",
+		"@storybook/manager-api": "8.0.5",
+		"@storybook/react": "8.0.5",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -58,6 +59,7 @@
 		"prettier": "3.2.2",
 		"react": "18.2.0",
 		"rollup": "4.17.2",
+		"storybook": "8.0.5",
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"tsx": "4.7.1",
@@ -80,20 +82,10 @@
 		}
 	},
 	"wireit": {
-		"_deps": {
-			"dependencies": [
-				"../libs:build",
-				"../source-foundations:build",
-				"../source-react-components:build"
-			]
-		},
 		"build": {
 			"command": "rollup -c",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
-				"../../../configs/rollup.config.js",
+				"../../../configs/rollup/rollup.config.js",
 				"./rollup.config.js",
 				"src/**",
 				"package.json",
@@ -106,6 +98,8 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"files": [
+				"../../../../configs/storybook/**",
+				"./.storybook/**",
 				"**/*.{ts,tsx,js,json,mdx,md}",
 				"!storybook-static/**",
 				"!jest*"
@@ -128,10 +122,7 @@
 			]
 		},
 		"fix": {
-			"command": "pnpm lint --fix",
-			"dependencies": [
-				"_deps"
-			],
+			"command": "eslint --cache --color . --fix",
 			"clean": false,
 			"files": [
 				"!(dist|storybook-static)/**",
@@ -143,9 +134,6 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
-			"dependencies": [
-				"_deps"
-			],
 			"files": [
 				"!(dist|storybook-static)/**",
 				"../../../.eslint*"
@@ -153,24 +141,21 @@
 			"output": []
 		},
 		"test": {
-			"command": "jest --passWithNoTests",
-			"dependencies": [
-				"_deps"
-			],
+			"command": "jest",
 			"files": [
 				"!(dist|storybook-static)/**",
-				"../../../jest.*"
+				"../../../configs/jest.*"
 			],
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --passWithNoTests --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],
 			"files": [
 				"!(dist|storybook-static)/**",
-				"../../../jest.*"
+				"../../../configs/jest.*"
 			],
 			"output": []
 		}
