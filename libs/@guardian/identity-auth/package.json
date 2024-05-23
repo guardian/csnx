@@ -26,6 +26,7 @@
 	},
 	"devDependencies": {
 		"@guardian/libs": "16.0.0",
+		"@types/jest": "29.5.8",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
@@ -88,7 +89,7 @@
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
-				"../../../jest.*"
+				"../../../configs/jest.*"
 			],
 			"output": []
 		},
@@ -100,7 +101,7 @@
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
-				"../../../jest.*"
+				"../../../configs/jest.*"
 			],
 			"output": []
 		}
