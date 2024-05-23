@@ -5,7 +5,7 @@ import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
-	title: 'TextArea',
+	title: 'React Components/TextArea',
 	component: TextArea,
 	argTypes: {
 		error: {

@@ -3,7 +3,7 @@ import type { InfoSummaryProps } from './InfoSummary';
 import { InfoSummary } from './InfoSummary';
 
 const meta: Meta<typeof InfoSummary> = {
-	title: 'Info Summary',
+	title: 'React Components/Info Summary',
 	component: InfoSummary,
 	args: {
 		message: 'Here is some information',

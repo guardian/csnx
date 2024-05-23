@@ -1,7 +1,7 @@
 import { TypographyPresets } from './TypographyPresets';
 
 export default {
-	title: 'Typography',
+	title: 'Foundations/Typography',
 
 	parameters: {
 		previewTabs: {

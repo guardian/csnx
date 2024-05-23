@@ -5,7 +5,7 @@ import type { ButtonLinkProps } from './ButtonLink';
 import { ButtonLink } from './ButtonLink';
 
 const meta: Meta<typeof ButtonLink> = {
-	title: 'ButtonLink',
+	title: 'React Components/ButtonLink',
 	component: ButtonLink,
 	args: {
 		priority: 'primary',

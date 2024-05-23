@@ -4,7 +4,7 @@ import type { TilesProps } from './Tiles';
 import { Tiles } from './Tiles';
 
 const meta: Meta<typeof Tiles> = {
-	title: 'Tiles',
+	title: 'React Components/Tiles',
 	component: Tiles,
 	args: {
 		columns: 2,

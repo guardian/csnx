@@ -17,7 +17,7 @@ import { expandingWrapperDarkTheme } from './theme';
 
 const meta: Meta<typeof ExpandingWrapper> = {
 	component: ExpandingWrapper,
-	title: 'ExpandingWrapper',
+	title: 'React Components/ExpandingWrapper',
 };
 
 export default meta;

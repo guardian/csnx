@@ -3,7 +3,7 @@ import type { DividerProps } from './Divider';
 import { Divider } from './Divider';
 
 const meta: Meta<typeof Divider> = {
-	title: 'Divider',
+	title: 'React Components/Divider',
 	component: Divider,
 };
 

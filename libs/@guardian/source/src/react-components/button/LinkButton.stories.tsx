@@ -5,7 +5,7 @@ import { LinkButton } from './LinkButton';
 import type { LinkButtonProps } from './LinkButton';
 
 const meta: Meta<typeof LinkButton> = {
-	title: 'LinkButton',
+	title: 'React Components/LinkButton',
 	component: LinkButton,
 	argTypes: {
 		icon: {

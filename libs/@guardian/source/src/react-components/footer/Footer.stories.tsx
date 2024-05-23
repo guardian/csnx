@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 
 const meta: Meta<typeof Footer> = {
 	component: Footer,
-	title: 'Footer',
+	title: 'React Components/Footer',
 	argTypes: {
 		children: {
 			options: ['with', 'without'],

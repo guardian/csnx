@@ -3,7 +3,7 @@ import type { ErrorSummaryProps } from './ErrorSummary';
 import { ErrorSummary } from './ErrorSummary';
 
 const meta: Meta<typeof ErrorSummary> = {
-	title: 'Error Summary',
+	title: 'React Components/Error Summary',
 	component: ErrorSummary,
 	args: {
 		message: 'There has been a problem',

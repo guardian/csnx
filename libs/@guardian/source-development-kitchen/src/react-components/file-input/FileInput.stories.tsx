@@ -13,7 +13,7 @@ import { FileInput } from './FileInput';
 
 const meta: Meta<typeof FileInput> = {
 	component: FileInput,
-	title: 'FileInput',
+	title: 'React Components/FileInput',
 };
 
 export default meta;

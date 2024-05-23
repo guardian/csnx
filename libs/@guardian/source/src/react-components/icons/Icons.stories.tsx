@@ -264,7 +264,7 @@ type IconChromaticStoryArgs = {
 };
 
 const meta: Meta<IconChromaticStoryArgs> = {
-	title: 'Icons',
+	title: 'React Components/Icons',
 	args: {
 		theme: undefined,
 		isAnnouncedByScreenReader: false,

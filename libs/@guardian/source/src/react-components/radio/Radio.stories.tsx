@@ -5,7 +5,7 @@ import type { RadioProps } from './Radio';
 import { themeRadioBrand } from './theme';
 
 const meta: Meta<typeof Radio> = {
-	title: 'Radio',
+	title: 'React Components/Radio',
 	component: Radio,
 	argTypes: {
 		label: {

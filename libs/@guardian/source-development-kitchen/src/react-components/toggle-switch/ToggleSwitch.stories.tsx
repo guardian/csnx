@@ -60,7 +60,7 @@ const pillars = [
 ];
 
 const meta: Meta<typeof ToggleSwitch> = {
-	title: 'ToggleSwitch',
+	title: 'React Components/ToggleSwitch',
 	component: ToggleSwitch,
 };
 

@@ -14,7 +14,7 @@ const defaultFormat = {
 };
 
 const meta: Meta<typeof QuoteIcon> = {
-	title: 'QuoteIcon',
+	title: 'React Components/QuoteIcon',
 	component: QuoteIcon,
 	argTypes: {
 		format: {

@@ -5,7 +5,7 @@ import { ChoiceCard } from './ChoiceCard';
 import type { ChoiceCardProps } from './ChoiceCard';
 
 const meta: Meta<typeof ChoiceCard> = {
-	title: 'ChoiceCard',
+	title: 'React Components/ChoiceCard',
 	component: ChoiceCard,
 	args: {
 		id: 'option-1-id',

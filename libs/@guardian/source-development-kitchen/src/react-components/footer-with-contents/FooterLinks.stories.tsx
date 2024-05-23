@@ -3,7 +3,7 @@ import type { FooterLinksProps } from './FooterLinks';
 import { defaultGuardianLinks, FooterLinks } from './FooterLinks';
 
 const meta: Meta<typeof FooterLinks> = {
-	title: 'FooterLinks',
+	title: 'React Components/FooterLinks',
 	component: FooterLinks,
 	parameters: {
 		layout: 'fullscreen',

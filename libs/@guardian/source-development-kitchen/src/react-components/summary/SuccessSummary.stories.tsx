@@ -3,7 +3,7 @@ import type { SuccessSummaryProps } from './SuccessSummary';
 import { SuccessSummary } from './SuccessSummary';
 
 const meta: Meta<typeof SuccessSummary> = {
-	title: 'Success Summary',
+	title: 'React Components/Success Summary',
 	component: SuccessSummary,
 	args: {
 		message: 'Your request was successful',

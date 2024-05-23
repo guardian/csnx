@@ -5,7 +5,7 @@ import { InlineError } from './InlineError';
 import { userFeedbackThemeBrand } from './theme';
 
 const meta: Meta<typeof InlineError> = {
-	title: 'InlineError',
+	title: 'React Components/InlineError',
 	component: InlineError,
 	args: {
 		size: 'medium',

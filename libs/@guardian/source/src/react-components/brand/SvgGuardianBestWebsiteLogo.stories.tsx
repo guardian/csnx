@@ -3,7 +3,7 @@ import type { SvgGuardianBestWebsiteLogoProps } from './SvgGuardianBestWebsiteLo
 import { SvgGuardianBestWebsiteLogo } from './SvgGuardianBestWebsiteLogo';
 
 const meta: Meta<typeof SvgGuardianBestWebsiteLogo> = {
-	title: 'SvgGuardianBestWebsiteLogo',
+	title: 'React Components/SvgGuardianBestWebsiteLogo',
 	component: SvgGuardianBestWebsiteLogo,
 	argTypes: {
 		width: {

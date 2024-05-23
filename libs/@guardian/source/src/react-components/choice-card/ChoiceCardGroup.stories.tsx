@@ -7,7 +7,7 @@ import { ChoiceCardGroup } from './ChoiceCardGroup';
 import type { ThemeChoiceCard } from './theme';
 
 const meta: Meta<typeof ChoiceCardGroup> = {
-	title: 'ChoiceCardGroup',
+	title: 'React Components/ChoiceCardGroup',
 	component: ChoiceCardGroup,
 	args: {
 		name: 'colours',

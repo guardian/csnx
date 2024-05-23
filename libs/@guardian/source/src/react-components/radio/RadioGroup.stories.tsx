@@ -7,7 +7,7 @@ import type { ThemeRadio } from './theme';
 import { themeRadioBrand, themeRadioGroupBrand } from './theme';
 
 const meta: Meta<typeof RadioGroup> = {
-	title: 'RadioGroup',
+	title: 'React Components/RadioGroup',
 	component: RadioGroup,
 	args: {
 		name: 'colours',

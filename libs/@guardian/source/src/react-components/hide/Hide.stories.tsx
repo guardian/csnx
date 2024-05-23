@@ -4,7 +4,7 @@ import type { HideProps } from './Hide';
 import { Hide } from './Hide';
 
 const meta: Meta<typeof Hide> = {
-	title: 'Hide',
+	title: 'React Components/Hide',
 	component: Hide,
 	argTypes: {
 		above: {

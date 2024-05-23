@@ -5,7 +5,7 @@ import { Legend } from './Legend';
 import { labelThemeBrand } from './theme';
 
 const meta: Meta<typeof Legend> = {
-	title: 'Legend',
+	title: 'React Components/Legend',
 	args: {
 		text: 'Email',
 		supporting: 'undefined',

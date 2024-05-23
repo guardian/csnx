@@ -35,7 +35,7 @@ const themeParameters = {
 };
 
 const meta: Meta<typeof Button> = {
-	title: 'Button',
+	title: 'React Components/Button',
 	component: Button,
 	argTypes: {
 		icon: {

@@ -5,7 +5,7 @@ import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
 
 const meta: Meta<typeof Inline> = {
-	title: 'Inline',
+	title: 'React Components/Inline',
 	component: Inline,
 };
 

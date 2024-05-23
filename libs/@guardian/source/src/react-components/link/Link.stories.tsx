@@ -26,7 +26,7 @@ import type { LinkProps } from './Link';
 import { themeLinkBrand, themeLinkBrandAlt } from './theme';
 
 const meta: Meta<typeof Link> = {
-	title: 'Link',
+	title: 'React Components/Link',
 	component: Link,
 	args: {
 		priority: 'primary',

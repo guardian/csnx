@@ -3,7 +3,7 @@ import type { SvgGuardianLogoProps } from './SvgGuardianLogo';
 import { SvgGuardianLogo } from './SvgGuardianLogo';
 
 const meta: Meta<typeof SvgGuardianLogo> = {
-	title: 'SvgGuardianLogo',
+	title: 'React Components/SvgGuardianLogo',
 	component: SvgGuardianLogo,
 	argTypes: {
 		width: {

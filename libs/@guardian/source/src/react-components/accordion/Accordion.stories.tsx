@@ -5,7 +5,7 @@ import { Accordion } from './Accordion';
 import { AccordionRow } from './AccordionRow';
 
 const meta: Meta<typeof Accordion> = {
-	title: 'Accordion',
+	title: 'React Components/Accordion',
 	component: Accordion,
 	args: {
 		hideToggleLabel: false,
