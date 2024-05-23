@@ -2,6 +2,6 @@
 // This means we can run `src/index.test.ts` against `dist` instead.
 
 // @ts-ignore
-import * as dist from '.';
+import * as reactComponents from './react-components';
 
-jest.mock('./src/index', () => dist);
+jest.mock('./src/react-components/index', () => reactComponents);

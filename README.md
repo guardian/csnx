@@ -27,9 +27,6 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/prettier](libs/@guardian/prettier)
 - [@guardian/source](libs/@guardian/source)
 - [@guardian/source-development-kitchen](libs/@guardian/source-development-kitchen)
-- [@guardian/source-foundations](libs/@guardian/source-foundations)
-- [@guardian/source-react-components](libs/@guardian/source-react-components)
-- [@guardian/source-react-components-development-kitchen](libs/@guardian/source-react-components-development-kitchen)
 - [@guardian/tsconfig](libs/@guardian/tsconfig)
 
 <!-- END PUBLISHED_PACKAGES -->
@@ -190,41 +187,6 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source-development-kitchen:storybook`
 - `make @guardian/source-development-kitchen:test`
 - `make @guardian/source-development-kitchen:verify-dist`
-
-#### @guardian/source-foundations
-
-- `make @guardian/source-foundations:build`
-- `make @guardian/source-foundations:build-storybook`
-- `make @guardian/source-foundations:build-type-presets`
-- `make @guardian/source-foundations:dev`
-- `make @guardian/source-foundations:fix`
-- `make @guardian/source-foundations:lint`
-- `make @guardian/source-foundations:storybook`
-- `make @guardian/source-foundations:test`
-- `make @guardian/source-foundations:verify-dist`
-
-#### @guardian/source-react-components
-
-- `make @guardian/source-react-components:build`
-- `make @guardian/source-react-components:build-storybook`
-- `make @guardian/source-react-components:create-icons`
-- `make @guardian/source-react-components:dev`
-- `make @guardian/source-react-components:fix`
-- `make @guardian/source-react-components:lint`
-- `make @guardian/source-react-components:storybook`
-- `make @guardian/source-react-components:test`
-- `make @guardian/source-react-components:verify-dist`
-
-#### @guardian/source-react-components-development-kitchen
-
-- `make @guardian/source-react-components-development-kitchen:build`
-- `make @guardian/source-react-components-development-kitchen:build-storybook`
-- `make @guardian/source-react-components-development-kitchen:dev`
-- `make @guardian/source-react-components-development-kitchen:fix`
-- `make @guardian/source-react-components-development-kitchen:lint`
-- `make @guardian/source-react-components-development-kitchen:storybook`
-- `make @guardian/source-react-components-development-kitchen:test`
-- `make @guardian/source-react-components-development-kitchen:verify-dist`
 
 #### @guardian/tsconfig
 

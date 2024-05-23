@@ -10,6 +10,6 @@ Figma](https://www.figma.com/file/${ICON_FILE}/%E2%97%90-Icons?node-id=55%3A2)
 using the create-icons script via the Figma API:
 
 \`\`\`sh
-yarn workspace @guardian/source-react-components create-icons
+make @guardian/source:create-icons
 \`\`\`
 `;

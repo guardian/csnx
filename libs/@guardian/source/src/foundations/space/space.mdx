@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+import { remSpace, space } from './space';
+
+<Meta
+	title="Foundations/Space"
+	parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Space
+
+Space units create visual rhythm and balance
+
+## Example
+
+```tsx
+import { space } from '@guardian/source/foundations';
+
+const container = css`
+	margin: ${space[1]}px;
+`;
+
+/*
+.class-name {
+  margin: 4px;
+}
+*/
+```
+
+## Space scale
+
+The following units can be applied to margin or padding properties, vertically
+or horizontally.
+
+<ul>
+	{Object.entries(space).map(([id, value]) => {
+		return (
+			<li>
+				space[{id}] -&gt; {value}px
+			</li>
+		);
+	})}
+</ul>
+
+The same scale is also available as rems:
+
+<ul>
+	{Object.entries(remSpace).map(([id, value]) => {
+		return (
+			<li>
+				remSpace[{id}] -&gt; {value}
+			</li>
+		);
+	})}
+</ul>
