@@ -62,7 +62,7 @@ export interface AccordionRowProps
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_accordion--with-cta-labels-default-theme) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-accordion--with-cta-labels-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/38c5aa-accordion/b/92b71e) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/accordion/AccordionRow.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)

@@ -20,7 +20,7 @@ export interface FooterProps extends HTMLAttributes<HTMLElement>, Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_footer--default-default-theme) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-footer--default-default-theme) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/footer/Footer.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)
  *

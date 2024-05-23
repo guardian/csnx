@@ -5,20 +5,20 @@ Displays an on/off switch for use in apps web views. See the accompanying storie
 ## Install
 
 ```sh
-$ yarn add @guardian/source-react-components-development-kitchen
+$ pnpm add @guardian/source-development-kitchen
 ```
 
 or
 
 ```sh
-$ npm i @guardian/source-react-components-development-kitchen
+$ npm i @guardian/source-development-kitchen
 ```
 
 ## Use
 
 ### API
 
-See [storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_toggleswitchapps--android-no-label)
+See [storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-toggleswitchapps--android-no-label)
 
 ### How to use
 

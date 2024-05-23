@@ -2,16 +2,6 @@
 	"extends": "../../../tsconfig.base.json",
 	"include": [".", ".storybook/*"],
 	"exclude": ["node_modules", "dist", ".wireit", "storybook-static"],
-	"compilerOptions": {
-		"paths": {
-			"@guardian/source-foundations": [
-				"libs/@guardian/source/src/foundations/index.ts"
-			],
-			"@guardian/source-react-components": [
-				"libs/@guardian/source/src/react-components/index.ts"
-			]
-		}
-	},
 	"references": [
 		{
 			"path": "./tsconfig.spec.json"

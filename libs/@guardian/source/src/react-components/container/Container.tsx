@@ -47,7 +47,7 @@ export interface ContainerProps extends HTMLAttributes<HTMLElement>, Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_container--default) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-container--default) •
  * [Design System](https://theguardian.design/2a1e5182b/p/440a83-container) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/container/Container.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)

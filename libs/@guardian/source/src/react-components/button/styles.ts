@@ -62,7 +62,7 @@ const applyButtonStylesToLoadingSpinner = (size: Size) => {
 		svg {
 			/*
 		 * The loading spinner width has been specified as 24px in the design
-		 * which falls outside of the icon sizes in source-foundations, so we
+		 * which falls outside of the icon sizes in foundations, so we
 		 * override the width here.
 		 */
 			width: ${loadingSpinnerSizes[size]}px;

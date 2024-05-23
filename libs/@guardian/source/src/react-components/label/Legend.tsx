@@ -4,7 +4,7 @@ import { SupportingText } from './SupportingText';
 import { Text } from './Text';
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_legend--default-default-theme) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-legend--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/40151e-label/b/86af7d) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/label/Legend.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)

@@ -12,7 +12,7 @@ export type Breakpoint =
 	| 'wide';
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_media-queries--page) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-media-queries--page) •
  * [Design System](https://theguardian.design/2a1e5182b/p/41be19-grids)
  */
 export const breakpoints = {

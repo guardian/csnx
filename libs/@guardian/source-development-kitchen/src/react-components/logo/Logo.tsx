@@ -127,10 +127,10 @@ const logoStyles = css`
 `;
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_logo--desktop) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-logo--desktop) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/logo/Logo.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/logo/Logo.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  */
 export const Logo = ({ logoType = 'standard', cssOverrides }: LogoProps) => (
 	<a

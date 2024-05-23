@@ -72,7 +72,7 @@ export interface SelectProps
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/story/source-react-components_select--default-default-theme) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-select--default-default-theme) •
  * [Design System](https://theguardian.design/2a1e5182b/p/663879-select-box/b/10875c) •
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/select/Select.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source)

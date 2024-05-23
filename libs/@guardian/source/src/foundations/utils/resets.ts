@@ -106,7 +106,7 @@ const resetCSS = `
 `;
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_css-reset--docs)
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-css-reset--docs)
  *
  * `resets.resetCSS`: sensible default CSS rules to provide a base for a consistent environment across projects and browsers.
  */

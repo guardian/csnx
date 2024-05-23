@@ -68,10 +68,10 @@ export interface ToggleSwitchProps extends Props {
 }
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-react-components-development-kitchen_toggleswitch--with-no-label) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-toggleswitch--with-no-label) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-react-components-development-kitchen/src/toggle-switch/ToggleSwitch.tsx) •
- * [NPM](https://www.npmjs.com/package/@guardian/source-react-components-development-kitchen)
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/toggle-switch/ToggleSwitch.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
  * Displays an on/off toggle switch. This toggle has default styling and can be used on android, ios or web.
  * These styles are driven by the 'platform' prop.

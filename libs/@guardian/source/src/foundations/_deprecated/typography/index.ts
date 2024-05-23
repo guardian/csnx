@@ -14,7 +14,7 @@ import type {
 } from './types';
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_typography--titlepiece) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--titlepiece) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/358767)
  *
  * ```
@@ -22,7 +22,7 @@ import type {
  * ```
  *
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
 	small: fontStyleToStringFunction(titlepieceObjectStyles.small),
@@ -31,7 +31,7 @@ export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_typography--headline) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--headline) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/7310bd)
  *
  * ```
@@ -39,7 +39,7 @@ export const titlepiece: TypographyStrFunctions<TitlepieceSizes> = {
  * ```
  *
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const headline: TypographyStrFunctions<HeadlineSizes> = {
 	xxxsmall: fontStyleToStringFunction(headlineObjectStyles.xxxsmall),
@@ -52,7 +52,7 @@ export const headline: TypographyStrFunctions<HeadlineSizes> = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_typography--body) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--body) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/88cd8e)
  *
  * ```
@@ -60,7 +60,7 @@ export const headline: TypographyStrFunctions<HeadlineSizes> = {
  * ```
  *
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const body: TypographyStrFunctions<BodySizes> = {
 	xsmall: fontStyleToStringFunction(bodyObjectStyles.xsmall),
@@ -69,7 +69,7 @@ export const body: TypographyStrFunctions<BodySizes> = {
 };
 
 /**
- * [Storybook](https://guardian.github.io/csnx/?path=/docs/source-foundations_typography--text-sans) •
+ * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--text-sans) •
  * [Design System](https://theguardian.design/2a1e5182b/p/602314-typography/t/076605)
  *
  * ```
@@ -77,7 +77,7 @@ export const body: TypographyStrFunctions<BodySizes> = {
  * ```
  *
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const textSans: TypographyStrFunctions<TextSansSizes> = {
 	xxsmall: fontStyleToStringFunction(textSansObjectStyles.xxsmall),

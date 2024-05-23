@@ -17,7 +17,7 @@ const titlepieceDefaults: TypographyConfiguration = {
 
 /**
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const titlepieceObjectStyles: TypographyFunctions<TitlepieceSizes> = {
 	small: fontStyleFunction('titlepiece', 'small', titlepieceDefaults),
@@ -34,7 +34,7 @@ const headlineDefaults: TypographyConfiguration = {
 
 /**
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const headlineObjectStyles: TypographyFunctions<HeadlineSizes> = {
 	xxxsmall: fontStyleFunction('headline', 'xxxsmall', headlineDefaults),
@@ -55,7 +55,7 @@ const bodyDefaults: TypographyConfiguration = {
 
 /**
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const bodyObjectStyles: TypographyFunctions<BodySizes> = {
 	xsmall: fontStyleFunction('body', 'xsmall', bodyDefaults),
@@ -72,7 +72,7 @@ const textSansDefaults: TypographyConfiguration = {
 
 /**
  * @deprecated Use web typography presets instead
- * https://guardian.github.io/storybooks/?path=/docs/source-foundations_typography--docs
+ * https://guardian.github.io/storybooks/?path=/docs/source_foundations-typography--docs
  */
 export const textSansObjectStyles: TypographyFunctions<TextSansSizes> = {
 	xxsmall: fontStyleFunction('textSans', 'xxsmall', textSansDefaults),
