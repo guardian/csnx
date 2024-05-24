@@ -105,7 +105,8 @@ export const TextArea = ({
 	theme,
 	...props
 }: TextAreaProps) => {
-	const textAreaId = id ?? useId();
+	const defaultId = useId();
+	const textAreaId = id ?? defaultId;
 	const getClassName = () => {
 		const HAS_VALUE_CLASS = 'src-has-value';
 

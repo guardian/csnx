@@ -78,7 +78,8 @@ export const RadioGroup = ({
 	theme,
 	...props
 }: RadioGroupProps) => {
-	const groupId = id ?? useId();
+	const defaultId = useId();
+	const groupId = id ?? defaultId;
 	const legend = label ? (
 		<Legend
 			text={label}

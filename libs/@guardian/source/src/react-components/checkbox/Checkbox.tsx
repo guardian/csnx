@@ -98,7 +98,8 @@ export const Checkbox = ({
 	theme,
 	...props
 }: CheckboxProps) => {
-	const checkboxId = id ?? useId();
+	const defaultId = useId();
+	const checkboxId = id ?? defaultId;
 	const isChecked = (): boolean => {
 		if (checked != null) {
 			return checked;
