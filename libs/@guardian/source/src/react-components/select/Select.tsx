@@ -1,5 +1,6 @@
 import type { ReactNode, SelectHTMLAttributes } from 'react';
-import { descriptionId, generateSourceId } from '../../foundations';
+import { useId } from 'react';
+import { descriptionId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
@@ -94,7 +95,7 @@ export const Select = ({
 	theme,
 	...props
 }: SelectProps) => {
-	const selectId = id ?? generateSourceId();
+	const selectId = id ?? useId();
 	const mergedTheme = (providerTheme: Theme['select']) =>
 		mergeThemes<ThemeSelect, Theme['select']>(
 			defaultTheme,
