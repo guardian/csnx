@@ -47,5 +47,18 @@ module.exports = {
 			},
 		},
 	],
-	extends: ['plugin:storybook/recommended'],
+	rules: {
+		'react/no-unknown-property': ['error', { ignore: ['css'] }],
+	},
+	extends: [
+		'plugin:storybook/recommended',
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
+		'plugin:react-hooks/recommended',
+	],
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
 };
