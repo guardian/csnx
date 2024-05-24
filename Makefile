@@ -257,54 +257,6 @@ install: check-node-version
 @guardian/eslint-config-typescript\:lint: env
 	@corepack pnpm --filter @guardian/eslint-config-typescript lint
 
-.PHONY: @guardian/eslint-plugin-source-foundations\:build
-@guardian/eslint-plugin-source-foundations\:build: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations build
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:dev
-@guardian/eslint-plugin-source-foundations\:dev: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations dev
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:fix
-@guardian/eslint-plugin-source-foundations\:fix: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations fix
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:lint
-@guardian/eslint-plugin-source-foundations\:lint: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations lint
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:test
-@guardian/eslint-plugin-source-foundations\:test: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations test
-
-.PHONY: @guardian/eslint-plugin-source-foundations\:verify-dist
-@guardian/eslint-plugin-source-foundations\:verify-dist: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-foundations verify-dist
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:build
-@guardian/eslint-plugin-source-react-components\:build: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components build
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:dev
-@guardian/eslint-plugin-source-react-components\:dev: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components dev
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:fix
-@guardian/eslint-plugin-source-react-components\:fix: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components fix
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:lint
-@guardian/eslint-plugin-source-react-components\:lint: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components lint
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:test
-@guardian/eslint-plugin-source-react-components\:test: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components test
-
-.PHONY: @guardian/eslint-plugin-source-react-components\:verify-dist
-@guardian/eslint-plugin-source-react-components\:verify-dist: env
-	@corepack pnpm --filter @guardian/eslint-plugin-source-react-components verify-dist
-
 .PHONY: @guardian/identity-auth\:build
 @guardian/identity-auth\:build: env
 	@corepack pnpm --filter @guardian/identity-auth build
@@ -445,109 +397,37 @@ install: check-node-version
 @guardian/source\:verify-dist: env
 	@corepack pnpm --filter @guardian/source verify-dist
 
-.PHONY: @guardian/source-foundations\:build
-@guardian/source-foundations\:build: env
-	@corepack pnpm --filter @guardian/source-foundations build
+.PHONY: @guardian/source-development-kitchen\:build
+@guardian/source-development-kitchen\:build: env
+	@corepack pnpm --filter @guardian/source-development-kitchen build
 
-.PHONY: @guardian/source-foundations\:build-storybook
-@guardian/source-foundations\:build-storybook: env
-	@corepack pnpm --filter @guardian/source-foundations build-storybook
+.PHONY: @guardian/source-development-kitchen\:build-storybook
+@guardian/source-development-kitchen\:build-storybook: env
+	@corepack pnpm --filter @guardian/source-development-kitchen build-storybook
 
-.PHONY: @guardian/source-foundations\:build-type-presets
-@guardian/source-foundations\:build-type-presets: env
-	@corepack pnpm --filter @guardian/source-foundations build-type-presets
+.PHONY: @guardian/source-development-kitchen\:dev
+@guardian/source-development-kitchen\:dev: env
+	@corepack pnpm --filter @guardian/source-development-kitchen dev
 
-.PHONY: @guardian/source-foundations\:dev
-@guardian/source-foundations\:dev: env
-	@corepack pnpm --filter @guardian/source-foundations dev
+.PHONY: @guardian/source-development-kitchen\:fix
+@guardian/source-development-kitchen\:fix: env
+	@corepack pnpm --filter @guardian/source-development-kitchen fix
 
-.PHONY: @guardian/source-foundations\:fix
-@guardian/source-foundations\:fix: env
-	@corepack pnpm --filter @guardian/source-foundations fix
+.PHONY: @guardian/source-development-kitchen\:lint
+@guardian/source-development-kitchen\:lint: env
+	@corepack pnpm --filter @guardian/source-development-kitchen lint
 
-.PHONY: @guardian/source-foundations\:lint
-@guardian/source-foundations\:lint: env
-	@corepack pnpm --filter @guardian/source-foundations lint
+.PHONY: @guardian/source-development-kitchen\:storybook
+@guardian/source-development-kitchen\:storybook: env
+	@corepack pnpm --filter @guardian/source-development-kitchen storybook
 
-.PHONY: @guardian/source-foundations\:storybook
-@guardian/source-foundations\:storybook: env
-	@corepack pnpm --filter @guardian/source-foundations storybook
+.PHONY: @guardian/source-development-kitchen\:test
+@guardian/source-development-kitchen\:test: env
+	@corepack pnpm --filter @guardian/source-development-kitchen test
 
-.PHONY: @guardian/source-foundations\:test
-@guardian/source-foundations\:test: env
-	@corepack pnpm --filter @guardian/source-foundations test
-
-.PHONY: @guardian/source-foundations\:verify-dist
-@guardian/source-foundations\:verify-dist: env
-	@corepack pnpm --filter @guardian/source-foundations verify-dist
-
-.PHONY: @guardian/source-react-components\:build
-@guardian/source-react-components\:build: env
-	@corepack pnpm --filter @guardian/source-react-components build
-
-.PHONY: @guardian/source-react-components\:build-storybook
-@guardian/source-react-components\:build-storybook: env
-	@corepack pnpm --filter @guardian/source-react-components build-storybook
-
-.PHONY: @guardian/source-react-components\:create-icons
-@guardian/source-react-components\:create-icons: env
-	@corepack pnpm --filter @guardian/source-react-components create-icons
-
-.PHONY: @guardian/source-react-components\:dev
-@guardian/source-react-components\:dev: env
-	@corepack pnpm --filter @guardian/source-react-components dev
-
-.PHONY: @guardian/source-react-components\:fix
-@guardian/source-react-components\:fix: env
-	@corepack pnpm --filter @guardian/source-react-components fix
-
-.PHONY: @guardian/source-react-components\:lint
-@guardian/source-react-components\:lint: env
-	@corepack pnpm --filter @guardian/source-react-components lint
-
-.PHONY: @guardian/source-react-components\:storybook
-@guardian/source-react-components\:storybook: env
-	@corepack pnpm --filter @guardian/source-react-components storybook
-
-.PHONY: @guardian/source-react-components\:test
-@guardian/source-react-components\:test: env
-	@corepack pnpm --filter @guardian/source-react-components test
-
-.PHONY: @guardian/source-react-components\:verify-dist
-@guardian/source-react-components\:verify-dist: env
-	@corepack pnpm --filter @guardian/source-react-components verify-dist
-
-.PHONY: @guardian/source-react-components-development-kitchen\:build
-@guardian/source-react-components-development-kitchen\:build: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen build
-
-.PHONY: @guardian/source-react-components-development-kitchen\:build-storybook
-@guardian/source-react-components-development-kitchen\:build-storybook: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen build-storybook
-
-.PHONY: @guardian/source-react-components-development-kitchen\:dev
-@guardian/source-react-components-development-kitchen\:dev: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen dev
-
-.PHONY: @guardian/source-react-components-development-kitchen\:fix
-@guardian/source-react-components-development-kitchen\:fix: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen fix
-
-.PHONY: @guardian/source-react-components-development-kitchen\:lint
-@guardian/source-react-components-development-kitchen\:lint: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen lint
-
-.PHONY: @guardian/source-react-components-development-kitchen\:storybook
-@guardian/source-react-components-development-kitchen\:storybook: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen storybook
-
-.PHONY: @guardian/source-react-components-development-kitchen\:test
-@guardian/source-react-components-development-kitchen\:test: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen test
-
-.PHONY: @guardian/source-react-components-development-kitchen\:verify-dist
-@guardian/source-react-components-development-kitchen\:verify-dist: env
-	@corepack pnpm --filter @guardian/source-react-components-development-kitchen verify-dist
+.PHONY: @guardian/source-development-kitchen\:verify-dist
+@guardian/source-development-kitchen\:verify-dist: env
+	@corepack pnpm --filter @guardian/source-development-kitchen verify-dist
 
 .PHONY: @guardian/tsconfig\:fix
 @guardian/tsconfig\:fix: env

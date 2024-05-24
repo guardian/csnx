@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/blocks';
+
+import { focusHalo } from './focus-halo';
+
+<Meta
+	title="Foundations/focusHalo"
+	parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# `focusHalo`
+
+Providing a clear focus state (the blue halo effect around active elements) is essential to support keyboard navigation.
+
+Apply the `focusHalo` style to custom interactive elements:
+
+```tsx
+import { focusHalo } from '@guardian/source/foundations';
+
+const customButtonStyles = css`
+	${focusHalo};
+`;
+```
+
+# `focusHaloSpaced`
+
+The blue halo effect with additional spacing between the element and the halo for better visibility of halo on blue-coloured elements.
+
+Apply the `focusHaloSpaced` style to custom interactive elements:
+
+```tsx
+import { focusHaloSpaced } from '@guardian/source/foundations';
+
+const customButtonStyles = css`
+	${focusHaloSpaced};
+`;
+```

@@ -1,0 +1,15 @@
+{
+	"name": "@configs/rollup",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "25.0.7",
+		"@rollup/plugin-json": "6.1.0",
+		"@rollup/plugin-node-resolve": "15.2.3",
+		"rollup": "4.17.2",
+		"rollup-plugin-dts": "6.1.0",
+		"rollup-plugin-esbuild": "6.1.1",
+		"rollup-plugin-node-externals": "7.1.2"
+	}
+}
