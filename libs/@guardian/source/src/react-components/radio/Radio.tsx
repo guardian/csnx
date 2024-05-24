@@ -82,7 +82,8 @@ export const Radio = ({
 	theme,
 	...props
 }: RadioProps) => {
-	const radioId = id ?? useId();
+	const defaultId = useId();
+	const radioId = id ?? defaultId;
 	const isChecked = (): boolean => {
 		if (checked != null) {
 			return checked;

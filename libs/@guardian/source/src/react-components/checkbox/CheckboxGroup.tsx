@@ -74,7 +74,8 @@ export const CheckboxGroup = ({
 	theme,
 	...props
 }: CheckboxGroupProps) => {
-	const groupId = id ?? useId();
+	const defaultId = useId();
+	const groupId = id ?? defaultId;
 	const legend = label ? (
 		<Legend
 			text={label}

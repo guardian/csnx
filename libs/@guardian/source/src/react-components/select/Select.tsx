@@ -95,7 +95,8 @@ export const Select = ({
 	theme,
 	...props
 }: SelectProps) => {
-	const selectId = id ?? useId();
+	const defaultId = useId();
+	const selectId = id ?? defaultId;
 	const mergedTheme = (providerTheme: Theme['select']) =>
 		mergeThemes<ThemeSelect, Theme['select']>(
 			defaultTheme,
