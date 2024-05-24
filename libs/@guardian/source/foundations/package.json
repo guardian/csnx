@@ -1,6 +1,6 @@
 {
-	"//": "sub-package to match the `exports` field in the parent package.json",
 	"private": true,
 	"type": "module",
-	"main": "../dist/foundations.js"
+	"main": "../dist/foundations.js",
+	"//": "sub-package to match the `exports` field in the parent package.json"
 }
