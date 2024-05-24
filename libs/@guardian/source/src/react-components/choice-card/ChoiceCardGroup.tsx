@@ -1,7 +1,7 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
 import type { FieldsetHTMLAttributes } from 'react';
-import { Children, cloneElement } from 'react';
-import { descriptionId, generateSourceId } from '../../foundations';
+import { Children, cloneElement, useId } from 'react';
+import { descriptionId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import { Legend } from '../label/Legend';
 import { InlineError } from '../user-feedback/InlineError';
@@ -88,7 +88,7 @@ export const ChoiceCardGroup = ({
 	theme,
 	...props
 }: ChoiceCardGroupProps) => {
-	const groupId = id ?? generateSourceId();
+	const groupId = id ?? useId();
 	const showLabel = !!(label && !hideLabel);
 	const topMargin =
 		(showLabel || supporting) ?? error ? containerTopMargin : '';
