@@ -1,5 +1,12 @@
 # @guardian/source
 
+## 1.0.2
+
+### Patch Changes
+
+- 522b68e: Replaced internal uses of `generateSourceId` with React's `useId`, as it does not change when the component is re-rendered.
+- 2e48c80: Make `react` and `@emotion/react` optional `peerDeps` (you don't need them if you're not using react components).
+
 ## 1.0.1
 
 ### Patch Changes
