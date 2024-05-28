@@ -88,7 +88,8 @@ export const ChoiceCardGroup = ({
 	theme,
 	...props
 }: ChoiceCardGroupProps) => {
-	const groupId = id ?? useId();
+	const defaultId = useId();
+	const groupId = id ?? defaultId;
 	const showLabel = !!(label && !hideLabel);
 	const topMargin =
 		(showLabel || supporting) ?? error ? containerTopMargin : '';

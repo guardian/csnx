@@ -122,7 +122,8 @@ export const TextInput = ({
 	cssOverrides,
 	...props
 }: TextInputProps) => {
-	const textInputId = id ?? useId();
+	const defaultId = useId();
+	const textInputId = id ?? defaultId;
 	const mergedTheme = (providerTheme: Theme) =>
 		mergeThemes<ThemeTextInput, Theme['textInput']>(
 			themeTextInput,
