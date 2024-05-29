@@ -22,9 +22,17 @@ export const buttonContents = ({
 			contents.push(<div key="space" className="src-button-space" />);
 		}
 		contents.push(
-			cloneElement(<SvgSpinner />, {
-				key: 'svg',
-			}),
+			cloneElement(
+				<SvgSpinner
+					theme={{
+						strokeBackground: 'transparent',
+						strokeForeground: 'currentColor',
+					}}
+				/>,
+				{
+					key: 'svg',
+				},
+			),
 		);
 	} else if (iconSvg) {
 		if (!hideLabel) {
