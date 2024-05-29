@@ -1,29 +1,15 @@
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
-import { iconSize, palette } from '../../foundations';
-import type { IconProps } from '../@types/Icons';
+import { iconSize } from '../../foundations';
+import type { IconSize } from '../@types/Icons';
+import { ThemeSpinnerIcon, themeSpinnerIcon } from './theme';
 
-interface LoadingCircleIconProps extends IconProps {
-	additionalCss?: SerializedStyles;
+interface SpinnerIconProps {
+	size?: IconSize;
+	theme?: Partial<ThemeSpinnerIcon>;
 }
 
-const circleStrokeWidth = 5;
+export const SvgSpinner = ({ size, theme }: SpinnerIconProps) => {
+	const mergedTheme = { ...themeSpinnerIcon, ...theme };
 
-const backgroundCircleStyles = css`
-	stroke: ${palette.brand[800]};
-	stroke-width: ${circleStrokeWidth};
-	fill: transparent;
-`;
-
-const foregroundCircleStyles = css`
-	stroke: ${palette.brand[400]};
-	stroke-dasharray: 82;
-	stroke-dashoffset: 82;
-	stroke-width: ${circleStrokeWidth};
-	fill: transparent;
-`;
-
-export const SvgSpinner = ({ size }: LoadingCircleIconProps) => {
 	return (
 		<svg
 			width={size ? iconSize[size] : undefined}
@@ -41,8 +27,24 @@ export const SvgSpinner = ({ size }: LoadingCircleIconProps) => {
 					dur="2.5s"
 					repeatCount="indefinite"
 				/>
-				<circle cx="15" cy="15" r="12.5" css={backgroundCircleStyles} />
-				<circle cx="15" cy="15" r="12.5" css={foregroundCircleStyles}>
+				<circle
+					cx="15"
+					cy="15"
+					r="12.5"
+					stroke-width="5"
+					stroke={mergedTheme.strokeBackground}
+					fill={mergedTheme.fillBackground}
+				/>
+				<circle
+					cx="15"
+					cy="15"
+					r="12.5"
+					stroke-width="5"
+					stroke-dasharray="82"
+					stroke-dashoffset="82"
+					stroke={mergedTheme.strokeForeground}
+					fill={mergedTheme.fillForeground}
+				>
 					<animate
 						attributeName="stroke-dashoffset"
 						dur="3.5s"
