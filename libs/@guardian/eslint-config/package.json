@@ -7,6 +7,11 @@
 		"fix": "wireit",
 		"lint": "wireit"
 	},
+	"dependencies": {
+		"eslint-config-prettier": "*",
+		"eslint-plugin-eslint-comments": "*",
+		"eslint-plugin-import": "*"
+	},
 	"devDependencies": {
 		"eslint": "8.56.0",
 		"tslib": "^2.6.2",

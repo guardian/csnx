@@ -8,7 +8,11 @@
 		"lint": "wireit"
 	},
 	"dependencies": {
-		"@guardian/eslint-config": "workspace:*"
+		"@guardian/eslint-config": "workspace:*",
+		"@typescript-eslint/eslint-plugin": "*",
+		"@typescript-eslint/parser": "*",
+		"eslint-import-resolver-typescript": "*",
+		"eslint-plugin-import": "*"
 	},
 	"devDependencies": {
 		"eslint": "8.56.0",
