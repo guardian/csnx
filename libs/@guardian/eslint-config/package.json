@@ -8,9 +8,9 @@
 		"lint": "wireit"
 	},
 	"dependencies": {
-		"eslint-config-prettier": "*",
-		"eslint-plugin-eslint-comments": "*",
-		"eslint-plugin-import": "*"
+		"eslint-config-prettier": "9.1.0",
+		"eslint-plugin-eslint-comments": "3.2.0",
+		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
 		"eslint": "8.56.0",
