@@ -188,11 +188,6 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source-development-kitchen:test`
 - `make @guardian/source-development-kitchen:verify-dist`
 
-#### @guardian/tsconfig
-
-- `make @guardian/tsconfig:fix`
-- `make @guardian/tsconfig:lint`
-
 #### github-pages
 
 - `make github-pages:build`

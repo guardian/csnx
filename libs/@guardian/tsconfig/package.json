@@ -2,33 +2,5 @@
 	"name": "@guardian/tsconfig",
 	"version": "0.3.1",
 	"description": "TSConfig base for Guardian TypeScript projects",
-	"main": "tsconfig.json",
-	"scripts": {
-		"fix": "wireit",
-		"lint": "wireit"
-	},
-	"devDependencies": {
-		"wireit": "0.14.4"
-	},
-	"wireit": {
-		"fix": {
-			"command": "eslint --cache --color . --fix",
-			"clean": false,
-			"files": [
-				"**",
-				"../../../.eslint*"
-			],
-			"output": [
-				"."
-			]
-		},
-		"lint": {
-			"command": "eslint --cache --color .",
-			"files": [
-				"**",
-				"../../../.eslint*"
-			],
-			"output": []
-		}
-	}
+	"main": "tsconfig.json"
 }
