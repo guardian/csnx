@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 16.1.4
+
+### Patch Changes
+
+- 013fed6: Add "CONTAINER" to OphanComponentType
+
 ## 16.1.3
 
 ### Patch Changes
