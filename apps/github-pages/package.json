@@ -45,7 +45,7 @@
 			"dependencies": [
 				"build"
 			],
-			"command": "astro preview",
+			"command": "astro preview --port=4321",
 			"service": {
 				"readyWhen": {
 					"lineMatches": "use --host to expose"
