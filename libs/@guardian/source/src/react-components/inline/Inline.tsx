@@ -1,8 +1,14 @@
 import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
+import type { Breakpoint } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Space } from '../@types/Space';
-import { inline, inlineSpace, inlineWrapper } from './styles';
+import {
+	collapseBreakpoint,
+	inline,
+	inlineSpace,
+	inlineWrapper,
+} from './styles';
 
 export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
@@ -10,6 +16,10 @@ export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
 	 * between children.
 	 */
 	space?: Space;
+	/**
+	 * Collapse to a single column below the specified [breakpoint](https://guardian.github.io/storybooks/?path=/docs/source-foundations_media-queries--docs)
+	 */
+	collapseUntil?: Breakpoint;
 }
 
 /**
@@ -24,6 +34,7 @@ export const Inline = ({
 	cssOverrides,
 	children,
 	space,
+	collapseUntil,
 	...props
 }: InlineProps) => {
 	return (
@@ -32,6 +43,7 @@ export const Inline = ({
 				css={[
 					inlineWrapper,
 					isUndefined(space) ? '' : inlineSpace(space),
+					collapseUntil ? collapseBreakpoint(collapseUntil) : '',
 					cssOverrides,
 				]}
 				{...props}

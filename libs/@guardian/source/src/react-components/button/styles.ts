@@ -22,7 +22,7 @@ import { themeButton as defaultTheme } from './theme';
 
 const button = css`
 	display: inline-flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
 	border: none;
@@ -208,7 +208,6 @@ const iconRight = css`
 `;
 
 const iconOnly = css`
-	justify-content: center;
 	padding: 0;
 `;
 
