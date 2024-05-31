@@ -48,7 +48,8 @@ export const SvgSpinner = ({ size, theme }: SpinnerIconProps) => {
 					<animate
 						attributeName="stroke-dashoffset"
 						dur="3.5s"
-						to="-82"
+						from="164" /* Multiple of `stroke-dasharray` so animation continuous */
+						to="0"
 						repeatCount="indefinite"
 					/>
 				</circle>
