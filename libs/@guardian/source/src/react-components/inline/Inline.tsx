@@ -1,3 +1,4 @@
+import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
 import type { Breakpoint } from '../../foundations';
 import type { Props } from '../@types/Props';
@@ -41,7 +42,7 @@ export const Inline = ({
 			<div
 				css={[
 					inlineWrapper,
-					space ? inlineSpace(space) : '',
+					isUndefined(space) ? '' : inlineSpace(space),
 					collapseUntil ? collapseBreakpoint(collapseUntil) : '',
 					cssOverrides,
 				]}
