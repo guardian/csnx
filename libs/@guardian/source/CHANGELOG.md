@@ -1,5 +1,16 @@
 # @guardian/source
 
+## 2.0.0
+
+### Major Changes
+
+- 637d127: - Adds `collapseUntil` option to `Inline` layout component to allow collapsing into a single column below a given breakpoint.
+  - Text and icons are now horizontally centred within buttons. Visually this is only apparent if a button's styles have been overridden and it is stretched beyond it's natural intrinsic width. (Previously the text and icon would be pushed to the edges of the button.)
+
+### Patch Changes
+
+- 1921d8c: Fixes bug where `space.0` was not applied to `Inline` layouts and updates `Column` and `Stack` to support all spacing units
+
 ## 1.0.3
 
 ### Patch Changes
