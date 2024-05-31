@@ -126,7 +126,6 @@ export { SvgPlus } from './__generated__/icons/SvgPlus';
 export { SvgQuote } from './__generated__/icons/SvgQuote';
 export { SvgSettings } from './__generated__/icons/SvgSettings';
 export { SvgSpeechBubble } from './__generated__/icons/SvgSpeechBubble';
-export { SvgSpinner } from './icons/SvgSpinner';
 export { SvgStar } from './__generated__/icons/SvgStar';
 export { SvgTickRound } from './__generated__/icons/SvgTickRound';
 export { SvgTwitter } from './__generated__/icons/SvgTwitter';
@@ -201,6 +200,9 @@ export { SvgUpload } from './__generated__/icons/SvgUpload';
 
 export type { IconProps, IconSize } from './@types/Icons';
 export type { ThemeIcon } from './icons/theme';
+
+export { Spinner } from './spinner/Spinner';
+export type { ThemeSpinner } from './spinner/theme';
 
 export type { InputSize } from './@types/InputSize';
 

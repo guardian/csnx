@@ -1,14 +1,15 @@
 import { iconSize } from '../../foundations';
 import type { IconSize } from '../@types/Icons';
-import { ThemeSpinnerIcon, themeSpinnerIcon } from './theme';
+import type { ThemeSpinner } from './theme';
+import { themeSpinner } from './theme';
 
-interface SpinnerIconProps {
+export interface SpinnerProps {
 	size?: IconSize;
-	theme?: Partial<ThemeSpinnerIcon>;
+	theme?: Partial<ThemeSpinner>;
 }
 
-export const SvgSpinner = ({ size, theme }: SpinnerIconProps) => {
-	const mergedTheme = { ...themeSpinnerIcon, ...theme };
+export const Spinner = ({ size, theme }: SpinnerProps) => {
+	const mergedTheme = { ...themeSpinner, ...theme };
 
 	return (
 		<svg
