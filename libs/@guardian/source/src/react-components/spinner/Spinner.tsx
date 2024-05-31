@@ -4,10 +4,35 @@ import type { ThemeSpinner } from './theme';
 import { themeSpinner } from './theme';
 
 export interface SpinnerProps {
+	/**
+	 * Size of the spinner
+	 */
 	size?: IconSize;
+	/**
+	 * Partial or complete theme to override the spinner's default colour palette.
+	 * The colours which can be changed are:
+	 *
+	 * `fillBackground`<br>
+	 * `strokeBackground`<br>
+	 * `fillForeground`<br>
+	 * `strokeForeground`<br>
+	 */
 	theme?: Partial<ThemeSpinner>;
 }
 
+/**
+ * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-spinner--docs) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source/src/react-components/spinner/Spinner.tsx) •
+ * [NPM](https://www.npmjs.com/package/@guardian/source)
+ *
+ * A spinner conveys to the user that a process is ongoing. ie. a page is
+ * loading or an action is being processed. The spinner is purely visual and
+ * does not include any accessibility features. It is the responsibility of the
+ * consumer to ensure that the spinner is used in a way that is accessible by
+ * adding an appropriate label (either visually or via `aria-label`) and
+ * applying `aria-live` to the containing element if the user needs to be
+ * informed of changes to the spinner's state.
+ */
 export const Spinner = ({ size, theme }: SpinnerProps) => {
 	const mergedTheme = { ...themeSpinner, ...theme };
 
