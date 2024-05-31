@@ -429,14 +429,6 @@ install: check-node-version
 @guardian/source-development-kitchen\:verify-dist: env
 	@corepack pnpm --filter @guardian/source-development-kitchen verify-dist
 
-.PHONY: @guardian/tsconfig\:fix
-@guardian/tsconfig\:fix: env
-	@corepack pnpm --filter @guardian/tsconfig fix
-
-.PHONY: @guardian/tsconfig\:lint
-@guardian/tsconfig\:lint: env
-	@corepack pnpm --filter @guardian/tsconfig lint
-
 .PHONY: github-pages\:build
 github-pages\:build: env
 	@corepack pnpm --filter github-pages build

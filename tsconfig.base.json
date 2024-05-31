@@ -12,8 +12,7 @@
 		"jsxImportSource": "@emotion/react",
 		"noEmit": true,
 		"rootDir": ".",
-		"sourceMap": true,
-		"moduleResolution": "bundler"
+		"sourceMap": true
 	},
 	"exclude": ["node_modules", "tmp"],
 	"ts-node": {

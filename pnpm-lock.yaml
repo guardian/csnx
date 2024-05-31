@@ -715,11 +715,7 @@ importers:
         specifier: 0.14.4
         version: 0.14.4
 
-  libs/@guardian/tsconfig:
-    devDependencies:
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
+  libs/@guardian/tsconfig: {}
 
 packages:
 
