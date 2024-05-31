@@ -45,7 +45,7 @@ export const ExpandingWrapper: FC<ExpandingWrapperProps> = ({
 
 	useEffect(() => {
 		disableTabbingWhenCollapsed && setTabIndex(name, isExpanded);
-	}, [disableTabbingWhenCollapsed, isExpanded]);
+	}, [disableTabbingWhenCollapsed, isExpanded, name]);
 
 	useEffect(() => {
 		expandCallback?.(isExpanded);

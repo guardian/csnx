@@ -44,10 +44,10 @@ const propertiesCss = css`
 
 export const TypographyPresets = () => (
 	<ul css={listCss}>
-		{Object.entries(presets).map(([preset, styles]) => {
+		{Object.entries(presets).map(([preset, styles], index) => {
 			const token = typographyPresets[preset as Preset];
 			return (
-				<li>
+				<li key={`preset-${index}`}>
 					<span css={presetNameCss}>{preset}</span>
 					<span css={specimenCss}>
 						<dl css={propertiesCss}>
@@ -71,7 +71,7 @@ export const TypographyPresets = () => (
 								${styles}
 							`}
 						>
-							For facts' sake
+							For facts&apos; sake
 						</span>
 					</span>
 				</li>
