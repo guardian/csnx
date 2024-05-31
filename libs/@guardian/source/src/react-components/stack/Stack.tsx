@@ -1,14 +1,14 @@
+import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
 import type { Props } from '../@types/Props';
+import type { Space } from '../@types/Space';
 import { stack, stackSpace } from './styles';
-
-export type StackSpace = 1 | 2 | 3 | 4 | 5 | 6 | 9 | 12 | 24;
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
 	 * [Units of space](https://www.theguardian.design/2a1e5182b/p/449bd5-space) between inline items (one unit is 4px).
 	 */
-	space?: StackSpace;
+	space?: Space;
 }
 
 /**
@@ -26,7 +26,10 @@ export const Stack = ({
 	...props
 }: StackProps) => {
 	return (
-		<div css={[stack, space ? stackSpace[space] : '', cssOverrides]} {...props}>
+		<div
+			css={[stack, isUndefined(space) ? '' : stackSpace(space), cssOverrides]}
+			{...props}
+		>
 			{children}
 		</div>
 	);
