@@ -7,7 +7,7 @@ export interface SpinnerProps {
 	/**
 	 * Size of the spinner
 	 */
-	size?: IconSize;
+	size?: IconSize | number;
 	/**
 	 * Partial or complete theme to override the spinner's default colour palette.
 	 * The colours which can be changed are:
@@ -33,12 +33,13 @@ export interface SpinnerProps {
  * applying `aria-live` to the containing element if the user needs to be
  * informed of changes to the spinner's state.
  */
-export const Spinner = ({ size, theme }: SpinnerProps) => {
+export const Spinner = ({ size = 'medium', theme }: SpinnerProps) => {
 	const mergedTheme = { ...themeSpinner, ...theme };
+	const spinnerWidth = typeof size === 'number' ? size : iconSize[size];
 
 	return (
 		<svg
-			width={size ? iconSize[size] : undefined}
+			width={spinnerWidth}
 			viewBox="0 0 30 30"
 			focusable={false}
 			aria-hidden={true}
