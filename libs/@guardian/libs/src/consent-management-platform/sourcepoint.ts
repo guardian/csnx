@@ -3,7 +3,7 @@ import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import type { Property } from './lib/property';
-import { ACCOUNT_ID, ENDPOINT } from './lib/sourcepointConfig';
+import { ACCOUNT_ID, ENDPOINT, PROPERTY_ID } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
@@ -43,6 +43,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
 
+	const isInPropertyIdABTest =
+		window.guardian?.config?.page?.abTests?.useSourcepointPropertyIdVariant ===
+		'variant';
+
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -52,7 +56,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyHref: getProperty(framework),
 			targetingParams: {
 				framework,
 			},
@@ -153,6 +156,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			},
 		},
 	};
+
+	if (isInPropertyIdABTest) {
+		window._sp_.config.propertyId = PROPERTY_ID;
+	} else {
+		window._sp_.config.propertyHref = getProperty(framework);
+	}
 
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
