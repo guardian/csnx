@@ -55,28 +55,30 @@ export const Spinner = ({ size = 'medium', theme }: SpinnerProps) => {
 					repeatCount="indefinite"
 				/>
 				<circle
-					cx="15"
-					cy="15"
-					r="12.5"
-					stroke-width="5"
+					cx={15}
+					cy={15}
+					r={12.5}
+					strokeWidth={5}
 					stroke={mergedTheme.strokeBackground}
 					fill={mergedTheme.fillBackground}
 				/>
 				<circle
-					cx="15"
-					cy="15"
-					r="12.5"
-					stroke-width="5"
-					stroke-dasharray="82"
-					stroke-dashoffset="82"
+					cx={15}
+					cy={15}
+					r={12.5}
+					strokeWidth={5}
+					strokeDasharray={82}
+					strokeDashoffset={82}
 					stroke={mergedTheme.strokeForeground}
 					fill={mergedTheme.fillForeground}
 				>
 					<animate
 						attributeName="stroke-dashoffset"
 						dur="3.5s"
-						from="164" /* Multiple of `stroke-dasharray` so animation continuous */
-						to="0"
+						from={
+							164
+						} /* Multiple of `stroke-dasharray` so animation is continuous */
+						to={0}
 						repeatCount="indefinite"
 					/>
 				</circle>
