@@ -25,6 +25,7 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
+		"@playwright/test": "^1.44.1",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
 		"cypress": "13.7.1",
@@ -69,16 +70,13 @@
 			]
 		},
 		"e2e": {
-			"command": "cypress run --headless",
+			"command": "playwright test",
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
 				"!(jest*)"
 			],
-			"output": [],
-			"dependencies": [
-				"../../../apps/github-pages:start"
-			]
+			"output": []
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
