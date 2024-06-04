@@ -7,7 +7,7 @@
 		"dev": "wireit"
 	},
 	"devDependencies": {
-		"storybook": "8.0.5",
+		"storybook": "8.1.5",
 		"wireit": "0.14.4"
 	},
 	"wireit": {
