@@ -25,8 +25,8 @@ export const buttonContents = ({
 			cloneElement(
 				<Spinner
 					theme={{
-						strokeBackground: 'transparent',
-						strokeForeground: 'currentColor',
+						background: 'transparent',
+						color: 'currentColor',
 					}}
 				/>,
 				{

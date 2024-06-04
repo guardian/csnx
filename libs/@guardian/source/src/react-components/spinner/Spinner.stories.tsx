@@ -59,7 +59,7 @@ CustomSizeDefaultTheme.args = {
 export const CustomTheme: StoryFn<typeof Spinner> = Template.bind({});
 CustomTheme.args = {
 	theme: {
-		strokeBackground: 'transparent',
-		strokeForeground: palette.neutral[7],
+		background: 'transparent',
+		color: palette.neutral[7],
 	},
 };

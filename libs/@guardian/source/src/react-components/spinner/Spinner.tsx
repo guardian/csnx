@@ -12,10 +12,8 @@ export interface SpinnerProps {
 	 * Partial or complete theme to override the spinner's default colour palette.
 	 * The colours which can be changed are:
 	 *
-	 * `fillBackground`<br>
-	 * `strokeBackground`<br>
-	 * `fillForeground`<br>
-	 * `strokeForeground`<br>
+	 * `background`<br>
+	 * `color`<br>
 	 */
 	theme?: Partial<ThemeSpinner>;
 }
@@ -59,8 +57,8 @@ export const Spinner = ({ size = 'medium', theme }: SpinnerProps) => {
 					cy={15}
 					r={12.5}
 					strokeWidth={5}
-					stroke={mergedTheme.strokeBackground}
-					fill={mergedTheme.fillBackground}
+					stroke={mergedTheme.background}
+					fill="transparent"
 				/>
 				<circle
 					cx={15}
@@ -69,8 +67,8 @@ export const Spinner = ({ size = 'medium', theme }: SpinnerProps) => {
 					strokeWidth={5}
 					strokeDasharray={82}
 					strokeDashoffset={82}
-					stroke={mergedTheme.strokeForeground}
-					fill={mergedTheme.fillForeground}
+					stroke={mergedTheme.color}
+					fill="transparent"
 				>
 					<animate
 						attributeName="stroke-dashoffset"
