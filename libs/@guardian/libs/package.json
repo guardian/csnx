@@ -71,6 +71,9 @@
 		},
 		"e2e": {
 			"command": "playwright test",
+			"dependencies": [
+				"e2e:install-browsers"
+			],
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
@@ -81,6 +84,9 @@
 				"./src/**"
 			],
 			"output": []
+		},
+		"e2e:install-browsers": {
+			"command": "pnpm exec playwright install chromium"
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
