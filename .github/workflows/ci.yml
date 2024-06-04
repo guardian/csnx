@@ -33,7 +33,7 @@ jobs:
         with:
           name: playwright-report
           path: ./libs/@guardian/libs/playwright-report/
-          retention-days: 30
+          retention-days: 14
 
   chromatic:
     needs: validate
