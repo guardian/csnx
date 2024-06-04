@@ -21,10 +21,4 @@ export default defineConfig({
 			use: { ...devices['Desktop Chrome'] },
 		},
 	],
-
-	webServer: {
-		command: 'pnpm --filter github-pages start',
-		url: 'http://localhost:4321/csnx',
-		reuseExistingServer: !process.env.CI,
-	},
 });

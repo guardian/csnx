@@ -69,7 +69,8 @@
 		"e2e": {
 			"command": "playwright test",
 			"dependencies": [
-				"e2e:install-browsers"
+				"e2e:install-browsers",
+				"../../../apps/github-pages:start"
 			],
 			"files": [
 				"!(dist)/**",
