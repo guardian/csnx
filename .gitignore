@@ -14,17 +14,12 @@ tsconfig.tsbuildinfo
 # Speed up eslint
 .eslintcache
 
-**/cypress/screenshots
-
 # wireit cache dirs
 # https://github.com/google/wireit
 .wireit
 
 # storybook build dirs
 storybook-static
-
-# cypress stuff
-**/cypress/downloads/
 
 # playwright stuff
 **/test-results/
