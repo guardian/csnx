@@ -44,8 +44,10 @@ test.describe('Window', () => {
 	test('has the guCmpHotFix object', async ({ page }) => {
 		await page.goto(url);
 		await page.waitForLoadState('networkidle');
-		const hasGuCmpHotFix = await page.evaluate(() => 'guCmpHotFix' in window);
-		expect(hasGuCmpHotFix).toBe(true);
+		const guCmpHotFix = await page.evaluate(() => {
+			return window.guCmpHotFix;
+		});
+		expect(guCmpHotFix).toBeDefined();
 	});
 
 	test('has correct config params', async ({ page }) => {
@@ -62,9 +64,7 @@ test.describe('Document', () => {
 		await page.goto(url);
 		const iframe = page
 			.frameLocator('iframe[title="SP Consent Message"]')
-			.locator('div')
-			.filter({ hasText: 'California residents have' })
-			.nth(2);
+			.getByLabel('Do not sell my personal');
 		await expect(iframe).toBeVisible({ timeout: 3000 });
 	});
 

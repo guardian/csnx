@@ -28,6 +28,7 @@ async function personalisedAdvertisingIs(page, boolean) {
 		.getAttribute('data-personalised-advertising');
 	expect(attributeValue).toBe(boolean.toString());
 }
+
 test.describe('Window', () => {
 	test('has the guCmpHotFix object', async ({ page }) => {
 		await page.goto(url);
@@ -49,18 +50,22 @@ test.describe('Window', () => {
 	});
 });
 
-test('should have the Sourcepoint iframe', async ({ page }) => {
-	await page.goto(url);
-	const iframe = page
-		.frameLocator('iframe[title="SP Consent Message"]')
-		.locator('.message-overlay');
-	await expect(iframe).toBeVisible({ timeout: 10000 });
-
-	const script = page.locator('script[id="sourcepoint-lib"]');
-	await expect(script).toHaveAttribute(
-		'src',
-		ENDPOINT + '/unified/wrapperMessagingWithoutDetection.js',
-	);
+test.describe('Document', () => {
+	test('should have the Sourcepoint iframe', async ({ page }) => {
+		await page.goto(url);
+		const iframe = page
+			.frameLocator('iframe[title="SP Consent Message"]')
+			.locator('.message-overlay');
+		await expect(iframe).toBeVisible({ timeout: 10000 });
+	});
+	test('should have the correct script URL', async ({ page }) => {
+		await page.goto(url);
+		const script = page.locator('script[id="sourcepoint-lib"]');
+		await expect(script).toHaveAttribute(
+			'src',
+			ENDPOINT + '/unified/wrapperMessagingWithoutDetection.js',
+		);
+	});
 });
 test.describe('Interaction', () => {
 	test('should have personalised advertising set to true by default', async ({

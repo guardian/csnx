@@ -74,7 +74,11 @@
 			"files": [
 				"!(dist)/**",
 				"!(.eslintcache)",
-				"!(jest*)"
+				"!(jest*)",
+				"!(playwright-report)/**",
+				"!(test-results)/**",
+				"./playwright/**",
+				"./src/**"
 			],
 			"output": []
 		},

@@ -6,6 +6,17 @@ const iframePrivacyManager = '#sp_message_iframe_106842';
 
 const url = `http://localhost:4321/csnx/cmp-test-page#tcfv2`;
 
+async function getIframeBody(page, selector) {
+	const iframeElement = await page.locator(`iframe${selector}`).elementHandle();
+	const frame = await iframeElement.contentFrame();
+	const iframeBody = await frame.locator('body');
+
+	if (!iframeBody) {
+		throw new Error('Iframe body is empty');
+	}
+
+	return frame;
+}
 test.describe('Window', () => {
 	test('has the guCmpHotFix object', async ({ page }) => {
 		await page.goto(url);
@@ -27,32 +38,24 @@ test.describe('Window', () => {
 	});
 });
 
-test('should have the Sourcepoint iframe', async ({ page }) => {
-	await page.goto(url);
-	await page.waitForLoadState('networkidle');
-	const iframe = page
-		.frameLocator('iframe[title="The Guardian consent message"]')
-		.locator('.message-overlay');
-	await expect(iframe).toBeVisible({ timeout: 3000 });
-
-	const script = page.locator('script[id="sourcepoint-lib"]');
-	await expect(script).toHaveAttribute(
-		'src',
-		ENDPOINT + '/unified/wrapperMessagingWithoutDetection.js',
-	);
+test.describe('Document', () => {
+	test('should have the Sourcepoint iframe', async ({ page }) => {
+		await page.goto(url);
+		await page.waitForLoadState('networkidle');
+		const iframe = page
+			.frameLocator('iframe[title="The Guardian consent message"]')
+			.locator('.message-overlay');
+		await expect(iframe).toBeVisible({ timeout: 3000 });
+	});
+	test('should have the correct script URL', async ({ page }) => {
+		await page.goto(url);
+		const script = page.locator('script[id="sourcepoint-lib"]');
+		await expect(script).toHaveAttribute(
+			'src',
+			ENDPOINT + '/unified/wrapperMessagingWithoutDetection.js',
+		);
+	});
 });
-async function getIframeBody(page, selector) {
-	const iframeElement = await page.locator(`iframe${selector}`).elementHandle();
-	const frame = await iframeElement.contentFrame();
-	const iframeBody = await frame.locator('body');
-
-	if (!iframeBody) {
-		throw new Error('Iframe body is empty');
-	}
-
-	return frame;
-}
-
 test.describe('Interaction', () => {
 	const buttonTitle = 'Yes, I accept';
 
