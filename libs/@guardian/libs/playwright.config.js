@@ -8,7 +8,6 @@ export default defineConfig({
 	testDir: './playwright',
 	fullyParallel: true,
 	forbidOnly: !!process.env.CI,
-	/* Retry on CI only */
 	retries: process.env.CI ? 1 : 0,
 	workers: process.env.CI ? 1 : undefined,
 	reporter: 'html',
