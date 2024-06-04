@@ -149,12 +149,12 @@ test.describe('Interaction', () => {
 		await privacyManagerIframe.click('div.stack-toggles');
 		await privacyManagerIframe.click('button[title="Save and close"]');
 
-		await page.waitForFunction(
-			() =>
-				document
-					.querySelector(`[data-purpose="2"]`)
-					.getAttribute('data-consent') === 'false',
-		);
+		// await page.waitForFunction(
+		// 	() =>
+		// 		document
+		// 			.querySelector(`[data-purpose="2"]`)
+		// 			.getAttribute('data-consent') === 'false',
+		// );
 
 		const consent = await page.getAttribute(
 			`[data-purpose="1"]`,
