@@ -146,7 +146,10 @@ test.describe('Interaction', () => {
 		await privacyManagerIframe.click(
 			'div[title="Store and/or access information on a device"] span.on',
 		);
-		await privacyManagerIframe.click('div.stack-toggles');
+		await page
+			.frameLocator('iframe[title="SP Consent Message"]')
+			.getByRole('button', { name: 'Off' })
+			.click();
 		await privacyManagerIframe.click('button[title="Save and close"]');
 
 		await page.waitForFunction(
