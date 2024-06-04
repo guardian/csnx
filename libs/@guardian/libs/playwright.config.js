@@ -23,7 +23,7 @@ export default defineConfig({
 	],
 
 	webServer: {
-		command: 'cd ../../../ && pnpm --filter github-pages start',
+		command: 'pnpm --filter github-pages start',
 		url: 'http://localhost:4321/csnx',
 		reuseExistingServer: !process.env.CI,
 	},
