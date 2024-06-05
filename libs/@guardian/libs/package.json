@@ -67,7 +67,7 @@
 			]
 		},
 		"e2e": {
-			"command": "playwright test",
+			"command": "pnpm exec playwright install chromium && playwright test",
 			"dependencies": [
 				"e2e:install-browsers",
 				"../../../apps/github-pages:start"
@@ -81,11 +81,6 @@
 				"!(test-results)/**",
 				"!*.md"
 			],
-			"output": []
-		},
-		"e2e:install-browsers": {
-			"command": "pnpm exec playwright install chromium",
-			"files": [],
 			"output": []
 		},
 		"fix": {
