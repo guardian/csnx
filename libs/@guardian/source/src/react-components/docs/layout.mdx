@@ -1,0 +1,57 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Stack } from '../stack/Stack';
+import { Example, Placeholder } from './docs';
+
+<Meta title="React Components/Layout" />
+
+# Layout
+
+Components should not include surrounding white space. Spacing between elements should be handled by a parent layout component to ensure it is consistent and predictable. The layout components provided by Source can be composed to create a number of common layouts.
+
+## Stack
+
+The `Stack` component is used to stack elements vertically with spacing added between each element. The `space` prop specifies the amount of space to be added. Crucially, space is only added between elements. No space is added before the first element or after the last element. There is no need to know how many elements are in the stack ahead of time. If the stack is empty or contains a single element then no spacing is applied.
+
+<Example>
+	<Stack space={2}>
+		<Placeholder>1</Placeholder>
+		<Placeholder>2</Placeholder>
+		<Placeholder>3</Placeholder>
+	</Stack>
+</Example>
+
+```tsx
+<Stack space={2}>
+	<Placeholder>1</Placeholder>
+	<Placeholder>2</Placeholder>
+	<Placeholder>3</Placeholder>
+</Stack>
+```
+
+Multiple stacks can be nested to create more complex spacing rules.
+
+<Example>
+	<Stack space={3}>
+		<Stack space={1}>
+			<Placeholder>First group</Placeholder>
+			<Placeholder>First group</Placeholder>
+		</Stack>
+		<Stack space={1}>
+			<Placeholder>Second group</Placeholder>
+			<Placeholder>Second group</Placeholder>
+		</Stack>
+	</Stack>
+</Example>
+
+```tsx
+<Stack space={3}>
+	<Stack space={1}>
+		<Placeholder>First group</Placeholder>
+		<Placeholder>First group</Placeholder>
+	</Stack>
+	<Stack space={1}>
+		<Placeholder>Second group</Placeholder>
+		<Placeholder>Second group</Placeholder>
+	</Stack>
+</Stack>
+```
