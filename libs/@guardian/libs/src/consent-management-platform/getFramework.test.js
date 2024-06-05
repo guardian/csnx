@@ -2,7 +2,7 @@ import { getFramework } from './getFramework.ts';
 
 /* cSpell:disable */
 const countries = {
-	ccpa: [['UnitedStates', 'US']],
+	usnat: [['UnitedStates', 'US']],
 	aus: [['Australia', 'AU']],
 	tcfv2: [
 		['Afghanistan', 'AF'],
@@ -259,7 +259,7 @@ const countries = {
 describe('Match countries and framework', () => {
 	describe.each([
 		['AUS', 'aus'],
-		['CCPA', 'ccpa'],
+		['USNAT', 'usnat'],
 		['TCFv2', 'tcfv2'],
 	])('%s', (name, framework) => {
 		it.each(countries[framework])(
