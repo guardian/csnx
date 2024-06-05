@@ -1,29 +1,6 @@
 {
 	"name": "@guardian/tsconfig",
-	"version": "0.3.1",
+	"version": "1.0.0",
 	"description": "TSConfig base for Guardian TypeScript projects",
-	"main": "tsconfig.json",
-	"scripts": {
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
-	},
-	"nx": {
-		"targets": {
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			}
-		}
-	}
+	"main": "tsconfig.json"
 }

@@ -4,8 +4,8 @@
 	"description": "ESLint config for Guardian JavaScript projects",
 	"main": "index.js",
 	"scripts": {
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"fix": "wireit",
+		"lint": "wireit"
 	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
@@ -14,29 +14,32 @@
 	},
 	"devDependencies": {
 		"eslint": "8.56.0",
-		"tslib": "^2.6.2"
+		"tslib": "^2.6.2",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2"
 	},
-	"nx": {
-		"targets": {
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			}
+	"wireit": {
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": []
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"**",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
 		}
 	}
 }

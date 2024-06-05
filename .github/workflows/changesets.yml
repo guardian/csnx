@@ -25,10 +25,9 @@ jobs:
           # generate changelogs with the correct commits
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v4
       - uses: ./.github/actions/setup-node-env
 
-      - run: pnpm nx run-many --target=build --all=true
+      - run: make build
 
       # down to business...
       - name: Use GitHub App Token

@@ -37,11 +37,6 @@ updates:
       babel:
         patterns:
           - '@babel/*'
-      nx:
-        patterns:
-          - '@nx*'
-          - '@nrwl*'
-          - 'nx*'
       eslint:
         patterns:
           - '*eslint*'
@@ -58,9 +53,6 @@ updates:
       guardian:
         patterns:
           - '@guardian*'
-      swc:
-        patterns:
-          - '@swc*'
       react:
         patterns:
           - 'react*'
@@ -74,14 +66,10 @@ updates:
           - '@storybook*'
           - 'storybook'
           - '@babel*'
-          - '@nx*'
-          - '@nrwl*'
-          - 'nx*'
           - '*eslint*'
           - '@rollup*'
           - 'rollup'
           - '@guardian*'
-          - '@swc*'
           - '*prettier*'
 
   - package-ecosystem: 'github-actions'

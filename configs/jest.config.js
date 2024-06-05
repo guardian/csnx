@@ -2,11 +2,8 @@
 export const config = {
 	clearMocks: true,
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-
-	// uninstall @nx/jest when removing this
-	resolver: '@nx/jest/plugins/resolver',
-
-	transformIgnorePatterns: ['node_modules/(?!@guardian)'],
+	testPathIgnorePatterns: ['/node_modules/', '/.wireit/'],
+	transformIgnorePatterns: ['node_modules/.pnpm/(?!@guardian)'],
 	transform: {
 		'^.+\\.[tj]sx?$': [
 			'ts-jest',

@@ -2,6 +2,7 @@
 	"extends": "../../../tsconfig.base.json",
 	"files": ["../../../@types/window.d.ts"],
 	"include": ["."],
+	"exclude": ["node_modules", "dist", ".wireit"],
 	"references": [
 		{
 			"path": "./tsconfig.spec.json"

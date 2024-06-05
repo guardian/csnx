@@ -1,0 +1,10 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"include": [".", ".storybook/*"],
+	"exclude": ["node_modules", "dist", ".wireit", "storybook-static"],
+	"references": [
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	]
+}

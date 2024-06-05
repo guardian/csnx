@@ -1,53 +1,60 @@
 {
 	"name": "@guardian/design-tokens",
-	"version": "0.1.0--pre.0",
+	"version": "0.1.0",
 	"private": true,
 	"type": "module",
-	"main": "src/__generated__/tokens.js",
-	"types": "src/__generated__/tokens.d.ts",
+	"main": "__generated__/tokens.js",
+	"types": "__generated__/tokens.d.ts",
 	"files": [
-		"src/__generated__"
+		"__generated__"
 	],
 	"scripts": {
-		"build": "co build && prettier --write src/__generated__/**",
-		"fix": "pnpm lint --fix",
-		"lint": "eslint --cache ."
+		"build": "wireit",
+		"fix": "wireit",
+		"lint": "wireit"
 	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "1.11.0",
 		"@cobalt-ui/core": "1.11.0",
 		"@cobalt-ui/plugin-css": "1.7.0",
-		"@guardian/cobalt-plugin-ts": "workspace:*"
+		"@guardian/cobalt-plugin-ts": "workspace:*",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.5.3"
 	},
-	"nx": {
-		"targets": {
-			"build": {
-				"inputs": [
-					"{projectRoot}/tokens.config.js",
-					"{projectRoot}/package.json"
-				],
-				"outputs": [
-					"{projectRoot}/src/__generated__"
-				]
-			},
-			"lint": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				]
-			},
-			"fix": {
-				"inputs": [
-					"{projectRoot}/**",
-					"{workspaceRoot}/.eslint*"
-				],
-				"outputs": [
-					"{projectRoot}"
-				]
-			}
+	"wireit": {
+		"build": {
+			"command": "co build && prettier --write __generated__/**",
+			"files": [
+				"./tokens.config.js",
+				"./tokens.json",
+				"./package.json"
+			],
+			"output": [
+				"./__generated__"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"!(dist)/**",
+				"!(.eslintcache)",
+				"../../../.eslint*"
+			],
+			"output": []
 		}
 	}
 }
