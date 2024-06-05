@@ -73,18 +73,20 @@
 				"../../../apps/github-pages:start"
 			],
 			"files": [
+				"**",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"!(jest*)",
+				"!.eslintcache",
+				"!jest*",
 				"!(playwright-report)/**",
 				"!(test-results)/**",
-				"./playwright/**",
-				"./src/**"
+				"!*.md"
 			],
 			"output": []
 		},
 		"e2e:install-browsers": {
-			"command": "pnpm exec playwright install chromium"
+			"command": "pnpm exec playwright install chromium",
+			"files": [],
+			"output": []
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
