@@ -9,6 +9,7 @@ const exampleCss = css`
 `;
 
 const placeholderCss = css`
+	box-sizing: border-box;
 	display: grid;
 	place-items: center;
 	padding: ${space[2]}px ${space[3]}px;

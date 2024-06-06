@@ -62,40 +62,42 @@ Multiple stacks can be nested to create more complex spacing rules.
 Whilst a stack can be used for adding space between containing elements it can also be used for micro layouts such as adding space between text elements.
 
 <Example>
-	<Stack space={6}>
-		<Stack space={2}>
-			<Heading>Heading</Heading>
-			<Text>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus
-				nibh erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque
-				dapibus pulvinar. Integer non accumsan justo. Duis et vehicula risus.
-				Nulla ligula eros, consequat sodales lectus eget, eleifend venenatis
-				neque.
-			</Text>
-			<Text>
-				Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
-				facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in
-				fermentum. Donec ut velit vel purus rutrum vulputate ut scelerisque
-				lacus.
-			</Text>
+	{
+		<Stack space={6}>
+			<Stack space={2}>
+				<Heading>Heading</Heading>
+				<Text>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus
+					nibh erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque
+					dapibus pulvinar. Integer non accumsan justo. Duis et vehicula risus.
+					Nulla ligula eros, consequat sodales lectus eget, eleifend venenatis
+					neque.
+				</Text>
+				<Text>
+					Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+					facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in
+					fermentum. Donec ut velit vel purus rutrum vulputate ut scelerisque
+					lacus.
+				</Text>
+			</Stack>
+			<Stack space={2}>
+				<Heading>Heading</Heading>
+				<Text>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus
+					nibh erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque
+					dapibus pulvinar. Integer non accumsan justo. Duis et vehicula risus.
+					Nulla ligula eros, consequat sodales lectus eget, eleifend venenatis
+					neque.
+				</Text>
+				<Text>
+					Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+					facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in
+					fermentum. Donec ut velit vel purus rutrum vulputate ut scelerisque
+					lacus.
+				</Text>
+			</Stack>
 		</Stack>
-		<Stack space={2}>
-			<Heading>Heading</Heading>
-			<Text>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus
-				nibh erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque
-				dapibus pulvinar. Integer non accumsan justo. Duis et vehicula risus.
-				Nulla ligula eros, consequat sodales lectus eget, eleifend venenatis
-				neque.
-			</Text>
-			<Text>
-				Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
-				facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in
-				fermentum. Donec ut velit vel purus rutrum vulputate ut scelerisque
-				lacus.
-			</Text>
-		</Stack>
-	</Stack>
+	}
 </Example>
 
 ```tsx
