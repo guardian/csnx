@@ -19,6 +19,7 @@
 		"build": "wireit",
 		"dev": "jest --watch",
 		"e2e": "wireit",
+		"e2e:ui": "wireit",
 		"fix": "wireit",
 		"lint": "wireit",
 		"test": "wireit",
@@ -81,6 +82,12 @@
 				"!*.md"
 			],
 			"output": []
+		},
+		"e2e:ui": {
+			"command": "pnpm exec playwright install chromium && playwright test --ui",
+			"dependencies": [
+				"../../../apps/github-pages:start"
+			]
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
