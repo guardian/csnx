@@ -89,6 +89,7 @@ describe('onConsentChange enhances basic consent state', () => {
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
 			ccpa: usnatConsentState,
+			usnat: usnatConsentState,
 			canTarget: true,
 			framework: 'usnat',
 		};
@@ -105,6 +106,7 @@ describe('onConsentChange enhances basic consent state', () => {
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
 			ccpa: { doNotSell: true, signalStatus: 'ready' },
+			usnat: { doNotSell: true, signalStatus: 'ready' },
 			canTarget: false,
 			framework: 'usnat',
 		};
@@ -155,6 +157,7 @@ describe('onConsentChange enhances basic consent state', () => {
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
 			ccpa: usnatConsentState,
+			usnat: usnatConsentState,
 			canTarget: true,
 			framework: 'usnat',
 			gpcSignal: true,

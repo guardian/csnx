@@ -106,8 +106,13 @@ const getConsentState: () => Promise<ConsentState> = async () => {
 			return enhanceConsentState({ aus: await getAUSConsentState() });
 		case 'ccpa':
 			return enhanceConsentState({ ccpa: await getUSNATConsentState() });
-		case 'usnat':
-			return enhanceConsentState({ ccpa: await getUSNATConsentState() });
+		case 'usnat': {
+			const usnatConsentState = await getUSNATConsentState();
+			return enhanceConsentState({
+				ccpa: usnatConsentState,
+				usnat: usnatConsentState,
+			});
+		}
 		case 'tcfv2':
 			return enhanceConsentState({ tcfv2: await getTCFv2ConsentState() });
 		default:
