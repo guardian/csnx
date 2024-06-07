@@ -13,8 +13,13 @@ import {
 	brandText,
 	line,
 	text,
-} from './_deprecated/colour/palette';
-import { body, headline, textSans, titlepiece } from './_deprecated/typography';
+} from './__deprecated__/colour/palette';
+import {
+	body,
+	headline,
+	textSans,
+	titlepiece,
+} from './__deprecated__/typography';
 import {
 	availableFontWeights,
 	bodySizes,
@@ -32,7 +37,7 @@ import {
 	textSansSizes,
 	titlepieceSizes,
 	underlineThickness,
-} from './_deprecated/typography/data';
+} from './__deprecated__/typography/data';
 import { transitions } from './animation/transitions';
 import { breakpoints } from './breakpoints/breakpoints';
 import { palette } from './colour/palette';
