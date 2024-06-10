@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
+import { palette } from '../../foundations';
 import type { SpinnerProps } from './Spinner';
 import { Spinner } from './Spinner';
-import { palette } from '../../foundations';
 
 const meta: Meta<typeof Spinner> = {
 	title: 'React Components/Spinner',
