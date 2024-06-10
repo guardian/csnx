@@ -17,7 +17,7 @@ export {
 	text,
 	brandText,
 	brandAltText,
-} from './_deprecated/colour/palette';
+} from './__deprecated__/colour/palette';
 
 export {
 	brand,
@@ -33,7 +33,7 @@ export {
 	labs,
 	specialReport,
 	focus,
-} from './_deprecated/colour/palette';
+} from './__deprecated__/colour/palette';
 
 export {
 	titlepiece,
@@ -51,14 +51,14 @@ export {
 	fonts,
 	fontWeights,
 	lineHeights,
-} from './_deprecated/typography';
+} from './__deprecated__/typography';
 
 export {
 	bodyObjectStyles,
 	headlineObjectStyles,
 	textSansObjectStyles,
 	titlepieceObjectStyles,
-} from './_deprecated/typography/obj';
+} from './__deprecated__/typography/obj';
 
 export type {
 	ScaleUnit,
@@ -78,4 +78,4 @@ export type {
 	FontScaleFunction,
 	FontScaleFunctionStr,
 	FontScaleArgs,
-} from './_deprecated/typography/types';
+} from './__deprecated__/typography/types';
