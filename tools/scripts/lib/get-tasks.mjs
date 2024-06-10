@@ -1,13 +1,23 @@
-import fg from 'fast-glob';
+import fastGlob from 'fast-glob';
 import { readFile } from 'fs/promises';
 
+/**
+ * Get all npm-scripts from all packages in `libs` and `apps`, and returns them
+ * as a list of tuples, e.g.
+ *
+ * [
+ * 	['my-app', ['build', 'test']],
+ * 	['my-lib', ['start', 'build']],
+ * 	...
+ * ]
+ */
 export const getTasks = async () => {
-	const packages = await fg(['{libs,apps}/**/package.json'], {
+	const packages = await fastGlob(['{libs,apps}/**/package.json'], {
 		followSymbolicLinks: false,
 		ignore: ['**/node_modules', '**/dist'],
 	});
 
-	const tasks = new Set();
+	const tasks = [];
 
 	for (const pkg of packages) {
 		const { scripts, name } = JSON.parse(await readFile(pkg, 'utf8'));
@@ -16,12 +26,8 @@ export const getTasks = async () => {
 			continue;
 		}
 
-		for (const script of Object.keys(scripts ?? {})) {
-			tasks.add(`${name}:${script}`);
-		}
+		tasks.push([name, Object.keys(scripts).sort()]);
 	}
 
-	return Array.from(tasks)
-		.sort()
-		.sort((a, b) => a.split(':')[0].localeCompare(b.split(':')[0]));
+	return tasks.sort((a, b) => a[0].localeCompare(b[0]));
 };

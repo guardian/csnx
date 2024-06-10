@@ -47,15 +47,20 @@ const tasksList = [
 	'',
 ];
 
-for (const task of tasks) {
-	const escapedTaskName = task.replace(/:/g, '\\:');
-	const [project, script] = task.split(':');
+for (const pkgTasks of tasks) {
+	const [pkg, scripts] = pkgTasks;
 
-	tasksList.push(`.PHONY: ${escapedTaskName}`);
-	tasksList.push(`${escapedTaskName}: env`);
-	tasksList.push(`	@corepack pnpm --filter ${project} ${script}`);
-	tasksList.push('');
+	for (const script of scripts) {
+		const makeTarget = `${pkg}:${script}`.replace(/:/g, '\\:');
+
+		tasksList.push(`.PHONY: ${makeTarget}`);
+		tasksList.push(`${makeTarget}: env`);
+		tasksList.push(`	@corepack pnpm --filter ${pkg} ${script}`);
+		tasksList.push('');
+	}
 }
+
+console.log(tasksList);
 
 contents = updateSection({
 	contents,
