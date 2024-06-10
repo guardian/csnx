@@ -62,17 +62,17 @@ const tasksList = [
 	'',
 ];
 
-let currentProject = '';
-for (const pkgTasks of tasks) {
-	const [thisProject, scripts] = pkgTasks;
+let currentPkg = '';
+for (const tasksByPkg of tasks) {
+	const [thisPkg, scripts] = tasksByPkg;
 
-	if (thisProject !== currentProject) {
-		currentProject = thisProject;
-		tasksList.push(`#### ${currentProject}`);
+	if (thisPkg !== currentPkg) {
+		currentPkg = thisPkg;
+		tasksList.push(`#### ${currentPkg}`);
 	}
 
 	for (const script of scripts) {
-		tasksList.push(`- \`make ${thisProject}:${script}\``);
+		tasksList.push(`- \`make ${thisPkg}:${script}\``);
 	}
 }
 

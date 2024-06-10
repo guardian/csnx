@@ -47,8 +47,8 @@ const tasksList = [
 	'',
 ];
 
-for (const pkgTasks of tasks) {
-	const [pkg, scripts] = pkgTasks;
+for (const tasksByPkg of tasks) {
+	const [pkg, scripts] = tasksByPkg;
 
 	for (const script of scripts) {
 		const makeTarget = `${pkg}:${script}`.replace(/:/g, '\\:');
