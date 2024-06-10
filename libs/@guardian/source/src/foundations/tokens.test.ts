@@ -1,5 +1,3 @@
-import * as typePresetCss from './__generated__/typography/css';
-import * as typePresetObject from './__generated__/typography/objects';
 import {
 	background,
 	border,
@@ -38,6 +36,8 @@ import {
 	titlepieceSizes,
 	underlineThickness,
 } from './__deprecated__/typography/data';
+import * as typePresetCss from './__generated__/typography/css';
+import * as typePresetObject from './__generated__/typography/objects';
 import { transitions } from './animation/transitions';
 import { breakpoints } from './breakpoints/breakpoints';
 import { palette } from './colour/palette';
