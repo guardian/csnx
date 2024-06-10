@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 2.1.0
+
+### Minor Changes
+
+- 803f111: Adds `success.300` to the colour palette
+
 ## 2.0.0
 
 ### Major Changes
