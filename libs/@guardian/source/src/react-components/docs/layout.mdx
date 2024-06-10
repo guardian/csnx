@@ -1,0 +1,274 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Example, Placeholder, Heading, Text } from './docs';
+import { Button } from '../button/Button';
+import { Inline } from '../inline/Inline';
+import { Stack } from '../stack/Stack';
+import { Tiles } from '../tiles/Tiles';
+
+<Meta title="React Components/Layout" />
+
+# Layout
+
+Components should not include surrounding white space. Spacing between elements should be handled by a parent layout component to ensure it is consistent and predictable. The layout components provided by Source can be composed to create a number of common layouts.
+
+## Stack
+
+The `Stack` component is used to stack elements vertically with equal spacing added between each element. The `space` prop specifies the amount of space to be added. Crucially, space is only added between elements. No space is added before the first element or after the last element. If the stack is empty or contains a single element then no spacing is applied.
+
+<Example>
+	<Stack space={2}>
+		<Placeholder>Item 1</Placeholder>
+		<Placeholder>Item 2</Placeholder>
+		<Placeholder>Item 3</Placeholder>
+	</Stack>
+</Example>
+
+```tsx
+<Stack space={2}>
+	<Placeholder>Item 1</Placeholder>
+	<Placeholder>Item 2</Placeholder>
+	<Placeholder>Item 3</Placeholder>
+</Stack>
+```
+
+Multiple stacks can be nested to create more complex spacing rules.
+
+<Example>
+	<Stack space={3}>
+		<Stack space={1}>
+			<Placeholder>Group A</Placeholder>
+			<Placeholder>Group A</Placeholder>
+		</Stack>
+		<Stack space={1}>
+			<Placeholder>Group B</Placeholder>
+			<Placeholder>Group B</Placeholder>
+		</Stack>
+	</Stack>
+</Example>
+
+```tsx
+<Stack space={3}>
+	<Stack space={1}>
+		<Placeholder>First group</Placeholder>
+		<Placeholder>First group</Placeholder>
+	</Stack>
+	<Stack space={1}>
+		<Placeholder>Second group</Placeholder>
+		<Placeholder>Second group</Placeholder>
+	</Stack>
+</Stack>
+```
+
+Whilst a stack can be used for adding space between containing elements it can also be used for micro layouts such as adding space between text elements.
+
+<Example>
+	{
+		<Stack space={6}>
+			<Stack space={2}>
+				<Heading>Heading</Heading>
+				<Text>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus
+					nibh erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque
+					dapibus pulvinar. Integer non accumsan justo. Duis et vehicula risus.
+					Nulla ligula eros, consequat sodales lectus eget, eleifend venenatis
+					neque.
+				</Text>
+				<Text>
+					Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+					facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in
+					fermentum. Donec ut velit vel purus rutrum vulputate ut scelerisque
+					lacus.
+				</Text>
+			</Stack>
+			<Stack space={2}>
+				<Heading>Heading</Heading>
+				<Text>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus
+					nibh erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque
+					dapibus pulvinar. Integer non accumsan justo. Duis et vehicula risus.
+					Nulla ligula eros, consequat sodales lectus eget, eleifend venenatis
+					neque.
+				</Text>
+				<Text>
+					Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+					facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in
+					fermentum. Donec ut velit vel purus rutrum vulputate ut scelerisque
+					lacus.
+				</Text>
+			</Stack>
+		</Stack>
+	}
+</Example>
+
+```tsx
+<Stack space={6}>
+	<Stack space={2}>
+		<Heading>Heading</Heading>
+		<Text>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus nibh
+			erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque dapibus
+			pulvinar. Integer non accumsan justo. Duis et vehicula risus. Nulla ligula
+			eros, consequat sodales lectus eget, eleifend venenatis neque.
+		</Text>
+		<Text>
+			Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+			facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in fermentum.
+			Donec ut velit vel purus rutrum vulputate ut scelerisque lacus.
+		</Text>
+	</Stack>
+	<Stack space={2}>
+		<Heading>Heading</Heading>
+		<Text>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus nibh
+			erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque dapibus
+			pulvinar. Integer non accumsan justo. Duis et vehicula risus. Nulla ligula
+			eros, consequat sodales lectus eget, eleifend venenatis neque.
+		</Text>
+		<Text>
+			Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+			facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in fermentum.
+			Donec ut velit vel purus rutrum vulputate ut scelerisque lacus.
+		</Text>
+	</Stack>
+</Stack>
+```
+
+## Inline
+
+`Inline` is similar to the `Stack`, but is used to lay out elements horizontally with equal spacing between them. Elements can wrap on to multiple lines if necessary with the same spacing added between each line.
+
+<Example>
+	<Inline space={2}>
+		<Placeholder>Food</Placeholder>
+		<Placeholder>Summer food and drink</Placeholder>
+		<Placeholder>Vegetables</Placeholder>
+		<Placeholder>Salad</Placeholder>
+		<Placeholder>Main course</Placeholder>
+		<Placeholder>Side dishes</Placeholder>
+		<Placeholder>Bread</Placeholder>
+		<Placeholder>Recipes</Placeholder>
+		<Placeholder>Australian food and drink</Placeholder>
+		<Placeholder>Fruit</Placeholder>
+		<Placeholder>Dessert</Placeholder>
+	</Inline>
+</Example>
+
+```tsx
+<Inline space={2}>
+	<Placeholder>Food</Placeholder>
+	<Placeholder>Summer food and drink</Placeholder>
+	<Placeholder>Vegetables</Placeholder>
+	<Placeholder>Salad</Placeholder>
+	<Placeholder>Main course</Placeholder>
+	<Placeholder>Side dishes</Placeholder>
+	<Placeholder>Bread</Placeholder>
+	<Placeholder>Recipes</Placeholder>
+	<Placeholder>Australian food and drink</Placeholder>
+	<Placeholder>Fruit</Placeholder>
+	<Placeholder>Dessert</Placeholder>
+</Inline>
+```
+
+If some cases you may want to stack the child elements vertically on smaller screens (such as when laying out buttons). This can be done by setting the `collapseUntil` breakpoint. The child elements will collapse into a vertical stack below the specified breakpoint.
+
+<Example>
+	<Inline space={2} collapseUntil="tablet">
+		<Placeholder>Summer food and drink</Placeholder>
+		<Placeholder>Main course</Placeholder>
+		<Placeholder>Vegetables</Placeholder>
+	</Inline>
+</Example>
+
+```tsx
+<Inline space={2} collapseUntil="tablet">
+	<Placeholder>Summer food and drink</Placeholder>
+	<Placeholder>Main course</Placeholder>
+	<Placeholder>Vegetables</Placeholder>
+</Inline>
+```
+
+## Tiles
+
+A grid of equally sized and spaced element can be achieved with the `Tiles` component. `columns` specifies the number of columns to be shown. If there are more tiles than columns they will wrap on to multiple lines. As with the `Inline` component, `collapseUntil` can be used to collapse the tiles into a single column below the specified breakpoint.
+
+<Example>
+	<Tiles columns={3}>
+		<Placeholder>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus nibh
+			erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque dapibus
+			pulvinar. Integer non accumsan justo. Duis et vehicula risus. Nulla ligula
+			eros, consequat sodales lectus eget, eleifend venenatis neque.
+		</Placeholder>
+		<Placeholder>
+			Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+			facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in fermentum.
+			Donec ut velit vel purus rutrum vulputate ut scelerisque lacus.
+		</Placeholder>
+		<Placeholder>
+			Pellentesque id ornare turpis. Aliquam laoreet aliquet pharetra. Donec nec
+			erat ac libero interdum sollicitudin. Nullam imperdiet ut dolor non
+			cursus. Integer et ante fringilla, luctus magna nec, consequat est.
+		</Placeholder>
+		<Placeholder>
+			Nunc nec dapibus quam. Praesent nec neque vel velit mollis tempor.
+			Suspendisse justo eros, pharetra et elit sit amet, hendrerit laoreet dui.
+			Curabitur ut libero nibh. Duis finibus sollicitudin tortor, ac viverra
+			urna commodo et.
+		</Placeholder>
+		<Placeholder>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non igitur
+			potestis voluptate omnia dirigentes aut tueri aut retinere virtutem. Hoc
+			Hieronymus summum bonum esse dixit.
+		</Placeholder>
+	</Tiles>
+</Example>
+
+```tsx
+<Tiles columns={3}>
+	<Placeholder>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut faucibus nibh
+		erat, eget rutrum ligula vehicula sit amet. Etiam scelerisque dapibus
+		pulvinar. Integer non accumsan justo. Duis et vehicula risus. Nulla ligula
+		eros, consequat sodales lectus eget, eleifend venenatis neque.
+	</Placeholder>
+	<Placeholder>
+		Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla
+		facilisi. Phasellus id aliquam odio. Aliquam tempus eu enim in fermentum.
+		Donec ut velit vel purus rutrum vulputate ut scelerisque lacus.
+	</Placeholder>
+	<Placeholder>
+		Pellentesque id ornare turpis. Aliquam laoreet aliquet pharetra. Donec nec
+		erat ac libero interdum sollicitudin. Nullam imperdiet ut dolor non cursus.
+		Integer et ante fringilla, luctus magna nec, consequat est.
+	</Placeholder>
+	<Placeholder>
+		Nunc nec dapibus quam. Praesent nec neque vel velit mollis tempor.
+		Suspendisse justo eros, pharetra et elit sit amet, hendrerit laoreet dui.
+		Curabitur ut libero nibh. Duis finibus sollicitudin tortor, ac viverra urna
+		commodo et.
+	</Placeholder>
+	<Placeholder>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non igitur potestis
+		voluptate omnia dirigentes aut tueri aut retinere virtutem. Hoc Hieronymus
+		summum bonum esse dixit.
+	</Placeholder>
+</Tiles>
+```
+
+## Button groups
+
+Although Source does not include a dedicated button group component, the `Inline` component can be used for this purpose. Buttons will be laid our horizontally, wrapping on to multiple lines as necessary. With the addition of the `collapseUntil` prop the buttons will be displayed at full width and stacked vertically on smaller screens.
+
+<Example>
+	<Inline space={2} collapseUntil="tablet">
+		<Button>Subscribe now</Button>
+		<Button priority="tertiary">Cancel</Button>
+	</Inline>
+</Example>
+
+```tsx
+<Inline space={2} collapseUntil="tablet">
+	<Button>Subscribe now</Button>
+	<Button priority="tertiary">Cancel</Button>
+</Inline>
+```
