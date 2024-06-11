@@ -27,22 +27,23 @@
 		"build": {
 			"command": "co build && prettier --write __generated__/**",
 			"files": [
-				"./tokens.config.js",
-				"./tokens.json",
-				"./package.json"
+				"src/**",
+				"tokens.config.js",
+				"package.json"
 			],
 			"output": [
-				"./__generated__"
+				"__generated__"
 			]
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
+			"clean": false,
 			"output": [
 				"."
 			]
@@ -50,9 +51,10 @@
 		"lint": {
 			"command": "eslint --cache --color .",
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
 			"output": []
 		}
