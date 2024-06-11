@@ -31,7 +31,8 @@
 			"clean": false,
 			"files": [
 				"**",
-				"../../../.eslint*"
+				"../../../.eslint*",
+				"!.eslintcache"
 			],
 			"output": [
 				"."
@@ -41,7 +42,8 @@
 			"command": "eslint --cache --color .",
 			"files": [
 				"**",
-				"../../../.eslint*"
+				"../../../.eslint*",
+				"!.eslintcache"
 			],
 			"output": []
 		}

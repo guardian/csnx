@@ -58,11 +58,11 @@
 		"build": {
 			"command": "rollup -c",
 			"files": [
-				"../../../configs/rollup/rollup.config.js",
-				"./rollup.config.js",
 				"src/**",
 				"package.json",
-				"tsconfig.json"
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
 			],
 			"output": [
 				"dist"
@@ -71,9 +71,9 @@
 		"e2e": {
 			"command": "cypress run --headless",
 			"files": [
+				"**",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"!(jest*)"
+				"!.eslintcache"
 			],
 			"output": [],
 			"dependencies": [
@@ -82,12 +82,13 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
+			"clean": false,
 			"output": [
 				"."
 			]
@@ -95,18 +96,20 @@
 		"lint": {
 			"command": "eslint --cache --color .",
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
 			"output": []
 		},
 		"test": {
 			"command": "jest",
 			"files": [
+				"**",
+				"../../../configs/jest.*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../configs/jest.*"
+				"!.eslintcache"
 			],
 			"output": []
 		},
@@ -116,9 +119,10 @@
 				"build"
 			],
 			"files": [
+				"**",
+				"../../../configs/jest.*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../configs/jest.*"
+				"!.eslintcache"
 			],
 			"output": []
 		}

@@ -88,14 +88,22 @@
 		}
 	},
 	"wireit": {
+		"__deps__": {
+			"dependencies": [
+				"../design-tokens:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
-				"../../../configs/rollup/rollup.config.js",
-				"./rollup.config.js",
 				"src/**",
 				"package.json",
-				"tsconfig.json"
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
 			],
 			"output": [
 				"dist"
@@ -103,12 +111,15 @@
 		},
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
-				"../../../../configs/storybook/**",
-				"./.storybook/**",
-				"**/*.{ts,tsx,js,json,mdx,md}",
+				"**",
+				"../../../configs/storybook/**",
 				"!storybook-static/**",
-				"!jest*"
+				"!jest*",
+				"!.eslintcache"
 			],
 			"output": [
 				"storybook-static"
@@ -117,11 +128,11 @@
 		"build-type-presets": {
 			"command": "tsx ./scripts/build-type-presets.ts",
 			"dependencies": [
-				"../design-tokens:build"
+				"__deps__"
 			],
 			"files": [
 				"./scripts/build-type-presets.ts",
-				"./src/utils/convert-value"
+				"./src/foundations/utils/convert-value.ts"
 			],
 			"output": [
 				"src/__generated__/typography"
@@ -129,28 +140,43 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
-			"files": [
-				"!(dist|storybook-static)/**",
-				"../../../.eslint*"
+			"dependencies": [
+				"__deps__"
 			],
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"clean": false,
 			"output": [
 				"."
 			]
 		},
 		"lint": {
+			"dependencies": [
+				"__deps__"
+			],
 			"command": "eslint --cache --color .",
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist|storybook-static)/**",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
 			"output": []
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
+				"**",
+				"../../../configs/jest.*",
 				"!(dist|storybook-static)/**",
-				"../../../configs/jest.*"
+				"!.eslintcache"
 			],
 			"output": []
 		},
@@ -160,8 +186,10 @@
 				"build"
 			],
 			"files": [
+				"**",
+				"../../../configs/jest.*",
 				"!(dist|storybook-static)/**",
-				"../../../configs/jest.*"
+				"!.eslintcache"
 			],
 			"output": []
 		}

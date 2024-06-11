@@ -22,11 +22,12 @@
 	"wireit": {
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
 			"files": [
 				"**",
-				"../../../.eslint*"
+				"../../../.eslint*",
+				"!.eslintcache"
 			],
+			"clean": false,
 			"output": [
 				"."
 			]
@@ -35,7 +36,8 @@
 			"command": "eslint --cache --color .",
 			"files": [
 				"**",
-				"../../../.eslint*"
+				"../../../.eslint*",
+				"!.eslintcache"
 			],
 			"output": []
 		}
