@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { breakpoints, palette, space } from '../../foundations';
-import { Button } from '../button/Button';
 import type { InlineProps } from './Inline';
 import { Inline } from './Inline';
 

@@ -68,7 +68,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 
 ### Project-specific tasks
 
-Project-specific tasks are defined as `scripts` in a `package.json` or `targets` in a `project.json` files, and can be run with `make <project>:<script>`/`make <project>:<target>`:
+Project-specific tasks are defined as `scripts` in their `package.json`, and can be run with `make <project>:<script>`:
 
 #### @guardian/ab-core
 
