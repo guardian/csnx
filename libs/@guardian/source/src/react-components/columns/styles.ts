@@ -2,7 +2,7 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import type { Breakpoint } from '../../foundations';
 import { between, from, space, until } from '../../foundations';
-import type { ColumnsSpaceY } from './Columns';
+import type { Space } from '../@types/Space';
 
 type ColumnBreakpoint = {
 	totalColumns: number;
@@ -30,26 +30,12 @@ export const collapseBelowColumnsCSS = (
 	}
 `;
 
-const collapseBelowSpaceYCSS = (spaceY: ColumnsSpaceY): SerializedStyles => css`
+export const collapseBelowSpaceYCSS = (spaceY: Space): SerializedStyles => css`
 	margin-bottom: ${-space[spaceY]}px;
 	& > * {
 		margin-bottom: ${space[spaceY]}px;
 	}
 `;
-
-export const collapseBelowSpaceY: {
-	[key in ColumnsSpaceY]: SerializedStyles;
-} = {
-	1: collapseBelowSpaceYCSS(1),
-	2: collapseBelowSpaceYCSS(2),
-	3: collapseBelowSpaceYCSS(3),
-	4: collapseBelowSpaceYCSS(4),
-	5: collapseBelowSpaceYCSS(5),
-	6: collapseBelowSpaceYCSS(6),
-	9: collapseBelowSpaceYCSS(9),
-	12: collapseBelowSpaceYCSS(12),
-	24: collapseBelowSpaceYCSS(24),
-};
 
 const collapseBelowWidth = css`
 	width: 100% !important;

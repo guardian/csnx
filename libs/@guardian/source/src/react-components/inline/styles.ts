@@ -1,6 +1,6 @@
-import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { space } from '../../foundations';
+import type { Breakpoint } from '../../foundations';
+import { space, until } from '../../foundations';
 import type { Space } from '../@types/Space';
 
 export const inline = css`
@@ -12,7 +12,13 @@ export const inlineWrapper = css`
 	flex-wrap: wrap;
 `;
 
-export const inlineSpace = (number: Space): SerializedStyles => css`
+export const collapseBreakpoint = (breakpoint: Breakpoint) => css`
+	${until[breakpoint]} {
+		flex-direction: column;
+	}
+`;
+
+export const inlineSpace = (number: Space) => css`
 	margin: -${space[number] / 2}px;
 	> * {
 		margin: ${space[number] / 2}px;

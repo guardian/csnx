@@ -28,7 +28,7 @@
 		"@types/jest": "29.5.8",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
-		"rollup": "4.17.2",
+		"rollup": "4.18.0",
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"typescript": "5.3.3",
@@ -53,11 +53,11 @@
 		"build": {
 			"command": "rollup -c",
 			"files": [
-				"../../../configs/rollup/rollup.config.js",
-				"./rollup.config.js",
 				"src/**",
 				"package.json",
-				"tsconfig.json"
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
 			],
 			"output": [
 				"dist"
@@ -65,12 +65,13 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
+			"clean": false,
 			"output": [
 				"."
 			]
@@ -78,18 +79,20 @@
 		"lint": {
 			"command": "eslint --cache --color .",
 			"files": [
+				"**",
+				"../../../.eslint*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"!.eslintcache"
 			],
 			"output": []
 		},
 		"test": {
 			"command": "jest",
 			"files": [
+				"**",
+				"../../../configs/jest.*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../configs/jest.*"
+				"!.eslintcache"
 			],
 			"output": []
 		},
@@ -99,9 +102,10 @@
 				"build"
 			],
 			"files": [
+				"**",
+				"../../../configs/jest.*",
 				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../configs/jest.*"
+				"!.eslintcache"
 			],
 			"output": []
 		}

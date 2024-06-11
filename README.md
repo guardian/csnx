@@ -68,7 +68,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 
 ### Project-specific tasks
 
-Project-specific tasks are defined as `scripts` in a `package.json` or `targets` in a `project.json` files, and can be run with `make <project>:<script>`/`make <project>:<target>`:
+Project-specific tasks are defined as `scripts` in their `package.json`, and can be run with `make <project>:<script>`:
 
 #### @guardian/ab-core
 
@@ -147,6 +147,7 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/libs:build`
 - `make @guardian/libs:dev`
 - `make @guardian/libs:e2e`
+- `make @guardian/libs:e2e:ui`
 - `make @guardian/libs:fix`
 - `make @guardian/libs:lint`
 - `make @guardian/libs:test`
@@ -187,11 +188,6 @@ Project-specific tasks are defined as `scripts` in a `package.json` or `targets`
 - `make @guardian/source-development-kitchen:storybook`
 - `make @guardian/source-development-kitchen:test`
 - `make @guardian/source-development-kitchen:verify-dist`
-
-#### @guardian/tsconfig
-
-- `make @guardian/tsconfig:fix`
-- `make @guardian/tsconfig:lint`
 
 #### github-pages
 

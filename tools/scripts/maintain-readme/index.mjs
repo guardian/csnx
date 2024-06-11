@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { pathFromRoot, projectRoot } from '../project-paths.mjs';
 import { getPackageList } from './get-package-list.mjs';
 import { getMakeTargets } from '../lib/get-make-targets.mjs';
+import { format } from 'prettier';
+import prettierConfig from '@guardian/prettier';
 import { getTasks } from '../lib/get-tasks.mjs';
 import _updateSection from 'update-section';
 
@@ -56,18 +58,22 @@ const tasks = await getTasks();
 
 const tasksList = [
 	'### Project-specific tasks',
-	'Project-specific tasks are defined as `scripts` in a `package.json` or `targets` in a `project.json` files, and can be run with `make <project>:<script>`/`make <project>:<target>`:',
+	'Project-specific tasks are defined as `scripts` in their `package.json`, and can be run with `make <project>:<script>`:',
 	'',
 ];
 
-let currentProject = '';
-for (const task of tasks) {
-	const thisProject = task.split(':')[0];
-	if (thisProject !== currentProject) {
-		currentProject = thisProject;
-		tasksList.push(`#### ${currentProject}`);
+let currentPkg = '';
+for (const tasksByPkg of tasks) {
+	const [thisPkg, scripts] = tasksByPkg;
+
+	if (thisPkg !== currentPkg) {
+		currentPkg = thisPkg;
+		tasksList.push(`#### ${currentPkg}`);
 	}
-	tasksList.push(`- \`make ${task}\``);
+
+	for (const script of scripts) {
+		tasksList.push(`- \`make ${thisPkg}:${script}\``);
+	}
 }
 
 contents = updateSection({
@@ -77,4 +83,7 @@ contents = updateSection({
 	updater: thisFilePathFromRoot,
 });
 
-await writeFile(readMePath, contents);
+await writeFile(
+	readMePath,
+	await format(contents, { filepath: readMePath, ...prettierConfig }),
+);

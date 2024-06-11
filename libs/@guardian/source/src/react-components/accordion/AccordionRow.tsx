@@ -94,7 +94,7 @@ export const AccordionRow = ({
 
 	useEffect(() => {
 		setIsBrowser(true);
-	});
+	}, []);
 
 	if (isBrowser) {
 		return (

@@ -96,7 +96,8 @@ export type OphanComponentType =
 	| 'SLIDESHOW'
 	| 'APP_FEATURE'
 	| 'CARD'
-	| 'CAROUSEL';
+	| 'CAROUSEL'
+	| 'CONTAINER';
 
 export type OphanComponent = {
 	componentType: OphanComponentType;
