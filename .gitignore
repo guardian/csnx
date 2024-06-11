@@ -14,8 +14,6 @@ tsconfig.tsbuildinfo
 # Speed up eslint
 .eslintcache
 
-**/cypress/screenshots
-
 # wireit cache dirs
 # https://github.com/google/wireit
 .wireit
@@ -23,5 +21,8 @@ tsconfig.tsbuildinfo
 # storybook build dirs
 storybook-static
 
-# cypress stuff
-**/cypress/downloads/
+# playwright stuff
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/playwright/.cache/

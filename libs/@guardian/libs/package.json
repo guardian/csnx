@@ -19,17 +19,16 @@
 		"build": "wireit",
 		"dev": "jest --watch",
 		"e2e": "wireit",
+		"e2e:ui": "wireit",
 		"fix": "wireit",
 		"lint": "wireit",
 		"test": "wireit",
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
+		"@playwright/test": "1.44.1",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
-		"cypress": "13.10.0",
-		"cypress-wait-until": "3.0.1",
-		"eslint-plugin-cypress": "3.3.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
@@ -69,13 +68,21 @@
 			]
 		},
 		"e2e": {
-			"command": "cypress run --headless",
-			"files": [
-				"!(dist)/**",
-				"!(.eslintcache)",
-				"!(jest*)"
+			"command": "pnpm exec playwright install chromium && playwright test",
+			"dependencies": [
+				"../../../apps/github-pages:start"
 			],
-			"output": [],
+			"files": [
+				"**",
+				"!(dist|playwright-report|test-results)/**",
+				"!.eslintcache",
+				"!jest*",
+				"!*.md"
+			],
+			"output": []
+		},
+		"e2e:ui": {
+			"command": "pnpm exec playwright install chromium && playwright test --ui",
 			"dependencies": [
 				"../../../apps/github-pages:start"
 			]
