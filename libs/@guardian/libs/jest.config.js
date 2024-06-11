@@ -7,6 +7,7 @@ const config = {
 	...baseConfig,
 	displayName: '@guardian/libs',
 	testEnvironment: './jest.testEnvironment.js',
+	testMatch: ['<rootDir>/src/**/*.(spec|test).[jt]s?(x)'],
 };
 
 export default config;

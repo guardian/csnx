@@ -317,6 +317,10 @@ install: check-node-version
 @guardian/libs\:e2e: env
 	@corepack pnpm --filter @guardian/libs e2e
 
+.PHONY: @guardian/libs\:e2e\:ui
+@guardian/libs\:e2e\:ui: env
+	@corepack pnpm --filter @guardian/libs e2e:ui
+
 .PHONY: @guardian/libs\:fix
 @guardian/libs\:fix: env
 	@corepack pnpm --filter @guardian/libs fix
