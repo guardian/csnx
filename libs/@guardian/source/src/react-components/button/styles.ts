@@ -51,14 +51,6 @@ const loadingSpinnerSizes: Record<Size, number> = {
 
 const applyButtonStylesToLoadingSpinner = (size: Size) => {
 	return css`
-		path,
-		circle {
-			transition: stroke ${transitions.medium};
-			stroke: transparent;
-		}
-		path {
-			stroke: currentColor;
-		}
 		svg {
 			/*
 		 * The loading spinner width has been specified as 24px in the design

@@ -122,7 +122,6 @@ import { SvgUpload } from '../__generated__/icons/SvgUpload';
 import { SvgVideo } from '../__generated__/icons/SvgVideo';
 import { SvgWhatsApp } from '../__generated__/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../__generated__/icons/SvgWhatsAppBrand';
-import { SvgSpinner } from './SvgSpinner';
 import type { ThemeIcon } from './theme';
 
 const uiIcons = {
@@ -238,7 +237,6 @@ const uiIcons = {
 	SvgTextSize,
 	SvgTextSmall,
 	SvgUpload,
-	SvgSpinner,
 	SvgSignalBrand,
 	SvgTelegramBrand,
 	SvgBin,

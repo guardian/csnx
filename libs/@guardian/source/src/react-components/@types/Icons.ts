@@ -9,8 +9,7 @@ export interface IconProps {
 	 * The sanctioned colours have have been set out by the design system team.
 	 * The colours which can be changed are:
 	 *
-	 *  `fill`
-	 *
+	 * `fill`
 	 */
 	theme?: Partial<ThemeIcon>;
 	isAnnouncedByScreenReader?: boolean;
