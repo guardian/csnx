@@ -42,26 +42,6 @@ const button = css`
 	}
 `;
 
-// Width of the loading spinner in pixels for each button size.
-const loadingSpinnerSizes: Record<Size, number> = {
-	xsmall: 16,
-	small: 20,
-	default: 24,
-};
-
-const applyButtonStylesToLoadingSpinner = (size: Size) => {
-	return css`
-		svg {
-			/*
-		 * The loading spinner width has been specified as 24px in the design
-		 * which falls outside of the icon sizes in foundations, so we
-		 * override the width here.
-		 */
-			width: ${loadingSpinnerSizes[size]}px;
-		}
-	`;
-};
-
 const primary = (button: ThemeButton): SerializedStyles => css`
 	background-color: ${button.backgroundPrimary};
 	color: ${button.textPrimary};
@@ -143,10 +123,7 @@ const iconDefault = css`
 	svg {
 		flex: 0 0 auto;
 		display: block;
-		fill: currentColor;
 		position: relative;
-		width: ${width.iconMedium}px;
-		height: auto;
 	}
 	.src-button-space {
 		width: ${space[3]}px;
@@ -157,10 +134,7 @@ const iconSmall = css`
 	svg {
 		flex: 0 0 auto;
 		display: block;
-		fill: currentColor;
 		position: relative;
-		width: ${width.iconSmall}px;
-		height: auto;
 	}
 	.src-button-space {
 		width: ${space[2]}px;
@@ -171,10 +145,7 @@ const iconXsmall = css`
 	svg {
 		flex: 0 0 auto;
 		display: block;
-		fill: currentColor;
 		position: relative;
-		width: ${width.iconXsmall}px;
-		height: auto;
 	}
 	.src-button-space {
 		width: ${space[1]}px;
@@ -193,6 +164,7 @@ const iconLeft = css`
 		margin-left: ${pullIconTowardEdge}px;
 	}
 `;
+
 const iconRight = css`
 	svg {
 		margin-right: ${pullIconTowardEdge}px;
@@ -296,6 +268,5 @@ export const buttonStyles =
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',
 		hideLabel ? iconOnlySizes[size] : '',
-		isLoading ? applyButtonStylesToLoadingSpinner(size) : undefined,
 		cssOverrides,
 	];
