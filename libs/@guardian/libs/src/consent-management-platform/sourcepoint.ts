@@ -3,7 +3,12 @@ import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import type { Property } from './lib/property';
-import { ACCOUNT_ID, ENDPOINT, PROPERTY_ID } from './lib/sourcepointConfig';
+import {
+	ACCOUNT_ID,
+	ENDPOINT,
+	PROPERTY_ID,
+	PROPERTY_ID_AUSTRALIA,
+} from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
@@ -20,11 +25,18 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-const getProperty = (framework: ConsentFramework): Property => {
+const getPropertyHref = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
 	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+};
+
+const getPropertyId = (framework: ConsentFramework): number => {
+	if (framework == 'aus') {
+		return PROPERTY_ID_AUSTRALIA;
+	}
+	return PROPERTY_ID;
 };
 
 export const init = (framework: ConsentFramework, pubData = {}): void => {
@@ -44,7 +56,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
 
 	const isInPropertyIdABTest =
-		window.guardian?.config?.page?.abTests?.useSourcepointPropertyIdVariant ===
+		window.guardian?.config?.page?.abTests.useSourcepointPropertyIdVariant ===
 		'variant';
 
 	log('cmp', `framework: ${framework}`);
@@ -158,9 +170,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	};
 
 	if (isInPropertyIdABTest) {
-		window._sp_.config.propertyId = PROPERTY_ID;
+		window._sp_.config.propertyId = getPropertyId(framework);
 	} else {
-		window._sp_.config.propertyHref = getProperty(framework);
+		window._sp_.config.propertyHref = getPropertyHref(framework);
 	}
 
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
