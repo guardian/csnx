@@ -12,10 +12,6 @@ const ItemTitleStyles = css`
 	font-size: 14px;
 `;
 
-const ItemSubtitleStyles = css`
-	color: grey;
-`;
-
 const ItemDescriptionStyles = css`
 	flex: 0 0 30%;
 	line-height: 1;
@@ -127,12 +123,6 @@ const ListStyles = css`
 
 type Colors = string[] | Record<string, string>;
 
-interface ColorItemProps {
-	title: string;
-	subtitle: string;
-	colors: Colors;
-}
-
 const renderSwatch = (color: string, index: number) => (
 	<div css={SwatchStyles(color)} key={`${color} -${index} `} title={color} />
 );
@@ -176,12 +166,17 @@ const renderSwatchSpecimen = (colors: Colors) => {
  * A single color row your styleguide showing title, subtitle and one or more colors, used
  * as a child of `ColorPalette`.
  */
-export const ColorItem = ({ title, subtitle, colors }: ColorItemProps) => {
+export const ColorItem = ({
+	title,
+	colors,
+}: {
+	title: string;
+	colors: Colors;
+}) => {
 	return (
 		<div css={ItemStyles}>
 			<div css={ItemDescriptionStyles}>
 				<div css={ItemTitleStyles}>{title}</div>
-				<div css={ItemSubtitleStyles}>{subtitle}</div>
 			</div>
 			<div css={SwatchesStyles}>{renderSwatchSpecimen(colors)}</div>
 		</div>
