@@ -1,7 +1,7 @@
 {
 	"extends": "../../../tsconfig.base.json",
-	"include": ["."],
-	"exclude": ["node_modules", "dist", ".wireit"],
+	"include": ["**/*"],
+	"exclude": ["node_modules", "dist", ".wireit", "jest.dist.setup.js"],
 	"compilerOptions": {
 		"jsxImportSource": "react"
 	}
