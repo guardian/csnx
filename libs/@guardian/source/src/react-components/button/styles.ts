@@ -40,6 +40,12 @@ const button = css`
 	&:focus {
 		${focusHaloSpaced};
 	}
+
+	svg {
+		flex: 0 0 auto;
+		display: block;
+		position: relative;
+	}
 `;
 
 const primary = (button: ThemeButton): SerializedStyles => css`
@@ -99,6 +105,10 @@ const defaultSize = css`
 	padding: 0 ${space[5]}px;
 	border-radius: ${height.ctaMedium}px;
 	padding-bottom: 2px;
+
+	.src-button-space {
+		width: ${space[3]}px;
+	}
 `;
 
 const smallSize = css`
@@ -108,6 +118,10 @@ const smallSize = css`
 	padding: 0 ${space[4]}px;
 	border-radius: ${height.ctaSmall}px;
 	padding-bottom: 2px;
+
+	.src-button-space {
+		width: ${space[2]}px;
+	}
 `;
 
 const xsmallSize = css`
@@ -117,44 +131,16 @@ const xsmallSize = css`
 	padding: 0 ${space[3]}px;
 	border-radius: ${height.ctaXsmall}px;
 	padding-bottom: 1px;
-`;
 
-const iconDefault = css`
-	svg {
-		flex: 0 0 auto;
-		display: block;
-		position: relative;
-	}
-	.src-button-space {
-		width: ${space[3]}px;
-	}
-`;
-
-const iconSmall = css`
-	svg {
-		flex: 0 0 auto;
-		display: block;
-		position: relative;
-	}
-	.src-button-space {
-		width: ${space[2]}px;
-	}
-`;
-
-const iconXsmall = css`
-	svg {
-		flex: 0 0 auto;
-		display: block;
-		position: relative;
-	}
 	.src-button-space {
 		width: ${space[1]}px;
 	}
 `;
 
-/* TODO: we add some negative margin to icons to account for
- the extra space encoded into the SVG. We should consider removing
- or significantly reducing this space
+/**
+ * TODO: we add some negative margin to icons to account for the extra space
+ * encoded into the SVG. We should consider removing or significantly reducing
+ * this space.
  */
 const pullIconTowardEdge = -space[1];
 
@@ -171,22 +157,18 @@ const iconRight = css`
 	}
 `;
 
-const iconOnly = css`
-	padding: 0;
-`;
-
 const iconOnlyDefault = css`
-	${iconOnly};
+	padding: 0;
 	width: ${width.ctaMedium}px;
 `;
 
 const iconOnlySmall = css`
-	${iconOnly};
+	padding: 0;
 	width: ${width.ctaSmall}px;
 `;
 
 const iconOnlyXsmall = css`
-	${iconOnly};
+	padding: 0;
 	width: ${width.ctaXsmall}px;
 `;
 
@@ -226,13 +208,7 @@ const sizes: {
 	small: smallSize,
 	xsmall: xsmallSize,
 };
-const iconSizes: {
-	[key in Size]: SerializedStyles;
-} = {
-	default: iconDefault,
-	small: iconSmall,
-	xsmall: iconXsmall,
-};
+
 const iconOnlySizes: {
 	[key in Size]: SerializedStyles;
 } = {
@@ -264,7 +240,6 @@ export const buttonStyles =
 		button,
 		sizes[size],
 		priorities[priority](mergedTheme(providerTheme.button, theme)),
-		iconSvg ?? isLoading ? iconSizes[size] : '',
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',
 		hideLabel ? iconOnlySizes[size] : '',
