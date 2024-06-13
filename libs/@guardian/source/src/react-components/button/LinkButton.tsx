@@ -4,7 +4,7 @@ import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
 
 export interface LinkButtonProps
-	extends SharedButtonProps,
+	extends Omit<SharedButtonProps, 'isLoading' | 'loadingAnnouncement'>,
 		AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 /**
