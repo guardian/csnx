@@ -2,9 +2,9 @@ import { css } from '@emotion/react';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
 import { visuallyHidden } from '../../foundations';
+import type { IconProps, IconSize } from '../@types/Icons';
 import { Spinner } from '../spinner/Spinner';
-import { IconProps, IconSize } from '../@types/Icons';
-import { Size } from './@types/SharedButtonProps';
+import type { Size } from './@types/SharedButtonProps';
 
 const iconSize: Record<Size, IconSize> = {
 	xsmall: 'xsmall',
