@@ -42,6 +42,7 @@ export const LinkButton = ({
 		{...props}
 	>
 		{buttonContents({
+			size,
 			hideLabel,
 			iconSvg,
 			children,
