@@ -10,7 +10,7 @@
 	"scripts": {
 		"fix": "wireit",
 		"lint": "wireit",
-		"tsc": "tsc",
+		"tsc": "wireit",
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},
 	"devDependencies": {
@@ -44,6 +44,19 @@
 			"files": [
 				"**",
 				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
 				"!.eslintcache"
 			],
 			"output": []

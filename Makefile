@@ -64,9 +64,15 @@ fix: install
 	@corepack pnpm -r fix
 	@corepack pnpm prettier --ignore-unknown --cache --write .
 
+# type-checking all projects
+.PHONY: tsc
+tsc: install
+	$(call log,"Checking types across all projects")
+	@corepack pnpm -r tsc
+
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env lint test e2e build verify-dist build-storybook
+validate: env tsc lint test e2e build verify-dist build-storybook
 
 ##################################### BUILD ####################################
 

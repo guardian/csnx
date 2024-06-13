@@ -31,7 +31,7 @@
 		"lint": "wireit",
 		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
-		"tsc": "tsc",
+		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
 	"dependencies": {
@@ -177,6 +177,19 @@
 			"files": [
 				"**",
 				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
 				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],

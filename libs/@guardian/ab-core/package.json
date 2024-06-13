@@ -22,7 +22,7 @@
 		"fix": "wireit",
 		"lint": "wireit",
 		"test": "wireit",
-		"tsc": "tsc",
+		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
@@ -89,6 +89,19 @@
 			"files": [
 				"**",
 				"../../../configs/jest.*",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
 				"!(dist)/**",
 				"!.eslintcache"
 			],

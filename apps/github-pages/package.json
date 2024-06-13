@@ -7,7 +7,7 @@
 		"build": "wireit",
 		"dev": "wireit",
 		"start": "wireit",
-		"tsc": "tsc"
+		"tsc": "wireit"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.7.0",
@@ -55,6 +55,18 @@
 			"files": [
 				"dist/**"
 			]
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"src/**/*",
+				"tsconfig.json",
+				"../../libs/@guardian/tsconfig/tsconfig.json",
+				"../../@types/**",
+				"../../tsconfig.base.json",
+				"!(dist)/**"
+			],
+			"output": []
 		}
 	}
 }

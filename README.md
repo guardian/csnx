@@ -63,6 +63,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make ls` _lists available `make` targets_
 - `make storybooks` _runs storybook for all projects in single instance_
 - `make test` _runs the unit tests for all projects_
+- `make tsc` _type-checking all projects_
 - `make validate` _makes sure absolutely everything is working_
 - `make verify-dist` _runs unit tests against dist for all projects_
 
