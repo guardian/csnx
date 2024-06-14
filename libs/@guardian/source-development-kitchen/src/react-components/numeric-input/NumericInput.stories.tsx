@@ -32,7 +32,7 @@ const meta: Meta<typeof NumericInput> = {
 			},
 			control: { type: 'radio' },
 		},
-		id: { control: null },
+		id: {},
 	},
 };
 
