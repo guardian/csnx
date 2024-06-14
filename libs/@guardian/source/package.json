@@ -114,7 +114,7 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"files": [
 				"**",
@@ -184,6 +184,9 @@
 		},
 		"tsc": {
 			"command": "tsc --pretty",
+			"dependencies": [
+				"build"
+			],
 			"files": [
 				"**",
 				"tsconfig.json",
