@@ -46,27 +46,27 @@ verify-dist: env
 
 # checks all projects for lint errors
 .PHONY: lint
-lint: install
+lint: env
 	$(call log,"Linting projects")
 	@corepack pnpm -r lint
 	@node ./tools/scripts/check-packages-for-tslib.mjs
 
 # check repo for formatting errors
 .PHONY: formatting\:check
-formatting\:check: install
+formatting\:check: env
 	$(call log,"Checking formatting across repo")
 	@corepack pnpm prettier --ignore-unknown --cache --check .
 
 # attemps to fix lint errors across all projects
 .PHONY: fix
-fix: install
+fix: env
 	$(call log,"Attempting to fix issues across all projects")
 	@corepack pnpm -r fix
 	@corepack pnpm prettier --ignore-unknown --cache --write .
 
 # type-checking all projects
 .PHONY: tsc
-tsc: install
+tsc: env
 	$(call log,"Checking types across all projects")
 	@corepack pnpm -r tsc
 
