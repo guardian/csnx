@@ -32,6 +32,12 @@ test: env
 	$(call log,"Running unit tests")
 	@corepack pnpm -r test
 
+# get test coverage for CSTI projects
+.PHONY: test\:coverage
+test\:coverage: env
+	$(call log,"Running unit tests")
+	@corepack pnpm --filter coverage start
+
 # runs the e2e tests for all projects
 .PHONY: e2e
 e2e: env
