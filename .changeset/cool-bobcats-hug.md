@@ -1,5 +1,5 @@
 ---
-'@guardian/libs': minor
+'@guardian/libs': major
 ---
 
 Remove GA from cmp vendorlist
