@@ -138,14 +138,6 @@ export const headlineBold50Object = {
 	fontStyle: 'normal',
 } as const;
 
-export const headlineBold70Object = {
-	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4.375rem',
-	lineHeight: 1.15,
-	fontWeight: 700,
-	fontStyle: 'normal',
-} as const;
-
 export const headlineLight14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '0.875rem',
@@ -205,14 +197,6 @@ export const headlineLight42Object = {
 export const headlineLight50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '3.125rem',
-	lineHeight: 1.15,
-	fontWeight: 300,
-	fontStyle: 'normal',
-} as const;
-
-export const headlineLight70Object = {
-	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4.375rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -282,14 +266,6 @@ export const headlineLightItalic50Object = {
 	fontStyle: 'italic',
 } as const;
 
-export const headlineLightItalic70Object = {
-	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4.375rem',
-	lineHeight: 1.15,
-	fontWeight: 300,
-	fontStyle: 'italic',
-} as const;
-
 export const headlineMedium14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '0.875rem',
@@ -349,14 +325,6 @@ export const headlineMedium42Object = {
 export const headlineMedium50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '3.125rem',
-	lineHeight: 1.15,
-	fontWeight: 500,
-	fontStyle: 'normal',
-} as const;
-
-export const headlineMedium70Object = {
-	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4.375rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -423,14 +391,6 @@ export const headlineMediumItalic50Object = {
 	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
-	fontStyle: 'italic',
-} as const;
-
-export const headlineMediumItalic70Object = {
-	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4.375rem',
-	lineHeight: 1.15,
-	fontWeight: 700,
 	fontStyle: 'italic',
 } as const;
 

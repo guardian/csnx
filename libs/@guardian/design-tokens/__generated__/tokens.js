@@ -671,18 +671,6 @@ export const typographyPresets = {
 		fontWeight: 700,
 		fontStyle: 'normal',
 	},
-	headlineBold70: {
-		fontFamily: [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		],
-		fontSize: '70px',
-		lineHeight: 1.15,
-		fontWeight: 700,
-		fontStyle: 'normal',
-	},
 	headlineLight14: {
 		fontFamily: [
 			'GH Guardian Headline',
@@ -775,18 +763,6 @@ export const typographyPresets = {
 			'serif',
 		],
 		fontSize: '50px',
-		lineHeight: 1.15,
-		fontWeight: 300,
-		fontStyle: 'normal',
-	},
-	headlineLight70: {
-		fontFamily: [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		],
-		fontSize: '70px',
 		lineHeight: 1.15,
 		fontWeight: 300,
 		fontStyle: 'normal',
@@ -887,18 +863,6 @@ export const typographyPresets = {
 		fontWeight: 300,
 		fontStyle: 'italic',
 	},
-	headlineLightItalic70: {
-		fontFamily: [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		],
-		fontSize: '70px',
-		lineHeight: 1.15,
-		fontWeight: 300,
-		fontStyle: 'italic',
-	},
 	headlineMedium14: {
 		fontFamily: [
 			'GH Guardian Headline',
@@ -991,18 +955,6 @@ export const typographyPresets = {
 			'serif',
 		],
 		fontSize: '50px',
-		lineHeight: 1.15,
-		fontWeight: 500,
-		fontStyle: 'normal',
-	},
-	headlineMedium70: {
-		fontFamily: [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		],
-		fontSize: '70px',
 		lineHeight: 1.15,
 		fontWeight: 500,
 		fontStyle: 'normal',
@@ -1101,18 +1053,6 @@ export const typographyPresets = {
 		fontSize: '50px',
 		lineHeight: 1.15,
 		fontWeight: 500,
-		fontStyle: 'italic',
-	},
-	headlineMediumItalic70: {
-		fontFamily: [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		],
-		fontSize: '70px',
-		lineHeight: 1.15,
-		fontWeight: 700,
 		fontStyle: 'italic',
 	},
 	textEgyptian14: {

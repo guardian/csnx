@@ -146,15 +146,6 @@ export const headlineBold50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineBold70 = `
-	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
-	line-height: 1.15;
-	font-weight: 700;
-	font-style: normal;
-	--source-text-decoration-thickness: 6px;
-`;
-
 export const headlineLight14 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 	font-size: 0.875rem;
@@ -221,15 +212,6 @@ export const headlineLight42 = `
 export const headlineLight50 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 	font-size: 3.125rem;
-	line-height: 1.15;
-	font-weight: 300;
-	font-style: normal;
-	--source-text-decoration-thickness: 6px;
-`;
-
-export const headlineLight70 = `
-	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
@@ -308,15 +290,6 @@ export const headlineLightItalic50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineLightItalic70 = `
-	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
-	line-height: 1.15;
-	font-weight: 300;
-	font-style: italic;
-	--source-text-decoration-thickness: 6px;
-`;
-
 export const headlineMedium14 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 	font-size: 0.875rem;
@@ -383,15 +356,6 @@ export const headlineMedium42 = `
 export const headlineMedium50 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 	font-size: 3.125rem;
-	line-height: 1.15;
-	font-weight: 500;
-	font-style: normal;
-	--source-text-decoration-thickness: 6px;
-`;
-
-export const headlineMedium70 = `
-	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
@@ -466,15 +430,6 @@ export const headlineMediumItalic50 = `
 	font-size: 3.125rem;
 	line-height: 1.15;
 	font-weight: 500;
-	font-style: italic;
-	--source-text-decoration-thickness: 6px;
-`;
-
-export const headlineMediumItalic70 = `
-	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
-	line-height: 1.15;
-	font-weight: 700;
 	font-style: italic;
 	--source-text-decoration-thickness: 6px;
 `;

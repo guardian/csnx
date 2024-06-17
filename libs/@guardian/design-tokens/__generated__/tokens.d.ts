@@ -687,18 +687,6 @@ export declare const typographyPresets: {
 		readonly fontWeight: 700;
 		readonly fontStyle: 'normal';
 	};
-	readonly headlineBold70: {
-		readonly fontFamily: readonly [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		];
-		readonly fontSize: '70px';
-		readonly lineHeight: 1.15;
-		readonly fontWeight: 700;
-		readonly fontStyle: 'normal';
-	};
 	readonly headlineLight14: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
@@ -791,18 +779,6 @@ export declare const typographyPresets: {
 			'serif',
 		];
 		readonly fontSize: '50px';
-		readonly lineHeight: 1.15;
-		readonly fontWeight: 300;
-		readonly fontStyle: 'normal';
-	};
-	readonly headlineLight70: {
-		readonly fontFamily: readonly [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		];
-		readonly fontSize: '70px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 300;
 		readonly fontStyle: 'normal';
@@ -903,18 +879,6 @@ export declare const typographyPresets: {
 		readonly fontWeight: 300;
 		readonly fontStyle: 'italic';
 	};
-	readonly headlineLightItalic70: {
-		readonly fontFamily: readonly [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		];
-		readonly fontSize: '70px';
-		readonly lineHeight: 1.15;
-		readonly fontWeight: 300;
-		readonly fontStyle: 'italic';
-	};
 	readonly headlineMedium14: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
@@ -1007,18 +971,6 @@ export declare const typographyPresets: {
 			'serif',
 		];
 		readonly fontSize: '50px';
-		readonly lineHeight: 1.15;
-		readonly fontWeight: 500;
-		readonly fontStyle: 'normal';
-	};
-	readonly headlineMedium70: {
-		readonly fontFamily: readonly [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		];
-		readonly fontSize: '70px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 500;
 		readonly fontStyle: 'normal';
@@ -1117,18 +1069,6 @@ export declare const typographyPresets: {
 		readonly fontSize: '50px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 500;
-		readonly fontStyle: 'italic';
-	};
-	readonly headlineMediumItalic70: {
-		readonly fontFamily: readonly [
-			'GH Guardian Headline',
-			'Guardian Egyptian Web',
-			'Georgia',
-			'serif',
-		];
-		readonly fontSize: '70px';
-		readonly lineHeight: 1.15;
-		readonly fontWeight: 700;
 		readonly fontStyle: 'italic';
 	};
 	readonly textEgyptian14: {
