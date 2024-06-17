@@ -24,9 +24,9 @@ const meta: Meta<typeof RadioGroup> = {
 				type: 'text',
 			},
 		},
-		id: { control: null },
-		className: { control: null },
-		cssOverrides: { control: null },
+		id: { control: { disable: true } },
+		className: { control: { disable: true } },
+		cssOverrides: { control: { disable: true } },
 	},
 };
 

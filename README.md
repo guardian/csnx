@@ -63,6 +63,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make ls` _lists available `make` targets_
 - `make storybooks` _runs storybook for all projects in single instance_
 - `make test` _runs the unit tests for all projects_
+- `make tsc` _type-checking all projects_
 - `make validate` _makes sure absolutely everything is working_
 - `make verify-dist` _runs unit tests against dist for all projects_
 
@@ -77,6 +78,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/ab-core:fix`
 - `make @guardian/ab-core:lint`
 - `make @guardian/ab-core:test`
+- `make @guardian/ab-core:tsc`
 - `make @guardian/ab-core:verify-dist`
 
 #### @guardian/ab-react
@@ -86,18 +88,21 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/ab-react:fix`
 - `make @guardian/ab-react:lint`
 - `make @guardian/ab-react:test`
+- `make @guardian/ab-react:tsc`
 - `make @guardian/ab-react:verify-dist`
 
 #### @guardian/browserslist-config
 
 - `make @guardian/browserslist-config:fix`
 - `make @guardian/browserslist-config:lint`
+- `make @guardian/browserslist-config:tsc`
 - `make @guardian/browserslist-config:update-readme`
 
 #### @guardian/cobalt-plugin-ts
 
 - `make @guardian/cobalt-plugin-ts:fix`
 - `make @guardian/cobalt-plugin-ts:lint`
+- `make @guardian/cobalt-plugin-ts:tsc`
 
 #### @guardian/core-web-vitals
 
@@ -106,6 +111,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/core-web-vitals:fix`
 - `make @guardian/core-web-vitals:lint`
 - `make @guardian/core-web-vitals:test`
+- `make @guardian/core-web-vitals:tsc`
 - `make @guardian/core-web-vitals:verify-dist`
 
 #### @guardian/design-tokens
@@ -113,16 +119,19 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/design-tokens:build`
 - `make @guardian/design-tokens:fix`
 - `make @guardian/design-tokens:lint`
+- `make @guardian/design-tokens:tsc`
 
 #### @guardian/eslint-config
 
 - `make @guardian/eslint-config:fix`
 - `make @guardian/eslint-config:lint`
+- `make @guardian/eslint-config:tsc`
 
 #### @guardian/eslint-config-typescript
 
 - `make @guardian/eslint-config-typescript:fix`
 - `make @guardian/eslint-config-typescript:lint`
+- `make @guardian/eslint-config-typescript:tsc`
 
 #### @guardian/identity-auth
 
@@ -131,6 +140,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/identity-auth:fix`
 - `make @guardian/identity-auth:lint`
 - `make @guardian/identity-auth:test`
+- `make @guardian/identity-auth:tsc`
 - `make @guardian/identity-auth:verify-dist`
 
 #### @guardian/identity-auth-frontend
@@ -140,6 +150,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/identity-auth-frontend:fix`
 - `make @guardian/identity-auth-frontend:lint`
 - `make @guardian/identity-auth-frontend:test`
+- `make @guardian/identity-auth-frontend:tsc`
 - `make @guardian/identity-auth-frontend:verify-dist`
 
 #### @guardian/libs
@@ -151,6 +162,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/libs:fix`
 - `make @guardian/libs:lint`
 - `make @guardian/libs:test`
+- `make @guardian/libs:tsc`
 - `make @guardian/libs:verify-dist`
 
 #### @guardian/newsletter-types
@@ -159,11 +171,13 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/newsletter-types:dev`
 - `make @guardian/newsletter-types:fix`
 - `make @guardian/newsletter-types:lint`
+- `make @guardian/newsletter-types:tsc`
 
 #### @guardian/prettier
 
 - `make @guardian/prettier:fix`
 - `make @guardian/prettier:lint`
+- `make @guardian/prettier:tsc`
 
 #### @guardian/source
 
@@ -176,6 +190,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/source:lint`
 - `make @guardian/source:storybook`
 - `make @guardian/source:test`
+- `make @guardian/source:tsc`
 - `make @guardian/source:verify-dist`
 
 #### @guardian/source-development-kitchen
@@ -187,6 +202,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/source-development-kitchen:lint`
 - `make @guardian/source-development-kitchen:storybook`
 - `make @guardian/source-development-kitchen:test`
+- `make @guardian/source-development-kitchen:tsc`
 - `make @guardian/source-development-kitchen:verify-dist`
 
 #### github-pages
@@ -194,6 +210,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make github-pages:build`
 - `make github-pages:dev`
 - `make github-pages:start`
+- `make github-pages:tsc`
 
 #### storybooks
 
