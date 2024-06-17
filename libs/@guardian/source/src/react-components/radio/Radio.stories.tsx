@@ -18,7 +18,9 @@ const meta: Meta<typeof Radio> = {
 				type: 'text',
 			},
 		},
-		cssOverrides: { control: { disable: true } },
+		cssOverrides: {
+			control: null,
+		},
 	},
 	args: {
 		label: 'Red',

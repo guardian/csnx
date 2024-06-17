@@ -33,7 +33,7 @@ const meta: Meta<typeof TextInput> = {
 			},
 			control: { type: 'radio' },
 		},
-		id: { control: { disable: true } },
+		id: { control: null },
 	},
 };
 

@@ -4,8 +4,8 @@ import type { ArticleFormat } from '@guardian/libs';
 import {
 	ArticleDesign,
 	ArticleDisplay,
+	ArticlePillar,
 	ArticleSpecial,
-	Pillar,
 } from '@guardian/libs';
 import {
 	culture,
@@ -23,7 +23,7 @@ import type { ButtonPriority } from '@guardian/source/react-components';
 export const defaultFormat = {
 	display: ArticleDisplay.Standard,
 	design: ArticleDesign.Standard,
-	theme: Pillar.News,
+	theme: ArticlePillar.News,
 };
 
 const WHITE = neutral[100];
@@ -36,7 +36,7 @@ export const decideBackground = (
 		case 'primary':
 		case 'secondary':
 			switch (format.theme) {
-				case Pillar.News:
+				case ArticlePillar.News:
 					return css`
 						background-color: ${news[300]};
 						:hover {
@@ -44,7 +44,7 @@ export const decideBackground = (
 							border: 1px solid ${news[400]};
 						}
 					`;
-				case Pillar.Culture:
+				case ArticlePillar.Culture:
 					return css`
 						background-color: ${culture[300]};
 						:hover {
@@ -52,7 +52,7 @@ export const decideBackground = (
 							border: 1px solid ${culture[400]};
 						}
 					`;
-				case Pillar.Lifestyle:
+				case ArticlePillar.Lifestyle:
 					return css`
 						background-color: ${lifestyle[300]};
 						:hover {
@@ -60,7 +60,7 @@ export const decideBackground = (
 							border: 1px solid ${lifestyle[400]};
 						}
 					`;
-				case Pillar.Sport:
+				case ArticlePillar.Sport:
 					return css`
 						background-color: ${sport[300]};
 						:hover {
@@ -68,7 +68,7 @@ export const decideBackground = (
 							border: 1px solid ${sport[400]};
 						}
 					`;
-				case Pillar.Opinion:
+				case ArticlePillar.Opinion:
 					return css`
 						background-color: ${opinion[300]};
 						:hover {
@@ -133,23 +133,23 @@ export const decideFont = (
 		case 'subdued':
 		case 'tertiary':
 			switch (format.theme) {
-				case Pillar.News:
+				case ArticlePillar.News:
 					return css`
 						color: ${news[400]};
 					`;
-				case Pillar.Culture:
+				case ArticlePillar.Culture:
 					return css`
 						color: ${culture[400]};
 					`;
-				case Pillar.Lifestyle:
+				case ArticlePillar.Lifestyle:
 					return css`
 						color: ${lifestyle[400]};
 					`;
-				case Pillar.Sport:
+				case ArticlePillar.Sport:
 					return css`
 						color: ${sport[400]};
 					`;
-				case Pillar.Opinion:
+				case ArticlePillar.Opinion:
 					return css`
 						color: ${opinion[400]};
 					`;
