@@ -14,5 +14,11 @@
 		"rootDir": ".",
 		"sourceMap": true
 	},
-	"include": []
+	"exclude": ["node_modules", "tmp"],
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS",
+			"moduleResolution": "node"
+		}
+	}
 }

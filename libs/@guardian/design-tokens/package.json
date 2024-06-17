@@ -11,8 +11,7 @@
 	"scripts": {
 		"build": "wireit",
 		"fix": "wireit",
-		"lint": "wireit",
-		"tsc": "wireit"
+		"lint": "wireit"
 	},
 	"devDependencies": {
 		"@cobalt-ui/cli": "1.11.0",
@@ -54,19 +53,6 @@
 			"files": [
 				"**",
 				"../../../.eslint*",
-				"!(dist)/**",
-				"!.eslintcache"
-			],
-			"output": []
-		},
-		"tsc": {
-			"command": "tsc --pretty",
-			"files": [
-				"**",
-				"tsconfig.json",
-				"../tsconfig/tsconfig.json",
-				"../../../@types/**",
-				"../../../tsconfig.base.json",
 				"!(dist)/**",
 				"!.eslintcache"
 			],
