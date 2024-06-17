@@ -19,7 +19,7 @@ declare global {
 			config?: {
 				page?: {
 					isPreview: boolean;
-					abTests: ServerSideTests;
+					abTests?: ServerSideTests;
 				};
 				stage?: string;
 				isDev?: boolean;
