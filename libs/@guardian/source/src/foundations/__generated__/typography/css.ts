@@ -146,9 +146,9 @@ export const headlineBold50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineBold70 = `
+export const headlineBold64 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
+	font-size: 4rem;
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
@@ -227,9 +227,9 @@ export const headlineLight50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineLight70 = `
+export const headlineLight64 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
+	font-size: 4rem;
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
@@ -308,9 +308,9 @@ export const headlineLightItalic50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineLightItalic70 = `
+export const headlineLightItalic64 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
+	font-size: 4rem;
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
@@ -389,9 +389,9 @@ export const headlineMedium50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineMedium70 = `
+export const headlineMedium64 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
+	font-size: 4rem;
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
@@ -470,11 +470,11 @@ export const headlineMediumItalic50 = `
 	--source-text-decoration-thickness: 6px;
 `;
 
-export const headlineMediumItalic70 = `
+export const headlineMediumItalic64 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-	font-size: 4.375rem;
+	font-size: 4rem;
 	line-height: 1.15;
-	font-weight: 700;
+	font-weight: 500;
 	font-style: italic;
 	--source-text-decoration-thickness: 6px;
 `;

@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"fix": "wireit",
-		"lint": "wireit"
+		"lint": "wireit",
+		"tsc": "wireit"
 	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
@@ -42,6 +43,19 @@
 			"output": [
 				"."
 			]
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
 		}
 	}
 }

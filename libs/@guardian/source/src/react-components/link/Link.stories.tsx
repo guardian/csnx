@@ -9,7 +9,6 @@ import {
 	headlineMedium34,
 	headlineMedium42,
 	headlineMedium50,
-	headlineMedium70,
 	palette,
 	textSans12,
 	textSans14,
@@ -60,7 +59,6 @@ const textSans = [
 ];
 
 const headline = [
-	headlineMedium70,
 	headlineMedium50,
 	headlineMedium42,
 	headlineMedium34,

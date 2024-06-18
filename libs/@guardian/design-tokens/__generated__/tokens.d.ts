@@ -242,6 +242,7 @@ export declare const typography: {
 		readonly '34': '34px';
 		readonly '42': '42px';
 		readonly '50': '50px';
+		readonly '64': '64px';
 		readonly '70': '70px';
 	};
 	readonly fontWeight: {
@@ -345,6 +346,7 @@ export declare const typography: {
 		readonly '34': '4px';
 		readonly '42': '5px';
 		readonly '50': '6px';
+		readonly '64': '6px';
 		readonly '70': '6px';
 	};
 	readonly textSans: {
@@ -687,14 +689,14 @@ export declare const typographyPresets: {
 		readonly fontWeight: 700;
 		readonly fontStyle: 'normal';
 	};
-	readonly headlineBold70: {
+	readonly headlineBold64: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		];
-		readonly fontSize: '70px';
+		readonly fontSize: '64px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 700;
 		readonly fontStyle: 'normal';
@@ -795,14 +797,14 @@ export declare const typographyPresets: {
 		readonly fontWeight: 300;
 		readonly fontStyle: 'normal';
 	};
-	readonly headlineLight70: {
+	readonly headlineLight64: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		];
-		readonly fontSize: '70px';
+		readonly fontSize: '64px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 300;
 		readonly fontStyle: 'normal';
@@ -903,14 +905,14 @@ export declare const typographyPresets: {
 		readonly fontWeight: 300;
 		readonly fontStyle: 'italic';
 	};
-	readonly headlineLightItalic70: {
+	readonly headlineLightItalic64: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		];
-		readonly fontSize: '70px';
+		readonly fontSize: '64px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 300;
 		readonly fontStyle: 'italic';
@@ -1011,14 +1013,14 @@ export declare const typographyPresets: {
 		readonly fontWeight: 500;
 		readonly fontStyle: 'normal';
 	};
-	readonly headlineMedium70: {
+	readonly headlineMedium64: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		];
-		readonly fontSize: '70px';
+		readonly fontSize: '64px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 500;
 		readonly fontStyle: 'normal';
@@ -1119,16 +1121,16 @@ export declare const typographyPresets: {
 		readonly fontWeight: 500;
 		readonly fontStyle: 'italic';
 	};
-	readonly headlineMediumItalic70: {
+	readonly headlineMediumItalic64: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		];
-		readonly fontSize: '70px';
+		readonly fontSize: '64px';
 		readonly lineHeight: 1.15;
-		readonly fontWeight: 700;
+		readonly fontWeight: 500;
 		readonly fontStyle: 'italic';
 	};
 	readonly textEgyptian14: {

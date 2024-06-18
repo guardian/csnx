@@ -65,7 +65,7 @@ export default {
 	title: 'Source/src-my-component/MyComponent',
 	component: MyComponent,
 	argTypes: {
-		id: { control: null },
+		id: { control: { disable: true } },
 	},
 	args: {
 		label: 'Label',
