@@ -22,6 +22,7 @@
 		"e2e:ui": "wireit",
 		"fix": "wireit",
 		"lint": "wireit",
+		"sourcepoint-integration-test": "wireit",
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
@@ -90,6 +91,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"build"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -103,6 +107,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"build"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -110,6 +117,12 @@
 				"!.eslintcache"
 			],
 			"output": []
+		},
+		"sourcepoint-integration-test": {
+			"command": "node --test sourcepoint-integration-tests",
+			"dependencies": [
+				"build"
+			]
 		},
 		"test": {
 			"command": "jest",
