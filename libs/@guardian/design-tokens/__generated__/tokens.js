@@ -238,6 +238,7 @@ export const typography = {
 		34: '34px',
 		42: '42px',
 		50: '50px',
+		64: '64px',
 		70: '70px',
 	},
 	fontWeight: {
@@ -341,6 +342,7 @@ export const typography = {
 		34: '4px',
 		42: '5px',
 		50: '6px',
+		64: '6px',
 		70: '6px',
 	},
 	textSans: {
@@ -671,14 +673,14 @@ export const typographyPresets = {
 		fontWeight: 700,
 		fontStyle: 'normal',
 	},
-	headlineBold70: {
+	headlineBold64: {
 		fontFamily: [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		],
-		fontSize: '70px',
+		fontSize: '64px',
 		lineHeight: 1.15,
 		fontWeight: 700,
 		fontStyle: 'normal',
@@ -779,14 +781,14 @@ export const typographyPresets = {
 		fontWeight: 300,
 		fontStyle: 'normal',
 	},
-	headlineLight70: {
+	headlineLight64: {
 		fontFamily: [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		],
-		fontSize: '70px',
+		fontSize: '64px',
 		lineHeight: 1.15,
 		fontWeight: 300,
 		fontStyle: 'normal',
@@ -887,14 +889,14 @@ export const typographyPresets = {
 		fontWeight: 300,
 		fontStyle: 'italic',
 	},
-	headlineLightItalic70: {
+	headlineLightItalic64: {
 		fontFamily: [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		],
-		fontSize: '70px',
+		fontSize: '64px',
 		lineHeight: 1.15,
 		fontWeight: 300,
 		fontStyle: 'italic',
@@ -995,14 +997,14 @@ export const typographyPresets = {
 		fontWeight: 500,
 		fontStyle: 'normal',
 	},
-	headlineMedium70: {
+	headlineMedium64: {
 		fontFamily: [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		],
-		fontSize: '70px',
+		fontSize: '64px',
 		lineHeight: 1.15,
 		fontWeight: 500,
 		fontStyle: 'normal',
@@ -1103,16 +1105,16 @@ export const typographyPresets = {
 		fontWeight: 500,
 		fontStyle: 'italic',
 	},
-	headlineMediumItalic70: {
+	headlineMediumItalic64: {
 		fontFamily: [
 			'GH Guardian Headline',
 			'Guardian Egyptian Web',
 			'Georgia',
 			'serif',
 		],
-		fontSize: '70px',
+		fontSize: '64px',
 		lineHeight: 1.15,
-		fontWeight: 700,
+		fontWeight: 500,
 		fontStyle: 'italic',
 	},
 	textEgyptian14: {
