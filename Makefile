@@ -521,6 +521,14 @@ github-pages\:start: env
 github-pages\:tsc: env
 	@corepack pnpm --filter github-pages tsc
 
+.PHONY: sourcepoint-integration-tests\:fix
+sourcepoint-integration-tests\:fix: env
+	@corepack pnpm --filter sourcepoint-integration-tests fix
+
+.PHONY: sourcepoint-integration-tests\:lint
+sourcepoint-integration-tests\:lint: env
+	@corepack pnpm --filter sourcepoint-integration-tests lint
+
 .PHONY: sourcepoint-integration-tests\:test
 sourcepoint-integration-tests\:test: env
 	@corepack pnpm --filter sourcepoint-integration-tests test

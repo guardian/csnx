@@ -215,6 +215,8 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 
 #### sourcepoint-integration-tests
 
+- `make sourcepoint-integration-tests:fix`
+- `make sourcepoint-integration-tests:lint`
 - `make sourcepoint-integration-tests:test`
 
 #### storybooks

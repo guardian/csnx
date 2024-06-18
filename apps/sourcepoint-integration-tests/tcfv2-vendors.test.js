@@ -1,5 +1,5 @@
-import { test } from 'node:test';
 import assert from 'node:assert';
+import { test } from 'node:test';
 import { __TCFV2VendorIDs } from '@guardian/libs';
 
 const cmpBaseUrl = 'cdn.privacy-mgmt.com';
