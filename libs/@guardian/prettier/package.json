@@ -8,7 +8,8 @@
 	],
 	"scripts": {
 		"fix": "wireit",
-		"lint": "wireit"
+		"lint": "wireit",
+		"tsc": "wireit"
 	},
 	"devDependencies": {
 		"prettier": "3.2.2",
@@ -37,6 +38,19 @@
 			"files": [
 				"**",
 				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
 				"!.eslintcache"
 			],
 			"output": []

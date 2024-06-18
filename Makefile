@@ -52,27 +52,33 @@ verify-dist: env
 
 # checks all projects for lint errors
 .PHONY: lint
-lint: install
+lint: env
 	$(call log,"Linting projects")
 	@corepack pnpm -r lint
 	@node ./tools/scripts/check-packages-for-tslib.mjs
 
 # check repo for formatting errors
 .PHONY: formatting\:check
-formatting\:check: install
+formatting\:check: env
 	$(call log,"Checking formatting across repo")
 	@corepack pnpm prettier --ignore-unknown --cache --check .
 
 # attemps to fix lint errors across all projects
 .PHONY: fix
-fix: install
+fix: env
 	$(call log,"Attempting to fix issues across all projects")
 	@corepack pnpm -r fix
 	@corepack pnpm prettier --ignore-unknown --cache --write .
 
+# type-checking all projects
+.PHONY: tsc
+tsc: env
+	$(call log,"Checking types across all projects")
+	@corepack pnpm -r tsc
+
 # makes sure absolutely everything is working
 .PHONY: validate
-validate: env lint test e2e build verify-dist build-storybook
+validate: env tsc lint test e2e build verify-dist build-storybook
 
 ##################################### BUILD ####################################
 
@@ -163,6 +169,10 @@ install: check-node-version
 @guardian/ab-core\:test: env
 	@corepack pnpm --filter @guardian/ab-core test
 
+.PHONY: @guardian/ab-core\:tsc
+@guardian/ab-core\:tsc: env
+	@corepack pnpm --filter @guardian/ab-core tsc
+
 .PHONY: @guardian/ab-core\:verify-dist
 @guardian/ab-core\:verify-dist: env
 	@corepack pnpm --filter @guardian/ab-core verify-dist
@@ -187,6 +197,10 @@ install: check-node-version
 @guardian/ab-react\:test: env
 	@corepack pnpm --filter @guardian/ab-react test
 
+.PHONY: @guardian/ab-react\:tsc
+@guardian/ab-react\:tsc: env
+	@corepack pnpm --filter @guardian/ab-react tsc
+
 .PHONY: @guardian/ab-react\:verify-dist
 @guardian/ab-react\:verify-dist: env
 	@corepack pnpm --filter @guardian/ab-react verify-dist
@@ -199,6 +213,10 @@ install: check-node-version
 @guardian/browserslist-config\:lint: env
 	@corepack pnpm --filter @guardian/browserslist-config lint
 
+.PHONY: @guardian/browserslist-config\:tsc
+@guardian/browserslist-config\:tsc: env
+	@corepack pnpm --filter @guardian/browserslist-config tsc
+
 .PHONY: @guardian/browserslist-config\:update-readme
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
@@ -210,6 +228,10 @@ install: check-node-version
 .PHONY: @guardian/cobalt-plugin-ts\:lint
 @guardian/cobalt-plugin-ts\:lint: env
 	@corepack pnpm --filter @guardian/cobalt-plugin-ts lint
+
+.PHONY: @guardian/cobalt-plugin-ts\:tsc
+@guardian/cobalt-plugin-ts\:tsc: env
+	@corepack pnpm --filter @guardian/cobalt-plugin-ts tsc
 
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
@@ -231,6 +253,10 @@ install: check-node-version
 @guardian/core-web-vitals\:test: env
 	@corepack pnpm --filter @guardian/core-web-vitals test
 
+.PHONY: @guardian/core-web-vitals\:tsc
+@guardian/core-web-vitals\:tsc: env
+	@corepack pnpm --filter @guardian/core-web-vitals tsc
+
 .PHONY: @guardian/core-web-vitals\:verify-dist
 @guardian/core-web-vitals\:verify-dist: env
 	@corepack pnpm --filter @guardian/core-web-vitals verify-dist
@@ -247,6 +273,10 @@ install: check-node-version
 @guardian/design-tokens\:lint: env
 	@corepack pnpm --filter @guardian/design-tokens lint
 
+.PHONY: @guardian/design-tokens\:tsc
+@guardian/design-tokens\:tsc: env
+	@corepack pnpm --filter @guardian/design-tokens tsc
+
 .PHONY: @guardian/eslint-config\:fix
 @guardian/eslint-config\:fix: env
 	@corepack pnpm --filter @guardian/eslint-config fix
@@ -255,6 +285,10 @@ install: check-node-version
 @guardian/eslint-config\:lint: env
 	@corepack pnpm --filter @guardian/eslint-config lint
 
+.PHONY: @guardian/eslint-config\:tsc
+@guardian/eslint-config\:tsc: env
+	@corepack pnpm --filter @guardian/eslint-config tsc
+
 .PHONY: @guardian/eslint-config-typescript\:fix
 @guardian/eslint-config-typescript\:fix: env
 	@corepack pnpm --filter @guardian/eslint-config-typescript fix
@@ -262,6 +296,10 @@ install: check-node-version
 .PHONY: @guardian/eslint-config-typescript\:lint
 @guardian/eslint-config-typescript\:lint: env
 	@corepack pnpm --filter @guardian/eslint-config-typescript lint
+
+.PHONY: @guardian/eslint-config-typescript\:tsc
+@guardian/eslint-config-typescript\:tsc: env
+	@corepack pnpm --filter @guardian/eslint-config-typescript tsc
 
 .PHONY: @guardian/identity-auth\:build
 @guardian/identity-auth\:build: env
@@ -282,6 +320,10 @@ install: check-node-version
 .PHONY: @guardian/identity-auth\:test
 @guardian/identity-auth\:test: env
 	@corepack pnpm --filter @guardian/identity-auth test
+
+.PHONY: @guardian/identity-auth\:tsc
+@guardian/identity-auth\:tsc: env
+	@corepack pnpm --filter @guardian/identity-auth tsc
 
 .PHONY: @guardian/identity-auth\:verify-dist
 @guardian/identity-auth\:verify-dist: env
@@ -306,6 +348,10 @@ install: check-node-version
 .PHONY: @guardian/identity-auth-frontend\:test
 @guardian/identity-auth-frontend\:test: env
 	@corepack pnpm --filter @guardian/identity-auth-frontend test
+
+.PHONY: @guardian/identity-auth-frontend\:tsc
+@guardian/identity-auth-frontend\:tsc: env
+	@corepack pnpm --filter @guardian/identity-auth-frontend tsc
 
 .PHONY: @guardian/identity-auth-frontend\:verify-dist
 @guardian/identity-auth-frontend\:verify-dist: env
@@ -339,6 +385,10 @@ install: check-node-version
 @guardian/libs\:test: env
 	@corepack pnpm --filter @guardian/libs test
 
+.PHONY: @guardian/libs\:tsc
+@guardian/libs\:tsc: env
+	@corepack pnpm --filter @guardian/libs tsc
+
 .PHONY: @guardian/libs\:verify-dist
 @guardian/libs\:verify-dist: env
 	@corepack pnpm --filter @guardian/libs verify-dist
@@ -359,6 +409,10 @@ install: check-node-version
 @guardian/newsletter-types\:lint: env
 	@corepack pnpm --filter @guardian/newsletter-types lint
 
+.PHONY: @guardian/newsletter-types\:tsc
+@guardian/newsletter-types\:tsc: env
+	@corepack pnpm --filter @guardian/newsletter-types tsc
+
 .PHONY: @guardian/prettier\:fix
 @guardian/prettier\:fix: env
 	@corepack pnpm --filter @guardian/prettier fix
@@ -366,6 +420,10 @@ install: check-node-version
 .PHONY: @guardian/prettier\:lint
 @guardian/prettier\:lint: env
 	@corepack pnpm --filter @guardian/prettier lint
+
+.PHONY: @guardian/prettier\:tsc
+@guardian/prettier\:tsc: env
+	@corepack pnpm --filter @guardian/prettier tsc
 
 .PHONY: @guardian/source\:build
 @guardian/source\:build: env
@@ -403,6 +461,10 @@ install: check-node-version
 @guardian/source\:test: env
 	@corepack pnpm --filter @guardian/source test
 
+.PHONY: @guardian/source\:tsc
+@guardian/source\:tsc: env
+	@corepack pnpm --filter @guardian/source tsc
+
 .PHONY: @guardian/source\:verify-dist
 @guardian/source\:verify-dist: env
 	@corepack pnpm --filter @guardian/source verify-dist
@@ -435,6 +497,10 @@ install: check-node-version
 @guardian/source-development-kitchen\:test: env
 	@corepack pnpm --filter @guardian/source-development-kitchen test
 
+.PHONY: @guardian/source-development-kitchen\:tsc
+@guardian/source-development-kitchen\:tsc: env
+	@corepack pnpm --filter @guardian/source-development-kitchen tsc
+
 .PHONY: @guardian/source-development-kitchen\:verify-dist
 @guardian/source-development-kitchen\:verify-dist: env
 	@corepack pnpm --filter @guardian/source-development-kitchen verify-dist
@@ -450,6 +516,10 @@ github-pages\:dev: env
 .PHONY: github-pages\:start
 github-pages\:start: env
 	@corepack pnpm --filter github-pages start
+
+.PHONY: github-pages\:tsc
+github-pages\:tsc: env
+	@corepack pnpm --filter github-pages tsc
 
 .PHONY: storybooks\:dev
 storybooks\:dev: env
