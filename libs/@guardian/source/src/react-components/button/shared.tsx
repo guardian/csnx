@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
 import { visuallyHidden } from '../../foundations';
-import { SvgSpinner } from '../icons/SvgSpinner';
+import { Spinner } from '../spinner/Spinner';
 
 export const buttonContents = ({
 	hideLabel,
@@ -22,9 +22,17 @@ export const buttonContents = ({
 			contents.push(<div key="space" className="src-button-space" />);
 		}
 		contents.push(
-			cloneElement(<SvgSpinner />, {
-				key: 'svg',
-			}),
+			cloneElement(
+				<Spinner
+					theme={{
+						background: 'transparent',
+						color: 'currentColor',
+					}}
+				/>,
+				{
+					key: 'svg',
+				},
+			),
 		);
 	} else if (iconSvg) {
 		if (!hideLabel) {

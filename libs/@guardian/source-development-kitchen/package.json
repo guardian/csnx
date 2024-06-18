@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -27,8 +27,8 @@
 	"devDependencies": {
 		"@babel/core": "7.24.0",
 		"@emotion/react": "11.11.1",
-		"@guardian/libs": "16.0.0",
-		"@guardian/source": "1.0.0",
+		"@guardian/libs": "16.1.3",
+		"@guardian/source": "3.0.0",
 		"@storybook/manager-api": "8.0.5",
 		"@storybook/react": "8.0.5",
 		"@types/jest": "29.5.8",
@@ -44,8 +44,8 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.1",
-		"@guardian/libs": "^16.0.0",
-		"@guardian/source": "^1.0.0",
+		"@guardian/libs": "^16.1.3",
+		"@guardian/source": "^3.0.0",
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
@@ -69,11 +69,11 @@
 		"build": {
 			"command": "rollup -c",
 			"files": [
-				"../../../configs/rollup.config.js",
-				"./rollup.config.js",
 				"src/**",
 				"package.json",
-				"tsconfig.json"
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
 			],
 			"output": [
 				"dist"
@@ -82,9 +82,11 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"files": [
-				"**/*.{ts,tsx,js,json,mdx,md}",
+				"**",
+				"../../../configs/storybook/**",
 				"!storybook-static/**",
-				"!(jest*)"
+				"!jest*",
+				"!.eslintcache"
 			],
 			"output": [
 				"storybook-static"
@@ -92,12 +94,13 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
 			"files": [
-				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"**",
+				"../../../.eslint*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
 			],
+			"clean": false,
 			"output": [
 				"."
 			]
@@ -105,18 +108,20 @@
 		"lint": {
 			"command": "eslint --cache --color .",
 			"files": [
-				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../.eslint*"
+				"**",
+				"../../../.eslint*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
 			],
 			"output": []
 		},
 		"test": {
 			"command": "jest",
 			"files": [
-				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../configs/jest.*"
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
 			],
 			"output": []
 		},
@@ -126,9 +131,10 @@
 				"build"
 			],
 			"files": [
-				"!(dist)/**",
-				"!(.eslintcache)",
-				"../../../configs/jest.*"
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
 			],
 			"output": []
 		}

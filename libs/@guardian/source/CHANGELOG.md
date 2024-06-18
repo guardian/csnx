@@ -1,5 +1,25 @@
 # @guardian/source
 
+## 3.0.0
+
+### Major Changes
+
+- a275431: Removes `SvgSpinner` from icon library and replaces with dedicated `Spinner` component. The `size` prop supports the existing set of named icon sizes for backwards compatibility, but also allows setting a custom size in pixels. The default colour scheme can be overridden with the `theme` prop.
+
+  ```tsx
+  <>
+  	<Spinner size="small" />
+  	<Spinner size={40} />
+  	<Spinner theme={{ background: 'transparent', color: 'currentColor' }} />
+  </>
+  ```
+
+## 2.1.0
+
+### Minor Changes
+
+- 803f111: Adds `success.300` to the colour palette
+
 ## 2.0.0
 
 ### Major Changes

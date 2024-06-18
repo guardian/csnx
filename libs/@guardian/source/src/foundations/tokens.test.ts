@@ -1,5 +1,3 @@
-import * as typePresetCss from './__generated__/typography/css';
-import * as typePresetObject from './__generated__/typography/objects';
 import {
 	background,
 	border,
@@ -13,8 +11,13 @@ import {
 	brandText,
 	line,
 	text,
-} from './_deprecated/colour/palette';
-import { body, headline, textSans, titlepiece } from './_deprecated/typography';
+} from './__deprecated__/colour/palette';
+import {
+	body,
+	headline,
+	textSans,
+	titlepiece,
+} from './__deprecated__/typography';
 import {
 	availableFontWeights,
 	bodySizes,
@@ -32,7 +35,9 @@ import {
 	textSansSizes,
 	titlepieceSizes,
 	underlineThickness,
-} from './_deprecated/typography/data';
+} from './__deprecated__/typography/data';
+import * as typePresetCss from './__generated__/typography/css';
+import * as typePresetObject from './__generated__/typography/objects';
 import { transitions } from './animation/transitions';
 import { breakpoints } from './breakpoints/breakpoints';
 import { palette } from './colour/palette';
@@ -190,6 +195,7 @@ describe('Palette tokens', () => {
 				'800': '#F1F8FC',
 			},
 			success: {
+				'300': '#185E36',
 				'400': '#22874D',
 				'500': '#58D08B',
 			},

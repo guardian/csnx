@@ -135,6 +135,7 @@ export declare const palette: {
 		readonly '800': '#F1F8FC';
 	};
 	readonly success: {
+		readonly '300': '#185E36';
 		readonly '400': '#22874D';
 		readonly '500': '#58D08B';
 	};
