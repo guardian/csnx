@@ -1,10 +1,10 @@
 import type { CountryCode } from '../../countries/@types/CountryCode';
 import type { VendorName } from '../vendors';
 import type { AUSConsentState } from './aus';
-import type { CCPAConsentState } from './ccpa';
 import type { TCFv2ConsentState } from './tcfv2';
+import type { USNATConsentState } from './usnat';
 
-export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus';
+export type ConsentFramework = 'tcfv2' | 'ccpa' | 'aus' | 'usnat'; // TODO: Remove ccpa but look how consumers use
 
 export type CMP = {
 	init: InitCMP;
@@ -34,7 +34,9 @@ export type GetConsentFor = (
 
 export interface ConsentState {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: CCPAConsentState;
+	/** @deprecated CCPA has been deprecated. Please use usnat */
+	ccpa?: USNATConsentState;
+	usnat?: USNATConsentState;
 	aus?: AUSConsentState;
 	gpcSignal?: boolean;
 	canTarget: boolean;
