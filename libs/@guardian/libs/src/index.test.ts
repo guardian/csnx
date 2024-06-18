@@ -9,6 +9,7 @@ describe('The package', () => {
 			'ArticlePillar',
 			'ArticleSpecial',
 			'Pillar',
+			'__TCFV2VendorIDs',
 			'cmp',
 			'countries',
 			'debug',

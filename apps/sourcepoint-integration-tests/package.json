@@ -1,0 +1,22 @@
+{
+	"name": "sourcepoint-integration-tests",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "wireit"
+	},
+	"dependencies": {
+		"@guardian/libs": "workspace:*"
+	},
+	"devDependencies": {
+		"wireit": "0.14.4"
+	},
+	"wireit": {
+		"test": {
+			"command": "node --test --test-reporter spec",
+			"dependencies": [
+				"../../libs/@guardian/libs:build"
+			]
+		}
+	}
+}

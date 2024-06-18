@@ -108,6 +108,16 @@ importers:
         specifier: 0.14.4
         version: 0.14.4
 
+  apps/sourcepoint-integration-tests:
+    dependencies:
+      '@guardian/libs':
+        specifier: workspace:*
+        version: link:../../libs/@guardian/libs
+    devDependencies:
+      wireit:
+        specifier: 0.14.4
+        version: 0.14.4
+
   apps/storybooks:
     devDependencies:
       storybook:

@@ -521,6 +521,10 @@ github-pages\:start: env
 github-pages\:tsc: env
 	@corepack pnpm --filter github-pages tsc
 
+.PHONY: sourcepoint-integration-tests\:test
+sourcepoint-integration-tests\:test: env
+	@corepack pnpm --filter sourcepoint-integration-tests test
+
 .PHONY: storybooks\:dev
 storybooks\:dev: env
 	@corepack pnpm --filter storybooks dev

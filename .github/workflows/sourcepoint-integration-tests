@@ -1,0 +1,18 @@
+name: Sourcepoint Integration Tests
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * *' # Every day at 9am
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-node-env
+
+      - run: make sourcepoint-integration-tests:test
+
+    # todo: add chat notification

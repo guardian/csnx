@@ -21,6 +21,7 @@ export {
 	onConsentChange,
 	onConsent,
 } from './consent-management-platform';
+export { TCFV2VendorIDs as __TCFV2VendorIDs } from './consent-management-platform/vendors';
 
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
