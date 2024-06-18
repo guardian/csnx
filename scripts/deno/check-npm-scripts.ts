@@ -88,9 +88,14 @@ async function deleteDirs(dirName: string) {
 async function runNpmScript(pkgPath: string, script: string) {
 	// Skip these scripts as they are long-running
 	if (
-		['dev', 'start', 'storybook', 'create-icons', 'update-readme'].includes(
-			script,
-		)
+		[
+			'dev',
+			'start',
+			'storybook',
+			'create-icons',
+			'update-readme',
+			'e2e:ui',
+		].includes(script)
 	) {
 		return { result: 'skipping', error: '' };
 	}

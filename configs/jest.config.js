@@ -5,12 +5,7 @@ export const config = {
 	testPathIgnorePatterns: ['/node_modules/', '/.wireit/'],
 	transformIgnorePatterns: ['node_modules/.pnpm/(?!@guardian)'],
 	transform: {
-		'^.+\\.[tj]sx?$': [
-			'ts-jest',
-			{
-				tsconfig: '<rootDir>/tsconfig.spec.json',
-			},
-		],
+		'^.+\\.[tj]sx?$': ['ts-jest'],
 	},
 	coveragePathIgnorePatterns: ['/__generated__/'],
 };
