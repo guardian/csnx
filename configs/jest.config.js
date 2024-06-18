@@ -12,4 +12,5 @@ export const config = {
 			},
 		],
 	},
+	coveragePathIgnorePatterns: ['/__generated__/'],
 };

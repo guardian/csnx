@@ -26,3 +26,6 @@ storybook-static
 **/playwright-report/
 **/blob-report/
 **/playwright/.cache/
+
+# unit test coverage reports
+/coverage/report/

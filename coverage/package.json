@@ -1,0 +1,10 @@
+{
+	"name": "coverage",
+	"type": "module",
+	"scripts": {
+		"start": "jest"
+	},
+	"dependencies": {
+		"jest": "29.7.0"
+	}
+}
