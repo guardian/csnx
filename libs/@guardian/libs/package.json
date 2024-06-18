@@ -91,6 +91,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"build"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -104,6 +107,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"build"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
