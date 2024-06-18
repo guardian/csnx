@@ -13,6 +13,6 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
-      - run: make sourcepoint-integration-tests:test
+      - run: make @guardian/libs:sourcepoint-integration-test
 
     # todo: add chat notification

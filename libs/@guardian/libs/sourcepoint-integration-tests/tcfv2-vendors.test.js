@@ -1,6 +1,6 @@
 import assert from 'node:assert';
 import { test } from 'node:test';
-import { __TCFV2VendorIDs } from '@guardian/libs';
+import { TCFV2VendorIDs } from '../dist/consent-management-platform/vendors.js';
 
 const cmpBaseUrl = 'cdn.privacy-mgmt.com';
 const guardianId = '5ec67f5bb8e05c4a1160fda1';
@@ -11,7 +11,7 @@ test('the tcfv2 vendor ids used must be a subset of those known by the IAB as ou
 
 	const data = await iabGuardianVendorListResponse.json();
 
-	const vendorIds = Object.values(__TCFV2VendorIDs).flat();
+	const vendorIds = Object.values(TCFV2VendorIDs).flat();
 
 	const iabVendorIds = data['vendors'].map((vendor) => vendor['_id']);
 

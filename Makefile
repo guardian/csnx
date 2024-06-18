@@ -381,6 +381,10 @@ install: check-node-version
 @guardian/libs\:lint: env
 	@corepack pnpm --filter @guardian/libs lint
 
+.PHONY: @guardian/libs\:sourcepoint-integration-test
+@guardian/libs\:sourcepoint-integration-test: env
+	@corepack pnpm --filter @guardian/libs sourcepoint-integration-test
+
 .PHONY: @guardian/libs\:test
 @guardian/libs\:test: env
 	@corepack pnpm --filter @guardian/libs test
@@ -520,18 +524,6 @@ github-pages\:start: env
 .PHONY: github-pages\:tsc
 github-pages\:tsc: env
 	@corepack pnpm --filter github-pages tsc
-
-.PHONY: sourcepoint-integration-tests\:fix
-sourcepoint-integration-tests\:fix: env
-	@corepack pnpm --filter sourcepoint-integration-tests fix
-
-.PHONY: sourcepoint-integration-tests\:lint
-sourcepoint-integration-tests\:lint: env
-	@corepack pnpm --filter sourcepoint-integration-tests lint
-
-.PHONY: sourcepoint-integration-tests\:test
-sourcepoint-integration-tests\:test: env
-	@corepack pnpm --filter sourcepoint-integration-tests test
 
 .PHONY: storybooks\:dev
 storybooks\:dev: env
