@@ -16,7 +16,7 @@ jobs:
       - run: make @guardian/libs:sourcepoint-integration-test
 
       - run: |
-          curl -X POST ${{ secrets.SOURCEPOINT_INTEGRATION_TEST_NOTIFICATION }} \
+          curl -X POST "${{ secrets.SOURCEPOINT_INTEGRATION_TEST_NOTIFICATION }}" \
           --header "Content-Type: application/json" \
           -d '{"text": "Sourcepoint Integration Tests failed! Has the Sourcepoint vendor list changed?"}'
         if: ${{ failure() }}
