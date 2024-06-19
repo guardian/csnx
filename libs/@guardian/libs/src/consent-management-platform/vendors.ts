@@ -11,9 +11,7 @@
  * Important: Keep in sync with list of vendors in README.md
  * *********************/
 
-type VendorIDType = Record<string, string[]>;
-
-export const TCFV2VendorIDs: VendorIDType = {
+export const TCFV2VendorIDs = {
 	// keep the list in README.md up to date with these values
 	a9: ['5f369a02b8e05c308701f829'],
 	acast: ['5f203dcb1f0dea790562e20f'],
@@ -37,20 +35,20 @@ export const TCFV2VendorIDs: VendorIDType = {
 	teads: ['5eab3d5ab8e05c2bbe33f399'],
 	twitter: ['5e71760b69966540e4554f01'],
 	'youtube-player': ['5e7ac3fae30e7d1bc1ebf5e8'],
-};
+} as const;
 
-export const MiscVendorID: VendorIDType = {
+export const MiscVendorID = {
 	prebid: ['5f92a62aa22863685f4daa4c'],
-};
+} as const;
 
-export const AusVendorIDs: VendorIDType = {
+export const AusVendorIDs = {
 	redplanet: ['not-tcfv2-vendor'],
-};
+} as const;
 
-export const VendorIDs: VendorIDType = {
+export const VendorIDs = {
 	...TCFV2VendorIDs,
 	...AusVendorIDs,
 	...MiscVendorID,
-};
+} as const;
 
 export type VendorName = keyof typeof VendorIDs;
