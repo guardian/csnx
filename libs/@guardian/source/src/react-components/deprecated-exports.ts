@@ -25,6 +25,21 @@ import { SvgShareWeb } from './__generated__/icons/SvgShareWeb';
  */
 export type Props = InternalPropsType;
 
+export {
+	/** @deprecated Use `SvgAlertRound` instead. */
+	SvgAlertTriangle,
+} from './__generated__/icons/SvgAlertTriangle';
+
+export {
+	/** @deprecated Use `SvgFilterOutlinedWeb` instead. */
+	SvgFilter,
+} from './__generated__/icons/SvgFilter';
+
+export {
+	/** @deprecated Use `SvgShareWeb` instead. */
+	SvgShareCallout,
+} from './__generated__/icons/SvgShareCallout';
+
 /** @deprecated Use `SvgCrossedOutCloud` instead. */
 export const SvgOfflineCloud = SvgCrossedOutCloud;
 
