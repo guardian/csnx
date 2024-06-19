@@ -3,12 +3,10 @@ import {
 	ACCOUNT_ID,
 	ENDPOINT,
 	PRIVACY_MANAGER_USNAT,
-	PRIVACY_MANAGER_USNAT_SECOND_LAYER,
 } from '../fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
-const iframePrivacyManagerSecondLayer = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT_SECOND_LAYER}`;
 
 const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
 
@@ -99,14 +97,14 @@ test.describe('Interaction', () => {
 		await page
 			.frameLocator(iframeMessage)
 			.locator(
-				'div.message-component.message-column > button.sp_choice_type_12',
+				'div.message-component.message-column > button.sp_choice_type_12', // Do not sell button on first layer
 			)
 			.click();
 
 		await page
 			.frameLocator(iframeMessage)
 			.last()
-			.locator('div.message-component > button.sp_choice_type_13')
+			.locator('div.message-component > button.sp_choice_type_13') // Do not sell button on second layer
 			.click();
 		await doNotSellIs(page, true);
 	});
@@ -122,7 +120,7 @@ test.describe('Interaction', () => {
 
 		await page
 			.frameLocator(iframeMessage)
-			.locator('div.message-component > button.sp_choice_type_15')
+			.locator('div.message-component > button.sp_choice_type_15') // Close button
 			.click();
 
 		await doNotSellIs(page, false);
@@ -134,7 +132,7 @@ test.describe('Interaction', () => {
 			iframePrivacyManager,
 		);
 		await privacyManagerIframe.click('.pm-toggle .on');
-		await privacyManagerIframe.click('.sp_choice_type_SE');
+		await privacyManagerIframe.click('.sp_choice_type_SE'); // Save and Exit
 
 		await page.waitForLoadState('networkidle');
 
