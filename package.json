@@ -29,7 +29,6 @@
 		"lint-staged": "15.2.0",
 		"prettier": "3.3.0",
 		"sort-package-json": "2.10.0",
-		"typescript": "5.4.5",
 		"update-section": "0.3.3",
 		"wireit": "0.14.4"
 	},
