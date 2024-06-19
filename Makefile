@@ -381,6 +381,10 @@ install: check-node-version
 @guardian/libs\:lint: env
 	@corepack pnpm --filter @guardian/libs lint
 
+.PHONY: @guardian/libs\:sourcepoint-integration-test
+@guardian/libs\:sourcepoint-integration-test: env
+	@corepack pnpm --filter @guardian/libs sourcepoint-integration-test
+
 .PHONY: @guardian/libs\:test
 @guardian/libs\:test: env
 	@corepack pnpm --filter @guardian/libs test

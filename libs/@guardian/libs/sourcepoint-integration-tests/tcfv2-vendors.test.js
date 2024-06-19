@@ -1,10 +1,12 @@
-import { TCFV2VendorIDs } from './vendors.ts';
+import assert from 'node:assert';
+import { test } from 'node:test';
+import { TCFV2VendorIDs } from '../dist/consent-management-platform/vendors.js';
 
 const cmpBaseUrl = 'cdn.privacy-mgmt.com';
 const guardianId = '5ec67f5bb8e05c4a1160fda1';
 const guardianVendorListUrl = `https://${cmpBaseUrl}/consent/tcfv2/vendor-list?vendorListId=${guardianId}`;
 
-it('the tcfv2 vendor ids used must be a subset of those known by the IAB as our vendors', async () => {
+test('the tcfv2 vendor ids used must be a subset of those known by the IAB as our vendors', async () => {
 	const iabGuardianVendorListResponse = await fetch(guardianVendorListUrl);
 
 	const data = await iabGuardianVendorListResponse.json();
@@ -15,5 +17,5 @@ it('the tcfv2 vendor ids used must be a subset of those known by the IAB as our 
 
 	const missingVendorIds = vendorIds.filter((id) => !iabVendorIds.includes(id));
 
-	expect(missingVendorIds).toStrictEqual([]);
+	assert.equal(missingVendorIds.length, 0);
 });
