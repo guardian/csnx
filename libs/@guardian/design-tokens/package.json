@@ -19,6 +19,7 @@
 		"@cobalt-ui/core": "1.11.0",
 		"@cobalt-ui/plugin-css": "1.7.0",
 		"@guardian/cobalt-plugin-ts": "workspace:*",
+		"typescript": "5.4.5",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {

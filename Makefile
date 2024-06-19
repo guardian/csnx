@@ -213,10 +213,6 @@ install: check-node-version
 @guardian/browserslist-config\:lint: env
 	@corepack pnpm --filter @guardian/browserslist-config lint
 
-.PHONY: @guardian/browserslist-config\:tsc
-@guardian/browserslist-config\:tsc: env
-	@corepack pnpm --filter @guardian/browserslist-config tsc
-
 .PHONY: @guardian/browserslist-config\:update-readme
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
@@ -284,10 +280,6 @@ install: check-node-version
 .PHONY: @guardian/eslint-config\:lint
 @guardian/eslint-config\:lint: env
 	@corepack pnpm --filter @guardian/eslint-config lint
-
-.PHONY: @guardian/eslint-config\:tsc
-@guardian/eslint-config\:tsc: env
-	@corepack pnpm --filter @guardian/eslint-config tsc
 
 .PHONY: @guardian/eslint-config-typescript\:fix
 @guardian/eslint-config-typescript\:fix: env
