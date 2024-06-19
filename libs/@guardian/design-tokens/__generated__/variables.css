@@ -183,6 +183,7 @@
 	--source-typography-fontSize-34: 2.125rem;
 	--source-typography-fontSize-42: 2.625rem;
 	--source-typography-fontSize-50: 3.125rem;
+	--source-typography-fontSize-64: 4rem;
 	--source-typography-fontSize-70: 4.375rem;
 	--source-typography-fontWeight-bold: 700;
 	--source-typography-fontWeight-light: 300;
@@ -285,6 +286,7 @@
 	--source-typography-textDecorationThicknessForFontSize-34: 0.25rem;
 	--source-typography-textDecorationThicknessForFontSize-42: 0.3125rem;
 	--source-typography-textDecorationThicknessForFontSize-50: 0.375rem;
+	--source-typography-textDecorationThicknessForFontSize-64: 0.375rem;
 	--source-typography-textDecorationThicknessForFontSize-70: 0.375rem;
 	--source-typography-textSans-large-font-family: var(
 		--source-typography-fontFamily-textSans
@@ -626,17 +628,17 @@
 	--source-typographyPresets-headlineBold50-line-height: var(
 		--source-typography-lineHeight-tight
 	);
-	--source-typographyPresets-headlineBold70-font-family: var(
+	--source-typographyPresets-headlineBold64-font-family: var(
 		--source-typography-fontFamily-headline
 	);
-	--source-typographyPresets-headlineBold70-font-size: var(
-		--source-typography-fontSize-70
+	--source-typographyPresets-headlineBold64-font-size: var(
+		--source-typography-fontSize-64
 	);
-	--source-typographyPresets-headlineBold70-font-style: normal;
-	--source-typographyPresets-headlineBold70-font-weight: var(
+	--source-typographyPresets-headlineBold64-font-style: normal;
+	--source-typographyPresets-headlineBold64-font-weight: var(
 		--source-typography-fontWeight-bold
 	);
-	--source-typographyPresets-headlineBold70-line-height: var(
+	--source-typographyPresets-headlineBold64-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-headlineLight14-font-family: var(
@@ -743,17 +745,17 @@
 	--source-typographyPresets-headlineLight50-line-height: var(
 		--source-typography-lineHeight-tight
 	);
-	--source-typographyPresets-headlineLight70-font-family: var(
+	--source-typographyPresets-headlineLight64-font-family: var(
 		--source-typography-fontFamily-headline
 	);
-	--source-typographyPresets-headlineLight70-font-size: var(
-		--source-typography-fontSize-70
+	--source-typographyPresets-headlineLight64-font-size: var(
+		--source-typography-fontSize-64
 	);
-	--source-typographyPresets-headlineLight70-font-style: normal;
-	--source-typographyPresets-headlineLight70-font-weight: var(
+	--source-typographyPresets-headlineLight64-font-style: normal;
+	--source-typographyPresets-headlineLight64-font-weight: var(
 		--source-typography-fontWeight-light
 	);
-	--source-typographyPresets-headlineLight70-line-height: var(
+	--source-typographyPresets-headlineLight64-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-headlineLightItalic14-font-family: var(
@@ -860,17 +862,17 @@
 	--source-typographyPresets-headlineLightItalic50-line-height: var(
 		--source-typography-lineHeight-tight
 	);
-	--source-typographyPresets-headlineLightItalic70-font-family: var(
+	--source-typographyPresets-headlineLightItalic64-font-family: var(
 		--source-typography-fontFamily-headline
 	);
-	--source-typographyPresets-headlineLightItalic70-font-size: var(
-		--source-typography-fontSize-70
+	--source-typographyPresets-headlineLightItalic64-font-size: var(
+		--source-typography-fontSize-64
 	);
-	--source-typographyPresets-headlineLightItalic70-font-style: italic;
-	--source-typographyPresets-headlineLightItalic70-font-weight: var(
+	--source-typographyPresets-headlineLightItalic64-font-style: italic;
+	--source-typographyPresets-headlineLightItalic64-font-weight: var(
 		--source-typography-fontWeight-light
 	);
-	--source-typographyPresets-headlineLightItalic70-line-height: var(
+	--source-typographyPresets-headlineLightItalic64-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-headlineMedium14-font-family: var(
@@ -977,17 +979,17 @@
 	--source-typographyPresets-headlineMedium50-line-height: var(
 		--source-typography-lineHeight-tight
 	);
-	--source-typographyPresets-headlineMedium70-font-family: var(
+	--source-typographyPresets-headlineMedium64-font-family: var(
 		--source-typography-fontFamily-headline
 	);
-	--source-typographyPresets-headlineMedium70-font-size: var(
-		--source-typography-fontSize-70
+	--source-typographyPresets-headlineMedium64-font-size: var(
+		--source-typography-fontSize-64
 	);
-	--source-typographyPresets-headlineMedium70-font-style: normal;
-	--source-typographyPresets-headlineMedium70-font-weight: var(
+	--source-typographyPresets-headlineMedium64-font-style: normal;
+	--source-typographyPresets-headlineMedium64-font-weight: var(
 		--source-typography-fontWeight-medium
 	);
-	--source-typographyPresets-headlineMedium70-line-height: var(
+	--source-typographyPresets-headlineMedium64-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-headlineMediumItalic14-font-family: var(
@@ -1094,17 +1096,17 @@
 	--source-typographyPresets-headlineMediumItalic50-line-height: var(
 		--source-typography-lineHeight-tight
 	);
-	--source-typographyPresets-headlineMediumItalic70-font-family: var(
+	--source-typographyPresets-headlineMediumItalic64-font-family: var(
 		--source-typography-fontFamily-headline
 	);
-	--source-typographyPresets-headlineMediumItalic70-font-size: var(
-		--source-typography-fontSize-70
+	--source-typographyPresets-headlineMediumItalic64-font-size: var(
+		--source-typography-fontSize-64
 	);
-	--source-typographyPresets-headlineMediumItalic70-font-style: italic;
-	--source-typographyPresets-headlineMediumItalic70-font-weight: var(
-		--source-typography-fontWeight-bold
+	--source-typographyPresets-headlineMediumItalic64-font-style: italic;
+	--source-typographyPresets-headlineMediumItalic64-font-weight: var(
+		--source-typography-fontWeight-medium
 	);
-	--source-typographyPresets-headlineMediumItalic70-line-height: var(
+	--source-typographyPresets-headlineMediumItalic64-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-textEgyptian14-font-family: var(

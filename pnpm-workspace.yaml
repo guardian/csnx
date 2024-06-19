@@ -5,3 +5,4 @@ packages:
   - '!**/libs/@guardian/source-development-kitchen/*/**'
   - 'tools/**'
   - 'configs/**'
+  - 'coverage'

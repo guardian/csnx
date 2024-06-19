@@ -1090,10 +1090,10 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
-		expect(typePresetCss.headlineBold70).toMatchCSS(
+		expect(typePresetCss.headlineBold64).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 4.375rem;
+			font-size: 4rem;
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
@@ -1189,10 +1189,10 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
-		expect(typePresetCss.headlineLight70).toMatchCSS(
+		expect(typePresetCss.headlineLight64).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 4.375rem;
+			font-size: 4rem;
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: normal;
@@ -1288,10 +1288,10 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
-		expect(typePresetCss.headlineLightItalic70).toMatchCSS(
+		expect(typePresetCss.headlineLightItalic64).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 4.375rem;
+			font-size: 4rem;
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
@@ -1387,10 +1387,10 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
-		expect(typePresetCss.headlineMedium70).toMatchCSS(
+		expect(typePresetCss.headlineMedium64).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 4.375rem;
+			font-size: 4rem;
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: normal;
@@ -1486,12 +1486,12 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
-		expect(typePresetCss.headlineMediumItalic70).toMatchCSS(
+		expect(typePresetCss.headlineMediumItalic64).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 4.375rem;
+			font-size: 4rem;
 			line-height: 1.15;
-			font-weight: 700;
+			font-weight: 500;
 			font-style: italic;
 			--source-text-decoration-thickness: 6px;
 			`,
@@ -1995,10 +1995,10 @@ describe('Typography preset object output', () => {
 			fontWeight: 700,
 			fontStyle: 'normal',
 		});
-		expect(typePresetObject.headlineBold70Object).toEqual({
+		expect(typePresetObject.headlineBold64Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '4.375rem',
+			fontSize: '4rem',
 			lineHeight: 1.15,
 			fontWeight: 700,
 			fontStyle: 'normal',
@@ -2067,10 +2067,10 @@ describe('Typography preset object output', () => {
 			fontWeight: 300,
 			fontStyle: 'normal',
 		});
-		expect(typePresetObject.headlineLight70Object).toEqual({
+		expect(typePresetObject.headlineLight64Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '4.375rem',
+			fontSize: '4rem',
 			lineHeight: 1.15,
 			fontWeight: 300,
 			fontStyle: 'normal',
@@ -2139,10 +2139,10 @@ describe('Typography preset object output', () => {
 			fontWeight: 300,
 			fontStyle: 'italic',
 		});
-		expect(typePresetObject.headlineLightItalic70Object).toEqual({
+		expect(typePresetObject.headlineLightItalic64Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '4.375rem',
+			fontSize: '4rem',
 			lineHeight: 1.15,
 			fontWeight: 300,
 			fontStyle: 'italic',
@@ -2211,10 +2211,10 @@ describe('Typography preset object output', () => {
 			fontWeight: 500,
 			fontStyle: 'normal',
 		});
-		expect(typePresetObject.headlineMedium70Object).toEqual({
+		expect(typePresetObject.headlineMedium64Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '4.375rem',
+			fontSize: '4rem',
 			lineHeight: 1.15,
 			fontWeight: 500,
 			fontStyle: 'normal',
@@ -2283,12 +2283,12 @@ describe('Typography preset object output', () => {
 			fontWeight: 500,
 			fontStyle: 'italic',
 		});
-		expect(typePresetObject.headlineMediumItalic70Object).toEqual({
+		expect(typePresetObject.headlineMediumItalic64Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '4.375rem',
+			fontSize: '4rem',
 			lineHeight: 1.15,
-			fontWeight: 700,
+			fontWeight: 500,
 			fontStyle: 'italic',
 		});
 		expect(typePresetObject.textEgyptian14Object).toEqual({
