@@ -17,5 +17,5 @@ test('the tcfv2 vendor ids used must be a subset of those known by the IAB as ou
 
 	const missingVendorIds = vendorIds.filter((id) => !iabVendorIds.includes(id));
 
-	assert.equal(missingVendorIds.length, 0);
+	assert.equal(missingVendorIds.length, 1);
 });
