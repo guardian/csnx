@@ -15,7 +15,18 @@ export const getMarkdown = (usageData: UsageData) => {
 		issue.header(`Versions in use`, 3);
 
 		const versions = usage
-			.sort((a, b) => b.version - a.version)
+			.sort((a, b) => {
+				if (typeof a.version === 'string' && typeof b.version === 'number') {
+					return -1;
+				}
+				if (typeof a.version === 'number' && typeof b.version === 'string') {
+					return 1;
+				}
+				if (typeof a.version === 'number' && typeof b.version === 'number') {
+					return b.version - a.version;
+				}
+				return String(b.version).localeCompare(String(a.version));
+			})
 			.flatMap(({ version, installations }) => {
 				const x = installations
 					.sort((a, b) => a.project.localeCompare(b.project))

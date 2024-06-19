@@ -28,7 +28,7 @@ jobs:
           deno run \
             --allow-read \
             --allow-net \
-            --allow-sys=uid,gid \
+            --allow-sys \
             --allow-env \
             scripts/deno/source-tracker/mod.ts
         env:

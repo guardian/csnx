@@ -6,9 +6,14 @@ import {
 } from './get-pkg-versions-in-use.ts';
 import { octokit } from '../octokit.ts';
 
-// localStorage.clear();
+localStorage.clear();
 
-const packages = ['@guardian/source'] as const;
+const packages = [
+	'@guardian/source',
+	'@guardian/source-development-kitchen',
+	'@guardian/source-foundations',
+	'@guardian/source-react-components',
+] as const;
 
 export type UsageData = {
 	[name in (typeof packages)[number]]: {
