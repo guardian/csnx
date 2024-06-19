@@ -23,10 +23,10 @@ import { SvgAsterisk } from '../__generated__/icons/SvgAsterisk';
 import { SvgAudio } from '../__generated__/icons/SvgAudio';
 import { SvgAudioMute } from '../__generated__/icons/SvgAudioMute';
 import { SvgBin } from '../__generated__/icons/SvgBin';
-import { SvgBookOutlined } from '../__generated__/icons/SvgBookOutlined';
 import { SvgBookmarkCross } from '../__generated__/icons/SvgBookmarkCross';
 import { SvgBookmarkFilled } from '../__generated__/icons/SvgBookmarkFilled';
 import { SvgBookmarkOutlined } from '../__generated__/icons/SvgBookmarkOutlined';
+import { SvgBookOutlined } from '../__generated__/icons/SvgBookOutlined';
 import { SvgCalendar } from '../__generated__/icons/SvgCalendar';
 import { SvgCamera } from '../__generated__/icons/SvgCamera';
 import { SvgCameraRoundOutlined } from '../__generated__/icons/SvgCameraRoundOutlined';
@@ -48,10 +48,10 @@ import { SvgClock } from '../__generated__/icons/SvgClock';
 import { SvgClockBaselineSmall } from '../__generated__/icons/SvgClockBaselineSmall';
 import { SvgCreditCard } from '../__generated__/icons/SvgCreditCard';
 import { SvgCross } from '../__generated__/icons/SvgCross';
+import { SvgCrossedOutCloud } from '../__generated__/icons/SvgCrossedOutCloud';
 import { SvgCrossRoundFilled } from '../__generated__/icons/SvgCrossRoundFilled';
 import { SvgCrossRoundOutlined } from '../__generated__/icons/SvgCrossRoundOutlined';
 import { SvgCrossSmall } from '../__generated__/icons/SvgCrossSmall';
-import { SvgCrossedOutCloud } from '../__generated__/icons/SvgCrossedOutCloud';
 import { SvgCrosswords } from '../__generated__/icons/SvgCrosswords';
 import { SvgDirectDebit } from '../__generated__/icons/SvgDirectDebit';
 import { SvgDirectDebitWide } from '../__generated__/icons/SvgDirectDebitWide';
@@ -155,7 +155,6 @@ import { SvgUpload } from '../__generated__/icons/SvgUpload';
 import { SvgVideo } from '../__generated__/icons/SvgVideo';
 import { SvgWhatsApp } from '../__generated__/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../__generated__/icons/SvgWhatsAppBrand';
-
 import type { ThemeIcon } from './theme';
 
 const uiIcons = {
