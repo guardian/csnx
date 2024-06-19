@@ -13,10 +13,10 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
-      - run: make @guardian/libs:sourcepoint-integration-tes
+      - run: make @guardian/libs:sourcepoint-integration-test
 
-      - run: |
+      - if: ${{ failure() }}
+        run: |
           curl -X POST "${{ secrets.SOURCEPOINT_INTEGRATION_TEST_NOTIFICATION }}" \
           --header "Content-Type: application/json" \
           -d '{"text": "Sourcepoint Integration Tests failed! Has the Sourcepoint vendor list changed?"}'
-        if: ${{ failure() }}
