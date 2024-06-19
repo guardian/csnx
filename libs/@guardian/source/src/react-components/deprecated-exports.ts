@@ -7,8 +7,8 @@
 import type { Props as InternalPropsType } from './@types/Props';
 import { SvgBookmarkCross } from './__generated__/icons/SvgBookmarkCross';
 import { SvgBookmarkFilled } from './__generated__/icons/SvgBookmarkFilled';
-import { SvgCrossRoundFilled } from './__generated__/icons/SvgCrossRoundFilled';
 import { SvgCrossedOutCloud } from './__generated__/icons/SvgCrossedOutCloud';
+import { SvgCrossRoundFilled } from './__generated__/icons/SvgCrossRoundFilled';
 import { SvgExclamation } from './__generated__/icons/SvgExclamation';
 import { SvgFacebookMessenger } from './__generated__/icons/SvgFacebookMessenger';
 import { SvgHomeHouseFilled } from './__generated__/icons/SvgHomeHouseFilled';
