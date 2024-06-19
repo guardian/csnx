@@ -17,6 +17,6 @@ jobs:
 
       - run: |
           curl -X POST ${{ secrets.SOURCEPOINT_INTEGRATION_TEST_NOTIFICATION }} \
-          -H "Content-Type: application/json" \
+          --header "Content-Type: application/json" \
           -d '{"text": "Sourcepoint Integration Tests failed! Has the Sourcepoint vendor list changed?"}'
         if: ${{ failure() }}
