@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- b391972: Update TS version 5.4.5 and @guardian/libs 17.0.0 and ab-core 8.0.0
+- b391972: Upgrade peer dependency TS v5.4.5 and ab-core v8.0.0
 
 ## 8.0.2
 
