@@ -16,7 +16,7 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M19 18V6l-1-1H6L5 6v12l1 1h12l1-1Z"
+			d="M19 18V6l-1-1H6L5 6v12l1 1h12z"
 			fill={theme?.fill}
 		/>
 	</svg>
@@ -35,7 +35,7 @@ export const SvgMediaControlsStop = ({
 					${visuallyHidden}
 				`}
 			>
-				Stop
+				Play
 			</span>
 		) : (
 			''

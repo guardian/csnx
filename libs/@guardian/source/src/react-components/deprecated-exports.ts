@@ -5,12 +5,18 @@
  */
 
 import type { Props as InternalPropsType } from './@types/Props';
+import { SvgBookmarkCross } from './__generated__/icons/SvgBookmarkCross';
+import { SvgBookmarkFilled } from './__generated__/icons/SvgBookmarkFilled';
 import { SvgCrossedOutCloud } from './__generated__/icons/SvgCrossedOutCloud';
+import { SvgCrossRoundFilled } from './__generated__/icons/SvgCrossRoundFilled';
 import { SvgExclamation } from './__generated__/icons/SvgExclamation';
 import { SvgFacebookMessenger } from './__generated__/icons/SvgFacebookMessenger';
+import { SvgHomeHouseFilled } from './__generated__/icons/SvgHomeHouseFilled';
 import { SvgInfoRound } from './__generated__/icons/SvgInfoRound';
 import { SvgMediaControlsPlay } from './__generated__/icons/SvgMediaControlsPlay';
 import { SvgPayPalBrand } from './__generated__/icons/SvgPayPalBrand';
+import { SvgPersonRoundFilled } from './__generated__/icons/SvgPersonRoundFilled';
+import { SvgShareWeb } from './__generated__/icons/SvgShareWeb';
 
 /**
  * @deprecated This is for internal use only.
@@ -18,6 +24,21 @@ import { SvgPayPalBrand } from './__generated__/icons/SvgPayPalBrand';
  * but will be removed in the next major version.
  */
 export type Props = InternalPropsType;
+
+export {
+	/** @deprecated Use `SvgAlertRound` instead. */
+	SvgAlertTriangle,
+} from './__generated__/icons/SvgAlertTriangle';
+
+export {
+	/** @deprecated Use `SvgFilterOutlinedWeb` instead. */
+	SvgFilter,
+} from './__generated__/icons/SvgFilter';
+
+export {
+	/** @deprecated Use `SvgShareWeb` instead. */
+	SvgShareCallout,
+} from './__generated__/icons/SvgShareCallout';
 
 /** @deprecated Use `SvgCrossedOutCloud` instead. */
 export const SvgOfflineCloud = SvgCrossedOutCloud;
@@ -36,6 +57,24 @@ export const SvgPlay = SvgMediaControlsPlay;
 
 /** @deprecated Use `SvgPayPalBrand` instead. */
 export const SvgPayPal = SvgPayPalBrand;
+
+/** @deprecated Use `SvgBookmarkFilled` instead. */
+export const SvgBookMark = SvgBookmarkFilled;
+
+/** @deprecated Use `SvgBookmarkCross` instead. */
+export const SvgBookMarkCross = SvgBookmarkCross;
+
+/** @deprecated Use `SvgCrossRoundFilled` instead. */
+export const SvgCrossRound = SvgCrossRoundFilled;
+
+/** @deprecated Use `SvgHomeHouseFilled` instead. */
+export const SvgHouse = SvgHomeHouseFilled;
+
+/** @deprecated Use `SvgPersonRoundFilled` instead. */
+export const SvgPersonRound = SvgPersonRoundFilled;
+
+/** @deprecated Use `SvgShareWeb` instead. */
+export const SvgShare = SvgShareWeb;
 
 export type { ButtonTheme } from './button/theme';
 
