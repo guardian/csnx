@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 3.0.0
+
+### Major Changes
+
+- b391972: Update TS version 5.4.5 and @guardian/libs 17.0.0 and ab-core 8.0.0
+
 ## 2.1.1
 
 ### Patch Changes

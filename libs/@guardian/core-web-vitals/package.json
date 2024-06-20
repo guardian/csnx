@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/core-web-vitals",
-	"version": "6.0.1",
+	"version": "7.0.0",
 	"private": false,
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
@@ -37,7 +37,7 @@
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^16.0.0",
+		"@guardian/libs": "^17.0.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.4.5",
 		"web-vitals": "^3.5.0"
