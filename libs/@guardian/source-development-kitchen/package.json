@@ -69,7 +69,7 @@
 	"wireit": {
 		"_deps": {
 			"dependencies": [
-				"../source-foundations:build"
+				"../source:build"
 			]
 		},
 		"build": {
