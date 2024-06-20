@@ -8,11 +8,7 @@
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
 	"bumpVersionsWithWorkspaceProtocolOnly": true,
-	"ignore": [
-		"github-pages",
-		"@configs/*",
-		"@guardian/source-development-kitchen"
-	],
+	"ignore": ["github-pages", "@configs/*"],
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
 		"onlyUpdatePeerDependentsWhenOutOfRange": true
 	}
