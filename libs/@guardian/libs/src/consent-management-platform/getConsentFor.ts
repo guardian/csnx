@@ -8,10 +8,7 @@ export const getConsentFor: GetConsentFor = (
 ): boolean => {
 	const sourcepointIds = VendorIDs[vendor];
 
-	if (
-		typeof sourcepointIds === 'undefined' ||
-		(Array.isArray(sourcepointIds) && sourcepointIds.length === 0)
-	) {
+	if (typeof sourcepointIds === 'undefined' || sourcepointIds.length === 0) {
 		throw new Error(
 			`Vendor '${vendor}' not found, or with no Sourcepoint ID. ` +
 				'If it should be added, raise an issue at https://github.com/guardian/consent-management-platform/issues',

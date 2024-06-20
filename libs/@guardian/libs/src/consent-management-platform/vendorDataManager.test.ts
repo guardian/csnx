@@ -4,7 +4,10 @@ import { onConsentChange } from './onConsentChange';
 import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { TCFv2ConsentState } from './types/tcfv2';
 import { initVendorDataManager } from './vendorDataManager';
-import { vendorStorageIds } from './vendorStorageIds';
+import {
+	deprecatedVendorStorageIds,
+	vendorStorageIds,
+} from './vendorStorageIds';
 
 jest.mock('./onConsentChange');
 
@@ -38,6 +41,11 @@ jest.mock('./vendorStorageIds', () => ({
 			cookies: ['ipsosCookie1', 'ipsosCookie2'],
 			localStorage: ['ipsosLocalStorage1', 'ipsosLocalStorage2'],
 			sessionStorage: ['ipsosSessionStorage1'],
+		},
+	},
+	deprecatedVendorStorageIds: {
+		'google-analytics': {
+			cookies: ['someCookie'],
 		},
 	},
 }));
@@ -92,6 +100,10 @@ describe('initVendorDataManager', () => {
 
 		vendorStorageIds.ipsos.localStorage.forEach((name) => {
 			expect(storage.local.remove).not.toHaveBeenCalledWith(name);
+		});
+
+		deprecatedVendorStorageIds['google-analytics'].cookies.forEach((name) => {
+			expect(removeCookie).toHaveBeenCalledWith({ name });
 		});
 	});
 });
