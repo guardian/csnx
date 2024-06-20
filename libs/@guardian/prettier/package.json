@@ -12,7 +12,7 @@
 		"tsc": "wireit"
 	},
 	"devDependencies": {
-		"prettier": "3.3.2",
+		"prettier": "3.2.2",
 		"tslib": "2.6.2",
 		"wireit": "0.14.4"
 	},
