@@ -5,7 +5,7 @@
 ### Major Changes
 
 - 437e880: Remove GA from cmp vendorlist
-- 95b16ee: Bump typescript v5.4.5
+- 95b16ee: Upgrade typescript peer dependency to v5.4.5
 
 ## 16.1.4
 

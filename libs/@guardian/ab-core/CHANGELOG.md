@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- 95b16ee: Bump typescript v5.4.5
+- 95b16ee: Upgrade typescript peer dependency to v5.4.5
 
 ## 7.0.3
 
