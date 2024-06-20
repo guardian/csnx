@@ -1,5 +1,18 @@
 # @guardian/source-development-kitchen
 
+## 3.0.0
+
+### Major Changes
+
+- c4baa5c: Update typescript v4.5.4 and peer deps @guardian/libs and @guardian/source
+- 490384d: Now has a peer dependency of `@emotion/react@^11.11.3` (from `^11.11.1`).
+
+  Fixes conflicting types between Emotion's deps, as outlined in https://github.com/emotion-js/emotion/pull/3141.
+
+### Patch Changes
+
+- 955b831: Replace use of deprecated `ArticlePillar` with `Pillar` from `@guardian/libs`.
+
 ## 2.0.0
 
 ### Major Changes

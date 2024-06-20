@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/identity-auth-frontend",
-	"version": "4.0.1",
+	"version": "5.0.0",
 	"private": false,
 	"description": "",
 	"license": "Apache-2.0",
@@ -39,8 +39,8 @@
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/identity-auth": "^2.1.0",
-		"@guardian/libs": "^16.0.0",
+		"@guardian/identity-auth": "^3.0.0",
+		"@guardian/libs": "^17.0.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.4.5"
 	},

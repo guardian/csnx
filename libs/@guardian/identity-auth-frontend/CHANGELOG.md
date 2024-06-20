@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 5.0.0
+
+### Major Changes
+
+- c4baa5c: Update typescript v4.5.4 and peer deps @guardian/libs and @guardian/identity-auth
+
 ## 4.0.1
 
 ### Patch Changes
