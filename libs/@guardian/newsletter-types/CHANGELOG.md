@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 3.0.0
+
+### Major Changes
+
+- 95b16ee: Bump typescript v5.4.5
+
 ## 2.0.1
 
 ### Patch Changes
