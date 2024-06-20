@@ -5,6 +5,8 @@
 ### Major Changes
 
 - bd424c2: Now has a peer dependency of `@emotion/react@^11.11.3` (from `^11.11.1`).
+- Update peer dependency of @guardian/libs v17.0.0
+- Update peer dependency of @guardian/source v4.0.0
 
   Fixes conflicting types between Emotion's deps, as outlined in https://github.com/emotion-js/emotion/pull/3141.
 
