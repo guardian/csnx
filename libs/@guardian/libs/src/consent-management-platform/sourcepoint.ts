@@ -68,6 +68,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
+			propertyHref: getPropertyHref(framework),
 			targetingParams: {
 				framework,
 			},
@@ -171,8 +172,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	if (isInPropertyIdABTest) {
 		window._sp_.config.propertyId = getPropertyId(framework);
-	} else {
-		window._sp_.config.propertyHref = getPropertyHref(framework);
 	}
 
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
