@@ -90,15 +90,16 @@
 		}
 	},
 	"wireit": {
-		"__deps__": {
+		"_deps": {
 			"dependencies": [
-				"../design-tokens:build"
+				"../source-foundations:build",
+				"../source-react-components:build"
 			]
 		},
 		"build": {
 			"command": "rollup -c",
 			"dependencies": [
-				"__deps__"
+				"_deps"
 			],
 			"files": [
 				"src/**",
@@ -130,7 +131,7 @@
 		"build-type-presets": {
 			"command": "tsx ./scripts/build-type-presets.ts",
 			"dependencies": [
-				"__deps__"
+				"../design-tokens:build"
 			],
 			"files": [
 				"./scripts/build-type-presets.ts",
@@ -143,7 +144,7 @@
 		"fix": {
 			"command": "eslint --cache --color . --fix",
 			"dependencies": [
-				"__deps__"
+				"_deps"
 			],
 			"files": [
 				"**",
@@ -158,7 +159,7 @@
 		},
 		"lint": {
 			"dependencies": [
-				"__deps__"
+				"_deps"
 			],
 			"command": "eslint --cache --color .",
 			"files": [
@@ -172,7 +173,7 @@
 		"test": {
 			"command": "jest",
 			"dependencies": [
-				"__deps__"
+				"_deps"
 			],
 			"files": [
 				"**",

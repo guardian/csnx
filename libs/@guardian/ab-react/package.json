@@ -60,8 +60,16 @@
 		"access": "public"
 	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../ab-core:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"src/**",
 				"package.json",
@@ -75,6 +83,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -88,6 +99,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -98,6 +112,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"**",
 				"../../../configs/jest.*",

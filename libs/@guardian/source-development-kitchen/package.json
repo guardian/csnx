@@ -67,8 +67,16 @@
 		}
 	},
 	"wireit": {
+		"_deps": {
+			"dependencies": [
+				"../source-foundations:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"src/**",
 				"package.json",
@@ -83,7 +91,7 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"dependencies": [
-				"../source:build"
+				"_deps"
 			],
 			"files": [
 				"**",
@@ -98,6 +106,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -111,6 +122,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -132,7 +146,7 @@
 		"tsc": {
 			"command": "tsc --pretty",
 			"dependencies": [
-				"../source:build"
+				"_deps"
 			],
 			"files": [
 				"**",
