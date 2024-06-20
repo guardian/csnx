@@ -1,5 +1,5 @@
 import { brand as brandColors, text } from '@guardian/source/foundations';
-import { SvgInfo } from '@guardian/source/react-components';
+import { SvgInfoRound } from '@guardian/source/react-components';
 import {
 	contextStyles,
 	iconStyles,
@@ -19,7 +19,7 @@ export const InfoSummary = ({
 }: InfoSummaryProps) => (
 	<div css={[wrapperStyles(brandColors[500]), cssOverrides]} {...props}>
 		<div css={iconStyles(brandColors[500])}>
-			<SvgInfo />
+			<SvgInfoRound />
 		</div>
 		<div css={messageWrapperStyles}>
 			<div css={messageStyles(text.primary)}>{message}</div>
