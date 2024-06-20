@@ -1,5 +1,11 @@
 # @guardian/ab-core
 
+## 8.0.0
+
+### Major Changes
+
+- 95b16ee: Bump typescript v5.4.5
+
 ## 7.0.3
 
 ### Patch Changes
