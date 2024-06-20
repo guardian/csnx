@@ -1,5 +1,24 @@
 # @guardian/source
 
+## 4.0.0
+
+### Major Changes
+
+- b391972: Update TS version 5.4.5 and @guardian/libs 17.0.0 and ab-core 8.0.0
+- dc79048: Adds Guardian Headline 64px typography presets and removes Guardian Headline 70px presets.
+
+  ```
+  headlineBold64
+  headlineLight64
+  headlineLightItalic64
+  headlineMedium64
+  headlineMediumItalic64
+  ```
+
+- Now has a peer dependency of `@emotion/react@^11.11.3` (from `^11.11.1`).
+
+  Fixes conflicting types between Emotion's deps, as outlined in https://github.com/emotion-js/emotion/pull/3141.
+
 ## 3.0.0
 
 ### Major Changes
