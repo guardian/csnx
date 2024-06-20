@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
