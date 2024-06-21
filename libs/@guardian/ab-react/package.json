@@ -125,6 +125,9 @@
 		},
 		"tsc": {
 			"command": "tsc --pretty",
+			"dependencies": [
+				"_deps"
+			],
 			"files": [
 				"**",
 				"tsconfig.json",

@@ -135,6 +135,9 @@
 			"output": []
 		},
 		"tsc": {
+			"dependencies": [
+				"../identity-auth:build"
+			],
 			"command": "tsc --pretty",
 			"files": [
 				"**",
