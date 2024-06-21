@@ -319,18 +319,18 @@ const IconLibrary = (args: {
 	theme: ThemeIcon;
 	icons: Array<React.FunctionComponent<IconProps>>;
 	isAnnouncedByScreenReader: boolean;
-}) => {
-	const library = args.icons.map((Icon, index) => (
-		<Icon
-			key={index}
-			size={args.size}
-			theme={args.theme}
-			isAnnouncedByScreenReader={args.isAnnouncedByScreenReader}
-		/>
-	));
-
-	return <>{library}</>;
-};
+}) => (
+	<>
+		{args.icons.map((Icon, index) => (
+			<Icon
+				key={index}
+				size={args.size}
+				theme={args.theme}
+				isAnnouncedByScreenReader={args.isAnnouncedByScreenReader}
+			/>
+		))}
+	</>
+);
 
 const meta: Meta<typeof IconLibrary> = {
 	title: 'React Components/Icons',
