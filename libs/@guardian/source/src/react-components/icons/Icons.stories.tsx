@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAlarmClockFilled } from '../__generated__/icons/SvgAlarmClockFilled';
@@ -157,7 +157,7 @@ import { SvgWhatsApp } from '../__generated__/icons/SvgWhatsApp';
 import { SvgWhatsAppBrand } from '../__generated__/icons/SvgWhatsAppBrand';
 import type { ThemeIcon } from './theme';
 
-const uiIcons = {
+const uiIcons = [
 	SvgAlarmClockFilled,
 	SvgAlarmClockOutlined,
 	SvgAlarmClockSounded,
@@ -308,32 +308,33 @@ const uiIcons = {
 	SvgVideo,
 	SvgWhatsApp,
 	SvgWhatsAppBrand,
-};
+];
 
-const paymentIcons = {
-	SvgCreditCard,
-	SvgDirectDebit,
-	SvgPayPal: SvgPayPalBrand,
-};
+const paymentIcons = [SvgCreditCard, SvgDirectDebit, SvgPayPalBrand];
 
-const widePaymentIcons = {
-	SvgDirectDebitWide,
-};
+const widePaymentIcons = [SvgDirectDebitWide];
 
-type IconChromaticStoryArgs = {
+const IconLibrary = (args: {
 	size: IconSize;
 	theme: ThemeIcon;
 	icons: Array<React.FunctionComponent<IconProps>>;
 	isAnnouncedByScreenReader: boolean;
+}) => {
+	const library = args.icons.map((Icon, index) => (
+		<Icon
+			key={index}
+			size={args.size}
+			theme={args.theme}
+			isAnnouncedByScreenReader={args.isAnnouncedByScreenReader}
+		/>
+	));
+
+	return <>{library}</>;
 };
 
-const meta: Meta<IconChromaticStoryArgs> = {
+const meta: Meta<typeof IconLibrary> = {
 	title: 'React Components/Icons',
-	args: {
-		theme: undefined,
-		isAnnouncedByScreenReader: false,
-		size: 'small',
-	},
+	component: IconLibrary,
 	argTypes: {
 		theme: {
 			description:
@@ -363,102 +364,67 @@ const meta: Meta<IconChromaticStoryArgs> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof IconLibrary>;
 
 // *****************************************************************************
 
-const Template: StoryFn<IconChromaticStoryArgs> = (
-	args: IconChromaticStoryArgs,
-) => {
-	const icons = args.icons.map((Icon, index) => (
-		<Icon
-			key={index}
-			size={args.size}
-			theme={args.theme}
-			isAnnouncedByScreenReader={args.isAnnouncedByScreenReader}
-		/>
-	));
-
-	return <>{icons}</>;
-};
-
-// *****************************************************************************
-
-export const XsmallIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-XsmallIconsDefaultTheme.args = {
-	size: 'xsmall',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(uiIcons),
-};
-
-// *****************************************************************************
-
-export const SmallIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-SmallIconsDefaultTheme.args = {
-	size: 'small',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(uiIcons),
-};
-
-// *****************************************************************************
-
-export const MediumIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-MediumIconsDefaultTheme.args = {
-	size: 'medium',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(uiIcons),
-};
-
-// *****************************************************************************
-
-export const MediumIconsBrandTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-MediumIconsBrandTheme.args = {
-	theme: { fill: palette.neutral[100] },
-	size: 'medium',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(uiIcons),
-};
-MediumIconsBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const XsmallIconsDefaultTheme: Story = {
+	args: {
+		size: 'xsmall',
+		theme: undefined,
+		isAnnouncedByScreenReader: true,
+		icons: uiIcons,
 	},
 };
 
-// *****************************************************************************
-
-export const PaymentIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-PaymentIconsDefaultTheme.args = {
-	size: 'medium',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(paymentIcons),
+export const SmallIconsDefaultTheme: Story = {
+	args: {
+		...XsmallIconsDefaultTheme.args,
+		size: 'small',
+	},
 };
 
-// *****************************************************************************
-
-export const WidePaymentIconsDefaultTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-WidePaymentIconsDefaultTheme.args = {
-	size: 'medium',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(widePaymentIcons),
+export const MediumIconsDefaultTheme: Story = {
+	args: {
+		...XsmallIconsDefaultTheme.args,
+		size: 'medium',
+	},
 };
 
-// *****************************************************************************
-
-export const MediumIconsCustomTheme: StoryFn<IconChromaticStoryArgs> =
-	Template.bind({});
-MediumIconsCustomTheme.args = {
-	theme: { fill: palette.neutral[86] },
-	size: 'medium',
-	isAnnouncedByScreenReader: true,
-	icons: Object.values(uiIcons),
+export const MediumIconsBrandTheme: Story = {
+	args: {
+		...MediumIconsDefaultTheme.args,
+		theme: { fill: palette.neutral[100] },
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
 };
-MediumIconsCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+
+export const PaymentIconsDefaultTheme: Story = {
+	args: {
+		...MediumIconsDefaultTheme.args,
+		icons: paymentIcons,
+	},
+};
+
+export const WidePaymentIconsDefaultTheme: Story = {
+	args: {
+		...MediumIconsDefaultTheme.args,
+		icons: widePaymentIcons,
+	},
+};
+
+export const MediumIconsCustomTheme: Story = {
+	args: {
+		...MediumIconsDefaultTheme.args,
+		theme: { fill: palette.neutral[86] },
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
 	},
 };
