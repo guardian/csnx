@@ -126,7 +126,6 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 
 - `make @guardian/eslint-config:fix`
 - `make @guardian/eslint-config:lint`
-- `make @guardian/eslint-config:tsc`
 
 #### @guardian/eslint-config-typescript
 
