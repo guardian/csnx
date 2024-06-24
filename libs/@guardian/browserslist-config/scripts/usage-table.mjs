@@ -1,5 +1,4 @@
-import browserslistStats from '../browserslist-stats.json' assert { type:
-	'json' };
+import browserslistStats from '../browserslist-stats.json' assert { type: 'json' };
 import { normaliseBrowserName } from './normalise-browser-name.mjs';
 
 const flattened = {};
