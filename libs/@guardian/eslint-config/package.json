@@ -5,8 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"fix": "wireit",
-		"lint": "wireit",
-		"tsc": "wireit"
+		"lint": "wireit"
 	},
 	"dependencies": {
 		"eslint-config-prettier": "9.1.0",
@@ -15,12 +14,10 @@
 	},
 	"devDependencies": {
 		"eslint": "8.56.0",
-		"tslib": "^2.6.2",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"eslint": "^8.56.0",
-		"tslib": "^2.6.2"
+		"eslint": "^8.56.0"
 	},
 	"wireit": {
 		"lint": {
@@ -43,19 +40,6 @@
 			"output": [
 				"."
 			]
-		},
-		"tsc": {
-			"command": "tsc --pretty",
-			"files": [
-				"**",
-				"tsconfig.json",
-				"../tsconfig/tsconfig.json",
-				"../../../@types/**",
-				"../../../tsconfig.base.json",
-				"!(dist)/**",
-				"!.eslintcache"
-			],
-			"output": []
 		}
 	}
 }
