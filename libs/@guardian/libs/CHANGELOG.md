@@ -1,5 +1,87 @@
 # @guardian/libs
 
+## 17.0.0
+
+### Major Changes
+
+- 437e880: Remove GA from cmp vendorlist
+
+### Minor Changes
+
+- c2da3cd: Introduce AB test in sourcepoint config
+
+### Patch Changes
+
+- 01a3362: Fix vendor data removal and more strictly type arguments for `getConsentFor`
+
+## 16.1.4
+
+### Patch Changes
+
+- 013fed6: Add "CONTAINER" to OphanComponentType
+
+## 16.1.3
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 16.1.2
+
+### Patch Changes
+
+- 92688c7: Make consent 11 false by default, currently undefined
+
+## 16.1.1
+
+### Patch Changes
+
+- becac1a: Improvements to readability of if else statements. Cleanup after update to linting rules
+
+## 16.1.0
+
+### Minor Changes
+
+- 14f4db9: Relocates the Guardian's CMP from [`@guardian/consent-management-platform`](https://www.npmjs.com/package/@guardian/consent-management-platform) to `@guardian/libs`.
+
+  _`@guardian/consent-management-platform` is now deprecated._
+
+  ## Before
+
+  ```js
+  import {
+  	cmp,
+  	onConsent,
+  	onConsentChange,
+  	getConsentFor,
+  } from '@guardian/consent-management-platform';
+  ```
+
+  ## After
+
+  ```js
+  import {
+  	cmp,
+  	onConsent,
+  	onConsentChange,
+  	getConsentFor,
+  } from '@guardian/libs';
+  ```
+
+  The new exports are functionally identical to those in the final version of `@guardian/consent-management-platform`: [v13.12.1](https://github.com/guardian/consent-management-platform/releases/tag/v13.12.1).
+
+## 16.0.2
+
+### Patch Changes
+
+- af5a0fe: use `=>` to always bind storage methods to their parent scope
+
+## 16.0.1
+
+### Patch Changes
+
+- 9c64a63: Make Storage handle numeric expiry value
+
 ## 16.0.0
 
 ### Major Changes

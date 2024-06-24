@@ -24,7 +24,9 @@ export const __resetCachedValue = (): void => (locale = void 0);
  */
 
 export const getLocale = async (): Promise<CountryCode | null> => {
-	if (locale) return locale;
+	if (locale) {
+		return locale;
+	}
 
 	// return overridden geo from localStorage, used for changing geo only for development purposes
 	const geoOverride = storage.local.get(KEY_OVERRIDE) as CountryCode;

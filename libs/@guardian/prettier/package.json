@@ -1,14 +1,59 @@
 {
 	"name": "@guardian/prettier",
-	"version": "7.0.0",
+	"version": "8.0.1",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
 	"main": "index.js",
+	"files": [
+		"index.d.ts"
+	],
+	"scripts": {
+		"fix": "wireit",
+		"lint": "wireit",
+		"tsc": "wireit"
+	},
 	"devDependencies": {
-		"prettier": "3.1.1",
-		"tslib": "2.6.2"
+		"prettier": "3.2.2",
+		"tslib": "2.6.2",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"prettier": "^3.1.1",
+		"prettier": "^3.2.2",
 		"tslib": "^2.6.2"
+	},
+	"wireit": {
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"clean": false,
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
 	}
 }

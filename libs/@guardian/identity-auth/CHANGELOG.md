@@ -1,5 +1,28 @@
 # @guardian/identity-auth
 
+## 2.1.1
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 2.1.0
+
+### Minor Changes
+
+- 145fb9b: Optimise `isSignedInWithAuthState` method so that it does one call simultaneously if called multiple times
+
+### Patch Changes
+
+- 707a035: Correctly handle `GU_SO` check in `isSignedInWithAuthState` method
+
+## 2.0.1
+
+### Patch Changes
+
+- f2f4527: Update `isSignedIn` logic to use `GU_SO` cookie correctly
+- a75996f: Remove `GU_U` cookie if we fail to get tokens with it, as it's likely invalid
+
 ## 2.0.0
 
 ### Major Changes

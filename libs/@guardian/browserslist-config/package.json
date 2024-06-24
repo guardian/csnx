@@ -1,15 +1,23 @@
 {
 	"name": "@guardian/browserslist-config",
-	"version": "6.0.0",
+	"version": "6.1.1",
 	"description": "Browserslist config for Guardian websites",
 	"main": "browserslist.js",
+	"files": [
+		".browserslistrc",
+		"browserslist-stats.json"
+	],
 	"scripts": {
+		"fix": "wireit",
+		"lint": "wireit",
+		"tsc": "wireit",
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},
 	"devDependencies": {
 		"@guardian/browserslist-config": "workspace:*",
-		"browserslist": "4.22.2",
-		"tslib": "2.6.2"
+		"browserslist": "4.23.0",
+		"tslib": "2.6.2",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"browserslist": "^4.22.2",
@@ -17,5 +25,41 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"wireit": {
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"clean": false,
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
 	}
 }

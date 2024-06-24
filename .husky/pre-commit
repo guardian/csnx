@@ -1,16 +1,16 @@
-#!/bin/sh
-
-# don't run this on CI
+# make sure we're using the correct version of node,
+# but not on CI:
 # https://typicode.github.io/husky/#/?id=with-env-variables
-[ -n "$CI" ] && exit 0
-
-. "$(dirname "$0")/_/husky.sh"
-
-# make sure we're using the correct version of node
-. ./tools/scripts/check-node-version
+if [ "$CI" != "true" ]; then
+    . ./tools/scripts/check-node-version
+fi
 
 # keep docs up to date
 node tools/scripts/maintain-readme/index.mjs
 git add README.md
+
+# keep makefile up to date
+node tools/scripts/maintain-makefile/index.mjs
+git add Makefile
 
 corepack pnpm lint-staged

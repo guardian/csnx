@@ -1,0 +1,6 @@
+{
+	"private": true,
+	"type": "module",
+	"main": "../dist/react-components.js",
+	"//": "sub-package to match the `exports` field in the parent package.json"
+}

@@ -8,7 +8,7 @@
       - any-glob-to-any-file: 'libs/@csnx/**/*'
 🛠 workspace:
   - changed-files:
-      - any-glob-to-any-file: ['nx.json', 'workspace.json', 'tools/**/*']
+      - any-glob-to-any-file: ['tools/**/*']
 
 # individual npm packages
 '@guardian/ab-core':

@@ -1,5 +1,30 @@
 # @guardian/eslint-config
 
+## 8.0.1
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 8.0.0
+
+### Major Changes
+
+- cc7aa7d: Requires curly braces in all circumstances.
+
+  This should help reduce noise in diffs, and remove ambiguity about when you should use curly braces (and possibly when a block starts and ends), especially for people unfamiliar with the language.
+
+  _Note that this rule is fixable, so running eslint with the `--fix` flag will automatically update your code to comply with the new setting._
+
+## 7.0.1
+
+### Patch Changes
+
+- 225e542: Dependencies updates:
+
+  - `@typescript-eslint/eslint-plugin` from 6.14.0 to 6.18.0
+  - `@typescript-eslint/parser` from 6.14.0 to 6.18.0
+
 ## 7.0.0
 
 ### Major Changes

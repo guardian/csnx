@@ -1,7 +1,9 @@
 import { isSubscribedTo, messageStyle } from '../logger/logger';
 
 export const logPerf = (measurement: string, duration: number) => {
-	if (!isSubscribedTo('perf')) return;
+	if (!isSubscribedTo('perf')) {
+		return;
+	}
 
 	const styles = [
 		messageStyle('common'),

@@ -10,3 +10,22 @@ dist
 # Speed up TSC builds
 # https://www.typescriptlang.org/tsconfig#incremental
 tsconfig.tsbuildinfo
+
+# Speed up eslint
+.eslintcache
+
+# wireit cache dirs
+# https://github.com/google/wireit
+.wireit
+
+# storybook build dirs
+storybook-static
+
+# playwright stuff
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/playwright/.cache/
+
+# unit test coverage reports
+/coverage/report/

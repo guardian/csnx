@@ -1,5 +1,17 @@
 # @guardian/browserslist-config
 
+## 6.1.1
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 6.1.0
+
+### Minor Changes
+
+- 0f5fef4: Update with data for 2024.01.20-2024.02.18
+
 ## 6.0.0
 
 ### Major Changes

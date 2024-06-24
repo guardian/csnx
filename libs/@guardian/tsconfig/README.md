@@ -21,6 +21,6 @@ npm install --save-dev @guardian/tsconfig
 ```jsonc
 // tsconfig.json
 {
-	"extends": "@guardian/tsconfig/tsconfig.json"
+	"extends": "@guardian/tsconfig/tsconfig.json",
 }
 ```

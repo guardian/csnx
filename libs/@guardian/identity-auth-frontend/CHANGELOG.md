@@ -1,5 +1,23 @@
 # @guardian/identity-auth-frontend
 
+## 4.0.1
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 4.0.0
+
+### Major Changes
+
+- 2407ec8: Update peer dependency `@guardian/identity-auth` to `2.1.0`
+
+## 3.0.0
+
+### Major Changes
+
+- 31aa63e: Update `identity-auth` to `2.0.1` to fix sign out bug
+
 ## 2.0.0
 
 ### Major Changes

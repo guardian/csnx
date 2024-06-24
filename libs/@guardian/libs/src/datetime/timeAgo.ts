@@ -15,14 +15,13 @@ export const duration = ({
 	const difference = now - then;
 	if (difference < units.minute) {
 		return { length: difference / units.second, unit: 'second' };
-	}
-	if (difference < units.hour) {
+	} else if (difference < units.hour) {
 		return { length: difference / units.minute, unit: 'minute' };
-	}
-	if (difference < units.day) {
+	} else if (difference < units.day) {
 		return { length: difference / units.hour, unit: 'hour' };
+	} else {
+		return { length: difference / units.day, unit: 'day' };
 	}
-	return { length: difference / units.day, unit: 'day' };
 };
 
 const isYesterday = (then: number, now: number): boolean => {
@@ -65,34 +64,53 @@ export const timeAgo = (
 	const length = Math.round(rawLength);
 
 	// Dates in the future are not supported
-	if (length < 0) return false;
+	if (length < 0) {
+		return false;
+	}
 
 	switch (unit) {
 		case 'second': {
-			if (length > 55) return verbose ? '1 minute ago' : '1m ago';
-			if (length < 15) return 'now';
-			if (!verbose) return `${length}s ago`;
-			return `${length} seconds ago`;
+			if (length > 55) {
+				return verbose ? '1 minute ago' : '1m ago';
+			} else if (length < 15) {
+				return 'now';
+			} else if (!verbose) {
+				return `${length}s ago`;
+			} else {
+				return `${length} seconds ago`;
+			}
 		}
 		case 'minute': {
-			if (length > 55) return verbose ? '1 hour ago' : '1h ago';
-			if (!verbose) return `${length}m ago`;
-			if (length == 1) return '1 minute ago';
-			return `${length} minutes ago`;
+			if (length > 55) {
+				return verbose ? '1 hour ago' : '1h ago';
+			} else if (!verbose) {
+				return `${length}m ago`;
+			} else if (length == 1) {
+				return '1 minute ago';
+			} else {
+				return `${length} minutes ago`;
+			}
 		}
 		case 'hour': {
-			if (!verbose) return `${length}h ago`;
-			if (length == 1) return '1 hour ago';
-			return `${length} hours ago`;
+			if (!verbose) {
+				return `${length}h ago`;
+			} else if (length == 1) {
+				return '1 hour ago';
+			} else {
+				return `${length} hours ago`;
+			}
 		}
 		case 'day': {
 			if (rawLength < (options?.daysUntilAbsolute ?? 7)) {
-				if (!verbose) return `${length}d ago`;
-				if (isYesterday(then, now)) {
+				if (!verbose) {
+					return `${length}d ago`;
+				} else if (isYesterday(then, now)) {
 					return `Yesterday ${withTime(new Date(then))}`;
+				} else if (length == 1) {
+					return '1 day ago';
+				} else {
+					return `${length} days ago`;
 				}
-				if (length == 1) return '1 day ago';
-				return `${length} days ago`;
 			}
 
 			// Simple date - "9 Nov 2019"

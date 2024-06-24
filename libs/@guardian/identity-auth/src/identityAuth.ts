@@ -1,4 +1,4 @@
-import { getCookie } from '@guardian/libs';
+import { getCookie, removeCookie } from '@guardian/libs';
 import type {
 	IdentityAuthOptions,
 	IdentityAuthState,
@@ -35,6 +35,11 @@ export class IdentityAuth<
 	#oauthUrls: OAuthUrls;
 	#emitter: Emitter;
 	#autoRenewService: AutoRenewService;
+
+	// holder if there is currently an is signed in check in progress
+	#isSignedInWithAuthStateInProgress:
+		| Promise<IdentityAuthState<AC, IC>>
+		| undefined;
 
 	public tokenManager: TokenManager<AC, IC>;
 	public token: Token<AC, IC>;
@@ -75,44 +80,51 @@ export class IdentityAuth<
 			this.authStateManager,
 		);
 
+		this.#isSignedInWithAuthStateInProgress = undefined;
+
 		this.#autoRenewService.start();
 	}
 
 	/**
-	 * @name isSignedInWithAuthState
-	 * @description Checks if the user is signed in, and updates the auth state as necessary, returns the current auth state
-	 *
-	 * This performs side effects.
-	 *
-	 * 1. If the user has a GU_SO cookie, they have recently signed out, so we should clear their tokens (side effect)
-	 * 2. If user tokens already exist, they are signed in
-	 * 3. If the user doesn't have tokens, but they have a GU_U cookie, they are "maybe" signed in
-	 *   a. We can try to get tokens without prompting/redirecting the user for credentials (side effect)
-	 * 4. If the user doesn't have tokens or a GU_U cookie, they are not signed in
-	 *
+	 * @name #isSignedInWithAuthState
+	 * @description Private implementation of `isSignedInWithAuthState`, see `isSignedInWithAuthState` for more details
 	 * @returns `AuthState` - Returns the current authentication state
 	 */
-	public async isSignedInWithAuthState(): Promise<IdentityAuthState<AC, IC>> {
+	async #isSignedInWithAuthState(): Promise<IdentityAuthState<AC, IC>> {
 		try {
-			// if the user has a GU_SO cookie, they have recently signed out, so we should clear their tokens
-			// the GU_SO cookie will be automatically cleared when the user signs back in
-			if (getCookie({ name: 'GU_SO', shouldMemoize: true })) {
-				this.tokenManager.clear();
-				return {
-					accessToken: undefined,
-					idToken: undefined,
-					isAuthenticated: false,
-				};
-			}
-
-			// if user tokens already exist, they are signed in
+			// first check if the user has valid access and id tokens
 			const authState = this.authStateManager.getAuthState();
+			// if they do we need to check if a user has recently signed out
 			if (authState.isAuthenticated) {
 				// validate the id token and access token to make sure auth state is still valid
 				await this.token.verifyTokens(authState.idToken, authState.accessToken);
 
-				// if the id token is valid, return the auth state
-				return authState;
+				// if a user has a GU_SO cookie, they might have recently signed out
+				const guSoCookie = parseInt(
+					getCookie({ name: 'GU_SO', shouldMemoize: true }) ?? '',
+				);
+
+				// calculate the clock skew between the user's device and the server
+				const normalisedCurrentTime =
+					Math.floor(Date.now() / 1000) - authState.idToken.clockSkew;
+
+				// if the GU_SO cookie value (the timestamp when a user last signed out) is greater than the id token's iat (issued at) value,
+				// then the user has recently signed out, so we should clear their tokens
+				if (
+					// make sure that the GU_SO cookie is in the past
+					guSoCookie <= normalisedCurrentTime &&
+					// compare the GU_SO cookie to the id token's iat value
+					guSoCookie > authState.idToken.claims.iat
+				) {
+					// clear the tokens
+					// we don't return a blank auth state here,
+					// as the user * might * still be signed in, so we go to the next check
+					this.tokenManager.clear();
+				} else {
+					// otherwise the user is signed in, so return the auth state
+					// if the id token is valid, return the auth state
+					return authState;
+				}
 			}
 
 			// if the user doesn't have tokens, but they have a GU_U cookie, they are "maybe" signed in
@@ -129,6 +141,10 @@ export class IdentityAuth<
 						idToken: tokens.idToken,
 						isAuthenticated: true,
 					};
+				} else {
+					// if we weren't able to get the tokens, despite having a GU_U cookie, the user is not signed in
+					// we should clear the GU_U cookie, as it is likely invalid
+					removeCookie({ name: 'GU_U' });
 				}
 			}
 
@@ -141,7 +157,10 @@ export class IdentityAuth<
 		} catch (error) {
 			// check if the error is an OAuthError and the error is login_required, in which case the user is not signed in
 			if (error instanceof OAuthError && error.error === 'login_required') {
-				// so return isAuthenticated: false
+				// remove the GU_U cookie, as it is likely invalid
+				removeCookie({ name: 'GU_U' });
+
+				// and return isAuthenticated: false
 				return {
 					accessToken: undefined,
 					idToken: undefined,
@@ -156,15 +175,66 @@ export class IdentityAuth<
 	}
 
 	/**
+	 * @name isSignedInWithAuthState
+	 * @description Checks if the user is signed in, and updates the auth state as necessary, returns the current auth state
+	 *
+	 * This performs side effects.
+	 *
+	 * This follows the flowchart from https://github.com/guardian/gateway/blob/main/docs/okta/web-apps-integration-guide.md#how-to-know-if-a-reader-is-signed-in to determine if the user is signed in
+	 *
+	 * 1. If the user tokens already exist, then verify them to make sure they are still valid
+	 * 2. If they do, check if the user has a `GU_SO` cookie and compare it to the `iat` value of the id token
+	 *   a. If the `GU_SO` cookie value is greater than the `iat` value, the user has recently signed out, so we should clear their tokens (side effect)
+	 *   b. Otherwise, the user is signed in, so return the auth state
+	 * 3. If the user doesn't have tokens, but they have a `GU_U` cookie, they are "maybe" signed in
+	 *  a. We can try to get tokens without prompting/redirecting the user for credentials (side effect)
+	 * 	b. If no tokens are returned, we clear the `GU_U` cookie, as it is likely invalid (side effect)
+	 *  c. If there is an error getting the tokens:
+	 *    i. If the error is an `OAuthError` and the error is `login_required`, the user is not signed in, so we clear the `GU_U` cookie, as it is likely invalid (side effect)
+	 *    ii. Otherwise, there is an unknown error, so clear any tokens and throw the error
+	 * 4. If the user doesn't have tokens or a GU_U cookie, they are not signed in
+	 *
+	 * For optimisation, this method will only run one signed in check at a time,
+	 * and will return the existing promise if a check is already in progress
+	 *
+	 * @returns `AuthState` - Returns the current authentication state
+	 */
+	public async isSignedInWithAuthState(): Promise<IdentityAuthState<AC, IC>> {
+		// check if there is already a signed in check in progress
+		if (this.#isSignedInWithAuthStateInProgress) {
+			// if there is, return the existing promise
+			return this.#isSignedInWithAuthStateInProgress;
+		}
+
+		// if there isn't, start a new signed in check
+		// by creating a new promise that clears itself when it finishes
+		this.#isSignedInWithAuthStateInProgress =
+			this.#isSignedInWithAuthState().finally(() => {
+				this.#isSignedInWithAuthStateInProgress = undefined;
+			});
+
+		// return the new promise
+		return this.#isSignedInWithAuthStateInProgress;
+	}
+
+	/**
 	 * @name isSignedIn
 	 * @description Checks if the user is signed in, and updates the auth state as necessary, returns boolean
 	 *
 	 * This performs side effects.
 	 *
-	 * 1. If the user has a GU_SO cookie, they have recently signed out, so we should clear their tokens (side effect)
-	 * 2. If user tokens already exist, they are signed in
-	 * 3. If the user doesn't have tokens, but they have a GU_U cookie, they are "maybe" signed in
-	 *   a. We can try to get tokens without prompting/redirecting the user for credentials (side effect)
+	 * This follows the flowchart from https://github.com/guardian/gateway/blob/main/docs/okta/web-apps-integration-guide.md#how-to-know-if-a-reader-is-signed-in to determine if the user is signed in
+	 *
+	 * 1. If the user tokens already exist, then verify them to make sure they are still valid
+	 * 2. If they do, check if the user has a `GU_SO` cookie and compare it to the `iat` value of the id token
+	 *   a. If the `GU_SO` cookie value is greater than the `iat` value, the user has recently signed out, so we should clear their tokens (side effect)
+	 *   b. Otherwise, the user is signed in, so return the auth state
+	 * 3. If the user doesn't have tokens, but they have a `GU_U` cookie, they are "maybe" signed in
+	 *  a. We can try to get tokens without prompting/redirecting the user for credentials (side effect)
+	 * 	b. If no tokens are returned, we clear the `GU_U` cookie, as it is likely invalid (side effect)
+	 *  c. If there is an error getting the tokens:
+	 *    i. If the error is an `OAuthError` and the error is `login_required`, the user is not signed in, so we clear the `GU_U` cookie, as it is likely invalid (side effect)
+	 *    ii. Otherwise, there is an unknown error, so clear any tokens and throw the error
 	 * 4. If the user doesn't have tokens or a GU_U cookie, they are not signed in
 	 *
 	 * @returns `boolean` - `true` if the user is signed in, `false` if not

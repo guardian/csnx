@@ -1,79 +1,61 @@
-import type { AbTestConfig, CoreAPI, OphanAPI } from './@types';
+import type { ABTestAPI, AbTestConfig, CoreAPI, OphanAPI } from './@types';
 import { initCore } from './core';
 import { initOphan } from './ophan';
 
-export class AB {
-	private _allRunnableTests: CoreAPI['allRunnableTests'];
-	private _isUserInVariant: CoreAPI['isUserInVariant'];
-	private _firstRunnableTest: CoreAPI['firstRunnableTest'];
-	private _runnableTest: CoreAPI['runnableTest'];
+export class AB implements ABTestAPI {
+	private readonly _core: CoreAPI;
+	private readonly _ophan: OphanAPI;
 
-	private _registerCompleteEvents: OphanAPI['registerCompleteEvents'];
-	private _registerImpressionEvents: OphanAPI['registerImpressionEvents'];
-	private _trackABTests: OphanAPI['trackABTests'];
-
-	constructor(config: AbTestConfig) {
-		const {
-			mvtMaxValue,
-			mvtId,
-			pageIsSensitive,
+	constructor({
+		abTestSwitches,
+		arrayOfTestObjects,
+		errorReporter,
+		forcedTestException,
+		forcedTestVariants,
+		mvtId,
+		mvtMaxValue,
+		ophanRecord,
+		pageIsSensitive,
+		serverSideTests,
+	}: AbTestConfig) {
+		this._core = initCore({
 			abTestSwitches,
-			serverSideTests,
-			forcedTestVariants,
+			arrayOfTestObjects,
 			forcedTestException,
+			forcedTestVariants,
+			mvtId,
+			mvtMaxValue,
+			pageIsSensitive,
+		});
+		this._ophan = initOphan({
 			errorReporter,
 			ophanRecord,
-			arrayOfTestObjects,
-		} = config;
-
-		const core = initCore({
-			mvtMaxValue,
-			mvtId,
-			pageIsSensitive,
-			abTestSwitches,
-			forcedTestVariants,
-			forcedTestException,
-			arrayOfTestObjects,
-		});
-
-		const ophan = initOphan({
 			serverSideTests,
-			errorReporter,
-			ophanRecord,
 		});
-
-		this._allRunnableTests = core.allRunnableTests;
-		this._firstRunnableTest = core.firstRunnableTest;
-		this._runnableTest = core.runnableTest;
-		this._isUserInVariant = core.isUserInVariant;
-
-		this._registerCompleteEvents = ophan.registerCompleteEvents;
-		this._registerImpressionEvents = ophan.registerImpressionEvents;
-		this._trackABTests = ophan.trackABTests;
 	}
 
 	// CoreAPI
-	get allRunnableTests(): CoreAPI['allRunnableTests'] {
-		return this._allRunnableTests;
+	get allRunnableTests() {
+		return this._core.allRunnableTests;
 	}
-	get firstRunnableTest(): CoreAPI['firstRunnableTest'] {
-		return this._firstRunnableTest;
+	get firstRunnableTest() {
+		return this._core.firstRunnableTest;
 	}
-	get runnableTest(): CoreAPI['runnableTest'] {
-		return this._runnableTest;
+	get runnableTest() {
+		return this._core.runnableTest;
 	}
-	get isUserInVariant(): CoreAPI['isUserInVariant'] {
-		return this._isUserInVariant;
+	get isUserInVariant() {
+		return this._core.isUserInVariant;
 	}
 
 	// OphanAPI
-	get registerCompleteEvents(): OphanAPI['registerCompleteEvents'] {
-		return this._registerCompleteEvents;
+	get registerCompleteEvents() {
+		return this._ophan.registerCompleteEvents;
 	}
-	get registerImpressionEvents(): OphanAPI['registerImpressionEvents'] {
-		return this._registerImpressionEvents;
+	get registerImpressionEvents() {
+		return this._ophan.registerImpressionEvents;
 	}
-	get trackABTests(): OphanAPI['trackABTests'] {
-		return this._trackABTests;
+	get trackABTests() {
+		return this._ophan.trackABTests;
 	}
 }

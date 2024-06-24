@@ -1,5 +1,19 @@
 # @guardian/prettier
 
+## 8.0.1
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 8.0.0
+
+### Major Changes
+
+- 3193169: Now requires `prettier@^3.2.2`, which adds JSONC support, alongside other improvements:
+
+  https://prettier.io/blog/2024/01/12/3.2.0.html.
+
 ## 7.0.0
 
 ### Major Changes

@@ -10,7 +10,7 @@ module.exports = {
 		'@guardian/eslint-config',
 		'plugin:@typescript-eslint/eslint-recommended',
 		'plugin:@typescript-eslint/recommended',
-		'plugin:@typescript-eslint/recommended-requiring-type-checking',
+		'plugin:@typescript-eslint/recommended-type-checked',
 		'plugin:import/typescript',
 	],
 	settings: {
@@ -125,5 +125,9 @@ module.exports = {
 
 		// requires any function or method that returns a Promise to be marked async
 		// '@typescript-eslint/promise-function-async': 2,
+
+		// Performance boost, as TypeScript provides the same checks as part of standard type checking.
+		// See https://typescript-eslint.io/linting/troubleshooting/performance-troubleshooting/#eslint-plugin-import
+		'import/namespace': 0,
 	},
 };

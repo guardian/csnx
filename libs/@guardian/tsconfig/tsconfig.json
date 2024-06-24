@@ -2,9 +2,8 @@
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"incremental": true,
 		"module": "esnext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"noImplicitReturns": true,
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,

@@ -1,0 +1,42 @@
+name: Chromatic
+
+on:
+  workflow_call:
+    secrets:
+      CHROMATIC_SOURCE_TOKEN:
+        required: true
+      CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN:
+        required: true
+
+jobs:
+  deploy:
+    permissions:
+      checks: write
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - lib: source
+            token: CHROMATIC_SOURCE_TOKEN
+          - lib: source-development-kitchen
+            token: CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # for chromatic to work
+
+      - uses: ./.github/actions/setup-node-env
+
+      - run: make build-storybook
+
+      - uses: chromaui/action@v11
+        with:
+          projectToken: ${{ secrets[matrix.token] }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBaseDir: 'libs/@guardian/${{ matrix.lib }}'
+          storybookBuildDir: 'libs/@guardian/${{ matrix.lib }}/storybook-static'
+          exitOnceUploaded: true
+          onlyChanged: '!(main)' # turbosnap on non-main branches
+          skip: |
+            github.event.pull_request.user.login == 'dependabot[bot]' ||
+            github.event.pull_request.user.login == 'gu-changesets-release-pr[bot]'

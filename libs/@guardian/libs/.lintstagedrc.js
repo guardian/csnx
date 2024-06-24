@@ -1,7 +1,7 @@
-const config = require('../../../.lintstagedrc.js');
+import config from '../../../.lintstagedrc.js';
 
-module.exports = {
+export default {
 	'src/logger/**/*|scripts/generateSvg.logger.subscriptions.*':
-		'node -r @swc-node/register scripts/generateSvg.logger.subscriptions.ts',
+		'tsx scripts/generateSvg.logger.subscriptions.ts',
 	...config,
 };

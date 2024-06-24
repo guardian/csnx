@@ -1,0 +1,31 @@
+{
+	"name": "storybooks",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Collates storybooks of the CSNX monorepo.",
+	"scripts": {
+		"dev": "wireit"
+	},
+	"devDependencies": {
+		"storybook": "8.1.8",
+		"wireit": "0.14.4"
+	},
+	"wireit": {
+		"dev": {
+			"command": "storybook dev --port 4400 --quiet",
+			"dependencies": [
+				"storybooks",
+				"wait"
+			],
+			"service": true
+		},
+		"storybooks": {
+			"command": "pnpm -r --parallel storybook --no-open --quiet",
+			"service": true
+		},
+		"wait": {
+			"//": "wait for project storybooks to start before starting the composed one",
+			"command": "sleep 5"
+		}
+	}
+}

@@ -1,5 +1,5 @@
 import { getMakeTargets } from './lib/get-make-targets.mjs';
-import { getNxTargets } from './lib/get-nx-targets.mjs';
+import { getTasks } from './lib/get-tasks.mjs';
 
 const blue = '\x1b[34m';
 const dim = '\x1b[2m';
@@ -14,23 +14,22 @@ const makeTargetsList = makeTargets
 	)
 	.join('\n');
 
-console.log(`${orange}No target specified. Available targets are:\n${reset}`);
+console.log(`${orange}Repo-wide targets are:\n${reset}`);
 console.log(makeTargetsList);
 
 console.log('');
 console.log(
-	`${orange}You can also run any of the individual Nx targets by running ${blue}make <target>${reset}${orange}.${reset}`,
+	`${orange}You can also run any of the individual project tasks by running ${blue}make <project>:<task>${reset}${orange}:${reset}`,
 );
-console.log(`${orange}Available targets are:${reset}`);
 
-const nxTargets = await getNxTargets();
+const tasks = await getTasks();
 
-const nxTargetsList = [];
-for (const target of nxTargets) {
-	if (!nxTargetsList.at(-1)?.includes(target.split(':')[0])) {
-		nxTargetsList.push('');
+const taskList = [];
+for (const task of tasks) {
+	if (!taskList.at(-1)?.includes(task.split(':')[0])) {
+		taskList.push('');
 	}
-	nxTargetsList.push(`${blue}make ${target}${reset}`);
+	taskList.push(`${blue}make ${task}${reset}`);
 }
 
-console.log(nxTargetsList.join('\n'));
+console.log(taskList.join('\n'));

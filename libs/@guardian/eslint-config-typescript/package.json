@@ -1,23 +1,65 @@
 {
 	"name": "@guardian/eslint-config-typescript",
-	"version": "9.0.0",
+	"version": "10.0.1",
 	"description": "ESLint config for Guardian TypeScript projects",
 	"main": "index.js",
+	"scripts": {
+		"fix": "wireit",
+		"lint": "wireit",
+		"tsc": "wireit"
+	},
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@typescript-eslint/eslint-plugin": "6.15.0",
-		"@typescript-eslint/parser": "6.15.0",
+		"@typescript-eslint/eslint-plugin": "7.11.0",
+		"@typescript-eslint/parser": "7.11.0",
 		"eslint-import-resolver-typescript": "3.6.1",
 		"eslint-plugin-import": "2.29.1"
 	},
 	"devDependencies": {
 		"eslint": "8.56.0",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"eslint": "^8.56.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.3.3"
+	},
+	"wireit": {
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"files": [
+				"**",
+				"../../../.eslint*",
+				"!.eslintcache"
+			],
+			"clean": false,
+			"output": [
+				"."
+			]
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
 	}
 }

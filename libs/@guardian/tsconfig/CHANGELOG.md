@@ -1,5 +1,27 @@
 # @guardian/tsconfig
 
+## 1.0.0
+
+### Major Changes
+
+- 9c40ba3: Sets `moduleResolution` to `bundler` (https://devblogs.microsoft.com/typescript/announcing-typescript-5-0-beta/#moduleresolution-bundler), bringing the compiler's behaviour into line with application bundlers.
+
+  This is also the first major release as the rest of the defaults have settled down.
+
+## 0.3.1
+
+### Patch Changes
+
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+
+## 0.3.0
+
+### Minor Changes
+
+- 1a7deef: Removes the `"incremental": true` setting, deferring [the TypeScript defaults](https://www.typescriptlang.org/tsconfig/#incremental).
+
+  _This should be project-specific, not a default for all configs._
+
 ## 0.2.0
 
 ### Minor Changes

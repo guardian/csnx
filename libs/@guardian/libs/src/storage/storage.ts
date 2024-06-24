@@ -11,7 +11,9 @@ class StorageFactory {
 			storage.setItem(uid, uid);
 			const available = storage.getItem(uid) == uid;
 			storage.removeItem(uid);
-			if (available) this.#storage = storage;
+			if (available) {
+				this.#storage = storage;
+			}
 		} catch (e) {
 			// do nothing
 		}
@@ -20,23 +22,26 @@ class StorageFactory {
 	/**
 	 * Check whether storage is available.
 	 */
-	isAvailable(): boolean {
-		return Boolean(this.#storage);
-	}
+	isAvailable = (): boolean => Boolean(this.#storage);
 
 	/**
 	 * Retrieve an item from storage.
 	 *
 	 * @param key - the name of the item
 	 */
-	get(key: string): unknown {
+	get = (key: string): unknown => {
 		try {
 			const data: unknown = JSON.parse(this.#storage?.getItem(key) ?? '');
-			if (!isObject(data)) return null;
+			if (!isObject(data)) {
+				return null;
+			}
 			const { value, expires } = data;
 
 			// is this item has passed its sell-by-date, remove it
-			if (isString(expires) && new Date() > new Date(expires)) {
+			if (
+				(isString(expires) || typeof expires === 'number') &&
+				new Date() > new Date(expires)
+			) {
 				this.remove(key);
 				return null;
 			}
@@ -45,7 +50,7 @@ class StorageFactory {
 		} catch (e) {
 			return null;
 		}
-	}
+	};
 
 	/**
 	 * Save a value to storage.
@@ -54,40 +59,33 @@ class StorageFactory {
 	 * @param value - the data to save
 	 * @param expires - optional date on which this data will expire
 	 */
-	set(key: string, value: unknown, expires?: string | number | Date): void {
-		return this.#storage?.setItem(
+	set = (key: string, value: unknown, expires?: string | number | Date): void =>
+		this.#storage?.setItem(
 			key,
 			JSON.stringify({
 				value,
-				expires,
+				expires: expires ? new Date(expires) : undefined,
 			}),
 		);
-	}
 
 	/**
 	 * Remove an item from storage.
 	 *
 	 * @param key - the name of the item
 	 */
-	remove(key: string): void {
-		return this.#storage?.removeItem(key);
-	}
+	remove = (key: string): void => this.#storage?.removeItem(key);
 
 	/**
 	 * Removes all items from storage.
 	 */
-	clear(): void {
-		return this.#storage?.clear();
-	}
+	clear = (): void => this.#storage?.clear();
 
 	/**
 	 * Retrieve an item from storage in its raw state.
 	 *
 	 * @param key - the name of the item
 	 */
-	getRaw(key: string): string | null {
-		return this.#storage?.getItem(key) ?? null;
-	}
+	getRaw = (key: string): string | null => this.#storage?.getItem(key) ?? null;
 
 	/**
 	 * Save a raw value to storage.
@@ -95,9 +93,8 @@ class StorageFactory {
 	 * @param key - the name of the item
 	 * @param value - the data to save
 	 */
-	setRaw(key: string, value: string): void {
-		return this.#storage?.setItem(key, value);
-	}
+	setRaw = (key: string, value: string): void =>
+		this.#storage?.setItem(key, value);
 
 	/**
 	 * Get key by index.
@@ -112,18 +109,14 @@ class StorageFactory {
 	 * order of insertion).
 	 * @see https://developer.mozilla.org/en-US/docs/Web/API/Storage/key
 	 */
-	key(index: number): string | null {
-		return this.#storage?.key(index) ?? null;
-	}
+	key = (index: number): string | null => this.#storage?.key(index) ?? null;
 
 	/**
 	 * Get the number of items in storage.
 	 * @returns the number of items in storage, or `null` if storage is
 	 * 	not available.
 	 */
-	length(): number | null {
-		return this.#storage?.length ?? null;
-	}
+	length = (): number | null => this.#storage?.length ?? null;
 }
 
 /**
