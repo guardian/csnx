@@ -32,9 +32,8 @@ declare global {
 			config: {
 				baseEndpoint: EndPoint;
 				accountId: number;
-				propertyHref: Property;
-				propertyId?: string;
-				campaignEnv?: string;
+				propertyHref?: Property;
+				propertyId?: number;
 				targetingParams: {
 					framework: ConsentFramework;
 				};

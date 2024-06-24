@@ -1,5 +1,11 @@
 import type { VendorName } from './vendors';
 
+export type VendorData = {
+	cookies?: string[];
+	localStorage?: string[];
+	sessionStorage?: string[];
+};
+
 /**
  * This is a list of vendors that store data in localStorage or cookies along with the keys they use (that we know of).
  */
@@ -59,18 +65,15 @@ export const vendorStorageIds = {
 		localStorage: ['_psegs', '_pubcid_exp'],
 	},
 	googletag: { cookies: ['__gpi', '__gads'] },
+} satisfies Partial<Record<VendorName, VendorData>>;
+
+/**
+ * These are vendors that are no longer in use and no longer exist in sourcepoint so we should remove their data.
+ */
+export const deprecatedVendorStorageIds = {
 	'google-analytics': {
 		cookies: ['_gid', '_ga'],
 	},
-} satisfies Partial<
-	Record<
-		VendorName,
-		{
-			cookies?: string[];
-			localStorage?: string[];
-			sessionStorage?: string[];
-		}
-	>
->;
+} satisfies Partial<Record<string, VendorData>>;
 
 export type VendorWithData = keyof typeof vendorStorageIds;
