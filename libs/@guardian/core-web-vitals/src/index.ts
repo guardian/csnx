@@ -1,6 +1,13 @@
 import type { TeamName } from '@guardian/libs';
 import { log } from '@guardian/libs';
-import { type ReportCallback } from 'web-vitals';
+import type {
+	CLSMetricWithAttribution,
+	FCPMetricWithAttribution,
+	FIDMetricWithAttribution,
+	INPMetricWithAttribution,
+	LCPMetricWithAttribution,
+	TTFBMetricWithAttribution,
+} from 'web-vitals/attribution';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
@@ -12,12 +19,15 @@ enum Endpoints {
 const coreWebVitalsPayload: CoreWebVitalsPayload = {
 	browser_id: null,
 	page_view_id: null,
-	fid: null,
 	cls: null,
+	cls_target: null,
+	inp: null,
+	inp_target: null,
 	lcp: null,
+	lcp_target: null,
+	fid: null,
 	fcp: null,
 	ttfb: null,
-	inp: null,
 };
 
 const teamsForLogging: Set<TeamName> = new Set();
@@ -54,19 +64,36 @@ const sendData = (): void => {
 	}
 };
 
-const onReport: ReportCallback = (metric) => {
+type MetricTypeWithAttribution =
+	| CLSMetricWithAttribution
+	| INPMetricWithAttribution
+	| LCPMetricWithAttribution
+	| FCPMetricWithAttribution
+	| FIDMetricWithAttribution
+	| TTFBMetricWithAttribution;
+
+const onReport = (metric: MetricTypeWithAttribution) => {
 	switch (metric.name) {
-		case 'FCP':
-			// Browser support: Chromium, Firefox, Safari Technology Preview
-			coreWebVitalsPayload.fcp = roundWithDecimals(metric.value);
-			break;
 		case 'CLS':
 			// Browser support: Chromium,
 			coreWebVitalsPayload.cls = roundWithDecimals(metric.value);
+			coreWebVitalsPayload.cls_target =
+				metric.attribution.largestShiftTarget ?? null;
+			break;
+		case 'INP':
+			coreWebVitalsPayload.inp = roundWithDecimals(metric.value);
+			coreWebVitalsPayload.inp_target = metric.attribution.eventTarget ?? null;
 			break;
 		case 'LCP':
 			// Browser support: Chromium
 			coreWebVitalsPayload.lcp = roundWithDecimals(metric.value);
+			coreWebVitalsPayload.lcp_target =
+				metric.attribution.lcpEntry?.name ?? null;
+			break;
+		/** none-core web vital metrics */
+		case 'FCP':
+			// Browser support: Chromium, Firefox, Safari Technology Preview
+			coreWebVitalsPayload.fcp = roundWithDecimals(metric.value);
 			break;
 		case 'FID':
 			// Browser support: Chromium, Firefox, Safari, Internet Explorer (with the polyfill)
@@ -75,9 +102,6 @@ const onReport: ReportCallback = (metric) => {
 		case 'TTFB':
 			// Browser support: Chromium, Firefox, Safari, Internet Explorer
 			coreWebVitalsPayload.ttfb = roundWithDecimals(metric.value);
-			break;
-		case 'INP':
-			coreWebVitalsPayload.inp = roundWithDecimals(metric.value);
 			break;
 	}
 };
@@ -96,15 +120,15 @@ const listener = (e: Event): void => {
 };
 
 const getCoreWebVitals = async (): Promise<void> => {
-	const webVitals = await import('web-vitals');
+	const webVitals = await import('web-vitals/attribution');
 	const { onCLS, onFCP, onFID, onLCP, onTTFB, onINP } = webVitals;
 
 	onCLS(onReport, { reportAllChanges: false });
-	onFID(onReport);
+	onINP(onReport);
 	onLCP(onReport);
 	onFCP(onReport);
+	onFID(onReport);
 	onTTFB(onReport);
-	onINP(onReport);
 
 	// Report all available metrics when the page is unloaded or in background.
 	addEventListener('visibilitychange', listener);
