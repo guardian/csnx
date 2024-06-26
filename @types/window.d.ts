@@ -2,6 +2,11 @@ import type { ManageSubscription } from '../libs/@guardian/libs/src/logger/@type
 import type { Switches } from '../libs/@guardian/libs/src/switches/@types/Switches';
 import type { FrontendIdentityAuth } from '../libs/@guardian/identity-auth-frontend/src';
 
+type ServerSideTests = {
+	[key: `${string}Variant`]: 'variant';
+	[key: `${string}Control`]: 'control';
+};
+
 declare global {
 	interface Window {
 		guardian?: {
@@ -12,6 +17,7 @@ declare global {
 				subscriptions: () => string[];
 			};
 			config?: {
+				tests?: ServerSideTests;
 				page?: {
 					isPreview: boolean;
 				};

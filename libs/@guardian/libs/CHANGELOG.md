@@ -1,5 +1,25 @@
 # @guardian/libs
 
+## 17.0.1
+
+### Patch Changes
+
+- e191a91: Fix issue with sourcepoint AB test
+
+## 17.0.0
+
+### Major Changes
+
+- 437e880: Remove GA from cmp vendorlist
+
+### Minor Changes
+
+- c2da3cd: Introduce AB test in sourcepoint config
+
+### Patch Changes
+
+- 01a3362: Fix vendor data removal and more strictly type arguments for `getConsentFor`
+
 ## 16.1.4
 
 ### Patch Changes

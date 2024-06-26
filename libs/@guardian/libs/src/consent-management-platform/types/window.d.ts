@@ -31,8 +31,8 @@ declare global {
 			config: {
 				baseEndpoint: EndPoint;
 				accountId: number;
-				propertyHref: Property;
-				propertyId?: string;
+				propertyHref?: Property;
+				propertyId?: number;
 				targetingParams: {
 					framework: ConsentFramework;
 				};
