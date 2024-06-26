@@ -10,4 +10,5 @@ export type CoreWebVitalsPayload = {
 	fid: null | number;
 	fcp: null | number;
 	ttfb: null | number;
+	stage: 'CODE' | 'PROD' | null;
 };
