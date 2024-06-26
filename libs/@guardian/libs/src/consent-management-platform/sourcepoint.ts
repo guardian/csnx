@@ -56,7 +56,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
 
 	const isInPropertyIdABTest =
-		window.guardian?.config?.page?.abTests?.useSourcepointPropertyIdVariant ===
+		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
 	log('cmp', `framework: ${framework}`);
