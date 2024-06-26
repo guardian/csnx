@@ -1,59 +1,111 @@
-import type { MetricType, ReportHandler } from 'web-vitals';
+import type {
+	CLSMetricWithAttribution,
+	FCPMetric,
+	FIDMetric,
+	INPMetricWithAttribution,
+	LCPMetricWithAttribution,
+	ReportHandler,
+	TTFBMetric,
+} from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
 
 const { coreWebVitalsPayload, reset } = _;
 
-const defaultCoreWebVitalsPayload: CoreWebVitalsPayload = {
+const defaultCoreWebVitalsPayload = {
 	page_view_id: '123456',
 	browser_id: 'abcdef',
+	stage: 'PROD',
+	cls: 0.01,
+	cls_target: 'ad',
+	inp: 180.3,
+	inp_target: 'adSlot',
+	lcp: 150,
+	lcp_target: 'mainMedia',
 	fid: 50.5,
 	fcp: 100.1,
-	lcp: 150,
 	ttfb: 9.99,
-	cls: 0.01,
-	inp: 180.3,
-};
+} satisfies CoreWebVitalsPayload;
 
 const browserId = defaultCoreWebVitalsPayload.browser_id;
 const pageViewId = defaultCoreWebVitalsPayload.page_view_id;
 
-jest.mock('web-vitals', () => ({
+jest.mock('web-vitals/attribution', () => ({
+	onCLS: (onReport: (metric: CLSMetricWithAttribution) => void) => {
+		onReport({
+			id: 'cls',
+			navigationType: 'navigate',
+			attribution: {
+				largestShiftValue: 0.1,
+			},
+			value: defaultCoreWebVitalsPayload.cls,
+			name: 'CLS',
+			entries: [],
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.cls,
+		} satisfies CLSMetricWithAttribution);
+	},
+	onLCP: (onReport: (metric: LCPMetricWithAttribution) => void) => {
+		onReport({
+			value: defaultCoreWebVitalsPayload.lcp,
+			name: 'LCP',
+			entries: [],
+			rating: 'good',
+			id: 'lcp',
+			navigationType: 'navigate',
+			delta: defaultCoreWebVitalsPayload.lcp,
+			attribution: {
+				timeToFirstByte: 0,
+				resourceLoadDelay: 0,
+				resourceLoadTime: 0,
+				elementRenderDelay: 0,
+			},
+		} satisfies LCPMetricWithAttribution);
+	},
+	onINP: (onReport: (metric: INPMetricWithAttribution) => void) => {
+		onReport({
+			value: defaultCoreWebVitalsPayload.inp,
+			name: 'INP',
+			entries: [],
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.inp,
+			attribution: {},
+			navigationType: 'navigate',
+			id: 'inp',
+		} satisfies INPMetricWithAttribution);
+	},
 	onTTFB: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.ttfb,
 			name: 'TTFB',
-		} as MetricType);
+			id: 'ttfb',
+			entries: [],
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.ttfb,
+			navigationType: 'navigate',
+		} satisfies TTFBMetric);
 	},
 	onFCP: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fcp,
 			name: 'FCP',
-		} as MetricType);
-	},
-	onCLS: (onReport: ReportHandler) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.cls,
-			name: 'CLS',
-		} as MetricType);
+			id: 'fcp',
+			entries: [],
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.fcp,
+			navigationType: 'navigate',
+		} satisfies FCPMetric);
 	},
 	onFID: (onReport: ReportHandler) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fid,
 			name: 'FID',
-		} as MetricType);
-	},
-	onLCP: (onReport: ReportHandler) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.lcp,
-			name: 'LCP',
-		} as MetricType);
-	},
-	onINP: (onReport: ReportHandler) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.inp,
-			name: 'INP',
-		} as MetricType);
+			id: 'fid',
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.cls,
+		} satisfies FIDMetric);
 	},
 }));
 
@@ -286,10 +338,7 @@ describe('Endpoints', () => {
 
 		global.dispatchEvent(new Event('pagehide'));
 
-		expect(mockBeacon).toHaveBeenCalledWith(
-			_.Endpoints.CODE,
-			expect.any(String),
-		);
+		expect(mockBeacon).toHaveBeenCalledWith(_.endpoint, expect.any(String));
 	});
 
 	it('should use PROD URL if isDev is false', async () => {
@@ -298,10 +347,7 @@ describe('Endpoints', () => {
 
 		global.dispatchEvent(new Event('pagehide'));
 
-		expect(mockBeacon).toHaveBeenCalledWith(
-			_.Endpoints.PROD,
-			expect.any(String),
-		);
+		expect(mockBeacon).toHaveBeenCalledWith(_.endpoint, expect.any(String));
 	});
 });
 
