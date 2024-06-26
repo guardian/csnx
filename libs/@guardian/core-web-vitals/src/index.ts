@@ -11,14 +11,12 @@ import type {
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { roundWithDecimals } from './roundWithDecimals';
 
-enum Endpoints {
-	PROD = 'https://performance-events.guardianapis.com/core-web-vitals',
-	CODE = 'https://performance-events.code.dev-guardianapis.com/core-web-vitals',
-}
+const endpoint = 'https://feast-events.guardianapis.com/web-vitals';
 
 const coreWebVitalsPayload: CoreWebVitalsPayload = {
 	browser_id: null,
 	page_view_id: null,
+	stage: null,
 	cls: null,
 	cls_target: null,
 	inp: null,
@@ -31,12 +29,7 @@ const coreWebVitalsPayload: CoreWebVitalsPayload = {
 };
 
 const teamsForLogging: Set<TeamName> = new Set();
-let endpoint: Endpoints;
 let initialised = false;
-
-const setEndpoint = (isDev: boolean) => {
-	endpoint = isDev ? Endpoints.CODE : Endpoints.PROD;
-};
 
 let queued = false;
 const sendData = (): void => {
@@ -179,8 +172,7 @@ export const initCoreWebVitals = async ({
 		teamsForLogging.add(team);
 	}
 
-	setEndpoint(isDev);
-
+	coreWebVitalsPayload.stage = isDev ? 'CODE' : 'PROD';
 	coreWebVitalsPayload.browser_id = browserId;
 	coreWebVitalsPayload.page_view_id = pageViewId;
 
@@ -244,5 +236,5 @@ export const _ = {
 		removeEventListener('visibilitychange', listener);
 		removeEventListener('pagehide', listener);
 	},
-	Endpoints,
+	endpoint,
 };
