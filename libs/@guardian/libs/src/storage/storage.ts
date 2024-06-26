@@ -1,5 +1,20 @@
+/* eslint-disable react-hooks/rules-of-hooks --
+	there's no hooks in here, but there _are_ things called useXXX etc */
+import {
+	type UseCase,
+	useCaseAllowed,
+} from '../consent-management-platform/useCases';
 import { isObject } from '../isObject/isObject';
 import { isString } from '../isString/isString';
+import { isUndefined } from '../isUndefined/isUndefined';
+
+interface OptionsWithUseCase {
+	useCase: UseCase;
+}
+
+interface SetOptions extends OptionsWithUseCase {
+	expires: string | number | Date;
+}
 
 class StorageFactory {
 	#storage: Storage | undefined; // https://mdn.io/Private_class_fields
@@ -57,16 +72,51 @@ class StorageFactory {
 	 *
 	 * @param key - the name of the item
 	 * @param value - the data to save
-	 * @param expires - optional date on which this data will expire
+	 * @param options - optional options
+	 * @param options.useCase - the use case for this data (if user has not
+	 * granted consent for this use case, the data will not be saved)
+	 * @param options.expires - optional date on which this data will expire
 	 */
-	set = (key: string, value: unknown, expires?: string | number | Date): void =>
-		this.#storage?.setItem(
-			key,
-			JSON.stringify({
-				value,
-				expires: expires ? new Date(expires) : undefined,
-			}),
-		);
+	set(key: string, value: unknown, options: SetOptions): Promise<void>;
+	set(key: string, value: unknown, expires: SetOptions['expires']): void;
+	set(key: string, value: unknown): void;
+
+	set(
+		key: string,
+		value: unknown,
+		optionsOrExpires?: SetOptions | SetOptions['expires'],
+	): void | Promise<void> {
+		// Handle existing usage that doesn't pass an options object.
+		// This should be remove once use-cases are compulsory.
+		if (!isObject(optionsOrExpires)) {
+			const expires = optionsOrExpires as SetOptions['expires'];
+			return this.#storage?.setItem(
+				key,
+				JSON.stringify({
+					value,
+					expires: expires ? new Date(expires) : undefined,
+				}),
+			);
+		}
+
+		const { useCase, expires } = optionsOrExpires as SetOptions;
+
+		if (isUndefined(useCase)) {
+			return Promise.reject('options.useCase is required');
+		}
+
+		return useCaseAllowed(useCase).then((allowed) => {
+			if (allowed) {
+				return this.#storage?.setItem(
+					key,
+					JSON.stringify({
+						value,
+						expires: expires ? new Date(expires) : undefined,
+					}),
+				);
+			}
+		});
+	}
 
 	/**
 	 * Remove an item from storage.
@@ -113,8 +163,8 @@ class StorageFactory {
 
 	/**
 	 * Get the number of items in storage.
-	 * @returns the number of items in storage, or `null` if storage is
-	 * 	not available.
+	 * @returns the number of items in storage, or `null` if storage is not
+	 *  available.
 	 */
 	length = (): number | null => this.#storage?.length ?? null;
 }
@@ -132,9 +182,9 @@ export const storage = new (class {
 	#local: StorageFactory | undefined;
 	#session: StorageFactory | undefined;
 
-	// creating the instance requires testing the native implementation
-	// which is blocking. therefore, only create new instances of the factory
-	// when it's accessed i.e. we know we're going to use it
+	// creating the instance requires testing the native implementation which is
+	// blocking. therefore, only create new instances of the factory when it's
+	// accessed i.e. we know we're going to use it
 
 	get local() {
 		return (this.#local ||= new StorageFactory('localStorage'));

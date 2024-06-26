@@ -52,12 +52,12 @@ describe.each([
 
 		// re-import now we've disabled native storage API
 		const { storage } = await import('./storage');
-		expect(() => storage[name].set('🚫', true)).not.toThrow();
-		expect(() => storage[name].get('🚫')).not.toThrow();
-		expect(() => storage[name].remove('🚫')).not.toThrow();
-		expect(() => storage[name].getRaw('🚫')).not.toThrow();
-		expect(() => storage[name].setRaw('🚫', '')).not.toThrow();
-		expect(() => storage[name].clear()).not.toThrow();
+		expect(() => storage[name].set('🚫', true)).not.toThrowError();
+		expect(() => storage[name].get('🚫')).not.toThrowError();
+		expect(() => storage[name].remove('🚫')).not.toThrowError();
+		expect(() => storage[name].getRaw('🚫')).not.toThrowError();
+		expect(() => storage[name].setRaw('🚫', '')).not.toThrowError();
+		expect(() => storage[name].clear()).not.toThrowError();
 	});
 
 	it.each([
