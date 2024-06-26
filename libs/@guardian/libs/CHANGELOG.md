@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 17.0.1
+
+### Patch Changes
+
+- e191a91: Fix issue with sourcepoint AB test
+
 ## 17.0.0
 
 ### Major Changes
