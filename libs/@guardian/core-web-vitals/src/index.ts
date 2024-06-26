@@ -87,8 +87,7 @@ const onReport = (metric: MetricTypeWithAttribution) => {
 		case 'LCP':
 			// Browser support: Chromium
 			coreWebVitalsPayload.lcp = roundWithDecimals(metric.value);
-			coreWebVitalsPayload.lcp_target =
-				metric.attribution.lcpEntry?.name ?? null;
+			coreWebVitalsPayload.lcp_target = metric.attribution.element ?? null;
 			break;
 		/** none-core web vital metrics */
 		case 'FCP':
