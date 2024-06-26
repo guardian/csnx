@@ -4,7 +4,7 @@ import type {
 	FIDMetric,
 	INPMetricWithAttribution,
 	LCPMetricWithAttribution,
-	ReportHandler,
+	ReportCallback,
 	TTFBMetric,
 } from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
@@ -74,7 +74,7 @@ jest.mock('web-vitals/attribution', () => ({
 			id: 'inp',
 		} satisfies INPMetricWithAttribution);
 	},
-	onTTFB: (onReport: ReportHandler) => {
+	onTTFB: (onReport: ReportCallback) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.ttfb,
 			name: 'TTFB',
@@ -85,7 +85,7 @@ jest.mock('web-vitals/attribution', () => ({
 			navigationType: 'navigate',
 		} satisfies TTFBMetric);
 	},
-	onFCP: (onReport: ReportHandler) => {
+	onFCP: (onReport: ReportCallback) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fcp,
 			name: 'FCP',
@@ -96,7 +96,7 @@ jest.mock('web-vitals/attribution', () => ({
 			navigationType: 'navigate',
 		} satisfies FCPMetric);
 	},
-	onFID: (onReport: ReportHandler) => {
+	onFID: (onReport: ReportCallback) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fid,
 			name: 'FID',
