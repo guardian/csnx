@@ -33,14 +33,14 @@ const pageViewId = defaultCoreWebVitalsPayload.page_view_id;
 jest.mock('web-vitals/attribution', () => ({
 	onCLS: (onReport: (metric: CLSMetricWithAttribution) => void) => {
 		onReport({
-			id: 'cls',
-			navigationType: 'navigate',
-			attribution: {
-				largestShiftValue: 0.1,
-			},
 			value: defaultCoreWebVitalsPayload.cls,
 			name: 'CLS',
+			id: 'cls',
+			attribution: {
+				largestShiftTarget: 'ad',
+			},
 			entries: [],
+			navigationType: 'navigate',
 			rating: 'good',
 			delta: defaultCoreWebVitalsPayload.cls,
 		} satisfies CLSMetricWithAttribution);
@@ -49,29 +49,32 @@ jest.mock('web-vitals/attribution', () => ({
 		onReport({
 			value: defaultCoreWebVitalsPayload.lcp,
 			name: 'LCP',
-			entries: [],
-			rating: 'good',
 			id: 'lcp',
-			navigationType: 'navigate',
-			delta: defaultCoreWebVitalsPayload.lcp,
 			attribution: {
+				element: 'mainMedia',
 				timeToFirstByte: 0,
 				resourceLoadDelay: 0,
 				resourceLoadTime: 0,
 				elementRenderDelay: 0,
 			},
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.lcp,
 		} satisfies LCPMetricWithAttribution);
 	},
 	onINP: (onReport: (metric: INPMetricWithAttribution) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.inp,
 			name: 'INP',
+			id: 'inp',
+			attribution: {
+				eventTarget: 'adSlot',
+			},
 			entries: [],
+			navigationType: 'navigate',
 			rating: 'good',
 			delta: defaultCoreWebVitalsPayload.inp,
-			attribution: {},
-			navigationType: 'navigate',
-			id: 'inp',
 		} satisfies INPMetricWithAttribution);
 	},
 	onTTFB: (onReport: ReportCallback) => {
@@ -80,9 +83,9 @@ jest.mock('web-vitals/attribution', () => ({
 			name: 'TTFB',
 			id: 'ttfb',
 			entries: [],
+			navigationType: 'navigate',
 			rating: 'good',
 			delta: defaultCoreWebVitalsPayload.ttfb,
-			navigationType: 'navigate',
 		} satisfies TTFBMetric);
 	},
 	onFCP: (onReport: ReportCallback) => {
@@ -91,9 +94,9 @@ jest.mock('web-vitals/attribution', () => ({
 			name: 'FCP',
 			id: 'fcp',
 			entries: [],
+			navigationType: 'navigate',
 			rating: 'good',
 			delta: defaultCoreWebVitalsPayload.fcp,
-			navigationType: 'navigate',
 		} satisfies FCPMetric);
 	},
 	onFID: (onReport: ReportCallback) => {
@@ -102,8 +105,8 @@ jest.mock('web-vitals/attribution', () => ({
 			name: 'FID',
 			id: 'fid',
 			entries: [],
-			navigationType: 'navigate',
 			rating: 'good',
+			navigationType: 'navigate',
 			delta: defaultCoreWebVitalsPayload.cls,
 		} satisfies FIDMetric);
 	},
@@ -338,7 +341,7 @@ describe('Endpoints', () => {
 
 		global.dispatchEvent(new Event('pagehide'));
 
-		expect(mockBeacon).toHaveBeenCalledWith(_.endpoint, expect.any(String));
+		expect(_.coreWebVitalsPayload.stage).toBe('CODE');
 	});
 
 	it('should use PROD URL if isDev is false', async () => {
@@ -347,7 +350,7 @@ describe('Endpoints', () => {
 
 		global.dispatchEvent(new Event('pagehide'));
 
-		expect(mockBeacon).toHaveBeenCalledWith(_.endpoint, expect.any(String));
+		expect(_.coreWebVitalsPayload.stage).toBe('PROD');
 	});
 });
 
