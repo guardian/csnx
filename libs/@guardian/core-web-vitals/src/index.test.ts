@@ -1,59 +1,114 @@
-import type { MetricType, ReportHandler } from 'web-vitals';
+import type {
+	CLSMetricWithAttribution,
+	FCPMetric,
+	FIDMetric,
+	INPMetricWithAttribution,
+	LCPMetricWithAttribution,
+	ReportCallback,
+	TTFBMetric,
+} from 'web-vitals';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
 
 const { coreWebVitalsPayload, reset } = _;
 
-const defaultCoreWebVitalsPayload: CoreWebVitalsPayload = {
+const defaultCoreWebVitalsPayload = {
 	page_view_id: '123456',
 	browser_id: 'abcdef',
+	stage: 'PROD',
+	cls: 0.01,
+	cls_target: 'ad',
+	inp: 180.3,
+	inp_target: 'adSlot',
+	lcp: 150,
+	lcp_target: 'mainMedia',
 	fid: 50.5,
 	fcp: 100.1,
-	lcp: 150,
 	ttfb: 9.99,
-	cls: 0.01,
-	inp: 180.3,
-};
+} satisfies CoreWebVitalsPayload;
 
 const browserId = defaultCoreWebVitalsPayload.browser_id;
 const pageViewId = defaultCoreWebVitalsPayload.page_view_id;
 
-jest.mock('web-vitals', () => ({
-	onTTFB: (onReport: ReportHandler) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.ttfb,
-			name: 'TTFB',
-		} as MetricType);
-	},
-	onFCP: (onReport: ReportHandler) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.fcp,
-			name: 'FCP',
-		} as MetricType);
-	},
-	onCLS: (onReport: ReportHandler) => {
+jest.mock('web-vitals/attribution', () => ({
+	onCLS: (onReport: (metric: CLSMetricWithAttribution) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.cls,
 			name: 'CLS',
-		} as MetricType);
+			id: 'cls',
+			attribution: {
+				largestShiftTarget: 'ad',
+			},
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.cls,
+		} satisfies CLSMetricWithAttribution);
 	},
-	onFID: (onReport: ReportHandler) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.fid,
-			name: 'FID',
-		} as MetricType);
-	},
-	onLCP: (onReport: ReportHandler) => {
+	onLCP: (onReport: (metric: LCPMetricWithAttribution) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.lcp,
 			name: 'LCP',
-		} as MetricType);
+			id: 'lcp',
+			attribution: {
+				element: 'mainMedia',
+				timeToFirstByte: 0,
+				resourceLoadDelay: 0,
+				resourceLoadTime: 0,
+				elementRenderDelay: 0,
+			},
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.lcp,
+		} satisfies LCPMetricWithAttribution);
 	},
-	onINP: (onReport: ReportHandler) => {
+	onINP: (onReport: (metric: INPMetricWithAttribution) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.inp,
 			name: 'INP',
-		} as MetricType);
+			id: 'inp',
+			attribution: {
+				eventTarget: 'adSlot',
+			},
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.inp,
+		} satisfies INPMetricWithAttribution);
+	},
+	onTTFB: (onReport: ReportCallback) => {
+		onReport({
+			value: defaultCoreWebVitalsPayload.ttfb,
+			name: 'TTFB',
+			id: 'ttfb',
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.ttfb,
+		} satisfies TTFBMetric);
+	},
+	onFCP: (onReport: ReportCallback) => {
+		onReport({
+			value: defaultCoreWebVitalsPayload.fcp,
+			name: 'FCP',
+			id: 'fcp',
+			entries: [],
+			navigationType: 'navigate',
+			rating: 'good',
+			delta: defaultCoreWebVitalsPayload.fcp,
+		} satisfies FCPMetric);
+	},
+	onFID: (onReport: ReportCallback) => {
+		onReport({
+			value: defaultCoreWebVitalsPayload.fid,
+			name: 'FID',
+			id: 'fid',
+			entries: [],
+			rating: 'good',
+			navigationType: 'navigate',
+			delta: defaultCoreWebVitalsPayload.cls,
+		} satisfies FIDMetric);
 	},
 }));
 
@@ -286,10 +341,7 @@ describe('Endpoints', () => {
 
 		global.dispatchEvent(new Event('pagehide'));
 
-		expect(mockBeacon).toHaveBeenCalledWith(
-			_.Endpoints.CODE,
-			expect.any(String),
-		);
+		expect(_.coreWebVitalsPayload.stage).toBe('CODE');
 	});
 
 	it('should use PROD URL if isDev is false', async () => {
@@ -298,10 +350,7 @@ describe('Endpoints', () => {
 
 		global.dispatchEvent(new Event('pagehide'));
 
-		expect(mockBeacon).toHaveBeenCalledWith(
-			_.Endpoints.PROD,
-			expect.any(String),
-		);
+		expect(_.coreWebVitalsPayload.stage).toBe('PROD');
 	});
 });
 
