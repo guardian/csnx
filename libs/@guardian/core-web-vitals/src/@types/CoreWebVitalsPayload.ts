@@ -1,14 +1,14 @@
 export type CoreWebVitalsPayload = {
-	page_view_id: string | null;
-	browser_id: string | null;
-	cls: null | number;
-	cls_target: null | string;
-	inp: null | number;
-	inp_target: null | string;
-	lcp: null | number;
-	lcp_target: null | string;
-	fid: null | number;
-	fcp: null | number;
-	ttfb: null | number;
-	stage: 'CODE' | 'PROD' | null;
+	page_view_id: string;
+	browser_id: string;
+	cls: number;
+	cls_target: string;
+	inp: number;
+	inp_target: string;
+	lcp: number;
+	lcp_target: string;
+	fid: number;
+	fcp: number;
+	ttfb: number;
+	stage: 'CODE' | 'PROD';
 };

@@ -364,7 +364,7 @@ describe('web-vitals', () => {
 		const isDev = true;
 		await initCoreWebVitals({ browserId, pageViewId, isDev, sampling: 1 });
 
-		_.coreWebVitalsPayload.fcp = null; // simulate a failing FCP
+		_.coreWebVitalsPayload.fcp = undefined; // simulate a failing FCP
 
 		setVisibilityState('hidden');
 		global.dispatchEvent(new Event('visibilitychange'));
