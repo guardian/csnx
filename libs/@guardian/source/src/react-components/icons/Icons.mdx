@@ -10,7 +10,27 @@ import { IconGallery, IconItem } from './IconGallery';
 
 <IconGallery>
 	{IconStories.XsmallIconsDefaultTheme.args.icons.map((Icon) => (
-		<IconItem name={Icon.name}>
+		<IconItem name={Icon.name} key={Icon.name}>
+			<Icon size="medium" />
+		</IconItem>
+	))}
+</IconGallery>
+
+## Payment
+
+<IconGallery>
+	{IconStories.PaymentIconsDefaultTheme.args.icons.map((Icon) => (
+		<IconItem name={Icon.name} key={Icon.name}>
+			<Icon size="medium" />
+		</IconItem>
+	))}
+</IconGallery>
+
+## Wide payment
+
+<IconGallery>
+	{IconStories.WidePaymentIconsDefaultTheme.args.icons.map((Icon) => (
+		<IconItem name={Icon.name} key={Icon.name}>
 			<Icon size="medium" />
 		</IconItem>
 	))}
