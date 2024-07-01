@@ -61,7 +61,7 @@ const onReport = (metric: MetricTypeWithAttribution) => {
 			break;
 		case 'INP':
 			coreWebVitalsPayload.inp = roundWithDecimals(metric.value);
-			coreWebVitalsPayload.inp_target = metric.attribution.eventTarget;
+			coreWebVitalsPayload.inp_target = metric.attribution.interactionTarget;
 			break;
 		case 'LCP':
 			// Browser support: Chromium
