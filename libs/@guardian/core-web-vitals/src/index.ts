@@ -13,20 +13,7 @@ import { roundWithDecimals } from './roundWithDecimals';
 
 const endpoint = 'https://feast-events.guardianapis.com/web-vitals';
 
-const coreWebVitalsPayload: CoreWebVitalsPayload = {
-	browser_id: null,
-	page_view_id: null,
-	stage: null,
-	cls: null,
-	cls_target: null,
-	inp: null,
-	inp_target: null,
-	lcp: null,
-	lcp_target: null,
-	fid: null,
-	fcp: null,
-	ttfb: null,
-};
+const coreWebVitalsPayload: Partial<CoreWebVitalsPayload> = {};
 
 const teamsForLogging: Set<TeamName> = new Set();
 let initialised = false;
@@ -39,7 +26,7 @@ const sendData = (): void => {
 
 	// If we’re missing FCP, the data is unusable in the lake,
 	// So we’re not sending anything.
-	if (coreWebVitalsPayload.fcp === null) {
+	if (coreWebVitalsPayload.fcp === undefined) {
 		return;
 	}
 
@@ -70,17 +57,16 @@ const onReport = (metric: MetricTypeWithAttribution) => {
 		case 'CLS':
 			// Browser support: Chromium,
 			coreWebVitalsPayload.cls = roundWithDecimals(metric.value);
-			coreWebVitalsPayload.cls_target =
-				metric.attribution.largestShiftTarget ?? null;
+			coreWebVitalsPayload.cls_target = metric.attribution.largestShiftTarget;
 			break;
 		case 'INP':
 			coreWebVitalsPayload.inp = roundWithDecimals(metric.value);
-			coreWebVitalsPayload.inp_target = metric.attribution.eventTarget ?? null;
+			coreWebVitalsPayload.inp_target = metric.attribution.eventTarget;
 			break;
 		case 'LCP':
 			// Browser support: Chromium
 			coreWebVitalsPayload.lcp = roundWithDecimals(metric.value);
-			coreWebVitalsPayload.lcp_target = metric.attribution.element ?? null;
+			coreWebVitalsPayload.lcp_target = metric.attribution.element;
 			break;
 		/** none-core web vital metrics */
 		case 'FCP':
@@ -132,8 +118,8 @@ const getCoreWebVitals = async (): Promise<void> => {
 type InitCoreWebVitalsOptions = {
 	isDev: boolean;
 
-	browserId?: string | null;
-	pageViewId?: string | null;
+	browserId?: string;
+	pageViewId?: string;
 
 	sampling?: number;
 	team?: TeamName;
@@ -144,16 +130,16 @@ type InitCoreWebVitalsOptions = {
  *
  * @param {InitCoreWebVitalsOptions} init - the initialisation options
  * @param init.isDev - used to determine whether to use CODE or PROD endpoints.
- * @param init.browserId - identifies the browser. Usually available via `getCookie({ name: 'bwid' })`. Defaults to `null`
- * @param init.pageViewId - identifies the page view. Usually available on `guardian.config.ophan.pageViewId`. Defaults to `null`
+ * @param init.browserId - identifies the browser. Usually available via `getCookie({ name: 'bwid' })`.
+ * @param init.pageViewId - identifies the page view. Usually available on `guardian.config.ophan.pageViewId`.
  *
  * @param init.sampling - sampling rate for sending data. Defaults to `0.01`.
  *
  * @param init.team - Optional team to trigger a log event once metrics are queued.
  */
 export const initCoreWebVitals = async ({
-	browserId = null,
-	pageViewId = null,
+	browserId,
+	pageViewId,
 	sampling = 1 / 100, // 1% of page view by default
 	isDev,
 	team,
@@ -230,9 +216,9 @@ export const _ = {
 		initialised = false;
 		teamsForLogging.clear();
 		queued = false;
-		Object.keys(coreWebVitalsPayload).map((key) => {
-			coreWebVitalsPayload[key as keyof CoreWebVitalsPayload] = null;
-		});
+		for (const key in coreWebVitalsPayload) {
+			delete coreWebVitalsPayload[key as keyof CoreWebVitalsPayload];
+		}
 		removeEventListener('visibilitychange', listener);
 		removeEventListener('pagehide', listener);
 	},
