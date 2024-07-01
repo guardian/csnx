@@ -9,21 +9,19 @@ import {
 	vendorStorageIds,
 } from './vendorStorageIds';
 
-const removeData = (vendorData: VendorData): void => {
-	if ('cookies' in vendorData) {
-		vendorData.cookies?.forEach((name) => {
-			removeCookie({ name });
-		});
+const removeData = ({
+	cookies = [],
+	localStorage = [],
+	sessionStorage = [],
+}: VendorData): void => {
+	for (const name of cookies) {
+		removeCookie({ name });
 	}
-	if ('localStorage' in vendorData) {
-		vendorData.localStorage?.forEach((name) => {
-			storage.local.remove(name);
-		});
+	for (const name of localStorage) {
+		storage.local.remove(name);
 	}
-	if ('sessionStorage' in vendorData) {
-		vendorData.sessionStorage?.forEach((name) => {
-			storage.session.remove(name);
-		});
+	for (const name of sessionStorage) {
+		storage.session.remove(name);
 	}
 };
 
