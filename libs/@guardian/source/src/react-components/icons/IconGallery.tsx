@@ -5,6 +5,7 @@ import { palette, space } from '../../foundations';
 export const IconGallery = ({ children }: { children: ReactNode }) => {
 	const styles = css`
 		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
 		gap: ${space[4]}px;
 	`;
 
@@ -21,6 +22,11 @@ export const IconItem = ({
 	const container = css`
 		display: flex;
 		align-items: center;
+
+		code {
+			font-size: 0.875rem;
+			word-break: break-word;
+		}
 	`;
 
 	const icon = css`
