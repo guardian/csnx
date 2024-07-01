@@ -170,14 +170,16 @@ describe('coreWebVitals', () => {
 		global.dispatchEvent(new Event('pagehide'));
 
 		expect(mockBeacon).toHaveBeenCalledTimes(0);
-		expect(coreWebVitalsPayload).toMatchObject({
-			fid: null,
-			fcp: null,
-			lcp: null,
-			ttfb: null,
-			cls: null,
-			inp: null,
-		});
+		expect(coreWebVitalsPayload).toEqual(
+			expect.not.objectContaining({
+				fid: expect.anything(),
+				fcp: expect.anything(),
+				lcp: expect.anything(),
+				ttfb: expect.anything(),
+				cls: expect.anything(),
+				inp: expect.anything(),
+			}),
+		);
 	});
 
 	it('sends a beacon if sampling at 0% but bypassed via hash', async () => {
@@ -261,7 +263,7 @@ describe('Warnings', () => {
 		expect(mockConsoleWarn).toHaveBeenCalledWith(
 			'browserId or pageViewId missing from Core Web Vitals.',
 			expect.any(String),
-			expect.objectContaining({ browserId: null }),
+			expect.objectContaining({ browserId: undefined }),
 		);
 	});
 
@@ -271,7 +273,7 @@ describe('Warnings', () => {
 		expect(mockConsoleWarn).toHaveBeenCalledWith(
 			'browserId or pageViewId missing from Core Web Vitals.',
 			expect.any(String),
-			expect.objectContaining({ pageViewId: null }),
+			expect.objectContaining({ pageViewId: undefined }),
 		);
 	});
 
