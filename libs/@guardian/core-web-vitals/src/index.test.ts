@@ -1,12 +1,11 @@
-import type {
+import {
 	CLSMetricWithAttribution,
 	FCPMetric,
 	FIDMetric,
 	INPMetricWithAttribution,
 	LCPMetricWithAttribution,
-	ReportCallback,
 	TTFBMetric,
-} from 'web-vitals';
+} from 'web-vitals/attribution';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
 import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
 
@@ -54,8 +53,8 @@ jest.mock('web-vitals/attribution', () => ({
 				element: 'mainMedia',
 				timeToFirstByte: 0,
 				resourceLoadDelay: 0,
-				resourceLoadTime: 0,
 				elementRenderDelay: 0,
+				resourceLoadDuration: 0,
 			},
 			entries: [],
 			navigationType: 'navigate',
@@ -69,7 +68,17 @@ jest.mock('web-vitals/attribution', () => ({
 			name: 'INP',
 			id: 'inp',
 			attribution: {
-				eventTarget: 'adSlot',
+				interactionTarget: 'adSlot',
+				interactionTargetElement: undefined,
+				interactionTime: 0,
+				nextPaintTime: 0,
+				interactionType: 'pointer',
+				processedEventEntries: [],
+				longAnimationFrameEntries: [],
+				inputDelay: 0,
+				processingDuration: 0,
+				presentationDelay: 0,
+				loadState: 'loading',
 			},
 			entries: [],
 			navigationType: 'navigate',
@@ -77,7 +86,7 @@ jest.mock('web-vitals/attribution', () => ({
 			delta: defaultCoreWebVitalsPayload.inp,
 		} satisfies INPMetricWithAttribution);
 	},
-	onTTFB: (onReport: ReportCallback) => {
+	onTTFB: (onReport: (metric: TTFBMetric) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.ttfb,
 			name: 'TTFB',
@@ -88,7 +97,7 @@ jest.mock('web-vitals/attribution', () => ({
 			delta: defaultCoreWebVitalsPayload.ttfb,
 		} satisfies TTFBMetric);
 	},
-	onFCP: (onReport: ReportCallback) => {
+	onFCP: (onReport: (metric: FCPMetric) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fcp,
 			name: 'FCP',
@@ -99,7 +108,7 @@ jest.mock('web-vitals/attribution', () => ({
 			delta: defaultCoreWebVitalsPayload.fcp,
 		} satisfies FCPMetric);
 	},
-	onFID: (onReport: ReportCallback) => {
+	onFID: (onReport: (metric: FIDMetric) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.fid,
 			name: 'FID',
