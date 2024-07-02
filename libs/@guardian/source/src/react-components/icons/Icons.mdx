@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as IconStories from './Icons.stories';
+import { IconGallery, IconItem } from './IconGallery';
+
+<Meta of={IconStories} />
+
+# Icons
+
+## Core
+
+<IconGallery>
+	{IconStories.XsmallIconsDefaultTheme.args.icons.map((Icon) => (
+		<IconItem name={Icon.name} key={Icon.name}>
+			<Icon size="medium" />
+		</IconItem>
+	))}
+</IconGallery>
+
+## Payment
+
+<IconGallery>
+	{IconStories.PaymentIconsDefaultTheme.args.icons.map((Icon) => (
+		<IconItem name={Icon.name} key={Icon.name}>
+			<Icon size="medium" />
+		</IconItem>
+	))}
+</IconGallery>
+
+## Wide payment
+
+<IconGallery>
+	{IconStories.WidePaymentIconsDefaultTheme.args.icons.map((Icon) => (
+		<IconItem name={Icon.name} key={Icon.name}>
+			<Icon size="medium" />
+		</IconItem>
+	))}
+</IconGallery>

@@ -16,13 +16,13 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="m19 21 1-1V9.375L12.6 2h-1.2L4 9.375V20l1 1h4.5v-6.5h5V21H19Z"
+			d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10m5.138-14.358-.782-.78-4.349 3.982-4.364-3.967-.782.78L10.85 12l-3.988 4.342.782.781 4.364-3.967 4.35 3.982.781-.78L13.165 12z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgHouse = ({
+export const SvgCrossRoundFilled = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +35,7 @@ export const SvgHouse = ({
 					${visuallyHidden}
 				`}
 			>
-				Home
+				Close
 			</span>
 		) : (
 			''

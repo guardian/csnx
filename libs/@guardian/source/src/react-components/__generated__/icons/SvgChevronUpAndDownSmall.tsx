@@ -14,15 +14,17 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
-			fillRule="evenodd"
-			clipRule="evenodd"
-			d="M16.125 3h-8.25L6.5 4.389v18.148l.458.463L12 19.99 17.042 23l.458-.463V4.389L16.125 3Z"
+			d="m16.6 14.995-4.6 3.51-4.575-3.51-.885.885 5.13 5.125h.685l5.13-5.13z"
+			fill={theme?.fill}
+		/>
+		<path
+			d="m7.425 9.005 4.6-3.51 4.575 3.51.885-.885-5.13-5.125h-.685l-5.13 5.13z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgBookMark = ({
+export const SvgChevronUpAndDownSmall = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +37,7 @@ export const SvgBookMark = ({
 					${visuallyHidden}
 				`}
 			>
-				Bookmark
+				Sort
 			</span>
 		) : (
 			''
