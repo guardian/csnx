@@ -76,5 +76,27 @@ module.exports = {
 
 		// prevent circular dependencies
 		'import/no-cycle': ['error', { ignoreExternal: true }],
+
+		'no-restricted-syntax': [
+			'error',
+			{
+				selector: "CallExpression[callee.object.name='localStorage']",
+				message: 'Use @guardian/libs’ storage.local instead',
+			},
+			{
+				selector:
+					"CallExpression[callee.object.object.name='window'][callee.object.property.name='localStorage']",
+				message: 'Use @guardian/libs’ storage.local instead',
+			},
+			{
+				selector: "CallExpression[callee.object.name='sessionStorage']",
+				message: 'Use @guardian/libs’ storage.session instead',
+			},
+			{
+				message: 'Use @guardian/libs’ getCookie/setCookie instead',
+				selector:
+					'MemberExpression[object.name = "document"][property.name = "cookie"]',
+			},
+		],
 	},
 };
