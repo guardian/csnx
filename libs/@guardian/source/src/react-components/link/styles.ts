@@ -13,19 +13,12 @@ export const link = css`
 	${textSans17};
 	cursor: pointer;
 	text-decoration: underline;
-	text-underline-position: under;
-	text-underline-offset: 5%;
 
 	display: inline;
 	align-items: center;
 
 	&:focus {
 		${focusHalo};
-	}
-
-	&:hover {
-		/* If the hover text decoration thickness is not set, we default to the initial value. */
-		text-decoration-thickness: var(--source-text-decoration-thickness, auto);
 	}
 `;
 
