@@ -39,13 +39,13 @@
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"tsx": "4.15.6",
-		"typescript": "5.3.3",
+		"typescript": "5.5.2",
 		"wcag-contrast": "3.0.0",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3"
+		"typescript": "~5.5.2"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {
