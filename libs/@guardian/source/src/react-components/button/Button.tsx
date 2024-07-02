@@ -49,6 +49,7 @@ export const Button = ({
 		{...props}
 	>
 		{buttonContents({
+			size,
 			hideLabel,
 			iconSvg,
 			isLoading,
