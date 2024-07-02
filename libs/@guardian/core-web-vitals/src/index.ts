@@ -1,4 +1,4 @@
-import type { TeamName } from '@guardian/libs';
+import type { Subscription } from '@guardian/libs';
 import { log } from '@guardian/libs';
 import type {
 	CLSMetricWithAttribution,
@@ -15,7 +15,7 @@ const endpoint = 'https://feast-events.guardianapis.com/web-vitals';
 
 const coreWebVitalsPayload: Partial<CoreWebVitalsPayload> = {};
 
-const teamsForLogging: Set<TeamName> = new Set();
+const teamsForLogging: Set<Subscription> = new Set();
 let initialised = false;
 
 let queued = false;
@@ -122,7 +122,7 @@ type InitCoreWebVitalsOptions = {
 	pageViewId?: string;
 
 	sampling?: number;
-	team?: TeamName;
+	team?: Subscription;
 };
 
 /**
@@ -197,7 +197,7 @@ export const initCoreWebVitals = async ({
  * @param team - Optional team to trigger a log event once metrics are queued.
  */
 export const bypassCoreWebVitalsSampling = async (
-	team?: TeamName,
+	team?: Subscription,
 ): Promise<void> => {
 	if (!initialised) {
 		console.warn('initCoreWebVitals not yet initialised');
