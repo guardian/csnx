@@ -1,5 +1,21 @@
 # @guardian/core-web-vitals
 
+## 7.0.0
+
+### Major Changes
+
+- 4de52e7: This major change adds attribution data on 3 core web vital metrics; CLS, INP, and LCP.
+  - It also updates the endpoint so that this data will now be sent to a new table in big query. We now send the stage as a value to big query, rather than using separate endpoints.
+  - In addition, null values have been removed in favour of undefined.
+  - It also updates the version of `web-vitals` required to `v4.2.1`.
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
+### Patch Changes
+
+- Updated dependencies [a5498b8]
+- Updated dependencies [e5b15dc]
+  - @guardian/libs@18.0.0
+
 ## 6.0.1
 
 ### Patch Changes

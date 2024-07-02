@@ -1,5 +1,11 @@
 # @guardian/ab-core
 
+## 8.0.0
+
+### Major Changes
+
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
 ## 7.0.3
 
 ### Patch Changes

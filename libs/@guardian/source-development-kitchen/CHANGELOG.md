@@ -1,5 +1,18 @@
 # @guardian/source-development-kitchen
 
+## 4.0.0
+
+### Major Changes
+
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
+### Patch Changes
+
+- Updated dependencies [a5498b8]
+- Updated dependencies [e5b15dc]
+  - @guardian/libs@18.0.0
+  - @guardian/source@5.0.0
+
 ## 3.0.0
 
 ### Major Changes
