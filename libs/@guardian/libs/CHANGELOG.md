@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 17.0.2
+
+### Patch Changes
+
+- a5498b8: internal code refactors to simplify handling of undefined arrays
+
 ## 17.0.1
 
 ### Patch Changes
