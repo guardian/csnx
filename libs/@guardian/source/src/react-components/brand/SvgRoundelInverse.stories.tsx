@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import type { SvgRoundelInverseProps } from './SvgRoundelInverse';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SvgRoundelInverse } from './SvgRoundelInverse';
 
 const meta: Meta<typeof SvgRoundelInverse> = {
@@ -13,9 +12,6 @@ const meta: Meta<typeof SvgRoundelInverse> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof SvgRoundelInverse>;
 
-const Template: StoryFn<typeof SvgRoundelInverse> = (
-	args: SvgRoundelInverseProps,
-) => <SvgRoundelInverse {...args} />;
-
-export const Default: StoryFn<typeof SvgRoundelInverse> = Template.bind({});
+export const Default: Story = {};

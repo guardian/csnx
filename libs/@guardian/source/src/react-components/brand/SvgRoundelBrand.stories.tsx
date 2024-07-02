@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import type { SvgRoundelBrandProps } from './SvgRoundelBrand';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SvgRoundelBrand } from './SvgRoundelBrand';
 
 const meta: Meta<typeof SvgRoundelBrand> = {
@@ -13,9 +12,6 @@ const meta: Meta<typeof SvgRoundelBrand> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof SvgRoundelBrand>;
 
-const Template: StoryFn<typeof SvgRoundelBrand> = (
-	args: SvgRoundelBrandProps,
-) => <SvgRoundelBrand {...args} />;
-
-export const Default: StoryFn<typeof SvgRoundelBrand> = Template.bind({});
+export const Default: Story = {};

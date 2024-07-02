@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import type { SvgGuardianLiveLogoProps } from './SvgGuardianLiveLogo';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SvgGuardianLiveLogo } from './SvgGuardianLiveLogo';
 
 const meta: Meta<typeof SvgGuardianLiveLogo> = {
@@ -13,9 +12,6 @@ const meta: Meta<typeof SvgGuardianLiveLogo> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof SvgGuardianLiveLogo>;
 
-const Template: StoryFn<typeof SvgGuardianLiveLogo> = (
-	args: SvgGuardianLiveLogoProps,
-) => <SvgGuardianLiveLogo {...args} />;
-
-export const Default: StoryFn<typeof SvgGuardianLiveLogo> = Template.bind({});
+export const Default: Story = {};
