@@ -24,6 +24,5 @@ export enum ArticleDesign {
 	Correction,
 	FullPageInteractive,
 	NewsletterSignup,
-	Timeline,
 	Profile,
 }
