@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/identity-auth",
-	"version": "2.1.1",
+	"version": "3.0.0",
 	"private": false,
 	"description": "",
 	"license": "Apache-2.0",
@@ -26,7 +26,7 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@guardian/libs": "16.0.0",
+		"@guardian/libs": "18.0.0",
 		"@types/jest": "29.5.8",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
@@ -38,7 +38,7 @@
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^16.0.0",
+		"@guardian/libs": "^18.0.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.5.2"
 	},
@@ -51,8 +51,16 @@
 		"access": "public"
 	},
 	"wireit": {
+		"__deps__": {
+			"dependencies": [
+				"../libs:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"src/**",
 				"package.json",
@@ -66,6 +74,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -79,6 +90,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -89,6 +103,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../configs/jest.*",
@@ -99,6 +116,9 @@
 		},
 		"tsc": {
 			"command": "tsc --pretty",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"tsconfig.json",

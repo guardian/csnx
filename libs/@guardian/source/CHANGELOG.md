@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 5.0.0
+
+### Major Changes
+
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
 ## 4.0.0
 
 ### Major Changes

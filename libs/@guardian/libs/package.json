@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "17.0.1",
+	"version": "18.0.0",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
@@ -136,6 +136,9 @@
 		},
 		"tsc": {
 			"command": "tsc --pretty",
+			"dependencies": [
+				"../identity-auth-frontend:build"
+			],
 			"files": [
 				"**",
 				"tsconfig.json",
