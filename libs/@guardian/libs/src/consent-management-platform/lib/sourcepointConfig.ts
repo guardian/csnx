@@ -1,6 +1,7 @@
 import { isGuardianDomain } from './domain';
 
 export const ACCOUNT_ID = 1257;
+export const PRIVACY_MANAGER_USNAT = 1068329;
 export const PROPERTY_ID = 7417;
 export const PROPERTY_ID_AUSTRALIA = 13348;
 export const PRIVACY_MANAGER_CCPA = 540252;

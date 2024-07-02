@@ -2,8 +2,8 @@ import { onConsent } from './onConsent';
 import { onConsentChange } from './onConsentChange';
 import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { AUSConsentState } from './types/aus';
-import type { CCPAConsentState } from './types/ccpa';
 import type { TCFv2ConsentState } from './types/tcfv2';
+import type { USNATConsentState } from './types/usnat';
 
 jest.mock('./onConsentChange');
 
@@ -18,8 +18,9 @@ const tcfv2ConsentState: TCFv2ConsentState = {
 	tcString: 'YAAA',
 };
 
-const ccpaConsentState: CCPAConsentState = {
+const usnatConsentState: USNATConsentState = {
 	doNotSell: false,
+	signalStatus: 'ready',
 };
 
 const ausConsentState: AUSConsentState = {
@@ -42,9 +43,21 @@ describe('onConsent returns a promise that resolves the initial consent state', 
 		const resolvedConsentState = await onConsent();
 		expect(resolvedConsentState).toEqual(consentState);
 	});
+
+	test('usnat', async () => {
+		const consentState: ConsentState = {
+			ccpa: usnatConsentState,
+			canTarget: true,
+			framework: 'usnat',
+		};
+		mockOnConsentChange(consentState);
+		const resolvedConsentState = await onConsent();
+		expect(resolvedConsentState).toEqual(consentState);
+	});
+
 	test('ccpa', async () => {
 		const consentState: ConsentState = {
-			ccpa: ccpaConsentState,
+			ccpa: usnatConsentState,
 			canTarget: true,
 			framework: 'ccpa',
 		};
