@@ -1,7 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { useState } from 'react';
 import { palette } from '../../foundations';
-import type { TextAreaProps } from './TextArea';
 import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
@@ -25,6 +24,23 @@ const meta: Meta<typeof TextArea> = {
 			control: { type: 'radio' },
 		},
 	},
+};
+
+export default meta;
+type Story = StoryObj<typeof TextArea>;
+
+const TextAreaTemplate: Story = {
+	render: (args) => {
+		const [value, setValue] = useState(args.value);
+		const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+			setValue(e.target.value);
+
+		return <TextArea {...args} onChange={onChange} value={value} />;
+	},
+};
+
+export const DefaultDefaultTheme: Story = {
+	...TextAreaTemplate,
 	args: {
 		label: 'Comments',
 		optional: false,
@@ -36,185 +52,170 @@ const meta: Meta<typeof TextArea> = {
 	},
 };
 
-export default meta;
-
-const Template: StoryFn<typeof TextArea> = (args: TextAreaProps) => {
-	const [value, setValue] = useState(args.value);
-
-	const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
-		setValue(e.target.value);
-
-	return <TextArea {...args} onChange={onChange} value={value} />;
-};
-
-// *****************************************************************************
-
-export const DefaultDefaultTheme: StoryFn<typeof TextArea> = Template.bind({});
-
-// *****************************************************************************
-
-export const WithRowsDefaultTheme: StoryFn<typeof TextArea> = Template.bind({});
-WithRowsDefaultTheme.args = {
-	rows: 10,
-};
-
-// *****************************************************************************
-
-export const OptionalDefaultTheme: StoryFn<typeof TextArea> = Template.bind({});
-OptionalDefaultTheme.args = {
-	optional: true,
-};
-
-// *****************************************************************************
-
-export const VisuallyHideLabelDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-VisuallyHideLabelDefaultTheme.args = {
-	hideLabel: true,
-};
-
-// *****************************************************************************
-
-export const SupportingTextDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-SupportingTextDefaultTheme.args = {
-	supporting:
-		'Please keep comments respectful and abide by the community guidelines.',
-};
-
-// *****************************************************************************
-
-export const ErrorWithMessageDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-ErrorWithMessageDefaultTheme.args = {
-	error: 'error',
-};
-
-// *****************************************************************************
-
-export const SuccessWithMessageDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-SuccessWithMessageDefaultTheme.args = {
-	success: 'success',
-};
-
-// *****************************************************************************
-
-export const WithMaxLengthDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-WithMaxLengthDefaultTheme.args = {
-	maxLength: 10,
-};
-
-// *****************************************************************************
-
-export const WithDefaultValue: StoryFn<typeof TextArea> = Template.bind({});
-WithDefaultValue.args = {
-	value: 'This is a value passed in as a prop',
-};
-
-// *****************************************************************************
-
-export const DefaultSmallDefaultTheme: StoryFn<typeof TextArea> = Template.bind(
-	{},
-);
-DefaultSmallDefaultTheme.args = {
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const WithRowsSmallDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-WithRowsSmallDefaultTheme.args = {
-	rows: 10,
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const OptionalSmallDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-OptionalSmallDefaultTheme.args = {
-	optional: true,
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const VisuallyHideLabelSmallDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-VisuallyHideLabelSmallDefaultTheme.args = {
-	hideLabel: true,
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const SupportingTextSmallDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-SupportingTextSmallDefaultTheme.args = {
-	supporting:
-		'Please keep comments respectful and abide by the community guidelines.',
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const ErrorWithMessageSmallDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-ErrorWithMessageSmallDefaultTheme.args = {
-	error: 'error',
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const SuccessWithMessageSmallDefaultTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-SuccessWithMessageSmallDefaultTheme.args = {
-	success: 'success',
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const SupportingTextCustomTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-SupportingTextCustomTheme.args = {
-	supporting:
-		'Please keep comments respectful and abide by the community guidelines.',
-	theme: {
-		textUserInput: palette.neutral[86],
-		textLabel: palette.neutral[86],
-		textSupporting: palette.neutral[60],
-		border: palette.neutral[60],
-		backgroundInput: palette.neutral[20],
-	},
-};
-SupportingTextCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+export const WithRowsDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		rows: 10,
 	},
 };
 
-// *****************************************************************************
-
-export const ErrorWithMessageCustomTheme: StoryFn<typeof TextArea> =
-	Template.bind({});
-ErrorWithMessageCustomTheme.args = {
-	error: 'error',
-	theme: {
-		textLabel: palette.neutral[86],
-		textError: palette.error[500],
-		borderError: palette.error[500],
-		backgroundInput: palette.neutral[20],
-	},
-};
-ErrorWithMessageCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+export const OptionalDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		optional: true,
 	},
 };
 
-// *****************************************************************************
+export const VisuallyHideLabelDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		hideLabel: true,
+	},
+};
+
+export const SupportingTextDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting:
+			'Please keep comments respectful and abide by the community guidelines.',
+	},
+};
+
+export const ErrorWithMessageDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		error: 'error',
+	},
+};
+
+export const SuccessWithMessageDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		success: 'success',
+	},
+};
+
+export const WithMaxLengthDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		maxLength: 10,
+	},
+};
+
+export const WithDefaultValue: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		value: 'This is a value passed in as a prop',
+	},
+};
+
+export const DefaultSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		size: 'small',
+	},
+};
+
+export const WithRowsSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		rows: 10,
+		size: 'small',
+	},
+};
+
+export const OptionalSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		optional: true,
+		size: 'small',
+	},
+};
+
+export const VisuallyHideLabelSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		hideLabel: true,
+		size: 'small',
+	},
+};
+
+export const SupportingTextSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting:
+			'Please keep comments respectful and abide by the community guidelines.',
+		size: 'small',
+	},
+};
+
+export const ErrorWithMessageSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		error: 'error',
+		size: 'small',
+	},
+};
+
+export const SuccessWithMessageSmallDefaultTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		success: 'success',
+		size: 'small',
+	},
+};
+
+export const SupportingTextCustomTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting:
+			'Please keep comments respectful and abide by the community guidelines.',
+		theme: {
+			textUserInput: palette.neutral[86],
+			textLabel: palette.neutral[86],
+			textSupporting: palette.neutral[60],
+			border: palette.neutral[60],
+			backgroundInput: palette.neutral[20],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
+	},
+};
+
+export const ErrorWithMessageCustomTheme: Story = {
+	...TextAreaTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		error: 'error',
+		theme: {
+			textLabel: palette.neutral[86],
+			textError: palette.error[500],
+			borderError: palette.error[500],
+			backgroundInput: palette.neutral[20],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
+	},
+};
