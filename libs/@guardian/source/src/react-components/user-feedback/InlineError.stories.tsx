@@ -1,8 +1,7 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { breakpoints, palette } from '../../foundations';
-import type { UserFeedbackProps } from './@types/UserFeedbackProps';
 import { InlineError } from './InlineError';
-import { userFeedbackThemeBrand } from './theme';
+import { themeUserFeedbackBrand } from './theme';
 
 const meta: Meta<typeof InlineError> = {
 	title: 'React Components/InlineError',
@@ -13,74 +12,73 @@ const meta: Meta<typeof InlineError> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof InlineError>;
 
-const Template: StoryFn<typeof InlineError> = ({
-	children,
-	...args
-}: UserFeedbackProps) => (
-	<InlineError {...args}>{children ?? 'Please enter your name'}</InlineError>
-);
-
-export const InlineErrorDefaultTheme: StoryFn<typeof InlineError> =
-	Template.bind({});
-
-// *****************************************************************************
-
-export const InlineErrorBrandTheme: StoryFn<typeof InlineError> = Template.bind(
-	{},
-);
-InlineErrorBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-	theme: userFeedbackThemeBrand,
+const InlineErrorTemplate: Story = {
+	render: (args) => (
+		<InlineError {...args}>
+			{args.children ?? 'Please enter your name'}
+		</InlineError>
+	),
 };
 
-// *****************************************************************************
+export const InlineErrorDefaultTheme: Story = {
+	...InlineErrorTemplate,
+};
 
-export const LongInlineErrorDefaultThemeMobile: StoryFn<typeof InlineError> =
-	Template.bind({});
-LongInlineErrorDefaultThemeMobile.parameters = {
-	viewport: { defaultViewport: 'mobileMedium' },
-	chromatic: {
-		viewports: [breakpoints.mobileMedium],
+export const InlineErrorBrandTheme: Story = {
+	...InlineErrorTemplate,
+	args: {
+		theme: themeUserFeedbackBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
 	},
 };
-LongInlineErrorDefaultThemeMobile.args = {
-	children: 'Please pick a date in the future, but not a leap year',
-};
 
-// *****************************************************************************
-
-export const InlineErrorSmallDefaultTheme: StoryFn<typeof InlineError> =
-	Template.bind({});
-InlineErrorSmallDefaultTheme.args = {
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const InlineErrorSmallBrandTheme: StoryFn<typeof InlineError> =
-	Template.bind({});
-InlineErrorSmallBrandTheme.args = {
-	size: 'small',
-};
-InlineErrorSmallBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const LongInlineErrorDefaultThemeMobile: Story = {
+	...InlineErrorTemplate,
+	args: {
+		children: 'Please pick a date in the future, but not a leap year',
 	},
-	theme: userFeedbackThemeBrand,
+	parameters: {
+		viewport: { defaultViewport: 'mobileMedium' },
+		chromatic: {
+			viewports: [breakpoints.mobileMedium],
+		},
+	},
 };
 
-// *****************************************************************************
-
-export const InlineErrorCustomTheme: StoryFn<typeof InlineError> =
-	Template.bind({});
-InlineErrorCustomTheme.args = {
-	theme: { textError: palette.error[500] },
+export const InlineErrorSmallDefaultTheme: Story = {
+	...InlineErrorTemplate,
+	args: {
+		size: 'small',
+	},
 };
-InlineErrorCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+
+export const InlineErrorSmallBrandTheme: Story = {
+	...InlineErrorTemplate,
+	args: {
+		size: 'small',
+		theme: themeUserFeedbackBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const InlineErrorCustomTheme: Story = {
+	...InlineErrorTemplate,
+	args: {
+		theme: { textError: palette.error[500] },
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
 	},
 };
