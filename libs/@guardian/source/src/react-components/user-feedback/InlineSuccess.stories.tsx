@@ -1,4 +1,4 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import { InlineSuccess } from './InlineSuccess';
 import { themeUserFeedbackBrand } from './theme';

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { StoryObj, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { breakpoints, palette, space } from '../../foundations';
 import { Inline } from './Inline';
 

@@ -1,4 +1,4 @@
-import type { StoryObj, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { breakpoints, palette } from '../../foundations';
 import { ChoiceCard } from './ChoiceCard';

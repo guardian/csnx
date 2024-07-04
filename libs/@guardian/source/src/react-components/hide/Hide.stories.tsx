@@ -1,4 +1,4 @@
-import type { StoryObj, Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { breakpoints } from '../../foundations';
 import { Hide } from './Hide';
 
