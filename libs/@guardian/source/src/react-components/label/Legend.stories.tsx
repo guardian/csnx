@@ -1,17 +1,11 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { palette } from '../../foundations';
-import type { LegendProps } from './@types/LegendProps';
 import { Legend } from './Legend';
-import { labelThemeBrand } from './theme';
+import { themeLabelBrand } from './theme';
 
 const meta: Meta<typeof Legend> = {
 	title: 'React Components/Legend',
-	args: {
-		text: 'Email',
-		supporting: 'undefined',
-		optional: false,
-		hideLabel: false,
-	},
+	component: Legend,
 	argTypes: {
 		supporting: {
 			options: ['undefined', 'text', 'component'],
@@ -27,132 +21,137 @@ const meta: Meta<typeof Legend> = {
 			control: { type: 'radio' },
 		},
 	},
-	component: Legend,
 };
 
 export default meta;
+type Story = StoryObj<typeof Legend>;
 
-const Template: StoryFn<typeof Legend> = (args: LegendProps) => (
-	<fieldset>
-		<Legend {...args} />
-	</fieldset>
-);
-
-// *****************************************************************************
-
-export const DefaultDefaultTheme: StoryFn<typeof Legend> = Template.bind({});
-
-// *****************************************************************************
-
-export const WithSupportingTextDefaultTheme: StoryFn<typeof Legend> =
-	Template.bind({});
-WithSupportingTextDefaultTheme.args = {
-	supporting: 'text',
+const LegendTemplate: Story = {
+	render: (args) => (
+		<fieldset>
+			<Legend {...args} />
+		</fieldset>
+	),
 };
 
-// *****************************************************************************
-
-export const WithSupportingComponentDefaultTheme: StoryFn<typeof Legend> =
-	Template.bind({});
-WithSupportingComponentDefaultTheme.args = {
-	supporting: 'component',
-};
-
-// *****************************************************************************
-
-export const WithOptionalDefaultTheme: StoryFn<typeof Legend> = Template.bind(
-	{},
-);
-WithOptionalDefaultTheme.args = {
-	optional: true,
-};
-
-// *****************************************************************************
-
-export const WithHiddenLabelDefaultTheme: StoryFn<typeof Legend> =
-	Template.bind({});
-WithHiddenLabelDefaultTheme.args = {
-	hideLabel: true,
-};
-
-// *****************************************************************************
-
-export const DefaultBrandTheme: StoryFn<typeof Legend> = Template.bind({});
-DefaultBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-	theme: labelThemeBrand,
-};
-
-// *****************************************************************************
-
-export const WithSupportingTextBrandTheme: StoryFn<typeof Legend> =
-	Template.bind({});
-WithSupportingTextBrandTheme.args = {
-	supporting: 'text',
-};
-WithSupportingTextBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-	theme: labelThemeBrand,
-};
-
-// *****************************************************************************
-
-export const WithSupportingComponentBrandTheme: StoryFn<typeof Legend> =
-	Template.bind({});
-WithSupportingComponentBrandTheme.args = {
-	supporting: 'component',
-};
-WithSupportingComponentBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-	theme: labelThemeBrand,
-};
-
-// *****************************************************************************
-
-export const WithOptionalBrandTheme: StoryFn<typeof Legend> = Template.bind({});
-WithOptionalBrandTheme.args = {
-	optional: true,
-};
-WithOptionalBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-	theme: labelThemeBrand,
-};
-
-// *****************************************************************************
-
-export const WithHiddenLabelBrandTheme: StoryFn<typeof Legend> = Template.bind(
-	{},
-);
-WithHiddenLabelBrandTheme.args = {
-	hideLabel: true,
-};
-WithHiddenLabelBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-	theme: labelThemeBrand,
-};
-
-// *****************************************************************************
-
-export const DefaultCustomTheme: StoryFn<typeof Legend> = Template.bind({});
-DefaultCustomTheme.args = {
-	theme: {
-		textLabel: palette.neutral[86],
-	},
-};
-DefaultCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+export const DefaultDefaultTheme: Story = {
+	...LegendTemplate,
+	args: {
+		text: 'Email',
+		supporting: 'undefined',
+		optional: false,
+		hideLabel: false,
 	},
 };
 
-// *****************************************************************************
+export const WithSupportingTextDefaultTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting: 'text',
+	},
+};
+
+export const WithSupportingComponentDefaultTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting: 'component',
+	},
+};
+
+export const WithOptionalDefaultTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		optional: true,
+	},
+};
+
+export const WithHiddenLabelDefaultTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		hideLabel: true,
+	},
+};
+
+export const DefaultBrandTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		theme: themeLabelBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const WithSupportingTextBrandTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultBrandTheme.args,
+		supporting: 'text',
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const WithSupportingComponentBrandTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultBrandTheme.args,
+		supporting: 'component',
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const WithOptionalBrandTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultBrandTheme.args,
+		optional: true,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const WithHiddenLabelBrandTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultBrandTheme.args,
+		hideLabel: true,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const DefaultCustomTheme: Story = {
+	...LegendTemplate,
+	args: {
+		...DefaultDefaultTheme.args,
+		theme: {
+			textLabel: palette.neutral[86],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
+	},
+};
