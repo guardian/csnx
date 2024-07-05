@@ -11,7 +11,7 @@ const meta: Meta<typeof Label> = {
 export default meta;
 type Story = StoryObj<typeof Label>;
 
-const LabelTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<Label {...args}>
 			<input type="email" />
@@ -20,7 +20,7 @@ const LabelTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		text: 'Email',
 		optional: false,
@@ -30,7 +30,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const WithSupportingTextDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'alex@example.com',
@@ -38,7 +38,7 @@ export const WithSupportingTextDefaultTheme: Story = {
 };
 
 export const WithOptionalDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -46,7 +46,7 @@ export const WithOptionalDefaultTheme: Story = {
 };
 
 export const WithHiddenLabelDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -54,7 +54,7 @@ export const WithHiddenLabelDefaultTheme: Story = {
 };
 
 export const DefaultBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: themeLabelBrand,
@@ -67,7 +67,7 @@ export const DefaultBrandTheme: Story = {
 };
 
 export const WithSupportingTextBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'alex@example.com',
@@ -80,7 +80,7 @@ export const WithSupportingTextBrandTheme: Story = {
 };
 
 export const WithOptionalBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		optional: true,
@@ -93,7 +93,7 @@ export const WithOptionalBrandTheme: Story = {
 };
 
 export const WithHiddenLabelBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		hideLabel: true,
@@ -106,7 +106,7 @@ export const WithHiddenLabelBrandTheme: Story = {
 };
 
 export const DefaultSmallDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		size: 'small',
@@ -114,7 +114,7 @@ export const DefaultSmallDefaultTheme: Story = {
 };
 
 export const WithSupportingTextSmallDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'alex@example.com',
@@ -123,7 +123,7 @@ export const WithSupportingTextSmallDefaultTheme: Story = {
 };
 
 export const WithOptionalSmallDefaultTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -132,7 +132,7 @@ export const WithOptionalSmallDefaultTheme: Story = {
 };
 
 export const DefaultSmallBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		size: 'small',
@@ -145,7 +145,7 @@ export const DefaultSmallBrandTheme: Story = {
 };
 
 export const WithSupportingTextSmallBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'alex@example.com',
@@ -159,7 +159,7 @@ export const WithSupportingTextSmallBrandTheme: Story = {
 };
 
 export const WithOptionalSmallBrandTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		optional: true,
@@ -173,7 +173,7 @@ export const WithOptionalSmallBrandTheme: Story = {
 };
 
 export const DefaultCustomTheme: Story = {
-	...LabelTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: {

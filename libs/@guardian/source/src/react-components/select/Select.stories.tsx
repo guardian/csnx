@@ -30,7 +30,7 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof Select>;
 
-const SelectTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<Select {...args}>
 			<Option value="">Select a state</Option>
@@ -41,7 +41,7 @@ const SelectTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		label: 'State',
 		optional: false,
@@ -53,7 +53,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const VisuallyHideLabelDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -61,7 +61,7 @@ export const VisuallyHideLabelDefaultTheme: Story = {
 };
 
 export const OptionalDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -69,7 +69,7 @@ export const OptionalDefaultTheme: Story = {
 };
 
 export const ErrorWithMessageDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',
@@ -77,7 +77,7 @@ export const ErrorWithMessageDefaultTheme: Story = {
 };
 
 export const SuccessWithMessageDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		success: 'success',
@@ -85,7 +85,7 @@ export const SuccessWithMessageDefaultTheme: Story = {
 };
 
 export const SupportingTextDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'Leave blank if you are not within the US',
@@ -93,7 +93,7 @@ export const SupportingTextDefaultTheme: Story = {
 };
 
 export const SupportingSuccessTextDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'Leave blank if you are not within the US',
@@ -102,7 +102,7 @@ export const SupportingSuccessTextDefaultTheme: Story = {
 };
 
 export const SupportingErrorTextDefaultTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'Leave blank if you are not within the US',
@@ -112,7 +112,7 @@ export const SupportingErrorTextDefaultTheme: Story = {
 };
 
 export const SupportingTextCustomTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'Leave blank if you are not within the US',
@@ -133,7 +133,7 @@ export const SupportingTextCustomTheme: Story = {
 };
 
 export const ErrorWithMessageCustomTheme: Story = {
-	...SelectTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',

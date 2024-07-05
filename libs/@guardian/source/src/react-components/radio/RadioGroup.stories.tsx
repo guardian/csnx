@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import { Radio } from './Radio';
-import { DefaultDefaultTheme as RadioDefault } from './Radio.stories';
+import * as RadioStories from './Radio.stories';
 import { RadioGroup } from './RadioGroup';
 import type { ThemeRadio } from './theme';
 import { themeRadioBrand, themeRadioGroupBrand } from './theme';
@@ -37,17 +37,21 @@ const Image = () => (
 	/>
 );
 
-const RadioGroupTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<RadioGroup {...args}>
-			<Radio {...RadioDefault.args} theme={args.themeChild} key="radio-1" />
+			<Radio
+				{...RadioStories.DefaultDefaultTheme.args}
+				theme={args.themeChild}
+				key="radio-1"
+			/>
 			<Radio label="Blue" value="blue" theme={args.themeChild} key="radio-2" />
 		</RadioGroup>
 	),
 };
 
 export const DefaultDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		name: 'colours',
 		label: 'Select your preferred colour',
@@ -59,7 +63,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const DefaultBrandTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: themeRadioGroupBrand,
@@ -73,7 +77,7 @@ export const DefaultBrandTheme: Story = {
 };
 
 export const HorizontalDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		orientation: 'horizontal',
@@ -81,7 +85,7 @@ export const HorizontalDefaultTheme: Story = {
 };
 
 export const VisuallyHideLegendDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -89,7 +93,7 @@ export const VisuallyHideLegendDefaultTheme: Story = {
 };
 
 export const SupportingTextDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'You can always change it later',
@@ -97,7 +101,7 @@ export const SupportingTextDefaultTheme: Story = {
 };
 
 export const SupportingTextBrandTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'You can always change it later',
@@ -108,7 +112,7 @@ export const SupportingTextBrandTheme: Story = {
 };
 
 export const SupportingMediaDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: <Image />,
@@ -116,7 +120,7 @@ export const SupportingMediaDefaultTheme: Story = {
 };
 
 export const ErrorDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'The selected colour is out of stock',
@@ -124,7 +128,7 @@ export const ErrorDefaultTheme: Story = {
 };
 
 export const ErrorBrandTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		error: 'The selected colour is out of stock',
@@ -135,7 +139,7 @@ export const ErrorBrandTheme: Story = {
 };
 
 export const SupportingMediaWithErrorDefaultTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'Please select a colour',
@@ -144,7 +148,7 @@ export const SupportingMediaWithErrorDefaultTheme: Story = {
 };
 
 export const DefaultCustomTheme: Story = {
-	...RadioGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: { textLabel: palette.neutral[86] },

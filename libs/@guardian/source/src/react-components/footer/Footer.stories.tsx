@@ -70,7 +70,7 @@ export const WithBackToTopTabletDefaultTheme: Story = {
 	},
 };
 
-export const WithBackToTopMobileDefaultTheme: StoryObj<typeof Footer> = {
+export const WithBackToTopMobileDefaultTheme: Story = {
 	args: {
 		...WithBackToTopDefaultTheme.args,
 	},

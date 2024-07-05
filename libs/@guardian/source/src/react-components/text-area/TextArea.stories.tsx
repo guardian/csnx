@@ -29,7 +29,7 @@ const meta: Meta<typeof TextArea> = {
 export default meta;
 type Story = StoryObj<typeof TextArea>;
 
-const TextAreaTemplate: Story = {
+const Template: Story = {
 	render: (args) => {
 		const [value, setValue] = useState(args.value);
 		const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -40,7 +40,7 @@ const TextAreaTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		label: 'Comments',
 		optional: false,
@@ -53,7 +53,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const WithRowsDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		rows: 10,
@@ -61,7 +61,7 @@ export const WithRowsDefaultTheme: Story = {
 };
 
 export const OptionalDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -69,7 +69,7 @@ export const OptionalDefaultTheme: Story = {
 };
 
 export const VisuallyHideLabelDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -77,7 +77,7 @@ export const VisuallyHideLabelDefaultTheme: Story = {
 };
 
 export const SupportingTextDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting:
@@ -86,7 +86,7 @@ export const SupportingTextDefaultTheme: Story = {
 };
 
 export const ErrorWithMessageDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',
@@ -94,7 +94,7 @@ export const ErrorWithMessageDefaultTheme: Story = {
 };
 
 export const SuccessWithMessageDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		success: 'success',
@@ -102,7 +102,7 @@ export const SuccessWithMessageDefaultTheme: Story = {
 };
 
 export const WithMaxLengthDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		maxLength: 10,
@@ -110,7 +110,7 @@ export const WithMaxLengthDefaultTheme: Story = {
 };
 
 export const WithDefaultValue: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		value: 'This is a value passed in as a prop',
@@ -118,7 +118,7 @@ export const WithDefaultValue: Story = {
 };
 
 export const DefaultSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		size: 'small',
@@ -126,7 +126,7 @@ export const DefaultSmallDefaultTheme: Story = {
 };
 
 export const WithRowsSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		rows: 10,
@@ -135,7 +135,7 @@ export const WithRowsSmallDefaultTheme: Story = {
 };
 
 export const OptionalSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -144,7 +144,7 @@ export const OptionalSmallDefaultTheme: Story = {
 };
 
 export const VisuallyHideLabelSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -153,7 +153,7 @@ export const VisuallyHideLabelSmallDefaultTheme: Story = {
 };
 
 export const SupportingTextSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting:
@@ -163,7 +163,7 @@ export const SupportingTextSmallDefaultTheme: Story = {
 };
 
 export const ErrorWithMessageSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',
@@ -172,7 +172,7 @@ export const ErrorWithMessageSmallDefaultTheme: Story = {
 };
 
 export const SuccessWithMessageSmallDefaultTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		success: 'success',
@@ -181,7 +181,7 @@ export const SuccessWithMessageSmallDefaultTheme: Story = {
 };
 
 export const SupportingTextCustomTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting:
@@ -202,7 +202,7 @@ export const SupportingTextCustomTheme: Story = {
 };
 
 export const ErrorWithMessageCustomTheme: Story = {
-	...TextAreaTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',

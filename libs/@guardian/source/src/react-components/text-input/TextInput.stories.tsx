@@ -30,7 +30,7 @@ const meta: Meta<typeof TextInput> = {
 export default meta;
 type Story = StoryObj<typeof TextInput>;
 
-const TextInputTemplate: Story = {
+const Template: Story = {
 	render: (args) => {
 		const [state, setState] = useState('');
 		return (
@@ -44,7 +44,7 @@ const TextInputTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		label: 'Email',
 		optional: false,
@@ -57,7 +57,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const OptionalDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -65,7 +65,7 @@ export const OptionalDefaultTheme: Story = {
 };
 
 export const HideLabelDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -73,7 +73,7 @@ export const HideLabelDefaultTheme: Story = {
 };
 
 export const SupportingTextDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'alex@example.com',
@@ -81,7 +81,7 @@ export const SupportingTextDefaultTheme: Story = {
 };
 
 export const Width30DefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		width: 30,
@@ -90,7 +90,7 @@ export const Width30DefaultTheme: Story = {
 };
 
 export const Width10DefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		width: 10,
@@ -99,7 +99,7 @@ export const Width10DefaultTheme: Story = {
 };
 
 export const Width4DefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		width: 4,
@@ -108,7 +108,7 @@ export const Width4DefaultTheme: Story = {
 };
 
 export const ErrorWithMessageDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',
@@ -116,7 +116,7 @@ export const ErrorWithMessageDefaultTheme: Story = {
 };
 
 export const SuccessWithMessageDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		success: 'success',
@@ -124,7 +124,7 @@ export const SuccessWithMessageDefaultTheme: Story = {
 };
 
 export const ConstraintDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		label: 'Phone number',
@@ -135,7 +135,7 @@ export const ConstraintDefaultTheme: Story = {
 };
 
 export const DefaultSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		size: 'small',
@@ -143,7 +143,7 @@ export const DefaultSmallDefaultTheme: Story = {
 };
 
 export const OptionalSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -152,7 +152,7 @@ export const OptionalSmallDefaultTheme: Story = {
 };
 
 export const HideLabelSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -161,7 +161,7 @@ export const HideLabelSmallDefaultTheme: Story = {
 };
 
 export const SupportingTextSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'alex@example.com',
@@ -170,7 +170,7 @@ export const SupportingTextSmallDefaultTheme: Story = {
 };
 
 export const Width30SmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		width: 30,
@@ -180,7 +180,7 @@ export const Width30SmallDefaultTheme: Story = {
 };
 
 export const Width10SmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		width: 10,
@@ -190,7 +190,7 @@ export const Width10SmallDefaultTheme: Story = {
 };
 
 export const Width4SmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		width: 4,
@@ -200,7 +200,7 @@ export const Width4SmallDefaultTheme: Story = {
 };
 
 export const ErrorWithMessageSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',
@@ -209,7 +209,7 @@ export const ErrorWithMessageSmallDefaultTheme: Story = {
 };
 
 export const SuccessWithMessageSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		success: 'success',
@@ -218,7 +218,7 @@ export const SuccessWithMessageSmallDefaultTheme: Story = {
 };
 
 export const ConstraintSmallDefaultTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		label: 'Phone number',
@@ -230,7 +230,7 @@ export const ConstraintSmallDefaultTheme: Story = {
 };
 
 export const SupportingTextCustomTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'alex@example.com',
@@ -250,7 +250,7 @@ export const SupportingTextCustomTheme: Story = {
 };
 
 export const ErrorWithMessageCustomTheme: Story = {
-	...TextInputTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'error',

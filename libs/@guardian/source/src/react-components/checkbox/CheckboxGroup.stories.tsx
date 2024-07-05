@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
-import { DefaultDefaultTheme as CheckboxDefaultTheme } from './Checkbox.stories';
+import * as CheckboxStories from './Checkbox.stories';
 import { CheckboxGroup } from './CheckboxGroup';
 import type { ThemeCheckbox } from './theme';
 import { themeCheckboxBrand, themeCheckboxGroupBrand } from './theme';
@@ -19,13 +19,15 @@ type Story = StoryObj<
 	}
 >;
 
-const CheckboxGroupTemplate: Story = {
+const Template: Story = {
 	render: (args) => {
-		const [checked, setChecked] = useState(CheckboxDefaultTheme.args?.checked);
+		const [checked, setChecked] = useState(
+			CheckboxStories.DefaultDefaultTheme.args?.checked,
+		);
 		return (
 			<CheckboxGroup {...args}>
 				<Checkbox
-					{...CheckboxDefaultTheme.args}
+					{...CheckboxStories.DefaultDefaultTheme.args}
 					theme={args.themeChild}
 					checked={checked}
 					onChange={(e) => setChecked(e.target.checked)}
@@ -36,7 +38,7 @@ const CheckboxGroupTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		name: 'your-newsletters',
 		label: 'Your newsletters',
@@ -47,7 +49,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const DefaultBrandTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: themeCheckboxGroupBrand,
@@ -61,7 +63,7 @@ export const DefaultBrandTheme: Story = {
 };
 
 export const VisuallyHideLegendDefaultTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -69,7 +71,7 @@ export const VisuallyHideLegendDefaultTheme: Story = {
 };
 
 export const VisuallyHideLegendBrandTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		hideLabel: true,
@@ -80,7 +82,7 @@ export const VisuallyHideLegendBrandTheme: Story = {
 };
 
 export const SupportingTextDefaultTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'Pick the issues and topics that interest you',
@@ -88,7 +90,7 @@ export const SupportingTextDefaultTheme: Story = {
 };
 
 export const OptionalDefaultTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -96,7 +98,7 @@ export const OptionalDefaultTheme: Story = {
 };
 
 export const SupportingTextBrandTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'Pick the issues and topics that interest you',
@@ -107,7 +109,7 @@ export const SupportingTextBrandTheme: Story = {
 };
 
 export const ErrorDefaultTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'This newsletter is not available in your region',
@@ -115,7 +117,7 @@ export const ErrorDefaultTheme: Story = {
 };
 
 export const ErrorBrandTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		error: 'This newsletter is not available in your region',
@@ -126,7 +128,7 @@ export const ErrorBrandTheme: Story = {
 };
 
 export const ErrorCustomTheme: Story = {
-	...CheckboxGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'This newsletter is not available in your region',

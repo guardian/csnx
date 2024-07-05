@@ -16,7 +16,7 @@ const meta: Meta<typeof Container> = {
 export default meta;
 type Story = StoryObj<typeof Container>;
 
-const ContainerTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<Container {...args}>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliud igitur esse
@@ -29,7 +29,7 @@ const ContainerTemplate: Story = {
 };
 
 export const Default: Story = {
-	...ContainerTemplate,
+	...Template,
 	args: {
 		sideBorders: false,
 		topBorder: false,
@@ -37,7 +37,7 @@ export const Default: Story = {
 };
 
 export const WithSideBorders: Story = {
-	...ContainerTemplate,
+	...Template,
 	args: {
 		...Default.args,
 		sideBorders: true,
@@ -45,7 +45,7 @@ export const WithSideBorders: Story = {
 };
 
 export const WithTopBorder: Story = {
-	...ContainerTemplate,
+	...Template,
 	args: {
 		...Default.args,
 		topBorder: true,
@@ -53,7 +53,7 @@ export const WithTopBorder: Story = {
 };
 
 export const WithBorderColour: Story = {
-	...ContainerTemplate,
+	...Template,
 	args: {
 		...Default.args,
 		sideBorders: true,
@@ -63,7 +63,7 @@ export const WithBorderColour: Story = {
 };
 
 export const WithBackgroundColour: Story = {
-	...ContainerTemplate,
+	...Template,
 	args: {
 		...Default.args,
 		backgroundColor: 'red',
@@ -71,7 +71,7 @@ export const WithBackgroundColour: Story = {
 };
 
 export const WithAsideElement: Story = {
-	...ContainerTemplate,
+	...Template,
 	args: {
 		...Default.args,
 		element: 'aside',

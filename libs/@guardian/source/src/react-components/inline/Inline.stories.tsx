@@ -23,7 +23,7 @@ const box = css`
 	background: ${palette.news[600]};
 `;
 
-const InlineTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<div css={wrapper}>
 			<Inline {...args}>
@@ -40,116 +40,116 @@ const InlineTemplate: Story = {
 };
 
 export const NoSpace: Story = {
-	...InlineTemplate,
+	...Template,
 };
 
 export const Space0: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 0,
 	},
 };
 
 export const Space1: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 1,
 	},
 };
 
 export const Space2: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 2,
 	},
 };
 
 export const Space3: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 3,
 	},
 };
 
 export const Space4: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 4,
 	},
 };
 
 export const Space5: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 5,
 	},
 };
 
 export const Space6: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 6,
 	},
 };
 
 export const Space8: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 8,
 	},
 };
 
 export const Space9: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 9,
 	},
 };
 
 export const Space10: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 10,
 	},
 };
 
 export const Space12: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 12,
 	},
 };
 
 export const Space14: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 14,
 	},
 };
 
 export const Space16: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 16,
 	},
 };
 
 export const Space18: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 18,
 	},
 };
 
 export const Space24: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 24,
 	},
 };
 
 export const MultipleChildElements: Story = {
-	...InlineTemplate,
+	...Template,
 	render: (args) => (
 		<div css={wrapper}>
 			<Inline {...args}>
@@ -167,7 +167,7 @@ export const MultipleChildElements: Story = {
 };
 
 export const CollapseUntilTablet: Story = {
-	...InlineTemplate,
+	...Template,
 	args: {
 		space: 2,
 		collapseUntil: 'tablet',

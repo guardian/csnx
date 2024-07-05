@@ -12,7 +12,7 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-const CheckboxTemplate: Story = {
+const Template: Story = {
 	render: (args) => {
 		const [checked, setChecked] = useState(args.checked);
 		return (
@@ -26,7 +26,7 @@ const CheckboxTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		label: 'The Guardian Today',
 		checked: true,
@@ -35,7 +35,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const DefaultBrandTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: themeCheckboxBrand,
@@ -48,7 +48,7 @@ export const DefaultBrandTheme: Story = {
 };
 
 export const SupportingTextDefaultTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'Supporting text',
@@ -56,7 +56,7 @@ export const SupportingTextDefaultTheme: Story = {
 };
 
 export const SupportingTextBrandTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'Supporting text',
@@ -67,7 +67,7 @@ export const SupportingTextBrandTheme: Story = {
 };
 
 export const SupportingTextOnlyDefaultTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...SupportingTextDefaultTheme.args,
 		label: null,
@@ -75,7 +75,7 @@ export const SupportingTextOnlyDefaultTheme: Story = {
 };
 
 export const SupportingTextOnlyBrandTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...SupportingTextBrandTheme.args,
 		label: null,
@@ -86,7 +86,7 @@ export const SupportingTextOnlyBrandTheme: Story = {
 };
 
 export const IndeterminateDefaultTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		checked: undefined,
@@ -95,7 +95,7 @@ export const IndeterminateDefaultTheme: Story = {
 };
 
 export const IndeterminateBrandTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		checked: undefined,
@@ -107,7 +107,7 @@ export const IndeterminateBrandTheme: Story = {
 };
 
 export const UnlabelledDefaultTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		label: null,
@@ -116,7 +116,7 @@ export const UnlabelledDefaultTheme: Story = {
 };
 
 export const DefaultCustomTheme: Story = {
-	...CheckboxTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: {

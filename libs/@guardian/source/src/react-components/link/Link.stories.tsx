@@ -63,11 +63,84 @@ const headline = [
 	headlineMedium14,
 ];
 
-const LinkTemplate: Story = {
-	render: (args) => <Link {...args}>Return to home page</Link>,
+export const PrimaryLinkDefaultTheme: Story = {
+	args: {
+		priority: 'primary',
+		icon: undefined,
+		iconSide: 'left',
+		href: '#',
+		children: 'Return to home page',
+	},
 };
 
-const UnderlineHoverHeadlineTemplate: Story = {
+export const PrimaryLinkBrandTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		theme: themeLinkBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
+
+export const PrimaryLinkBrandAltTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		theme: themeLinkBrandAlt,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandAltBackground.primary',
+		},
+	},
+};
+
+export const SecondaryLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		priority: 'secondary',
+	},
+};
+
+export const PrimaryIconLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		icon: <SvgExternal />,
+	},
+};
+
+export const SecondaryIconLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryIconLinkDefaultTheme.args,
+		priority: 'secondary',
+	},
+};
+
+export const RightIconLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryIconLinkDefaultTheme.args,
+		iconSide: 'right',
+	},
+};
+
+export const PrimaryIconLinkCustomTheme: Story = {
+	args: {
+		...PrimaryIconLinkDefaultTheme.args,
+		theme: {
+			textPrimary: palette.neutral[86],
+			textPrimaryHover: palette.brand[800],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
+	},
+};
+
+export const UnderlineHoverHeadline: Story = {
 	render: (args) => (
 		<div
 			css={css`
@@ -91,17 +164,17 @@ const UnderlineHoverHeadlineTemplate: Story = {
 			))}
 		</div>
 	),
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+	},
 };
 
-const UnderlineHoverTextSansTemplate: Story = {
+export const UnderlineHoverTextSans: Story = {
 	render: (args) => (
 		<div
 			css={css`
 				display: flex;
 				flex-direction: column;
-				a {
-					padding: 20px 0;
-				}
 			`}
 		>
 			{textSans.map((preset, i) => (
@@ -126,102 +199,7 @@ const UnderlineHoverTextSansTemplate: Story = {
 			))}
 		</div>
 	),
-};
-
-export const PrimaryLinkDefaultTheme: Story = {
-	...LinkTemplate,
-	args: {
-		priority: 'primary',
-		icon: undefined,
-		iconSide: 'left',
-		href: '#',
-	},
-};
-
-export const PrimaryLinkBrandTheme: Story = {
-	...LinkTemplate,
 	args: {
 		...PrimaryLinkDefaultTheme.args,
-		theme: themeLinkBrand,
-	},
-	parameters: {
-		backgrounds: {
-			default: 'brandBackground.primary',
-		},
-	},
-};
-
-export const PrimaryLinkBrandAltTheme: Story = {
-	...LinkTemplate,
-	args: {
-		...PrimaryLinkDefaultTheme.args,
-		theme: themeLinkBrandAlt,
-	},
-	parameters: {
-		backgrounds: {
-			default: 'brandAltBackground.primary',
-		},
-	},
-};
-
-export const SecondaryLinkDefaultTheme: Story = {
-	...LinkTemplate,
-	args: {
-		...PrimaryLinkDefaultTheme.args,
-		priority: 'secondary',
-	},
-};
-
-export const PrimaryIconLinkDefaultTheme: Story = {
-	...LinkTemplate,
-	args: {
-		...PrimaryLinkDefaultTheme.args,
-		icon: <SvgExternal />,
-	},
-};
-
-export const SecondaryIconLinkDefaultTheme: Story = {
-	...LinkTemplate,
-	args: {
-		...PrimaryIconLinkDefaultTheme.args,
-		priority: 'secondary',
-	},
-};
-
-export const RightIconLinkDefaultTheme: Story = {
-	...LinkTemplate,
-	args: {
-		...PrimaryIconLinkDefaultTheme.args,
-		iconSide: 'right',
-	},
-};
-
-export const UnderlineHoverHeadline: Story = {
-	...UnderlineHoverHeadlineTemplate,
-	args: {
-		...PrimaryLinkDefaultTheme.args,
-	},
-};
-
-export const UnderlineHoverTextSans: Story = {
-	...UnderlineHoverTextSansTemplate,
-	args: {
-		...PrimaryLinkDefaultTheme.args,
-	},
-};
-
-export const PrimaryIconLinkCustomTheme: Story = {
-	...LinkTemplate,
-	args: {
-		...PrimaryIconLinkDefaultTheme.args,
-		theme: {
-			textPrimary: palette.neutral[86],
-			textPrimaryHover: palette.brand[800],
-		},
-	},
-	parameters: {
-		backgrounds: {
-			default: 'background.inverse',
-		},
 	},
 };

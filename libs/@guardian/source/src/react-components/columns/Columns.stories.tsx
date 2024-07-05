@@ -18,7 +18,7 @@ const Code = (args: HTMLAttributes<HTMLElement>) => (
 	<code style={{ whiteSpace: 'nowrap' }} {...args} />
 );
 
-const ColumnsTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<Columns {...args} style={style}>
 			<Column style={style}>
@@ -55,7 +55,7 @@ const ColumnsTemplate: Story = {
 };
 
 export const Default: Story = {
-	...ColumnsTemplate,
+	...Template,
 	parameters: {
 		viewport: { defaultViewport: 'tablet' },
 		chromatic: {
@@ -67,7 +67,7 @@ export const Default: Story = {
 };
 
 export const CollapseUntilTabletWithNoSpacing: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		collapseUntil: 'tablet',
 	},
@@ -81,7 +81,7 @@ export const CollapseUntilTabletWithNoSpacing: Story = {
 };
 
 export const CollapseUntilTabletWithSpace1: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 1,
@@ -92,7 +92,7 @@ export const CollapseUntilTabletWithSpace1: Story = {
 };
 
 export const CollapseUntilTabletWithSpace2: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 2,
@@ -103,7 +103,7 @@ export const CollapseUntilTabletWithSpace2: Story = {
 };
 
 export const CollapseUntilTabletWithSpace3: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 3,
@@ -114,7 +114,7 @@ export const CollapseUntilTabletWithSpace3: Story = {
 };
 
 export const CollapseUntilTabletWithSpace4: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 4,
@@ -125,7 +125,7 @@ export const CollapseUntilTabletWithSpace4: Story = {
 };
 
 export const CollapseUntilTabletWithSpace5: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 5,
@@ -136,7 +136,7 @@ export const CollapseUntilTabletWithSpace5: Story = {
 };
 
 export const CollapseUntilTabletWithSpace6: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 6,
@@ -147,7 +147,7 @@ export const CollapseUntilTabletWithSpace6: Story = {
 };
 
 export const CollapseUntilTabletWithSpace9: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 9,
@@ -158,7 +158,7 @@ export const CollapseUntilTabletWithSpace9: Story = {
 };
 
 export const CollapseUntilTabletWithSpace12: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 12,
@@ -169,7 +169,7 @@ export const CollapseUntilTabletWithSpace12: Story = {
 };
 
 export const CollapseUntilTabletWithSpace24: Story = {
-	...ColumnsTemplate,
+	...Template,
 	args: {
 		...CollapseUntilTabletWithNoSpacing.args,
 		spaceY: 24,

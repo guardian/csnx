@@ -18,7 +18,7 @@ const meta: Meta<typeof Hide> = {
 export default meta;
 type Story = StoryObj<typeof Hide>;
 
-const HideTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<Hide {...args}>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliud igitur esse
@@ -31,7 +31,7 @@ const HideTemplate: Story = {
 };
 
 export const HiddenFromTabletAtMobile: Story = {
-	...HideTemplate,
+	...Template,
 	args: {
 		from: 'tablet',
 	},
@@ -54,7 +54,7 @@ export const HiddenFromTabletAtTablet: Story = {
 };
 
 export const HiddenUntilTabletAtMobile: Story = {
-	...HideTemplate,
+	...Template,
 	args: {
 		until: 'tablet',
 	},

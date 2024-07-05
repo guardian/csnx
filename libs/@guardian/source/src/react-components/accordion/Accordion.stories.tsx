@@ -11,15 +11,18 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 type Story = StoryObj<typeof Accordion>;
 
-const AccordionTemplate: Story = {
-	render: ({ hideToggleLabel, theme }) => (
-		<Accordion hideToggleLabel={hideToggleLabel} theme={theme}>
-			<AccordionRow label="Collecting from multiple newsagents" theme={theme}>
+const Template: Story = {
+	render: (args) => (
+		<Accordion hideToggleLabel={args.hideToggleLabel} theme={args.theme}>
+			<AccordionRow
+				label="Collecting from multiple newsagents"
+				theme={args.theme}
+			>
 				Present your card to a newsagent each time you collect the paper. The
 				newsagent will scan your card and will be reimbursed for each
 				transaction automatically.
 			</AccordionRow>
-			<AccordionRow label="Delivery from your retailer" theme={theme}>
+			<AccordionRow label="Delivery from your retailer" theme={args.theme}>
 				Simply give your preferred store / retailer the barcode printed on your
 				subscription letter.
 			</AccordionRow>
@@ -28,21 +31,21 @@ const AccordionTemplate: Story = {
 };
 
 export const WithCTALabelsDefaultTheme: Story = {
-	...AccordionTemplate,
+	...Template,
 	args: {
 		hideToggleLabel: false,
 	},
 };
 
 export const WithoutCTALabelsDefaultTheme: Story = {
-	...AccordionTemplate,
+	...Template,
 	args: {
 		hideToggleLabel: true,
 	},
 };
 
 export const WithCTALabelsCustomTheme: Story = {
-	...AccordionTemplate,
+	...Template,
 	args: {
 		...WithCTALabelsDefaultTheme.args,
 		theme: {
@@ -61,7 +64,7 @@ export const WithCTALabelsCustomTheme: Story = {
 };
 
 export const WithoutCTALabelsCustomTheme: Story = {
-	...AccordionTemplate,
+	...Template,
 	args: {
 		...WithCTALabelsCustomTheme.args,
 		hideToggleLabel: true,

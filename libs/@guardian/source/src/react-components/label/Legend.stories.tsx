@@ -26,7 +26,7 @@ const meta: Meta<typeof Legend> = {
 export default meta;
 type Story = StoryObj<typeof Legend>;
 
-const LegendTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<fieldset>
 			<Legend {...args} />
@@ -35,7 +35,7 @@ const LegendTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		text: 'Email',
 		supporting: 'undefined',
@@ -45,7 +45,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const WithSupportingTextDefaultTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'text',
@@ -53,7 +53,7 @@ export const WithSupportingTextDefaultTheme: Story = {
 };
 
 export const WithSupportingComponentDefaultTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		supporting: 'component',
@@ -61,7 +61,7 @@ export const WithSupportingComponentDefaultTheme: Story = {
 };
 
 export const WithOptionalDefaultTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		optional: true,
@@ -69,7 +69,7 @@ export const WithOptionalDefaultTheme: Story = {
 };
 
 export const WithHiddenLabelDefaultTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		hideLabel: true,
@@ -77,7 +77,7 @@ export const WithHiddenLabelDefaultTheme: Story = {
 };
 
 export const DefaultBrandTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: themeLabelBrand,
@@ -90,7 +90,7 @@ export const DefaultBrandTheme: Story = {
 };
 
 export const WithSupportingTextBrandTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'text',
@@ -103,7 +103,7 @@ export const WithSupportingTextBrandTheme: Story = {
 };
 
 export const WithSupportingComponentBrandTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		supporting: 'component',
@@ -116,7 +116,7 @@ export const WithSupportingComponentBrandTheme: Story = {
 };
 
 export const WithOptionalBrandTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		optional: true,
@@ -129,7 +129,7 @@ export const WithOptionalBrandTheme: Story = {
 };
 
 export const WithHiddenLabelBrandTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultBrandTheme.args,
 		hideLabel: true,
@@ -142,7 +142,7 @@ export const WithHiddenLabelBrandTheme: Story = {
 };
 
 export const DefaultCustomTheme: Story = {
-	...LegendTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		theme: {

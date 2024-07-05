@@ -10,7 +10,7 @@ const meta: Meta<typeof Tiles> = {
 export default meta;
 type Story = StoryObj<typeof Tiles>;
 
-const TilesTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<Tiles {...args}>
 			<div>
@@ -47,35 +47,35 @@ const TilesTemplate: Story = {
 };
 
 export const Columns2: Story = {
-	...TilesTemplate,
+	...Template,
 	args: {
 		columns: 2,
 	},
 };
 
 export const Columns3: Story = {
-	...TilesTemplate,
+	...Template,
 	args: {
 		columns: 3,
 	},
 };
 
 export const Columns4: Story = {
-	...TilesTemplate,
+	...Template,
 	args: {
 		columns: 4,
 	},
 };
 
 export const Columns5: Story = {
-	...TilesTemplate,
+	...Template,
 	args: {
 		columns: 5,
 	},
 };
 
 export const Columns5CollapseUntilTabletAtMobile: Story = {
-	...TilesTemplate,
+	...Template,
 	args: {
 		columns: 5,
 		collapseUntil: 'tablet',
@@ -89,7 +89,7 @@ export const Columns5CollapseUntilTabletAtMobile: Story = {
 };
 
 export const Columns5CollapseUntilTabletAtTablet: Story = {
-	...TilesTemplate,
+	...Template,
 	args: {
 		columns: 5,
 		collapseUntil: 'tablet',

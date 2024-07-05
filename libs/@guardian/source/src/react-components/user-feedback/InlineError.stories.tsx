@@ -14,7 +14,7 @@ const meta: Meta<typeof InlineError> = {
 export default meta;
 type Story = StoryObj<typeof InlineError>;
 
-const InlineErrorTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<InlineError {...args}>
 			{args.children ?? 'Please enter your name'}
@@ -23,11 +23,11 @@ const InlineErrorTemplate: Story = {
 };
 
 export const InlineErrorDefaultTheme: Story = {
-	...InlineErrorTemplate,
+	...Template,
 };
 
 export const InlineErrorBrandTheme: Story = {
-	...InlineErrorTemplate,
+	...Template,
 	args: {
 		theme: themeUserFeedbackBrand,
 	},
@@ -39,7 +39,7 @@ export const InlineErrorBrandTheme: Story = {
 };
 
 export const LongInlineErrorDefaultThemeMobile: Story = {
-	...InlineErrorTemplate,
+	...Template,
 	args: {
 		children: 'Please pick a date in the future, but not a leap year',
 	},
@@ -52,14 +52,14 @@ export const LongInlineErrorDefaultThemeMobile: Story = {
 };
 
 export const InlineErrorSmallDefaultTheme: Story = {
-	...InlineErrorTemplate,
+	...Template,
 	args: {
 		size: 'small',
 	},
 };
 
 export const InlineErrorSmallBrandTheme: Story = {
-	...InlineErrorTemplate,
+	...Template,
 	args: {
 		size: 'small',
 		theme: themeUserFeedbackBrand,
@@ -72,7 +72,7 @@ export const InlineErrorSmallBrandTheme: Story = {
 };
 
 export const InlineErrorCustomTheme: Story = {
-	...InlineErrorTemplate,
+	...Template,
 	args: {
 		theme: { textError: palette.error[500] },
 	},

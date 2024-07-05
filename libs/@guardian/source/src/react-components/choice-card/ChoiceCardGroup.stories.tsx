@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { breakpoints, palette } from '../../foundations';
 import { ChoiceCard } from './ChoiceCard';
-import ChoiceCardStories from './ChoiceCard.stories';
 import { ChoiceCardGroup } from './ChoiceCardGroup';
 import type { ThemeChoiceCard } from './theme';
 
@@ -28,11 +27,10 @@ type Story = StoryObj<
 	}
 >;
 
-const ChoiceCardGroupTemplate: Story = {
+const Template: Story = {
 	render: (args) => (
 		<ChoiceCardGroup {...args}>
 			<ChoiceCard
-				{...ChoiceCardStories.args}
 				id="abc1"
 				value="option-1"
 				label="Option 1"
@@ -40,7 +38,6 @@ const ChoiceCardGroupTemplate: Story = {
 				theme={args.themeChild}
 			/>
 			<ChoiceCard
-				{...ChoiceCardStories.args}
 				id="abc2"
 				value="option-2"
 				label="Option 2"
@@ -48,7 +45,6 @@ const ChoiceCardGroupTemplate: Story = {
 				theme={args.themeChild}
 			/>
 			<ChoiceCard
-				{...ChoiceCardStories.args}
 				id="abc3"
 				value="option-3"
 				label="Option 3"
@@ -56,7 +52,6 @@ const ChoiceCardGroupTemplate: Story = {
 				theme={args.themeChild}
 			/>
 			<ChoiceCard
-				{...ChoiceCardStories.args}
 				id="abc4"
 				value="option-4"
 				label="Option 4"
@@ -64,7 +59,6 @@ const ChoiceCardGroupTemplate: Story = {
 				theme={args.themeChild}
 			/>
 			<ChoiceCard
-				{...ChoiceCardStories.args}
 				id="abc5"
 				value="option-5"
 				label="Option 5"
@@ -72,7 +66,6 @@ const ChoiceCardGroupTemplate: Story = {
 				theme={args.themeChild}
 			/>
 			<ChoiceCard
-				{...ChoiceCardStories.args}
 				id="abc6"
 				value="option-6"
 				label="Option 6"
@@ -84,7 +77,7 @@ const ChoiceCardGroupTemplate: Story = {
 };
 
 export const DefaultDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		name: 'colours',
 		label: undefined,
@@ -95,7 +88,7 @@ export const DefaultDefaultTheme: Story = {
 };
 
 export const DefaultMobileDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 	},
@@ -108,7 +101,7 @@ export const DefaultMobileDefaultTheme: Story = {
 };
 
 export const DefaultTabletDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 	},
@@ -121,7 +114,7 @@ export const DefaultTabletDefaultTheme: Story = {
 };
 
 export const DefaultIn2ColumnsDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		columns: 2,
@@ -129,7 +122,7 @@ export const DefaultIn2ColumnsDefaultTheme: Story = {
 };
 
 export const DefaultIn3ColumnsDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		columns: 3,
@@ -137,7 +130,7 @@ export const DefaultIn3ColumnsDefaultTheme: Story = {
 };
 
 export const DefaultIn4ColumnsDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		columns: 4,
@@ -145,7 +138,7 @@ export const DefaultIn4ColumnsDefaultTheme: Story = {
 };
 
 export const DefaultIn5ColumnsDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		columns: 5,
@@ -153,7 +146,7 @@ export const DefaultIn5ColumnsDefaultTheme: Story = {
 };
 
 export const WithLabelDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		label: 'Choose an option',
@@ -161,7 +154,7 @@ export const WithLabelDefaultTheme: Story = {
 };
 
 export const WithSupportingDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...WithLabelDefaultTheme.args,
 		supporting: 'These are your options',
@@ -169,7 +162,7 @@ export const WithSupportingDefaultTheme: Story = {
 };
 
 export const WithErrorDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...DefaultDefaultTheme.args,
 		error: 'Please select a choice card to continue',
@@ -177,7 +170,7 @@ export const WithErrorDefaultTheme: Story = {
 };
 
 export const WithLabelAndErrorDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...WithLabelDefaultTheme.args,
 		error: 'Please select a choice card to continue',
@@ -185,7 +178,7 @@ export const WithLabelAndErrorDefaultTheme: Story = {
 };
 
 export const WithLabelAndSupportingAndErrorDefaultTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...WithSupportingDefaultTheme.args,
 		error: 'Please select a choice card to continue',
@@ -274,6 +267,7 @@ export const ControlledMultiSelectDefaultTheme: Story = {
 };
 
 export const UnControlledMultiSelectDefaultTheme: Story = {
+	name: 'Un-controlled Multi Select',
 	render: (args) => (
 		<ChoiceCardGroup {...args}>
 			<ChoiceCard id="abc1" value="option-1" label="Option 1" defaultChecked />
@@ -284,10 +278,10 @@ export const UnControlledMultiSelectDefaultTheme: Story = {
 		...WithSupportingDefaultTheme.args,
 		multi: true,
 	},
-	name: 'Un-controlled Multi Select',
 };
 
 export const UnControlledSingleSelectDefaultTheme: Story = {
+	name: 'Un-controlled Single Select',
 	render: (args) => (
 		<ChoiceCardGroup {...args}>
 			<ChoiceCard id="abc1" value="option-1" label="Option 1" />
@@ -298,11 +292,10 @@ export const UnControlledSingleSelectDefaultTheme: Story = {
 		...WithSupportingDefaultTheme.args,
 		multi: false,
 	},
-	name: 'Un-controlled Single Select',
 };
 
 export const WithSupportingCustomTheme: Story = {
-	...ChoiceCardGroupTemplate,
+	...Template,
 	args: {
 		...WithSupportingDefaultTheme.args,
 		theme: {
