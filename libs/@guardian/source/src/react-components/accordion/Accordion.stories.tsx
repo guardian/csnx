@@ -60,7 +60,7 @@ export const WithCTALabelsCustomTheme: Story = {
 	},
 };
 
-export const WithOutCTALabelsCustomTheme: Story = {
+export const WithoutCTALabelsCustomTheme: Story = {
 	...AccordionTemplate,
 	args: {
 		...WithCTALabelsCustomTheme.args,
