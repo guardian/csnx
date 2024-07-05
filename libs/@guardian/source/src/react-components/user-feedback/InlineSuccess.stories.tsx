@@ -14,19 +14,15 @@ const meta: Meta<typeof InlineSuccess> = {
 export default meta;
 type Story = StoryObj<typeof InlineSuccess>;
 
-const Template: Story = {
-	render: (args) => (
-		<InlineSuccess {...args}>Your voucher code is valid</InlineSuccess>
-	),
-};
-
 export const InlineSuccessDefaultTheme: Story = {
-	...Template,
+	args: {
+		children: 'Your voucher code is valid',
+	},
 };
 
 export const InlineSuccessBrandTheme: Story = {
-	...Template,
 	args: {
+		...InlineSuccessDefaultTheme.args,
 		theme: themeUserFeedbackBrand,
 	},
 	parameters: {
@@ -37,29 +33,26 @@ export const InlineSuccessBrandTheme: Story = {
 };
 
 export const InlineSuccessSmallDefaultTheme: Story = {
-	...Template,
 	args: {
+		...InlineSuccessDefaultTheme.args,
 		size: 'small',
 	},
 };
 
 export const InlineSuccessSmallBrandTheme: Story = {
-	...Template,
 	args: {
+		...InlineSuccessBrandTheme.args,
 		size: 'small',
-		theme: themeUserFeedbackBrand,
 	},
 
 	parameters: {
-		backgrounds: {
-			default: 'brandBackground.primary',
-		},
+		...InlineSuccessBrandTheme.parameters,
 	},
 };
 
 export const InlineSuccessCustomTheme: Story = {
-	...Template,
 	args: {
+		...InlineSuccessDefaultTheme.args,
 		theme: { textSuccess: palette.success[500] },
 	},
 	parameters: {
