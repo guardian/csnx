@@ -1,0 +1,20 @@
+{
+	"dependencyTypes": [
+		"dev"
+	],
+	"semverGroups": [
+		{
+			"label": "pin dev dependencies",
+			"packages": [
+				"**"
+			],
+			"dependencyTypes": [
+				"dev"
+			],
+			"dependencies": [
+				"**"
+			],
+			"range": ""
+		}
+	]
+}
