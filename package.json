@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "./tools/scripts/use-make-instead",
+		"lint:packages": "syncpack lint",
 		"prepare": "husky",
 		"test": "./tools/scripts/use-make-instead"
 	},
