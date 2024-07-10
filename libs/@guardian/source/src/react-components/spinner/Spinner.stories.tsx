@@ -1,6 +1,5 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
-import type { SpinnerProps } from './Spinner';
 import { Spinner } from './Spinner';
 
 const meta: Meta<typeof Spinner> = {
@@ -15,51 +14,37 @@ const meta: Meta<typeof Spinner> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof Spinner>;
 
-const Template: StoryFn<typeof Spinner> = (args: SpinnerProps) => (
-	<Spinner {...args} />
-);
-
-// *****************************************************************************
-
-export const XSmallSizeDefaultTheme: StoryFn<typeof Spinner> = Template.bind(
-	{},
-);
-XSmallSizeDefaultTheme.args = {
-	size: 'xsmall',
+export const XSmallSizeDefaultTheme: Story = {
+	args: {
+		size: 'xsmall',
+	},
 };
 
-// *****************************************************************************
-
-export const SmallSizeDefaultTheme: StoryFn<typeof Spinner> = Template.bind({});
-SmallSizeDefaultTheme.args = {
-	size: 'small',
+export const SmallSizeDefaultTheme: Story = {
+	args: {
+		size: 'small',
+	},
 };
 
-// *****************************************************************************
-
-export const MediumSizeDefaultTheme: StoryFn<typeof Spinner> = Template.bind(
-	{},
-);
-MediumSizeDefaultTheme.args = {
-	size: 'medium',
+export const MediumSizeDefaultTheme: Story = {
+	args: {
+		size: 'medium',
+	},
 };
 
-// *****************************************************************************
-
-export const CustomSizeDefaultTheme: StoryFn<typeof Spinner> = Template.bind(
-	{},
-);
-CustomSizeDefaultTheme.args = {
-	size: 40,
+export const CustomSizeDefaultTheme: Story = {
+	args: {
+		size: 40,
+	},
 };
 
-// *****************************************************************************
-
-export const CustomTheme: StoryFn<typeof Spinner> = Template.bind({});
-CustomTheme.args = {
-	theme: {
-		background: 'transparent',
-		color: palette.neutral[7],
+export const CustomTheme: Story = {
+	args: {
+		theme: {
+			background: 'transparent',
+			color: palette.neutral[7],
+		},
 	},
 };

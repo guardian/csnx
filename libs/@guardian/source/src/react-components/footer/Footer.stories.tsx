@@ -1,6 +1,5 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { breakpoints } from '../../foundations';
-import type { FooterProps } from './Footer';
 import { Footer } from './Footer';
 
 const meta: Meta<typeof Footer> = {
@@ -29,122 +28,113 @@ const meta: Meta<typeof Footer> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof Footer>;
 
-const Template: StoryFn<typeof Footer> = (args: FooterProps) => (
-	<Footer {...args} />
-);
+export const DefaultDefaultTheme: Story = {
+	args: { children: 'with' },
+};
 
-export const DefaultDefaultTheme: StoryFn<typeof Footer> = Template.bind({});
-DefaultDefaultTheme.args = { children: 'with' };
-
-export const DefaultTabletDefaultTheme: StoryFn<typeof Footer> = Template.bind(
-	{},
-);
-DefaultTabletDefaultTheme.args = { children: 'with' };
-DefaultTabletDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'tablet' },
-	chromatic: {
-		viewports: [breakpoints.tablet],
+export const DefaultTabletDefaultTheme: StoryObj<typeof Footer> = {
+	args: { ...DefaultDefaultTheme.args },
+	parameters: {
+		viewport: { defaultViewport: 'tablet' },
+		chromatic: {
+			viewports: [breakpoints.tablet],
+		},
 	},
 };
 
-export const DefaultMobileDefaultTheme: StoryFn<typeof Footer> = Template.bind(
-	{},
-);
-DefaultMobileDefaultTheme.args = { children: 'with' };
-DefaultMobileDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'mobileMedium' },
-	chromatic: {
-		viewports: [breakpoints.mobileMedium],
+export const DefaultMobileDefaultTheme: Story = {
+	args: { ...DefaultDefaultTheme.args },
+	parameters: {
+		viewport: { defaultViewport: 'mobileMedium' },
+		chromatic: {
+			viewports: [breakpoints.mobileMedium],
+		},
 	},
 };
 
-export const WithBackToTopDefaultTheme: StoryFn<typeof Footer> = Template.bind(
-	{},
-);
-WithBackToTopDefaultTheme.args = { showBackToTop: true, children: 'with' };
-
-export const WithBackToTopTabletDefaultTheme: StoryFn<typeof Footer> =
-	Template.bind({});
-WithBackToTopTabletDefaultTheme.args = {
-	showBackToTop: true,
-	children: 'with',
+export const WithBackToTopDefaultTheme: Story = {
+	args: { ...DefaultDefaultTheme.args, showBackToTop: true },
 };
-WithBackToTopTabletDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'tablet' },
-	chromatic: {
-		viewports: [breakpoints.tablet],
+
+export const WithBackToTopTabletDefaultTheme: Story = {
+	args: {
+		...WithBackToTopDefaultTheme.args,
+	},
+	parameters: {
+		viewport: { defaultViewport: 'tablet' },
+		chromatic: {
+			viewports: [breakpoints.tablet],
+		},
 	},
 };
 
-export const WithBackToTopMobileDefaultTheme: StoryFn<typeof Footer> =
-	Template.bind({});
-WithBackToTopMobileDefaultTheme.args = {
-	showBackToTop: true,
-	children: 'with',
-};
-WithBackToTopMobileDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'mobileMedium' },
-	chromatic: {
-		viewports: [breakpoints.mobileMedium],
+export const WithBackToTopMobileDefaultTheme: Story = {
+	args: {
+		...WithBackToTopDefaultTheme.args,
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobileMedium' },
+		chromatic: {
+			viewports: [breakpoints.mobileMedium],
+		},
 	},
 };
 
-export const WithoutChildrenDefaultTheme: StoryFn<typeof Footer> =
-	Template.bind({});
-WithoutChildrenDefaultTheme.args = { children: 'without' };
+export const WithoutChildrenDefaultTheme: Story = {
+	args: { children: 'without' },
+};
 
-export const WithoutChildrenTabletDefaultTheme: StoryFn<typeof Footer> =
-	Template.bind({});
-WithoutChildrenTabletDefaultTheme.args = { children: 'without' };
-WithoutChildrenTabletDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'tablet' },
-	chromatic: {
-		viewports: [breakpoints.tablet],
+export const WithoutChildrenTabletDefaultTheme: Story = {
+	args: { ...WithoutChildrenDefaultTheme.args },
+	parameters: {
+		viewport: { defaultViewport: 'tablet' },
+		chromatic: {
+			viewports: [breakpoints.tablet],
+		},
 	},
 };
 
-export const WithoutChildrenMobileDefaultTheme: StoryFn<typeof Footer> =
-	Template.bind({});
-WithoutChildrenMobileDefaultTheme.args = { children: 'without' };
-WithoutChildrenMobileDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'mobileMedium' },
-	chromatic: {
-		viewports: [breakpoints.mobileMedium],
+export const WithoutChildrenMobileDefaultTheme: Story = {
+	args: { ...WithoutChildrenDefaultTheme.args },
+	parameters: {
+		viewport: { defaultViewport: 'mobileMedium' },
+		chromatic: {
+			viewports: [breakpoints.mobileMedium],
+		},
 	},
 };
 
-export const WithoutChildrenWithBackToTopDefaultTheme: StoryFn<typeof Footer> =
-	Template.bind({});
-WithoutChildrenWithBackToTopDefaultTheme.args = {
-	showBackToTop: true,
-	children: 'without',
-};
-
-export const WithoutChildrenWithBackToTopTabletDefaultTheme: StoryFn<
-	typeof Footer
-> = Template.bind({});
-WithoutChildrenWithBackToTopTabletDefaultTheme.args = {
-	showBackToTop: true,
-	children: 'without',
-};
-WithoutChildrenWithBackToTopTabletDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'tablet' },
-	chromatic: {
-		viewports: [breakpoints.tablet],
+export const WithoutChildrenWithBackToTopDefaultTheme: Story = {
+	args: {
+		...WithoutChildrenDefaultTheme.args,
+		showBackToTop: true,
 	},
 };
 
-export const WithoutChildrenWithBackToTopMobileDefaultTheme: StoryFn<
-	typeof Footer
-> = Template.bind({});
-WithoutChildrenWithBackToTopMobileDefaultTheme.args = {
-	showBackToTop: true,
-	children: 'without',
+export const WithoutChildrenWithBackToTopTabletDefaultTheme: Story = {
+	args: {
+		...WithoutChildrenDefaultTheme.args,
+		showBackToTop: true,
+	},
+	parameters: {
+		viewport: { defaultViewport: 'tablet' },
+		chromatic: {
+			viewports: [breakpoints.tablet],
+		},
+	},
 };
-WithoutChildrenWithBackToTopMobileDefaultTheme.parameters = {
-	viewport: { defaultViewport: 'mobileMedium' },
-	chromatic: {
-		viewports: [breakpoints.mobileMedium],
+
+export const WithoutChildrenWithBackToTopMobileDefaultTheme: Story = {
+	args: {
+		...WithoutChildrenDefaultTheme.args,
+		showBackToTop: true,
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobileMedium' },
+		chromatic: {
+			viewports: [breakpoints.mobileMedium],
+		},
 	},
 };
