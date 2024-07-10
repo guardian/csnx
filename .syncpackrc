@@ -1,0 +1,32 @@
+{
+	"lintFormatting": false,
+	"lintSemverRanges": true,
+	"lintVersions": false,
+	"semverGroups": [
+		{
+			"label": "pin dependencies and devDependencies",
+			"dependencyTypes": [
+				"dev",
+				"prod"
+			],
+			"range": ""
+		},
+		{
+			"label": "use ~ for typescript peerDependencies",
+			"dependencyTypes": [
+				"peer"
+			],
+			"dependencies": [
+				"typescript"
+			],
+			"range": "~"
+		},
+		{
+			"label": "use ^ for all other peerDependencies",
+			"dependencyTypes": [
+				"peer"
+			],
+			"range": "^"
+		}
+	]
+}
