@@ -121,22 +121,18 @@ export const Radio = ({
 	};
 
 	const radioControl = (
-		<div
-			css={(providerTheme: Theme) => radioContainer(mergedTheme(providerTheme))}
-		>
-			<input
-				id={radioId}
-				type="radio"
-				css={(providerTheme: Theme) => [
-					radio(mergedTheme(providerTheme)),
-					cssOverrides,
-				]}
-				value={value}
-				defaultChecked={defaultChecked ?? undefined}
-				checked={checked != null ? isChecked() : undefined}
-				{...props}
-			/>
-		</div>
+		<input
+			id={radioId}
+			type="radio"
+			css={(providerTheme: Theme) => [
+				radio(mergedTheme(providerTheme)),
+				cssOverrides,
+			]}
+			value={value}
+			defaultChecked={defaultChecked ?? undefined}
+			checked={checked != null ? isChecked() : undefined}
+			{...props}
+		/>
 	);
 
 	const labelledRadioControl = (
@@ -157,7 +153,19 @@ export const Radio = ({
 		</div>
 	);
 
+	const unlabelledRadioControl = (
+		<div
+			css={(providerTheme: Theme) => radioContainer(mergedTheme(providerTheme))}
+		>
+			{radioControl}
+		</div>
+	);
+
 	return (
-		<>{(labelContent ?? supporting) ? labelledRadioControl : radioControl}</>
+		<>
+			{(labelContent ?? supporting)
+				? labelledRadioControl
+				: unlabelledRadioControl}
+		</>
 	);
 };
