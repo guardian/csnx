@@ -121,18 +121,22 @@ export const Radio = ({
 	};
 
 	const radioControl = (
-		<input
-			id={radioId}
-			type="radio"
-			css={(providerTheme: Theme) => [
-				radio(mergedTheme(providerTheme)),
-				cssOverrides,
-			]}
-			value={value}
-			defaultChecked={defaultChecked ?? undefined}
-			checked={checked != null ? isChecked() : undefined}
-			{...props}
-		/>
+		<div
+			css={(providerTheme: Theme) => radioContainer(mergedTheme(providerTheme))}
+		>
+			<input
+				id={radioId}
+				type="radio"
+				css={(providerTheme: Theme) => [
+					radio(mergedTheme(providerTheme)),
+					cssOverrides,
+				]}
+				value={value}
+				defaultChecked={defaultChecked ?? undefined}
+				checked={checked != null ? isChecked() : undefined}
+				{...props}
+			/>
+		</div>
 	);
 
 	const labelledRadioControl = (
