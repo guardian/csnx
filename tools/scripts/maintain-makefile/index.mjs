@@ -1,10 +1,9 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { pathFromRoot, projectRoot } from '../project-paths.mjs';
-import { getTasks } from '../lib/get-tasks.mjs';
-
 import _updateSection from 'update-section';
+import { getTasks } from '../lib/get-tasks.mjs';
+import { pathFromRoot, projectRoot } from '../project-paths.mjs';
 
 const updateSection = ({ contents, updates }) => {
 	const START = `############################## START PROJECT_TASKS #############################`;

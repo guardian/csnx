@@ -1,13 +1,13 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import prettierConfig from '@guardian/prettier';
+import { format } from 'prettier';
+import _updateSection from 'update-section';
+import { getMakeTargets } from '../lib/get-make-targets.mjs';
+import { getTasks } from '../lib/get-tasks.mjs';
 import { pathFromRoot, projectRoot } from '../project-paths.mjs';
 import { getPackageList } from './get-package-list.mjs';
-import { getMakeTargets } from '../lib/get-make-targets.mjs';
-import { format } from 'prettier';
-import prettierConfig from '@guardian/prettier';
-import { getTasks } from '../lib/get-tasks.mjs';
-import _updateSection from 'update-section';
 
 const updateSection = ({ contents, tag, updates, updater }) => {
 	const START = `<!-- START ${tag} -->`;

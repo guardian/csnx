@@ -1,5 +1,5 @@
-import fastGlob from 'fast-glob';
 import { readFile } from 'fs/promises';
+import fastGlob from 'fast-glob';
 
 /**
  * Get all npm-scripts from all packages in `libs` and `apps`, and returns them
