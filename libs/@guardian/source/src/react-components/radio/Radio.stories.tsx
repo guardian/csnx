@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { palette } from '../../foundations';
+import { breakpoints, palette } from '../../foundations';
 import { Radio } from './Radio';
 import { themeRadioBrand } from './theme';
 
@@ -85,6 +85,20 @@ export const UnlabelledDefaultTheme: Story = {
 	args: {
 		...DefaultDefaultTheme.args,
 		label: undefined,
+	},
+};
+
+export const LongLabelMobileDefaultTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		label:
+			'Circulation / Visitors / Audience (for News media, Magazine and Exhibition requests)',
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobile' },
+		chromatic: {
+			viewports: [breakpoints.mobile],
+		},
 	},
 };
 
