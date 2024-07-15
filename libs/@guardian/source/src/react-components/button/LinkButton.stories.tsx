@@ -1,27 +1,33 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import { SvgArrowRightStraight } from '../__generated__/icons/SvgArrowRightStraight';
 import { LinkButton } from './LinkButton';
-import type { LinkButtonProps } from './LinkButton';
 
 const meta: Meta<typeof LinkButton> = {
 	title: 'React Components/LinkButton',
 	component: LinkButton,
 	argTypes: {
 		icon: {
-			options: ['undefined', 'arrow'],
+			options: ['None', 'Arrow'],
 			mapping: {
-				undefined: undefined,
-				arrow: <SvgArrowRightStraight />,
+				None: undefined,
+				Arrow: <SvgArrowRightStraight />,
 			},
 			control: { type: 'radio' },
 		},
 	},
+};
+
+export default meta;
+type Story = StoryObj<typeof LinkButton>;
+
+export const PrimaryPriorityDefaultTheme: Story = {
 	args: {
 		children: 'Subscribe now',
 		size: 'default',
 		hideLabel: false,
-		icon: undefined,
+		// @ts-expect-error - Name from control options which Storybook maps to `undefined`
+		icon: 'None',
 		priority: 'primary',
 		iconSide: 'left',
 		nudgeIcon: false,
@@ -29,178 +35,117 @@ const meta: Meta<typeof LinkButton> = {
 	},
 };
 
-export default meta;
-
-const Template: StoryFn<typeof LinkButton> = (args: LinkButtonProps) => (
-	<LinkButton {...args} />
-);
-
-// *****************************************************************************
-
-export const PrimaryPriorityDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-PrimaryPriorityDefaultTheme.args = {
-	priority: 'primary',
-};
-
-// *****************************************************************************
-
-export const SecondaryPriorityDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-SecondaryPriorityDefaultTheme.args = {
-	priority: 'secondary',
-};
-
-// *****************************************************************************
-
-export const TertiaryPriorityDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-TertiaryPriorityDefaultTheme.args = {
-	priority: 'tertiary',
-};
-
-// *****************************************************************************
-
-export const SubduedPriorityDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-SubduedPriorityDefaultTheme.args = {
-	priority: 'subdued',
-};
-
-// *****************************************************************************
-
-export const TextAndIconLeftDefaultSizeDefaultTheme: StoryFn<
-	typeof LinkButton
-> = Template.bind({});
-TextAndIconLeftDefaultSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-};
-
-// *****************************************************************************
-
-export const TextAndIconRightDefaultSizeDefaultTheme: StoryFn<
-	typeof LinkButton
-> = Template.bind({});
-TextAndIconRightDefaultSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	iconSide: 'right',
-};
-
-// *****************************************************************************
-
-export const TextAndIconLeftSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-TextAndIconLeftSmallSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const TextAndIconRightSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-TextAndIconRightSmallSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	iconSide: 'right',
-	size: 'small',
-};
-
-// *****************************************************************************
-
-export const TextAndIconLeftXSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-TextAndIconLeftXSmallSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	size: 'xsmall',
-};
-
-// *****************************************************************************
-
-export const TextAndIconRightXSmallSizeDefaultTheme: StoryFn<
-	typeof LinkButton
-> = Template.bind({});
-TextAndIconRightXSmallSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	iconSide: 'right',
-	size: 'xsmall',
-};
-
-// *****************************************************************************
-
-export const TextAndIconLeftWithNudgeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-TextAndIconLeftWithNudgeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	nudgeIcon: true,
-};
-
-// *****************************************************************************
-
-export const TextAndIconRightWithNudgeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-TextAndIconRightWithNudgeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	iconSide: 'right',
-	nudgeIcon: true,
-};
-
-// *****************************************************************************
-
-export const IconOnlyDefaultSizeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-IconOnlyDefaultSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	hideLabel: true,
-};
-
-// *****************************************************************************
-
-export const IconOnlySmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-IconOnlySmallSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	size: 'small',
-	hideLabel: true,
-};
-
-// *****************************************************************************
-
-export const IconOnlyXSmallSizeDefaultTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-IconOnlyXSmallSizeDefaultTheme.args = {
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	size: 'xsmall',
-	hideLabel: true,
-};
-
-// *****************************************************************************
-
-export const PrimaryPriorityCustomTheme: StoryFn<typeof LinkButton> =
-	Template.bind({});
-PrimaryPriorityCustomTheme.args = {
-	priority: 'primary',
-	iconSide: 'right',
-	// @ts-expect-error - Storybook maps 'arrow' to <SvgArrowRightStraight />
-	icon: 'arrow',
-	theme: {
-		textPrimary: palette.brand[400],
-		backgroundPrimary: palette.brandAlt[400],
-		backgroundPrimaryHover: palette.brandAlt[200],
+export const SecondaryPriorityDefaultTheme: Story = {
+	args: {
+		...PrimaryPriorityDefaultTheme.args,
+		priority: 'secondary',
 	},
 };
-PrimaryPriorityCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+
+export const TertiaryPriorityDefaultTheme: Story = {
+	args: {
+		...PrimaryPriorityDefaultTheme.args,
+		priority: 'tertiary',
+	},
+};
+
+export const SubduedPriorityDefaultTheme: Story = {
+	args: {
+		...PrimaryPriorityDefaultTheme.args,
+		priority: 'subdued',
+	},
+};
+
+export const TextAndIconLeftDefaultSizeDefaultTheme: Story = {
+	args: {
+		...PrimaryPriorityDefaultTheme.args,
+		// @ts-expect-error - Name from control options which Storybook maps to `<SvgCross />`
+		icon: 'Arrow',
+	},
+};
+
+export const TextAndIconRightDefaultSizeDefaultTheme: Story = {
+	args: {
+		...TextAndIconLeftDefaultSizeDefaultTheme.args,
+		iconSide: 'right',
+	},
+};
+
+export const TextAndIconLeftSmallSizeDefaultTheme: Story = {
+	args: {
+		...TextAndIconLeftDefaultSizeDefaultTheme.args,
+		size: 'small',
+	},
+};
+
+export const TextAndIconRightSmallSizeDefaultTheme: Story = {
+	args: {
+		...TextAndIconRightDefaultSizeDefaultTheme.args,
+		size: 'small',
+	},
+};
+
+export const TextAndIconLeftXSmallSizeDefaultTheme: Story = {
+	args: {
+		...TextAndIconLeftDefaultSizeDefaultTheme.args,
+		size: 'xsmall',
+	},
+};
+
+export const TextAndIconRightXSmallSizeDefaultTheme: Story = {
+	args: {
+		...TextAndIconRightDefaultSizeDefaultTheme.args,
+		size: 'xsmall',
+	},
+};
+
+export const TextAndIconLeftWithNudgeDefaultTheme: Story = {
+	args: {
+		...TextAndIconLeftDefaultSizeDefaultTheme.args,
+		nudgeIcon: true,
+	},
+};
+
+export const TextAndIconRightWithNudgeDefaultTheme: Story = {
+	args: {
+		...TextAndIconRightDefaultSizeDefaultTheme.args,
+		nudgeIcon: true,
+	},
+};
+
+export const IconOnlyDefaultSizeDefaultTheme: Story = {
+	args: {
+		...TextAndIconLeftDefaultSizeDefaultTheme.args,
+		hideLabel: true,
+	},
+};
+
+export const IconOnlySmallSizeDefaultTheme: Story = {
+	args: {
+		...IconOnlyDefaultSizeDefaultTheme.args,
+		size: 'small',
+	},
+};
+
+export const IconOnlyXSmallSizeDefaultTheme: Story = {
+	args: {
+		...IconOnlyDefaultSizeDefaultTheme.args,
+		size: 'xsmall',
+	},
+};
+
+export const PrimaryPriorityCustomTheme: Story = {
+	args: {
+		...TextAndIconRightDefaultSizeDefaultTheme.args,
+		theme: {
+			textPrimary: palette.brand[400],
+			backgroundPrimary: palette.brandAlt[400],
+			backgroundPrimaryHover: palette.brandAlt[200],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
 	},
 };

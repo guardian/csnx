@@ -1,5 +1,11 @@
 # @guardian/eslint-config-typescript
 
+## 11.0.0
+
+### Major Changes
+
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
 ## 10.0.1
 
 ### Patch Changes

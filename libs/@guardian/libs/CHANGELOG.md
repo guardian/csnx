@@ -1,5 +1,21 @@
 # @guardian/libs
 
+## 18.0.0
+
+### Major Changes
+
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
+### Patch Changes
+
+- a5498b8: internal code refactors to simplify handling of undefined arrays
+
+## 17.0.1
+
+### Patch Changes
+
+- e191a91: Fix issue with sourcepoint AB test
+
 ## 17.0.0
 
 ### Major Changes

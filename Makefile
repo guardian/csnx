@@ -55,6 +55,7 @@ verify-dist: env
 lint: env
 	$(call log,"Linting projects")
 	@corepack pnpm -r lint
+	@corepack pnpm lint:packages
 	@node ./tools/scripts/check-packages-for-tslib.mjs
 
 # check repo for formatting errors

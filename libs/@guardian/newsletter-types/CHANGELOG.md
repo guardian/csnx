@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 3.0.0
+
+### Major Changes
+
+- e5b15dc: Update TypeScript support to `v5.5.2`.
+
 ## 2.0.1
 
 ### Patch Changes

@@ -2,6 +2,16 @@
 import * as libs from '@guardian/libs';
 import { cookieRefreshIfRequired } from '../cookieRefresh';
 
+// jest is really not good with es modules :(
+jest.mock(
+	'@guardian/libs',
+	() =>
+		({
+			__esModule: true,
+			...jest.requireActual('@guardian/libs'),
+		}) as typeof libs,
+);
+
 const mockedSetLocal = jest.spyOn(libs.storage.local, 'set');
 const mockedGetLocal = jest.spyOn(libs.storage.local, 'get');
 const mockedLocalIsAvailable = jest.spyOn(libs.storage.local, 'isAvailable');

@@ -17,9 +17,9 @@ declare global {
 				subscriptions: () => string[];
 			};
 			config?: {
+				tests?: ServerSideTests;
 				page?: {
 					isPreview: boolean;
-					abTests?: ServerSideTests;
 				};
 				stage?: string;
 				isDev?: boolean;

@@ -68,7 +68,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	}
 
 	const isInPropertyIdABTest =
-		window.guardian?.config?.page?.abTests?.useSourcepointPropertyIdVariant ===
+		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
 	log('cmp', `framework: ${framework}`);

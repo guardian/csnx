@@ -1,17 +1,11 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
-import type { ButtonLinkProps } from './ButtonLink';
 import { ButtonLink } from './ButtonLink';
 
 const meta: Meta<typeof ButtonLink> = {
 	title: 'React Components/ButtonLink',
 	component: ButtonLink,
-	args: {
-		priority: 'primary',
-		icon: <SvgExternal />,
-		iconSide: 'left',
-	},
 	argTypes: {
 		icon: {
 			options: ['undefined', 'SvgExternal'],
@@ -25,59 +19,56 @@ const meta: Meta<typeof ButtonLink> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof ButtonLink>;
 
-const Template: StoryFn<typeof ButtonLink> = (args: ButtonLinkProps) => (
-	<ButtonLink {...args}>Return to home page</ButtonLink>
-);
-
-export const PrimaryButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-PrimaryButtonLinkDefaultTheme.args = {
-	icon: undefined,
-};
-
-// *****************************************************************************
-
-export const SecondaryButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-SecondaryButtonLinkDefaultTheme.args = {
-	priority: 'secondary',
-	icon: undefined,
-};
-
-// *****************************************************************************
-
-export const PrimaryIconButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-
-// *****************************************************************************
-
-export const SecondaryIconButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-SecondaryIconButtonLinkDefaultTheme.args = {
-	priority: 'secondary',
-};
-
-// *****************************************************************************
-
-export const RightIconButtonLinkDefaultTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-RightIconButtonLinkDefaultTheme.args = {
-	iconSide: 'right',
-};
-
-// *****************************************************************************
-
-export const PrimaryIconLinkCustomTheme: StoryFn<typeof ButtonLink> =
-	Template.bind({});
-PrimaryIconLinkCustomTheme.args = {
-	theme: {
-		textPrimary: palette.neutral[86],
-		textPrimaryHover: palette.brand[800],
+export const PrimaryButtonLinkDefaultTheme: Story = {
+	args: {
+		priority: 'primary',
+		icon: undefined,
+		iconSide: 'left',
+		children: 'Return to home page',
 	},
 };
-PrimaryIconLinkCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+
+export const SecondaryButtonLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryButtonLinkDefaultTheme.args,
+		priority: 'secondary',
+	},
+};
+
+export const PrimaryIconButtonLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryButtonLinkDefaultTheme.args,
+		icon: <SvgExternal />,
+	},
+};
+
+export const SecondaryIconButtonLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryIconButtonLinkDefaultTheme.args,
+		priority: 'secondary',
+	},
+};
+
+export const RightIconButtonLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryIconButtonLinkDefaultTheme.args,
+		iconSide: 'right',
+	},
+};
+
+export const PrimaryIconLinkCustomTheme: Story = {
+	args: {
+		...PrimaryIconButtonLinkDefaultTheme.args,
+		theme: {
+			textPrimary: palette.neutral[86],
+			textPrimaryHover: palette.brand[800],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
 	},
 };

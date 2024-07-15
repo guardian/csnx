@@ -14,15 +14,24 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
-			fillRule="evenodd"
-			clipRule="evenodd"
-			d="M18.236 18.718A9.135 9.135 0 0 1 12 21.167c-2.41 0-4.603-.93-6.239-2.45l1.188-4.648.737-.759c1.438-.5 2.732-.722 4.314-.722 1.564 0 2.876.26 4.314.722l.719.76 1.203 4.648ZM22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-10.01-.588c1.355 0 2.951-1.703 2.951-3.779 0-2.076-1.094-3.28-2.95-3.28s-2.932 1.204-2.932 3.28c0 2.076 1.726 3.779 2.932 3.779Z"
+			d="M10.25 2.875h-6.5l-.875.875v6.5l.875.875h6.5l.875-.875v-6.5z"
+			fill={theme?.fill}
+		/>
+		<path d="M11.125 12.875h-8.25V14.5h8.25z" fill={theme?.fill} />
+		<path d="M11.125 19.5h-8.25v1.625h8.25z" fill={theme?.fill} />
+		<path d="M11.125 16.188h-8.25v1.625h8.25z" fill={theme?.fill} />
+		<path
+			d="M20.25 12.875h-6.5l-.875.875v6.5l.875.875h6.5l.875-.875v-6.5z"
+			fill={theme?.fill}
+		/>
+		<path
+			d="M20.25 2.875h-6.5l-.875.875v6.5l.875.875h6.5l.875-.875v-6.5z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgPersonRound = ({
+export const SvgHomeSquareFilled = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +44,7 @@ export const SvgPersonRound = ({
 					${visuallyHidden}
 				`}
 			>
-				Account
+				Home
 			</span>
 		) : (
 			''

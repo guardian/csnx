@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/core-web-vitals",
-	"version": "6.0.1",
+	"version": "7.0.0",
 	"private": false,
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
@@ -25,22 +25,22 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@guardian/libs": "16.0.0",
+		"@guardian/libs": "18.0.0",
 		"@types/jest": "29.5.8",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"rollup": "4.18.0",
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
-		"web-vitals": "3.5.0",
+		"typescript": "5.5.2",
+		"web-vitals": "4.2.1",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^16.0.0",
+		"@guardian/libs": "^18.0.0",
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3",
-		"web-vitals": "^3.5.0"
+		"typescript": "~5.5.2",
+		"web-vitals": "^4.2.1"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {
@@ -51,8 +51,16 @@
 		"access": "public"
 	},
 	"wireit": {
+		"__deps__": {
+			"dependencies": [
+				"../libs:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"src/**",
 				"package.json",
@@ -66,6 +74,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -79,6 +90,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -89,6 +103,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../configs/jest.*",
@@ -99,6 +116,9 @@
 		},
 		"tsc": {
 			"command": "tsc --pretty",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"tsconfig.json",
