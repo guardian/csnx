@@ -113,6 +113,11 @@ changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
+.PHONY: changeset-version
+changeset-version: env
+	$(call log,"Creating a new changeset")
+	@corepack pnpm changeset version
+	@corepack pnpm install --lockfile-only
 ################################ INTERNAL UTILS ################################
 
 # loosely styled logging for user feedback

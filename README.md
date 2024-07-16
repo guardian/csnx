@@ -54,6 +54,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make build` _builds all projects_
 - `make build-storybook` _builds all storybooks_
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
+- `make changeset-version` \_\_
 - `make clean` _removes all build artifacts and task caches_
 - `make dev` _runs the dev targets for all projects in single instance_
 - `make e2e` _runs the e2e tests for all projects_

@@ -26,6 +26,8 @@ jobs:
       - name: Version
         run: pnpm changeset version --snapshot canary
 
+      - run: pnpm install --lockfile-only
+
       - run: make build
 
       - name: Release
