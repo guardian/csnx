@@ -117,7 +117,7 @@ changeset: env
 # updates the lockfile with the updated versions of the packages https://github.com/changesets/changesets/issues/421
 .PHONY: changeset-version
 changeset-version: env
-	$(call log,"Creating a new changeset")
+	$(call log,"Updating versions, dependencies and writing changelog")
 	@corepack pnpm changeset version
 	@corepack pnpm install --lockfile-only
 ################################ INTERNAL UTILS ################################
