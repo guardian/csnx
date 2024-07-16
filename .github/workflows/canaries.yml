@@ -26,6 +26,8 @@ jobs:
       - name: Version
         run: pnpm changeset version --snapshot canary
 
+      # after the versioning the new versions need to be reflected in the lockfile.
+      # https://github.com/changesets/changesets/issues/421
       - run: pnpm install --lockfile-only
 
       - run: make build

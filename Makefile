@@ -113,6 +113,8 @@ changeset: env
 	$(call log,"Creating a new changeset")
 	@corepack pnpm changeset
 
+# takes changesets that have been made and updates versions and dependencies of packages, as well as writing changelogs
+# updates the lockfile with the updated versions of the packages https://github.com/changesets/changesets/issues/421
 .PHONY: changeset-version
 changeset-version: env
 	$(call log,"Creating a new changeset")
