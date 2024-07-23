@@ -589,6 +589,18 @@ export const typographyPresets = {
 		fontWeight: 700,
 		fontStyle: 'normal',
 	},
+	headlineBold15: {
+		fontFamily: [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		],
+		fontSize: '15px',
+		lineHeight: 1.15,
+		fontWeight: 700,
+		fontStyle: 'normal',
+	},
 	headlineBold17: {
 		fontFamily: [
 			'GH Guardian Headline',
@@ -913,6 +925,18 @@ export const typographyPresets = {
 		fontWeight: 500,
 		fontStyle: 'normal',
 	},
+	headlineMedium15: {
+		fontFamily: [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		],
+		fontSize: '15px',
+		lineHeight: 1.15,
+		fontWeight: 500,
+		fontStyle: 'normal',
+	},
 	headlineMedium17: {
 		fontFamily: [
 			'GH Guardian Headline',
@@ -1017,6 +1041,18 @@ export const typographyPresets = {
 			'serif',
 		],
 		fontSize: '14px',
+		lineHeight: 1.15,
+		fontWeight: 500,
+		fontStyle: 'italic',
+	},
+	headlineMediumItalic15: {
+		fontFamily: [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		],
+		fontSize: '15px',
 		lineHeight: 1.15,
 		fontWeight: 500,
 		fontStyle: 'italic',
