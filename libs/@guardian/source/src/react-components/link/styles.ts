@@ -13,8 +13,6 @@ export const link = css`
 	${textSans17};
 	cursor: pointer;
 	text-decoration: underline;
-	text-underline-position: under;
-	text-underline-offset: 5%;
 
 	display: inline;
 	align-items: center;
