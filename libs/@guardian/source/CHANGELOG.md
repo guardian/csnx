@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 6.1.0
+
+### Minor Changes
+
+- 11c62af: Adds `headlineBold15`, `headlineLight15`, `headlineLightItalic15`, `headlineMedium15` and `headlineMediumItalic15` to the typography presets
+
 ## 6.0.0
 
 ### Major Changes
