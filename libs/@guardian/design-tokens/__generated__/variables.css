@@ -667,6 +667,19 @@
 	--source-typographyPresets-headlineLight14-line-height: var(
 		--source-typography-lineHeight-tight
 	);
+	--source-typographyPresets-headlineLight15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineLight15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineLight15-font-style: normal;
+	--source-typographyPresets-headlineLight15-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typographyPresets-headlineLight15-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-typographyPresets-headlineLight17-font-family: var(
 		--source-typography-fontFamily-headline
 	);

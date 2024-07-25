@@ -162,6 +162,14 @@ export const headlineLight14Object = {
 	fontStyle: 'normal',
 } as const;
 
+export const headlineLight15Object = {
+	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+	fontSize: '0.9375rem',
+	lineHeight: 1.15,
+	fontWeight: 300,
+	fontStyle: 'normal',
+} as const;
+
 export const headlineLight17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '1.0625rem',

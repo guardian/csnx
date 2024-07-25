@@ -709,6 +709,18 @@ export const typographyPresets = {
 		fontWeight: 300,
 		fontStyle: 'normal',
 	},
+	headlineLight15: {
+		fontFamily: [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		],
+		fontSize: '15px',
+		lineHeight: 1.15,
+		fontWeight: 300,
+		fontStyle: 'normal',
+	},
 	headlineLight17: {
 		fontFamily: [
 			'GH Guardian Headline',
