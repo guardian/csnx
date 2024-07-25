@@ -829,6 +829,18 @@ export const typographyPresets = {
 		fontWeight: 300,
 		fontStyle: 'italic',
 	},
+	headlineLightItalic15: {
+		fontFamily: [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		],
+		fontSize: '15px',
+		lineHeight: 1.15,
+		fontWeight: 300,
+		fontStyle: 'italic',
+	},
 	headlineLightItalic17: {
 		fontFamily: [
 			'GH Guardian Headline',

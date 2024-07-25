@@ -797,6 +797,19 @@
 	--source-typographyPresets-headlineLightItalic14-line-height: var(
 		--source-typography-lineHeight-tight
 	);
+	--source-typographyPresets-headlineLightItalic15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineLightItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineLightItalic15-font-style: italic;
+	--source-typographyPresets-headlineLightItalic15-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typographyPresets-headlineLightItalic15-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-typographyPresets-headlineLightItalic17-font-family: var(
 		--source-typography-fontFamily-headline
 	);

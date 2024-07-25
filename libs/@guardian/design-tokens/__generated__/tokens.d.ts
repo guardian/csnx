@@ -845,6 +845,18 @@ export declare const typographyPresets: {
 		readonly fontWeight: 300;
 		readonly fontStyle: 'italic';
 	};
+	readonly headlineLightItalic15: {
+		readonly fontFamily: readonly [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		];
+		readonly fontSize: '15px';
+		readonly lineHeight: 1.15;
+		readonly fontWeight: 300;
+		readonly fontStyle: 'italic';
+	};
 	readonly headlineLightItalic17: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',

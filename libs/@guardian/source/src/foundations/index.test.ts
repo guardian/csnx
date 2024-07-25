@@ -113,6 +113,8 @@ it('Should have exactly these exports', () => {
 		'headlineLight64Object',
 		'headlineLightItalic14',
 		'headlineLightItalic14Object',
+		'headlineLightItalic15',
+		'headlineLightItalic15Object',
 		'headlineLightItalic17',
 		'headlineLightItalic17Object',
 		'headlineLightItalic20',

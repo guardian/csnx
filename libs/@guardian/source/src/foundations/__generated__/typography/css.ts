@@ -263,6 +263,15 @@ export const headlineLightItalic14 = `
 	--source-text-decoration-thickness: 2px;
 `;
 
+export const headlineLightItalic15 = `
+	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+	font-size: 0.9375rem;
+	line-height: 1.15;
+	font-weight: 300;
+	font-style: italic;
+	--source-text-decoration-thickness: 2px;
+`;
+
 export const headlineLightItalic17 = `
 	font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 	font-size: 1.0625rem;
