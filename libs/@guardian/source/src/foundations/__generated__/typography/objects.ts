@@ -82,6 +82,14 @@ export const headlineBold14Object = {
 	fontStyle: 'normal',
 } as const;
 
+export const headlineBold15Object = {
+	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+	fontSize: '0.9375rem',
+	lineHeight: 1.15,
+	fontWeight: 700,
+	fontStyle: 'normal',
+} as const;
+
 export const headlineBold17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '1.0625rem',
@@ -298,6 +306,14 @@ export const headlineMedium14Object = {
 	fontStyle: 'normal',
 } as const;
 
+export const headlineMedium15Object = {
+	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+	fontSize: '0.9375rem',
+	lineHeight: 1.15,
+	fontWeight: 500,
+	fontStyle: 'normal',
+} as const;
+
 export const headlineMedium17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '1.0625rem',
@@ -365,6 +381,14 @@ export const headlineMedium64Object = {
 export const headlineMediumItalic14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 	fontSize: '0.875rem',
+	lineHeight: 1.15,
+	fontWeight: 500,
+	fontStyle: 'italic',
+} as const;
+
+export const headlineMediumItalic15Object = {
+	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+	fontSize: '0.9375rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
