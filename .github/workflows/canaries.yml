@@ -39,7 +39,7 @@ jobs:
           # currently, you have to tag releases in git to get the action output to appear
           # https://github.com/changesets/action/issues/141
           # publish: pnpm changeset publish --no-git-tag --tag canary
-          publish: ./scripts/changesets/publish-canary.sh
+          publish: ./../scripts/changesets/publish-canary.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
