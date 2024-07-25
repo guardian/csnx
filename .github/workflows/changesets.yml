@@ -44,7 +44,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          version: make changeset-version
+          version: ./scripts/changesets/version.sh
           publish: pnpm changeset publish
           title: '🦋 Release package updates'
           commit: 'Bump package versions'
