@@ -61,7 +61,7 @@
 		"prettier": "3.3.2",
 		"react": "18.2.0",
 		"rollup": "4.19.1",
-		"storybook": "8.1.8",
+		"storybook": "8.2.6",
 		"ts-jest": "29.1.1",
 		"tslib": "2.6.2",
 		"tsx": "4.15.6",
