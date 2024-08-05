@@ -15,7 +15,7 @@
 		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
-		"@types/node": "20.14.10",
+		"@types/node": "22.1.0",
 		"@typescript-eslint/eslint-plugin": "7.11.0",
 		"@typescript-eslint/parser": "7.11.0",
 		"colorette": "2.0.20",
