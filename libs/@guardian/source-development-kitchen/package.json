@@ -26,7 +26,7 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@babel/core": "7.24.0",
+		"@babel/core": "7.25.2",
 		"@emotion/react": "11.11.3",
 		"@guardian/libs": "18.0.0",
 		"@guardian/source": "6.1.0",

@@ -38,7 +38,7 @@
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
-		"@babel/core": "7.24.0",
+		"@babel/core": "7.25.2",
 		"@emotion/react": "11.11.3",
 		"@guardian/design-tokens": "workspace:*",
 		"@guardian/libs": "18.0.0",

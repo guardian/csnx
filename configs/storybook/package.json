@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"dependencies": {
-		"@babel/core": "7.24.0",
+		"@babel/core": "7.25.2",
 		"@babel/plugin-transform-typescript": "7.25.0",
 		"@babel/preset-env": "7.25.0",
 		"@babel/preset-react": "7.24.1",
