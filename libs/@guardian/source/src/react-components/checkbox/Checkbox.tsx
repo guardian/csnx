@@ -175,7 +175,7 @@ export const Checkbox = ({
 			<span
 				css={(providerTheme: Theme) => [
 					tick(mergedTheme(providerTheme.checkbox)),
-					labelContent ?? supporting ? tickWithLabelText : '',
+					(labelContent ?? supporting) ? tickWithLabelText : '',
 					supporting ? tickWithSupportingText : '',
 				]}
 			/>

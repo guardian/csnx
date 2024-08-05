@@ -168,6 +168,6 @@ export const Radio = ({
 	);
 
 	return (
-		<>{labelContent ?? supporting ? labelledRadioControl : radioControl}</>
+		<>{(labelContent ?? supporting) ? labelledRadioControl : radioControl}</>
 	);
 };
