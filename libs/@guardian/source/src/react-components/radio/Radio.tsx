@@ -6,8 +6,6 @@ import { mergeThemes } from '../utils/themes';
 import {
 	label,
 	labelText,
-	labelTextWithSupportingText,
-	labelWithSupportingText,
 	radio,
 	radioContainer,
 	supportingText,
@@ -100,19 +98,10 @@ export const Radio = ({
 			transformProviderTheme,
 		);
 
-	const LabelText = ({
-		hasSupportingText,
-		children,
-	}: {
-		hasSupportingText?: boolean;
-		children: ReactNode;
-	}) => {
+	const LabelText = ({ children }: { children: ReactNode }) => {
 		return (
 			<div
-				css={(providerTheme: Theme) => [
-					hasSupportingText ? labelTextWithSupportingText : '',
-					labelText(mergedTheme(providerTheme)),
-				]}
+				css={(providerTheme: Theme) => labelText(mergedTheme(providerTheme))}
 			>
 				{children}
 			</div>
@@ -148,16 +137,13 @@ export const Radio = ({
 
 	const labelledRadioControl = (
 		<div
-			css={(providerTheme: Theme) => [
-				radioContainer(mergedTheme(providerTheme)),
-				supporting ? labelWithSupportingText : '',
-			]}
+			css={(providerTheme: Theme) => radioContainer(mergedTheme(providerTheme))}
 		>
 			{radioControl}
 			<label htmlFor={radioId} css={label}>
 				{supporting ? (
 					<div>
-						<LabelText hasSupportingText={true}>{labelContent}</LabelText>
+						<LabelText>{labelContent}</LabelText>
 						<SupportingText>{supporting}</SupportingText>
 					</div>
 				) : (
@@ -167,7 +153,19 @@ export const Radio = ({
 		</div>
 	);
 
+	const unlabelledRadioControl = (
+		<div
+			css={(providerTheme: Theme) => radioContainer(mergedTheme(providerTheme))}
+		>
+			{radioControl}
+		</div>
+	);
+
 	return (
-		<>{(labelContent ?? supporting) ? labelledRadioControl : radioControl}</>
+		<>
+			{(labelContent ?? supporting)
+				? labelledRadioControl
+				: unlabelledRadioControl}
+		</>
 	);
 };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { palette } from '../../foundations';
+import { breakpoints, palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
 import { themeCheckboxBrand } from './theme';
 
@@ -112,6 +112,21 @@ export const UnlabelledDefaultTheme: Story = {
 		...DefaultDefaultTheme.args,
 		label: null,
 		'aria-label': 'Checkbox',
+	},
+};
+
+export const LongLabelMobileDefaultTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		label:
+			'Circulation / Visitors / Audience (for News media, Magazine and Exhibition requests)',
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobile' },
+		chromatic: {
+			viewports: [breakpoints.mobile],
+		},
 	},
 };
 
