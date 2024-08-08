@@ -12,6 +12,7 @@ export const article15 = `
 	line-height: 1.4;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const article17 = `
@@ -20,6 +21,7 @@ export const article17 = `
 	line-height: 1.4;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const articleBold15 = `
@@ -28,6 +30,7 @@ export const articleBold15 = `
 	line-height: 1.4;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const articleBold17 = `
@@ -36,6 +39,7 @@ export const articleBold17 = `
 	line-height: 1.4;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const articleBoldItalic15 = `
@@ -44,6 +48,7 @@ export const articleBoldItalic15 = `
 	line-height: 1.4;
 	font-weight: 700;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const articleBoldItalic17 = `
@@ -52,6 +57,7 @@ export const articleBoldItalic17 = `
 	line-height: 1.4;
 	font-weight: 700;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const articleItalic15 = `
@@ -60,6 +66,7 @@ export const articleItalic15 = `
 	line-height: 1.4;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const articleItalic17 = `
@@ -68,6 +75,7 @@ export const articleItalic17 = `
 	line-height: 1.4;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold14 = `
@@ -76,6 +84,7 @@ export const headlineBold14 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold15 = `
@@ -84,6 +93,7 @@ export const headlineBold15 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold17 = `
@@ -92,6 +102,7 @@ export const headlineBold17 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold20 = `
@@ -100,6 +111,7 @@ export const headlineBold20 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold24 = `
@@ -108,6 +120,7 @@ export const headlineBold24 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold28 = `
@@ -116,6 +129,7 @@ export const headlineBold28 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineBold34 = `
@@ -124,6 +138,7 @@ export const headlineBold34 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const headlineBold42 = `
@@ -132,6 +147,7 @@ export const headlineBold42 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 5px;
 `;
 
 export const headlineBold50 = `
@@ -140,6 +156,7 @@ export const headlineBold50 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineBold64 = `
@@ -148,6 +165,7 @@ export const headlineBold64 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight14 = `
@@ -156,6 +174,7 @@ export const headlineLight14 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight15 = `
@@ -164,6 +183,7 @@ export const headlineLight15 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight17 = `
@@ -172,6 +192,7 @@ export const headlineLight17 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight20 = `
@@ -180,6 +201,7 @@ export const headlineLight20 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight24 = `
@@ -188,6 +210,7 @@ export const headlineLight24 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight28 = `
@@ -196,6 +219,7 @@ export const headlineLight28 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLight34 = `
@@ -204,6 +228,7 @@ export const headlineLight34 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const headlineLight42 = `
@@ -212,6 +237,7 @@ export const headlineLight42 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 5px;
 `;
 
 export const headlineLight50 = `
@@ -220,6 +246,7 @@ export const headlineLight50 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineLight64 = `
@@ -228,6 +255,7 @@ export const headlineLight64 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic14 = `
@@ -236,6 +264,7 @@ export const headlineLightItalic14 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic15 = `
@@ -244,6 +273,7 @@ export const headlineLightItalic15 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic17 = `
@@ -252,6 +282,7 @@ export const headlineLightItalic17 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic20 = `
@@ -260,6 +291,7 @@ export const headlineLightItalic20 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic24 = `
@@ -268,6 +300,7 @@ export const headlineLightItalic24 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic28 = `
@@ -276,6 +309,7 @@ export const headlineLightItalic28 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineLightItalic34 = `
@@ -284,6 +318,7 @@ export const headlineLightItalic34 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const headlineLightItalic42 = `
@@ -292,6 +327,7 @@ export const headlineLightItalic42 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 5px;
 `;
 
 export const headlineLightItalic50 = `
@@ -300,6 +336,7 @@ export const headlineLightItalic50 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineLightItalic64 = `
@@ -308,6 +345,7 @@ export const headlineLightItalic64 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium14 = `
@@ -316,6 +354,7 @@ export const headlineMedium14 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium15 = `
@@ -324,6 +363,7 @@ export const headlineMedium15 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium17 = `
@@ -332,6 +372,7 @@ export const headlineMedium17 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium20 = `
@@ -340,6 +381,7 @@ export const headlineMedium20 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium24 = `
@@ -348,6 +390,7 @@ export const headlineMedium24 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium28 = `
@@ -356,6 +399,7 @@ export const headlineMedium28 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMedium34 = `
@@ -364,6 +408,7 @@ export const headlineMedium34 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const headlineMedium42 = `
@@ -372,6 +417,7 @@ export const headlineMedium42 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 5px;
 `;
 
 export const headlineMedium50 = `
@@ -380,6 +426,7 @@ export const headlineMedium50 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineMedium64 = `
@@ -388,6 +435,7 @@ export const headlineMedium64 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic14 = `
@@ -396,6 +444,7 @@ export const headlineMediumItalic14 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic15 = `
@@ -404,6 +453,7 @@ export const headlineMediumItalic15 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic17 = `
@@ -412,6 +462,7 @@ export const headlineMediumItalic17 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic20 = `
@@ -420,6 +471,7 @@ export const headlineMediumItalic20 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic24 = `
@@ -428,6 +480,7 @@ export const headlineMediumItalic24 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic28 = `
@@ -436,6 +489,7 @@ export const headlineMediumItalic28 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const headlineMediumItalic34 = `
@@ -444,6 +498,7 @@ export const headlineMediumItalic34 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const headlineMediumItalic42 = `
@@ -452,6 +507,7 @@ export const headlineMediumItalic42 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 5px;
 `;
 
 export const headlineMediumItalic50 = `
@@ -460,6 +516,7 @@ export const headlineMediumItalic50 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineMediumItalic64 = `
@@ -468,6 +525,7 @@ export const headlineMediumItalic64 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptian14 = `
@@ -476,6 +534,7 @@ export const textEgyptian14 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptian15 = `
@@ -484,6 +543,7 @@ export const textEgyptian15 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptian17 = `
@@ -492,6 +552,7 @@ export const textEgyptian17 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianBold14 = `
@@ -500,6 +561,7 @@ export const textEgyptianBold14 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianBold15 = `
@@ -508,6 +570,7 @@ export const textEgyptianBold15 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianBold17 = `
@@ -516,6 +579,7 @@ export const textEgyptianBold17 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianBoldItalic14 = `
@@ -524,6 +588,7 @@ export const textEgyptianBoldItalic14 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianBoldItalic15 = `
@@ -532,6 +597,7 @@ export const textEgyptianBoldItalic15 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianBoldItalic17 = `
@@ -540,6 +606,7 @@ export const textEgyptianBoldItalic17 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianItalic14 = `
@@ -548,6 +615,7 @@ export const textEgyptianItalic14 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianItalic15 = `
@@ -556,6 +624,7 @@ export const textEgyptianItalic15 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textEgyptianItalic17 = `
@@ -564,6 +633,7 @@ export const textEgyptianItalic17 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans12 = `
@@ -572,6 +642,7 @@ export const textSans12 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans14 = `
@@ -580,6 +651,7 @@ export const textSans14 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans15 = `
@@ -588,6 +660,7 @@ export const textSans15 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans17 = `
@@ -596,6 +669,7 @@ export const textSans17 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans20 = `
@@ -604,6 +678,7 @@ export const textSans20 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans24 = `
@@ -612,6 +687,7 @@ export const textSans24 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans28 = `
@@ -620,6 +696,7 @@ export const textSans28 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSans34 = `
@@ -628,6 +705,7 @@ export const textSans34 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const textSansBold12 = `
@@ -636,6 +714,7 @@ export const textSansBold12 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold14 = `
@@ -644,6 +723,7 @@ export const textSansBold14 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold15 = `
@@ -652,6 +732,7 @@ export const textSansBold15 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold17 = `
@@ -660,6 +741,7 @@ export const textSansBold17 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold20 = `
@@ -668,6 +750,7 @@ export const textSansBold20 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold24 = `
@@ -676,6 +759,7 @@ export const textSansBold24 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold28 = `
@@ -684,6 +768,7 @@ export const textSansBold28 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansBold34 = `
@@ -692,6 +777,7 @@ export const textSansBold34 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const textSansItalic12 = `
@@ -700,6 +786,7 @@ export const textSansItalic12 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic14 = `
@@ -708,6 +795,7 @@ export const textSansItalic14 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic15 = `
@@ -716,6 +804,7 @@ export const textSansItalic15 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic17 = `
@@ -724,6 +813,7 @@ export const textSansItalic17 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic20 = `
@@ -732,6 +822,7 @@ export const textSansItalic20 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic24 = `
@@ -740,6 +831,7 @@ export const textSansItalic24 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic28 = `
@@ -748,6 +840,7 @@ export const textSansItalic28 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 2px;
 `;
 
 export const textSansItalic34 = `
@@ -756,6 +849,7 @@ export const textSansItalic34 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
+	--source-text-decoration-thickness: 4px;
 `;
 
 export const titlepiece42 = `
@@ -764,6 +858,7 @@ export const titlepiece42 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 5px;
 `;
 
 export const titlepiece50 = `
@@ -772,6 +867,7 @@ export const titlepiece50 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const titlepiece70 = `
@@ -780,4 +876,5 @@ export const titlepiece70 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
+	--source-text-decoration-thickness: 6px;
 `;
