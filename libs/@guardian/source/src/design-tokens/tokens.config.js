@@ -3,7 +3,7 @@
 // @ts-check
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import breakpoints from './cobalt-plugins/breakpoints.js';
+import breakpoints from './plugins/breakpoints.js';
 
 /**
  * @param {string} variableId
