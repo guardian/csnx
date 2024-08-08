@@ -28,7 +28,7 @@
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
 		"fix": "wireit",
-		"generated": "co build --config src/design-tokens/tokens.config.js",
+		"generated": "co build --config src/design-tokens/tokens.config.js && prettier --write src/foundations/__generated__/**",
 		"lint": "wireit",
 		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
