@@ -585,6 +585,15 @@ importers:
       '@babel/core':
         specifier: 7.25.2
         version: 7.25.2
+      '@cobalt-ui/cli':
+        specifier: 1.11.0
+        version: 1.11.0
+      '@cobalt-ui/core':
+        specifier: 1.11.0
+        version: 1.11.0
+      '@cobalt-ui/plugin-css':
+        specifier: 1.7.0
+        version: 1.7.0(@cobalt-ui/cli@1.11.0)
       '@emotion/react':
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.11)(react@18.2.0)

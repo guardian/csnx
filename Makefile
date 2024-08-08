@@ -461,6 +461,10 @@ install: check-node-version
 @guardian/source\:fix: env
 	@corepack pnpm --filter @guardian/source fix
 
+.PHONY: @guardian/source\:generated
+@guardian/source\:generated: env
+	@corepack pnpm --filter @guardian/source generated
+
 .PHONY: @guardian/source\:lint
 @guardian/source\:lint: env
 	@corepack pnpm --filter @guardian/source lint

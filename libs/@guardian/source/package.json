@@ -28,6 +28,7 @@
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
 		"fix": "wireit",
+		"generated": "co build --config src/design-tokens/tokens.config.js",
 		"lint": "wireit",
 		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
@@ -39,6 +40,9 @@
 	},
 	"devDependencies": {
 		"@babel/core": "7.25.2",
+		"@cobalt-ui/cli": "1.11.0",
+		"@cobalt-ui/core": "1.11.0",
+		"@cobalt-ui/plugin-css": "1.7.0",
 		"@emotion/react": "11.11.3",
 		"@guardian/design-tokens": "workspace:*",
 		"@guardian/libs": "18.0.0",
@@ -99,7 +103,8 @@
 		"build": {
 			"command": "rollup -c",
 			"dependencies": [
-				"__deps__"
+				"__deps__",
+				"generated"
 			],
 			"files": [
 				"src/**",
