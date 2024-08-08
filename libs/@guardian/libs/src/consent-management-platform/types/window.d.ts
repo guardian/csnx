@@ -3,8 +3,9 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
-import type { CCPAData } from './ccpa';
+import type { AUSData } from './aus';
 import type { TCData } from './tcfv2/TCData';
+import type { GPPData } from './usnat';
 import type { CMP, ConsentFramework, PubData } from '.';
 
 type OnMessageChoiceSelect = (
@@ -46,6 +47,13 @@ declare global {
 						framework: ConsentFramework;
 					};
 				};
+				usnat?: {
+					includeUspApi?: boolean;
+					transitionCCPAAuth?: boolean;
+					targetingParams?: {
+						framework: ConsentFramework;
+					};
+				};
 				pubData: PubData;
 				events?: {
 					onMessageReceiveData: (
@@ -82,19 +90,26 @@ declare global {
 			ccpa?: {
 				loadPrivacyManagerModal?: (id: number) => void;
 			};
+			usnat?: {
+				loadPrivacyManagerModal?: (id: number) => void;
+			};
 		};
 
 		// IAB interfaces - only one should be present at a time
 		__uspapi?: (
 			command: string,
 			version: number,
-			callback: (tcData: CCPAData | undefined, success: boolean) => void,
+			callback: (tcData: AUSData | undefined, success: boolean) => void,
 		) => void;
 		__tcfapi?: (
 			command: string,
 			version: number,
 			callback: (tcData: TCData, success: boolean) => void,
 			vendorIDs?: number[],
+		) => void;
+		__gpp?: (
+			command: string,
+			callback: (gppData: GPPData, success: boolean) => void,
 		) => void;
 	}
 }

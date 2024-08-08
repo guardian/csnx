@@ -1,9 +1,9 @@
 import ausData from './aus/__fixtures__/api.getUSPData.json';
-import uspData from './ccpa/__fixtures__/api.getUSPData.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
 import tcData from './tcfv2/__fixtures__/api.getTCData.json';
+import gppData from './usnat/__fixtures__/api.getGPPData.canSell.json';
 
 const resolveAllPromises = () =>
 	new Promise((resolve) => process.nextTick(resolve));
@@ -11,6 +11,7 @@ const resolveAllPromises = () =>
 beforeEach(() => {
 	window.__uspapi = undefined;
 	window.__tcfapi = undefined;
+	window.__gpp = undefined;
 	window.guCmpHotFix = undefined;
 });
 
@@ -20,15 +21,15 @@ it('throws an error if no framework is present', () => {
 	);
 });
 
-describe('under CCPA', () => {
+describe('under USNAT', () => {
 	beforeEach(() => {
-		window.__uspapi = jest.fn((command, b, callback) => {
-			if (command === 'getUSPData') {
-				callback(uspData, true);
+		window.__gpp = jest.fn((command, callback) => {
+			if (command === 'ping') {
+				callback(gppData, true);
 			}
 		});
 
-		setCurrentFramework('ccpa');
+		setCurrentFramework('usnat');
 	});
 
 	it('invokes callbacks correctly', async () => {
@@ -65,7 +66,7 @@ describe('under CCPA', () => {
 
 		expect(callback).toHaveBeenCalledTimes(1);
 
-		uspData.uspString = '1YNN';
+		gppData.parsedSections.usnatv1.SaleOptOut = 1;
 		invokeCallbacks();
 		await resolveAllPromises();
 
@@ -83,7 +84,7 @@ describe('under CCPA', () => {
 		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
 		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
 
-		uspData.uspString = '1YYN';
+		gppData.parsedSections.usnatv1.SaleOptOut = 1;
 
 		// callback 3 and 4 registered first with final flag
 		onConsentChange(callback3, true);
@@ -102,7 +103,8 @@ describe('under CCPA', () => {
 		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
-		uspData.uspString = '1YNN';
+		gppData.parsedSections.usnatv1.SaleOptOut = 2;
+
 		invokeCallbacks();
 
 		await resolveAllPromises();
