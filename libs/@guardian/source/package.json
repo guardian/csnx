@@ -43,6 +43,8 @@
 		"@cobalt-ui/cli": "1.11.0",
 		"@cobalt-ui/core": "1.11.0",
 		"@cobalt-ui/plugin-css": "1.7.0",
+		"@cobalt-ui/plugin-js": "1.4.3",
+		"@cobalt-ui/utils": "1.2.2",
 		"@emotion/react": "11.11.3",
 		"@guardian/design-tokens": "workspace:*",
 		"@guardian/libs": "18.0.0",

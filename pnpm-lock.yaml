@@ -594,6 +594,12 @@ importers:
       '@cobalt-ui/plugin-css':
         specifier: 1.7.0
         version: 1.7.0(@cobalt-ui/cli@1.11.0)
+      '@cobalt-ui/plugin-js':
+        specifier: 1.4.3
+        version: 1.4.3(@cobalt-ui/cli@1.11.0)
+      '@cobalt-ui/utils':
+        specifier: 1.2.2
+        version: 1.2.2
       '@emotion/react':
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.11)(react@18.2.0)

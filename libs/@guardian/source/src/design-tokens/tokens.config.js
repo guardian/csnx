@@ -3,6 +3,7 @@
 // @ts-check
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
+import breakpoints from './cobalt-plugins/breakpoints.js';
 
 /**
  * @param {string} variableId
@@ -26,6 +27,7 @@ export default {
 	tokens: 'tokens.json',
 	outDir: '__generated__',
 	plugins: [
+		breakpoints({ filename: 'breakpoints.ts' }),
 		pluginCSS({
 			p3: false,
 			generateName: prefixCustomProperty,
