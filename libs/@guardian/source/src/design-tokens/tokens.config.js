@@ -3,7 +3,9 @@
 // @ts-check
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import breakpoints from './plugins/breakpoints.js';
+import breakpoints from './cobalt-plugins/breakpoints.js';
+import space from './cobalt-plugins/space.js';
+import typography from './cobalt-plugins/typography.js';
 
 /**
  * @param {string} variableId
@@ -28,6 +30,8 @@ export default {
 	outDir: '../foundations/__generated__',
 	plugins: [
 		breakpoints({ filename: 'breakpoints.ts' }),
+		typography({ filename: 'typography.ts' }),
+		space({ filename: 'space.ts' }),
 		pluginCSS({
 			p3: false,
 			generateName: prefixCustomProperty,
