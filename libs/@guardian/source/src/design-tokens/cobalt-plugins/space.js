@@ -4,8 +4,8 @@
 
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
-import { template } from '../lib/template.js';
 import { numberToRem, pxStringToNumber } from '../lib/convert-value.js';
+import { template } from '../lib/template.js';
 
 /**
  * @param {{ filename: string; }} options
