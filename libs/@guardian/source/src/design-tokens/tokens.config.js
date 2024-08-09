@@ -1,3 +1,8 @@
+/**
+ * Config file for cobalt.
+ * https://cobalt-ui.pages.dev/guides/getting-started
+ */
+
 /* eslint-disable import/no-default-export -- cobalt configs do this */
 
 // @ts-check
