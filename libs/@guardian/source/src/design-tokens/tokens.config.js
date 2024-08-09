@@ -5,6 +5,7 @@
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
 import breakpoints from './cobalt-plugins/breakpoints.js';
 import colour from './cobalt-plugins/colour.js';
+import size from './cobalt-plugins/size.js';
 import space from './cobalt-plugins/space.js';
 import typography from './cobalt-plugins/typography.js';
 
@@ -34,6 +35,7 @@ export default {
 		breakpoints({ filename: 'breakpoints.ts' }),
 		typography({ filename: 'typography.ts' }),
 		space({ filename: 'space.ts' }),
+		size({ filename: 'size.ts' }),
 		pluginCSS({
 			p3: false,
 			generateName: prefixCustomProperty,

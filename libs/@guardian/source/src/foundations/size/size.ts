@@ -1,17 +1,10 @@
-import { size as tokens } from '@guardian/design-tokens';
-import { pxStringToNumber, pxToRem } from '../utils/convert-value';
-
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#global-size-values) •
  * [Design System](https://theguardian.design/2a1e5182b/p/24a3ec-size/t/329aef)
  *
  * May be used for call to action buttons and user input fields.
  */
-export const size = {
-	xsmall: pxStringToNumber(tokens.xSmall),
-	small: pxStringToNumber(tokens.small),
-	medium: pxStringToNumber(tokens.medium), // meets WCAG 2.1 AAA compliance for touch targets.
-} as const;
+export { size, type Size } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#global-size-values) •
@@ -23,11 +16,7 @@ export const size = {
  ** `remSize.small` -> 2.25rem
  ** `remSize.xsmall` -> 1.5rem
  */
-const remSize: { [K in keyof typeof size]: number } = {
-	xsmall: pxToRem(size.xsmall),
-	small: pxToRem(size.small),
-	medium: pxToRem(size.medium),
-};
+export { remSize, type RemSize } from '../__generated__/size';
 
 /*
    We attempt to use these values for icons within Source components.
@@ -35,17 +24,8 @@ const remSize: { [K in keyof typeof size]: number } = {
    above. They are based on the size of icons used within the button
    component.
 */
-export const iconSize = {
-	xsmall: pxStringToNumber(tokens.icon.xSmall),
-	small: pxStringToNumber(tokens.icon.small),
-	medium: pxStringToNumber(tokens.icon.medium),
-} as const;
-
-const remIconSize: { [K in keyof typeof iconSize]: number } = {
-	xsmall: pxToRem(iconSize.xsmall),
-	small: pxToRem(iconSize.small),
-	medium: pxToRem(iconSize.medium),
-};
+export { iconSize, type IconSize } from '../__generated__/size';
+export { remIconSize, type RemIconSize } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -62,16 +42,7 @@ const remIconSize: { [K in keyof typeof iconSize]: number } = {
  ** `height.iconSmall`
  ** `height.iconXsmall`
  */
-export const height = {
-	ctaMedium: size.medium,
-	ctaSmall: size.small,
-	ctaXsmall: size.xsmall,
-	inputMedium: size.medium,
-	inputXsmall: size.xsmall,
-	iconMedium: iconSize.medium,
-	iconSmall: iconSize.small,
-	iconXsmall: iconSize.xsmall,
-};
+export { height, type Height } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -88,16 +59,7 @@ export const height = {
  ** `remHeight.iconSmall`
  ** `remHeight.iconXsmall`
  */
-export const remHeight = {
-	ctaMedium: remSize.medium,
-	ctaSmall: remSize.small,
-	ctaXsmall: remSize.xsmall,
-	inputMedium: remSize.medium,
-	inputXsmall: remSize.xsmall,
-	iconMedium: remIconSize.medium,
-	iconSmall: remIconSize.small,
-	iconXsmall: remIconSize.xsmall,
-};
+export { remHeight, type RemHeight } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -116,15 +78,7 @@ export const remHeight = {
  ** `width.iconSmall`
  ** `width.iconXsmall`
  */
-export const width = {
-	ctaMedium: size.medium,
-	ctaSmall: size.small,
-	ctaXsmall: size.xsmall,
-	inputXsmall: size.xsmall,
-	iconMedium: iconSize.medium,
-	iconSmall: iconSize.small,
-	iconXsmall: iconSize.xsmall,
-};
+export { width, type Width } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -143,12 +97,4 @@ export const width = {
  ** `remWidth.iconSmall`
  ** `remWidth.iconXsmall`
  */
-export const remWidth = {
-	ctaMedium: remSize.medium,
-	ctaSmall: remSize.small,
-	ctaXsmall: remSize.xsmall,
-	inputXsmall: remSize.xsmall,
-	iconMedium: remIconSize.medium,
-	iconSmall: remIconSize.small,
-	iconXsmall: remIconSize.xsmall,
-};
+export { remWidth, type RemWidth } from '../__generated__/size';
