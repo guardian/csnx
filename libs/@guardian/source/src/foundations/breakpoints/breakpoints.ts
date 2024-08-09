@@ -1,1 +1,1 @@
-export { breakpoint, type Breakpoint } from '../__generated__/breakpoints';
+export { breakpoints, type Breakpoint } from '../__generated__/breakpoints';

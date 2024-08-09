@@ -6,7 +6,7 @@
  * Update design-tokens/tokens.json and (re)build @guardian/source instead.
  */
 
-export const breakpoint = {
+export const breakpoints = {
 	desktop: 980,
 	leftCol: 1140,
 	mobile: 320,
@@ -16,5 +16,4 @@ export const breakpoint = {
 	tablet: 740,
 	wide: 1300,
 } as const;
-
-export type Breakpoint = keyof typeof breakpoint;
+export type Breakpoint = keyof typeof breakpoints;

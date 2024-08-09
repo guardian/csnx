@@ -41,7 +41,6 @@ export default function pluginColour(options) {
 				const serialisedJS = serializeJS(transformedTokens[tokenGroup], {
 					comments: jsDoc,
 				}).trim();
-				console.log({ serialisedJS });
 
 				// create a typescript source string containing the transformed tokens
 				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;`;

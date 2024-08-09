@@ -5,7 +5,6 @@
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import { template } from '../lib/template.js';
-import { capitalise } from '../lib/capitalise.js';
 import { pxStringToNumber } from '../lib/convert-value.js';
 
 /**
@@ -18,16 +17,18 @@ export default function pluginBreakpoints(options) {
 
 		config(/* config */) {},
 		async build({ tokens /* metadata, rawSchema */ }) {
-			// this is where we'll store the transformed tokens
-			/** @type {Object.<string, string>} */
+			const breakpointTokens = tokens.filter((token) =>
+				token.id.startsWith('breakpoint.'),
+			);
+
+			/**
+			 * this is where we'll store the transformed tokens
+			 * @type {Object.<string, string>}
+			 */
 			const transformedTokens = {};
 
 			/** @type {Object.<string, string>} */
 			const jsDoc = {};
-
-			const breakpointTokens = tokens.filter((token) =>
-				token.id.startsWith('breakpoint.'),
-			);
 
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
 			for (const token of breakpointTokens) {
@@ -41,18 +42,17 @@ export default function pluginBreakpoints(options) {
 				}
 			}
 
-			let typescriptSource = '';
+			const serialisedJS = Object.values(transformedTokens)
+				.map((breakpointToken) =>
+					serializeJS(breakpointToken, { comments: jsDoc }),
+				)
+				.join('')
+				.replace(/;$/, '');
 
-			for (const tokenGroup of Object.keys(transformedTokens)) {
-				const serialisedJS = serializeJS(transformedTokens[tokenGroup], {
-					comments: jsDoc,
-				}).trim();
-
-				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;
-
-				export type ${capitalise(tokenGroup)} = keyof typeof ${tokenGroup};`;
-			}
+			let typescriptSource = `
+				export const breakpoints = ${serialisedJS} as const;
+				export type Breakpoint = keyof typeof breakpoints;
+			`;
 
 			return [
 				{
