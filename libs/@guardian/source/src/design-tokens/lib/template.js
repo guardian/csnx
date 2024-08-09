@@ -1,3 +1,5 @@
+// @ts-check
+
 import { basename, extname, join } from 'node:path';
 
 /**

@@ -3,8 +3,8 @@
 // @ts-check
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import colour from './cobalt-plugins/colour.js';
 import breakpoints from './cobalt-plugins/breakpoints.js';
+import colour from './cobalt-plugins/colour.js';
 import space from './cobalt-plugins/space.js';
 import typography from './cobalt-plugins/typography.js';
 
