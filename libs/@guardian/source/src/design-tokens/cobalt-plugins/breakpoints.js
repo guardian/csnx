@@ -6,6 +6,7 @@ import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import { template } from '../lib/template.js';
 import { capitalise } from '../lib/capitalise.js';
+import { pxStringToNumber } from '../lib/convert-value.js';
 
 /**
  * @param {{ filename: string; }} options
@@ -33,7 +34,7 @@ export default function pluginBreakpoints(options) {
 				set(
 					transformedTokens,
 					token.id,
-					Number(defaultTransformer(token).toString().replace('px', '')),
+					pxStringToNumber(defaultTransformer(token).toString()),
 				);
 				if (token.$description) {
 					jsDoc[token.id] = token.$description;

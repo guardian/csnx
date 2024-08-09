@@ -65,7 +65,7 @@ export default function pluginBreakpoints(options) {
 					([preset, properties]) => `
 export const ${preset} = \`
 	font-family: ${fontArrayToString(properties.fontFamily)};
-	font-size: ${pxStringToRem(properties.fontSize)}rem;
+	font-size: ${pxStringToRem(properties.fontSize)};
 	line-height: ${properties.lineHeight};
 	font-weight: ${properties.fontWeight};
 	font-style: ${properties.fontStyle};

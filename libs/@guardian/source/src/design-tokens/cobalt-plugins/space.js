@@ -5,6 +5,7 @@
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import { template } from '../lib/template.js';
+import { numberToRem, pxStringToNumber } from '../lib/convert-value.js';
 
 /**
  * @param {{ filename: string; }} options
@@ -28,11 +29,10 @@ export default function pluginSpace(options) {
 			for (const token of tokens) {
 				if (token._group.id === 'space') {
 					const value = Number(
-						defaultTransformer(token).replace(/([0-9]{1,3})px/gm, `$1`),
+						pxStringToNumber(defaultTransformer(token).toString()),
 					);
-					const remValue = (value / 16).toString() + 'rem';
 					set(numberTokens, token.id, value);
-					set(remTokens, token.id, remValue);
+					set(remTokens, token.id, numberToRem(value));
 					if (token.$description) {
 						jsDoc[token.id] = token.$description;
 					}
