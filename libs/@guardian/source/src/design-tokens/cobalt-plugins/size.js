@@ -55,9 +55,7 @@ export default function pluginSpace(options) {
 				}).trim();
 
 				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;
-
-				export type ${capitalise(tokenGroup)} = keyof typeof ${tokenGroup};`;
+				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;`;
 			}
 
 			for (const tokenGroup of Object.keys(remTokens)) {
@@ -66,9 +64,7 @@ export default function pluginSpace(options) {
 				}).trim();
 
 				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const rem${capitalise(tokenGroup)} = ${serialisedJS.replace(/;$/, '')} as const;
-
-				export type Rem${capitalise(tokenGroup)} = keyof typeof rem${capitalise(tokenGroup)};`;
+				typescriptSource += `export const rem${capitalise(tokenGroup)} = ${serialisedJS.replace(/;$/, '')} as const;`;
 			}
 
 			return [

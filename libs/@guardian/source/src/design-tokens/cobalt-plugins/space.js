@@ -45,11 +45,11 @@ export default function pluginSpace(options) {
 				{ varName: 'remSpace', tokens: remTokens },
 			];
 			for (const { varName, tokens } of exports) {
-				const serialisedJS = serializeJS(tokens, {
+				const serialisedJS = serializeJS(tokens['space'], {
 					comments: jsDoc,
 				}).trim();
 				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const ${varName} = ${serialisedJS.replace(/;$/, '')} as const; \r\n\r\n`;
+				typescriptSource += `export const ${varName} = ${serialisedJS.replace(/;$/, '').replace(/'([0-9]{1,3})'/gm, '$1')} as const; \r\n\r\n`;
 			}
 
 			return [

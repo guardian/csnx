@@ -9,74 +9,58 @@
 export const height = {
 	ctaMedium: 44,
 	ctaSmall: 36,
-	ctaXSmall: 24,
+	ctaXsmall: 24,
 	iconMedium: 30,
 	iconSmall: 26,
-	iconXSmall: 20,
+	iconXsmall: 20,
 	inputMedium: 44,
-	inputXSmall: 24,
+	inputXsmall: 24,
 } as const;
-
-export type Height = keyof typeof height;
 export const iconSize = {
 	medium: 30,
 	small: 26,
-	xSmall: 20,
+	xsmall: 20,
 } as const;
-
-export type IconSize = keyof typeof iconSize;
 export const size = {
 	medium: 44,
 	small: 36,
-	xSmall: 24,
+	xsmall: 24,
 } as const;
-
-export type Size = keyof typeof size;
 export const width = {
 	ctaMedium: 44,
 	ctaSmall: 36,
-	ctaXSmall: 24,
+	ctaXsmall: 24,
 	iconMedium: 30,
 	iconSmall: 26,
 	iconXSmall: 20,
-	inputXSmall: 24,
+	inputXsmall: 24,
 } as const;
-
-export type Width = keyof typeof width;
 export const remHeight = {
 	ctaMedium: '2.75rem',
 	ctaSmall: '2.25rem',
-	ctaXSmall: '1.5rem',
+	ctaXsmall: '1.5rem',
 	iconMedium: '1.875rem',
 	iconSmall: '1.625rem',
-	iconXSmall: '1.25rem',
+	iconXsmall: '1.25rem',
 	inputMedium: '2.75rem',
-	inputXSmall: '1.5rem',
+	inputXsmall: '1.5rem',
 } as const;
-
-export type RemHeight = keyof typeof remHeight;
 export const remIconSize = {
 	medium: '1.875rem',
 	small: '1.625rem',
-	xSmall: '1.25rem',
+	xsmall: '1.25rem',
 } as const;
-
-export type RemIconSize = keyof typeof remIconSize;
 export const remSize = {
 	medium: '2.75rem',
 	small: '2.25rem',
-	xSmall: '1.5rem',
+	xsmall: '1.5rem',
 } as const;
-
-export type RemSize = keyof typeof remSize;
 export const remWidth = {
 	ctaMedium: '2.75rem',
 	ctaSmall: '2.25rem',
-	ctaXSmall: '1.5rem',
+	ctaXsmall: '1.5rem',
 	iconMedium: '1.875rem',
 	iconSmall: '1.625rem',
 	iconXSmall: '1.25rem',
-	inputXSmall: '1.5rem',
+	inputXsmall: '1.5rem',
 } as const;
-
-export type RemWidth = keyof typeof remWidth;
