@@ -25,6 +25,39 @@ const textDecorationThickness = (fontSize) => {
 };
 
 /**
+ * @typedef {Object} TypographyPreset
+ * @property {string[]} fontFamily
+ * @property {string} fontSize
+ * @property {number} lineHeight
+ * @property {number} fontWeight
+ * @property {string} fontStyle
+ */
+
+/**
+ *
+ * @param {string} preset
+ * @param {TypographyPreset} properties
+ */
+const presetTemplate = (preset, properties) => `
+export const ${preset} = \`
+	font-family: ${fontArrayToString(properties.fontFamily)};
+	font-size: ${pxStringToRem(properties.fontSize)};
+	line-height: ${properties.lineHeight};
+	font-weight: ${properties.fontWeight};
+	font-style: ${properties.fontStyle};
+	--source-text-decoration-thickness: ${textDecorationThickness(properties.fontSize)};
+\`;
+
+export const ${preset}Object = {
+	fontFamily: '${fontArrayToString(properties.fontFamily)}',
+	fontSize: '${pxStringToRem(properties.fontSize)}rem',
+	lineHeight: ${properties.lineHeight},
+	fontWeight: ${properties.fontWeight},
+	fontStyle: '${properties.fontStyle}',
+} as const;
+`;
+
+/**
  * @param {{ filename: string; }} options
  * @returns {import('@cobalt-ui/core').Plugin}
  */
@@ -39,7 +72,7 @@ export default function pluginBreakpoints(options) {
 			const transformedTokens = {};
 
 			/** @type {Object.<string, string>} */
-			const descriptions = {};
+			const comments = {};
 
 			const typographyTokens = tokens.filter((token) =>
 				token.id.startsWith(GROUP_PREFIX),
@@ -49,30 +82,19 @@ export default function pluginBreakpoints(options) {
 			for (const token of typographyTokens) {
 				set(transformedTokens, token.id, defaultTransformer(token));
 				if (token.$description) {
-					descriptions[token.id.replace(GROUP_PREFIX, '')] = token.$description;
+					comments[token.id.replace(GROUP_PREFIX, '')] = token.$description;
 				}
 			}
 
-			/**
-			 * TODO: Output any comments from `$description` fields
-			 * TODO: Generate `--source-text-decoration-thickness` custom property
-			 */
-
-			/** @type {Object.<!string, string>} */
+			/** @type {Object.<!string, TypographyPreset>} */
 			const typographyPresets = transformedTokens.typographyPresets;
 			const typescriptSource = Object.entries(typographyPresets)
-				.map(
-					([preset, properties]) => `
-export const ${preset} = \`
-	font-family: ${fontArrayToString(properties.fontFamily)};
-	font-size: ${pxStringToRem(properties.fontSize)};
-	line-height: ${properties.lineHeight};
-	font-weight: ${properties.fontWeight};
-	font-style: ${properties.fontStyle};
-	--source-text-decoration-thickness: ${textDecorationThickness(properties.fontSize)};
-\`;
-`,
-				)
+				.map(([preset, properties]) => {
+					const output = presetTemplate(preset, properties);
+					return comments[preset]
+						? `\n// ${comments[preset]}${output}`
+						: output;
+				})
 				.join('');
 
 			return [
