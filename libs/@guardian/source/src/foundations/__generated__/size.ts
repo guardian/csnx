@@ -32,7 +32,7 @@ export const width = {
 	ctaXsmall: 24,
 	iconMedium: 30,
 	iconSmall: 26,
-	iconXSmall: 20,
+	iconXsmall: 20,
 	inputXsmall: 24,
 } as const;
 export const remHeight = {
@@ -61,6 +61,6 @@ export const remWidth = {
 	ctaXsmall: '1.5rem',
 	iconMedium: '1.875rem',
 	iconSmall: '1.625rem',
-	iconXSmall: '1.25rem',
+	iconXsmall: '1.25rem',
 	inputXsmall: '1.5rem',
 } as const;
