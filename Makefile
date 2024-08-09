@@ -269,22 +269,6 @@ install: check-node-version
 @guardian/core-web-vitals\:verify-dist: env
 	@corepack pnpm --filter @guardian/core-web-vitals verify-dist
 
-.PHONY: @guardian/design-tokens\:build
-@guardian/design-tokens\:build: env
-	@corepack pnpm --filter @guardian/design-tokens build
-
-.PHONY: @guardian/design-tokens\:fix
-@guardian/design-tokens\:fix: env
-	@corepack pnpm --filter @guardian/design-tokens fix
-
-.PHONY: @guardian/design-tokens\:lint
-@guardian/design-tokens\:lint: env
-	@corepack pnpm --filter @guardian/design-tokens lint
-
-.PHONY: @guardian/design-tokens\:tsc
-@guardian/design-tokens\:tsc: env
-	@corepack pnpm --filter @guardian/design-tokens tsc
-
 .PHONY: @guardian/eslint-config\:fix
 @guardian/eslint-config\:fix: env
 	@corepack pnpm --filter @guardian/eslint-config fix
