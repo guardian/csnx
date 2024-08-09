@@ -4,7 +4,7 @@
  *
  * May be used for call to action buttons and user input fields.
  */
-export { size, type Size } from '../__generated__/size';
+export { size } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#global-size-values) •
@@ -16,7 +16,7 @@ export { size, type Size } from '../__generated__/size';
  ** `remSize.small` -> 2.25rem
  ** `remSize.xsmall` -> 1.5rem
  */
-export { remSize, type RemSize } from '../__generated__/size';
+export { remSize } from '../__generated__/size';
 
 /*
    We attempt to use these values for icons within Source components.
@@ -24,8 +24,8 @@ export { remSize, type RemSize } from '../__generated__/size';
    above. They are based on the size of icons used within the button
    component.
 */
-export { iconSize, type IconSize } from '../__generated__/size';
-export { remIconSize, type RemIconSize } from '../__generated__/size';
+export { iconSize } from '../__generated__/size';
+export { remIconSize } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -42,7 +42,7 @@ export { remIconSize, type RemIconSize } from '../__generated__/size';
  ** `height.iconSmall`
  ** `height.iconXsmall`
  */
-export { height, type Height } from '../__generated__/size';
+export { height } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -59,7 +59,7 @@ export { height, type Height } from '../__generated__/size';
  ** `remHeight.iconSmall`
  ** `remHeight.iconXsmall`
  */
-export { remHeight, type RemHeight } from '../__generated__/size';
+export { remHeight } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -78,7 +78,7 @@ export { remHeight, type RemHeight } from '../__generated__/size';
  ** `width.iconSmall`
  ** `width.iconXsmall`
  */
-export { width, type Width } from '../__generated__/size';
+export { width } from '../__generated__/size';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -97,4 +97,4 @@ export { width, type Width } from '../__generated__/size';
  ** `remWidth.iconSmall`
  ** `remWidth.iconXsmall`
  */
-export { remWidth, type RemWidth } from '../__generated__/size';
+export { remWidth } from '../__generated__/size';
