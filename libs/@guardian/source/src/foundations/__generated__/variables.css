@@ -15,12 +15,15 @@
 	--source-breakpoint-wide: 81.25rem;
 	--source-height-ctaMedium: 2.75rem;
 	--source-height-ctaSmall: 2.25rem;
-	--source-height-ctaXSmall: 1.5rem;
+	--source-height-ctaXsmall: 1.5rem;
 	--source-height-iconMedium: 1.875rem;
 	--source-height-iconSmall: 1.625rem;
-	--source-height-iconXSmall: 1.25rem;
+	--source-height-iconXsmall: 1.25rem;
 	--source-height-inputMedium: 2.75rem;
-	--source-height-inputXSmall: 1.5rem;
+	--source-height-inputXsmall: 1.5rem;
+	--source-iconSize-medium: 1.875rem;
+	--source-iconSize-small: 1.625rem;
+	--source-iconSize-xsmall: 1.25rem;
 	--source-palette-brand-100: #001536;
 	--source-palette-brand-300: #041f4a;
 	--source-palette-brand-400: #052962;
@@ -107,12 +110,9 @@
 	--source-palette-success-300: #185e36;
 	--source-palette-success-400: #22874d;
 	--source-palette-success-500: #58d08b;
-	--source-size-icon-medium: 1.875rem;
-	--source-size-icon-small: 1.625rem;
-	--source-size-icon-xSmall: 1.25rem;
 	--source-size-medium: 2.75rem;
 	--source-size-small: 2.25rem;
-	--source-size-xSmall: 1.5rem;
+	--source-size-xsmall: 1.5rem;
 	--source-space-0: 0.125rem;
 	--source-space-1: 0.25rem;
 	--source-space-2: 0.5rem;
@@ -1683,9 +1683,9 @@
 	);
 	--source-width-ctaMedium: 2.75rem;
 	--source-width-ctaSmall: 2.25rem;
-	--source-width-ctaXSmall: 1.5rem;
+	--source-width-ctaXsmall: 1.5rem;
 	--source-width-iconMedium: 1.875rem;
 	--source-width-iconSmall: 1.625rem;
-	--source-width-iconXSmall: 1.25rem;
-	--source-width-inputXSmall: 1.5rem;
+	--source-width-iconXsmall: 1.25rem;
+	--source-width-inputXsmall: 1.5rem;
 }
