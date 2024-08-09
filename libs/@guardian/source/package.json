@@ -24,11 +24,10 @@
 	"scripts": {
 		"build": "wireit",
 		"build-storybook": "wireit",
-		"build-type-presets": "wireit",
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
 		"fix": "wireit",
-		"generated": "co build --config src/design-tokens/tokens.config.js && prettier --write src/foundations/__generated__/**",
+		"generate": "co build --config src/design-tokens/tokens.config.js && prettier --write src/foundations/__generated__/**",
 		"lint": "wireit",
 		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
@@ -96,17 +95,11 @@
 		}
 	},
 	"wireit": {
-		"__deps__": {
-			"dependencies": [
-				"../design-tokens:build",
-				"../libs:build"
-			]
-		},
 		"build": {
 			"command": "rollup -c",
 			"dependencies": [
-				"__deps__",
-				"generated"
+				"../libs:build",
+				"generate"
 			],
 			"files": [
 				"src/**",
@@ -135,23 +128,10 @@
 				"storybook-static"
 			]
 		},
-		"build-type-presets": {
-			"command": "tsx ./scripts/build-type-presets.ts",
-			"dependencies": [
-				"__deps__"
-			],
-			"files": [
-				"./scripts/build-type-presets.ts",
-				"./src/foundations/utils/convert-value.ts"
-			],
-			"output": [
-				"src/__generated__/typography"
-			]
-		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"files": [
 				"**",
@@ -166,7 +146,7 @@
 		},
 		"lint": {
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"command": "eslint --cache --color .",
 			"files": [
@@ -180,7 +160,7 @@
 		"test": {
 			"command": "jest",
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"files": [
 				"**",
