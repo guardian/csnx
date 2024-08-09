@@ -445,10 +445,6 @@ install: check-node-version
 @guardian/source\:build-storybook: env
 	@corepack pnpm --filter @guardian/source build-storybook
 
-.PHONY: @guardian/source\:build-type-presets
-@guardian/source\:build-type-presets: env
-	@corepack pnpm --filter @guardian/source build-type-presets
-
 .PHONY: @guardian/source\:create-icons
 @guardian/source\:create-icons: env
 	@corepack pnpm --filter @guardian/source create-icons
@@ -461,9 +457,9 @@ install: check-node-version
 @guardian/source\:fix: env
 	@corepack pnpm --filter @guardian/source fix
 
-.PHONY: @guardian/source\:generated
-@guardian/source\:generated: env
-	@corepack pnpm --filter @guardian/source generated
+.PHONY: @guardian/source\:generate
+@guardian/source\:generate: env
+	@corepack pnpm --filter @guardian/source generate
 
 .PHONY: @guardian/source\:lint
 @guardian/source\:lint: env
