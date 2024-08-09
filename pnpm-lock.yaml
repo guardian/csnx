@@ -360,28 +360,6 @@ importers:
         specifier: 0.14.4
         version: 0.14.4
 
-  libs/@guardian/design-tokens:
-    dependencies:
-      tslib:
-        specifier: ^2.5.3
-        version: 2.6.2
-    devDependencies:
-      '@cobalt-ui/cli':
-        specifier: 1.11.0
-        version: 1.11.0
-      '@cobalt-ui/core':
-        specifier: 1.11.0
-        version: 1.11.0
-      '@cobalt-ui/plugin-css':
-        specifier: 1.7.0
-        version: 1.7.0(@cobalt-ui/cli@1.11.0)
-      '@guardian/cobalt-plugin-ts':
-        specifier: workspace:*
-        version: link:../cobalt-plugin-ts
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
-
   libs/@guardian/eslint-config:
     dependencies:
       eslint-config-prettier:
@@ -603,9 +581,6 @@ importers:
       '@emotion/react':
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
-      '@guardian/design-tokens':
-        specifier: workspace:*
-        version: link:../design-tokens
       '@guardian/libs':
         specifier: 18.0.0
         version: link:../libs

@@ -18,7 +18,7 @@ export const article15 = `
 export const article15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -36,7 +36,7 @@ export const article17 = `
 export const article17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -54,7 +54,7 @@ export const articleBold15 = `
 export const articleBold15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -72,7 +72,7 @@ export const articleBold17 = `
 export const articleBold17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -90,7 +90,7 @@ export const articleBoldItalic15 = `
 export const articleBoldItalic15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'italic',
@@ -108,7 +108,7 @@ export const articleBoldItalic17 = `
 export const articleBoldItalic17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.4,
 	fontWeight: 700,
 	fontStyle: 'italic',
@@ -126,7 +126,7 @@ export const articleItalic15 = `
 export const articleItalic15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -144,7 +144,7 @@ export const articleItalic17 = `
 export const articleItalic17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.4,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -161,7 +161,7 @@ export const headlineBold14 = `
 
 export const headlineBold14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -178,7 +178,7 @@ export const headlineBold15 = `
 
 export const headlineBold15Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -195,7 +195,7 @@ export const headlineBold17 = `
 
 export const headlineBold17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -207,12 +207,12 @@ export const headlineBold20 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineBold20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -224,12 +224,12 @@ export const headlineBold24 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineBold24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -241,12 +241,12 @@ export const headlineBold28 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineBold28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -263,7 +263,7 @@ export const headlineBold34 = `
 
 export const headlineBold34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -280,7 +280,7 @@ export const headlineBold42 = `
 
 export const headlineBold42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.625remrem',
+	fontSize: '2.625rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -297,7 +297,7 @@ export const headlineBold50 = `
 
 export const headlineBold50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '3.125remrem',
+	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -309,12 +309,12 @@ export const headlineBold64 = `
 	line-height: 1.15;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineBold64Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4remrem',
+	fontSize: '4rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -331,7 +331,7 @@ export const headlineLight14 = `
 
 export const headlineLight14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -348,7 +348,7 @@ export const headlineLight15 = `
 
 export const headlineLight15Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -365,7 +365,7 @@ export const headlineLight17 = `
 
 export const headlineLight17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -377,12 +377,12 @@ export const headlineLight20 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineLight20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -394,12 +394,12 @@ export const headlineLight24 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineLight24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -411,12 +411,12 @@ export const headlineLight28 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineLight28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -433,7 +433,7 @@ export const headlineLight34 = `
 
 export const headlineLight34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -450,7 +450,7 @@ export const headlineLight42 = `
 
 export const headlineLight42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.625remrem',
+	fontSize: '2.625rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -467,7 +467,7 @@ export const headlineLight50 = `
 
 export const headlineLight50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '3.125remrem',
+	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -479,12 +479,12 @@ export const headlineLight64 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineLight64Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4remrem',
+	fontSize: '4rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'normal',
@@ -501,7 +501,7 @@ export const headlineLightItalic14 = `
 
 export const headlineLightItalic14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -518,7 +518,7 @@ export const headlineLightItalic15 = `
 
 export const headlineLightItalic15Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -535,7 +535,7 @@ export const headlineLightItalic17 = `
 
 export const headlineLightItalic17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -547,12 +547,12 @@ export const headlineLightItalic20 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineLightItalic20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -564,12 +564,12 @@ export const headlineLightItalic24 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineLightItalic24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -581,12 +581,12 @@ export const headlineLightItalic28 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineLightItalic28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -603,7 +603,7 @@ export const headlineLightItalic34 = `
 
 export const headlineLightItalic34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -620,7 +620,7 @@ export const headlineLightItalic42 = `
 
 export const headlineLightItalic42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.625remrem',
+	fontSize: '2.625rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -637,7 +637,7 @@ export const headlineLightItalic50 = `
 
 export const headlineLightItalic50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '3.125remrem',
+	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -649,12 +649,12 @@ export const headlineLightItalic64 = `
 	line-height: 1.15;
 	font-weight: 300;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineLightItalic64Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4remrem',
+	fontSize: '4rem',
 	lineHeight: 1.15,
 	fontWeight: 300,
 	fontStyle: 'italic',
@@ -671,7 +671,7 @@ export const headlineMedium14 = `
 
 export const headlineMedium14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -688,7 +688,7 @@ export const headlineMedium15 = `
 
 export const headlineMedium15Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -705,7 +705,7 @@ export const headlineMedium17 = `
 
 export const headlineMedium17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -717,12 +717,12 @@ export const headlineMedium20 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineMedium20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -734,12 +734,12 @@ export const headlineMedium24 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineMedium24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -751,12 +751,12 @@ export const headlineMedium28 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineMedium28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -773,7 +773,7 @@ export const headlineMedium34 = `
 
 export const headlineMedium34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -790,7 +790,7 @@ export const headlineMedium42 = `
 
 export const headlineMedium42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.625remrem',
+	fontSize: '2.625rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -807,7 +807,7 @@ export const headlineMedium50 = `
 
 export const headlineMedium50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '3.125remrem',
+	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -819,12 +819,12 @@ export const headlineMedium64 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineMedium64Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4remrem',
+	fontSize: '4rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'normal',
@@ -841,7 +841,7 @@ export const headlineMediumItalic14 = `
 
 export const headlineMediumItalic14Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -858,7 +858,7 @@ export const headlineMediumItalic15 = `
 
 export const headlineMediumItalic15Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -875,7 +875,7 @@ export const headlineMediumItalic17 = `
 
 export const headlineMediumItalic17Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -887,12 +887,12 @@ export const headlineMediumItalic20 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineMediumItalic20Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -904,12 +904,12 @@ export const headlineMediumItalic24 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineMediumItalic24Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -921,12 +921,12 @@ export const headlineMediumItalic28 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const headlineMediumItalic28Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -943,7 +943,7 @@ export const headlineMediumItalic34 = `
 
 export const headlineMediumItalic34Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -960,7 +960,7 @@ export const headlineMediumItalic42 = `
 
 export const headlineMediumItalic42Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '2.625remrem',
+	fontSize: '2.625rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -977,7 +977,7 @@ export const headlineMediumItalic50 = `
 
 export const headlineMediumItalic50Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '3.125remrem',
+	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -989,12 +989,12 @@ export const headlineMediumItalic64 = `
 	line-height: 1.15;
 	font-weight: 500;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 6px;
 `;
 
 export const headlineMediumItalic64Object = {
 	fontFamily: '"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-	fontSize: '4remrem',
+	fontSize: '4rem',
 	lineHeight: 1.15,
 	fontWeight: 500,
 	fontStyle: 'italic',
@@ -1012,7 +1012,7 @@ export const textEgyptian14 = `
 export const textEgyptian14Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1030,7 +1030,7 @@ export const textEgyptian15 = `
 export const textEgyptian15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1048,7 +1048,7 @@ export const textEgyptian17 = `
 export const textEgyptian17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1066,7 +1066,7 @@ export const textEgyptianBold14 = `
 export const textEgyptianBold14Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1084,7 +1084,7 @@ export const textEgyptianBold15 = `
 export const textEgyptianBold15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1102,7 +1102,7 @@ export const textEgyptianBold17 = `
 export const textEgyptianBold17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1120,7 +1120,7 @@ export const textEgyptianBoldItalic14 = `
 export const textEgyptianBoldItalic14Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'italic',
@@ -1138,7 +1138,7 @@ export const textEgyptianBoldItalic15 = `
 export const textEgyptianBoldItalic15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'italic',
@@ -1156,7 +1156,7 @@ export const textEgyptianBoldItalic17 = `
 export const textEgyptianBoldItalic17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'italic',
@@ -1174,7 +1174,7 @@ export const textEgyptianItalic14 = `
 export const textEgyptianItalic14Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1192,7 +1192,7 @@ export const textEgyptianItalic15 = `
 export const textEgyptianItalic15Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1210,7 +1210,7 @@ export const textEgyptianItalic17 = `
 export const textEgyptianItalic17Object = {
 	fontFamily:
 		'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1228,7 +1228,7 @@ export const textSans12 = `
 export const textSans12Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.75remrem',
+	fontSize: '0.75rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1246,7 +1246,7 @@ export const textSans14 = `
 export const textSans14Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1264,7 +1264,7 @@ export const textSans15 = `
 export const textSans15Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1282,7 +1282,7 @@ export const textSans17 = `
 export const textSans17Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1294,13 +1294,13 @@ export const textSans20 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSans20Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1312,13 +1312,13 @@ export const textSans24 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSans24Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1330,13 +1330,13 @@ export const textSans28 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSans28Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1354,7 +1354,7 @@ export const textSans34 = `
 export const textSans34Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'normal',
@@ -1372,7 +1372,7 @@ export const textSansBold12 = `
 export const textSansBold12Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.75remrem',
+	fontSize: '0.75rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1390,7 +1390,7 @@ export const textSansBold14 = `
 export const textSansBold14Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1408,7 +1408,7 @@ export const textSansBold15 = `
 export const textSansBold15Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1426,7 +1426,7 @@ export const textSansBold17 = `
 export const textSansBold17Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1438,13 +1438,13 @@ export const textSansBold20 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSansBold20Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1456,13 +1456,13 @@ export const textSansBold24 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSansBold24Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1474,13 +1474,13 @@ export const textSansBold28 = `
 	line-height: 1.3;
 	font-weight: 700;
 	font-style: normal;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSansBold28Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1498,7 +1498,7 @@ export const textSansBold34 = `
 export const textSansBold34Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.3,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1516,7 +1516,7 @@ export const textSansItalic12 = `
 export const textSansItalic12Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.75remrem',
+	fontSize: '0.75rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1534,7 +1534,7 @@ export const textSansItalic14 = `
 export const textSansItalic14Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.875remrem',
+	fontSize: '0.875rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1552,7 +1552,7 @@ export const textSansItalic15 = `
 export const textSansItalic15Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '0.9375remrem',
+	fontSize: '0.9375rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1570,7 +1570,7 @@ export const textSansItalic17 = `
 export const textSansItalic17Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.0625remrem',
+	fontSize: '1.0625rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1582,13 +1582,13 @@ export const textSansItalic20 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSansItalic20Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.25remrem',
+	fontSize: '1.25rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1600,13 +1600,13 @@ export const textSansItalic24 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSansItalic24Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.5remrem',
+	fontSize: '1.5rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1618,13 +1618,13 @@ export const textSansItalic28 = `
 	line-height: 1.3;
 	font-weight: 400;
 	font-style: italic;
-	--source-text-decoration-thickness: 2px;
+	--source-text-decoration-thickness: 3px;
 `;
 
 export const textSansItalic28Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '1.75remrem',
+	fontSize: '1.75rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1642,7 +1642,7 @@ export const textSansItalic34 = `
 export const textSansItalic34Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-	fontSize: '2.125remrem',
+	fontSize: '2.125rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
@@ -1659,7 +1659,7 @@ export const titlepiece42 = `
 
 export const titlepiece42Object = {
 	fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
-	fontSize: '2.625remrem',
+	fontSize: '2.625rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1676,7 +1676,7 @@ export const titlepiece50 = `
 
 export const titlepiece50Object = {
 	fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
-	fontSize: '3.125remrem',
+	fontSize: '3.125rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
@@ -1693,7 +1693,7 @@ export const titlepiece70 = `
 
 export const titlepiece70Object = {
 	fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
-	fontSize: '4.375remrem',
+	fontSize: '4.375rem',
 	lineHeight: 1.15,
 	fontWeight: 700,
 	fontStyle: 'normal',
