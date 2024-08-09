@@ -11,7 +11,7 @@ import { nodeExternals } from 'rollup-plugin-node-externals';
 /** @type {Input}  */
 const defaultInput = { index: 'src/index.ts' };
 
-/** @type {import("rollup").RollupOptions.output}  */
+/** @type {import("rollup").RollupOptions["output"]}  */
 const output = {
 	dir: 'dist',
 	format: 'esm',
@@ -31,8 +31,8 @@ const defaultPlugins = [
 
 /**
  * @param {object} param0
- * @param {Plugins} param0.plugins
- * @param {Input} param0.input
+ * @param {Plugins} [param0.plugins]
+ * @param {Input} [param0.input]
  * @returns {import("rollup").RollupOptions[]}
  */
 export default ({ input = defaultInput, plugins = [] } = {}) => [
