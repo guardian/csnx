@@ -2,14 +2,17 @@ import { expect, test } from '@playwright/test';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
-	PRIVACY_MANAGER_CCPA,
+	PRIVACY_MANAGER_USNAT,
 } from '../fixtures/sourcepointConfig';
 
-const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_CCPA}`;
+const iframeMessage = `[id^="sp_message_iframe_"]`;
+const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
 
-const url = `http://localhost:4321/csnx/cmp-test-page#ccpa`;
+const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
 
 async function doNotSellIs(page, expectedValue) {
+	await page.waitForLoadState('networkidle');
+
 	await page.locator('[data-donotsell]').waitFor({
 		state: 'attached',
 		timeout: 2000,
@@ -62,6 +65,7 @@ test.describe('Window', () => {
 test.describe('Document', () => {
 	test('should have the SP iframe', async ({ page }) => {
 		await page.goto(url);
+		await page.waitForLoadState('networkidle');
 		const iframe = page
 			.frameLocator('iframe[title="SP Consent Message"]')
 			.getByLabel('Do not sell my personal');
@@ -90,16 +94,27 @@ test.describe('Interaction', () => {
 	}) => {
 		await page.goto(url);
 
-		await page
-			.frameLocator('iframe[title="SP Consent Message"]')
-			.getByLabel('Do not sell my personal')
-			.click();
+		await doNotSellIs(page, false);
 
+		await page
+			.frameLocator(iframeMessage)
+			.last()
+			.locator('div.message-component > button.sp_choice_type_13') // Do not sell button on second layer
+			.click();
 		await doNotSellIs(page, true);
 	});
 
-	test(`should be able to retract consent`, async ({ page }) => {
+	test(`should be able to interact with the toggle privacy manager`, async ({
+		page,
+	}) => {
 		await page.goto(url);
+
+		await doNotSellIs(page, false);
+
+		await page
+			.frameLocator(iframeMessage)
+			.locator('div.message-component > button.sp_choice_type_15') // Close button
+			.click();
 
 		await doNotSellIs(page, false);
 
@@ -109,8 +124,10 @@ test.describe('Interaction', () => {
 			page,
 			iframePrivacyManager,
 		);
-		await privacyManagerIframe.click('.pm-toggle .off');
-		await privacyManagerIframe.click('.sp_choice_type_SAVE_AND_EXIT');
+		await privacyManagerIframe.click('.pm-toggle .on');
+		await privacyManagerIframe.click('.sp_choice_type_SE'); // Save and Exit
+
+		await page.waitForLoadState('networkidle');
 
 		await doNotSellIs(page, true);
 	});
