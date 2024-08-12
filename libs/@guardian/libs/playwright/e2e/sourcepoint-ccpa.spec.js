@@ -11,6 +11,8 @@ const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
 const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
 
 async function doNotSellIs(page, expectedValue) {
+	await page.waitForLoadState('networkidle');
+
 	await page.locator('[data-donotsell]').waitFor({
 		state: 'attached',
 		timeout: 2000,
@@ -63,6 +65,7 @@ test.describe('Window', () => {
 test.describe('Document', () => {
 	test('should have the SP iframe', async ({ page }) => {
 		await page.goto(url);
+		await page.waitForLoadState('networkidle');
 		const iframe = page
 			.frameLocator('iframe[title="SP Consent Message"]')
 			.getByLabel('Do not sell my personal');
@@ -91,15 +94,7 @@ test.describe('Interaction', () => {
 	}) => {
 		await page.goto(url);
 
-		await page.waitForLoadState('networkidle');
 		await doNotSellIs(page, false);
-
-		await page
-			.frameLocator(iframeMessage)
-			.locator(
-				'div.message-component.message-column > button.sp_choice_type_12', // Do not sell button on first layer
-			)
-			.click();
 
 		await page
 			.frameLocator(iframeMessage)
@@ -113,8 +108,6 @@ test.describe('Interaction', () => {
 		page,
 	}) => {
 		await page.goto(url);
-
-		await page.waitForLoadState('networkidle');
 
 		await doNotSellIs(page, false);
 
