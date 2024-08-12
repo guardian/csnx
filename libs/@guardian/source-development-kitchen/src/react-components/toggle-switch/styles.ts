@@ -6,7 +6,10 @@ import {
 	neutral,
 	space,
 	success,
-	textSans,
+	textSans15,
+	textSans17,
+	textSansBold15,
+	textSansBold17,
 } from '@guardian/source/foundations';
 import type {
 	LabelPosition,
@@ -140,7 +143,10 @@ export const labelStyles = (
 	fontWeight: ToggleSwitchFontWeight,
 	format?: ArticleFormat,
 ): SerializedStyles => css`
-	${textSans[fontSize]({ fontWeight })};
+	${fontSize === 'small' &&
+	(fontWeight === 'regular' ? textSans15 : textSansBold15)};
+	${fontSize === 'medium' &&
+	(fontWeight === 'regular' ? textSans17 : textSansBold17)};
 	color: ${format ? neutral[100] : neutral[7]};
 	display: inline-flex;
 	justify-content: space-between;
