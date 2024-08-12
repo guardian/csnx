@@ -36,31 +36,31 @@ export const width = {
 	inputXsmall: 24,
 } as const;
 export const remHeight = {
-	ctaMedium: '2.75rem',
-	ctaSmall: '2.25rem',
-	ctaXsmall: '1.5rem',
-	iconMedium: '1.875rem',
-	iconSmall: '1.625rem',
-	iconXsmall: '1.25rem',
-	inputMedium: '2.75rem',
-	inputXsmall: '1.5rem',
+	ctaMedium: 2.75,
+	ctaSmall: 2.25,
+	ctaXsmall: 1.5,
+	iconMedium: 1.875,
+	iconSmall: 1.625,
+	iconXsmall: 1.25,
+	inputMedium: 2.75,
+	inputXsmall: 1.5,
 } as const;
 export const remIconSize = {
-	medium: '1.875rem',
-	small: '1.625rem',
-	xsmall: '1.25rem',
+	medium: 1.875,
+	small: 1.625,
+	xsmall: 1.25,
 } as const;
 export const remSize = {
-	medium: '2.75rem',
-	small: '2.25rem',
-	xsmall: '1.5rem',
+	medium: 2.75,
+	small: 2.25,
+	xsmall: 1.5,
 } as const;
 export const remWidth = {
-	ctaMedium: '2.75rem',
-	ctaSmall: '2.25rem',
-	ctaXsmall: '1.5rem',
-	iconMedium: '1.875rem',
-	iconSmall: '1.625rem',
-	iconXsmall: '1.25rem',
-	inputXsmall: '1.5rem',
+	ctaMedium: 2.75,
+	ctaSmall: 2.25,
+	ctaXsmall: 1.5,
+	iconMedium: 1.875,
+	iconSmall: 1.625,
+	iconXsmall: 1.25,
+	inputXsmall: 1.5,
 } as const;
