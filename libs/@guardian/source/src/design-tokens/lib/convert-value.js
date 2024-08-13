@@ -1,10 +1,12 @@
 // @ts-check
 
-/** @param {number} n */
-export const numberToRem = (n) => n / 16 + 'rem';
+const rootPixelFontSize = 16;
 
 /** @param {number} n */
-export const numberToRemNumber = (n) => n / 16;
+export const numberToRem = (n) => n / rootPixelFontSize + 'rem';
+
+/** @param {number} n */
+export const numberToRemNumber = (n) => n / rootPixelFontSize;
 
 /** @param {string} px */
 export const pxStringToRem = (px) => numberToRem(pxStringToNumber(px));
