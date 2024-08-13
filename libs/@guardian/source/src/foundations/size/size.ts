@@ -18,16 +18,12 @@ export const size = {
  * [Design System](https://theguardian.design/2a1e5182b/p/24a3ec-size/t/329aef)
  *
  * May be used for call to action buttons and user input fields.
- *
- ** `remSize.medium` -> 2.75rem
- ** `remSize.small` -> 2.25rem
- ** `remSize.xsmall` -> 1.5rem
  */
-const remSize: { [K in keyof typeof size]: number } = {
+const remSize = {
 	xsmall: pxToRem(size.xsmall),
 	small: pxToRem(size.small),
 	medium: pxToRem(size.medium),
-};
+} as const;
 
 /*
    We attempt to use these values for icons within Source components.
@@ -41,11 +37,11 @@ export const iconSize = {
 	medium: pxStringToNumber(tokens.icon.medium),
 } as const;
 
-const remIconSize: { [K in keyof typeof iconSize]: number } = {
+const remIconSize = {
 	xsmall: pxToRem(iconSize.xsmall),
 	small: pxToRem(iconSize.small),
 	medium: pxToRem(iconSize.medium),
-};
+} as const;
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -71,7 +67,7 @@ export const height = {
 	iconMedium: iconSize.medium,
 	iconSmall: iconSize.small,
 	iconXsmall: iconSize.xsmall,
-};
+} as const;
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -97,7 +93,7 @@ export const remHeight = {
 	iconMedium: remIconSize.medium,
 	iconSmall: remIconSize.small,
 	iconXsmall: remIconSize.xsmall,
-};
+} as const;
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -108,9 +104,6 @@ export const remHeight = {
  ** `width.ctaMedium`: medium height call to action buttons and links
  ** `width.ctaSmall`: small height call to action buttons and links
  ** `width.ctaXsmall`: xsmall height call to action buttons and links
- ** `width.inputMedium`: text input fields, radio and checkbox labels
- ** `width.inputXsmall`: checkables such as checkboxes or radio buttons
- ** `width.inputMedium`
  ** `width.inputXsmall`: checkables such as checkboxes or radio buttons
  ** `width.iconMedium`
  ** `width.iconSmall`
@@ -124,7 +117,7 @@ export const width = {
 	iconMedium: iconSize.medium,
 	iconSmall: iconSize.small,
 	iconXsmall: iconSize.xsmall,
-};
+} as const;
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-size--page#tokens) •
@@ -135,9 +128,6 @@ export const width = {
  ** `remWidth.ctaMedium`: medium height call to action buttons and links
  ** `remWidth.ctaSmall`: small height call to action buttons and links
  ** `remWidth.ctaXsmall`: xsmall height call to action buttons and links
- ** `remWidth.inputMedium`: text input fields, radio and checkbox labels
- ** `remWidth.inputXsmall`: checkables such as checkboxes or radio buttons
- ** `remWidth.inputMedium`
  ** `remWidth.inputXsmall`: checkables such as checkboxes or radio buttons
  ** `remWidth.iconMedium`
  ** `remWidth.iconSmall`
@@ -151,4 +141,4 @@ export const remWidth = {
 	iconMedium: remIconSize.medium,
 	iconSmall: remIconSize.small,
 	iconXsmall: remIconSize.xsmall,
-};
+} as const;
