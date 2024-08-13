@@ -24,16 +24,16 @@ const inlineMessage = css`
 const inlineMessageSmall = css`
 	${textSans14};
 	svg {
-		width: ${remWidth.iconSmall}rem;
-		height: ${remHeight.iconSmall}rem;
+		width: ${remWidth.iconSmall};
+		height: ${remHeight.iconSmall};
 	}
 `;
 
 const inlineMessageMedium = css`
 	${textSans17};
 	svg {
-		width: ${remWidth.iconMedium}rem;
-		height: ${remHeight.iconMedium}rem;
+		width: ${remWidth.iconMedium};
+		height: ${remHeight.iconMedium};
 	}
 `;
 

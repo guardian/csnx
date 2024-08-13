@@ -195,14 +195,14 @@ describe('Size tokens', () => {
 			inputMedium: 44,
 		});
 		expect(remHeight).toEqual({
-			ctaXsmall: 1.5,
-			ctaSmall: 2.25,
-			ctaMedium: 2.75,
-			iconXsmall: 1.25,
-			iconSmall: 1.625,
-			iconMedium: 1.875,
-			inputXsmall: 1.5,
-			inputMedium: 2.75,
+			ctaXsmall: '1.5rem',
+			ctaSmall: '2.25rem',
+			ctaMedium: '2.75rem',
+			iconXsmall: '1.25rem',
+			iconSmall: '1.625rem',
+			iconMedium: '1.875rem',
+			inputXsmall: '1.5rem',
+			inputMedium: '2.75rem',
 		});
 		expect(width).toEqual({
 			ctaXsmall: 24,
@@ -214,13 +214,13 @@ describe('Size tokens', () => {
 			inputXsmall: 24,
 		});
 		expect(remWidth).toEqual({
-			ctaXsmall: 1.5,
-			ctaSmall: 2.25,
-			ctaMedium: 2.75,
-			iconXsmall: 1.25,
-			iconSmall: 1.625,
-			iconMedium: 1.875,
-			inputXsmall: 1.5,
+			ctaXsmall: '1.5rem',
+			ctaSmall: '2.25rem',
+			ctaMedium: '2.75rem',
+			iconXsmall: '1.25rem',
+			iconSmall: '1.625rem',
+			iconMedium: '1.875rem',
+			inputXsmall: '1.5rem',
 		});
 	});
 });

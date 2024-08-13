@@ -81,9 +81,9 @@ export const customUpload = (
 	text-decoration: none;
 	white-space: nowrap;
 	margin: ${remSpace[2]} ${remSpace[2]} ${remSpace[2]} 0;
-	height: ${remHeight.ctaXsmall}rem;
-	min-height: ${remHeight.ctaXsmall}rem;
-	border-radius: ${remHeight.ctaMedium}rem;
+	height: ${remHeight.ctaXsmall};
+	min-height: ${remHeight.ctaXsmall};
+	border-radius: ${remHeight.ctaMedium};
 	color: ${fileInput.primary};
 	border: ${hasError
 		? `2px solid ${fileInput.error}`
