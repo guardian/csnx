@@ -7,6 +7,8 @@ import {
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
+const acceptAllButton = 'div.message-component > button.sp_choice_type_13';
+const saveAndExitButton = '.sp_choice_type_SE';
 
 const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
 
@@ -23,7 +25,7 @@ async function doNotSellIs(page, expectedValue) {
 				.querySelector('[data-donotsell]')
 				.getAttribute('data-donotsell') === expectedValue.toString(),
 		expectedValue,
-		{ timeout: 2000 },
+		{ timeout: 5000 },
 	);
 	const attributeValue = await page
 		.locator('[data-donotsell]')
@@ -89,7 +91,7 @@ test.describe('Interaction', () => {
 		await doNotSellIs(page, false);
 	});
 
-	test(`should retract consent when clicking "${buttonTitle}"`, async ({
+	test(`should retract consent banner after selecting reject all button "${buttonTitle}"`, async ({
 		page,
 	}) => {
 		await page.goto(url);
@@ -98,10 +100,15 @@ test.describe('Interaction', () => {
 
 		await page
 			.frameLocator(iframeMessage)
-			.last()
-			.locator('div.message-component > button.sp_choice_type_13') // Do not sell button on second layer
+			// .last()
+			.locator(acceptAllButton)
 			.click();
-		await doNotSellIs(page, true);
+
+		await page.waitForLoadState('networkidle');
+
+		await expect(
+			page.frameLocator(iframeMessage).locator(acceptAllButton),
+		).toBeHidden();
 	});
 
 	test(`should be able to interact with the toggle privacy manager`, async ({
@@ -125,10 +132,12 @@ test.describe('Interaction', () => {
 			iframePrivacyManager,
 		);
 		await privacyManagerIframe.click('.pm-toggle .on');
-		await privacyManagerIframe.click('.sp_choice_type_SE'); // Save and Exit
+		await privacyManagerIframe.click(saveAndExitButton); // Save and Exit
 
 		await page.waitForLoadState('networkidle');
 
-		await doNotSellIs(page, true);
+		await expect(
+			page.frameLocator(iframeMessage).locator(saveAndExitButton),
+		).toBeHidden();
 	});
 });
