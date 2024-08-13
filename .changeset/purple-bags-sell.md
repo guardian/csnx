@@ -3,7 +3,9 @@
 '@guardian/source': major
 ---
 
-Brings `remSize`, `remIconSize`, `remHeight` and `remWidth` into line with `remSpace`, by changing their values from numbers (of rems) to strings with `rem` units.
+Brings `remSize`, `remIconSize`, `remHeight` and `remWidth` into line with `remSpace`, by changing their values from a `number` (of rems) to a `string` that ends with `rem` units.
+
+`pxToRem` also now returns a string with `rem` units, rather than a `number` of rems.
 
 _The sizes haven't changed, only the way they are exported._
 
@@ -11,6 +13,7 @@ _The sizes haven't changed, only the way they are exported._
 
 ```js
 const style = `
+	top: ${pxToRem(10)}rem;
 	bottom: ${remHeight.ctaSmall}rem;
 `;
 ```
@@ -19,6 +22,7 @@ const style = `
 
 ```js
 const style = `
+	top: ${pxToRem(10)};
 	bottom: ${remHeight.ctaSmall};
 `;
 ```
