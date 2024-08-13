@@ -50,8 +50,12 @@ module.exports = {
 		{
 			files: ['**/*.stories.tsx'],
 			rules: {
-				// storybook require this
+				// Storybook require this
 				'import/no-default-export': 'off',
+				// The CSF3 custom `render` function is lowercase. This breaks the rule
+				// that component names must start with a capital letter.
+				// https://github.com/storybookjs/storybook/issues/21115
+				'react-hooks/rules-of-hooks': 'off',
 			},
 		},
 	],

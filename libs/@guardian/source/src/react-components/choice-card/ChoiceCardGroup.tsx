@@ -92,7 +92,7 @@ export const ChoiceCardGroup = ({
 	const groupId = id ?? defaultId;
 	const showLabel = !!(label && !hideLabel);
 	const topMargin =
-		(showLabel || supporting) ?? error ? containerTopMargin : '';
+		((showLabel || supporting) ?? error) ? containerTopMargin : '';
 
 	return (
 		<fieldset css={[fieldset, cssOverrides]} id={groupId} {...props}>

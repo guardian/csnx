@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "3.0.0",
+	"version": "6.0.0",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -26,31 +26,31 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@babel/core": "7.24.0",
+		"@babel/core": "7.25.2",
 		"@emotion/react": "11.11.3",
-		"@guardian/libs": "17.0.0",
-		"@guardian/source": "4.0.0",
-		"@storybook/manager-api": "8.1.8",
-		"@storybook/react": "8.1.8",
+		"@guardian/libs": "18.0.0",
+		"@guardian/source": "6.1.0",
+		"@storybook/manager-api": "8.2.7",
+		"@storybook/react": "8.2.7",
 		"@types/jest": "29.5.8",
 		"@types/react": "18.2.11",
 		"jest": "29.7.0",
 		"react": "18.2.0",
-		"rollup": "4.18.0",
-		"storybook": "8.1.8",
-		"ts-jest": "29.1.1",
+		"rollup": "4.20.0",
+		"storybook": "8.2.7",
+		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
-		"typescript": "5.3.3",
+		"typescript": "5.5.2",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.3",
-		"@guardian/libs": "^17.0.0",
-		"@guardian/source": "^4.0.0",
+		"@guardian/libs": "^18.0.0",
+		"@guardian/source": "^6.0.0",
 		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
-		"typescript": "~5.3.3"
+		"typescript": "~5.5.2"
 	},
 	"peerDependenciesMeta": {
 		"@emotion/react": {
@@ -67,8 +67,16 @@
 		}
 	},
 	"wireit": {
+		"__deps__": {
+			"dependencies": [
+				"../source:build"
+			]
+		},
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"src/**",
 				"package.json",
@@ -83,7 +91,7 @@
 		"build-storybook": {
 			"command": "NODE_ENV=production storybook build --webpack-stats-json",
 			"dependencies": [
-				"../source:build"
+				"__deps__"
 			],
 			"files": [
 				"**",
@@ -98,6 +106,9 @@
 		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -111,6 +122,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../.eslint*",
@@ -121,6 +135,9 @@
 		},
 		"test": {
 			"command": "jest",
+			"dependencies": [
+				"__deps__"
+			],
 			"files": [
 				"**",
 				"../../../configs/jest.*",
@@ -132,7 +149,7 @@
 		"tsc": {
 			"command": "tsc --pretty",
 			"dependencies": [
-				"../source:build"
+				"__deps__"
 			],
 			"files": [
 				"**",

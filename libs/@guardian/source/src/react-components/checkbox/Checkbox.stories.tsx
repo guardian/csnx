@@ -1,14 +1,32 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { palette } from '../../foundations';
-import type { CheckboxProps } from './Checkbox';
+import { breakpoints, palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
 import { themeCheckboxBrand } from './theme';
 
 const meta: Meta<typeof Checkbox> = {
 	title: 'React Components/Checkbox',
 	component: Checkbox,
-	argTypes: {},
+};
+
+export default meta;
+type Story = StoryObj<typeof Checkbox>;
+
+const Template: Story = {
+	render: (args) => {
+		const [checked, setChecked] = useState(args.checked);
+		return (
+			<Checkbox
+				{...args}
+				checked={checked}
+				onChange={(e) => setChecked(e.target.checked)}
+			/>
+		);
+	},
+};
+
+export const DefaultDefaultTheme: Story = {
+	...Template,
 	args: {
 		label: 'The Guardian Today',
 		checked: true,
@@ -16,119 +34,118 @@ const meta: Meta<typeof Checkbox> = {
 	},
 };
 
-export default meta;
-const Template: StoryFn<CheckboxProps> = (args: CheckboxProps) => {
-	const [checked, setChecked] = useState(args.checked);
-
-	return (
-		<Checkbox
-			{...args}
-			checked={checked}
-			onChange={(e) => setChecked(e.target.checked)}
-		/>
-	);
-};
-
-export const DefaultDefaultTheme: StoryFn = Template.bind({});
-
-// *****************************************************************************
-
-export const DefaultBrandTheme: StoryFn = Template.bind({});
-DefaultBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const DefaultBrandTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		theme: themeCheckboxBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
 	},
 };
-DefaultBrandTheme.args = {
-	theme: themeCheckboxBrand,
-};
 
-// *****************************************************************************
-
-export const SupportingTextDefaultTheme: StoryFn = Template.bind({});
-SupportingTextDefaultTheme.args = {
-	supporting: 'Supporting text',
-};
-
-// *****************************************************************************
-
-export const SupportingTextBrandTheme: StoryFn = Template.bind({});
-SupportingTextBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const SupportingTextDefaultTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting: 'Supporting text',
 	},
 };
-SupportingTextBrandTheme.args = {
-	supporting: 'Supporting text',
-	theme: themeCheckboxBrand,
-};
 
-// *****************************************************************************
-
-export const SupportingTextOnlyDefaultTheme: StoryFn = Template.bind({});
-SupportingTextOnlyDefaultTheme.args = {
-	label: null,
-	supporting: 'Supporting text',
-};
-
-// *****************************************************************************
-
-export const SupportingTextOnlyBrandTheme: StoryFn = Template.bind({});
-SupportingTextOnlyBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const SupportingTextBrandTheme: Story = {
+	...Template,
+	args: {
+		...DefaultBrandTheme.args,
+		supporting: 'Supporting text',
+	},
+	parameters: {
+		...DefaultBrandTheme.parameters,
 	},
 };
-SupportingTextOnlyBrandTheme.args = {
-	label: null,
-	supporting: 'Supporting text',
-	theme: themeCheckboxBrand,
-};
 
-// *****************************************************************************
-
-export const IndeterminateDefaultTheme: StoryFn = Template.bind({});
-IndeterminateDefaultTheme.args = {
-	checked: undefined,
-	indeterminate: true,
-};
-
-// *****************************************************************************
-
-export const IndeterminateBrandTheme: StoryFn = Template.bind({});
-IndeterminateBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const SupportingTextOnlyDefaultTheme: Story = {
+	...Template,
+	args: {
+		...SupportingTextDefaultTheme.args,
+		label: null,
 	},
 };
-IndeterminateBrandTheme.args = {
-	indeterminate: true,
-	theme: themeCheckboxBrand,
-};
 
-// *****************************************************************************
-
-export const UnlabelledDefaultTheme: StoryFn = Template.bind({});
-UnlabelledDefaultTheme.args = {
-	label: null,
-	'aria-label': 'Checkbox',
-};
-
-// *****************************************************************************
-
-export const DefaultCustomTheme: StoryFn<CheckboxProps> = Template.bind({});
-DefaultCustomTheme.args = {
-	theme: {
-		fillSelected: palette.brand[800],
-		fillUnselected: palette.neutral[20],
-		borderSelected: palette.brand[800],
-		borderUnselected: palette.neutral[60],
-		borderHover: palette.brand[800],
-		textLabel: palette.neutral[86],
+export const SupportingTextOnlyBrandTheme: Story = {
+	...Template,
+	args: {
+		...SupportingTextBrandTheme.args,
+		label: null,
+	},
+	parameters: {
+		...SupportingTextBrandTheme.parameters,
 	},
 };
-DefaultCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+
+export const IndeterminateDefaultTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		checked: undefined,
+		indeterminate: true,
+	},
+};
+
+export const IndeterminateBrandTheme: Story = {
+	...Template,
+	args: {
+		...DefaultBrandTheme.args,
+		checked: undefined,
+		indeterminate: true,
+	},
+	parameters: {
+		...DefaultBrandTheme.parameters,
+	},
+};
+
+export const UnlabelledDefaultTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		label: null,
+		'aria-label': 'Checkbox',
+	},
+};
+
+export const LongLabelMobileDefaultTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		label:
+			'Circulation / Visitors / Audience (for News media, Magazine and Exhibition requests)',
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobile' },
+		chromatic: {
+			viewports: [breakpoints.mobile],
+		},
+	},
+};
+
+export const DefaultCustomTheme: Story = {
+	...Template,
+	args: {
+		...DefaultDefaultTheme.args,
+		theme: {
+			fillSelected: palette.brand[800],
+			fillUnselected: palette.neutral[20],
+			borderSelected: palette.brand[800],
+			borderUnselected: palette.neutral[60],
+			borderHover: palette.brand[800],
+			textLabel: palette.neutral[86],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
 	},
 };

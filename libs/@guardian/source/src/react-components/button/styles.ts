@@ -292,7 +292,7 @@ export const buttonStyles =
 		button,
 		sizes[size],
 		priorities[priority](mergedTheme(providerTheme.button, theme)),
-		iconSvg ?? isLoading ? iconSizes[size] : '',
+		(iconSvg ?? isLoading) ? iconSizes[size] : '',
 		(iconSvg ?? isLoading) && !hideLabel ? iconSides[iconSide] : '',
 		nudgeIcon ? iconNudgeAnimation : '',
 		hideLabel ? iconOnlySizes[size] : '',

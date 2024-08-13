@@ -1,7 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { palette } from '../../foundations';
+import type { Meta, StoryObj } from '@storybook/react';
+import { breakpoints, palette } from '../../foundations';
 import { Radio } from './Radio';
-import type { RadioProps } from './Radio';
 import { themeRadioBrand } from './theme';
 
 const meta: Meta<typeof Radio> = {
@@ -20,6 +19,12 @@ const meta: Meta<typeof Radio> = {
 		},
 		cssOverrides: { control: { disable: true } },
 	},
+};
+
+export default meta;
+type Story = StoryObj<typeof Radio>;
+
+export const DefaultDefaultTheme: Story = {
 	args: {
 		label: 'Red',
 		value: 'red',
@@ -28,96 +33,90 @@ const meta: Meta<typeof Radio> = {
 	},
 };
 
-export default meta;
-
-const Template: StoryFn<typeof Radio> = (args: RadioProps) => (
-	<Radio {...args} />
-);
-
-export const DefaultDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
-
-// *****************************************************************************
-
-export const DefaultBrandTheme: StoryFn<typeof Radio> = Template.bind({});
-DefaultBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const DefaultBrandTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		theme: themeRadioBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
 	},
 };
-DefaultBrandTheme.args = {
-	theme: themeRadioBrand,
-};
 
-// *****************************************************************************
-
-export const SupportingTextDefaultTheme: StoryFn<typeof Radio> = Template.bind(
-	{},
-);
-SupportingTextDefaultTheme.args = {
-	supporting: 'Hex colour code: #ff0000',
-};
-
-// *****************************************************************************
-
-export const SupportingTextBrandTheme: StoryFn<typeof Radio> = Template.bind(
-	{},
-);
-SupportingTextBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const SupportingTextDefaultTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting: 'Hex colour code: #ff0000',
 	},
 };
-SupportingTextBrandTheme.args = {
-	supporting: 'Hex colour code: #ff0000',
-	theme: themeRadioBrand,
-};
 
-// *****************************************************************************
-
-export const SupportingTextOnlyDefaultTheme: StoryFn<typeof Radio> =
-	Template.bind({});
-SupportingTextOnlyDefaultTheme.args = {
-	supporting: 'Hex colour code: #ff0000',
-	label: null,
-};
-
-// *****************************************************************************
-
-export const SupportingTextOnlyBrandTheme: StoryFn<typeof Radio> =
-	Template.bind({});
-SupportingTextOnlyBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
+export const SupportingTextBrandTheme: Story = {
+	args: {
+		...DefaultBrandTheme.args,
+		supporting: 'Hex colour code: #ff0000',
+	},
+	parameters: {
+		...DefaultBrandTheme.parameters,
 	},
 };
-SupportingTextOnlyBrandTheme.args = {
-	supporting: 'Hex colour code: #ff0000',
-	label: null,
-	theme: themeRadioBrand,
-};
 
-// *****************************************************************************
-
-export const UnlabelledDefaultTheme: StoryFn<typeof Radio> = Template.bind({});
-UnlabelledDefaultTheme.args = {
-	label: undefined,
-};
-
-// *****************************************************************************
-
-export const DefaultCustomTheme: StoryFn<typeof Radio> = Template.bind({});
-DefaultCustomTheme.args = {
-	theme: {
-		fillSelected: palette.brand[800],
-		fillUnselected: palette.neutral[20],
-		borderSelected: palette.brand[800],
-		borderUnselected: palette.neutral[60],
-		borderHover: palette.brand[800],
-		textLabel: palette.neutral[86],
+export const SupportingTextOnlyDefaultTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		supporting: 'Hex colour code: #ff0000',
+		label: null,
 	},
 };
-DefaultCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+
+export const SupportingTextOnlyBrandTheme: Story = {
+	args: {
+		...DefaultBrandTheme.args,
+		supporting: 'Hex colour code: #ff0000',
+		label: null,
+	},
+	parameters: {
+		...DefaultBrandTheme.parameters,
+	},
+};
+
+export const UnlabelledDefaultTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		label: undefined,
+	},
+};
+
+export const LongLabelMobileDefaultTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		label:
+			'Circulation / Visitors / Audience (for News media, Magazine and Exhibition requests)',
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobile' },
+		chromatic: {
+			viewports: [breakpoints.mobile],
+		},
+	},
+};
+
+export const DefaultCustomTheme: Story = {
+	args: {
+		...DefaultDefaultTheme.args,
+		theme: {
+			fillSelected: palette.brand[800],
+			fillUnselected: palette.neutral[20],
+			borderSelected: palette.brand[800],
+			borderUnselected: palette.neutral[60],
+			borderHover: palette.brand[800],
+			textLabel: palette.neutral[86],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
 	},
 };

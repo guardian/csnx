@@ -1,5 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import type { SvgRoundelDefaultProps } from './SvgRoundelDefault';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SvgRoundelDefault } from './SvgRoundelDefault';
 
 const meta: Meta<typeof SvgRoundelDefault> = {
@@ -13,9 +12,6 @@ const meta: Meta<typeof SvgRoundelDefault> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof SvgRoundelDefault>;
 
-const Template: StoryFn<typeof SvgRoundelDefault> = (
-	args: SvgRoundelDefaultProps,
-) => <SvgRoundelDefault {...args} />;
-
-export const Default: StoryFn<typeof SvgRoundelDefault> = Template.bind({});
+export const Default: Story = {};

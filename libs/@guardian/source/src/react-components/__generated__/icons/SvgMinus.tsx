@@ -16,7 +16,7 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M1 10.75v2.5h22v-2.5H1Z"
+			d="M1 10.75v2.5h22v-2.5z"
 			fill={theme?.fill}
 		/>
 	</svg>

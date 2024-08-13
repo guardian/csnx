@@ -537,6 +537,19 @@
 	--source-typographyPresets-headlineBold14-line-height: var(
 		--source-typography-lineHeight-tight
 	);
+	--source-typographyPresets-headlineBold15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineBold15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineBold15-font-style: normal;
+	--source-typographyPresets-headlineBold15-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typographyPresets-headlineBold15-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-typographyPresets-headlineBold17-font-family: var(
 		--source-typography-fontFamily-headline
 	);
@@ -652,6 +665,19 @@
 		--source-typography-fontWeight-light
 	);
 	--source-typographyPresets-headlineLight14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typographyPresets-headlineLight15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineLight15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineLight15-font-style: normal;
+	--source-typographyPresets-headlineLight15-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typographyPresets-headlineLight15-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-headlineLight17-font-family: var(
@@ -771,6 +797,19 @@
 	--source-typographyPresets-headlineLightItalic14-line-height: var(
 		--source-typography-lineHeight-tight
 	);
+	--source-typographyPresets-headlineLightItalic15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineLightItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineLightItalic15-font-style: italic;
+	--source-typographyPresets-headlineLightItalic15-font-weight: var(
+		--source-typography-fontWeight-light
+	);
+	--source-typographyPresets-headlineLightItalic15-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-typographyPresets-headlineLightItalic17-font-family: var(
 		--source-typography-fontFamily-headline
 	);
@@ -888,6 +927,19 @@
 	--source-typographyPresets-headlineMedium14-line-height: var(
 		--source-typography-lineHeight-tight
 	);
+	--source-typographyPresets-headlineMedium15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineMedium15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineMedium15-font-style: normal;
+	--source-typographyPresets-headlineMedium15-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typographyPresets-headlineMedium15-line-height: var(
+		--source-typography-lineHeight-tight
+	);
 	--source-typographyPresets-headlineMedium17-font-family: var(
 		--source-typography-fontFamily-headline
 	);
@@ -1003,6 +1055,19 @@
 		--source-typography-fontWeight-medium
 	);
 	--source-typographyPresets-headlineMediumItalic14-line-height: var(
+		--source-typography-lineHeight-tight
+	);
+	--source-typographyPresets-headlineMediumItalic15-font-family: var(
+		--source-typography-fontFamily-headline
+	);
+	--source-typographyPresets-headlineMediumItalic15-font-size: var(
+		--source-typography-fontSize-15
+	);
+	--source-typographyPresets-headlineMediumItalic15-font-style: italic;
+	--source-typographyPresets-headlineMediumItalic15-font-weight: var(
+		--source-typography-fontWeight-medium
+	);
+	--source-typographyPresets-headlineMediumItalic15-line-height: var(
 		--source-typography-lineHeight-tight
 	);
 	--source-typographyPresets-headlineMediumItalic17-font-family: var(

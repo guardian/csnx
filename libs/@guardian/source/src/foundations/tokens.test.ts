@@ -12,30 +12,6 @@ import {
 	line,
 	text,
 } from './__deprecated__/colour/palette';
-import {
-	body,
-	headline,
-	textSans,
-	titlepiece,
-} from './__deprecated__/typography';
-import {
-	availableFontWeights,
-	bodySizes,
-	fonts,
-	fontWeights,
-	headlineSizes,
-	italicsFontWeights,
-	lineHeights,
-	pxTextSizes,
-	remBodySizes,
-	remHeadlineSizes,
-	remTextSansSizes,
-	remTextSizes,
-	remTitlepieceSizes,
-	textSansSizes,
-	titlepieceSizes,
-	underlineThickness,
-} from './__deprecated__/typography/data';
 import * as typePresetCss from './__generated__/typography/css';
 import * as typePresetObject from './__generated__/typography/objects';
 import { transitions } from './animation/transitions';
@@ -50,12 +26,6 @@ import {
 	width,
 } from './size/size';
 import { remSpace, space } from './space/space';
-import {
-	bodyObjectStyles,
-	headlineObjectStyles,
-	textSansObjectStyles,
-	titlepieceObjectStyles,
-} from '.';
 
 describe('Transition tokens', () => {
 	it('should match expected output', () => {
@@ -295,623 +265,6 @@ describe('Space tokens', () => {
 	});
 });
 
-describe('Typography tokens', () => {
-	it('should match expected output', () => {
-		expect(pxTextSizes).toEqual({
-			body: {
-				xsmall: 14,
-				small: 15,
-				medium: 17,
-			},
-			headline: {
-				xxxsmall: 17,
-				xxsmall: 20,
-				xsmall: 24,
-				small: 28,
-				medium: 34,
-				large: 42,
-				xlarge: 50,
-			},
-			textSans: {
-				xxsmall: 12,
-				xsmall: 14,
-				small: 15,
-				medium: 17,
-				large: 20,
-				xlarge: 24,
-				xxlarge: 28,
-				xxxlarge: 34,
-			},
-			titlepiece: {
-				small: 42,
-				medium: 50,
-				large: 70,
-			},
-		});
-		expect(remTextSizes).toEqual({
-			body: {
-				xsmall: 0.875,
-				small: 0.9375,
-				medium: 1.0625,
-			},
-			headline: {
-				xxxsmall: 1.0625,
-				xxsmall: 1.25,
-				xsmall: 1.5,
-				small: 1.75,
-				medium: 2.125,
-				large: 2.625,
-				xlarge: 3.125,
-			},
-			textSans: {
-				xxsmall: 0.75,
-				xsmall: 0.875,
-				small: 0.9375,
-				medium: 1.0625,
-				large: 1.25,
-				xlarge: 1.5,
-				xxlarge: 1.75,
-				xxxlarge: 2.125,
-			},
-			titlepiece: {
-				small: 2.625,
-				medium: 3.125,
-				large: 4.375,
-			},
-		});
-		expect(fonts).toEqual({
-			body: 'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-			headline:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			textSans:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			titlepiece: '"GT Guardian Titlepiece", Georgia, serif',
-		});
-		expect(lineHeights).toEqual({
-			tight: 1.15,
-			regular: 1.3,
-			loose: 1.4,
-		});
-		expect(fontWeights).toEqual({
-			light: 300,
-			regular: 400,
-			medium: 500,
-			bold: 700,
-		});
-		expect(availableFontWeights).toEqual({
-			body: {
-				regular: true,
-				bold: true,
-			},
-			headline: {
-				light: true,
-				medium: true,
-				bold: true,
-			},
-			textSans: {
-				regular: true,
-				bold: true,
-			},
-			titlepiece: {
-				bold: true,
-			},
-		});
-		expect(italicsFontWeights).toEqual({
-			body: {
-				regular: true,
-				bold: true,
-			},
-			headline: {
-				light: true,
-				medium: true,
-				bold: false,
-			},
-			textSans: {
-				regular: true,
-				bold: false,
-			},
-			titlepiece: {
-				bold: false,
-			},
-		});
-		expect(underlineThickness).toEqual({
-			body: {
-				xsmall: 2,
-				small: 2,
-				medium: 2,
-			},
-			headline: {
-				xxxsmall: 2,
-				xxsmall: 3,
-				xsmall: 3,
-				small: 3,
-				medium: 4,
-				large: 5,
-				xlarge: 6,
-			},
-			textSans: {
-				xxsmall: 2,
-				xsmall: 2,
-				small: 2,
-				medium: 2,
-				large: 3,
-				xlarge: 3,
-				xxlarge: 3,
-				xxxlarge: 4,
-			},
-			titlepiece: {
-				small: 5,
-				medium: 6,
-				large: 6,
-			},
-		});
-		expect(textSansSizes).toEqual({
-			xxsmall: 12,
-			xsmall: 14,
-			small: 15,
-			medium: 17,
-			large: 20,
-			xlarge: 24,
-			xxlarge: 28,
-			xxxlarge: 34,
-		});
-		expect(bodySizes).toEqual({
-			xsmall: 14,
-			small: 15,
-			medium: 17,
-		});
-		expect(headlineSizes).toEqual({
-			xxxsmall: 17,
-			xxsmall: 20,
-			xsmall: 24,
-			small: 28,
-			medium: 34,
-			large: 42,
-			xlarge: 50,
-		});
-		expect(titlepieceSizes).toEqual({
-			small: 42,
-			medium: 50,
-			large: 70,
-		});
-		expect(remTextSansSizes).toEqual({
-			xxsmall: 0.75,
-			xsmall: 0.875,
-			small: 0.9375,
-			medium: 1.0625,
-			large: 1.25,
-			xlarge: 1.5,
-			xxlarge: 1.75,
-			xxxlarge: 2.125,
-		});
-		expect(remBodySizes).toEqual({
-			xsmall: 0.875,
-			small: 0.9375,
-			medium: 1.0625,
-		});
-		expect(remHeadlineSizes).toEqual({
-			xxxsmall: 1.0625,
-			xxsmall: 1.25,
-			xsmall: 1.5,
-			small: 1.75,
-			medium: 2.125,
-			large: 2.625,
-			xlarge: 3.125,
-		});
-		expect(remTitlepieceSizes).toEqual({
-			small: 2.625,
-			medium: 3.125,
-			large: 4.375,
-		});
-	});
-});
-
-describe('Typography API CSS output', () => {
-	it('should match expected output', () => {
-		expect(textSans.xxsmall()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 0.75rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.xsmall()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 0.875rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.small()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 0.9375rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.medium()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 1.0625rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.large()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 1.25rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 3px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.xlarge()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 1.5rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 3px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.xxlarge()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 1.75rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 3px;
-		`,
-			{ isFragment: true },
-		);
-		expect(textSans.xxxlarge()).toMatchCSS(
-			`
-			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-size: 2.125rem;
-			line-height: 1.3;
-			font-weight: 400;
-			--source-text-decoration-thickness: 4px;
-		`,
-			{ isFragment: true },
-		);
-		expect(body.xsmall()).toMatchCSS(
-			`
-			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 0.875rem;
-			line-height: 1.4;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(body.small()).toMatchCSS(
-			`
-			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 0.9375rem;
-			line-height: 1.4;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(body.medium()).toMatchCSS(
-			`
-			font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
-			font-size: 1.0625rem;
-			line-height: 1.4;
-			font-weight: 400;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.xxxsmall()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 1.0625rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 2px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.xxsmall()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 1.25rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 3px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.xsmall()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 1.5rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 3px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.small()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 1.75rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 3px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.medium()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 2.125rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 4px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.large()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 2.625rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 5px;
-		`,
-			{ isFragment: true },
-		);
-		expect(headline.xlarge()).toMatchCSS(
-			`
-			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
-			font-size: 3.125rem;
-			line-height: 1.15;
-			font-weight: 500;
-			--source-text-decoration-thickness: 6px;
-		`,
-			{ isFragment: true },
-		);
-		expect(titlepiece.small()).toMatchCSS(
-			`
-			font-family: "GT Guardian Titlepiece", Georgia, serif;
-			font-size: 2.625rem;
-			line-height: 1.15;
-			font-weight: 700;
-			--source-text-decoration-thickness: 5px;
-		`,
-			{ isFragment: true },
-		);
-		expect(titlepiece.medium()).toMatchCSS(
-			`
-			font-family: "GT Guardian Titlepiece", Georgia, serif;
-			font-size: 3.125rem;
-			line-height: 1.15;
-			font-weight: 700;
-			--source-text-decoration-thickness: 6px;
-		`,
-			{ isFragment: true },
-		);
-		expect(titlepiece.large()).toMatchCSS(
-			`
-			font-family: "GT Guardian Titlepiece", Georgia, serif;
-			font-size: 4.375rem;
-			line-height: 1.15;
-			font-weight: 700;
-			--source-text-decoration-thickness: 6px;
-		`,
-			{ isFragment: true },
-		);
-	});
-});
-
-describe('Typography API object style output', () => {
-	it('should match expected output', () => {
-		expect(textSansObjectStyles.xxsmall()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '0.75rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 2,
-		});
-		expect(textSansObjectStyles.xsmall()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '0.875rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 2,
-		});
-		expect(textSansObjectStyles.small()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '0.9375rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 2,
-		});
-		expect(textSansObjectStyles.medium()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '1.0625rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 2,
-		});
-		expect(textSansObjectStyles.large()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '1.25rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 3,
-		});
-		expect(textSansObjectStyles.xlarge()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '1.5rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 3,
-		});
-		expect(textSansObjectStyles.xxlarge()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '1.75rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 3,
-		});
-		expect(textSansObjectStyles.xxxlarge()).toEqual({
-			fontFamily:
-				'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
-			fontSize: '2.125rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.3,
-			textDecorationThickness: 4,
-		});
-		expect(bodyObjectStyles.xsmall()).toEqual({
-			fontFamily:
-				'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-			fontSize: '0.875rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.4,
-			textDecorationThickness: 2,
-		});
-		expect(bodyObjectStyles.small()).toEqual({
-			fontFamily:
-				'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-			fontSize: '0.9375rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.4,
-			textDecorationThickness: 2,
-		});
-		expect(bodyObjectStyles.medium()).toEqual({
-			fontFamily:
-				'GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif',
-			fontSize: '1.0625rem',
-			fontStyle: undefined,
-			fontWeight: 400,
-			lineHeight: 1.4,
-			textDecorationThickness: 2,
-		});
-		expect(headlineObjectStyles.xxxsmall()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '1.0625rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 2,
-		});
-		expect(headlineObjectStyles.xxsmall()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '1.25rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 3,
-		});
-		expect(headlineObjectStyles.xsmall()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '1.5rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 3,
-		});
-		expect(headlineObjectStyles.small()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '1.75rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 3,
-		});
-		expect(headlineObjectStyles.medium()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '2.125rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 4,
-		});
-		expect(headlineObjectStyles.large()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '2.625rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 5,
-		});
-		expect(headlineObjectStyles.xlarge()).toEqual({
-			fontFamily:
-				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
-			fontSize: '3.125rem',
-			fontStyle: undefined,
-			fontWeight: 500,
-			lineHeight: 1.15,
-			textDecorationThickness: 6,
-		});
-		expect(titlepieceObjectStyles.small()).toEqual({
-			fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
-			fontSize: '2.625rem',
-			fontStyle: undefined,
-			fontWeight: 700,
-			lineHeight: 1.15,
-			textDecorationThickness: 5,
-		});
-		expect(titlepieceObjectStyles.medium()).toEqual({
-			fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
-			fontSize: '3.125rem',
-			fontStyle: undefined,
-			fontWeight: 700,
-			lineHeight: 1.15,
-			textDecorationThickness: 6,
-		});
-		expect(titlepieceObjectStyles.large()).toEqual({
-			fontFamily: '"GT Guardian Titlepiece", Georgia, serif',
-			fontSize: '4.375rem',
-			fontStyle: undefined,
-			fontWeight: 700,
-			lineHeight: 1.15,
-			textDecorationThickness: 6,
-		});
-	});
-});
-
 describe('Typography preset CSS output', () => {
 	it('should match expected output', () => {
 		expect(typePresetCss.article15).toMatchCSS(
@@ -1006,6 +359,17 @@ describe('Typography preset CSS output', () => {
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 0.875rem;
+			line-height: 1.15;
+			font-weight: 700;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.headlineBold15).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
 			line-height: 1.15;
 			font-weight: 700;
 			font-style: normal;
@@ -1112,6 +476,17 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
+		expect(typePresetCss.headlineLight15).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.15;
+			font-weight: 300;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
 		expect(typePresetCss.headlineLight17).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
@@ -1204,6 +579,17 @@ describe('Typography preset CSS output', () => {
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 0.875rem;
+			line-height: 1.15;
+			font-weight: 300;
+			font-style: italic;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.headlineLightItalic15).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
 			line-height: 1.15;
 			font-weight: 300;
 			font-style: italic;
@@ -1310,6 +696,17 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
+		expect(typePresetCss.headlineMedium15).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
+			line-height: 1.15;
+			font-weight: 500;
+			font-style: normal;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
 		expect(typePresetCss.headlineMedium17).toMatchCSS(
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
@@ -1402,6 +799,17 @@ describe('Typography preset CSS output', () => {
 			`
 			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
 			font-size: 0.875rem;
+			line-height: 1.15;
+			font-weight: 500;
+			font-style: italic;
+			--source-text-decoration-thickness: 2px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePresetCss.headlineMediumItalic15).toMatchCSS(
+			`
+			font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+			font-size: 0.9375rem;
 			line-height: 1.15;
 			font-weight: 500;
 			font-style: italic;
@@ -1939,6 +1347,14 @@ describe('Typography preset object output', () => {
 			fontWeight: 700,
 			fontStyle: 'normal',
 		});
+		expect(typePresetObject.headlineBold15Object).toEqual({
+			fontFamily:
+				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+			fontSize: '0.9375rem',
+			lineHeight: 1.15,
+			fontWeight: 700,
+			fontStyle: 'normal',
+		});
 		expect(typePresetObject.headlineBold17Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -2007,6 +1423,14 @@ describe('Typography preset object output', () => {
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 			fontSize: '0.875rem',
+			lineHeight: 1.15,
+			fontWeight: 300,
+			fontStyle: 'normal',
+		});
+		expect(typePresetObject.headlineLight15Object).toEqual({
+			fontFamily:
+				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+			fontSize: '0.9375rem',
 			lineHeight: 1.15,
 			fontWeight: 300,
 			fontStyle: 'normal',
@@ -2083,6 +1507,14 @@ describe('Typography preset object output', () => {
 			fontWeight: 300,
 			fontStyle: 'italic',
 		});
+		expect(typePresetObject.headlineLightItalic15Object).toEqual({
+			fontFamily:
+				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+			fontSize: '0.9375rem',
+			lineHeight: 1.15,
+			fontWeight: 300,
+			fontStyle: 'italic',
+		});
 		expect(typePresetObject.headlineLightItalic17Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -2155,6 +1587,14 @@ describe('Typography preset object output', () => {
 			fontWeight: 500,
 			fontStyle: 'normal',
 		});
+		expect(typePresetObject.headlineMedium15Object).toEqual({
+			fontFamily:
+				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+			fontSize: '0.9375rem',
+			lineHeight: 1.15,
+			fontWeight: 500,
+			fontStyle: 'normal',
+		});
 		expect(typePresetObject.headlineMedium17Object).toEqual({
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
@@ -2223,6 +1663,14 @@ describe('Typography preset object output', () => {
 			fontFamily:
 				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
 			fontSize: '0.875rem',
+			lineHeight: 1.15,
+			fontWeight: 500,
+			fontStyle: 'italic',
+		});
+		expect(typePresetObject.headlineMediumItalic15Object).toEqual({
+			fontFamily:
+				'"GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif',
+			fontSize: '0.9375rem',
 			lineHeight: 1.15,
 			fontWeight: 500,
 			fontStyle: 'italic',

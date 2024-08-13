@@ -605,6 +605,18 @@ export declare const typographyPresets: {
 		readonly fontWeight: 700;
 		readonly fontStyle: 'normal';
 	};
+	readonly headlineBold15: {
+		readonly fontFamily: readonly [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		];
+		readonly fontSize: '15px';
+		readonly lineHeight: 1.15;
+		readonly fontWeight: 700;
+		readonly fontStyle: 'normal';
+	};
 	readonly headlineBold17: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
@@ -709,6 +721,18 @@ export declare const typographyPresets: {
 			'serif',
 		];
 		readonly fontSize: '14px';
+		readonly lineHeight: 1.15;
+		readonly fontWeight: 300;
+		readonly fontStyle: 'normal';
+	};
+	readonly headlineLight15: {
+		readonly fontFamily: readonly [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		];
+		readonly fontSize: '15px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 300;
 		readonly fontStyle: 'normal';
@@ -821,6 +845,18 @@ export declare const typographyPresets: {
 		readonly fontWeight: 300;
 		readonly fontStyle: 'italic';
 	};
+	readonly headlineLightItalic15: {
+		readonly fontFamily: readonly [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		];
+		readonly fontSize: '15px';
+		readonly lineHeight: 1.15;
+		readonly fontWeight: 300;
+		readonly fontStyle: 'italic';
+	};
 	readonly headlineLightItalic17: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
@@ -929,6 +965,18 @@ export declare const typographyPresets: {
 		readonly fontWeight: 500;
 		readonly fontStyle: 'normal';
 	};
+	readonly headlineMedium15: {
+		readonly fontFamily: readonly [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		];
+		readonly fontSize: '15px';
+		readonly lineHeight: 1.15;
+		readonly fontWeight: 500;
+		readonly fontStyle: 'normal';
+	};
 	readonly headlineMedium17: {
 		readonly fontFamily: readonly [
 			'GH Guardian Headline',
@@ -1033,6 +1081,18 @@ export declare const typographyPresets: {
 			'serif',
 		];
 		readonly fontSize: '14px';
+		readonly lineHeight: 1.15;
+		readonly fontWeight: 500;
+		readonly fontStyle: 'italic';
+	};
+	readonly headlineMediumItalic15: {
+		readonly fontFamily: readonly [
+			'GH Guardian Headline',
+			'Guardian Egyptian Web',
+			'Georgia',
+			'serif',
+		];
+		readonly fontSize: '15px';
 		readonly lineHeight: 1.15;
 		readonly fontWeight: 500;
 		readonly fontStyle: 'italic';

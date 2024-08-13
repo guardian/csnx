@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import {
 	headlineMedium14,
 	headlineMedium17,
@@ -21,18 +21,11 @@ import {
 } from '../../foundations';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import { Link } from './Link';
-import type { LinkProps } from './Link';
 import { themeLinkBrand, themeLinkBrandAlt } from './theme';
 
 const meta: Meta<typeof Link> = {
 	title: 'React Components/Link',
 	component: Link,
-	args: {
-		priority: 'primary',
-		icon: <SvgExternal />,
-		iconSide: 'left',
-		href: '#',
-	},
 	argTypes: {
 		icon: {
 			options: ['undefined', 'SvgExternal'],
@@ -46,6 +39,7 @@ const meta: Meta<typeof Link> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof Link>;
 
 const textSans = [
 	textSans34,
@@ -69,21 +63,89 @@ const headline = [
 	headlineMedium14,
 ];
 
-const Template: StoryFn<typeof Link> = (args: LinkProps) => (
-	<Link {...args}>Return to home page</Link>
-);
+export const PrimaryLinkDefaultTheme: Story = {
+	args: {
+		priority: 'primary',
+		icon: undefined,
+		iconSide: 'left',
+		href: '#',
+		children: 'Return to home page',
+	},
+};
 
-const UnderlineHoverHeadlineTemplate: StoryFn<typeof Link> = (
-	args: LinkProps,
-) => {
-	const headlineText = 'This is a guardian help link';
+export const PrimaryLinkBrandTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		theme: themeLinkBrand,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandBackground.primary',
+		},
+	},
+};
 
-	return (
+export const PrimaryLinkBrandAltTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		theme: themeLinkBrandAlt,
+	},
+	parameters: {
+		backgrounds: {
+			default: 'brandAltBackground.primary',
+		},
+	},
+};
+
+export const SecondaryLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		priority: 'secondary',
+	},
+};
+
+export const PrimaryIconLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+		icon: <SvgExternal />,
+	},
+};
+
+export const SecondaryIconLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryIconLinkDefaultTheme.args,
+		priority: 'secondary',
+	},
+};
+
+export const RightIconLinkDefaultTheme: Story = {
+	args: {
+		...PrimaryIconLinkDefaultTheme.args,
+		iconSide: 'right',
+	},
+};
+
+export const PrimaryIconLinkCustomTheme: Story = {
+	args: {
+		...PrimaryIconLinkDefaultTheme.args,
+		theme: {
+			textPrimary: palette.neutral[86],
+			textPrimaryHover: palette.brand[800],
+		},
+	},
+	parameters: {
+		backgrounds: {
+			default: 'background.inverse',
+		},
+	},
+};
+
+export const UnderlineHoverHeadline: Story = {
+	render: (args) => (
 		<div
 			css={css`
 				display: flex;
 				flex-direction: column;
-
 				a {
 					padding: 20px 0;
 				}
@@ -97,27 +159,22 @@ const UnderlineHoverHeadlineTemplate: StoryFn<typeof Link> = (
 						${preset}
 					`}
 				>
-					{headlineText}
+					This is a guardian help link
 				</Link>
 			))}
 		</div>
-	);
+	),
+	args: {
+		...PrimaryLinkDefaultTheme.args,
+	},
 };
 
-const UnderlineHoverTextSansTemplate: StoryFn<typeof Link> = (
-	args: LinkProps,
-) => {
-	const headlineText = 'link';
-
-	return (
+export const UnderlineHoverTextSans: Story = {
+	render: (args) => (
 		<div
 			css={css`
 				display: flex;
 				flex-direction: column;
-
-				a {
-					padding: 20px 0;
-				}
 			`}
 		>
 			{textSans.map((preset, i) => (
@@ -135,110 +192,14 @@ const UnderlineHoverTextSansTemplate: StoryFn<typeof Link> = (
 							${preset}
 						`}
 					>
-						{headlineText}
+						link
 					</Link>{' '}
 					in the middle of it
 				</div>
 			))}
 		</div>
-	);
-};
-
-export const PrimaryLinkDefaultTheme: StoryFn<typeof Link> = Template.bind({});
-PrimaryLinkDefaultTheme.args = {
-	icon: undefined,
-};
-
-// *****************************************************************************
-
-export const PrimaryLinkBrandTheme: StoryFn<typeof Link> = Template.bind({});
-PrimaryLinkBrandTheme.args = {
-	icon: undefined,
-	theme: themeLinkBrand,
-};
-PrimaryLinkBrandTheme.parameters = {
-	backgrounds: {
-		default: 'brandBackground.primary',
-	},
-};
-
-// *****************************************************************************
-
-export const PrimaryLinkBrandAltTheme: StoryFn<typeof Link> = Template.bind({});
-PrimaryLinkBrandAltTheme.args = {
-	icon: undefined,
-	theme: themeLinkBrandAlt,
-};
-PrimaryLinkBrandAltTheme.parameters = {
-	backgrounds: {
-		default: 'brandAltBackground.primary',
-	},
-};
-
-// *****************************************************************************
-
-export const SecondaryLinkDefaultTheme: StoryFn<typeof Link> = Template.bind(
-	{},
-);
-SecondaryLinkDefaultTheme.args = {
-	priority: 'secondary',
-	icon: undefined,
-};
-
-// *****************************************************************************
-
-export const PrimaryIconLinkDefaultTheme: StoryFn<typeof Link> = Template.bind(
-	{},
-);
-
-// *****************************************************************************
-
-export const SecondaryIconLinkDefaultTheme: StoryFn<typeof Link> =
-	Template.bind({});
-SecondaryIconLinkDefaultTheme.args = {
-	priority: 'secondary',
-};
-
-// *****************************************************************************
-
-export const RightIconLinkDefaultTheme: StoryFn<typeof Link> = Template.bind(
-	{},
-);
-RightIconLinkDefaultTheme.args = {
-	iconSide: 'right',
-};
-
-// *****************************************************************************
-
-export const UnderlineHoverHeadline: StoryFn<typeof Link> =
-	UnderlineHoverHeadlineTemplate.bind({});
-
-UnderlineHoverHeadline.args = {
-	icon: undefined,
-};
-
-// *****************************************************************************
-
-export const UnderlineHoverTextSans: StoryFn<typeof Link> =
-	UnderlineHoverTextSansTemplate.bind({});
-
-UnderlineHoverTextSans.args = {
-	icon: undefined,
-};
-
-// *****************************************************************************
-
-export const PrimaryIconLinkCustomTheme: StoryFn<typeof Link> = Template.bind(
-	{},
-);
-PrimaryIconLinkCustomTheme.args = {
-	theme: {
-		textPrimary: palette.neutral[86],
-		textPrimaryHover: palette.brand[800],
-	},
-};
-PrimaryIconLinkCustomTheme.parameters = {
-	backgrounds: {
-		default: 'background.inverse',
+	),
+	args: {
+		...PrimaryLinkDefaultTheme.args,
 	},
 };
