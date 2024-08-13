@@ -6,15 +6,11 @@ import { mergeThemes } from '../utils/themes';
 import {
 	checkbox,
 	checkboxContainer,
-	checkboxContainerWithSupportingText,
 	errorCheckbox,
 	label,
 	labelText,
-	labelTextWithSupportingText,
 	supportingText,
 	tick,
-	tickWithLabelText,
-	tickWithSupportingText,
 } from './styles';
 import { themeCheckbox as defaultTheme, transformProviderTheme } from './theme';
 import type { ThemeCheckbox } from './theme';
@@ -132,19 +128,12 @@ export const Checkbox = ({
 		);
 	};
 
-	const LabelText = ({
-		hasSupportingText,
-		children,
-	}: {
-		hasSupportingText?: boolean;
-		children: ReactNode;
-	}) => {
+	const LabelText = ({ children }: { children: ReactNode }) => {
 		return (
 			<div
-				css={(providerTheme: Theme) => [
-					labelText(mergedTheme(providerTheme.checkbox)),
-					hasSupportingText ? labelTextWithSupportingText : '',
-				]}
+				css={(providerTheme: Theme) =>
+					labelText(mergedTheme(providerTheme.checkbox))
+				}
 			>
 				{children}
 			</div>
@@ -153,10 +142,9 @@ export const Checkbox = ({
 
 	return (
 		<div
-			css={(providerTheme: Theme) => [
-				checkboxContainer(mergedTheme(providerTheme.checkbox), error),
-				supporting ? checkboxContainerWithSupportingText : '',
-			]}
+			css={(providerTheme: Theme) =>
+				checkboxContainer(mergedTheme(providerTheme.checkbox), error)
+			}
 		>
 			<input
 				id={checkboxId}
@@ -173,17 +161,15 @@ export const Checkbox = ({
 				{...props}
 			/>
 			<span
-				css={(providerTheme: Theme) => [
-					tick(mergedTheme(providerTheme.checkbox)),
-					labelContent ?? supporting ? tickWithLabelText : '',
-					supporting ? tickWithSupportingText : '',
-				]}
+				css={(providerTheme: Theme) =>
+					tick(mergedTheme(providerTheme.checkbox))
+				}
 			/>
 
 			<label htmlFor={checkboxId} css={label}>
 				{supporting ? (
 					<div>
-						<LabelText hasSupportingText={true}>{labelContent}</LabelText>
+						<LabelText>{labelContent}</LabelText>
 						<SupportingText>{supporting}</SupportingText>
 					</div>
 				) : (
