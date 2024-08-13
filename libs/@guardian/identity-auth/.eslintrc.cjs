@@ -13,7 +13,9 @@ module.exports = {
 			parserOptions: {
 				tsconfigRootDir: __dirname,
 			},
-			rules: {},
+			rules: {
+				'@typescript-eslint/only-throw-error': 'off',
+			},
 		},
 		{
 			files: ['*.js', '*.jsx'],

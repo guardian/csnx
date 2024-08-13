@@ -8,9 +8,9 @@ import {
 const STRIP_WHITESPACE = /^\s+/gm;
 const STRIP_TABS = /^\t{3}|\t{2}/gm;
 
-const { fontSize, textDecorationThicknessForFontSize } = typography;
+const { textDecorationThicknessForFontSize } = typography;
 
-type FontSize = keyof typeof fontSize;
+type FontSize = keyof typeof typography.fontSize;
 
 const textDecorationThickness = (size: string) =>
 	textDecorationThicknessForFontSize[size.slice(0, -2) as FontSize];
