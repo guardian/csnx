@@ -6,4 +6,4 @@ export {
 	 * Colour palette organised by type e.g. 'error', or pillar e.g. 'opinion'
 	 */
 	palette,
-} from '../__generated__/colour';
+} from '../__generated__/palette';

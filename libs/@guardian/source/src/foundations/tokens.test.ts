@@ -15,7 +15,7 @@ import {
 import * as typePreset from './__generated__/typography';
 import { transitions } from './animation/transitions';
 import { breakpoints } from './breakpoints/breakpoints';
-import { palette } from './colour/palette';
+import { palette } from './palette/palette';
 import {
 	height,
 	iconSize,

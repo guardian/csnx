@@ -9,7 +9,7 @@
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
 import breakpoints from './cobalt-plugins/breakpoints.js';
-import colour from './cobalt-plugins/colour.js';
+import palette from './cobalt-plugins/palette.js';
 import size from './cobalt-plugins/size.js';
 import space from './cobalt-plugins/space.js';
 import typography from './cobalt-plugins/typography.js';
@@ -36,7 +36,7 @@ export default {
 	tokens: 'tokens.json',
 	outDir: '../foundations/__generated__',
 	plugins: [
-		colour({ filename: 'colour.ts' }),
+		palette({ filename: 'palette.ts' }),
 		breakpoints({ filename: 'breakpoints.ts' }),
 		typography({ filename: 'typography.ts' }),
 		space({ filename: 'space.ts' }),

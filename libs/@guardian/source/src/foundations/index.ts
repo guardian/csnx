@@ -17,7 +17,7 @@ export { breakpoints } from './breakpoints/breakpoints';
 export { between, from, until } from './mq/mq';
 
 // palette
-export { palette } from './colour/palette';
+export { palette } from './palette/palette';
 
 // size
 export {

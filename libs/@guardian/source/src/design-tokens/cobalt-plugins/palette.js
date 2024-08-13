@@ -10,9 +10,9 @@ import { template } from '../lib/template.js';
  * @param {{ filename: string; }} options
  * @returns {import('@cobalt-ui/core').Plugin}
  */
-export default function pluginColour(options) {
+export default function pluginPalette(options) {
 	return {
-		name: 'plugin-colour',
+		name: 'plugin-palette',
 
 		config(/* config */) {},
 		async build({ tokens /* metadata, rawSchema */ }) {
@@ -23,12 +23,12 @@ export default function pluginColour(options) {
 			/** @type {Object.<string, string>} */
 			const jsDoc = {};
 
-			const colourTokens = tokens.filter((token) =>
+			const paletteTokens = tokens.filter((token) =>
 				token.id.startsWith('palette.'),
 			);
 
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
-			for (const token of colourTokens) {
+			for (const token of paletteTokens) {
 				set(transformedTokens, token.id, defaultTransformer(token));
 				if (token.$description) {
 					jsDoc[token.id] = token.$description;

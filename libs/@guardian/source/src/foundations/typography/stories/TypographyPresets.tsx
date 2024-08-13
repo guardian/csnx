@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import * as presets from '../../__generated__/typography';
-import { palette } from '../../colour/palette';
+import { palette } from '../../palette/palette';
 import { space } from '../../space/space';
 
 const listCss = css`
