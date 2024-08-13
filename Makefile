@@ -425,6 +425,10 @@ install: check-node-version
 @guardian/source\:build: env
 	@corepack pnpm --filter @guardian/source build
 
+.PHONY: @guardian/source\:build-generated
+@guardian/source\:build-generated: env
+	@corepack pnpm --filter @guardian/source build-generated
+
 .PHONY: @guardian/source\:build-storybook
 @guardian/source\:build-storybook: env
 	@corepack pnpm --filter @guardian/source build-storybook

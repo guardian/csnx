@@ -4,6 +4,7 @@
 
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
+import { getCommentId } from '../lib/get-comment-id.js';
 import { template } from '../lib/template.js';
 
 /**
@@ -31,7 +32,7 @@ export default function pluginPalette(options) {
 			for (const token of paletteTokens) {
 				set(transformedTokens, token.id, defaultTransformer(token));
 				if (token.$description) {
-					jsDoc[token.id] = token.$description;
+					jsDoc[getCommentId(token.id)] = token.$description;
 				}
 			}
 

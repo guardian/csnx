@@ -5,6 +5,7 @@
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import { pxStringToNumber } from '../lib/convert-value.js';
+import { getCommentId } from '../lib/get-comment-id.js';
 import { template } from '../lib/template.js';
 
 /**
@@ -38,7 +39,7 @@ export default function pluginBreakpoints(options) {
 					pxStringToNumber(defaultTransformer(token).toString()),
 				);
 				if (token.$description) {
-					jsDoc[token.id] = token.$description;
+					jsDoc[getCommentId(token.id)] = token.$description;
 				}
 			}
 

@@ -5,6 +5,7 @@
 import { defaultTransformer } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import { fontArrayToString, pxStringToRem } from '../lib/convert-value.js';
+import { getCommentId } from '../lib/get-comment-id.js';
 import { template } from '../lib/template.js';
 
 const GROUP_PREFIX = 'typographyPresets.';
@@ -87,7 +88,7 @@ export default function pluginBreakpoints(options) {
 			for (const token of typographyTokens) {
 				set(transformedTokens, token.id, defaultTransformer(token));
 				if (token.$description) {
-					comments[token.id.replace(GROUP_PREFIX, '')] = token.$description;
+					comments[getCommentId(token.id)] = token.$description;
 				}
 			}
 

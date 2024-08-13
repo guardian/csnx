@@ -17,11 +17,13 @@ export const height = {
 	inputXsmall: 24,
 } as const;
 export const iconSize = {
+	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: 30,
 	small: 26,
 	xsmall: 20,
 } as const;
 export const size = {
+	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: 44,
 	small: 36,
 	xsmall: 24,
@@ -46,11 +48,13 @@ export const remHeight = {
 	inputXsmall: '1.5rem',
 } as const;
 export const remIconSize = {
+	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: '1.875rem',
 	small: '1.625rem',
 	xsmall: '1.25rem',
 } as const;
 export const remSize = {
+	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: '2.75rem',
 	small: '2.25rem',
 	xsmall: '1.5rem',

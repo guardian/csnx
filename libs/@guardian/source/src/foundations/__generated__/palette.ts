@@ -25,6 +25,7 @@ export const palette = {
 		'100': '#3E3323',
 		'200': '#574835',
 		'300': '#6B5840',
+		/** @deprecated Use palette.culture.400 */
 		'350': '#866D50',
 		'400': '#866D50',
 		'450': '#A1845C',
@@ -82,6 +83,7 @@ export const palette = {
 	opinion: {
 		'100': '#672005',
 		'200': '#8D2700',
+		/** @deprecated Use palette.opinion.400 */
 		'300': '#C74600',
 		'400': '#C74600',
 		'450': '#E05E00',
