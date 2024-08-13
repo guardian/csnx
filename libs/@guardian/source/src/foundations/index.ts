@@ -33,7 +33,7 @@ export {
 export { space, remSpace } from './space/space';
 
 // typography
-export * from './__generated__/typography';
+export * from './typography/typography';
 
 // utils
 export { appearance } from './utils/supports-queries';
