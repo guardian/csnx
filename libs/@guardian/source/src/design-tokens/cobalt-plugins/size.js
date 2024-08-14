@@ -75,7 +75,10 @@ export default function pluginSpace(options) {
 					comments: jsDoc,
 				}).trim();
 
-				typescriptSource.push(`/** ${description[tokenGroup]} */`);
+				if (description[tokenGroup]) {
+					typescriptSource.push(`/** ${description[tokenGroup]} */`);
+				}
+
 				typescriptSource.push(
 					`export const rem${capitalise(tokenGroup)} = ${serialisedJS.replace(/;$/, '')} as const;`,
 				);
