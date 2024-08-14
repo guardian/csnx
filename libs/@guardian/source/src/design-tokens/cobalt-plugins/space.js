@@ -15,32 +15,39 @@ import { template } from '../lib/template.js';
 export default function pluginSpace(options) {
 	return {
 		name: 'plugin-space',
-
 		config(/* config */) {},
-		async build({ tokens /* metadata, rawSchema */ }) {
+		async build({ tokens, rawSchema /*, metadata */ }) {
+			const TOKEN_GROUP = 'space';
+
+			const description = rawSchema[TOKEN_GROUP]?.$description ?? '';
+
+			const spaceTokens = tokens.filter((token) =>
+				token.id.startsWith(TOKEN_GROUP),
+			);
+
 			/** @type {Object.<string, string>} */
-			let numberTokens = {};
+			const numberTokens = {};
+
 			/** @type {Object.<string, string>} */
-			let remTokens = {};
+			const remTokens = {};
 
 			/** @type {Object.<string, string>} */
 			const jsDoc = {};
 
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
-			for (const token of tokens) {
-				if (token._group.id === 'space') {
-					const value = Number(
-						pxStringToNumber(defaultTransformer(token).toString()),
-					);
-					set(numberTokens, token.id, value);
-					set(remTokens, token.id, numberToRem(value));
-					if (token.$description) {
-						jsDoc[getCommentId(token.id)] = token.$description;
-					}
+			for (const token of spaceTokens) {
+				const value = Number(
+					pxStringToNumber(defaultTransformer(token).toString()),
+				);
+				set(numberTokens, token.id, value);
+				set(remTokens, token.id, numberToRem(value));
+				if (token.$description) {
+					jsDoc[getCommentId(token.id)] = token.$description;
 				}
 			}
 
-			let typescriptSource = '';
+			const typescriptSource = [];
+
 			const exports = [
 				{ varName: 'space', tokens: numberTokens },
 				{ varName: 'remSpace', tokens: remTokens },
@@ -49,14 +56,21 @@ export default function pluginSpace(options) {
 				const serialisedJS = serializeJS(tokens['space'], {
 					comments: jsDoc,
 				}).trim();
-				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const ${varName} = ${serialisedJS.replace(/;$/, '').replace(/'([0-9]{1,3})'/gm, '$1')} as const; \r\n\r\n`;
+
+				if (description) {
+					typescriptSource.push(`/** ${description} */`);
+				}
+
+				typescriptSource.push(
+					`export const ${varName} = ${serialisedJS.replace(/;$/, '').replace(/'([0-9]{1,3})'/gm, '$1')} as const;`,
+					'',
+				);
 			}
 
 			return [
 				{
 					filename: options.filename,
-					contents: template(import.meta.filename, typescriptSource),
+					contents: template(import.meta.filename, typescriptSource.join('\n')),
 				},
 			];
 		},

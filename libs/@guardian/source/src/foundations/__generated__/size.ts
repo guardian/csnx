@@ -7,13 +7,19 @@
  */
 
 export const height = {
+	/** Medium height call to action buttons and links */
 	ctaMedium: 44,
+	/** Small height call to action buttons and links */
 	ctaSmall: 36,
+	/** Extra small height call to action buttons and links */
 	ctaXsmall: 24,
 	iconMedium: 30,
 	iconSmall: 26,
+	/** Checkables such as checkboxes or radio buttons */
 	iconXsmall: 20,
+	/** Text input fields, radio and checkbox labels */
 	inputMedium: 44,
+	/** Checkables such as checkboxes or radio buttons */
 	inputXsmall: 24,
 } as const;
 export const iconSize = {
@@ -22,6 +28,7 @@ export const iconSize = {
 	small: 26,
 	xsmall: 20,
 } as const;
+/** May be used for call to action buttons and user input fields. */
 export const size = {
 	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: 44,
@@ -29,42 +36,62 @@ export const size = {
 	xsmall: 24,
 } as const;
 export const width = {
+	/** Medium height call to action buttons and links */
 	ctaMedium: 44,
+	/** Small height call to action buttons and links */
 	ctaSmall: 36,
+	/** Extra small height call to action buttons and links */
 	ctaXsmall: 24,
 	iconMedium: 30,
 	iconSmall: 26,
+	/** Checkables such as checkboxes or radio buttons */
 	iconXsmall: 20,
+	/** Checkables such as checkboxes or radio buttons */
 	inputXsmall: 24,
 } as const;
+/**  */
 export const remHeight = {
+	/** Medium height call to action buttons and links */
 	ctaMedium: '2.75rem',
+	/** Small height call to action buttons and links */
 	ctaSmall: '2.25rem',
+	/** Extra small height call to action buttons and links */
 	ctaXsmall: '1.5rem',
 	iconMedium: '1.875rem',
 	iconSmall: '1.625rem',
+	/** Checkables such as checkboxes or radio buttons */
 	iconXsmall: '1.25rem',
+	/** Text input fields, radio and checkbox labels */
 	inputMedium: '2.75rem',
+	/** Checkables such as checkboxes or radio buttons */
 	inputXsmall: '1.5rem',
 } as const;
+/**  */
 export const remIconSize = {
 	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: '1.875rem',
 	small: '1.625rem',
 	xsmall: '1.25rem',
 } as const;
+/** May be used for call to action buttons and user input fields. */
 export const remSize = {
 	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: '2.75rem',
 	small: '2.25rem',
 	xsmall: '1.5rem',
 } as const;
+/**  */
 export const remWidth = {
+	/** Medium height call to action buttons and links */
 	ctaMedium: '2.75rem',
+	/** Small height call to action buttons and links */
 	ctaSmall: '2.25rem',
+	/** Extra small height call to action buttons and links */
 	ctaXsmall: '1.5rem',
 	iconMedium: '1.875rem',
 	iconSmall: '1.625rem',
+	/** Checkables such as checkboxes or radio buttons */
 	iconXsmall: '1.25rem',
+	/** Checkables such as checkboxes or radio buttons */
 	inputXsmall: '1.5rem',
 } as const;

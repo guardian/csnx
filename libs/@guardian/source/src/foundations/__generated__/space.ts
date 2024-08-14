@@ -6,6 +6,7 @@
  * Update design-tokens/tokens.json and (re)build @guardian/source instead.
  */
 
+/** Can be applied to margin or padding properties, vertically or horizontally. */
 export const space = {
 	0: 2,
 	1: 4,
@@ -24,6 +25,7 @@ export const space = {
 	24: 96,
 } as const;
 
+/** Can be applied to margin or padding properties, vertically or horizontally. */
 export const remSpace = {
 	0: '0.125rem',
 	1: '0.25rem',

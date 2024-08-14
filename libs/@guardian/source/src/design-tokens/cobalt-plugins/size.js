@@ -18,21 +18,29 @@ export default function pluginSpace(options) {
 		name: 'plugin-size',
 
 		config(/* config */) {},
-		async build({ tokens /* metadata, rawSchema */ }) {
+		async build({ tokens, rawSchema /*, metadata */ }) {
+			const TOKEN_GROUP = ['size', 'height', 'width', 'iconSize'];
+
+			/** @type {Object.<string, string | undefined>} */
+			const description = {};
+
+			for (const group of TOKEN_GROUP) {
+				description[group] = rawSchema[group]?.$description ?? '';
+			}
+
 			/** @type {Object.<string, string>} */
 			let numberTokens = {};
+
 			/** @type {Object.<string, string>} */
 			let remTokens = {};
 
 			/** @type {Object.<string, string>} */
 			const jsDoc = {};
-			const sizeTokens = tokens.filter(
-				(token) =>
-					token.id.startsWith('size.') ||
-					token.id.startsWith('height.') ||
-					token.id.startsWith('width.') ||
-					token.id.startsWith('iconSize.'),
-			);
+
+			const sizeTokens = tokens.filter((token) => {
+				const [group] = token.id.split('.');
+				return TOKEN_GROUP.includes(group ?? '');
+			});
 
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
 			for (const token of sizeTokens) {
@@ -46,15 +54,20 @@ export default function pluginSpace(options) {
 				}
 			}
 
-			let typescriptSource = '';
+			const typescriptSource = [];
 
 			for (const tokenGroup of Object.keys(numberTokens)) {
 				const serialisedJS = serializeJS(numberTokens[tokenGroup], {
 					comments: jsDoc,
 				}).trim();
 
-				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;`;
+				if (description[tokenGroup]) {
+					typescriptSource.push(`/** ${description[tokenGroup]} */`);
+				}
+
+				typescriptSource.push(
+					`export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;`,
+				);
 			}
 
 			for (const tokenGroup of Object.keys(remTokens)) {
@@ -62,14 +75,16 @@ export default function pluginSpace(options) {
 					comments: jsDoc,
 				}).trim();
 
-				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const rem${capitalise(tokenGroup)} = ${serialisedJS.replace(/;$/, '')} as const;`;
+				typescriptSource.push(`/** ${description[tokenGroup]} */`);
+				typescriptSource.push(
+					`export const rem${capitalise(tokenGroup)} = ${serialisedJS.replace(/;$/, '')} as const;`,
+				);
 			}
 
 			return [
 				{
 					filename: options.filename,
-					contents: template(import.meta.filename, typescriptSource),
+					contents: template(import.meta.filename, typescriptSource.join('\n')),
 				},
 			];
 		},

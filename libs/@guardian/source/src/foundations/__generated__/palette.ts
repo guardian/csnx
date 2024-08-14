@@ -6,6 +6,8 @@
  * Update design-tokens/tokens.json and (re)build @guardian/source instead.
  */
 
+/** Colour palette organised by type e.g. 'error', or pillar e.g. 'opinion'. */
+
 export const palette = {
 	brand: {
 		'100': '#001536',

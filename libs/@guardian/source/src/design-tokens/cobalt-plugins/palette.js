@@ -16,7 +16,11 @@ export default function pluginPalette(options) {
 		name: 'plugin-palette',
 
 		config(/* config */) {},
-		async build({ tokens /* metadata, rawSchema */ }) {
+		async build({ tokens, rawSchema /*, metadata */ }) {
+			const TOKEN_GROUP = 'palette';
+
+			const description = rawSchema[TOKEN_GROUP]?.$description;
+
 			// this is where we'll store the transformed tokens
 			/** @type {Object.<string, string>} */
 			const transformedTokens = {};
@@ -25,7 +29,7 @@ export default function pluginPalette(options) {
 			const jsDoc = {};
 
 			const paletteTokens = tokens.filter((token) =>
-				token.id.startsWith('palette.'),
+				token.id.startsWith(TOKEN_GROUP),
 			);
 
 			// we can re-use the default transformer from `@cobalt-ui/plugin-js`
@@ -36,21 +40,26 @@ export default function pluginPalette(options) {
 				}
 			}
 
-			let typescriptSource = '';
+			const typescriptSource = [];
 
-			for (const tokenGroup of Object.keys(transformedTokens)) {
-				const serialisedJS = serializeJS(transformedTokens[tokenGroup], {
+			for (const [group, tokens] of Object.entries(transformedTokens)) {
+				const serialisedJS = serializeJS(tokens, {
 					comments: jsDoc,
 				}).trim();
 
-				// create a typescript source string containing the transformed tokens
-				typescriptSource += `export const ${tokenGroup} = ${serialisedJS.replace(/;$/, '')} as const;`;
+				if (description) {
+					typescriptSource.push(`/** ${description} */`);
+				}
+
+				typescriptSource.push(
+					`\nexport const ${group} = ${serialisedJS.replace(/;$/, '')} as const;`,
+				);
 			}
 
 			return [
 				{
 					filename: options.filename,
-					contents: template(import.meta.filename, typescriptSource),
+					contents: template(import.meta.filename, typescriptSource.join('\n')),
 				},
 			];
 		},

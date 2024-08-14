@@ -17,9 +17,13 @@ export default function pluginBreakpoints(options) {
 		name: 'plugin-breakpoints',
 
 		config(/* config */) {},
-		async build({ tokens /* metadata, rawSchema */ }) {
+		async build({ tokens, rawSchema /*, metadata */ }) {
+			const TOKEN_GROUP = 'breakpoint';
+
+			const description = rawSchema[TOKEN_GROUP]?.$description;
+
 			const breakpointTokens = tokens.filter((token) =>
-				token.id.startsWith('breakpoint.'),
+				token.id.startsWith(TOKEN_GROUP),
 			);
 
 			/**
@@ -50,15 +54,21 @@ export default function pluginBreakpoints(options) {
 				.join('')
 				.replace(/;$/, '');
 
-			let typescriptSource = `
-				export const breakpoints = ${serialisedJS} as const;
-				export type Breakpoint = keyof typeof breakpoints;
-			`;
+			const typescriptSource = [];
+
+			if (description) {
+				typescriptSource.push(`/** ${description} */`);
+			}
+
+			typescriptSource.push(
+				`export const breakpoints = ${serialisedJS} as const;`,
+				`export type Breakpoint = keyof typeof breakpoints;`,
+			);
 
 			return [
 				{
 					filename: options.filename,
-					contents: template(import.meta.filename, typescriptSource),
+					contents: template(import.meta.filename, typescriptSource.join('\n')),
 				},
 			];
 		},

@@ -98,7 +98,7 @@ export default function pluginBreakpoints(options) {
 				.map(([preset, properties]) => {
 					const output = presetTemplate(preset, properties);
 					return comments[preset]
-						? `\n// ${comments[preset]}${output}`
+						? `\n/** ${comments[preset]} */${output}`
 						: output;
 				})
 				.join('');
