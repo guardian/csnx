@@ -23,8 +23,8 @@
 	],
 	"scripts": {
 		"build": "wireit",
+		"build-generated": "wireit",
 		"build-storybook": "wireit",
-		"build-type-presets": "wireit",
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
 		"fix": "wireit",
@@ -39,8 +39,12 @@
 	},
 	"devDependencies": {
 		"@babel/core": "7.25.2",
+		"@cobalt-ui/cli": "1.11.0",
+		"@cobalt-ui/core": "1.11.0",
+		"@cobalt-ui/plugin-css": "1.7.0",
+		"@cobalt-ui/plugin-js": "1.4.3",
+		"@cobalt-ui/utils": "1.2.2",
 		"@emotion/react": "11.11.3",
-		"@guardian/design-tokens": "workspace:*",
 		"@guardian/libs": "18.0.0",
 		"@storybook/manager-api": "8.2.7",
 		"@storybook/react": "8.2.7",
@@ -90,16 +94,11 @@
 		}
 	},
 	"wireit": {
-		"__deps__": {
-			"dependencies": [
-				"../design-tokens:build",
-				"../libs:build"
-			]
-		},
 		"build": {
 			"command": "rollup -c",
 			"dependencies": [
-				"__deps__"
+				"../libs:build",
+				"build-generated"
 			],
 			"files": [
 				"src/**",
@@ -110,6 +109,15 @@
 			],
 			"output": [
 				"dist"
+			]
+		},
+		"build-generated": {
+			"command": "co build --config src/design-tokens/tokens.config.js && prettier --write src/foundations/__generated__/**",
+			"files": [
+				"./src/design-tokens/**"
+			],
+			"output": [
+				"./src/foundations/__generated__"
 			]
 		},
 		"build-storybook": {
@@ -128,23 +136,10 @@
 				"storybook-static"
 			]
 		},
-		"build-type-presets": {
-			"command": "tsx ./scripts/build-type-presets.ts",
-			"dependencies": [
-				"__deps__"
-			],
-			"files": [
-				"./scripts/build-type-presets.ts",
-				"./src/foundations/utils/convert-value.ts"
-			],
-			"output": [
-				"src/__generated__/typography"
-			]
-		},
 		"fix": {
 			"command": "eslint --cache --color . --fix",
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"files": [
 				"**",
@@ -159,7 +154,7 @@
 		},
 		"lint": {
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"command": "eslint --cache --color .",
 			"files": [
@@ -173,7 +168,7 @@
 		"test": {
 			"command": "jest",
 			"dependencies": [
-				"__deps__"
+				"build"
 			],
 			"files": [
 				"**",

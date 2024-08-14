@@ -269,22 +269,6 @@ install: check-node-version
 @guardian/core-web-vitals\:verify-dist: env
 	@corepack pnpm --filter @guardian/core-web-vitals verify-dist
 
-.PHONY: @guardian/design-tokens\:build
-@guardian/design-tokens\:build: env
-	@corepack pnpm --filter @guardian/design-tokens build
-
-.PHONY: @guardian/design-tokens\:fix
-@guardian/design-tokens\:fix: env
-	@corepack pnpm --filter @guardian/design-tokens fix
-
-.PHONY: @guardian/design-tokens\:lint
-@guardian/design-tokens\:lint: env
-	@corepack pnpm --filter @guardian/design-tokens lint
-
-.PHONY: @guardian/design-tokens\:tsc
-@guardian/design-tokens\:tsc: env
-	@corepack pnpm --filter @guardian/design-tokens tsc
-
 .PHONY: @guardian/eslint-config\:fix
 @guardian/eslint-config\:fix: env
 	@corepack pnpm --filter @guardian/eslint-config fix
@@ -441,13 +425,13 @@ install: check-node-version
 @guardian/source\:build: env
 	@corepack pnpm --filter @guardian/source build
 
+.PHONY: @guardian/source\:build-generated
+@guardian/source\:build-generated: env
+	@corepack pnpm --filter @guardian/source build-generated
+
 .PHONY: @guardian/source\:build-storybook
 @guardian/source\:build-storybook: env
 	@corepack pnpm --filter @guardian/source build-storybook
-
-.PHONY: @guardian/source\:build-type-presets
-@guardian/source\:build-type-presets: env
-	@corepack pnpm --filter @guardian/source build-type-presets
 
 .PHONY: @guardian/source\:create-icons
 @guardian/source\:create-icons: env

@@ -116,13 +116,6 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/core-web-vitals:tsc`
 - `make @guardian/core-web-vitals:verify-dist`
 
-#### @guardian/design-tokens
-
-- `make @guardian/design-tokens:build`
-- `make @guardian/design-tokens:fix`
-- `make @guardian/design-tokens:lint`
-- `make @guardian/design-tokens:tsc`
-
 #### @guardian/eslint-config
 
 - `make @guardian/eslint-config:fix`
@@ -185,8 +178,8 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 #### @guardian/source
 
 - `make @guardian/source:build`
+- `make @guardian/source:build-generated`
 - `make @guardian/source:build-storybook`
-- `make @guardian/source:build-type-presets`
 - `make @guardian/source:create-icons`
 - `make @guardian/source:dev`
 - `make @guardian/source:fix`
