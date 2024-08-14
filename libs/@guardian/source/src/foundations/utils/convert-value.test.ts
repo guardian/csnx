@@ -6,10 +6,10 @@ import {
 } from './convert-value';
 
 describe('pxToRem', () => {
-	it('should calculate a rem equivalent of a pixel value', () => {
+	it('should calculate a value with a rem unit from a pixel value', () => {
 		const value = 17;
 		const result = pxToRem(value);
-		expect(result).toBe(1.0625);
+		expect(result).toBe('1.0625rem');
 	});
 });
 
@@ -23,11 +23,11 @@ describe('pxStringToNumber', () => {
 });
 
 describe('pxStringToRem', () => {
-	it('should convert a value with a px unit to rem equivalent', () => {
+	it('should convert a value with a px unit to a value with a rem unit', () => {
 		const value = '20px';
 		const result = pxStringToRem(value);
-		expect(result).toBe(1.25);
-		expect(typeof result).toBe('number');
+		expect(result).toBe('1.25rem');
+		expect(typeof result).toBe('string');
 	});
 });
 

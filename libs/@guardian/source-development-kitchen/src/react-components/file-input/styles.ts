@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import type { SerializedStyles } from '@emotion/react';
 import {
 	focusHalo,
-	fontWeights,
 	height,
 	remHeight,
 	remSpace,
@@ -23,19 +22,19 @@ export const fileName = (
 const defaultUpload = css`
 	padding: ${remSpace[3]};
 	border-radius: ${height.ctaMedium}px;
-	font-weight: ${fontWeights.bold};
+	font-weight: 700;
 `;
 const smallUpload = css`
 	padding: ${remSpace[3]};
 	border-radius: ${height.ctaSmall}px;
-	font-weight: ${fontWeights.bold};
+	font-weight: 700;
 `;
 
 const xsmallUpload = css`
 	padding: 0 ${space[3]}px;
 	padding: ${remSpace[3]};
 	border-radius: ${height.ctaXsmall}px;
-	font-weight: ${fontWeights.bold};
+	font-weight: 700;
 `;
 
 export const warningText = (
@@ -82,9 +81,9 @@ export const customUpload = (
 	text-decoration: none;
 	white-space: nowrap;
 	margin: ${remSpace[2]} ${remSpace[2]} ${remSpace[2]} 0;
-	height: ${remHeight.ctaXsmall}rem;
-	min-height: ${remHeight.ctaXsmall}rem;
-	border-radius: ${remHeight.ctaMedium}rem;
+	height: ${remHeight.ctaXsmall};
+	min-height: ${remHeight.ctaXsmall};
+	border-radius: ${remHeight.ctaMedium};
 	color: ${fileInput.primary};
 	border: ${hasError
 		? `2px solid ${fileInput.error}`
