@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 7.0.0
+
+### Major Changes
+
+Updated peer dependency to `@guardian/source@7.0.0`
+
 ## 6.0.0
 
 ### Major Changes
