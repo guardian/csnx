@@ -1,5 +1,4 @@
 ---
-'@guardian/source-development-kitchen': major
 '@guardian/source': major
 ---
 
