@@ -17,9 +17,7 @@ module.exports = {
 		},
 		{
 			files: ['*.ts', '*.tsx'],
-			rules: {
-				'@typescript-eslint/prefer-promise-reject-errors': 'off',
-			},
+			rules: {},
 		},
 		{
 			files: ['*.js', '*.jsx'],

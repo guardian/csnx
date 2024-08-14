@@ -128,8 +128,7 @@ describe('hotfix cmp.init', () => {
 
 				window.guCmpHotFix = {};
 				jest.resetModules();
-				// eslint-disable-next-line @typescript-eslint/no-floating-promises -- TODO
-				import('./index');
+				void import('./index');
 			})
 			.catch((error) => {
 				console.error(error);

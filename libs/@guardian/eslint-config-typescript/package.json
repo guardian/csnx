@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@guardian/eslint-config": "workspace:*",
+		"@stylistic/eslint-plugin": "2.6.2",
 		"@typescript-eslint/eslint-plugin": "8.1.0",
 		"@typescript-eslint/parser": "8.1.0",
 		"eslint-import-resolver-typescript": "3.6.1",
