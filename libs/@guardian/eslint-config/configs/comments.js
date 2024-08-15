@@ -1,6 +1,7 @@
 import { fixupPluginRules } from '@eslint/compat';
 import eslintComments from 'eslint-plugin-eslint-comments';
 
+// eslint-disable-next-line import/no-default-export -- TODO
 export default {
 	plugins: {
 		'eslint-comments': fixupPluginRules(eslintComments),

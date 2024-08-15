@@ -5,6 +5,7 @@ import cjs from './cjs.js';
 import comments from './comments.js';
 import imports from './imports.js';
 
+// eslint-disable-next-line import/no-default-export -- TODO
 export default [
 	js.configs.recommended,
 	{

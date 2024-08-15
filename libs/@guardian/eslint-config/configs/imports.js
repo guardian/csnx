@@ -1,5 +1,6 @@
 import importX from 'eslint-plugin-import-x';
 
+// eslint-disable-next-line import/no-default-export -- TODO
 export default [
 	{
 		plugins: {
