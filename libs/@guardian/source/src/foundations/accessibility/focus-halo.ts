@@ -1,4 +1,4 @@
-import { palette } from '../colour/palette';
+import { palette } from '../palette/palette';
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/docs/source_foundations-focushalo--page)

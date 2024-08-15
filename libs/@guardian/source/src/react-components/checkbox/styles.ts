@@ -27,8 +27,12 @@ export const checkboxContainer = (
 ): SerializedStyles => css`
 	position: relative;
 	display: flex;
-	align-items: center;
-	min-height: ${height.inputMedium}px;
+	align-items: flex-start;
+	/**
+	 * Ensure minimum height of 44px by applying 10px padding to top and bottom
+	 * of container. This ensures consistent spacing when supporting text present.
+	 */
+	padding: ${(height.inputMedium - height.inputXsmall) / 2}px 0;
 	cursor: pointer;
 
 	&:hover {
@@ -59,11 +63,6 @@ export const checkboxContainer = (
 
 export const label: SerializedStyles = css`
 	cursor: pointer;
-`;
-
-export const checkboxContainerWithSupportingText = css`
-	align-items: flex-start;
-	margin-bottom: ${space[3]}px;
 `;
 
 export const checkbox = (
@@ -122,10 +121,6 @@ export const labelText = (checkbox: ThemeCheckbox): SerializedStyles => css`
 	${textSans17};
 	color: ${checkbox.textLabel};
 	width: 100%;
-`;
-
-export const labelTextWithSupportingText = css`
-	${textSans17};
 	margin-top: 1px;
 	/* If label text is empty, add additional spacing to align supporting text */
 	&:empty {
@@ -149,16 +144,12 @@ export const tick = (checkbox: ThemeCheckbox): SerializedStyles => css`
 		width: 6px;
 		height: 12px;
 		transform: rotate(45deg);
-		/*
-		these properties are very sensitive and are overridden
-		if the checkbox has a label or supporting text
-	*/
-		top: 14px;
+		top: 15px;
 		left: 9px;
-		/*
-			this prevents simulated click events to the checkbox, eg from Selenium tests
-			from being intercepted by the tick
-		*/
+		/**
+		 * This prevents simulated click events to the checkbox (eg. from Selenium
+		 * tests) being intercepted by the tick
+		 */
 		pointer-events: none;
 
 		/* the checkmark ✓ */
@@ -188,19 +179,6 @@ export const tick = (checkbox: ThemeCheckbox): SerializedStyles => css`
 			width: 2px;
 			transition-delay: 0.1s;
 		}
-	}
-`;
-
-export const tickWithLabelText = css`
-	@supports (${appearance}) {
-		top: 15px;
-		left: 9px;
-	}
-`;
-
-export const tickWithSupportingText = css`
-	@supports (${appearance}) {
-		top: 5px;
 	}
 `;
 

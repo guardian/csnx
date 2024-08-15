@@ -8,7 +8,6 @@ import {
 	space,
 	textSans15,
 	textSans17,
-	textSansBold17,
 	transitions,
 	width,
 } from '../../foundations';
@@ -30,8 +29,12 @@ export const fieldset = (radio: ThemeRadioGroup): SerializedStyles => css`
 export const radioContainer = (radio: ThemeRadio): SerializedStyles => css`
 	position: relative;
 	display: flex;
-	align-items: center;
-	min-height: ${height.inputMedium}px;
+	align-items: flex-start;
+	/**
+	 * Ensure minimum height of 44px by applying 10px padding to top and bottom
+	 * of container. This ensures consistent spacing when supporting text present.
+	 */
+	padding: ${(height.inputMedium - height.inputXsmall) / 2}px 0;
 	cursor: pointer;
 
 	&:hover {
@@ -43,11 +46,6 @@ export const radioContainer = (radio: ThemeRadio): SerializedStyles => css`
 
 export const label: SerializedStyles = css`
 	cursor: pointer;
-`;
-
-export const labelWithSupportingText = css`
-	align-items: flex-start;
-	margin-bottom: ${space[3]}px;
 `;
 
 export const radio = (radio: ThemeRadio): SerializedStyles => css`
@@ -112,10 +110,6 @@ export const labelText = (radio: ThemeRadio): SerializedStyles => css`
 	${textSans17};
 	color: ${radio.textLabel};
 	width: 100%;
-`;
-
-export const labelTextWithSupportingText = css`
-	${textSansBold17};
 	margin-top: 1px;
 	/* If label text is empty, add additional spacing to align supporting text */
 	&:empty {

@@ -5,12 +5,6 @@
  */
 
 import type { Props as InternalPropsType } from './@types/Props';
-import { SvgCrossedOutCloud } from './__generated__/icons/SvgCrossedOutCloud';
-import { SvgExclamation } from './__generated__/icons/SvgExclamation';
-import { SvgFacebookMessenger } from './__generated__/icons/SvgFacebookMessenger';
-import { SvgInfoRound } from './__generated__/icons/SvgInfoRound';
-import { SvgMediaControlsPlay } from './__generated__/icons/SvgMediaControlsPlay';
-import { SvgPayPalBrand } from './__generated__/icons/SvgPayPalBrand';
 
 /**
  * @deprecated This is for internal use only.
@@ -19,23 +13,20 @@ import { SvgPayPalBrand } from './__generated__/icons/SvgPayPalBrand';
  */
 export type Props = InternalPropsType;
 
-/** @deprecated Use `SvgCrossedOutCloud` instead. */
-export const SvgOfflineCloud = SvgCrossedOutCloud;
+export {
+	/** @deprecated Use `SvgAlertRound` instead. */
+	SvgAlertTriangle,
+} from './__generated__/icons/SvgAlertTriangle';
 
-/** @deprecated Use `SvgExclamation` instead. */
-export const SvgAlert = SvgExclamation;
+export {
+	/** @deprecated Use `SvgFilterOutlinedWeb` instead. */
+	SvgFilter,
+} from './__generated__/icons/SvgFilter';
 
-/** @deprecated Use `SvgFacebookMessenger` instead. */
-export const SvgMessenger = SvgFacebookMessenger;
-
-/** @deprecated Use `SvgInfoRound` instead. */
-export const SvgInfo = SvgInfoRound;
-
-/** @deprecated Use `SvgMediaControlsPlay` instead. */
-export const SvgPlay = SvgMediaControlsPlay;
-
-/** @deprecated Use `SvgPayPalBrand` instead. */
-export const SvgPayPal = SvgPayPalBrand;
+export {
+	/** @deprecated Use `SvgShareWeb` instead. */
+	SvgShareCallout,
+} from './__generated__/icons/SvgShareCallout';
 
 export type { ButtonTheme } from './button/theme';
 

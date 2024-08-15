@@ -1,5 +1,161 @@
 # @guardian/source
 
+## 7.0.0
+
+### Major Changes
+
+- 238dfd3: Removes deprecated typography API.
+
+  In `@guardian/source-foundations@14.2.0` (2024-04-07), we added new [web typography presets](https://guardian.github.io/storybooks/?path=/story/source_foundations-typography--presets) to standardise on the typographic language used by Design, and deprecated the old typography API.
+
+  This release removes that old API, in order to simplify the ongoing maintenance of the library.
+
+  The following exports have been removed:
+
+  - `titlepiece`
+  - `headline`
+  - `body`
+  - `textSans`
+  - `titlepieceSizes`
+  - `headlineSizes`
+  - `bodySizes`
+  - `textSansSizes`
+  - `remTitlepieceSizes`
+  - `remHeadlineSizes`
+  - `remBodySizes`
+  - `remTextSansSizes`
+  - `fonts`
+  - `fontWeights`
+  - `lineHeights`
+  - `bodyObjectStyles`
+  - `headlineObjectStyles`
+  - `textSansObjectStyles`
+  - `titlepieceObjectStyles`
+
+  along with the following `type` exports:
+
+  - `ScaleUnit`
+  - `Category`
+  - `LineHeight`
+  - `FontWeight`
+  - `FontStyle`
+  - `FontWeightDefinition`
+  - `Option`
+  - `TypographySizes`
+  - `TypographyStyles`
+  - `TitlepieceSizes`
+  - `HeadlineSizes`
+  - `BodySizes`
+  - `TextSansSizes`
+  - `Fs`
+  - `FontScaleFunction`
+  - `FontScaleFunctionStr`
+  - `FontScaleArgs`
+
+  _If you cannot map existing uses of the old API to the new presets, please check which preset you should use with a designer._
+
+- 447e6b6: Applies consistent spacing around checkboxes and radio buttons by removing conditional styles and using padding to ensure minimum height of 44px.
+
+  The external padding is now consistent regardless of the presence of a label and / or supporting text, and removes any inconsistency when these elements are stacked vertically.
+
+  Checkboxes and radio buttons are also now aligned with the first line of text when labels wrap on to multiple lines.
+
+- 7805d16: Brings `remSize`, `remIconSize`, `remHeight` and `remWidth` into line with `remSpace`, by changing their values from a `number` (of rems) to a `string` that ends with `rem` units.
+
+  `pxToRem` also now returns a string with `rem` units, rather than a `number` of rems.
+
+  _The sizes haven't changed, only the way they are exported._
+
+  ### Before
+
+  ```js
+  const style = `
+  	top: ${pxToRem(10)}rem;
+  	bottom: ${remHeight.ctaSmall}rem;
+  `;
+  ```
+
+  ### After
+
+  ```js
+  const style = `
+  	top: ${pxToRem(10)};
+  	bottom: ${remHeight.ctaSmall};
+  `;
+  ```
+
+  If you have been performing calculations with the old number values in JS, you can use the [CSS `calc` function](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) instead:
+
+  ### Before
+
+  ```js
+  const style = `
+  	bottom: -${remHeight.ctaSmall / 2}rem;
+  `;
+  ```
+
+  ### After
+
+  ```js
+  const style = `
+  	bottom: calc(-${remHeight.ctaSmall} / 2);
+  `;
+  ```
+
+### Patch Changes
+
+- 69ecc3f: Moves design tokens into `@guardian/source` itself.
+
+  Allows us to calculate `@guardian/source/foundations` values during build, rather than at the point of consumption, which relieves user's devices of this overhead and means the design tokens JSON will no longer be included in consumer's bundles.
+
+## 6.1.0
+
+### Minor Changes
+
+- 11c62af: Adds `headlineBold15`, `headlineLight15`, `headlineLightItalic15`, `headlineMedium15` and `headlineMediumItalic15` to the typography presets
+
+## 6.0.0
+
+### Major Changes
+
+- d274436: Adds new icons to the icon library and applies updates to existing icons. In addition, some icons have been renamed and others deprecated. Icons that were previously deprecated have now been removed in this update.
+
+  #### Renamed icons
+
+  These icons have been renamed:
+
+  | Old name           | New name               |
+  | ------------------ | ---------------------- |
+  | `SvgBookMark`      | `SvgBookmarkFilled`    |
+  | `SvgBookMarkCross` | `SvgBookmarkCross`     |
+  | `SvgCrossRound`    | `SvgCrossRoundFilled`  |
+  | `SvgHouse`         | `SvgHomeHouseFilled`   |
+  | `SvgPersonRound`   | `SvgPersonRoundFilled` |
+  | `SvgShare`         | `SvgShareWeb`          |
+
+  #### Deprecated icons
+
+  These existing deprecated aliases have been removed:
+
+  | Removed           | Aliased to             |
+  | ----------------- | ---------------------- |
+  | `SvgOfflineCloud` | `SvgCrossedOutCloud`   |
+  | `SvgAlert`        | `SvgExclamation`       |
+  | `SvgMessenger`    | `SvgFacebookMessenger` |
+  | `SvgInfo`         | `SvgInfoRound`         |
+  | `SvgPlay`         | `SvgMediaControlsPlay` |
+  | `SvgPayPal`       | `SvgPayPalBrand`       |
+
+  eg. if you are importing `SvgOfflineCloud` this is aliased to `SvgCrossedOutCloud`. The alias has now been removed so you should import `SvgCrossedOutCloud` directly.
+
+  The following icons have been deprecated and are still available, but will be removed in a future release:
+
+  | Don't use          | Use instead            |
+  | ------------------ | ---------------------- |
+  | `SvgAlertTriangle` | `SvgAlertRound`        |
+  | `SvgFilter`        | `SvgFilterOutlinedWeb` |
+  | `SvgShareCallout`  | `SvgShareWeb`          |
+
 ## 5.0.0
 
 ### Major Changes

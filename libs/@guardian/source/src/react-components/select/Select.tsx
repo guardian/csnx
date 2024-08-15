@@ -147,7 +147,7 @@ export const Select = ({
 					]}
 					aria-required={!optional}
 					aria-invalid={!!error}
-					aria-describedby={error ?? success ? descriptionId(selectId) : ''}
+					aria-describedby={(error ?? success) ? descriptionId(selectId) : ''}
 					id={selectId}
 					{...props}
 				>

@@ -54,6 +54,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make build` _builds all projects_
 - `make build-storybook` _builds all storybooks_
 - `make changeset` _creates a new [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)_
+- `make changeset-version` _takes changesets that have been made and updates versions and dependencies of packages, as well as writing changelogs updates the lockfile with the updated versions of the packages https://github.com/changesets/changesets/issues/421_
 - `make clean` _removes all build artifacts and task caches_
 - `make dev` _runs the dev targets for all projects in single instance_
 - `make e2e` _runs the e2e tests for all projects_
@@ -114,13 +115,6 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/core-web-vitals:test`
 - `make @guardian/core-web-vitals:tsc`
 - `make @guardian/core-web-vitals:verify-dist`
-
-#### @guardian/design-tokens
-
-- `make @guardian/design-tokens:build`
-- `make @guardian/design-tokens:fix`
-- `make @guardian/design-tokens:lint`
-- `make @guardian/design-tokens:tsc`
 
 #### @guardian/eslint-config
 
@@ -184,8 +178,8 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 #### @guardian/source
 
 - `make @guardian/source:build`
+- `make @guardian/source:build-generated`
 - `make @guardian/source:build-storybook`
-- `make @guardian/source:build-type-presets`
 - `make @guardian/source:create-icons`
 - `make @guardian/source:dev`
 - `make @guardian/source:fix`

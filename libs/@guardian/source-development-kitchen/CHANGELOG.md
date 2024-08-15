@@ -1,5 +1,24 @@
 # @guardian/source-development-kitchen
 
+## 7.0.0
+
+### Major Changes
+
+Updated peer dependency to `@guardian/source@7.0.0`
+
+## 6.0.0
+
+### Major Changes
+
+- d4e48f9: Refactor `DottedLines` to render pattern with CSS rather than SVG
+
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [d274436]
+  - @guardian/source@6.0.0
+
 ## 4.0.0
 
 ### Major Changes
