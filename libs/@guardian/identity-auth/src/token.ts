@@ -219,6 +219,7 @@ const decodeToken = <T extends CustomClaims = CustomClaims>(
 			payloadStr === undefined ||
 			signature === undefined
 		) {
+			// eslint-disable-next-line @typescript-eslint/only-throw-error -- we're throwing a string
 			throw 'Missing token parts';
 		}
 
@@ -227,11 +228,13 @@ const decodeToken = <T extends CustomClaims = CustomClaims>(
 
 		// validate the header, all okta oauth tokens have an alg and kid claim
 		if (!header.alg || !header.kid) {
+			// eslint-disable-next-line @typescript-eslint/only-throw-error -- we're throwing a string
 			throw 'Missing algorithm in header';
 		}
 
 		// validate the payload, all okta oauth tokens have an jti claim
 		if (!payload.jti) {
+			// eslint-disable-next-line @typescript-eslint/only-throw-error -- we're throwing a string
 			throw 'Possibly malformed payload';
 		}
 
