@@ -5,7 +5,7 @@ module.exports = {
 		project: './tsconfig.json',
 		sourceType: 'module',
 	},
-	plugins: ['@typescript-eslint'],
+	plugins: ['@stylistic', '@typescript-eslint'],
 	extends: [
 		'@guardian/eslint-config',
 		'plugin:@typescript-eslint/eslint-recommended',
@@ -55,7 +55,7 @@ module.exports = {
 
 		// delimit members with semi-colons and require
 		// one at the end to keep diffs simpler
-		'@typescript-eslint/member-delimiter-style': [
+		'@stylistic/member-delimiter-style': [
 			2,
 			{
 				multiline: {
@@ -76,6 +76,12 @@ module.exports = {
 		'@typescript-eslint/no-unnecessary-condition': 2,
 		'@typescript-eslint/no-unnecessary-qualifier': 2,
 		'@typescript-eslint/no-unnecessary-type-arguments': 2,
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{
+				caughtErrors: 'none',
+			},
+		],
 
 		// use `str.includes(value)` instead of `str.indexOf(value) !== -1`
 		'@typescript-eslint/prefer-includes': 2,

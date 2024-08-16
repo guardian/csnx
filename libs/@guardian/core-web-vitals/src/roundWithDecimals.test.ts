@@ -8,7 +8,7 @@ describe('roundWithDecimals', () => {
 		[1, 2.5, 2.5],
 		[3, 0.001_234, 0.001],
 		[4, 0.001_234, 0.001_2],
-		// eslint-disable-next-line @typescript-eslint/no-loss-of-precision -- it's testing that this is rounded away
+		// eslint-disable-next-line no-loss-of-precision -- it's testing that this is rounded away
 		[5, 100.102_030_405_060_708_090, 100.102_03],
 		[6, 12345.000_001_2, 12345.000_001],
 		[9, 199.001_002_003_456, 199.001_002_003],
