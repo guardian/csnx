@@ -11,6 +11,9 @@
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.27.1",
+		"@eslint/compat": "1.1.1",
+		"@eslint/eslintrc": "3.1.0",
+		"@eslint/js": "9.9.0",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/prettier": "workspace:*",
@@ -20,7 +23,7 @@
 		"@typescript-eslint/eslint-plugin": "8.1.0",
 		"@typescript-eslint/parser": "8.1.0",
 		"colorette": "2.0.20",
-		"eslint": "8.57.0",
+		"eslint": "9.9.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
 		"eslint-plugin-import": "2.29.1",
 		"eslint-plugin-react": "7.35.0",
