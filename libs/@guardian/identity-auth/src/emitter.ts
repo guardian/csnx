@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-types -- Function can be any function callback type
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type -- Function can be any function callback type
 export type EventCallback = Function;
 
 type Event = {
@@ -76,7 +76,11 @@ export class Emitter {
 		}
 
 		// if there are live events, set them to the event name, otherwise delete the event name
-		liveEvents.length ? (events[name] = liveEvents) : delete events[name];
+		if (liveEvents.length) {
+			events[name] = liveEvents;
+		} else {
+			delete events[name];
+		}
 
 		// return the emitter for chaining purposes
 		return this;

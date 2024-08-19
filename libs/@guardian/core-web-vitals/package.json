@@ -25,7 +25,7 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@guardian/libs": "18.0.0",
+		"@guardian/libs": "18.0.1",
 		"@types/jest": "29.5.8",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",

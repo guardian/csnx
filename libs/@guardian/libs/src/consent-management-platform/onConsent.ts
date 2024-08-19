@@ -16,6 +16,7 @@ const onConsent = (): Promise<ConsentState> =>
 			if (consentState.tcfv2 ?? consentState.ccpa ?? consentState.aus) {
 				resolve(consentState);
 			}
+			// eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- we want to reject with a string
 			reject('Unknown framework');
 		});
 	});

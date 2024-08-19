@@ -88,7 +88,11 @@ export const AccordionRow = ({
 			transformProviderTheme,
 		);
 	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
-		expanded ? collapse() : expand();
+		if (expanded) {
+			collapse();
+		} else {
+			expand();
+		}
 		onClick(event);
 	}
 

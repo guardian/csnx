@@ -79,16 +79,16 @@ export const showHideLabelStyles = css`
 	box-sizing: border-box;
 	cursor: pointer;
 	position: absolute;
-	bottom: -${remHeight.ctaSmall / 2}rem;
-	border-radius: ${remHeight.ctaSmall}rem;
+	bottom: calc(-${remHeight.ctaSmall} / 2);
+	border-radius: ${remHeight.ctaSmall};
 	padding: 0 ${remSpace[4]};
 	padding-bottom: 2px;
 	border: 1px solid ${themeColour('--expandBackground')};
 	text-decoration: none;
 	background: ${themeColour('--expandBackground')};
 	color: ${themeColour('--expandText')};
-	height: ${remHeight.ctaSmall}rem;
-	min-height: ${remHeight.ctaSmall}rem;
+	height: ${remHeight.ctaSmall};
+	min-height: ${remHeight.ctaSmall};
 	margin-left: ${remSpace[2]};
 
 	&:hover {

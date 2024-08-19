@@ -1,9 +1,18 @@
+/**
+ * Config file for cobalt.
+ * https://cobalt-ui.pages.dev/guides/getting-started
+ */
+
 /* eslint-disable import/no-default-export -- cobalt configs do this */
 
 // @ts-check
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import pluginTS from '@guardian/cobalt-plugin-ts';
+import breakpoints from './cobalt-plugins/breakpoints.js';
+import palette from './cobalt-plugins/palette.js';
+import size from './cobalt-plugins/size.js';
+import space from './cobalt-plugins/space.js';
+import typography from './cobalt-plugins/typography.js';
 
 /**
  * @param {string} variableId
@@ -24,17 +33,19 @@ const pxToRem = (token) => {
 
 /** @type {import('@cobalt-ui/core').Config} */
 export default {
-	tokens: 'src/tokens.json',
-	outDir: '__generated__',
+	tokens: 'tokens.json',
+	outDir: '../foundations/__generated__',
 	plugins: [
+		palette({ filename: 'palette.ts' }),
+		breakpoints({ filename: 'breakpoints.ts' }),
+		typography({ filename: 'typography.ts' }),
+		space({ filename: 'space.ts' }),
+		size({ filename: 'size.ts' }),
 		pluginCSS({
 			p3: false,
 			generateName: prefixCustomProperty,
 			transform: pxToRem,
 			filename: 'variables.css',
-		}),
-		pluginTS({
-			filename: 'tokens.js',
 		}),
 	],
 };
