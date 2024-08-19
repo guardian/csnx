@@ -2,7 +2,7 @@ import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { textSans15, textSansBold17 } from '@guardian/source/foundations';
 import { useEffect, useState } from 'react';
-import { useIsInView } from './useinView';
+import { useIsInView } from './useIsInView';
 import { useTicker } from './useTicker';
 
 interface TickerCopy {

@@ -3,15 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 type Options = {
 	/**
 	 * Defaults to `undefined` (falsy),
-	 * which triggers a change instantaneously.
-	 *
-	 * If `true`, debounce triggers by 200ms.
-	 * Enabling debouncing ensures the target element intersects
-	 * for at least 200ms before the callback is executed
-	 */
-	debounce?: true;
-	/**
-	 * Defaults to `undefined` (falsy),
 	 * which only trigger on the first intersection.
 	 *
 	 * If `true`, trigger the hook on all intersections.
