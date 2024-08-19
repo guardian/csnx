@@ -66,32 +66,27 @@ const progressBarStyles = css`
 	border-radius: 8px;
 `;
 
-const progressBarTransform = (
-	goal: number,
-	total: number,
-	runningTotal: number,
-): string => {
+const progressBarTransform = (goal: number, runningTotal: number): string => {
 	const haveStartedAnimating = runningTotal >= 0;
 
 	if (!haveStartedAnimating) {
 		return 'translateX(-100%)';
 	}
 
-	const percentage = (total / goal) * 100 - 100;
+	const percentage = (runningTotal / goal) * 100 - 100;
 	return `translate3d(${percentage > 0 ? 0 : percentage}%, 0, 0)`;
 };
 
 const filledProgressStyles = (
 	goal: number,
 	runningTotal: number,
-	total: number,
 ): SerializedStyles => css`
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	transform: ${progressBarTransform(goal, total, runningTotal)};
+	transform: ${progressBarTransform(goal, runningTotal)};
 	transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
 	/* stylelint-disable-next-line color-no-hex */
 	background-color: #5056f5;
@@ -128,7 +123,7 @@ export const Ticker = ({
 					<div css={headlineStyles}>{copy.countLabel}</div>
 					<div css={tickerBackgroundStyles}>
 						<div css={progressBarStyles}>
-							<div css={filledProgressStyles(goal, runningTotal, total)} />
+							<div css={filledProgressStyles(goal, runningTotal)} />
 						</div>
 					</div>
 					<div css={goalLabelStyles}>

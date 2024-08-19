@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useTicker = (total: number, readyToAnimate: boolean): number => {
-	const [runningTotal, setRunningTotal] = useState<number>(total);
+	const [runningTotal, setRunningTotal] = useState<number>(0);
 
 	useEffect(() => {
 		if (readyToAnimate && runningTotal < total) {
