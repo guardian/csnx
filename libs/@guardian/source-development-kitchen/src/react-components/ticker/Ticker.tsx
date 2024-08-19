@@ -114,7 +114,6 @@ export const Ticker = ({
 	//state to track if the component is ready to animate
 	const [readyToAnimate, setReadyToAnimate] = useState(false);
 	const [hasBeenSeen, setNode] = useIsInView({
-		debounce: true,
 		rootMargin: '-18px',
 		threshold: 0,
 	});
