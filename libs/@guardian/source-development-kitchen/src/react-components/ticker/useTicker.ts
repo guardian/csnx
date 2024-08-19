@@ -9,7 +9,7 @@ export const useTicker = (total: number, readyToAnimate: boolean): number => {
 				setRunningTotal((prevRunningTotal) => {
 					const newRunningTotal = prevRunningTotal + Math.floor(total / 100);
 
-					if (newRunningTotal > total) {
+					if (newRunningTotal > total || newRunningTotal < 1) {
 						return total;
 					}
 

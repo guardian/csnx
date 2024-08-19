@@ -14,10 +14,19 @@ export interface TickerData {
 	goal: number;
 }
 
+export interface TickerStylingSettings {
+	headlineColour: string;
+	totalColour: string;
+	goalColour: string;
+	filledProgressColour: string;
+	progressBarBackgroundColour: string;
+}
+
 export interface TickerSettings {
 	currencySymbol: string;
 	copy: TickerCopy;
 	tickerData?: TickerData;
+	tickerStylingSettings: TickerStylingSettings;
 }
 
 //styles for the container that holds the ticker
@@ -29,35 +38,38 @@ const tickerContainerStyles = css`
 `;
 
 //styles for headline text (which is optional)
-const headlineStyles = css`
-	${textSansBold17}
+const headlineStyles = (headlineColour: string) => css`
+	${textSansBold17};
+	color: ${headlineColour};
 `;
 
 //styles for the numerical count (total raised so far) and the goal text
-const goalLabelStyles = css`
+const goalLabelStyles = (goalContributionsColour: string) => css`
 	${textSans15};
+	color: ${goalContributionsColour};
 `;
 
-const countLabelStyles = css`
+const countLabelStyles = (countColour: string) => css`
 	${textSansBold17};
-	/* stylelint-disable-next-line color-no-hex */
-	color: #5056f5;
+	color: ${countColour};
 `;
 
-//styles for the ticker background
-const tickerBackgroundStyles = css`
+//styles for the progress bar background
+const progressBarBackgroundStyles = (
+	progressBarBackgroundColour: string,
+) => css`
 	height: 10px;
 	align-self: stretch;
 	align-items: center;
 	display: flex;
 	border-radius: 8px;
-	background: rgba(80, 86, 245, 0.35);
+	background: ${progressBarBackgroundColour};
 	overflow-x: hidden;
 	width: 100%;
 	position: relative;
 `;
 
-//styles for the moving progress bar
+//styles for the moving part of the progress bar
 const progressBarStyles = css`
 	overflow: hidden;
 	width: 100%;
@@ -80,6 +92,7 @@ const progressBarTransform = (goal: number, runningTotal: number): string => {
 const filledProgressStyles = (
 	goal: number,
 	runningTotal: number,
+	progressBarColour: string,
 ): SerializedStyles => css`
 	position: absolute;
 	top: 0;
@@ -88,8 +101,7 @@ const filledProgressStyles = (
 	bottom: 0;
 	transform: ${progressBarTransform(goal, runningTotal)};
 	transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
-	/* stylelint-disable-next-line color-no-hex */
-	background-color: #5056f5;
+	background-color: ${progressBarColour};
 	height: 10px;
 `;
 
@@ -97,6 +109,7 @@ export const Ticker = ({
 	tickerData,
 	currencySymbol,
 	copy,
+	tickerStylingSettings,
 }: TickerSettings) => {
 	//state to track if the component is ready to animate
 	const [readyToAnimate, setReadyToAnimate] = useState(false);
@@ -116,18 +129,32 @@ export const Ticker = ({
 	const goal = tickerData?.goal ?? 0;
 	const runningTotal = useTicker(total, readyToAnimate);
 
+	const {
+		progressBarBackgroundColour,
+		filledProgressColour,
+		headlineColour,
+		totalColour,
+		goalColour,
+	} = tickerStylingSettings;
+
 	return (
 		<div ref={setNode}>
 			<div>
 				<div css={tickerContainerStyles}>
-					<div css={headlineStyles}>{copy.countLabel}</div>
-					<div css={tickerBackgroundStyles}>
+					<div css={headlineStyles(headlineColour)}>{copy.countLabel}</div>
+					<div css={progressBarBackgroundStyles(progressBarBackgroundColour)}>
 						<div css={progressBarStyles}>
-							<div css={filledProgressStyles(goal, runningTotal)} />
+							<div
+								css={filledProgressStyles(
+									goal,
+									runningTotal,
+									filledProgressColour,
+								)}
+							/>
 						</div>
 					</div>
-					<div css={goalLabelStyles}>
-						<span css={countLabelStyles}>
+					<div css={goalLabelStyles(goalColour)}>
+						<span css={countLabelStyles(totalColour)}>
 							{currencySymbol}
 							{runningTotal.toLocaleString()}
 						</span>{' '}
