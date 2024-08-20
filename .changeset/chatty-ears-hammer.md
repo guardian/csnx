@@ -1,5 +1,5 @@
 ---
-'@guardian/source-development-kitchen': major
+'@guardian/source-development-kitchen': minor
 ---
 
-New ticker component
+Add a new `ticker` component
