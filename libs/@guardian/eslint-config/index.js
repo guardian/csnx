@@ -44,36 +44,37 @@ const sharedConfigs = [
 	},
 ];
 
-const config = {
+const cjsConfig = [
+	{
+		files: ['**/*.{js,cjs,jsx,ts,cts,tsx}'],
+		...cjs,
+	},
+	{
+		files: ['**/*.{mjs,mjsx,mts,mtsx}'],
+		...esm,
+	},
+	...sharedConfigs,
+];
+
+const esmConfig = [
+	{
+		files: ['**/*.{js,mjs,jsx,mjsx,ts,mts,tsx,mtsx}'],
+		...esm,
+	},
+	{
+		files: ['**/*.cjs', '**/*.cts'],
+		...cjs,
+	},
+	...sharedConfigs,
+];
+
+export default {
 	configs: {
-		cjs: [
-			{
-				files: ['**/*.{js,cjs,jsx,ts,cts,tsx}'],
-				...cjs,
-			},
-			{
-				files: ['**/*.{mjs,mjsx,mts,mtsx}'],
-				...esm,
-			},
-			...sharedConfigs,
-		],
-		esm: [
-			{
-				files: ['**/*.{js,mjs,jsx,mjsx,ts,mts,tsx,mtsx}'],
-				...esm,
-			},
-			{
-				files: ['**/*.cjs', '**/*.cts'],
-				...cjs,
-			},
-			...sharedConfigs,
-		],
+		recommended: isModule ? esmConfig : cjsConfig,
+		cjs: cjsConfig,
+		esm: esmConfig,
 		jest,
 		storybook,
 		react,
 	},
 };
-
-config.configs.recommended = isModule ? config.configs.esm : config.configs.cjs;
-
-export default config;
