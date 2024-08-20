@@ -25,7 +25,7 @@ export interface TickerStylingSettings {
 export interface TickerSettings {
 	currencySymbol: string;
 	copy: TickerCopy;
-	tickerData?: TickerData;
+	tickerData: TickerData;
 	tickerStylingSettings: TickerStylingSettings;
 }
 
@@ -41,6 +41,7 @@ const tickerContainerStyles = css`
 const headlineStyles = (headlineColour: string) => css`
 	${textSansBold17};
 	color: ${headlineColour};
+	padding-bottom: 4px;
 `;
 
 //styles for the numerical count (total raised so far) and the goal text
@@ -67,6 +68,7 @@ const progressBarBackgroundStyles = (
 	overflow-x: hidden;
 	width: 100%;
 	position: relative;
+	padding-bottom: 7px;
 `;
 
 //styles for the moving part of the progress bar
@@ -103,6 +105,7 @@ const filledProgressStyles = (
 	transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
 	background-color: ${progressBarColour};
 	height: 10px;
+	padding-top: 3px;
 `;
 
 export const Ticker = ({
@@ -124,10 +127,7 @@ export const Ticker = ({
 		}
 	}, [hasBeenSeen]);
 
-	const total = tickerData?.total ?? 0;
-	const goal = tickerData?.goal ?? 0;
-	const runningTotal = useTicker(total, readyToAnimate);
-
+	const runningTotal = useTicker(tickerData.total, readyToAnimate);
 	const {
 		progressBarBackgroundColour,
 		filledProgressColour,
@@ -145,7 +145,7 @@ export const Ticker = ({
 						<div css={progressBarStyles}>
 							<div
 								css={filledProgressStyles(
-									goal,
+									tickerData.goal,
 									runningTotal,
 									filledProgressColour,
 								)}
@@ -158,7 +158,7 @@ export const Ticker = ({
 							{runningTotal.toLocaleString()}
 						</span>{' '}
 						of {currencySymbol}
-						{goal.toLocaleString()} goal
+						{tickerData.goal.toLocaleString()} goal
 					</div>
 				</div>
 			</div>
