@@ -3,6 +3,9 @@ import cjs from './configs/cjs.js';
 import comments from './configs/comments.js';
 import esm from './configs/esm.js';
 import imports from './configs/imports.js';
+import jest from './configs/jest.js';
+import react from './configs/react.js';
+import storybook from './configs/storybook.js';
 import typescript from './configs/typescript.js';
 
 const sharedConfigs = [
@@ -36,61 +39,24 @@ const sharedConfigs = [
 			],
 		},
 	},
-	// storybook: {
-	// 	files: [
-	// 		'**/*.stories.js',
-	// 		'**/*.stories.jsx',
-	// 		'**/*.stories.ts',
-	// 		'**/*.stories.tsx',
-	// 		'**/*.stories.mjs',
-	// 		'**/*.stories.cjs',
-	// 		'**/*.stories.mdx',
-	// 	],
-	// 	rules: {},
-	// },
-	// jest: {
-	// 	files: [
-	// 		'**/*.test.js',
-	// 		'**/*.test.ts',
-	// 		'**/*.test.jsx',
-	// 		'**/*.test.tsx',
-	// 		'**/*.test.mjs',
-	// 		'**/*.test.cjs',
-	// 	],
-	// 	rules: {},
-	// },
 ];
 
 export default {
 	configs: {
 		cjs: [
 			{
-				files: [
-					'**/*.js',
-					'**/*.ts',
-					'**/*.cjs',
-					'**/*.cts',
-					'**/*.jsx',
-					'**/*.tsx',
-				],
+				files: ['**/*.{js,cjs,jsx,ts,cts,tsx}'],
 				...cjs,
 			},
 			{
-				files: ['**/*.mjs', '**/*.mts'],
+				files: ['**/*.{mjs,mjsx,mts,mtsx}'],
 				...esm,
 			},
 			...sharedConfigs,
 		],
 		esm: [
 			{
-				files: [
-					'**/*.js',
-					'**/*.ts',
-					'**/*.mjs',
-					'**/*.mts',
-					'**/*.jsx',
-					'**/*.tsx',
-				],
+				files: ['**/*.{js,mjs,jsx,mjsx,ts,mts,tsx,mtsx}'],
 				...esm,
 			},
 			{
@@ -99,5 +65,8 @@ export default {
 			},
 			...sharedConfigs,
 		],
+		jest,
+		storybook,
+		react,
 	},
 };

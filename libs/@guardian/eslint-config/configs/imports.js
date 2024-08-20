@@ -3,11 +3,10 @@ import importX from 'eslint-plugin-import-x';
 
 export default [
 	{
+		name: '@guardian/imports',
 		plugins: {
 			import: importX,
 		},
-	},
-	{
 		rules: {
 			// recommended defaults
 			'import/no-unresolved': 'error',
@@ -69,9 +68,12 @@ export default [
 			'**/jest.config.*',
 			'**/rollup.config.*',
 			'**/svelte.config.*',
+			'**/*.stories.*',
+			'**/.storybook/main.*',
 		],
 		rules: {
 			'import/no-default-export': 'off',
+			'import/prefer-default-export': 'error',
 		},
 	},
 ];

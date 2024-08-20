@@ -261,6 +261,10 @@ install: check-node-version
 @guardian/eslint-config\:fix: env
 	@corepack pnpm --filter @guardian/eslint-config fix
 
+.PHONY: @guardian/eslint-config\:lint
+@guardian/eslint-config\:lint: env
+	@corepack pnpm --filter @guardian/eslint-config lint
+
 .PHONY: @guardian/identity-auth\:build
 @guardian/identity-auth\:build: env
 	@corepack pnpm --filter @guardian/identity-auth build
