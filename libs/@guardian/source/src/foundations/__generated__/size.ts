@@ -49,7 +49,7 @@ export const width = {
 	/** Checkables such as checkboxes or radio buttons */
 	inputXsmall: 24,
 } as const;
-/** */
+/**  */
 export const remHeight = {
 	/** Medium height call to action buttons and links */
 	ctaMedium: '2.75rem',
@@ -66,7 +66,7 @@ export const remHeight = {
 	/** Checkables such as checkboxes or radio buttons */
 	inputXsmall: '1.5rem',
 } as const;
-/** */
+/**  */
 export const remIconSize = {
 	/** Meets WCAG 2.1 AAA compliance for touch targets. */
 	medium: '1.875rem',
@@ -80,7 +80,7 @@ export const remSize = {
 	small: '2.25rem',
 	xsmall: '1.5rem',
 } as const;
-/** */
+/**  */
 export const remWidth = {
 	/** Medium height call to action buttons and links */
 	ctaMedium: '2.75rem',
