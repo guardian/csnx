@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 18.0.1
+
+### Patch Changes
+
+- 80eea1d: Small refactors to allow Eslint updates
+
 ## 18.0.0
 
 ### Major Changes

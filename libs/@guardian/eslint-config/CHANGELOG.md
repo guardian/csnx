@@ -1,5 +1,16 @@
 # @guardian/eslint-config
 
+## 9.0.0
+
+### Major Changes
+
+- 80eea1d: ## Update packages to use
+
+  - "@typescript-eslint/eslint-plugin": "8.1.0",
+  - "@typescript-eslint/parser": "8.1.0",
+  - "@stylistic/eslint-plugin": "2.6.2",
+  - "eslint": "8.57.0",
+
 ## 8.0.1
 
 ### Patch Changes

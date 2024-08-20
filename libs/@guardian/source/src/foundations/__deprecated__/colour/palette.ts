@@ -1,4 +1,4 @@
-import { palette } from '../../colour/palette';
+import { palette } from '../../palette/palette';
 
 /** @deprecated Colours should now be imported from the `palette` object */
 export const {

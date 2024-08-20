@@ -17,7 +17,7 @@ export { breakpoints } from './breakpoints/breakpoints';
 export { between, from, until } from './mq/mq';
 
 // palette
-export { palette } from './colour/palette';
+export { palette } from './palette/palette';
 
 // size
 export {
@@ -33,8 +33,7 @@ export {
 export { space, remSpace } from './space/space';
 
 // typography
-export * from './__generated__/typography/css';
-export * from './__generated__/typography/objects';
+export * from './typography/typography';
 
 // utils
 export { appearance } from './utils/supports-queries';

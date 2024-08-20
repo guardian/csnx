@@ -128,7 +128,7 @@ describe('hotfix cmp.init', () => {
 
 				window.guCmpHotFix = {};
 				jest.resetModules();
-				import('./index');
+				void import('./index');
 			})
 			.catch((error) => {
 				console.error(error);
