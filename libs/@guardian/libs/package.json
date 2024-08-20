@@ -29,7 +29,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@playwright/test": "1.45.3",
+		"@playwright/test": "1.46.1",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
 		"eslint": "9.9.0",
@@ -37,10 +37,10 @@
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
-		"rollup": "4.20.0",
+		"rollup": "4.21.0",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
-		"tsx": "4.16.2",
+		"tsx": "4.17.0",
 		"typescript": "5.5.2",
 		"wcag-contrast": "3.0.0",
 		"wireit": "0.14.4"
