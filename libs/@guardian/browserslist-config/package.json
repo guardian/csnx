@@ -17,12 +17,12 @@
 		"@guardian/browserslist-config": "workspace:*",
 		"@guardian/eslint-config": "workspace:*",
 		"browserslist": "4.23.0",
+		"eslint": "9.9.0",
 		"tslib": "2.6.2",
 		"wireit": "0.14.4"
 	},
 	"peerDependencies": {
 		"browserslist": "^4.22.2",
-		"eslint": "9.9.0",
 		"tslib": "^2.6.2"
 	},
 	"publishConfig": {
