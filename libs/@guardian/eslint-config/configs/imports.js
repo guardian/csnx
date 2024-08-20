@@ -1,3 +1,4 @@
+// https://github.com/import-js/eslint-plugin-import/issues/2948#issuecomment-2119214365
 import importX from 'eslint-plugin-import-x';
 
 export default [
@@ -8,6 +9,7 @@ export default [
 	},
 	{
 		rules: {
+			// recommended defaults
 			'import/no-unresolved': 'error',
 			'import/named': 'error',
 			'import/namespace': 'error',

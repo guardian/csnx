@@ -2,7 +2,7 @@
 	"name": "@guardian/prettier",
 	"version": "8.0.1",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
-	"main": "index.cjs",
+	"main": "index.js",
 	"files": [
 		"index.d.ts"
 	],
@@ -12,6 +12,7 @@
 		"tsc": "wireit"
 	},
 	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
 		"eslint": "9.9.0",
 		"prettier": "3.2.2",
 		"tslib": "2.6.2",
@@ -26,7 +27,6 @@
 			"command": "eslint --cache --color . --fix",
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!.eslintcache"
 			],
 			"clean": false,
@@ -38,7 +38,6 @@
 			"command": "eslint --cache --color .",
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!.eslintcache"
 			],
 			"output": []
