@@ -1,7 +1,7 @@
 import guardian from './index.js';
 
 export default [
-	...guardian.configs.esm,
+	...guardian.configs.recommended,
 	{
 		ignores: ['node_modules', '.wireit'],
 	},

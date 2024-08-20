@@ -1,4 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin';
+import { readPackageUp } from 'read-package-up';
 import cjs from './configs/cjs.js';
 import comments from './configs/comments.js';
 import esm from './configs/esm.js';
@@ -7,6 +8,8 @@ import jest from './configs/jest.js';
 import react from './configs/react.js';
 import storybook from './configs/storybook.js';
 import typescript from './configs/typescript.js';
+
+const isModule = (await readPackageUp()).packageJson.type === 'module';
 
 const sharedConfigs = [
 	{
@@ -41,7 +44,7 @@ const sharedConfigs = [
 	},
 ];
 
-export default {
+const config = {
 	configs: {
 		cjs: [
 			{
@@ -70,3 +73,7 @@ export default {
 		react,
 	},
 };
+
+config.configs.recommended = isModule ? config.configs.esm : config.configs.cjs;
+
+export default config;

@@ -11,7 +11,7 @@ import guardian from '@guardian/eslint-config';
 // });
 
 export default [
-	...guardian.configs.esm,
+	...guardian.configs.recommended,
 
 	// ...fixupConfigRules(
 	// 	compat.extends(

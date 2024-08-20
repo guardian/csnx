@@ -1,7 +1,7 @@
 import guardian from '@guardian/eslint-config';
 
 export default [
-	...guardian.configs.esm,
+	...guardian.configs.recommended,
 	...guardian.configs.jest,
 	{
 		ignores: [
