@@ -229,18 +229,6 @@ install: check-node-version
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
 
-.PHONY: @guardian/cobalt-plugin-ts\:fix
-@guardian/cobalt-plugin-ts\:fix: env
-	@corepack pnpm --filter @guardian/cobalt-plugin-ts fix
-
-.PHONY: @guardian/cobalt-plugin-ts\:lint
-@guardian/cobalt-plugin-ts\:lint: env
-	@corepack pnpm --filter @guardian/cobalt-plugin-ts lint
-
-.PHONY: @guardian/cobalt-plugin-ts\:tsc
-@guardian/cobalt-plugin-ts\:tsc: env
-	@corepack pnpm --filter @guardian/cobalt-plugin-ts tsc
-
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
 	@corepack pnpm --filter @guardian/core-web-vitals build
@@ -276,22 +264,6 @@ install: check-node-version
 .PHONY: @guardian/eslint-config\:lint
 @guardian/eslint-config\:lint: env
 	@corepack pnpm --filter @guardian/eslint-config lint
-
-.PHONY: @guardian/eslint-config\:tsc
-@guardian/eslint-config\:tsc: env
-	@corepack pnpm --filter @guardian/eslint-config tsc
-
-.PHONY: @guardian/eslint-config-typescript\:fix
-@guardian/eslint-config-typescript\:fix: env
-	@corepack pnpm --filter @guardian/eslint-config-typescript fix
-
-.PHONY: @guardian/eslint-config-typescript\:lint
-@guardian/eslint-config-typescript\:lint: env
-	@corepack pnpm --filter @guardian/eslint-config-typescript lint
-
-.PHONY: @guardian/eslint-config-typescript\:tsc
-@guardian/eslint-config-typescript\:tsc: env
-	@corepack pnpm --filter @guardian/eslint-config-typescript tsc
 
 .PHONY: @guardian/identity-auth\:build
 @guardian/identity-auth\:build: env

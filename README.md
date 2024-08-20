@@ -19,7 +19,6 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/browserslist-config](libs/@guardian/browserslist-config)
 - [@guardian/core-web-vitals](libs/@guardian/core-web-vitals)
 - [@guardian/eslint-config](libs/@guardian/eslint-config)
-- [@guardian/eslint-config-typescript](libs/@guardian/eslint-config-typescript)
 - [@guardian/identity-auth](libs/@guardian/identity-auth)
 - [@guardian/identity-auth-frontend](libs/@guardian/identity-auth-frontend)
 - [@guardian/libs](libs/@guardian/libs)
@@ -100,12 +99,6 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/browserslist-config:tsc`
 - `make @guardian/browserslist-config:update-readme`
 
-#### @guardian/cobalt-plugin-ts
-
-- `make @guardian/cobalt-plugin-ts:fix`
-- `make @guardian/cobalt-plugin-ts:lint`
-- `make @guardian/cobalt-plugin-ts:tsc`
-
 #### @guardian/core-web-vitals
 
 - `make @guardian/core-web-vitals:build`
@@ -120,13 +113,6 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 
 - `make @guardian/eslint-config:fix`
 - `make @guardian/eslint-config:lint`
-- `make @guardian/eslint-config:tsc`
-
-#### @guardian/eslint-config-typescript
-
-- `make @guardian/eslint-config-typescript:fix`
-- `make @guardian/eslint-config-typescript:lint`
-- `make @guardian/eslint-config-typescript:tsc`
 
 #### @guardian/identity-auth
 
