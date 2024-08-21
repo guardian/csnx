@@ -229,18 +229,6 @@ install: check-node-version
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
 
-.PHONY: @guardian/cobalt-plugin-ts\:fix
-@guardian/cobalt-plugin-ts\:fix: env
-	@corepack pnpm --filter @guardian/cobalt-plugin-ts fix
-
-.PHONY: @guardian/cobalt-plugin-ts\:lint
-@guardian/cobalt-plugin-ts\:lint: env
-	@corepack pnpm --filter @guardian/cobalt-plugin-ts lint
-
-.PHONY: @guardian/cobalt-plugin-ts\:tsc
-@guardian/cobalt-plugin-ts\:tsc: env
-	@corepack pnpm --filter @guardian/cobalt-plugin-ts tsc
-
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
 	@corepack pnpm --filter @guardian/core-web-vitals build
