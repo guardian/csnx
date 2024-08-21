@@ -45,6 +45,7 @@ it('Should have exactly these exports', () => {
 		'StraightLines',
 		'SuccessSummary',
 		'Tabs',
+		'Ticker',
 		'ToggleSwitch',
 		'ToggleSwitchApps',
 		'defaultGuardianLinks',
@@ -54,6 +55,5 @@ it('Should have exactly these exports', () => {
 		'fileInputThemeDefault',
 		'tabsDarkTheme',
 		'tabsThemeDefault',
-		'Ticker',
 	]);
 });
