@@ -25,23 +25,20 @@ const useIsInView = (
 
 	const observer = useRef<IntersectionObserver | null>(null);
 
-	const intersectionObserverCallback =
-		useCallback<IntersectionObserverCallback>(
-			([entry]) => {
-				if (!entry) {
-					return;
-				}
+	const intersectionCallback = useCallback<IntersectionObserverCallback>(
+		([entry]) => {
+			if (!entry) {
+				return;
+			}
 
-				if (entry.isIntersecting) {
-					setIsInView(true);
-				} else if (options.repeat) {
-					setIsInView(false);
-				}
-			},
-			[options.repeat],
-		);
-
-	const intersectionCallback = intersectionObserverCallback;
+			if (entry.isIntersecting) {
+				setIsInView(true);
+			} else if (options.repeat) {
+				setIsInView(false);
+			}
+		},
+		[options.repeat],
+	);
 
 	useEffect(() => {
 		if (options.node) {
