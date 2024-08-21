@@ -303,33 +303,6 @@ importers:
         specifier: 0.14.4
         version: 0.14.4
 
-  libs/@guardian/cobalt-plugin-ts:
-    devDependencies:
-      '@cobalt-ui/cli':
-        specifier: 1.11.0
-        version: 1.11.0
-      '@cobalt-ui/core':
-        specifier: 1.11.0
-        version: 1.11.0
-      '@cobalt-ui/plugin-css':
-        specifier: 1.7.0
-        version: 1.7.0(@cobalt-ui/cli@1.11.0)
-      '@cobalt-ui/plugin-js':
-        specifier: 1.4.3
-        version: 1.4.3(@cobalt-ui/cli@1.11.0)
-      '@cobalt-ui/utils':
-        specifier: 1.2.2
-        version: 1.2.2
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
-      typescript:
-        specifier: 5.5.2
-        version: 5.5.2
-      wireit:
-        specifier: 0.14.4
-        version: 0.14.4
-
   libs/@guardian/core-web-vitals:
     devDependencies:
       '@guardian/libs':
