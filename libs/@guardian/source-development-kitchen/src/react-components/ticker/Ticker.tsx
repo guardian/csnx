@@ -1,6 +1,10 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { textSans15, textSansBold17 } from '@guardian/source/foundations';
+import {
+	space,
+	textSans15,
+	textSansBold17,
+} from '@guardian/source/foundations';
 import { useEffect, useState } from 'react';
 import { useIsInView } from './useIsInView';
 import { useTicker } from './useTicker';
@@ -34,14 +38,14 @@ const tickerContainerStyles = css`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 20px 8px 20px 8px;
+	padding: ${space[2]}px ${space[4]}px ${space[2]}px ${space[5]}px;
 `;
 
 //styles for headline text (which is optional)
 const headlineStyles = (headlineColour: string) => css`
 	${textSansBold17};
 	color: ${headlineColour};
-	padding-bottom: 4px;
+	padding-bottom: ${space[1]}px;
 `;
 
 //styles for the numerical count (total raised so far) and the goal text
@@ -53,6 +57,10 @@ const goalLabelStyles = (goalContributionsColour: string) => css`
 const countLabelStyles = (countColour: string) => css`
 	${textSansBold17};
 	color: ${countColour};
+`;
+
+const labelContainerStyles = css`
+	padding-top: 7px;
 `;
 
 //styles for the progress bar background
@@ -68,7 +76,6 @@ const progressBarBackgroundStyles = (
 	overflow-x: hidden;
 	width: 100%;
 	position: relative;
-	padding-bottom: 7px;
 `;
 
 //styles for the moving part of the progress bar
@@ -105,7 +112,6 @@ const filledProgressStyles = (
 	transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
 	background-color: ${progressBarColour};
 	height: 10px;
-	padding-top: 3px;
 `;
 
 export const Ticker = ({
@@ -152,13 +158,15 @@ export const Ticker = ({
 							/>
 						</div>
 					</div>
-					<div css={goalLabelStyles(goalColour)}>
-						<span css={countLabelStyles(totalColour)}>
-							{currencySymbol}
-							{runningTotal.toLocaleString()}
-						</span>{' '}
-						of {currencySymbol}
-						{tickerData.goal.toLocaleString()} goal
+					<div css={labelContainerStyles}>
+						<div css={goalLabelStyles(goalColour)}>
+							<span css={countLabelStyles(totalColour)}>
+								{currencySymbol}
+								{runningTotal.toLocaleString()}
+							</span>{' '}
+							of {currencySymbol}
+							{tickerData.goal.toLocaleString()} goal
+						</div>
 					</div>
 				</div>
 			</div>
