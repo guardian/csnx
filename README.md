@@ -100,12 +100,6 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/browserslist-config:tsc`
 - `make @guardian/browserslist-config:update-readme`
 
-#### @guardian/cobalt-plugin-ts
-
-- `make @guardian/cobalt-plugin-ts:fix`
-- `make @guardian/cobalt-plugin-ts:lint`
-- `make @guardian/cobalt-plugin-ts:tsc`
-
 #### @guardian/core-web-vitals
 
 - `make @guardian/core-web-vitals:build`
