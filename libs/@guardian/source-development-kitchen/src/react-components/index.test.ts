@@ -20,7 +20,6 @@ export type {
 	StarRatingProps,
 	ToggleSwitchProps,
 	ToggleSwitchAppsProps,
-	Ticker,
 } from './index';
 
 it('Should have exactly these exports', () => {
