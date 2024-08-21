@@ -22,7 +22,7 @@ storybooks: env
 .PHONY: dev
 dev: env
 	$(call log,"Starting dev tasks")
-	@corepack pnpm -r --parallel dev
+	@corepack pnpm -r --no-bail --parallel dev
 
 ################################# CODE QUALITY #################################
 
@@ -30,7 +30,7 @@ dev: env
 .PHONY: test
 test: env
 	$(call log,"Running unit tests")
-	@corepack pnpm -r test
+	@corepack pnpm -r --no-bail test
 
 # get test coverage for CSTI projects
 .PHONY: test\:coverage
@@ -42,13 +42,13 @@ test\:coverage: env
 .PHONY: e2e
 e2e: env
 	$(call log,"Running e2e tests")
-	@corepack pnpm -r e2e
+	@corepack pnpm -r --no-bail e2e
 
 # runs unit tests against dist for all projects
 .PHONY: verify-dist
 verify-dist: env
 	$(call log,"Running unit tests against dist")
-	@corepack pnpm -r verify-dist
+	@corepack pnpm -r --no-bail verify-dist
 
 # checks all projects for lint errors
 .PHONY: lint
@@ -68,14 +68,14 @@ formatting\:check: env
 .PHONY: fix
 fix: env
 	$(call log,"Attempting to fix issues across all projects")
-	@corepack pnpm -r fix
+	@corepack pnpm -r --no-bail fix
 	@corepack pnpm prettier --ignore-unknown --cache --write .
 
 # type-checking all projects
 .PHONY: tsc
 tsc: env
 	$(call log,"Checking types across all projects")
-	@corepack pnpm -r tsc
+	@corepack pnpm -r --no-bail tsc
 
 # makes sure absolutely everything is working
 .PHONY: validate
@@ -95,7 +95,7 @@ clean:
 .PHONY: build
 build: env
 	$(call log,"Building projects")
-	@corepack pnpm -r build
+	@corepack pnpm -r --no-bail build
 
 # builds all storybooks
 .PHONY: build-storybook
