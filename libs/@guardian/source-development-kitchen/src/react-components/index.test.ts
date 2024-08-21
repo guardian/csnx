@@ -20,6 +20,7 @@ export type {
 	StarRatingProps,
 	ToggleSwitchProps,
 	ToggleSwitchAppsProps,
+	Ticker,
 } from './index';
 
 it('Should have exactly these exports', () => {
@@ -54,5 +55,6 @@ it('Should have exactly these exports', () => {
 		'fileInputThemeDefault',
 		'tabsDarkTheme',
 		'tabsThemeDefault',
+		'Ticker',
 	]);
 });
