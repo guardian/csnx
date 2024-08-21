@@ -67,3 +67,6 @@ export { tabsThemeDefault, tabsDarkTheme } from './tabs/theme';
 
 export { Tabs } from './tabs/tabs';
 export type { TabContainerProps, TabProps } from './tabs/types';
+
+export { Ticker } from './ticker/Ticker';
+export type { TickerSettings } from './ticker/Ticker';
