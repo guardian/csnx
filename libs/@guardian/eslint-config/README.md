@@ -23,7 +23,12 @@ pnpm install --save-dev @guardian/eslint-config
 
 import guardian from '@guardian/eslint-config';
 
-export default [...guardian.configs.recommended];
+export default [
+	...guardian.configs.recommended,
+	...guardian.configs.jest,
+	...guardian.configs.react,
+	...guardian.configs.storybook,
+];
 ```
 
 ### Configs
@@ -94,34 +99,10 @@ Provides a collection of configs ensuring best practice around code comments.
 
 Provides a collection of configs for checking Jest units tests.
 
-```js
-// eslint.config.js
-
-import guardian from '@guardian/eslint-config';
-
-export default [...guardian.configs.recommended, ...guardian.configs.jest];
-```
-
 #### [`configs.react`](./configs/react.js)
 
 Provides a collection of configs for checking React components.
 
-```js
-// eslint.config.js
-
-import guardian from '@guardian/eslint-config';
-
-export default [...guardian.configs.recommended, ...guardian.configs.react];
-```
-
 #### [`configs.storybook`](./configs/storybook.js)
 
 Provides a collection of configs for checking Storybook stories.
-
-```js
-// eslint.config.js
-
-import guardian from '@guardian/eslint-config';
-
-export default [...guardian.configs.recommended, ...guardian.configs.storybook];
-```
