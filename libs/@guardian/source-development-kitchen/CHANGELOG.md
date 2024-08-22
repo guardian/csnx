@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 7.1.0
+
+### Minor Changes
+
+- bcd0e25: Add a new `ticker` component
+
 ## 7.0.1
 
 ### Patch Changes
