@@ -438,6 +438,9 @@ importers:
 
   libs/@guardian/identity-auth-frontend:
     devDependencies:
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@guardian/identity-auth':
         specifier: 3.0.1
         version: link:../identity-auth
@@ -447,6 +450,9 @@ importers:
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.10)
