@@ -531,6 +531,12 @@ importers:
 
   libs/@guardian/newsletter-types:
     devDependencies:
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       rollup:
         specifier: 4.21.0
         version: 4.21.0
