@@ -293,9 +293,15 @@ importers:
       '@guardian/browserslist-config':
         specifier: workspace:*
         version: 'link:'
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       browserslist:
         specifier: 4.23.0
         version: 4.23.0
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       tslib:
         specifier: 2.6.2
         version: 2.6.2
