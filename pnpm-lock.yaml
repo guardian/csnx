@@ -209,9 +209,15 @@ importers:
 
   libs/@guardian/ab-core:
     devDependencies:
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.10)
