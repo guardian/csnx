@@ -679,6 +679,9 @@ importers:
       '@emotion/react':
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@guardian/libs':
         specifier: 18.0.1
         version: link:../libs
@@ -697,6 +700,9 @@ importers:
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.10)
