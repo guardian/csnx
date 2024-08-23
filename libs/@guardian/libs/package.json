@@ -28,9 +28,11 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
 		"@playwright/test": "1.46.1",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
+		"eslint": "9.9.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
@@ -96,7 +98,6 @@
 			],
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!(dist)/**",
 				"!.eslintcache"
 			],
@@ -112,7 +113,6 @@
 			],
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!(dist)/**",
 				"!.eslintcache"
 			],

@@ -474,6 +474,9 @@ importers:
 
   libs/@guardian/libs:
     devDependencies:
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@playwright/test':
         specifier: 1.46.1
         version: 1.46.1
@@ -483,6 +486,9 @@ importers:
       '@types/wcag-contrast':
         specifier: 3.0.3
         version: 3.0.3
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.10)
