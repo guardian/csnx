@@ -546,12 +546,15 @@ importers:
 
   libs/@guardian/prettier:
     devDependencies:
+      '@guardian/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      eslint:
+        specifier: 9.9.0
+        version: 9.9.0
       prettier:
         specifier: 3.2.2
         version: 3.2.2
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
       wireit:
         specifier: 0.14.8
         version: 0.14.8
