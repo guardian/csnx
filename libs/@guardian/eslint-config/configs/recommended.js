@@ -5,8 +5,8 @@ import typescript from './typescript.js';
 
 export default [
 	...javascript,
-	...typescript,
 	...imports,
+	...typescript, // needs to come after `imports`
 	...comments,
 	{
 		linterOptions: {

@@ -61,6 +61,7 @@ export default [
 		},
 	},
 	{
+		name: '@guardian/imports-default-exceptions',
 		files: [
 			'**/.lintstagedrc.*',
 			'**/astro.config.*',
