@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
-import { ACCOUNT_ID, ENDPOINT } from '../fixtures/sourcepointConfig';
-import { PRIVACY_MANAGER_CCPA } from '../../src/consent-management-platform/lib/sourcepointConfig';
+import {
+	ACCOUNT_ID,
+	ENDPOINT,
+	PRIVACY_MANAGER_CCPA,
+} from '../fixtures/sourcepointConfig';
 
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_CCPA}`;
 
