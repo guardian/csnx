@@ -70,18 +70,18 @@ const enhanceConsentState = (consentState: ConsentStateBasic): ConsentState => {
 			framework: 'tcfv2',
 			gpcSignal,
 		};
-	} else if (consentState.ccpa) {
-		return {
-			...consentState,
-			canTarget: !consentState.ccpa.doNotSell,
-			framework: 'usnat',
-			gpcSignal,
-		};
 	} else if (consentState.usnat) {
 		return {
 			...consentState,
 			canTarget: !consentState.usnat.doNotSell,
 			framework: 'usnat',
+			gpcSignal,
+		};
+	} else if (consentState.ccpa) {
+		return {
+			...consentState,
+			canTarget: !consentState.ccpa.doNotSell,
+			framework: 'ccpa',
 			gpcSignal,
 		};
 	} else if (consentState.aus) {

@@ -58,6 +58,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		case 'usnat':
 			frameworkMessageType = 'usnat';
 			break;
+		case 'ccpa':
+			frameworkMessageType = 'usnat';
+			break;
 		case 'aus':
 			frameworkMessageType = 'ccpa';
 			break;
