@@ -41,9 +41,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: 8.1.0
         version: 8.1.0(eslint@8.57.0)(typescript@5.5.2)
-      colorette:
-        specifier: 2.0.20
-        version: 2.0.20
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -62,9 +59,6 @@ importers:
       eslint-plugin-storybook:
         specifier: 0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.5.2)
-      fast-glob:
-        specifier: 3.3.2
-        version: 3.3.2
       husky:
         specifier: 9.1.4
         version: 9.1.4
@@ -83,9 +77,6 @@ importers:
       typescript:
         specifier: 5.5.2
         version: 5.5.2
-      update-section:
-        specifier: 0.3.3
-        version: 0.3.3
       wireit:
         specifier: 0.14.4
         version: 0.14.4
@@ -687,6 +678,18 @@ importers:
         version: 0.14.4
 
   libs/@guardian/tsconfig: {}
+
+  scripts:
+    dependencies:
+      colorette:
+        specifier: 2.0.20
+        version: 2.0.20
+      fast-glob:
+        specifier: 3.3.2
+        version: 3.3.2
+      update-section:
+        specifier: 0.3.3
+        version: 0.3.3
 
 packages:
 
@@ -8479,7 +8482,7 @@ packages:
       '@nodelib/fs.walk': 1.2.8
       glob-parent: 5.1.2
       merge2: 1.4.1
-      micromatch: 4.0.5
+      micromatch: 4.0.7
 
   /fast-json-parse@1.0.3:
     resolution: {integrity: sha512-FRWsaZRWEJ1ESVNbDWmsAlqDk96gPQezzLghafp5J4GUKjbCz3OkAHuZs5TuPEtkbVQERysLp9xv6c24fBm8Aw==}
@@ -14035,7 +14038,7 @@ packages:
 
   /update-section@0.3.3:
     resolution: {integrity: sha512-BpRZMZpgXLuTiKeiu7kK0nIPwGdyrqrs6EDSaXtjD/aQ2T+qVo9a5hRC3HN3iJjCMxNT/VxoLGQ7E/OzE5ucnw==}
-    dev: true
+    dev: false
 
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
