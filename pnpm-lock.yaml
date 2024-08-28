@@ -561,6 +561,9 @@ importers:
       prettier:
         specifier: 3.2.2
         version: 3.2.2
+      tslib:
+        specifier: 2.6.2
+        version: 2.6.2
       wireit:
         specifier: 0.14.8
         version: 0.14.8
