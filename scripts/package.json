@@ -1,5 +1,4 @@
 {
-	"name": "scripts",
 	"private": true,
 	"type": "module",
 	"dependencies": {
