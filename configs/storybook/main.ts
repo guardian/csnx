@@ -1,22 +1,25 @@
-const fs = require('node:fs');
+import { readFileSync } from 'node:fs';
+import { isObject } from '@guardian/libs';
+import type { StorybookConfig } from '@storybook/react-webpack5';
+
+export type { StorybookConfig };
 
 const nodeModulesExclude = {
 	and: [/node_modules/],
 	not: [/@guardian\//],
 };
 
-module.exports = {
+const config: StorybookConfig = {
 	stories: [],
 	addons: [
 		'@storybook/addon-a11y',
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 	],
-	features: {
-		// used in composition
-		buildStoriesJson: true,
-	},
 	webpackFinal: async (config, { configType }) => {
+		config.module ??= { rules: [] };
+		config.module.rules ??= [];
+
 		config.module.rules.push({
 			test: /\.(ts|tsx)$/,
 			exclude: nodeModulesExclude,
@@ -45,11 +48,23 @@ module.exports = {
 		});
 
 		// update storybook webpack config to transpile *all* JS
-		config.module.rules.find(
-			(rule) => String(rule.test) === String(/\.(cjs|mjs|tsx?|jsx?)$/),
-		).exclude = nodeModulesExclude;
+		for (const rule of config.module.rules) {
+			if (isObject(rule) && rule.test instanceof RegExp) {
+				if (
+					rule.test.test('file.js') ||
+					rule.test.test('file.cjs') ||
+					rule.test.test('file.mjs') ||
+					rule.test.test('file.jsx') ||
+					rule.test.test('file.ts') ||
+					rule.test.test('file.cts') ||
+					rule.test.test('file.mts') ||
+					rule.test.test('file.tsx')
+				) {
+					rule.exclude = nodeModulesExclude;
+				}
+			}
+		}
 
-		config.resolve.plugins ||= [];
 		return config;
 	},
 	framework: {
@@ -60,5 +75,7 @@ module.exports = {
 		autodocs: true,
 	},
 	previewHead: (head) =>
-		head + fs.readFileSync(require.resolve('./preview-head.html'), 'utf8'),
+		head + readFileSync(require.resolve('./preview-head.html'), 'utf8'),
 };
+
+export default config;
