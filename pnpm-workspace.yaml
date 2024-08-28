@@ -3,6 +3,6 @@ packages:
   - 'libs/**'
   - '!**/libs/@guardian/source/*/**'
   - '!**/libs/@guardian/source-development-kitchen/*/**'
-  - 'tools/**'
+  - 'scripts/**'
   - 'configs/**'
   - 'coverage'
