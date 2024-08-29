@@ -16,7 +16,7 @@ const config: StorybookConfig = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-links',
 	],
-	webpackFinal: async (config, { configType }) => {
+	webpackFinal: async (config /*, { configType } */) => {
 		config.module ??= { rules: [] };
 		config.module.rules ??= [];
 
