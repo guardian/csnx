@@ -2,7 +2,6 @@
 	"name": "@configs/storybook",
 	"version": "0.1.0",
 	"private": true,
-	"type": "module",
 	"dependencies": {
 		"@babel/core": "7.25.2",
 		"@babel/plugin-transform-typescript": "7.25.2",
