@@ -39,9 +39,6 @@ const setAPI = (framework: ConsentFramework | null) => {
 	} else if (framework === 'aus') {
 		setCurrentFramework('aus');
 		return;
-	} else if (framework === 'ccpa') {
-		setCurrentFramework('ccpa');
-		return;
 	} else if (framework === 'tcfv2') {
 		setCurrentFramework('tcfv2');
 		return;
@@ -106,11 +103,12 @@ describe('onConsentChange enhances basic consent state', () => {
 				signalStatus: 'ready',
 			}),
 		);
-		setAPI('ccpa');
+		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
 			ccpa: { doNotSell: true, signalStatus: 'ready' },
+			usnat: { doNotSell: true, signalStatus: 'ready' },
 			canTarget: false,
-			framework: 'ccpa',
+			framework: 'usnat',
 		};
 		const consentState = await _.getConsentState();
 		expect(consentState).toEqual(expectedConsentState);
