@@ -28,7 +28,6 @@
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
-		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit",
@@ -68,7 +67,6 @@
 		"prettier": "3.3.3",
 		"react": "18.2.0",
 		"rollup": "4.21.0",
-		"storybook": "8.2.9",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
 		"tsx": "4.19.0",
@@ -121,21 +119,6 @@
 			],
 			"output": [
 				"./src/foundations/__generated__"
-			]
-		},
-		"build-storybook": {
-			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"!storybook-static/**",
-				"!jest*",
-				"!.eslintcache"
-			],
-			"output": [
-				"storybook-static"
 			]
 		},
 		"fix": {
