@@ -41,7 +41,7 @@
 		"tsx": "4.17.0",
 		"typescript": "5.5.2",
 		"wcag-contrast": "3.0.0",
-		"wireit": "0.14.4"
+		"wireit": "0.14.8"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",

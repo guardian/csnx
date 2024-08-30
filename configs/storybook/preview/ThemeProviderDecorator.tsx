@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment -- storybook type contains `any`s */
-
 import { ThemeProvider } from '@emotion/react';
 import type { Decorator } from '@storybook/react';
 
