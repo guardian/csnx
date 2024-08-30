@@ -1,13 +1,13 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
 import { Children, cloneElement, useId } from 'react';
 import { descriptionId } from '../../foundations';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import { Legend } from '../label/Legend';
 import { InlineError } from '../user-feedback/InlineError';
 import { fieldset } from './styles';
 import type { ThemeCheckboxGroup } from './theme';
 
-export interface CheckboxGroupProps extends SourceComponentProps {
+export interface CheckboxGroupProps extends Props {
 	id?: string;
 	/**
 	 * Gets passed as the name attribute for each checkbox

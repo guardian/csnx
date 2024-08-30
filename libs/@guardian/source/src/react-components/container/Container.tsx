@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import {
 	container,
 	containerBackground,
@@ -8,9 +8,7 @@ import {
 	containerTopBorder,
 } from './styles';
 
-export interface ContainerProps
-	extends HTMLAttributes<HTMLElement>,
-		SourceComponentProps {
+export interface ContainerProps extends HTMLAttributes<HTMLElement>, Props {
 	/**
 	 * **Deprecated**
 	 *

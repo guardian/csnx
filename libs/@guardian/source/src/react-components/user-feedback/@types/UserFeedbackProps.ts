@@ -1,10 +1,10 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import type { InputSize } from '../../@types/InputSize';
-import type { SourceComponentProps } from '../../@types/SourceComponentProps';
+import type { Props } from '../../@types/Props';
 import type { ThemeUserFeedback } from '../theme';
 
 export interface UserFeedbackProps
-	extends SourceComponentProps,
+	extends Props,
 		HTMLAttributes<HTMLSpanElement> {
 	/**
 	 * Size of feedback message and icon

@@ -2,7 +2,7 @@ import type { JSX } from '@emotion/react/jsx-runtime';
 import type { FieldsetHTMLAttributes } from 'react';
 import { Children, cloneElement, useId } from 'react';
 import { descriptionId } from '../../foundations';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { Inline } from '../inline/Inline';
 import { Legend } from '../label/Legend';
@@ -17,7 +17,7 @@ type Orientation = 'vertical' | 'horizontal';
 
 export interface RadioGroupProps
 	extends FieldsetHTMLAttributes<HTMLFieldSetElement>,
-		SourceComponentProps {
+		Props {
 	id?: string;
 	/**
 	 * Appears as a legend at the top of the radio group

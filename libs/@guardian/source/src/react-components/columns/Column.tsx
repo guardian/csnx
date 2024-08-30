@@ -1,10 +1,8 @@
 import type { HTMLAttributes } from 'react';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import { column, flexGrow, setSpan, setWidth } from './styles';
 
-export interface ColumnProps
-	extends HTMLAttributes<HTMLDivElement>,
-		SourceComponentProps {
+export interface ColumnProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
 	 * Fraction of the parent container's width that the column will occupy.
 	 *

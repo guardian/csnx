@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import { useId } from 'react';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import {
@@ -15,7 +15,7 @@ import { themeRadio, transformProviderTheme } from './theme';
 
 export interface RadioProps
 	extends InputHTMLAttributes<HTMLInputElement>,
-		SourceComponentProps {
+		Props {
 	id?: string;
 	/**
 	 * Whether radio button is checked. This is necessary when using the

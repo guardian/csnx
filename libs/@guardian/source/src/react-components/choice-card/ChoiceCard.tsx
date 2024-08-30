@@ -4,7 +4,7 @@ import type {
 	ReactElement,
 } from 'react';
 import { useState } from 'react';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import {
@@ -24,7 +24,7 @@ import {
 
 export interface ChoiceCardProps
 	extends InputHTMLAttributes<HTMLInputElement>,
-		SourceComponentProps {
+		Props {
 	id: string;
 	/**
 	 * Appears inside the choice card

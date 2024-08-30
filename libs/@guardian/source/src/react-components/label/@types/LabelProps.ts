@@ -1,12 +1,12 @@
 import type { SerializedStyles } from '@emotion/react';
 import type { LabelHTMLAttributes, ReactNode } from 'react';
 import type { InputSize } from '../../@types/InputSize';
-import type { SourceComponentProps } from '../../@types/SourceComponentProps';
+import type { Props } from '../../@types/Props';
 import type { ThemeLabel } from '../theme';
 
 export interface LabelProps
 	extends LabelHTMLAttributes<HTMLLabelElement>,
-		SourceComponentProps {
+		Props {
 	/**
 	 * The label text
 	 */

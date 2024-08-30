@@ -1,12 +1,12 @@
 import type { ReactElement } from 'react';
-import type { SourceComponentProps } from '../../@types/SourceComponentProps';
+import type { Props } from '../../@types/Props';
 import type { ThemeButton } from '../theme';
 
 export type ButtonPriority = 'primary' | 'secondary' | 'tertiary' | 'subdued';
 export type IconSide = 'left' | 'right';
 export type Size = 'default' | 'small' | 'xsmall';
 
-export interface SharedButtonProps extends SourceComponentProps {
+export interface SharedButtonProps extends Props {
 	/**
 	 * Informs users of how important an action is
 	 */

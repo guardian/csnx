@@ -4,7 +4,7 @@
  * To be removed from the public interface in the next major version.
  */
 
-import type { SourceComponentProps as InternalPropsType } from './@types/SourceComponentProps';
+import type { Props as InternalPropsType } from './@types/Props';
 
 /**
  * @deprecated This is for internal use only.

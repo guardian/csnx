@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import { useId } from 'react';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import {
@@ -17,7 +17,7 @@ import type { ThemeCheckbox } from './theme';
 
 export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
-		SourceComponentProps {
+		Props {
 	id?: string;
 	/**
 	 * Whether checkbox is checked. This is necessary when using the

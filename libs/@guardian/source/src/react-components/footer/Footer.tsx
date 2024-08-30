@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import type { SourceComponentProps } from '../@types/SourceComponentProps';
+import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { BackToTop } from './BackToTop';
 import {
@@ -12,9 +12,7 @@ import {
 	linksWrapperSpaceWithBackToTop,
 } from './styles';
 
-export interface FooterProps
-	extends HTMLAttributes<HTMLElement>,
-		SourceComponentProps {
+export interface FooterProps extends HTMLAttributes<HTMLElement>, Props {
 	/**
 	 * Whether the "Back to top" link is visible in the footer.
 	 */
