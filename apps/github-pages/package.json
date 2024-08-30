@@ -14,7 +14,7 @@
 		"@astrojs/svelte": "5.7.0",
 		"@guardian/libs": "workspace:*",
 		"astro": "4.14.2",
-		"svelte": "4.2.12",
+		"svelte": "4.2.19",
 		"typescript": "5.5.2",
 		"wireit": "0.14.8"
 	},
