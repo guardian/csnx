@@ -1,7 +1,7 @@
 import type { ReactNode, SelectHTMLAttributes } from 'react';
 import { useId } from 'react';
 import { descriptionId } from '../../foundations';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Theme } from '../@types/Theme';
 import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import { Label } from '../label/Label';
@@ -23,7 +23,7 @@ import { themeSelect as defaultTheme, transformProviderTheme } from './theme';
 
 export interface SelectProps
 	extends SelectHTMLAttributes<HTMLSelectElement>,
-		Props {
+		SourceComponentProps {
 	id?: string;
 	/**
 	 * Appears above the select box

@@ -3,7 +3,7 @@ import type { InputHTMLAttributes } from 'react';
 import { useId } from 'react';
 import { descriptionId } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Theme } from '../@types/Theme';
 import { Label } from '../label/Label';
 import { InlineError } from '../user-feedback/InlineError';
@@ -36,7 +36,7 @@ const widths: {
 
 export interface TextInputProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'size'>,
-		Props {
+		SourceComponentProps {
 	id?: string;
 	/**
 	 * Appears above the text input

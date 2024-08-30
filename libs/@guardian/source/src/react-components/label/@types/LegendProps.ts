@@ -1,10 +1,12 @@
 import type { SerializedStyles } from '@emotion/react';
 import type { JSX } from '@emotion/react/jsx-runtime';
 import type { HTMLAttributes } from 'react';
-import type { Props } from '../../@types/Props';
+import type { SourceComponentProps } from '../../@types/SourceComponentProps';
 import type { ThemeLabel } from '../theme';
 
-export interface LegendProps extends HTMLAttributes<HTMLLegendElement>, Props {
+export interface LegendProps
+	extends HTMLAttributes<HTMLLegendElement>,
+		SourceComponentProps {
 	/**
 	 * The label text
 	 */

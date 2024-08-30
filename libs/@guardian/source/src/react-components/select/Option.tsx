@@ -1,9 +1,9 @@
 import type { OptionHTMLAttributes } from 'react';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 
 export interface OptionProps
 	extends OptionHTMLAttributes<HTMLOptionElement>,
-		Props {
+		SourceComponentProps {
 	children: string;
 }
 

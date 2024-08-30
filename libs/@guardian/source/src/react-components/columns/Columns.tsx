@@ -2,7 +2,7 @@ import type { SerializedStyles } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
 import type { Breakpoint } from '../../foundations';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Space } from '../@types/Space';
 import {
 	collapseBelowColumnsCSS,
@@ -40,7 +40,9 @@ const collapseBelowColumnsMap: {
 	wide: collapseBelowColumnsCSS('wide'),
 };
 
-export interface ColumnsProps extends HTMLAttributes<HTMLDivElement>, Props {
+export interface ColumnsProps
+	extends HTMLAttributes<HTMLDivElement>,
+		SourceComponentProps {
 	/**
 	 * Child components will be stacked in a single column at viewport widths
 	 * narrower than the specified breakpoint (they will always be collapsed

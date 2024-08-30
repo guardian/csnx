@@ -2,7 +2,7 @@ import type { JSX } from '@emotion/react/jsx-runtime';
 import type { FieldsetHTMLAttributes } from 'react';
 import { Children, cloneElement, useId } from 'react';
 import { descriptionId } from '../../foundations';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import { Legend } from '../label/Legend';
 import { InlineError } from '../user-feedback/InlineError';
 import {
@@ -18,7 +18,7 @@ export type ChoiceCardColumns = 2 | 3 | 4 | 5;
 
 export interface ChoiceCardGroupProps
 	extends FieldsetHTMLAttributes<HTMLFieldSetElement>,
-		Props {
+		SourceComponentProps {
 	id?: string;
 	/**
 	 * Passed as the name attribute for each `<ChoiceCard />`

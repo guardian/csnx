@@ -2,7 +2,7 @@ import type { InputHTMLAttributes } from 'react';
 import { useId } from 'react';
 import { descriptionId } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import { Label } from '../label/Label';
 import { InlineError } from '../user-feedback/InlineError';
 import { InlineSuccess } from '../user-feedback/InlineSuccess';
@@ -20,7 +20,7 @@ import { themeTextArea } from './theme';
 
 export interface TextAreaProps
 	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>,
-		Props {
+		SourceComponentProps {
 	id?: string;
 	/**
 	 * The contents of the text area. This is necessary when using the [controlled approach](https://reactjs.org/docs/forms.html#controlled-components) to form state management.

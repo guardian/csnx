@@ -1,12 +1,12 @@
 import type { ReactElement, ReactNode } from 'react';
-import type { Props } from '../../@types/Props';
+import type { SourceComponentProps } from '../../@types/SourceComponentProps';
 import type { ThemeLink } from '../theme';
 
 export type LinkPriority = 'primary' | 'secondary';
 
 export type IconSide = 'left' | 'right';
 
-export interface SharedLinkProps extends Props {
+export interface SharedLinkProps extends SourceComponentProps {
 	/**
 	 * Informs users of how important a link is
 	 */

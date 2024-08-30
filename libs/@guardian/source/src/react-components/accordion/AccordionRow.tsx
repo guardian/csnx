@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import type { HTMLAttributes } from 'react';
 import { visuallyHidden as _visuallyHidden } from '../../foundations';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Theme } from '../@types/Theme';
 import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import { mergeThemes } from '../utils/themes';
@@ -31,7 +31,7 @@ const visuallyHidden = css`
 
 export interface AccordionRowProps
 	extends Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>,
-		Props {
+		SourceComponentProps {
 	/**
 	 * A line of text to summarise the information that lies within the expanded state.
 	 * Appears in the collapsed state, as well as prominently at the top of the expanded state.

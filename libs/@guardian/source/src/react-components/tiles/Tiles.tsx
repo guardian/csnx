@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import type { HTMLAttributes } from 'react';
 import type { Breakpoint } from '../../foundations';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Columns } from './@types/Columns';
 import {
 	collapseUntilDesktopTiles,
@@ -42,7 +42,9 @@ const collapseUntilColumnsMap: {
 	wide: collapseUntilWideTiles,
 };
 
-export interface TilesProps extends HTMLAttributes<HTMLDivElement>, Props {
+export interface TilesProps
+	extends HTMLAttributes<HTMLDivElement>,
+		SourceComponentProps {
 	/**
 	 * The number of columns you want.
 	 */

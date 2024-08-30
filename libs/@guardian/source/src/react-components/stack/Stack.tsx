@@ -1,10 +1,12 @@
 import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Space } from '../@types/Space';
 import { stack, stackSpace } from './styles';
 
-export interface StackProps extends HTMLAttributes<HTMLDivElement>, Props {
+export interface StackProps
+	extends HTMLAttributes<HTMLDivElement>,
+		SourceComponentProps {
 	/**
 	 * [Units of space](https://www.theguardian.design/2a1e5182b/p/449bd5-space) between inline items (one unit is 4px).
 	 */

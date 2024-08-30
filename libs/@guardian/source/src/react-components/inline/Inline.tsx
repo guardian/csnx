@@ -1,7 +1,7 @@
 import { isUndefined } from '@guardian/libs';
 import type { HTMLAttributes } from 'react';
 import type { Breakpoint } from '../../foundations';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Space } from '../@types/Space';
 import {
 	collapseBreakpoint,
@@ -10,7 +10,9 @@ import {
 	inlineWrapper,
 } from './styles';
 
-export interface InlineProps extends HTMLAttributes<HTMLDivElement>, Props {
+export interface InlineProps
+	extends HTMLAttributes<HTMLDivElement>,
+		SourceComponentProps {
 	/**
 	 * [Units of space](https://guardian.github.io/storybooks/?path=/docs/source_foundations-space--docs)
 	 * between children.

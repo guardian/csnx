@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 
-export interface Props {
+export interface SourceComponentProps {
 	className?: string;
 	/**
 	 * Override component styles by passing in the result of [emotion's `css` function/prop](https://emotion.sh/docs/introduction).

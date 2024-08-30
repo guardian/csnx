@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
-import type { Props } from '../@types/Props';
+import type { SourceComponentProps } from '../@types/SourceComponentProps';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import { accordion } from './styles';
@@ -10,7 +10,7 @@ import {
 	transformProviderTheme,
 } from './theme';
 
-export interface AccordionProps extends Props {
+export interface AccordionProps extends SourceComponentProps {
 	/**
 	 * Determine whether to display the "show" and "hide" labels that toggle the
 	 * collapsing and expanding of the menu. When set to `true`, the label will no
