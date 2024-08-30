@@ -11,11 +11,11 @@
 	"dependencies": {
 		"@eslint/compat": "1.1.1",
 		"@eslint/js": "9.9.1",
-		"@stylistic/eslint-plugin": "2.6.4",
+		"@stylistic/eslint-plugin": "2.7.1",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-import-resolver-typescript": "3.6.3",
 		"eslint-plugin-eslint-comments": "3.2.0",
-		"eslint-plugin-import-x": "4.0.0",
+		"eslint-plugin-import-x": "4.1.1",
 		"eslint-plugin-jsx-a11y": "6.9.0",
 		"eslint-plugin-react": "7.35.0",
 		"eslint-plugin-react-hooks": "4.6.2",
