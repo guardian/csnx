@@ -16,7 +16,7 @@
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
 		"@stylistic/eslint-plugin": "2.6.2",
-		"@types/node": "20.14.10",
+		"@types/node": "22.5.2",
 		"@typescript-eslint/eslint-plugin": "8.1.0",
 		"@typescript-eslint/parser": "8.1.0",
 		"eslint": "8.57.0",
