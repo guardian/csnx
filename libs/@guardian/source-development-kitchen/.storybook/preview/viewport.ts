@@ -66,7 +66,9 @@ const viewportEntries = Object.entries(breakpoints).map(([name, width]) => {
 	];
 });
 
-const viewportEntriesObject: Viewports = Object.fromEntries(viewportEntries);
+const viewportEntriesObject: Viewports = Object.fromEntries(
+	viewportEntries,
+) as Viewports;
 
 export const viewport = {
 	viewports: {

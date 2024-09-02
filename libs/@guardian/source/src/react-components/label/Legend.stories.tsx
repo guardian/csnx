@@ -84,7 +84,7 @@ export const DefaultBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -97,7 +97,7 @@ export const WithSupportingTextBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -110,7 +110,7 @@ export const WithSupportingComponentBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -123,7 +123,7 @@ export const WithOptionalBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -136,7 +136,7 @@ export const WithHiddenLabelBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -151,7 +151,7 @@ export const DefaultCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

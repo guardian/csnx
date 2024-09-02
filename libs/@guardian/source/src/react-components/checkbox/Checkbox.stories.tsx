@@ -42,7 +42,7 @@ export const DefaultBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -145,7 +145,7 @@ export const DefaultCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

@@ -13,27 +13,27 @@ const themeParameters = {
 	default: {},
 	brand: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 	brandAlt: {
 		backgrounds: {
-			default: 'brandAltBackground.primary',
+			default: 'palette.brandAlt[400]',
 		},
 	},
 	readerRevenueBrand: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 	readerRevenueBrandAlt: {
 		backgrounds: {
-			default: 'brandAltBackground.primary',
+			default: 'palette.brandAlt[400]',
 		},
 	},
 	custom: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };
