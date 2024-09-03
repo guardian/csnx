@@ -635,7 +635,7 @@ importers:
         specifier: 18.0.1
         version: link:../libs
       '@guardian/source':
-        specifier: 7.0.1
+        specifier: 8.0.0
         version: link:../source
       '@storybook/manager-api':
         specifier: 8.2.9
