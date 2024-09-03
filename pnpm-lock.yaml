@@ -66,8 +66,8 @@ importers:
         specifier: 2.10.0
         version: 2.10.0
       syncpack:
-        specifier: 12.4.0
-        version: 12.4.0(typescript@5.5.2)
+        specifier: 13.0.0
+        version: 13.0.0(typescript@5.5.2)
       typescript:
         specifier: 5.5.2
         version: 5.5.2
@@ -635,7 +635,7 @@ importers:
         specifier: 18.0.1
         version: link:../libs
       '@guardian/source':
-        specifier: 7.0.1
+        specifier: 8.0.0
         version: link:../source
       '@storybook/manager-api':
         specifier: 8.2.9
@@ -2485,13 +2485,13 @@ packages:
     resolution: {integrity: sha512-dlSU76WAUTUDt1nA1qAFb9tDSNMsPvBcPeL/oRFYDVK91auxB8SlncsAasOSILfRe4waSvYJAy5wWYanrzf25A==}
     dev: true
 
-  /@effect/schema@0.69.0(effect@3.5.7):
-    resolution: {integrity: sha512-dqVnriWqM8TT8d+5vgg1pH4ZOXfs7tQBVAY5N7PALzIOlZamsBKQCdwvMMqremjSkKITckF8/cIj1eQZHQeg7Q==}
+  /@effect/schema@0.71.1(effect@3.6.5):
+    resolution: {integrity: sha512-XvFttkuBUL3s4ofZ+OVE4Pagb4wsPG8laSS8iO5lVI9Yt1zIM49uxlYIA2BJ45jjS3MdplUepC0NilotKnjU2A==}
     peerDependencies:
-      effect: ^3.5.7
+      effect: ^3.6.5
     dependencies:
-      effect: 3.5.7
-      fast-check: 3.20.0
+      effect: 3.6.5
+      fast-check: 3.21.0
     dev: true
 
   /@emmetio/abbreviation@2.3.3:
@@ -7409,8 +7409,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /effect@3.5.7:
-    resolution: {integrity: sha512-PzEncc0R3ZZhqNTR+fXrSX+anF/4Ai6ftKie1ZrUUWY7WPE7d4KjB6wjpeWoGMOC7xWFPGSkBBUudyJN1mx3+g==}
+  /effect@3.6.5:
+    resolution: {integrity: sha512-NhopZTAKljaAlR0CEroOAJJngdqg7bzlnWcDrCwh4d2WNVohVbBtUS4SGqLt8tUy7IFsTWATYiUtmhDG+YELjA==}
     dev: true
 
   /ejs@3.1.10:
@@ -8430,8 +8430,8 @@ packages:
       tmp: 0.0.33
     dev: true
 
-  /fast-check@3.20.0:
-    resolution: {integrity: sha512-pZIjqLpOZgdSLecec4GKC3Zq5702MZ34upMKxojnNVSWA0K64V3pXOBT1Wdsrc3AphLtzRBbsi8bRWF4TUGmUg==}
+  /fast-check@3.21.0:
+    resolution: {integrity: sha512-QpmbiqRFRZ+SIlBJh6xi5d/PgXciUc/xWKc4Vi2RWEHHIRx6oM3f0fWNna++zP9VB5HUBTObUK9gTKQP3vVcrQ==}
     engines: {node: '>=8.0.0'}
     dependencies:
       pure-rand: 6.1.0
@@ -10327,6 +10327,10 @@ packages:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
 
+  /jsonc-parser@3.3.1:
+    resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
+    dev: true
+
   /jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
     optionalDependencies:
@@ -11243,13 +11247,6 @@ packages:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
     dev: false
-
-  /minimatch@10.0.1:
-    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
-    engines: {node: 20 || >=22}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: true
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -13439,21 +13436,22 @@ packages:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: true
 
-  /syncpack@12.4.0(typescript@5.5.2):
-    resolution: {integrity: sha512-iVDbuxW1zpjC8IuGLLgTjfgnAjr1iTd+In//RGUi49nKT8f6BWYSEAt496fj4eGNmYeajUiGngBHl15Jb++RBg==}
-    engines: {node: '>=16'}
+  /syncpack@13.0.0(typescript@5.5.2):
+    resolution: {integrity: sha512-0PIoEWMP2+YkllkcZXw8N9d2sFqpmr8ULBdvms3gc1vG5tnccEMqc6flxHYnF/N+NTTcUnf0J+4xAD5hwH6XGQ==}
+    engines: {node: '>=18.18.0'}
     hasBin: true
     dependencies:
-      '@effect/schema': 0.69.0(effect@3.5.7)
+      '@effect/schema': 0.71.1(effect@3.6.5)
       chalk: 5.3.0
       chalk-template: 1.1.0
       commander: 12.1.0
       cosmiconfig: 9.0.0(typescript@5.5.2)
-      effect: 3.5.7
+      effect: 3.6.5
       enquirer: 2.4.1
-      fast-check: 3.20.0
+      fast-check: 3.21.0
       globby: 14.0.2
-      minimatch: 10.0.1
+      jsonc-parser: 3.3.1
+      minimatch: 9.0.5
       npm-package-arg: 11.0.3
       ora: 8.0.1
       prompts: 2.4.2
