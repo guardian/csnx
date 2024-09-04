@@ -1,5 +1,12 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.1
+
+### Patch Changes
+
+- Replaces `eslint-plugin-eslint-comments` with `@eslint-community/eslint-plugin-eslint-comments`
+- Bumps other dependencies
+
 ## 10.0.0-beta.0
 
 ### Major Changes
