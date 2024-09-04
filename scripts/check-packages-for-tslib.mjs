@@ -20,7 +20,7 @@ const tslibVersion = packages.find(
 	(pkg) => pkg.packageJson.name === '@guardian/libs',
 )?.packageJson.peerDependencies.tslib;
 
-const excludedPackages = ['@guardian/tsconfig'];
+const excludedPackages = ['@guardian/tsconfig', '@guardian/eslint-config'];
 
 const missing = packages
 	.filter((pkg) => !excludedPackages.includes(pkg.packageJson.name))

@@ -13,8 +13,7 @@ runs:
         cache: 'pnpm'
 
     # Set up GitHub Actions caching for Wireit.
-    # disable cross-run caching for now
-    # - uses: google/wireit@setup-github-actions-caching/v1
+    - uses: google/wireit@setup-github-actions-caching/v2
 
     - run: pnpm install --frozen-lockfile
       shell: bash

@@ -2,18 +2,26 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { pathFromRoot, projectRoot } from '../project-paths.mjs';
-import { getTasks } from '../lib/get-tasks.mjs';
+import { getTasksByPackage } from '../lib/get-tasks-by-package.mjs';
 
 import _updateSection from 'update-section';
 
+/**
+ * @param {object} options
+ * @param {string} options.contents
+ * @param {string} options.updates
+ * @returns {string}
+ */
 const updateSection = ({ contents, updates }) => {
 	const START = `############################## START PROJECT_TASKS #############################`;
 	const END = `############################### END PROJECT_TASKS ##############################`;
 
+	/**	@param {string} line */
 	function matchesStart(line) {
 		return line.includes(START);
 	}
 
+	/**	@param {string} line */
 	function matchesEnd(line) {
 		return line.includes(END);
 	}
@@ -32,7 +40,7 @@ const thisFilePathFromRoot = pathFromRoot(thisFilePath);
 const makefilePath = path.resolve(projectRoot, 'Makefile');
 let contents = await readFile(makefilePath, 'utf8');
 
-const tasks = await getTasks();
+const tasks = await getTasksByPackage();
 
 const tasksList = [
 	'# This is a set of all possible project-specific tasks.',
