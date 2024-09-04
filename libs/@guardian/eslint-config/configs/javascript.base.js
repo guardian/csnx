@@ -12,7 +12,7 @@ export default {
 		// prevent dangling returns without braces
 		curly: ['error', 'all'],
 
-		// delimit members with semi-colons and require
+		// delimit members with semicolons and require
 		// one at the end to keep diffs simpler
 		'@stylistic/member-delimiter-style': [
 			2,
