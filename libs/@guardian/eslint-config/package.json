@@ -1,33 +1,41 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "9.0.0",
+	"version": "10.0.0-beta.0",
 	"description": "ESLint config for Guardian JavaScript projects",
+	"type": "module",
 	"main": "index.js",
 	"scripts": {
 		"fix": "wireit",
-		"lint": "wireit",
-		"tsc": "wireit"
+		"lint": "wireit"
 	},
 	"dependencies": {
+		"@eslint/compat": "1.1.1",
+		"@eslint/js": "9.9.1",
+		"@stylistic/eslint-plugin": "2.6.4",
 		"eslint-config-prettier": "9.1.0",
+		"eslint-import-resolver-typescript": "3.6.3",
 		"eslint-plugin-eslint-comments": "3.2.0",
-		"eslint-plugin-import": "2.29.1"
+		"eslint-plugin-import-x": "4.0.0",
+		"eslint-plugin-jsx-a11y": "6.9.0",
+		"eslint-plugin-react": "7.35.0",
+		"eslint-plugin-react-hooks": "4.6.2",
+		"eslint-plugin-storybook": "0.8.0",
+		"globals": "15.9.0",
+		"read-package-up": "11.0.0",
+		"typescript-eslint": "8.3.0"
 	},
 	"devDependencies": {
-		"eslint": "8.57.0",
-		"tslib": "2.6.2",
-		"wireit": "0.14.4"
+		"eslint": "9.9.0",
+		"wireit": "0.14.8"
 	},
 	"peerDependencies": {
-		"eslint": "^8.57.0",
-		"tslib": "^2.6.2"
+		"eslint": "^9.9.0"
 	},
 	"wireit": {
 		"lint": {
 			"command": "eslint --cache --color .",
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!.eslintcache"
 			],
 			"output": []
@@ -37,25 +45,11 @@
 			"clean": false,
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!.eslintcache"
 			],
 			"output": [
 				"."
 			]
-		},
-		"tsc": {
-			"command": "tsc --pretty",
-			"files": [
-				"**",
-				"tsconfig.json",
-				"../tsconfig/tsconfig.json",
-				"../../../@types/**",
-				"../../../tsconfig.base.json",
-				"!(dist)/**",
-				"!.eslintcache"
-			],
-			"output": []
 		}
 	}
 }

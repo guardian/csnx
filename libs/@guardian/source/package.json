@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source",
-	"version": "7.0.1",
+	"version": "8.0.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -46,8 +46,8 @@
 		"@cobalt-ui/utils": "1.2.2",
 		"@emotion/react": "11.11.3",
 		"@guardian/libs": "18.0.1",
-		"@storybook/manager-api": "8.2.7",
-		"@storybook/react": "8.2.7",
+		"@storybook/manager-api": "8.2.9",
+		"@storybook/react": "8.2.9",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -65,12 +65,12 @@
 		"prettier": "3.3.3",
 		"react": "18.2.0",
 		"rollup": "4.21.0",
-		"storybook": "8.2.7",
+		"storybook": "8.2.9",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
 		"tsx": "4.17.0",
 		"typescript": "5.5.2",
-		"wireit": "0.14.4"
+		"wireit": "0.14.8"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.3",

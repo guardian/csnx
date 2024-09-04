@@ -6,17 +6,28 @@ import { getPackageList } from './get-package-list.mjs';
 import { getMakeTargets } from '../lib/get-make-targets.mjs';
 import { format } from 'prettier';
 import prettierConfig from '@guardian/prettier';
-import { getTasks } from '../lib/get-tasks.mjs';
+import { getTasksByPackage } from '../lib/get-tasks-by-package.mjs';
 import _updateSection from 'update-section';
 
+/**
+ *
+ * @param {object} options
+ * @param {string} options.contents
+ * @param {string} options.tag
+ * @param {string} options.updates
+ * @param {string} options.updater
+ * @returns string
+ */
 const updateSection = ({ contents, tag, updates, updater }) => {
 	const START = `<!-- START ${tag} -->`;
 	const END = `<!-- END ${tag} -->`;
 
+	/**	@param {string} line */
 	function matchesStart(line) {
 		return line.includes(START);
 	}
 
+	/**	@param {string} line */
 	function matchesEnd(line) {
 		return line.includes(END);
 	}
@@ -54,7 +65,7 @@ const makeTargetsList = makeTargets
 	.map(({ target, description }) => `- \`make ${target}\` _${description}_`)
 	.join('\n');
 
-const tasks = await getTasks();
+const tasks = await getTasksByPackage();
 
 const tasksList = [
 	'### Project-specific tasks',

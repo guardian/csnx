@@ -1,5 +1,5 @@
-import type { Breakpoint } from '@guardian/source/foundations';
 import { breakpoints } from '@guardian/source/foundations';
+import type { Breakpoint } from '@guardian/source/foundations';
 
 type ViewportMeta = {
 	[key in Breakpoint]: {
@@ -66,7 +66,7 @@ const viewportEntries = Object.entries(breakpoints).map(([name, width]) => {
 	];
 });
 
-const viewportEntriesObject = Object.fromEntries(viewportEntries) as Viewports;
+const viewportEntriesObject: Viewports = Object.fromEntries(viewportEntries);
 
 export const viewport = {
 	viewports: {

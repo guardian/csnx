@@ -1,22 +1,21 @@
 import fastGlob from 'fast-glob';
-import { readFile } from 'fs/promises';
+import { readFile } from 'node:fs/promises';
 
 /**
- * Get all npm-scripts from all packages in `libs` and `apps`, and returns them
- * as a list of tuples, e.g.
- *
- * [
- * 	['my-app', ['build', 'test']],
- * 	['my-lib', ['start', 'build']],
- * 	...
- * ]
+ * @typedef {string[]} TaskList - e.g. ['build', 'test']
+ * @typedef {[string, TaskList]} PackageTasks - e.g. ['my-app', ['build', 'test']]
  */
-export const getTasks = async () => {
+
+/**
+ * Gets all npm-scripts from all packages in `libs` and `apps`.
+ */
+export const getTasksByPackage = async () => {
 	const packages = await fastGlob(['{libs,apps}/**/package.json'], {
 		followSymbolicLinks: false,
 		ignore: ['**/node_modules', '**/dist'],
 	});
 
+	/** @type PackageTasks[] */
 	const tasks = [];
 
 	for (const pkg of packages) {
