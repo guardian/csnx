@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 9.0.0
+
+### Major Changes
+
+- 85dcc72: Updating 'ticker' design to update the default padding
+
 ## 8.0.0
 
 ### Patch Changes
