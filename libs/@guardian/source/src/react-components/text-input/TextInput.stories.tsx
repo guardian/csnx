@@ -244,7 +244,7 @@ export const SupportingTextCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };
@@ -263,7 +263,7 @@ export const ErrorWithMessageCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

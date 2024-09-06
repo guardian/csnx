@@ -10,7 +10,7 @@ const meta: Meta<typeof Logo> = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };

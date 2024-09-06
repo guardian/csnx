@@ -1,5 +1,9 @@
 import { Meta, Canvas, Controls } from '@storybook/blocks';
-import * as IconStories from './Icons.stories';
+import IconStories, {
+	XsmallIconsDefaultTheme,
+	PaymentIconsDefaultTheme,
+	WidePaymentIconsDefaultTheme,
+} from './Icons.stories';
 import { IconGallery, IconItem } from './IconGallery';
 
 <Meta of={IconStories} />
@@ -9,7 +13,7 @@ import { IconGallery, IconItem } from './IconGallery';
 ## Core
 
 <IconGallery>
-	{IconStories.XsmallIconsDefaultTheme.args.icons.map((Icon) => (
+	{XsmallIconsDefaultTheme.args.icons.map((Icon) => (
 		<IconItem name={Icon.name} key={Icon.name}>
 			<Icon size="medium" />
 		</IconItem>
@@ -19,7 +23,7 @@ import { IconGallery, IconItem } from './IconGallery';
 ## Payment
 
 <IconGallery>
-	{IconStories.PaymentIconsDefaultTheme.args.icons.map((Icon) => (
+	{PaymentIconsDefaultTheme.args.icons.map((Icon) => (
 		<IconItem name={Icon.name} key={Icon.name}>
 			<Icon size="medium" />
 		</IconItem>
@@ -29,7 +33,7 @@ import { IconGallery, IconItem } from './IconGallery';
 ## Wide payment
 
 <IconGallery>
-	{IconStories.WidePaymentIconsDefaultTheme.args.icons.map((Icon) => (
+	{WidePaymentIconsDefaultTheme.args.icons.map((Icon) => (
 		<IconItem name={Icon.name} key={Icon.name}>
 			<Icon size="medium" />
 		</IconItem>
