@@ -24,6 +24,7 @@
 	"scripts": {
 		"build": "wireit",
 		"build-generated": "wireit",
+		"build-storybook": "wireit",
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
 		"fix": "wireit",

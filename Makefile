@@ -401,6 +401,10 @@ install: check-node-version
 @guardian/source\:build-generated: env
 	@corepack pnpm --filter @guardian/source build-generated
 
+.PHONY: @guardian/source\:build-storybook
+@guardian/source\:build-storybook: env
+	@corepack pnpm --filter @guardian/source build-storybook
+
 .PHONY: @guardian/source\:create-icons
 @guardian/source\:create-icons: env
 	@corepack pnpm --filter @guardian/source create-icons
