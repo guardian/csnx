@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@babel/core": "7.25.2",
 		"@emotion/react": "11.11.3",
-		"@guardian/libs": "18.0.1",
+		"@guardian/libs": "18.0.2",
 		"@guardian/source": "8.0.0",
 		"@storybook/manager-api": "8.2.9",
 		"@storybook/react": "8.2.9",

@@ -294,7 +294,7 @@ importers:
   libs/@guardian/core-web-vitals:
     devDependencies:
       '@guardian/libs':
-        specifier: 18.0.1
+        specifier: 18.0.2
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -376,7 +376,7 @@ importers:
   libs/@guardian/identity-auth:
     devDependencies:
       '@guardian/libs':
-        specifier: 18.0.1
+        specifier: 18.0.2
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -412,7 +412,7 @@ importers:
         specifier: 3.0.1
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 18.0.1
+        specifier: 18.0.2
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -542,7 +542,7 @@ importers:
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
       '@guardian/libs':
-        specifier: 18.0.1
+        specifier: 18.0.2
         version: link:../libs
       '@storybook/manager-api':
         specifier: 8.2.9
@@ -629,7 +629,7 @@ importers:
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
       '@guardian/libs':
-        specifier: 18.0.1
+        specifier: 18.0.2
         version: link:../libs
       '@guardian/source':
         specifier: 8.0.0
