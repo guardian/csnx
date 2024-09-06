@@ -6,7 +6,6 @@ export default [
 	...guardian.configs.react,
 	{
 		ignores: [
-			'node_modules',
 			'dist',
 			'jest.dist.*', // depends on build output, so don't lint it
 			'.wireit',
