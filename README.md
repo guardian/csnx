@@ -174,6 +174,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/source:test`
 - `make @guardian/source:tsc`
 - `make @guardian/source:verify-dist`
+- `make @guardian/source:wireit`
 
 #### @guardian/source-development-kitchen
 
