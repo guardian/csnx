@@ -103,7 +103,7 @@ importers:
     devDependencies:
       '@emotion/react':
         specifier: 11.11.3
-        version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
+        version: 11.11.3(@types/react@18.2.79)(react@18.2.0)
       '@guardian/source':
         specifier: workspace:*
         version: link:../../libs/@guardian/source
@@ -129,8 +129,8 @@ importers:
         specifier: 8.2.9
         version: 8.2.9(react-dom@18.2.0)(react@18.2.0)(rollup@4.21.0)(storybook@8.2.9)(typescript@5.5.2)(vite@5.4.3)
       '@types/react':
-        specifier: 18.2.11
-        version: 18.2.11
+        specifier: 18.2.79
+        version: 18.2.79
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -210,8 +210,8 @@ importers:
         specifier: 29.5.8
         version: 29.5.8
       '@types/react':
-        specifier: 18.2.11
-        version: 18.2.11
+        specifier: 18.2.79
+        version: 18.2.79
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.10)
@@ -504,7 +504,7 @@ importers:
         version: 1.2.2
       '@emotion/react':
         specifier: 11.11.3
-        version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
+        version: 11.11.3(@types/react@18.2.79)(react@18.2.0)
       '@guardian/libs':
         specifier: 18.0.1
         version: link:../libs
@@ -551,8 +551,8 @@ importers:
         specifier: 29.5.8
         version: 29.5.8
       '@types/react':
-        specifier: 18.2.11
-        version: 18.2.11
+        specifier: 18.2.79
+        version: 18.2.79
       dotenv:
         specifier: 16.4.1
         version: 16.4.1
@@ -597,7 +597,7 @@ importers:
     devDependencies:
       '@emotion/react':
         specifier: 11.11.3
-        version: 11.11.3(@types/react@18.2.11)(react@18.2.0)
+        version: 11.11.3(@types/react@18.2.79)(react@18.2.0)
       '@guardian/libs':
         specifier: 18.0.1
         version: link:../libs
@@ -629,8 +629,8 @@ importers:
         specifier: 29.5.8
         version: 29.5.8
       '@types/react':
-        specifier: 18.2.11
-        version: 18.2.11
+        specifier: 18.2.79
+        version: 18.2.79
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.10)
@@ -2597,7 +2597,7 @@ packages:
     resolution: {integrity: sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==}
     dev: true
 
-  /@emotion/react@11.11.3(@types/react@18.2.11)(react@18.2.0):
+  /@emotion/react@11.11.3(@types/react@18.2.79)(react@18.2.0):
     resolution: {integrity: sha512-Cnn0kuq4DoONOMcnoVsTOR8E+AdnKFf//6kUWc4LCdnxj31pZWn7rIULd6Y7/Js1PiPHzn7SKCM9vB/jBni8eA==}
     peerDependencies:
       '@types/react': '*'
@@ -2613,7 +2613,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.4.0
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.11
+      '@types/react': 18.2.79
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     transitivePeerDependencies:
@@ -3746,14 +3746,14 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
-  /@mdx-js/react@3.0.1(@types/react@18.2.11)(react@18.2.0):
+  /@mdx-js/react@3.0.1(@types/react@18.2.79)(react@18.2.0):
     resolution: {integrity: sha512-9ZrPIU4MGf6et1m1ov3zKf+q9+deetI51zprKB1D/z3NOb+rUxxtEl3mCjW5wTGh6VhRdwPueh1oRzi6ezkA8A==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.11
-      '@types/react': 18.2.11
+      '@types/react': 18.2.79
       react: 18.2.0
     dev: true
 
@@ -4066,12 +4066,12 @@ packages:
       storybook: ^8.2.9
     dependencies:
       '@babel/core': 7.25.2
-      '@mdx-js/react': 3.0.1(@types/react@18.2.11)(react@18.2.0)
+      '@mdx-js/react': 3.0.1(@types/react@18.2.79)(react@18.2.0)
       '@storybook/blocks': 8.2.9(react-dom@18.2.0)(react@18.2.0)(storybook@8.2.9)
       '@storybook/csf-plugin': 8.2.9(storybook@8.2.9)
       '@storybook/global': 5.0.0
       '@storybook/react-dom-shim': 8.2.9(react-dom@18.2.0)(react@18.2.0)(storybook@8.2.9)
-      '@types/react': 18.2.11
+      '@types/react': 18.2.79
       fs-extra: 11.2.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -5110,11 +5110,11 @@ packages:
   /@types/react-dom@18.2.6:
     resolution: {integrity: sha512-2et4PDvg6PVCyS7fuTc4gPoksV58bW0RwSxWKcPRcHZf0PRUGq03TKcD/rUHe3azfV6/5/biUBJw+HhCQjaP0A==}
     dependencies:
-      '@types/react': 18.2.11
+      '@types/react': 18.2.79
     dev: true
 
-  /@types/react@18.2.11:
-    resolution: {integrity: sha512-+hsJr9hmwyDecSMQAmX7drgbDpyE+EgSF6t7+5QEBAn1tQK7kl1vWZ4iRf6SjQ8lk7dyEULxUmZOIpN0W5baZA==}
+  /@types/react@18.2.79:
+    resolution: {integrity: sha512-RwGAGXPl9kSXwdNTafkOEuFrTBD5SA2B3iEB96xi8+xu5ddUa/cpvyVCSNn+asgLCTHkb5ZxN8gbuibYJi4s1w==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.23.0

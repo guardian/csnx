@@ -16,7 +16,7 @@
 		"@storybook/blocks": "8.2.9",
 		"@storybook/react": "8.2.9",
 		"@storybook/react-vite": "8.2.9",
-		"@types/react": "18.2.11",
+		"@types/react": "18.2.79",
 		"react": "18.2.0",
 		"storybook": "8.2.9",
 		"wireit": "0.14.8"
