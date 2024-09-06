@@ -12,6 +12,8 @@
 		"tsc": "wireit"
 	},
 	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
+		"eslint": "9.9.0",
 		"prettier": "3.2.2",
 		"tslib": "2.6.2",
 		"wireit": "0.14.8"

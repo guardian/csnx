@@ -25,8 +25,10 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "18.0.0",
 		"@types/jest": "29.5.8",
+		"eslint": "9.9.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"rollup": "4.21.0",
@@ -79,7 +81,6 @@
 			],
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!(dist)/**",
 				"!.eslintcache"
 			],
@@ -95,7 +96,6 @@
 			],
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!(dist)/**",
 				"!.eslintcache"
 			],

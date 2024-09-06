@@ -82,4 +82,4 @@ function generateSvg(): string {
 	return svg;
 }
 
-fs.writeFileSync(__dirname + '/../static/logger.svg', generateSvg());
+fs.writeFileSync(import.meta.dirname + '/../static/logger.svg', generateSvg());

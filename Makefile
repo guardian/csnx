@@ -437,10 +437,6 @@ install: check-node-version
 @guardian/source\:verify-dist: env
 	@corepack pnpm --filter @guardian/source verify-dist
 
-.PHONY: @guardian/source\:wireit
-@guardian/source\:wireit: env
-	@corepack pnpm --filter @guardian/source wireit
-
 .PHONY: @guardian/source-development-kitchen\:build
 @guardian/source-development-kitchen\:build: env
 	@corepack pnpm --filter @guardian/source-development-kitchen build
