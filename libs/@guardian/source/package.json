@@ -32,8 +32,7 @@
 		"storybook": "storybook dev --port 4401",
 		"test": "wireit",
 		"tsc": "wireit",
-		"verify-dist": "wireit",
-		"wireit": "storybook build"
+		"verify-dist": "wireit"
 	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
@@ -46,7 +45,7 @@
 		"@cobalt-ui/plugin-js": "1.4.3",
 		"@cobalt-ui/utils": "1.2.2",
 		"@emotion/react": "11.11.3",
-		"@guardian/libs": "18.0.2",
+		"@guardian/libs": "workspace:*",
 		"@storybook/addon-a11y": "8.2.9",
 		"@storybook/addon-essentials": "8.2.9",
 		"@storybook/addon-interactions": "8.2.9",

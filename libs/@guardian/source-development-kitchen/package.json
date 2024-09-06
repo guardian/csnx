@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.3",
-		"@guardian/libs": "18.0.2",
+		"@guardian/libs": "18.0.0",
 		"@guardian/source": "8.0.0",
 		"@storybook/addon-a11y": "8.2.9",
 		"@storybook/addon-essentials": "8.2.9",

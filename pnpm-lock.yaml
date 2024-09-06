@@ -258,8 +258,8 @@ importers:
   libs/@guardian/core-web-vitals:
     devDependencies:
       '@guardian/libs':
-        specifier: 18.0.2
-        version: link:../libs
+        specifier: 18.0.0
+        version: 18.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -376,8 +376,8 @@ importers:
         specifier: 3.0.1
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 18.0.2
-        version: link:../libs
+        specifier: 18.0.0
+        version: 18.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -506,7 +506,7 @@ importers:
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.79)(react@18.2.0)
       '@guardian/libs':
-        specifier: 18.0.2
+        specifier: workspace:*
         version: link:../libs
       '@storybook/addon-a11y':
         specifier: 8.2.9
@@ -599,8 +599,8 @@ importers:
         specifier: 11.11.3
         version: 11.11.3(@types/react@18.2.79)(react@18.2.0)
       '@guardian/libs':
-        specifier: 18.0.2
-        version: link:../libs
+        specifier: 18.0.0
+        version: 18.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@guardian/source':
         specifier: 8.0.0
         version: link:../source
@@ -3222,6 +3222,19 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: true
+
+  /@guardian/libs@18.0.0(tslib@2.6.2)(typescript@5.5.2):
+    resolution: {integrity: sha512-V/aVeCg3yEDBiw6ykAIRux3HCpORKPAzTReDogg2ZHf8BV0v7P2ysc/etO5TW4+8FVd6X8SpX3GmTP3YePx8FQ==}
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.5.2
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      tslib: 2.6.2
+      typescript: 5.5.2
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:
