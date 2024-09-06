@@ -3,7 +3,7 @@ import guardian from './index.js';
 export default [
 	...guardian.configs.recommended,
 	{
-		ignores: ['node_modules', '.wireit'],
+		ignores: ['.wireit'],
 	},
 	{
 		files: ['index.js', 'configs/**'],
