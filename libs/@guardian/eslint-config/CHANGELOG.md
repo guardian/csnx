@@ -1,11 +1,5 @@
 # @guardian/eslint-config
 
-## 10.0.0-beta.2
-
-### Patch Changes
-
-- Rejig `@eslint-community/eslint-plugin-eslint-comments` config
-
 ## 10.0.0-beta.1
 
 ### Patch Changes

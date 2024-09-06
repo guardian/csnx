@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/named -- this is a false positive
 import { expect, test } from '@playwright/test';
 import {
 	ACCOUNT_ID,

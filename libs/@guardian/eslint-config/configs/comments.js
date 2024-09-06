@@ -1,9 +1,9 @@
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 
 export default [
+	comments.recommended,
 	{
 		name: '@guardian/comments',
-		plugins: comments.recommended.plugins,
 		rules: {
 			// require a `eslint-enable` comment for every `eslint-disable` comment
 			'@eslint-community/eslint-comments/disable-enable-pair': [

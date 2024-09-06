@@ -18,4 +18,5 @@ const config: StorybookConfig = {
 	},
 };
 
+// eslint-disable-next-line import/no-default-export -- it's the storybook way
 export default config;

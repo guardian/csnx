@@ -181,14 +181,12 @@ describe('coreWebVitals', () => {
 		expect(mockBeacon).toHaveBeenCalledTimes(0);
 		expect(coreWebVitalsPayload).toEqual(
 			expect.not.objectContaining({
-				/* eslint-disable @typescript-eslint/no-unsafe-assignment -- we expect any(thing) */
 				fid: expect.anything(),
 				fcp: expect.anything(),
 				lcp: expect.anything(),
 				ttfb: expect.anything(),
 				cls: expect.anything(),
 				inp: expect.anything(),
-				/* eslint-enable @typescript-eslint/no-unsafe-assignment */
 			}),
 		);
 	});

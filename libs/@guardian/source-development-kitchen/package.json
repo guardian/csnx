@@ -27,7 +27,6 @@
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.3",
-		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "18.0.0",
 		"@guardian/source": "8.0.0",
 		"@storybook/addon-a11y": "8.2.9",
@@ -39,7 +38,6 @@
 		"@storybook/react-vite": "8.2.9",
 		"@types/jest": "29.5.8",
 		"@types/react": "18.2.79",
-		"eslint": "9.9.0",
 		"jest": "29.7.0",
 		"react": "18.2.0",
 		"rollup": "4.21.0",
@@ -116,6 +114,7 @@
 			],
 			"files": [
 				"**",
+				"../../../.eslint*",
 				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
@@ -131,6 +130,7 @@
 			],
 			"files": [
 				"**",
+				"../../../.eslint*",
 				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
