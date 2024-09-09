@@ -318,7 +318,7 @@ export const WithSupportingCustomTheme: Story = {
 
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

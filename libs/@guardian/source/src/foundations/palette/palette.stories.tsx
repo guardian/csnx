@@ -1,20 +1,6 @@
 import { palette as colours } from './palette';
 import { ColorItem, ColorPalette } from './storybookColorPalette';
 
-export default {
-	title: 'Foundations/palette',
-
-	parameters: {
-		previewTabs: {
-			canvas: {
-				hidden: true,
-			},
-		},
-
-		viewMode: 'docs',
-	},
-};
-
 export const Palette = {
 	render: () => (
 		<ColorPalette>
@@ -43,4 +29,19 @@ export const Palette = {
 	),
 
 	name: 'palette',
+};
+
+export default {
+	title: 'Foundations/palette',
+	component: Palette,
+
+	parameters: {
+		previewTabs: {
+			canvas: {
+				hidden: true,
+			},
+		},
+
+		viewMode: 'docs',
+	},
 };

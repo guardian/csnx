@@ -7,5 +7,4 @@ const config = {
 	testEnvironment: 'jest-environment-jsdom',
 };
 
-// eslint-disable-next-line import/no-default-export -- that's what jest likes
 export default config;

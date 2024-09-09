@@ -1,7 +1,13 @@
 import { TypographyPresets } from './TypographyPresets';
 
+export const Presets = {
+	render: () => <TypographyPresets />,
+	name: 'presets',
+};
+
 export default {
 	title: 'Foundations/Typography',
+	component: Presets,
 
 	parameters: {
 		previewTabs: {
@@ -12,9 +18,4 @@ export default {
 
 		viewMode: 'docs',
 	},
-};
-
-export const Presets = {
-	render: () => <TypographyPresets />,
-	name: 'presets',
 };

@@ -4,37 +4,23 @@
 	"private": "true",
 	"type": "module",
 	"scripts": {
-		"build": "./tools/scripts/use-make-instead",
+		"build": "./scripts/use-make-instead",
 		"lint:packages": "syncpack lint",
 		"prepare": "husky",
-		"test": "./tools/scripts/use-make-instead"
+		"test": "./scripts/use-make-instead"
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.27.1",
-		"@guardian/eslint-config": "workspace:*",
-		"@guardian/eslint-config-typescript": "workspace:*",
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
-		"@stylistic/eslint-plugin": "2.6.2",
 		"@types/node": "20.14.10",
-		"@typescript-eslint/eslint-plugin": "8.1.0",
-		"@typescript-eslint/parser": "8.1.0",
-		"colorette": "2.0.20",
-		"eslint": "8.57.0",
-		"eslint-plugin-eslint-comments": "3.2.0",
-		"eslint-plugin-import": "2.29.1",
-		"eslint-plugin-react": "7.35.0",
-		"eslint-plugin-react-hooks": "4.6.2",
-		"eslint-plugin-storybook": "0.8.0",
-		"fast-glob": "3.3.2",
 		"husky": "9.1.4",
-		"lint-staged": "15.2.0",
+		"lint-staged": "15.2.10",
 		"prettier": "3.3.3",
 		"sort-package-json": "2.10.0",
-		"syncpack": "12.4.0",
+		"syncpack": "13.0.0",
 		"typescript": "5.5.2",
-		"update-section": "0.3.3",
-		"wireit": "0.14.4"
+		"wireit": "0.14.8"
 	},
 	"packageManager": "pnpm@8.14.0",
 	"pnpm": {
@@ -52,12 +38,6 @@
 				"react",
 				"react-dom"
 			]
-		},
-		"overrides": {
-			"axios@^1.0.0": "1.6.7",
-			"semver@^5.0.0": "5.7.2",
-			"semver@^6.0.0": "6.3.1",
-			"semver@^7.0.0": "7.5.4"
 		}
 	}
 }

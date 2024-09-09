@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named -- this is a false positive
 import { expect, test } from '@playwright/test';
 import { ACCOUNT_ID, ENDPOINT } from '../fixtures/sourcepointConfig';
 
@@ -17,6 +18,7 @@ async function getIframeBody(page, selector) {
 
 	return frame;
 }
+
 test.describe('Window', () => {
 	test('has the guCmpHotFix object', async ({ page }) => {
 		await page.goto(url);

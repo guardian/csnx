@@ -29,3 +29,5 @@ storybook-static
 
 # unit test coverage reports
 /coverage/report/
+
+*storybook.log

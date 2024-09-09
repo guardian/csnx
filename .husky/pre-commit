@@ -2,15 +2,15 @@
 # but not on CI:
 # https://typicode.github.io/husky/#/?id=with-env-variables
 if [ "$CI" != "true" ]; then
-    . ./tools/scripts/check-node-version
+    . ./scripts/check-node-version
 fi
 
 # keep docs up to date
-node tools/scripts/maintain-readme/index.mjs
+node scripts/maintain-readme/index.mjs
 git add README.md
 
 # keep makefile up to date
-node tools/scripts/maintain-makefile/index.mjs
+node scripts/maintain-makefile/index.mjs
 git add Makefile
 
 corepack pnpm lint-staged

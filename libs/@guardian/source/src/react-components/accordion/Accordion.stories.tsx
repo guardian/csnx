@@ -58,7 +58,7 @@ export const WithCTALabelsCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

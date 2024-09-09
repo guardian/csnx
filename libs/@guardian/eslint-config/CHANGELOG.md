@@ -1,5 +1,36 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.2
+
+### Patch Changes
+
+- Rejig `@eslint-community/eslint-plugin-eslint-comments` config
+
+## 10.0.0-beta.1
+
+### Patch Changes
+
+- Replaces `eslint-plugin-eslint-comments` with `@eslint-community/eslint-plugin-eslint-comments`
+- Bumps other dependencies
+
+## 10.0.0-beta.0
+
+### Major Changes
+
+This is pre-release that requires [ESLint 9](https://eslint.org/blog/2024/04/eslint-v9.0.0-released/).
+
+It should be feature complete, but this release is to allow for feedback and testing.
+
+It replaces both `@guardian/eslint-config@9` and `@guardian/eslint-config-typescript@12` with a single package.
+
+It also includes configs for `jest`, `storybook` and `react`.
+
+See the [README](README.md) for full details.
+
+> ESLint 9 contains a lot of breaking changes, including a new config format. See their [migration guide](https://eslint.org/docs/latest/use/migrate-to-9.0.0) for more details.
+>
+> Note that [ESLint 8 is EOL 2024-10-05](https://eslint.org/version-support/).
+
 ## 9.0.0
 
 ### Major Changes

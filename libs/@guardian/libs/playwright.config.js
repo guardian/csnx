@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named -- this is a false positive
 import { defineConfig, devices } from '@playwright/test';
 
 /**

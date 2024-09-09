@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 18.0.2
+
+### Patch Changes
+
+- 5b909a7: Internally, `cmp.showPrivacyManager` uses an id for the Sourcepoint second layer in Australia. A new privacy manager has been created in Sourcepoint and this patch version reflects that change.
+
 ## 18.0.1
 
 ### Patch Changes

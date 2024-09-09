@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/blocks';
-import * as PaletteStories from './palette.stories';
+import PaletteStories, { Palette } from './palette.stories.tsx';
 
 <Meta of={PaletteStories} />
 
@@ -27,7 +27,7 @@ const headline = css`
 
 ## Colour tokens
 
-<Story of={PaletteStories.Palette} />
+<Story of={Palette} />
 
 ## Deprecated colour tokens
 
