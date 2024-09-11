@@ -9,6 +9,7 @@ import {
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
 const doNotSellButton = 'div.message-component > button.sp_choice_type_13';
+const closeButton = 'div.message-component > button.sp_choice_type_15';
 const saveAndExitButton = '.sp_choice_type_SE';
 
 const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
@@ -92,23 +93,35 @@ test.describe('Interaction', () => {
 		await doNotSellIs(page, false);
 	});
 
-	test(`should retract consent banner after selecting do not sell  button "${buttonTitle}"`, async ({
+	test(`should retract consent banner after selecting do not sell button "${buttonTitle}"`, async ({
 		page,
 	}) => {
 		await page.goto(url);
 
 		await doNotSellIs(page, false);
 
-		await page
-			.frameLocator(iframeMessage)
-			// .last()
-			.locator(doNotSellButton)
-			.click();
+		await page.frameLocator(iframeMessage).locator(doNotSellButton).click();
 
 		await page.waitForLoadState('networkidle');
 
 		await expect(
 			page.frameLocator(iframeMessage).locator(doNotSellButton),
+		).toBeHidden();
+	});
+
+	test(`should retract consent banner after selecting close button "${buttonTitle}"`, async ({
+		page,
+	}) => {
+		await page.goto(url);
+
+		await doNotSellIs(page, false);
+
+		await page.frameLocator(iframeMessage).locator(closeButton).click();
+
+		await page.waitForLoadState('networkidle');
+
+		await expect(
+			page.frameLocator(iframeMessage).locator(closeButton),
 		).toBeHidden();
 	});
 
@@ -119,10 +132,7 @@ test.describe('Interaction', () => {
 
 		await doNotSellIs(page, false);
 
-		await page
-			.frameLocator(iframeMessage)
-			.locator('div.message-component > button.sp_choice_type_15') // Close button
-			.click();
+		await page.frameLocator(iframeMessage).locator(closeButton).click();
 
 		await doNotSellIs(page, false);
 
@@ -133,7 +143,7 @@ test.describe('Interaction', () => {
 			iframePrivacyManager,
 		);
 		await privacyManagerIframe.click('.pm-toggle .on');
-		await privacyManagerIframe.click(saveAndExitButton); // Save and Exit
+		await privacyManagerIframe.click(saveAndExitButton);
 
 		await page.waitForLoadState('networkidle');
 
