@@ -7,7 +7,7 @@
 
 > Consent management for `*.theguardian.com`.
 
-The Guardian CMP handles applying the CCPA to users in the USA,
+The Guardian CMP handles applying the USNAT to users in the USA, CCPA to Aus
 and TCFv2 to everyone else.
 
 ## Table of Contents
@@ -206,7 +206,7 @@ boolean value, defaulting to `false` where no explicit consent was given.
 }
 ```
 
-##### `consentState.ccpa`
+##### `consentState.usnat`
 
 type: `Object` or `undefined`
 
@@ -217,6 +217,7 @@ If the user is not in the USA, it will be `undefined`.
 ```js
 {
 	doNotSell: Boolean;
+	signalStatus: 'ready';
 }
 ```
 
@@ -243,7 +244,7 @@ If the user can be targeted for personalisation according to the active consent 
 
 For example `canTarget` would be `true` in the following scenarios:
 
-- for CCPA if the user has _not_ clicked "do not sell",
+- for USNAT if the user has _not_ clicked "do not sell",
 - for AUS if the user has _not_ opted out of personalised advertising
 - for TCFv2 if the user has given consent for all purposes
 
@@ -251,20 +252,20 @@ For example `canTarget` would be `true` in the following scenarios:
 
 type: `string` | null
 
-The active consent framework e.g. `"ccpa"`, `"aus"`, `"tcfv2"` or `null`.
+The active consent framework e.g. `"usnat"`, `"aus"`, `"tcfv2"` or `null`.
 
 #### Example
 
 ```js
 import { onConsentChange } from '@guardian/consent-management-platform';
 
-onConsentChange(({ tcfv2, ccpa, aus }) => {
+onConsentChange(({ tcfv2, usnat, aus }) => {
 	if (tcfv2) {
 		console.log(tcfv2); // { 1: true || false, 1: true || false, ... }
 	}
 
-	if (ccpa) {
-		console.log(ccpa); // { doNotSell: true || false }
+	if (usnat) {
+		console.log(usnat); // { doNotSell: true || false }
 	}
 
 	if (aus) {
