@@ -5,7 +5,7 @@ export const getFramework = (countryCode: CountryCode): ConsentFramework => {
 	let framework: ConsentFramework;
 	switch (countryCode) {
 		case 'US':
-			framework = 'ccpa';
+			framework = 'usnat';
 			break;
 
 		case 'AU':
