@@ -127,7 +127,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
 					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
-					console.log();
+
 					if (message_type != frameworkMessageType) {
 						return;
 					}
