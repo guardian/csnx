@@ -15,6 +15,7 @@ export type {
 	TCEventStatusCode,
 	TCFv2ConsentState,
 } from './consent-management-platform/types/tcfv2';
+export type { USNATConsentState } from './consent-management-platform/types/usnat';
 export {
 	cmp,
 	getConsentFor,
