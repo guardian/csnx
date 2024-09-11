@@ -46,20 +46,9 @@ describe('onConsent returns a promise that resolves the initial consent state', 
 
 	test('usnat', async () => {
 		const consentState: ConsentState = {
-			ccpa: usnatConsentState,
+			usnat: usnatConsentState,
 			canTarget: true,
 			framework: 'usnat',
-		};
-		mockOnConsentChange(consentState);
-		const resolvedConsentState = await onConsent();
-		expect(resolvedConsentState).toEqual(consentState);
-	});
-
-	test('ccpa', async () => {
-		const consentState: ConsentState = {
-			ccpa: usnatConsentState,
-			canTarget: true,
-			framework: 'ccpa',
 		};
 		mockOnConsentChange(consentState);
 		const resolvedConsentState = await onConsent();
