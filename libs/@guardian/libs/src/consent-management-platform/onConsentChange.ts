@@ -10,7 +10,6 @@ import { getConsentState as getUSNATConsentState } from './usnat/getConsentState
 
 interface ConsentStateBasic {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: USNATConsentState;
 	usnat?: USNATConsentState;
 	aus?: AUSConsentState;
 }
@@ -68,13 +67,6 @@ const enhanceConsentState = (consentState: ConsentStateBasic): ConsentState => {
 				Object.keys(consents).length > 0 &&
 				Object.values(consents).every(Boolean),
 			framework: 'tcfv2',
-			gpcSignal,
-		};
-	} else if (consentState.ccpa) {
-		return {
-			...consentState,
-			canTarget: !consentState.ccpa.doNotSell,
-			framework: 'usnat',
 			gpcSignal,
 		};
 	} else if (consentState.usnat) {
