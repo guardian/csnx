@@ -88,7 +88,6 @@ describe('onConsentChange enhances basic consent state', () => {
 		);
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
-			ccpa: usnatConsentState,
 			usnat: usnatConsentState,
 			canTarget: true,
 			framework: 'usnat',
@@ -96,7 +95,7 @@ describe('onConsentChange enhances basic consent state', () => {
 		const consentState = await _.getConsentState();
 		expect(consentState).toEqual(expectedConsentState);
 	});
-	test('ccpa can NOT target', async () => {
+	test('usnat can NOT target', async () => {
 		(getUSNATConsentState as jest.Mock).mockImplementation(() =>
 			Promise.resolve<USNATConsentState>({
 				doNotSell: true,
@@ -105,7 +104,6 @@ describe('onConsentChange enhances basic consent state', () => {
 		);
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
-			ccpa: { doNotSell: true, signalStatus: 'ready' },
 			usnat: { doNotSell: true, signalStatus: 'ready' },
 			canTarget: false,
 			framework: 'usnat',
@@ -156,7 +154,6 @@ describe('onConsentChange enhances basic consent state', () => {
 		);
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
-			ccpa: usnatConsentState,
 			usnat: usnatConsentState,
 			canTarget: true,
 			framework: 'usnat',

@@ -96,12 +96,9 @@ const getConsentState: () => Promise<ConsentState> = async () => {
 	switch (getCurrentFramework()) {
 		case 'aus':
 			return enhanceConsentState({ aus: await getAUSConsentState() });
-		case 'ccpa':
-			return enhanceConsentState({ ccpa: await getUSNATConsentState() });
 		case 'usnat': {
 			const usnatConsentState = await getUSNATConsentState();
 			return enhanceConsentState({
-				ccpa: usnatConsentState,
 				usnat: usnatConsentState,
 			});
 		}

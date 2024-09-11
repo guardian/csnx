@@ -1,7 +1,7 @@
 import { ACCOUNT_ID, ENDPOINT } from './lib/sourcepointConfig.ts';
 import { init } from './sourcepoint.ts';
 
-const frameworks = ['tcfv2', 'ccpa', 'aus'];
+const frameworks = ['tcfv2', 'usnat', 'aus'];
 
 describe('Sourcepoint unified', () => {
 	beforeEach(() => {
@@ -36,7 +36,7 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
 					framework,
 				);
-				expect(window._sp_.config.ccpa).toBeUndefined();
+				expect(window._sp_.config.usnat).toBeUndefined();
 				expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeUndefined();
 				expect(window.__gpp).toBeUndefined();
