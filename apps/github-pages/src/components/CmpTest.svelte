@@ -153,10 +153,10 @@
 			{#each Object.entries(consentState.tcfv2.vendorConsents) as [consent, state]}
 				<span class={JSON.parse(state) ? 'yes' : 'no'}>{consent}</span>
 			{/each}
-		{:else if consentState.ccpa}
-			<h2>ccpa.doNotSell</h2>
-			<span class="label" data-donotsell={consentState.ccpa.doNotSell}
-				>{consentState.ccpa.doNotSell}</span
+		{:else if consentState.usnat}
+			<h2>usnat.doNotSell</h2>
+			<span class="label" data-donotsell={consentState.usnat.doNotSell}
+				>{consentState.usnat.doNotSell}</span
 			>
 		{:else if consentState.aus}
 			<h2>aus.personalisedAdvertising</h2>
