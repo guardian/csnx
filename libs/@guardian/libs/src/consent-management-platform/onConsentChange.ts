@@ -28,7 +28,7 @@ const awaitingUserInteractionInTCFv2 = (state: ConsentState): boolean =>
 	state.tcfv2?.eventStatus === 'cmpuishown';
 
 const awaitingUserInteractionInUSNAT = (state: ConsentState): boolean =>
-	state.ccpa?.signalStatus === 'not ready';
+	state.usnat?.signalStatus === 'not ready';
 
 const invokeCallback = (callback: CallbackQueueItem, state: ConsentState) => {
 	if (
