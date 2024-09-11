@@ -8,7 +8,7 @@ import {
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
-const acceptAllButton = 'div.message-component > button.sp_choice_type_13';
+const doNotSellButton = 'div.message-component > button.sp_choice_type_13';
 const saveAndExitButton = '.sp_choice_type_SE';
 
 const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
@@ -92,7 +92,7 @@ test.describe('Interaction', () => {
 		await doNotSellIs(page, false);
 	});
 
-	test(`should retract consent banner after selecting reject all button "${buttonTitle}"`, async ({
+	test(`should retract consent banner after selecting do not sell  button "${buttonTitle}"`, async ({
 		page,
 	}) => {
 		await page.goto(url);
@@ -102,13 +102,13 @@ test.describe('Interaction', () => {
 		await page
 			.frameLocator(iframeMessage)
 			// .last()
-			.locator(acceptAllButton)
+			.locator(doNotSellButton)
 			.click();
 
 		await page.waitForLoadState('networkidle');
 
 		await expect(
-			page.frameLocator(iframeMessage).locator(acceptAllButton),
+			page.frameLocator(iframeMessage).locator(doNotSellButton),
 		).toBeHidden();
 	});
 
