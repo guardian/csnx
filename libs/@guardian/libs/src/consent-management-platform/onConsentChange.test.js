@@ -66,7 +66,8 @@ describe('under USNAT', () => {
 
 		expect(callback).toHaveBeenCalledTimes(1);
 
-		gppData.parsedSections.usnatv1.SaleOptOut = 1;
+		//
+		gppData.parsedSections.usnatv1.SaleOptOut = 1; // Opted Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
 		invokeCallbacks();
 		await resolveAllPromises();
 
@@ -84,7 +85,7 @@ describe('under USNAT', () => {
 		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
 		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
 
-		gppData.parsedSections.usnatv1.SaleOptOut = 1;
+		gppData.parsedSections.usnatv1.SaleOptOut = 1; // Opted Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
 
 		// callback 3 and 4 registered first with final flag
 		onConsentChange(callback3, true);
@@ -103,7 +104,7 @@ describe('under USNAT', () => {
 		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
-		gppData.parsedSections.usnatv1.SaleOptOut = 2;
+		gppData.parsedSections.usnatv1.SaleOptOut = 2; // Did Not Opt Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
 
 		invokeCallbacks();
 
