@@ -53,7 +53,19 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	// invoke callbacks before we receive Sourcepoint events
 	invokeCallbacks();
 
-	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
+	let frameworkMessageType: string;
+	switch (framework) {
+		case 'usnat':
+			frameworkMessageType = 'usnat';
+			break;
+		case 'aus':
+			frameworkMessageType = 'ccpa';
+			break;
+		case 'tcfv2':
+		default:
+			frameworkMessageType = 'gdpr';
+			break;
+	}
 
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
@@ -115,7 +127,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
 					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
-					console.log();
+
 					if (message_type != frameworkMessageType) {
 						return;
 					}
@@ -188,11 +200,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 			};
 			break;
-		case 'ccpa':
-			window._sp_.config.ccpa = {
+		case 'usnat':
+			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
 				},
+				includeUspApi: true,
+				transitionCCPAAuth: true,
 			};
 			break;
 		case 'aus':
