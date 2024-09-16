@@ -6,6 +6,6 @@ export const getConsentState: () => Promise<CCPAConsentState> = async () => {
 	const uspData = await getUSPData();
 
 	return {
-		doNotSell: uspData.uspString.charAt(2) === 'Y',
+		doNotSell: uspData.uspString.charAt(2) === 'Y' || uspData.gpcEnabled,
 	};
 };
