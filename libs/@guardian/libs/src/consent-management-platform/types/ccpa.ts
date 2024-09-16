@@ -5,4 +5,5 @@ export interface CCPAConsentState {
 export interface CCPAData {
 	version: number;
 	uspString: string;
+	gpcEnabled: boolean;
 }
