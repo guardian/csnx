@@ -18,8 +18,8 @@ const tcfv2ConsentFoundTrue = {
 const tcfv2ConsentFoundFalse = {
 	tcfv2: { vendorConsents: { [vendorOne]: false } },
 };
-const ccpaWithConsent = { ccpa: { doNotSell: false } };
-const ccpaWithoutConsent = { ccpa: { doNotSell: true } };
+const usnatWithConsent = { usnat: { doNotSell: false } };
+const usnatWithoutConsent = { usnat: { doNotSell: true } };
 const ausWithConsent = { aus: { personalisedAdvertising: true } };
 const ausWithoutConsent = { aus: { personalisedAdvertising: false } };
 
@@ -41,8 +41,8 @@ test.each([
 	['tcfv2', true, 'vendorOne', tcfv2ConsentFoundTrueAlt],
 	['tcfv2', true, 'vendorOne', tcfv2ConsentFoundTrue],
 	['tcfv2', false, 'vendorOne', tcfv2ConsentFoundFalse],
-	['ccpa', true, 'vendorOne', ccpaWithConsent],
-	['ccpa', false, 'vendorOne', ccpaWithoutConsent],
+	['usnat', true, 'vendorOne', usnatWithConsent],
+	['usnat', false, 'vendorOne', usnatWithoutConsent],
 	['aus', true, 'vendorOne', ausWithConsent],
 	['aus', false, 'vendorOne', ausWithoutConsent],
 ])(
