@@ -9,7 +9,7 @@ import {
 const iframeMessage = `[id^="sp_message_iframe_"]`;
 const iframePrivacyManager = `#sp_message_iframe_${PRIVACY_MANAGER_USNAT}`;
 const doNotSellButton = 'div.message-component > button.sp_choice_type_13';
-const closeButton = 'div.message-component > button.sp_choice_type_15';
+const closeButton = 'div.message-component > button.sp_choice_type_11';
 const saveAndExitButton = '.sp_choice_type_SE';
 
 const url = `http://localhost:4321/csnx/cmp-test-page#usnat`;
