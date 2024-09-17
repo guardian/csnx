@@ -29,7 +29,7 @@
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
-		"storybook": "storybook dev --port 4401",
+		"storybook": "wireit",
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
@@ -44,16 +44,10 @@
 		"@cobalt-ui/plugin-css": "1.7.0",
 		"@cobalt-ui/plugin-js": "1.4.3",
 		"@cobalt-ui/utils": "1.2.2",
+		"@csnx/storybooks": "workspace:*",
 		"@emotion/react": "11.11.3",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"@storybook/addon-a11y": "8.2.9",
-		"@storybook/addon-essentials": "8.2.9",
-		"@storybook/addon-interactions": "8.2.9",
-		"@storybook/addon-links": "8.2.9",
-		"@storybook/blocks": "8.2.9",
-		"@storybook/react": "8.2.9",
-		"@storybook/react-vite": "8.2.9",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
@@ -61,7 +55,7 @@
 		"@svgr/plugin-svgo": "8.1.0",
 		"@types/babel__core": "7.20.5",
 		"@types/jest": "29.5.8",
-		"@types/react": "18.2.79",
+		"@types/react": "18.2.11",
 		"dotenv": "16.4.1",
 		"eslint": "9.9.0",
 		"jest": "29.7.0",
@@ -70,7 +64,6 @@
 		"prettier": "3.3.3",
 		"react": "18.2.0",
 		"rollup": "4.21.0",
-		"storybook": "8.2.9",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
 		"tsx": "4.19.0",
@@ -79,7 +72,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.3",
-		"@types/react": "^18.2.79",
+		"@types/react": "^18.2.11",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.5.2"
@@ -126,18 +119,9 @@
 			]
 		},
 		"build-storybook": {
-			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"//": "just a convenience task so you can build it from here",
 			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"!storybook-static/**",
-				"!jest*",
-				"!.eslintcache"
-			],
-			"output": [
-				"storybook-static"
+				"../../../apps/storybooks:build-storybook:source"
 			]
 		},
 		"fix": {
@@ -166,6 +150,12 @@
 				"!.eslintcache"
 			],
 			"output": []
+		},
+		"storybook": {
+			"//": "Just a convenience task so you can run it from here. `make storybook` is probably a better option.",
+			"dependencies": [
+				"../../../apps/storybooks:storybook:source"
+			]
 		},
 		"test": {
 			"command": "jest",

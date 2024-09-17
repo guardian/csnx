@@ -1,5 +1,5 @@
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { css } from '@emotion/react';
-import type { Meta, StoryObj } from '@storybook/react';
 import {
 	headlineMedium14,
 	headlineMedium17,

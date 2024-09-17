@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { Legend } from './Legend';
 import { themeLabelBrand } from './theme';
 

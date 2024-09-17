@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { SvgRoundelDefault } from './SvgRoundelDefault';
 
 const meta: Meta<typeof SvgRoundelDefault> = {

@@ -1,42 +1,80 @@
 {
-	"name": "storybooks",
+	"name": "@csnx/storybooks",
 	"version": "1.0.0",
 	"private": true,
 	"description": "Collates storybooks of the CSNX monorepo.",
+	"type": "module",
+	"exports": {
+		"./react": {
+			"types": "./exports/react.d.ts",
+			"default": "./exports/react.js"
+		}
+	},
 	"scripts": {
-		"dev": "wireit"
+		"build-storybook:source": "wireit",
+		"build-storybook:source-development-kitchen": "wireit",
+		"storybook": "wireit",
+		"storybook:source": "wireit",
+		"storybook:source-development-kitchen": "wireit"
 	},
 	"devDependencies": {
-		"@emotion/react": "11.11.3",
+		"@emotion/react": "11.13.3",
+		"@guardian/libs": "workspace:*",
 		"@guardian/source": "workspace:*",
-		"@storybook/addon-a11y": "8.2.9",
-		"@storybook/addon-essentials": "8.2.9",
-		"@storybook/addon-interactions": "8.2.9",
-		"@storybook/addon-links": "8.2.9",
-		"@storybook/blocks": "8.2.9",
-		"@storybook/react": "8.2.9",
-		"@storybook/react-vite": "8.2.9",
-		"@types/react": "18.2.79",
-		"react": "18.2.0",
-		"storybook": "8.2.9",
+		"@storybook/addon-a11y": "8.3.1",
+		"@storybook/addon-essentials": "8.3.1",
+		"@storybook/addon-interactions": "8.3.1",
+		"@storybook/addon-links": "8.3.1",
+		"@storybook/blocks": "8.3.1",
+		"@storybook/react": "8.3.1",
+		"@storybook/react-vite": "8.3.1",
+		"@types/react": "18.3.7",
+		"react": "18.3.1",
+		"storybook": "8.3.1",
 		"wireit": "0.14.8"
 	},
 	"wireit": {
-		"dev": {
-			"command": "storybook dev --port 4400 --quiet",
+		"build-storybook:source": {
+			"command": "CONFIG=source NODE_ENV=production storybook build -o storybook-static/source",
 			"dependencies": [
-				"storybooks",
-				"wait"
+				"../../libs/@guardian/source:build"
+			]
+		},
+		"build-storybook:source-development-kitchen": {
+			"command": "CONFIG=source-development-kitchen NODE_ENV=production storybook build -o storybook-static/source-development-kitchen",
+			"dependencies": [
+				"../../libs/@guardian/source-development-kitchen:build"
+			]
+		},
+		"storybook": {
+			"command": "CONFIG=composed storybook dev --port 4400",
+			"dependencies": [
+				"storybook:source",
+				"storybook:source-development-kitchen"
 			],
 			"service": true
 		},
-		"storybooks": {
-			"command": "pnpm -r --parallel storybook --no-open --quiet",
-			"service": true
+		"storybook:source": {
+			"command": "CONFIG=source storybook dev --no-open --port 4401",
+			"dependencies": [
+				"../../libs/@guardian/source:build"
+			],
+			"service": {
+				"readyWhen": {
+					"lineMatches": "localhost:4401"
+				}
+			}
 		},
-		"wait": {
-			"//": "wait for project storybooks to start before starting the composed one",
-			"command": "sleep 5"
+		"storybook:source-development-kitchen": {
+			"command": "CONFIG=source-development-kitchen storybook dev --no-open --port 4402",
+			"dependencies": [
+				"../../libs/@guardian/source-development-kitchen:build"
+			],
+			"service": {
+				"readyWhen": {
+					"lineMatches": "localhost:4402"
+				}
+			}
 		}
 	}
 }

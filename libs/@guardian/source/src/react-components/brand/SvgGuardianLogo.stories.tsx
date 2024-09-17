@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { SvgGuardianLogo } from './SvgGuardianLogo';
 
 const meta: Meta<typeof SvgGuardianLogo> = {

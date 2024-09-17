@@ -13,10 +13,10 @@ ls:
 ###################################### DEV #####################################
 
 # runs storybook for all projects in single instance
-.PHONY: storybooks
-storybooks: env
+.PHONY: storybook
+storybook: env
 	$(call log,"Starting storybooks")
-	@corepack pnpm --filter=storybooks dev
+	@corepack pnpm --filter=storybooks storybook
 
 # runs the dev targets for all projects in single instance
 .PHONY: dev
@@ -101,7 +101,7 @@ build: env
 .PHONY: build-storybook
 build-storybook: env
 	$(call log,"Building storybooks")
-	@corepack pnpm run -r build-storybook
+	@corepack pnpm -r "/^build-storybook:.*/"
 
 ############################### MANAGING PACKAGES ##############################
 
@@ -156,6 +156,26 @@ install: check-node-version
 #
 # It also enables us to abstract away things like package manager vendor/version
 # etc.
+
+.PHONY: @csnx/storybooks\:build-storybook\:source
+@csnx/storybooks\:build-storybook\:source: env
+	@corepack pnpm --filter @csnx/storybooks build-storybook:source
+
+.PHONY: @csnx/storybooks\:build-storybook\:source-development-kitchen
+@csnx/storybooks\:build-storybook\:source-development-kitchen: env
+	@corepack pnpm --filter @csnx/storybooks build-storybook:source-development-kitchen
+
+.PHONY: @csnx/storybooks\:storybook
+@csnx/storybooks\:storybook: env
+	@corepack pnpm --filter @csnx/storybooks storybook
+
+.PHONY: @csnx/storybooks\:storybook\:source
+@csnx/storybooks\:storybook\:source: env
+	@corepack pnpm --filter @csnx/storybooks storybook:source
+
+.PHONY: @csnx/storybooks\:storybook\:source-development-kitchen
+@csnx/storybooks\:storybook\:source-development-kitchen: env
+	@corepack pnpm --filter @csnx/storybooks storybook:source-development-kitchen
 
 .PHONY: @guardian/ab-core\:build
 @guardian/ab-core\:build: env
@@ -488,9 +508,5 @@ github-pages\:start: env
 .PHONY: github-pages\:tsc
 github-pages\:tsc: env
 	@corepack pnpm --filter github-pages tsc
-
-.PHONY: storybooks\:dev
-storybooks\:dev: env
-	@corepack pnpm --filter storybooks dev
 
 ############################### END PROJECT_TASKS ##############################

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { useState } from 'react';
 import { palette } from '../../foundations';
 import { Checkbox } from './Checkbox';

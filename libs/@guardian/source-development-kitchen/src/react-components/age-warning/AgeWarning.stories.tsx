@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@csnx/storybooks/react';
 import type { AgeWarningProps } from './AgeWarning';
 import { AgeWarning } from './AgeWarning';
 

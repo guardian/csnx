@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { SvgCross } from '../__generated__/icons/SvgCross';
 import { Button } from './Button';
 import { themeButtonBrand, themeButtonBrandAlt } from './theme';

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { breakpoints } from '../../foundations';
+import type { Meta, StoryObj } from '@csnx/storybooks/react';
 import { Tiles } from './Tiles';
 
 const meta: Meta<typeof Tiles> = {
