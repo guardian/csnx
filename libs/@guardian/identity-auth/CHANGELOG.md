@@ -1,5 +1,13 @@
 # @guardian/identity-auth
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [cb19d46]
+- Updated dependencies [59b350f]
+  - @guardian/libs@19.0.0
+
 ## 3.0.1
 
 ### Patch Changes
