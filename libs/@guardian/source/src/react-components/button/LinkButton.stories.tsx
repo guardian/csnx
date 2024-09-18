@@ -1,5 +1,5 @@
-import { palette } from '../../foundations';
 import type { Meta, StoryObj } from '@storybook/react';
+import { palette } from '../../foundations';
 import { SvgArrowRightStraight } from '../__generated__/icons/SvgArrowRightStraight';
 import { LinkButton } from './LinkButton';
 

@@ -1,5 +1,5 @@
-import { breakpoints, palette } from '../../foundations';
 import type { Meta, StoryObj } from '@storybook/react';
+import { breakpoints, palette } from '../../foundations';
 import { InlineError } from './InlineError';
 import { themeUserFeedbackBrand } from './theme';
 

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { palette, space } from '../../foundations';
 import type { Meta, StoryObj } from '@storybook/react';
+import { palette, space } from '../../foundations';
 import { Stack } from './Stack';
 
 const meta: Meta<typeof Stack> = {

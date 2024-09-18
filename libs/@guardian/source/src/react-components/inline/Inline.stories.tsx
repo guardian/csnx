@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { breakpoints, palette, space } from '../../foundations';
 import type { Meta, StoryObj } from '@storybook/react';
+import { breakpoints, palette, space } from '../../foundations';
 import { Inline } from './Inline';
 
 const meta: Meta<typeof Inline> = {

@@ -1,5 +1,5 @@
-import { breakpoints } from '../../foundations';
 import type { Meta, StoryObj } from '@storybook/react';
+import { breakpoints } from '../../foundations';
 import { Hide } from './Hide';
 
 const meta: Meta<typeof Hide> = {
