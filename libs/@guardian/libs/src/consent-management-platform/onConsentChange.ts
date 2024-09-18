@@ -97,9 +97,8 @@ const getConsentState: () => Promise<ConsentState> = async () => {
 		case 'aus':
 			return enhanceConsentState({ aus: await getAUSConsentState() });
 		case 'usnat': {
-			const usnatConsentState = await getUSNATConsentState();
 			return enhanceConsentState({
-				usnat: usnatConsentState,
+				usnat: await getUSNATConsentState(),
 			});
 		}
 		case 'tcfv2':
