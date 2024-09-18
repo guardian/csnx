@@ -1,16 +1,16 @@
 import { getConsentState as getAUSConsentState } from './aus/getConsentState';
-import { getConsentState as getCCPAConsentState } from './ccpa/getConsentState';
 import { getCurrentFramework } from './getCurrentFramework';
 import { getGpcSignal } from './lib/signals';
 import { getConsentState as getTCFv2ConsentState } from './tcfv2/getConsentState';
 import type { CallbackQueueItem, ConsentState, OnConsentChange } from './types';
 import type { AUSConsentState } from './types/aus';
-import type { CCPAConsentState } from './types/ccpa';
 import type { TCFv2ConsentState } from './types/tcfv2';
+import type { USNATConsentState } from './types/usnat';
+import { getConsentState as getUSNATConsentState } from './usnat/getConsentState';
 
 interface ConsentStateBasic {
 	tcfv2?: TCFv2ConsentState;
-	ccpa?: CCPAConsentState;
+	usnat?: USNATConsentState;
 	aus?: AUSConsentState;
 }
 
@@ -26,8 +26,14 @@ const finalCallbackQueue: CallbackQueueItem[] = [];
 const awaitingUserInteractionInTCFv2 = (state: ConsentState): boolean =>
 	state.tcfv2?.eventStatus === 'cmpuishown';
 
+const awaitingUserInteractionInUSNAT = (state: ConsentState): boolean =>
+	state.usnat?.signalStatus === 'not ready';
+
 const invokeCallback = (callback: CallbackQueueItem, state: ConsentState) => {
-	if (awaitingUserInteractionInTCFv2(state)) {
+	if (
+		awaitingUserInteractionInTCFv2(state) ||
+		awaitingUserInteractionInUSNAT(state)
+	) {
 		return;
 	}
 
@@ -63,11 +69,11 @@ const enhanceConsentState = (consentState: ConsentStateBasic): ConsentState => {
 			framework: 'tcfv2',
 			gpcSignal,
 		};
-	} else if (consentState.ccpa) {
+	} else if (consentState.usnat) {
 		return {
 			...consentState,
-			canTarget: !consentState.ccpa.doNotSell,
-			framework: 'ccpa',
+			canTarget: !consentState.usnat.doNotSell,
+			framework: 'usnat',
 			gpcSignal,
 		};
 	} else if (consentState.aus) {
@@ -90,8 +96,11 @@ const getConsentState: () => Promise<ConsentState> = async () => {
 	switch (getCurrentFramework()) {
 		case 'aus':
 			return enhanceConsentState({ aus: await getAUSConsentState() });
-		case 'ccpa':
-			return enhanceConsentState({ ccpa: await getCCPAConsentState() });
+		case 'usnat': {
+			return enhanceConsentState({
+				usnat: await getUSNATConsentState(),
+			});
+		}
 		case 'tcfv2':
 			return enhanceConsentState({ tcfv2: await getTCFv2ConsentState() });
 		default:
@@ -106,7 +115,10 @@ export const invokeCallbacks = (): void => {
 		return;
 	}
 	void getConsentState().then((state) => {
-		if (awaitingUserInteractionInTCFv2(state)) {
+		if (
+			awaitingUserInteractionInTCFv2(state) ||
+			awaitingUserInteractionInUSNAT(state)
+		) {
 			return;
 		}
 

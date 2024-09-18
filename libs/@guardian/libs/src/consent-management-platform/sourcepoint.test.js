@@ -1,12 +1,13 @@
 import { ACCOUNT_ID, ENDPOINT } from './lib/sourcepointConfig.ts';
 import { init } from './sourcepoint.ts';
 
-const frameworks = ['tcfv2', 'ccpa', 'aus'];
+const frameworks = ['tcfv2', 'usnat', 'aus'];
 
 describe('Sourcepoint unified', () => {
 	beforeEach(() => {
 		window.__tcfapi = undefined;
 		window.__uspapi = undefined;
+		window.__gpp = undefined;
 	});
 	afterEach(() => {
 		window._sp_ = undefined;
@@ -35,16 +36,20 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
 					framework,
 				);
-				expect(window._sp_.config.ccpa).toBeUndefined();
+				expect(window._sp_.config.usnat).toBeUndefined();
 				expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeUndefined();
-			} else if (framework == 'ccpa') {
-				expect(window._sp_.config.ccpa.targetingParams.framework).toEqual(
+				expect(window.__gpp).toBeUndefined();
+			} else if (framework == 'usnat') {
+				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
+				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
+				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
 					framework,
 				);
 				expect(window._sp_.config.gdpr).toBeUndefined;
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__tcfapi).toBeUndefined();
+				expect(window.__gpp).toBeDefined();
 			} else if (framework == 'aus') {
 				expect(window._sp_.config.ccpa.targetingParams.framework).toEqual(
 					framework,
@@ -52,6 +57,7 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr).toBeUndefined;
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__tcfapi).toBeUndefined();
+				expect(window.__gpp).toBeUndefined();
 			}
 		},
 	);
