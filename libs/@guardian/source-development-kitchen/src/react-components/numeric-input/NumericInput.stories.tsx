@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import type { NumericInputProps } from './NumericInput';
 import { NumericInput } from './NumericInput';

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@csnx/storybooks/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SvgRoundelBrand } from './SvgRoundelBrand';
 
 const meta: Meta<typeof SvgRoundelBrand> = {

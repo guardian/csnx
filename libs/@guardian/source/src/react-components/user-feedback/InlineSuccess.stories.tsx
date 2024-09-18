@@ -1,5 +1,5 @@
 import { palette } from '../../foundations';
-import type { Meta, StoryObj } from '@csnx/storybooks/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { InlineSuccess } from './InlineSuccess';
 import { themeUserFeedbackBrand } from './theme';
 

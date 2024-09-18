@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { InfoSummaryProps } from './InfoSummary';
 import { InfoSummary } from './InfoSummary';
 

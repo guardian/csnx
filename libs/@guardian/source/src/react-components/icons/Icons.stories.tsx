@@ -1,5 +1,5 @@
 import { palette } from '../../foundations';
-import type { Meta, StoryObj } from '@csnx/storybooks/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAlarmClockFilled } from '../__generated__/icons/SvgAlarmClockFilled';
 import { SvgAlarmClockOutlined } from '../__generated__/icons/SvgAlarmClockOutlined';

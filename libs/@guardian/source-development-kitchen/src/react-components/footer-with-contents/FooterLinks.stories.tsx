@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { FooterLinksProps } from './FooterLinks';
 import { defaultGuardianLinks, FooterLinks } from './FooterLinks';
 

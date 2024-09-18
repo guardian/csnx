@@ -1,10 +1,10 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
 import {
 	ArticleDesign,
 	ArticleDisplay,
 	ArticlePillar,
 	ArticleSpecial,
 } from '@guardian/libs';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { QuoteIconProps } from './QuoteIcon';
 import { QuoteIcon } from './QuoteIcon';
 

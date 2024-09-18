@@ -1,5 +1,5 @@
 import { palette } from '../../foundations';
-import type { Meta, StoryObj } from '@csnx/storybooks/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Radio } from './Radio';
 import * as RadioStories from './Radio.stories';
 import { RadioGroup } from './RadioGroup';

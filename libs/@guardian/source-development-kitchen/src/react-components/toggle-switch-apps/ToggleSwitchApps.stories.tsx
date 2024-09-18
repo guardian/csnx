@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ToggleSwitchApps } from './ToggleSwitchApps';
 import type { ToggleSwitchAppsProps } from './ToggleSwitchApps';

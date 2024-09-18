@@ -1,4 +1,3 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
 import { css } from '@emotion/react';
 import type { ArticleFormat } from '@guardian/libs';
 import {
@@ -16,6 +15,7 @@ import {
 	specialReport,
 	sport,
 } from '@guardian/source/foundations';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 import { ToggleSwitch } from './ToggleSwitch';
 import type { ToggleSwitchProps } from './ToggleSwitch';

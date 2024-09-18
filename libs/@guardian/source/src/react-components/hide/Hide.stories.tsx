@@ -1,5 +1,5 @@
 import { breakpoints } from '../../foundations';
-import type { Meta, StoryObj } from '@csnx/storybooks/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Hide } from './Hide';
 
 const meta: Meta<typeof Hide> = {

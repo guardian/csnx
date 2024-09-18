@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@csnx/storybooks/react';
 import { breakpoints } from '@guardian/source/foundations';
 import { Logo } from './Logo';
+import type { Meta, StoryFn } from '@storybook/react';
 
 const meta: Meta<typeof Logo> = {
 	title: 'React Components/Logo',

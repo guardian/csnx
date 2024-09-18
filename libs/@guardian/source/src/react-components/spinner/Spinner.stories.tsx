@@ -1,5 +1,5 @@
 import { palette } from '../../foundations';
-import type { Meta, StoryObj } from '@csnx/storybooks/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Spinner } from './Spinner';
 
 const meta: Meta<typeof Spinner> = {
