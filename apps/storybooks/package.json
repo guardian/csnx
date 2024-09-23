@@ -4,12 +4,6 @@
 	"private": true,
 	"description": "Collates storybooks of the CSNX monorepo.",
 	"type": "module",
-	"exports": {
-		"./react": {
-			"types": "./exports/react.d.ts",
-			"default": "./exports/react.js"
-		}
-	},
 	"scripts": {
 		"build-storybook:source": "wireit",
 		"build-storybook:source-development-kitchen": "wireit",
@@ -21,16 +15,16 @@
 		"@emotion/react": "11.13.3",
 		"@guardian/libs": "workspace:*",
 		"@guardian/source": "workspace:*",
-		"@storybook/addon-a11y": "8.3.1",
-		"@storybook/addon-essentials": "8.3.1",
-		"@storybook/addon-interactions": "8.3.1",
-		"@storybook/addon-links": "8.3.1",
-		"@storybook/blocks": "8.3.1",
-		"@storybook/react": "8.3.1",
-		"@storybook/react-vite": "8.3.1",
-		"@types/react": "18.3.7",
+		"@storybook/addon-a11y": "8.3.2",
+		"@storybook/addon-essentials": "8.3.2",
+		"@storybook/addon-interactions": "8.3.2",
+		"@storybook/addon-links": "8.3.2",
+		"@storybook/blocks": "8.3.2",
+		"@storybook/react": "8.3.2",
+		"@storybook/react-vite": "8.3.2",
+		"@types/react": "18.3.8",
 		"react": "18.3.1",
-		"storybook": "8.3.1",
+		"storybook": "8.3.2",
 		"wireit": "0.14.8"
 	},
 	"wireit": {

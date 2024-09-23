@@ -38,6 +38,9 @@
 				"react",
 				"react-dom"
 			]
+		},
+		"overrides": {
+			"@types/react-dom>@types/react@^18.0.0": "18.2.79"
 		}
 	}
 }
