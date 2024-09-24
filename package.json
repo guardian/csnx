@@ -13,6 +13,7 @@
 		"@changesets/cli": "2.27.1",
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
+		"@types/doctrine": "0.0.9",
 		"@types/node": "20.14.10",
 		"husky": "9.1.4",
 		"lint-staged": "15.2.10",
@@ -38,9 +39,6 @@
 				"react",
 				"react-dom"
 			]
-		},
-		"overrides": {
-			"@types/react-dom>@types/react@^18.0.0": "18.2.79"
 		}
 	}
 }
