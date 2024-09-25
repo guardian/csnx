@@ -47,7 +47,7 @@
 		"@emotion/react": "11.11.3",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"@storybook/react": "8.3.1",
+		"@storybook/react": "8.3.3",
 		"@svgr/babel-preset": "8.1.0",
 		"@svgr/core": "8.1.0",
 		"@svgr/plugin-jsx": "8.1.0",
