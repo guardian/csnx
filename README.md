@@ -61,7 +61,7 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 - `make formatting:check` _check repo for formatting errors_
 - `make lint` _checks all projects for lint errors_
 - `make ls` _lists available `make` targets_
-- `make storybooks` _runs storybook for all projects in single instance_
+- `make storybook` _runs storybook for all projects in single instance_
 - `make test` _runs the unit tests for all projects_
 - `make test:coverage` _get test coverage for CSTI projects_
 - `make tsc` _type-checking all projects_
@@ -196,7 +196,11 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 
 #### storybooks
 
-- `make storybooks:dev`
+- `make storybooks:build-storybook:source`
+- `make storybooks:build-storybook:source-development-kitchen`
+- `make storybooks:storybook`
+- `make storybooks:storybook:source`
+- `make storybooks:storybook:source-development-kitchen`
 
 <!-- END TASKS -->
 

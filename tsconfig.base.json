@@ -2,7 +2,6 @@
 	"extends": "./libs/@guardian/tsconfig/tsconfig.json",
 	"compilerOptions": {
 		"allowJs": true,
-		"baseUrl": ".",
 		"declaration": true,
 		"declarationMap": true,
 		"forceConsistentCasingInFileNames": true,
@@ -11,7 +10,6 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "@emotion/react",
 		"noEmit": true,
-		"rootDir": ".",
 		"sourceMap": true
 	},
 	"include": []

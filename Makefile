@@ -13,10 +13,10 @@ ls:
 ###################################### DEV #####################################
 
 # runs storybook for all projects in single instance
-.PHONY: storybooks
-storybooks: env
+.PHONY: storybook
+storybook: env
 	$(call log,"Starting storybooks")
-	@corepack pnpm --filter=storybooks dev
+	@corepack pnpm --filter=storybooks storybook
 
 # runs the dev targets for all projects in single instance
 .PHONY: dev
@@ -101,7 +101,7 @@ build: env
 .PHONY: build-storybook
 build-storybook: env
 	$(call log,"Building storybooks")
-	@corepack pnpm run -r build-storybook
+	@corepack pnpm --filter storybooks --parallel "/^build-storybook:.*/"
 
 ############################### MANAGING PACKAGES ##############################
 
@@ -489,8 +489,24 @@ github-pages\:start: env
 github-pages\:tsc: env
 	@corepack pnpm --filter github-pages tsc
 
-.PHONY: storybooks\:dev
-storybooks\:dev: env
-	@corepack pnpm --filter storybooks dev
+.PHONY: storybooks\:build-storybook\:source
+storybooks\:build-storybook\:source: env
+	@corepack pnpm --filter storybooks build-storybook:source
+
+.PHONY: storybooks\:build-storybook\:source-development-kitchen
+storybooks\:build-storybook\:source-development-kitchen: env
+	@corepack pnpm --filter storybooks build-storybook:source-development-kitchen
+
+.PHONY: storybooks\:storybook
+storybooks\:storybook: env
+	@corepack pnpm --filter storybooks storybook
+
+.PHONY: storybooks\:storybook\:source
+storybooks\:storybook\:source: env
+	@corepack pnpm --filter storybooks storybook:source
+
+.PHONY: storybooks\:storybook\:source-development-kitchen
+storybooks\:storybook\:source-development-kitchen: env
+	@corepack pnpm --filter storybooks storybook:source-development-kitchen
 
 ############################### END PROJECT_TASKS ##############################

@@ -3,6 +3,10 @@
 	"include": ["**/*"],
 	"exclude": ["node_modules", "dist", ".wireit", "jest.dist.setup.js"],
 	"compilerOptions": {
-		"jsxImportSource": "react"
+		"jsxImportSource": "react",
+		"paths": {
+			// https://github.com/pnpm/pnpm/issues/7158#issuecomment-1783974123
+			"react": ["./node_modules/@types/react"]
+		}
 	}
 }

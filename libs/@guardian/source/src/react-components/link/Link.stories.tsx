@@ -146,6 +146,7 @@ export const UnderlineHoverHeadline: Story = {
 			css={css`
 				display: flex;
 				flex-direction: column;
+
 				a {
 					padding: 20px 0;
 				}
