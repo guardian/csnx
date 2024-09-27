@@ -1,5 +1,5 @@
 {
-	"name": "@csnx/storybooks",
+	"name": "storybooks",
 	"version": "1.0.0",
 	"private": true,
 	"description": "Collates storybooks of the CSNX monorepo.",
@@ -29,15 +29,21 @@
 	},
 	"wireit": {
 		"build-storybook:source": {
-			"command": "CONFIG=source NODE_ENV=production storybook  --stats-json build -o storybook-static/source",
+			"command": "CONFIG=source NODE_ENV=production storybook build --stats-json -o storybook-static/source",
 			"dependencies": [
 				"../../libs/@guardian/source:build"
+			],
+			"output": [
+				"./storybook-static/source"
 			]
 		},
 		"build-storybook:source-development-kitchen": {
 			"command": "CONFIG=source-development-kitchen NODE_ENV=production storybook build --stats-json -o storybook-static/source-development-kitchen",
 			"dependencies": [
 				"../../libs/@guardian/source-development-kitchen:build"
+			],
+			"output": [
+				"./storybook-static/source-development-kitchen"
 			]
 		},
 		"storybook": {

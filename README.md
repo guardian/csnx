@@ -72,14 +72,6 @@ Tasks that apply to all projects are defined in the [`Makefile`](./Makefile):
 
 Project-specific tasks are defined as `scripts` in their `package.json`, and can be run with `make <project>:<script>`:
 
-#### @csnx/storybooks
-
-- `make @csnx/storybooks:build-storybook:source`
-- `make @csnx/storybooks:build-storybook:source-development-kitchen`
-- `make @csnx/storybooks:storybook`
-- `make @csnx/storybooks:storybook:source`
-- `make @csnx/storybooks:storybook:source-development-kitchen`
-
 #### @guardian/ab-core
 
 - `make @guardian/ab-core:build`
@@ -201,6 +193,14 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make github-pages:dev`
 - `make github-pages:start`
 - `make github-pages:tsc`
+
+#### storybooks
+
+- `make storybooks:build-storybook:source`
+- `make storybooks:build-storybook:source-development-kitchen`
+- `make storybooks:storybook`
+- `make storybooks:storybook:source`
+- `make storybooks:storybook:source-development-kitchen`
 
 <!-- END TASKS -->
 

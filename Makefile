@@ -101,7 +101,7 @@ build: env
 .PHONY: build-storybook
 build-storybook: env
 	$(call log,"Building storybooks")
-	@corepack pnpm -r "/^build-storybook:.*/"
+	@corepack pnpm --filter storybooks --parallel "/^build-storybook:.*/"
 
 ############################### MANAGING PACKAGES ##############################
 
@@ -156,26 +156,6 @@ install: check-node-version
 #
 # It also enables us to abstract away things like package manager vendor/version
 # etc.
-
-.PHONY: @csnx/storybooks\:build-storybook\:source
-@csnx/storybooks\:build-storybook\:source: env
-	@corepack pnpm --filter @csnx/storybooks build-storybook:source
-
-.PHONY: @csnx/storybooks\:build-storybook\:source-development-kitchen
-@csnx/storybooks\:build-storybook\:source-development-kitchen: env
-	@corepack pnpm --filter @csnx/storybooks build-storybook:source-development-kitchen
-
-.PHONY: @csnx/storybooks\:storybook
-@csnx/storybooks\:storybook: env
-	@corepack pnpm --filter @csnx/storybooks storybook
-
-.PHONY: @csnx/storybooks\:storybook\:source
-@csnx/storybooks\:storybook\:source: env
-	@corepack pnpm --filter @csnx/storybooks storybook:source
-
-.PHONY: @csnx/storybooks\:storybook\:source-development-kitchen
-@csnx/storybooks\:storybook\:source-development-kitchen: env
-	@corepack pnpm --filter @csnx/storybooks storybook:source-development-kitchen
 
 .PHONY: @guardian/ab-core\:build
 @guardian/ab-core\:build: env
@@ -508,5 +488,25 @@ github-pages\:start: env
 .PHONY: github-pages\:tsc
 github-pages\:tsc: env
 	@corepack pnpm --filter github-pages tsc
+
+.PHONY: storybooks\:build-storybook\:source
+storybooks\:build-storybook\:source: env
+	@corepack pnpm --filter storybooks build-storybook:source
+
+.PHONY: storybooks\:build-storybook\:source-development-kitchen
+storybooks\:build-storybook\:source-development-kitchen: env
+	@corepack pnpm --filter storybooks build-storybook:source-development-kitchen
+
+.PHONY: storybooks\:storybook
+storybooks\:storybook: env
+	@corepack pnpm --filter storybooks storybook
+
+.PHONY: storybooks\:storybook\:source
+storybooks\:storybook\:source: env
+	@corepack pnpm --filter storybooks storybook:source
+
+.PHONY: storybooks\:storybook\:source-development-kitchen
+storybooks\:storybook\:source-development-kitchen: env
+	@corepack pnpm --filter storybooks storybook:source-development-kitchen
 
 ############################### END PROJECT_TASKS ##############################
