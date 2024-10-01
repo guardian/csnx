@@ -1,5 +1,12 @@
 # @guardian/source-development-kitchen
 
+## 11.0.0
+
+### Major Changes
+
+- 7e8b36a: Make `Ticker` size configurable via a new `size` prop.
+  Rename prop `countLabel` to `headline` in `Ticker`.
+
 ## 10.0.0
 
 ### Patch Changes
