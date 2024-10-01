@@ -19,6 +19,7 @@ export enum ArticleDesign {
 	Quiz,
 	Interactive,
 	PhotoEssay,
+	PrintShop,
 	Obituary,
 	Correction,
 	FullPageInteractive,
