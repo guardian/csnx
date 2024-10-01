@@ -4,13 +4,15 @@ import {
 	space,
 	textSans15,
 	textSansBold17,
+	textSansBold20,
+	textSansBold24,
 } from '@guardian/source/foundations';
 import { useEffect, useState } from 'react';
 import { useIsInView } from './useIsInView';
 import { useTicker } from './useTicker';
 
 interface TickerCopy {
-	countLabel: string;
+	headline?: string;
 }
 
 export interface TickerData {
@@ -26,12 +28,30 @@ export interface TickerStylingSettings {
 	progressBarBackgroundColour: string;
 }
 
+type TickerSize = 'small' | 'medium' | 'large';
+
 export interface TickerSettings {
 	currencySymbol: string;
 	copy: TickerCopy;
 	tickerData: TickerData;
 	tickerStylingSettings: TickerStylingSettings;
+	size: TickerSize;
 }
+
+const tickerSizeSettings = {
+	small: {
+		barHeight: 10,
+		totalFont: textSansBold17,
+	},
+	medium: {
+		barHeight: 14,
+		totalFont: textSansBold20,
+	},
+	large: {
+		barHeight: 16,
+		totalFont: textSansBold24,
+	},
+};
 
 //styles for the container that holds the ticker
 const tickerContainerStyles = css`
@@ -49,15 +69,15 @@ const headlineStyles = (headlineColour: string) => css`
 	padding-bottom: ${space[1]}px;
 `;
 
-//styles for the numerical count (total raised so far) and the goal text
-const goalLabelStyles = (goalContributionsColour: string) => css`
+//styles for the total and the goal text
+const goalLabelStyles = (goalColour: string) => css`
 	${textSans15};
-	color: ${goalContributionsColour};
+	color: ${goalColour};
 `;
 
-const countLabelStyles = (countColour: string) => css`
-	${textSansBold17};
-	color: ${countColour};
+const totalLabelStyles = (totalColour: string, totalFont: string) => css`
+	${totalFont};
+	color: ${totalColour};
 `;
 
 const labelContainerStyles = css`
@@ -67,8 +87,9 @@ const labelContainerStyles = css`
 //styles for the progress bar background
 const progressBarBackgroundStyles = (
 	progressBarBackgroundColour: string,
+	barHeight: number,
 ) => css`
-	height: 10px;
+	height: ${barHeight}px;
 	align-self: stretch;
 	align-items: center;
 	display: flex;
@@ -77,15 +98,6 @@ const progressBarBackgroundStyles = (
 	overflow-x: hidden;
 	width: 100%;
 	position: relative;
-`;
-
-//styles for the moving part of the progress bar
-const progressBarStyles = css`
-	overflow: hidden;
-	width: 100%;
-	height: 10px;
-	position: absolute;
-	border-radius: 8px;
 `;
 
 const progressBarTransform = (goal: number, runningTotal: number): string => {
@@ -103,6 +115,7 @@ const filledProgressStyles = (
 	goal: number,
 	runningTotal: number,
 	progressBarColour: string,
+	barHeight: number,
 ): SerializedStyles => css`
 	position: absolute;
 	top: 0;
@@ -112,7 +125,7 @@ const filledProgressStyles = (
 	transform: ${progressBarTransform(goal, runningTotal)};
 	transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
 	background-color: ${progressBarColour};
-	height: 10px;
+	height: ${barHeight}px;
 `;
 
 export const Ticker = ({
@@ -120,6 +133,7 @@ export const Ticker = ({
 	currencySymbol,
 	copy,
 	tickerStylingSettings,
+	size,
 }: TickerSettings) => {
 	//state to track if the component is ready to animate
 	const [readyToAnimate, setReadyToAnimate] = useState(false);
@@ -143,25 +157,33 @@ export const Ticker = ({
 		goalColour,
 	} = tickerStylingSettings;
 
+	const { barHeight, totalFont } = tickerSizeSettings[size];
+
 	return (
 		<div ref={setNode}>
 			<div>
 				<div css={tickerContainerStyles}>
-					<div css={headlineStyles(headlineColour)}>{copy.countLabel}</div>
-					<div css={progressBarBackgroundStyles(progressBarBackgroundColour)}>
-						<div css={progressBarStyles}>
-							<div
-								css={filledProgressStyles(
-									tickerData.goal,
-									runningTotal,
-									filledProgressColour,
-								)}
-							/>
-						</div>
+					{copy.headline && (
+						<div css={headlineStyles(headlineColour)}>{copy.headline}</div>
+					)}
+					<div
+						css={progressBarBackgroundStyles(
+							progressBarBackgroundColour,
+							barHeight,
+						)}
+					>
+						<div
+							css={filledProgressStyles(
+								tickerData.goal,
+								runningTotal,
+								filledProgressColour,
+								barHeight,
+							)}
+						/>
 					</div>
 					<div css={labelContainerStyles}>
 						<div css={goalLabelStyles(goalColour)}>
-							<span css={countLabelStyles(totalColour)}>
+							<span css={totalLabelStyles(totalColour, totalFont)}>
 								{currencySymbol}
 								{runningTotal.toLocaleString()}
 							</span>{' '}
