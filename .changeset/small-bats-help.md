@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Revert "Remove `ArticleDesign.PrintShop`". To be re-implemented at a later date.
+Restores `ArticleDesign.PrintShop`. To be re-removed at a later date.
