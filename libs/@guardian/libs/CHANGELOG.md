@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 19.1.0
+
+### Minor Changes
+
+- f1ba24a: Restores `ArticleDesign.PrintShop`. To be re-removed at a later date.
+
 ## 19.0.0
 
 ### Major Changes
