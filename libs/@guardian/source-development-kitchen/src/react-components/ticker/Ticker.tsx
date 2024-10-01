@@ -49,15 +49,15 @@ const headlineStyles = (headlineColour: string) => css`
 	padding-bottom: ${space[1]}px;
 `;
 
-//styles for the numerical count (total raised so far) and the goal text
-const goalLabelStyles = (goalContributionsColour: string) => css`
+//styles for the total and the goal text
+const goalLabelStyles = (goalColour: string) => css`
 	${textSans15};
-	color: ${goalContributionsColour};
+	color: ${goalColour};
 `;
 
-const countLabelStyles = (countColour: string) => css`
+const totalLabelStyles = (totalColour: string) => css`
 	${textSansBold17};
-	color: ${countColour};
+	color: ${totalColour};
 `;
 
 const labelContainerStyles = css`
@@ -163,7 +163,7 @@ export const Ticker = ({
 					</div>
 					<div css={labelContainerStyles}>
 						<div css={goalLabelStyles(goalColour)}>
-							<span css={countLabelStyles(totalColour)}>
+							<span css={totalLabelStyles(totalColour)}>
 								{currencySymbol}
 								{runningTotal.toLocaleString()}
 							</span>{' '}
