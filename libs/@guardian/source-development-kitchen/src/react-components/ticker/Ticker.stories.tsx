@@ -30,6 +30,7 @@ HalfwayContributed.args = {
 		goal: 100000,
 	},
 	tickerStylingSettings,
+	size: 'small',
 };
 
 export const SmallDonationsSoFar: StoryFn<typeof Ticker> = Template.bind({});
@@ -43,6 +44,7 @@ SmallDonationsSoFar.args = {
 		goal: 100000,
 	},
 	tickerStylingSettings,
+	size: 'small',
 };
 
 export const ContributionGoalMet: StoryFn<typeof Ticker> = Template.bind({});
@@ -56,4 +58,19 @@ ContributionGoalMet.args = {
 		goal: 1000000,
 	},
 	tickerStylingSettings,
+	size: 'small',
+};
+
+export const HalfwayContributedLarge: StoryFn<typeof Ticker> = Template.bind(
+	{},
+);
+HalfwayContributedLarge.args = {
+	currencySymbol: '£',
+	copy: {},
+	tickerData: {
+		total: 50000,
+		goal: 100000,
+	},
+	tickerStylingSettings,
+	size: 'large',
 };
