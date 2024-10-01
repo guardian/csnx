@@ -10,7 +10,7 @@ import { useIsInView } from './useIsInView';
 import { useTicker } from './useTicker';
 
 interface TickerCopy {
-	countLabel: string;
+	headline?: string;
 }
 
 export interface TickerData {
@@ -147,7 +147,9 @@ export const Ticker = ({
 		<div ref={setNode}>
 			<div>
 				<div css={tickerContainerStyles}>
-					<div css={headlineStyles(headlineColour)}>{copy.countLabel}</div>
+					{copy.headline && (
+						<div css={headlineStyles(headlineColour)}>{copy.headline}</div>
+					)}
 					<div css={progressBarBackgroundStyles(progressBarBackgroundColour)}>
 						<div css={progressBarStyles}>
 							<div

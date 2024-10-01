@@ -24,9 +24,7 @@ const Template: StoryFn<typeof Ticker> = (args: TickerSettings) => (
 export const HalfwayContributed: StoryFn<typeof Ticker> = Template.bind({});
 HalfwayContributed.args = {
 	currencySymbol: '£',
-	copy: {
-		countLabel: '',
-	},
+	copy: {},
 	tickerData: {
 		total: 50000,
 		goal: 100000,
@@ -38,7 +36,7 @@ export const SmallDonationsSoFar: StoryFn<typeof Ticker> = Template.bind({});
 SmallDonationsSoFar.args = {
 	currencySymbol: '£',
 	copy: {
-		countLabel: 'Help us reach our end-of-year goal',
+		headline: 'Help us reach our end-of-year goal',
 	},
 	tickerData: {
 		total: 99,
@@ -51,7 +49,7 @@ export const ContributionGoalMet: StoryFn<typeof Ticker> = Template.bind({});
 ContributionGoalMet.args = {
 	currencySymbol: '£',
 	copy: {
-		countLabel: 'Help us reach our end-of-year goal',
+		headline: 'Help us reach our end-of-year goal',
 	},
 	tickerData: {
 		total: 10000000,
