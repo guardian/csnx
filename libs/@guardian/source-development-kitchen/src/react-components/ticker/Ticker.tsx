@@ -58,8 +58,6 @@ const tickerContainerStyles = css`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding-bottom: ${space[5]}px;
-	padding-top: ${space[1]}px;
 `;
 
 //styles for headline text (which is optional)
