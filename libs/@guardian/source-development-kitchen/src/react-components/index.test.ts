@@ -4,8 +4,6 @@ import * as pkgExports from './index';
 // it won't catch that new ones have been added, but can anyone?
 export type {
 	AgeWarningProps,
-	EditorialButtonProps,
-	EditorialLinkButtonProps,
 	ExpandingWrapperProps,
 	FileInputProps,
 	FooterLinksProps,
@@ -28,8 +26,6 @@ it('Should have exactly these exports', () => {
 		'DashedLines',
 		'Divider',
 		'DottedLines',
-		'EditorialButton',
-		'EditorialLinkButton',
 		'ErrorSummary',
 		'ExpandingWrapper',
 		'FileInput',
