@@ -247,7 +247,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 19.0.0
-        version: link:../libs
+        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -335,7 +335,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 19.0.0
-        version: link:../libs
+        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -377,7 +377,7 @@ importers:
         version: link:../identity-auth
       '@guardian/libs':
         specifier: 19.0.0
-        version: link:../libs
+        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -630,7 +630,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 19.0.0
-        version: link:../libs
+        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@guardian/source':
         specifier: 8.0.0
         version: link:../source
@@ -3394,6 +3394,20 @@ packages:
   /@eslint/object-schema@2.1.4:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  /@guardian/libs@19.0.0(tslib@2.6.2)(typescript@5.5.2):
+    resolution: {integrity: sha512-UEcVsjSAjkZzbHRrEtkPW/5ngOCNzVk/BtJBkAdX3enYjHLYLxNfuGZW/Z5W5K9Plf/7xH2Jtcker5tQq9R6sQ==}
+    deprecated: Use 19.1.0 (see release notes)
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.5.2
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      tslib: 2.6.2
+      typescript: 5.5.2
+    dev: true
 
   /@humanwhocodes/module-importer@1.0.1:
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
