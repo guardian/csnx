@@ -32,9 +32,6 @@ export type { LineCount, LinesProps } from './lines/Lines';
 export { Logo } from './logo/Logo';
 export type { LogoProps } from './logo/Logo';
 
-export { QuoteIcon } from './quote-icon/QuoteIcon';
-export type { HeadlineSize, QuoteIconProps } from './quote-icon/QuoteIcon';
-
 export { StarRating } from './star-rating/StarRating';
 export type { StarRatingProps } from './star-rating/StarRating';
 
