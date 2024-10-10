@@ -1,11 +1,6 @@
 export { Divider } from './divider/Divider';
 export type { DividerProps } from './divider/Divider';
 
-export { EditorialButton } from './editorial-button/EditorialButton';
-export { EditorialLinkButton } from './editorial-button/EditorialLinkButton';
-export type { EditorialButtonProps } from './editorial-button/EditorialButton';
-export type { EditorialLinkButtonProps } from './editorial-button/EditorialLinkButton';
-
 export {
 	expandingWrapperThemeDefault,
 	expandingWrapperDarkTheme,
