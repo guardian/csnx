@@ -6,9 +6,7 @@
 
 - 902521c: Remove `EditorialButton` and `EditorialLinkButton` components
 - cd351c5: Remove `QuoteIcon` component and `HeadlineSize` type
-- 90b4703: Remove `format` prop from `ToggleSwitch` component.
-
-  It was not being used anyway.
+- 90b4703: Remove `format` prop from `ToggleSwitch` component (it was not being used anyway).
 
 ## 12.0.0
 
