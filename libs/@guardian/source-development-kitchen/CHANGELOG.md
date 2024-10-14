@@ -1,5 +1,19 @@
 # @guardian/source-development-kitchen
 
+## 13.0.0
+
+### Major Changes
+
+- 902521c: Remove `EditorialButton` and `EditorialLinkButton` components
+- cd351c5: Remove `QuoteIcon` component and `HeadlineSize` type
+- 90b4703: Remove `format` prop from `ToggleSwitch` component (it was not being used anyway).
+
+## 12.0.0
+
+### Major Changes
+
+- 4442352: Remove padding from Ticker component
+
 ## 11.0.0
 
 ### Major Changes
