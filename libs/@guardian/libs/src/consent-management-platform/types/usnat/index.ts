@@ -10,6 +10,7 @@ type GppParsedSections = Record<
 	{
 		Version: number;
 		SaleOptOut: number;
+		Gpc: boolean;
 	}
 >;
 
@@ -20,4 +21,5 @@ export interface GPPData {
 	supportedAPIs: string[];
 	parsedSections: GppParsedSections;
 	signalStatus: GPPSignalStatus;
+	gpcEnabled: boolean;
 }
