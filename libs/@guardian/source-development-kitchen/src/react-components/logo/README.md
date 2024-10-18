@@ -1,4 +1,4 @@
-# QuoteIcon
+# Logo
 
 The Guardian logo appears in the header on most editorial pages
 

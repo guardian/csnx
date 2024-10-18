@@ -1,4 +1,3 @@
-import type { ArticleFormat } from '@guardian/libs';
 import { descriptionId, generateSourceId } from '@guardian/source/foundations';
 import type { Props } from '@guardian/source/react-components';
 import { useEffect, useState } from 'react';
@@ -30,10 +29,6 @@ export interface ToggleSwitchProps extends Props {
 	 * use defaultChecked to indicate the whether the ToggleSwitch is checked initially.
 	 */
 	defaultChecked?: boolean;
-	/**
-	 * Optional Format prop, when provided this renders the toggle with a theme colored tick and light background track
-	 */
-	format?: ArticleFormat;
 	/**
 	 * Optional Id for the switch. Defaults to a generated indexed Source ID e.g. "src-component-XXX}"
 	 */
@@ -83,7 +78,6 @@ export const ToggleSwitch = ({
 	id,
 	fontWeight = 'regular',
 	fontSize = 'small',
-	format,
 	label,
 	labelBorder = false,
 	labelPosition = 'right',
@@ -117,8 +111,8 @@ export const ToggleSwitch = ({
 		<label
 			id={labelId}
 			css={[
-				labelStyles(fontSize, fontWeight, format),
-				labelBorder && labelBorderStyles(format),
+				labelStyles(fontSize, fontWeight),
+				labelBorder && labelBorderStyles,
 				cssOverrides,
 			]}
 			{...props}
@@ -126,11 +120,7 @@ export const ToggleSwitch = ({
 			{labelPosition === 'left' && label}
 			<button
 				id={buttonId}
-				css={[
-					buttonStyles,
-					buttonStylesMargin(labelPosition),
-					toggleStyles(format),
-				]}
+				css={[buttonStyles, buttonStylesMargin(labelPosition), toggleStyles]}
 				role="switch"
 				aria-checked={isChecked()}
 				aria-labelledby={labelId}
