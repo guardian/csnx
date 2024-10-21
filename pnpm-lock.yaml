@@ -49,7 +49,7 @@ importers:
         version: 0.9.3(prettier@3.3.3)(typescript@5.5.2)
       '@astrojs/svelte':
         specifier: 5.7.0
-        version: 5.7.0(astro@4.16.3)(svelte@4.2.19)(typescript@5.5.2)(vite@5.4.8)
+        version: 5.7.0(astro@4.16.3)(svelte@4.2.19)(typescript@5.5.2)(vite@5.4.9)
       '@guardian/libs':
         specifier: workspace:*
         version: link:../../libs/@guardian/libs
@@ -94,7 +94,7 @@ importers:
         version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(storybook@8.3.5)(typescript@5.5.2)
       '@storybook/react-vite':
         specifier: 8.3.5
-        version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.8)
+        version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.9)
       '@types/react':
         specifier: 18.2.79
         version: 18.2.79
@@ -493,8 +493,8 @@ importers:
         specifier: 9.9.0
         version: 9.9.0
       prettier:
-        specifier: 3.2.2
-        version: 3.2.2
+        specifier: 3.3.3
+        version: 3.3.3
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -555,7 +555,7 @@ importers:
         version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(storybook@8.3.5)(typescript@5.5.2)
       '@storybook/react-vite':
         specifier: 8.3.5
-        version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.8)
+        version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.9)
       '@svgr/babel-preset':
         specifier: 8.1.0
         version: 8.1.0(@babel/core@7.25.2)
@@ -657,7 +657,7 @@ importers:
         version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(storybook@8.3.5)(typescript@5.5.2)
       '@storybook/react-vite':
         specifier: 8.3.5
-        version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.8)
+        version: 8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.9)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -816,7 +816,7 @@ packages:
       prismjs: 1.29.0
     dev: true
 
-  /@astrojs/svelte@5.7.0(astro@4.16.3)(svelte@4.2.19)(typescript@5.5.2)(vite@5.4.8):
+  /@astrojs/svelte@5.7.0(astro@4.16.3)(svelte@4.2.19)(typescript@5.5.2)(vite@5.4.9):
     resolution: {integrity: sha512-pC/xM5ejDzqIhfr8e6gbjBkIwyTQDLuOH778LfH0EiVlTq5H0WUHCnIcjFBvcaJv9ye8AR0TlGvQmZtkt9x3Eg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
@@ -824,7 +824,7 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.190
       typescript: ^5.3.3
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.19)(vite@5.4.8)
+      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.19)(vite@5.4.9)
       astro: 4.16.3(@types/node@20.14.10)(typescript@5.5.2)
       svelte: 4.2.19
       svelte2tsx: 0.7.13(svelte@4.2.19)(typescript@5.5.2)
@@ -2752,7 +2752,7 @@ packages:
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
-  /@joshwooding/vite-plugin-react-docgen-typescript@0.3.0(typescript@5.5.2)(vite@5.4.8):
+  /@joshwooding/vite-plugin-react-docgen-typescript@0.3.0(typescript@5.5.2)(vite@5.4.9):
     resolution: {integrity: sha512-2D6y7fNvFmsLmRt6UCOFJPvFoPMJGT0Uh1Wg0RaigUp7kdQPs6yYn8Dmx6GZkOH/NW0yMTwRz/p0SRMMRo50vA==}
     peerDependencies:
       typescript: '>= 4.3.x'
@@ -2766,7 +2766,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.5.2)
       typescript: 5.5.2
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.9(@types/node@20.14.10)(lightningcss@1.27.0)
     dev: true
 
   /@jridgewell/gen-mapping@0.3.5:
@@ -3342,7 +3342,7 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /@storybook/builder-vite@8.3.5(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.8):
+  /@storybook/builder-vite@8.3.5(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.9):
     resolution: {integrity: sha512-paGX8tEmAeAKFU5Cnwkq3RAi3LFCnmjAxMJikT09jUi6jDpNa0VzH8jbLxKdjsPMAsz0Wv3mrLvL2b8hyxLWAw==}
     peerDependencies:
       '@preact/preset-vite': '*'
@@ -3369,7 +3369,7 @@ packages:
       storybook: 8.3.5
       ts-dedent: 2.2.0
       typescript: 5.5.2
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.9(@types/node@20.14.10)(lightningcss@1.27.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3479,7 +3479,7 @@ packages:
       storybook: 8.3.5
     dev: true
 
-  /@storybook/react-vite@8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.8):
+  /@storybook/react-vite@8.3.5(react-dom@18.2.0)(react@18.2.0)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.9):
     resolution: {integrity: sha512-1pnN1JB7GrHUoTVn8VGkS240VNGhWkZBOMaaaRQnkgY1dCrFxAQv4YKFVuC250+rQzgp8X33J/pDAukgwzWYFQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -3488,9 +3488,9 @@ packages:
       storybook: ^8.3.5
       vite: ^4.0.0 || ^5.0.0
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.0(typescript@5.5.2)(vite@5.4.8)
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.0(typescript@5.5.2)(vite@5.4.9)
       '@rollup/pluginutils': 5.1.0(rollup@4.24.0)
-      '@storybook/builder-vite': 8.3.5(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.8)
+      '@storybook/builder-vite': 8.3.5(storybook@8.3.5)(typescript@5.5.2)(vite@5.4.9)
       '@storybook/react': 8.3.5(react-dom@18.2.0)(react@18.2.0)(storybook@8.3.5)(typescript@5.5.2)
       find-up: 5.0.0
       magic-string: 0.30.11
@@ -3500,7 +3500,7 @@ packages:
       resolve: 1.22.8
       storybook: 8.3.5
       tsconfig-paths: 4.2.0
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.9(@types/node@20.14.10)(lightningcss@1.27.0)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - '@storybook/test'
@@ -3597,7 +3597,7 @@ packages:
       - typescript
     dev: false
 
-  /@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1)(svelte@4.2.19)(vite@5.4.8):
+  /@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1)(svelte@4.2.19)(vite@5.4.9):
     resolution: {integrity: sha512-9QX28IymvBlSCqsCll5t0kQVxipsfhFFL+L2t3nTWfXnddYwxBuAEtTtlaVQpRz9c37BhJjltSeY4AJSC03SSg==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
@@ -3605,30 +3605,30 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.19)(vite@5.4.8)
+      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.19)(vite@5.4.9)
       debug: 4.3.7
       svelte: 4.2.19
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.9(@types/node@20.14.10)(lightningcss@1.27.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.19)(vite@5.4.8):
+  /@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.19)(vite@5.4.9):
     resolution: {integrity: sha512-rimpFEAboBBHIlzISibg94iP09k/KYdHgVhJlcsTfn7KMBhc70jFX/GRWkRdFCc2fdnk+4+Bdfej23cMDnJS6A==}
     engines: {node: ^18.0.0 || >=20}
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       vite: ^5.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1)(svelte@4.2.19)(vite@5.4.8)
+      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1)(svelte@4.2.19)(vite@5.4.9)
       debug: 4.3.6
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.11
       svelte: 4.2.19
       svelte-hmr: 0.16.0(svelte@4.2.19)
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
-      vitefu: 0.2.5(vite@5.4.8)
+      vite: 5.4.9(@types/node@20.14.10)(lightningcss@1.27.0)
+      vitefu: 0.2.5(vite@5.4.9)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4813,7 +4813,7 @@ packages:
       tsconfck: 3.1.4(typescript@5.5.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.3
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.8(@types/node@20.14.10)
       vitefu: 1.0.2(vite@5.4.8)
       which-pm: 3.0.0
       xxhash-wasm: 1.0.2
@@ -9941,12 +9941,6 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier@3.2.2:
-    resolution: {integrity: sha512-HTByuKZzw7utPiDO523Tt2pLtEyK7OibUD9suEJQrPUCYQqrHr74GGX6VidMrovbf/I50mPqr8j/II6oBAuc5A==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: true
-
   /prettier@3.3.3:
     resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
@@ -11818,8 +11812,47 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite@5.4.8(@types/node@20.14.10)(lightningcss@1.27.0):
+  /vite@5.4.8(@types/node@20.14.10):
     resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 20.14.10
+      esbuild: 0.21.5
+      postcss: 8.4.47
+      rollup: 4.24.0
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
+  /vite@5.4.9(@types/node@20.14.10)(lightningcss@1.27.0):
+    resolution: {integrity: sha512-20OVpJHh0PAM0oSOELa5GaZNWeDjcAvQjGXy2Uyr+Tp+/D2/Hdz6NLgpJLsarPTA2QJ6v8mX2P1ZfbsSKvdMkg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -11858,7 +11891,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitefu@0.2.5(vite@5.4.8):
+  /vitefu@0.2.5(vite@5.4.9):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -11866,7 +11899,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.9(@types/node@20.14.10)(lightningcss@1.27.0)
     dev: true
 
   /vitefu@1.0.2(vite@5.4.8):
@@ -11877,7 +11910,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.4.8(@types/node@20.14.10)(lightningcss@1.27.0)
+      vite: 5.4.8(@types/node@20.14.10)
     dev: true
 
   /volar-service-css@0.0.61(@volar/language-service@2.4.0):
