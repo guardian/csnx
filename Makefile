@@ -57,6 +57,7 @@ lint: env
 	@corepack pnpm -r lint
 	@corepack pnpm lint:packages
 	@node ./scripts/check-packages-for-tslib.mjs
+	@node ./scripts/lint-node.js
 
 # check repo for formatting errors
 .PHONY: formatting\:check
