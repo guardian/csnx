@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.4
+
+### Patch Changes
+
+- Fix missing types issue.
+
 ## 10.0.0-beta.3
 
 ### Minor Changes
