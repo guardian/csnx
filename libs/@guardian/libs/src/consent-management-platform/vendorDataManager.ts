@@ -46,14 +46,19 @@ export const initVendorDataManager = (): void => {
 		if ('requestIdleCallback' in window) {
 			requestIdleCallback(
 				() => {
-					removeUnconsentedData(consent);
+					if (consent.aus) {
+						removeUnconsentedData(consent);
+					}
+					console.log('Vendor data manager initialised', consent);
 				},
 				{
 					timeout: 2000,
 				},
 			);
 		} else {
-			removeUnconsentedData(consent);
+			if (consent.aus) {
+				removeUnconsentedData(consent);
+			}
 		}
 	});
 };
