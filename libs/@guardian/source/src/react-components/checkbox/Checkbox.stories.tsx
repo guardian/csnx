@@ -14,6 +14,7 @@ type Story = StoryObj<typeof Checkbox>;
 
 const Template: Story = {
 	render: (args) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [checked, setChecked] = useState(args.checked);
 		return (
 			<Checkbox

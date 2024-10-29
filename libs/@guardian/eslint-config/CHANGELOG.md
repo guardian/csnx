@@ -1,5 +1,21 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.4
+
+### Patch Changes
+
+- Fix missing types issue.
+
+## 10.0.0-beta.3
+
+### Minor Changes
+
+Adds the `recommended` config of `eslint-plugin-react-hooks` when linting `jsx`, `mjsx`, `tsx` and `mtsx` files.
+
+### Patch Changes
+
+- Updates deps
+
 ## 10.0.0-beta.2
 
 ### Patch Changes
