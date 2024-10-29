@@ -119,7 +119,7 @@
 			"output": []
 		},
 		"sourcepoint-integration-test": {
-			"command": "node --test sourcepoint-integration-tests/*.test.js",
+			"command": "node --test sourcepoint-integration-tests/*.test.{js,mjs,cjs}",
 			"dependencies": [
 				"build"
 			]
