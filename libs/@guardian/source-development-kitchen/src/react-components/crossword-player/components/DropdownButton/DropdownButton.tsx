@@ -1,23 +1,22 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import * as React from 'react';
 import { isInViewport } from '../../utils/general';
 
-const CaretDownIcon = () => {
-	return (
-		<svg
-			css={dropdownIconStyle}
-			x="0"
-			y="0"
-			width="8px"
-			height="8px"
-			viewBox="0 0 292.362 292.362"
-		>
-			<g>
-				<path d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424   C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428   s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z" />
-			</g>
-		</svg>
-	);
-};
+const CaretDownIcon = () => (
+	<svg
+		css={dropdownIconStyle}
+		x="0"
+		y="0"
+		width="8px"
+		height="8px"
+		viewBox="0 0 292.362 292.362"
+	>
+		<g>
+			<path d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424   C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428   s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z" />
+		</g>
+	</svg>
+);
 
 export interface DropdownMenuItem {
 	disabled?: boolean;
@@ -47,16 +46,17 @@ const buttonStyle = css`
 	cursor: pointer;
 	white-space: nowrap;
 	border-radius: 2px;
-
-	&:hover,
-	.DropdownButton--expanded & {
+	&:hover {
 		background-color: #115293;
 	}
 `;
 
+const expandedButtonStyle = css`
+	background-color: #115293;
+`;
+
 const dropdownIconStyle = css`
 	fill: #fff;
-	margin-left: 8px;
 `;
 
 const menuStyle = css`
@@ -73,10 +73,10 @@ const menuStyle = css`
 	min-width: calc(100% - 10px);
 	padding: 0;
 	list-style: none;
+`;
 
-	.DropdownButton--expanded & {
-		visibility: visible;
-	}
+const visibleMenuStyle = css`
+	visibility: visible;
 `;
 
 const menuItemStyle = css`
@@ -87,7 +87,6 @@ const menuItemStyle = css`
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	width: 100%;
-
 	&:not(:disabled):hover {
 		background-color: rgba(0, 0, 0, 0.08);
 		cursor: pointer;
@@ -106,24 +105,21 @@ function DropdownButton({ id, menu, text }: DropdownButtonProps) {
 
 	React.useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
-			const isOutside =
-				componentRef.current !== null &&
-				!componentRef.current.contains(event.target as Node);
-
-			if (menuExpanded && isOutside) {
+			if (
+				menuExpanded &&
+				componentRef.current &&
+				!componentRef.current.contains(event.target as Node)
+			) {
 				setMenuExpanded(false);
 			}
 		};
 
 		document.addEventListener('click', handleClickOutside);
-
-		return function cleanup() {
-			document.removeEventListener('click', handleClickOutside);
-		};
+		return () => document.removeEventListener('click', handleClickOutside);
 	}, [menuExpanded]);
 
 	const toggleMenuExpanded = () => {
-		if (menuRef.current !== null && buttonRef.current !== null) {
+		if (menuRef.current && buttonRef.current) {
 			menuRef.current.style.marginTop = '';
 
 			if (!menuExpanded) {
@@ -136,17 +132,16 @@ function DropdownButton({ id, menu, text }: DropdownButtonProps) {
 				}
 			}
 		}
-
-		setMenuExpanded((val) => !val);
+		setMenuExpanded((prev) => !prev);
 	};
 
 	return (
 		<div css={dropdownButtonStyle} ref={componentRef}>
 			<button
-				aria-controls={id !== undefined ? `${id}-listbox` : undefined}
+				aria-controls={id ? `${id}-listbox` : undefined}
 				aria-expanded={menuExpanded ? 'true' : 'false'}
 				aria-haspopup="true"
-				css={buttonStyle}
+				css={[buttonStyle, menuExpanded && expandedButtonStyle]}
 				id={id}
 				onClick={toggleMenuExpanded}
 				ref={buttonRef}
@@ -157,8 +152,8 @@ function DropdownButton({ id, menu, text }: DropdownButtonProps) {
 			</button>
 			<ul
 				aria-label={`${text} menu`}
-				css={menuStyle}
-				id={id !== undefined ? `${id}-listbox` : undefined}
+				css={[menuStyle, menuExpanded && visibleMenuStyle]}
+				id={id ? `${id}-listbox` : undefined}
 				ref={menuRef}
 				role="listbox"
 			>

@@ -1,4 +1,9 @@
-import { Cell, Clue, GuardianClue, SeparatorLocations } from '../interfaces';
+import type {
+	Cell,
+	Clue,
+	GuardianClue,
+	SeparatorLocations,
+} from '../interfaces';
 
 export function getGroupCells(groupIds: string[], cells: Cell[]) {
 	const groupCells: Cell[] = [];
