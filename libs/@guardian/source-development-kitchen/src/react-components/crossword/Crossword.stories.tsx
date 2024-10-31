@@ -1,15 +1,15 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import type { CrosswordProps } from './Crossword';
 import { Crossword } from './Crossword';
-import { cryptic } from './examples/cryptic';
-import { everyman } from './examples/everyman';
-import { prize } from './examples/prize';
-import { quick } from './examples/quick';
-import { quickCryptic } from './examples/quick-cryptic';
-import { quiptic } from './examples/quiptic';
-import { special } from './examples/special';
-import { speedy } from './examples/speedy';
-import { weekend } from './examples/weekend';
+import { cryptic } from './stories/cryptic';
+import { everyman } from './stories/everyman';
+import { prize } from './stories/prize';
+import { quick } from './stories/quick';
+import { quickCryptic } from './stories/quick-cryptic';
+import { quiptic } from './stories/quiptic';
+import { special } from './stories/special';
+import { speedy } from './stories/speedy';
+import { weekend } from './stories/weekend';
 
 const meta: Meta<typeof Crossword> = {
 	component: Crossword,
