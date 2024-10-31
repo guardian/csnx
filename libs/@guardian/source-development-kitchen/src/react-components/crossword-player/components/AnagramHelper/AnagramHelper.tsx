@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import classNames from 'classnames';
 import * as React from 'react';
 import { Button } from '../../components';
 import { Cell, Clue, SeparatorLocations } from './../../interfaces';
@@ -118,12 +117,7 @@ export default function AnagramHelper({
 							spellCheck="false"
 							value={letters}
 						/>
-						<span
-							className={classNames(
-								counterStyle,
-								letters === '' ? hiddenCounterStyle : '',
-							)}
-						>
+						<span>
 							{letters.length}/{solutionLength}
 						</span>
 					</>
@@ -209,14 +203,6 @@ const inputStyle = css`
 	&::placeholder {
 		color: rgba(0, 0, 0, 0.23);
 	}
-`;
-
-const counterStyle = css`
-	font-size: 12px;
-`;
-
-const hiddenCounterStyle = css`
-	visibility: hidden;
 `;
 
 const closeButtonStyle = css`

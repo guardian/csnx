@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import classNames from 'classnames';
 import * as React from 'react';
 import {
 	AnagramHelper,
@@ -119,7 +118,7 @@ export default function Crossword({
 		)
 	) {
 		return (
-			<div className={classNames('MyCrossword', `MyCrossword--${breakpoint}`)}>
+			<div>
 				<GridError message="Error loading grid" />
 			</div>
 		);
@@ -157,7 +156,7 @@ export default function Crossword({
 
 	if (gridErrorMessage !== undefined) {
 		return (
-			<div className={classNames('MyCrossword', `MyCrossword--${breakpoint}`)}>
+			<div>
 				<GridError message={gridErrorMessage} />
 			</div>
 		);

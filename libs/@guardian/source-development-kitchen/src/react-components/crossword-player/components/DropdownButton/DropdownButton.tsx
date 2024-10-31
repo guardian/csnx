@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import classNames from 'classnames';
 import * as React from 'react';
 import { isInViewport } from '../../utils/general';
 
@@ -147,15 +146,7 @@ function DropdownButton({ className, id, menu, text }: DropdownButtonProps) {
 	};
 
 	return (
-		<div
-			css={dropdownButtonStyle}
-			className={classNames(
-				'DropdownButton',
-				menuExpanded ? 'DropdownButton--expanded' : null,
-				className,
-			)}
-			ref={componentRef}
-		>
+		<div css={dropdownButtonStyle} ref={componentRef}>
 			<button
 				aria-controls={id !== undefined ? `${id}-listbox` : undefined}
 				aria-expanded={menuExpanded ? 'true' : 'false'}

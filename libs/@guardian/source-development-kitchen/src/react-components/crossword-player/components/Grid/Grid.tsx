@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import classNames from 'classnames';
 import * as React from 'react';
 import { cellSize, GridCell, GridSeparators } from '../../components';
 import { useCellsContext } from '../../context/CellsContext';
@@ -474,7 +473,6 @@ export default function Grid({
 	return (
 		<div
 			css={[gridStyle, isLoading && loadingStyle, responsiveStyle]}
-			className={classNames('Grid')}
 			data-testid="grid"
 			style={{ minWidth: width, minHeight: height, width, height }}
 		>
