@@ -15,4 +15,4 @@ export { default as Spinner } from './Spinner/Spinner';
 export { default as StickyClue } from './StickyClue/StickyClue';
 export * from './GridCell/GridCell';
 
-export type { MyCrosswordProps } from './MyCrossword/MyCrossword';
+export type { CrosswordPlayerProps } from './MyCrossword/MyCrossword';

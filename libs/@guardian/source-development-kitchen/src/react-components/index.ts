@@ -64,3 +64,4 @@ export { Ticker } from './ticker/Ticker';
 export type { TickerSettings } from './ticker/Ticker';
 
 export { CrosswordPlayer } from './crossword-player';
+export type { CrosswordPlayerProps } from './crossword-player';

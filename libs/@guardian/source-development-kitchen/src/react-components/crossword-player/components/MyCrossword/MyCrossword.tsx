@@ -10,7 +10,7 @@ import type {
 	GuessGrid,
 } from './../../interfaces';
 
-export interface MyCrosswordProps {
+export interface CrosswordPlayerProps {
 	allowedHtmlTags?: string[];
 	allowMissingSolutions?: boolean;
 	cellMatcher?: RegExp;
@@ -66,7 +66,7 @@ const myCrosswordStyle = css`
 	}
 `;
 
-export const MyCrossword: FC<MyCrosswordProps> = ({
+export const MyCrossword: FC<CrosswordPlayerProps> = ({
 	allowedHtmlTags = DEFAULT_HTML_TAGS,
 	allowMissingSolutions = false,
 	cellMatcher = DEFAULT_CELL_MATCHER,
@@ -78,7 +78,7 @@ export const MyCrossword: FC<MyCrosswordProps> = ({
 	onCellFocus,
 	saveGrid,
 	stickyClue = 'auto',
-}: MyCrosswordProps) => {
+}: CrosswordPlayerProps) => {
 	return (
 		<>
 			<GameProvider>
