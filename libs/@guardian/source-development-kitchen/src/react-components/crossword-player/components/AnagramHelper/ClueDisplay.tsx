@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { decodeHtmlEntities } from './../../utils/general';
+import { decodeHtmlEntities } from '../../utils/general';
 
 interface ClueDisplayProps {
 	allowedHtmlTags: string[];

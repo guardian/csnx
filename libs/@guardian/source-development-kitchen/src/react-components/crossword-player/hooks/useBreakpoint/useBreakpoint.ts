@@ -30,7 +30,7 @@ export default function useBreakpoint() {
 			// set the breakpoint to the first match (smallest first)
 			const matches = breakpoints.filter((bp) => windowWidth < bp.max);
 			if (matches.length > 0) {
-				setBreakPoint(matches[0].name);
+				setBreakPoint(matches[0]?.name);
 			} else {
 				setBreakPoint(undefined);
 			}
