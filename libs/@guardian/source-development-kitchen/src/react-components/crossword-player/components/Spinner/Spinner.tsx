@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
 import { css, keyframes } from '@emotion/react';
-import * as React from 'react';
 
 interface SpinnerProps {
 	size: 'small' | 'standard' | 'large';

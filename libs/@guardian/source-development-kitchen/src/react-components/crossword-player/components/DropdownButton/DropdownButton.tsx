@@ -2,14 +2,10 @@ import { css } from '@emotion/react';
 import * as React from 'react';
 import { isInViewport } from '../../utils/general';
 
-interface CaretDownIconProps {
-	className?: string;
-}
-
-function CaretDownIcon({ className }: CaretDownIconProps) {
+const CaretDownIcon = () => {
 	return (
 		<svg
-			className={className}
+			css={dropdownIconStyle}
 			x="0"
 			y="0"
 			width="8px"
@@ -21,7 +17,7 @@ function CaretDownIcon({ className }: CaretDownIconProps) {
 			</g>
 		</svg>
 	);
-}
+};
 
 export interface DropdownMenuItem {
 	disabled?: boolean;
@@ -30,7 +26,6 @@ export interface DropdownMenuItem {
 }
 
 interface DropdownButtonProps {
-	className?: string;
 	id?: string;
 	menu: DropdownMenuItem[];
 	text: string;
@@ -99,7 +94,7 @@ const menuItemStyle = css`
 	}
 `;
 
-function DropdownButton({ className, id, menu, text }: DropdownButtonProps) {
+function DropdownButton({ id, menu, text }: DropdownButtonProps) {
 	if (menu.length < 2) {
 		throw new Error('DropdownButton should have at least 2 menu items');
 	}
@@ -158,7 +153,7 @@ function DropdownButton({ className, id, menu, text }: DropdownButtonProps) {
 				type="button"
 			>
 				<span>{text}</span>
-				<CaretDownIcon css={dropdownIconStyle} />
+				<CaretDownIcon />
 			</button>
 			<ul
 				aria-label={`${text} menu`}

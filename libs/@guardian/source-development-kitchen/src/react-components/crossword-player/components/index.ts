@@ -5,7 +5,7 @@ export { default as Clues } from './Clues/Clues';
 export { default as Confirm } from './Confirm/Confirm';
 export { default as Controls } from './Controls/Controls';
 export { default as Crossword } from './Crossword/Crossword';
-export { default as MyCrossword } from './MyCrossword/MyCrossword';
+export { MyCrossword } from './MyCrossword/MyCrossword';
 export { default as DropdownButton } from './DropdownButton/DropdownButton';
 export { default as Grid } from './Grid/Grid';
 export { default as GridCell } from './GridCell/GridCell';

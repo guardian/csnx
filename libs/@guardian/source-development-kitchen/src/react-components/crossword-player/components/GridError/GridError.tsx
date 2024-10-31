@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import * as React from 'react';
 
 interface GridErrorProps {
 	message: string;

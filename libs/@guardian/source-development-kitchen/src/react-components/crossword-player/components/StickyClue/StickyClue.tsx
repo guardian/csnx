@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import * as React from 'react';
 
 // Define styling constants
 const gridSize = 10;
