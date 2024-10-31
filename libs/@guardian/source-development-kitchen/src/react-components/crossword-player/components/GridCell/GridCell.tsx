@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import * as React from 'react';
 import { useCellsContext } from '../../context/CellsContext';
 import { useCluesContext } from '../../context/CluesContext';
-import { CellFocus, CellPosition, Char } from './../../interfaces';
+import type { CellFocus, CellPosition, Char } from './../../interfaces';
 
 export const cellSize = 31;
 
@@ -104,14 +104,16 @@ function GridCell({
 		}
 
 		const clueId = clueIds[index];
-		cluesActionSelect(clueId);
+		if (clueId) {
+			cluesActionSelect(clueId);
 
-		if (!isSelected) {
-			cellsActionSelect(pos);
-		}
+			if (!isSelected) {
+				cellsActionSelect(pos);
+			}
 
-		if (!isSelected || clueIds.length === 2) {
-			cellFocus(pos, clueId);
+			if (!isSelected || clueIds.length === 2) {
+				cellFocus(pos, clueId);
+			}
 		}
 
 		inputRef?.current?.focus({ preventScroll: true });

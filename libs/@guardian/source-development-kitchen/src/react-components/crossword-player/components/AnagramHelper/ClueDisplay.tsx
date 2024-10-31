@@ -1,7 +1,6 @@
 import { decodeHtmlEntities } from '../../utils/general';
 
 interface ClueDisplayProps {
-	allowedHtmlTags: string[];
 	className?: string;
 	clue: string;
 	onClick: (word: string) => void;
@@ -9,7 +8,6 @@ interface ClueDisplayProps {
 }
 
 export default function ClueDisplay({
-	allowedHtmlTags,
 	className,
 	clue,
 	onClick,

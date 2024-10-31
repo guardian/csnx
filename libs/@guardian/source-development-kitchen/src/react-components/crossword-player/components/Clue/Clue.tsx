@@ -49,7 +49,6 @@ const clueTextStyle = css`
 `;
 
 interface ClueProps {
-	allowedHtmlTags: string[];
 	answered: boolean;
 	breakpoint: string;
 	col: number;
@@ -65,7 +64,6 @@ interface ClueProps {
 }
 
 function Clue({
-	allowedHtmlTags,
 	answered,
 	breakpoint,
 	col,

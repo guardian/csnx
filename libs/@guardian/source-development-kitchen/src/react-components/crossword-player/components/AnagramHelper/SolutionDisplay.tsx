@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import { Cell, SeparatorLocations } from './../../interfaces';
+import type { Cell, SeparatorLocations } from './../../interfaces';
 
-// Define styles
 const solutionDisplayStyle = css`
 	display: flex;
 	flex-wrap: wrap;
@@ -10,8 +9,8 @@ const solutionDisplayStyle = css`
 `;
 
 const letterStyle = css`
-	color: #000; // vars.$grid-color
-	border: 1px solid #ccc; // vars.$light-grey
+	color: #000;
+	border: 1px solid #ccc;
 	padding: 4px; // vars.$grid-size * 0.4
 	margin-top: 4px; // vars.$grid-size * 0.4
 	margin-right: 2px; // vars.$grid-size * 0.2
@@ -45,7 +44,7 @@ const hasHyphenStyle = css`
 		content: '—';
 		top: 5px; // vars.$grid-size * 0.5
 		left: 20px; // vars.$grid-size * 2
-		font-size: 10px; // vars.$font-size-small
+		font-size: 10px;
 		font-weight: bold;
 	}
 `;

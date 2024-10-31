@@ -21,7 +21,6 @@ function CloseIcon({ className }: CloseIconProps) {
 }
 
 interface AnagramHelperProps {
-	allowedHtmlTags: string[];
 	clue: Clue;
 	groupCells: Cell[];
 	groupSeparators: SeparatorLocations;
@@ -30,7 +29,6 @@ interface AnagramHelperProps {
 }
 
 export default function AnagramHelper({
-	allowedHtmlTags,
 	clue,
 	groupCells,
 	groupSeparators,
@@ -145,7 +143,6 @@ export default function AnagramHelper({
 				<p css={clueStyle}>
 					<span css={clueNumStyle}>{`${clue.number} ${clue.direction}`}</span>
 					<ClueDisplay
-						allowedHtmlTags={allowedHtmlTags}
 						css={clickableWordStyle}
 						clue={clue.clue}
 						onClick={(word) => appendWord(word)}

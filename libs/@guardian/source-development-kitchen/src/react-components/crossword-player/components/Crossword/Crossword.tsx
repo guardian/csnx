@@ -182,16 +182,17 @@ export default function Crossword({
 		}
 
 		const nextClue = clues[nextIndex];
-		const nextCluePos = {
-			col: nextClue.position.x,
-			row: nextClue.position.y,
-		};
+		if (nextClue) {
+			const nextCluePos = {
+				col: nextClue.position.x,
+				row: nextClue.position.y,
+			};
 
-		cluesActionSelect(nextClue.id);
-		cellsActionSelect(nextCluePos);
+			cluesActionSelect(nextClue.id);
+			cellsActionSelect(nextCluePos);
 
-		cellFocus(nextCluePos, nextClue.id);
-
+			cellFocus(nextCluePos, nextClue.id);
+		}
 		inputRef?.current?.focus({ preventScroll: true });
 	};
 
@@ -207,7 +208,6 @@ export default function Crossword({
 				>
 					{isAnagramHelperOpen && parentClue !== undefined ? (
 						<AnagramHelper
-							allowedHtmlTags={allowedHtmlTags}
 							clue={parentClue}
 							groupCells={getGroupCells(parentClue.group, cells)}
 							groupSeparators={getGroupSeparators(parentClue.group, clues)}

@@ -192,7 +192,7 @@ export default function Grid({
 				const prevClueId = selectedClue.group[groupIndex - 1];
 				const prevClue = clues.find((clue) => clue.id === prevClueId);
 
-				if (prevClue !== undefined) {
+				if (prevClue !== undefined && prevClueId) {
 					const prevCluePos = {
 						col:
 							prevClue.position.x +
@@ -241,7 +241,7 @@ export default function Grid({
 				const nextClueId = selectedClue.group[groupIndex + 1];
 				const nextClue = clues.find((clue) => clue.id === nextClueId);
 
-				if (nextClue !== undefined) {
+				if (nextClue !== undefined && nextClueId) {
 					const nextCluePos = {
 						col: nextClue.position.x,
 						row: nextClue.position.y,
@@ -296,7 +296,6 @@ export default function Grid({
 			}
 
 			const tempCell = cells.find(
-				// eslint-disable-next-line @typescript-eslint/no-loop-func
 				(cell) => cell.pos.col === col && cell.pos.row === row,
 			);
 
@@ -333,7 +332,7 @@ export default function Grid({
 			cellsActionSelect(nextCell.pos);
 
 			// update the selected clue
-			if (!nextCell.clueIds.includes(selectedClue.id)) {
+			if (!nextCell.clueIds.includes(selectedClue.id) && nextCell.clueIds[0]) {
 				cluesActionSelect(nextCell.clueIds[0]);
 
 				cellFocus(nextCell.pos, nextCell.clueIds[0]);
@@ -416,15 +415,17 @@ export default function Grid({
 				nextIndex = index < clues.length - 1 ? index + 1 : 0;
 			}
 			const nextClue = clues[nextIndex];
-			const nextCluePos = {
-				col: nextClue.position.x,
-				row: nextClue.position.y,
-			};
+			if (nextClue) {
+				const nextCluePos = {
+					col: nextClue.position.x,
+					row: nextClue.position.y,
+				};
 
-			cluesActionSelect(nextClue.id);
-			cellsActionSelect(nextCluePos);
+				cluesActionSelect(nextClue.id);
+				cellsActionSelect(nextCluePos);
 
-			cellFocus(nextCluePos, nextClue.id);
+				cellFocus(nextCluePos, nextClue.id);
+			}
 		}
 	};
 

@@ -265,14 +265,16 @@ export default function Controls({
 
 							// more than one direction, check if neighbouring letters are blank
 							const clueId = intersection[0];
-							const across = clueId.includes('across');
-							if (blankNeighbours(cells, cell, across)) {
-								cellChange(cell, undefined);
+							if (clueId) {
+								const across = clueId.includes('across');
+								if (blankNeighbours(cells, cell, across)) {
+									cellChange(cell, undefined);
 
-								return {
-									...cell,
-									guess: undefined,
-								};
+									return {
+										...cell,
+										guess: undefined,
+									};
+								}
 							}
 						}
 
