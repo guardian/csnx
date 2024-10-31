@@ -18,6 +18,21 @@ export interface CellsState {
 	cells: Cell[];
 }
 
+type CellsAction =
+	| {
+			type: 'CLEAR_GRID';
+	  }
+	| {
+			type: 'REVEAL_GRID';
+	  }
+	| {
+			type: 'SELECT_CELL';
+			payload: CellPosition;
+	  }
+	| {
+			type: 'UPDATE_GRID';
+			payload: Cell[];
+	  };
 // Define action types
 const CLEAR_GRID = 'CLEAR_GRID';
 const REVEAL_GRID = 'REVEAL_GRID';
@@ -25,7 +40,7 @@ const SELECT_CELL = 'SELECT_CELL';
 const UPDATE_GRID = 'UPDATE_GRID';
 
 // Reducer function
-function cellsReducer(state: CellsState, action: any): CellsState {
+function cellsReducer(state: CellsState, action: CellsAction): CellsState {
 	switch (action.type) {
 		case CLEAR_GRID:
 			return {

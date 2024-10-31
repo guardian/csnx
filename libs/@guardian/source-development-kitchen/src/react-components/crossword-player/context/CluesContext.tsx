@@ -17,7 +17,30 @@ export interface CluesState {
 	clues: Clue[];
 }
 
-// Action types
+type CluesAction =
+	| {
+			type: 'ANSWER_GRID';
+	  }
+	| {
+			type: 'ANSWER_ONE';
+			payload: string[];
+	  }
+	| {
+			type: 'SELECT_CLUE';
+			payload: string;
+	  }
+	| {
+			type: 'UNANSWER_GRID';
+	  }
+	| {
+			type: 'UNANSWER_ONE';
+			payload: string[];
+	  }
+	| {
+			type: 'UPDATE_GRID';
+			payload: Clue[];
+	  };
+
 const ANSWER_GRID = 'ANSWER_GRID';
 const ANSWER_ONE = 'ANSWER_ONE';
 const SELECT_CLUE = 'SELECT_CLUE';
@@ -26,7 +49,7 @@ const UNANSWER_ONE = 'UNANSWER_ONE';
 const UPDATE_GRID = 'UPDATE_GRID';
 
 // Reducer function
-function cluesReducer(state: CluesState, action: any): CluesState {
+function cluesReducer(state: CluesState, action: CluesAction): CluesState {
 	switch (action.type) {
 		case ANSWER_GRID:
 			return {
