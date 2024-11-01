@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { palette } from '@guardian/source/foundations';
-import { CrosswordPlayer } from '../crossword-player';
 import type { CrosswordData } from './@types/crossword';
+import { CrosswordPlayer } from './vendor/mycrossword';
 
 export type CrosswordProps = {
 	data: CrosswordData;
@@ -31,7 +31,7 @@ export const Crossword = ({
 			`}
 			{...props}
 		>
-			<CrosswordPlayer data={data} id={'crossword'} />
+			<CrosswordPlayer data={data} id={data.id} />
 		</div>
 	);
 };
