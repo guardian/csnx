@@ -4,6 +4,7 @@ import * as pkgExports from './index';
 // it won't catch that new ones have been added, but can anyone?
 export type {
 	AgeWarningProps,
+	CrosswordProps,
 	ExpandingWrapperProps,
 	FileInputProps,
 	FooterLinksProps,
@@ -21,6 +22,7 @@ export type {
 it('Should have exactly these exports', () => {
 	expect(Object.keys(pkgExports).sort()).toEqual([
 		'AgeWarning',
+		'Crossword',
 		'DashedLines',
 		'Divider',
 		'DottedLines',

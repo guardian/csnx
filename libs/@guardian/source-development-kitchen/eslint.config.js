@@ -7,6 +7,7 @@ export default [
 			'jest.dist.*', // depends on build output, so don't lint it
 			'.wireit',
 			'storybook-static',
+			'src/react-components/crossword/vendor',
 		],
 	},
 	...guardian.configs.recommended,
