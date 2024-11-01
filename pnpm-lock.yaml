@@ -376,7 +376,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/identity-auth':
-        specifier: 4.0.0
+        specifier: 4.0.1
         version: link:../identity-auth
       '@guardian/libs':
         specifier: 19.0.0
