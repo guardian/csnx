@@ -81,7 +81,7 @@ export const select = (select: ThemeSelect): SerializedStyles => css`
 		${focusHalo};
 	}
 
-	&:user-invalid {
+	&:invalid {
 		${errorInput(select)};
 	}
 `;
