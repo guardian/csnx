@@ -635,7 +635,7 @@ importers:
         specifier: 19.0.0
         version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@guardian/source':
-        specifier: 8.0.0
+        specifier: 9.0.0
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 8.3.5

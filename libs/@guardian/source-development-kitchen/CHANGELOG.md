@@ -1,5 +1,12 @@
 # @guardian/source-development-kitchen
 
+## 14.0.0
+
+### Patch Changes
+
+- Updated dependencies [8e28731]
+  - @guardian/source@9.0.0
+
 ## 13.1.0
 
 ### Minor Changes

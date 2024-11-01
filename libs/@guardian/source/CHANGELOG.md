@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 9.0.0
+
+### Major Changes
+
+- 8e28731: Changed Select to only show error styling once user has interacted
+
 ## 8.0.0
 
 ### Major Changes
