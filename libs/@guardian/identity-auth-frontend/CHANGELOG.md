@@ -1,5 +1,12 @@
 # @guardian/identity-auth-frontend
 
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @guardian/identity-auth@4.0.1
+
 ## 6.0.0
 
 ### Patch Changes
@@ -26,7 +33,9 @@
 
 ### Patch Changes
 
-- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports), alongside `main`.
+- 0382052: 1. All packages are now ES modules, although they should be compatible with CommonJS environments. 2. Adds
+  entry points for projects that can consume [`package.json#exports`](https://nodejs.org/api/packages.html#exports),
+  alongside `main`.
 
 ## 4.0.0
 
@@ -60,7 +69,8 @@
 
 ### Minor Changes
 
-- 8d480a2: Add a new @guardian/identity-auth-frontend library which takes care of setting up `@guardian/identity-auth` for DCR, Frontend, and Commercial
+- 8d480a2: Add a new @guardian/identity-auth-frontend library which takes care of setting up `@guardian/identity-auth`
+  for DCR, Frontend, and Commercial
 
 ### Patch Changes
 

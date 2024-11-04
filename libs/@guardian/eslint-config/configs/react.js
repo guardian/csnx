@@ -29,6 +29,7 @@ export default [
 				},
 			],
 			...hooks.configs.recommended.rules,
+			'react-hooks/exhaustive-deps': 'error',
 		},
 		settings: {
 			react: {

@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 4.0.1
+
+### Patch Changes
+
+- db73c76: Noop to force release.
+
 ## 4.0.0
 
 ### Patch Changes
