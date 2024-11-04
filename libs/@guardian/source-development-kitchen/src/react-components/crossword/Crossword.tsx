@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import { palette } from '@guardian/source/foundations';
-import type { CrosswordData } from './@types/crossword';
+import type { CAPICrossword } from './@types/CAPI';
 import { CrosswordPlayer } from './vendor/mycrossword';
 
 export type CrosswordProps = {
-	data: CrosswordData;
+	data: CAPICrossword;
 	theme?: {
 		background?: string;
 		grid?: string;

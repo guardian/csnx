@@ -1,6 +1,6 @@
-import type { CrosswordData } from '../@types/crossword';
+import type { CAPICrossword } from '../@types/CAPI';
 
-export const everyman: CrosswordData = {
+export const everyman: CAPICrossword = {
 	id: 'crosswords/everyman/4071',
 	number: 4071,
 	name: 'Everyman crossword No 4,071',

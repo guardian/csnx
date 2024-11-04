@@ -1,45 +1,47 @@
-export type CrosswordData = {
-	creator?: {
-		name: string;
-		webUrl: string;
-	};
-	crosswordType:
-		| 'cryptic'
-		| 'everyman'
-		| 'prize'
-		| 'quick-cryptic'
-		| 'quick'
-		| 'quiptic'
-		| 'special'
-		| 'speedy'
-		| 'weekend';
+import type { Direction } from './Direction';
+import type { Entry } from './Entry';
 
-	date: number;
-	dateSolutionAvailable?: number;
-	dimensions: {
-		cols: number;
-		rows: number;
-	};
-	entries: Array<{
-		clue: string;
-		direction: 'across' | 'down';
-		group: string[];
-		humanNumber: string;
-		id: string;
-		length: number;
-		number: number;
-		position: { x: number; y: number };
-		separatorLocations: {
-			','?: number[] | undefined;
-			'-'?: number[] | undefined;
-		};
-		solution?: string;
+export type Cell = {
+	// grid coords
+	x: number;
+	y: number;
+
+	/** Clue number */
+	number?: number;
+
+	/** Array of entries that this solution is part of */
+	group: CrosswordEntry['group'];
+
+	/** The cell's solution */
+	solution?: string;
+};
+
+type Progress = {
+	id: Crossword['id'];
+	guesses: Array<{
+		x: number;
+		y: number;
+		guess?: string;
 	}>;
+};
+
+export type CrosswordEntry = Entry<number> & {
+	direction: Direction;
+	clue: string;
+	solution?: string;
+};
+
+export type Crossword = {
 	id: string;
-	name: string;
-	number: number;
-	pdf?: string;
-	solutionAvailable: boolean;
-	webPublicationDate?: number;
-	instructions?: string;
+	cells: Cell[];
+	entries: CrosswordEntry[];
+	progress: Progress;
+	focus:
+		| {
+				x: number;
+				y: number;
+				entryId: string;
+		  }
+		| undefined;
+	hasSolution: boolean;
 };
