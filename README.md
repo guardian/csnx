@@ -24,7 +24,6 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/libs](libs/@guardian/libs)
 - [@guardian/newsletter-types](libs/@guardian/newsletter-types)
 - [@guardian/prettier](libs/@guardian/prettier)
-- [@guardian/react-crossword](libs/@guardian/react-crossword)
 - [@guardian/source](libs/@guardian/source)
 - [@guardian/source-development-kitchen](libs/@guardian/source-development-kitchen)
 - [@guardian/tsconfig](libs/@guardian/tsconfig)
