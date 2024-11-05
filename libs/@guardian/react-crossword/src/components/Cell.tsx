@@ -1,5 +1,5 @@
-import type { Cell as CellType, Theme } from '../@types/crossword';
 import { isUndefined } from '@guardian/libs';
+import type { Cell as CellType, Theme } from '../@types/crossword';
 
 export type CellProps = {
 	data: CellType;

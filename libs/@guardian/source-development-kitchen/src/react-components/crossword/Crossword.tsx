@@ -1,13 +1,19 @@
 import { css } from '@emotion/react';
-import type { CAPICrossword } from './@types/CAPI';
-import { Theme } from './@types/crossword';
-import { defaultTheme } from './theme';
-// import { initialiseCells } from "./components/grid";
-// import { useState } from "react";
+import { palette } from '@guardian/source/foundations';
+import type { CrosswordData } from './@types/crossword';
+import { CrosswordPlayer } from './vendor/mycrossword';
 
 export type CrosswordProps = {
-	data: CAPICrossword;
-	theme?: Partial<Theme>;
+	data: CrosswordData;
+	theme?: {
+		background?: string;
+		grid?: string;
+	};
+};
+
+const defaultTheme: CrosswordProps['theme'] = {
+	background: palette.neutral[100],
+	grid: palette.neutral[7],
 };
 
 export const Crossword = ({
@@ -16,17 +22,16 @@ export const Crossword = ({
 	...props
 }: CrosswordProps) => {
 	const theme = { ...defaultTheme, ...userTheme };
-	// const cells = initialiseCells(data)
-	// const [progress, setProgress] = useState()
-	// const [focus, setFocus] = useState()
 
 	return (
 		<div
 			css={css`
 				background-color: ${theme.background};
-				border: ${theme.text} solid 1px;
+				border: ${theme.grid} solid 1px;
 			`}
 			{...props}
-		></div>
+		>
+			<CrosswordPlayer data={data} id={data.id} />
+		</div>
 	);
 };

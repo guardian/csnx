@@ -1,10 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Cell, CellProps } from './Cell';
 import { defaultTheme } from '../theme';
+import type { CellProps } from './Cell';
+import { Cell } from './Cell';
 
 const meta: Meta<typeof Cell> = {
 	component: Cell,
-	title: 'React Components/Crossword/Cell',
+	title: 'Cell',
 };
 
 export default meta;

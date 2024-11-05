@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
+import { cryptic } from '../stories/cryptic';
 import { everyman } from '../stories/everyman';
 import { prize } from '../stories/prize';
 import { quick } from '../stories/quick';
@@ -7,14 +8,14 @@ import { quiptic } from '../stories/quiptic';
 import { special } from '../stories/special';
 import { speedy } from '../stories/speedy';
 import { weekend } from '../stories/weekend';
-import { Grid, GridProps } from './Grid';
 import { defaultTheme } from '../theme';
 import { getCells } from '../utils/getCells';
-import { cryptic } from '../stories/cryptic';
+import type { GridProps } from './Grid';
+import { Grid } from './Grid';
 
 const meta: Meta<typeof Grid> = {
 	component: Grid,
-	title: 'React Components/Crossword/Grid',
+	title: 'Grid',
 };
 
 export default meta;

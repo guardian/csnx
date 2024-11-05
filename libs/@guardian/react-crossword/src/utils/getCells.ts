@@ -1,5 +1,5 @@
-import { CAPICrossword, CAPIEntry } from '../@types/CAPI';
-import { Cell } from '../@types/crossword';
+import type { CAPICrossword, CAPIEntry } from '../@types/CAPI';
+import type { Cell } from '../@types/crossword';
 
 export const getCells = ({ entries, dimensions }: CAPICrossword): Cell[] => {
 	const cells: Map<string, Cell> = getCellForEntry(entries);

@@ -1,4 +1,4 @@
-import { Cell as CellType, Progress, Theme } from '../@types/crossword';
+import type { Cell as CellType, Progress, Theme } from '../@types/crossword';
 import { Cell } from './Cell';
 
 export type GridProps = {

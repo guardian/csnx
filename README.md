@@ -24,6 +24,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/libs](libs/@guardian/libs)
 - [@guardian/newsletter-types](libs/@guardian/newsletter-types)
 - [@guardian/prettier](libs/@guardian/prettier)
+- [@guardian/react-crossword](libs/@guardian/react-crossword)
 - [@guardian/source](libs/@guardian/source)
 - [@guardian/source-development-kitchen](libs/@guardian/source-development-kitchen)
 - [@guardian/tsconfig](libs/@guardian/tsconfig)
@@ -160,6 +161,18 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/prettier:fix`
 - `make @guardian/prettier:lint`
 - `make @guardian/prettier:tsc`
+
+#### @guardian/react-crossword
+
+- `make @guardian/react-crossword:build`
+- `make @guardian/react-crossword:build-storybook`
+- `make @guardian/react-crossword:dev`
+- `make @guardian/react-crossword:fix`
+- `make @guardian/react-crossword:lint`
+- `make @guardian/react-crossword:storybook`
+- `make @guardian/react-crossword:test`
+- `make @guardian/react-crossword:tsc`
+- `make @guardian/react-crossword:verify-dist`
 
 #### @guardian/source
 

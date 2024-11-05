@@ -1,6 +1,6 @@
-import type { CrosswordData } from '../@types/crossword';
+import type { CAPICrossword } from '../@types/CAPI';
 
-export const prize: CrosswordData = {
+export const prize: CAPICrossword = {
 	id: 'crosswords/prize/29524',
 	number: 29524,
 	name: 'Prize crossword No 29,524',
