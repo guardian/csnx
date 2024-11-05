@@ -10,20 +10,13 @@ export type Cell = {
 	number?: number;
 
 	/** Array of entries that this solution is part of */
-	group: CrosswordEntry['group'];
+	group?: CrosswordEntry['group'];
 
 	/** The cell's solution */
 	solution?: string;
 };
 
-type Progress = {
-	id: Crossword['id'];
-	guesses: Array<{
-		x: number;
-		y: number;
-		guess?: string;
-	}>;
-};
+export type Progress = Array<Array<string>>;
 
 export type CrosswordEntry = Entry<number> & {
 	direction: Direction;
@@ -35,13 +28,18 @@ export type Crossword = {
 	id: string;
 	cells: Cell[];
 	entries: CrosswordEntry[];
-	progress: Progress;
-	focus:
-		| {
-				x: number;
-				y: number;
-				entryId: string;
-		  }
-		| undefined;
 	hasSolution: boolean;
+};
+
+export type Focus = {
+	x: number;
+	y: number;
+	entryId: string;
+};
+
+export type Theme = {
+	background: string;
+	foreground: string;
+	text: string;
+	gutter: number;
 };

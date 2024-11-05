@@ -1,7 +1,7 @@
 import type { Direction } from './Direction';
 import type { Entry } from './Entry';
 
-type CAPIEntry = Entry<number> & {
+export type CAPIEntry = Entry<number> & {
 	direction: Direction;
 
 	// CELL DATA
