@@ -1,15 +1,28 @@
-import type { Cell as CellType, Progress, Theme } from '../@types/crossword';
+import type {
+	Cell as CellType,
+	Focus,
+	Progress,
+	Theme,
+} from '../@types/crossword';
 import { Cell } from './Cell';
 
 export type GridProps = {
-	cells: CellType[];
+	cellsMap: Map<string, CellType>;
 	theme: Theme;
 	progress: Progress;
 	rows: number;
 	cols: number;
+	focus: Focus;
 };
 
-export const Grid = ({ cells, theme, progress, rows, cols }: GridProps) => {
+export const Grid = ({
+	cellsMap,
+	theme,
+	progress,
+	rows,
+	cols,
+	focus,
+}: GridProps) => {
 	//for each cell add a cell component to the grid
 	const cellSize = 16;
 	const SVGHeight = cellSize * rows + theme.gutter * (rows + 1);
@@ -24,7 +37,7 @@ export const Grid = ({ cells, theme, progress, rows, cols }: GridProps) => {
 			}}
 			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
 		>
-			{cells.map((cell) => {
+			{Array.from(cellsMap.values()).map((cell) => {
 				const x = cell.x * (cellSize + theme.gutter) + theme.gutter;
 				const y = cell.y * (cellSize + theme.gutter) + theme.gutter;
 				const guess = progress[cell.x]?.[cell.y];
@@ -36,6 +49,7 @@ export const Grid = ({ cells, theme, progress, rows, cols }: GridProps) => {
 						cellSize={cellSize}
 						theme={theme}
 						guess={guess}
+						focus={focus}
 					/>
 				);
 			})}

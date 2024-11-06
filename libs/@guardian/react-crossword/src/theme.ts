@@ -6,4 +6,5 @@ export const defaultTheme: Theme = {
 	text: palette.neutral[7],
 	foreground: palette.neutral[100],
 	gutter: 1,
+	focus: 'hotpink',
 };
