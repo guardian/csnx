@@ -22,7 +22,7 @@ import type { ThemeSelect } from './theme';
 import { themeSelect as defaultTheme, transformProviderTheme } from './theme';
 
 export interface SelectProps
-	extends SelectHTMLAttributes<HTMLSelectElement>,
+	extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'required'>,
 		Props {
 	id?: string;
 	/**
@@ -149,6 +149,7 @@ export const Select = ({
 					aria-invalid={!!error}
 					aria-describedby={(error ?? success) ? descriptionId(selectId) : ''}
 					id={selectId}
+					required={!optional}
 					{...props}
 				>
 					{children}
