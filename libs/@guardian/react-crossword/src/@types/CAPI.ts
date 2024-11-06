@@ -1,5 +1,6 @@
 import type { Direction } from './Direction';
 import type { Entry } from './Entry';
+import { Dimensions } from './crossword';
 
 export type CAPIEntry = Entry<number> & {
 	direction: Direction;
@@ -53,11 +54,8 @@ export type CAPICrossword = {
 
 	date: number;
 	dateSolutionAvailable?: number;
-	dimensions: {
-		cols: number;
-		rows: number;
-	};
-	entries: CAPIEntry[];
+	dimensions: Dimensions;
+	entries: [CAPIEntry, ...CAPIEntry[]];
 	id: string;
 	name: string;
 	number: number;

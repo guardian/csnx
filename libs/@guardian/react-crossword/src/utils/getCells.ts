@@ -1,16 +1,23 @@
 import type { CAPICrossword, CAPIEntry } from '../@types/CAPI';
 import type { Cell } from '../@types/crossword';
 
-export const getCells = ({ entries, dimensions }: CAPICrossword): Cell[] => {
+export const getCells = (capiCrossword: CAPICrossword): Cell[] => {
+	const cellsMap = getCellsMap(capiCrossword);
+
+	return Array.from(cellsMap, ([, cell]) => cell);
+};
+
+export const getCellsMap = ({
+	entries,
+	dimensions,
+}: CAPICrossword): Map<string, Cell> => {
 	const cells: Map<string, Cell> = getCellForEntry(entries);
 	// add cells for separators
-	const filledCells = fillSeparatorCells({
+	return fillSeparatorCells({
 		cells,
 		rows: dimensions.rows,
 		cols: dimensions.cols,
 	});
-
-	return Array.from(filledCells, ([, cell]) => cell);
 };
 
 const fillSeparatorCells = ({

@@ -1,5 +1,5 @@
 import { isUndefined } from '@guardian/libs';
-import type { Cell as CellType, Theme } from '../@types/crossword';
+import type { Cell as CellType, Focus, Theme } from '../@types/crossword';
 
 export type CellProps = {
 	data: CellType;
@@ -8,6 +8,7 @@ export type CellProps = {
 	cellSize?: number;
 	guess?: string;
 	theme: Theme;
+	focus: Focus;
 };
 
 export const Cell = ({
@@ -17,15 +18,21 @@ export const Cell = ({
 	cellSize,
 	guess = '',
 	theme,
+	focus,
 }: CellProps) => {
+	const isFocused = focus.x === data.x && focus.y === data.y;
+
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
-		: theme.foreground;
+		: isFocused
+			? theme.focus
+			: theme.foreground;
 	return (
 		<g>
 			<rect
 				x={x}
 				y={y}
+				aria-disabled={isFocused}
 				width={cellSize}
 				height={cellSize}
 				fill={backgroundColor}

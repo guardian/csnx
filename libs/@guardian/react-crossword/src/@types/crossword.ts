@@ -34,7 +34,7 @@ export type Crossword = {
 export type Focus = {
 	x: number;
 	y: number;
-	entryId: string;
+	entryId?: string;
 };
 
 export type Theme = {
@@ -42,4 +42,10 @@ export type Theme = {
 	foreground: string;
 	text: string;
 	gutter: number;
+	focus: string;
+};
+
+export type Dimensions = {
+	rows: number;
+	cols: number;
 };
