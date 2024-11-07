@@ -21,7 +21,7 @@ import type { ThemeSelect } from './theme';
 import { themeSelect as defaultTheme, transformProviderTheme } from './theme';
 
 export interface SelectProps
-	extends SelectHTMLAttributes<HTMLSelectElement>,
+	extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'required'>,
 		Props {
 	id?: string;
 	/**
@@ -132,22 +132,28 @@ export const Select = ({
 			<div
 				css={(theme: Theme) => [
 					selectWrapper(mergedTheme(theme.select)),
-					error ? errorChevron(mergedTheme(theme.select)) : '',
-					!error && success ? successChevron(mergedTheme(theme.select)) : '',
-					!error && !success ? supportingTextMargin : '',
+					error
+						? errorChevron(mergedTheme(theme.select))
+						: success
+							? successChevron(mergedTheme(theme.select))
+							: supportingTextMargin,
 				]}
 			>
 				<select
 					css={(theme: Theme) => [
 						select(mergedTheme(theme.select)),
-						error ? state.error(mergedTheme(theme.select)) : '',
-						!error && success ? state.success(mergedTheme(theme.select)) : '',
+						error
+							? state.error(mergedTheme(theme.select))
+							: success
+								? state.success(mergedTheme(theme.select))
+								: state.default(mergedTheme(theme.select)),
 						cssOverrides,
 					]}
 					aria-required={!optional}
 					aria-invalid={!!error}
 					aria-describedby={(error ?? success) ? descriptionId(selectId) : ''}
 					id={selectId}
+					required={!optional}
 					{...props}
 				>
 					{children}

@@ -10,29 +10,78 @@ import {
 } from '../../foundations';
 import type { ThemeSelect } from './theme';
 
+const initial = (theme: ThemeSelect): SerializedStyles => css`
+	color: ${theme.textUserInput};
+	border-width: 1px;
+	border-color: ${theme.border};
+`;
+
+const success = (theme: ThemeSelect): SerializedStyles => css`
+	color: ${theme.textSuccess};
+	border-width: 2px;
+	border-color: ${theme.borderSuccess};
+`;
+
+const error = (theme: ThemeSelect): SerializedStyles => css`
+	color: ${theme.textError};
+	border-width: 2px;
+	border-color: ${theme.borderError};
+`;
+
 export const state = {
-	initial: (theme: ThemeSelect): SerializedStyles => css`
-		color: ${theme.textUserInput};
-		border: 1px solid ${theme.border};
+	default: (theme: ThemeSelect): SerializedStyles => css`
+		${initial(theme)};
+
+		&:invalid {
+			${error(theme)};
+		}
+
+		@supports selector(:user-invalid) {
+			&:invalid {
+				${initial(theme)};
+			}
+
+			&:user-invalid {
+				${error(theme)};
+			}
+		}
+
+		&:valid {
+			${success(theme)};
+		}
+
+		@supports selector(:user-valid) {
+			&:valid {
+				${initial(theme)};
+			}
+
+			&:user-valid {
+				${success(theme)};
+			}
+		}
 	`,
 	error: (theme: ThemeSelect): SerializedStyles => css`
-		color: ${theme.textError};
-
 		&,
-		/* When select is active and in an error state, we want the border to remain the same. */
-		&:active {
-			border-width: 2px;
-			border-color: ${theme.borderError};
+			/* When select is in an error state, we want the border to remain the
+			same whatever the browser validation state. */
+		&:active,
+		&:invalid,
+		&:valid,
+		&:user-invalid,
+		&:user-valid {
+			${error(theme)};
 		}
 	`,
 	success: (theme: ThemeSelect): SerializedStyles => css`
-		color: ${theme.textSuccess};
-
 		&,
-		/* When select is active and in an success state, we want the border to remain the same. */
-		&:active {
-			border-width: 2px;
-			border-color: ${theme.borderSuccess};
+			/* When select is in a success state, we want the border to remain the
+			same whatever the browser validation state. */
+		&:active,
+		&:invalid,
+		&:valid,
+		&:user-invalid,
+		&:user-valid {
+			${success(theme)};
 		}
 	`,
 };
@@ -65,7 +114,7 @@ export const selectWrapper = (select: ThemeSelect): SerializedStyles => css`
 `;
 
 export const select = (theme: ThemeSelect): SerializedStyles => css`
-	${state.initial(theme)};
+	border-style: solid;
 	box-sizing: border-box;
 	height: ${height.inputMedium}px;
 	width: 100%;
@@ -85,20 +134,6 @@ export const select = (theme: ThemeSelect): SerializedStyles => css`
 
 	&:focus {
 		${focusHalo};
-	}
-
-	&:invalid {
-		${state.error(theme)};
-	}
-
-	@supports selector(:user-invalid) {
-		&:invalid {
-			${state.initial(theme)};
-		}
-	}
-
-	&:user-invalid {
-		${state.error(theme)};
 	}
 `;
 
