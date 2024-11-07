@@ -1,4 +1,5 @@
 import { isUndefined } from '@guardian/libs';
+import { memo } from 'react';
 import type { Cell as CellType, Theme } from '../@types/crossword';
 
 export type CellProps = {
@@ -12,7 +13,7 @@ export type CellProps = {
 	isHighlighted?: boolean;
 };
 
-export const Cell = ({
+export const CellComponent = ({
 	data,
 	x,
 	y,
@@ -75,3 +76,5 @@ export const Cell = ({
 		</g>
 	);
 };
+
+export const Cell = memo(CellComponent);
