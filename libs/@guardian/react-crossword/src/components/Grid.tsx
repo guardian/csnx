@@ -24,7 +24,7 @@ export const Grid = ({
 	focus,
 }: GridProps) => {
 	//for each cell add a cell component to the grid
-	const cellSize = 16;
+	const cellSize = 32;
 	const SVGHeight = cellSize * rows + theme.gutter * (rows + 1);
 	const SVGWidth = cellSize * cols + theme.gutter * (cols + 1);
 

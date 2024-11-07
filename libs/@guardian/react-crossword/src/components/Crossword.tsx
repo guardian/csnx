@@ -112,8 +112,9 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					break;
 				}
 				default:
-					if (key.length === 1) {
-						updateProgress({ x: focus.x, y: focus.y, value: key });
+					const upperCaseKey = key.toUpperCase();
+					if (/^[A-Z]$/.test(upperCaseKey)) {
+						updateProgress({ x: focus.x, y: focus.y, value: upperCaseKey });
 						if (direction === 'across') updateFocus(1, 0);
 						if (direction === 'down') updateFocus(0, 1);
 					} else {

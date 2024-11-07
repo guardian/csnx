@@ -5,7 +5,7 @@ export type CellProps = {
 	data: CellType;
 	x: number;
 	y: number;
-	cellSize?: number;
+	cellSize: number;
 	guess?: string;
 	theme: Theme;
 	focus: Focus;
@@ -15,12 +15,22 @@ export const Cell = ({
 	data,
 	x,
 	y,
-	cellSize,
+	cellSize = 16,
 	guess = '',
 	theme,
 	focus,
 }: CellProps) => {
-	const isFocused = focus.x === data.x && focus.y === data.y;
+	const isFocused = focus.entryId && data.group?.includes(focus.entryId);
+	let border = {};
+	if (isFocused && focus.y === data.y && focus.x === data.x) {
+		// set rect stroke and stroke-width
+		border = {
+			stroke: theme.focusBorder,
+			strokeWidth: 2,
+			rx: 2,
+			ry: 2,
+		};
+	}
 
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
@@ -32,10 +42,10 @@ export const Cell = ({
 			<rect
 				x={x}
 				y={y}
-				aria-disabled={isFocused}
 				width={cellSize}
 				height={cellSize}
 				fill={backgroundColor}
+				{...border}
 			/>
 			{data.number && (
 				<text
@@ -50,7 +60,13 @@ export const Cell = ({
 					{data.number}
 				</text>
 			)}
-			<text x={x} y={y} dy={13} dx={2} style={{ fontSize: 16 }}>
+			<text
+				x={x}
+				y={y}
+				dy={cellSize * 0.75}
+				dx={cellSize * 0.15}
+				style={{ fontSize: cellSize - cellSize / 3 }}
+			>
 				{guess}
 			</text>
 		</g>
