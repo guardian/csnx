@@ -173,6 +173,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			{...props}
 		>
 			<Grid
+				setFocus={setFocus}
 				cells={cells}
 				theme={defaultTheme}
 				progress={progress}
