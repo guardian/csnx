@@ -1,15 +1,10 @@
 import type { MouseEventHandler } from 'react';
 import { useCallback, useRef } from 'react';
-import type {
-	Cell as CellType,
-	Focus,
-	Progress,
-	Theme,
-} from '../@types/crossword';
+import type { Cells, Focus, Progress, Theme } from '../@types/crossword';
 import { Cell } from './Cell';
 
 export type GridProps = {
-	cellsMap: Map<string, CellType>;
+	cells: Cells;
 	theme: Theme;
 	progress: Progress;
 	rows: number;
@@ -19,7 +14,7 @@ export type GridProps = {
 };
 
 export const Grid = ({
-	cellsMap,
+	cells,
 	theme,
 	progress,
 	rows,
@@ -41,7 +36,7 @@ export const Grid = ({
 					event.clientY - gridRef.current.getBoundingClientRect().top;
 				const cellX = Math.floor(clickX / (cellSize + theme.gutter));
 				const cellY = Math.floor(clickY / (cellSize + theme.gutter));
-				const entryIds = cellsMap.get(`x${cellX}y${cellY}`)?.group;
+				const entryIds = cells.get(`x${cellX}y${cellY}`)?.group;
 				let entryId;
 				if (entryIds?.length === 1) {
 					entryId = entryIds[0];
@@ -61,7 +56,7 @@ export const Grid = ({
 				setFocus({ x: cellX, y: cellY, entryId });
 			}
 		},
-		[cellsMap, focus, setFocus, theme.gutter],
+		[cells, focus, setFocus, theme.gutter],
 	);
 
 	return (
@@ -75,7 +70,7 @@ export const Grid = ({
 			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
 			onClick={getClickRef}
 		>
-			{Array.from(cellsMap.values()).map((cell) => {
+			{Array.from(cells.values()).map((cell) => {
 				const x = cell.x * (cellSize + theme.gutter) + theme.gutter;
 				const y = cell.y * (cellSize + theme.gutter) + theme.gutter;
 				const guess = progress[cell.x]?.[cell.y];

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Focus, Progress, Theme } from '../@types/crossword';
 import { defaultTheme } from '../theme';
-import { getCellsMap } from '../utils/getCells';
+import { getCells } from '../utils/getCells';
 import { Grid } from './Grid';
 
 export type CrosswordProps = {
@@ -20,7 +20,7 @@ export const initialiseProgress = ({ rows, cols }: Dimensions): Progress => {
 
 export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const theme = { ...defaultTheme, ...userTheme };
-	const cellsMap = getCellsMap(props.data);
+	const cells = getCells(props.data);
 	const [progress, setProgress] = useState<Progress>(
 		initialiseProgress(props.data.dimensions),
 	);
@@ -38,7 +38,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			const { x, y, entryId } = focus;
 			const newX = x + dx;
 			const newY = y + dy;
-			const newCell = cellsMap.get(`x${newX}y${newY}`);
+			const newCell = cells.get(`x${newX}y${newY}`);
 			if (!newCell) {
 				return;
 			}
@@ -67,7 +67,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				}
 			}
 		},
-		[focus, cellsMap],
+		[focus, cells],
 	);
 
 	const handleTab = useCallback(() => {
@@ -173,7 +173,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			{...props}
 		>
 			<Grid
-				cellsMap={cellsMap}
+				cells={cells}
 				theme={defaultTheme}
 				progress={progress}
 				focus={focus}
