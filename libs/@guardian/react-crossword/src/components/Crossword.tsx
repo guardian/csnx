@@ -35,7 +35,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			if (!focus) {
 				return;
 			}
-			const { x, y } = focus;
+			const { x, y, entryId } = focus;
 			const newX = x + dx;
 			const newY = y + dy;
 			const newCell = cellsMap.get(`x${newX}y${newY}`);
@@ -50,10 +50,18 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					group.includes('down'),
 				);
 				if (dy !== 0 && possibleDown) {
+					if (entryId !== possibleDown) {
+						setFocus({ x, y, entryId: possibleDown });
+						return;
+					}
 					setFocus({ x: newX, y: newY, entryId: possibleDown });
 					return;
 				}
 				if (dx !== 0 && possibleAcross) {
+					if (entryId !== possibleAcross) {
+						setFocus({ x, y, entryId: possibleAcross });
+						return;
+					}
 					setFocus({ x: newX, y: newY, entryId: possibleAcross });
 					return;
 				}
