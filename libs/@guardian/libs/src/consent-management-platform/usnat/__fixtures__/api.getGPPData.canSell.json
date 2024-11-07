@@ -7,7 +7,8 @@
 	"parsedSections": {
 		"usnatv1": {
 			"Version": 1,
-			"SaleOptOut": 2
+			"SaleOptOut": 2,
+			"Gpc": false
 		}
 	}
 }
