@@ -74,6 +74,10 @@ export const Grid = ({
 				const x = cell.x * (cellSize + theme.gutter) + theme.gutter;
 				const y = cell.y * (cellSize + theme.gutter) + theme.gutter;
 				const guess = progress[cell.x]?.[cell.y];
+				const isFocused = focus?.x === cell.x && focus.y === cell.y;
+				const isHighlighted = focus?.entryId
+					? cell.group?.includes(focus.entryId)
+					: false;
 				return (
 					<Cell
 						key={`x${cell.x}y${cell.y}`}
@@ -83,7 +87,8 @@ export const Grid = ({
 						cellSize={cellSize}
 						theme={theme}
 						guess={guess}
-						focus={focus}
+						isFocused={isFocused}
+						isHighlighted={isHighlighted}
 					/>
 				);
 			})}
