@@ -47,8 +47,13 @@ export const Grid = ({
 					entryId = entryIds[0];
 				} else {
 					const newEntryId = entryIds?.find((id) => id !== focus?.entryId);
-					if (cellX !== focus?.x || cellY !== focus.y) {
-						entryId = focus?.entryId;
+					// if you are not already on an entry stay on it unless the new cell has a different entry or you haven't moved cell
+					if (
+						(cellX !== focus?.x || cellY !== focus.y) &&
+						focus?.entryId &&
+						entryIds?.includes(focus.entryId)
+					) {
+						entryId = focus.entryId;
 					} else {
 						entryId = newEntryId;
 					}
