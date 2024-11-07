@@ -10,25 +10,32 @@ import {
 } from '../../foundations';
 import type { ThemeSelect } from './theme';
 
-export const errorInput = (select: ThemeSelect): SerializedStyles => css`
-	border: 2px solid ${select.borderError};
-	border-radius: 4px;
-	color: ${select.textError};
-	/* When select is active and in an error state, we want the border to remain the same. */
-	&:active {
-		border: 2px solid ${select.borderError};
-	}
-`;
+export const state = {
+	initial: (theme: ThemeSelect): SerializedStyles => css`
+		color: ${theme.textUserInput};
+		border: 1px solid ${theme.border};
+	`,
+	error: (theme: ThemeSelect): SerializedStyles => css`
+		color: ${theme.textError};
 
-export const successInput = (select: ThemeSelect): SerializedStyles => css`
-	border: 2px solid ${select.borderSuccess};
-	border-radius: 4px;
-	color: ${select.textSuccess};
-	/* When select is active and in an success state, we want the border to remain the same. */
-	&:active {
-		border: 2px solid ${select.borderSuccess};
-	}
-`;
+		&,
+		/* When select is active and in an error state, we want the border to remain the same. */
+		&:active {
+			border-width: 2px;
+			border-color: ${theme.borderError};
+		}
+	`,
+	success: (theme: ThemeSelect): SerializedStyles => css`
+		color: ${theme.textSuccess};
+
+		&,
+		/* When select is active and in an success state, we want the border to remain the same. */
+		&:active {
+			border-width: 2px;
+			border-color: ${theme.borderSuccess};
+		}
+	`,
+};
 
 export const errorChevron = (select: ThemeSelect): SerializedStyles => css`
 	svg {
@@ -57,14 +64,13 @@ export const selectWrapper = (select: ThemeSelect): SerializedStyles => css`
 	}
 `;
 
-export const select = (select: ThemeSelect): SerializedStyles => css`
-	color: ${select.textUserInput};
+export const select = (theme: ThemeSelect): SerializedStyles => css`
+	${state.initial(theme)};
 	box-sizing: border-box;
 	height: ${height.inputMedium}px;
 	width: 100%;
 	${textSans17};
-	background-color: ${select.backgroundInput};
-	border: 1px solid ${select.border};
+	background-color: ${theme.backgroundInput};
 	border-radius: 4px;
 	padding-left: ${space[2]}px;
 
@@ -82,7 +88,17 @@ export const select = (select: ThemeSelect): SerializedStyles => css`
 	}
 
 	&:invalid {
-		${errorInput(select)};
+		${state.error(theme)};
+	}
+
+	@supports selector(:user-invalid) {
+		&:invalid {
+			${state.initial(theme)};
+		}
+	}
+
+	&:user-invalid {
+		${state.error(theme)};
 	}
 `;
 
