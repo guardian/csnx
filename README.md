@@ -161,6 +161,18 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/prettier:lint`
 - `make @guardian/prettier:tsc`
 
+#### @guardian/react-crossword
+
+- `make @guardian/react-crossword:build`
+- `make @guardian/react-crossword:build-storybook`
+- `make @guardian/react-crossword:dev`
+- `make @guardian/react-crossword:fix`
+- `make @guardian/react-crossword:lint`
+- `make @guardian/react-crossword:storybook`
+- `make @guardian/react-crossword:test`
+- `make @guardian/react-crossword:tsc`
+- `make @guardian/react-crossword:verify-dist`
+
 #### @guardian/source
 
 - `make @guardian/source:build`

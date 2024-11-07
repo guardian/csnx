@@ -44,6 +44,7 @@ jobs:
     secrets:
       CHROMATIC_SOURCE_TOKEN: ${{ secrets.CHROMATIC_SOURCE_TOKEN }}
       CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN: ${{ secrets.CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN }}
+      CHROMATIC_REACT_CROSSWORD: ${{ secrets.CHROMATIC_REACT_CROSSWORD }}
     if: |
       github.ref == 'refs/heads/main' ||
       contains(github.event.pull_request.labels.*.name, 'run_chromatic') ||

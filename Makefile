@@ -394,6 +394,42 @@ install: check-node-version
 @guardian/prettier\:tsc: env
 	@corepack pnpm --filter @guardian/prettier tsc
 
+.PHONY: @guardian/react-crossword\:build
+@guardian/react-crossword\:build: env
+	@corepack pnpm --filter @guardian/react-crossword build
+
+.PHONY: @guardian/react-crossword\:build-storybook
+@guardian/react-crossword\:build-storybook: env
+	@corepack pnpm --filter @guardian/react-crossword build-storybook
+
+.PHONY: @guardian/react-crossword\:dev
+@guardian/react-crossword\:dev: env
+	@corepack pnpm --filter @guardian/react-crossword dev
+
+.PHONY: @guardian/react-crossword\:fix
+@guardian/react-crossword\:fix: env
+	@corepack pnpm --filter @guardian/react-crossword fix
+
+.PHONY: @guardian/react-crossword\:lint
+@guardian/react-crossword\:lint: env
+	@corepack pnpm --filter @guardian/react-crossword lint
+
+.PHONY: @guardian/react-crossword\:storybook
+@guardian/react-crossword\:storybook: env
+	@corepack pnpm --filter @guardian/react-crossword storybook
+
+.PHONY: @guardian/react-crossword\:test
+@guardian/react-crossword\:test: env
+	@corepack pnpm --filter @guardian/react-crossword test
+
+.PHONY: @guardian/react-crossword\:tsc
+@guardian/react-crossword\:tsc: env
+	@corepack pnpm --filter @guardian/react-crossword tsc
+
+.PHONY: @guardian/react-crossword\:verify-dist
+@guardian/react-crossword\:verify-dist: env
+	@corepack pnpm --filter @guardian/react-crossword verify-dist
+
 .PHONY: @guardian/source\:build
 @guardian/source\:build: env
 	@corepack pnpm --filter @guardian/source build
