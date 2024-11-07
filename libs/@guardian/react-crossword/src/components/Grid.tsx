@@ -42,10 +42,17 @@ export const Grid = ({
 				const cellX = Math.floor(clickX / (cellSize + theme.gutter));
 				const cellY = Math.floor(clickY / (cellSize + theme.gutter));
 				const entryIds = cellsMap.get(`x${cellX}y${cellY}`)?.group;
-				const entryId =
-					entryIds?.length === 1
-						? entryIds[0]
-						: entryIds?.find((id) => id !== focus?.entryId);
+				let entryId;
+				if (entryIds?.length === 1) {
+					entryId = entryIds[0];
+				} else {
+					const newEntryId = entryIds?.find((id) => id !== focus?.entryId);
+					if (cellX !== focus?.x || cellY !== focus.y) {
+						entryId = focus?.entryId;
+					} else {
+						entryId = newEntryId;
+					}
+				}
 				setFocus({ x: cellX, y: cellY, entryId });
 			}
 		},
