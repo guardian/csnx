@@ -8,7 +8,7 @@ export type CellProps = {
 	cellSize: number;
 	guess?: string;
 	theme: Theme;
-	focus: Focus;
+	focus?: Focus;
 };
 
 export const Cell = ({
@@ -20,7 +20,7 @@ export const Cell = ({
 	theme,
 	focus,
 }: CellProps) => {
-	const isFocused = focus.entryId && data.group?.includes(focus.entryId);
+	const isFocused = focus?.entryId && data.group?.includes(focus.entryId);
 	let border = {};
 	if (isFocused && focus.y === data.y && focus.x === data.x) {
 		// set rect stroke and stroke-width

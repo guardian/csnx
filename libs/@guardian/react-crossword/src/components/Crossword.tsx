@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
-import type { CAPICrossword } from '../@types/CAPI';
-import { Dimensions, Focus, Progress, Theme } from '../@types/crossword';
-import { defaultTheme } from '../theme';
-import { useCallback, useEffect, useState } from 'react';
-import { getCellsMap } from '../utils/getCells';
 import { isUndefined } from '@guardian/libs';
+import { useCallback, useEffect, useState } from 'react';
+import type { CAPICrossword } from '../@types/CAPI';
+import type { Dimensions, Focus, Progress, Theme } from '../@types/crossword';
+import { defaultTheme } from '../theme';
+import { getCellsMap } from '../utils/getCells';
 import { Grid } from './Grid';
 
 export type CrosswordProps = {
@@ -13,7 +13,9 @@ export type CrosswordProps = {
 };
 
 export const initialiseProgress = ({ rows, cols }: Dimensions): Progress => {
-	return Array.from({ length: cols }, () => Array(rows).fill(''));
+	return Array.from({ length: cols }, () =>
+		Array.from({ length: rows }, () => ''),
+	);
 };
 
 export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
@@ -22,7 +24,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const [progress, setProgress] = useState<Progress>(
 		initialiseProgress(props.data.dimensions),
 	);
-	const [focus, setFocus] = useState<Focus>({
+	const [focus, setFocus] = useState<Focus | undefined>({
 		x: props.data.entries[0].position.x,
 		y: props.data.entries[0].position.y,
 		entryId: props.data.entries[0].id,
@@ -30,12 +32,16 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const updateFocus = useCallback(
 		(dx: number, dy: number) => {
-			if (!focus) return;
+			if (!focus) {
+				return;
+			}
 			const { x, y } = focus;
 			const newX = x + dx;
 			const newY = y + dy;
 			const newCell = cellsMap.get(`x${newX}y${newY}`);
-			if (!newCell) return;
+			if (!newCell) {
+				return;
+			}
 			if (newCell.group) {
 				const possibleAcross = newCell.group.find((group) =>
 					group.includes('across'),
@@ -78,10 +84,14 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) return;
-			if (!focus) return;
+			if (event.ctrlKey || event.altKey || event.metaKey) {
+				return;
+			}
+			if (!focus) {
+				return;
+			}
 
-			let direction = focus.entryId?.includes('across') ? 'across' : 'down';
+			const direction = focus.entryId?.includes('across') ? 'across' : 'down';
 			let preventDefault = true;
 			const { key } = event;
 
@@ -106,21 +116,30 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				case 'Delete': {
 					updateProgress({ x: focus.x, y: focus.y, value: '' });
 					if (key === 'Backspace') {
-						if (direction === 'across') updateFocus(-1, 0);
-						if (direction === 'down') updateFocus(0, -1);
+						if (direction === 'across') {
+							updateFocus(-1, 0);
+						}
+						if (direction === 'down') {
+							updateFocus(0, -1);
+						}
 					}
 					break;
 				}
-				default:
+				default: {
 					const upperCaseKey = key.toUpperCase();
 					if (/^[A-Z]$/.test(upperCaseKey)) {
 						updateProgress({ x: focus.x, y: focus.y, value: upperCaseKey });
-						if (direction === 'across') updateFocus(1, 0);
-						if (direction === 'down') updateFocus(0, 1);
+						if (direction === 'across') {
+							updateFocus(1, 0);
+						}
+						if (direction === 'down') {
+							updateFocus(0, 1);
+						}
 					} else {
 						preventDefault = false;
 					}
 					break;
+				}
 			}
 
 			if (preventDefault) {

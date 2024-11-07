@@ -12,7 +12,7 @@ export type GridProps = {
 	progress: Progress;
 	rows: number;
 	cols: number;
-	focus: Focus;
+	focus?: Focus;
 };
 
 export const Grid = ({
