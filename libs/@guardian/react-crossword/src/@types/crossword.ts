@@ -16,6 +16,8 @@ export type Cell = {
 	solution?: string;
 };
 
+export type Cells = Map<`x${number}y${number}`, Cell>;
+
 export type Progress = string[][];
 
 export type CrosswordEntry = Entry<number> & {
