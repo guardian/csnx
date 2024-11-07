@@ -1,6 +1,6 @@
+import type { Dimensions } from './crossword';
 import type { Direction } from './Direction';
 import type { Entry } from './Entry';
-import { Dimensions } from './crossword';
 
 export type CAPIEntry = Entry<number> & {
 	direction: Direction;
