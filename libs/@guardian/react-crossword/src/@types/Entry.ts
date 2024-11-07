@@ -1,6 +1,6 @@
 import type { Direction } from './Direction';
 
-type EntryID<Number extends number = number> = `${Number}-${Direction}`;
+export type EntryID<Number extends number = number> = `${Number}-${Direction}`;
 
 export type Entry<Number extends number> = {
 	id: EntryID<Number>;
