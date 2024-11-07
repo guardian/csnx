@@ -63,9 +63,9 @@ export const Cell = ({
 			<text
 				x={x}
 				y={y}
-				dy={cellSize * 0.75}
-				dx={cellSize * 0.15}
-				style={{ fontSize: cellSize - cellSize / 3 }}
+				dy={cellSize * 0.77}
+				dx={cellSize * 0.25}
+				style={{ fontSize: cellSize * 0.7 }}
 			>
 				{guess}
 			</text>
