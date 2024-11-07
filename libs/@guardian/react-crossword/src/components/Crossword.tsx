@@ -171,6 +171,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				focus={focus}
 				rows={props.data.dimensions.rows}
 				cols={props.data.dimensions.cols}
+				setFocus={setFocus}
 			/>
 			{JSON.stringify(focus)}
 		</div>
