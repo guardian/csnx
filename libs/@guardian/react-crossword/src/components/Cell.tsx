@@ -63,8 +63,10 @@ export const Cell = ({
 			<text
 				x={x}
 				y={y}
-				dy={cellSize * 0.77}
-				dx={cellSize * 0.25}
+				dx={cellSize / 2}
+				dy={cellSize / 1.7}
+				textAnchor="middle"
+				dominantBaseline="middle"
 				style={{ fontSize: cellSize * 0.7 }}
 			>
 				{guess}
