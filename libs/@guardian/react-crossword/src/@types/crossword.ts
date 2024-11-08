@@ -1,5 +1,5 @@
 import type { Direction } from './Direction';
-import type { Entry } from './Entry';
+import type { Entry, EntryID } from './Entry';
 
 export type Cell = {
 	// grid coords
@@ -15,6 +15,8 @@ export type Cell = {
 	/** The cell's solution */
 	solution?: string;
 };
+
+export type Cells = Map<`x${number}y${number}`, Cell>;
 
 export type Progress = string[][];
 
@@ -34,7 +36,7 @@ export type Crossword = {
 export type Focus = {
 	x: number;
 	y: number;
-	entryId: string;
+	entryId?: EntryID;
 };
 
 export type Theme = {
@@ -42,4 +44,11 @@ export type Theme = {
 	foreground: string;
 	text: string;
 	gutter: number;
+	focus: string;
+	focusBorder: string;
+};
+
+export type Dimensions = {
+	rows: number;
+	cols: number;
 };

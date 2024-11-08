@@ -1,26 +1,44 @@
 import { isUndefined } from '@guardian/libs';
+import { memo } from 'react';
 import type { Cell as CellType, Theme } from '../@types/crossword';
 
 export type CellProps = {
 	data: CellType;
 	x: number;
 	y: number;
-	cellSize?: number;
+	cellSize: number;
 	guess?: string;
 	theme: Theme;
+	isFocused?: boolean;
+	isHighlighted?: boolean;
 };
 
-export const Cell = ({
+export const CellComponent = ({
 	data,
 	x,
 	y,
-	cellSize,
+	cellSize = 16,
 	guess = '',
 	theme,
+	isFocused,
+	isHighlighted,
 }: CellProps) => {
+	let border = {};
+	if (isFocused) {
+		// set rect stroke and stroke-width
+		border = {
+			stroke: theme.focusBorder,
+			strokeWidth: 2,
+			rx: 2,
+			ry: 2,
+		};
+	}
+
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
-		: theme.foreground;
+		: isHighlighted
+			? theme.focus
+			: theme.foreground;
 	return (
 		<g>
 			<rect
@@ -29,6 +47,7 @@ export const Cell = ({
 				width={cellSize}
 				height={cellSize}
 				fill={backgroundColor}
+				{...border}
 			/>
 			{data.number && (
 				<text
@@ -43,9 +62,19 @@ export const Cell = ({
 					{data.number}
 				</text>
 			)}
-			<text x={x} y={y} dy={13} dx={2} style={{ fontSize: 16 }}>
+			<text
+				x={x}
+				y={y}
+				dx={cellSize / 2}
+				dy={cellSize / 1.7}
+				textAnchor="middle"
+				dominantBaseline="middle"
+				style={{ fontSize: cellSize * 0.7 }}
+			>
 				{guess}
 			</text>
 		</g>
 	);
 };
+
+export const Cell = memo(CellComponent);
