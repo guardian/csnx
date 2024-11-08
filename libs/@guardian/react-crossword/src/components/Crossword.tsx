@@ -75,20 +75,60 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	}, []);
 
 	const updateProgress = useCallback(
-		({ x, y, value }: { x: number; y: number; value: string }) => {
+		(newGuesses: Array<{ x: number; y: number; value: string }>) => {
 			setProgress((prevProgress) => {
 				const updatedProgress = [...prevProgress];
-				if (
-					!isUndefined(updatedProgress[x]) &&
-					!isUndefined(updatedProgress[x][y])
-				) {
-					updatedProgress[x][y] = value;
-				}
+				newGuesses.forEach(({ x, y, value }) => {
+					if (
+						!isUndefined(updatedProgress[x]) &&
+						!isUndefined(updatedProgress[x][y])
+					) {
+						updatedProgress[x][y] = value;
+					}
+				});
 				return updatedProgress;
 			});
 		},
 		[],
 	);
+
+	const revealEntry = () => {
+		const newGuesses = Array.from(cells.values())
+			.filter((cell) => focus?.entryId && cell.group?.includes(focus.entryId))
+			.map((cell) => ({
+				x: cell.x,
+				y: cell.y,
+				value: cell.solution ?? '',
+			}));
+		updateProgress(newGuesses);
+	};
+
+	const revealGrid = () => {
+		const newGuesses = Array.from(cells.values()).map((cell) => ({
+			x: cell.x,
+			y: cell.y,
+			value: cell.solution ?? '',
+		}));
+		updateProgress(newGuesses);
+	};
+
+	const clearGrid = () => {
+		setProgress(initialiseProgress(props.data.dimensions));
+	};
+
+	const clearEntry = () => {
+		cells.forEach((cell) => {
+			if (focus?.entryId && cell.group?.includes(focus.entryId)) {
+				updateProgress([
+					{
+						x: cell.x,
+						y: cell.y,
+						value: '',
+					},
+				]);
+			}
+		});
+	};
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
@@ -122,7 +162,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					break;
 				case 'Backspace':
 				case 'Delete': {
-					updateProgress({ x: focus.x, y: focus.y, value: '' });
+					updateProgress([{ x: focus.x, y: focus.y, value: '' }]);
 					if (key === 'Backspace') {
 						if (direction === 'across') {
 							updateFocus(-1, 0);
@@ -136,7 +176,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				default: {
 					const upperCaseKey = key.toUpperCase();
 					if (/^[A-Z]$/.test(upperCaseKey)) {
-						updateProgress({ x: focus.x, y: focus.y, value: upperCaseKey });
+						updateProgress([{ x: focus.x, y: focus.y, value: upperCaseKey }]);
 						if (direction === 'across') {
 							updateFocus(1, 0);
 						}
@@ -181,6 +221,10 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				rows={props.data.dimensions.rows}
 				cols={props.data.dimensions.cols}
 			/>
+			<button onClick={revealEntry}>Reveal Entry</button>
+			<button onClick={revealGrid}>Reveal Grid</button>
+			<button onClick={clearGrid}>Clear Grid</button>
+			<button onClick={clearEntry}>Clear Entry</button>
 			{JSON.stringify(focus)}
 		</div>
 	);
