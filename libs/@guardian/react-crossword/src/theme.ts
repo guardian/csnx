@@ -8,4 +8,5 @@ export const defaultTheme: Theme = {
 	gutter: 1,
 	focus: 'lightpink',
 	focusBorder: 'hotpink',
+	cellSize: 32,
 };

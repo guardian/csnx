@@ -6,7 +6,6 @@ export type CellProps = {
 	data: CellType;
 	x: number;
 	y: number;
-	cellSize: number;
 	guess?: string;
 	theme: Theme;
 	isFocused?: boolean;
@@ -17,7 +16,6 @@ export const CellComponent = ({
 	data,
 	x,
 	y,
-	cellSize = 16,
 	guess = '',
 	theme,
 	isFocused,
@@ -40,12 +38,12 @@ export const CellComponent = ({
 			? theme.focus
 			: theme.foreground;
 	return (
-		<g>
+		<g data-x={data.x} data-y={data.y}>
 			<rect
 				x={x}
 				y={y}
-				width={cellSize}
-				height={cellSize}
+				width={theme.cellSize}
+				height={theme.cellSize}
 				fill={backgroundColor}
 				{...border}
 			/>
@@ -54,8 +52,8 @@ export const CellComponent = ({
 					x={x}
 					y={y}
 					dy={8}
-					height={cellSize}
-					width={cellSize}
+					height={theme.cellSize}
+					width={theme.cellSize}
 					fill={theme.text}
 					style={{ fontSize: 10 }}
 				>
@@ -65,11 +63,11 @@ export const CellComponent = ({
 			<text
 				x={x}
 				y={y}
-				dx={cellSize / 2}
-				dy={cellSize / 1.7}
+				dx={theme.cellSize / 2}
+				dy={theme.cellSize / 1.7}
 				textAnchor="middle"
 				dominantBaseline="middle"
-				style={{ fontSize: cellSize * 0.7 }}
+				style={{ fontSize: theme.cellSize * 0.7 }}
 			>
 				{guess}
 			</text>
