@@ -40,7 +40,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	});
 
 	const moveFocus = useCallback(
-		(delta: { x: number; y: number }) => {
+		(delta: { x: number; y: number }, typing = false) => {
 			if (!currentCell) {
 				return;
 			}
@@ -61,6 +61,11 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			const possibleDown = newCell.group?.find((group) =>
 				group.includes('down'),
 			);
+
+			// If we're typing, we only want to move focus if the new cell is an entry square
+			if (typing && !possibleDown && !possibleAcross) {
+				return;
+			}
 
 			if (delta.x !== 0) {
 				setCurrentCell({ x: newX, y: newY });
@@ -133,32 +138,40 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					break;
 				case 'Backspace':
 				case 'Delete': {
-					updateProgress({ ...currentCell, value: '' });
-					if (key === 'Backspace') {
-						if (direction === 'across') {
-							moveFocus({
-								x: -1,
-								y: 0,
-							});
-						}
-						if (direction === 'down') {
-							moveFocus({
-								x: 0,
-								y: -1,
-							});
+					if (currentEntryId) {
+						updateProgress({ ...currentCell, value: '' });
+						if (key === 'Backspace') {
+							if (direction === 'across') {
+								moveFocus(
+									{
+										x: -1,
+										y: 0,
+									},
+									true,
+								);
+							}
+							if (direction === 'down') {
+								moveFocus(
+									{
+										x: 0,
+										y: -1,
+									},
+									true,
+								);
+							}
 						}
 					}
 					break;
 				}
 				default: {
 					const upperCaseKey = key.toUpperCase();
-					if (/^[A-Z]$/.test(upperCaseKey)) {
+					if (/^[A-Z]$/.test(upperCaseKey) && currentEntryId) {
 						updateProgress({ ...currentCell, value: upperCaseKey });
 						if (direction === 'across') {
-							moveFocus({ x: 1, y: 0 });
+							moveFocus({ x: 1, y: 0 }, true);
 						}
 						if (direction === 'down') {
-							moveFocus({ x: 0, y: 1 });
+							moveFocus({ x: 0, y: 1 }, true);
 						}
 					} else {
 						preventDefault = false;
