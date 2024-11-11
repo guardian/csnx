@@ -115,19 +115,13 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 			switch (key) {
 				case 'ArrowUp':
-					moveFocus({
-						x: 0,
-						y: -1,
-					});
+					moveFocus({ x: 0, y: -1 });
 					break;
 				case 'ArrowDown':
 					moveFocus({ x: 0, y: 1 });
 					break;
 				case 'ArrowLeft':
-					moveFocus({
-						x: -1,
-						y: 0,
-					});
+					moveFocus({ x: -1, y: 0 });
 					break;
 				case 'ArrowRight':
 					moveFocus({ x: 1, y: 0 });
