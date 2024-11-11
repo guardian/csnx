@@ -1,5 +1,6 @@
+import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	CurrentCell,
@@ -10,6 +11,7 @@ import type {
 } from '../@types/crossword';
 import { defaultTheme } from '../theme';
 import { getCells } from '../utils/getCells';
+import { Clues } from './Clues';
 import { Grid } from './Grid';
 
 export type CrosswordProps = {
@@ -24,8 +26,6 @@ export const initialiseProgress = ({ rows, cols }: Dimensions): Progress => {
 };
 
 export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
-	const theme = { ...defaultTheme, ...userTheme };
-	const cells = getCells(props.data);
 	const [progress, setProgress] = useState<Progress>(
 		initialiseProgress(props.data.dimensions),
 	);
@@ -38,6 +38,11 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		x: props.data.entries[0].position.x,
 		y: props.data.entries[0].position.y,
 	});
+
+	const applicationRef = useRef<HTMLDivElement | null>(null);
+
+	const theme = { ...defaultTheme, ...userTheme };
+	const cells = getCells(props.data);
 
 	const moveFocus = useCallback(
 		({
@@ -176,25 +181,81 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		[currentCell, currentEntryId, moveFocus, handleTab, updateProgress],
 	);
 
+	const setEntry = useCallback(
+		(entryId: CurrentEntryId) => {
+			const entry = props.data.entries.find((entry) => entry.id === entryId);
+			if (entry) {
+				setCurrentEntryId(entryId);
+				setCurrentCell({ x: entry.position.x, y: entry.position.y });
+			}
+		},
+		[props.data.entries],
+	);
+
+	const handleClueClick = useCallback(
+		(event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+			const option = target.closest('[role="option"][id]');
+
+			if (!option) {
+				return;
+			}
+
+			const entryId = option.id;
+			if (entryId) {
+				setEntry(entryId as CurrentEntryId);
+			}
+		},
+		[setEntry],
+	);
+
 	useEffect(() => {
-		document.addEventListener('keydown', handleKeyDown);
+		const application = applicationRef.current;
+
+		application?.addEventListener('keydown', handleKeyDown);
+		application?.addEventListener('click', handleClueClick);
+
 		return () => {
-			document.removeEventListener('keydown', handleKeyDown);
+			application?.removeEventListener('keydown', handleKeyDown);
+			application?.removeEventListener('click', handleClueClick);
 		};
-	}, [handleKeyDown]);
+	}, [handleKeyDown, handleClueClick]);
 
 	return (
-		<div {...props}>
-			<Grid
-				setCurrentCell={setCurrentCell}
-				setCurrentEntryId={setCurrentEntryId}
-				cells={cells}
-				theme={theme}
-				progress={progress}
-				currentCell={currentCell}
-				currentEntryId={currentEntryId}
-				dimensions={props.data.dimensions}
-			/>
+		<div
+			role="application"
+			ref={applicationRef}
+			css={css`
+				display: grid;
+				grid-template-columns: minmax(300px, 500px) 1fr;
+			`}
+		>
+			<div>
+				<Grid
+					setCurrentCell={setCurrentCell}
+					setCurrentEntryId={setCurrentEntryId}
+					cells={cells}
+					theme={theme}
+					progress={progress}
+					currentCell={currentCell}
+					currentEntryId={currentEntryId}
+					dimensions={props.data.dimensions}
+				/>
+			</div>
+			<div>
+				<Clues
+					direction="across"
+					entries={props.data.entries}
+					currentEntryId={currentEntryId}
+					theme={theme}
+				/>
+				<Clues
+					direction="down"
+					entries={props.data.entries}
+					currentEntryId={currentEntryId}
+					theme={theme}
+				/>
+			</div>
 			{JSON.stringify(focus)}
 		</div>
 	);

@@ -146,8 +146,8 @@ export const Grid = ({
 		<svg
 			style={{
 				backgroundColor: theme.background,
-				width: SVGWidth,
-				height: SVGHeight,
+				width: '100%',
+				maxWidth: SVGWidth,
 			}}
 			ref={gridRef}
 			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
