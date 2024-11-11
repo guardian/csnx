@@ -53,39 +53,28 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				return;
 			}
 
-			if (newCell.group) {
-				// TODO: this logic is very similar to the click handler entry selection stuff.
-				// maybe we can refactor this out into a shared function?
-				const possibleAcross = newCell.group.find((group) =>
-					group.includes('across'),
-				);
+			// TODO: this logic is very similar to the click handler entry selection stuff.
+			// maybe we can refactor this out into a shared function?
+			const possibleAcross = newCell.group?.find((group) =>
+				group.includes('across'),
+			);
+			const possibleDown = newCell.group?.find((group) =>
+				group.includes('down'),
+			);
 
-				if (delta.x !== 0 && possibleAcross) {
-					if (currentEntryId !== possibleAcross) {
-						setCurrentEntryId(possibleAcross);
-						return;
-					}
-					setCurrentCell({ x: newX, y: newY });
-					setCurrentEntryId(possibleAcross);
-					return;
-				}
+			if (delta.x !== 0) {
+				setCurrentCell({ x: newX, y: newY });
+				setCurrentEntryId(possibleAcross ?? possibleDown);
+				return;
+			}
 
-				const possibleDown = newCell.group.find((group) =>
-					group.includes('down'),
-				);
-
-				if (delta.y !== 0 && possibleDown) {
-					if (currentEntryId !== possibleDown) {
-						setCurrentEntryId(possibleDown);
-						return;
-					}
-					setCurrentCell({ x: newX, y: newY });
-					setCurrentEntryId(possibleDown);
-					return;
-				}
+			if (delta.y !== 0) {
+				setCurrentCell({ x: newX, y: newY });
+				setCurrentEntryId(possibleDown ?? possibleAcross);
+				return;
 			}
 		},
-		[currentCell, currentEntryId, cells],
+		[currentCell, cells],
 	);
 
 	const handleTab = useCallback(() => {
