@@ -40,7 +40,13 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	});
 
 	const moveFocus = useCallback(
-		(delta: { x: number; y: number }) => {
+		({
+			delta,
+			isTyping = false,
+		}: {
+			delta: { x: number; y: number };
+			isTyping?: boolean;
+		}) => {
 			if (!currentCell) {
 				return;
 			}
@@ -53,39 +59,33 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				return;
 			}
 
-			if (newCell.group) {
-				// TODO: this logic is very similar to the click handler entry selection stuff.
-				// maybe we can refactor this out into a shared function?
-				const possibleAcross = newCell.group.find((group) =>
-					group.includes('across'),
-				);
+			// TODO: this logic is very similar to the click handler entry selection stuff.
+			// maybe we can refactor this out into a shared function?
+			const possibleAcross = newCell.group?.find((group) =>
+				group.includes('across'),
+			);
+			const possibleDown = newCell.group?.find((group) =>
+				group.includes('down'),
+			);
 
-				if (delta.x !== 0 && possibleAcross) {
-					if (currentEntryId !== possibleAcross) {
-						setCurrentEntryId(possibleAcross);
-						return;
-					}
-					setCurrentCell({ x: newX, y: newY });
-					setCurrentEntryId(possibleAcross);
-					return;
-				}
+			// If we're typing, we only want to move focus if the new cell is an entry square
+			if (isTyping && !possibleDown && !possibleAcross) {
+				return;
+			}
 
-				const possibleDown = newCell.group.find((group) =>
-					group.includes('down'),
-				);
+			if (delta.x !== 0) {
+				setCurrentCell({ x: newX, y: newY });
+				setCurrentEntryId(possibleAcross ?? possibleDown);
+				return;
+			}
 
-				if (delta.y !== 0 && possibleDown) {
-					if (currentEntryId !== possibleDown) {
-						setCurrentEntryId(possibleDown);
-						return;
-					}
-					setCurrentCell({ x: newX, y: newY });
-					setCurrentEntryId(possibleDown);
-					return;
-				}
+			if (delta.y !== 0) {
+				setCurrentCell({ x: newX, y: newY });
+				setCurrentEntryId(possibleDown ?? possibleAcross);
+				return;
 			}
 		},
-		[currentCell, currentEntryId, cells],
+		[currentCell, cells],
 	);
 
 	const handleTab = useCallback(() => {
@@ -121,22 +121,16 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 			switch (key) {
 				case 'ArrowUp':
-					moveFocus({
-						x: 0,
-						y: -1,
-					});
+					moveFocus({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
-					moveFocus({ x: 0, y: 1 });
+					moveFocus({ delta: { x: 0, y: 1 } });
 					break;
 				case 'ArrowLeft':
-					moveFocus({
-						x: -1,
-						y: 0,
-					});
+					moveFocus({ delta: { x: -1, y: 0 } });
 					break;
 				case 'ArrowRight':
-					moveFocus({ x: 1, y: 0 });
+					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
 				case ' ':
 				case 'Tab':
@@ -144,32 +138,29 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					break;
 				case 'Backspace':
 				case 'Delete': {
+					if (!currentEntryId) {
+						return;
+					}
 					updateProgress({ ...currentCell, value: '' });
 					if (key === 'Backspace') {
 						if (direction === 'across') {
-							moveFocus({
-								x: -1,
-								y: 0,
-							});
+							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
 						}
 						if (direction === 'down') {
-							moveFocus({
-								x: 0,
-								y: -1,
-							});
+							moveFocus({ delta: { x: 0, y: -1 }, isTyping: true });
 						}
 					}
 					break;
 				}
 				default: {
 					const upperCaseKey = key.toUpperCase();
-					if (/^[A-Z]$/.test(upperCaseKey)) {
+					if (/^[A-Z]$/.test(upperCaseKey) && currentEntryId) {
 						updateProgress({ ...currentCell, value: upperCaseKey });
 						if (direction === 'across') {
-							moveFocus({ x: 1, y: 0 });
+							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 						}
 						if (direction === 'down') {
-							moveFocus({ x: 0, y: 1 });
+							moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
 						}
 					} else {
 						preventDefault = false;
