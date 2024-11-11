@@ -138,27 +138,28 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					break;
 				case 'Backspace':
 				case 'Delete': {
-					if (currentEntryId) {
-						updateProgress({ ...currentCell, value: '' });
-						if (key === 'Backspace') {
-							if (direction === 'across') {
-								moveFocus(
-									{
-										x: -1,
-										y: 0,
-									},
-									true,
-								);
-							}
-							if (direction === 'down') {
-								moveFocus(
-									{
-										x: 0,
-										y: -1,
-									},
-									true,
-								);
-							}
+					if (!currentEntryId) {
+						return;
+					}
+					updateProgress({ ...currentCell, value: '' });
+					if (key === 'Backspace') {
+						if (direction === 'across') {
+							moveFocus(
+								{
+									x: -1,
+									y: 0,
+								},
+								true,
+							);
+						}
+						if (direction === 'down') {
+							moveFocus(
+								{
+									x: 0,
+									y: -1,
+								},
+								true,
+							);
 						}
 					}
 					break;
