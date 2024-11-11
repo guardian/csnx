@@ -4,12 +4,16 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	CurrentCell,
 	CurrentEntryId,
-	Dimensions,
 	Progress,
 	Theme,
 } from '../@types/crossword';
 import { defaultTheme } from '../theme';
 import { getCells } from '../utils/getCells';
+import {
+	getStoredProgress,
+	initialiseProgress,
+	saveProgress,
+} from '../utils/progress';
 import { Grid } from './Grid';
 
 export type CrosswordProps = {
@@ -17,18 +21,37 @@ export type CrosswordProps = {
 	theme?: Partial<Theme>;
 };
 
-export const initialiseProgress = ({ rows, cols }: Dimensions): Progress => {
-	return Array.from({ length: cols }, () =>
-		Array.from({ length: rows }, () => ''),
-	);
-};
-
 export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const theme = { ...defaultTheme, ...userTheme };
 	const cells = getCells(props.data);
 	const [progress, setProgress] = useState<Progress>(
-		initialiseProgress(props.data.dimensions),
+		initialiseProgress({
+			id: props.data.id,
+			dimensions: props.data.dimensions,
+		}),
 	);
+
+	const handleLocalStorageEvent = useCallback(
+		(event: StorageEvent) => {
+			if (event.key === props.data.id) {
+				const storedProgress = getStoredProgress({
+					id: props.data.id,
+					dimensions: props.data.dimensions,
+				});
+				if (storedProgress) {
+					setProgress(storedProgress);
+				}
+			}
+		},
+		[props.data.dimensions, props.data.id],
+	);
+
+	useEffect(() => {
+		window.addEventListener('storage', handleLocalStorageEvent);
+		return () => {
+			window.removeEventListener('storage', handleLocalStorageEvent);
+		};
+	}, [handleLocalStorageEvent]);
 
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
@@ -99,10 +122,11 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				if (!isUndefined(newProgress[x]) && !isUndefined(newProgress[x][y])) {
 					newProgress[x][y] = value;
 				}
+				saveProgress({ progress: newProgress, id: props.data.id });
 				return newProgress;
 			});
 		},
-		[],
+		[props.data.id],
 	);
 
 	const handleKeyDown = useCallback(
