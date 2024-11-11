@@ -10,18 +10,21 @@ const meta: Meta<typeof Cell> = {
 
 export default meta;
 
-const Template: StoryFn<typeof Cell> = (args: CellProps) => {
+const Template: StoryFn<typeof Cell> = ({
+	theme = defaultTheme,
+	...args
+}: CellProps) => {
 	return (
 		<svg
 			style={{
 				border: `5px solid green`,
-				width: 16,
-				height: 16,
-				backgroundColor: defaultTheme.background,
+				width: theme.cellSize,
+				height: theme.cellSize,
+				backgroundColor: theme.background,
 			}}
-			viewBox={`0 0 16 16`}
+			viewBox={`0 0 ${theme.cellSize} ${theme.cellSize}`}
 		>
-			<Cell {...args} theme={defaultTheme} />
+			<Cell {...args} theme={theme} />
 		</svg>
 	);
 };
@@ -72,4 +75,19 @@ GuessedWithNumber.args = {
 		group: ['1-across'],
 	},
 	guess: 'A',
+};
+
+export const BigCellGuessedWithNumber: StoryFn<typeof Cell> = Template.bind({});
+BigCellGuessedWithNumber.args = {
+	data: {
+		x: 0,
+		y: 0,
+		number: 1,
+		group: ['1-across'],
+	},
+	guess: 'A',
+	theme: {
+		...defaultTheme,
+		cellSize: 50,
+	},
 };

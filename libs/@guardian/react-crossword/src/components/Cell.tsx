@@ -1,51 +1,78 @@
 import { isUndefined } from '@guardian/libs';
+import { memo } from 'react';
 import type { Cell as CellType, Theme } from '../@types/crossword';
 
 export type CellProps = {
 	data: CellType;
 	x: number;
 	y: number;
-	cellSize?: number;
 	guess?: string;
 	theme: Theme;
+	isFocused?: boolean;
+	isHighlighted?: boolean;
 };
 
-export const Cell = ({
+export const CellComponent = ({
 	data,
 	x,
 	y,
-	cellSize,
 	guess = '',
 	theme,
+	isFocused,
+	isHighlighted,
 }: CellProps) => {
+	let border = {};
+	if (isFocused) {
+		// set rect stroke and stroke-width
+		border = {
+			stroke: theme.focusBorder,
+			strokeWidth: 2,
+			rx: 2,
+			ry: 2,
+		};
+	}
+
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
-		: theme.foreground;
+		: isHighlighted
+			? theme.focus
+			: theme.foreground;
 	return (
-		<g>
+		<g data-x={data.x} data-y={data.y}>
 			<rect
 				x={x}
 				y={y}
-				width={cellSize}
-				height={cellSize}
+				width={theme.cellSize}
+				height={theme.cellSize}
 				fill={backgroundColor}
+				{...border}
 			/>
 			{data.number && (
 				<text
 					x={x}
 					y={y}
 					dy={8}
-					height={cellSize}
-					width={cellSize}
+					height={theme.cellSize}
+					width={theme.cellSize}
 					fill={theme.text}
 					style={{ fontSize: 10 }}
 				>
 					{data.number}
 				</text>
 			)}
-			<text x={x} y={y} dy={13} dx={2} style={{ fontSize: 16 }}>
+			<text
+				x={x}
+				y={y}
+				dx={theme.cellSize / 2}
+				dy={theme.cellSize / 1.7}
+				textAnchor="middle"
+				dominantBaseline="middle"
+				style={{ fontSize: theme.cellSize * 0.7 }}
+			>
 				{guess}
 			</text>
 		</g>
 	);
 };
+
+export const Cell = memo(CellComponent);

@@ -32,7 +32,7 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.3",
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "workspace:*",
+		"@guardian/libs": "19.1.0",
 		"@guardian/source": "8.0.0",
 		"@storybook/addon-a11y": "8.4.1",
 		"@storybook/addon-essentials": "8.4.1",
@@ -57,6 +57,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.3",
+		"@guardian/libs": "^19.1.0",
 		"@guardian/source": "^8.0.0",
 		"@types/react": "^18.2.79",
 		"react": "^18.2.0",
