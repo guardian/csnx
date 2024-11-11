@@ -39,6 +39,13 @@ export type Focus = {
 	entryId?: EntryID;
 };
 
+export type CurrentCell = {
+	x: number;
+	y: number;
+};
+
+export type CurrentEntryId = EntryID;
+
 export type Theme = {
 	background: string;
 	foreground: string;
@@ -46,6 +53,7 @@ export type Theme = {
 	gutter: number;
 	focus: string;
 	focusBorder: string;
+	cellSize: number;
 };
 
 export type Dimensions = {

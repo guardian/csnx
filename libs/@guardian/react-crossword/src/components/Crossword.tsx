@@ -1,8 +1,13 @@
-import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { useCallback, useEffect, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Dimensions, Focus, Progress, Theme } from '../@types/crossword';
+import type {
+	CurrentCell,
+	CurrentEntryId,
+	Dimensions,
+	Progress,
+	Theme,
+} from '../@types/crossword';
 import { defaultTheme } from '../theme';
 import { getCells } from '../utils/getCells';
 import { Grid } from './Grid';
@@ -24,50 +29,63 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const [progress, setProgress] = useState<Progress>(
 		initialiseProgress(props.data.dimensions),
 	);
-	const [focus, setFocus] = useState<Focus | undefined>({
+
+	const [currentEntryId, setCurrentEntryId] = useState<
+		CurrentEntryId | undefined
+	>(props.data.entries[0].id);
+
+	const [currentCell, setCurrentCell] = useState<CurrentCell | undefined>({
 		x: props.data.entries[0].position.x,
 		y: props.data.entries[0].position.y,
-		entryId: props.data.entries[0].id,
 	});
 
-	const updateFocus = useCallback(
-		(dx: number, dy: number) => {
-			if (!focus) {
+	const moveFocus = useCallback(
+		(delta: { x: number; y: number }) => {
+			if (!currentCell) {
 				return;
 			}
-			const { x, y, entryId } = focus;
-			const newX = x + dx;
-			const newY = y + dy;
+
+			const newX = currentCell.x + delta.x;
+			const newY = currentCell.y + delta.y;
 			const newCell = cells.get(`x${newX}y${newY}`);
+
 			if (!newCell) {
 				return;
 			}
+
 			if (newCell.group) {
+				// TODO: this logic is very similar to the click handler entry selection stuff.
+				// maybe we can refactor this out into a shared function?
 				const possibleAcross = newCell.group.find((group) =>
 					group.includes('across'),
 				);
+
+				if (delta.x !== 0 && possibleAcross) {
+					if (currentEntryId !== possibleAcross) {
+						setCurrentEntryId(possibleAcross);
+						return;
+					}
+					setCurrentCell({ x: newX, y: newY });
+					setCurrentEntryId(possibleAcross);
+					return;
+				}
+
 				const possibleDown = newCell.group.find((group) =>
 					group.includes('down'),
 				);
-				if (dy !== 0 && possibleDown) {
-					if (entryId !== possibleDown) {
-						setFocus({ x, y, entryId: possibleDown });
+
+				if (delta.y !== 0 && possibleDown) {
+					if (currentEntryId !== possibleDown) {
+						setCurrentEntryId(possibleDown);
 						return;
 					}
-					setFocus({ x: newX, y: newY, entryId: possibleDown });
-					return;
-				}
-				if (dx !== 0 && possibleAcross) {
-					if (entryId !== possibleAcross) {
-						setFocus({ x, y, entryId: possibleAcross });
-						return;
-					}
-					setFocus({ x: newX, y: newY, entryId: possibleAcross });
+					setCurrentCell({ x: newX, y: newY });
+					setCurrentEntryId(possibleDown);
 					return;
 				}
 			}
 		},
-		[focus, cells],
+		[currentCell, currentEntryId, cells],
 	);
 
 	const handleTab = useCallback(() => {
@@ -76,15 +94,12 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const updateProgress = useCallback(
 		({ x, y, value }: { x: number; y: number; value: string }) => {
-			setProgress((prevProgress) => {
-				const updatedProgress = [...prevProgress];
-				if (
-					!isUndefined(updatedProgress[x]) &&
-					!isUndefined(updatedProgress[x][y])
-				) {
-					updatedProgress[x][y] = value;
+			setProgress((currentProgress) => {
+				const newProgress = [...currentProgress];
+				if (!isUndefined(newProgress[x]) && !isUndefined(newProgress[x][y])) {
+					newProgress[x][y] = value;
 				}
-				return updatedProgress;
+				return newProgress;
 			});
 		},
 		[],
@@ -95,26 +110,33 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			if (event.ctrlKey || event.altKey || event.metaKey) {
 				return;
 			}
-			if (!focus) {
+
+			if (!currentCell) {
 				return;
 			}
 
-			const direction = focus.entryId?.includes('across') ? 'across' : 'down';
+			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
 			let preventDefault = true;
 			const { key } = event;
 
 			switch (key) {
 				case 'ArrowUp':
-					updateFocus(0, -1);
+					moveFocus({
+						x: 0,
+						y: -1,
+					});
 					break;
 				case 'ArrowDown':
-					updateFocus(0, 1);
+					moveFocus({ x: 0, y: 1 });
 					break;
 				case 'ArrowLeft':
-					updateFocus(-1, 0);
+					moveFocus({
+						x: -1,
+						y: 0,
+					});
 					break;
 				case 'ArrowRight':
-					updateFocus(1, 0);
+					moveFocus({ x: 1, y: 0 });
 					break;
 				case ' ':
 				case 'Tab':
@@ -122,13 +144,19 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					break;
 				case 'Backspace':
 				case 'Delete': {
-					updateProgress({ x: focus.x, y: focus.y, value: '' });
+					updateProgress({ ...currentCell, value: '' });
 					if (key === 'Backspace') {
 						if (direction === 'across') {
-							updateFocus(-1, 0);
+							moveFocus({
+								x: -1,
+								y: 0,
+							});
 						}
 						if (direction === 'down') {
-							updateFocus(0, -1);
+							moveFocus({
+								x: 0,
+								y: -1,
+							});
 						}
 					}
 					break;
@@ -136,12 +164,12 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				default: {
 					const upperCaseKey = key.toUpperCase();
 					if (/^[A-Z]$/.test(upperCaseKey)) {
-						updateProgress({ x: focus.x, y: focus.y, value: upperCaseKey });
+						updateProgress({ ...currentCell, value: upperCaseKey });
 						if (direction === 'across') {
-							updateFocus(1, 0);
+							moveFocus({ x: 1, y: 0 });
 						}
 						if (direction === 'down') {
-							updateFocus(0, 1);
+							moveFocus({ x: 0, y: 1 });
 						}
 					} else {
 						preventDefault = false;
@@ -154,7 +182,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				event.preventDefault();
 			}
 		},
-		[focus, updateFocus, updateProgress, handleTab],
+		[currentCell, currentEntryId, moveFocus, handleTab, updateProgress],
 	);
 
 	useEffect(() => {
@@ -165,21 +193,16 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	}, [handleKeyDown]);
 
 	return (
-		<div
-			css={css`
-				background-color: ${theme.foreground};
-				border: ${theme.text} solid 1px;
-			`}
-			{...props}
-		>
+		<div {...props}>
 			<Grid
-				setFocus={setFocus}
+				setCurrentCell={setCurrentCell}
+				setCurrentEntryId={setCurrentEntryId}
 				cells={cells}
-				theme={defaultTheme}
+				theme={theme}
 				progress={progress}
-				focus={focus}
-				rows={props.data.dimensions.rows}
-				cols={props.data.dimensions.cols}
+				currentCell={currentCell}
+				currentEntryId={currentEntryId}
+				dimensions={props.data.dimensions}
 			/>
 			{JSON.stringify(focus)}
 		</div>
