@@ -144,22 +144,10 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					updateProgress({ ...currentCell, value: '' });
 					if (key === 'Backspace') {
 						if (direction === 'across') {
-							moveFocus(
-								{
-									x: -1,
-									y: 0,
-								},
-								true,
-							);
+							moveFocus({ x: -1, y: 0 }, true);
 						}
 						if (direction === 'down') {
-							moveFocus(
-								{
-									x: 0,
-									y: -1,
-								},
-								true,
-							);
+							moveFocus({ x: 0, y: -1 }, true);
 						}
 					}
 					break;
