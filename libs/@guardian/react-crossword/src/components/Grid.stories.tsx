@@ -27,62 +27,53 @@ const Template: StoryFn<typeof Grid> = (args: GridProps) => {
 export const Cryptic: StoryFn<typeof Grid> = Template.bind({});
 Cryptic.args = {
 	cells: getCells(cryptic),
-	rows: cryptic.dimensions.rows,
-	cols: cryptic.dimensions.cols,
+	dimensions: cryptic.dimensions,
 };
 
 export const Everyman: StoryFn<typeof Grid> = Template.bind({});
 Everyman.args = {
 	cells: getCells(everyman),
-	rows: everyman.dimensions.rows,
-	cols: everyman.dimensions.cols,
+	dimensions: everyman.dimensions,
 };
 
 export const Prize: StoryFn<typeof Grid> = Template.bind({});
 Prize.args = {
 	cells: getCells(prize),
-	rows: prize.dimensions.rows,
-	cols: prize.dimensions.cols,
+	dimensions: prize.dimensions,
 };
 
 export const Quick: StoryFn<typeof Grid> = Template.bind({});
 Quick.args = {
 	cells: getCells(quick),
-	rows: quick.dimensions.rows,
-	cols: quick.dimensions.cols,
+	dimensions: quick.dimensions,
 };
 
 export const QuickCryptic: StoryFn<typeof Grid> = Template.bind({});
 QuickCryptic.args = {
 	cells: getCells(quickCryptic),
-	rows: quickCryptic.dimensions.rows,
-	cols: quickCryptic.dimensions.cols,
+	dimensions: quickCryptic.dimensions,
 };
 
 export const Quiptic: StoryFn<typeof Grid> = Template.bind({});
 Quiptic.args = {
 	cells: getCells(quiptic),
-	rows: quiptic.dimensions.rows,
-	cols: quiptic.dimensions.cols,
+	dimensions: quiptic.dimensions,
 };
 
 export const Special: StoryFn<typeof Grid> = Template.bind({});
 Special.args = {
 	cells: getCells(special),
-	rows: special.dimensions.rows,
-	cols: special.dimensions.cols,
+	dimensions: special.dimensions,
 };
 
 export const Speedy: StoryFn<typeof Grid> = Template.bind({});
 Speedy.args = {
 	cells: getCells(speedy),
-	rows: speedy.dimensions.rows,
-	cols: speedy.dimensions.cols,
+	dimensions: speedy.dimensions,
 };
 
 export const Weekend: StoryFn<typeof Grid> = Template.bind({});
 Weekend.args = {
 	cells: getCells(weekend),
-	rows: weekend.dimensions.rows,
-	cols: weekend.dimensions.cols,
+	dimensions: weekend.dimensions,
 };
