@@ -1,4 +1,4 @@
-import type { CAPICrossword } from '../@types/CAPI';
+import type { CAPICrossword } from '../../src/@types/CAPI';
 
 export const prize: CAPICrossword = {
 	id: 'crosswords/prize/29524',
