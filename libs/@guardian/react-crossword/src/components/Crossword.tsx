@@ -40,7 +40,13 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	});
 
 	const moveFocus = useCallback(
-		(delta: { x: number; y: number }, typing = false) => {
+		({
+			delta,
+			isTyping = false,
+		}: {
+			delta: { x: number; y: number };
+			isTyping?: boolean;
+		}) => {
 			if (!currentCell) {
 				return;
 			}
@@ -63,7 +69,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			);
 
 			// If we're typing, we only want to move focus if the new cell is an entry square
-			if (typing && !possibleDown && !possibleAcross) {
+			if (isTyping && !possibleDown && !possibleAcross) {
 				return;
 			}
 
@@ -115,16 +121,16 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 			switch (key) {
 				case 'ArrowUp':
-					moveFocus({ x: 0, y: -1 });
+					moveFocus({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
-					moveFocus({ x: 0, y: 1 });
+					moveFocus({ delta: { x: 0, y: 1 } });
 					break;
 				case 'ArrowLeft':
-					moveFocus({ x: -1, y: 0 });
+					moveFocus({ delta: { x: -1, y: 0 } });
 					break;
 				case 'ArrowRight':
-					moveFocus({ x: 1, y: 0 });
+					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
 				case ' ':
 				case 'Tab':
@@ -138,10 +144,10 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					updateProgress({ ...currentCell, value: '' });
 					if (key === 'Backspace') {
 						if (direction === 'across') {
-							moveFocus({ x: -1, y: 0 }, true);
+							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
 						}
 						if (direction === 'down') {
-							moveFocus({ x: 0, y: -1 }, true);
+							moveFocus({ delta: { x: 0, y: -1 }, isTyping: true });
 						}
 					}
 					break;
@@ -151,10 +157,10 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					if (/^[A-Z]$/.test(upperCaseKey) && currentEntryId) {
 						updateProgress({ ...currentCell, value: upperCaseKey });
 						if (direction === 'across') {
-							moveFocus({ x: 1, y: 0 }, true);
+							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 						}
 						if (direction === 'down') {
-							moveFocus({ x: 0, y: 1 }, true);
+							moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
 						}
 					} else {
 						preventDefault = false;
