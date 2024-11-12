@@ -1,4 +1,4 @@
-import { isString, storage } from '@guardian/libs';
+import { isString, log, storage } from '@guardian/libs';
 import type { Dimensions, Progress } from '../@types/crossword';
 
 export type GetStoredProgressProps = {
@@ -42,19 +42,29 @@ const isValidProgress = (
 ): progress is Progress => {
 	//check if progress is an array
 	if (!Array.isArray(progress)) {
-		console.log('progress is not an array');
+		log('dotcom', 'Invalid crossword progress - progress is not an array');
 		return false;
 	}
 	//check if progress is an array of length dimensions.cols
 	if (progress.length !== dimensions.cols) {
-		console.log('progress is not of length dimensions.cols');
+		log(
+			'dotcom',
+			'Invalid crossword progress - progress is not an array of length dimensions.cols',
+		);
 		return false;
 	}
 	//check if each row is an array
 	if (!progress.every((row) => Array.isArray(row))) {
-		console.log('each row is not an array');
+		log('dotcom', 'Invalid crossword progress - each row is not an array');
 		return false;
 	}
 	//check if each row is of length dimensions.rows
-	return progress.every((row) => row.length === dimensions.rows);
+	if (!progress.every((row) => row.length === dimensions.rows)) {
+		log(
+			'dotcom',
+			'Invalid crossword progress - each row is not of length dimensions.rows',
+		);
+		return false;
+	}
+	return true;
 };
