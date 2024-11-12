@@ -1,20 +1,12 @@
 import { isString, storage } from '@guardian/libs';
 import type { Dimensions, Progress } from '../@types/crossword';
 
-export type InitialProgressProps = {
+export type GetStoredProgressProps = {
 	dimensions: Dimensions;
 	id: string;
 };
 
-export const initialiseProgress = ({
-	dimensions,
-	id,
-}: InitialProgressProps): Progress => {
-	// If we have stored progress, return that
-	const storedProgress = getStoredProgress({ id, dimensions });
-	if (storedProgress) {
-		return storedProgress;
-	}
+export const getEmptyProgress = (dimensions: Dimensions): Progress => {
 	return Array.from({ length: dimensions.cols }, () =>
 		Array.from({ length: dimensions.rows }, () => ''),
 	);
@@ -33,10 +25,7 @@ export const saveProgress = ({
 export const getStoredProgress = ({
 	id,
 	dimensions,
-}: {
-	id: string;
-	dimensions: Dimensions;
-}): Progress | undefined => {
+}: GetStoredProgressProps): Progress | undefined => {
 	const storedProgress = storage.local.get(id);
 	if (isString(storedProgress)) {
 		const parsedProgress = JSON.parse(storedProgress) as unknown;

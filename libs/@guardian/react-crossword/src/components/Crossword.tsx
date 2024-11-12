@@ -10,8 +10,8 @@ import type {
 import { defaultTheme } from '../theme';
 import { getCells } from '../utils/getCells';
 import {
+	getEmptyProgress,
 	getStoredProgress,
-	initialiseProgress,
 	saveProgress,
 } from '../utils/progress';
 import { Grid } from './Grid';
@@ -24,26 +24,26 @@ export type CrosswordProps = {
 export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const theme = { ...defaultTheme, ...userTheme };
 	const cells = getCells(props.data);
+	const { id, dimensions } = props.data;
 	const [progress, setProgress] = useState<Progress>(
-		initialiseProgress({
-			id: props.data.id,
-			dimensions: props.data.dimensions,
-		}),
+		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
 	);
 
+	// Storage event listener to update progress when another instance of the crossword is updated
+	// 'storage' event is fired when localStorage is updated in another tab or window
 	const handleLocalStorageEvent = useCallback(
 		(event: StorageEvent) => {
-			if (event.key === props.data.id) {
+			if (event.key === id) {
 				const storedProgress = getStoredProgress({
-					id: props.data.id,
-					dimensions: props.data.dimensions,
+					id,
+					dimensions,
 				});
 				if (storedProgress) {
 					setProgress(storedProgress);
 				}
 			}
 		},
-		[props.data.dimensions, props.data.id],
+		[dimensions, id],
 	);
 
 	useEffect(() => {
@@ -117,16 +117,18 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const updateProgress = useCallback(
 		({ x, y, value }: { x: number; y: number; value: string }) => {
+			// setProgress using callback to make sure progress is updated from the most recent state.
+			// Prevents issues with async state updates
 			setProgress((currentProgress) => {
 				const newProgress = [...currentProgress];
 				if (!isUndefined(newProgress[x]) && !isUndefined(newProgress[x][y])) {
 					newProgress[x][y] = value;
 				}
-				saveProgress({ progress: newProgress, id: props.data.id });
+				saveProgress({ progress: newProgress, id });
 				return newProgress;
 			});
 		},
-		[props.data.id],
+		[id],
 	);
 
 	const handleKeyDown = useCallback(
@@ -217,7 +219,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 				progress={progress}
 				currentCell={currentCell}
 				currentEntryId={currentEntryId}
-				dimensions={props.data.dimensions}
+				dimensions={dimensions}
 			/>
 			{JSON.stringify(focus)}
 		</div>
