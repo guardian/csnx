@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	CurrentCell,
@@ -38,8 +38,6 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		x: props.data.entries[0].position.x,
 		y: props.data.entries[0].position.y,
 	});
-
-	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
 	const cells = getCells(props.data);
@@ -112,6 +110,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
+			console.log('handleKeyDown');
 			if (event.ctrlKey || event.altKey || event.metaKey) {
 				return;
 			}
@@ -210,21 +209,18 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	);
 
 	useEffect(() => {
-		const application = applicationRef.current;
-
-		application?.addEventListener('keydown', handleKeyDown);
-		application?.addEventListener('click', handleClueClick);
+		document.addEventListener('keydown', handleKeyDown);
+		document.addEventListener('click', handleClueClick);
 
 		return () => {
-			application?.removeEventListener('keydown', handleKeyDown);
-			application?.removeEventListener('click', handleClueClick);
+			document.removeEventListener('keydown', handleKeyDown);
+			document.removeEventListener('click', handleClueClick);
 		};
 	}, [handleKeyDown, handleClueClick]);
 
 	return (
 		<div
 			role="application"
-			ref={applicationRef}
 			css={css`
 				display: grid;
 				grid-template-columns: minmax(300px, 500px) 1fr;
