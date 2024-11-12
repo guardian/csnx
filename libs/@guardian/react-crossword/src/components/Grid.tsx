@@ -37,8 +37,6 @@ export const Grid = ({
 	const SVGWidth =
 		theme.cellSize * dimensions.cols + theme.gutter * (dimensions.cols + 1);
 
-	const cellSpace = theme.cellSize + theme.gutter + theme.gutter;
-
 	return (
 		<svg
 			style={{
@@ -51,17 +49,13 @@ export const Grid = ({
 			tabIndex={-1}
 		>
 			{Array.from(cells.values()).map((cell) => {
-				const x = cell.x * cellSpace;
-				const y = cell.y * cellSpace;
-
+				const x = cell.x * (theme.cellSize + theme.gutter) + theme.gutter;
+				const y = cell.y * (theme.cellSize + theme.gutter) + theme.gutter;
 				const guess = progress[cell.x]?.[cell.y];
-
 				const isFocused = currentCell?.x === cell.x && currentCell.y === cell.y;
-
 				const isHighlighted = currentEntryId
 					? cell.group?.includes(currentEntryId)
 					: false;
-
 				return (
 					<Cell
 						key={`x${cell.x}y${cell.y}`}
