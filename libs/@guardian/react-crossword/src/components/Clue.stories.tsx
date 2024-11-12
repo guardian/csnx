@@ -19,3 +19,10 @@ export const Default: Story = {
 		entry: cryptic.entries[0],
 	},
 };
+
+export const Selected: Story = {
+	args: {
+		entry: cryptic.entries[0],
+		selected: true,
+	},
+};
