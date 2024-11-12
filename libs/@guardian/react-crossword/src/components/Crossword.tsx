@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	CurrentCell,
@@ -8,8 +8,10 @@ import type {
 	Progress,
 	Theme,
 } from '../@types/crossword';
+import type { Direction } from '../@types/Direction';
+import type { EntryID } from '../@types/Entry';
 import { defaultTheme } from '../theme';
-import { getCells } from '../utils/getCells';
+import { parseCrosswordData } from '../utils/getCells';
 import {
 	getEmptyProgress,
 	getStoredProgress,
@@ -62,10 +64,16 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		y: props.data.entries[0].position.y,
 	});
 
+	const workingDirectionRef = useRef<Direction>('across');
+
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
-	const cells = getCells(props.data);
+
+	const { entries, cells } = useMemo(
+		() => parseCrosswordData(props.data),
+		[props.data],
+	);
 
 	const moveFocus = useCallback(
 		({
@@ -207,32 +215,119 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		[currentCell, currentEntryId, moveFocus, handleTab, updateProgress],
 	);
 
-	const setEntry = useCallback(
-		(entryId: CurrentEntryId) => {
-			const entry = props.data.entries.find((entry) => entry.id === entryId);
-			if (entry) {
-				setCurrentEntryId(entryId);
-				setCurrentCell({ x: entry.position.x, y: entry.position.y });
+	const selectClickedCell = useCallback(
+		(event: MouseEvent) => {
+			// The 'g' elements in the grid SVG are the cells, and we have set
+			// data-x and data-y attributes on them to represent their position
+			// in the grid.
+			//
+			// _Note that this is not same as the x and y attributes of the SVG
+			// element itself, which are the position of the top left corner of
+			// the element._
+			//
+			// We can use the event target to find the closest 'g' element, and
+			// then get the data-x and data-y attributes to determine which cell
+			// was clicked.
+
+			const { target } = event;
+
+			if (!(target instanceof Element)) {
+				return;
 			}
+			const g = target.closest('[data-x][data-y]');
+
+			if (!g) {
+				return;
+			}
+
+			const clickedCellX = Number(g.getAttribute('data-x'));
+			const clickedCellY = Number(g.getAttribute('data-y'));
+
+			// We may need to update the current entry based on the cell that
+			// was clicked. We'll start by assuming that the current entry still
+			// applies:
+			let newEntryId = currentEntryId;
+
+			// Get the entry IDs that apply to the clicked cell:
+			const entryIdsForCell = cells.get(
+				`x${clickedCellX}y${clickedCellY}`,
+			)?.group;
+
+			// If there are no entries for this cell (i.e. it's a black one),
+			// set the selected entry to undefined
+			if (isUndefined(entryIdsForCell)) {
+				newEntryId = undefined;
+			}
+
+			// This is not a black cell, so we should check if we need to do
+			// anything about the currently selected entry...
+
+			// If there is only one entry for this cell, select it:
+			else if (entryIdsForCell.length === 1) {
+				newEntryId = entryIdsForCell[0];
+			}
+
+			// There are multiple entries for this cell, so we need to decide
+			// which one to select...
+
+			// If we clicked the cell we were already on, switch to the next
+			// entry for the this cell, if there is one (i.e. toggle between up
+			// and down entries):
+			else if (
+				currentCell?.x === clickedCellX &&
+				currentCell.y === clickedCellY
+			) {
+				const alternateEntryId = entryIdsForCell.find(
+					(id) => id !== currentEntryId,
+				);
+
+				if (alternateEntryId) {
+					newEntryId = alternateEntryId;
+				}
+			}
+
+			// We're in a new cell...
+
+			// If we don't have a current entry to worry about, or if the
+			// current entry does not apply to the new cell, get a new new
+			// entry. We'll try to keep the same direction, if possible:
+			else if (!currentEntryId || !entryIdsForCell.includes(currentEntryId)) {
+				const currentDirection = workingDirectionRef.current;
+				const newEntryIdOfCurrentDirection = entryIdsForCell.find((id) =>
+					id.endsWith(currentDirection),
+				);
+				newEntryId = newEntryIdOfCurrentDirection ?? entryIdsForCell[0];
+			}
+
+			// We're done.
+
+			// Save the direction of the final entry, if there is one:
+			const newEntryDirection = newEntryId?.split('-')[1];
+			if (newEntryDirection === 'across' || newEntryDirection === 'down') {
+				workingDirectionRef.current = newEntryDirection;
+			}
+
+			// Set the new current cell and entry:
+			setCurrentCell({ x: clickedCellX, y: clickedCellY });
+			setCurrentEntryId(newEntryId);
 		},
-		[props.data.entries],
+		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
 
 	const handleClueClick = useCallback(
 		(event: MouseEvent) => {
 			const target = event.target as HTMLElement;
-			const option = target.closest('[role="option"][id]');
 
-			if (!option) {
-				return;
-			}
+			const entry = entries.get(
+				target.closest('[role="option"][id]')?.id as EntryID,
+			);
 
-			const entryId = option.id;
-			if (entryId) {
-				setEntry(entryId as CurrentEntryId);
+			if (entry) {
+				setCurrentEntryId(entry.id);
+				setCurrentCell({ x: entry.position.x, y: entry.position.y });
 			}
 		},
-		[setEntry],
+		[entries],
 	);
 
 	useEffect(() => {
@@ -240,12 +335,14 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 		application?.addEventListener('keydown', handleKeyDown);
 		application?.addEventListener('click', handleClueClick);
+		application?.addEventListener('click', selectClickedCell);
 
 		return () => {
 			application?.removeEventListener('keydown', handleKeyDown);
 			application?.removeEventListener('click', handleClueClick);
+			application?.removeEventListener('click', selectClickedCell);
 		};
-	}, [handleKeyDown, handleClueClick]);
+	}, [handleKeyDown, handleClueClick, selectClickedCell]);
 
 	return (
 		<div

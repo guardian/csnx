@@ -1,3 +1,4 @@
+import type { CAPIEntry } from './CAPI';
 import type { Direction } from './Direction';
 import type { Entry, EntryID } from './Entry';
 
@@ -17,6 +18,7 @@ export type Cell = {
 };
 
 export type Cells = Map<`x${number}y${number}`, Cell>;
+export type Entries = Map<EntryID, CAPIEntry>;
 
 export type Progress = string[][];
 
