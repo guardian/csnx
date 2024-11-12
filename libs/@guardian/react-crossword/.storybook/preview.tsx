@@ -1,11 +1,4 @@
 import { FocusStyleManager, palette } from '@guardian/source/foundations';
-import {
-	Controls,
-	Description,
-	Primary,
-	Subtitle,
-	Title,
-} from '@storybook/blocks';
 import type { Decorator, Preview } from '@storybook/react';
 import { useEffect } from 'react';
 import { viewport } from './preview/viewport';
@@ -23,6 +16,7 @@ const preview: Preview = {
 		options: {
 			storySort: {
 				method: 'alphabetical-by-kind',
+				order: ['README'], // display these stories first
 			},
 		},
 		controls: {
@@ -30,18 +24,6 @@ const preview: Preview = {
 				color: /(background|color)$/i,
 				date: /Date$/i,
 			},
-		},
-		docs: {
-			page: () => (
-				<>
-					<Title />
-					<Subtitle />
-					<Description />
-					<Primary />
-					<Controls />
-				</>
-			),
-			toc: true,
 		},
 		backgrounds: {
 			default: 'palette.neutral[100]',
@@ -70,7 +52,6 @@ const preview: Preview = {
 		},
 		viewport,
 	},
-	tags: ['autodocs'],
 };
 
 export const decorators = [FocusManagerDecorator];

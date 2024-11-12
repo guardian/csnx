@@ -1,82 +1,60 @@
-import type { MouseEventHandler } from 'react';
-import { useCallback, useRef } from 'react';
-import type { Cells, Focus, Progress, Theme } from '../@types/crossword';
+import { useRef } from 'react';
+import type {
+	Cells,
+	CurrentCell,
+	CurrentEntryId,
+	Dimensions,
+	Progress,
+	Theme,
+} from '../@types/crossword';
 import { Cell } from './Cell';
 
 export type GridProps = {
 	cells: Cells;
 	theme: Theme;
 	progress: Progress;
-	rows: number;
-	cols: number;
-	setFocus: (focus: Focus) => void;
-	focus?: Focus;
+	dimensions: Dimensions;
+	setCurrentCell: React.Dispatch<React.SetStateAction<CurrentCell | undefined>>;
+	setCurrentEntryId: React.Dispatch<
+		React.SetStateAction<CurrentEntryId | undefined>
+	>;
+	currentCell?: CurrentCell;
+	currentEntryId?: CurrentEntryId;
 };
 
 export const Grid = ({
 	cells,
 	theme,
 	progress,
-	rows,
-	cols,
-	focus,
-	setFocus = () => {},
+	dimensions,
+	currentCell,
+	currentEntryId,
 }: GridProps) => {
 	const gridRef = useRef<SVGSVGElement>(null);
-	const cellSize = 32;
-	const SVGHeight = cellSize * rows + theme.gutter * (rows + 1);
-	const SVGWidth = cellSize * cols + theme.gutter * (cols + 1);
 
-	const getClickRef: MouseEventHandler<SVGSVGElement> = useCallback(
-		(event) => {
-			if (gridRef.current) {
-				const clickX =
-					event.clientX - gridRef.current.getBoundingClientRect().left;
-				const clickY =
-					event.clientY - gridRef.current.getBoundingClientRect().top;
-				const cellX = Math.floor(clickX / (cellSize + theme.gutter));
-				const cellY = Math.floor(clickY / (cellSize + theme.gutter));
-				const entryIds = cells.get(`x${cellX}y${cellY}`)?.group;
-				let entryId;
-				if (entryIds?.length === 1) {
-					entryId = entryIds[0];
-				} else {
-					const newEntryId = entryIds?.find((id) => id !== focus?.entryId);
-					// if you are not already on an entry stay on it unless the new cell has a different entry or you haven't moved cell
-					if (
-						(cellX !== focus?.x || cellY !== focus.y) &&
-						focus?.entryId &&
-						entryIds?.includes(focus.entryId)
-					) {
-						entryId = focus.entryId;
-					} else {
-						entryId = newEntryId;
-					}
-				}
-				setFocus({ x: cellX, y: cellY, entryId });
-			}
-		},
-		[cells, focus, setFocus, theme.gutter],
-	);
+	const SVGHeight =
+		theme.cellSize * dimensions.rows + theme.gutter * (dimensions.rows + 1);
+	const SVGWidth =
+		theme.cellSize * dimensions.cols + theme.gutter * (dimensions.cols + 1);
 
 	return (
 		<svg
 			style={{
 				backgroundColor: theme.background,
-				width: SVGWidth,
-				height: SVGHeight,
+				width: '100%',
+				maxWidth: SVGWidth,
 			}}
 			ref={gridRef}
 			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
-			onClick={getClickRef}
+			tabIndex={-1}
 		>
 			{Array.from(cells.values()).map((cell) => {
-				const x = cell.x * (cellSize + theme.gutter) + theme.gutter;
-				const y = cell.y * (cellSize + theme.gutter) + theme.gutter;
+				const x = cell.x * (theme.cellSize + theme.gutter) + theme.gutter;
+				const y = cell.y * (theme.cellSize + theme.gutter) + theme.gutter;
 				const guess = progress[cell.x]?.[cell.y];
-				const isFocused = focus?.x === cell.x && focus.y === cell.y;
-				const isHighlighted = focus?.entryId
-					? cell.group?.includes(focus.entryId)
+				const isFocused = currentCell?.x === cell.x && currentCell.y === cell.y;
+				const isHighlighted = currentEntryId
+					? cell.group?.includes(currentEntryId)
 					: false;
 				return (
 					<Cell
@@ -84,7 +62,6 @@ export const Grid = ({
 						data={cell}
 						x={x}
 						y={y}
-						cellSize={cellSize}
 						theme={theme}
 						guess={guess}
 						isFocused={isFocused}

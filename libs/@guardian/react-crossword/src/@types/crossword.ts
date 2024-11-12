@@ -1,3 +1,4 @@
+import type { CAPIEntry } from './CAPI';
 import type { Direction } from './Direction';
 import type { Entry, EntryID } from './Entry';
 
@@ -17,6 +18,7 @@ export type Cell = {
 };
 
 export type Cells = Map<`x${number}y${number}`, Cell>;
+export type Entries = Map<EntryID, CAPIEntry>;
 
 export type Progress = string[][];
 
@@ -39,6 +41,13 @@ export type Focus = {
 	entryId?: EntryID;
 };
 
+export type CurrentCell = {
+	x: number;
+	y: number;
+};
+
+export type CurrentEntryId = EntryID;
+
 export type Theme = {
 	background: string;
 	foreground: string;
@@ -46,6 +55,7 @@ export type Theme = {
 	gutter: number;
 	focus: string;
 	focusBorder: string;
+	cellSize: number;
 };
 
 export type Dimensions = {

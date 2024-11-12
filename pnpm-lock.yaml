@@ -515,7 +515,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: workspace:*
+        specifier: 19.1.0
         version: link:../libs
       '@guardian/source':
         specifier: 8.0.0

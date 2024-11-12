@@ -1,67 +1,59 @@
-import type { CAPICrossword, CAPIEntry } from '../@types/CAPI';
-import type { Cell, Cells } from '../@types/crossword';
+import type { CAPICrossword } from '../@types/CAPI';
+import type { Cell, Cells, Entries } from '../@types/crossword';
 
-export const getCells = ({ entries, dimensions }: CAPICrossword): Cells => {
-	const cells: Cells = getCellForEntry(entries);
-	// add cells for separators
-	return fillSeparatorCells({
-		cells,
-		rows: dimensions.rows,
-		cols: dimensions.cols,
-	});
-};
+/**
+ * Takes the crossword data from the CAPI and returns some things we can use.
+ */
+export const parseCrosswordData = (data: CAPICrossword) => {
+	/**
+	 * A map of all entries in the crossword, indexed by their id.
+	 */
+	const entries: Entries = new Map();
 
-const fillSeparatorCells = ({
-	cells,
-	rows,
-	cols,
-}: {
-	cells: Cells;
-	rows: number;
-	cols: number;
-}): Cells => {
-	for (let i = 0; i < rows; i++) {
-		for (let j = 0; j < cols; j++) {
-			const currentCell = cells.get(`x${i}y${j}`);
-			if (currentCell === undefined) {
-				const newCell: Cell = {
-					x: i,
-					y: j,
-				};
-				cells.set(`x${i}y${j}`, newCell);
+	// create a map of all possible cells that assumes they are all empty (black)
+	const { cols, rows } = data.dimensions;
+	/**
+	 * A map of all cells in the crossword, indexed by their x and y coordinates.
+	 */
+	const cells: Cells = new Map(
+		Array.from({ length: cols }, (_, x) =>
+			Array.from({ length: rows }, (_, y) => [`x${x}y${y}`, { x, y }] as const),
+		).flat(),
+	);
+
+	// Now loop through all entries. For each entry, we'll populate the entriesById and allCells maps.
+	// We're mutating the 'empty' maps here so we can do it in one loop.
+	for (const entry of data.entries) {
+		// populate the entriesById map
+		entries.set(entry.id, entry);
+
+		// For each  cell in the entry's solution
+		for (let i = 0; i < entry.length; i += 1) {
+			let x = entry.position.x;
+			let y = entry.position.y;
+
+			if (entry.direction === 'across') {
+				x += i;
+			} else {
+				y += i;
 			}
+
+			const cell = cells.get(`x${x}y${y}`);
+			const group: Cell['group'] = [entry.id, ...(cell?.group ?? [])];
+			const number: Cell['number'] = i === 0 ? entry.number : undefined;
+
+			cells.set(`x${x}y${y}`, {
+				group,
+				number,
+				x,
+				y,
+				solution: entry.solution?.[i],
+			});
 		}
 	}
-	return cells;
-};
 
-const getCellForEntry = (entries: CAPIEntry[]): Cells => {
-	const cells: Cells = new Map();
-	entries.forEach((entry) => {
-		for (let i = 0; i < entry.length; i += 1) {
-			const across = entry.direction === 'across';
-			const col = across ? entry.position.x + i : entry.position.x;
-			const row = across ? entry.position.y : entry.position.y + i;
-
-			const currentCell = cells.get(`x${col}y${row}`);
-
-			if (currentCell === undefined) {
-				// add cell
-				const newCell: Cell = {
-					group: [entry.id],
-					number: i === 0 ? entry.number : undefined,
-					x: col,
-					y: row,
-					solution: entry.solution?.[i],
-				};
-				cells.set(`x${col}y${row}`, newCell);
-			} else {
-				currentCell.number = i === 0 ? entry.number : currentCell.number;
-				if (currentCell.group) {
-					currentCell.group = [...currentCell.group, entry.id];
-				}
-			}
-		}
-	});
-	return cells;
+	return {
+		cells,
+		entries,
+	};
 };
