@@ -152,6 +152,7 @@ export const Grid = ({
 			ref={gridRef}
 			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
 			onClick={selectClickedCell}
+			tabIndex={-1}
 		>
 			{Array.from(cells.values()).map((cell) => {
 				const x = cell.x * (theme.cellSize + theme.gutter) + theme.gutter;
