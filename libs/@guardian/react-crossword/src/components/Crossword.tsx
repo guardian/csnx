@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	CurrentCell,
@@ -8,8 +8,9 @@ import type {
 	Progress,
 	Theme,
 } from '../@types/crossword';
+import type { EntryID } from '../@types/Entry';
 import { defaultTheme } from '../theme';
-import { getCells } from '../utils/getCells';
+import { parseCrosswordData } from '../utils/getCells';
 import {
 	getEmptyProgress,
 	getStoredProgress,
@@ -65,7 +66,11 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
-	const cells = getCells(props.data);
+
+	const { entries, cells } = useMemo(
+		() => parseCrosswordData(props.data),
+		[props.data],
+	);
 
 	const moveFocus = useCallback(
 		({
@@ -207,32 +212,20 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		[currentCell, currentEntryId, moveFocus, handleTab, updateProgress],
 	);
 
-	const setEntry = useCallback(
-		(entryId: CurrentEntryId) => {
-			const entry = props.data.entries.find((entry) => entry.id === entryId);
-			if (entry) {
-				setCurrentEntryId(entryId);
-				setCurrentCell({ x: entry.position.x, y: entry.position.y });
-			}
-		},
-		[props.data.entries],
-	);
-
 	const handleClueClick = useCallback(
 		(event: MouseEvent) => {
 			const target = event.target as HTMLElement;
-			const option = target.closest('[role="option"][id]');
 
-			if (!option) {
-				return;
-			}
+			const entry = entries.get(
+				target.closest('[role="option"][id]')?.id as EntryID,
+			);
 
-			const entryId = option.id;
-			if (entryId) {
-				setEntry(entryId as CurrentEntryId);
+			if (entry) {
+				setCurrentEntryId(entry.id);
+				setCurrentCell({ x: entry.position.x, y: entry.position.y });
 			}
 		},
-		[setEntry],
+		[entries],
 	);
 
 	useEffect(() => {

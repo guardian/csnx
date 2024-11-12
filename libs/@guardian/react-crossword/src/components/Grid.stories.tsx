@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { cryptic } from '../../stories/formats/cryptic';
 import { defaultTheme } from '../theme';
-import { getCells } from '../utils/getCells';
+import { parseCrosswordData } from '../utils/getCells';
 import { Grid } from './Grid';
 
 const meta: Meta<typeof Grid> = {
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Grid>;
 
 export const Default: Story = {
 	args: {
-		cells: getCells(cryptic),
+		cells: parseCrosswordData(cryptic).cells,
 		dimensions: cryptic.dimensions,
 	},
 };
