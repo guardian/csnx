@@ -20,8 +20,8 @@ const fillSeparatorCells = ({
 	rows: number;
 	cols: number;
 }): Cells => {
-	for (let i = 0; i < rows; i++) {
-		for (let j = 0; j < cols; j++) {
+	for (let i = 0; i < cols; i++) {
+		for (let j = 0; j < rows; j++) {
 			const currentCell = cells.get(`x${i}y${j}`);
 			if (currentCell === undefined) {
 				const newCell: Cell = {

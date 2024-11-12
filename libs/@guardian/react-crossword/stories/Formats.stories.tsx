@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Crossword } from '../src/index';
+import { Crossword } from '../src';
 import { defaultTheme } from '../src/theme';
 import { cryptic } from './formats/cryptic';
 import { everyman } from './formats/everyman';
@@ -9,6 +9,7 @@ import { quickCryptic } from './formats/quick-cryptic';
 import { quiptic } from './formats/quiptic';
 import { special } from './formats/special';
 import { speedy } from './formats/speedy';
+import { uneven } from './formats/uneven';
 import { weekend } from './formats/weekend';
 
 const meta: Meta<typeof Crossword> = {
@@ -56,4 +57,8 @@ export const Speedy: Story = {
 
 export const Weekend: Story = {
 	args: { data: weekend },
+};
+
+export const Uneven: Story = {
+	args: { data: uneven },
 };
