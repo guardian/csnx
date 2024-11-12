@@ -34,9 +34,8 @@ export const Clue = ({ entry, selected, theme }: Props) => {
 				css={css`
 					display: table-cell;
 				`}
-			>
-				{entry.clue}
-			</span>
+				dangerouslySetInnerHTML={{ __html: entry.clue }}
+			></span>
 		</div>
 	);
 };
