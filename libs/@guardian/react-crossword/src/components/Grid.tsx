@@ -146,12 +146,13 @@ export const Grid = ({
 		<svg
 			style={{
 				backgroundColor: theme.background,
-				width: SVGWidth,
-				height: SVGHeight,
+				width: '100%',
+				maxWidth: SVGWidth,
 			}}
 			ref={gridRef}
 			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
 			onClick={selectClickedCell}
+			tabIndex={-1}
 		>
 			{Array.from(cells.values()).map((cell) => {
 				const x = cell.x * (theme.cellSize + theme.gutter) + theme.gutter;
