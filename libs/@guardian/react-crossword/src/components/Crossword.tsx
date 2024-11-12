@@ -112,7 +112,6 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
-			console.log('handleKeyDown');
 			if (event.ctrlKey || event.altKey || event.metaKey) {
 				return;
 			}
