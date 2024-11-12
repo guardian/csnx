@@ -32,30 +32,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
 	);
 
-	// Storage event listener to update progress when another instance of the crossword is updated
-	// 'storage' event is fired when localStorage is updated in another tab or window
-	const handleLocalStorageEvent = useCallback(
-		(event: StorageEvent) => {
-			if (event.key === id) {
-				const storedProgress = getStoredProgress({
-					id,
-					dimensions,
-				});
-				if (storedProgress) {
-					setProgress(storedProgress);
-				}
-			}
-		},
-		[dimensions, id],
-	);
-
-	useEffect(() => {
-		window.addEventListener('storage', handleLocalStorageEvent);
-		return () => {
-			window.removeEventListener('storage', handleLocalStorageEvent);
-		};
-	}, [handleLocalStorageEvent]);
-
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
 	>(data.entries[0].id);
@@ -329,19 +305,43 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 		[entries],
 	);
 
+	// Storage event listener to update progress when another instance of the crossword is updated
+	// 'storage' event is fired when localStorage is updated in another tab or window
+	const handleLocalStorageEvent = useCallback(
+		(event: StorageEvent) => {
+			if (event.key === id) {
+				const storedProgress = getStoredProgress({
+					id,
+					dimensions,
+				});
+				if (storedProgress) {
+					setProgress(storedProgress);
+				}
+			}
+		},
+		[dimensions, id],
+	);
+
 	useEffect(() => {
 		const application = applicationRef.current;
 
 		application?.addEventListener('keydown', handleKeyDown);
 		application?.addEventListener('click', handleClueClick);
 		application?.addEventListener('click', selectClickedCell);
+		window.addEventListener('storage', handleLocalStorageEvent);
 
 		return () => {
 			application?.removeEventListener('keydown', handleKeyDown);
 			application?.removeEventListener('click', handleClueClick);
 			application?.removeEventListener('click', selectClickedCell);
+			window.removeEventListener('storage', handleLocalStorageEvent);
 		};
-	}, [handleKeyDown, handleClueClick, selectClickedCell]);
+	}, [
+		handleKeyDown,
+		handleClueClick,
+		selectClickedCell,
+		handleLocalStorageEvent,
+	]);
 
 	return (
 		<div
