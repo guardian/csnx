@@ -25,8 +25,9 @@ export type CrosswordProps = {
 	theme?: Partial<Theme>;
 };
 
-export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
-	const { id, dimensions } = props.data;
+export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
+	const { id, dimensions } = data;
+
 	const [progress, setProgress] = useState<Progress>(
 		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
 	);
@@ -57,11 +58,11 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
-	>(props.data.entries[0].id);
+	>(data.entries[0].id);
 
 	const [currentCell, setCurrentCell] = useState<CurrentCell | undefined>({
-		x: props.data.entries[0].position.x,
-		y: props.data.entries[0].position.y,
+		x: data.entries[0].position.x,
+		y: data.entries[0].position.y,
 	});
 
 	const workingDirectionRef = useRef<Direction>('across');
@@ -70,10 +71,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const theme = { ...defaultTheme, ...userTheme };
 
-	const { entries, cells } = useMemo(
-		() => parseCrosswordData(props.data),
-		[props.data],
-	);
+	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
 	const moveFocus = useCallback(
 		({
@@ -369,13 +367,13 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			<div>
 				<Clues
 					direction="across"
-					entries={props.data.entries}
+					entries={data.entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
 				/>
 				<Clues
 					direction="down"
-					entries={props.data.entries}
+					entries={data.entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
 				/>
