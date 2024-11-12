@@ -11,7 +11,7 @@ import type {
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { defaultTheme } from '../theme';
-import { parseCrosswordData } from '../utils/getCells';
+import { parseCrosswordData } from '../utils/parseCrosswordData';
 import {
 	getEmptyProgress,
 	getStoredProgress,
@@ -25,43 +25,20 @@ export type CrosswordProps = {
 	theme?: Partial<Theme>;
 };
 
-export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
-	const { id, dimensions } = props.data;
+export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
+	const { id, dimensions } = data;
+
 	const [progress, setProgress] = useState<Progress>(
 		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
 	);
 
-	// Storage event listener to update progress when another instance of the crossword is updated
-	// 'storage' event is fired when localStorage is updated in another tab or window
-	const handleLocalStorageEvent = useCallback(
-		(event: StorageEvent) => {
-			if (event.key === id) {
-				const storedProgress = getStoredProgress({
-					id,
-					dimensions,
-				});
-				if (storedProgress) {
-					setProgress(storedProgress);
-				}
-			}
-		},
-		[dimensions, id],
-	);
-
-	useEffect(() => {
-		window.addEventListener('storage', handleLocalStorageEvent);
-		return () => {
-			window.removeEventListener('storage', handleLocalStorageEvent);
-		};
-	}, [handleLocalStorageEvent]);
-
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
-	>(props.data.entries[0].id);
+	>(data.entries[0].id);
 
 	const [currentCell, setCurrentCell] = useState<CurrentCell | undefined>({
-		x: props.data.entries[0].position.x,
-		y: props.data.entries[0].position.y,
+		x: data.entries[0].position.x,
+		y: data.entries[0].position.y,
 	});
 
 	const workingDirectionRef = useRef<Direction>('across');
@@ -70,10 +47,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const theme = { ...defaultTheme, ...userTheme };
 
-	const { entries, cells } = useMemo(
-		() => parseCrosswordData(props.data),
-		[props.data],
-	);
+	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
 	const moveFocus = useCallback(
 		({
@@ -89,7 +63,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
-			const newCell = cells.get(`x${newX}y${newY}`);
+			const newCell = cells.getByCoords(newX, newY);
 
 			if (!newCell) {
 				return;
@@ -249,8 +223,9 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.get(
-				`x${clickedCellX}y${clickedCellY}`,
+			const entryIdsForCell = cells.getByCoords(
+				clickedCellX,
+				clickedCellY,
 			)?.group;
 
 			// If there are no entries for this cell (i.e. it's a black one),
@@ -330,19 +305,43 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 		[entries],
 	);
 
+	// Storage event listener to update progress when another instance of the crossword is updated
+	// 'storage' event is fired when localStorage is updated in another tab or window
+	const handleLocalStorageEvent = useCallback(
+		(event: StorageEvent) => {
+			if (event.key === id) {
+				const storedProgress = getStoredProgress({
+					id,
+					dimensions,
+				});
+				if (storedProgress) {
+					setProgress(storedProgress);
+				}
+			}
+		},
+		[dimensions, id],
+	);
+
 	useEffect(() => {
 		const application = applicationRef.current;
 
 		application?.addEventListener('keydown', handleKeyDown);
 		application?.addEventListener('click', handleClueClick);
 		application?.addEventListener('click', selectClickedCell);
+		window.addEventListener('storage', handleLocalStorageEvent);
 
 		return () => {
 			application?.removeEventListener('keydown', handleKeyDown);
 			application?.removeEventListener('click', handleClueClick);
 			application?.removeEventListener('click', selectClickedCell);
+			window.removeEventListener('storage', handleLocalStorageEvent);
 		};
-	}, [handleKeyDown, handleClueClick, selectClickedCell]);
+	}, [
+		handleKeyDown,
+		handleClueClick,
+		selectClickedCell,
+		handleLocalStorageEvent,
+	]);
 
 	return (
 		<div
@@ -368,13 +367,13 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			<div>
 				<Clues
 					direction="across"
-					entries={props.data.entries}
+					entries={data.entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
 				/>
 				<Clues
 					direction="down"
-					entries={props.data.entries}
+					entries={data.entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
 				/>
