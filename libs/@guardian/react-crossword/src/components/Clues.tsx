@@ -48,6 +48,7 @@ export const Clues = ({ direction, entries, currentEntryId, theme }: Props) => {
 							theme={theme}
 							entry={entry}
 							selected={currentEntryId === entry.id}
+							key={entry.id}
 						/>
 					))}
 			</div>
