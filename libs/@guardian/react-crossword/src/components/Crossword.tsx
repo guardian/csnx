@@ -11,7 +11,7 @@ import type {
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { defaultTheme } from '../theme';
-import { parseCrosswordData } from '../utils/getCells';
+import { parseCrosswordData } from '../utils/parseCrosswordData';
 import {
 	getEmptyProgress,
 	getStoredProgress,
@@ -89,7 +89,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
-			const newCell = cells.get(`x${newX}y${newY}`);
+			const newCell = cells.getByCoords(newX, newY);
 
 			if (!newCell) {
 				return;
@@ -249,8 +249,9 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.get(
-				`x${clickedCellX}y${clickedCellY}`,
+			const entryIdsForCell = cells.getByCoords(
+				clickedCellX,
+				clickedCellY,
 			)?.group;
 
 			// If there are no entries for this cell (i.e. it's a black one),
