@@ -5,12 +5,16 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	CurrentCell,
 	CurrentEntryId,
-	Dimensions,
 	Progress,
 	Theme,
 } from '../@types/crossword';
 import { defaultTheme } from '../theme';
 import { getCells } from '../utils/getCells';
+import {
+	getEmptyProgress,
+	getStoredProgress,
+	saveProgress,
+} from '../utils/progress';
 import { Clues } from './Clues';
 import { Grid } from './Grid';
 
@@ -19,16 +23,35 @@ export type CrosswordProps = {
 	theme?: Partial<Theme>;
 };
 
-export const initialiseProgress = ({ rows, cols }: Dimensions): Progress => {
-	return Array.from({ length: cols }, () =>
-		Array.from({ length: rows }, () => ''),
-	);
-};
-
 export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
+	const { id, dimensions } = props.data;
 	const [progress, setProgress] = useState<Progress>(
-		initialiseProgress(props.data.dimensions),
+		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
 	);
+
+	// Storage event listener to update progress when another instance of the crossword is updated
+	// 'storage' event is fired when localStorage is updated in another tab or window
+	const handleLocalStorageEvent = useCallback(
+		(event: StorageEvent) => {
+			if (event.key === id) {
+				const storedProgress = getStoredProgress({
+					id,
+					dimensions,
+				});
+				if (storedProgress) {
+					setProgress(storedProgress);
+				}
+			}
+		},
+		[dimensions, id],
+	);
+
+	useEffect(() => {
+		window.addEventListener('storage', handleLocalStorageEvent);
+		return () => {
+			window.removeEventListener('storage', handleLocalStorageEvent);
+		};
+	}, [handleLocalStorageEvent]);
 
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
@@ -99,15 +122,18 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 
 	const updateProgress = useCallback(
 		({ x, y, value }: { x: number; y: number; value: string }) => {
+			// setProgress using callback to make sure progress is updated from the most recent state.
+			// Prevents issues with async state updates
 			setProgress((currentProgress) => {
 				const newProgress = [...currentProgress];
 				if (!isUndefined(newProgress[x]) && !isUndefined(newProgress[x][y])) {
 					newProgress[x][y] = value;
 				}
+				saveProgress({ progress: newProgress, id });
 				return newProgress;
 			});
 		},
-		[],
+		[id],
 	);
 
 	const handleKeyDown = useCallback(
@@ -239,7 +265,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					progress={progress}
 					currentCell={currentCell}
 					currentEntryId={currentEntryId}
-					dimensions={props.data.dimensions}
+					dimensions={dimensions}
 				/>
 			</div>
 			<div>
