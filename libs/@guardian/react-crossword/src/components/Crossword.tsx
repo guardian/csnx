@@ -127,25 +127,25 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	);
 
 	const revealEntry = () => {
-		Array.from(cells.values())
-			.filter((cell) => currentEntryId && cell.group?.includes(currentEntryId))
-			.forEach((cell) =>
+		for (const cell of cells.values()) {
+			if (currentEntryId && cell.group?.includes(currentEntryId)) {
 				updateProgress({
 					x: cell.x,
 					y: cell.y,
 					value: cell.solution ?? '',
-				}),
-			);
+				});
+			}
+		}
 	};
 
 	const revealGrid = () => {
-		Array.from(cells.values()).forEach((cell) =>
+		for (const cell of cells.values()) {
 			updateProgress({
 				x: cell.x,
 				y: cell.y,
 				value: cell.solution ?? '',
-			}),
-		);
+			});
+		}
 	};
 
 	const clearGrid = () => {
@@ -153,7 +153,7 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	};
 
 	const clearEntry = () => {
-		cells.forEach((cell) => {
+		for (const cell of cells.values()) {
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
 				updateProgress({
 					x: cell.x,
@@ -161,21 +161,21 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 					value: '',
 				});
 			}
-		});
+		}
 	};
 
 	const checkWord = () => {
-		Array.from(cells.values())
-			.filter((cell) => currentEntryId && cell.group?.includes(currentEntryId))
-			.forEach((cell) => {
+		for (const cell of cells.values()) {
+			if (currentEntryId && cell.group?.includes(currentEntryId)) {
 				checkCell(cell);
-			});
+			}
+		}
 	};
 
 	const checkGrid = () => {
-		Array.from(cells.values()).forEach((cell) => {
+		for (const cell of cells.values()) {
 			checkCell(cell);
-		});
+		}
 	};
 
 	const checkCell = (cell: Cell) => {
