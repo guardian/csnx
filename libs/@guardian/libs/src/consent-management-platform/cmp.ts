@@ -22,7 +22,7 @@ const init = (
 	pubData?: PubData,
 ): void => {
 	mark('cmp-init');
-	initSourcepoint(framework, subscribed, pubData);
+	initSourcepoint(framework, pubData, subscribed);
 };
 
 const willShowPrivacyMessage: WillShowPrivacyMessage = () =>

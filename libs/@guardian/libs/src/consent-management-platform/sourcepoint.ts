@@ -1,8 +1,8 @@
 import { log } from '../logger/logger';
 import { setCurrentFramework } from './getCurrentFramework';
-import { isGuardianDomain } from './lib/domain';
+// import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
-import type { Property } from './lib/property';
+// import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
@@ -25,25 +25,24 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-const getPropertyHref = (framework: ConsentFramework): Property => {
-	if (framework == 'aus') {
-		return 'https://au.theguardian.com';
-	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
-};
+// const getPropertyHref = (framework: ConsentFramework): Property => {
+// 	if (framework == 'aus') {
+// 		return 'https://au.theguardian.com';
+// 	}
+// 	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+// };
 
 const getPropertyId = (framework: ConsentFramework): number => {
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
-	return 9398;
-	// return PROPERTY_ID;
+	return PROPERTY_ID;
 };
 
 export const init = (
 	framework: ConsentFramework,
-	subscribed: boolean,
 	pubData = {},
+	subscribed: boolean,
 ): void => {
 	stub(framework);
 
