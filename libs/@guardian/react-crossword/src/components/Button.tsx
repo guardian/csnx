@@ -1,21 +1,16 @@
 import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
-import {
-	Button as SourceButton,
-	type ThemeButton,
-} from '@guardian/source/react-components';
+import { Button as SourceButton } from '@guardian/source/react-components';
 import { useState } from 'react';
 
 type ButtonProps = SourceButtonProps & {
 	onSuccess: () => void;
 	requireConfirmation?: boolean;
-	theme?: Partial<ThemeButton>;
 };
 
 export const Button = ({
 	children,
 	requireConfirmation = false,
 	onSuccess,
-	theme = {},
 	...props
 }: ButtonProps) => {
 	const [confirm, setConfirm] = useState<boolean>(false);
@@ -35,7 +30,7 @@ export const Button = ({
 	};
 
 	return (
-		<SourceButton onClick={onClick} theme={theme} size="xsmall" {...props}>
+		<SourceButton onClick={onClick} size="xsmall" {...props}>
 			{confirm && 'Confirm '}
 			{children}
 		</SourceButton>
