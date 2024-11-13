@@ -36,7 +36,8 @@ const getPropertyId = (framework: ConsentFramework): number => {
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
-	return PROPERTY_ID;
+	return 9398;
+	// return PROPERTY_ID;
 };
 
 export const init = (framework: ConsentFramework, pubData = {}): void => {
@@ -80,10 +81,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyHref: getPropertyHref(framework),
+			// propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework),
 			targetingParams: {
 				framework,
+				subscribed: true,
 			},
+			campaignEnv: 'STAGE',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
