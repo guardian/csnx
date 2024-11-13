@@ -34,8 +34,10 @@ declare global {
 				accountId: number;
 				propertyHref?: Property;
 				propertyId?: number;
+				campaignEnv: 'PROD' | 'STAGE';
 				targetingParams: {
 					framework: ConsentFramework;
+					subscribed: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
