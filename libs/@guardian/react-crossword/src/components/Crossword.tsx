@@ -15,6 +15,7 @@ import { parseCrosswordData } from '../utils/parseCrosswordData';
 import {
 	getEmptyProgress,
 	getStoredProgress,
+	isValidProgress,
 	saveProgress,
 } from '../utils/progress';
 import { Clues } from './Clues';
@@ -33,11 +34,14 @@ export const Crossword = ({
 }: CrosswordProps) => {
 	const { id, dimensions } = data;
 
-	const [progress, setProgress] = useState<Progress>(
-		userProgress ??
-			getStoredProgress({ id, dimensions }) ??
-			getEmptyProgress(dimensions),
-	);
+	const progressToUse: Progress = isValidProgress(userProgress, dimensions)
+		? userProgress
+		: (getStoredProgress({
+				id,
+				dimensions,
+			}) ?? getEmptyProgress(dimensions));
+
+	const [progress, setProgress] = useState<Progress>(progressToUse);
 
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
