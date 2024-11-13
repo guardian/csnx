@@ -367,15 +367,17 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 			<div>
 				<Clues
 					direction="across"
-					entries={data.entries}
+					entries={entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
+					progress={progress}
 				/>
 				<Clues
 					direction="down"
-					entries={data.entries}
+					entries={entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
+					progress={progress}
 				/>
 			</div>
 			{JSON.stringify(focus)}
