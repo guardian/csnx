@@ -47,7 +47,7 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 
 			const cell = cells.getByCoords(x, y);
 			const group: Cell['group'] = [entry.id, ...(cell?.group ?? [])];
-			const number: Cell['number'] = i === 0 ? entry.number : undefined;
+			const number: Cell['number'] = i === 0 ? entry.number : cell?.number;
 
 			cells.set(`x${x}y${y}`, {
 				group,
