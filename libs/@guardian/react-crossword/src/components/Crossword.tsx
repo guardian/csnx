@@ -442,6 +442,7 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 						flex-wrap: wrap;
 						gap: 4px 2px;
 						> button {
+							height: 30px;
 							flex: 0 1 120px;
 						}
 					`}
