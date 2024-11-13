@@ -8,6 +8,7 @@ const meta: Meta<typeof Clues> = {
 	title: 'Components/Clues',
 	args: {
 		theme: defaultTheme,
+		progress: [],
 	},
 	decorators: [
 		(Story) => (

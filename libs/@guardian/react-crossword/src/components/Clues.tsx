@@ -1,9 +1,6 @@
 import { css } from '@emotion/react';
-import type {
-	CrosswordEntry,
-	CurrentEntryId,
-	Theme,
-} from '../@types/crossword';
+import type { CAPIEntry } from '../@types/CAPI';
+import type { CurrentEntryId, Progress, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { Clue } from './Clue';
 
@@ -13,12 +10,19 @@ const title = css`
 
 type Props = {
 	direction: Direction;
-	entries: CrosswordEntry[];
+	entries: CAPIEntry[];
 	currentEntryId?: CurrentEntryId;
 	theme: Theme;
+	progress: Progress;
 };
 
-export const Clues = ({ direction, entries, currentEntryId, theme }: Props) => {
+export const Clues = ({
+	direction,
+	entries,
+	currentEntryId,
+	theme,
+	progress,
+}: Props) => {
 	return (
 		<>
 			<label
@@ -43,14 +47,31 @@ export const Clues = ({ direction, entries, currentEntryId, theme }: Props) => {
 				{entries
 					.filter((entry) => entry.direction === direction)
 					.sort((a, b) => a.number - b.number)
-					.map((entry) => (
-						<Clue
-							theme={theme}
-							entry={entry}
-							selected={currentEntryId === entry.id}
-							key={entry.id}
-						/>
-					))}
+					.map((entry) => {
+						const cell = { ...entry.position };
+						const axis = direction === 'across' ? 'x' : 'y';
+						const end = cell[axis] + entry.length;
+
+						let complete = true;
+
+						while (cell[axis] < end) {
+							if (!progress[cell.x]?.[cell.y]) {
+								complete = false;
+								break;
+							}
+							cell[axis]++;
+						}
+
+						return (
+							<Clue
+								theme={theme}
+								entry={entry}
+								selected={currentEntryId === entry.id}
+								key={entry.id}
+								completed={complete}
+							/>
+						);
+					})}
 			</div>
 		</>
 	);
