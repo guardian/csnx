@@ -1,8 +1,8 @@
 import { log } from '../logger/logger';
 import { setCurrentFramework } from './getCurrentFramework';
-// import { isGuardianDomain } from './lib/domain';
+import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
-// import type { Property } from './lib/property';
+import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
@@ -25,12 +25,13 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-// const getPropertyHref = (framework: ConsentFramework): Property => {
-// 	if (framework == 'aus') {
-// 		return 'https://au.theguardian.com';
-// 	}
-// 	return isGuardianDomain() ? null : 'https://test.theguardian.com';
-// };
+const getPropertyHref = (framework: ConsentFramework): Property => {
+	if (framework == 'aus') {
+		return 'https://au.theguardian.com';
+	}
+	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	return isGuardianDomain() ? null : 'http://ui-dev';
+};
 
 const getPropertyId = (framework: ConsentFramework): number => {
 	if (framework == 'aus') {
@@ -84,13 +85,13 @@ export const init = (
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			// propertyHref: getPropertyHref(framework),
+			propertyHref: getPropertyHref(framework),
 			propertyId: getPropertyId(framework),
 			targetingParams: {
-				framework,
+				framework: 'aus',
 				subscribed,
 			},
-			campaignEnv: 'STAGE',
+			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
@@ -204,6 +205,7 @@ export const init = (
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
+					subscribed,
 				},
 			};
 			break;

@@ -34,7 +34,7 @@ declare global {
 				accountId: number;
 				propertyHref?: Property;
 				propertyId?: number;
-				campaignEnv: 'PROD' | 'STAGE';
+				campaignEnv: 'prod' | 'stage';
 				targetingParams: {
 					framework: ConsentFramework;
 					subscribed: boolean;
@@ -47,6 +47,7 @@ declare global {
 				gdpr?: {
 					targetingParams?: {
 						framework: ConsentFramework;
+						subscribed: boolean;
 					};
 				};
 				usnat?: {

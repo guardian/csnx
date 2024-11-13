@@ -33,7 +33,7 @@ const initialised = new Promise((resolve) => {
 	resolveInitialised = resolve;
 });
 
-const init: InitCMP = ({ pubData, country, subscribed = true }) => {
+const init: InitCMP = ({ pubData, country, subscribed = false }) => {
 	if (isDisabled() || isServerSide) {
 		return;
 	}
