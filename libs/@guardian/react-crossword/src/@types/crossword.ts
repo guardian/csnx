@@ -56,6 +56,8 @@ export type Theme = {
 	focus: string;
 	focusBorder: string;
 	cellSize: number;
+	buttonBackground: string;
+	buttonBackgroundHover: string;
 };
 
 export type Dimensions = {

@@ -1,8 +1,11 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
+import type { ThemeButton } from '@guardian/source/react-components';
+import { Button } from '@guardian/source/react-components';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
+	Cell,
 	CurrentCell,
 	CurrentEntryId,
 	Progress,
@@ -69,6 +72,11 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
+
+	const crosswordButtonTheme: Partial<ThemeButton> = {
+		backgroundPrimary: theme.buttonBackground,
+		backgroundPrimaryHover: theme.buttonBackgroundHover,
+	};
 
 	const { entries, cells } = useMemo(
 		() => parseCrosswordData(props.data),
@@ -145,41 +153,67 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 	);
 
 	const revealEntry = () => {
-		const newGuesses = Array.from(cells.values())
-			.filter((cell) => focus?.entryId && cell.group?.includes(focus.entryId))
-			.map((cell) => ({
-				x: cell.x,
-				y: cell.y,
-				value: cell.solution ?? '',
-			}));
-		updateProgress(newGuesses);
+		Array.from(cells.values())
+			.filter((cell) => currentEntryId && cell.group?.includes(currentEntryId))
+			.forEach((cell) =>
+				updateProgress({
+					x: cell.x,
+					y: cell.y,
+					value: cell.solution ?? '',
+				}),
+			);
 	};
 
 	const revealGrid = () => {
-		const newGuesses = Array.from(cells.values()).map((cell) => ({
-			x: cell.x,
-			y: cell.y,
-			value: cell.solution ?? '',
-		}));
-		updateProgress(newGuesses);
+		Array.from(cells.values()).map((cell) =>
+			updateProgress({
+				x: cell.x,
+				y: cell.y,
+				value: cell.solution ?? '',
+			}),
+		);
 	};
 
 	const clearGrid = () => {
-		setProgress(initialiseProgress(props.data.dimensions));
+		setProgress(getEmptyProgress(dimensions));
 	};
 
 	const clearEntry = () => {
 		cells.forEach((cell) => {
-			if (focus?.entryId && cell.group?.includes(focus.entryId)) {
-				updateProgress([
-					{
-						x: cell.x,
-						y: cell.y,
-						value: '',
-					},
-				]);
+			if (currentEntryId && cell.group?.includes(currentEntryId)) {
+				updateProgress({
+					x: cell.x,
+					y: cell.y,
+					value: '',
+				});
 			}
 		});
+	};
+
+	const checkWord = () => {
+		Array.from(cells.values())
+			.filter((cell) => currentEntryId && cell.group?.includes(currentEntryId))
+			.forEach((cell) => {
+				checkCell(cell);
+			});
+	};
+
+	const checkGrid = () => {
+		Array.from(cells.values()).forEach((cell) => {
+			checkCell(cell);
+		});
+	};
+
+	const checkCell = (cell: Cell) => {
+		const currentProgress = progress[cell.x]?.[cell.y];
+		const isCorrect = currentProgress && currentProgress === cell.solution;
+		if (!isCorrect) {
+			updateProgress({
+				x: cell.x,
+				y: cell.y,
+				value: '',
+			});
+		}
 	};
 
 	const handleKeyDown = useCallback(
@@ -402,6 +436,50 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
+				<div
+					css={css`
+						display: flex;
+						flex-wrap: wrap;
+						gap: 4px 2px;
+						> button {
+							flex: 0 1 120px;
+						}
+					`}
+				>
+					<Button onClick={checkGrid} size="xsmall">
+						Check All
+					</Button>
+					<Button onClick={revealGrid} size="xsmall">
+						Reveal All
+					</Button>
+					<Button onClick={clearGrid} size="xsmall">
+						Clear All
+					</Button>
+					<Button onClick={clearGrid} size="xsmall">
+						Anagram Helper
+					</Button>
+					<Button
+						onClick={checkWord}
+						size="xsmall"
+						theme={crosswordButtonTheme}
+					>
+						Check Word
+					</Button>
+					<Button
+						onClick={revealEntry}
+						size="xsmall"
+						theme={crosswordButtonTheme}
+					>
+						Reveal Word
+					</Button>
+					<Button
+						onClick={clearEntry}
+						size="xsmall"
+						theme={crosswordButtonTheme}
+					>
+						Clear Word
+					</Button>
+				</div>
 			</div>
 			<div>
 				<Clues
@@ -417,7 +495,6 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					theme={theme}
 				/>
 			</div>
-			{JSON.stringify(focus)}
 		</div>
 	);
 };
