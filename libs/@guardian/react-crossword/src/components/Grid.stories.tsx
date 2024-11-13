@@ -5,7 +5,7 @@ import { defaultTheme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
 import { Grid } from './Grid';
 
-const { cells, entries } = parseCrosswordData(cryptic);
+const { cells } = parseCrosswordData(cryptic);
 
 const meta: Meta<typeof Grid> = {
 	component: Grid,
@@ -13,7 +13,6 @@ const meta: Meta<typeof Grid> = {
 	args: {
 		theme: defaultTheme,
 		cells,
-		entries,
 		dimensions: cryptic.dimensions,
 		progress: [],
 	},
