@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
 import { Button as SourceButton } from '@guardian/source/react-components';
 import { useState } from 'react';
@@ -30,7 +31,17 @@ export const Button = ({
 	};
 
 	return (
-		<SourceButton onClick={onClick} size="xsmall" {...props}>
+		<SourceButton
+			onClick={onClick}
+			size="xsmall"
+			cssOverrides={css`
+				height: 30px;
+				flex: 1;
+				min-width: 115px;
+				max-width: 200px;
+			`}
+			{...props}
+		>
 			{confirm && 'Confirm '}
 			{children}
 		</SourceButton>

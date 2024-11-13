@@ -441,12 +441,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 						flex-wrap: wrap;
 						justify-content: space-around;
 						gap: 4px;
-						> button {
-							height: 30px;
-							flex: 1;
-							min-width: 115px;
-							max-width: 200px;
-						}
 					`}
 				>
 					<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
