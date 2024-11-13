@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import type { ThemeButton } from '@guardian/source/react-components';
-import { Button } from '@guardian/source/react-components';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
@@ -20,6 +19,7 @@ import {
 	getStoredProgress,
 	saveProgress,
 } from '../utils/progress';
+import { Button } from './Button';
 import { Clues } from './Clues';
 import { Grid } from './Grid';
 
@@ -440,46 +440,31 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					css={css`
 						display: flex;
 						flex-wrap: wrap;
-						gap: 4px 2px;
+						justify-content: space-around;
+						gap: 4px;
 						> button {
 							height: 30px;
-							flex: 0 1 120px;
+							flex: 1;
+							min-width: 115px;
+							max-width: 200px;
 						}
 					`}
 				>
-					<Button onClick={checkGrid} size="xsmall">
-						Check All
-					</Button>
-					<Button onClick={revealGrid} size="xsmall">
-						Reveal All
-					</Button>
-					<Button onClick={clearGrid} size="xsmall">
-						Clear All
-					</Button>
-					<Button onClick={clearGrid} size="xsmall">
-						Anagram Helper
-					</Button>
-					<Button
-						onClick={checkWord}
-						size="xsmall"
-						theme={crosswordButtonTheme}
-					>
+					<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
 						Check Word
 					</Button>
-					<Button
-						onClick={revealEntry}
-						size="xsmall"
-						theme={crosswordButtonTheme}
-					>
+					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
 						Reveal Word
 					</Button>
-					<Button
-						onClick={clearEntry}
-						size="xsmall"
-						theme={crosswordButtonTheme}
-					>
+					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
 						Clear Word
 					</Button>
+					<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
+						Anagram Helper
+					</Button>
+					<Button onSuccess={checkGrid}>Check All</Button>
+					<Button onSuccess={revealGrid}>Reveal All</Button>
+					<Button onSuccess={clearGrid}>Clear All</Button>
 				</div>
 			</div>
 			<div>
