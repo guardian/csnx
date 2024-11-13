@@ -54,7 +54,7 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 		backgroundPrimary: theme.buttonBackground,
 		backgroundPrimaryHover: theme.buttonBackgroundHover,
 	};
-    
+
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
 	const moveFocus = useCallback(
