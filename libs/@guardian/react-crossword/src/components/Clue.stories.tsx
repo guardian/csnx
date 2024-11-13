@@ -30,7 +30,7 @@ export const Selected: Story = {
 export const Completed: Story = {
 	args: {
 		entry: cryptic.entries[0],
-		completed: true,
+		complete: true,
 	},
 };
 
@@ -38,6 +38,6 @@ export const SelectedAndCompleted: Story = {
 	args: {
 		entry: cryptic.entries[0],
 		selected: true,
-		completed: true,
+		complete: true,
 	},
 };
