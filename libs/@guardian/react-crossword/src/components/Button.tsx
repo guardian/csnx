@@ -7,11 +7,13 @@ import { useState } from 'react';
 
 type ButtonProps = SourceButtonProps & {
 	onSuccess: () => void;
+	requireConfirmation?: boolean;
 	theme?: Partial<ThemeButton>;
 };
 
 export const Button = ({
 	children,
+	requireConfirmation = false,
 	onSuccess,
 	theme = {},
 	...props
@@ -19,6 +21,10 @@ export const Button = ({
 	const [confirm, setConfirm] = useState<boolean>(false);
 
 	const onClick = () => {
+		if (!requireConfirmation) {
+			onSuccess();
+			return;
+		}
 		if (!confirm) {
 			setConfirm(true);
 			setTimeout(() => setConfirm(false), 3000);

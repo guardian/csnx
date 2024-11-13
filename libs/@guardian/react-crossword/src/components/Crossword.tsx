@@ -462,9 +462,15 @@ export const Crossword = ({ theme: userTheme, ...props }: CrosswordProps) => {
 					<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
 						Anagram Helper
 					</Button>
-					<Button onSuccess={checkGrid}>Check All</Button>
-					<Button onSuccess={revealGrid}>Reveal All</Button>
-					<Button onSuccess={clearGrid}>Clear All</Button>
+					<Button onSuccess={checkGrid} requireConfirmation={true}>
+						Check All
+					</Button>
+					<Button onSuccess={revealGrid} requireConfirmation={true}>
+						Reveal All
+					</Button>
+					<Button onSuccess={clearGrid} requireConfirmation={true}>
+						Clear All
+					</Button>
 				</div>
 			</div>
 			<div>
