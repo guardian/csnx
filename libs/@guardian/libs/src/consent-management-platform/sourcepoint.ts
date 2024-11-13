@@ -40,7 +40,11 @@ const getPropertyId = (framework: ConsentFramework): number => {
 	// return PROPERTY_ID;
 };
 
-export const init = (framework: ConsentFramework, pubData = {}): void => {
+export const init = (
+	framework: ConsentFramework,
+	subscribed: boolean,
+	pubData = {},
+): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally
@@ -85,7 +89,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			propertyId: getPropertyId(framework),
 			targetingParams: {
 				framework,
-				subscribed: true,
+				subscribed,
 			},
 			campaignEnv: 'STAGE',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
