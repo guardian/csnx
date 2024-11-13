@@ -139,7 +139,7 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	};
 
 	const revealGrid = () => {
-		Array.from(cells.values()).map((cell) =>
+		Array.from(cells.values()).forEach((cell) =>
 			updateProgress({
 				x: cell.x,
 				y: cell.y,
