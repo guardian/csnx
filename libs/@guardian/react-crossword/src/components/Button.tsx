@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
 import { Button as SourceButton } from '@guardian/source/react-components';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 type ButtonProps = SourceButtonProps & {
 	onSuccess: () => void;
@@ -15,6 +15,7 @@ export const Button = ({
 	...props
 }: ButtonProps) => {
 	const [confirm, setConfirm] = useState<boolean>(false);
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const onClick = () => {
 		if (!requireConfirmation) {
@@ -23,8 +24,11 @@ export const Button = ({
 		}
 		if (!confirm) {
 			setConfirm(true);
-			setTimeout(() => setConfirm(false), 3000);
+			timeoutRef.current = setTimeout(() => setConfirm(false), 3000);
 			return;
+		}
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
 		}
 		onSuccess();
 		setConfirm(false);
