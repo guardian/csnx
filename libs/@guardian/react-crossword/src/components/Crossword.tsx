@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
+import { from } from '@guardian/source/foundations';
 import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
@@ -22,6 +23,7 @@ import {
 import { Button } from './Button';
 import { Clues } from './Clues';
 import { Grid } from './Grid';
+import { StickyClue } from './StickyClue';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
@@ -421,10 +423,28 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 			ref={applicationRef}
 			css={css`
 				display: grid;
-				grid-template-columns: minmax(300px, 500px) 1fr;
+				grid-template-columns: minmax(auto, 500px);
+				grid-auto-rows: auto;
+				grid-template-areas:
+					'grid'
+					'controls'
+					'clues';
+				${from.tablet} {
+					grid-template-columns: minmax(300px, 500px) 1fr;
+					grid-template-areas:
+						'grid 		clues'
+						'controls clues'
+						'. 				clues';
+				}
 			`}
 		>
-			<div>
+			<div
+				css={css`
+					grid-area: grid;
+					text-align: center;
+				`}
+			>
+				<StickyClue currentEntryId={currentEntryId} clues={entries} />
 				<Grid
 					setCurrentCell={setCurrentCell}
 					setCurrentEntryId={setCurrentEntryId}
@@ -435,44 +455,49 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
-				<div
-					css={css`
-						display: flex;
-						flex-wrap: wrap;
-						justify-content: space-around;
-						gap: 4px;
-						> button {
-							height: 30px;
-							flex: 1;
-							min-width: 115px;
-							max-width: 200px;
-						}
-					`}
-				>
-					<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
-						Check Word
-					</Button>
-					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-						Reveal Word
-					</Button>
-					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
-						Clear Word
-					</Button>
-					<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
-						Anagram Helper
-					</Button>
-					<Button onSuccess={checkGrid} requireConfirmation={true}>
-						Check All
-					</Button>
-					<Button onSuccess={revealGrid} requireConfirmation={true}>
-						Reveal All
-					</Button>
-					<Button onSuccess={clearGrid} requireConfirmation={true}>
-						Clear All
-					</Button>
-				</div>
 			</div>
-			<div>
+			<div
+				css={css`
+					grid-area: controls;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-around;
+					gap: 4px;
+					> button {
+						height: 30px;
+						flex: 1;
+						min-width: 115px;
+						max-width: 200px;
+					}
+				`}
+			>
+				<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
+					Check Word
+				</Button>
+				<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
+					Reveal Word
+				</Button>
+				<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
+					Clear Word
+				</Button>
+				<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
+					Anagram Helper
+				</Button>
+				<Button onSuccess={checkGrid} requireConfirmation={true}>
+					Check All
+				</Button>
+				<Button onSuccess={revealGrid} requireConfirmation={true}>
+					Reveal All
+				</Button>
+				<Button onSuccess={clearGrid} requireConfirmation={true}>
+					Clear All
+				</Button>
+			</div>
+			<div
+				css={css`
+					grid-area: clues;
+				`}
+			>
 				<Clues
 					direction="across"
 					entries={data.entries}
