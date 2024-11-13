@@ -68,7 +68,7 @@ export const Clues = ({
 								entry={entry}
 								selected={currentEntryId === entry.id}
 								key={entry.id}
-								completed={complete}
+								complete={complete}
 							/>
 						);
 					})}
