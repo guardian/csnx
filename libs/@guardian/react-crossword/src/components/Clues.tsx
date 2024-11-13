@@ -1,6 +1,10 @@
 import { css } from '@emotion/react';
-import type { CAPIEntry } from '../@types/CAPI';
-import type { CurrentEntryId, Progress, Theme } from '../@types/crossword';
+import type {
+	CurrentEntryId,
+	Entries,
+	Progress,
+	Theme,
+} from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { Clue } from './Clue';
 
@@ -10,7 +14,7 @@ const title = css`
 
 type Props = {
 	direction: Direction;
-	entries: CAPIEntry[];
+	entries: Entries;
 	currentEntryId?: CurrentEntryId;
 	theme: Theme;
 	progress: Progress;
@@ -23,6 +27,14 @@ export const Clues = ({
 	theme,
 	progress,
 }: Props) => {
+	const entriesForClues = [];
+
+	for (const entry of entries.values()) {
+		if (entry.direction === direction) {
+			entriesForClues.push(entry);
+		}
+	}
+
 	return (
 		<>
 			<label
@@ -44,8 +56,7 @@ export const Clues = ({
 					list-style: none;
 				`}
 			>
-				{entries
-					.filter((entry) => entry.direction === direction)
+				{entriesForClues
 					.sort((a, b) => a.number - b.number)
 					.map((entry) => {
 						const cell = { ...entry.position };
