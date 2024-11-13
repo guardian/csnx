@@ -17,7 +17,10 @@ export type Cell = {
 	solution?: string;
 };
 
-export type Cells = Map<`x${number}y${number}`, Cell>;
+export type Cells = Map<`x${number}y${number}`, Cell> & {
+	getByCoords: (x: number, y: number) => ReturnType<Cells['get']>;
+};
+
 export type Entries = Map<EntryID, CAPIEntry>;
 
 export type Progress = string[][];

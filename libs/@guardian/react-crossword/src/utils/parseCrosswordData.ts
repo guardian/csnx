@@ -12,13 +12,20 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 
 	// create a map of all possible cells that assumes they are all empty (black)
 	const { cols, rows } = data.dimensions;
+
 	/**
 	 * A map of all cells in the crossword, indexed by their x and y coordinates.
 	 */
-	const cells: Cells = new Map(
-		Array.from({ length: cols }, (_, x) =>
-			Array.from({ length: rows }, (_, y) => [`x${x}y${y}`, { x, y }] as const),
-		).flat(),
+	const cells: Cells = Object.assign(
+		new Map(
+			Array.from({ length: cols }, (_, x) =>
+				Array.from(
+					{ length: rows },
+					(_, y) => [`x${x}y${y}`, { x, y }] as const,
+				),
+			).flat(),
+		),
+		{ getByCoords: (x: number, y: number) => cells.get(`x${x}y${y}`) },
 	);
 
 	// Now loop through all entries. For each entry, we'll populate the entriesById and allCells maps.
@@ -38,9 +45,9 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 				y += i;
 			}
 
-			const cell = cells.get(`x${x}y${y}`);
+			const cell = cells.getByCoords(x, y);
 			const group: Cell['group'] = [entry.id, ...(cell?.group ?? [])];
-			const number: Cell['number'] = i === 0 ? entry.number : undefined;
+			const number: Cell['number'] = i === 0 ? entry.number : cell?.number;
 
 			cells.set(`x${x}y${y}`, {
 				group,
