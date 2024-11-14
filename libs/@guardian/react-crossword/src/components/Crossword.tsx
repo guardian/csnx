@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { from } from '@guardian/source/foundations';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
@@ -30,11 +29,9 @@ export type CrosswordProps = {
 
 export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	const { id, dimensions } = data;
-
 	const [progress, setProgress] = useState<Progress>(
 		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
 	);
-
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
 	>(data.entries[0].id);
@@ -49,6 +46,10 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
+
+	const maxWidth =
+		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter;
+	console.log(maxWidth);
 
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
@@ -352,14 +353,14 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 			ref={applicationRef}
 			css={css`
 				display: grid;
-				grid-template-columns: minmax(auto, 500px);
+				grid-template-columns: minmax(auto, ${maxWidth}px);
 				grid-auto-rows: auto;
 				grid-template-areas:
 					'grid'
 					'controls'
 					'clues';
-				${from.tablet} {
-					grid-template-columns: minmax(300px, 500px) 1fr;
+				@media (min-width: ${theme.wideBreakpoint}px) {
+					grid-template-columns: minmax(300px, ${maxWidth}px) 1fr;
 					grid-template-areas:
 						'grid 		clues'
 						'controls clues'

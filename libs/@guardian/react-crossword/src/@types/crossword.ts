@@ -61,6 +61,7 @@ export type Theme = {
 	cellSize: number;
 	buttonBackground: string;
 	buttonBackgroundHover: string;
+	wideBreakpoint: number;
 };
 
 export type Dimensions = {

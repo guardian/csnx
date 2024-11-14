@@ -1,4 +1,4 @@
-import { palette } from '@guardian/source/foundations';
+import { breakpoints, palette } from '@guardian/source/foundations';
 import type { Theme } from './@types/crossword';
 
 export const defaultTheme: Theme = {
@@ -11,4 +11,5 @@ export const defaultTheme: Theme = {
 	cellSize: 32,
 	buttonBackground: 'hotpink',
 	buttonBackgroundHover: 'lightpink',
+	wideBreakpoint: breakpoints.tablet,
 };
