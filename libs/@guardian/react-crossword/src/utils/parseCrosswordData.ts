@@ -34,7 +34,7 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 		// populate the entriesById map
 		entries.set(entry.id, entry);
 
-		// For each  cell in the entry's solution
+		// For each cell in the entry's solution
 		for (let i = 0; i < entry.length; i += 1) {
 			let x = entry.position.x;
 			let y = entry.position.y;

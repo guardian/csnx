@@ -27,14 +27,14 @@ export const Selected: Story = {
 	},
 };
 
-export const Completed: Story = {
+export const Complete: Story = {
 	args: {
 		entry: cryptic.entries[0],
 		complete: true,
 	},
 };
 
-export const SelectedAndCompleted: Story = {
+export const SelectedAndComplete: Story = {
 	args: {
 		entry: cryptic.entries[0],
 		selected: true,

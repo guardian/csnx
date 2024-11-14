@@ -369,6 +369,7 @@ export const Crossword = ({
 					setCurrentCell={setCurrentCell}
 					setCurrentEntryId={setCurrentEntryId}
 					cells={cells}
+					entries={entries}
 					theme={theme}
 					progress={progress}
 					currentCell={currentCell}

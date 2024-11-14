@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { cryptic } from '../../stories/formats/cryptic';
-import { defaultTheme } from '../theme';
+import { progress } from '../../stories/formats/cryptic.progress';
+import { defaultTheme as theme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
 import { Clues } from './Clues';
 
@@ -8,10 +9,10 @@ const meta: Meta<typeof Clues> = {
 	component: Clues,
 	title: 'Components/Clues',
 	args: {
-		theme: defaultTheme,
 		entries: parseCrosswordData(cryptic).entries,
 		direction: 'across',
-		progress: [],
+		theme,
+		progress,
 	},
 	decorators: [
 		(Story) => (
