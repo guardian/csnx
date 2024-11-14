@@ -70,7 +70,6 @@ export const Controls = ({
 
 	const clearEntry = useCallback(() => {
 		for (const cell of cells.values()) {
-			console.log(currentEntryId);
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
 				updateProgress({
 					x: cell.x,
