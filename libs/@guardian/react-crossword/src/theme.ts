@@ -9,4 +9,6 @@ export const defaultTheme: Theme = {
 	focus: 'lightpink',
 	focusBorder: 'hotpink',
 	cellSize: 32,
+	buttonBackground: 'hotpink',
+	buttonBackgroundHover: 'lightpink',
 };

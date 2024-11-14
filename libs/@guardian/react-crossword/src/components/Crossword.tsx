@@ -19,6 +19,7 @@ import {
 	saveProgress,
 } from '../utils/progress';
 import { Clues } from './Clues';
+import { Controls } from './Controls';
 import { Grid } from './Grid';
 
 export type CrosswordProps = {
@@ -374,6 +375,16 @@ export const Crossword = ({
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
+				<Controls
+					id={id}
+					cells={cells}
+					currentEntryId={currentEntryId}
+					updateProgress={updateProgress}
+					setProgress={setProgress}
+					progress={progress}
+					dimensions={dimensions}
+					theme={theme}
+				/>
 			</div>
 			<div>
 				<Clues
@@ -391,7 +402,6 @@ export const Crossword = ({
 					progress={progress}
 				/>
 			</div>
-			{JSON.stringify(focus)}
 		</div>
 	);
 };
