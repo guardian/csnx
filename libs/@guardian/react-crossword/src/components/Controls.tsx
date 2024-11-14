@@ -95,7 +95,7 @@ export const Controls = ({
 		[progress, updateProgress],
 	);
 
-	const checkWord = useCallback(() => {
+	const checkEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
 				checkCell(cell);
@@ -124,15 +124,19 @@ export const Controls = ({
 				}
 			`}
 		>
-			<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
-				Check Word
-			</Button>
-			<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-				Reveal Word
-			</Button>
-			<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
-				Clear Word
-			</Button>
+			{currentEntryId && (
+				<>
+					<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
+						Check Word
+					</Button>
+					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
+						Reveal Word
+					</Button>
+					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
+						Clear Word
+					</Button>
+				</>
+			)}
 			<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
