@@ -49,7 +49,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 
 	const maxWidth =
 		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter;
-	console.log(maxWidth);
 
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
