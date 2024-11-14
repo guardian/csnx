@@ -58,7 +58,7 @@ export const WithNumber: Story = {
 	},
 };
 
-export const Guessed: Story = {
+export const Progress: Story = {
 	args: {
 		data: {
 			x: 0,
@@ -69,7 +69,7 @@ export const Guessed: Story = {
 	},
 };
 
-export const GuessedWithNumber: Story = {
+export const ProgressWithNumber: Story = {
 	args: {
 		data: {
 			x: 0,
@@ -81,7 +81,7 @@ export const GuessedWithNumber: Story = {
 	},
 };
 
-export const BigCellGuessedWithNumber: Story = {
+export const BigCellProgressWithNumber: Story = {
 	args: {
 		data: {
 			x: 0,

@@ -2,11 +2,11 @@ import type { CAPIEntry } from './CAPI';
 import type { Direction } from './Direction';
 import type { Entry, EntryID } from './Entry';
 
-export type Cell = {
-	// grid coords
-	x: number;
-	y: number;
+export type Coords = {
+	[k in Axis]: number;
+};
 
+export type Cell = Coords & {
 	/** Clue number */
 	number?: number;
 
@@ -18,7 +18,7 @@ export type Cell = {
 };
 
 export type Cells = Map<`x${number}y${number}`, Cell> & {
-	getByCoords: (x: number, y: number) => ReturnType<Cells['get']>;
+	getByCoords: (arg0: Coords) => ReturnType<Cells['get']>;
 };
 
 export type Entries = Map<EntryID, CAPIEntry>;
@@ -38,16 +38,13 @@ export type Crossword = {
 	hasSolution: boolean;
 };
 
-export type Focus = {
-	x: number;
-	y: number;
-	entryId?: EntryID;
-};
+export type Separator = ',' | '-';
 
-export type CurrentCell = {
-	x: number;
-	y: number;
-};
+export type Separators = Array<{
+	type: Separator;
+	position: Coords;
+	direction: Direction;
+}>;
 
 export type CurrentEntryId = EntryID;
 
@@ -67,3 +64,5 @@ export type Dimensions = {
 	rows: number;
 	cols: number;
 };
+
+export type Axis = 'x' | 'y';
