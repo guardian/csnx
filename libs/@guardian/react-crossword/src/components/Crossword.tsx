@@ -366,10 +366,10 @@ export const Crossword = ({
 			css={css`
 				display: grid;
 				grid-template-columns: minmax(auto, ${gridWidth}px);
-				gap: 10px;
+				gap: 0 10px;
 				grid-auto-rows: auto;
 				grid-template-areas:
-					'grid'
+					'crossword-grid'
 					'controls'
 					'clues';
 				@media (min-width: ${theme.wideBreakpoint}px) {
@@ -387,7 +387,13 @@ export const Crossword = ({
 					text-align: center;
 				`}
 			>
-				<StickyClue currentEntryId={currentEntryId} clues={entries} />
+				{currentEntryId && (
+					<StickyClue
+						currentEntryId={currentEntryId}
+						entries={entries}
+						theme={theme}
+					/>
+				)}
 				<Grid
 					setCurrentCell={setCurrentCell}
 					setCurrentEntryId={setCurrentEntryId}
@@ -398,27 +404,17 @@ export const Crossword = ({
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
-				<Controls
-					id={id}
-					cells={cells}
-					currentEntryId={currentEntryId}
-					updateProgress={updateProgress}
-					setProgress={setProgress}
-					progress={progress}
-					dimensions={dimensions}
-					theme={theme}
-				/>
-				<Controls
-					id={id}
-					cells={cells}
-					currentEntryId={currentEntryId}
-					updateProgress={updateProgress}
-					setProgress={setProgress}
-					progress={progress}
-					dimensions={dimensions}
-					theme={theme}
-				/>
 			</div>
+			<Controls
+				id={id}
+				cells={cells}
+				currentEntryId={currentEntryId}
+				updateProgress={updateProgress}
+				setProgress={setProgress}
+				progress={progress}
+				dimensions={dimensions}
+				theme={theme}
+			/>
 			<div
 				css={css`
 					grid-area: clues;

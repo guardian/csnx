@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
-import type { Entries } from '../@types/crossword';
+import type { Entries, Theme } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
+import { Clue } from './Clue';
 
 const stickyClue = css`
 	position: sticky;
@@ -9,14 +10,22 @@ const stickyClue = css`
 	padding: 5px;
 `;
 
-export const StickyClue = (props: {
-	clues: Entries;
-	currentEntryId?: EntryID;
+export const StickyClue = ({
+	entries,
+	currentEntryId,
+	theme,
+}: {
+	entries: Entries;
+	currentEntryId: EntryID;
+	theme: Theme;
 }) => {
-	if (!props.currentEntryId) {
+	const entry = entries.get(currentEntryId);
+	if (!entry) {
 		return null;
 	}
 	return (
-		<div css={stickyClue}>{props.clues.get(props.currentEntryId)?.clue}</div>
+		<div css={stickyClue}>
+			<Clue entry={entry} theme={theme} />
+		</div>
 	);
 };
