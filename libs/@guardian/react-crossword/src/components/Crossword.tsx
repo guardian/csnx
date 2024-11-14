@@ -3,7 +3,7 @@ import { isUndefined } from '@guardian/libs';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
-	CurrentCell,
+	Coords,
 	CurrentEntryId,
 	Progress,
 	Theme,
@@ -48,10 +48,9 @@ export const Crossword = ({
 		CurrentEntryId | undefined
 	>(data.entries[0].id);
 
-	const [currentCell, setCurrentCell] = useState<CurrentCell | undefined>({
-		x: data.entries[0].position.x,
-		y: data.entries[0].position.y,
-	});
+	const [currentCell, setCurrentCell] = useState<Coords | undefined>(
+		data.entries[0].position,
+	);
 
 	const workingDirectionRef = useRef<Direction>('across');
 
@@ -59,23 +58,20 @@ export const Crossword = ({
 
 	const theme = { ...defaultTheme, ...userTheme };
 
-	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
+	const { entries, cells, separators } = useMemo(
+		() => parseCrosswordData(data),
+		[data],
+	);
 
 	const moveFocus = useCallback(
-		({
-			delta,
-			isTyping = false,
-		}: {
-			delta: { x: number; y: number };
-			isTyping?: boolean;
-		}) => {
+		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
 			if (!currentCell) {
 				return;
 			}
 
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
-			const newCell = cells.getByCoords(newX, newY);
+			const newCell = cells.getByCoords({ x: newX, y: newY });
 
 			if (!newCell) {
 				return;
@@ -235,10 +231,10 @@ export const Crossword = ({
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords(
-				clickedCellX,
-				clickedCellY,
-			)?.group;
+			const entryIdsForCell = cells.getByCoords({
+				x: clickedCellX,
+				y: clickedCellY,
+			})?.group;
 
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
@@ -369,7 +365,7 @@ export const Crossword = ({
 					setCurrentCell={setCurrentCell}
 					setCurrentEntryId={setCurrentEntryId}
 					cells={cells}
-					entries={entries}
+					separators={separators}
 					theme={theme}
 					progress={progress}
 					currentCell={currentCell}

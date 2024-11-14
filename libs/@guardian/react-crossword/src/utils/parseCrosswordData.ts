@@ -1,8 +1,16 @@
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Cell, Cells, Entries } from '../@types/crossword';
+import type {
+	Cell,
+	Cells,
+	Coords,
+	Entries,
+	Separators,
+} from '../@types/crossword';
 
 /**
  * Takes the crossword data from the CAPI and returns some things we can use.
+ *
+ * We're doing it all in here to avoid having to loop through the data multiple times.
  */
 export const parseCrosswordData = (data: CAPICrossword) => {
 	/**
@@ -10,13 +18,18 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 	 */
 	const entries: Entries = new Map();
 
-	// create a map of all possible cells that assumes they are all empty (black)
+	/**
+	 * An array of all separators in the crossword.
+	 */
+	const separators: Separators = [];
+
 	const { cols, rows } = data.dimensions;
 
 	/**
 	 * A map of all cells in the crossword, indexed by their x and y coordinates.
 	 */
 	const cells: Cells = Object.assign(
+		// create an initial map of all possible cells that assumes they are all empty (black)
 		new Map(
 			Array.from({ length: cols }, (_, x) =>
 				Array.from(
@@ -25,16 +38,38 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 				),
 			).flat(),
 		),
-		{ getByCoords: (x: number, y: number) => cells.get(`x${x}y${y}`) },
+		{
+			getByCoords: ({ x, y }: Coords) => cells.get(`x${x}y${y}`),
+		},
 	);
 
-	// Now loop through all entries. For each entry, we'll populate the entriesById and allCells maps.
-	// We're mutating the 'empty' maps here so we can do it in one loop.
+	// Now loop through all entries.
+	//
+	// For each entry, we'll populate `entries` and `separators` and `cells`.
+	//
+	// We're mutating the 'empty' targets so we can do it all in one loop.
 	for (const entry of data.entries) {
-		// populate the entriesById map
+		// populate the `entries` map
 		entries.set(entry.id, entry);
 
-		// For each cell in the entry's solution
+		// populate the `separators` array
+		for (const [separator, locations] of Object.entries(
+			entry.separatorLocations,
+		)) {
+			for (const location of locations) {
+				const { direction } = entry;
+				const x =
+					entry.position.x + (direction === 'across' ? location - 1 : 0);
+				const y = entry.position.y + (direction === 'down' ? location - 1 : 0);
+				separators.push({
+					type: separator as ',' | '-',
+					position: { x, y },
+					direction,
+				});
+			}
+		}
+
+		// populate the `cells` map
 		for (let i = 0; i < entry.length; i += 1) {
 			let x = entry.position.x;
 			let y = entry.position.y;
@@ -45,7 +80,7 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 				y += i;
 			}
 
-			const cell = cells.getByCoords(x, y);
+			const cell = cells.getByCoords({ x, y });
 			const group: Cell['group'] = [entry.id, ...(cell?.group ?? [])];
 			const number: Cell['number'] = i === 0 ? entry.number : cell?.number;
 
@@ -62,5 +97,6 @@ export const parseCrosswordData = (data: CAPICrossword) => {
 	return {
 		cells,
 		entries,
+		separators,
 	};
 };

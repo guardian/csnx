@@ -18,7 +18,7 @@ export type Cell = Coords & {
 };
 
 export type Cells = Map<`x${number}y${number}`, Cell> & {
-	getByCoords: (val1: number, val2: number) => ReturnType<Cells['get']>;
+	getByCoords: (arg0: Coords) => ReturnType<Cells['get']>;
 };
 
 export type Entries = Map<EntryID, CAPIEntry>;
@@ -40,10 +40,11 @@ export type Crossword = {
 
 export type Separator = ',' | '-';
 
-export type CurrentCell = {
-	x: number;
-	y: number;
-};
+export type Separators = Array<{
+	type: Separator;
+	position: Coords;
+	direction: Direction;
+}>;
 
 export type CurrentEntryId = EntryID;
 

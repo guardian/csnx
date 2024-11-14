@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { cryptic } from '../../stories/formats/cryptic';
 import { progress } from '../../stories/formats/cryptic.progress';
-import { separators } from '../../stories/formats/separators';
-import { defaultTheme } from '../theme';
+import { separators as separatorData } from '../../stories/formats/separators';
+import { defaultTheme as theme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
 import { Grid } from './Grid';
 
-const { cells, entries } = parseCrosswordData(cryptic);
+const { cells, separators } = parseCrosswordData(cryptic);
 
 const meta: Meta<typeof Grid> = {
 	component: Grid,
 	title: 'Components/Grid',
 	args: {
-		theme: defaultTheme,
+		theme,
 		cells,
-		entries,
+		separators,
 		dimensions: cryptic.dimensions,
 		progress: [],
 	},
@@ -31,13 +31,13 @@ export const Progress: Story = {
 	},
 };
 
-const { cells: separatorCells, entries: separatorEntries } =
-	parseCrosswordData(separators);
+const { cells: separatorCells, separators: separatorSeparators } =
+	parseCrosswordData(separatorData);
 
 export const Separators: Story = {
 	args: {
 		cells: separatorCells,
-		entries: separatorEntries,
-		dimensions: separators.dimensions,
+		separators: separatorSeparators,
+		dimensions: separatorData.dimensions,
 	},
 };

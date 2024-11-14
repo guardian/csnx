@@ -1,89 +1,98 @@
-import type { Dispatch, SetStateAction } from 'react';
-import { useRef } from 'react';
-import type { CAPIEntry } from '../@types/CAPI';
+import { sep } from 'path';
 import type {
-	Axis,
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	SVGLineElementAttributes,
+} from 'react';
+import { memo, useRef } from 'react';
+import type {
 	Cells,
-	CurrentCell,
+	Coords,
 	CurrentEntryId,
 	Dimensions,
-	Entries,
 	Progress,
 	Separator,
+	Separators,
 	Theme,
 } from '../@types/crossword';
+import type { Direction } from '../@types/Direction';
 import { Cell } from './Cell';
 
-const getCellPosition = (index: number, theme: Theme) =>
-	index * (theme.cellSize + theme.gutter) + theme.gutter;
+const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
+	index * (cellSize + gutter) + gutter;
 
-const Separator = ({
-	theme,
-	entry,
-	location,
-	type,
-	...props
-}: {
-	type: Separator;
-	entry: CAPIEntry;
-	location: number;
-	theme: Theme;
-	index: string;
-}) => {
-	const from: Axis = entry.direction === 'across' ? 'x' : 'y';
-	const to: Axis = entry.direction === 'across' ? 'y' : 'x';
-
-	const fromPosition = getCellPosition(
-		entry.position[from] + location - 1,
+const Separator = memo(
+	({
 		theme,
-	);
-	const toPosition = getCellPosition(entry.position[to], theme);
+		position,
+		direction,
+		type,
+		...props
+	}: {
+		type: Separator;
+		position: Coords;
+		direction: Direction;
+		theme: Theme;
+	}) => {
+		const x = getCellPosition(position.x, theme);
+		const y = getCellPosition(position.y, theme);
 
-	const coords: Record<Separator, Record<`${Axis}${number}`, number>> = {
-		'-': {
-			[`${from}1`]: fromPosition + theme.cellSize - 3,
-			[`${to}1`]: toPosition + theme.cellSize / 2,
-			[`${from}2`]: fromPosition + theme.cellSize + 4,
-			[`${to}2`]: toPosition + theme.cellSize / 2,
-		},
-		',': {
-			[`${from}1`]: fromPosition + theme.cellSize + theme.gutter / 2,
-			[`${to}1`]: toPosition,
-			[`${from}2`]: fromPosition + theme.cellSize + theme.gutter / 2,
-			[`${to}2`]: toPosition + theme.cellSize,
-		},
-	};
+		const { cellSize, gutter } = theme;
 
-	const strokeWidth: Record<Separator, number> = {
-		'-': theme.gutter,
-		',': theme.gutter * 2,
-	};
+		const transform: Partial<Record<Direction, string>> = {
+			// rotate the separator 90 degrees around the center of the cell
+			down: `rotate(90 ${x + cellSize / 2} ${y + cellSize / 2})`,
+		};
 
-	return (
-		<line
-			{...coords[type]}
-			stroke={theme.background}
-			strokeWidth={strokeWidth[type]}
-			{...props}
-		/>
-	);
-};
+		const attrs: Record<Separator, ReactNode> = {
+			// draws a dash that bisects the border with the next cell
+			'-': (
+				<line
+					x1={x + cellSize - 3}
+					y1={y + cellSize / 2}
+					x2={x + cellSize + 4}
+					y2={y + cellSize / 2}
+					strokeWidth={gutter}
+					stroke={theme.background}
+					transform={transform[direction]}
+					{...props}
+				/>
+			),
+			// draws a thicker border with the next cell
+			',': (
+				<line
+					x1={x + cellSize + gutter / 2}
+					y1={y}
+					x2={x + cellSize + gutter / 2}
+					y2={y + cellSize}
+					strokeWidth={gutter * 2}
+					stroke={theme.background}
+					transform={transform[direction]}
+					{...props}
+				/>
+			),
+		};
+
+		return attrs[type];
+	},
+);
 
 export type GridProps = {
 	cells: Cells;
-	entries: Entries;
+	separators: Separators;
 	theme: Theme;
 	progress: Progress;
 	dimensions: Dimensions;
-	setCurrentCell: Dispatch<SetStateAction<CurrentCell | undefined>>;
+	setCurrentCell: Dispatch<SetStateAction<Coords | undefined>>;
 	setCurrentEntryId: Dispatch<SetStateAction<CurrentEntryId | undefined>>;
-	currentCell?: CurrentCell;
+	currentCell?: Coords;
 	currentEntryId?: CurrentEntryId;
 };
 
 export const Grid = ({
 	cells,
-	entries,
+	separators,
 	theme,
 	progress,
 	dimensions,
@@ -136,21 +145,15 @@ export const Grid = ({
 			}
 			{
 				/* Render the separators between cells */
-				Array.from(entries.values()).map((entry) =>
-					Object.entries(entry.separatorLocations).map(([type, locations]) =>
-						locations.map((location) => {
-							return (
-								<Separator
-									type={type as Separator}
-									theme={theme}
-									entry={entry}
-									location={location}
-									index={`${type}${location}`}
-								/>
-							);
-						}),
-					),
-				)
+				separators.map(({ type, position, direction }) => (
+					<Separator
+						type={type}
+						theme={theme}
+						position={position}
+						direction={direction}
+						key={`${type}${position.x}${position.y}${direction}`}
+					/>
+				))
 			}
 		</svg>
 	);
