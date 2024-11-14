@@ -1,13 +1,13 @@
 import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
 import { Button as SourceButton } from '@guardian/source/react-components';
-import { useRef, useState } from 'react';
+import { memo, useRef, useState } from 'react';
 
 type ButtonProps = SourceButtonProps & {
 	onSuccess: () => void;
 	requireConfirmation?: boolean;
 };
 
-export const Button = ({
+const ButtonComponent = ({
 	children,
 	requireConfirmation = false,
 	onSuccess,
@@ -40,3 +40,5 @@ export const Button = ({
 		</SourceButton>
 	);
 };
+
+export const Button = memo(ButtonComponent);
