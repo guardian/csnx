@@ -13,7 +13,7 @@ const ButtonComponent = ({
 	onSuccess,
 	...props
 }: ButtonProps) => {
-	const [confirm, setConfirm] = useState<boolean>(false);
+	const [isConfirming, setIsConfirming] = useState<boolean>(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const onClick = () => {
@@ -21,21 +21,21 @@ const ButtonComponent = ({
 			onSuccess();
 			return;
 		}
-		if (!confirm) {
-			setConfirm(true);
-			timeoutRef.current = setTimeout(() => setConfirm(false), 3000);
+		if (!isConfirming) {
+			setIsConfirming(true);
+			timeoutRef.current = setTimeout(() => setIsConfirming(false), 3000);
 			return;
 		}
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);
 		}
 		onSuccess();
-		setConfirm(false);
+		setIsConfirming(false);
 	};
 
 	return (
 		<SourceButton onClick={onClick} size="xsmall" {...props}>
-			{confirm && 'Confirm '}
+			{isConfirming && 'Confirm '}
 			{children}
 		</SourceButton>
 	);

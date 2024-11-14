@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
 import type {
-	CrosswordEntry,
 	CurrentEntryId,
+	Entries,
+	Progress,
 	Theme,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
@@ -13,12 +14,27 @@ const title = css`
 
 type Props = {
 	direction: Direction;
-	entries: CrosswordEntry[];
+	entries: Entries;
 	currentEntryId?: CurrentEntryId;
 	theme: Theme;
+	progress: Progress;
 };
 
-export const Clues = ({ direction, entries, currentEntryId, theme }: Props) => {
+export const Clues = ({
+	direction,
+	entries,
+	currentEntryId,
+	theme,
+	progress,
+}: Props) => {
+	const entriesForClues = [];
+
+	for (const entry of entries.values()) {
+		if (entry.direction === direction) {
+			entriesForClues.push(entry);
+		}
+	}
+
 	return (
 		<>
 			<label
@@ -40,17 +56,33 @@ export const Clues = ({ direction, entries, currentEntryId, theme }: Props) => {
 					list-style: none;
 				`}
 			>
-				{entries
-					.filter((entry) => entry.direction === direction)
+				{entriesForClues
 					.sort((a, b) => a.number - b.number)
-					.map((entry) => (
-						<Clue
-							theme={theme}
-							entry={entry}
-							selected={currentEntryId === entry.id}
-							key={entry.id}
-						/>
-					))}
+					.map((entry) => {
+						const cell = { ...entry.position };
+						const axis = direction === 'across' ? 'x' : 'y';
+						const end = cell[axis] + entry.length;
+
+						let complete = true;
+
+						while (cell[axis] < end) {
+							if (!progress[cell.x]?.[cell.y]) {
+								complete = false;
+								break;
+							}
+							cell[axis]++;
+						}
+
+						return (
+							<Clue
+								theme={theme}
+								entry={entry}
+								selected={currentEntryId === entry.id}
+								key={entry.id}
+								complete={complete}
+							/>
+						);
+					})}
 			</div>
 		</>
 	);

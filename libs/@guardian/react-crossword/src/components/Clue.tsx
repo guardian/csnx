@@ -4,10 +4,11 @@ import type { CrosswordEntry, Theme } from '../@types/crossword';
 interface Props {
 	entry: CrosswordEntry;
 	selected?: boolean;
+	complete?: boolean;
 	theme: Theme;
 }
 
-export const Clue = ({ entry, selected, theme }: Props) => {
+export const Clue = ({ entry, selected, complete, theme }: Props) => {
 	return (
 		<div
 			tabIndex={-1}
@@ -18,6 +19,7 @@ export const Clue = ({ entry, selected, theme }: Props) => {
 				display: table-row;
 				background-color: ${selected ? theme.focus : 'transparent'};
 				cursor: ${selected ? 'default' : 'pointer'};
+				opacity: ${complete ? 0.5 : 1};
 			`}
 		>
 			<span
