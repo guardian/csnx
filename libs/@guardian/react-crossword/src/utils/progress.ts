@@ -36,7 +36,7 @@ export const getStoredProgress = ({
 	return undefined;
 };
 
-const isValidProgress = (
+export const isValidProgress = (
 	progress: unknown,
 	dimensions: Dimensions,
 ): progress is Progress => {

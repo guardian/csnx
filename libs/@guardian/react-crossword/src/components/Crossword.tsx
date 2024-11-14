@@ -15,6 +15,7 @@ import { parseCrosswordData } from '../utils/parseCrosswordData';
 import {
 	getEmptyProgress,
 	getStoredProgress,
+	isValidProgress,
 	saveProgress,
 } from '../utils/progress';
 import { Clues } from './Clues';
@@ -24,14 +25,24 @@ import { Grid } from './Grid';
 export type CrosswordProps = {
 	data: CAPICrossword;
 	theme?: Partial<Theme>;
+	progress?: Progress;
 };
 
-export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
+export const Crossword = ({
+	theme: userTheme,
+	data,
+	progress: userProgress,
+}: CrosswordProps) => {
 	const { id, dimensions } = data;
 
-	const [progress, setProgress] = useState<Progress>(
-		getStoredProgress({ id, dimensions }) ?? getEmptyProgress(dimensions),
-	);
+	const progressToUse: Progress = isValidProgress(userProgress, dimensions)
+		? userProgress
+		: (getStoredProgress({
+				id,
+				dimensions,
+			}) ?? getEmptyProgress(dimensions));
+
+	const [progress, setProgress] = useState<Progress>(progressToUse);
 
 	const [currentEntryId, setCurrentEntryId] = useState<
 		CurrentEntryId | undefined
@@ -247,7 +258,7 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 			// which one to select...
 
 			// If we clicked the cell we were already on, switch to the next
-			// entry for the this cell, if there is one (i.e. toggle between up
+			// entry for this cell, if there is one (i.e. toggle between up
 			// and down entries):
 			else if (
 				currentCell?.x === clickedCellX &&
@@ -378,15 +389,17 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 			<div>
 				<Clues
 					direction="across"
-					entries={data.entries}
+					entries={entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
+					progress={progress}
 				/>
 				<Clues
 					direction="down"
-					entries={data.entries}
+					entries={entries}
 					currentEntryId={currentEntryId}
 					theme={theme}
+					progress={progress}
 				/>
 			</div>
 		</div>
