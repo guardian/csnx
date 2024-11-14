@@ -1,4 +1,4 @@
-import type { Dimensions } from './crossword';
+import type { Coords, Dimensions, Separator } from './crossword';
 import type { Direction } from './Direction';
 import type { Entry } from './Entry';
 
@@ -8,7 +8,7 @@ export type CAPIEntry = Entry<number> & {
 	// CELL DATA
 
 	/** Coords of first cell */
-	position: { x: number; y: number };
+	position: Coords;
 
 	// CLUE DATA
 
@@ -31,8 +31,7 @@ export type CAPIEntry = Entry<number> & {
 	 * - tofu-eating
 	 */
 	separatorLocations: {
-		','?: number[] | undefined;
-		'-'?: number[] | undefined;
+		[K in Separator]?: number[];
 	};
 };
 

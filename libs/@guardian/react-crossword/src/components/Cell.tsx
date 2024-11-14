@@ -37,6 +37,7 @@ export const CellComponent = ({
 		: isHighlighted
 			? theme.focus
 			: theme.foreground;
+
 	return (
 		<g data-x={data.x} data-y={data.y}>
 			<rect
