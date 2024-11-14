@@ -34,8 +34,9 @@ const Separator = memo(
 
 		const { cellSize, gutter } = theme;
 
+		// if this is a 'down' entry, we'll rotate the separator 90 degrees
+		// around the center of the cell
 		const transform: Partial<Record<Direction, string>> = {
-			// rotate the separator 90 degrees around the center of the cell
 			down: `rotate(90 ${x + cellSize / 2} ${y + cellSize / 2})`,
 		};
 
