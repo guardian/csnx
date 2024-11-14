@@ -387,6 +387,7 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 				<Controls
 					id={id}
 					cells={cells}
+					solutionsAvailable={data.solutionAvailable}
 					currentEntryId={currentEntryId}
 					updateProgress={updateProgress}
 					setProgress={setProgress}
