@@ -375,6 +375,7 @@ export const Crossword = ({
 				<Controls
 					id={id}
 					cells={cells}
+					solutionsAvailable={data.solutionAvailable}
 					currentEntryId={currentEntryId}
 					updateProgress={updateProgress}
 					setProgress={setProgress}

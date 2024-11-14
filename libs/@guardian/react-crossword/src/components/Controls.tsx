@@ -16,6 +16,7 @@ import { Button } from './Button';
 
 type ControlProps = {
 	id: CAPICrossword['id'];
+	solutionsAvailable: boolean;
 	cells: Cells;
 	currentEntryId?: CurrentEntryId;
 	updateProgress: (props: { x: number; y: number; value: string }) => void;
@@ -27,6 +28,7 @@ type ControlProps = {
 
 export const Controls = ({
 	id,
+	solutionsAvailable,
 	updateProgress,
 	cells,
 	currentEntryId,
@@ -126,26 +128,34 @@ export const Controls = ({
 		>
 			{currentEntryId && (
 				<>
-					<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
-						Check Word
-					</Button>
-					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-						Reveal Word
-					</Button>
 					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
 						Clear Word
 					</Button>
+					{solutionsAvailable && (
+						<>
+							<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
+								Check Word
+							</Button>
+							<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
+								Reveal Word
+							</Button>
+						</>
+					)}
 				</>
 			)}
 			<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
-			<Button onSuccess={checkGrid} requireConfirmation={true}>
-				Check All
-			</Button>
-			<Button onSuccess={revealGrid} requireConfirmation={true}>
-				Reveal All
-			</Button>
+			{solutionsAvailable && (
+				<>
+					<Button onSuccess={checkGrid} requireConfirmation={true}>
+						Check All
+					</Button>
+					<Button onSuccess={revealGrid} requireConfirmation={true}>
+						Reveal All
+					</Button>
+				</>
+			)}
 			<Button onSuccess={clearGrid} requireConfirmation={true}>
 				Clear All
 			</Button>
