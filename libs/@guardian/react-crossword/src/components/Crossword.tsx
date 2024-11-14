@@ -1,10 +1,8 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
-	Cell,
 	CurrentCell,
 	CurrentEntryId,
 	Progress,
@@ -19,8 +17,8 @@ import {
 	getStoredProgress,
 	saveProgress,
 } from '../utils/progress';
-import { Button } from './Button';
 import { Clues } from './Clues';
+import { Controls } from './Controls';
 import { Grid } from './Grid';
 
 export type CrosswordProps = {
@@ -49,11 +47,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
-
-	const crosswordButtonTheme: Partial<ThemeButton> = {
-		backgroundPrimary: theme.buttonBackground,
-		backgroundPrimaryHover: theme.buttonBackgroundHover,
-	};
 
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
@@ -125,70 +118,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 		},
 		[id],
 	);
-
-	const revealEntry = () => {
-		for (const cell of cells.values()) {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
-					x: cell.x,
-					y: cell.y,
-					value: cell.solution ?? '',
-				});
-			}
-		}
-	};
-
-	const revealGrid = () => {
-		for (const cell of cells.values()) {
-			updateProgress({
-				x: cell.x,
-				y: cell.y,
-				value: cell.solution ?? '',
-			});
-		}
-	};
-
-	const clearGrid = () => {
-		setProgress(getEmptyProgress(dimensions));
-	};
-
-	const clearEntry = () => {
-		for (const cell of cells.values()) {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
-			}
-		}
-	};
-
-	const checkWord = () => {
-		for (const cell of cells.values()) {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				checkCell(cell);
-			}
-		}
-	};
-
-	const checkGrid = () => {
-		for (const cell of cells.values()) {
-			checkCell(cell);
-		}
-	};
-
-	const checkCell = (cell: Cell) => {
-		const currentProgress = progress[cell.x]?.[cell.y];
-		const isCorrect = currentProgress && currentProgress === cell.solution;
-		if (!isCorrect) {
-			updateProgress({
-				x: cell.x,
-				y: cell.y,
-				value: '',
-			});
-		}
-	};
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
@@ -435,36 +364,16 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
-				<div
-					css={css`
-						display: flex;
-						flex-wrap: wrap;
-						justify-content: space-around;
-						gap: 4px;
-					`}
-				>
-					<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
-						Check Word
-					</Button>
-					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-						Reveal Word
-					</Button>
-					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
-						Clear Word
-					</Button>
-					<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
-						Anagram Helper
-					</Button>
-					<Button onSuccess={checkGrid} requireConfirmation={true}>
-						Check All
-					</Button>
-					<Button onSuccess={revealGrid} requireConfirmation={true}>
-						Reveal All
-					</Button>
-					<Button onSuccess={clearGrid} requireConfirmation={true}>
-						Clear All
-					</Button>
-				</div>
+				<Controls
+					id={id}
+					cells={cells}
+					currentEntryId={currentEntryId}
+					updateProgress={updateProgress}
+					setProgress={setProgress}
+					progress={progress}
+					dimensions={dimensions}
+					theme={theme}
+				/>
 			</div>
 			<div>
 				<Clues
