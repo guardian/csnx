@@ -1,10 +1,4 @@
-import { sep } from 'path';
-import type {
-	Dispatch,
-	ReactNode,
-	SetStateAction,
-	SVGLineElementAttributes,
-} from 'react';
+import type { Dispatch, ReactNode, SetStateAction } from 'react';
 import { memo, useRef } from 'react';
 import type {
 	Cells,
