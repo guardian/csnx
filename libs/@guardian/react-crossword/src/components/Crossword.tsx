@@ -362,15 +362,15 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 				@media (min-width: ${theme.wideBreakpoint}px) {
 					grid-template-columns: minmax(auto, ${gridWidth}px) 1fr;
 					grid-template-areas:
-						'grid 		clues'
-						'controls clues'
-						'. 				clues';
+						'crossword-grid clues'
+						'controls 			clues'
+						'. 							clues';
 				}
 			`}
 		>
 			<div
 				css={css`
-					grid-area: grid;
+					grid-area: crossword-grid;
 					text-align: center;
 				`}
 			>
