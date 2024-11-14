@@ -1,11 +1,9 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { from } from '@guardian/source/foundations';
-import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
-	Cell,
 	CurrentCell,
 	CurrentEntryId,
 	Progress,
@@ -20,8 +18,8 @@ import {
 	getStoredProgress,
 	saveProgress,
 } from '../utils/progress';
-import { Button } from './Button';
 import { Clues } from './Clues';
+import { Controls } from './Controls';
 import { Grid } from './Grid';
 import { StickyClue } from './StickyClue';
 
@@ -51,11 +49,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
 	const theme = { ...defaultTheme, ...userTheme };
-
-	const crosswordButtonTheme: Partial<ThemeButton> = {
-		backgroundPrimary: theme.buttonBackground,
-		backgroundPrimaryHover: theme.buttonBackgroundHover,
-	};
 
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
@@ -127,70 +120,6 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 		},
 		[id],
 	);
-
-	const revealEntry = () => {
-		Array.from(cells.values())
-			.filter((cell) => currentEntryId && cell.group?.includes(currentEntryId))
-			.forEach((cell) =>
-				updateProgress({
-					x: cell.x,
-					y: cell.y,
-					value: cell.solution ?? '',
-				}),
-			);
-	};
-
-	const revealGrid = () => {
-		Array.from(cells.values()).map((cell) =>
-			updateProgress({
-				x: cell.x,
-				y: cell.y,
-				value: cell.solution ?? '',
-			}),
-		);
-	};
-
-	const clearGrid = () => {
-		setProgress(getEmptyProgress(dimensions));
-	};
-
-	const clearEntry = () => {
-		cells.forEach((cell) => {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
-			}
-		});
-	};
-
-	const checkWord = () => {
-		Array.from(cells.values())
-			.filter((cell) => currentEntryId && cell.group?.includes(currentEntryId))
-			.forEach((cell) => {
-				checkCell(cell);
-			});
-	};
-
-	const checkGrid = () => {
-		Array.from(cells.values()).forEach((cell) => {
-			checkCell(cell);
-		});
-	};
-
-	const checkCell = (cell: Cell) => {
-		const currentProgress = progress[cell.x]?.[cell.y];
-		const isCorrect = currentProgress && currentProgress === cell.solution;
-		if (!isCorrect) {
-			updateProgress({
-				x: cell.x,
-				y: cell.y,
-				value: '',
-			});
-		}
-	};
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
@@ -455,43 +384,16 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
-			</div>
-			<div
-				css={css`
-					grid-area: controls;
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: space-around;
-					gap: 4px;
-					> button {
-						height: 30px;
-						flex: 1;
-						min-width: 115px;
-						max-width: 200px;
-					}
-				`}
-			>
-				<Button onSuccess={checkWord} theme={crosswordButtonTheme}>
-					Check Word
-				</Button>
-				<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-					Reveal Word
-				</Button>
-				<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
-					Clear Word
-				</Button>
-				<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
-					Anagram Helper
-				</Button>
-				<Button onSuccess={checkGrid} requireConfirmation={true}>
-					Check All
-				</Button>
-				<Button onSuccess={revealGrid} requireConfirmation={true}>
-					Reveal All
-				</Button>
-				<Button onSuccess={clearGrid} requireConfirmation={true}>
-					Clear All
-				</Button>
+				<Controls
+					id={id}
+					cells={cells}
+					currentEntryId={currentEntryId}
+					updateProgress={updateProgress}
+					setProgress={setProgress}
+					progress={progress}
+					dimensions={dimensions}
+					theme={theme}
+				/>
 			</div>
 			<div
 				css={css`
