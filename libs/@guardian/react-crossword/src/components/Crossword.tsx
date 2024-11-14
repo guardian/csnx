@@ -47,7 +47,7 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 
 	const theme = { ...defaultTheme, ...userTheme };
 
-	const maxWidth =
+	const gridWidth =
 		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter;
 
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
@@ -352,14 +352,15 @@ export const Crossword = ({ theme: userTheme, data }: CrosswordProps) => {
 			ref={applicationRef}
 			css={css`
 				display: grid;
-				grid-template-columns: minmax(auto, ${maxWidth}px);
+				grid-template-columns: minmax(auto, ${gridWidth}px);
+				gap: 10px;
 				grid-auto-rows: auto;
 				grid-template-areas:
 					'grid'
 					'controls'
 					'clues';
 				@media (min-width: ${theme.wideBreakpoint}px) {
-					grid-template-columns: minmax(300px, ${maxWidth}px) 1fr;
+					grid-template-columns: minmax(auto, ${gridWidth}px) 1fr;
 					grid-template-areas:
 						'grid 		clues'
 						'controls clues'
