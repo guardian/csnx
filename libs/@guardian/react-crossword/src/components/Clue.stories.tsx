@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
 import { Clue } from './Clue';
 
@@ -7,9 +8,15 @@ const meta: Meta<typeof Clue> = {
 	component: Clue,
 	title: 'Components/Clue',
 	args: {
-		theme: defaultTheme,
 		entry: data.entries[4],
 	},
+	decorators: [
+		(Story) => (
+			<ThemeContext.Provider value={defaultTheme}>
+				<Story />
+			</ThemeContext.Provider>
+		),
+	],
 };
 
 export default meta;

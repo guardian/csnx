@@ -1,13 +1,13 @@
 import { isUndefined } from '@guardian/libs';
-import { memo } from 'react';
-import type { Cell as CellType, Theme } from '../@types/crossword';
+import { memo, useContext } from 'react';
+import type { Cell as CellType } from '../@types/crossword';
+import { ThemeContext } from '../context/ThemeContext';
 
 export type CellProps = {
 	data: CellType;
 	x: number;
 	y: number;
 	guess?: string;
-	theme: Theme;
 	/** is the cell receiving input? */
 	isFocused?: boolean;
 	/** is the cell related to the active clue? */
@@ -21,11 +21,12 @@ export const CellComponent = ({
 	x,
 	y,
 	guess = '',
-	theme,
 	isFocused,
 	isRelated,
 	isActive,
 }: CellProps) => {
+	const theme = useContext(ThemeContext);
+
 	let border = {};
 	if (isFocused) {
 		// set rect stroke and stroke-width
