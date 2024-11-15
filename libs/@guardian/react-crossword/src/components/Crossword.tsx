@@ -21,6 +21,7 @@ import {
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
+import { StickyClue } from './StickyClue';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
@@ -361,6 +362,13 @@ export const Crossword = ({
 			`}
 		>
 			<div>
+				{currentEntryId && (
+					<StickyClue
+						currentEntryId={currentEntryId}
+						entries={entries}
+						theme={theme}
+					/>
+				)}
 				<Grid
 					setCurrentCell={setCurrentCell}
 					setCurrentEntryId={setCurrentEntryId}
