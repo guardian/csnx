@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { cryptic as data } from '../../stories/formats/cryptic';
-import { progress } from '../../stories/formats/cryptic.progress';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { progress } from '../../stories/formats/grouped-clues.progress';
 import { defaultTheme as theme } from '../theme';
 import { Crossword } from './Crossword';
 
