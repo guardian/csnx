@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { cryptic } from '../../stories/formats/cryptic';
-import { progress } from '../../stories/formats/cryptic.progress';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { progress } from '../../stories/formats/grouped-clues.progress';
 import { separators as separatorData } from '../../stories/formats/separators';
 import { defaultTheme as theme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
 import { Grid } from './Grid';
 
-const { cells, separators } = parseCrosswordData(cryptic);
+const { cells, separators } = parseCrosswordData(data);
 
 const meta: Meta<typeof Grid> = {
 	component: Grid,
@@ -15,7 +15,7 @@ const meta: Meta<typeof Grid> = {
 		theme,
 		cells,
 		separators,
-		dimensions: cryptic.dimensions,
+		dimensions: data.dimensions,
 		progress: [],
 	},
 };

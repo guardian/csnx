@@ -7,12 +7,17 @@ const meta: Meta<typeof Cell> = {
 	title: 'Components/Cell',
 	args: {
 		theme: defaultTheme,
+		data: {
+			x: 0,
+			y: 0,
+			group: ['1-across'],
+		},
 	},
 	decorators: [
 		(Story, { args }) => (
 			<svg
 				style={{
-					border: `5px solid green`,
+					padding: args.theme.gutter,
 					width: args.theme.cellSize,
 					height: args.theme.cellSize,
 					backgroundColor: args.theme.background,
@@ -28,7 +33,9 @@ const meta: Meta<typeof Cell> = {
 export default meta;
 type Story = StoryObj<typeof Cell>;
 
-export const Default: Story = {
+export const Default: Story = {};
+
+export const Black: Story = {
 	args: {
 		data: {
 			x: 0,
@@ -37,13 +44,50 @@ export const Default: Story = {
 	},
 };
 
-export const Empty: Story = {
+export const Focussed: Story = {
 	args: {
 		data: {
 			x: 0,
 			y: 0,
 			group: ['1-across'],
 		},
+		isFocused: true,
+	},
+};
+
+export const Related: Story = {
+	args: {
+		data: {
+			x: 0,
+			y: 0,
+			group: ['1-across'],
+		},
+		isRelated: true,
+	},
+};
+
+export const Active: Story = {
+	args: {
+		data: {
+			x: 0,
+			y: 0,
+			group: ['1-across'],
+		},
+		isActive: true,
+		isRelated: true,
+	},
+};
+
+export const ActiveAndFocused: Story = {
+	args: {
+		data: {
+			x: 0,
+			y: 0,
+			group: ['1-across'],
+		},
+		isActive: true,
+		isRelated: true,
+		isFocused: true,
 	},
 };
 
