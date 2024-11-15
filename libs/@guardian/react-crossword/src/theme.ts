@@ -11,5 +11,6 @@ export const defaultTheme: Theme = {
 	cellSize: 32,
 	buttonBackground: 'hotpink',
 	buttonBackgroundHover: 'lightpink',
-	wideBreakpoint: breakpoints.tablet,
+	twoCols: breakpoints.tablet,
+	threeCols: breakpoints.wide,
 };

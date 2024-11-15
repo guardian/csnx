@@ -60,8 +60,10 @@ export const Crossword = ({
 
 	const theme = { ...defaultTheme, ...userTheme };
 
-	const gridWidth =
-		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter;
+	const gridWidth = Math.max(
+		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter,
+		300,
+	);
 
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
@@ -364,27 +366,15 @@ export const Crossword = ({
 			role="application"
 			ref={applicationRef}
 			css={css`
-				display: grid;
-				grid-template-columns: minmax(auto, ${gridWidth}px);
-				gap: 0 10px;
-				grid-auto-rows: auto;
-				grid-template-areas:
-					'crossword-grid'
-					'controls'
-					'clues';
-				@media (min-width: ${theme.wideBreakpoint}px) {
-					grid-template-columns: minmax(auto, ${gridWidth}px) 1fr;
-					grid-template-areas:
-						'crossword-grid	clues'
-						'controls				clues'
-						'.							clues';
-				}
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				min-width: 15rem;
 			`}
 		>
 			<div
 				css={css`
-					grid-area: crossword-grid;
-					text-align: center;
+					max-width: ${gridWidth}px;
 				`}
 			>
 				{currentEntryId && (
@@ -404,20 +394,24 @@ export const Crossword = ({
 					currentEntryId={currentEntryId}
 					dimensions={dimensions}
 				/>
+				<Controls
+					id={id}
+					cells={cells}
+					currentEntryId={currentEntryId}
+					updateProgress={updateProgress}
+					setProgress={setProgress}
+					progress={progress}
+					dimensions={dimensions}
+					theme={theme}
+				/>
 			</div>
-			<Controls
-				id={id}
-				cells={cells}
-				currentEntryId={currentEntryId}
-				updateProgress={updateProgress}
-				setProgress={setProgress}
-				progress={progress}
-				dimensions={dimensions}
-				theme={theme}
-			/>
 			<div
 				css={css`
-					grid-area: clues;
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					flex: 1;
+					align-content: flex-start;
 				`}
 			>
 				<Clues
@@ -426,6 +420,7 @@ export const Crossword = ({
 					currentEntryId={currentEntryId}
 					theme={theme}
 					progress={progress}
+					gridWidth={gridWidth}
 				/>
 				<Clues
 					direction="down"
@@ -433,6 +428,7 @@ export const Crossword = ({
 					currentEntryId={currentEntryId}
 					theme={theme}
 					progress={progress}
+					gridWidth={gridWidth}
 				/>
 			</div>
 		</div>

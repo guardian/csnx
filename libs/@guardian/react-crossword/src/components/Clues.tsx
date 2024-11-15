@@ -18,6 +18,7 @@ type Props = {
 	currentEntryId?: CurrentEntryId;
 	theme: Theme;
 	progress: Progress;
+	gridWidth: number;
 };
 
 export const Clues = ({
@@ -26,6 +27,7 @@ export const Clues = ({
 	currentEntryId,
 	theme,
 	progress,
+	gridWidth,
 }: Props) => {
 	const entriesForClues = [];
 
@@ -36,7 +38,12 @@ export const Clues = ({
 	}
 
 	return (
-		<>
+		<div
+			css={css`
+				min-width: 15rem;
+				max-width: ${gridWidth}px;
+			`}
+		>
 			<label
 				css={title}
 				id={`${direction}-label`}
@@ -50,11 +57,6 @@ export const Clues = ({
 				role="listbox"
 				aria-labelledby={`${direction}-label`}
 				aria-activedescendant={currentEntryId}
-				css={css`
-					margin: 0;
-					padding: 0;
-					list-style: none;
-				`}
 			>
 				{entriesForClues
 					.sort((a, b) => a.number - b.number)
@@ -84,6 +86,6 @@ export const Clues = ({
 						);
 					})}
 			</div>
-		</>
+		</div>
 	);
 };

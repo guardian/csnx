@@ -112,7 +112,6 @@ export const Controls = ({
 	return (
 		<div
 			css={css`
-				grid-area: controls;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-around;
