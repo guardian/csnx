@@ -24,7 +24,7 @@
 		"typescript-eslint": "8.11.0"
 	},
 	"devDependencies": {
-		"eslint": "9.15.0",
+		"eslint": "9.14.0",
 		"wireit": "0.14.8"
 	},
 	"peerDependencies": {
