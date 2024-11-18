@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.3",
-		"@astrojs/svelte": "5.7.0",
+		"@astrojs/svelte": "6.0.1",
 		"@guardian/libs": "workspace:*",
 		"astro": "4.16.3",
 		"svelte": "5.1.9",
