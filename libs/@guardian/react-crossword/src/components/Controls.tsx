@@ -1,42 +1,27 @@
 import { css } from '@emotion/react';
 import type { ThemeButton } from '@guardian/source/react-components';
-import type { Dispatch, SetStateAction } from 'react';
-import { useCallback } from 'react';
-import type { CAPICrossword } from '../@types/CAPI';
-import type {
-	Cell,
-	Cells,
-	Dimensions,
-	Progress,
-	Theme,
-} from '../@types/crossword';
+import { useCallback, useContext } from 'react';
+import type { Cell, Cells } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
-import { getEmptyProgress, saveProgress } from '../utils/progress';
+import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { Button } from './Button';
 
 type ControlProps = {
-	id: CAPICrossword['id'];
 	solutionsAvailable: boolean;
 	cells: Cells;
 	currentEntryId?: EntryID;
-	updateProgress: (props: { x: number; y: number; value: string }) => void;
-	setProgress: Dispatch<SetStateAction<Progress>>;
-	progress: Progress;
-	dimensions: Dimensions;
-	theme: Theme;
 };
 
 export const Controls = ({
-	id,
 	solutionsAvailable,
-	updateProgress,
 	cells,
 	currentEntryId,
-	dimensions,
-	setProgress,
-	progress,
-	theme,
 }: ControlProps) => {
+	const { progress, updateProgress, clearProgress } =
+		useContext(ProgressContext);
+	const theme = useContext(ThemeContext);
+
 	const crosswordButtonTheme: Partial<ThemeButton> = {
 		backgroundPrimary: theme.buttonBackground,
 		backgroundPrimaryHover: theme.buttonBackgroundHover,
@@ -63,12 +48,6 @@ export const Controls = ({
 			});
 		}
 	}, [cells, updateProgress]);
-
-	const clearGrid = useCallback(() => {
-		const emptyProgress = getEmptyProgress(dimensions);
-		setProgress(emptyProgress);
-		saveProgress({ id, progress: emptyProgress });
-	}, [dimensions, id, setProgress]);
 
 	const clearEntry = useCallback(() => {
 		for (const cell of cells.values()) {
@@ -143,7 +122,7 @@ export const Controls = ({
 					)}
 				</>
 			)}
-			<Button onSuccess={clearGrid} theme={crosswordButtonTheme}>
+			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
 			{solutionsAvailable && (
@@ -156,7 +135,7 @@ export const Controls = ({
 					</Button>
 				</>
 			)}
-			<Button onSuccess={clearGrid} requireConfirmation={true}>
+			<Button onSuccess={clearProgress} requireConfirmation={true}>
 				Clear All
 			</Button>
 		</div>

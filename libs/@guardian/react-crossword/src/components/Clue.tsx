@@ -1,22 +1,23 @@
 import { css } from '@emotion/react';
+import { memo, useContext } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import type { Theme } from '../@types/crossword';
+import { ThemeContext } from '../context/ThemeContext';
 
 interface Props {
 	entry: CAPIEntry;
 	isHighlighted?: boolean;
 	isActive?: boolean;
 	isComplete?: boolean;
-	theme: Theme;
 }
 
-export const Clue = ({
+const ClueComponent = ({
 	entry,
 	isHighlighted,
 	isActive,
 	isComplete,
-	theme,
 }: Props) => {
+	const theme = useContext(ThemeContext);
+
 	return (
 		<div
 			tabIndex={-1}
@@ -53,3 +54,5 @@ export const Clue = ({
 		</div>
 	);
 };
+
+export const Clue = memo(ClueComponent);

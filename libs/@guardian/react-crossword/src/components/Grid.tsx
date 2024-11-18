@@ -1,25 +1,26 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react';
-import { memo, useRef } from 'react';
+import type { ContextType, Dispatch, ReactNode, SetStateAction } from 'react';
+import { memo, useContext, useRef } from 'react';
 import type {
 	Cells,
 	Coords,
 	Dimensions,
 	Entries,
-	Progress,
 	Separator,
 	Separators,
-	Theme,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
+import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { Cell } from './Cell';
 
-const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
-	index * (cellSize + gutter) + gutter;
+const getCellPosition = (
+	index: number,
+	{ cellSize, gutter }: ContextType<typeof ThemeContext>,
+) => index * (cellSize + gutter) + gutter;
 
 const Separator = memo(
 	({
-		theme,
 		position,
 		direction,
 		type,
@@ -28,8 +29,9 @@ const Separator = memo(
 		type: Separator;
 		position: Coords;
 		direction: Direction;
-		theme: Theme;
 	}) => {
+		const theme = useContext(ThemeContext);
+
 		const x = getCellPosition(position.x, theme);
 		const y = getCellPosition(position.y, theme);
 
@@ -78,8 +80,6 @@ export type GridProps = {
 	cells: Cells;
 	entries: Entries;
 	separators: Separators;
-	theme: Theme;
-	progress: Progress;
 	dimensions: Dimensions;
 	setCurrentCell: Dispatch<SetStateAction<Coords | undefined>>;
 	setCurrentEntryId: Dispatch<SetStateAction<EntryID | undefined>>;
@@ -91,12 +91,13 @@ export const Grid = ({
 	cells,
 	entries,
 	separators,
-	theme,
-	progress,
 	dimensions,
 	currentCell,
 	currentEntryId,
 }: GridProps) => {
+	const { progress } = useContext(ProgressContext);
+	const theme = useContext(ThemeContext);
+
 	const gridRef = useRef<SVGSVGElement>(null);
 
 	const SVGHeight =
@@ -143,7 +144,6 @@ export const Grid = ({
 							data={cell}
 							x={x}
 							y={y}
-							theme={theme}
 							guess={guess}
 							isFocused={isFocused}
 							isActive={isActive}
@@ -157,7 +157,6 @@ export const Grid = ({
 				separators.map(({ type, position, direction }) => (
 					<Separator
 						type={type}
-						theme={theme}
 						position={position}
 						direction={direction}
 						key={`${type}${position.x}${position.y}${direction}`}
