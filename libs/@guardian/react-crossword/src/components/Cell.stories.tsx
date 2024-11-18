@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useContext } from 'react';
+import type { Theme } from '../@types/crossword';
 import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
 import { Cell } from './Cell';
@@ -14,12 +15,10 @@ const meta: Meta<typeof Cell> = {
 			group: ['1-across'],
 		},
 	},
+	parameters: {
+		theme: defaultTheme,
+	},
 	decorators: [
-		(Story) => (
-			<ThemeContext.Provider value={defaultTheme}>
-				<Story />
-			</ThemeContext.Provider>
-		),
 		(Story) => {
 			const theme = useContext(ThemeContext);
 
@@ -35,6 +34,13 @@ const meta: Meta<typeof Cell> = {
 				>
 					<Story />
 				</svg>
+			);
+		},
+		(Story, { parameters }) => {
+			return (
+				<ThemeContext.Provider value={parameters.theme as Theme}>
+					<Story />
+				</ThemeContext.Provider>
 			);
 		},
 	],
@@ -145,16 +151,10 @@ export const BigCellProgressWithNumber: Story = {
 		},
 		guess: 'A',
 	},
-	decorators: [
-		(Story) => (
-			<ThemeContext.Provider
-				value={{
-					...defaultTheme,
-					cellSize: 50,
-				}}
-			>
-				<Story />
-			</ThemeContext.Provider>
-		),
-	],
+	parameters: {
+		theme: {
+			...defaultTheme,
+			cellSize: 50,
+		},
+	},
 };
