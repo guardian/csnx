@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 19.2.0
+
+### Minor Changes
+
+- 3936b1c: `getConsentState`: Check for the Global Privacy Control setting in the user's browser when checking USNAT.
+
 ## 19.1.0
 
 ### Minor Changes
