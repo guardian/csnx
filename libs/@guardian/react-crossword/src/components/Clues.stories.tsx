@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { cryptic } from '../../stories/formats/cryptic';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { progress } from '../../stories/formats/grouped-clues.progress';
+import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
 import { Clues } from './Clues';
@@ -8,12 +11,27 @@ const meta: Meta<typeof Clues> = {
 	component: Clues,
 	title: 'Components/Clues',
 	args: {
-		theme: defaultTheme,
-		entries: parseCrosswordData(cryptic).entries,
+		entries: parseCrosswordData(data).entries,
 		direction: 'across',
-		progress: [],
 	},
 	decorators: [
+		(Story) => (
+			<ProgressContext.Provider
+				value={{
+					progress,
+					setProgress: () => {},
+					updateProgress: () => {},
+					clearProgress: () => {},
+				}}
+			>
+				<Story />
+			</ProgressContext.Provider>
+		),
+		(Story) => (
+			<ThemeContext.Provider value={defaultTheme}>
+				<Story />
+			</ThemeContext.Provider>
+		),
 		(Story) => (
 			<div role="application">
 				<Story />
@@ -25,10 +43,8 @@ const meta: Meta<typeof Clues> = {
 export default meta;
 type Story = StoryObj<typeof Clues>;
 
-export const Default: Story = {};
-
-export const Selected: Story = {
+export const Default: Story = {
 	args: {
-		currentEntryId: cryptic.entries[0].id,
+		currentEntryId: data.entries[0].id,
 	},
 };

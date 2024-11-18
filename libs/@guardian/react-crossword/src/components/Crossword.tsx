@@ -2,22 +2,14 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type {
-	CurrentCell,
-	CurrentEntryId,
-	Progress,
-	Theme,
-} from '../@types/crossword';
+import type { Coords, Progress, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
+import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
+import { useProgress } from '../hooks/useProgress';
 import { defaultTheme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
-import {
-	getEmptyProgress,
-	getStoredProgress,
-	isValidProgress,
-	saveProgress,
-} from '../utils/progress';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
@@ -33,31 +25,34 @@ export const Crossword = ({
 	data,
 	progress: userProgress,
 }: CrosswordProps) => {
-	const { id, dimensions } = data;
+	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
+		data.entries[0].id,
+	);
 
-	const progressToUse: Progress = isValidProgress(userProgress, dimensions)
-		? userProgress
-		: (getStoredProgress({
-				id,
-				dimensions,
-			}) ?? getEmptyProgress(dimensions));
+	const [currentCell, setCurrentCell] = useState<Coords | undefined>(
+		data.entries[0].position,
+	);
 
-	const [progress, setProgress] = useState<Progress>(progressToUse);
-
-	const [currentEntryId, setCurrentEntryId] = useState<
-		CurrentEntryId | undefined
-	>(data.entries[0].id);
-
-	const [currentCell, setCurrentCell] = useState<CurrentCell | undefined>({
-		x: data.entries[0].position.x,
-		y: data.entries[0].position.y,
-	});
+	const [progress, setProgress, updateProgress, clearProgress] = useProgress(
+		data,
+		userProgress,
+	);
 
 	const workingDirectionRef = useRef<Direction>('across');
-
 	const applicationRef = useRef<HTMLDivElement | null>(null);
 
-	const theme = { ...defaultTheme, ...userTheme };
+	const { entries, cells, separators } = useMemo(
+		() => parseCrosswordData(data),
+		[data],
+	);
+
+	// keep workingDirectionRef.current up to date with the current entry
+	useEffect(() => {
+		if (currentEntryId) {
+			workingDirectionRef.current =
+				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
+		}
+	}, [currentEntryId, entries]);
 
 	const gridWidth = Math.max(
 		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter,
@@ -67,20 +62,14 @@ export const Crossword = ({
 	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
 	const moveFocus = useCallback(
-		({
-			delta,
-			isTyping = false,
-		}: {
-			delta: { x: number; y: number };
-			isTyping?: boolean;
-		}) => {
+		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
 			if (!currentCell) {
 				return;
 			}
 
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
-			const newCell = cells.getByCoords(newX, newY);
+			const newCell = cells.getByCoords({ x: newX, y: newY });
 
 			if (!newCell) {
 				return;
@@ -118,22 +107,6 @@ export const Crossword = ({
 	const handleTab = useCallback(() => {
 		return;
 	}, []);
-
-	const updateProgress = useCallback(
-		({ x, y, value }: { x: number; y: number; value: string }) => {
-			// setProgress using callback to make sure progress is updated from the most recent state.
-			// Prevents issues with async state updates
-			setProgress((currentProgress) => {
-				const newProgress = [...currentProgress];
-				if (!isUndefined(newProgress[x]) && !isUndefined(newProgress[x][y])) {
-					newProgress[x][y] = value;
-				}
-				saveProgress({ progress: newProgress, id });
-				return newProgress;
-			});
-		},
-		[id],
-	);
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
@@ -240,10 +213,10 @@ export const Crossword = ({
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords(
-				clickedCellX,
-				clickedCellY,
-			)?.group;
+			const entryIdsForCell = cells.getByCoords({
+				x: clickedCellX,
+				y: clickedCellY,
+			})?.group;
 
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
@@ -322,107 +295,83 @@ export const Crossword = ({
 		[entries],
 	);
 
-	// Storage event listener to update progress when another instance of the crossword is updated
-	// 'storage' event is fired when localStorage is updated in another tab or window
-	const handleLocalStorageEvent = useCallback(
-		(event: StorageEvent) => {
-			if (event.key === id) {
-				const storedProgress = getStoredProgress({
-					id,
-					dimensions,
-				});
-				if (storedProgress) {
-					setProgress(storedProgress);
-				}
-			}
-		},
-		[dimensions, id],
-	);
-
 	useEffect(() => {
 		const application = applicationRef.current;
 
 		application?.addEventListener('keydown', handleKeyDown);
 		application?.addEventListener('click', handleClueClick);
 		application?.addEventListener('click', selectClickedCell);
-		window.addEventListener('storage', handleLocalStorageEvent);
 
 		return () => {
 			application?.removeEventListener('keydown', handleKeyDown);
 			application?.removeEventListener('click', handleClueClick);
 			application?.removeEventListener('click', selectClickedCell);
-			window.removeEventListener('storage', handleLocalStorageEvent);
 		};
-	}, [
-		handleKeyDown,
-		handleClueClick,
-		selectClickedCell,
-		handleLocalStorageEvent,
-	]);
+	}, [handleKeyDown, handleClueClick, selectClickedCell]);
 
 	return (
-		<div
-			role="application"
-			ref={applicationRef}
-			css={css`
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				min-width: 15rem;
-			`}
+		<ThemeContext.Provider
+			value={useMemo<Theme>(
+				() => ({ ...defaultTheme, ...userTheme }),
+				[userTheme],
+			)}
 		>
-			<div
-				css={css`
-					max-width: ${gridWidth}px;
-				`}
+			<ProgressContext.Provider
+				value={{ progress, setProgress, updateProgress, clearProgress }}
 			>
-				<Grid
-					setCurrentCell={setCurrentCell}
-					setCurrentEntryId={setCurrentEntryId}
-					cells={cells}
-					theme={theme}
-					progress={progress}
-					currentCell={currentCell}
-					currentEntryId={currentEntryId}
-					dimensions={dimensions}
-				/>
-				<Controls
-					id={id}
-					cells={cells}
-					currentEntryId={currentEntryId}
-					updateProgress={updateProgress}
-					setProgress={setProgress}
-					progress={progress}
-					dimensions={dimensions}
-					theme={theme}
-				/>
-			</div>
-			<div
-				css={css`
-					display: flex;
-					flex-direction: row;
-					flex-wrap: wrap;
-					flex: 1;
-					align-content: flex-start;
-				`}
-			>
-				<Clues
-					direction="across"
-					entries={entries}
-					currentEntryId={currentEntryId}
-					theme={theme}
-					progress={progress}
-					gridWidth={gridWidth}
-				/>
-				<Clues
-					direction="down"
-					entries={entries}
-					currentEntryId={currentEntryId}
-					theme={theme}
-					progress={progress}
-					gridWidth={gridWidth}
-				/>
-			</div>
-		</div>
+				<div
+					role="application"
+					ref={applicationRef}
+					css={css`
+						display: flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						min-width: 15rem;
+					`}
+				>
+					<div
+						css={css`
+							max-width: ${gridWidth}px;
+						`}
+					>
+						<Grid
+							setCurrentCell={setCurrentCell}
+							setCurrentEntryId={setCurrentEntryId}
+							cells={cells}
+							entries={entries}
+							separators={separators}
+							currentCell={currentCell}
+							currentEntryId={currentEntryId}
+							dimensions={data.dimensions}
+						/>
+						<Controls
+							cells={cells}
+							solutionsAvailable={data.solutionAvailable}
+							currentEntryId={currentEntryId}
+						/>
+					</div>
+					<div
+						css={css`
+							display: flex;
+							flex-direction: row;
+							flex-wrap: wrap;
+							flex: 1;
+							align-content: flex-start;
+						`}
+					>
+						<Clues
+							direction="across"
+							entries={entries}
+							currentEntryId={currentEntryId}
+						/>
+						<Clues
+							direction="down"
+							entries={entries}
+							currentEntryId={currentEntryId}
+						/>
+					</div>
+				</div>
+			</ProgressContext.Provider>
+		</ThemeContext.Provider>
 	);
 };

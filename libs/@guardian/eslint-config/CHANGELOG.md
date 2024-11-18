@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.6
+
+### Patch Changes
+
+- Updates eslint to v9.14.0 as it updates `@eslint/plugin-kit` v0.2.3 with a security fix.
+
 ## 10.0.0-beta.5
 
 ### Breaking Changes
