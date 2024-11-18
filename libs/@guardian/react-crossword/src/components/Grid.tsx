@@ -147,7 +147,7 @@ export const Grid = ({
 							guess={guess}
 							isFocused={isFocused}
 							isActive={isActive}
-							isRelated={isHighlighted}
+							isHighlighted={isHighlighted}
 						/>
 					);
 				})

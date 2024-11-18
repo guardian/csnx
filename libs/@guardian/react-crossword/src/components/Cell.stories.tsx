@@ -55,14 +55,14 @@ export const Focussed: Story = {
 	},
 };
 
-export const Related: Story = {
+export const Highlighted: Story = {
 	args: {
 		data: {
 			x: 0,
 			y: 0,
 			group: ['1-across'],
 		},
-		isRelated: true,
+		isHighlighted: true,
 	},
 };
 
@@ -74,7 +74,7 @@ export const Active: Story = {
 			group: ['1-across'],
 		},
 		isActive: true,
-		isRelated: true,
+		isHighlighted: true,
 	},
 };
 
@@ -86,7 +86,7 @@ export const ActiveAndFocused: Story = {
 			group: ['1-across'],
 		},
 		isActive: true,
-		isRelated: true,
+		isHighlighted: true,
 		isFocused: true,
 	},
 };
