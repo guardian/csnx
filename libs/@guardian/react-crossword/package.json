@@ -34,6 +34,7 @@
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "19.2.0",
 		"@guardian/source": "8.0.0",
+		"@guardian/source-development-kitchen": "13.1.0",
 		"@storybook/addon-a11y": "8.4.1",
 		"@storybook/addon-essentials": "8.4.1",
 		"@storybook/addon-interactions": "8.4.1",
