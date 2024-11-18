@@ -252,8 +252,8 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 19.0.0
-        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
+        specifier: 19.2.0
+        version: link:../libs
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -340,8 +340,8 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 19.0.0
-        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
+        specifier: 19.2.0
+        version: link:../libs
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -382,8 +382,8 @@ importers:
         specifier: 4.0.1
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 19.0.0
-        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
+        specifier: 19.2.0
+        version: link:../libs
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -518,7 +518,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 19.1.0
+        specifier: 19.2.0
         version: link:../libs
       '@guardian/source':
         specifier: 8.0.0
@@ -711,8 +711,8 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 19.0.0
-        version: 19.0.0(tslib@2.6.2)(typescript@5.5.2)
+        specifier: 19.2.0
+        version: link:../libs
       '@guardian/source':
         specifier: 8.0.0
         version: link:../source
@@ -2384,20 +2384,6 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dependencies:
       levn: 0.4.1
-
-  /@guardian/libs@19.0.0(tslib@2.6.2)(typescript@5.5.2):
-    resolution: {integrity: sha512-UEcVsjSAjkZzbHRrEtkPW/5ngOCNzVk/BtJBkAdX3enYjHLYLxNfuGZW/Z5W5K9Plf/7xH2Jtcker5tQq9R6sQ==}
-    deprecated: Use 19.1.0 (see release notes)
-    peerDependencies:
-      tslib: ^2.6.2
-      typescript: ~5.5.2
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      tslib: 2.6.2
-      typescript: 5.5.2
-    dev: true
 
   /@humanfs/core@0.19.1:
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
