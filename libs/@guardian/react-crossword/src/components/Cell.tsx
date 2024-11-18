@@ -8,8 +8,12 @@ export type CellProps = {
 	y: number;
 	guess?: string;
 	theme: Theme;
+	/** is the cell receiving input? */
 	isFocused?: boolean;
+	/** is the cell connected in any way to the active clue? */
 	isHighlighted?: boolean;
+	/** is the cell for the active clue? */
+	isActive?: boolean;
 };
 
 export const CellComponent = ({
@@ -20,12 +24,13 @@ export const CellComponent = ({
 	theme,
 	isFocused,
 	isHighlighted,
+	isActive,
 }: CellProps) => {
 	let border = {};
 	if (isFocused) {
 		// set rect stroke and stroke-width
 		border = {
-			stroke: theme.focusBorder,
+			stroke: theme.focus,
 			strokeWidth: 2,
 			rx: 2,
 			ry: 2,
@@ -35,7 +40,9 @@ export const CellComponent = ({
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
 		: isHighlighted
-			? theme.focus
+			? isActive
+				? theme.active
+				: theme.highlight
 			: theme.foreground;
 
 	return (

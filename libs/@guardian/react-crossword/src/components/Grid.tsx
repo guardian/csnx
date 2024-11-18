@@ -3,14 +3,15 @@ import { memo, useRef } from 'react';
 import type {
 	Cells,
 	Coords,
-	CurrentEntryId,
 	Dimensions,
+	Entries,
 	Progress,
 	Separator,
 	Separators,
 	Theme,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
+import type { EntryID } from '../@types/Entry';
 import { Cell } from './Cell';
 
 const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
@@ -75,18 +76,20 @@ const Separator = memo(
 
 export type GridProps = {
 	cells: Cells;
+	entries: Entries;
 	separators: Separators;
 	theme: Theme;
 	progress: Progress;
 	dimensions: Dimensions;
 	setCurrentCell: Dispatch<SetStateAction<Coords | undefined>>;
-	setCurrentEntryId: Dispatch<SetStateAction<CurrentEntryId | undefined>>;
+	setCurrentEntryId: Dispatch<SetStateAction<EntryID | undefined>>;
 	currentCell?: Coords;
-	currentEntryId?: CurrentEntryId;
+	currentEntryId?: EntryID;
 };
 
 export const Grid = ({
 	cells,
+	entries,
 	separators,
 	theme,
 	progress,
@@ -117,10 +120,20 @@ export const Grid = ({
 				Array.from(cells.values()).map((cell) => {
 					const x = getCellPosition(cell.x, theme);
 					const y = getCellPosition(cell.y, theme);
+
 					const guess = progress[cell.x]?.[cell.y];
+
 					const isFocused =
 						currentCell?.x === cell.x && currentCell.y === cell.y;
-					const isHighlighted = currentEntryId
+
+					const currentGroup =
+						currentEntryId && entries.get(currentEntryId)?.group;
+
+					const isHighlighted = currentGroup?.some((entryId) =>
+						cell.group?.includes(entryId),
+					);
+
+					const isActive = currentEntryId
 						? cell.group?.includes(currentEntryId)
 						: false;
 
@@ -133,6 +146,7 @@ export const Grid = ({
 							theme={theme}
 							guess={guess}
 							isFocused={isFocused}
+							isActive={isActive}
 							isHighlighted={isHighlighted}
 						/>
 					);

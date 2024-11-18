@@ -2,12 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type {
-	Coords,
-	CurrentEntryId,
-	Progress,
-	Theme,
-} from '../@types/crossword';
+import type { Coords, Progress, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { defaultTheme } from '../theme';
@@ -44,9 +39,9 @@ export const Crossword = ({
 
 	const [progress, setProgress] = useState<Progress>(progressToUse);
 
-	const [currentEntryId, setCurrentEntryId] = useState<
-		CurrentEntryId | undefined
-	>(data.entries[0].id);
+	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
+		data.entries[0].id,
+	);
 
 	const [currentCell, setCurrentCell] = useState<Coords | undefined>(
 		data.entries[0].position,
@@ -364,6 +359,7 @@ export const Crossword = ({
 				<Grid
 					setCurrentCell={setCurrentCell}
 					setCurrentEntryId={setCurrentEntryId}
+					entries={entries}
 					cells={cells}
 					separators={separators}
 					theme={theme}

@@ -6,11 +6,11 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	Cell,
 	Cells,
-	CurrentEntryId,
 	Dimensions,
 	Progress,
 	Theme,
 } from '../@types/crossword';
+import type { EntryID } from '../@types/Entry';
 import { getEmptyProgress, saveProgress } from '../utils/progress';
 import { Button } from './Button';
 
@@ -18,7 +18,7 @@ type ControlProps = {
 	id: CAPICrossword['id'];
 	solutionsAvailable: boolean;
 	cells: Cells;
-	currentEntryId?: CurrentEntryId;
+	currentEntryId?: EntryID;
 	updateProgress: (props: { x: number; y: number; value: string }) => void;
 	setProgress: Dispatch<SetStateAction<Progress>>;
 	progress: Progress;
