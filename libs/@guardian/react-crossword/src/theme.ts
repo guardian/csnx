@@ -1,4 +1,4 @@
-import { breakpoints, palette } from '@guardian/source/foundations';
+import { palette } from '@guardian/source/foundations';
 import type { Theme } from './@types/crossword';
 
 export const defaultTheme: Theme = {
@@ -12,6 +12,6 @@ export const defaultTheme: Theme = {
 	cellSize: 32,
 	buttonBackground: 'hotpink',
 	buttonBackgroundHover: 'lightpink',
-	twoCols: breakpoints.tablet,
-	threeCols: breakpoints.wide,
+	clueMinWidthRem: 15,
+	clueMaxWidthRem: 25,
 };

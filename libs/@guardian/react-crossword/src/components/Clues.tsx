@@ -4,6 +4,7 @@ import type { Entries } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { Clue } from './Clue';
 
 const title = css`
@@ -18,7 +19,7 @@ type Props = {
 
 export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 	const { progress } = useContext(ProgressContext);
-
+	const theme = useContext(ThemeContext);
 	const entriesForClues = [];
 
 	for (const entry of entries.values()) {
@@ -30,8 +31,8 @@ export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 	return (
 		<div
 			css={css`
-				min-width: 15rem;
-				max-width: 25rem;
+				min-width: ${theme.clueMinWidthRem}rem;
+				max-width: ${theme.clueMaxWidthRem}rem;
 			`}
 		>
 			<label

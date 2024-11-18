@@ -325,7 +325,7 @@ export const Crossword = ({
 						display: flex;
 						flex-direction: row;
 						flex-wrap: wrap;
-						min-width: 15rem;
+						min-width: ${theme.clueMinWidthRem}rem;
 						gap: 0 ${space[4]}px;
 					`}
 				>

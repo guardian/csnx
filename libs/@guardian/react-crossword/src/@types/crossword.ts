@@ -57,8 +57,8 @@ export type Theme = {
 	cellSize: number;
 	buttonBackground: string;
 	buttonBackgroundHover: string;
-	twoCols: number;
-	threeCols: number;
+	clueMinWidthRem: number;
+	clueMaxWidthRem: number;
 };
 
 export type Dimensions = {
