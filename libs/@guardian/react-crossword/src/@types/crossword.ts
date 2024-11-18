@@ -38,7 +38,7 @@ export type Crossword = {
 	hasSolution: boolean;
 };
 
-export type Separator = ',' | '-';
+export type Separator = string;
 
 export type Separators = Array<{
 	type: Separator;

@@ -1,4 +1,4 @@
-import type { ContextType, Dispatch, ReactNode, SetStateAction } from 'react';
+import type { ContextType, Dispatch, SetStateAction } from 'react';
 import { memo, useContext, useRef } from 'react';
 import type {
 	Cells,
@@ -43,36 +43,31 @@ const Separator = memo(
 			down: `rotate(90 ${x + cellSize / 2} ${y + cellSize / 2})`,
 		};
 
-		const attrs: Record<Separator, ReactNode> = {
-			// draws a dash that bisects the border with the next cell
-			'-': (
-				<line
-					x1={x + cellSize - 3}
-					y1={y + cellSize / 2}
-					x2={x + cellSize + 4}
-					y2={y + cellSize / 2}
-					strokeWidth={gutter}
-					stroke={theme.background}
-					transform={transform[direction]}
-					{...props}
-				/>
-			),
+		return type === '-' ? (
+			// draws a dash (-) that bisects the border with the next cell
+			<line
+				x1={x + cellSize - 3}
+				y1={y + cellSize / 2}
+				x2={x + cellSize + 4}
+				y2={y + cellSize / 2}
+				strokeWidth={gutter}
+				stroke={theme.background}
+				transform={transform[direction]}
+				{...props}
+			/>
+		) : (
 			// draws a thicker border with the next cell
-			',': (
-				<line
-					x1={x + cellSize + gutter / 2}
-					y1={y}
-					x2={x + cellSize + gutter / 2}
-					y2={y + cellSize}
-					strokeWidth={gutter * 2}
-					stroke={theme.background}
-					transform={transform[direction]}
-					{...props}
-				/>
-			),
-		};
-
-		return attrs[type];
+			<line
+				x1={x + cellSize + gutter / 2}
+				y1={y}
+				x2={x + cellSize + gutter / 2}
+				y2={y + cellSize}
+				strokeWidth={gutter * 2}
+				stroke={theme.background}
+				transform={transform[direction]}
+				{...props}
+			/>
+		);
 	},
 );
 
@@ -100,9 +95,9 @@ export const Grid = ({
 
 	const gridRef = useRef<SVGSVGElement>(null);
 
-	const SVGHeight =
+	const height =
 		theme.cellSize * dimensions.rows + theme.gutter * (dimensions.rows + 1);
-	const SVGWidth =
+	const width =
 		theme.cellSize * dimensions.cols + theme.gutter * (dimensions.cols + 1);
 
 	return (
@@ -110,10 +105,10 @@ export const Grid = ({
 			style={{
 				backgroundColor: theme.background,
 				width: '100%',
-				maxWidth: SVGWidth,
+				maxWidth: width,
 			}}
 			ref={gridRef}
-			viewBox={`0 0 ${SVGWidth} ${SVGHeight}`}
+			viewBox={`0 0 ${width} ${height}`}
 			tabIndex={-1}
 		>
 			{
