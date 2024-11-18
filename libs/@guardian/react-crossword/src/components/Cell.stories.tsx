@@ -26,7 +26,7 @@ const meta: Meta<typeof Cell> = {
 			return (
 				<svg
 					style={{
-						border: `5px solid green`,
+						padding: theme.gutter,
 						width: theme.cellSize,
 						height: theme.cellSize,
 						backgroundColor: theme.background,
