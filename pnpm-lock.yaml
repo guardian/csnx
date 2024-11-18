@@ -496,8 +496,8 @@ importers:
         specifier: 9.14.0
         version: 9.14.0
       prettier:
-        specifier: 3.2.2
-        version: 3.2.2
+        specifier: 3.3.3
+        version: 3.3.3
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -9661,12 +9661,6 @@ packages:
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
-    hasBin: true
-    dev: true
-
-  /prettier@3.2.2:
-    resolution: {integrity: sha512-HTByuKZzw7utPiDO523Tt2pLtEyK7OibUD9suEJQrPUCYQqrHr74GGX6VidMrovbf/I50mPqr8j/II6oBAuc5A==}
-    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
