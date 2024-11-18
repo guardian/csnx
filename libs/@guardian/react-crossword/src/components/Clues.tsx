@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { memo, useContext } from 'react';
+import { useContext } from 'react';
 import type { Entries } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
@@ -16,7 +16,7 @@ type Props = {
 	currentEntryId?: EntryID;
 };
 
-export const Clues = memo(({ direction, entries, currentEntryId }: Props) => {
+export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 	const { progress } = useContext(ProgressContext);
 
 	const entriesForClues = [];
@@ -84,4 +84,4 @@ export const Clues = memo(({ direction, entries, currentEntryId }: Props) => {
 			</div>
 		</>
 	);
-});
+};

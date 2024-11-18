@@ -8,11 +8,16 @@ import { ThemeContext } from '../context/ThemeContext';
 import { Button } from './Button';
 
 type ControlProps = {
+	solutionsAvailable: boolean;
 	cells: Cells;
 	currentEntryId?: EntryID;
 };
 
-export const Controls = ({ cells, currentEntryId }: ControlProps) => {
+export const Controls = ({
+	solutionsAvailable,
+	cells,
+	currentEntryId,
+}: ControlProps) => {
 	const { progress, updateProgress, clearProgress } =
 		useContext(ProgressContext);
 	const theme = useContext(ThemeContext);
@@ -102,26 +107,34 @@ export const Controls = ({ cells, currentEntryId }: ControlProps) => {
 		>
 			{currentEntryId && (
 				<>
-					<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
-						Check Word
-					</Button>
-					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-						Reveal Word
-					</Button>
 					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
 						Clear Word
 					</Button>
+					{solutionsAvailable && (
+						<>
+							<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
+								Check Word
+							</Button>
+							<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
+								Reveal Word
+							</Button>
+						</>
+					)}
 				</>
 			)}
 			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
-			<Button onSuccess={checkGrid} requireConfirmation={true}>
-				Check All
-			</Button>
-			<Button onSuccess={revealGrid} requireConfirmation={true}>
-				Reveal All
-			</Button>
+			{solutionsAvailable && (
+				<>
+					<Button onSuccess={checkGrid} requireConfirmation={true}>
+						Check All
+					</Button>
+					<Button onSuccess={revealGrid} requireConfirmation={true}>
+						Reveal All
+					</Button>
+				</>
+			)}
 			<Button onSuccess={clearProgress} requireConfirmation={true}>
 				Clear All
 			</Button>

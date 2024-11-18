@@ -331,7 +331,11 @@ export const Crossword = ({
 							currentEntryId={currentEntryId}
 							dimensions={data.dimensions}
 						/>
-						<Controls cells={cells} currentEntryId={currentEntryId} />
+						<Controls
+							cells={cells}
+							solutionsAvailable={data.solutionAvailable}
+							currentEntryId={currentEntryId}
+						/>
 					</div>
 					<div>
 						<Clues

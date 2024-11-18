@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { ThemeContext } from '../context/ThemeContext';
 
@@ -10,7 +10,12 @@ interface Props {
 	isComplete?: boolean;
 }
 
-export const Clue = ({ entry, isHighlighted, isActive, isComplete }: Props) => {
+const ClueComponent = ({
+	entry,
+	isHighlighted,
+	isActive,
+	isComplete,
+}: Props) => {
 	const theme = useContext(ThemeContext);
 
 	return (
@@ -49,3 +54,5 @@ export const Clue = ({ entry, isHighlighted, isActive, isComplete }: Props) => {
 		</div>
 	);
 };
+
+export const Clue = memo(ClueComponent);

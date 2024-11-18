@@ -10,19 +10,19 @@ export type CellProps = {
 	guess?: string;
 	/** is the cell receiving input? */
 	isFocused?: boolean;
-	/** is the cell related to the active clue? */
-	isRelated?: boolean;
+	/** is the cell connected in any way to the active clue? */
+	isHighlighted?: boolean;
 	/** is the cell for the active clue? */
 	isActive?: boolean;
 };
 
-export const CellComponent = ({
+const CellComponent = ({
 	data,
 	x,
 	y,
 	guess = '',
 	isFocused,
-	isRelated,
+	isHighlighted,
 	isActive,
 }: CellProps) => {
 	const theme = useContext(ThemeContext);
@@ -40,7 +40,7 @@ export const CellComponent = ({
 
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
-		: isRelated
+		: isHighlighted
 			? isActive
 				? theme.active
 				: theme.highlight
