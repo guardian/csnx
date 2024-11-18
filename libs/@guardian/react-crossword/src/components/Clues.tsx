@@ -1,11 +1,9 @@
 import { css } from '@emotion/react';
-import type {
-	CurrentEntryId,
-	Entries,
-	Progress,
-	Theme,
-} from '../@types/crossword';
+import { useContext } from 'react';
+import type { Entries } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
+import type { EntryID } from '../@types/Entry';
+import { ProgressContext } from '../context/ProgressContext';
 import { Clue } from './Clue';
 
 const title = css`
@@ -15,18 +13,12 @@ const title = css`
 type Props = {
 	direction: Direction;
 	entries: Entries;
-	currentEntryId?: CurrentEntryId;
-	theme: Theme;
-	progress: Progress;
+	currentEntryId?: EntryID;
 };
 
-export const Clues = ({
-	direction,
-	entries,
-	currentEntryId,
-	theme,
-	progress,
-}: Props) => {
+export const Clues = ({ direction, entries, currentEntryId }: Props) => {
+	const { progress } = useContext(ProgressContext);
+
 	const entriesForClues = [];
 
 	for (const entry of entries.values()) {
@@ -73,13 +65,19 @@ export const Clues = ({
 							cell[axis]++;
 						}
 
+						const isHighlighted =
+							currentEntryId &&
+							entries.get(currentEntryId)?.group.includes(entry.id);
+
+						const isActive = currentEntryId === entry.id;
+
 						return (
 							<Clue
-								theme={theme}
 								entry={entry}
-								selected={currentEntryId === entry.id}
+								isHighlighted={isHighlighted}
+								isActive={isActive}
 								key={entry.id}
-								complete={complete}
+								isComplete={complete}
 							/>
 						);
 					})}

@@ -1,36 +1,49 @@
 import { css } from '@emotion/react';
-import type { CrosswordEntry, Theme } from '../@types/crossword';
+import { memo, useContext } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
+import { ThemeContext } from '../context/ThemeContext';
 
 interface Props {
-	entry: CrosswordEntry;
-	selected?: boolean;
-	complete?: boolean;
-	theme: Theme;
+	entry: CAPIEntry;
+	isHighlighted?: boolean;
+	isActive?: boolean;
+	isComplete?: boolean;
 }
 
-export const Clue = ({ entry, selected, complete, theme }: Props) => {
+const ClueComponent = ({
+	entry,
+	isHighlighted,
+	isActive,
+	isComplete,
+}: Props) => {
+	const theme = useContext(ThemeContext);
+
 	return (
 		<div
 			tabIndex={-1}
 			id={entry.id}
 			role="option"
-			aria-selected={selected}
+			aria-selected={isHighlighted}
 			css={css`
 				display: table-row;
-				background-color: ${selected ? theme.focus : 'transparent'};
-				cursor: ${selected ? 'default' : 'pointer'};
-				opacity: ${complete ? 0.5 : 1};
+				background-color: ${isActive
+					? theme.active
+					: isHighlighted
+						? theme.highlight
+						: 'transparent'};
+				cursor: ${isHighlighted ? 'default' : 'pointer'};
+				opacity: ${isComplete ? 0.5 : 1};
 			`}
 		>
 			<span
 				css={css`
 					font-weight: bold;
 					display: table-cell;
-					min-width: 1.25rem;
+					width: 1.25rem;
 					padding-right: 0.625rem;
 				`}
 			>
-				{entry.number}.
+				{entry.humanNumber}.
 			</span>
 			<span
 				css={css`
@@ -41,3 +54,5 @@ export const Clue = ({ entry, selected, complete, theme }: Props) => {
 		</div>
 	);
 };
+
+export const Clue = memo(ClueComponent);

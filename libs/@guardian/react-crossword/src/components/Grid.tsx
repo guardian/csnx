@@ -1,24 +1,26 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react';
-import { memo, useRef } from 'react';
+import type { ContextType, Dispatch, ReactNode, SetStateAction } from 'react';
+import { memo, useContext, useRef } from 'react';
 import type {
 	Cells,
 	Coords,
-	CurrentEntryId,
 	Dimensions,
-	Progress,
+	Entries,
 	Separator,
 	Separators,
-	Theme,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
+import type { EntryID } from '../@types/Entry';
+import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
 import { Cell } from './Cell';
 
-const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
-	index * (cellSize + gutter) + gutter;
+const getCellPosition = (
+	index: number,
+	{ cellSize, gutter }: ContextType<typeof ThemeContext>,
+) => index * (cellSize + gutter) + gutter;
 
 const Separator = memo(
 	({
-		theme,
 		position,
 		direction,
 		type,
@@ -27,8 +29,9 @@ const Separator = memo(
 		type: Separator;
 		position: Coords;
 		direction: Direction;
-		theme: Theme;
 	}) => {
+		const theme = useContext(ThemeContext);
+
 		const x = getCellPosition(position.x, theme);
 		const y = getCellPosition(position.y, theme);
 
@@ -75,25 +78,26 @@ const Separator = memo(
 
 export type GridProps = {
 	cells: Cells;
+	entries: Entries;
 	separators: Separators;
-	theme: Theme;
-	progress: Progress;
 	dimensions: Dimensions;
 	setCurrentCell: Dispatch<SetStateAction<Coords | undefined>>;
-	setCurrentEntryId: Dispatch<SetStateAction<CurrentEntryId | undefined>>;
+	setCurrentEntryId: Dispatch<SetStateAction<EntryID | undefined>>;
 	currentCell?: Coords;
-	currentEntryId?: CurrentEntryId;
+	currentEntryId?: EntryID;
 };
 
 export const Grid = ({
 	cells,
+	entries,
 	separators,
-	theme,
-	progress,
 	dimensions,
 	currentCell,
 	currentEntryId,
 }: GridProps) => {
+	const { progress } = useContext(ProgressContext);
+	const theme = useContext(ThemeContext);
+
 	const gridRef = useRef<SVGSVGElement>(null);
 
 	const SVGHeight =
@@ -117,10 +121,20 @@ export const Grid = ({
 				Array.from(cells.values()).map((cell) => {
 					const x = getCellPosition(cell.x, theme);
 					const y = getCellPosition(cell.y, theme);
+
 					const guess = progress[cell.x]?.[cell.y];
+
 					const isFocused =
 						currentCell?.x === cell.x && currentCell.y === cell.y;
-					const isHighlighted = currentEntryId
+
+					const currentGroup =
+						currentEntryId && entries.get(currentEntryId)?.group;
+
+					const isHighlighted = currentGroup?.some((entryId) =>
+						cell.group?.includes(entryId),
+					);
+
+					const isActive = currentEntryId
 						? cell.group?.includes(currentEntryId)
 						: false;
 
@@ -130,9 +144,9 @@ export const Grid = ({
 							data={cell}
 							x={x}
 							y={y}
-							theme={theme}
 							guess={guess}
 							isFocused={isFocused}
+							isActive={isActive}
 							isHighlighted={isHighlighted}
 						/>
 					);
@@ -143,7 +157,6 @@ export const Grid = ({
 				separators.map(({ type, position, direction }) => (
 					<Separator
 						type={type}
-						theme={theme}
 						position={position}
 						direction={direction}
 						key={`${type}${position.x}${position.y}${direction}`}

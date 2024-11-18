@@ -1,23 +1,42 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { cryptic } from '../../stories/formats/cryptic';
-import { progress } from '../../stories/formats/cryptic.progress';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { progress } from '../../stories/formats/grouped-clues.progress';
 import { separators as separatorData } from '../../stories/formats/separators';
-import { defaultTheme as theme } from '../theme';
+import { ProgressContext } from '../context/ProgressContext';
+import { ThemeContext } from '../context/ThemeContext';
+import { defaultTheme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
 import { Grid } from './Grid';
 
-const { cells, separators } = parseCrosswordData(cryptic);
+const { cells, separators } = parseCrosswordData(data);
 
 const meta: Meta<typeof Grid> = {
 	component: Grid,
 	title: 'Components/Grid',
 	args: {
-		theme,
 		cells,
 		separators,
-		dimensions: cryptic.dimensions,
-		progress: [],
+		dimensions: data.dimensions,
 	},
+	decorators: [
+		(Story) => (
+			<ProgressContext.Provider
+				value={{
+					progress,
+					setProgress: () => {},
+					updateProgress: () => {},
+					clearProgress: () => {},
+				}}
+			>
+				<Story />{' '}
+			</ProgressContext.Provider>
+		),
+		(Story) => (
+			<ThemeContext.Provider value={defaultTheme}>
+				<Story />
+			</ThemeContext.Provider>
+		),
+	],
 };
 
 export default meta;
@@ -25,11 +44,7 @@ type Story = StoryObj<typeof Grid>;
 
 export const Default: Story = {};
 
-export const Progress: Story = {
-	args: {
-		progress,
-	},
-};
+export const Progress: Story = {};
 
 const { cells: separatorCells, separators: separatorSeparators } =
 	parseCrosswordData(separatorData);

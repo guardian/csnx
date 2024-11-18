@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { cryptic } from '../../stories/formats/cryptic';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
 import { Clue } from './Clue';
 
@@ -7,37 +8,52 @@ const meta: Meta<typeof Clue> = {
 	component: Clue,
 	title: 'Components/Clue',
 	args: {
-		theme: defaultTheme,
+		entry: data.entries[4],
 	},
+	decorators: [
+		(Story) => (
+			<ThemeContext.Provider value={defaultTheme}>
+				<Story />
+			</ThemeContext.Provider>
+		),
+	],
 };
 
 export default meta;
 type Story = StoryObj<typeof Clue>;
 
-export const Default: Story = {
-	args: {
-		entry: cryptic.entries[0],
-	},
-};
-
-export const Selected: Story = {
-	args: {
-		entry: cryptic.entries[0],
-		selected: true,
-	},
-};
+export const Default: Story = {};
 
 export const Complete: Story = {
 	args: {
-		entry: cryptic.entries[0],
-		complete: true,
+		isComplete: true,
 	},
 };
 
-export const SelectedAndComplete: Story = {
+export const Highlighted: Story = {
 	args: {
-		entry: cryptic.entries[0],
-		selected: true,
-		complete: true,
+		isHighlighted: true,
+	},
+};
+
+export const HighlightedAndComplete: Story = {
+	args: {
+		isHighlighted: true,
+		isComplete: true,
+	},
+};
+
+export const Active: Story = {
+	args: {
+		isHighlighted: true,
+		isActive: true,
+	},
+};
+
+export const ActiveAndComplete: Story = {
+	args: {
+		isHighlighted: true,
+		isActive: true,
+		isComplete: true,
 	},
 };

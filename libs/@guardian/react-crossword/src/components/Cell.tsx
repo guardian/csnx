@@ -1,31 +1,37 @@
 import { isUndefined } from '@guardian/libs';
-import { memo } from 'react';
-import type { Cell as CellType, Theme } from '../@types/crossword';
+import { memo, useContext } from 'react';
+import type { Cell as CellType } from '../@types/crossword';
+import { ThemeContext } from '../context/ThemeContext';
 
 export type CellProps = {
 	data: CellType;
 	x: number;
 	y: number;
 	guess?: string;
-	theme: Theme;
+	/** is the cell receiving input? */
 	isFocused?: boolean;
+	/** is the cell connected in any way to the active clue? */
 	isHighlighted?: boolean;
+	/** is the cell for the active clue? */
+	isActive?: boolean;
 };
 
-export const CellComponent = ({
+const CellComponent = ({
 	data,
 	x,
 	y,
 	guess = '',
-	theme,
 	isFocused,
 	isHighlighted,
+	isActive,
 }: CellProps) => {
+	const theme = useContext(ThemeContext);
+
 	let border = {};
 	if (isFocused) {
 		// set rect stroke and stroke-width
 		border = {
-			stroke: theme.focusBorder,
+			stroke: theme.focus,
 			strokeWidth: 2,
 			rx: 2,
 			ry: 2,
@@ -35,7 +41,9 @@ export const CellComponent = ({
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
 		: isHighlighted
-			? theme.focus
+			? isActive
+				? theme.active
+				: theme.highlight
 			: theme.foreground;
 
 	return (

@@ -46,15 +46,14 @@ export type Separators = Array<{
 	direction: Direction;
 }>;
 
-export type CurrentEntryId = EntryID;
-
 export type Theme = {
 	background: string;
 	foreground: string;
 	text: string;
 	gutter: number;
+	highlight: string;
 	focus: string;
-	focusBorder: string;
+	active: string;
 	cellSize: number;
 	buttonBackground: string;
 	buttonBackgroundHover: string;
