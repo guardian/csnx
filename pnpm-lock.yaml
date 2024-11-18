@@ -507,9 +507,6 @@ importers:
 
   libs/@guardian/react-crossword:
     dependencies:
-      '@guardian/source-development-kitchen':
-        specifier: ^13.1.0
-        version: link:../source-development-kitchen
       tslib:
         specifier: 2.6.2
         version: 2.6.2
@@ -526,6 +523,9 @@ importers:
       '@guardian/source':
         specifier: 8.0.0
         version: link:../source
+      '@guardian/source-development-kitchen':
+        specifier: 13.1.0
+        version: link:../source-development-kitchen
       '@storybook/addon-a11y':
         specifier: 8.4.1
         version: 8.4.1(storybook@8.4.1)
