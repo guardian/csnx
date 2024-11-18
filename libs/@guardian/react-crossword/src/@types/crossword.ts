@@ -38,7 +38,7 @@ export type Crossword = {
 	hasSolution: boolean;
 };
 
-export type Separator = string;
+export type Separator = keyof CAPIEntry['separatorLocations'];
 
 export type Separators = Array<{
 	type: Separator;
