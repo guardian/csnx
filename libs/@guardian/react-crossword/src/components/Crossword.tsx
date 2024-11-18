@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
+import { space } from '@guardian/source/foundations';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Coords, Progress, Theme } from '../@types/crossword';
@@ -46,6 +47,11 @@ export const Crossword = ({
 		[data],
 	);
 
+	const theme = useMemo<Theme>(
+		() => ({ ...defaultTheme, ...userTheme }),
+		[userTheme],
+	);
+
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
 		if (currentEntryId) {
@@ -55,11 +61,9 @@ export const Crossword = ({
 	}, [currentEntryId, entries]);
 
 	const gridWidth = Math.max(
-		(theme.cellSize + theme.gutter) * dimensions.cols + theme.gutter,
+		(theme.cellSize + theme.gutter) * data.dimensions.cols + theme.gutter,
 		300,
 	);
-
-	const { entries, cells } = useMemo(() => parseCrosswordData(data), [data]);
 
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -310,12 +314,7 @@ export const Crossword = ({
 	}, [handleKeyDown, handleClueClick, selectClickedCell]);
 
 	return (
-		<ThemeContext.Provider
-			value={useMemo<Theme>(
-				() => ({ ...defaultTheme, ...userTheme }),
-				[userTheme],
-			)}
-		>
+		<ThemeContext.Provider value={theme}>
 			<ProgressContext.Provider
 				value={{ progress, setProgress, updateProgress, clearProgress }}
 			>
@@ -327,11 +326,13 @@ export const Crossword = ({
 						flex-direction: row;
 						flex-wrap: wrap;
 						min-width: 15rem;
+						gap: 0 ${space[4]}px;
 					`}
 				>
 					<div
 						css={css`
 							max-width: ${gridWidth}px;
+							flex-basis: 100%;
 						`}
 					>
 						<Grid

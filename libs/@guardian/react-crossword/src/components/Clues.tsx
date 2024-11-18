@@ -14,15 +14,9 @@ type Props = {
 	direction: Direction;
 	entries: Entries;
 	currentEntryId?: EntryID;
-	gridWidth: number;
 };
 
-export const Clues = ({
-	direction,
-	entries,
-	currentEntryId,
-	gridWidth,
-}: Props) => {
+export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 	const { progress } = useContext(ProgressContext);
 
 	const entriesForClues = [];
@@ -37,7 +31,7 @@ export const Clues = ({
 		<div
 			css={css`
 				min-width: 15rem;
-				max-width: ${gridWidth}px;
+				max-width: 25rem;
 			`}
 		>
 			<label
