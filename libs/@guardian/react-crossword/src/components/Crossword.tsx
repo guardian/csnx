@@ -326,7 +326,7 @@ export const Crossword = ({
 						flex-direction: row;
 						flex-wrap: wrap;
 						min-width: ${theme.clueMinWidthRem}rem;
-						gap: 0 ${space[4]}px;
+						gap: ${space[4]}px;
 					`}
 				>
 					<div
@@ -357,6 +357,7 @@ export const Crossword = ({
 							flex-direction: row;
 							flex-wrap: wrap;
 							flex: 1;
+							gap: ${space[4]}px;
 							align-content: flex-start;
 						`}
 					>

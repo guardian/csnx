@@ -12,6 +12,7 @@ export const defaultTheme: Theme = {
 	cellSize: 32,
 	buttonBackground: 'hotpink',
 	buttonBackgroundHover: 'lightpink',
+	border: 'orchid',
 	clueMinWidthRem: 15,
 	clueMaxWidthRem: 25,
 };

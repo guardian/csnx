@@ -57,6 +57,7 @@ export type Theme = {
 	cellSize: number;
 	buttonBackground: string;
 	buttonBackgroundHover: string;
+	border: string;
 	clueMinWidthRem: number;
 	clueMaxWidthRem: number;
 };

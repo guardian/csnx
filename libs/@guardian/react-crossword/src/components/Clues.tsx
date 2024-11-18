@@ -1,4 +1,6 @@
 import { css } from '@emotion/react';
+import { headlineBold17 } from '@guardian/source/foundations';
+import { DashedLines } from '@guardian/source-development-kitchen/react-components';
 import { useContext } from 'react';
 import type { Entries } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
@@ -9,6 +11,7 @@ import { Clue } from './Clue';
 
 const title = css`
 	text-transform: capitalize;
+	${headlineBold17}
 `;
 
 type Props = {
@@ -31,6 +34,7 @@ export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 	return (
 		<div
 			css={css`
+				border-top: 1px solid ${theme.border};
 				min-width: ${theme.clueMinWidthRem}rem;
 				max-width: ${theme.clueMaxWidthRem}rem;
 			`}
@@ -42,6 +46,7 @@ export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 			>
 				{direction}
 			</label>
+			<DashedLines count={1} color={theme.border} />
 			<div
 				tabIndex={0}
 				id={`${direction}-hints`}
