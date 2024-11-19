@@ -27,7 +27,7 @@ export const InlineErrorBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -69,7 +69,7 @@ export const InlineErrorCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

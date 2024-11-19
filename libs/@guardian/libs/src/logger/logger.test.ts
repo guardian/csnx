@@ -152,9 +152,11 @@ describe('Puts methods on the window', () => {
 		expect(window.guardian).toHaveProperty(
 			'logger',
 			expect.objectContaining({
+				/* eslint-disable @typescript-eslint/no-unsafe-assignment -- we expect any */
 				subscribeTo: expect.any(Function),
 				unsubscribeFrom: expect.any(Function),
 				subscriptions: expect.any(Function),
+				/* eslint-enable @typescript-eslint/no-unsafe-assignment */
 			}),
 		);
 	});

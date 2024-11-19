@@ -1,5 +1,68 @@
 # @guardian/libs
 
+## 19.2.0
+
+### Minor Changes
+
+- 3936b1c: `getConsentState`: Check for the Global Privacy Control setting in the user's browser when checking USNAT.
+
+## 19.1.0
+
+### Minor Changes
+
+- f1ba24a: Restores `ArticleDesign.PrintShop`. To be re-removed at a later date.
+
+## 19.0.0
+
+### Major Changes
+
+- cb19d46: Removes `ArticleDesign.PrintShop`, as we no longer intend to handle this as a separate `ArticleDesign`.
+
+  This is a breaking change because it removes this member from the `enum`. Therefore any code the depends on this member will need to be updated.
+
+  For example, in a `switch` the `case` will need to be removed:
+
+  ```
+  switch (design) {
+      case ArticleDesign.Standard:
+        // Other code
+      case ArticleDesign.PrintShop:
+        // This case will need to be removed
+  }
+  ```
+
+  Any code that stores the enum members directly, such as a fixture, will also need to be updated:
+
+  ```
+  {
+      ...
+      format: {
+          // With PrintShop removed, 20 will now refer to Obituary
+          design: 20,
+          ...
+      }
+  }
+  ```
+
+  Consideration will need to be given to what `ArticleDesign` will now be used for articles that were previously `PrintShop`. This is handled in the CAPI client for frontend/DCAR, and in AR itself for AR.
+
+- 59b350f: CMP: Implement Multi-State Privacy Agreement for US Compliance
+
+  This release introduces support for the Global Privacy Platform (GPP) for third-party vendors who have completed migration. The legacy \*\*uspapi will remain available temporarily for vendors still in transition.
+
+  Key updates:
+
+      Added window.__gpp stub function for the US region.
+      Updated the US framework to use "usnat" instead of "ccpa".
+      Migrated CCPA-related types and functions to the "aus" namespace.
+      The ConsentState type, returned by getConsentFor, onConsentChange, and onConsent, now includes a usnat property, replacing the previous ccpa property.
+
+## 18.0.2
+
+### Patch Changes
+
+- 5b909a7: Internally, `cmp.showPrivacyManager` uses an id for the Sourcepoint second layer in Australia. A new privacy manager has been created in Sourcepoint and this patch version reflects that change.
+
 ## 18.0.1
 
 ### Patch Changes

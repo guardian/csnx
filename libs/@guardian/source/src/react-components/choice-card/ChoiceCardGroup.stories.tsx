@@ -230,6 +230,7 @@ export const WithWildlyVaryingLengthsTabletDefaultTheme: Story = {
 
 export const ControlledMultiSelectDefaultTheme: Story = {
 	render: (args) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [state, setState] = useState({
 			opt1: true,
 			opt2: true,
@@ -318,7 +319,7 @@ export const WithSupportingCustomTheme: Story = {
 
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

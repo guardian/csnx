@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "18.0.1",
+	"version": "19.2.0",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
@@ -28,20 +28,22 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.46.1",
+		"@guardian/eslint-config": "workspace:*",
+		"@playwright/test": "1.48.0",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
+		"eslint": "9.14.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
-		"rollup": "4.21.0",
+		"rollup": "4.24.0",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
-		"tsx": "4.17.0",
+		"tsx": "4.19.0",
 		"typescript": "5.5.2",
 		"wcag-contrast": "3.0.0",
-		"wireit": "0.14.4"
+		"wireit": "0.14.8"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
@@ -96,7 +98,6 @@
 			],
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!(dist)/**",
 				"!.eslintcache"
 			],
@@ -112,14 +113,13 @@
 			],
 			"files": [
 				"**",
-				"../../../.eslint*",
 				"!(dist)/**",
 				"!.eslintcache"
 			],
 			"output": []
 		},
 		"sourcepoint-integration-test": {
-			"command": "node --test sourcepoint-integration-tests",
+			"command": "node --test sourcepoint-integration-tests/*.test.{js,mjs,cjs}",
 			"dependencies": [
 				"build"
 			]

@@ -80,7 +80,7 @@ export const PrimaryLinkBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -92,7 +92,7 @@ export const PrimaryLinkBrandAltTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandAltBackground.primary',
+			default: 'palette.brandAlt[400]',
 		},
 	},
 };
@@ -135,7 +135,7 @@ export const PrimaryIconLinkCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

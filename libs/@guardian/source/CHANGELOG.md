@@ -1,5 +1,13 @@
 # @guardian/source
 
+## 8.0.0
+
+### Major Changes
+
+- 33608e2: Disallows direct use of Emotion's `css` prop on Source components.
+
+  If you need to override the internal styling of Source components, use `cssOverrides` instead.
+
 ## 7.0.1
 
 ### Patch Changes

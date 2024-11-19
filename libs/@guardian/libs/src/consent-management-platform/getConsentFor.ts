@@ -15,9 +15,9 @@ export const getConsentFor: GetConsentFor = (
 		);
 	}
 
-	if (consent.ccpa) {
+	if (consent.usnat) {
 		// doNotSell = false means we have consent
-		return !consent.ccpa.doNotSell;
+		return !consent.usnat.doNotSell;
 	}
 
 	if (consent.aus) {

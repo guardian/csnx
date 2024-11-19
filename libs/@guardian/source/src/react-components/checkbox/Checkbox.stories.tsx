@@ -14,6 +14,7 @@ type Story = StoryObj<typeof Checkbox>;
 
 const Template: Story = {
 	render: (args) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [checked, setChecked] = useState(args.checked);
 		return (
 			<Checkbox
@@ -42,7 +43,7 @@ export const DefaultBrandTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'brandBackground.primary',
+			default: 'palette.brand[400]',
 		},
 	},
 };
@@ -145,7 +146,7 @@ export const DefaultCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

@@ -1,5 +1,53 @@
 # @guardian/source-development-kitchen
 
+## 13.1.0
+
+### Minor Changes
+
+- afe409d: Add WIP `Crossword` component
+
+## 13.0.0
+
+### Major Changes
+
+- 902521c: Remove `EditorialButton` and `EditorialLinkButton` components
+- cd351c5: Remove `QuoteIcon` component and `HeadlineSize` type
+- 90b4703: Remove `format` prop from `ToggleSwitch` component (it was not being used anyway).
+
+## 12.0.0
+
+### Major Changes
+
+- 4442352: Remove padding from Ticker component
+
+## 11.0.0
+
+### Major Changes
+
+- 7e8b36a: Make `Ticker` size configurable via a new `size` prop.
+  Rename prop `countLabel` to `headline` in `Ticker`.
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [cb19d46]
+- Updated dependencies [59b350f]
+  - @guardian/libs@19.0.0
+
+## 9.0.0
+
+### Major Changes
+
+- 85dcc72: Updating 'ticker' design to update the default padding
+
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [33608e2]
+  - @guardian/source@8.0.0
+
 ## 7.1.0
 
 ### Minor Changes

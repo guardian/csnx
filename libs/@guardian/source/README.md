@@ -31,7 +31,7 @@ $ npm install @guardian/source
 
 ## Usage
 
-_Full documentation is available in the [Source storybook](https://guardian.github.ixo/storybooks)._
+_Full documentation is available in the [Source storybook](https://guardian.github.io/storybooks)._
 
 ### `foundations`
 

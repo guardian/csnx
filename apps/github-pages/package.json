@@ -10,13 +10,13 @@
 		"tsc": "wireit"
 	},
 	"devDependencies": {
-		"@astrojs/check": "0.9.3",
-		"@astrojs/svelte": "5.7.0",
+		"@astrojs/check": "0.9.4",
+		"@astrojs/svelte": "6.0.1",
 		"@guardian/libs": "workspace:*",
-		"astro": "4.14.2",
-		"svelte": "4.2.12",
+		"astro": "4.16.13",
+		"svelte": "5.2.2",
 		"typescript": "5.5.2",
-		"wireit": "0.14.4"
+		"wireit": "0.14.8"
 	},
 	"wireit": {
 		"build": {

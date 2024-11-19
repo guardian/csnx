@@ -32,6 +32,7 @@ type Story = StoryObj<typeof TextInput>;
 
 const Template: Story = {
 	render: (args) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [state, setState] = useState('');
 		return (
 			<TextInput
@@ -244,7 +245,7 @@ export const SupportingTextCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };
@@ -263,7 +264,7 @@ export const ErrorWithMessageCustomTheme: Story = {
 	},
 	parameters: {
 		backgrounds: {
-			default: 'background.inverse',
+			default: 'palette.neutral[10]',
 		},
 	},
 };

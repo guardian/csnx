@@ -7,6 +7,8 @@ on:
         required: true
       CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN:
         required: true
+      CHROMATIC_REACT_CROSSWORD:
+        required: true
 
 jobs:
   deploy:
@@ -20,6 +22,8 @@ jobs:
             token: CHROMATIC_SOURCE_TOKEN
           - lib: source-development-kitchen
             token: CHROMATIC_SOURCE_DEVELOPMENT_KITCHEN_TOKEN
+          - lib: react-crossword
+            token: CHROMATIC_REACT_CROSSWORD
     steps:
       - uses: actions/checkout@v4
         with:
