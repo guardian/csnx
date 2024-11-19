@@ -55,10 +55,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	const frameworkMessageType: string = framework == 'tcfv2' ? 'gdpr' : 'ccpa';
 
-	const isInPropertyIdABTest =
-		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
-		'variant';
-
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -69,6 +65,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework),
 			targetingParams: {
 				framework,
 			},
@@ -169,10 +166,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			},
 		},
 	};
-
-	if (isInPropertyIdABTest) {
-		window._sp_.config.propertyId = getPropertyId(framework);
-	}
 
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
