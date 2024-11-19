@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
+import { space } from '@guardian/source/foundations';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Coords, Progress, Theme } from '../@types/crossword';
@@ -46,6 +47,11 @@ export const Crossword = ({
 		[data],
 	);
 
+	const theme = useMemo<Theme>(
+		() => ({ ...defaultTheme, ...userTheme }),
+		[userTheme],
+	);
+
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
 		if (currentEntryId) {
@@ -53,6 +59,11 @@ export const Crossword = ({
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
+
+	const gridWidth = Math.max(
+		(theme.cellSize + theme.gutter) * data.dimensions.cols + theme.gutter,
+		300,
+	);
 
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -303,12 +314,7 @@ export const Crossword = ({
 	}, [handleKeyDown, handleClueClick, selectClickedCell]);
 
 	return (
-		<ThemeContext.Provider
-			value={useMemo<Theme>(
-				() => ({ ...defaultTheme, ...userTheme }),
-				[userTheme],
-			)}
-		>
+		<ThemeContext.Provider value={theme}>
 			<ProgressContext.Provider
 				value={{ progress, setProgress, updateProgress, clearProgress }}
 			>
@@ -316,11 +322,19 @@ export const Crossword = ({
 					role="application"
 					ref={applicationRef}
 					css={css`
-						display: grid;
-						grid-template-columns: minmax(300px, 500px) 1fr;
+						display: flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						min-width: ${theme.clueMinWidthRem}rem;
+						gap: ${space[4]}px;
 					`}
 				>
-					<div>
+					<div
+						css={css`
+							max-width: ${gridWidth}px;
+							flex-basis: 100%;
+						`}
+					>
 						<Grid
 							setCurrentCell={setCurrentCell}
 							setCurrentEntryId={setCurrentEntryId}
@@ -337,7 +351,16 @@ export const Crossword = ({
 							currentEntryId={currentEntryId}
 						/>
 					</div>
-					<div>
+					<div
+						css={css`
+							display: flex;
+							flex-direction: row;
+							flex-wrap: wrap;
+							flex: 1;
+							gap: ${space[4]}px;
+							align-content: flex-start;
+						`}
+					>
 						<Clues
 							direction="across"
 							entries={entries}
