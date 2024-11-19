@@ -74,6 +74,9 @@ importers:
       '@guardian/source':
         specifier: workspace:*
         version: link:../../libs/@guardian/source
+      '@guardian/source-development-kitchen':
+        specifier: workspace:*
+        version: link:../../libs/@guardian/source-development-kitchen
       '@storybook/addon-a11y':
         specifier: 8.4.1
         version: 8.4.1(storybook@8.4.1)
