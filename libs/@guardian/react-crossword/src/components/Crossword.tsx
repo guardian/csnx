@@ -34,7 +34,7 @@ export const Crossword = ({
 		data.entries[0].position,
 	);
 
-	const [progress, setProgress, updateProgress, clearProgress] = useProgress(
+	const [progress, setProgress, setCellProgress, clearProgress] = useProgress(
 		data,
 		userProgress,
 	);
@@ -148,7 +148,7 @@ export const Crossword = ({
 					if (!currentEntryId) {
 						return;
 					}
-					updateProgress({ ...currentCell, value: '' });
+					setCellProgress({ ...currentCell, value: '' });
 					if (key === 'Backspace') {
 						if (direction === 'across') {
 							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
@@ -162,7 +162,7 @@ export const Crossword = ({
 				default: {
 					const upperCaseKey = key.toUpperCase();
 					if (/^[A-Z]$/.test(upperCaseKey) && currentEntryId) {
-						updateProgress({ ...currentCell, value: upperCaseKey });
+						setCellProgress({ ...currentCell, value: upperCaseKey });
 						if (direction === 'across') {
 							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 						}
@@ -180,7 +180,7 @@ export const Crossword = ({
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, updateProgress],
+		[currentCell, currentEntryId, moveFocus, handleTab, setCellProgress],
 	);
 
 	const selectClickedCell = useCallback(
@@ -316,7 +316,7 @@ export const Crossword = ({
 	return (
 		<ThemeContext.Provider value={theme}>
 			<ProgressContext.Provider
-				value={{ progress, setProgress, updateProgress, clearProgress }}
+				value={{ progress, setProgress, setCellProgress, clearProgress }}
 			>
 				<div
 					role="application"

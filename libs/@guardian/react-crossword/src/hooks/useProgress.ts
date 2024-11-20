@@ -103,7 +103,6 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		setProgress(getEmptyProgress(dimensions));
 	}, [dimensions]);
 
-	const updateProgress = useCallback(
 		({ x, y, value }: { x: number; y: number; value: string }) => {
 			// call `setProgress` using callback method to make sure the new
 			// `progress` state is derived from the current state
@@ -118,6 +117,7 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		},
 		[setProgress],
 	);
+	const setCellProgress = useCallback(
 
 	// Keep local storage in sync with progress state
 	useEffect(() => {
@@ -150,5 +150,5 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		};
 	}, [handleLocalStorageEvent]);
 
-	return [progress, setProgress, updateProgress, clearProgress] as const;
+	return [progress, setProgress, setCellProgress, clearProgress] as const;
 };
