@@ -6,7 +6,7 @@ import globals from 'globals';
 export default [
 	{
 		name: '@guardian/react',
-		files: ['**/*.{jsx,mjsx,tsx,mtsx}'],
+		files: ['**/*.{js,ts,jsx,mjsx,tsx,mtsx}'],
 		languageOptions: {
 			...react.configs.flat.recommended.languageOptions,
 			globals: {
