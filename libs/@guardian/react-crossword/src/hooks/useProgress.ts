@@ -1,29 +1,13 @@
-import { isString, log, storage } from '@guardian/libs';
-import { useCallback, useEffect, useState } from 'react';
+import { isUndefined, log } from '@guardian/libs';
+import { useCallback } from 'react';
+import useLocalStorageState from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Dimensions, Progress } from '../@types/crossword';
+import type { Coords, Dimensions, Progress } from '../@types/crossword';
 
 const getEmptyProgress = (dimensions: Dimensions): Progress => {
 	return Array.from({ length: dimensions.cols }, () =>
 		Array.from({ length: dimensions.rows }, () => ''),
 	);
-};
-
-const getStoredProgress = ({
-	id,
-	dimensions,
-}: {
-	dimensions: Dimensions;
-	id: string;
-}): Progress | undefined => {
-	const storedProgress = storage.local.get(id);
-	if (isString(storedProgress)) {
-		const parsedProgress = JSON.parse(storedProgress) as unknown;
-		if (isValidProgress(parsedProgress, { dimensions })) {
-			return parsedProgress;
-		}
-	}
-	return undefined;
 };
 
 const isValidProgress = (
@@ -72,7 +56,6 @@ const isValidProgress = (
  * - a fresh, empty one
  */
 const getInitialProgress = ({
-	id,
 	userProgress,
 	dimensions,
 }: {
@@ -84,71 +67,42 @@ const getInitialProgress = ({
 		return userProgress;
 	}
 
-	return (
-		getStoredProgress({
-			id,
-			dimensions,
-		}) ?? getEmptyProgress(dimensions)
-	);
+	return getEmptyProgress(dimensions);
 };
 
 export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 	const { id, dimensions } = data;
 
-	const [progress, setProgress] = useState<Progress>(
-		getInitialProgress({ id, dimensions, userProgress }),
-	);
+	const [progress, setProgress] = useLocalStorageState<Progress>(id, {
+		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
+		serializer: {
+			stringify: (_) => JSON.stringify({ value: _ }),
+			parse: (_) => (JSON.parse(_) as { value: unknown }).value,
+		},
+	});
 
 	const clearProgress = useCallback(() => {
 		setProgress(getEmptyProgress(dimensions));
-	}, [dimensions]);
+	}, [dimensions, setProgress]);
 
-		({ x, y, value }: { x: number; y: number; value: string }) => {
-			// call `setProgress` using callback method to make sure the new
-			// `progress` state is derived from the current state
-			setProgress((progress) => {
-				const currentX = progress.at(x);
-				if (currentX) {
-					const newX = currentX.with(y, value);
-					return progress.with(x, newX);
-				}
-				return progress;
-			});
-		},
-		[setProgress],
-	);
 	const setCellProgress = useCallback(
+		({ x, y, value }: Coords & { value: string }) => {
+			const newProgress = [...progress];
 
-	// Keep local storage in sync with progress state
-	useEffect(() => {
-		storage.local.set(id, JSON.stringify(progress));
-	}, [id, progress]);
-
-	// Storage event listener to update progress when another instance of the
-	// crossword is updated 'storage' event is fired when localStorage is
-	// updated in another tab or window
-	const handleLocalStorageEvent = useCallback(
-		(event: StorageEvent) => {
-			if (event.key === id) {
-				const storedProgress = getStoredProgress({
-					id,
-					dimensions,
-				});
-				if (storedProgress) {
-					setProgress(storedProgress);
-				}
+			if (isUndefined(newProgress[x])) {
+				throw new Error('Invalid x coordinate');
 			}
+
+			if (isUndefined(newProgress[x][y])) {
+				throw new Error('Invalid y coordinate');
+			}
+
+			newProgress[x][y] = value;
+
+			setProgress(newProgress);
 		},
-		[dimensions, id],
+		[progress, setProgress],
 	);
-
-	useEffect(() => {
-		window.addEventListener('storage', handleLocalStorageEvent);
-
-		return () => {
-			window.removeEventListener('storage', handleLocalStorageEvent);
-		};
-	}, [handleLocalStorageEvent]);
 
 	return [progress, setProgress, setCellProgress, clearProgress] as const;
 };
