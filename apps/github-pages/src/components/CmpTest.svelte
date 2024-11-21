@@ -3,6 +3,10 @@
 	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
+
+	let subscribed = window.location.search.includes('subscribed');
+	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
+
 	switch (window.location.hash) {
 		case '#tcfv2':
 			localStorage.setItem('framework', JSON.stringify('tcfv2'));
@@ -53,11 +57,18 @@
 	};
 
 	let framework = JSON.parse(localStorage.getItem('framework'));
+	// let subscribed = JSON.parse(localStorage.getItem('subscribed'));
 
 	let setLocation = () => {
 		localStorage.setItem('framework', JSON.stringify(framework));
 		window.location.hash = framework;
 		clearPreferences();
+	};
+
+	let toggleSubscribed = () => {
+		subscribed = !subscribed;
+		window.location.search = subscribed ? 'subscribed' : '';
+		localStorage.setItem('subscribed', JSON.stringify(subscribed));
 	};
 
 	$: consentState = {};
@@ -91,10 +102,10 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
+		cmp.init({ country, subscribed: subscribed ?? false });
+		// cmp.init({ country, subscribed: subscribed ?? false });
+		// cmp.init({ country, subscribed: subscribed ?? false });
+		// cmp.init({ country, subscribed: subscribed ?? false });
 	});
 </script>
 
@@ -132,6 +143,14 @@
 			/>
 			in Australia:
 			<strong>CCPA-like</strong>
+		</label>
+		<label class={subscribed ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleSubscribed}
+				checked={subscribed}
+			/>
+			<strong>Subscribed</strong>
 		</label>
 	</nav>
 
