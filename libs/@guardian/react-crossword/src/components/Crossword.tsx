@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { space } from '@guardian/source/foundations';
+import { space, textSans12 } from '@guardian/source/foundations';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Coords, Progress, Theme } from '../@types/crossword';
@@ -34,10 +34,8 @@ export const Crossword = ({
 		data.entries[0].position,
 	);
 
-	const [progress, setProgress, setCellProgress, clearProgress] = useProgress(
-		data,
-		userProgress,
-	);
+	const [progress, setProgress, setCellProgress, clearProgress, isStored] =
+		useProgress(data, userProgress);
 
 	const workingDirectionRef = useRef<Direction>('across');
 	const applicationRef = useRef<HTMLDivElement | null>(null);
@@ -350,6 +348,17 @@ export const Crossword = ({
 							solutionsAvailable={data.solutionAvailable}
 							currentEntryId={currentEntryId}
 						/>
+						<p
+							css={css`
+								${textSans12};
+								font-style: italic;
+								color: ${theme.text};
+							`}
+						>
+							{isStored
+								? 'Crosswords are saved automatically.'
+								: 'Crossword will not be saved.'}
+						</p>
 					</div>
 					<div
 						css={css`
