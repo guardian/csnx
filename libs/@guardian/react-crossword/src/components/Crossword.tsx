@@ -11,6 +11,7 @@ import { ThemeContext } from '../context/ThemeContext';
 import { useProgress } from '../hooks/useProgress';
 import { defaultTheme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
+import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
@@ -26,6 +27,7 @@ export const Crossword = ({
 	data,
 	progress: userProgress,
 }: CrosswordProps) => {
+	const [showAnagramHelper, setShowAnagramHelper] = useState(true);
 	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
 		data.entries[0].id,
 	);
@@ -64,6 +66,9 @@ export const Crossword = ({
 		(theme.cellSize + theme.gutter) * data.dimensions.cols + theme.gutter,
 		300,
 	);
+
+	const gridHeight =
+		(theme.cellSize + theme.gutter) * data.dimensions.rows + theme.gutter;
 
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -114,7 +119,7 @@ export const Crossword = ({
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) {
+			if (event.ctrlKey || event.altKey || event.metaKey || showAnagramHelper) {
 				return;
 			}
 
@@ -180,7 +185,14 @@ export const Crossword = ({
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, updateProgress],
+		[
+			showAnagramHelper,
+			currentCell,
+			currentEntryId,
+			moveFocus,
+			handleTab,
+			updateProgress,
+		],
 	);
 
 	const selectClickedCell = useCallback(
@@ -283,6 +295,8 @@ export const Crossword = ({
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
 
+	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
+
 	const handleClueClick = useCallback(
 		(event: MouseEvent) => {
 			const target = event.target as HTMLElement;
@@ -333,22 +347,38 @@ export const Crossword = ({
 						css={css`
 							max-width: ${gridWidth}px;
 							flex-basis: 100%;
+							display: flex;
+							flex-direction: column;
+							gap: ${space[4]}px;
 						`}
 					>
-						<Grid
-							setCurrentCell={setCurrentCell}
-							setCurrentEntryId={setCurrentEntryId}
-							cells={cells}
-							entries={entries}
-							separators={separators}
-							currentCell={currentCell}
-							currentEntryId={currentEntryId}
-							dimensions={data.dimensions}
-						/>
+						{entry !== undefined && showAnagramHelper && (
+							<AnagramHelper
+								entry={entry}
+								separators={separators}
+								height={gridHeight}
+								onClose={() => setShowAnagramHelper(false)}
+							/>
+						)}
+						{!showAnagramHelper && (
+							<Grid
+								setCurrentCell={setCurrentCell}
+								setCurrentEntryId={setCurrentEntryId}
+								cells={cells}
+								entries={entries}
+								separators={separators}
+								currentCell={currentCell}
+								currentEntryId={currentEntryId}
+								dimensions={data.dimensions}
+							/>
+						)}
 						<Controls
 							cells={cells}
 							solutionsAvailable={data.solutionAvailable}
 							currentEntryId={currentEntryId}
+							showAnagramHelper={() => {
+								setShowAnagramHelper((prevState) => !prevState);
+							}}
 						/>
 					</div>
 					<div

@@ -13,6 +13,7 @@ export const defaultTheme: Theme = {
 	buttonBackground: 'hotpink',
 	buttonBackgroundHover: 'lightpink',
 	border: 'orchid',
+	anagramHelperBackground: 'lightcoral',
 	clueMinWidthRem: 15,
 	clueMaxWidthRem: 25,
 };

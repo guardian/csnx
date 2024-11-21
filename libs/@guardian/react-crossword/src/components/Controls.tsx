@@ -11,12 +11,14 @@ type ControlProps = {
 	solutionsAvailable: boolean;
 	cells: Cells;
 	currentEntryId?: EntryID;
+	showAnagramHelper: () => void;
 };
 
 export const Controls = ({
 	solutionsAvailable,
 	cells,
 	currentEntryId,
+	showAnagramHelper,
 }: ControlProps) => {
 	const { progress, updateProgress, clearProgress } =
 		useContext(ProgressContext);
@@ -122,7 +124,7 @@ export const Controls = ({
 					)}
 				</>
 			)}
-			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
+			<Button onSuccess={showAnagramHelper} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
 			{solutionsAvailable && (

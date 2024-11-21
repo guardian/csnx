@@ -58,6 +58,7 @@ export type Theme = {
 	buttonBackground: string;
 	buttonBackgroundHover: string;
 	border: string;
+	anagramHelperBackground: string;
 	clueMinWidthRem: number;
 	clueMaxWidthRem: number;
 };
