@@ -4,7 +4,7 @@ import { getGPPData } from './api';
 export const getConsentState: () => Promise<USNATConsentState> = async () => {
 	let doNotSell = false; // Opt-Out
 	const gppData = await getGPPData();
-	const supportedAPI = gppData.parsedSections[0];
+	const supportedAPI = Object.values(gppData.parsedSections)[0];
 
 	if (supportedAPI) {
 		// https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md
