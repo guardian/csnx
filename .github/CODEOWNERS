@@ -17,6 +17,7 @@
 
 /libs/@guardian/libs/ 											@guardian/client-side-infra @guardian/apps-rendering @guardian/dotcom-platform
 /libs/@guardian/libs/src/consent-management-platform/ 			@guardian/client-side-infra @guardian/transparency-consent
+/libs/@guardian/libs/playwright/e2e/sourcepoint* 				@guardian/client-side-infra @guardian/transparency-consent
 
 /libs/@guardian/identity-auth-frontend/ 						@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity
 
