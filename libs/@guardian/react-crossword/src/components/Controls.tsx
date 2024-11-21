@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback, useContext } from 'react';
-import type { Cell, Cells } from '../@types/crossword';
+import type { Cell, Cells, Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
@@ -18,7 +18,7 @@ export const Controls = ({
 	cells,
 	currentEntryId,
 }: ControlProps) => {
-	const { progress, updateProgress, clearProgress } =
+	const { progress, setProgress, setCellProgress, clearProgress } =
 		useContext(ProgressContext);
 	const theme = useContext(ThemeContext);
 
@@ -30,50 +30,51 @@ export const Controls = ({
 	const revealEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
+				setCellProgress({
 					x: cell.x,
 					y: cell.y,
 					value: cell.solution ?? '',
 				});
 			}
 		}
-	}, [cells, currentEntryId, updateProgress]);
+	}, [cells, currentEntryId, setCellProgress]);
 
 	const revealGrid = useCallback(() => {
+		const newProgress: Progress = [];
+
 		for (const cell of cells.values()) {
-			updateProgress({
-				x: cell.x,
-				y: cell.y,
-				value: cell.solution ?? '',
-			});
+			const column = (newProgress[cell.x] ||= []);
+			column[cell.y] = cell.solution ?? '';
 		}
-	}, [cells, updateProgress]);
+
+		setProgress(newProgress);
+	}, [cells, setProgress]);
 
 	const clearEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
+				setCellProgress({
 					x: cell.x,
 					y: cell.y,
 					value: '',
 				});
 			}
 		}
-	}, [cells, currentEntryId, updateProgress]);
+	}, [cells, currentEntryId, setCellProgress]);
 
 	const checkCell = useCallback(
 		(cell: Cell) => {
 			const currentProgress = progress[cell.x]?.[cell.y];
 			const isCorrect = currentProgress && currentProgress === cell.solution;
 			if (!isCorrect) {
-				updateProgress({
+				setCellProgress({
 					x: cell.x,
 					y: cell.y,
 					value: '',
 				});
 			}
 		},
-		[progress, updateProgress],
+		[progress, setCellProgress],
 	);
 
 	const checkEntry = useCallback(() => {

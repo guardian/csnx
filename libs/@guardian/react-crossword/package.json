@@ -27,7 +27,8 @@
 		"verify-dist": "wireit"
 	},
 	"dependencies": {
-		"tslib": "2.6.2"
+		"tslib": "2.6.2",
+		"use-local-storage-state": "19.5.0"
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.3",

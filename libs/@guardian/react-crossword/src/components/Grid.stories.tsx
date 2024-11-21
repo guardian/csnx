@@ -24,7 +24,7 @@ const meta: Meta<typeof Grid> = {
 				value={{
 					progress,
 					setProgress: () => {},
-					updateProgress: () => {},
+					setCellProgress: () => {},
 					clearProgress: () => {},
 				}}
 			>

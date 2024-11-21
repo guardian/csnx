@@ -20,7 +20,7 @@ const meta: Meta<typeof Clues> = {
 				value={{
 					progress,
 					setProgress: () => {},
-					updateProgress: () => {},
+					setCellProgress: () => {},
 					clearProgress: () => {},
 				}}
 			>
