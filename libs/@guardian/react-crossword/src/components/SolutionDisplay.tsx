@@ -20,43 +20,30 @@ export const SolutionDisplay = ({
 	const { progress } = useContext(ProgressContext);
 	const lettersArray = letters.toUpperCase().split('');
 
-	// returns an array of strings with blank strings in the blank spaces
-	const guesses = () => {
-		const result = [];
-		for (let i = 0; i < entry.length; i++) {
-			if (entry.direction === 'across') {
-				const currentX = progress.at(entry.position.x + i);
-				if (currentX) {
-					result.push(currentX[entry.position.y] ?? '');
-				}
-			} else {
-				const currentX = progress.at(entry.position.x);
-				if (currentX) {
-					result.push(currentX[entry.position.y + i] ?? '');
-				}
-			}
-		}
-		return result;
-	};
+	// Get guesses from progress based on direction
+	const guesses = Array.from({ length: entry.length }, (_, i) => {
+		const x =
+			entry.direction === 'across' ? entry.position.x + i : entry.position.x;
+		const y =
+			entry.direction === 'across' ? entry.position.y : entry.position.y + i;
+		return progress.at(x)?.[y] ?? '';
+	});
 
-	// check if guess is correct
-	const solutionLetters = (): SolutionLetter[] => {
-		const guessesArray = guesses();
-		const solutionLettersFromGuesses = guessesArray.map((guess) => {
-			const isWrong = !lettersArray.includes(guess);
-			if (!isWrong) {
-				lettersArray.splice(lettersArray.indexOf(guess), 1);
-			}
-			return { value: guess, isGuess: !!guess, isWrong };
-		});
-		return solutionLettersFromGuesses.map((guess) => {
-			if (guess.value === '') {
-				const inputLetter = lettersArray.shift();
-				return { value: inputLetter ?? '', isGuess: false, isWrong: false };
-			}
-			return guess;
-		});
-	};
+	// Map guesses to solution letters
+	const guessLetters: SolutionLetter[] = guesses.map((guess) => {
+		const isWrong = !!guess && !lettersArray.includes(guess);
+		if (!isWrong && guess) {
+			lettersArray.splice(lettersArray.indexOf(guess), 1); // Remove matched letter
+		}
+		return { value: guess, isGuess: !!guess, isWrong };
+	});
+
+	// Fill blanks with remaining letters
+	const solutionLetters: SolutionLetter[] = guessLetters.map((letter) =>
+		letter.value
+			? letter
+			: { value: lettersArray.shift() ?? '', isGuess: false, isWrong: false },
+	);
 
 	return (
 		<div
@@ -67,7 +54,7 @@ export const SolutionDisplay = ({
 				gap: ${space[1]}px;
 			`}
 		>
-			{solutionLetters().map((guess) => (
+			{solutionLetters.map((guess) => (
 				<span
 					css={css`
 						border: 1px solid ${guess.isWrong ? 'red' : 'black'};
