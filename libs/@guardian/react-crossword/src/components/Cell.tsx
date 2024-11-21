@@ -1,4 +1,6 @@
+import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
+import { textSans12 } from '@guardian/source/foundations';
 import { memo, useContext } from 'react';
 import type { Cell as CellType } from '../@types/crossword';
 import { ThemeContext } from '../context/ThemeContext';
@@ -21,22 +23,10 @@ const CellComponent = ({
 	x,
 	y,
 	guess = '',
-	isFocused,
 	isHighlighted,
 	isActive,
 }: CellProps) => {
 	const theme = useContext(ThemeContext);
-
-	let border = {};
-	if (isFocused) {
-		// set rect stroke and stroke-width
-		border = {
-			stroke: theme.focus,
-			strokeWidth: 2,
-			rx: 2,
-			ry: 2,
-		};
-	}
 
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
@@ -54,29 +44,36 @@ const CellComponent = ({
 				width={theme.cellSize}
 				height={theme.cellSize}
 				fill={backgroundColor}
-				{...border}
 			/>
 			{data.number && (
 				<text
 					x={x}
 					y={y}
+					dx={1}
 					dy={8}
 					height={theme.cellSize}
 					width={theme.cellSize}
 					fill={theme.text}
-					style={{ fontSize: 10 }}
+					css={css`
+						color: currentcolor;
+						${textSans12}
+						font-size: 9px;
+					`}
 				>
 					{data.number}
 				</text>
 			)}
 			<text
-				x={x}
-				y={y}
-				dx={theme.cellSize / 2}
-				dy={theme.cellSize / 1.7}
+				x={x + theme.cellSize / 2}
+				y={y + theme.cellSize / 2}
+				dy={theme.cellSize * 0.07}
 				textAnchor="middle"
 				dominantBaseline="middle"
-				style={{ fontSize: theme.cellSize * 0.7 }}
+				css={css`
+					color: currentcolor;
+					${textSans12}
+					font-size: ${theme.cellSize * 0.6}px;
+				`}
 			>
 				{guess}
 			</text>

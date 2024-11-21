@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { textEgyptianBold17 } from '@guardian/source/foundations';
+import { headlineBold17 } from '@guardian/source/foundations';
 import { DashedLines } from '@guardian/source-development-kitchen/react-components';
 import { useContext } from 'react';
 import type { Entries } from '../@types/crossword';
@@ -11,7 +11,8 @@ import { Clue } from './Clue';
 
 const title = css`
 	text-transform: capitalize;
-	${textEgyptianBold17}
+	${headlineBold17}
+	color: currentColor;
 `;
 
 type Props = {

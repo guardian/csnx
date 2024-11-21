@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { textSans14 } from '@guardian/source/foundations';
 import { memo, useContext } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { ThemeContext } from '../context/ThemeContext';
@@ -25,7 +26,6 @@ const ClueComponent = ({
 			role="option"
 			aria-selected={isHighlighted}
 			css={css`
-				display: table-row;
 				background-color: ${isActive
 					? theme.active
 					: isHighlighted
@@ -33,6 +33,9 @@ const ClueComponent = ({
 						: 'transparent'};
 				cursor: ${isHighlighted ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};
+				${textSans14}
+				padding: 0.5rem 0;
+				color: currentColor;
 			`}
 		>
 			<span
@@ -43,7 +46,7 @@ const ClueComponent = ({
 					padding-right: 0.625rem;
 				`}
 			>
-				{entry.humanNumber}.
+				{entry.humanNumber}
 			</span>
 			<span
 				css={css`
