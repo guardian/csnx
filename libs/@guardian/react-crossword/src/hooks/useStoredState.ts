@@ -2,8 +2,9 @@
  * Wrapper for https://github.com/astoilkov/use-local-storage-state that:
  *
  * - adds a `validator` option
- * - serializes the data stored in localStorage in a format that matches the
- *   format used by @guardian/libs#storage
+ * - makes `defaultValue` required
+ * - provides our own serializer to keep the data stored in localStorage in a
+ *   format that matches the format used by @guardian/libs#storage
  *
  * The `validator` option is necessary because unlike with `useState#state`,
  * anything in localStorage can be affected by code outside the current
@@ -13,15 +14,14 @@
 
 import { useMemo, useState } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
-import type {
-	LocalStorageOptions,
-	LocalStorageState,
-} from 'use-local-storage-state';
+import type { LocalStorageOptions } from 'use-local-storage-state';
 
 /**
- * A function that checks if a value is of a certain type and returns a type predicate.
+ * A function that checks if a value is of a certain type and returns a type
+ * predicate.
  *
- * @link https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
+ * @link
+ * https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
  */
 type Validator<T> = (value: unknown) => value is T;
 
@@ -38,30 +38,15 @@ const serializer: LocalStorageOptions<unknown>['serializer'] = {
 };
 
 type Options<T> = Omit<LocalStorageOptions<T>, 'serializer'> & {
-	validator?: Validator<T>;
+	validator: Validator<T>;
+	defaultValue: NonNullable<LocalStorageOptions<T>['defaultValue']>;
 };
 
-// Defined the overloads of `useStoredState`...
-
-// With no `validator`, returned `state` will be `unknown`.
-export function useStoredState(
-	key: string,
-	options?: Omit<Options<unknown>, 'validator'>,
-): LocalStorageState<unknown>;
-
-// If `validator` is provided, we can infer a type of `state`.
 export function useStoredState<
 	V extends Validator<unknown>,
 	T = ValidatesAs<V>,
->(key: string, options?: Options<T>): LocalStorageState<T>;
-
-// Implementation...
-export function useStoredState<T>(
-	key: string,
-	options?: Options<T>,
-): LocalStorageState<T | undefined> {
-	const { validator } = options ?? {};
-	const [defaultValue] = useState(options?.defaultValue);
+>(key: string, { validator, ...options }: Options<T>) {
+	const [defaultValue] = useState(options.defaultValue);
 
 	const [state, setState, rest] = useLocalStorageState(key, {
 		...options,
@@ -69,11 +54,6 @@ export function useStoredState<T>(
 	});
 
 	const validatedState = useMemo(() => {
-		// If no validator is provided, just use the state we have.
-		if (!validator) {
-			return state;
-		}
-
 		// If the state is valid, return it (now properly typed).
 		if (validator(state)) {
 			return state;
@@ -84,5 +64,5 @@ export function useStoredState<T>(
 		return defaultValue;
 	}, [validator, state, defaultValue]);
 
-	return [validatedState, setState, rest];
+	return [validatedState, setState, rest] as const;
 }
