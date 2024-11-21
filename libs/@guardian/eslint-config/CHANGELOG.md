@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.7
+
+### Breaking Changes
+
+- Run react checks on `js` and `ts` files too (e.g. for custom hooks).
+
 ## 10.0.0-beta.6
 
 ### Patch Changes
