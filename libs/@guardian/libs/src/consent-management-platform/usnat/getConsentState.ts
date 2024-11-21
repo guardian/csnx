@@ -1,18 +1,29 @@
 import { type USNATConsentState } from '../types/usnat';
 import { getGPPData } from './api';
 
+const getSupportedAPIv1 = (
+	supportedAPI: string | undefined,
+): string | undefined => {
+	if (supportedAPI?.includes('usnat')) {
+		return supportedAPI.includes('v1') ? supportedAPI : `${supportedAPI}v1`;
+	}
+	return supportedAPI;
+};
+
 export const getConsentState: () => Promise<USNATConsentState> = async () => {
 	let doNotSell = false; // Opt-Out
 	const gppData = await getGPPData();
 
-	const supportedAPIs = gppData.supportedAPIs[0]?.split(':')[1]; // E.G: '7:usnatv1', '8:uscav1'
+	const supportedAPI = gppData.supportedAPIs[0]?.split(':')[1]; // E.G: '7:usnatv1', '8:uscav1'
+	// Temporary fix 21/11/2024
+	const supportedAPIv1 = getSupportedAPIv1(supportedAPI);
 
-	if (supportedAPIs) {
-		//0 Not Applicable. SharingOptOutNotice value was not applicable or no notice was provided, 1 Opted Out, 2 Did Not Opt Out
-		doNotSell =
-			gppData.parsedSections[supportedAPIs]?.SaleOptOut !== 2 ||
-			gppData.parsedSections[supportedAPIs].Gpc;
+	if (supportedAPIv1) {
 		// https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md
+		// 0 Not Applicable. SharingOptOutNotice value was not applicable or no notice was provided, 1 Opted Out, 2 Did Not Opt Out
+		doNotSell =
+			gppData.parsedSections[supportedAPIv1]?.SaleOptOut !== 2 ||
+			gppData.parsedSections[supportedAPIv1].Gpc;
 	}
 
 	return {
