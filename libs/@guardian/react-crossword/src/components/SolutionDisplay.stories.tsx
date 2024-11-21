@@ -53,6 +53,12 @@ type Story = StoryObj<typeof SolutionDisplay>;
 
 export const Default: Story = {
 	args: {
+		letters: '',
+	},
+};
+
+export const TEST: Story = {
+	args: {
 		letters: 'test',
 	},
 };
