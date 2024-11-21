@@ -1,8 +1,8 @@
 import { isUndefined, log } from '@guardian/libs';
 import { useCallback } from 'react';
-import useLocalStorageState from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Coords, Dimensions, Progress } from '../@types/crossword';
+import { useStoredState } from './useStoredState';
 
 const getEmptyProgress = (dimensions: Dimensions): Progress => {
 	return Array.from({ length: dimensions.cols }, () =>
@@ -73,12 +73,9 @@ const getInitialProgress = ({
 export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 	const { id, dimensions } = data;
 
-	const [progress, setProgress] = useLocalStorageState<Progress>(id, {
+	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
 		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
-		serializer: {
-			stringify: (_) => JSON.stringify({ value: _ }),
-			parse: (_) => (JSON.parse(_) as { value: unknown }).value,
-		},
+		validator: (progress: unknown) => isValidProgress(progress, { dimensions }),
 	});
 
 	const clearProgress = useCallback(() => {
@@ -104,5 +101,11 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		[progress, setProgress],
 	);
 
-	return [progress, setProgress, setCellProgress, clearProgress] as const;
+	return [
+		progress,
+		setProgress,
+		setCellProgress,
+		clearProgress,
+		isPersistent,
+	] as const;
 };
