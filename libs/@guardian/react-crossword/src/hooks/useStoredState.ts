@@ -7,8 +7,8 @@
  *
  * The `validator` option is necessary because unlike with `useState#state`,
  * anything in localStorage can be affected by code outside the current
- * application. Therefore, we cannot guarantee that the data we retrieve
- * matches the type we stored without validation.
+ * application. Therefore, we cannot guarantee that the data we retrieve matches
+ * the type we stored without validation.
  */
 
 import { useMemo, useState } from 'react';
@@ -18,10 +18,14 @@ import type {
 	LocalStorageState,
 } from 'use-local-storage-state';
 
-/** A function that checks if a value is of a certain type. */
+/**
+ * A function that checks if a value is of a certain type and returns a type predicate.
+ *
+ * @link https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
+ */
 type Validator<T> = (value: unknown) => value is T;
 
-/** Infer the type that a validator checks for. */
+/** Infer the type predicate returned by a Validator. */
 type ValidatesAs<V> = V extends (value: unknown) => value is infer T
 	? T
 	: never;
@@ -37,17 +41,21 @@ type Options<T> = Omit<LocalStorageOptions<T>, 'serializer'> & {
 	validator?: Validator<T>;
 };
 
+// Defined the overloads of `useStoredState`...
+
+// With no `validator`, returned `state` will be `unknown`.
 export function useStoredState(
 	key: string,
 	options?: Omit<Options<unknown>, 'validator'>,
 ): LocalStorageState<unknown>;
 
-// If `validator` is provided, we infer the return type from the validated type.
+// If `validator` is provided, we can infer a type of `state`.
 export function useStoredState<
-	P extends Validator<unknown>,
-	T = ValidatesAs<P>,
+	V extends Validator<unknown>,
+	T = ValidatesAs<V>,
 >(key: string, options?: Options<T>): LocalStorageState<T>;
 
+// Implementation...
 export function useStoredState<T>(
 	key: string,
 	options?: Options<T>,
@@ -61,20 +69,19 @@ export function useStoredState<T>(
 	});
 
 	const validatedState = useMemo(() => {
-		if (validator) {
-			if (validator(state)) {
-				return state;
-			}
-
-			if (defaultValue) {
-				return defaultValue;
-			}
-
-			throw new Error(
-				"Invalid state in local storage and no `defaultValue` was provided. There's no way of returning a valid state.",
-			);
+		// If no validator is provided, just use the state we have.
+		if (!validator) {
+			return state;
 		}
-		return state;
+
+		// If the state is valid, return it (now properly typed).
+		if (validator(state)) {
+			return state;
+		}
+
+		// The state is invalid, so return the default value (which may be
+		// undefined).
+		return defaultValue;
 	}, [validator, state, defaultValue]);
 
 	return [validatedState, setState, rest];

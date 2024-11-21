@@ -73,14 +73,10 @@ const getInitialProgress = ({
 export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 	const { id, dimensions } = data;
 
-	const [progress, setProgress, { isPersistent: isStored }] = useStoredState(
-		id,
-		{
-			defaultValue: getInitialProgress({ id, dimensions, userProgress }),
-			validator: (progress: unknown) =>
-				isValidProgress(progress, { dimensions }),
-		},
-	);
+	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
+		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
+		validator: (progress: unknown) => isValidProgress(progress, { dimensions }),
+	});
 
 	const clearProgress = useCallback(() => {
 		setProgress(getEmptyProgress(dimensions));
@@ -110,6 +106,6 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		setProgress,
 		setCellProgress,
 		clearProgress,
-		isStored,
+		isPersistent,
 	] as const;
 };
