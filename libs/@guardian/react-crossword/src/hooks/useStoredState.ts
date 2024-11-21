@@ -61,7 +61,6 @@ export function useStoredState<T>(
 	});
 
 	const validatedState = useMemo(() => {
-		console.log('validating');
 		if (validator) {
 			if (validator(state)) {
 				return state;
