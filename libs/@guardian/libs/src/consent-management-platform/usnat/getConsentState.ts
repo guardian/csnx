@@ -5,7 +5,7 @@ const getSupportedAPIv1 = (
 	supportedAPI: string | undefined,
 ): string | undefined => {
 	if (supportedAPI?.includes('usnat')) {
-		return supportedAPI.includes('v1') ? supportedAPI : `${supportedAPI}'v1'`;
+		return supportedAPI.includes('v1') ? supportedAPI : `${supportedAPI}v1`;
 	}
 	return supportedAPI;
 };
