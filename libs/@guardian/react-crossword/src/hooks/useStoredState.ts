@@ -22,7 +22,7 @@ import type {
 type Validator<T> = (value: unknown) => value is T;
 
 /** Infer the type that a validator checks for. */
-type ValidatesAs<P> = P extends (value: unknown) => value is infer T
+type ValidatesAs<V> = V extends (value: unknown) => value is infer T
 	? T
 	: never;
 
