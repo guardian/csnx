@@ -13,6 +13,7 @@ const meta: Meta<typeof Clues> = {
 	args: {
 		entries: parseCrosswordData(data).entries,
 		direction: 'across',
+		getId: (s: string) => `${s}-id`,
 	},
 	decorators: [
 		(Story) => (

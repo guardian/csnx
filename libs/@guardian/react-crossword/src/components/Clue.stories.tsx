@@ -9,6 +9,7 @@ const meta: Meta<typeof Clue> = {
 	title: 'Components/Clue',
 	args: {
 		entry: data.entries[4],
+		getId: (s: string) => `${s}-id`,
 	},
 	decorators: [
 		(Story) => (
