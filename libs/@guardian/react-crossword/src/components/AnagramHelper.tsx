@@ -16,7 +16,8 @@ import { WordWheel } from './WordWheel';
 interface AnagramHelperProps {
 	entry: CAPIEntry;
 	separators: Separators;
-	height: number;
+	gridHeight: number;
+	gridWidth: number;
 	onClose: () => void;
 }
 
@@ -24,6 +25,8 @@ export const AnagramHelper = ({
 	entry,
 	separators,
 	onClose,
+	gridHeight,
+	gridWidth,
 }: AnagramHelperProps) => {
 	const theme = useContext(ThemeContext);
 	const { progress } = useContext(ProgressContext);
@@ -56,99 +59,91 @@ export const AnagramHelper = ({
 	return (
 		<div
 			css={css`
+				display: flex;
+				box-sizing: border-box;
+				flex-direction: column;
 				background-color: ${theme.anagramHelperBackground};
-				width: 100%;
-				height: 0;
-				padding-top: 100%;
-				overflow: hidden;
-				position: relative;
+				padding: 10px;
+				height: ${gridHeight}px;
+				max-width: ${gridWidth}px;
+				min-height: 300px;
 			`}
 		>
 			<div
 				css={css`
-					box-sizing: border-box;
-					position: absolute;
 					display: flex;
-					flex-direction: column;
-					top: 0;
-					left: 0;
 					width: 100%;
-					height: 100%;
-					min-height: 400px;
-					padding: 10px;
+					justify-content: flex-end;
 				`}
 			>
-				<div
-					css={css`
-						display: flex;
-						width: 100%;
-						justify-content: flex-end;
-					`}
-				>
-					<Button onSuccess={onClose} size="small">
-						<SvgCross size="small" theme={{ fill: 'white' }} />
-					</Button>
-				</div>
-				<div
-					css={css`
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						flex-direction: column;
-					`}
-				>
-					{anagramHelperLetters ? (
-						<div
-							css={css`
-								max-width: 60%;
-							`}
-						>
-							<WordWheel anagramHelperLetters={anagramHelperLetters} />
-						</div>
-					) : (
-						<>
-							<input
-								css={css`
-									font-size: 24px;
-									background: none;
-									border: 1px solid ${palette.neutral[7]};
-									padding: 10px 5px;
-									margin: 5px 0;
-									text-align: center;
-									border-radius: 2px;
-									max-width: 100%;
-
-									&::placeholder {
-										color: ${palette.neutral[46]};
-									}
-								`}
-								maxLength={entry.length}
-								placeholder="Enter letters..."
-								spellCheck="false"
-								ref={inputRef}
-								onChange={(e) => setLetters(e.target.value)}
-							/>
-							<span>
-								{letters.length}/{entry.length}
-							</span>
-						</>
-					)}
+				<Button onSuccess={onClose} size="small">
+					<SvgCross size="small" theme={{ fill: 'white' }} />
+				</Button>
+			</div>
+			<div
+				css={css`
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				`}
+			>
+				{anagramHelperLetters ? (
 					<div
 						css={css`
 							display: flex;
-							gap: 10px;
-							height: clamp(30px, 45px, 60px);
-							align-items: flex-end;
+							width: 100%;
+							justify-content: center;
 						`}
 					>
-						<Button onSuccess={reset}>reset</Button>
-						<Button onSuccess={shuffle}>shuffle</Button>
+						<WordWheel anagramHelperLetters={anagramHelperLetters} />
 					</div>
-					<Clue entry={entry} />
-					{anagramHelperLetters && (
-						<SolutionDisplay anagramHelperLetters={anagramHelperLetters} />
-					)}
+				) : (
+					<>
+						<input
+							css={css`
+								font-size: 24px;
+								background: none;
+								border: 1px solid ${palette.neutral[7]};
+								padding: 10px 5px;
+								margin: 5px 0;
+								text-align: center;
+								border-radius: 2px;
+								max-width: 100%;
+								&::placeholder {
+									color: ${palette.neutral[46]};
+								}
+							`}
+							maxLength={entry.length}
+							placeholder="Enter letters..."
+							spellCheck="false"
+							ref={inputRef}
+							onChange={(e) => setLetters(e.target.value)}
+						/>
+						<span>
+							{letters.length}/{entry.length}
+						</span>
+					</>
+				)}
+				<div
+					css={css`
+						display: flex;
+						gap: 10px;
+						height: 45px;
+						align-items: flex-end;
+					`}
+				>
+					<Button type="reset" onSuccess={reset} priority="secondary">
+						reset
+					</Button>
+					<Button onSuccess={shuffle} priority="primary">
+						shuffle
+					</Button>
 				</div>
+				<Clue entry={entry} />
+				{anagramHelperLetters && (
+					<SolutionDisplay anagramHelperLetters={anagramHelperLetters} />
+				)}
 			</div>
 		</div>
 	);

@@ -356,7 +356,8 @@ export const Crossword = ({
 							<AnagramHelper
 								entry={entry}
 								separators={separators}
-								height={gridHeight}
+								gridHeight={gridHeight}
+								gridWidth={gridWidth}
 								onClose={() => setShowAnagramHelper(false)}
 							/>
 						)}
