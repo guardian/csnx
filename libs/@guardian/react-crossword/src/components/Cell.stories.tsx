@@ -60,17 +60,6 @@ export const Black: Story = {
 	},
 };
 
-export const Focussed: Story = {
-	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
-		isFocused: true,
-	},
-};
-
 export const Highlighted: Story = {
 	args: {
 		data: {
@@ -91,19 +80,6 @@ export const Active: Story = {
 		},
 		isActive: true,
 		isHighlighted: true,
-	},
-};
-
-export const ActiveAndFocused: Story = {
-	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
-		isActive: true,
-		isHighlighted: true,
-		isFocused: true,
 	},
 };
 
