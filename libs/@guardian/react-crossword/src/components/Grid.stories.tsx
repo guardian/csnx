@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
 import { separators as separatorData } from '../../stories/formats/separators';
-import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
 import { parseCrosswordData } from '../utils/parseCrosswordData';
@@ -17,20 +16,9 @@ const meta: Meta<typeof Grid> = {
 		cells,
 		separators,
 		dimensions: data.dimensions,
+		progress: [],
 	},
 	decorators: [
-		(Story) => (
-			<ProgressContext.Provider
-				value={{
-					progress,
-					setProgress: () => {},
-					setCellProgress: () => {},
-					clearProgress: () => {},
-				}}
-			>
-				<Story />{' '}
-			</ProgressContext.Provider>
-		),
 		(Story) => (
 			<ThemeContext.Provider value={defaultTheme}>
 				<Story />
@@ -44,7 +32,11 @@ type Story = StoryObj<typeof Grid>;
 
 export const Default: Story = {};
 
-export const Progress: Story = {};
+export const Progress: Story = {
+	args: {
+		progress,
+	},
+};
 
 const { cells: separatorCells, separators: separatorSeparators } =
 	parseCrosswordData(separatorData);

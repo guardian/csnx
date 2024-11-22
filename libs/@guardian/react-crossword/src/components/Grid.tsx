@@ -5,12 +5,12 @@ import type {
 	Coords,
 	Dimensions,
 	Entries,
+	Progress,
 	Separator,
 	Separators,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
-import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { Cell } from './Cell';
 
@@ -102,6 +102,7 @@ export type GridProps = {
 	setCurrentEntryId: Dispatch<SetStateAction<EntryID | undefined>>;
 	currentCell?: Coords;
 	currentEntryId?: EntryID;
+	progress: Progress;
 };
 
 export const Grid = ({
@@ -111,8 +112,8 @@ export const Grid = ({
 	dimensions,
 	currentCell,
 	currentEntryId,
+	progress,
 }: GridProps) => {
-	const { progress } = useContext(ProgressContext);
 	const theme = useContext(ThemeContext);
 
 	const gridRef = useRef<SVGSVGElement>(null);
