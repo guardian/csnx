@@ -4,6 +4,7 @@ import type { CAPIEntry } from '../@types/CAPI';
 import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
+import { getAnagramHelperLetters } from '../utils/getProgressForEntry';
 import { SolutionDisplay } from './SolutionDisplay';
 
 const mockEntry: CAPIEntry = {
@@ -22,10 +23,7 @@ const mockEntry: CAPIEntry = {
 const meta: Meta<typeof SolutionDisplay> = {
 	component: SolutionDisplay,
 	title: 'Components/SolutionDisplay',
-	args: {
-		entry: mockEntry,
-		letters: '',
-	},
+	args: {},
 	decorators: [
 		(Story) => (
 			<ProgressContext.Provider
@@ -53,36 +51,36 @@ type Story = StoryObj<typeof SolutionDisplay>;
 
 export const Default: Story = {
 	args: {
-		letters: '',
+		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, ''),
 	},
 };
 
 export const TEST: Story = {
 	args: {
-		letters: 'test',
+		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'test'),
 	},
 };
 
 export const twoXs: Story = {
 	args: {
-		letters: 'xx',
+		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'xx'),
 	},
 };
 
 export const fourXs: Story = {
 	args: {
-		letters: 'xxxx',
+		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'xxxx'),
 	},
 };
 
 export const OnlyGuessedLetters: Story = {
 	args: {
-		letters: 'ts',
+		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'tset'),
 	},
 };
 
 export const OneLetter: Story = {
 	args: {
-		letters: 'x',
+		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'x'),
 	},
 };
