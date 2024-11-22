@@ -15,6 +15,9 @@ import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
 
+// define and cache the regex for valid keydown events
+const keyDownRegex = /^[A-Za-zÀ-ÿ0-9]$/;
+
 export type CrosswordProps = {
 	data: CAPICrossword;
 	theme?: Partial<Theme>;
@@ -159,7 +162,7 @@ export const Crossword = ({
 				}
 				default: {
 					const upperCaseKey = key.toUpperCase();
-					if (/^[A-Z]$/.test(upperCaseKey) && currentEntryId) {
+					if (keyDownRegex.test(upperCaseKey) && currentEntryId) {
 						setCellProgress({ ...currentCell, value: upperCaseKey });
 						if (direction === 'across') {
 							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
