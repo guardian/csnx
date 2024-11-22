@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
+import { GenerateIdProvider } from '../context/GenerateIdContext';
 import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
@@ -13,7 +14,6 @@ const meta: Meta<typeof Clues> = {
 	args: {
 		entries: parseCrosswordData(data).entries,
 		direction: 'across',
-		getId: (s: string) => `${s}-id`,
 	},
 	decorators: [
 		(Story) => (
@@ -32,6 +32,11 @@ const meta: Meta<typeof Clues> = {
 			<ThemeContext.Provider value={defaultTheme}>
 				<Story />
 			</ThemeContext.Provider>
+		),
+		(Story) => (
+			<GenerateIdProvider id={data.id}>
+				<Story />
+			</GenerateIdProvider>
 		),
 		(Story) => (
 			<div role="application">

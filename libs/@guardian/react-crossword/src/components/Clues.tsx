@@ -2,9 +2,10 @@ import { css } from '@emotion/react';
 import { headlineBold17 } from '@guardian/source/foundations';
 import { DashedLines } from '@guardian/source-development-kitchen/react-components';
 import { useContext } from 'react';
-import type { Entries, GetID } from '../@types/crossword';
+import type { Entries } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
+import { GenerateIdContext } from '../context/GenerateIdContext';
 import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { Clue } from './Clue';
@@ -19,11 +20,11 @@ type Props = {
 	direction: Direction;
 	entries: Entries;
 	currentEntryId?: EntryID;
-	getId: GetID;
 };
 
-export const Clues = ({ direction, entries, currentEntryId, getId }: Props) => {
+export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 	const { progress } = useContext(ProgressContext);
+	const generateId = useContext(GenerateIdContext);
 	const theme = useContext(ThemeContext);
 	const entriesForClues = [];
 
@@ -43,18 +44,18 @@ export const Clues = ({ direction, entries, currentEntryId, getId }: Props) => {
 		>
 			<label
 				css={title}
-				id={getId(`${direction}-label`)}
-				htmlFor={getId(`${direction}-hints`)}
+				id={generateId(`${direction}-label`)}
+				htmlFor={generateId(`${direction}-hints`)}
 			>
 				{direction}
 			</label>
 			<DashedLines count={1} color={theme.border} />
 			<div
 				tabIndex={0}
-				id={getId(`${direction}-hints`)}
+				id={generateId(`${direction}-hints`)}
 				role="listbox"
-				aria-labelledby={getId(`${direction}-label`)}
-				aria-activedescendant={currentEntryId && getId(currentEntryId)}
+				aria-labelledby={generateId(`${direction}-label`)}
+				aria-activedescendant={currentEntryId && generateId(currentEntryId)}
 			>
 				{entriesForClues
 					.sort((a, b) => a.number - b.number)
@@ -86,7 +87,6 @@ export const Clues = ({ direction, entries, currentEntryId, getId }: Props) => {
 								isActive={isActive}
 								key={entry.id}
 								isComplete={complete}
-								getId={getId}
 							/>
 						);
 					})}

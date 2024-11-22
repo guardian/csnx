@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { textSans14 } from '@guardian/source/foundations';
 import { memo, useContext } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import type { GetID } from '../@types/crossword';
+import { GenerateIdContext } from '../context/GenerateIdContext';
 import { ThemeContext } from '../context/ThemeContext';
 
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 	isHighlighted?: boolean;
 	isActive?: boolean;
 	isComplete?: boolean;
-	getId: GetID;
 }
 
 const ClueComponent = ({
@@ -18,14 +17,15 @@ const ClueComponent = ({
 	isHighlighted,
 	isActive,
 	isComplete,
-	getId,
 }: Props) => {
 	const theme = useContext(ThemeContext);
+	const generateId = useContext(GenerateIdContext);
 
 	return (
 		<div
 			tabIndex={-1}
-			id={getId(`${entry.id}`)}
+			id={generateId(`${entry.id}`)}
+			data-entry-id={entry.id}
 			role="option"
 			aria-selected={isHighlighted}
 			css={css`
