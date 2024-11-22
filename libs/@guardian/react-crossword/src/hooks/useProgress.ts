@@ -101,13 +101,13 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		[progress, setProgress],
 	);
 
-	return [
+	return {
 		progress,
 		setProgress,
 		setCellProgress,
 		clearProgress,
-		isPersistent,
-	] as const;
+		isStored: isPersistent,
+	};
 };
 
 export type UseProgress = ReturnType<typeof useProgress>;

@@ -12,9 +12,9 @@ type ControlProps = {
 	cells: Cells;
 	currentEntryId?: EntryID;
 	progress: Progress;
-	setProgress: UseProgress[1];
-	setCellProgress: UseProgress[2];
-	clearProgress: UseProgress[3];
+	setProgress: UseProgress['setProgress'];
+	setCellProgress: UseProgress['setCellProgress'];
+	clearProgress: UseProgress['clearProgress'];
 };
 
 export const Controls = ({

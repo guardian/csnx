@@ -36,7 +36,7 @@ export const Crossword = ({
 		data.entries[0].position,
 	);
 
-	const [progress, setProgress, setCellProgress, clearProgress, isStored] =
+	const { progress, setProgress, setCellProgress, clearProgress, isStored } =
 		useProgress(data, userProgress);
 
 	const workingDirectionRef = useRef<Direction>('across');
