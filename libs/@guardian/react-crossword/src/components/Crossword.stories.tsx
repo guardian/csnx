@@ -18,6 +18,24 @@ type Story = StoryObj<typeof Crossword>;
 
 export const Default: Story = {};
 
+export const Themed: Story = {
+	args: {
+		background: 'red',
+		foreground: 'blue',
+		text: 'purple',
+		gutter: 5,
+		highlight: 'yellow',
+		focus: 'limegreen',
+		active: 'orange',
+		cellSize: 30,
+		buttonBackground: 'cyan',
+		buttonBackgroundHover: 'magenta',
+		border: 'brown',
+		clueMinWidthRem: 20,
+		clueMaxWidthRem: 30,
+	},
+};
+
 export const MultiplePlayers: StoryFn = () => {
 	return (
 		<>
