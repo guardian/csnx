@@ -5,12 +5,13 @@ import { useContext } from 'react';
 import type { Entries, Progress } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
+import { GenerateIdContext } from '../context/GenerateIdContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { Clue } from './Clue';
 
 const title = css`
 	text-transform: capitalize;
-	${headlineBold17}
+	${headlineBold17};
 	color: currentColor;
 `;
 
@@ -27,7 +28,9 @@ export const Clues = ({
 	currentEntryId,
 	progress,
 }: Props) => {
+	const generateId = useContext(GenerateIdContext);
 	const theme = useContext(ThemeContext);
+
 	const entriesForClues = [];
 
 	for (const entry of entries.values()) {
@@ -46,18 +49,18 @@ export const Clues = ({
 		>
 			<label
 				css={title}
-				id={`${direction}-label`}
-				htmlFor={`${direction}-hints`}
+				id={generateId(`${direction}-label`)}
+				htmlFor={generateId(`${direction}-hints`)}
 			>
 				{direction}
 			</label>
 			<DashedLines count={1} color={theme.border} />
 			<div
 				tabIndex={0}
-				id={`${direction}-hints`}
+				id={generateId(`${direction}-hints`)}
 				role="listbox"
-				aria-labelledby={`${direction}-label`}
-				aria-activedescendant={currentEntryId}
+				aria-labelledby={generateId(`${direction}-label`)}
+				aria-activedescendant={currentEntryId && generateId(currentEntryId)}
 			>
 				{entriesForClues
 					.sort((a, b) => a.number - b.number)

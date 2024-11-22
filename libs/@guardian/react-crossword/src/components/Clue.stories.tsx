@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { GenerateIdProvider } from '../context/GenerateIdContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
 import { Clue } from './Clue';
@@ -15,6 +16,11 @@ const meta: Meta<typeof Clue> = {
 			<ThemeContext.Provider value={defaultTheme}>
 				<Story />
 			</ThemeContext.Provider>
+		),
+		(Story) => (
+			<GenerateIdProvider id={data.id}>
+				<Story />
+			</GenerateIdProvider>
 		),
 	],
 };
