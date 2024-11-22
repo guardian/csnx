@@ -68,3 +68,5 @@ export type Dimensions = {
 };
 
 export type Axis = 'x' | 'y';
+
+export type GetID = (arg0: string) => string;
