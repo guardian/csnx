@@ -109,3 +109,5 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		isPersistent,
 	] as const;
 };
+
+export type UseProgress = ReturnType<typeof useProgress>;

@@ -3,23 +3,29 @@ import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback, useContext } from 'react';
 import type { Cell, Cells, Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
-import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
+import type { UseProgress } from '../hooks/useProgress';
 import { Button } from './Button';
 
 type ControlProps = {
 	solutionsAvailable: boolean;
 	cells: Cells;
 	currentEntryId?: EntryID;
+	progress: Progress;
+	setProgress: UseProgress[1];
+	setCellProgress: UseProgress[2];
+	clearProgress: UseProgress[3];
 };
 
 export const Controls = ({
 	solutionsAvailable,
 	cells,
 	currentEntryId,
+	progress,
+	setProgress,
+	setCellProgress,
+	clearProgress,
 }: ControlProps) => {
-	const { progress, setProgress, setCellProgress, clearProgress } =
-		useContext(ProgressContext);
 	const theme = useContext(ThemeContext);
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
