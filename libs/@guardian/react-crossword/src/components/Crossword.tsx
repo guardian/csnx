@@ -19,14 +19,13 @@ const keyDownRegex = /^[A-Za-zÀ-ÿ0-9]$/;
 
 export type CrosswordProps = {
 	data: CAPICrossword;
-	theme?: Partial<Theme>;
 	progress?: Progress;
-};
+} & Partial<Theme>;
 
 export const Crossword = ({
-	theme: userTheme,
 	data,
 	progress: userProgress,
+	...userTheme
 }: CrosswordProps) => {
 	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
 		data.entries[0].id,
@@ -371,6 +370,7 @@ export const Crossword = ({
 						flex: 1;
 						gap: ${space[4]}px;
 						align-content: flex-start;
+						color: ${theme.text};
 					`}
 				>
 					<Clues
