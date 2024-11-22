@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { headlineBold17 } from '@guardian/source/foundations';
 import { DashedLines } from '@guardian/source-development-kitchen/react-components';
 import { useContext } from 'react';
-import type { Entries } from '../@types/crossword';
+import type { Entries, GetID } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { ProgressContext } from '../context/ProgressContext';
@@ -11,7 +11,7 @@ import { Clue } from './Clue';
 
 const title = css`
 	text-transform: capitalize;
-	${headlineBold17}
+	${headlineBold17};
 	color: currentColor;
 `;
 
@@ -19,9 +19,10 @@ type Props = {
 	direction: Direction;
 	entries: Entries;
 	currentEntryId?: EntryID;
+	getId: GetID;
 };
 
-export const Clues = ({ direction, entries, currentEntryId }: Props) => {
+export const Clues = ({ direction, entries, currentEntryId, getId }: Props) => {
 	const { progress } = useContext(ProgressContext);
 	const theme = useContext(ThemeContext);
 	const entriesForClues = [];
@@ -42,18 +43,18 @@ export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 		>
 			<label
 				css={title}
-				id={`${direction}-label`}
-				htmlFor={`${direction}-hints`}
+				id={getId(`${direction}-label`)}
+				htmlFor={getId(`${direction}-hints`)}
 			>
 				{direction}
 			</label>
 			<DashedLines count={1} color={theme.border} />
 			<div
 				tabIndex={0}
-				id={`${direction}-hints`}
+				id={getId(`${direction}-hints`)}
 				role="listbox"
-				aria-labelledby={`${direction}-label`}
-				aria-activedescendant={currentEntryId}
+				aria-labelledby={getId(`${direction}-label`)}
+				aria-activedescendant={currentEntryId && getId(currentEntryId)}
 			>
 				{entriesForClues
 					.sort((a, b) => a.number - b.number)
@@ -85,6 +86,7 @@ export const Clues = ({ direction, entries, currentEntryId }: Props) => {
 								isActive={isActive}
 								key={entry.id}
 								isComplete={complete}
+								getId={getId}
 							/>
 						);
 					})}

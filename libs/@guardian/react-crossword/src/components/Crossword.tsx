@@ -3,7 +3,7 @@ import { isUndefined } from '@guardian/libs';
 import { space, textSans12 } from '@guardian/source/foundations';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Coords, Progress, Theme } from '../@types/crossword';
+import type { Coords, GetID, Progress, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { ProgressContext } from '../context/ProgressContext';
@@ -52,6 +52,8 @@ export const Crossword = ({
 		() => ({ ...defaultTheme, ...userTheme }),
 		[userTheme],
 	);
+
+	const getId: GetID = useCallback((s: string) => `${s}-${data.id}`, [data]);
 
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
@@ -376,11 +378,13 @@ export const Crossword = ({
 							direction="across"
 							entries={entries}
 							currentEntryId={currentEntryId}
+							getId={getId}
 						/>
 						<Clues
 							direction="down"
 							entries={entries}
 							currentEntryId={currentEntryId}
+							getId={getId}
 						/>
 					</div>
 				</div>
