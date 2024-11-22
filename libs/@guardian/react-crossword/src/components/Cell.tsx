@@ -49,15 +49,13 @@ const CellComponent = ({
 				<text
 					x={x}
 					y={y}
-					dx={1}
-					dy={8}
-					height={theme.cellSize}
-					width={theme.cellSize}
+					dx={Math.max(1, theme.cellSize * 0.05)}
+					dy={Math.max(9, theme.cellSize * 0.22)}
 					fill={theme.text}
 					css={css`
 						color: currentcolor;
-						${textSans12}
-						font-size: 9px;
+						${textSans12};
+						font-size: ${Math.max(9, Math.round(theme.cellSize * 0.2))}px;
 					`}
 				>
 					{data.number}
@@ -71,7 +69,7 @@ const CellComponent = ({
 				dominantBaseline="middle"
 				css={css`
 					color: currentcolor;
-					${textSans12}
+					${textSans12};
 					font-size: ${theme.cellSize * 0.6}px;
 				`}
 			>
