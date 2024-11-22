@@ -161,9 +161,8 @@ export const Crossword = ({
 					break;
 				}
 				default: {
-					const upperCaseKey = key.toUpperCase();
-					if (keyDownRegex.test(upperCaseKey) && currentEntryId) {
-						setCellProgress({ ...currentCell, value: upperCaseKey });
+					if (currentEntryId && keyDownRegex.test(key)) {
+						setCellProgress({ ...currentCell, value: key.toUpperCase() });
 						if (direction === 'across') {
 							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 						}
