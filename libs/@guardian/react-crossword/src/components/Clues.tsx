@@ -2,11 +2,10 @@ import { css } from '@emotion/react';
 import { headlineBold17 } from '@guardian/source/foundations';
 import { DashedLines } from '@guardian/source-development-kitchen/react-components';
 import { useContext } from 'react';
-import type { Entries } from '../@types/crossword';
+import type { Entries, Progress } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { GenerateIdContext } from '../context/GenerateIdContext';
-import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { Clue } from './Clue';
 
@@ -20,12 +19,18 @@ type Props = {
 	direction: Direction;
 	entries: Entries;
 	currentEntryId?: EntryID;
+	progress: Progress;
 };
 
-export const Clues = ({ direction, entries, currentEntryId }: Props) => {
-	const { progress } = useContext(ProgressContext);
+export const Clues = ({
+	direction,
+	entries,
+	currentEntryId,
+	progress,
+}: Props) => {
 	const generateId = useContext(GenerateIdContext);
 	const theme = useContext(ThemeContext);
+
 	const entriesForClues = [];
 
 	for (const entry of entries.values()) {

@@ -6,11 +6,7 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type { Coords, Progress, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
-import {
-	GenerateIdContext,
-	GenerateIdProvider,
-} from '../context/GenerateIdContext';
-import { ProgressContext } from '../context/ProgressContext';
+import { GenerateIdProvider } from '../context/GenerateIdContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { useProgress } from '../hooks/useProgress';
 import { defaultTheme } from '../theme';
@@ -41,7 +37,7 @@ export const Crossword = ({
 		data.entries[0].position,
 	);
 
-	const [progress, setProgress, setCellProgress, clearProgress, isStored] =
+	const { progress, setProgress, setCellProgress, clearProgress, isStored } =
 		useProgress(data, userProgress);
 
 	const workingDirectionRef = useRef<Direction>('across');
@@ -322,76 +318,79 @@ export const Crossword = ({
 	return (
 		<ThemeContext.Provider value={theme}>
 			<GenerateIdProvider id={data.id}>
-				<ProgressContext.Provider
-					value={{ progress, setProgress, setCellProgress, clearProgress }}
+				<div
+					role="application"
+					ref={applicationRef}
+					css={css`
+						display: flex;
+						flex-direction: row;
+						flex-wrap: wrap;
+						min-width: ${theme.clueMinWidthRem}rem;
+						gap: ${space[4]}px;
+					`}
 				>
 					<div
-						role="application"
-						ref={applicationRef}
+						css={css`
+							max-width: ${gridWidth}px;
+							flex-basis: 100%;
+						`}
+					>
+						<Grid
+							setCurrentCell={setCurrentCell}
+							setCurrentEntryId={setCurrentEntryId}
+							cells={cells}
+							entries={entries}
+							separators={separators}
+							currentCell={currentCell}
+							currentEntryId={currentEntryId}
+							dimensions={data.dimensions}
+							progress={progress}
+						/>
+						<Controls
+							cells={cells}
+							solutionsAvailable={data.solutionAvailable}
+							currentEntryId={currentEntryId}
+							progress={progress}
+							setProgress={setProgress}
+							setCellProgress={setCellProgress}
+							clearProgress={clearProgress}
+						/>
+						<p
+							css={css`
+								${textSans12};
+								font-style: italic;
+								color: ${theme.text};
+							`}
+						>
+							{isStored
+								? 'Crosswords are saved automatically.'
+								: 'Crossword will not be saved.'}
+						</p>
+					</div>
+					<div
 						css={css`
 							display: flex;
 							flex-direction: row;
 							flex-wrap: wrap;
-							min-width: ${theme.clueMinWidthRem}rem;
+							flex: 1;
 							gap: ${space[4]}px;
+							align-content: flex-start;
 						`}
 					>
-						<div
-							css={css`
-								max-width: ${gridWidth}px;
-								flex-basis: 100%;
-							`}
-						>
-							<Grid
-								setCurrentCell={setCurrentCell}
-								setCurrentEntryId={setCurrentEntryId}
-								cells={cells}
-								entries={entries}
-								separators={separators}
-								currentCell={currentCell}
-								currentEntryId={currentEntryId}
-								dimensions={data.dimensions}
-							/>
-							<Controls
-								cells={cells}
-								solutionsAvailable={data.solutionAvailable}
-								currentEntryId={currentEntryId}
-							/>
-							<p
-								css={css`
-									${textSans12};
-									font-style: italic;
-									color: ${theme.text};
-								`}
-							>
-								{isStored
-									? 'Crosswords are saved automatically.'
-									: 'Crossword will not be saved.'}
-							</p>
-						</div>
-						<div
-							css={css`
-								display: flex;
-								flex-direction: row;
-								flex-wrap: wrap;
-								flex: 1;
-								gap: ${space[4]}px;
-								align-content: flex-start;
-							`}
-						>
-							<Clues
-								direction="across"
-								entries={entries}
-								currentEntryId={currentEntryId}
-							/>
-							<Clues
-								direction="down"
-								entries={entries}
-								currentEntryId={currentEntryId}
-							/>
-						</div>
+						<Clues
+							direction="across"
+							entries={entries}
+							currentEntryId={currentEntryId}
+							progress={progress}
+						/>
+						<Clues
+							direction="down"
+							entries={entries}
+							currentEntryId={currentEntryId}
+							progress={progress}
+						/>
 					</div>
-				</ProgressContext.Provider>
+				</div>
 			</GenerateIdProvider>
 		</ThemeContext.Provider>
 	);

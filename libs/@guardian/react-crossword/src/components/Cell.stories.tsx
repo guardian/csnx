@@ -99,11 +99,7 @@ export const Progress: Story = {
 
 export const DiacriticProgress: Story = {
 	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
+		...args,
 		guess: 'Å',
 	},
 };
