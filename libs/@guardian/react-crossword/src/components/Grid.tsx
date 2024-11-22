@@ -71,6 +71,28 @@ const Separator = memo(
 	},
 );
 
+const FocusIndicator = ({
+	currentCell,
+}: {
+	currentCell: NonNullable<GridProps['currentCell']>;
+}) => {
+	const theme = useContext(ThemeContext);
+
+	return (
+		<rect
+			x={currentCell.x * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
+			y={currentCell.y * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
+			width={theme.cellSize + theme.gutter}
+			height={theme.cellSize + theme.gutter}
+			stroke={theme.focus}
+			strokeWidth={2}
+			fill="none"
+			rx={2}
+			ry={2}
+		/>
+	);
+};
+
 export type GridProps = {
 	cells: Cells;
 	entries: Entries;
@@ -119,9 +141,6 @@ export const Grid = ({
 
 					const guess = progress[cell.x]?.[cell.y];
 
-					const isFocused =
-						currentCell?.x === cell.x && currentCell.y === cell.y;
-
 					const currentGroup =
 						currentEntryId && entries.get(currentEntryId)?.group;
 
@@ -140,7 +159,6 @@ export const Grid = ({
 							x={x}
 							y={y}
 							guess={guess}
-							isFocused={isFocused}
 							isActive={isActive}
 							isHighlighted={isHighlighted}
 						/>
@@ -158,6 +176,7 @@ export const Grid = ({
 					/>
 				))
 			}
+			{currentCell && <FocusIndicator currentCell={currentCell} />}
 		</svg>
 	);
 };
