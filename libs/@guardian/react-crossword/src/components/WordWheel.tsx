@@ -1,36 +1,43 @@
 import { css } from '@emotion/react';
 import { textSans17, textSansBold17 } from '@guardian/source/foundations';
 import { useContext } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
+import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
-import type { AnagramHelperLetters } from '../utils/getProgressForEntry';
+import { getProgressForEntry } from '../utils/getProgressForEntry';
 
 export type WordWheelProps = {
-	anagramHelperLetters: AnagramHelperLetters;
+	letters: string;
+	entry: CAPIEntry;
 };
 
 type WordWheelLetter = {
 	letter: string;
-	isProgress: boolean;
+	matchingProgress: boolean;
 };
 
-export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
-	console.log(anagramHelperLetters);
-	const letters = anagramHelperLetters
-		.map(
-			(anagramHelperLetter): WordWheelLetter =>
-				anagramHelperLetter.isProgress && anagramHelperLetter.backupLetter
-					? { letter: anagramHelperLetter.backupLetter, isProgress: false }
-					: {
-							letter: anagramHelperLetter.progressValue,
-							isProgress: anagramHelperLetter.isProgress,
-						},
-		)
-		.filter((wordWheelLetter) => wordWheelLetter.letter !== '')
-		.sort(() => 0.5 - Math.random());
-
+export const WordWheel = ({ letters, entry }: WordWheelProps) => {
+	const { progress } = useContext(ProgressContext);
 	const theme = useContext(ThemeContext);
-	const outerLetters = letters;
-	const centerLetter = letters.length > 4 ? outerLetters.shift() : undefined;
+	const entryProgress = getProgressForEntry(entry, progress);
+
+	const letterArray: WordWheelLetter[] = letters
+		.toUpperCase()
+		.split('')
+		.map((letter) => {
+			const matchingProgress = entryProgress.includes(letter);
+			if (matchingProgress) {
+				entryProgress.splice(entryProgress.indexOf(letter), 1);
+			}
+			return {
+				letter,
+				matchingProgress,
+			};
+		});
+
+	const outerLetters = letterArray;
+	const centerLetter =
+		letterArray.length > 4 ? outerLetters.shift() : undefined;
 	const radius = 70;
 	const centerX = 100;
 	const centerY = 100;
@@ -57,7 +64,7 @@ export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
 					css={css`
 						${textSans17}
 					`}
-					fill={wordWheelLetter.isProgress ? theme.highlight : theme.text}
+					fill={wordWheelLetter.matchingProgress ? theme.highlight : theme.text}
 				>
 					{wordWheelLetter.letter}
 				</text>
@@ -76,7 +83,7 @@ export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
 					css={css`
 						${textSansBold17}
 					`}
-					fill={centerLetter.isProgress ? theme.highlight : theme.text}
+					fill={centerLetter.matchingProgress ? theme.highlight : theme.text}
 				>
 					{centerLetter.letter}
 				</text>

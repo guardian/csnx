@@ -1,14 +1,70 @@
 import { css } from '@emotion/react';
 import { space } from '@guardian/source/foundations';
 import { useContext } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
+import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
-import type { AnagramHelperLetters } from '../utils/getProgressForEntry';
+import {
+	getProgressForEntry,
+	getSeparatorFromEntry,
+} from '../utils/getProgressForEntry';
+
+export type SolutionDisplayLetter = {
+	displayValue: string;
+	source: 'progress' | 'candidate';
+	progressInvalid: boolean;
+	separator?: ',' | '-';
+};
+
+export type SolutionDisplayLetters = SolutionDisplayLetter[];
 
 export const SolutionDisplay = ({
-	anagramHelperLetters,
+	entry,
+	letters,
 }: {
-	anagramHelperLetters: AnagramHelperLetters;
+	entry: CAPIEntry;
+	letters: string;
 }) => {
+	const { progress } = useContext(ProgressContext);
+
+	const lettersArray = letters.toUpperCase().split('');
+
+	const getSolutionDisplayLetters = (): SolutionDisplayLetters => {
+		// Get the progress letters with associated properties
+		const progressLetters = getProgressForEntry(entry, progress).map(
+			(progress, index): SolutionDisplayLetter => {
+				const isInvalidProgress =
+					!!progress && !lettersArray.includes(progress);
+
+				// If valid progress, remove it from lettersArray
+				if (!isInvalidProgress && progress) {
+					lettersArray.splice(lettersArray.indexOf(progress), 1);
+				}
+
+				return {
+					displayValue: progress,
+					source: progress ? 'progress' : 'candidate',
+					progressInvalid: isInvalidProgress,
+					separator: getSeparatorFromEntry(entry, index),
+				};
+			},
+		);
+
+		// Fill in missing display values with candidates from lettersArray
+		return progressLetters.map((letter): SolutionDisplayLetter => {
+			if (letter.displayValue) {
+				return letter;
+			}
+
+			return {
+				...letter,
+				displayValue: lettersArray.shift() ?? '',
+				source: 'candidate',
+				progressInvalid: false,
+			};
+		});
+	};
+
 	const theme = useContext(ThemeContext);
 	return (
 		<div
@@ -21,16 +77,16 @@ export const SolutionDisplay = ({
 				gap: ${space[1]}px;
 			`}
 		>
-			{anagramHelperLetters.map((anagramHelperLetter) => (
+			{getSolutionDisplayLetters().map((anagramHelperLetter) => (
 				<span
 					css={css`
 						border: 1px solid
-							${anagramHelperLetter.isWrong
+							${anagramHelperLetter.progressInvalid
 								? 'red'
-								: anagramHelperLetter.isProgress
+								: anagramHelperLetter.source === 'progress'
 									? 'black'
 									: 'darkgrey'};
-						background-color: ${anagramHelperLetter.isProgress
+						background-color: ${anagramHelperLetter.source === 'progress'
 							? 'lightgrey'
 							: 'white'};
 						width: ${theme.cellSize}px;
@@ -41,7 +97,7 @@ export const SolutionDisplay = ({
 						user-select: none;
 					`}
 				>
-					{anagramHelperLetter.progressValue} {anagramHelperLetter.separator}
+					{anagramHelperLetter.displayValue} {anagramHelperLetter.separator}
 				</span>
 			))}
 		</div>

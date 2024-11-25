@@ -1,11 +1,8 @@
 import { css } from '@emotion/react';
 import { palette, space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
-import { useContext, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import { ProgressContext } from '../context/ProgressContext';
-import type { AnagramHelperLetters } from '../utils/getProgressForEntry';
-import { getAnagramHelperLetters } from '../utils/getProgressForEntry';
 import { Button } from './Button';
 import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
@@ -24,19 +21,15 @@ export const AnagramHelper = ({
 	gridHeight,
 	gridWidth,
 }: AnagramHelperProps) => {
-	const { progress } = useContext(ProgressContext);
 	const [letters, setLetters] = useState('');
+	const [shuffledLetters, setShuffledLetters] = useState('');
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [anagramHelperLetters, setAnagramHelperLetters] = useState<
-		AnagramHelperLetters | undefined
-	>(undefined);
 
 	const reset = () => {
 		if (inputRef.current) {
 			inputRef.current.value = '';
 		}
-		setLetters('');
-		setAnagramHelperLetters(undefined);
+		setShuffledLetters('');
 	};
 
 	const shuffle = () => {
@@ -45,9 +38,7 @@ export const AnagramHelper = ({
 				.split('')
 				.sort(() => 0.5 - Math.random())
 				.join('');
-			setAnagramHelperLetters(
-				getAnagramHelperLetters(entry, progress, shuffledLetters),
-			);
+			setShuffledLetters(shuffledLetters);
 		}
 	};
 
@@ -86,7 +77,7 @@ export const AnagramHelper = ({
 					}
 				`}
 			>
-				{anagramHelperLetters ? (
+				{shuffledLetters ? (
 					<div
 						css={css`
 							display: flex;
@@ -94,7 +85,7 @@ export const AnagramHelper = ({
 							justify-content: center;
 						`}
 					>
-						<WordWheel anagramHelperLetters={anagramHelperLetters} />
+						<WordWheel letters={shuffledLetters} entry={entry} />
 					</div>
 				) : (
 					<>
@@ -143,8 +134,8 @@ export const AnagramHelper = ({
 				>
 					<Clue entry={entry} />
 				</div>
-				{anagramHelperLetters && (
-					<SolutionDisplay anagramHelperLetters={anagramHelperLetters} />
+				{shuffledLetters && (
+					<SolutionDisplay letters={shuffledLetters} entry={entry} />
 				)}
 			</div>
 		</div>
