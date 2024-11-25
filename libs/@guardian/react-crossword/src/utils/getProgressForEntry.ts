@@ -2,8 +2,8 @@ import type { CAPIEntry } from '../@types/CAPI';
 import type { Progress } from '../@types/crossword';
 
 export type AnagramHelperLetter = {
-	value: string;
-	isGuess: boolean;
+	progressValue: string;
+	isProgress: boolean;
 	isWrong: boolean;
 	backupLetter?: string;
 };
@@ -27,28 +27,33 @@ export const getAnagramHelperLetters = (
 ): AnagramHelperLetters => {
 	const lettersArray = letters.toUpperCase().split('');
 
-	// Map guesses to Anagram helper letters
-	const guessLetters: AnagramHelperLetters = getProgressForEntry(
+	// Map progress to Anagram helper letters
+	const progressLetters: AnagramHelperLetters = getProgressForEntry(
 		entry,
 		progress,
-	).map((guess) => {
-		const isWrong = !!guess && !lettersArray.includes(guess);
-		if (!isWrong && guess) {
-			lettersArray.splice(lettersArray.indexOf(guess), 1); // Remove matched letter
+	).map((progress) => {
+		const isWrong = !!progress && !lettersArray.includes(progress);
+		if (!isWrong && progress) {
+			lettersArray.splice(lettersArray.indexOf(progress), 1); // Remove matched letter
 		}
-		return { value: guess, isGuess: !!guess, isWrong };
+		return { progressValue: progress, isProgress: !!progress, isWrong };
 	});
 
 	// Fill blanks with remaining letters
-	const filledBlanks = guessLetters.map((letter) =>
-		letter.value
+	const filledBlanks = progressLetters.map((letter) =>
+		letter.progressValue
 			? letter
-			: { value: lettersArray.shift() ?? '', isGuess: false, isWrong: false },
+			: {
+					progressValue: lettersArray.shift() ?? '',
+					isProgress: false,
+					isWrong: false,
+				},
 	);
 
-	// Add backup letters to guesses
+	// Add backup letters to incorrect guesses
 	return filledBlanks.map((letter) => {
-		if (!letter.isGuess) {
+		// If the letter is not a guess, or there are no letters left, or the letter is not wrong no backup
+		if (!letter.isProgress || !lettersArray.length || !letter.isWrong) {
 			return letter;
 		}
 		const backupLetter = lettersArray.shift();

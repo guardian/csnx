@@ -62,6 +62,7 @@ export const AnagramHelper = ({
 				flex-direction: column;
 				background-color: floralwhite;
 				padding: 10px;
+				min-height: fit-content;
 				height: ${gridHeight}px;
 				max-width: ${gridWidth}px;
 			`}

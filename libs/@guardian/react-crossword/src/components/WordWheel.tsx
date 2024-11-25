@@ -10,18 +10,19 @@ export type WordWheelProps = {
 
 type WordWheelLetter = {
 	letter: string;
-	isGuess: boolean;
+	isProgress: boolean;
 };
 
 export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
+	console.log(anagramHelperLetters);
 	const letters = anagramHelperLetters
 		.map(
 			(anagramHelperLetter): WordWheelLetter =>
-				anagramHelperLetter.isGuess && anagramHelperLetter.backupLetter
-					? { letter: anagramHelperLetter.backupLetter, isGuess: false }
+				anagramHelperLetter.isProgress && anagramHelperLetter.backupLetter
+					? { letter: anagramHelperLetter.backupLetter, isProgress: false }
 					: {
-							letter: anagramHelperLetter.value,
-							isGuess: anagramHelperLetter.isGuess,
+							letter: anagramHelperLetter.progressValue,
+							isProgress: anagramHelperLetter.isProgress,
 						},
 		)
 		.filter((wordWheelLetter) => wordWheelLetter.letter !== '')
@@ -56,7 +57,7 @@ export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
 					css={css`
 						${textSans17}
 					`}
-					fill={wordWheelLetter.isGuess ? theme.highlight : theme.text}
+					fill={wordWheelLetter.isProgress ? theme.highlight : theme.text}
 				>
 					{wordWheelLetter.letter}
 				</text>
@@ -75,7 +76,7 @@ export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
 					css={css`
 						${textSansBold17}
 					`}
-					fill={centerLetter.isGuess ? theme.highlight : theme.text}
+					fill={centerLetter.isProgress ? theme.highlight : theme.text}
 				>
 					{centerLetter.letter}
 				</text>

@@ -20,8 +20,8 @@ export const SolutionDisplay = ({
 				<span
 					css={css`
 						border: 1px solid
-							${guess.isWrong ? 'red' : guess.isGuess ? 'black' : 'darkgrey'};
-						background-color: ${guess.isGuess ? 'lightgrey' : 'white'};
+							${guess.isWrong ? 'red' : guess.isProgress ? 'black' : 'darkgrey'};
+						background-color: ${guess.isProgress ? 'lightgrey' : 'white'};
 						width: 25px;
 						height: 25px;
 						text-align: center;
@@ -30,7 +30,7 @@ export const SolutionDisplay = ({
 						user-select: none;
 					`}
 				>
-					{guess.value}
+					{guess.progressValue}
 				</span>
 			))}
 		</div>
