@@ -3,7 +3,6 @@ import { palette, space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
 import { useContext, useRef, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import type { Separators } from '../@types/crossword';
 import { ProgressContext } from '../context/ProgressContext';
 import type { AnagramHelperLetters } from '../utils/getProgressForEntry';
 import { getAnagramHelperLetters } from '../utils/getProgressForEntry';
@@ -14,7 +13,6 @@ import { WordWheel } from './WordWheel';
 
 interface AnagramHelperProps {
 	entry: CAPIEntry;
-	separators: Separators;
 	gridHeight: number;
 	gridWidth: number;
 	onClose: () => void;
@@ -22,7 +20,6 @@ interface AnagramHelperProps {
 
 export const AnagramHelper = ({
 	entry,
-	separators,
 	onClose,
 	gridHeight,
 	gridWidth,

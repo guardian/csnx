@@ -2,10 +2,11 @@ import type { CAPIEntry } from '../@types/CAPI';
 import type { Progress } from '../@types/crossword';
 
 export type AnagramHelperLetter = {
-	progressValue: string;
-	isProgress: boolean;
-	isWrong: boolean;
+	progressValue: string; // display value
+	isProgress: boolean; // source: 'progress' or 'input'
+	isWrong: boolean; // remove this
 	backupLetter?: string;
+	separator?: ',' | '-';
 };
 
 export type AnagramHelperLetters = AnagramHelperLetter[];
@@ -26,17 +27,21 @@ export const getAnagramHelperLetters = (
 	letters: string,
 ): AnagramHelperLetters => {
 	const lettersArray = letters.toUpperCase().split('');
-
 	// Map progress to Anagram helper letters
 	const progressLetters: AnagramHelperLetters = getProgressForEntry(
 		entry,
 		progress,
-	).map((progress) => {
+	).map((progress, index) => {
 		const isWrong = !!progress && !lettersArray.includes(progress);
 		if (!isWrong && progress) {
 			lettersArray.splice(lettersArray.indexOf(progress), 1); // Remove matched letter
 		}
-		return { progressValue: progress, isProgress: !!progress, isWrong };
+		return {
+			progressValue: progress,
+			isProgress: !!progress,
+			isWrong,
+			separator: getSeparatorFromEntry(entry, index),
+		};
 	});
 
 	// Fill blanks with remaining letters
@@ -44,6 +49,7 @@ export const getAnagramHelperLetters = (
 		letter.progressValue
 			? letter
 			: {
+					...letter,
 					progressValue: lettersArray.shift() ?? '',
 					isProgress: false,
 					isWrong: false,
@@ -59,4 +65,17 @@ export const getAnagramHelperLetters = (
 		const backupLetter = lettersArray.shift();
 		return { ...letter, backupLetter };
 	});
+};
+
+const getSeparatorFromEntry = (
+	entry: CAPIEntry,
+	index: number,
+): ',' | '-' | undefined => {
+	const separators = entry.separatorLocations;
+	for (const [separator, locations] of Object.entries(separators)) {
+		if (locations.includes(index)) {
+			return separator === '-' ? '-' : ',';
+		}
+	}
+	return undefined;
 };
