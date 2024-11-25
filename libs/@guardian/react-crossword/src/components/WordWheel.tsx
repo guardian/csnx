@@ -28,25 +28,19 @@ export const WordWheel = ({ anagramHelperLetters }: WordWheelProps) => {
 		.sort(() => 0.5 - Math.random());
 
 	const theme = useContext(ThemeContext);
-	const outerLetters = letters; // Remaining letters go around the circle
-	const centerLetter = letters.length > 4 ? outerLetters.shift() : undefined; // First letter is the center
-	const radius = 70; // Radius for the circle of outer letters
-	const centerX = 100; // Center X of the SVG
-	const centerY = 100; // Center Y of the SVG
+	const outerLetters = letters;
+	const centerLetter = letters.length > 4 ? outerLetters.shift() : undefined;
+	const radius = 70;
+	const centerX = 100;
+	const centerY = 100;
 
-	// Predefined angles for up to 4 outer letters
-
-	// Calculate the position of a letter based on the angle
-	const calculatePosition = (angle: number): { x: number; y: number } => {
+	const getPosition = (index: number): { x: number; y: number } => {
+		const angle = (360 / outerLetters.length) * index;
 		const radian = (angle * Math.PI) / 180; // Convert degrees to radians
 		return {
 			x: centerX + radius * Math.cos(radian),
 			y: centerY + radius * Math.sin(radian),
 		};
-	};
-
-	const getPosition = (index: number) => {
-		return calculatePosition((360 / outerLetters.length) * index);
 	};
 
 	const renderOuterLetters = (): JSX.Element[] => {

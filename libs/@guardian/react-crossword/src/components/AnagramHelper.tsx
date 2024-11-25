@@ -1,11 +1,10 @@
 import { css } from '@emotion/react';
-import { palette } from '@guardian/source/foundations';
+import { palette, space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
 import { useContext, useRef, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type { Separators } from '../@types/crossword';
 import { ProgressContext } from '../context/ProgressContext';
-import { ThemeContext } from '../context/ThemeContext';
 import type { AnagramHelperLetters } from '../utils/getProgressForEntry';
 import { getAnagramHelperLetters } from '../utils/getProgressForEntry';
 import { Button } from './Button';
@@ -28,7 +27,6 @@ export const AnagramHelper = ({
 	gridHeight,
 	gridWidth,
 }: AnagramHelperProps) => {
-	const theme = useContext(ThemeContext);
 	const { progress } = useContext(ProgressContext);
 	const [letters, setLetters] = useState('');
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -62,11 +60,10 @@ export const AnagramHelper = ({
 				display: flex;
 				box-sizing: border-box;
 				flex-direction: column;
-				background-color: ${theme.anagramHelperBackground};
+				background-color: floralwhite;
 				padding: 10px;
 				height: ${gridHeight}px;
 				max-width: ${gridWidth}px;
-				min-height: 300px;
 			`}
 		>
 			<div
@@ -74,6 +71,7 @@ export const AnagramHelper = ({
 					display: flex;
 					width: 100%;
 					justify-content: flex-end;
+					margin-bottom: ${space[4]}px;
 				`}
 			>
 				<Button onSuccess={onClose} size="small">
@@ -83,9 +81,11 @@ export const AnagramHelper = ({
 			<div
 				css={css`
 					display: flex;
-					justify-content: center;
 					align-items: center;
 					flex-direction: column;
+					> * {
+						margin-bottom: ${space[4]}px;
+					}
 				`}
 			>
 				{anagramHelperLetters ? (
@@ -106,7 +106,6 @@ export const AnagramHelper = ({
 								background: none;
 								border: 1px solid ${palette.neutral[7]};
 								padding: 10px 5px;
-								margin: 5px 0;
 								text-align: center;
 								border-radius: 2px;
 								max-width: 100%;
@@ -127,10 +126,9 @@ export const AnagramHelper = ({
 				)}
 				<div
 					css={css`
-						display: flex;
-						gap: 10px;
-						height: 45px;
-						align-items: flex-end;
+						> * {
+							margin: 0 ${space[1]}px;
+						}
 					`}
 				>
 					<Button type="reset" onSuccess={reset} priority="secondary">
@@ -140,7 +138,13 @@ export const AnagramHelper = ({
 						shuffle
 					</Button>
 				</div>
-				<Clue entry={entry} />
+				<div
+					css={css`
+						margin-top: 10px;
+					`}
+				>
+					<Clue entry={entry} />
+				</div>
 				{anagramHelperLetters && (
 					<SolutionDisplay anagramHelperLetters={anagramHelperLetters} />
 				)}
