@@ -30,18 +30,22 @@ export const SolutionDisplay = ({
 	}, [progressLetters]);
 
 	const updateCandidateLetter = (event: KeyboardEvent<HTMLInputElement>) => {
-		const newCandidateLetters = [...candidateLetters];
 		const index = Number(event.currentTarget.getAttribute('data-index'));
-
-		setCandidateLetters(newCandidateLetters);
-		if (event.key.length === 1 && !isNaN(index)) {
-			newCandidateLetters[index] = event.key.toUpperCase();
-			inputRefs.current[index + 1]?.focus();
+		if (isNaN(index) || (event.key.length !== 1 && event.key !== 'Backspace')) {
+			return;
 		}
-		if (event.key === 'Backspace' && !isNaN(index)) {
-			newCandidateLetters[index] = '';
-			inputRefs.current[index - 1]?.focus();
-		}
+		setCandidateLetters((prevState) => {
+			const newCandidateLetters = [...prevState];
+			if (event.key.length === 1 && !isNaN(index)) {
+				newCandidateLetters[index] = event.key.toUpperCase();
+				inputRefs.current[index + 1]?.focus();
+			}
+			if (event.key === 'Backspace' && !isNaN(index)) {
+				newCandidateLetters[index] = '';
+				inputRefs.current[index - 1]?.focus();
+			}
+			return newCandidateLetters;
+		});
 	};
 
 	const updateProgressLetter = (event: FormEvent<HTMLButtonElement>) => {
