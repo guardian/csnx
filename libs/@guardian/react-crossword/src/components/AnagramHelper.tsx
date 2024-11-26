@@ -129,7 +129,7 @@ export const AnagramHelper = ({
 						justify-content: center;
 					`}
 				>
-					<WordWheel letters={candidateLetters.join('')} entry={entry} />
+					<WordWheel candidateLetters={candidateLetters} />
 				</div>
 				<div
 					css={css`

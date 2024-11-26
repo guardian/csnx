@@ -1,18 +1,19 @@
 import { css } from '@emotion/react';
 import { textSans17, textSansBold17 } from '@guardian/source/foundations';
-import { useContext } from 'react';
-import type { CAPIEntry } from '../@types/CAPI';
+import { memo, useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 
-export type WordWheelProps = {
-	letters: string;
-	entry: CAPIEntry;
-};
-
-export const WordWheel = ({ letters }: WordWheelProps) => {
+const WordWheelComponent = ({
+	candidateLetters,
+}: {
+	candidateLetters: string[];
+}) => {
 	const theme = useContext(ThemeContext);
 
-	const letterArray = letters.split('').sort(() => Math.random() - 0.5);
+	const letterArray = candidateLetters
+		.join('')
+		.split('')
+		.sort(() => Math.random() - 0.5);
 
 	const outerLetters = letterArray;
 	const centerLetter =
@@ -71,3 +72,5 @@ export const WordWheel = ({ letters }: WordWheelProps) => {
 		</svg>
 	);
 };
+
+export const WordWheel = memo(WordWheelComponent);
