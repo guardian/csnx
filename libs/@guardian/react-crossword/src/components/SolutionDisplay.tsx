@@ -1,16 +1,18 @@
 import { css } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
+import type { GroupProgress } from '../utils/getProgressForEntry';
 import { getSeparatorFromEntry } from '../utils/getProgressForEntry';
 import { SolutionDisplayCell } from './SolutionDisplayCell';
 
 type SolutionDisplayProps = {
 	entry: CAPIEntry;
-	setProgressLetters: Dispatch<SetStateAction<string[]>>;
-	progressLetters: string[];
+	setProgressLetters: Dispatch<SetStateAction<GroupProgress[]>>;
+	progressLetters: GroupProgress[];
 	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
 	candidateLetters: string[];
 };
@@ -45,7 +47,9 @@ export const SolutionDisplay = ({
 	const updateProgressLetter = (event: FormEvent<HTMLButtonElement>) => {
 		const index = Number(event.currentTarget.getAttribute('data-index'));
 		const newProgressLetters = [...progressLetters];
-		newProgressLetters[index] = candidateLetters[index] ?? '';
+		if (!isUndefined(newProgressLetters[index])) {
+			newProgressLetters[index].progress = candidateLetters[index] ?? '';
+		}
 		setProgressLetters(newProgressLetters);
 	};
 

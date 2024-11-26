@@ -1,13 +1,18 @@
 import { isUndefined } from '@guardian/libs';
 import type { CAPIEntry } from '../@types/CAPI';
-import type { Entries, Progress } from '../@types/crossword';
+import type { Coords, Entries, Progress } from '../@types/crossword';
+
+export type GroupProgress = {
+	coords: Coords;
+	progress: string;
+};
 
 export const getProgressForGroup = (
 	entry: CAPIEntry,
 	entries: Entries,
 	progress: Progress,
 ) => {
-	const groupProgress: string[] = [];
+	const groupProgress: GroupProgress[] = [];
 	for (const entryId of entry.group) {
 		const entry = entries.get(entryId);
 		if (!isUndefined(entry)) {
@@ -16,13 +21,16 @@ export const getProgressForGroup = (
 	}
 	return groupProgress;
 };
-export const getProgressForEntry = (entry: CAPIEntry, progress: Progress) => {
+export const getProgressForEntry = (
+	entry: CAPIEntry,
+	progress: Progress,
+): GroupProgress[] => {
 	return Array.from({ length: entry.length }, (_, i) => {
 		const x =
 			entry.direction === 'across' ? entry.position.x + i : entry.position.x;
 		const y =
 			entry.direction === 'across' ? entry.position.y : entry.position.y + i;
-		return progress.at(x)?.[y] ?? '';
+		return { coords: { x, y }, progress: progress.at(x)?.[y] ?? '' };
 	});
 };
 

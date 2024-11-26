@@ -5,6 +5,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type { Entries } from '../@types/crossword';
 import { ProgressContext } from '../context/ProgressContext';
+import type { GroupProgress } from '../utils/getProgressForEntry';
 import { getProgressForGroup } from '../utils/getProgressForEntry';
 import { Button } from './Button';
 import { Clue } from './Clue';
@@ -27,7 +28,7 @@ export const AnagramHelper = ({
 	gridWidth,
 }: AnagramHelperProps) => {
 	const { progress } = useContext(ProgressContext);
-	const [progressLetters, setProgressLetters] = useState<string[]>(
+	const [progressLetters, setProgressLetters] = useState<GroupProgress[]>(
 		getProgressForGroup(entry, entries, progress),
 	);
 	const [candidateLetters, setCandidateLetters] = useState<string[]>(
@@ -49,8 +50,10 @@ export const AnagramHelper = ({
 				() => '',
 			);
 			// remove letters that exist in progressLetters but only the number of times they exist
-			progressLetters.forEach((letter, index) => {
-				const shuffleLetterIndex = shuffleLetters.indexOf(letter);
+			progressLetters.forEach((groupProgress, index) => {
+				const shuffleLetterIndex = shuffleLetters.indexOf(
+					groupProgress.progress,
+				);
 				if (shuffleLetterIndex !== -1) {
 					matchedLetters[index] =
 						shuffleLetters.splice(shuffleLetterIndex, 1)[0] ?? '';

@@ -4,10 +4,11 @@ import type { FormEvent, KeyboardEvent } from 'react';
 import { forwardRef } from 'react';
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+import type { GroupProgress } from '../utils/getProgressForEntry';
 import { Button } from './Button';
 
 export type SolutionDisplayCellProps = {
-	progressLetter: string;
+	progressLetter: GroupProgress;
 	candidateLetter: string;
 	index: number;
 	separator?: ',' | '-';
@@ -39,7 +40,8 @@ export const SolutionDisplayCell = forwardRef<
 					data-index={index}
 					css={css`
 						border: 1px solid
-							${progressLetter === candidateLetter || !progressLetter
+							${progressLetter.progress === candidateLetter ||
+							!progressLetter.progress
 								? '#ccc'
 								: 'red'};
 						width: ${theme.cellSize}px;
@@ -55,7 +57,8 @@ export const SolutionDisplayCell = forwardRef<
 				<span
 					css={css`
 						border: 1px solid
-							${progressLetter === candidateLetter || !progressLetter
+							${progressLetter.progress === candidateLetter ||
+							!progressLetter.progress
 								? '#ccc'
 								: 'red'};
 						width: ${theme.cellSize}px;
@@ -64,7 +67,7 @@ export const SolutionDisplayCell = forwardRef<
 						align-content: center;
 					`}
 				>
-					{progressLetter}
+					{progressLetter.progress}
 				</span>
 			</div>
 		);
