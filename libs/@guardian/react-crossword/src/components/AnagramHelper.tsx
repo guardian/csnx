@@ -1,8 +1,10 @@
 import { css } from '@emotion/react';
-import { palette, space } from '@guardian/source/foundations';
+import { space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
-import { useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
+import { ProgressContext } from '../context/ProgressContext';
+import { getProgressForEntry } from '../utils/getProgressForEntry';
 import { Button } from './Button';
 import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
@@ -21,26 +23,50 @@ export const AnagramHelper = ({
 	gridHeight,
 	gridWidth,
 }: AnagramHelperProps) => {
-	const [letters, setLetters] = useState('');
-	const [shuffledLetters, setShuffledLetters] = useState('');
-	const inputRef = useRef<HTMLInputElement>(null);
+	const { progress } = useContext(ProgressContext);
+	const [progressLetters, setProgressLetters] = useState<string[]>(
+		getProgressForEntry(entry, progress),
+	);
+	const [candidateLetters, setCandidateLetters] = useState<string[]>(
+		Array.from({ length: progressLetters.length }, () => ''),
+	);
 
-	const reset = () => {
-		if (inputRef.current) {
-			inputRef.current.value = '';
-		}
-		setShuffledLetters('');
-	};
+	useEffect(() => {
+		setProgressLetters(getProgressForEntry(entry, progress));
+		setCandidateLetters(
+			Array.from({ length: progressLetters.length }, () => ''),
+		);
+	}, [entry, progress, progressLetters.length]);
 
-	const shuffle = () => {
-		if (letters !== '') {
-			const shuffledLetters = letters
-				.split('')
-				.sort(() => 0.5 - Math.random())
-				.join('');
-			setShuffledLetters(shuffledLetters);
-		}
-	};
+	const shuffle = useCallback(() => {
+		setCandidateLetters((prevState) => {
+			const shuffleLetters = [...prevState];
+			const matchedLetters = Array.from(
+				{ length: progressLetters.length },
+				() => '',
+			);
+			// remove letters that exist in progressLetters but only the number of times they exist
+			progressLetters.forEach((letter, index) => {
+				const shuffleLetterIndex = shuffleLetters.indexOf(letter);
+				if (shuffleLetterIndex !== -1) {
+					matchedLetters[index] =
+						shuffleLetters.splice(shuffleLetterIndex, 1)[0] ?? '';
+				}
+			});
+
+			// shuffle the candidate letters and remove blanks
+			shuffleLetters
+				.sort(() => Math.random() - 0.5)
+				.filter((shuffleLetter) => shuffleLetter !== '');
+
+			return matchedLetters.map((letter) => {
+				if (letter === '') {
+					return shuffleLetters.pop() ?? '';
+				}
+				return letter;
+			});
+		});
+	}, [progressLetters]);
 
 	return (
 		<div
@@ -72,47 +98,21 @@ export const AnagramHelper = ({
 					display: flex;
 					align-items: center;
 					flex-direction: column;
+
 					> * {
 						margin-bottom: ${space[4]}px;
 					}
 				`}
 			>
-				{shuffledLetters ? (
-					<div
-						css={css`
-							display: flex;
-							width: 100%;
-							justify-content: center;
-						`}
-					>
-						<WordWheel letters={shuffledLetters} entry={entry} />
-					</div>
-				) : (
-					<>
-						<input
-							css={css`
-								font-size: 24px;
-								background: none;
-								border: 1px solid ${palette.neutral[7]};
-								padding: 10px 5px;
-								text-align: center;
-								border-radius: 2px;
-								max-width: 100%;
-								&::placeholder {
-									color: ${palette.neutral[46]};
-								}
-							`}
-							maxLength={entry.length}
-							placeholder="Enter letters..."
-							spellCheck="false"
-							ref={inputRef}
-							onChange={(e) => setLetters(e.target.value)}
-						/>
-						<span>
-							{letters.length}/{entry.length}
-						</span>
-					</>
-				)}
+				<div
+					css={css`
+						display: flex;
+						width: 100%;
+						justify-content: center;
+					`}
+				>
+					<WordWheel letters={candidateLetters.join('')} entry={entry} />
+				</div>
 				<div
 					css={css`
 						> * {
@@ -120,9 +120,6 @@ export const AnagramHelper = ({
 						}
 					`}
 				>
-					<Button type="reset" onSuccess={reset} priority="secondary">
-						reset
-					</Button>
 					<Button onSuccess={shuffle} priority="primary">
 						shuffle
 					</Button>
@@ -134,9 +131,13 @@ export const AnagramHelper = ({
 				>
 					<Clue entry={entry} />
 				</div>
-				{shuffledLetters && (
-					<SolutionDisplay letters={shuffledLetters} entry={entry} />
-				)}
+				<SolutionDisplay
+					entry={entry}
+					candidateLetters={candidateLetters}
+					setCandidateLetters={setCandidateLetters}
+					setProgressLetters={setProgressLetters}
+					progressLetters={progressLetters}
+				/>
 			</div>
 		</div>
 	);

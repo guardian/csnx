@@ -1,71 +1,54 @@
 import { css } from '@emotion/react';
 import { space } from '@guardian/source/foundations';
-import { useContext } from 'react';
+import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import { ProgressContext } from '../context/ProgressContext';
-import { ThemeContext } from '../context/ThemeContext';
-import {
-	getProgressForEntry,
-	getSeparatorFromEntry,
-} from '../utils/getProgressForEntry';
+import { getSeparatorFromEntry } from '../utils/getProgressForEntry';
+import { SolutionDisplayCell } from './SolutionDisplayCell';
 
-export type SolutionDisplayLetter = {
-	displayValue: string;
-	source: 'progress' | 'candidate';
-	progressInvalid: boolean;
-	separator?: ',' | '-';
+type SolutionDisplayProps = {
+	entry: CAPIEntry;
+	setProgressLetters: Dispatch<SetStateAction<string[]>>;
+	progressLetters: string[];
+	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
+	candidateLetters: string[];
 };
-
-export type SolutionDisplayLetters = SolutionDisplayLetter[];
-
 export const SolutionDisplay = ({
 	entry,
-	letters,
-}: {
-	entry: CAPIEntry;
-	letters: string;
-}) => {
-	const { progress } = useContext(ProgressContext);
+	setProgressLetters,
+	progressLetters,
+	setCandidateLetters,
+	candidateLetters,
+}: SolutionDisplayProps) => {
+	const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 
-	const lettersArray = letters.toUpperCase().split('');
+	useEffect(() => {
+		inputRefs.current = inputRefs.current.slice(0, progressLetters.length);
+	}, [progressLetters]);
 
-	const getSolutionDisplayLetters = (): SolutionDisplayLetters => {
-		// Get the progress letters with associated properties
-		const progressLetters = getProgressForEntry(entry, progress).map(
-			(progress, index): SolutionDisplayLetter => {
-				const isInvalidProgress =
-					!!progress && !lettersArray.includes(progress);
+	const updateCandidateLetter = (event: KeyboardEvent<HTMLInputElement>) => {
+		const newCandidateLetters = [...candidateLetters];
+		const index = Number(event.currentTarget.getAttribute('data-index'));
 
-				// If valid progress, remove it from lettersArray
-				if (!isInvalidProgress && progress) {
-					lettersArray.splice(lettersArray.indexOf(progress), 1);
-				}
-
-				return {
-					displayValue: progress,
-					source: progress ? 'progress' : 'candidate',
-					progressInvalid: isInvalidProgress,
-					separator: getSeparatorFromEntry(entry, index),
-				};
-			},
-		);
-
-		// Fill in missing display values with candidates from lettersArray
-		return progressLetters.map((letter): SolutionDisplayLetter => {
-			if (letter.displayValue) {
-				return letter;
-			}
-
-			return {
-				...letter,
-				displayValue: lettersArray.shift() ?? '',
-				source: 'candidate',
-				progressInvalid: false,
-			};
-		});
+		setCandidateLetters(newCandidateLetters);
+		if (event.key.length === 1 && !isNaN(index)) {
+			newCandidateLetters[index] = event.key.toUpperCase();
+			inputRefs.current[index + 1]?.focus();
+		}
+		if (event.key === 'Backspace' && !isNaN(index)) {
+			newCandidateLetters[index] = '';
+			inputRefs.current[index - 1]?.focus();
+		}
 	};
 
-	const theme = useContext(ThemeContext);
+	const updateProgressLetter = (event: FormEvent<HTMLButtonElement>) => {
+		const index = Number(event.currentTarget.getAttribute('data-index'));
+		const newProgressLetters = [...progressLetters];
+		newProgressLetters[index] = candidateLetters[index] ?? '';
+		setProgressLetters(newProgressLetters);
+	};
+
 	return (
 		<div
 			css={css`
@@ -74,32 +57,23 @@ export const SolutionDisplay = ({
 				flex-wrap: wrap;
 				max-width: 90%;
 				margin-top: ${space[4]}px;
-				gap: ${space[1]}px;
 			`}
 		>
-			{getSolutionDisplayLetters().map((anagramHelperLetter) => (
-				<span
-					css={css`
-						border: 1px solid
-							${anagramHelperLetter.progressInvalid
-								? 'red'
-								: anagramHelperLetter.source === 'progress'
-									? 'black'
-									: 'darkgrey'};
-						background-color: ${anagramHelperLetter.source === 'progress'
-							? 'lightgrey'
-							: 'white'};
-						width: ${theme.cellSize}px;
-						height: ${theme.cellSize}px;
-						text-align: center;
-						align-content: center;
-						text-transform: uppercase;
-						user-select: none;
-					`}
-				>
-					{anagramHelperLetter.displayValue} {anagramHelperLetter.separator}
-				</span>
-			))}
+			{progressLetters.map((progressLetter, index) => {
+				return (
+					<SolutionDisplayCell
+						index={index}
+						progressLetter={progressLetter}
+						candidateLetter={candidateLetters[index] ?? ''}
+						onKeyDown={updateCandidateLetter}
+						onLock={updateProgressLetter}
+						ref={(element: HTMLInputElement) =>
+							(inputRefs.current[index] = element)
+						}
+						separator={getSeparatorFromEntry(entry, index)}
+					/>
+				);
+			})}
 		</div>
 	);
 };
