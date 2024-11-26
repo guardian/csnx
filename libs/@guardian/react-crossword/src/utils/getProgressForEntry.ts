@@ -1,6 +1,21 @@
+import { isUndefined } from '@guardian/libs';
 import type { CAPIEntry } from '../@types/CAPI';
-import type { Progress } from '../@types/crossword';
+import type { Entries, Progress } from '../@types/crossword';
 
+export const getProgressForGroup = (
+	entry: CAPIEntry,
+	entries: Entries,
+	progress: Progress,
+) => {
+	const groupProgress: string[] = [];
+	for (const entryId of entry.group) {
+		const entry = entries.get(entryId);
+		if (!isUndefined(entry)) {
+			groupProgress.push(...getProgressForEntry(entry, progress));
+		}
+	}
+	return groupProgress;
+};
 export const getProgressForEntry = (entry: CAPIEntry, progress: Progress) => {
 	return Array.from({ length: entry.length }, (_, i) => {
 		const x =

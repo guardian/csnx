@@ -6,14 +6,6 @@ import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { Button } from './Button';
 
-export type SolutionDisplayLetter = {
-	progressLetter: string;
-	candidateLetter: string;
-	progressInvalid: boolean;
-	index: number;
-	separator?: ',' | '-';
-};
-
 export type SolutionDisplayCellProps = {
 	progressLetter: string;
 	candidateLetter: string;

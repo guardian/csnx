@@ -3,8 +3,9 @@ import { space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
+import type { Entries } from '../@types/crossword';
 import { ProgressContext } from '../context/ProgressContext';
-import { getProgressForEntry } from '../utils/getProgressForEntry';
+import { getProgressForGroup } from '../utils/getProgressForEntry';
 import { Button } from './Button';
 import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
@@ -12,6 +13,7 @@ import { WordWheel } from './WordWheel';
 
 interface AnagramHelperProps {
 	entry: CAPIEntry;
+	entries: Entries;
 	gridHeight: number;
 	gridWidth: number;
 	onClose: () => void;
@@ -19,24 +21,25 @@ interface AnagramHelperProps {
 
 export const AnagramHelper = ({
 	entry,
+	entries,
 	onClose,
 	gridHeight,
 	gridWidth,
 }: AnagramHelperProps) => {
 	const { progress } = useContext(ProgressContext);
 	const [progressLetters, setProgressLetters] = useState<string[]>(
-		getProgressForEntry(entry, progress),
+		getProgressForGroup(entry, entries, progress),
 	);
 	const [candidateLetters, setCandidateLetters] = useState<string[]>(
 		Array.from({ length: progressLetters.length }, () => ''),
 	);
 
 	useEffect(() => {
-		setProgressLetters(getProgressForEntry(entry, progress));
+		setProgressLetters(getProgressForGroup(entry, entries, progress));
 		setCandidateLetters(
 			Array.from({ length: progressLetters.length }, () => ''),
 		);
-	}, [entry, progress, progressLetters.length]);
+	}, [entries, entry, progress, progressLetters.length]);
 
 	const shuffle = useCallback(() => {
 		setCandidateLetters((prevState) => {
