@@ -27,7 +27,7 @@ export const AnagramHelper = ({
 	gridHeight,
 	gridWidth,
 }: AnagramHelperProps) => {
-	const { progress } = useContext(ProgressContext);
+	const { progress, updateProgress } = useContext(ProgressContext);
 	const [progressLetters, setProgressLetters] = useState<GroupProgress[]>(
 		getProgressForGroup(entry, entries, progress),
 	);
@@ -37,10 +37,22 @@ export const AnagramHelper = ({
 
 	useEffect(() => {
 		setProgressLetters(getProgressForGroup(entry, entries, progress));
+	}, [entries, entry, progress]);
+
+	useEffect(() => {
 		setCandidateLetters(
 			Array.from({ length: progressLetters.length }, () => ''),
 		);
-	}, [entries, entry, progress, progressLetters.length]);
+	}, [progressLetters.length]);
+
+	const save = useCallback(() => {
+		for (const progressLetter of progressLetters) {
+			updateProgress({
+				...progressLetter.coords,
+				value: progressLetter.progress,
+			});
+		}
+	}, [progressLetters, updateProgress]);
 
 	const shuffle = useCallback(() => {
 		setCandidateLetters((prevState) => {
@@ -128,6 +140,9 @@ export const AnagramHelper = ({
 				>
 					<Button onSuccess={shuffle} priority="primary">
 						shuffle
+					</Button>
+					<Button onSuccess={save} priority="secondary">
+						save
 					</Button>
 				</div>
 				<div

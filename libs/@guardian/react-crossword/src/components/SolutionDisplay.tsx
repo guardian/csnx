@@ -34,6 +34,10 @@ export const SolutionDisplay = ({
 		if (isNaN(index) || (event.key.length !== 1 && event.key !== 'Backspace')) {
 			return;
 		}
+		// todo - replace with keydown regex
+		if (event.key.length === 1 && !/^[A-Za-zÀ-ÿ0-9]$/.test(event.key)) {
+			return;
+		}
 		setCandidateLetters((prevState) => {
 			const newCandidateLetters = [...prevState];
 			if (event.key.length === 1 && !isNaN(index)) {
