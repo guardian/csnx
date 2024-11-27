@@ -352,7 +352,7 @@ export const Crossword = ({
 							gap: ${space[4]}px;
 						`}
 					>
-						{entry !== undefined && showAnagramHelper && (
+						{entry !== undefined && showAnagramHelper ? (
 							<AnagramHelper
 								entry={entry}
 								entries={entries}
@@ -360,8 +360,7 @@ export const Crossword = ({
 								gridWidth={gridWidth}
 								onClose={() => setShowAnagramHelper(false)}
 							/>
-						)}
-						{!showAnagramHelper && (
+						) : (
 							<Grid
 								setCurrentCell={setCurrentCell}
 								setCurrentEntryId={setCurrentEntryId}
