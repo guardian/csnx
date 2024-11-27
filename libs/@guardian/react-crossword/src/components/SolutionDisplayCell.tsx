@@ -44,8 +44,8 @@ export const SolutionDisplayCell = forwardRef<
 					box-sizing: border-box;
 					border: 1px solid ${theme.background};
 					border-radius: 4px;
-					width: ${theme.cellSize}px;
-					height: ${theme.cellSize}px;
+					width: ${theme.cellSize - 2}px;
+					height: ${theme.cellSize - 2}px;
 					text-align: center;
 					align-content: center;
 					caret-color: transparent;
