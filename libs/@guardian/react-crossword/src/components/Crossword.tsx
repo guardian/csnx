@@ -27,7 +27,7 @@ export const Crossword = ({
 	data,
 	progress: userProgress,
 }: CrosswordProps) => {
-	const [showAnagramHelper, setShowAnagramHelper] = useState(true);
+	const [showAnagramHelper, setShowAnagramHelper] = useState(false);
 	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
 		data.entries[0].id,
 	);
