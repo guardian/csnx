@@ -4,12 +4,11 @@ import type { CAPIEntry } from '../@types/CAPI';
 import { ProgressContext } from '../context/ProgressContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { defaultTheme } from '../theme';
-import { getAnagramHelperLetters } from '../utils/getProgressForEntry';
 import { SolutionDisplay } from './SolutionDisplay';
 
 const mockEntry: CAPIEntry = {
 	humanNumber: '1',
-	separatorLocations: { ',': [1] },
+	separatorLocations: { ',': [1], '-': [2] },
 	id: '1-across',
 	number: 1,
 	clue: 'A test clue',
@@ -51,36 +50,15 @@ type Story = StoryObj<typeof SolutionDisplay>;
 
 export const Default: Story = {
 	args: {
-		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, ''),
-	},
-};
-
-export const TEST: Story = {
-	args: {
-		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'test'),
-	},
-};
-
-export const twoXs: Story = {
-	args: {
-		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'xx'),
-	},
-};
-
-export const fourXs: Story = {
-	args: {
-		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'xxxx'),
-	},
-};
-
-export const OnlyGuessedLetters: Story = {
-	args: {
-		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'tset'),
-	},
-};
-
-export const OneLetter: Story = {
-	args: {
-		anagramHelperLetters: getAnagramHelperLetters(mockEntry, progress, 'x'),
+		entry: mockEntry,
+		candidateLetters: ['T', 'E', '', ''],
+		progressLetters: [
+			{ coords: { x: 0, y: 0 }, progress: 'T', isTemporary: false },
+			{ coords: { x: 1, y: 0 }, progress: 'E', isTemporary: false },
+			{ coords: { x: 2, y: 0 }, progress: 'S', isTemporary: false },
+			{ coords: { x: 3, y: 0 }, progress: '', isTemporary: false },
+		],
+		setCandidateLetters: () => {},
+		setProgressLetters: () => {},
 	},
 };

@@ -102,7 +102,7 @@ export const Controls = ({
 				* {
 					height: 30px;
 					flex: 1;
-					min-width: 115px;
+					min-width: fit-content;
 					max-width: 200px;
 				}
 			`}
