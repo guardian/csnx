@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useContext } from 'react';
 import type { Theme } from '../@types/crossword';
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeProvider, useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
 import type { CellProps } from './Cell';
 import { Cell } from './Cell';
@@ -14,7 +13,7 @@ const meta: Meta<typeof Cell> = {
 	},
 	decorators: [
 		(Story) => {
-			const theme = useContext(ThemeContext);
+			const theme = useTheme();
 
 			return (
 				<svg
@@ -32,9 +31,9 @@ const meta: Meta<typeof Cell> = {
 		},
 		(Story, { parameters }) => {
 			return (
-				<ThemeContext.Provider value={parameters.theme as Theme}>
+				<ThemeProvider theme={parameters.theme as Theme}>
 					<Story />
-				</ThemeContext.Provider>
+				</ThemeProvider>
 			);
 		},
 	],

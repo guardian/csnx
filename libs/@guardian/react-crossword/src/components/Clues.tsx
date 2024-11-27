@@ -1,35 +1,80 @@
 import { css } from '@emotion/react';
 import { headlineBold17 } from '@guardian/source/foundations';
-import { DashedLines } from '@guardian/source-development-kitchen/react-components';
-import { useContext } from 'react';
-import type { Entries, Progress } from '../@types/crossword';
+import type { ReactNode } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
-import { GenerateIdContext } from '../context/GenerateIdContext';
-import { ThemeContext } from '../context/ThemeContext';
+import { useCurrentCell } from '../context/CurrentCell';
+import { useCurrentClue } from '../context/CurrentClue';
+import { useData } from '../context/Data';
+import { useProgress } from '../context/Progress';
+import { useTheme } from '../context/Theme';
 import { Clue } from './Clue';
 
-const title = css`
-	text-transform: capitalize;
-	${headlineBold17};
-	color: currentColor;
-`;
+const ClueHeader = memo(({ direction }: { direction: string }) => {
+	const theme = useTheme();
+	const { generateId } = useData();
+	console.log('ClueHeader');
+	return (
+		<label
+			css={css`
+				display: block;
+				text-transform: capitalize;
+				${headlineBold17};
+				color: currentColor;
+				border-top: 1px solid ${theme.border};
+				border-bottom: 1px dotted ${theme.border};
+				height: 2em;
+				margin-bottom: 0.5em;
+			`}
+			id={generateId(`${direction}-label`)}
+			htmlFor={generateId(`${direction}-hints`)}
+		>
+			{direction}
+		</label>
+	);
+});
 
 type Props = {
 	direction: Direction;
-	entries: Entries;
-	currentEntryId?: EntryID;
-	progress: Progress;
+	header?: ReactNode;
 };
 
-export const Clues = ({
-	direction,
-	entries,
-	currentEntryId,
-	progress,
-}: Props) => {
-	const generateId = useContext(GenerateIdContext);
-	const theme = useContext(ThemeContext);
+export const Clues = ({ direction, header }: Props) => {
+	const { entries, generateId } = useData();
+	const { progress } = useProgress();
+	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const { setCurrentCell } = useCurrentCell();
+
+	const cluesRef = useRef<HTMLDivElement | null>(null);
+
+	const handleClueClick = useCallback(
+		(event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			const entry = entries.get(
+				target
+					.closest('[role="option"][data-entry-id]')
+					?.getAttribute('data-entry-id') as EntryID,
+			);
+
+			if (entry) {
+				setCurrentEntryId(entry.id);
+				setCurrentCell({ x: entry.position.x, y: entry.position.y });
+			}
+		},
+		[entries, setCurrentCell, setCurrentEntryId],
+	);
+
+	useEffect(() => {
+		const clues = cluesRef.current;
+
+		clues?.addEventListener('click', handleClueClick);
+
+		return () => {
+			clues?.removeEventListener('click', handleClueClick);
+		};
+	}, [handleClueClick]);
 
 	const entriesForClues = [];
 
@@ -40,21 +85,8 @@ export const Clues = ({
 	}
 
 	return (
-		<div
-			css={css`
-				border-top: 1px solid ${theme.border};
-				min-width: ${theme.clueMinWidthRem}rem;
-				max-width: ${theme.clueMaxWidthRem}rem;
-			`}
-		>
-			<label
-				css={title}
-				id={generateId(`${direction}-label`)}
-				htmlFor={generateId(`${direction}-hints`)}
-			>
-				{direction}
-			</label>
-			<DashedLines count={1} color={theme.border} />
+		<div ref={cluesRef}>
+			{header ?? <ClueHeader direction={direction} />}
 			<div
 				tabIndex={0}
 				id={generateId(`${direction}-hints`)}
