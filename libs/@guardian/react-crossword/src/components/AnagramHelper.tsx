@@ -10,6 +10,7 @@ import { getProgressForGroup } from '../utils/getProgressForEntry';
 import { Button } from './Button';
 import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
+import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
 interface AnagramHelperProps {
@@ -158,6 +159,7 @@ export const AnagramHelper = ({
 					setProgressLetters={setProgressLetters}
 					progressLetters={progressLetters}
 				/>
+				<SolutionDisplayKey />
 			</div>
 		</div>
 	);

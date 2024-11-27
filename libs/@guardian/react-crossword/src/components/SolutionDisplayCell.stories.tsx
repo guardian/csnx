@@ -48,3 +48,31 @@ export const Temporary: Story = {
 		onSubmit: () => {},
 	},
 };
+
+export const NotMatching: Story = {
+	args: {
+		progressLetter: {
+			coords: { x: 0, y: 0 },
+			progress: 'T',
+			isTemporary: false,
+		},
+		candidateLetter: 'Z',
+		index: 0,
+		onKeyDown: () => {},
+		onSubmit: () => {},
+	},
+};
+
+export const TemporaryNotMatching: Story = {
+	args: {
+		progressLetter: {
+			coords: { x: 0, y: 0 },
+			progress: 'T',
+			isTemporary: true,
+		},
+		candidateLetter: 'Z',
+		index: 0,
+		onKeyDown: () => {},
+		onSubmit: () => {},
+	},
+};

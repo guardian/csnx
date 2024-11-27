@@ -14,7 +14,7 @@ type Story = StoryObj<typeof WordWheel>;
 
 export const Default: Story = {
 	args: {
-		candidateLetters: ['A'],
+		candidateLetters: ['A', 'B', 'C', 'D', 'E'],
 	},
 };
 
