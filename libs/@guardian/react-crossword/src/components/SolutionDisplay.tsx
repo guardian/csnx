@@ -83,6 +83,7 @@ export const SolutionDisplay = ({
 		<div
 			css={css`
 				display: flex;
+				justify-content: center;
 				flex-direction: row;
 				flex-wrap: wrap;
 				max-width: 90%;
