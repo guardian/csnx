@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
+import { useCallback } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
@@ -10,6 +11,7 @@ import { SolutionDisplayCell } from './SolutionDisplayCell';
 
 type SolutionDisplayProps = {
 	shuffled: boolean;
+	setShuffled: Dispatch<SetStateAction<boolean>>;
 	setProgressLetters: Dispatch<SetStateAction<AnagramHelperProgress[]>>;
 	progressLetters: AnagramHelperProgress[];
 	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
@@ -17,6 +19,7 @@ type SolutionDisplayProps = {
 };
 export const SolutionDisplay = ({
 	shuffled,
+	setShuffled,
 	setProgressLetters,
 	progressLetters,
 	setCandidateLetters,
@@ -63,6 +66,28 @@ export const SolutionDisplay = ({
 		});
 	};
 
+	const onDragEnd = useCallback(() => {
+		if (
+			!isUndefined(dragItemIndex) &&
+			!isUndefined(dragOverItemIndex) &&
+			dragOverItemIndex !== dragItemIndex
+		) {
+			setCandidateLetters((prev) => {
+				const newCandidateLetters = [...prev];
+				const dragCandidate = newCandidateLetters[dragItemIndex];
+				const dropCandidate = newCandidateLetters[dragOverItemIndex];
+				if (!isUndefined(dropCandidate) && !isUndefined(dragCandidate)) {
+					newCandidateLetters[dragItemIndex] = dropCandidate;
+					newCandidateLetters[dragOverItemIndex] = dragCandidate;
+				}
+				return newCandidateLetters;
+			});
+			setShuffled(true);
+		}
+		setDragOverItemIndex(undefined);
+		setDragItemIndex(undefined);
+	}, [dragItemIndex, dragOverItemIndex, setCandidateLetters, setShuffled]);
+
 	const updateProgressLetter = (event: FormEvent<HTMLButtonElement>) => {
 		const index = Number(event.currentTarget.getAttribute('data-index'));
 		const newProgressLetters = [...progressLetters];
@@ -107,14 +132,12 @@ export const SolutionDisplay = ({
 					<SolutionDisplayCell
 						key={index}
 						shuffled={shuffled}
-						setDragItemIndex={setDragItemIndex}
-						setDragOverItemIndex={setDragOverItemIndex}
-						dragItemIndex={dragItemIndex}
-						dragOverItemIndex={dragOverItemIndex}
+						onDragEnter={() => setDragOverItemIndex(index)}
+						onDragStart={() => setDragItemIndex(index)}
 						index={index}
+						onDragEnd={onDragEnd}
 						progressLetter={progressLetter}
 						candidateLetter={candidateLetters[index] ?? ''}
-						setCandidateLetters={setCandidateLetters}
 						onKeyDown={updateCandidateLetter}
 						onSubmit={updateProgressLetter}
 						ref={(element: HTMLInputElement) =>

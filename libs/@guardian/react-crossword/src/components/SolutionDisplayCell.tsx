@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import { isUndefined } from '@guardian/libs';
 import { SvgPadlock } from '@guardian/source/react-components';
-import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
+import type { FormEvent, KeyboardEvent } from 'react';
 import { forwardRef } from 'react';
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
@@ -12,11 +11,9 @@ export type SolutionDisplayCellProps = {
 	shuffled: boolean;
 	progressLetter: AnagramHelperProgress;
 	candidateLetter: string;
-	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
-	setDragItemIndex: Dispatch<SetStateAction<number | undefined>>;
-	setDragOverItemIndex: Dispatch<SetStateAction<number | undefined>>;
-	dragOverItemIndex: number | undefined;
-	dragItemIndex: number | undefined;
+	onDragEnd: () => void;
+	onDragStart: () => void;
+	onDragEnter: () => void;
 	index: number;
 	onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
 	onSubmit: (event: FormEvent<HTMLButtonElement>) => void;
@@ -88,11 +85,9 @@ export const SolutionDisplayCell = forwardRef<
 			shuffled,
 			progressLetter,
 			candidateLetter,
-			setDragItemIndex,
-			setDragOverItemIndex,
-			dragItemIndex,
-			dragOverItemIndex,
-			setCandidateLetters,
+			onDragStart,
+			onDragEnter,
+			onDragEnd,
 			onSubmit,
 			index,
 			onKeyDown,
@@ -119,39 +114,16 @@ export const SolutionDisplayCell = forwardRef<
 					ref={ref}
 					draggable={true}
 					value={candidateLetter}
-					onDragStart={() => {
-						setDragItemIndex(index);
-					}}
-					onDragEnter={() => {
-						setDragOverItemIndex(index);
-					}}
-					onDragEnd={() => {
-						if (
-							!isUndefined(dragItemIndex) &&
-							!isUndefined(dragOverItemIndex) &&
-							dragOverItemIndex !== dragItemIndex
-						) {
-							setCandidateLetters((prev) => {
-								const newCandidateLetters = [...prev];
-								const dragCandidate = newCandidateLetters[dragItemIndex];
-								const dropCandidate = newCandidateLetters[dragOverItemIndex];
-								if (dropCandidate && dragCandidate) {
-									newCandidateLetters[dragItemIndex] = dropCandidate;
-									newCandidateLetters[dragOverItemIndex] = dragCandidate;
-								}
-								return newCandidateLetters;
-							});
-						}
-						setDragOverItemIndex(undefined);
-						setDragItemIndex(undefined);
-					}}
+					onDragStart={onDragStart}
+					onDragEnter={onDragEnter}
+					onDragEnd={onDragEnd}
 					onChange={() => {}}
 					onKeyDown={onKeyDown}
 					maxLength={1}
 					tabIndex={index + 1}
 					data-index={index}
 					css={css`
-						cursor: ${candidateLetter === '' ? 'pointer' : 'grab'};
+						cursor: ${candidateLetter !== '' ? 'grab' : 'auto'};
 						box-sizing: border-box;
 						border: 1px solid ${theme.background};
 						border-radius: 4px;
@@ -163,7 +135,6 @@ export const SolutionDisplayCell = forwardRef<
 						caret-color: transparent;
 					`}
 				/>
-				{dragOverItemIndex}
 				{progressLetter.progress !== candidateLetter && shuffled && (
 					<Button
 						onSuccess={onSubmit}

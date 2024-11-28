@@ -178,6 +178,7 @@ export const AnagramHelper = ({
 				</div>
 				<SolutionDisplay
 					shuffled={shuffled}
+					setShuffled={setShuffled}
 					candidateLetters={candidateLetters}
 					setCandidateLetters={setCandidateLetters}
 					setProgressLetters={setProgressLetters}
