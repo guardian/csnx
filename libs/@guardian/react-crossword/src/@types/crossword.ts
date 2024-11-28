@@ -2,6 +2,8 @@ import type { CAPIEntry } from './CAPI';
 import type { Direction } from './Direction';
 import type { Entry, EntryID } from './Entry';
 
+export type Axis = 'x' | 'y';
+
 export type Coords = {
 	[k in Axis]: number;
 };
@@ -58,15 +60,11 @@ export type Theme = {
 	buttonBackground: string;
 	buttonBackgroundHover: string;
 	border: string;
-	clueMinWidthRem: number;
-	clueMaxWidthRem: number;
+	clueMinWidth: number;
+	clueMaxWidth: number;
 };
 
 export type Dimensions = {
 	rows: number;
 	cols: number;
 };
-
-export type Axis = 'x' | 'y';
-
-export type GetID = (arg0: string) => string;

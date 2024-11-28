@@ -1,16 +1,17 @@
 import { isUndefined, log } from '@guardian/libs';
-import { useCallback } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import { createContext, type ReactNode, useCallback, useContext } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Coords, Dimensions, Progress } from '../@types/crossword';
-import { useStoredState } from './useStoredState';
+import { useStoredState } from '../hooks/useStoredState';
 
-const getEmptyProgress = (dimensions: Dimensions): Progress => {
+const getNewProgress = (dimensions: Dimensions): Progress => {
 	return Array.from({ length: dimensions.cols }, () =>
 		Array.from({ length: dimensions.rows }, () => ''),
 	);
 };
 
-const isValidProgress = (
+const isValid = (
 	progress: unknown,
 	{ dimensions }: { dimensions: Dimensions },
 ): progress is Progress => {
@@ -63,23 +64,41 @@ const getInitialProgress = ({
 	dimensions: Dimensions;
 	userProgress?: Progress;
 }) => {
-	if (isValidProgress(userProgress, { dimensions })) {
+	if (isValid(userProgress, { dimensions })) {
 		return userProgress;
 	}
 
-	return getEmptyProgress(dimensions);
+	return getNewProgress(dimensions);
 };
 
-export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
-	const { id, dimensions } = data;
+type Context = {
+	progress: Progress;
+	setProgress: Dispatch<SetStateAction<Progress | undefined>>;
+	setCellProgress: ({ x, y, value }: Coords & { value: string }) => void;
+	clearProgress: () => void;
+	isStored: boolean;
+};
 
+const ProgressContext = createContext<Context | undefined>(undefined);
+
+export const ProgressProvider = ({
+	children,
+	id,
+	dimensions,
+	progress: userProgress,
+}: {
+	id: CAPICrossword['id'];
+	dimensions: Dimensions;
+	progress?: Progress;
+	children: ReactNode;
+}) => {
 	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
 		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
-		validator: (progress: unknown) => isValidProgress(progress, { dimensions }),
+		validator: (progress: unknown) => isValid(progress, { dimensions }),
 	});
 
 	const clearProgress = useCallback(() => {
-		setProgress(getEmptyProgress(dimensions));
+		setProgress(getNewProgress(dimensions));
 	}, [dimensions, setProgress]);
 
 	const setCellProgress = useCallback(
@@ -101,13 +120,29 @@ export const useProgress = (data: CAPICrossword, userProgress?: Progress) => {
 		[progress, setProgress],
 	);
 
-	return {
-		progress,
-		setProgress,
-		setCellProgress,
-		clearProgress,
-		isStored: isPersistent,
-	};
+	return (
+		<ProgressContext.Provider
+			value={{
+				progress,
+				setProgress,
+				setCellProgress,
+				clearProgress,
+				isStored: isPersistent,
+			}}
+		>
+			{children}
+		</ProgressContext.Provider>
+	);
 };
 
-export type UseProgress = ReturnType<typeof useProgress>;
+export const useProgress = () => {
+	const context = useContext(ProgressContext);
+
+	if (!context) {
+		throw new Error(
+			'ProgressContext does not exist. Have you used a Crossword subcomponent outside a Crossword component?',
+		);
+	}
+
+	return context;
+};

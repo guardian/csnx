@@ -1,35 +1,54 @@
 import { css } from '@emotion/react';
-import { headlineBold17 } from '@guardian/source/foundations';
-import { DashedLines } from '@guardian/source-development-kitchen/react-components';
-import { useContext } from 'react';
-import type { Entries, Progress } from '../@types/crossword';
+import type { ReactNode } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
-import { GenerateIdContext } from '../context/GenerateIdContext';
-import { ThemeContext } from '../context/ThemeContext';
+import { useCurrentCell } from '../context/CurrentCell';
+import { useCurrentClue } from '../context/CurrentClue';
+import { useData } from '../context/Data';
+import { useProgress } from '../context/Progress';
 import { Clue } from './Clue';
-
-const title = css`
-	text-transform: capitalize;
-	${headlineBold17};
-	color: currentColor;
-`;
 
 type Props = {
 	direction: Direction;
-	entries: Entries;
-	currentEntryId?: EntryID;
-	progress: Progress;
+	header?: ReactNode;
 };
 
-export const Clues = ({
-	direction,
-	entries,
-	currentEntryId,
-	progress,
-}: Props) => {
-	const generateId = useContext(GenerateIdContext);
-	const theme = useContext(ThemeContext);
+export const Clues = ({ direction, header }: Props) => {
+	const { entries, getId } = useData();
+	const { progress } = useProgress();
+	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const { setCurrentCell } = useCurrentCell();
+
+	const cluesRef = useRef<HTMLDivElement | null>(null);
+
+	const handleClueClick = useCallback(
+		(event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			const entry = entries.get(
+				target
+					.closest('[role="option"][data-entry-id]')
+					?.getAttribute('data-entry-id') as EntryID,
+			);
+
+			if (entry) {
+				setCurrentEntryId(entry.id);
+				setCurrentCell({ x: entry.position.x, y: entry.position.y });
+			}
+		},
+		[entries, setCurrentCell, setCurrentEntryId],
+	);
+
+	useEffect(() => {
+		const clues = cluesRef.current;
+
+		clues?.addEventListener('click', handleClueClick);
+
+		return () => {
+			clues?.removeEventListener('click', handleClueClick);
+		};
+	}, [handleClueClick]);
 
 	const entriesForClues = [];
 
@@ -40,27 +59,27 @@ export const Clues = ({
 	}
 
 	return (
-		<div
-			css={css`
-				border-top: 1px solid ${theme.border};
-				min-width: ${theme.clueMinWidthRem}rem;
-				max-width: ${theme.clueMaxWidthRem}rem;
-			`}
-		>
+		<div ref={cluesRef}>
 			<label
-				css={title}
-				id={generateId(`${direction}-label`)}
-				htmlFor={generateId(`${direction}-hints`)}
+				css={css`
+					display: block;
+					color: currentColor;
+					text-transform: capitalize;
+				`}
+				id={getId(`${direction}-label`)}
+				htmlFor={getId(`${direction}-hints`)}
 			>
-				{direction}
+				{header ?? direction}
 			</label>
-			<DashedLines count={1} color={theme.border} />
 			<div
 				tabIndex={0}
-				id={generateId(`${direction}-hints`)}
+				id={getId(`${direction}-hints`)}
 				role="listbox"
-				aria-labelledby={generateId(`${direction}-label`)}
-				aria-activedescendant={currentEntryId && generateId(currentEntryId)}
+				aria-labelledby={getId(`${direction}-label`)}
+				aria-activedescendant={
+					// this must be undefined or match the format used for id in ./Clue.tsx
+					currentEntryId && getId(currentEntryId)
+				}
 			>
 				{entriesForClues
 					.sort((a, b) => a.number - b.number)

@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 import type { Cell as CellType } from '../@types/crossword';
-import { ThemeContext } from '../context/ThemeContext';
+import { useTheme } from '../context/Theme';
 
 export type CellProps = {
 	data: CellType;
@@ -26,7 +26,7 @@ const CellComponent = ({
 	isHighlighted,
 	isActive,
 }: CellProps) => {
-	const theme = useContext(ThemeContext);
+	const theme = useTheme();
 
 	const backgroundColor = isUndefined(data.group)
 		? 'transparent'
@@ -53,7 +53,6 @@ const CellComponent = ({
 					dy={Math.max(9, theme.cellSize * 0.22)}
 					fill={theme.text}
 					css={css`
-						color: currentcolor;
 						${textSans12};
 						font-size: ${Math.max(9, Math.round(theme.cellSize * 0.2))}px;
 					`}
@@ -67,8 +66,8 @@ const CellComponent = ({
 				dy={theme.cellSize * 0.07}
 				textAnchor="middle"
 				dominantBaseline="middle"
+				fill={theme.text}
 				css={css`
-					color: currentcolor;
 					${textSans12};
 					font-size: ${theme.cellSize * 0.6}px;
 				`}
