@@ -1,26 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useContext } from 'react';
 import type { Theme } from '../@types/crossword';
-import { ThemeContext } from '../context/ThemeContext';
+import { ThemeProvider, useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
+import type { CellProps } from './Cell';
 import { Cell } from './Cell';
 
 const meta: Meta<typeof Cell> = {
 	component: Cell,
 	title: 'Components/Cell',
-	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
-	},
 	parameters: {
 		theme: defaultTheme,
 	},
 	decorators: [
 		(Story) => {
-			const theme = useContext(ThemeContext);
+			const theme = useTheme();
 
 			return (
 				<svg
@@ -38,104 +31,84 @@ const meta: Meta<typeof Cell> = {
 		},
 		(Story, { parameters }) => {
 			return (
-				<ThemeContext.Provider value={parameters.theme as Theme}>
+				<ThemeProvider theme={parameters.theme as Theme}>
 					<Story />
-				</ThemeContext.Provider>
+				</ThemeProvider>
 			);
 		},
 	],
 };
 
-export default meta;
-type Story = StoryObj<typeof Cell>;
-
-export const Default: Story = {};
-
-export const Black: Story = {
-	args: {
-		data: {
-			x: 0,
-			y: 0,
-		},
+const args: CellProps = {
+	x: 0,
+	y: 0,
+	data: {
+		x: 0,
+		y: 0,
+		group: ['1-across'],
 	},
 };
 
-export const Focussed: Story = {
+export default meta;
+type Story = StoryObj<typeof Cell>;
+
+export const Default: Story = { args };
+
+export const Black: Story = {
 	args: {
+		...args,
 		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
+			...args.data,
+			group: undefined,
 		},
-		isFocused: true,
 	},
 };
 
 export const Highlighted: Story = {
 	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
+		...args,
 		isHighlighted: true,
 	},
 };
 
 export const Active: Story = {
 	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
+		...args,
 		isActive: true,
 		isHighlighted: true,
-	},
-};
-
-export const ActiveAndFocused: Story = {
-	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
-		isActive: true,
-		isHighlighted: true,
-		isFocused: true,
 	},
 };
 
 export const WithNumber: Story = {
 	args: {
+		...args,
 		data: {
-			x: 0,
-			y: 0,
+			...args.data,
 			number: 1,
-			group: ['1-across'],
 		},
 	},
 };
 
 export const Progress: Story = {
 	args: {
-		data: {
-			x: 0,
-			y: 0,
-			group: ['1-across'],
-		},
+		...args,
 		guess: 'A',
+	},
+};
+
+export const DiacriticProgress: Story = {
+	args: {
+		...args,
+		guess: 'Å',
 	},
 };
 
 export const ProgressWithNumber: Story = {
 	args: {
+		...args,
 		data: {
-			x: 0,
-			y: 0,
+			...args.data,
 			number: 1,
-			group: ['1-across'],
 		},
 		guess: 'A',
 	},
@@ -143,11 +116,10 @@ export const ProgressWithNumber: Story = {
 
 export const BigCellProgressWithNumber: Story = {
 	args: {
+		...args,
 		data: {
-			x: 0,
-			y: 0,
+			...args.data,
 			number: 1,
-			group: ['1-across'],
 		},
 		guess: 'A',
 	},
@@ -155,6 +127,23 @@ export const BigCellProgressWithNumber: Story = {
 		theme: {
 			...defaultTheme,
 			cellSize: 50,
+		},
+	},
+};
+
+export const HugeCellProgressWithNumber: Story = {
+	args: {
+		...args,
+		data: {
+			...args.data,
+			number: 1,
+		},
+		guess: 'A',
+	},
+	parameters: {
+		theme: {
+			...defaultTheme,
+			cellSize: 100,
 		},
 	},
 };

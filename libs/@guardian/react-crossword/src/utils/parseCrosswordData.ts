@@ -3,6 +3,7 @@ import type {
 	Cell,
 	Cells,
 	Coords,
+	Dimensions,
 	Entries,
 	Separators,
 } from '../@types/crossword';
@@ -12,7 +13,10 @@ import type {
  *
  * We're doing it all in here to avoid having to loop through the data multiple times.
  */
-export const parseCrosswordData = (data: CAPICrossword) => {
+export const parseCrosswordData = (data: {
+	dimensions: Dimensions;
+	entries: CAPICrossword['entries'];
+}) => {
 	/**
 	 * A map of all entries in the crossword, indexed by their id.
 	 */

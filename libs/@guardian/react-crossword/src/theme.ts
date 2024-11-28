@@ -3,7 +3,7 @@ import type { Theme } from './@types/crossword';
 
 export const defaultTheme: Theme = {
 	background: palette.neutral[7],
-	text: palette.neutral[7],
+	text: palette.neutral[10],
 	errorText: 'red',
 	UnsavedBackground: 'lightPink',
 	foreground: palette.neutral[100],
@@ -16,6 +16,6 @@ export const defaultTheme: Theme = {
 	buttonBackgroundHover: 'lightpink',
 	border: 'orchid',
 	anagramHelperBackground: 'lightcoral',
-	clueMinWidthRem: 15,
-	clueMaxWidthRem: 25,
+	clueMinWidth: 240,
+	clueMaxWidth: 480,
 };

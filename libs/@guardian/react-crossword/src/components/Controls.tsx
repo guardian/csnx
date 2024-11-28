@@ -1,28 +1,17 @@
-import { css } from '@emotion/react';
 import type { ThemeButton } from '@guardian/source/react-components';
-import { useCallback, useContext } from 'react';
-import type { Cell, Cells } from '../@types/crossword';
-import type { EntryID } from '../@types/Entry';
-import { ProgressContext } from '../context/ProgressContext';
-import { ThemeContext } from '../context/ThemeContext';
+import { useCallback } from 'react';
+import type { Cell, Progress } from '../@types/crossword';
+import { useCurrentClue } from '../context/CurrentClue';
+import { useData } from '../context/Data';
+import { useProgress } from '../context/Progress';
+import { useTheme } from '../context/Theme';
 import { Button } from './Button';
 
-type ControlProps = {
-	solutionsAvailable: boolean;
-	cells: Cells;
-	currentEntryId?: EntryID;
-	showAnagramHelper: () => void;
-};
-
-export const Controls = ({
-	solutionsAvailable,
-	cells,
-	currentEntryId,
-	showAnagramHelper,
-}: ControlProps) => {
-	const { progress, updateProgress, clearProgress } =
-		useContext(ProgressContext);
-	const theme = useContext(ThemeContext);
+const ClueControls = () => {
+	const theme = useTheme();
+	const { cells, solutionAvailable } = useData();
+	const { progress, setCellProgress, clearProgress } = useProgress();
+	const { currentEntryId } = useCurrentClue();
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
 		backgroundPrimary: theme.buttonBackground,
@@ -32,50 +21,40 @@ export const Controls = ({
 	const revealEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
+				setCellProgress({
 					x: cell.x,
 					y: cell.y,
 					value: cell.solution ?? '',
 				});
 			}
 		}
-	}, [cells, currentEntryId, updateProgress]);
-
-	const revealGrid = useCallback(() => {
-		for (const cell of cells.values()) {
-			updateProgress({
-				x: cell.x,
-				y: cell.y,
-				value: cell.solution ?? '',
-			});
-		}
-	}, [cells, updateProgress]);
+	}, [cells, currentEntryId, setCellProgress]);
 
 	const clearEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (currentEntryId && cell.group?.includes(currentEntryId)) {
-				updateProgress({
+				setCellProgress({
 					x: cell.x,
 					y: cell.y,
 					value: '',
 				});
 			}
 		}
-	}, [cells, currentEntryId, updateProgress]);
+	}, [cells, currentEntryId, setCellProgress]);
 
 	const checkCell = useCallback(
 		(cell: Cell) => {
 			const currentProgress = progress[cell.x]?.[cell.y];
 			const isCorrect = currentProgress && currentProgress === cell.solution;
 			if (!isCorrect) {
-				updateProgress({
+				setCellProgress({
 					x: cell.x,
 					y: cell.y,
 					value: '',
 				});
 			}
 		},
-		[progress, updateProgress],
+		[progress, setCellProgress],
 	);
 
 	const checkEntry = useCallback(() => {
@@ -86,33 +65,14 @@ export const Controls = ({
 		}
 	}, [cells, checkCell, currentEntryId]);
 
-	const checkGrid = useCallback(() => {
-		for (const cell of cells.values()) {
-			checkCell(cell);
-		}
-	}, [cells, checkCell]);
-
 	return (
-		<div
-			css={css`
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-around;
-				gap: 4px;
-				* {
-					height: 30px;
-					flex: 1;
-					min-width: fit-content;
-					max-width: 200px;
-				}
-			`}
-		>
+		<>
 			{currentEntryId && (
 				<>
 					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
 						Clear Word
 					</Button>
-					{solutionsAvailable && (
+					{solutionAvailable && (
 						<>
 							<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
 								Check Word
@@ -124,10 +84,53 @@ export const Controls = ({
 					)}
 				</>
 			)}
-			<Button onSuccess={showAnagramHelper} theme={crosswordButtonTheme}>
+			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
-			{solutionsAvailable && (
+		</>
+	);
+};
+
+const GridControls = () => {
+	const { cells, solutionAvailable } = useData();
+	const { progress, setProgress, setCellProgress, clearProgress } =
+		useProgress();
+
+	const revealGrid = useCallback(() => {
+		const newProgress: Progress = [];
+
+		for (const cell of cells.values()) {
+			const column = (newProgress[cell.x] ||= []);
+			column[cell.y] = cell.solution ?? '';
+		}
+
+		setProgress(newProgress);
+	}, [cells, setProgress]);
+
+	const checkCell = useCallback(
+		(cell: Cell) => {
+			const currentProgress = progress[cell.x]?.[cell.y];
+			const isCorrect = currentProgress && currentProgress === cell.solution;
+			if (!isCorrect) {
+				setCellProgress({
+					x: cell.x,
+					y: cell.y,
+					value: '',
+				});
+			}
+		},
+		[progress, setCellProgress],
+	);
+
+	const checkGrid = useCallback(() => {
+		for (const cell of cells.values()) {
+			checkCell(cell);
+		}
+	}, [cells, checkCell]);
+
+	return (
+		<>
+			{solutionAvailable && (
 				<>
 					<Button onSuccess={checkGrid} requireConfirmation={true}>
 						Check All
@@ -140,6 +143,18 @@ export const Controls = ({
 			<Button onSuccess={clearProgress} requireConfirmation={true}>
 				Clear All
 			</Button>
-		</div>
+		</>
 	);
 };
+
+export const Controls = () => {
+	return (
+		<>
+			<ClueControls />
+			<GridControls />
+		</>
+	);
+};
+
+Controls.Clues = ClueControls;
+Controls.Grid = GridControls;
