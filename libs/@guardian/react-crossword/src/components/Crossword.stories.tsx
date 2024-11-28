@@ -59,8 +59,20 @@ export const MultiplePlayersRow: StoryFn = () => {
 	);
 };
 
-export const CustomLayout: StoryFn = () => {
-	const Header = (props: { children: ReactNode }) => (
+export const CustomLayoutRaw: StoryFn = () => {
+	return (
+		<Crossword data={data} progress={[]}>
+			<Crossword.Grid />
+			<Crossword.Controls />
+			<Crossword.SavedMessage />
+			<Crossword.Clues direction="across" />
+			<Crossword.Clues direction="down" />
+		</Crossword>
+	);
+};
+
+export const CustomisedLayout: StoryFn = () => {
+	const CluesHeader = (props: { children: ReactNode }) => (
 		<h2
 			style={{
 				fontFamily: 'monospace',
@@ -77,11 +89,15 @@ export const CustomLayout: StoryFn = () => {
 			{...props}
 		/>
 	);
+
 	return (
 		<Crossword data={data} progress={[]}>
 			<div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
 				<div style={{ flex: 1, minWidth: '15em' }}>
-					<Crossword.Clues direction="across" header={<Header>👉</Header>} />
+					<Crossword.Clues
+						direction="across"
+						header={<CluesHeader>👉</CluesHeader>}
+					/>
 				</div>
 				<div style={{ flexBasis: 496, minWidth: '15em' }}>
 					<Crossword.Grid />
@@ -99,7 +115,10 @@ export const CustomLayout: StoryFn = () => {
 					</div>
 				</div>
 				<div style={{ flex: 1, minWidth: '15em' }}>
-					<Crossword.Clues direction="down" header={<Header>👇</Header>} />
+					<Crossword.Clues
+						direction="down"
+						header={<CluesHeader>👇</CluesHeader>}
+					/>
 				</div>
 			</div>
 		</Crossword>

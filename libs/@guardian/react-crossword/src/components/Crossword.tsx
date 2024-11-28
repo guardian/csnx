@@ -66,8 +66,14 @@ export const Crossword = ({
 							</Layout.SavedMessage>
 						</Layout.Grid>
 						<Layout.Clues>
-							<Clues direction="across" />
-							<Clues direction="down" />
+							<Clues
+								direction="across"
+								header={<Layout.CluesHeader direction="across" />}
+							/>
+							<Clues
+								direction="down"
+								header={<Layout.CluesHeader direction="down" />}
+							/>
 						</Layout.Clues>
 					</Layout.Wrapper>
 				)}

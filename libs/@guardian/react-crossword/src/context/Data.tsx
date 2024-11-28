@@ -15,7 +15,7 @@ type Context = {
 	separators: Separators;
 	solutionAvailable: boolean;
 	dimensions: Dimensions;
-	generateId: (id: string) => string;
+	getId: (id: string) => string;
 };
 
 const DataContext = createContext<Context | undefined>(undefined);
@@ -39,7 +39,7 @@ export const DataProvider = ({
 	);
 
 	// Utility function to generate unique IDs in the context of a single crossword.
-	const generateId = useCallback((_: string) => `${_}-${id}`, [id]);
+	const getId = useCallback((_: string) => `${_}-${id}`, [id]);
 
 	return (
 		<DataContext.Provider
@@ -48,7 +48,7 @@ export const DataProvider = ({
 				entries,
 				cells,
 				separators,
-				generateId,
+				getId,
 				dimensions,
 			}}
 		>

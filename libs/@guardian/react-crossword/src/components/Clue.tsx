@@ -18,12 +18,15 @@ const ClueComponent = ({
 	isComplete,
 }: Props) => {
 	const theme = useTheme();
-	const { generateId } = useData();
+	const { getId } = useData();
 
 	return (
 		<div
 			tabIndex={-1}
-			id={generateId(`${entry.id}`)}
+			id={
+				// this must match the format used for aria-activedescendant in ./Clues.tsx
+				getId(`${entry.id}`)
+			}
 			data-entry-id={entry.id}
 			role="option"
 			aria-selected={isHighlighted}

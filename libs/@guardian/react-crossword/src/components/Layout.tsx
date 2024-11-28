@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
-import { space } from '@guardian/source/foundations';
+import { headlineBold17, space } from '@guardian/source/foundations';
 import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 import { memo } from 'react';
+import type { Direction } from '../@types/Direction';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 
@@ -106,6 +107,24 @@ const Clues = memo(({ children }: { children: ReactNode }) => {
 	);
 });
 
+const CluesHeader = memo(({ direction }: { direction: Direction }) => {
+	const theme = useTheme();
+
+	return (
+		<div
+			css={css`
+				${headlineBold17};
+				border-top: 1px solid ${theme.border};
+				border-bottom: 1px dotted ${theme.border};
+				height: 2em;
+				margin-bottom: 0.5em;
+			`}
+		>
+			{direction}
+		</div>
+	);
+});
+
 const Controls = memo(({ children }: { children: ReactNode }) => {
 	return (
 		<div
@@ -143,6 +162,7 @@ export const Layout = {
 	Wrapper,
 	Grid,
 	Clues,
+	CluesHeader,
 	Controls,
 	SavedMessage,
 };

@@ -1,39 +1,13 @@
 import { css } from '@emotion/react';
-import { headlineBold17 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
-import { useTheme } from '../context/Theme';
 import { Clue } from './Clue';
-
-const ClueHeader = memo(({ direction }: { direction: string }) => {
-	const theme = useTheme();
-	const { generateId } = useData();
-	console.log('ClueHeader');
-	return (
-		<label
-			css={css`
-				display: block;
-				text-transform: capitalize;
-				${headlineBold17};
-				color: currentColor;
-				border-top: 1px solid ${theme.border};
-				border-bottom: 1px dotted ${theme.border};
-				height: 2em;
-				margin-bottom: 0.5em;
-			`}
-			id={generateId(`${direction}-label`)}
-			htmlFor={generateId(`${direction}-hints`)}
-		>
-			{direction}
-		</label>
-	);
-});
 
 type Props = {
 	direction: Direction;
@@ -41,7 +15,7 @@ type Props = {
 };
 
 export const Clues = ({ direction, header }: Props) => {
-	const { entries, generateId } = useData();
+	const { entries, getId } = useData();
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
@@ -86,13 +60,26 @@ export const Clues = ({ direction, header }: Props) => {
 
 	return (
 		<div ref={cluesRef}>
-			{header ?? <ClueHeader direction={direction} />}
+			<label
+				css={css`
+					display: block;
+					color: currentColor;
+					text-transform: capitalize;
+				`}
+				id={getId(`${direction}-label`)}
+				htmlFor={getId(`${direction}-hints`)}
+			>
+				{header ?? direction}
+			</label>
 			<div
 				tabIndex={0}
-				id={generateId(`${direction}-hints`)}
+				id={getId(`${direction}-hints`)}
 				role="listbox"
-				aria-labelledby={generateId(`${direction}-label`)}
-				aria-activedescendant={currentEntryId && generateId(currentEntryId)}
+				aria-labelledby={getId(`${direction}-label`)}
+				aria-activedescendant={
+					// this must be undefined or match the format used for id in ./Clue.tsx
+					currentEntryId && getId(currentEntryId)
+				}
 			>
 				{entriesForClues
 					.sort((a, b) => a.number - b.number)
