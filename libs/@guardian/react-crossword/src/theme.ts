@@ -13,6 +13,6 @@ export const defaultTheme: Theme = {
 	buttonBackground: 'hotpink',
 	buttonBackgroundHover: 'lightpink',
 	border: 'orchid',
-	clueMinWidthRem: 15,
-	clueMaxWidthRem: 25,
+	clueMinWidth: 240,
+	clueMaxWidth: 480,
 };

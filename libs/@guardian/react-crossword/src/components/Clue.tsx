@@ -1,9 +1,8 @@
 import { css } from '@emotion/react';
-import { textSans14 } from '@guardian/source/foundations';
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import { GenerateIdContext } from '../context/GenerateIdContext';
-import { ThemeContext } from '../context/ThemeContext';
+import { useData } from '../context/Data';
+import { useTheme } from '../context/Theme';
 
 interface Props {
 	entry: CAPIEntry;
@@ -18,13 +17,16 @@ const ClueComponent = ({
 	isActive,
 	isComplete,
 }: Props) => {
-	const theme = useContext(ThemeContext);
-	const generateId = useContext(GenerateIdContext);
+	const theme = useTheme();
+	const { getId } = useData();
 
 	return (
 		<div
 			tabIndex={-1}
-			id={generateId(`${entry.id}`)}
+			id={
+				// this must match the format used for aria-activedescendant in ./Clues.tsx
+				getId(`${entry.id}`)
+			}
 			data-entry-id={entry.id}
 			role="option"
 			aria-selected={isHighlighted}
@@ -36,8 +38,8 @@ const ClueComponent = ({
 						: 'transparent'};
 				cursor: ${isHighlighted ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};
-				${textSans14};
-				padding: 0.5rem 0;
+
+				padding: 0.5em 0;
 				color: currentColor;
 			`}
 		>
@@ -45,8 +47,8 @@ const ClueComponent = ({
 				css={css`
 					font-weight: bold;
 					display: table-cell;
-					width: 1.25rem;
-					padding-right: 0.625rem;
+					width: 1.25em;
+					padding-right: 0.625em;
 				`}
 			>
 				{entry.humanNumber}

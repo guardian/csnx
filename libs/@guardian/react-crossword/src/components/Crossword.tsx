@@ -1,398 +1,93 @@
 import { css } from '@emotion/react';
-import { isUndefined } from '@guardian/libs';
-import { space, textSans12 } from '@guardian/source/foundations';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Coords, Progress, Theme } from '../@types/crossword';
-import type { Direction } from '../@types/Direction';
-import type { EntryID } from '../@types/Entry';
-import { GenerateIdProvider } from '../context/GenerateIdContext';
-import { ThemeContext } from '../context/ThemeContext';
-import { useProgress } from '../hooks/useProgress';
-import { defaultTheme } from '../theme';
-import { parseCrosswordData } from '../utils/parseCrosswordData';
+import type { Progress, Theme } from '../@types/crossword';
+import { ContextProvider } from '../context/ContextProvider';
+import { useProgress } from '../context/Progress';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
-
-// define and cache the regex for valid keydown events
-const keyDownRegex = /^[A-Za-zÀ-ÿ0-9]$/;
+import { Layout } from './Layout';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
 	progress?: Progress;
+	children?: ReactNode;
 } & Partial<Theme>;
 
-export const Crossword = ({
-	data,
-	progress: userProgress,
-	...userTheme
-}: CrosswordProps) => {
-	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
-		data.entries[0].id,
-	);
-
-	const [currentCell, setCurrentCell] = useState<Coords | undefined>(
-		data.entries[0].position,
-	);
-
-	const { progress, setProgress, setCellProgress, clearProgress, isStored } =
-		useProgress(data, userProgress);
-
-	const workingDirectionRef = useRef<Direction>('across');
-	const applicationRef = useRef<HTMLDivElement | null>(null);
-
-	const { entries, cells, separators } = useMemo(
-		() => parseCrosswordData(data),
-		[data],
-	);
-
-	const theme = useMemo<Theme>(
-		() => ({ ...defaultTheme, ...userTheme }),
-		[userTheme],
-	);
-
-	// keep workingDirectionRef.current up to date with the current entry
-	useEffect(() => {
-		if (currentEntryId) {
-			workingDirectionRef.current =
-				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
-		}
-	}, [currentEntryId, entries]);
-
-	const gridWidth = Math.max(
-		(theme.cellSize + theme.gutter) * data.dimensions.cols + theme.gutter,
-		300,
-	);
-
-	const moveFocus = useCallback(
-		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
-			if (!currentCell) {
-				return;
-			}
-
-			const newX = currentCell.x + delta.x;
-			const newY = currentCell.y + delta.y;
-			const newCell = cells.getByCoords({ x: newX, y: newY });
-
-			if (!newCell) {
-				return;
-			}
-
-			// TODO: this logic is very similar to the click handler entry selection stuff.
-			// maybe we can refactor this out into a shared function?
-			const possibleAcross = newCell.group?.find((group) =>
-				group.includes('across'),
-			);
-			const possibleDown = newCell.group?.find((group) =>
-				group.includes('down'),
-			);
-
-			// If we're typing, we only want to move focus if the new cell is an entry square
-			if (isTyping && !possibleDown && !possibleAcross) {
-				return;
-			}
-
-			if (delta.x !== 0) {
-				setCurrentCell({ x: newX, y: newY });
-				setCurrentEntryId(possibleAcross ?? possibleDown);
-				return;
-			}
-
-			if (delta.y !== 0) {
-				setCurrentCell({ x: newX, y: newY });
-				setCurrentEntryId(possibleDown ?? possibleAcross);
-				return;
-			}
-		},
-		[currentCell, cells],
-	);
-
-	const handleTab = useCallback(() => {
-		return;
-	}, []);
-
-	const handleKeyDown = useCallback(
-		(event: KeyboardEvent): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) {
-				return;
-			}
-
-			if (!currentCell) {
-				return;
-			}
-
-			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
-			let preventDefault = true;
-			const { key } = event;
-
-			switch (key) {
-				case 'ArrowUp':
-					moveFocus({ delta: { x: 0, y: -1 } });
-					break;
-				case 'ArrowDown':
-					moveFocus({ delta: { x: 0, y: 1 } });
-					break;
-				case 'ArrowLeft':
-					moveFocus({ delta: { x: -1, y: 0 } });
-					break;
-				case 'ArrowRight':
-					moveFocus({ delta: { x: 1, y: 0 } });
-					break;
-				case ' ':
-				case 'Tab':
-					handleTab();
-					break;
-				case 'Backspace':
-				case 'Delete': {
-					if (!currentEntryId) {
-						return;
-					}
-					setCellProgress({ ...currentCell, value: '' });
-					if (key === 'Backspace') {
-						if (direction === 'across') {
-							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
-						}
-						if (direction === 'down') {
-							moveFocus({ delta: { x: 0, y: -1 }, isTyping: true });
-						}
-					}
-					break;
-				}
-				default: {
-					if (currentEntryId && keyDownRegex.test(key)) {
-						setCellProgress({ ...currentCell, value: key.toUpperCase() });
-						if (direction === 'across') {
-							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
-						}
-						if (direction === 'down') {
-							moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
-						}
-					} else {
-						preventDefault = false;
-					}
-					break;
-				}
-			}
-
-			if (preventDefault) {
-				event.preventDefault();
-			}
-		},
-		[currentCell, currentEntryId, moveFocus, handleTab, setCellProgress],
-	);
-
-	const selectClickedCell = useCallback(
-		(event: MouseEvent) => {
-			// The 'g' elements in the grid SVG are the cells, and we have set
-			// data-x and data-y attributes on them to represent their position
-			// in the grid.
-			//
-			// _Note that this is not same as the x and y attributes of the SVG
-			// element itself, which are the position of the top left corner of
-			// the element._
-			//
-			// We can use the event target to find the closest 'g' element, and
-			// then get the data-x and data-y attributes to determine which cell
-			// was clicked.
-
-			const { target } = event;
-
-			if (!(target instanceof Element)) {
-				return;
-			}
-			const g = target.closest('[data-x][data-y]');
-
-			if (!g) {
-				return;
-			}
-
-			const clickedCellX = Number(g.getAttribute('data-x'));
-			const clickedCellY = Number(g.getAttribute('data-y'));
-
-			// We may need to update the current entry based on the cell that
-			// was clicked. We'll start by assuming that the current entry still
-			// applies:
-			let newEntryId = currentEntryId;
-
-			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords({
-				x: clickedCellX,
-				y: clickedCellY,
-			})?.group;
-
-			// If there are no entries for this cell (i.e. it's a black one),
-			// set the selected entry to undefined
-			if (isUndefined(entryIdsForCell)) {
-				newEntryId = undefined;
-			}
-
-			// This is not a black cell, so we should check if we need to do
-			// anything about the currently selected entry...
-
-			// If there is only one entry for this cell, select it:
-			else if (entryIdsForCell.length === 1) {
-				newEntryId = entryIdsForCell[0];
-			}
-
-			// There are multiple entries for this cell, so we need to decide
-			// which one to select...
-
-			// If we clicked the cell we were already on, switch to the next
-			// entry for this cell, if there is one (i.e. toggle between up
-			// and down entries):
-			else if (
-				currentCell?.x === clickedCellX &&
-				currentCell.y === clickedCellY
-			) {
-				const alternateEntryId = entryIdsForCell.find(
-					(id) => id !== currentEntryId,
-				);
-
-				if (alternateEntryId) {
-					newEntryId = alternateEntryId;
-				}
-			}
-
-			// We're in a new cell...
-
-			// If we don't have a current entry to worry about, or if the
-			// current entry does not apply to the new cell, get a new new
-			// entry. We'll try to keep the same direction, if possible:
-			else if (!currentEntryId || !entryIdsForCell.includes(currentEntryId)) {
-				const currentDirection = workingDirectionRef.current;
-				const newEntryIdOfCurrentDirection = entryIdsForCell.find((id) =>
-					id.endsWith(currentDirection),
-				);
-				newEntryId = newEntryIdOfCurrentDirection ?? entryIdsForCell[0];
-			}
-
-			// We're done.
-
-			// Save the direction of the final entry, if there is one:
-			const newEntryDirection = newEntryId?.split('-')[1];
-			if (newEntryDirection === 'across' || newEntryDirection === 'down') {
-				workingDirectionRef.current = newEntryDirection;
-			}
-
-			// Set the new current cell and entry:
-			setCurrentCell({ x: clickedCellX, y: clickedCellY });
-			setCurrentEntryId(newEntryId);
-		},
-		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
-	);
-
-	const handleClueClick = useCallback(
-		(event: MouseEvent) => {
-			const target = event.target as HTMLElement;
-
-			const entry = entries.get(
-				target
-					.closest('[role="option"][data-entry-id]')
-					?.getAttribute('data-entry-id') as EntryID,
-			);
-
-			if (entry) {
-				setCurrentEntryId(entry.id);
-				setCurrentCell({ x: entry.position.x, y: entry.position.y });
-			}
-		},
-		[entries],
-	);
-
-	useEffect(() => {
-		const application = applicationRef.current;
-
-		application?.addEventListener('keydown', handleKeyDown);
-		application?.addEventListener('click', handleClueClick);
-		application?.addEventListener('click', selectClickedCell);
-
-		return () => {
-			application?.removeEventListener('keydown', handleKeyDown);
-			application?.removeEventListener('click', handleClueClick);
-			application?.removeEventListener('click', selectClickedCell);
-		};
-	}, [handleKeyDown, handleClueClick, selectClickedCell]);
+const SavedMessage = () => {
+	const { isStored } = useProgress();
 
 	return (
-		<ThemeContext.Provider value={theme}>
-			<GenerateIdProvider id={data.id}>
-				<div
-					role="application"
-					ref={applicationRef}
-					css={css`
-						display: flex;
-						flex-direction: row;
-						flex-wrap: wrap;
-						min-width: ${theme.clueMinWidthRem}rem;
-						gap: ${space[4]}px;
-						align-content: flex-start;
-						color: ${theme.text};
-					`}
-				>
-					<div
-						css={css`
-							max-width: ${gridWidth}px;
-							flex-basis: 100%;
-						`}
-					>
-						<Grid
-							setCurrentCell={setCurrentCell}
-							setCurrentEntryId={setCurrentEntryId}
-							cells={cells}
-							entries={entries}
-							separators={separators}
-							currentCell={currentCell}
-							currentEntryId={currentEntryId}
-							dimensions={data.dimensions}
-							progress={progress}
-						/>
-						<Controls
-							cells={cells}
-							solutionsAvailable={data.solutionAvailable}
-							currentEntryId={currentEntryId}
-							progress={progress}
-							setProgress={setProgress}
-							setCellProgress={setCellProgress}
-							clearProgress={clearProgress}
-						/>
-						<p
-							css={css`
-								${textSans12};
-								font-style: italic;
-								color: ${theme.text};
-							`}
-						>
-							{isStored
-								? 'Crosswords are saved automatically.'
-								: 'Crossword will not be saved.'}
-						</p>
-					</div>
-					<div
-						css={css`
-							display: flex;
-							flex-direction: row;
-							flex-wrap: wrap;
-							flex: 1;
-							gap: ${space[4]}px;
-							align-content: flex-start;
-						`}
-					>
-						<Clues
-							direction="across"
-							entries={entries}
-							currentEntryId={currentEntryId}
-							progress={progress}
-						/>
-						<Clues
-							direction="down"
-							entries={entries}
-							currentEntryId={currentEntryId}
-							progress={progress}
-						/>
-					</div>
-				</div>
-			</GenerateIdProvider>
-		</ThemeContext.Provider>
+		<p>
+			{isStored
+				? 'Crosswords are saved automatically.'
+				: 'Crossword will not be saved.'}
+		</p>
 	);
 };
+
+export const Crossword = ({
+	children,
+	data,
+	progress,
+	...userTheme
+}: CrosswordProps) => {
+	return (
+		<ContextProvider
+			userTheme={userTheme}
+			data={data}
+			userProgress={progress}
+			selectedEntryId={data.entries[0].id}
+		>
+			<div
+				role="application"
+				css={css`
+					*,
+					*::before,
+					*::after {
+						box-sizing: border-box;
+						padding: 0;
+						margin: 0;
+					}
+
+					height: 100%;
+					width: 100%;
+					container-type: inline-size;
+				`}
+			>
+				{children ?? (
+					<Layout.Wrapper>
+						<Layout.Grid>
+							<Grid />
+							<Layout.Controls>
+								<Controls.Clues />
+							</Layout.Controls>
+							<Layout.Controls>
+								<Controls.Grid />
+							</Layout.Controls>
+							<Layout.SavedMessage>
+								<SavedMessage />
+							</Layout.SavedMessage>
+						</Layout.Grid>
+						<Layout.Clues>
+							<Clues
+								direction="across"
+								header={<Layout.CluesHeader direction="across" />}
+							/>
+							<Clues
+								direction="down"
+								header={<Layout.CluesHeader direction="down" />}
+							/>
+						</Layout.Clues>
+					</Layout.Wrapper>
+				)}
+			</div>
+		</ContextProvider>
+	);
+};
+
+Crossword.Grid = Grid;
+Crossword.Clues = Clues;
+Crossword.Controls = Controls;
+Crossword.SavedMessage = SavedMessage;
