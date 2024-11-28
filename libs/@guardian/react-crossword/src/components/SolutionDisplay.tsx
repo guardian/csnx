@@ -1,12 +1,16 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
-import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
+import { SvgPadlock } from '@guardian/source/react-components';
+import type { Dispatch, KeyboardEvent, SetStateAction } from 'react';
+import { useContext } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
+import { Button } from './Button';
 import { SolutionDisplayCell } from './SolutionDisplayCell';
 
 type SolutionDisplayProps = {
@@ -28,6 +32,7 @@ export const SolutionDisplay = ({
 	const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 	const [dragItemIndex, setDragItemIndex] = useState<number>();
 	const [dragOverItemIndex, setDragOverItemIndex] = useState<number>();
+	const theme = useContext(ThemeContext);
 
 	useEffect(() => {
 		inputRefs.current = inputRefs.current.slice(0, progressLetters.length);
@@ -88,8 +93,7 @@ export const SolutionDisplay = ({
 		setDragItemIndex(undefined);
 	}, [dragItemIndex, dragOverItemIndex, setCandidateLetters, setShuffled]);
 
-	const updateProgressLetter = (event: FormEvent<HTMLButtonElement>) => {
-		const index = Number(event.currentTarget.getAttribute('data-index'));
+	const updateProgressLetter = (index: number) => {
 		const newProgressLetters = [...progressLetters];
 		const currentProgressLetter = progressLetters[index];
 		if (isUndefined(currentProgressLetter)) {
@@ -128,22 +132,67 @@ export const SolutionDisplay = ({
 			onDragOver={(event) => event.preventDefault()}
 		>
 			{progressLetters.map((progressLetter, index) => {
+				const progressValid =
+					progressLetter.progress === candidateLetters[index] ||
+					progressLetter.progress === '' ||
+					!shuffled;
+				const candidateLetter = candidateLetters[index];
 				return (
-					<SolutionDisplayCell
-						key={index}
-						shuffled={shuffled}
-						onDragEnter={() => setDragOverItemIndex(index)}
-						onDragStart={() => setDragItemIndex(index)}
-						index={index}
-						onDragEnd={onDragEnd}
-						progressLetter={progressLetter}
-						candidateLetter={candidateLetters[index] ?? ''}
-						onKeyDown={updateCandidateLetter}
-						onSubmit={updateProgressLetter}
-						ref={(element: HTMLInputElement) =>
-							(inputRefs.current[index] = element)
-						}
-					/>
+					<div
+						css={css`
+							display: flex;
+							flex-direction: column;
+							width: ${theme.cellSize}px;
+							margin-right: -1px;
+							margin-bottom: 10px;
+						`}
+					>
+						<input
+							aria-label={`cell ${index}`}
+							ref={(el) => (inputRefs.current[index] = el)}
+							draggable={true}
+							value={candidateLetters[index]}
+							onDragStart={() => setDragItemIndex(index)}
+							onDragEnter={() => setDragOverItemIndex(index)}
+							onDragEnd={onDragEnd}
+							onChange={() => {}}
+							onKeyDown={updateCandidateLetter}
+							maxLength={1}
+							tabIndex={index + 1}
+							data-index={index}
+							css={css`
+								box-sizing: border-box;
+								border: 1px solid ${theme.background};
+								border-radius: 4px;
+								width: ${theme.cellSize - 1}px;
+								height: ${theme.cellSize - 1}px;
+								margin-left: 1px;
+								text-align: center;
+								align-content: center;
+								caret-color: transparent;
+								:active {
+									cursor: grabbing;
+								}
+							`}
+						/>
+						{progressLetter.progress !== candidateLetter && shuffled && (
+							<Button
+								onSuccess={() => updateProgressLetter(index)}
+								data-index={index}
+								size="xsmall"
+								aria-label="lock"
+								cssOverrides={css`
+									padding: 0;
+								`}
+							>
+								<SvgPadlock theme={{ fill: 'white' }} size="xsmall" />
+							</Button>
+						)}
+						<SolutionDisplayCell
+							progressLetter={progressLetter}
+							progressValid={progressValid}
+						/>
+					</div>
 				);
 			})}
 		</div>

@@ -28,10 +28,7 @@ export const Default: Story = {
 			progress: 'T',
 			isSaved: true,
 		},
-		candidateLetter: 'T',
-		index: 0,
-		onKeyDown: () => {},
-		onSubmit: () => {},
+		progressValid: true,
 	},
 };
 
@@ -42,10 +39,7 @@ export const Temporary: Story = {
 			progress: 'T',
 			isSaved: false,
 		},
-		candidateLetter: 'T',
-		index: 0,
-		onKeyDown: () => {},
-		onSubmit: () => {},
+		progressValid: true,
 	},
 };
 
@@ -56,10 +50,7 @@ export const NotMatching: Story = {
 			progress: 'T',
 			isSaved: true,
 		},
-		candidateLetter: 'Z',
-		index: 0,
-		onKeyDown: () => {},
-		onSubmit: () => {},
+		progressValid: false,
 	},
 };
 
@@ -70,9 +61,6 @@ export const TemporaryNotMatching: Story = {
 			progress: 'T',
 			isSaved: false,
 		},
-		candidateLetter: 'Z',
-		index: 0,
-		onKeyDown: () => {},
-		onSubmit: () => {},
+		progressValid: false,
 	},
 };

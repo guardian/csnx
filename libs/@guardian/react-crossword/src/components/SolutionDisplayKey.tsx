@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Cell } from './SolutionDisplayCell';
+import { SolutionDisplayCell } from './SolutionDisplayCell';
 
 export const SolutionDisplayKey = () => {
 	return (
@@ -14,7 +14,7 @@ export const SolutionDisplayKey = () => {
 			`}
 		>
 			<div>Unsaved value</div>
-			<Cell
+			<SolutionDisplayCell
 				progressLetter={{
 					progress: '',
 					coords: { x: 0, y: 0 },
@@ -23,7 +23,7 @@ export const SolutionDisplayKey = () => {
 				progressValid={false}
 			/>
 			<div>Mismatched value</div>
-			<Cell
+			<SolutionDisplayCell
 				progressLetter={{
 					progress: 'T',
 					coords: { x: 0, y: 0 },
