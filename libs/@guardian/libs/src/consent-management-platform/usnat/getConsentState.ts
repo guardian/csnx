@@ -6,7 +6,7 @@ export const getConsentState: () => Promise<USNATConsentState> = async () => {
 	const gppData = await getGPPData();
 
 	// Get applicableSections
-	const applicableSections = gppData.applicableSections[0]; // e.g. '7' for usnat
+	const applicableSection = gppData.applicableSections[0]; // e.g. '7' for usnat
 
 	// Find the supported API
 	const supportedAPI = gppData.supportedAPIs.find(
