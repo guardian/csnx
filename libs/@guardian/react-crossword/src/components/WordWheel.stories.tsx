@@ -1,11 +1,20 @@
 import type { Meta } from '@storybook/react';
 import { type StoryObj } from '@storybook/react';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { ContextProvider } from '../context/ContextProvider';
 import { WordWheel } from './WordWheel';
 
 const meta: Meta<typeof WordWheel> = {
 	component: WordWheel,
 	title: 'Components/WordWheel',
 	args: {},
+	decorators: [
+		(Story) => (
+			<ContextProvider data={data}>
+				<Story />
+			</ContextProvider>
+		),
+	],
 };
 
 export default meta;

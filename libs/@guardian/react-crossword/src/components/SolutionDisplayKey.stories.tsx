@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeContext } from '../context/ThemeContext';
-import { defaultTheme } from '../theme';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { ContextProvider } from '../context/ContextProvider';
 import { SolutionDisplayKey } from './SolutionDisplayKey';
 
 const meta: Meta<typeof SolutionDisplayKey> = {
@@ -10,9 +10,9 @@ const meta: Meta<typeof SolutionDisplayKey> = {
 	args: {},
 	decorators: [
 		(Story) => (
-			<ThemeContext.Provider value={defaultTheme}>
+			<ContextProvider data={data}>
 				<Story />
-			</ThemeContext.Provider>
+			</ContextProvider>
 		),
 	],
 };

@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 import { space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type { Entries } from '../@types/crossword';
-import { ProgressContext } from '../context/ProgressContext';
+import { useProgress } from '../context/Progress';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
@@ -28,7 +28,7 @@ export const AnagramHelper = ({
 	gridHeight,
 	gridWidth,
 }: AnagramHelperProps) => {
-	const { progress, updateProgress } = useContext(ProgressContext);
+	const { progress, setCellProgress } = useProgress();
 	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [progressLetters, setProgressLetters] = useState<
 		AnagramHelperProgress[]
@@ -53,13 +53,13 @@ export const AnagramHelper = ({
 	const save = useCallback(() => {
 		for (const progressLetter of progressLetters) {
 			if (!progressLetter.isSaved) {
-				updateProgress({
+				setCellProgress({
 					...progressLetter.coords,
 					value: progressLetter.progress,
 				});
 			}
 		}
-	}, [progressLetters, updateProgress]);
+	}, [progressLetters, setCellProgress]);
 
 	const shuffle = useCallback(() => {
 		setShuffled(true);

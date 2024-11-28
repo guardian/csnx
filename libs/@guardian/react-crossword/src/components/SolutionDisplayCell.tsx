@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import { useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext';
+import { useTheme } from '../context/Theme';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 
 export const SolutionDisplayCell = ({
@@ -10,7 +9,7 @@ export const SolutionDisplayCell = ({
 	progressLetter: AnagramHelperProgress;
 	progressValid: boolean;
 }) => {
-	const theme = useContext(ThemeContext);
+	const theme = useTheme();
 	return (
 		<div
 			css={css`

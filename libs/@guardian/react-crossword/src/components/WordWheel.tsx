@@ -1,14 +1,14 @@
 import { css } from '@emotion/react';
 import { textSans17, textSansBold17 } from '@guardian/source/foundations';
-import { memo, useContext } from 'react';
-import { ThemeContext } from '../context/ThemeContext';
+import { memo } from 'react';
+import { useTheme } from '../context/Theme';
 
 const WordWheelComponent = ({
 	candidateLetters,
 }: {
 	candidateLetters: string[];
 }) => {
-	const theme = useContext(ThemeContext);
+	const theme = useTheme();
 
 	const letterArray = candidateLetters
 		.join('')

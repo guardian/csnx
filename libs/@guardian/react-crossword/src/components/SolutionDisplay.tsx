@@ -3,12 +3,11 @@ import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import { SvgPadlock } from '@guardian/source/react-components';
 import type { Dispatch, KeyboardEvent, SetStateAction } from 'react';
-import { useContext } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import { ThemeContext } from '../context/ThemeContext';
+import { useTheme } from '../context/Theme';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
 import { SolutionDisplayCell } from './SolutionDisplayCell';
@@ -32,7 +31,7 @@ export const SolutionDisplay = ({
 	const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 	const [dragItemIndex, setDragItemIndex] = useState<number>();
 	const [dragOverItemIndex, setDragOverItemIndex] = useState<number>();
-	const theme = useContext(ThemeContext);
+	const theme = useTheme();
 
 	useEffect(() => {
 		inputRefs.current = inputRefs.current.slice(0, progressLetters.length);
