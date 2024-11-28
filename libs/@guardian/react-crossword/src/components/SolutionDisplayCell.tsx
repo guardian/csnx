@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { SvgArrowDownStraight } from '@guardian/source/react-components';
+import { SvgPadlock } from '@guardian/source/react-components';
 import type { FormEvent, KeyboardEvent } from 'react';
 import { forwardRef } from 'react';
 import { useContext } from 'react';
@@ -117,8 +117,11 @@ export const SolutionDisplayCell = forwardRef<
 					data-index={index}
 					size="xsmall"
 					aria-label="lock"
+					cssOverrides={css`
+						padding: 0;
+					`}
 				>
-					<SvgArrowDownStraight theme={{ fill: 'white' }} />
+					<SvgPadlock theme={{ fill: 'white' }} size="xsmall" />
 				</Button>
 			)}
 			<Cell progressLetter={progressLetter} progressValid={progressValid} />

@@ -36,7 +36,7 @@ export const AnagramHelper = ({
 	// initialise candidate letters to equal progress letters
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 
-	useEffect(() => {
+	const reset = useCallback(() => {
 		const progressLetters = getAnagramHelperProgressForGroup({
 			entry,
 			entries,
@@ -49,6 +49,10 @@ export const AnagramHelper = ({
 			progressLetters.map((progressLetter) => progressLetter.progress),
 		);
 	}, [entries, entry, progress]);
+
+	useEffect(() => {
+		reset();
+	}, [reset]);
 
 	const save = useCallback(() => {
 		for (const progressLetter of progressLetters) {
@@ -112,8 +116,8 @@ export const AnagramHelper = ({
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				<Button onSuccess={onClose} size="small">
-					<SvgCross size="small" theme={{ fill: 'white' }} />
+				<Button onSuccess={onClose} size="small" priority="tertiary">
+					<SvgCross size="xsmall" />
 				</Button>
 			</div>
 			<div
@@ -152,6 +156,13 @@ export const AnagramHelper = ({
 						requireConfirmation={true}
 					>
 						save
+					</Button>
+					<Button
+						onSuccess={reset}
+						priority="secondary"
+						requireConfirmation={true}
+					>
+						reset
 					</Button>
 				</div>
 				<div
