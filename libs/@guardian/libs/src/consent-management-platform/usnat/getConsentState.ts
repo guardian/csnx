@@ -6,19 +6,21 @@ export const getConsentState: () => Promise<USNATConsentState> = async () => {
 	const gppData = await getGPPData();
 
 	// Get applicableSections
-	const applicableSections = gppData.applicableSections[0]; // i.e. 7 for usnat
+	const applicableSections = gppData.applicableSections[0]; // e.g. '7' for usnat
 
 	// Find the supported API
 	const supportedAPI = gppData.supportedAPIs.find(
 		(api) => applicableSections && api.includes(applicableSections.toString()),
-	); // i.e. find string that contains the applicableSection (7)
+	); // Find string that contains the applicableSection i.e. (7) in '7:usnat'
 
 	// Get parsedSections key and object
-	const parsedSectionKey = supportedAPI ? supportedAPI.split(':')[1] : ''; // i.e. get 'usnat' from '7:usnat'
-	const parsedSection =
-		supportedAPI && parsedSectionKey
-			? gppData.parsedSections[parsedSectionKey]
-			: undefined; // get the object with the key of the supportedAPI
+	const parsedSectionKey = supportedAPI
+		? supportedAPI.split(':')[1]
+		: undefined; // i.e. get 'usnat' from '7:usnat'
+
+	const parsedSection = parsedSectionKey
+		? gppData.parsedSections[parsedSectionKey]
+		: undefined; // Get the gpp consent object with the key
 
 	if (parsedSection) {
 		// https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md
