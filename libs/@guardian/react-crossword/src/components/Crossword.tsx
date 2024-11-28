@@ -34,7 +34,7 @@ export const Crossword = ({
 	...userTheme
 }: CrosswordProps) => {
 	return (
-		<ContextProvider userTheme={userTheme} data={data} progress={progress}>
+		<ContextProvider userTheme={userTheme} data={data} userProgress={progress}>
 			<div
 				role="application"
 				css={css`

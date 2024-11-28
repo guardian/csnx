@@ -12,7 +12,7 @@ const meta: Meta<typeof Clues> = {
 	},
 	decorators: [
 		(Story) => (
-			<ContextProvider data={data} progress={progress}>
+			<ContextProvider data={data} userProgress={progress}>
 				<Story />
 			</ContextProvider>
 		),

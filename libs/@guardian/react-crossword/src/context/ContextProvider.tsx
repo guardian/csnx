@@ -30,12 +30,12 @@ import { ThemeProvider } from './Theme';
 
 export const ContextProvider = ({
 	data,
-	progress,
+	userProgress,
 	userTheme,
 	children,
 }: {
 	data: CAPICrossword;
-	progress?: Progress;
+	userProgress?: Progress;
 	userTheme?: Partial<CrosswordProps>;
 	children: ReactNode;
 }) => {
@@ -49,7 +49,11 @@ export const ContextProvider = ({
 				dimensions={dimensions}
 				id={id}
 			>
-				<ProgressProvider id={id} dimensions={dimensions} progress={progress}>
+				<ProgressProvider
+					id={id}
+					dimensions={dimensions}
+					progress={userProgress}
+				>
 					<CurrentCellProvider>
 						<CurrentClueProvider entries={entries}>
 							{children}
