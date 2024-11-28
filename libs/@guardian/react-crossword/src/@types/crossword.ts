@@ -52,7 +52,7 @@ export type Theme = {
 	text: string;
 	errorText: string;
 	temporaryText: string;
-	temporaryBackground: string;
+	UnsavedBackground: string;
 	gutter: number;
 	highlight: string;
 	focus: string;

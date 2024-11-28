@@ -5,8 +5,8 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type { Entries } from '../@types/crossword';
 import { ProgressContext } from '../context/ProgressContext';
-import type { GroupProgress } from '../utils/getProgressForEntry';
-import { getProgressForGroup } from '../utils/getProgressForEntry';
+import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
+import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
 import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
@@ -29,14 +29,22 @@ export const AnagramHelper = ({
 	gridWidth,
 }: AnagramHelperProps) => {
 	const { progress, updateProgress } = useContext(ProgressContext);
-	const [progressLetters, setProgressLetters] = useState<GroupProgress[]>([]);
+	const [progressLetters, setProgressLetters] = useState<
+		AnagramHelperProgress[]
+	>([]);
 
 	// initialise candidate letters to equal progress letters
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 
 	useEffect(() => {
-		const progressLetters = getProgressForGroup(entry, entries, progress);
-		setProgressLetters(getProgressForGroup(entry, entries, progress));
+		const progressLetters = getAnagramHelperProgressForGroup({
+			entry,
+			entries,
+			progress,
+		});
+		setProgressLetters(
+			getAnagramHelperProgressForGroup({ entry, entries, progress }),
+		);
 		setCandidateLetters(
 			progressLetters.map((progressLetter) => progressLetter.progress),
 		);

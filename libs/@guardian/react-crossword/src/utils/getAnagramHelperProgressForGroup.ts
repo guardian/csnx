@@ -2,33 +2,42 @@ import { isUndefined } from '@guardian/libs';
 import type { CAPIEntry } from '../@types/CAPI';
 import type { Coords, Entries, Progress } from '../@types/crossword';
 
-export type GroupProgress = {
-	isTemporary: boolean;
-	coords: Coords;
-	number?: number;
+export type AnagramHelperProgress = {
 	progress: string;
+	coords: Coords;
+	isSaved: boolean;
+	number?: number;
 	separator?: ',' | '-';
 };
 
-export const getProgressForGroup = (
-	entry: CAPIEntry,
-	entries: Entries,
-	progress: Progress,
-) => {
-	const groupProgress: GroupProgress[] = [];
+export const getAnagramHelperProgressForGroup = ({
+	entry,
+	entries,
+	progress,
+}: {
+	entry: CAPIEntry;
+	entries: Entries;
+	progress: Progress;
+}) => {
+	const groupProgress: AnagramHelperProgress[] = [];
 	for (const entryId of entry.group) {
 		const entry = entries.get(entryId);
 		if (!isUndefined(entry)) {
-			groupProgress.push(...getProgressForEntry(entry, progress));
+			groupProgress.push(
+				...getAnagramHelperProgressForEntry({ entry, progress }),
+			);
 		}
 	}
 	return groupProgress;
 };
 
-export const getProgressForEntry = (
-	entry: CAPIEntry,
-	progress: Progress,
-): GroupProgress[] => {
+export const getAnagramHelperProgressForEntry = ({
+	entry,
+	progress,
+}: {
+	entry: CAPIEntry;
+	progress: Progress;
+}): AnagramHelperProgress[] => {
 	return Array.from({ length: entry.length }, (_, i) => {
 		const x =
 			entry.direction === 'across' ? entry.position.x + i : entry.position.x;
@@ -37,7 +46,7 @@ export const getProgressForEntry = (
 		return {
 			coords: { x, y },
 			number: i === 0 ? entry.number : undefined,
-			isTemporary: false,
+			isSaved: true,
 			progress: progress.at(x)?.[y] ?? '',
 			separator: getSeparatorFromEntry(entry, i),
 		};

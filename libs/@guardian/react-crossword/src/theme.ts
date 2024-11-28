@@ -6,7 +6,7 @@ export const defaultTheme: Theme = {
 	text: palette.neutral[7],
 	temporaryText: palette.neutral[38],
 	errorText: 'red',
-	temporaryBackground: 'lightPink',
+	UnsavedBackground: 'lightPink',
 	foreground: palette.neutral[100],
 	gutter: 1,
 	highlight: 'lightpink',

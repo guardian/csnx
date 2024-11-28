@@ -4,11 +4,11 @@ import type { FormEvent, KeyboardEvent } from 'react';
 import { forwardRef } from 'react';
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
-import type { GroupProgress } from '../utils/getProgressForEntry';
+import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
 
 export type SolutionDisplayCellProps = {
-	progressLetter: GroupProgress;
+	progressLetter: AnagramHelperProgress;
 	candidateLetter: string;
 	index: number;
 	onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
@@ -19,7 +19,7 @@ export const Cell = ({
 	progressLetter,
 	progressValid,
 }: {
-	progressLetter: GroupProgress;
+	progressLetter: AnagramHelperProgress;
 	progressValid: boolean;
 }) => {
 	const theme = useContext(ThemeContext);
@@ -27,8 +27,8 @@ export const Cell = ({
 		<div
 			css={css`
 				box-sizing: border-box;
-				background-color: ${progressLetter.isTemporary
-					? theme.temporaryBackground
+				background-color: ${!progressLetter.isSaved
+					? theme.UnsavedBackground
 					: theme.foreground};
 				border: 1px solid ${theme.background};
 				border-right: ${progressLetter.separator === ','
@@ -111,14 +111,16 @@ export const SolutionDisplayCell = forwardRef<
 				`}
 				value={candidateLetter}
 			></input>
-			<Button
-				onSuccess={onSubmit}
-				data-index={index}
-				size="xsmall"
-				aria-label="lock"
-			>
-				<SvgArrowDownStraight theme={{ fill: 'white' }} />
-			</Button>
+			{progressLetter.progress !== candidateLetter && (
+				<Button
+					onSuccess={onSubmit}
+					data-index={index}
+					size="xsmall"
+					aria-label="lock"
+				>
+					<SvgArrowDownStraight theme={{ fill: 'white' }} />
+				</Button>
+			)}
 			<Cell progressLetter={progressLetter} progressValid={progressValid} />
 		</div>
 	);

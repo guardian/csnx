@@ -4,12 +4,12 @@ import { space } from '@guardian/source/foundations';
 import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import type { GroupProgress } from '../utils/getProgressForEntry';
+import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { SolutionDisplayCell } from './SolutionDisplayCell';
 
 type SolutionDisplayProps = {
-	setProgressLetters: Dispatch<SetStateAction<GroupProgress[]>>;
-	progressLetters: GroupProgress[];
+	setProgressLetters: Dispatch<SetStateAction<AnagramHelperProgress[]>>;
+	progressLetters: AnagramHelperProgress[];
 	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
 	candidateLetters: string[];
 };
@@ -61,19 +61,25 @@ export const SolutionDisplay = ({
 	const updateProgressLetter = (event: FormEvent<HTMLButtonElement>) => {
 		const index = Number(event.currentTarget.getAttribute('data-index'));
 		const newProgressLetters = [...progressLetters];
-		if (!isUndefined(newProgressLetters[index])) {
-			newProgressLetters[index].isTemporary = true;
-			newProgressLetters[index].progress = candidateLetters[index] ?? '';
-			const coords = newProgressLetters[index].coords;
-			//Any other letters with the same coords (crossing letters) need the same value
-			for (const progressLetter of newProgressLetters) {
-				if (
-					progressLetter.coords.x === coords.x &&
-					progressLetter.coords.y === coords.y
-				) {
-					progressLetter.progress = candidateLetters[index] ?? '';
-					progressLetter.isTemporary = true;
-				}
+		const currentProgressLetter = progressLetters[index];
+		if (isUndefined(currentProgressLetter)) {
+			return;
+		}
+		if (currentProgressLetter.progress !== candidateLetters[index]) {
+			currentProgressLetter.isSaved = false;
+			currentProgressLetter.progress = candidateLetters[index] ?? '';
+		}
+
+		//Any other letters with the same coords (crossing letters) need the same value
+		const coords = currentProgressLetter.coords;
+		for (const progressLetter of newProgressLetters) {
+			if (
+				progressLetter.coords.x === coords.x &&
+				progressLetter.coords.y === coords.y &&
+				progressLetter.progress !== candidateLetters[index]
+			) {
+				progressLetter.progress = candidateLetters[index] ?? '';
+				progressLetter.isSaved = false;
 			}
 		}
 		setProgressLetters(newProgressLetters);

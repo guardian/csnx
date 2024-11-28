@@ -18,7 +18,7 @@ export const SolutionDisplayKey = () => {
 				progressLetter={{
 					progress: '',
 					coords: { x: 0, y: 0 },
-					isTemporary: true,
+					isSaved: false,
 				}}
 				progressValid={false}
 			/>
@@ -27,7 +27,7 @@ export const SolutionDisplayKey = () => {
 				progressLetter={{
 					progress: 'T',
 					coords: { x: 0, y: 0 },
-					isTemporary: false,
+					isSaved: true,
 				}}
 				progressValid={false}
 			/>

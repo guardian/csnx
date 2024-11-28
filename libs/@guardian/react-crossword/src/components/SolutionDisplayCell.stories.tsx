@@ -26,7 +26,7 @@ export const Default: Story = {
 		progressLetter: {
 			coords: { x: 0, y: 0 },
 			progress: 'T',
-			isTemporary: false,
+			isSaved: true,
 		},
 		candidateLetter: 'T',
 		index: 0,
@@ -40,7 +40,7 @@ export const Temporary: Story = {
 		progressLetter: {
 			coords: { x: 0, y: 0 },
 			progress: 'T',
-			isTemporary: true,
+			isSaved: false,
 		},
 		candidateLetter: 'T',
 		index: 0,
@@ -54,7 +54,7 @@ export const NotMatching: Story = {
 		progressLetter: {
 			coords: { x: 0, y: 0 },
 			progress: 'T',
-			isTemporary: false,
+			isSaved: true,
 		},
 		candidateLetter: 'Z',
 		index: 0,
@@ -68,7 +68,7 @@ export const TemporaryNotMatching: Story = {
 		progressLetter: {
 			coords: { x: 0, y: 0 },
 			progress: 'T',
-			isTemporary: true,
+			isSaved: false,
 		},
 		candidateLetter: 'Z',
 		index: 0,
