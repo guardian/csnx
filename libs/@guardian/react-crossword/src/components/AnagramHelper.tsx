@@ -50,11 +50,6 @@ export const AnagramHelper = ({
 		setShuffled(false);
 	}, [entries, entry, progress]);
 
-	//initialise the candidate letters and progress letters
-	useEffect(() => {
-		reset();
-	}, [reset]);
-
 	const save = useCallback(() => {
 		for (const progressLetter of progressLetters) {
 			if (!progressLetter.isSaved) {
@@ -98,6 +93,11 @@ export const AnagramHelper = ({
 			});
 		});
 	}, [progressLetters]);
+
+	//initialise the candidate letters and progress letters
+	useEffect(() => {
+		reset();
+	}, [reset]);
 
 	return (
 		<div
