@@ -21,6 +21,7 @@
 import type { ReactNode } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress } from '../@types/crossword';
+import type { EntryID } from '../@types/Entry';
 import type { CrosswordProps } from '../components/Crossword';
 import { CurrentCellProvider } from './CurrentCell';
 import { CurrentClueProvider } from './CurrentClue';
@@ -30,11 +31,13 @@ import { ThemeProvider } from './Theme';
 
 export const ContextProvider = ({
 	data,
+	selectedEntryId,
 	userProgress,
 	userTheme,
 	children,
 }: {
 	data: CAPICrossword;
+	selectedEntryId?: EntryID;
 	userProgress?: Progress;
 	userTheme?: Partial<CrosswordProps>;
 	children: ReactNode;
@@ -55,7 +58,7 @@ export const ContextProvider = ({
 					progress={userProgress}
 				>
 					<CurrentCellProvider>
-						<CurrentClueProvider entries={entries}>
+						<CurrentClueProvider selectedEntryId={selectedEntryId}>
 							{children}
 						</CurrentClueProvider>
 					</CurrentCellProvider>

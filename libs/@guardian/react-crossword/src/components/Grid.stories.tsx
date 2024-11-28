@@ -8,10 +8,6 @@ import { Grid } from './Grid';
 const meta: Meta<typeof Grid> = {
 	component: Grid,
 	title: 'Components/Grid',
-	args: {
-		dimensions: data.dimensions,
-		progress: [],
-	},
 	decorators: [
 		(Story) => (
 			<ContextProvider data={data}>
@@ -27,15 +23,16 @@ type Story = StoryObj<typeof Grid>;
 export const Default: Story = {};
 
 export const Progress: Story = {
-	args: {
-		progress,
-	},
+	decorators: [
+		(Story) => (
+			<ContextProvider data={data} userProgress={progress}>
+				<Story />
+			</ContextProvider>
+		),
+	],
 };
 
 export const Separators: Story = {
-	args: {
-		dimensions: separatorData.dimensions,
-	},
 	decorators: [
 		(Story) => (
 			<ContextProvider data={separatorData}>

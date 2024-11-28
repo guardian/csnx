@@ -11,7 +11,7 @@ const meta: Meta<typeof Controls> = {
 	},
 	decorators: [
 		(Story) => (
-			<ContextProvider data={data}>
+			<ContextProvider data={data} selectedEntryId={data.entries[0].id}>
 				<Story />
 			</ContextProvider>
 		),

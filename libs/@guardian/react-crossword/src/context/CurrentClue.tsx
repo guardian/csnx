@@ -1,7 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
-import type { CAPICrossword } from '../@types/CAPI';
 import type { EntryID } from '../@types/Entry';
 
 type Context = {
@@ -12,14 +11,14 @@ type Context = {
 const CurrentClueContext = createContext<Context | undefined>(undefined);
 
 export const CurrentClueProvider = ({
+	selectedEntryId,
 	children,
-	entries,
 }: {
-	entries: CAPICrossword['entries'];
+	selectedEntryId?: EntryID;
 	children: ReactNode;
 }) => {
 	const [currentEntryId, setCurrentEntryId] = useState<EntryID | undefined>(
-		entries[0].id,
+		selectedEntryId,
 	);
 
 	return (
