@@ -29,11 +29,10 @@ export const AnagramHelper = ({
 	gridWidth,
 }: AnagramHelperProps) => {
 	const { progress, updateProgress } = useContext(ProgressContext);
+	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [progressLetters, setProgressLetters] = useState<
 		AnagramHelperProgress[]
 	>([]);
-
-	// initialise candidate letters to equal progress letters
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 
 	const reset = useCallback(() => {
@@ -46,24 +45,29 @@ export const AnagramHelper = ({
 			getAnagramHelperProgressForGroup({ entry, entries, progress }),
 		);
 		setCandidateLetters(
-			progressLetters.map((progressLetter) => progressLetter.progress),
+			Array.from({ length: progressLetters.length }, () => ''),
 		);
+		setShuffled(false);
 	}, [entries, entry, progress]);
 
+	//initialise the candidate letters and progress letters
 	useEffect(() => {
 		reset();
 	}, [reset]);
 
 	const save = useCallback(() => {
 		for (const progressLetter of progressLetters) {
-			updateProgress({
-				...progressLetter.coords,
-				value: progressLetter.progress,
-			});
+			if (!progressLetter.isSaved) {
+				updateProgress({
+					...progressLetter.coords,
+					value: progressLetter.progress,
+				});
+			}
 		}
 	}, [progressLetters, updateProgress]);
 
 	const shuffle = useCallback(() => {
+		setShuffled(true);
 		setCandidateLetters((prevState) => {
 			const shuffleLetters = [...prevState];
 			const matchedLetters = Array.from(
@@ -173,6 +177,7 @@ export const AnagramHelper = ({
 					<Clue entry={entry} />
 				</div>
 				<SolutionDisplay
+					shuffled={shuffled}
 					candidateLetters={candidateLetters}
 					setCandidateLetters={setCandidateLetters}
 					setProgressLetters={setProgressLetters}

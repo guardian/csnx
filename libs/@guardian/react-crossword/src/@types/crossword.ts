@@ -51,7 +51,6 @@ export type Theme = {
 	foreground: string;
 	text: string;
 	errorText: string;
-	temporaryText: string;
 	UnsavedBackground: string;
 	gutter: number;
 	highlight: string;

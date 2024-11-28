@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { SvgPadlock } from '@guardian/source/react-components';
-import type { FormEvent, KeyboardEvent } from 'react';
+import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
 import { forwardRef } from 'react';
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
@@ -8,8 +9,14 @@ import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressFor
 import { Button } from './Button';
 
 export type SolutionDisplayCellProps = {
+	shuffled: boolean;
 	progressLetter: AnagramHelperProgress;
 	candidateLetter: string;
+	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
+	setDragItemIndex: Dispatch<SetStateAction<number | undefined>>;
+	setDragOverItemIndex: Dispatch<SetStateAction<number | undefined>>;
+	dragOverItemIndex: number | undefined;
+	dragItemIndex: number | undefined;
 	index: number;
 	onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
 	onSubmit: (event: FormEvent<HTMLButtonElement>) => void;
@@ -75,56 +82,103 @@ export const Cell = ({
 export const SolutionDisplayCell = forwardRef<
 	HTMLInputElement,
 	SolutionDisplayCellProps
->(({ progressLetter, candidateLetter, onSubmit, index, onKeyDown }, ref) => {
-	const progressValid =
-		progressLetter.progress === candidateLetter ||
-		progressLetter.progress === '';
-
-	const theme = useContext(ThemeContext);
-	return (
-		<div
-			css={css`
-				display: flex;
-				flex-direction: column;
-				width: ${theme.cellSize}px;
-				margin-right: -1px;
-				margin-bottom: 10px;
-			`}
-		>
-			<input
-				aria-label={`cell ${index}`}
-				ref={ref}
-				onKeyDown={onKeyDown}
-				maxLength={1}
-				tabIndex={index + 1}
-				data-index={index}
+>(
+	(
+		{
+			shuffled,
+			progressLetter,
+			candidateLetter,
+			setDragItemIndex,
+			setDragOverItemIndex,
+			dragItemIndex,
+			dragOverItemIndex,
+			setCandidateLetters,
+			onSubmit,
+			index,
+			onKeyDown,
+		},
+		ref,
+	) => {
+		const progressValid =
+			progressLetter.progress === candidateLetter ||
+			progressLetter.progress === '' ||
+			!shuffled;
+		const theme = useContext(ThemeContext);
+		return (
+			<div
 				css={css`
-					box-sizing: border-box;
-					border: 1px solid ${theme.background};
-					border-radius: 4px;
-					width: ${theme.cellSize - 1}px;
-					height: ${theme.cellSize - 1}px;
-					margin-left: 1px;
-					text-align: center;
-					align-content: center;
-					caret-color: transparent;
+					display: flex;
+					flex-direction: column;
+					width: ${theme.cellSize}px;
+					margin-right: -1px;
+					margin-bottom: 10px;
 				`}
-				value={candidateLetter}
-			></input>
-			{progressLetter.progress !== candidateLetter && (
-				<Button
-					onSuccess={onSubmit}
+			>
+				<input
+					aria-label={`cell ${index}`}
+					ref={ref}
+					draggable={true}
+					value={candidateLetter}
+					onDragStart={() => {
+						setDragItemIndex(index);
+					}}
+					onDragEnter={() => {
+						setDragOverItemIndex(index);
+					}}
+					onDragEnd={() => {
+						if (
+							!isUndefined(dragItemIndex) &&
+							!isUndefined(dragOverItemIndex) &&
+							dragOverItemIndex !== dragItemIndex
+						) {
+							setCandidateLetters((prev) => {
+								const newCandidateLetters = [...prev];
+								const dragCandidate = newCandidateLetters[dragItemIndex];
+								const dropCandidate = newCandidateLetters[dragOverItemIndex];
+								if (dropCandidate && dragCandidate) {
+									newCandidateLetters[dragItemIndex] = dropCandidate;
+									newCandidateLetters[dragOverItemIndex] = dragCandidate;
+								}
+								return newCandidateLetters;
+							});
+						}
+						setDragOverItemIndex(undefined);
+						setDragItemIndex(undefined);
+					}}
+					onChange={() => {}}
+					onKeyDown={onKeyDown}
+					maxLength={1}
+					tabIndex={index + 1}
 					data-index={index}
-					size="xsmall"
-					aria-label="lock"
-					cssOverrides={css`
-						padding: 0;
+					css={css`
+						cursor: ${candidateLetter === '' ? 'pointer' : 'grab'};
+						box-sizing: border-box;
+						border: 1px solid ${theme.background};
+						border-radius: 4px;
+						width: ${theme.cellSize - 1}px;
+						height: ${theme.cellSize - 1}px;
+						margin-left: 1px;
+						text-align: center;
+						align-content: center;
+						caret-color: transparent;
 					`}
-				>
-					<SvgPadlock theme={{ fill: 'white' }} size="xsmall" />
-				</Button>
-			)}
-			<Cell progressLetter={progressLetter} progressValid={progressValid} />
-		</div>
-	);
-});
+				/>
+				{dragOverItemIndex}
+				{progressLetter.progress !== candidateLetter && shuffled && (
+					<Button
+						onSuccess={onSubmit}
+						data-index={index}
+						size="xsmall"
+						aria-label="lock"
+						cssOverrides={css`
+							padding: 0;
+						`}
+					>
+						<SvgPadlock theme={{ fill: 'white' }} size="xsmall" />
+					</Button>
+				)}
+				<Cell progressLetter={progressLetter} progressValid={progressValid} />
+			</div>
+		);
+	},
+);

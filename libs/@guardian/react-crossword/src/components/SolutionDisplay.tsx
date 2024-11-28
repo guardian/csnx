@@ -2,24 +2,29 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { Dispatch, FormEvent, KeyboardEvent, SetStateAction } from 'react';
+import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { SolutionDisplayCell } from './SolutionDisplayCell';
 
 type SolutionDisplayProps = {
+	shuffled: boolean;
 	setProgressLetters: Dispatch<SetStateAction<AnagramHelperProgress[]>>;
 	progressLetters: AnagramHelperProgress[];
 	setCandidateLetters: Dispatch<SetStateAction<string[]>>;
 	candidateLetters: string[];
 };
 export const SolutionDisplay = ({
+	shuffled,
 	setProgressLetters,
 	progressLetters,
 	setCandidateLetters,
 	candidateLetters,
 }: SolutionDisplayProps) => {
 	const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
+	const [dragItemIndex, setDragItemIndex] = useState<number>();
+	const [dragOverItemIndex, setDragOverItemIndex] = useState<number>();
 
 	useEffect(() => {
 		inputRefs.current = inputRefs.current.slice(0, progressLetters.length);
@@ -95,13 +100,21 @@ export const SolutionDisplay = ({
 				max-width: 90%;
 				margin-top: ${space[4]}px;
 			`}
+			onDragOver={(event) => event.preventDefault()}
 		>
 			{progressLetters.map((progressLetter, index) => {
 				return (
 					<SolutionDisplayCell
+						key={index}
+						shuffled={shuffled}
+						setDragItemIndex={setDragItemIndex}
+						setDragOverItemIndex={setDragOverItemIndex}
+						dragItemIndex={dragItemIndex}
+						dragOverItemIndex={dragOverItemIndex}
 						index={index}
 						progressLetter={progressLetter}
 						candidateLetter={candidateLetters[index] ?? ''}
+						setCandidateLetters={setCandidateLetters}
 						onKeyDown={updateCandidateLetter}
 						onSubmit={updateProgressLetter}
 						ref={(element: HTMLInputElement) =>
