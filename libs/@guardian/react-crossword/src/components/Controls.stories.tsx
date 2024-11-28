@@ -10,11 +10,15 @@ const meta: Meta<typeof Controls> = {
 		progress: [],
 	},
 	decorators: [
-		(Story) => (
-			<ContextProvider data={data} selectedEntryId={data.entries[0].id}>
-				<Story />
-			</ContextProvider>
-		),
+		(Story) => {
+			localStorage.removeItem(data.id);
+
+			return (
+				<ContextProvider data={data} selectedEntryId={data.entries[0].id}>
+					<Story />
+				</ContextProvider>
+			);
+		},
 	],
 };
 

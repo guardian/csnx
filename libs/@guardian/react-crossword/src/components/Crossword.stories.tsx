@@ -12,6 +12,14 @@ const meta: Meta<typeof Crossword> = {
 		progress,
 		data,
 	},
+	decorators: [
+		(Story) => {
+			localStorage.removeItem(data.id);
+			localStorage.removeItem(quickData.id);
+
+			return <Story />;
+		},
+	],
 };
 
 export default meta;
@@ -23,7 +31,7 @@ export const ShortContainer: StoryFn = () => {
 	return (
 		<>
 			<div style={{ height: 400 }}>
-				<Crossword data={data} progress={[]} />
+				<Crossword data={data} progress={progress} />
 			</div>
 		</>
 	);
@@ -33,7 +41,7 @@ export const MultiplePlayersColumn: StoryFn = () => {
 	return (
 		<>
 			<div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-				<Crossword data={data} progress={[]} />
+				<Crossword data={data} progress={progress} />
 				<div style={{ height: 1, borderTop: '1px dotted black' }} />
 				<Crossword data={quickData} progress={[]} />
 			</div>
@@ -51,7 +59,7 @@ export const MultiplePlayersRow: StoryFn = () => {
 					gap: 20,
 				}}
 			>
-				<Crossword data={data} progress={[]} />
+				<Crossword data={data} progress={progress} />
 				<div style={{ width: 1, borderLeft: '1px dotted black' }} />
 				<Crossword data={quickData} progress={[]} />
 			</div>
@@ -61,7 +69,7 @@ export const MultiplePlayersRow: StoryFn = () => {
 
 export const CustomLayoutRaw: StoryFn = () => {
 	return (
-		<Crossword data={data} progress={[]}>
+		<Crossword data={data} progress={progress}>
 			<Crossword.Grid />
 			<Crossword.Controls />
 			<Crossword.SavedMessage />
@@ -91,7 +99,7 @@ export const CustomisedLayout: StoryFn = () => {
 	);
 
 	return (
-		<Crossword data={data} progress={[]}>
+		<Crossword data={data} progress={progress}>
 			<div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
 				<div style={{ flex: 1, minWidth: '15em' }}>
 					<Crossword.Clues

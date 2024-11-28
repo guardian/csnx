@@ -11,11 +11,15 @@ const meta: Meta<typeof Clues> = {
 		direction: 'across',
 	},
 	decorators: [
-		(Story) => (
-			<ContextProvider data={data} userProgress={progress}>
-				<Story />
-			</ContextProvider>
-		),
+		(Story) => {
+			localStorage.removeItem(data.id);
+
+			return (
+				<ContextProvider data={data} userProgress={progress}>
+					<Story />
+				</ContextProvider>
+			);
+		},
 		(Story) => (
 			<div role="application">
 				<Story />
