@@ -48,4 +48,26 @@ describe('getConsentState', () => {
 		expect(getGPPData).toHaveBeenCalledTimes(1);
 		expect(doNotSell).toBe(false);
 	});
+
+	it('should return false if supportedAPIs and parsedSections are different - doNotSell is false', async () => {
+		let supportedApiParsedSectionMismatch = gppDataCanSell;
+		supportedApiParsedSectionMismatch.supportedAPIs = ['7:usnat'];
+		getGPPData.mockResolvedValue(supportedApiParsedSectionMismatch);
+
+		const { doNotSell } = await getConsentState();
+
+		expect(getGPPData).toHaveBeenCalledTimes(1);
+		expect(doNotSell).toBe(false);
+	});
+
+	it('should return false the applicableSections is not updated - doNotSell is false', async () => {
+		let applicableSectionsIncorrect = gppDataCanSell;
+		applicableSectionsIncorrect.applicableSections = [-1];
+		getGPPData.mockResolvedValue(applicableSectionsIncorrect);
+
+		const { doNotSell } = await getConsentState();
+
+		expect(getGPPData).toHaveBeenCalledTimes(1);
+		expect(doNotSell).toBe(false);
+	});
 });
