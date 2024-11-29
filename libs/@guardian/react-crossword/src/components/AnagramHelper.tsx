@@ -15,10 +15,10 @@ import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
 interface AnagramHelperProps {
-	onClose: () => void;
+	onClickClose?: () => void;
 }
 
-export const AnagramHelper = ({ onClose }: AnagramHelperProps) => {
+export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 	const { entries } = useData();
 	const { progress, setCellProgress } = useProgress();
 	const theme = useTheme();
@@ -115,9 +115,11 @@ export const AnagramHelper = ({ onClose }: AnagramHelperProps) => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				<Button onSuccess={onClose} size="small" priority="tertiary">
-					<SvgCross size="xsmall" />
-				</Button>
+				{onClickClose && (
+					<Button onSuccess={onClickClose} size="small" priority="tertiary">
+						<SvgCross size="xsmall" />
+					</Button>
+				)}
 			</div>
 			<div
 				css={css`
