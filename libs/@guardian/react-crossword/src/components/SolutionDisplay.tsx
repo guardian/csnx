@@ -29,9 +29,9 @@ export const SolutionDisplay = ({
 	setCandidateLetters,
 	candidateLetters,
 }: SolutionDisplayProps) => {
-	const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 	const [dragItemIndex, setDragItemIndex] = useState<number>();
 	const [dragOverItemIndex, setDragOverItemIndex] = useState<number>();
+	const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 	const theme = useTheme();
 
 	useEffect(() => {

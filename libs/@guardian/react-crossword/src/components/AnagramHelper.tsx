@@ -19,16 +19,16 @@ interface AnagramHelperProps {
 }
 
 export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
+	const [shuffled, setShuffled] = useState<boolean>(false);
+	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
+	const [progressLetters, setProgressLetters] = useState<
+		AnagramHelperProgress[]
+	>([]);
 	const { entries } = useData();
 	const { progress, setCellProgress } = useProgress();
 	const theme = useTheme();
 	const { currentEntryId } = useCurrentClue();
 	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
-	const [shuffled, setShuffled] = useState<boolean>(false);
-	const [progressLetters, setProgressLetters] = useState<
-		AnagramHelperProgress[]
-	>([]);
-	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 
 	const reset = useCallback(() => {
 		const progressLetters = getAnagramHelperProgressForGroup({
