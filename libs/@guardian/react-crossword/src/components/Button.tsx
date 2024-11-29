@@ -1,9 +1,10 @@
 import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
 import { Button as SourceButton } from '@guardian/source/react-components';
+import type { MouseEventHandler } from 'react';
 import { memo, useRef, useState } from 'react';
 
 type ButtonProps = SourceButtonProps & {
-	onSuccess: () => void;
+	onSuccess: MouseEventHandler<HTMLButtonElement>;
 	requireConfirmation?: boolean;
 };
 
@@ -16,9 +17,9 @@ const ButtonComponent = ({
 	const [isConfirming, setIsConfirming] = useState<boolean>(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-	const onClick = () => {
+	const onClick: MouseEventHandler<HTMLButtonElement> = (event) => {
 		if (!requireConfirmation) {
-			onSuccess();
+			onSuccess(event);
 			return;
 		}
 		if (!isConfirming) {
@@ -29,7 +30,7 @@ const ButtonComponent = ({
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);
 		}
-		onSuccess();
+		onSuccess(event);
 		setIsConfirming(false);
 	};
 
