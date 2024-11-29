@@ -9,8 +9,8 @@ export const getConsentState: () => Promise<USNATConsentState> = async () => {
 	const applicableSection = gppData.applicableSections[0]; // e.g. '7' for usnat
 
 	// Find the supported API
-	const supportedAPI = gppData.supportedAPIs.find(
-		(api) => applicableSection && api.includes(applicableSection.toString()),
+	const supportedAPI = gppData.supportedAPIs.find((api) =>
+		api.startsWith(`${String(applicableSection)}:`),
 	); // Find string that contains the applicableSection i.e. (7) in '7:usnat'
 
 	// Get parsedSections key and object
