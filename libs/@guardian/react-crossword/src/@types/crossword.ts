@@ -58,7 +58,7 @@ export type Theme = {
 	highlight: string;
 	focus: string;
 	active: string;
-	UnsavedBackground: string;
+	unsavedBackground: string;
 	cellSize: number;
 	buttonBackground: string;
 	buttonBackgroundHover: string;

@@ -15,7 +15,7 @@ export const SolutionDisplayCell = ({
 			css={css`
 				box-sizing: border-box;
 				background-color: ${!progressLetter.isSaved
-					? theme.UnsavedBackground
+					? theme.unsavedBackground
 					: theme.foreground};
 				border: 1px solid ${theme.background};
 				border-right: ${progressLetter.separator === ','
