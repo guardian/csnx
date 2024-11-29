@@ -138,6 +138,7 @@ export const SolutionDisplay = ({
 				const candidateLetter = candidateLetters[index];
 				return (
 					<div
+						key={index}
 						css={css`
 							display: flex;
 							flex-direction: column;
