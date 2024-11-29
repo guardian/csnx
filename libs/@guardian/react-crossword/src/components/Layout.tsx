@@ -8,7 +8,7 @@ import type { Direction } from '../@types/Direction';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 
-const useGridWidth = () => {
+export const useGridWidth = () => {
 	const { gutter, cellSize } = useTheme();
 	const { dimensions } = useData();
 
@@ -18,7 +18,7 @@ const useGridWidth = () => {
 	);
 };
 
-const useWidthForCols = (cols: number) => {
+export const useWidthForCols = (cols: number) => {
 	const gridWidth = useGridWidth();
 	const { clueMinWidth } = useTheme();
 
@@ -125,23 +125,6 @@ const CluesHeader = memo(({ direction }: { direction: Direction }) => {
 	);
 });
 
-const Controls = memo(({ children }: { children: ReactNode }) => {
-	return (
-		<div
-			css={css`
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				gap: ${space[1]}px;
-				padding: ${space[1]}px 0;
-			`}
-		>
-			{children}
-		</div>
-	);
-});
-
 const SavedMessage = memo(({ children }: { children: ReactNode }) => {
 	const theme = useTheme();
 
@@ -163,6 +146,5 @@ export const Layout = {
 	Grid,
 	Clues,
 	CluesHeader,
-	Controls,
 	SavedMessage,
 };

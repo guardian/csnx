@@ -1,3 +1,5 @@
+import { css } from '@emotion/react';
+import { space } from '@guardian/source/foundations';
 import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback } from 'react';
 import type { Cell, Progress } from '../@types/crossword';
@@ -66,7 +68,16 @@ const ClueControls = () => {
 	}, [cells, checkCell, currentEntryId]);
 
 	return (
-		<>
+		<div
+			css={css`
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				gap: ${space[1]}px;
+				padding: ${space[1]}px 0;
+			`}
+		>
 			{currentEntryId && (
 				<>
 					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
@@ -87,7 +98,7 @@ const ClueControls = () => {
 			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
 				Anagram Helper
 			</Button>
-		</>
+		</div>
 	);
 };
 
@@ -129,7 +140,16 @@ const GridControls = () => {
 	}, [cells, checkCell]);
 
 	return (
-		<>
+		<div
+			css={css`
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				gap: ${space[1]}px;
+				padding: ${space[1]}px 0;
+			`}
+		>
 			{solutionAvailable && (
 				<>
 					<Button onSuccess={checkGrid} requireConfirmation={true}>
@@ -143,7 +163,7 @@ const GridControls = () => {
 			<Button onSuccess={clearProgress} requireConfirmation={true}>
 				Clear All
 			</Button>
-		</>
+		</div>
 	);
 };
 
