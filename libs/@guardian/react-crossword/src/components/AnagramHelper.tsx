@@ -1,11 +1,12 @@
 import { css } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
 import { useCallback, useEffect, useState } from 'react';
+import { useCurrentControls } from '../context/Controls';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
-import { useTheme } from '../context/Theme';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
@@ -14,11 +15,7 @@ import { SolutionDisplay } from './SolutionDisplay';
 import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
-interface AnagramHelperProps {
-	onClickClose?: () => void;
-}
-
-export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
+export const AnagramHelper = () => {
 	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 	const [progressLetters, setProgressLetters] = useState<
@@ -26,7 +23,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 	>([]);
 	const { entries } = useData();
 	const { progress, setCellProgress } = useProgress();
-	const theme = useTheme();
+	const { currentControls, setCurrentControls } = useCurrentControls();
 	const { currentEntryId } = useCurrentClue();
 	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
 
@@ -95,18 +92,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 	}, [reset]);
 
 	return (
-		<div
-			css={css`
-				display: flex;
-				box-sizing: border-box;
-				flex-direction: column;
-				background-color: ${theme.anagramHelperBackground};
-				padding: 10px;
-				min-height: fit-content;
-				width: fit-content;
-				max-width: 500px;
-			`}
-		>
+		<div id={'anagram-helper'}>
 			<div
 				css={css`
 					display: flex;
@@ -115,8 +101,16 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				{onClickClose && (
-					<Button onSuccess={onClickClose} size="small" priority="tertiary">
+				{!isUndefined(currentControls) && (
+					<Button
+						onSuccess={() => {
+							setCurrentControls((prevState) => ({
+								showAnagramHelper: !prevState.showAnagramHelper,
+							}));
+						}}
+						size="small"
+						priority="tertiary"
+					>
 						<SvgCross size="xsmall" />
 					</Button>
 				)}
@@ -126,10 +120,6 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 					display: flex;
 					align-items: center;
 					flex-direction: column;
-
-					> * {
-						margin-bottom: ${space[4]}px;
-					}
 				`}
 			>
 				<div
@@ -166,13 +156,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 						reset
 					</Button>
 				</div>
-				<div
-					css={css`
-						margin-top: 10px;
-					`}
-				>
-					{entry && <Clue entry={entry} />}
-				</div>
+				{entry && <Clue entry={entry} />}
 				<SolutionDisplay
 					shuffled={shuffled}
 					setShuffled={setShuffled}

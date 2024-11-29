@@ -1,10 +1,12 @@
 import { css } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { headlineBold17, space } from '@guardian/source/foundations';
 import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 import { memo } from 'react';
 import type { Direction } from '../@types/Direction';
+import { useCurrentControls } from '../context/Controls';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 
@@ -42,6 +44,37 @@ export const Wrapper = memo(({ children }: { children: ReactNode }) => {
 
 				@container (min-width: ${useWidthForCols(1)}) {
 					flex-direction: row;
+				}
+			`}
+		>
+			{children}
+		</div>
+	);
+});
+
+const AnagramHelper = memo(({ children }: { children: ReactNode }) => {
+	const { currentControls, setCurrentControls } = useCurrentControls();
+	const gridWidth = useGridWidth();
+	const theme = useTheme();
+	const showAnagramHelper = currentControls.showAnagramHelper;
+	if (isUndefined(showAnagramHelper)) {
+		setCurrentControls({ ...currentControls, showAnagramHelper: false });
+	}
+
+	return (
+		<div
+			css={css`
+				#crossword-grid {
+					display: ${!showAnagramHelper ? 'inline' : 'none'};
+				}
+				#anagram-helper {
+					display: ${showAnagramHelper ? 'flex' : 'none'};
+					box-sizing: border-box;
+					flex-direction: column;
+					background-color: ${theme.anagramHelperBackground};
+					padding: 10px;
+					min-height: fit-content;
+					flex-basis: ${gridWidth}px;
 				}
 			`}
 		>
@@ -165,4 +198,5 @@ export const Layout = {
 	CluesHeader,
 	Controls,
 	SavedMessage,
+	AnagramHelper,
 };

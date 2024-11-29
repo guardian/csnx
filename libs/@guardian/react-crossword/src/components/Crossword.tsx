@@ -4,6 +4,7 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import { ContextProvider } from '../context/ContextProvider';
 import { useProgress } from '../context/Progress';
+import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
@@ -59,7 +60,10 @@ export const Crossword = ({
 				{children ?? (
 					<Layout.Wrapper>
 						<Layout.Grid>
-							<Grid />
+							<Layout.AnagramHelper>
+								<AnagramHelper />
+								<Grid />
+							</Layout.AnagramHelper>
 							<Layout.Controls>
 								<Controls.Clues />
 							</Layout.Controls>
@@ -88,6 +92,7 @@ export const Crossword = ({
 };
 
 Crossword.Grid = Grid;
+Crossword.AnagramHelper = AnagramHelper;
 Crossword.Clues = Clues;
 Crossword.Controls = Controls;
 Crossword.SavedMessage = SavedMessage;

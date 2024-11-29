@@ -343,6 +343,7 @@ export const Grid = () => {
 
 	return (
 		<svg
+			id={'crossword-grid'}
 			style={{
 				background: theme.background,
 				width: '100%',

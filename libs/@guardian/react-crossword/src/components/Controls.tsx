@@ -1,6 +1,8 @@
+import { isUndefined } from '@guardian/libs';
 import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback } from 'react';
 import type { Cell, Progress } from '../@types/crossword';
+import { useCurrentControls } from '../context/Controls';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
@@ -10,7 +12,8 @@ import { Button } from './Button';
 const ClueControls = () => {
 	const theme = useTheme();
 	const { cells, solutionAvailable } = useData();
-	const { progress, setCellProgress, clearProgress } = useProgress();
+	const { progress, setCellProgress } = useProgress();
+	const { setCurrentControls, currentControls } = useCurrentControls();
 	const { currentEntryId } = useCurrentClue();
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
@@ -84,9 +87,18 @@ const ClueControls = () => {
 					)}
 				</>
 			)}
-			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
-				Anagram Helper
-			</Button>
+			{!isUndefined(currentControls.showAnagramHelper) && (
+				<Button
+					onSuccess={() => {
+						setCurrentControls((prevState) => ({
+							showAnagramHelper: !prevState.showAnagramHelper,
+						}));
+					}}
+					theme={crosswordButtonTheme}
+				>
+					Anagram Helper
+				</Button>
+			)}
 		</>
 	);
 };

@@ -23,6 +23,7 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import type { CrosswordProps } from '../components/Crossword';
+import { ControlsProvider } from './Controls';
 import { CurrentCellProvider } from './CurrentCell';
 import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
@@ -52,17 +53,19 @@ export const ContextProvider = ({
 				dimensions={dimensions}
 				id={id}
 			>
-				<ProgressProvider
-					id={id}
-					dimensions={dimensions}
-					progress={userProgress}
-				>
-					<CurrentCellProvider>
-						<CurrentClueProvider selectedEntryId={selectedEntryId}>
-							{children}
-						</CurrentClueProvider>
-					</CurrentCellProvider>
-				</ProgressProvider>
+				<ControlsProvider>
+					<ProgressProvider
+						id={id}
+						dimensions={dimensions}
+						progress={userProgress}
+					>
+						<CurrentCellProvider>
+							<CurrentClueProvider selectedEntryId={selectedEntryId}>
+								{children}
+							</CurrentClueProvider>
+						</CurrentCellProvider>
+					</ProgressProvider>
+				</ControlsProvider>
 			</DataProvider>
 		</ThemeProvider>
 	);
