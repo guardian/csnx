@@ -15,11 +15,14 @@ export const getAnagramHelperProgressForGroup = ({
 	entries,
 	progress,
 }: {
-	entry: CAPIEntry;
+	entry?: CAPIEntry;
 	entries: Entries;
 	progress: Progress;
 }) => {
 	const groupProgress: AnagramHelperProgress[] = [];
+	if (isUndefined(entry)) {
+		return groupProgress;
+	}
 	for (const entryId of entry.group) {
 		const entry = entries.get(entryId);
 		if (!isUndefined(entry)) {

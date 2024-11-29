@@ -2,9 +2,10 @@ import { css } from '@emotion/react';
 import { space } from '@guardian/source/foundations';
 import { SvgCross } from '@guardian/source/react-components';
 import { useCallback, useEffect, useState } from 'react';
-import type { CAPIEntry } from '../@types/CAPI';
-import type { Entries } from '../@types/crossword';
+import { useCurrentClue } from '../context/CurrentClue';
+import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
+import { useTheme } from '../context/Theme';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
@@ -14,21 +15,15 @@ import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
 interface AnagramHelperProps {
-	entry: CAPIEntry;
-	entries: Entries;
-	gridHeight: number;
-	gridWidth: number;
 	onClose: () => void;
 }
 
-export const AnagramHelper = ({
-	entry,
-	entries,
-	onClose,
-	gridHeight,
-	gridWidth,
-}: AnagramHelperProps) => {
+export const AnagramHelper = ({ onClose }: AnagramHelperProps) => {
+	const { entries } = useData();
 	const { progress, setCellProgress } = useProgress();
+	const theme = useTheme();
+	const { currentEntryId } = useCurrentClue();
+	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
 	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [progressLetters, setProgressLetters] = useState<
 		AnagramHelperProgress[]
@@ -105,11 +100,11 @@ export const AnagramHelper = ({
 				display: flex;
 				box-sizing: border-box;
 				flex-direction: column;
-				background-color: floralwhite;
+				background-color: ${theme.anagramHelperBackground};
 				padding: 10px;
 				min-height: fit-content;
-				height: ${gridHeight}px;
-				max-width: ${gridWidth}px;
+				width: fit-content;
+				max-width: 500px;
 			`}
 		>
 			<div
@@ -174,7 +169,7 @@ export const AnagramHelper = ({
 						margin-top: 10px;
 					`}
 				>
-					<Clue entry={entry} />
+					{entry && <Clue entry={entry} />}
 				</div>
 				<SolutionDisplay
 					shuffled={shuffled}

@@ -7,10 +7,10 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
 // define and cache the regex for valid keydown events
-const keyDownRegex = /^[A-Za-zÀ-ÿ0-9]$/;
 
 const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
 	index * (cellSize + gutter) + gutter;

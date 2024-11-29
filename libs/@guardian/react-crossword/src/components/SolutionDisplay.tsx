@@ -9,6 +9,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useTheme } from '../context/Theme';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
+import { keyDownRegex } from '../utils/keydownRegex';
 import { Button } from './Button';
 import { SolutionDisplayCell } from './SolutionDisplayCell';
 
@@ -46,8 +47,7 @@ export const SolutionDisplay = ({
 		) {
 			return;
 		}
-		// todo - replace with keydown regex
-		if (event.key.length === 1 && !/^[A-Za-zÀ-ÿ0-9]$/.test(event.key)) {
+		if (event.key.length === 1 && !keyDownRegex.test(event.key)) {
 			return;
 		}
 		setCandidateLetters((prevState) => {
