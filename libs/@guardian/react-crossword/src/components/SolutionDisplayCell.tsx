@@ -45,7 +45,7 @@ export const SolutionDisplayCell = ({
 			{progressLetter.number && (
 				<div
 					css={css`
-						font-size: 0.625rem;
+						font-size: ${theme.cellSize * 0.6}px;
 						position: absolute;
 						top: 0;
 						left: 0;
