@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { textSans12 } from '@guardian/source/foundations';
 import { useTheme } from '../context/Theme';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 
@@ -14,6 +15,8 @@ export const SolutionDisplayCell = ({
 		<div
 			css={css`
 				box-sizing: border-box;
+				${textSans12};
+				font-size: ${theme.cellSize * 0.6}px;
 				background-color: ${!progressLetter.isSaved
 					? theme.unsavedBackground
 					: theme.foreground};
@@ -45,7 +48,8 @@ export const SolutionDisplayCell = ({
 			{progressLetter.number && (
 				<div
 					css={css`
-						font-size: ${theme.cellSize * 0.6}px;
+						${textSans12};
+						font-size: ${Math.max(9, Math.round(theme.cellSize * 0.2))}px;
 						position: absolute;
 						top: 0;
 						left: 0;
