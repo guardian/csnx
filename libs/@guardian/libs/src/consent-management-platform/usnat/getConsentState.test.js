@@ -49,6 +49,28 @@ describe('getConsentState', () => {
 		expect(doNotSell).toBe(false);
 	});
 
+	it('should return false if the applicableSections is not correctly set - doNotSell is false', async () => {
+		let applicableSectionsIncorrect = gppDataCanSell;
+		applicableSectionsIncorrect.applicableSections = [-1];
+		getGPPData.mockResolvedValue(applicableSectionsIncorrect);
+
+		const { doNotSell } = await getConsentState();
+
+		expect(getGPPData).toHaveBeenCalledTimes(1);
+		expect(doNotSell).toBe(false);
+	});
+
+	it('should return false if the supportedAPIs has an incorrect format  - doNotSell is false', async () => {
+		let applicableSectionsIncorrect = gppDataCanSell;
+		applicableSectionsIncorrect.applicableSections = [-1];
+		getGPPData.mockResolvedValue(applicableSectionsIncorrect);
+
+		const { doNotSell } = await getConsentState();
+
+		expect(getGPPData).toHaveBeenCalledTimes(1);
+		expect(doNotSell).toBe(false);
+	});
+
 	it('should return false if supportedAPIs and parsedSections are different - doNotSell is false', async () => {
 		let supportedApiParsedSectionMismatch = gppDataCanSell;
 		supportedApiParsedSectionMismatch.supportedAPIs = ['7:usnat'];
@@ -60,10 +82,10 @@ describe('getConsentState', () => {
 		expect(doNotSell).toBe(false);
 	});
 
-	it('should return false the applicableSections is not updated - doNotSell is false', async () => {
-		let applicableSectionsIncorrect = gppDataCanSell;
-		applicableSectionsIncorrect.applicableSections = [-1];
-		getGPPData.mockResolvedValue(applicableSectionsIncorrect);
+	it('should return false if the parsedSections is not correctly set - doNotSell is false', async () => {
+		let parsedSectionsIncorrect = gppDataCanSell;
+		parsedSectionsIncorrect.parsedSections = {};
+		getGPPData.mockResolvedValue(parsedSectionsIncorrect);
 
 		const { doNotSell } = await getConsentState();
 
