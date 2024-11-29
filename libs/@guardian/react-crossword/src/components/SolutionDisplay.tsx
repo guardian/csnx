@@ -155,7 +155,7 @@ export const SolutionDisplay = ({
 							onDragStart={() => setDragItemIndex(index)}
 							onDragEnter={() => setDragOverItemIndex(index)}
 							onDragEnd={onDragEnd}
-							onChange={() => {}}
+							onChange={() => {}} // TODO: remove the need for this
 							onKeyDown={updateCandidateLetter}
 							maxLength={1}
 							tabIndex={index + 1}
