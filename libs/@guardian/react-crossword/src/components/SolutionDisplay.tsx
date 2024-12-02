@@ -64,7 +64,6 @@ export const SolutionDisplay = ({
 				newCandidateLetters[index] = event.key.toUpperCase();
 				return newCandidateLetters;
 			});
-			setShuffled(false);
 			inputRefs.current[index + 1]?.focus();
 		}
 		if (event.key === 'Backspace') {
@@ -73,7 +72,6 @@ export const SolutionDisplay = ({
 				newCandidateLetters[index] = '';
 				return newCandidateLetters;
 			});
-			setShuffled(false);
 			inputRefs.current[index - 1]?.focus();
 		}
 	};

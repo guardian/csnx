@@ -135,7 +135,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 						justify-content: center;
 					`}
 				>
-					{<WordWheel candidateLetters={candidateLetters} />}
+					<WordWheel candidateLetters={candidateLetters} />
 				</div>
 				<div
 					css={css`
