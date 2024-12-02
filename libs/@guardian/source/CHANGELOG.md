@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 8.0.1
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 8.0.0
 
 ### Major Changes

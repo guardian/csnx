@@ -4,9 +4,7 @@ import type { Entry, EntryID } from './Entry';
 
 export type Axis = 'x' | 'y';
 
-export type Coords = {
-	[k in Axis]: number;
-};
+export type Coords = Record<Axis, number>;
 
 export type Cell = Coords & {
 	/** Clue number */

@@ -79,16 +79,13 @@ export const iconLeft = css`
 	}
 `;
 
-const priorities: {
-	[key in LinkPriority]: (link: ThemeLink) => SerializedStyles;
-} = {
-	primary,
-	secondary,
-};
+const priorities: Record<LinkPriority, (link: ThemeLink) => SerializedStyles> =
+	{
+		primary,
+		secondary,
+	};
 
-const iconSides: {
-	[key in IconSide]: SerializedStyles;
-} = {
+const iconSides: Record<IconSide, SerializedStyles> = {
 	right: iconRight,
 	left: iconLeft,
 };

@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source",
-	"version": "8.0.0",
+	"version": "8.0.1",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -69,7 +69,7 @@
 		"mkdirp": "3.0.1",
 		"prettier": "3.3.3",
 		"react": "18.2.0",
-		"rollup": "4.24.0",
+		"rollup": "4.27.4",
 		"storybook": "8.4.1",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
