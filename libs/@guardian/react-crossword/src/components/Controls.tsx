@@ -17,10 +17,14 @@ const controlStyles = css`
 	gap: ${space[1]}px;
 	padding: ${space[1]}px 0;
 `;
-const ClueControls = () => {
+const ClueControls = ({
+	toggleAnagramHelper,
+}: {
+	toggleAnagramHelper?: () => void;
+}) => {
 	const theme = useTheme();
 	const { cells, solutionAvailable } = useData();
-	const { progress, setCellProgress, clearProgress } = useProgress();
+	const { progress, setCellProgress } = useProgress();
 	const { currentEntryId } = useCurrentClue();
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
@@ -94,9 +98,11 @@ const ClueControls = () => {
 					)}
 				</>
 			)}
-			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
-				Anagram Helper
-			</Button>
+			{toggleAnagramHelper && (
+				<Button onSuccess={toggleAnagramHelper} theme={crosswordButtonTheme}>
+					Anagram Helper
+				</Button>
+			)}
 		</div>
 	);
 };
@@ -157,10 +163,14 @@ const GridControls = () => {
 	);
 };
 
-export const Controls = () => {
+export const Controls = ({
+	toggleAnagramHelper,
+}: {
+	toggleAnagramHelper?: () => void;
+}) => {
 	return (
 		<>
-			<ClueControls />
+			<ClueControls toggleAnagramHelper={toggleAnagramHelper} />
 			<GridControls />
 		</>
 	);
