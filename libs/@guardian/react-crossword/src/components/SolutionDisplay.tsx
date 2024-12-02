@@ -186,6 +186,7 @@ export const SolutionDisplay = ({
 						{progressLetter.progress !== candidateLetter && shuffled && (
 							<Button
 								onSuccess={() => updateProgressLetter(index)}
+								priority="tertiary"
 								data-index={index}
 								size="xsmall"
 								aria-label="lock"
@@ -193,13 +194,15 @@ export const SolutionDisplay = ({
 									padding: 0;
 								`}
 							>
-								<SvgPadlock theme={{ fill: 'white' }} size="xsmall" />
+								<SvgPadlock size="xsmall" />
 							</Button>
 						)}
-						<SolutionDisplayCell
-							progressLetter={progressLetter}
-							progressValid={progressValid}
-						/>
+						{shuffled && (
+							<SolutionDisplayCell
+								progressLetter={progressLetter}
+								progressValid={progressValid}
+							/>
+						)}
 					</div>
 				);
 			})}
