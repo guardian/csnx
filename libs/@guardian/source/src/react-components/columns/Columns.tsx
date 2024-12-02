@@ -24,16 +24,14 @@ export type CollapseBreakpoint = Extract<
 	'tablet' | 'desktop' | 'leftCol' | 'wide'
 >;
 
-const collapseBelowMap: { [key in CollapseBreakpoint]: SerializedStyles } = {
+const collapseBelowMap: Record<CollapseBreakpoint, SerializedStyles> = {
 	tablet: collapseBelowTablet,
 	desktop: collapseBelowDesktop,
 	leftCol: collapseBelowleftCol,
 	wide: collapseBelowWide,
 };
 
-const collapseBelowColumnsMap: {
-	[key in CollapseBreakpoint]: SerializedStyles;
-} = {
+const collapseBelowColumnsMap: Record<CollapseBreakpoint, SerializedStyles> = {
 	tablet: collapseBelowColumnsCSS('tablet'),
 	desktop: collapseBelowColumnsCSS('desktop'),
 	leftCol: collapseBelowColumnsCSS('leftCol'),

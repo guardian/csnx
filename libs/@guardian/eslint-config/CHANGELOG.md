@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 10.0.0-beta.8
+
+### Breaking Changes
+
+- Dep bumps changes, including `||=` → `??=`
+
 ## 10.0.0-beta.7
 
 ### Breaking Changes

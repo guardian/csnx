@@ -9,7 +9,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import prettier from 'prettier';
+import { format } from 'prettier';
 import { includedTable } from './included-table.mjs';
 import { usageTable } from './usage-table.mjs';
 
@@ -35,7 +35,7 @@ for (const { key, value } of replacements) {
 	readme = readme.replace(regex, `<!-- ${key} -->\n${value}\n<!-- /${key} -->`);
 }
 
-readme = await prettier.format(readme, {
+readme = await format(readme, {
 	parser: 'markdown',
 });
 

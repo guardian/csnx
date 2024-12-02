@@ -97,8 +97,8 @@ export const log: LogCall = (subscription, ...args) => {
 // put the logger method on the window object so we can subscribe from the console
 /* istanbul ignore next */
 if (typeof window !== 'undefined') {
-	window.guardian ||= {};
-	window.guardian.logger ||= {
+	window.guardian ??= {};
+	window.guardian.logger ??= {
 		subscribeTo,
 		unsubscribeFrom,
 		teams: () => {

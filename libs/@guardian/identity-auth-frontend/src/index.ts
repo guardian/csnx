@@ -65,7 +65,7 @@ export const getIdentityAuth = () => {
 	} = window.guardian.config ?? {};
 	const stageOrDev = getStage(isDev, stage);
 
-	window.guardian.identityAuth ||= new IdentityAuth<
+	window.guardian.identityAuth ??= new IdentityAuth<
 		never,
 		FrontendIdTokenClaims
 	>({

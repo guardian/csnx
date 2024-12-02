@@ -84,7 +84,7 @@ const gridColumnsStyle = (columns: Columns): SerializedStyles => css`
 	}
 `;
 
-export const tileGridColumns: { [key in Columns]: SerializedStyles } = {
+export const tileGridColumns: Record<Columns, SerializedStyles> = {
 	2: gridColumnsStyle(2),
 	3: gridColumnsStyle(3),
 	4: gridColumnsStyle(4),

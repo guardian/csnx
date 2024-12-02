@@ -231,39 +231,32 @@ const iconNudgeAnimation = css`
 	}
 `;
 
-const priorities: {
-	[key in ButtonPriority]: (button: ThemeButton) => SerializedStyles;
-} = {
+const priorities: Record<
+	ButtonPriority,
+	(button: ThemeButton) => SerializedStyles
+> = {
 	primary,
 	secondary,
 	tertiary,
 	subdued,
 };
 
-const iconSides: {
-	[key in IconSide]: SerializedStyles;
-} = {
+const iconSides: Record<IconSide, SerializedStyles> = {
 	right: iconRight,
 	left: iconLeft,
 };
 
-const sizes: {
-	[key in Size]: SerializedStyles;
-} = {
+const sizes: Record<Size, SerializedStyles> = {
 	default: defaultSize,
 	small: smallSize,
 	xsmall: xsmallSize,
 };
-const iconSizes: {
-	[key in Size]: SerializedStyles;
-} = {
+const iconSizes: Record<Size, SerializedStyles> = {
 	default: iconDefault,
 	small: iconSmall,
 	xsmall: iconXsmall,
 };
-const iconOnlySizes: {
-	[key in Size]: SerializedStyles;
-} = {
+const iconOnlySizes: Record<Size, SerializedStyles> = {
 	default: iconOnlyDefault,
 	small: iconOnlySmall,
 	xsmall: iconOnlyXsmall,
