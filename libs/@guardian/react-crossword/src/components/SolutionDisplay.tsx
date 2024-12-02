@@ -184,7 +184,6 @@ export const SolutionDisplay = ({
 						{progressLetter.progress !== candidateLetter && shuffled && (
 							<Button
 								onSuccess={() => updateProgressLetter(index)}
-								priority="tertiary"
 								data-index={index}
 								size="xsmall"
 								aria-label="lock"
