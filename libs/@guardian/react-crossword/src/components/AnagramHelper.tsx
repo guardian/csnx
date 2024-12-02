@@ -149,7 +149,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 						justify-content: center;
 					`}
 				>
-					<WordWheel letterArray={wordWheelLetters} />
+					<WordWheel letters={wordWheelLetters} />
 				</div>
 				<div
 					css={css`

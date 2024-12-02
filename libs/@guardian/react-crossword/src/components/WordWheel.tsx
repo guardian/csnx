@@ -9,12 +9,12 @@ const radius = 70;
 
 const getPosition = ({
 	index,
-	letterArray,
+	letters,
 }: {
 	index: number;
-	letterArray: string[];
+	letters: string[];
 }): { x: number; y: number } => {
-	const angle = (360 / letterArray.length) * index;
+	const angle = (360 / letters.length) * index;
 	const radian = (angle * Math.PI) / 180; // Convert degrees to radians
 	return {
 		x: centerX + radius * Math.cos(radian),
@@ -23,14 +23,14 @@ const getPosition = ({
 };
 
 const renderOuterLetters = ({
-	letterArray,
+	letters,
 	fill,
 }: {
-	letterArray: string[];
+	letters: string[];
 	fill?: string;
 }): JSX.Element[] => {
-	return letterArray.map((letter, index) => {
-		const { x, y } = getPosition({ letterArray: letterArray, index });
+	return letters.map((letter, index) => {
+		const { x, y } = getPosition({ letters: letters, index });
 		return (
 			<text
 				key={index}
@@ -49,10 +49,10 @@ const renderOuterLetters = ({
 	});
 };
 
-const WordWheelComponent = ({ letterArray }: { letterArray: string[] }) => {
+const WordWheelComponent = ({ letters }: { letters: string[] }) => {
 	const theme = useTheme();
 
-	const centerLetter = letterArray.length > 4 ? letterArray.shift() : undefined;
+	const centerLetter = letters.length > 4 ? letters.shift() : undefined;
 
 	return (
 		<svg width="200" height="200">
@@ -70,7 +70,7 @@ const WordWheelComponent = ({ letterArray }: { letterArray: string[] }) => {
 					{centerLetter}
 				</text>
 			)}
-			{renderOuterLetters({ letterArray, fill: theme.text })}
+			{renderOuterLetters({ letters: letters, fill: theme.text })}
 		</svg>
 	);
 };
