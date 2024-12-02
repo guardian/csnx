@@ -51,11 +51,14 @@ export type Separators = Array<{
 export type Theme = {
 	background: string;
 	foreground: string;
+	anagramHelperBackground: string;
 	text: string;
+	errorText: string;
 	gutter: number;
 	highlight: string;
 	focus: string;
 	active: string;
+	unsavedBackground: string;
 	cellSize: number;
 	buttonBackground: string;
 	buttonBackgroundHover: string;
