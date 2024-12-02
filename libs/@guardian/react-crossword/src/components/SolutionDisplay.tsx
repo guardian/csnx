@@ -192,7 +192,7 @@ export const SolutionDisplay = ({
 									padding: 0;
 								`}
 							>
-								<SvgPadlock size="xsmall" />
+								<SvgPadlock theme={{ fill: 'white' }} size="xsmall" />
 							</Button>
 						)}
 						<SolutionDisplayCell
