@@ -9,6 +9,14 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { Button } from './Button';
 
+const controlStyles = css`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: ${space[1]}px;
+	padding: ${space[1]}px 0;
+`;
 const ClueControls = () => {
 	const theme = useTheme();
 	const { cells, solutionAvailable } = useData();
@@ -68,16 +76,7 @@ const ClueControls = () => {
 	}, [cells, checkCell, currentEntryId]);
 
 	return (
-		<div
-			css={css`
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				gap: ${space[1]}px;
-				padding: ${space[1]}px 0;
-			`}
-		>
+		<div css={controlStyles}>
 			{currentEntryId && (
 				<>
 					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
@@ -140,16 +139,7 @@ const GridControls = () => {
 	}, [cells, checkCell]);
 
 	return (
-		<div
-			css={css`
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				gap: ${space[1]}px;
-				padding: ${space[1]}px 0;
-			`}
-		>
+		<div css={controlStyles}>
 			{solutionAvailable && (
 				<>
 					<Button onSuccess={checkGrid} requireConfirmation={true}>
