@@ -126,10 +126,6 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 					display: flex;
 					align-items: center;
 					flex-direction: column;
-
-					> * {
-						margin-bottom: ${space[4]}px;
-					}
 				`}
 			>
 				<div
@@ -139,7 +135,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 						justify-content: center;
 					`}
 				>
-					<WordWheel candidateLetters={candidateLetters} />
+					{<WordWheel candidateLetters={candidateLetters} />}
 				</div>
 				<div
 					css={css`
