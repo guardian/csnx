@@ -1,5 +1,11 @@
 # @guardian/ab-react
 
+## 9.0.1
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 9.0.0
 
 ### Major Changes
