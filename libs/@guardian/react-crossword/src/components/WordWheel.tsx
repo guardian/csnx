@@ -49,17 +49,8 @@ const renderOuterLetters = ({
 	});
 };
 
-const WordWheelComponent = ({
-	candidateLetters,
-}: {
-	candidateLetters: string[];
-}) => {
+const WordWheelComponent = ({ letterArray }: { letterArray: string[] }) => {
 	const theme = useTheme();
-
-	const letterArray = candidateLetters
-		.join('')
-		.split('')
-		.sort(() => Math.random() - 0.5);
 
 	const centerLetter = letterArray.length > 4 ? letterArray.shift() : undefined;
 

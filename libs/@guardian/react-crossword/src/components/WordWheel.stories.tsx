@@ -23,19 +23,19 @@ type Story = StoryObj<typeof WordWheel>;
 
 export const Default: Story = {
 	args: {
-		candidateLetters: ['A', 'B', 'C', 'D', 'E'],
+		letterArray: ['A', 'B', 'C', 'D', 'E'],
 	},
 };
 
 export const TenLetters: Story = {
 	args: {
-		candidateLetters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+		letterArray: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
 	},
 };
 
 export const TwentyLetters: Story = {
 	args: {
-		candidateLetters: [
+		letterArray: [
 			'A',
 			'B',
 			'C',

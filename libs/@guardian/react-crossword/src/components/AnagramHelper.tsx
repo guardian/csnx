@@ -21,6 +21,7 @@ interface AnagramHelperProps {
 export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
+	const [wordWheelLetters, setWordWheelLetters] = useState<string[]>([]);
 	const [progressLetters, setProgressLetters] = useState<
 		AnagramHelperProgress[]
 	>([]);
@@ -94,6 +95,15 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 		reset();
 	}, [reset]);
 
+	useEffect(() => {
+		if (shuffled) {
+			const newWordWheelLetters = [...candidateLetters].sort(
+				() => Math.random() - 0.5,
+			);
+			setWordWheelLetters(newWordWheelLetters);
+		}
+	}, [candidateLetters, shuffled]);
+
 	return (
 		<div
 			css={css`
@@ -139,7 +149,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 						justify-content: center;
 					`}
 				>
-					<WordWheel candidateLetters={candidateLetters} />
+					<WordWheel letterArray={wordWheelLetters} />
 				</div>
 				<div
 					css={css`
