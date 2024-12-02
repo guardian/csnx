@@ -6,6 +6,7 @@ import { getConsentFor as clientGetConsentFor } from './getConsentFor';
 import { getFramework } from './getFramework';
 import { onConsent as clientOnConsent } from './onConsent';
 import { onConsentChange as clientOnConsentChange } from './onConsentChange';
+import { rejectAll as clientRejectAll } from './rejectAll';
 import {
 	isServerSide,
 	cmp as serverCmp,
@@ -107,6 +108,10 @@ export const cmp: CMP = isServerSide
 			__enable: enable,
 			__disable: disable,
 		});
+
+export const rejectAll = isServerSide
+	? clientRejectAll
+	: (window.guCmpHotFix.rejectAll ||= clientRejectAll);
 
 export const onConsent = isServerSide
 	? serverOnConsent
