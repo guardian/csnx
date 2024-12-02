@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 4.0.2
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 4.0.1
 
 ### Patch Changes

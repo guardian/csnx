@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 13.1.1
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 13.1.0
 
 ### Minor Changes
