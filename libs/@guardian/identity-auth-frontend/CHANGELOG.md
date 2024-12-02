@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 6.0.2
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 6.0.1
 
 ### Patch Changes

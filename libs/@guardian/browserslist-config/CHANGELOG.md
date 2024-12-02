@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 6.1.2
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 6.1.1
 
 ### Patch Changes

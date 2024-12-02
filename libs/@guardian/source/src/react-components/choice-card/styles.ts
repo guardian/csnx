@@ -54,7 +54,7 @@ const gridColumnsStyle = (columns: ChoiceCardColumns): SerializedStyles => css`
 		grid-template-columns: repeat(${columns}, 1fr);
 	}
 `;
-export const gridColumns: { [key in ChoiceCardColumns]: SerializedStyles } = {
+export const gridColumns: Record<ChoiceCardColumns, SerializedStyles> = {
 	2: gridColumnsStyle(2),
 	3: gridColumnsStyle(3),
 	4: gridColumnsStyle(4),

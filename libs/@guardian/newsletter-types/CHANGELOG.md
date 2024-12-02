@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 3.0.1
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 3.0.0
 
 ### Major Changes
