@@ -6,9 +6,7 @@ import { Controls } from './Controls';
 const meta: Meta<typeof Controls> = {
 	component: Controls,
 	title: 'Components/Controls',
-	args: {
-		progress: [],
-	},
+	args: {},
 	decorators: [
 		(Story) => {
 			localStorage.removeItem(data.id);
