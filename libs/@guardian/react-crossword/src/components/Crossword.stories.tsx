@@ -70,8 +70,7 @@ export const MultiplePlayersRow: StoryFn = () => {
 export const CustomLayoutRaw: StoryFn = () => {
 	return (
 		<Crossword data={data} progress={progress}>
-			<Crossword.Grid />
-			<Crossword.Controls />
+			<Crossword.InteractiveGrid />
 			<Crossword.SavedMessage />
 			<Crossword.Clues direction="across" />
 			<Crossword.Clues direction="down" />
@@ -108,10 +107,7 @@ export const CustomisedLayout: StoryFn = () => {
 					/>
 				</div>
 				<div style={{ flexBasis: 496, minWidth: '15em' }}>
-					<Crossword.Grid />
-					<div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-						<Crossword.Controls />
-					</div>
+					<Crossword.InteractiveGrid />
 					<div
 						style={{
 							fontFamily: 'cursive',
