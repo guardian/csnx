@@ -88,21 +88,16 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 				return letter;
 			});
 		});
-	}, [progressLetters]);
+		const newWordWheelLetters = [...candidateLetters]
+			.filter((letter) => !!letter)
+			.sort(() => Math.random() - 0.5);
+		setWordWheelLetters(newWordWheelLetters);
+	}, [candidateLetters, progressLetters]);
 
 	//initialise the candidate letters and progress letters
 	useEffect(() => {
 		reset();
 	}, [reset]);
-
-	useEffect(() => {
-		if (shuffled) {
-			const newWordWheelLetters = [...candidateLetters]
-				.filter((letter) => !!letter)
-				.sort(() => Math.random() - 0.5);
-			setWordWheelLetters(newWordWheelLetters);
-		}
-	}, [candidateLetters, shuffled]);
 
 	return (
 		<div
