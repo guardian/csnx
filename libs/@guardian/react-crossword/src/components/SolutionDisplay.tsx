@@ -195,12 +195,10 @@ export const SolutionDisplay = ({
 								<SvgPadlock size="xsmall" />
 							</Button>
 						)}
-						{shuffled && (
-							<SolutionDisplayCell
-								progressLetter={progressLetter}
-								progressValid={progressValid}
-							/>
-						)}
+						<SolutionDisplayCell
+							progressLetter={progressLetter}
+							progressValid={progressValid}
+						/>
 					</div>
 				);
 			})}
