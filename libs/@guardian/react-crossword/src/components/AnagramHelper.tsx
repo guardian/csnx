@@ -97,9 +97,9 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 
 	useEffect(() => {
 		if (shuffled) {
-			const newWordWheelLetters = [...candidateLetters].sort(
-				() => Math.random() - 0.5,
-			);
+			const newWordWheelLetters = [...candidateLetters]
+				.filter((letter) => !!letter)
+				.sort(() => Math.random() - 0.5);
 			setWordWheelLetters(newWordWheelLetters);
 		}
 	}, [candidateLetters, shuffled]);
