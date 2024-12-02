@@ -1,12 +1,13 @@
 import { breakpoints } from '@guardian/source/foundations';
 import type { Breakpoint } from '@guardian/source/foundations';
 
-type ViewportMeta = {
-	[key in Breakpoint]: {
+type ViewportMeta = Record<
+	Breakpoint,
+	{
 		name: string;
 		type: string;
-	};
-};
+	}
+>;
 const viewportMeta: ViewportMeta = {
 	mobile: {
 		name: 'Mobile',
@@ -42,15 +43,16 @@ const viewportMeta: ViewportMeta = {
 	},
 };
 
-type Viewports = {
-	[key in Breakpoint]: {
+type Viewports = Record<
+	Breakpoint,
+	{
 		styles: {
 			width: string;
 			height: string;
 		};
 		type: string;
-	};
-};
+	}
+>;
 
 const viewportEntries = Object.entries(breakpoints).map(([name, width]) => {
 	return [

@@ -1,9 +1,7 @@
 import { breakpoints } from '../breakpoints/breakpoints';
 import type { Breakpoint } from '../breakpoints/breakpoints';
 
-export type BreakpointMap = {
-	[key in Breakpoint]: string;
-};
+export type BreakpointMap = Record<Breakpoint, string>;
 
 /**
  * Making this value much smaller than `1px` prevents

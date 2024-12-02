@@ -30,9 +30,7 @@ export interface InputTheme extends Theme {
 
 export type Width = 30 | 10 | 4;
 
-const widths: {
-	[key in Width]: SerializedStyles;
-} = {
+const widths: Record<Width, SerializedStyles> = {
 	30: width30,
 	10: width10,
 	4: width4,

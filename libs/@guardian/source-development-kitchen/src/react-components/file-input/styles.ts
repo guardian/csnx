@@ -45,17 +45,13 @@ export const warningText = (
 	margin: 2px 0 0;
 `;
 
-export const uploadSizes: {
-	[key in SizeType]: SerializedStyles;
-} = {
+export const uploadSizes: Record<SizeType, SerializedStyles> = {
 	default: defaultUpload,
 	small: smallUpload,
 	xsmall: xsmallUpload,
 };
 
-export const fontSizes: {
-	[key in SizeType]: SerializedStyles;
-} = {
+export const fontSizes: Record<SizeType, SerializedStyles> = {
 	default: css`
 		${textSans17};
 	`,
