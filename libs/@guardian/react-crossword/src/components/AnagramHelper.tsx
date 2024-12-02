@@ -98,13 +98,10 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 		<div
 			css={css`
 				display: flex;
-				box-sizing: border-box;
 				flex-direction: column;
 				background-color: ${theme.anagramHelperBackground};
 				padding: 10px;
 				min-height: fit-content;
-				width: fit-content;
-				max-width: 500px;
 			`}
 		>
 			<div
