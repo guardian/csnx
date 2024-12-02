@@ -2,28 +2,11 @@ import { css } from '@emotion/react';
 import { headlineBold17, space } from '@guardian/source/foundations';
 import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
-import { useMemo } from 'react';
 import { memo } from 'react';
 import type { Direction } from '../@types/Direction';
-import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
-
-const useGridWidth = () => {
-	const { gutter, cellSize } = useTheme();
-	const { dimensions } = useData();
-
-	return useMemo(
-		() => Math.max((cellSize + gutter) * dimensions.cols + gutter, 300),
-		[cellSize, gutter, dimensions.cols],
-	);
-};
-
-const useWidthForCols = (cols: number) => {
-	const gridWidth = useGridWidth();
-	const { clueMinWidth } = useTheme();
-
-	return gridWidth + clueMinWidth * cols + 'px';
-};
+import { useGridWidth } from '../hooks/useGridWidth';
+import { useWidthForCols } from '../hooks/useWidthForCols';
 
 export const Wrapper = memo(({ children }: { children: ReactNode }) => {
 	const { text, clueMaxWidth } = useTheme();
@@ -125,23 +108,6 @@ const CluesHeader = memo(({ direction }: { direction: Direction }) => {
 	);
 });
 
-const Controls = memo(({ children }: { children: ReactNode }) => {
-	return (
-		<div
-			css={css`
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				gap: ${space[1]}px;
-				padding: ${space[1]}px 0;
-			`}
-		>
-			{children}
-		</div>
-	);
-});
-
 const SavedMessage = memo(({ children }: { children: ReactNode }) => {
 	const theme = useTheme();
 
@@ -163,6 +129,5 @@ export const Layout = {
 	Grid,
 	Clues,
 	CluesHeader,
-	Controls,
 	SavedMessage,
 };

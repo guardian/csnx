@@ -5,8 +5,7 @@ import type { Progress, Theme } from '../@types/crossword';
 import { ContextProvider } from '../context/ContextProvider';
 import { useProgress } from '../context/Progress';
 import { Clues } from './Clues';
-import { Controls } from './Controls';
-import { Grid } from './Grid';
+import { InteractiveGrid } from './InteractiveGrid';
 import { Layout } from './Layout';
 
 export type CrosswordProps = {
@@ -59,13 +58,7 @@ export const Crossword = ({
 				{children ?? (
 					<Layout.Wrapper>
 						<Layout.Grid>
-							<Grid />
-							<Layout.Controls>
-								<Controls.Clues />
-							</Layout.Controls>
-							<Layout.Controls>
-								<Controls.Grid />
-							</Layout.Controls>
+							<InteractiveGrid />
 							<Layout.SavedMessage>
 								<SavedMessage />
 							</Layout.SavedMessage>
@@ -87,7 +80,6 @@ export const Crossword = ({
 	);
 };
 
-Crossword.Grid = Grid;
+Crossword.InteractiveGrid = InteractiveGrid;
 Crossword.Clues = Clues;
-Crossword.Controls = Controls;
 Crossword.SavedMessage = SavedMessage;
