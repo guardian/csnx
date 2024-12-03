@@ -12,7 +12,7 @@ export const InteractiveGrid = memo(() => {
 	return (
 		<>
 			{showAnagramHelper ? (
-				<AnagramHelper onClickClose={() => setShowAnagramHelper(false)} />
+				<AnagramHelper hideAnagramHelper={() => setShowAnagramHelper(false)} />
 			) : (
 				<Grid />
 			)}

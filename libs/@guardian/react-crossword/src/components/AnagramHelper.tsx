@@ -15,10 +15,10 @@ import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
 interface AnagramHelperProps {
-	onClickClose?: () => void;
+	hideAnagramHelper?: () => void;
 }
 
-export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
+export const AnagramHelper = ({ hideAnagramHelper }: AnagramHelperProps) => {
 	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 	const [wordWheelLetters, setWordWheelLetters] = useState<string[]>([]);
@@ -55,7 +55,8 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 				});
 			}
 		}
-	}, [progressLetters, setCellProgress]);
+		hideAnagramHelper?.();
+	}, [hideAnagramHelper, progressLetters, setCellProgress]);
 
 	const shuffle = useCallback(() => {
 		setShuffled(true);
@@ -117,8 +118,12 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				{onClickClose && (
-					<Button onSuccess={onClickClose} size="small" priority="tertiary">
+				{hideAnagramHelper && (
+					<Button
+						onSuccess={hideAnagramHelper}
+						size="small"
+						priority="tertiary"
+					>
 						<SvgCross size="xsmall" />
 					</Button>
 				)}
