@@ -83,21 +83,19 @@ const ClueControls = ({
 
 	return (
 		<div css={controlStyles}>
-			<>
-				<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
-					Clear Word
-				</Button>
-				{solutionAvailable && (
-					<>
-						<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
-							Check Word
-						</Button>
-						<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-							Reveal Word
-						</Button>
-					</>
-				)}
-			</>
+			<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
+				Clear Word
+			</Button>
+			{solutionAvailable && (
+				<>
+					<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
+						Check Word
+					</Button>
+					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
+						Reveal Word
+					</Button>
+				</>
+			)}
 			{toggleAnagramHelper && (
 				<Button onSuccess={toggleAnagramHelper} theme={crosswordButtonTheme}>
 					Anagram Helper
