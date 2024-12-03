@@ -55,7 +55,9 @@ export const AnagramHelper = ({ hideAnagramHelper }: AnagramHelperProps) => {
 				});
 			}
 		}
-		hideAnagramHelper?.();
+		if (hideAnagramHelper) {
+			hideAnagramHelper();
+		}
 	}, [hideAnagramHelper, progressLetters, setCellProgress]);
 
 	const shuffle = useCallback(() => {
