@@ -16,8 +16,7 @@ export const InteractiveGrid = memo(() => {
 			) : (
 				<Grid />
 			)}
-			<Controls.Clues toggleAnagramHelper={toggleAnagramHelper} />
-			<Controls.Grid />
+			<Controls toggleAnagramHelper={toggleAnagramHelper} />
 		</>
 	);
 });

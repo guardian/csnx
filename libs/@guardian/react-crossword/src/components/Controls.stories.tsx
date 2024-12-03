@@ -25,12 +25,21 @@ type Story = StoryObj<typeof Controls>;
 
 export const Default: Story = {};
 
-export const ClueControls: StoryFn = () => {
-	return <Controls.Clues />;
+export const WithAnagramHelperToggle: StoryFn = () => {
+	return <Controls toggleAnagramHelper={() => {}} />;
 };
 
-export const GridControls: StoryFn = () => {
-	return <Controls.Grid />;
+export const NoSelectedEntry: Story = {
+	decorators: [
+		(Story) => {
+			localStorage.removeItem(data.id);
+			return (
+				<ContextProvider data={data}>
+					<Story />
+				</ContextProvider>
+			);
+		},
+	],
 };
 
 export const CustomLayout: StoryFn = () => {
@@ -43,8 +52,7 @@ export const CustomLayout: StoryFn = () => {
 				gap: 5,
 			}}
 		>
-			<Controls.Clues />
-			<Controls.Grid />
+			<Controls />
 		</div>
 	);
 };
