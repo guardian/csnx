@@ -6,9 +6,7 @@ import { Controls } from './Controls';
 const meta: Meta<typeof Controls> = {
 	component: Controls,
 	title: 'Components/Controls',
-	args: {
-		progress: [],
-	},
+	args: {},
 	decorators: [
 		(Story) => {
 			localStorage.removeItem(data.id);
@@ -27,26 +25,19 @@ type Story = StoryObj<typeof Controls>;
 
 export const Default: Story = {};
 
-export const ClueControls: StoryFn = () => {
-	return <Controls.Clues />;
+export const WithAnagramHelperToggle: StoryFn = () => {
+	return <Controls toggleAnagramHelper={() => {}} />;
 };
 
-export const GridControls: StoryFn = () => {
-	return <Controls.Grid />;
-};
-
-export const CustomLayout: StoryFn = () => {
-	return (
-		<div
-			style={{
-				display: 'flex',
-				flexDirection: 'column-reverse',
-				alignItems: 'flex-start',
-				gap: 5,
-			}}
-		>
-			<Controls.Clues />
-			<Controls.Grid />
-		</div>
-	);
+export const NoSelectedEntry: Story = {
+	decorators: [
+		(Story) => {
+			localStorage.removeItem(data.id);
+			return (
+				<ContextProvider data={data}>
+					<Story />
+				</ContextProvider>
+			);
+		},
+	],
 };

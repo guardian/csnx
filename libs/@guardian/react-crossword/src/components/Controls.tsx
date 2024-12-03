@@ -3,6 +3,7 @@ import { space } from '@guardian/source/foundations';
 import type { ThemeButton } from '@guardian/source/react-components';
 import { useCallback } from 'react';
 import type { Cell, Progress } from '../@types/crossword';
+import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
@@ -17,11 +18,16 @@ const controlStyles = css`
 	gap: ${space[1]}px;
 	padding: ${space[1]}px 0;
 `;
-const ClueControls = () => {
+const ClueControls = ({
+	toggleAnagramHelper,
+	currentEntryId,
+}: {
+	toggleAnagramHelper?: () => void;
+	currentEntryId: EntryID;
+}) => {
 	const theme = useTheme();
 	const { cells, solutionAvailable } = useData();
-	const { progress, setCellProgress, clearProgress } = useProgress();
-	const { currentEntryId } = useCurrentClue();
+	const { progress, setCellProgress } = useProgress();
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
 		backgroundPrimary: theme.buttonBackground,
@@ -30,7 +36,7 @@ const ClueControls = () => {
 
 	const revealEntry = useCallback(() => {
 		for (const cell of cells.values()) {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
+			if (cell.group?.includes(currentEntryId)) {
 				setCellProgress({
 					x: cell.x,
 					y: cell.y,
@@ -42,7 +48,7 @@ const ClueControls = () => {
 
 	const clearEntry = useCallback(() => {
 		for (const cell of cells.values()) {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
+			if (cell.group?.includes(currentEntryId)) {
 				setCellProgress({
 					x: cell.x,
 					y: cell.y,
@@ -69,7 +75,7 @@ const ClueControls = () => {
 
 	const checkEntry = useCallback(() => {
 		for (const cell of cells.values()) {
-			if (currentEntryId && cell.group?.includes(currentEntryId)) {
+			if (cell.group?.includes(currentEntryId)) {
 				checkCell(cell);
 			}
 		}
@@ -77,26 +83,24 @@ const ClueControls = () => {
 
 	return (
 		<div css={controlStyles}>
-			{currentEntryId && (
+			<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
+				Clear Word
+			</Button>
+			{solutionAvailable && (
 				<>
-					<Button onSuccess={clearEntry} theme={crosswordButtonTheme}>
-						Clear Word
+					<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
+						Check Word
 					</Button>
-					{solutionAvailable && (
-						<>
-							<Button onSuccess={checkEntry} theme={crosswordButtonTheme}>
-								Check Word
-							</Button>
-							<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
-								Reveal Word
-							</Button>
-						</>
-					)}
+					<Button onSuccess={revealEntry} theme={crosswordButtonTheme}>
+						Reveal Word
+					</Button>
 				</>
 			)}
-			<Button onSuccess={clearProgress} theme={crosswordButtonTheme}>
-				Anagram Helper
-			</Button>
+			{toggleAnagramHelper && (
+				<Button onSuccess={toggleAnagramHelper} theme={crosswordButtonTheme}>
+					Anagram Helper
+				</Button>
+			)}
 		</div>
 	);
 };
@@ -157,14 +161,21 @@ const GridControls = () => {
 	);
 };
 
-export const Controls = () => {
+export const Controls = ({
+	toggleAnagramHelper,
+}: {
+	toggleAnagramHelper?: () => void;
+}) => {
+	const { currentEntryId } = useCurrentClue();
 	return (
 		<>
-			<ClueControls />
+			{currentEntryId && (
+				<ClueControls
+					toggleAnagramHelper={toggleAnagramHelper}
+					currentEntryId={currentEntryId}
+				/>
+			)}
 			<GridControls />
 		</>
 	);
 };
-
-Controls.Clues = ClueControls;
-Controls.Grid = GridControls;
