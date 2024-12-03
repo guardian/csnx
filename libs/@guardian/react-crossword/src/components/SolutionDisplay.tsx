@@ -50,24 +50,30 @@ export const SolutionDisplay = ({
 		if (event.key.length === 1 && !keyDownRegex.test(event.key)) {
 			return;
 		}
-		setCandidateLetters((prevState) => {
-			const newCandidateLetters = [...prevState];
-			if (event.key.length === 1) {
+		if (event.key === 'ArrowLeft') {
+			inputRefs.current[index - 1]?.focus();
+			return;
+		}
+		if (event.key === 'ArrowRight') {
+			inputRefs.current[index + 1]?.focus();
+			return;
+		}
+		if (keyDownRegex.test(event.key)) {
+			setCandidateLetters((prevState) => {
+				const newCandidateLetters = [...prevState];
 				newCandidateLetters[index] = event.key.toUpperCase();
-				inputRefs.current[index + 1]?.focus();
-			}
-			if (event.key === 'Backspace') {
+				return newCandidateLetters;
+			});
+			inputRefs.current[index + 1]?.focus();
+		}
+		if (event.key === 'Backspace') {
+			setCandidateLetters((prevState) => {
+				const newCandidateLetters = [...prevState];
 				newCandidateLetters[index] = '';
-				inputRefs.current[index - 1]?.focus();
-			}
-			if (event.key === 'ArrowLeft') {
-				inputRefs.current[index - 1]?.focus();
-			}
-			if (event.key === 'ArrowRight') {
-				inputRefs.current[index + 1]?.focus();
-			}
-			return newCandidateLetters;
-		});
+				return newCandidateLetters;
+			});
+			inputRefs.current[index - 1]?.focus();
+		}
 	};
 
 	const onDragEnd = useCallback(() => {

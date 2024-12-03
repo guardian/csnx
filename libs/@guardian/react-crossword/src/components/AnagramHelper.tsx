@@ -131,10 +131,6 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 					display: flex;
 					align-items: center;
 					flex-direction: column;
-
-					> * {
-						margin-bottom: ${space[4]}px;
-					}
 				`}
 			>
 				<div
