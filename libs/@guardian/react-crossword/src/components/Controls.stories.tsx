@@ -41,18 +41,3 @@ export const NoSelectedEntry: Story = {
 		},
 	],
 };
-
-export const CustomLayout: StoryFn = () => {
-	return (
-		<div
-			style={{
-				display: 'flex',
-				flexDirection: 'column-reverse',
-				alignItems: 'flex-start',
-				gap: 5,
-			}}
-		>
-			<Controls />
-		</div>
-	);
-};
