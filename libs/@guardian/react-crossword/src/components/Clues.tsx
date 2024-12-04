@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const Clues = ({ direction, header }: Props) => {
-	const { entries, getId } = useData();
+	const { entries, getId, cells } = useData();
 	const { progress } = useProgress();
 	const { validAnswers } = useValidAnswers();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
@@ -34,17 +34,16 @@ export const Clues = ({ direction, header }: Props) => {
 					.closest('[role="option"][data-entry-id]')
 					?.getAttribute('data-entry-id') as EntryID,
 			);
-
 			if (entry) {
-				setCurrentEntryId(entry.id);
-				setCurrentCell({
+				const newCell = cells.getByCoords({
 					x: entry.position.x,
 					y: entry.position.y,
-					group: entry.group,
 				});
+				setCurrentEntryId(entry.id);
+				setCurrentCell(newCell);
 			}
 		},
-		[entries, setCurrentCell, setCurrentEntryId],
+		[cells, entries, setCurrentCell, setCurrentEntryId],
 	);
 
 	useEffect(() => {

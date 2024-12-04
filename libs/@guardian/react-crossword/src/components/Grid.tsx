@@ -136,15 +136,14 @@ export const Grid = () => {
 			if (isTyping && !possibleDown && !possibleAcross) {
 				return;
 			}
-
 			if (delta.x !== 0) {
-				setCurrentCell({ x: newX, y: newY, group: newCell.group });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell({ x: newX, y: newY, group: newCell.group });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
 				return;
 			}
@@ -334,11 +333,11 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			setCurrentCell({
+			const clickedCell = cells.getByCoords({
 				x: clickedCellX,
 				y: clickedCellY,
-				group: entryIdsForCell,
 			});
+			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
