@@ -6,6 +6,7 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useUIState } from '../context/UI';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
@@ -14,11 +15,7 @@ import { SolutionDisplay } from './SolutionDisplay';
 import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
-interface AnagramHelperProps {
-	onClickClose?: () => void;
-}
-
-export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
+export const AnagramHelper = () => {
 	const [shuffled, setShuffled] = useState<boolean>(false);
 	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
 	const [wordWheelLetters, setWordWheelLetters] = useState<string[]>([]);
@@ -28,6 +25,7 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 	const { entries } = useData();
 	const { progress, setCellProgress } = useProgress();
 	const theme = useTheme();
+	const { setShowAnagramHelper } = useUIState();
 	const { currentEntryId } = useCurrentClue();
 	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
 
@@ -117,11 +115,13 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				{onClickClose && (
-					<Button onSuccess={onClickClose} size="small" priority="tertiary">
-						<SvgCross size="xsmall" />
-					</Button>
-				)}
+				<Button
+					onSuccess={() => setShowAnagramHelper(false)}
+					size="small"
+					priority="tertiary"
+				>
+					<SvgCross size="xsmall" />
+				</Button>
 			</div>
 			<div
 				css={css`
