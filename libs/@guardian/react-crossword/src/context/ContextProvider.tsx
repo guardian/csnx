@@ -33,12 +33,14 @@ export const ContextProvider = ({
 	data,
 	selectedEntryId,
 	userProgress,
+	userCorrectEntries,
 	userTheme,
 	children,
 }: {
 	data: CAPICrossword;
 	selectedEntryId?: EntryID;
 	userProgress?: Progress;
+	userCorrectEntries?: Set<EntryID>;
 	userTheme?: Partial<CrosswordProps>;
 	children: ReactNode;
 }) => {
@@ -56,6 +58,7 @@ export const ContextProvider = ({
 					id={id}
 					dimensions={dimensions}
 					progress={userProgress}
+					correctEntries={userCorrectEntries}
 				>
 					<CurrentCellProvider>
 						<CurrentClueProvider selectedEntryId={selectedEntryId}>

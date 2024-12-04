@@ -50,12 +50,13 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 		for (const progressLetter of progressLetters) {
 			if (!progressLetter.isSaved) {
 				setCellProgress({
+					group: entry?.group,
 					...progressLetter.coords,
 					value: progressLetter.progress,
 				});
 			}
 		}
-	}, [progressLetters, setCellProgress]);
+	}, [entry?.group, progressLetters, setCellProgress]);
 
 	const shuffle = useCallback(() => {
 		setShuffled(true);

@@ -32,3 +32,17 @@ export default meta;
 type Story = StoryObj<typeof Clues>;
 
 export const Default: Story = {};
+
+export const WithSuccess: Story = {
+	decorators: [
+		(Story) => (
+			<ContextProvider
+				data={data}
+				userProgress={progress}
+				userCorrectEntries={new Set(['7-across'])}
+			>
+				<Story />
+			</ContextProvider>
+		),
+	],
+};
