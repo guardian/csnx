@@ -28,19 +28,18 @@ import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
 import { ProgressProvider } from './Progress';
 import { ThemeProvider } from './Theme';
+import { ValidAnswersProvider } from './ValidAnswers';
 
 export const ContextProvider = ({
 	data,
 	selectedEntryId,
 	userProgress,
-	userCorrectEntries,
 	userTheme,
 	children,
 }: {
 	data: CAPICrossword;
 	selectedEntryId?: EntryID;
 	userProgress?: Progress;
-	userCorrectEntries?: Set<EntryID>;
 	userTheme?: Partial<CrosswordProps>;
 	children: ReactNode;
 }) => {
@@ -58,11 +57,10 @@ export const ContextProvider = ({
 					id={id}
 					dimensions={dimensions}
 					progress={userProgress}
-					correctEntries={userCorrectEntries}
 				>
 					<CurrentCellProvider>
 						<CurrentClueProvider selectedEntryId={selectedEntryId}>
-							{children}
+							<ValidAnswersProvider>{children}</ValidAnswersProvider>
 						</CurrentClueProvider>
 					</CurrentCellProvider>
 				</ProgressProvider>

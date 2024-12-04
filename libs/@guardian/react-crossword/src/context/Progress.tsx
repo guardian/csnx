@@ -1,22 +1,10 @@
-import { isUndefined, log } from '@guardian/libs';
+import { log } from '@guardian/libs';
 import type { Dispatch, SetStateAction } from 'react';
-import { useState } from 'react';
-import { createContext, type ReactNode, useCallback, useContext } from 'react';
+import { createContext, type ReactNode, useContext } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type {
-	Coords,
-	CrosswordEntry,
-	Dimensions,
-	Progress,
-} from '../@types/crossword';
-import type { EntryID } from '../@types/Entry';
+import type { Dimensions, Progress } from '../@types/crossword';
 import { useStoredState } from '../hooks/useStoredState';
-
-const getNewProgress = (dimensions: Dimensions): Progress => {
-	return Array.from({ length: dimensions.cols }, () =>
-		Array.from({ length: dimensions.rows }, () => ''),
-	);
-};
+import { getNewProgress } from '../utils/getNewProgress';
 
 const isValid = (
 	progress: unknown,
@@ -78,20 +66,9 @@ const getInitialProgress = ({
 	return getNewProgress(dimensions);
 };
 
-type CorrectEntries = Set<EntryID>;
-
 type Context = {
 	progress: Progress;
 	setProgress: Dispatch<SetStateAction<Progress | undefined>>;
-	setCellProgress: ({
-		x,
-		y,
-		group,
-		value,
-	}: Coords & { value: string; group?: CrosswordEntry['group'] }) => void;
-	correctEntries: CorrectEntries;
-	setCorrectEntries: Dispatch<SetStateAction<CorrectEntries>>;
-	clearProgress: () => void;
 	isStored: boolean;
 };
 
@@ -101,13 +78,11 @@ export const ProgressProvider = ({
 	children,
 	id,
 	dimensions,
-	correctEntries: userCorrectEntries = new Set(),
 	progress: userProgress,
 }: {
 	id: CAPICrossword['id'];
 	dimensions: Dimensions;
 	progress?: Progress;
-	correctEntries?: CorrectEntries;
 	children: ReactNode;
 }) => {
 	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
@@ -115,56 +90,11 @@ export const ProgressProvider = ({
 		validator: (progress: unknown) => isValid(progress, { dimensions }),
 	});
 
-	const [correctEntries, setCorrectEntries] =
-		useState<CorrectEntries>(userCorrectEntries);
-
-	const clearProgress = useCallback(() => {
-		setProgress(getNewProgress(dimensions));
-		setCorrectEntries(new Set());
-	}, [dimensions, setProgress]);
-
-	const setCellProgress = useCallback(
-		({
-			x,
-			y,
-			group,
-			value,
-		}: Coords & { value: string; group?: CrosswordEntry['group'] }) => {
-			const newProgress = [...progress];
-
-			if (isUndefined(newProgress[x])) {
-				throw new Error('Invalid x coordinate');
-			}
-
-			if (isUndefined(newProgress[x][y])) {
-				throw new Error('Invalid y coordinate');
-			}
-
-			newProgress[x][y] = value;
-
-			setProgress(newProgress);
-			if (group) {
-				setCorrectEntries((prev) => {
-					const newSet = new Set(prev);
-					for (const entryId of group) {
-						newSet.delete(entryId);
-					}
-					return newSet;
-				});
-			}
-		},
-		[progress, setProgress],
-	);
-
 	return (
 		<ProgressContext.Provider
 			value={{
 				progress,
 				setProgress,
-				correctEntries,
-				setCorrectEntries,
-				setCellProgress,
-				clearProgress,
 				isStored: isPersistent,
 			}}
 		>

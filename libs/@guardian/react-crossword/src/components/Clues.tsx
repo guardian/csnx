@@ -8,6 +8,7 @@ import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
+import { useValidAnswers } from '../context/ValidAnswers';
 import { Clue } from './Clue';
 
 type Props = {
@@ -17,7 +18,8 @@ type Props = {
 
 export const Clues = ({ direction, header }: Props) => {
 	const { entries, getId } = useData();
-	const { progress, correctEntries } = useProgress();
+	const { progress } = useProgress();
+	const { validAnswers } = useValidAnswers();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
 
@@ -128,7 +130,7 @@ export const Clues = ({ direction, header }: Props) => {
 										display: flex;
 									`}
 								>
-									{correctEntries.has(entry.id) && <SvgTickRound />}
+									{validAnswers.has(entry.id) && <SvgTickRound />}
 								</span>
 							</div>
 						);

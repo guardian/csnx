@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
 import { ContextProvider } from '../context/ContextProvider';
+import { ValidAnswersProvider } from '../context/ValidAnswers';
 import { Clues } from './Clues';
 
 const meta: Meta<typeof Clues> = {
@@ -36,12 +37,10 @@ export const Default: Story = {};
 export const WithSuccess: Story = {
 	decorators: [
 		(Story) => (
-			<ContextProvider
-				data={data}
-				userProgress={progress}
-				userCorrectEntries={new Set(['7-across'])}
-			>
-				<Story />
+			<ContextProvider data={data} userProgress={progress}>
+				<ValidAnswersProvider validAnswers={new Set(['7-across'])}>
+					<Story />
+				</ValidAnswersProvider>
 			</ContextProvider>
 		),
 	],

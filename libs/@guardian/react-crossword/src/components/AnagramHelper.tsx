@@ -6,6 +6,7 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useUpdateCell } from '../hooks/useUpdateCell';
 import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
 import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
 import { Button } from './Button';
@@ -26,7 +27,8 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 		AnagramHelperProgress[]
 	>([]);
 	const { entries } = useData();
-	const { progress, setCellProgress } = useProgress();
+	const { progress } = useProgress();
+	const { updateCell } = useUpdateCell();
 	const theme = useTheme();
 	const { currentEntryId } = useCurrentClue();
 	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
@@ -48,15 +50,15 @@ export const AnagramHelper = ({ onClickClose }: AnagramHelperProps) => {
 
 	const save = useCallback(() => {
 		for (const progressLetter of progressLetters) {
-			if (!progressLetter.isSaved) {
-				setCellProgress({
-					group: entry?.group,
+			if (!progressLetter.isSaved && entry?.group) {
+				updateCell({
+					group: entry.group,
 					...progressLetter.coords,
 					value: progressLetter.progress,
 				});
 			}
 		}
-	}, [entry?.group, progressLetters, setCellProgress]);
+	}, [entry?.group, progressLetters, updateCell]);
 
 	const shuffle = useCallback(() => {
 		setShuffled(true);
