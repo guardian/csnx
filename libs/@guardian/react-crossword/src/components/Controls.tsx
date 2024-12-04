@@ -45,7 +45,6 @@ const ClueControls = ({
 				updateCell({
 					x: cell.x,
 					y: cell.y,
-					group: cell.group,
 					value: cell.solution ?? '',
 				});
 			}
@@ -58,7 +57,6 @@ const ClueControls = ({
 				updateCell({
 					x: cell.x,
 					y: cell.y,
-					group: cell.group,
 					value: '',
 				});
 			}
@@ -81,7 +79,6 @@ const ClueControls = ({
 					updateCell({
 						x: cell.x,
 						y: cell.y,
-						group: cell.group,
 						value: '',
 					});
 					entryIsCorrect = false;
@@ -156,7 +153,6 @@ const GridControls = () => {
 				updateCell({
 					x: cell.x,
 					y: cell.y,
-					group: cell.group,
 					value: '',
 				});
 				for (const entryId of cell.group) {

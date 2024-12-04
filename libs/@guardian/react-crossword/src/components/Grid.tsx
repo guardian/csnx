@@ -195,7 +195,6 @@ export const Grid = () => {
 						updateCell({
 							x: currentCell.x,
 							y: currentCell.y,
-							group: currentCell.group,
 							value: '',
 						});
 					}
@@ -215,7 +214,6 @@ export const Grid = () => {
 							updateCell({
 								x: currentCell.x,
 								y: currentCell.y,
-								group: currentCell.group,
 								value: key.toUpperCase(),
 							});
 						}
