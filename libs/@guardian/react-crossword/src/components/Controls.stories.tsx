@@ -26,7 +26,7 @@ type Story = StoryObj<typeof Controls>;
 export const Default: Story = {};
 
 export const WithAnagramHelperToggle: StoryFn = () => {
-	return <Controls toggleAnagramHelper={() => {}} />;
+	return <Controls />;
 };
 
 export const NoSelectedEntry: Story = {

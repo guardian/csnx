@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { ReactNode } from 'react';
+import type { ComponentType } from 'react';
 import { useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
@@ -11,10 +11,16 @@ import { Clue } from './Clue';
 
 type Props = {
 	direction: Direction;
-	header?: ReactNode;
+	/** Use this to provide a custom header component for the list of clues. If
+	 * undefined, the word 'across' or 'down' will be displayed, unstyled. */
+	Header?: ComponentType<{
+		/** If you use a custom clues header, this prop is required to force
+		 * users to do something with it, for the sake of a11y... */
+		direction: Direction;
+	}>;
 };
 
-export const Clues = ({ direction, header }: Props) => {
+export const Clues = ({ direction, Header }: Props) => {
 	const { entries, getId } = useData();
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
@@ -69,7 +75,7 @@ export const Clues = ({ direction, header }: Props) => {
 				id={getId(`${direction}-label`)}
 				htmlFor={getId(`${direction}-hints`)}
 			>
-				{header ?? direction}
+				{Header ? <Header direction={direction} /> : direction}
 			</label>
 			<div
 				tabIndex={0}
@@ -77,7 +83,8 @@ export const Clues = ({ direction, header }: Props) => {
 				role="listbox"
 				aria-labelledby={getId(`${direction}-label`)}
 				aria-activedescendant={
-					// this must be undefined or match the format used for id in ./Clue.tsx
+					// this must be undefined or match the format used for id in
+					// ./Clue.tsx
 					currentEntryId && getId(currentEntryId)
 				}
 			>
