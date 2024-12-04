@@ -136,14 +136,15 @@ export const Grid = () => {
 			if (isTyping && !possibleDown && !possibleAcross) {
 				return;
 			}
+
 			if (delta.x !== 0) {
-				setCurrentCell(newCell);
+				setCurrentCell({ x: newX, y: newY });
 				setCurrentEntryId(possibleAcross ?? possibleDown);
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell(newCell);
+				setCurrentCell({ x: newX, y: newY });
 				setCurrentEntryId(possibleDown ?? possibleAcross);
 				return;
 			}
@@ -191,13 +192,11 @@ export const Grid = () => {
 					if (!currentEntryId) {
 						return;
 					}
-					if (currentCell.group) {
-						updateCell({
-							x: currentCell.x,
-							y: currentCell.y,
-							value: '',
-						});
-					}
+					updateCell({
+						x: currentCell.x,
+						y: currentCell.y,
+						value: '',
+					});
 					if (key === 'Backspace') {
 						if (direction === 'across') {
 							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
@@ -210,13 +209,11 @@ export const Grid = () => {
 				}
 				default: {
 					if (currentEntryId && keyDownRegex.test(key)) {
-						if (currentCell.group) {
-							updateCell({
-								x: currentCell.x,
-								y: currentCell.y,
-								value: key.toUpperCase(),
-							});
-						}
+						updateCell({
+							x: currentCell.x,
+							y: currentCell.y,
+							value: key.toUpperCase(),
+						});
 						if (direction === 'across') {
 							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 						}
@@ -331,11 +328,7 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			const clickedCell = cells.getByCoords({
-				x: clickedCellX,
-				y: clickedCellY,
-			});
-			setCurrentCell(clickedCell);
+			setCurrentCell({ x: clickedCellX, y: clickedCellY });
 			setCurrentEntryId(newEntryId);
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
