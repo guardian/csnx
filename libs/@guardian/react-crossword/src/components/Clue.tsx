@@ -59,6 +59,7 @@ const ClueComponent = ({
 			<span
 				css={css`
 					display: table-cell;
+					vertical-align: middle;
 				`}
 				dangerouslySetInnerHTML={{ __html: entry.clue }}
 			></span>
