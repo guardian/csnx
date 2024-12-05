@@ -111,7 +111,7 @@ export const cmp: CMP = isServerSide
 
 export const rejectAll = isServerSide
 	? clientRejectAll
-	: (window.guCmpHotFix.rejectAll ||= clientRejectAll);
+	: (window.guCmpHotFix.rejectAll ??= clientRejectAll);
 
 export const onConsent = isServerSide
 	? serverOnConsent
