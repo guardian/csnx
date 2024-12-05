@@ -1,6 +1,6 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
-	import { cmp, onConsentChange, log } from '@guardian/libs';
+	import { cmp, onConsentChange, log, rejectAll } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 
@@ -40,6 +40,13 @@
 		eventsList = [...eventsList, event];
 		log('cmp', event);
 	}
+
+	let rejectAllFunc = () => {
+		rejectAll().then(() => {
+			logEvent({ title: 'rejectAll'});
+			// window.location.reload();
+		});
+	};
 
 	let clearPreferences = () => {
 		// clear local storage
@@ -115,6 +122,7 @@
 			>open privacy manager</button
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
+		<button on:click={rejectAllFunc}>rejectAll</button>
 		<label class={framework == 'tcfv2' ? 'selected' : 'none'}>
 			<input
 				type="radio"

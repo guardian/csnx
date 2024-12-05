@@ -1,12 +1,15 @@
-import type { ConsentFramework } from '../../dist';
+import { getCurrentFramework } from './getCurrentFramework';
+import { invokeCallbacks } from './onConsentChange';
 import { rejectAllForUser } from './tcfv2/api';
 
-const rejectAll = (framework: ConsentFramework): Promise<void> =>
+const rejectAll = (): Promise<void> =>
 	// Consider jurisdiction/framework and countries.
 	new Promise<void>((resolve, reject) => {
-		if (framework === 'tcfv2') {
+		console.log('Rejecting all');
+		if (getCurrentFramework() === 'tcfv2') {
 			rejectAllForUser()
 				.then(() => {
+					invokeCallbacks();
 					resolve();
 				})
 				.catch(() => {

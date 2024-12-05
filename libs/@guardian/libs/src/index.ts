@@ -21,6 +21,7 @@ export {
 	getConsentFor,
 	onConsentChange,
 	onConsent,
+	rejectAll,
 } from './consent-management-platform';
 
 export { getCookie } from './cookies/getCookie';
