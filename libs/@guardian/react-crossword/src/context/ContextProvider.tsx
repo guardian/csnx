@@ -29,6 +29,7 @@ import { DataProvider } from './Data';
 import { ProgressProvider } from './Progress';
 import { ThemeProvider } from './Theme';
 import { ValidAnswersProvider } from './ValidAnswers';
+import { UIStateProvider } from './UI';
 
 export const ContextProvider = ({
 	data,
@@ -47,24 +48,26 @@ export const ContextProvider = ({
 
 	return (
 		<ThemeProvider theme={userTheme}>
-			<DataProvider
-				entries={entries}
-				solutionAvailable={solutionAvailable}
-				dimensions={dimensions}
-				id={id}
-			>
-				<ProgressProvider
-					id={id}
+			<UIStateProvider>
+				<DataProvider
+					entries={entries}
+					solutionAvailable={solutionAvailable}
 					dimensions={dimensions}
-					progress={userProgress}
+					id={id}
 				>
-					<CurrentCellProvider>
-						<CurrentClueProvider selectedEntryId={selectedEntryId}>
-							<ValidAnswersProvider>{children}</ValidAnswersProvider>
-						</CurrentClueProvider>
-					</CurrentCellProvider>
-				</ProgressProvider>
-			</DataProvider>
+					<ProgressProvider
+						id={id}
+						dimensions={dimensions}
+						progress={userProgress}
+					>
+						<CurrentCellProvider>
+							<CurrentClueProvider selectedEntryId={selectedEntryId}>
+								<ValidAnswersProvider>{children}</ValidAnswersProvider>
+							</CurrentClueProvider>
+						</CurrentCellProvider>
+					</ProgressProvider>
+				</DataProvider>
+			</UIStateProvider>
 		</ThemeProvider>
 	);
 };

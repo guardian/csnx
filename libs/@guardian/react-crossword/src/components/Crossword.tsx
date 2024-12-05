@@ -1,17 +1,21 @@
 import { css } from '@emotion/react';
-import type { ReactNode } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
+import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
 import { useProgress } from '../context/Progress';
+import { ScreenLayout } from '../layouts/ScreenLayout';
+import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
-import { InteractiveGrid } from './InteractiveGrid';
-import { Layout } from './Layout';
+import { Controls } from './Controls';
+import { Grid } from './Grid';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
 	progress?: Progress;
 	children?: ReactNode;
+	Layout?: ComponentType<LayoutProps>;
 } & Partial<Theme>;
 
 const SavedMessage = () => {
@@ -26,12 +30,23 @@ const SavedMessage = () => {
 	);
 };
 
+const layoutProps: LayoutProps = {
+	Grid,
+	Controls,
+	AnagramHelper,
+	Clues,
+	SavedMessage,
+};
+
 export const Crossword = ({
 	children,
 	data,
 	progress,
+	Layout,
 	...userTheme
 }: CrosswordProps) => {
+	const LayoutComponent = Layout ?? ScreenLayout;
+
 	return (
 		<ContextProvider
 			userTheme={userTheme}
@@ -55,31 +70,8 @@ export const Crossword = ({
 					container-type: inline-size;
 				`}
 			>
-				{children ?? (
-					<Layout.Wrapper>
-						<Layout.Grid>
-							<InteractiveGrid />
-							<Layout.SavedMessage>
-								<SavedMessage />
-							</Layout.SavedMessage>
-						</Layout.Grid>
-						<Layout.Clues>
-							<Clues
-								direction="across"
-								header={<Layout.CluesHeader direction="across" />}
-							/>
-							<Clues
-								direction="down"
-								header={<Layout.CluesHeader direction="down" />}
-							/>
-						</Layout.Clues>
-					</Layout.Wrapper>
-				)}
+				{children ?? <LayoutComponent {...layoutProps} />}
 			</div>
 		</ContextProvider>
 	);
 };
-
-Crossword.InteractiveGrid = InteractiveGrid;
-Crossword.Clues = Clues;
-Crossword.SavedMessage = SavedMessage;

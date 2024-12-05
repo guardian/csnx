@@ -1,8 +1,9 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
-import type { ReactNode } from 'react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
 import { quick as quickData } from '../../stories/formats/quick';
+import type { Direction } from '../@types/Direction';
+import type { LayoutProps } from '../@types/Layout';
 import { Crossword } from './Crossword';
 
 const meta: Meta<typeof Crossword> = {
@@ -68,18 +69,22 @@ export const MultiplePlayersRow: StoryFn = () => {
 };
 
 export const CustomLayoutRaw: StoryFn = () => {
-	return (
-		<Crossword data={data} progress={progress}>
-			<Crossword.InteractiveGrid />
-			<Crossword.SavedMessage />
-			<Crossword.Clues direction="across" />
-			<Crossword.Clues direction="down" />
-		</Crossword>
-	);
+	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
+		return (
+			<>
+				<Grid />
+				<Controls />
+				<SavedMessage />
+				<Clues direction="across" />
+				<Clues direction="down" />
+			</>
+		);
+	};
+	return <Crossword data={data} progress={progress} Layout={Layout} />;
 };
 
 export const CustomisedLayout: StoryFn = () => {
-	const CluesHeader = (props: { children: ReactNode }) => (
+	const CluesHeader = (props: { direction: Direction }) => (
 		<h2
 			style={{
 				fontFamily: 'monospace',
@@ -93,21 +98,20 @@ export const CustomisedLayout: StoryFn = () => {
 				alignItems: 'center',
 				marginBottom: '0.5em',
 			}}
-			{...props}
-		/>
+		>
+			{props.direction === 'across' ? '👉' : '👇'}
+		</h2>
 	);
 
-	return (
-		<Crossword data={data} progress={progress}>
+	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
+		return (
 			<div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
 				<div style={{ flex: 1, minWidth: '15em' }}>
-					<Crossword.Clues
-						direction="across"
-						header={<CluesHeader>👉</CluesHeader>}
-					/>
+					<Clues direction="across" Header={CluesHeader} />
 				</div>
 				<div style={{ flexBasis: 496, minWidth: '15em' }}>
-					<Crossword.InteractiveGrid />
+					<Grid />
+					<Controls />
 					<div
 						style={{
 							fontFamily: 'cursive',
@@ -115,18 +119,17 @@ export const CustomisedLayout: StoryFn = () => {
 							transformOrigin: 'top left',
 						}}
 					>
-						<Crossword.SavedMessage />
+						<SavedMessage />
 					</div>
 				</div>
 				<div style={{ flex: 1, minWidth: '15em' }}>
-					<Crossword.Clues
-						direction="down"
-						header={<CluesHeader>👇</CluesHeader>}
-					/>
+					<Clues direction="down" Header={CluesHeader} />
 				</div>
 			</div>
-		</Crossword>
-	);
+		);
+	};
+
+	return <Crossword data={data} progress={progress} Layout={Layout} />;
 };
 
 export const Themed: Story = {

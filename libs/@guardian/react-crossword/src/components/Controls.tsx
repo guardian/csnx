@@ -8,6 +8,7 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useUIState } from '../context/UI';
 import { useValidAnswers } from '../context/ValidAnswers';
 import { useClearUserInput } from '../hooks/useClearUserInput';
 import { useUpdateCell } from '../hooks/useUpdateCell';
@@ -21,15 +22,11 @@ const controlStyles = css`
 	gap: ${space[1]}px;
 	padding: ${space[1]}px 0;
 `;
-const ClueControls = ({
-	toggleAnagramHelper,
-	currentEntryId,
-}: {
-	toggleAnagramHelper?: () => void;
-	currentEntryId: EntryID;
-}) => {
+
+const ClueControls = ({ currentEntryId }: { currentEntryId: EntryID }) => {
 	const theme = useTheme();
 	const { cells, solutionAvailable } = useData();
+	const { toggleAnagramHelper } = useUIState();
 	const { progress } = useProgress();
 	const { setValidAnswers } = useValidAnswers();
 	const { updateCell } = useUpdateCell();
@@ -108,11 +105,10 @@ const ClueControls = ({
 					</Button>
 				</>
 			)}
-			{toggleAnagramHelper && (
-				<Button onSuccess={toggleAnagramHelper} theme={crosswordButtonTheme}>
-					Anagram Helper
-				</Button>
-			)}
+
+			<Button onSuccess={toggleAnagramHelper} theme={crosswordButtonTheme}>
+				Anagram Helper
+			</Button>
 		</div>
 	);
 };
@@ -185,20 +181,12 @@ const GridControls = () => {
 	);
 };
 
-export const Controls = ({
-	toggleAnagramHelper,
-}: {
-	toggleAnagramHelper?: () => void;
-}) => {
+export const Controls = () => {
 	const { currentEntryId } = useCurrentClue();
+
 	return (
 		<>
-			{currentEntryId && (
-				<ClueControls
-					toggleAnagramHelper={toggleAnagramHelper}
-					currentEntryId={currentEntryId}
-				/>
-			)}
+			{currentEntryId && <ClueControls currentEntryId={currentEntryId} />}
 			<GridControls />
 		</>
 	);
