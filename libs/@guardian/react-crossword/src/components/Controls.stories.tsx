@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { ContextProvider } from '../context/ContextProvider';
 import { Controls } from './Controls';
@@ -24,10 +24,6 @@ export default meta;
 type Story = StoryObj<typeof Controls>;
 
 export const Default: Story = {};
-
-export const WithAnagramHelperToggle: StoryFn = () => {
-	return <Controls />;
-};
 
 export const NoSelectedEntry: Story = {
 	decorators: [
