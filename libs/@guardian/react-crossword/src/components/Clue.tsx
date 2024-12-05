@@ -50,7 +50,6 @@ const ClueComponent = ({
 				css={css`
 					font-weight: bold;
 					display: table-cell;
-					vertical-align: middle;
 					width: 1.25em;
 					padding-right: 0.625em;
 				`}
