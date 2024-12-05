@@ -69,11 +69,12 @@ export const MultiplePlayersRow: StoryFn = () => {
 };
 
 export const CustomLayoutRaw: StoryFn = () => {
-	const Layout = ({ Clues, Grid, Controls }: LayoutProps) => {
+	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
 		return (
 			<>
 				<Grid />
 				<Controls />
+				<SavedMessage />
 				<Clues direction="across" />
 				<Clues direction="down" />
 			</>
