@@ -34,7 +34,6 @@ const ClueComponent = ({
 			role="option"
 			aria-selected={isHighlighted}
 			css={css`
-				display: block;
 				background-color: ${isActive
 					? theme.active
 					: isHighlighted
