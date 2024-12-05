@@ -28,8 +28,8 @@ import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
 import { ProgressProvider } from './Progress';
 import { ThemeProvider } from './Theme';
-import { ValidAnswersProvider } from './ValidAnswers';
 import { UIStateProvider } from './UI';
+import { ValidAnswersProvider } from './ValidAnswers';
 
 export const ContextProvider = ({
 	data,
