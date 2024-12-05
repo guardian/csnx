@@ -62,15 +62,17 @@ const ClueComponent = ({
 				`}
 				dangerouslySetInnerHTML={{ __html: entry.clue }}
 			></span>
-			<span
-				css={css`
-					display: table-cell;
-					min-width: 1.25em;
-					vertical-align: middle;
-				`}
-			>
-				{validAnswers.has(entry.id) && <SvgTickRound />}
-			</span>
+			{validAnswers.has(entry.id) && (
+				<span
+					css={css`
+						display: table-cell;
+						min-width: 1.25em;
+						vertical-align: middle;
+					`}
+				>
+					<SvgTickRound />
+				</span>
+			)}
 		</div>
 	);
 };
