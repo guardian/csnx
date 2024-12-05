@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { SvgTickRound } from '@guardian/source/react-components';
 import type { ReactNode } from 'react';
 import { useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
@@ -8,7 +7,6 @@ import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
-import { useValidAnswers } from '../context/ValidAnswers';
 import { Clue } from './Clue';
 
 type Props = {
@@ -19,7 +17,6 @@ type Props = {
 export const Clues = ({ direction, header }: Props) => {
 	const { entries, getId } = useData();
 	const { progress } = useProgress();
-	const { validAnswers } = useValidAnswers();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
 
@@ -108,27 +105,13 @@ export const Clues = ({ direction, header }: Props) => {
 						const isActive = currentEntryId === entry.id;
 
 						return (
-							<div
-								css={css`
-									display: flex;
-								`}
-							>
-								<Clue
-									entry={entry}
-									isHighlighted={isHighlighted}
-									isActive={isActive}
-									key={entry.id}
-									isComplete={complete}
-								/>
-								<span
-									css={css`
-										min-width: 1.25em;
-										display: flex;
-									`}
-								>
-									{validAnswers.has(entry.id) && <SvgTickRound />}
-								</span>
-							</div>
+							<Clue
+								entry={entry}
+								isHighlighted={isHighlighted}
+								isActive={isActive}
+								key={entry.id}
+								isComplete={complete}
+							/>
 						);
 					})}
 			</div>
