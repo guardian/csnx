@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import type { Coords, Separator, Theme } from '../@types/crossword';
@@ -10,8 +11,6 @@ import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
-
-// define and cache the regex for valid keydown events
 
 const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
 	index * (cellSize + gutter) + gutter;
@@ -96,10 +95,11 @@ export const Grid = () => {
 	const { progress, setCellProgress } = useProgress();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
-	const cheatMode = useCheatMode();
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
+
+	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
@@ -360,11 +360,14 @@ export const Grid = () => {
 
 	return (
 		<svg
-			style={{
-				background: theme.background,
-				width: '100%',
-				maxWidth: width,
-			}}
+			css={[
+				css`
+					background: ${theme.background};
+					width: 100%;
+					max-width: ${width};
+				`,
+				cheatStyles,
+			]}
 			ref={gridRef}
 			viewBox={`0 0 ${width} ${height}`}
 			tabIndex={-1}
