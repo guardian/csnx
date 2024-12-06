@@ -7,6 +7,7 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useCheatMode } from '../hooks/useCheatMode';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
@@ -95,6 +96,7 @@ export const Grid = () => {
 	const { progress, setCellProgress } = useProgress();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const cheatMode = useCheatMode();
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
@@ -202,16 +204,23 @@ export const Grid = () => {
 					break;
 				}
 				default: {
-					if (currentEntryId && keyDownRegex.test(key)) {
-						setCellProgress({ ...currentCell, value: key.toUpperCase() });
-						if (direction === 'across') {
-							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+					if (currentEntryId) {
+						const value = cheatMode
+							? cells.getByCoords({ x: currentCell.x, y: currentCell.y })
+									?.solution
+							: keyDownRegex.test(key) && key.toUpperCase();
+
+						if (value) {
+							setCellProgress({ ...currentCell, value });
+							if (direction === 'across') {
+								moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+							}
+							if (direction === 'down') {
+								moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+							}
+						} else {
+							preventDefault = false;
 						}
-						if (direction === 'down') {
-							moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
-						}
-					} else {
-						preventDefault = false;
 					}
 					break;
 				}
@@ -221,7 +230,15 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, setCellProgress],
+		[
+			currentCell,
+			currentEntryId,
+			moveFocus,
+			handleTab,
+			setCellProgress,
+			cheatMode,
+			cells,
+		],
 	);
 
 	const selectClickedCell = useCallback(
