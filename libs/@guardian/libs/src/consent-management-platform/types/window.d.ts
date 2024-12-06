@@ -40,7 +40,7 @@ declare global {
 				targetingParams: {
 					framework: ConsentFramework;
 					subscribed: boolean;
-					isExcluded: boolean;
+					isExcluded?: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
