@@ -1,15 +1,10 @@
-import { isUndefined, log } from '@guardian/libs';
+import { log } from '@guardian/libs';
 import type { Dispatch, SetStateAction } from 'react';
-import { createContext, type ReactNode, useCallback, useContext } from 'react';
+import { createContext, type ReactNode, useContext } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Coords, Dimensions, Progress } from '../@types/crossword';
+import type { Dimensions, Progress } from '../@types/crossword';
 import { useStoredState } from '../hooks/useStoredState';
-
-const getNewProgress = (dimensions: Dimensions): Progress => {
-	return Array.from({ length: dimensions.cols }, () =>
-		Array.from({ length: dimensions.rows }, () => ''),
-	);
-};
+import { getNewProgress } from '../utils/getNewProgress';
 
 const isValid = (
 	progress: unknown,
@@ -74,8 +69,6 @@ const getInitialProgress = ({
 type Context = {
 	progress: Progress;
 	setProgress: Dispatch<SetStateAction<Progress | undefined>>;
-	setCellProgress: ({ x, y, value }: Coords & { value: string }) => void;
-	clearProgress: () => void;
 	isStored: boolean;
 };
 
@@ -97,36 +90,11 @@ export const ProgressProvider = ({
 		validator: (progress: unknown) => isValid(progress, { dimensions }),
 	});
 
-	const clearProgress = useCallback(() => {
-		setProgress(getNewProgress(dimensions));
-	}, [dimensions, setProgress]);
-
-	const setCellProgress = useCallback(
-		({ x, y, value }: Coords & { value: string }) => {
-			const newProgress = [...progress];
-
-			if (isUndefined(newProgress[x])) {
-				throw new Error('Invalid x coordinate');
-			}
-
-			if (isUndefined(newProgress[x][y])) {
-				throw new Error('Invalid y coordinate');
-			}
-
-			newProgress[x][y] = value;
-
-			setProgress(newProgress);
-		},
-		[progress, setProgress],
-	);
-
 	return (
 		<ProgressContext.Provider
 			value={{
 				progress,
 				setProgress,
-				setCellProgress,
-				clearProgress,
 				isStored: isPersistent,
 			}}
 		>

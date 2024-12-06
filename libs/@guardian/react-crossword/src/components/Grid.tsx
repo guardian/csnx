@@ -7,6 +7,7 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
@@ -92,7 +93,8 @@ const FocusIndicator = ({
 export const Grid = () => {
 	const theme = useTheme();
 	const { cells, separators, entries, dimensions } = useData();
-	const { progress, setCellProgress } = useProgress();
+	const { progress } = useProgress();
+	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 
@@ -190,7 +192,11 @@ export const Grid = () => {
 					if (!currentEntryId) {
 						return;
 					}
-					setCellProgress({ ...currentCell, value: '' });
+					updateCell({
+						x: currentCell.x,
+						y: currentCell.y,
+						value: '',
+					});
 					if (key === 'Backspace') {
 						if (direction === 'across') {
 							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
@@ -203,7 +209,11 @@ export const Grid = () => {
 				}
 				default: {
 					if (currentEntryId && keyDownRegex.test(key)) {
-						setCellProgress({ ...currentCell, value: key.toUpperCase() });
+						updateCell({
+							x: currentCell.x,
+							y: currentCell.y,
+							value: key.toUpperCase(),
+						});
 						if (direction === 'across') {
 							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 						}
@@ -221,7 +231,7 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, setCellProgress],
+		[currentCell, currentEntryId, moveFocus, handleTab, updateCell],
 	);
 
 	const selectClickedCell = useCallback(

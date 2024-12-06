@@ -1,8 +1,10 @@
 import { css } from '@emotion/react';
+import { SvgTickRound } from '@guardian/source/react-components';
 import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
+import { useValidAnswers } from '../context/ValidAnswers';
 
 interface Props {
 	entry: CAPIEntry;
@@ -19,6 +21,7 @@ const ClueComponent = ({
 }: Props) => {
 	const theme = useTheme();
 	const { getId } = useData();
+	const { validAnswers } = useValidAnswers();
 
 	return (
 		<div
@@ -59,6 +62,17 @@ const ClueComponent = ({
 				`}
 				dangerouslySetInnerHTML={{ __html: entry.clue }}
 			></span>
+			{validAnswers.has(entry.id) && (
+				<span
+					css={css`
+						display: table-cell;
+						min-width: 1.25em;
+						vertical-align: middle;
+					`}
+				>
+					<SvgTickRound />
+				</span>
+			)}
 		</div>
 	);
 };
