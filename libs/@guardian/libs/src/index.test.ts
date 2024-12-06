@@ -29,6 +29,7 @@ describe('The package', () => {
 			'log',
 			'onConsent',
 			'onConsentChange',
+			'rejectAll',
 			'removeCookie',
 			'setCookie',
 			'setSessionCookie',
