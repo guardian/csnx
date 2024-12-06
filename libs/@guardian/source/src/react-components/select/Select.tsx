@@ -10,12 +10,11 @@ import { InlineSuccess } from '../user-feedback/InlineSuccess';
 import { mergeThemes } from '../utils/themes';
 import {
 	errorChevron,
-	errorInput,
 	inlineMessageMargin,
 	select,
 	selectWrapper,
+	state,
 	successChevron,
-	successInput,
 	supportingTextMargin,
 } from './styles';
 import type { ThemeSelect } from './theme';
@@ -141,8 +140,8 @@ export const Select = ({
 				<select
 					css={(theme: Theme) => [
 						select(mergedTheme(theme.select)),
-						error ? errorInput(mergedTheme(theme.select)) : '',
-						!error && success ? successInput(mergedTheme(theme.select)) : '',
+						error ? state.error(mergedTheme(theme.select)) : '',
+						!error && success ? state.success(mergedTheme(theme.select)) : '',
 						cssOverrides,
 					]}
 					aria-required={!optional}
