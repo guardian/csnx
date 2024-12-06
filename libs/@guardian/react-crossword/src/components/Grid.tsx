@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import type { Coords, Separator, Theme } from '../@types/crossword';
@@ -7,11 +8,10 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
-
-// define and cache the regex for valid keydown events
 
 const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
 	index * (cellSize + gutter) + gutter;
@@ -100,6 +100,8 @@ export const Grid = () => {
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
+
+	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
@@ -208,20 +210,27 @@ export const Grid = () => {
 					break;
 				}
 				default: {
-					if (currentEntryId && keyDownRegex.test(key)) {
-						updateCell({
-							x: currentCell.x,
-							y: currentCell.y,
-							value: key.toUpperCase(),
-						});
-						if (direction === 'across') {
-							moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+					if (currentEntryId) {
+						const value = cheatMode
+							? cells.getByCoords({ x: currentCell.x, y: currentCell.y })
+									?.solution
+							: keyDownRegex.test(key) && key.toUpperCase();
+
+						if (value) {
+							updateCell({
+								x: currentCell.x,
+								y: currentCell.y,
+								value,
+							});
+							if (direction === 'across') {
+								moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+							}
+							if (direction === 'down') {
+								moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+							}
+						} else {
+							preventDefault = false;
 						}
-						if (direction === 'down') {
-							moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
-						}
-					} else {
-						preventDefault = false;
 					}
 					break;
 				}
@@ -231,7 +240,15 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, updateCell],
+		[
+			currentCell,
+			currentEntryId,
+			moveFocus,
+			handleTab,
+			updateCell,
+			cheatMode,
+			cells,
+		],
 	);
 
 	const selectClickedCell = useCallback(
@@ -353,11 +370,14 @@ export const Grid = () => {
 
 	return (
 		<svg
-			style={{
-				background: theme.background,
-				width: '100%',
-				maxWidth: width,
-			}}
+			css={[
+				css`
+					background: ${theme.background};
+					width: 100%;
+					max-width: ${width}px;
+				`,
+				cheatStyles,
+			]}
 			ref={gridRef}
 			viewBox={`0 0 ${width} ${height}`}
 			tabIndex={-1}
