@@ -374,7 +374,7 @@ export const Grid = () => {
 				css`
 					background: ${theme.background};
 					width: 100%;
-					max-width: ${width};
+					max-width: ${width}px;
 				`,
 				cheatStyles,
 			]}
