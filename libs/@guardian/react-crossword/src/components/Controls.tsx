@@ -9,6 +9,9 @@ import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useUIState } from '../context/UI';
+import { useValidAnswers } from '../context/ValidAnswers';
+import { useClearUserInput } from '../hooks/useClearUserInput';
+import { useUpdateCell } from '../hooks/useUpdateCell';
 import { Button } from './Button';
 
 const controlStyles = css`
@@ -23,8 +26,10 @@ const controlStyles = css`
 const ClueControls = ({ currentEntryId }: { currentEntryId: EntryID }) => {
 	const theme = useTheme();
 	const { cells, solutionAvailable } = useData();
-	const { progress, setCellProgress } = useProgress();
 	const { toggleAnagramHelper } = useUIState();
+	const { progress } = useProgress();
+	const { setValidAnswers } = useValidAnswers();
+	const { updateCell } = useUpdateCell();
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
 		backgroundPrimary: theme.buttonBackground,
@@ -34,49 +39,56 @@ const ClueControls = ({ currentEntryId }: { currentEntryId: EntryID }) => {
 	const revealEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (cell.group?.includes(currentEntryId)) {
-				setCellProgress({
+				updateCell({
 					x: cell.x,
 					y: cell.y,
 					value: cell.solution ?? '',
 				});
 			}
 		}
-	}, [cells, currentEntryId, setCellProgress]);
+	}, [cells, currentEntryId, updateCell]);
 
 	const clearEntry = useCallback(() => {
 		for (const cell of cells.values()) {
 			if (cell.group?.includes(currentEntryId)) {
-				setCellProgress({
+				updateCell({
 					x: cell.x,
 					y: cell.y,
 					value: '',
 				});
 			}
 		}
-	}, [cells, currentEntryId, setCellProgress]);
+	}, [cells, currentEntryId, updateCell]);
 
 	const checkCell = useCallback(
 		(cell: Cell) => {
 			const currentProgress = progress[cell.x]?.[cell.y];
-			const isCorrect = currentProgress && currentProgress === cell.solution;
-			if (!isCorrect) {
-				setCellProgress({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
-			}
+			return !!(currentProgress && currentProgress === cell.solution);
 		},
-		[progress, setCellProgress],
+		[progress],
 	);
 
 	const checkEntry = useCallback(() => {
+		let entryIsCorrect = true;
 		for (const cell of cells.values()) {
 			if (cell.group?.includes(currentEntryId)) {
-				checkCell(cell);
+				if (!checkCell(cell)) {
+					updateCell({
+						x: cell.x,
+						y: cell.y,
+						value: '',
+					});
+					entryIsCorrect = false;
+				}
 			}
 		}
-	}, [cells, checkCell, currentEntryId]);
+		if (entryIsCorrect) {
+			setValidAnswers((prev) => {
+				const newValidAnswers = new Set(prev);
+				return newValidAnswers.add(currentEntryId);
+			});
+		}
+	}, [cells, checkCell, currentEntryId, updateCell, setValidAnswers]);
 
 	return (
 		<div css={controlStyles}>
@@ -102,10 +114,11 @@ const ClueControls = ({ currentEntryId }: { currentEntryId: EntryID }) => {
 };
 
 const GridControls = () => {
-	const { cells, solutionAvailable } = useData();
-	const { progress, setProgress, setCellProgress, clearProgress } =
-		useProgress();
-
+	const { cells, solutionAvailable, entries } = useData();
+	const { progress, setProgress } = useProgress();
+	const { setValidAnswers } = useValidAnswers();
+	const { clearUserInput } = useClearUserInput();
+	const { updateCell } = useUpdateCell();
 	const revealGrid = useCallback(() => {
 		const newProgress: Progress = [];
 
@@ -120,23 +133,34 @@ const GridControls = () => {
 	const checkCell = useCallback(
 		(cell: Cell) => {
 			const currentProgress = progress[cell.x]?.[cell.y];
-			const isCorrect = currentProgress && currentProgress === cell.solution;
-			if (!isCorrect) {
-				setCellProgress({
+			return !!(currentProgress && currentProgress === cell.solution);
+		},
+		[progress],
+	);
+
+	const checkGrid = useCallback(() => {
+		const allEntries = entries.keys();
+		const invalidAnswers: Set<EntryID> = new Set();
+		for (const cell of cells.values()) {
+			if (!cell.group) {
+				continue;
+			}
+			if (!checkCell(cell)) {
+				updateCell({
 					x: cell.x,
 					y: cell.y,
 					value: '',
 				});
+				for (const entryId of cell.group) {
+					invalidAnswers.add(entryId);
+				}
 			}
-		},
-		[progress, setCellProgress],
-	);
-
-	const checkGrid = useCallback(() => {
-		for (const cell of cells.values()) {
-			checkCell(cell);
 		}
-	}, [cells, checkCell]);
+		const validAnswers = new Set<EntryID>(
+			[...allEntries].filter((x) => !invalidAnswers.has(x)),
+		);
+		setValidAnswers(validAnswers);
+	}, [cells, checkCell, entries, updateCell, setValidAnswers]);
 
 	return (
 		<div css={controlStyles}>
@@ -150,7 +174,7 @@ const GridControls = () => {
 					</Button>
 				</>
 			)}
-			<Button onSuccess={clearProgress} requireConfirmation={true}>
+			<Button onSuccess={clearUserInput} requireConfirmation={true}>
 				Clear All
 			</Button>
 		</div>

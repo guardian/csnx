@@ -29,6 +29,7 @@ import { DataProvider } from './Data';
 import { ProgressProvider } from './Progress';
 import { ThemeProvider } from './Theme';
 import { UIStateProvider } from './UI';
+import { ValidAnswersProvider } from './ValidAnswers';
 
 export const ContextProvider = ({
 	data,
@@ -61,7 +62,7 @@ export const ContextProvider = ({
 					>
 						<CurrentCellProvider>
 							<CurrentClueProvider selectedEntryId={selectedEntryId}>
-								{children}
+								<ValidAnswersProvider>{children}</ValidAnswersProvider>
 							</CurrentClueProvider>
 						</CurrentCellProvider>
 					</ProgressProvider>
