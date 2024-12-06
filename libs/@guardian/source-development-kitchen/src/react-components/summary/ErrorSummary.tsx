@@ -1,5 +1,5 @@
 import { error as errorColors } from '@guardian/source/foundations';
-import { SvgAlertTriangle } from '@guardian/source/react-components';
+import { SvgAlertRound } from '@guardian/source/react-components';
 import {
 	contextStyles,
 	iconStyles,
@@ -25,7 +25,7 @@ export const ErrorSummary = ({
 }: ErrorSummaryProps) => (
 	<div css={[wrapperStyles(errorColors[400]), cssOverrides]} {...props}>
 		<div css={iconStyles(errorColors[400])}>
-			<SvgAlertTriangle />
+			<SvgAlertRound />
 		</div>
 		<div css={messageWrapperStyles}>
 			<div css={messageStyles(errorColors[400])}>{message}</div>
