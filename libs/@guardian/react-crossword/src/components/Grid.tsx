@@ -6,7 +6,6 @@ import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
-import { useTheme } from '../context/Theme';
 import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
@@ -21,14 +20,14 @@ const Separator = memo(
 		position,
 		direction,
 		type,
+		theme,
 		...props
 	}: {
 		type: Separator;
 		position: Coords;
 		direction: Direction;
+		theme: Theme;
 	}) => {
-		const theme = useTheme();
-
 		const x = getCellPosition(position.x, theme);
 		const y = getCellPosition(position.y, theme);
 
@@ -70,11 +69,11 @@ const Separator = memo(
 
 const FocusIndicator = ({
 	currentCell,
+	theme,
 }: {
 	currentCell: NonNullable<Coords>;
+	theme: Theme;
 }) => {
-	const theme = useTheme();
-
 	return (
 		<rect
 			x={currentCell.x * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
@@ -90,8 +89,7 @@ const FocusIndicator = ({
 	);
 };
 
-export const Grid = () => {
-	const theme = useTheme();
+export const Grid = ({ theme }: { theme: Theme }) => {
 	const { cells, separators, entries, dimensions } = useData();
 	const { progress } = useProgress();
 	const { updateCell } = useUpdateCell();
@@ -402,10 +400,13 @@ export const Grid = () => {
 						position={position}
 						direction={direction}
 						key={`${type}${position.x}${position.y}${direction}`}
+						theme={theme}
 					/>
 				))
 			}
-			{currentCell && <FocusIndicator currentCell={currentCell} />}
+			{currentCell && (
+				<FocusIndicator currentCell={currentCell} theme={theme} />
+			)}
 		</svg>
 	);
 };

@@ -1,11 +1,12 @@
 import { css } from '@emotion/react';
-import type { ComponentType, ReactNode } from 'react';
+import { type ComponentType, type ReactNode, useMemo } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
 import { useProgress } from '../context/Progress';
 import { ScreenLayout } from '../layouts/ScreenLayout';
+import { defaultTheme } from '../theme';
 import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
@@ -47,6 +48,11 @@ export const Crossword = ({
 }: CrosswordProps) => {
 	const LayoutComponent = Layout ?? ScreenLayout;
 
+	const theme = useMemo<Theme>(
+		() => ({ ...defaultTheme, ...userTheme }),
+		[userTheme],
+	);
+
 	return (
 		<ContextProvider
 			userTheme={userTheme}
@@ -70,7 +76,9 @@ export const Crossword = ({
 					container-type: inline-size;
 				`}
 			>
-				{children ?? <LayoutComponent {...layoutProps} />}
+				{children ?? (
+					<LayoutComponent {...layoutProps} Grid={Grid.bind(this, { theme })} />
+				)}
 			</div>
 		</ContextProvider>
 	);
