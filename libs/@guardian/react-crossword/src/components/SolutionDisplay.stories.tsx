@@ -22,24 +22,22 @@ type Story = StoryObj<typeof SolutionDisplay>;
 
 export const Default: Story = {
 	args: {
-		candidateLetters: ['T', 'E', '', ''],
-		progressLetters: [
+		cellsWithProgress: [
 			{
-				coords: { x: 0, y: 0 },
+				x: 0,
+				y: 0,
 				progress: 'T',
-				isSaved: true,
 				separator: ',',
 			},
-			{ coords: { x: 1, y: 0 }, progress: 'E', isSaved: true },
+			{ x: 1, y: 0, progress: 'E' },
 			{
-				coords: { x: 2, y: 0 },
+				x: 2,
+				y: 0,
 				progress: 'S',
-				isSaved: true,
 				separator: '-',
 			},
-			{ coords: { x: 3, y: 0 }, progress: '', isSaved: true },
+			{ x: 3, y: 0, progress: '' },
 		],
-		setCandidateLetters: () => {},
-		setProgressLetters: () => {},
+		shuffledLetters: ['T', 'E', 'S', 'T'],
 	},
 };
