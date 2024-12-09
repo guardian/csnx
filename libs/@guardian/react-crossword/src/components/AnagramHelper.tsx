@@ -53,6 +53,7 @@ export const AnagramHelper = () => {
 	return (
 		<div
 			css={css`
+				box-sizing: border-box;
 				position: fixed;
 				overflow: auto;
 				width: 100%;
