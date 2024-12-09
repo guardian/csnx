@@ -6,6 +6,7 @@ import { getConsentFor as clientGetConsentFor } from './getConsentFor';
 import { getFramework } from './getFramework';
 import { onConsent as clientOnConsent } from './onConsent';
 import { onConsentChange as clientOnConsentChange } from './onConsentChange';
+import { rejectAll as clientRejectAll } from './rejectAll';
 import {
 	isServerSide,
 	cmp as serverCmp,
@@ -33,7 +34,7 @@ const initialised = new Promise((resolve) => {
 	resolveInitialised = resolve;
 });
 
-const init: InitCMP = ({ pubData, country }) => {
+const init: InitCMP = ({ pubData, country, subscribed = true }) => {
 	if (isDisabled() || isServerSide) {
 		return;
 	}
@@ -61,7 +62,7 @@ const init: InitCMP = ({ pubData, country }) => {
 
 	const framework = getFramework(country);
 
-	UnifiedCMP.init(framework, pubData ?? {});
+	UnifiedCMP.init(framework, subscribed, pubData ?? {});
 
 	void UnifiedCMP.willShowPrivacyMessage().then((willShowValue) => {
 		_willShowPrivacyMessage = willShowValue;
@@ -107,6 +108,10 @@ export const cmp: CMP = isServerSide
 			__enable: enable,
 			__disable: disable,
 		});
+
+export const rejectAll = isServerSide
+	? clientRejectAll
+	: (window.guCmpHotFix.rejectAll ??= clientRejectAll);
 
 export const onConsent = isServerSide
 	? serverOnConsent
