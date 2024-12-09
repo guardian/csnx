@@ -155,7 +155,7 @@ export const AnagramHelper = () => {
 					css={css`
 						width: 100%;
 						margin: ${space[4]}px 0 ${space[4]}px;
-						border-top: 1px solid ${theme.border};
+						border-top: 1px solid ${theme.background};
 					`}
 				/>
 				{entry && <Clue entry={entry} />}

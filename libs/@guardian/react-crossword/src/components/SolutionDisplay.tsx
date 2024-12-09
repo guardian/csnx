@@ -16,12 +16,15 @@ const getMatchedAndShuffledLetters = ({
 	shuffledLetters,
 	cellsWithProgress,
 }: SolutionDisplayProps): string[] => {
+	// Make copy of shuffled letters so we can mutate it without affecting the original
 	const shuffledLettersCopy = [...shuffledLetters];
+
 	const matchedLetters = Array.from(
 		{ length: cellsWithProgress.length },
 		() => '',
 	);
 
+	// Match the letters in the cells with the shuffled letters
 	for (const [index, cellWithProgress] of cellsWithProgress.entries()) {
 		const shuffleLetterIndex = shuffledLettersCopy.indexOf(
 			cellWithProgress.progress,
