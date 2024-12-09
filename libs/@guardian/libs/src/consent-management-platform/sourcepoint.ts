@@ -10,6 +10,7 @@ import {
 	PROPERTY_ID_AUSTRALIA,
 } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
+import { isExcludedFromCMP } from './routeExclusionList';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
 
@@ -29,7 +30,8 @@ const getPropertyHref = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	return isGuardianDomain() ? null : 'http://ui-dev';
 };
 
 const getPropertyId = (framework: ConsentFramework): number => {
@@ -39,7 +41,11 @@ const getPropertyId = (framework: ConsentFramework): number => {
 	return PROPERTY_ID;
 };
 
-export const init = (framework: ConsentFramework, pubData = {}): void => {
+export const init = (
+	framework: ConsentFramework,
+	pubData = {},
+	subscribed: boolean,
+): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally
@@ -74,6 +80,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
+	const pageSection = window.guardian?.config?.page?.section as string;
+
 	window._sp_queue = [];
 	/* istanbul ignore next */
 	window._sp_ = {
@@ -81,9 +89,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework),
 			targetingParams: {
 				framework,
+				subscribed,
+				isExcluded: isExcludedFromCMP(pageSection),
 			},
+			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
@@ -197,6 +209,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
+					subscribed,
 				},
 			};
 			break;

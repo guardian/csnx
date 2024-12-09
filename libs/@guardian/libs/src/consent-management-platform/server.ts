@@ -34,6 +34,7 @@ export const cmp: CMP = {
 	version: 'n/a',
 	willShowPrivacyMessage: serverSideWarnAndReturn(Promise.resolve(false)),
 	willShowPrivacyMessageSync: serverSideWarnAndReturn(false),
+	rejectAll: serverSideWarnAndReturn(Promise.resolve()),
 };
 
 export const onConsent = (): ReturnType<typeof OnConsent> => {
