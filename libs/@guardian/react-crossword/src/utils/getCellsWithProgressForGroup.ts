@@ -1,25 +1,25 @@
 import { isUndefined } from '@guardian/libs';
 import type { CAPIEntry } from '../@types/CAPI';
-import type { Coords, Entries, Progress } from '../@types/crossword';
+import type { Cell, Cells, Entries, Progress } from '../@types/crossword';
 
-export type AnagramHelperProgress = {
+export type CellWithProgress = Cell & {
 	progress: string;
-	coords: Coords;
-	isSaved: boolean;
-	number?: number;
 	separator?: ',' | '-';
 };
+export type CellsWithProgress = CellWithProgress[];
 
-export const getAnagramHelperProgressForGroup = ({
+export const getCellsWithProgressForGroup = ({
 	entry,
 	entries,
+	cells,
 	progress,
 }: {
 	entry?: CAPIEntry;
 	entries: Entries;
+	cells: Cells;
 	progress: Progress;
 }) => {
-	const groupProgress: AnagramHelperProgress[] = [];
+	const groupProgress: CellsWithProgress = [];
 	if (isUndefined(entry)) {
 		return groupProgress;
 	}
@@ -27,33 +27,40 @@ export const getAnagramHelperProgressForGroup = ({
 		const entry = entries.get(entryId);
 		if (!isUndefined(entry)) {
 			groupProgress.push(
-				...getAnagramHelperProgressForEntry({ entry, progress }),
+				...getCellsWithProgressForEntry({ entry, cells, progress }),
 			);
 		}
 	}
 	return groupProgress;
 };
 
-export const getAnagramHelperProgressForEntry = ({
+export const getCellsWithProgressForEntry = ({
 	entry,
+	cells,
 	progress,
 }: {
 	entry: CAPIEntry;
+	cells: Cells;
 	progress: Progress;
-}): AnagramHelperProgress[] => {
-	return Array.from({ length: entry.length }, (_, i) => {
+}): CellsWithProgress => {
+	const cellsWithProgress: CellsWithProgress = [];
+	for (let i = 0; i < entry.length; i++) {
 		const x =
 			entry.direction === 'across' ? entry.position.x + i : entry.position.x;
 		const y =
 			entry.direction === 'across' ? entry.position.y : entry.position.y + i;
-		return {
-			coords: { x, y },
-			number: i === 0 ? entry.number : undefined,
-			isSaved: true,
-			progress: progress.at(x)?.[y] ?? '',
-			separator: getSeparatorFromEntry(entry, i),
-		};
-	});
+
+		const cell = cells.getByCoords({ x, y });
+		if (cell) {
+			cellsWithProgress.push({
+				...cell,
+				progress: progress.at(x)?.[y] ?? '',
+				separator: getSeparatorFromEntry(entry, i),
+			});
+		}
+	}
+
+	return cellsWithProgress;
 };
 
 const getSeparatorFromEntry = (
