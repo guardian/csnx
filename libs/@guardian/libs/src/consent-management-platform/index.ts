@@ -93,6 +93,10 @@ const showPrivacyManager = () => {
 	void initialised.then(UnifiedCMP.showPrivacyManager);
 };
 
+const rejectAll = isServerSide
+	? clientRejectAll
+	: (window.guCmpHotFix.rejectAll ??= clientRejectAll);
+
 export const cmp: CMP = isServerSide
 	? serverCmp
 	: (window.guCmpHotFix.cmp ||= {
@@ -101,6 +105,7 @@ export const cmp: CMP = isServerSide
 			willShowPrivacyMessageSync,
 			hasInitialised,
 			showPrivacyManager,
+			rejectAll,
 			version: version,
 
 			// special helper methods for disabling CMP
@@ -108,10 +113,6 @@ export const cmp: CMP = isServerSide
 			__enable: enable,
 			__disable: disable,
 		});
-
-export const rejectAll = isServerSide
-	? clientRejectAll
-	: (window.guCmpHotFix.rejectAll ??= clientRejectAll);
 
 export const onConsent = isServerSide
 	? serverOnConsent

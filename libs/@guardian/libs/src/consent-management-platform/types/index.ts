@@ -12,6 +12,7 @@ export type CMP = {
 	willShowPrivacyMessageSync: () => boolean;
 	hasInitialised: () => boolean;
 	showPrivacyManager: () => void;
+	rejectAll: () => Promise<void>;
 	version: string;
 	__isDisabled: () => boolean;
 	__disable: () => void;

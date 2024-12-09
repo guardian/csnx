@@ -1,6 +1,6 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
-	import { cmp, onConsentChange, log, rejectAll } from '@guardian/libs';
+	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 
@@ -42,7 +42,7 @@
 	}
 
 	let rejectAllFunc = () => {
-		rejectAll().then(() => {
+		cmp.rejectAll().then(() => {
 			logEvent({ title: 'rejectAll'});
 			// window.location.reload();
 		});
