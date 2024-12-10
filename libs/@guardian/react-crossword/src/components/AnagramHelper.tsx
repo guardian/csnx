@@ -1,100 +1,58 @@
 import { css } from '@emotion/react';
 import { space } from '@guardian/source/foundations';
-import { SvgCross } from '@guardian/source/react-components';
-import { useCallback, useEffect, useState } from 'react';
+import { SvgCross, TextInput } from '@guardian/source/react-components';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useUIState } from '../context/UI';
-import { useUpdateCell } from '../hooks/useUpdateCell';
-import type { AnagramHelperProgress } from '../utils/getAnagramHelperProgressForGroup';
-import { getAnagramHelperProgressForGroup } from '../utils/getAnagramHelperProgressForGroup';
+import { biasedShuffle } from '../utils/biasedShuffle';
+import { getCellsWithProgressForGroup } from '../utils/getCellsWithProgressForGroup';
 import { Button } from './Button';
 import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
-import { SolutionDisplayKey } from './SolutionDisplayKey';
 import { WordWheel } from './WordWheel';
 
+const inputRegex = /[^A-Za-zÀ-ÿ0-9]/g;
+
 export const AnagramHelper = () => {
-	const [shuffled, setShuffled] = useState<boolean>(false);
-	const [candidateLetters, setCandidateLetters] = useState<string[]>([]);
-	const [wordWheelLetters, setWordWheelLetters] = useState<string[]>([]);
-	const [progressLetters, setProgressLetters] = useState<
-		AnagramHelperProgress[]
-	>([]);
-	const { entries } = useData();
-	const { progress } = useProgress();
-	const { updateCell } = useUpdateCell();
+	const [letters, setLetters] = useState('');
+	const [solving, setSolving] = useState(false);
+	const [shuffledLetters, setShuffledLetters] = useState<string[]>([]);
 	const theme = useTheme();
 	const { setShowAnagramHelper } = useUIState();
+	const { entries, cells } = useData();
 	const { currentEntryId } = useCurrentClue();
-	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
+	const { progress } = useProgress();
 
-	const reset = useCallback(() => {
-		const progressLetters = getAnagramHelperProgressForGroup({
+	const entry = useMemo(() => {
+		return currentEntryId ? entries.get(currentEntryId) : undefined;
+	}, [currentEntryId, entries]);
+
+	const cellsWithProgress = useMemo(() => {
+		return getCellsWithProgressForGroup({
 			entry,
+			cells,
 			entries,
 			progress,
 		});
-		setProgressLetters(
-			getAnagramHelperProgressForGroup({ entry, entries, progress }),
-		);
-		setCandidateLetters(
-			Array.from({ length: progressLetters.length }, () => ''),
-		);
-		setShuffled(false);
-	}, [entries, entry, progress]);
+	}, [entry, cells, entries, progress]);
 
-	const save = useCallback(() => {
-		for (const progressLetter of progressLetters) {
-			if (!progressLetter.isSaved) {
-				updateCell({
-					...progressLetter.coords,
-					value: progressLetter.progress,
-				});
-			}
-		}
-	}, [progressLetters, updateCell]);
+	const reset = useCallback(() => {
+		setShuffledLetters([]);
+		setSolving(false);
+	}, []);
 
 	const shuffle = useCallback(() => {
-		setShuffled(true);
-		setCandidateLetters((prevState) => {
-			const shuffleLetters = [...prevState];
-			const matchedLetters = Array.from(
-				{ length: progressLetters.length },
-				() => '',
-			);
-			// remove letters that exist in progressLetters but only the number of times they exist
-			progressLetters.forEach((groupProgress, index) => {
-				const shuffleLetterIndex = shuffleLetters.indexOf(
-					groupProgress.progress,
-				);
-				if (shuffleLetterIndex !== -1) {
-					matchedLetters[index] =
-						shuffleLetters.splice(shuffleLetterIndex, 1)[0] ?? '';
-				}
-			});
+		setShuffledLetters(biasedShuffle(letters.split('')));
+	}, [letters]);
 
-			// shuffle the candidate letters and remove blanks
-			shuffleLetters
-				.sort(() => Math.random() - 0.5)
-				.filter((shuffleLetter) => shuffleLetter !== '');
+	const start = useCallback(() => {
+		shuffle();
+		setSolving(true);
+	}, [shuffle]);
 
-			return matchedLetters.map((letter) => {
-				if (letter === '') {
-					return shuffleLetters.pop() ?? '';
-				}
-				return letter;
-			});
-		});
-		const newWordWheelLetters = [...candidateLetters]
-			.filter((letter) => !!letter)
-			.sort(() => Math.random() - 0.5);
-		setWordWheelLetters(newWordWheelLetters);
-	}, [candidateLetters, progressLetters]);
-
-	//initialise the candidate letters and progress letters
 	useEffect(() => {
 		reset();
 	}, [reset]);
@@ -102,11 +60,18 @@ export const AnagramHelper = () => {
 	return (
 		<div
 			css={css`
+				position: fixed;
+				overflow: auto;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
 				display: flex;
 				flex-direction: column;
 				background-color: ${theme.anagramHelperBackground};
 				padding: 10px;
 				min-height: fit-content;
+				z-index: 2;
 			`}
 		>
 			<div
@@ -132,56 +97,75 @@ export const AnagramHelper = () => {
 					flex-direction: column;
 				`}
 			>
+				{!solving && (
+					<div
+						css={css`
+							display: grid;
+							justify-items: center;
+							grid-template-columns: 1fr auto;
+						`}
+					>
+						<div>
+							<TextInput
+								hideLabel={true}
+								label="Enter letters"
+								spellCheck="false"
+								onChange={(event) => {
+									const letters = event.target.value.replace(inputRegex, '');
+									setLetters(letters.toUpperCase());
+								}}
+								value={letters}
+								maxLength={cellsWithProgress.length}
+							/>
+						</div>
+						<Button
+							cssOverrides={css`
+								margin: ${space[1]}px 0 0 ${space[1]}px;
+							`}
+							onSuccess={start}
+							disabled={letters.length < 1}
+							priority="primary"
+							size="default"
+						>
+							Start
+						</Button>
+						<span>
+							{letters.length}/{cellsWithProgress.length}
+						</span>
+					</div>
+				)}
+				{solving && (
+					<>
+						<WordWheel letters={shuffledLetters} />
+						<div
+							css={css`
+								margin: ${space[4]}px 0 0;
+								> * {
+									margin: 0 ${space[1]}px;
+								}
+							`}
+						>
+							<Button onSuccess={reset} size={'default'} priority="secondary">
+								Back
+							</Button>
+							<Button onSuccess={shuffle} size={'default'} priority="primary">
+								Shuffle
+							</Button>
+						</div>
+					</>
+				)}
 				<div
 					css={css`
-						display: flex;
 						width: 100%;
-						justify-content: center;
+						margin: ${space[4]}px 0 ${space[4]}px;
+						border-top: 1px solid ${theme.background};
 					`}
-				>
-					<WordWheel letters={wordWheelLetters} />
-				</div>
-				<div
-					css={css`
-						> * {
-							margin: 0 ${space[1]}px;
-						}
-					`}
-				>
-					<Button onSuccess={shuffle} priority="primary">
-						shuffle
-					</Button>
-					<Button
-						onSuccess={save}
-						priority="secondary"
-						requireConfirmation={true}
-					>
-						save
-					</Button>
-					<Button
-						onSuccess={reset}
-						priority="secondary"
-						requireConfirmation={true}
-					>
-						reset
-					</Button>
-				</div>
-				<div
-					css={css`
-						margin-top: 10px;
-					`}
-				>
-					{entry && <Clue entry={entry} />}
-				</div>
-				<SolutionDisplay
-					shuffled={shuffled}
-					setShuffled={setShuffled}
-					candidateLetters={candidateLetters}
-					setCandidateLetters={setCandidateLetters}
-					setProgressLetters={setProgressLetters}
-					progressLetters={progressLetters}
 				/>
-				<SolutionDisplayKey />
+				{entry && <Clue entry={entry} />}
+				<SolutionDisplay
+					cellsWithProgress={cellsWithProgress}
+					shuffledLetters={shuffledLetters}
+				/>
 			</div>
 		</div>
 	);

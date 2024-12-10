@@ -52,7 +52,11 @@ const renderOuterLetters = ({
 const WordWheelComponent = ({ letters }: { letters: string[] }) => {
 	const theme = useTheme();
 
-	const centerLetter = letters.length > 4 ? letters.shift() : undefined;
+	// Copy array to avoid mutating the original
+	const wordWheelLetters = [...letters];
+
+	const centerLetter =
+		letters.length > 4 ? wordWheelLetters.shift() : undefined;
 
 	return (
 		<svg width="200" height="200">
@@ -70,7 +74,7 @@ const WordWheelComponent = ({ letters }: { letters: string[] }) => {
 					{centerLetter}
 				</text>
 			)}
-			{renderOuterLetters({ letters: letters, fill: theme.text })}
+			{renderOuterLetters({ letters: wordWheelLetters, fill: theme.text })}
 		</svg>
 	);
 };

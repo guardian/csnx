@@ -51,6 +51,7 @@ export type Theme = {
 	foreground: string;
 	anagramHelperBackground: string;
 	text: string;
+	provisionalText: string;
 	errorText: string;
 	gutter: number;
 	highlight: string;
