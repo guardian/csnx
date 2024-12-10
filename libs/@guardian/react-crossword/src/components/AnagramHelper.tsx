@@ -93,7 +93,6 @@ export const AnagramHelper = () => {
 				{!solving && (
 					<div
 						css={css`
-							box-sizing: border-box;
 							display: grid;
 							justify-items: center;
 							grid-template-columns: 1fr auto;

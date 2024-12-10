@@ -55,7 +55,6 @@ export const SolutionDisplayCell = ({
 	return (
 		<div
 			css={css`
-				box-sizing: border-box;
 				${textSans12};
 				font-size: ${theme.cellSize * 0.6}px;
 				background-color: ${theme.foreground};
