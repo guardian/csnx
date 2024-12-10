@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { space } from '@guardian/source/foundations';
 import { SvgCross, TextInput } from '@guardian/source/react-components';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
@@ -23,16 +23,21 @@ export const AnagramHelper = () => {
 	const { entries, cells } = useData();
 	const { currentEntryId } = useCurrentClue();
 	const { progress } = useProgress();
-	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
 
-	const cellsWithProgress = getCellsWithProgressForGroup({
-		entry,
-		cells,
-		entries,
-		progress,
-	});
+	const entry = useMemo(() => {
+		return currentEntryId ? entries.get(currentEntryId) : undefined;
+	}, [currentEntryId, entries]);
 
-	const back = useCallback(() => {
+	const cellsWithProgress = useMemo(() => {
+		return getCellsWithProgressForGroup({
+			entry,
+			cells,
+			entries,
+			progress,
+		});
+	}, [entry, cells, entries, progress]);
+
+	const reset = useCallback(() => {
 		setShuffledLetters([]);
 		setSolving(false);
 	}, []);
@@ -47,8 +52,8 @@ export const AnagramHelper = () => {
 	}, [shuffle]);
 
 	useEffect(() => {
-		back();
-	}, [back]);
+		reset();
+	}, [reset]);
 
 	return (
 		<div
@@ -141,7 +146,7 @@ export const AnagramHelper = () => {
 								}
 							`}
 						>
-							<Button onSuccess={back} size={'default'} priority="secondary">
+							<Button onSuccess={reset} size={'default'} priority="secondary">
 								Back
 							</Button>
 							<Button onSuccess={shuffle} size={'default'} priority="primary">
