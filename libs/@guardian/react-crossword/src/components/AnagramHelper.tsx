@@ -14,6 +14,8 @@ import { Clue } from './Clue';
 import { SolutionDisplay } from './SolutionDisplay';
 import { WordWheel } from './WordWheel';
 
+const inputRegex = /[^A-Za-zÀ-ÿ0-9]/g;
+
 export const AnagramHelper = () => {
 	const [letters, setLetters] = useState<string>('');
 	const [solving, setSolving] = useState(false);
@@ -109,10 +111,7 @@ export const AnagramHelper = () => {
 								label="Enter letters"
 								spellCheck="false"
 								onChange={(event) => {
-									const letters = event.target.value.replace(
-										/[^A-Za-zÀ-ÿ0-9]/g,
-										'',
-									);
+									const letters = event.target.value.replace(inputRegex, '');
 									setLetters(letters.toUpperCase());
 								}}
 								value={letters}
