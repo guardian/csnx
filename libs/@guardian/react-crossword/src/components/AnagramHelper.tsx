@@ -140,7 +140,7 @@ export const AnagramHelper = () => {
 						<div
 							css={css`
 								margin: ${space[4]}px 0 0;
-								* {
+								> * {
 									margin: 0 ${space[1]}px;
 								}
 							`}
