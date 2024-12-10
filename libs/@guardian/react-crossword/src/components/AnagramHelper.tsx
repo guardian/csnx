@@ -17,7 +17,7 @@ import { WordWheel } from './WordWheel';
 const inputRegex = /[^A-Za-zÀ-ÿ0-9]/g;
 
 export const AnagramHelper = () => {
-	const [letters, setLetters] = useState<string>('');
+	const [letters, setLetters] = useState('');
 	const [solving, setSolving] = useState(false);
 	const [shuffledLetters, setShuffledLetters] = useState<string[]>([]);
 	const theme = useTheme();
