@@ -7,6 +7,8 @@ export const defaultTheme: Theme = {
 	errorText: 'red',
 	provisionalText: palette.neutral[60],
 	unsavedBackground: 'lightPink',
+	dropTargetBackground: 'lightGreen',
+	dropTargetInvalidBackground: 'pink',
 	foreground: palette.neutral[100],
 	gutter: 1,
 	highlight: 'lightpink',
@@ -17,6 +19,7 @@ export const defaultTheme: Theme = {
 	buttonBackgroundHover: 'lightpink',
 	border: 'orchid',
 	anagramHelperBackground: 'floralwhite',
+	candidateBackground: 'lightblue',
 	clueMinWidth: 240,
 	clueMaxWidth: 480,
 };

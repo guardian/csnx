@@ -31,6 +31,7 @@
 		"use-local-storage-state": "19.5.0"
 	},
 	"devDependencies": {
+		"@atlaskit/pragmatic-drag-and-drop": "1.4.0",
 		"@emotion/react": "11.11.3",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "19.2.2",

@@ -1,76 +1,79 @@
+import {
+	dropTargetForElements,
+	monitorForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { css } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
-import { useRef } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../context/Theme';
 import type {
 	CellsWithProgress,
 	CellWithProgress,
 } from '../utils/getCellsWithProgressForGroup';
+import { CandidateTile } from './CandidateTile';
 
 type SolutionDisplayProps = {
-	shuffledLetters: string[];
 	cellsWithProgress: CellsWithProgress;
-};
-
-const getMatchedAndShuffledLetters = ({
-	shuffledLetters,
-	cellsWithProgress,
-}: SolutionDisplayProps): string[] => {
-	// Make copy of shuffled letters so we can mutate it without affecting the original
-	const shuffledLettersCopy = [...shuffledLetters];
-
-	const matchedLetters = Array.from(
-		{ length: cellsWithProgress.length },
-		() => '',
-	);
-
-	// Match the letters in the cells with the shuffled letters
-	for (const [index, cellWithProgress] of cellsWithProgress.entries()) {
-		const shuffleLetterIndex = shuffledLettersCopy.indexOf(
-			cellWithProgress.progress,
-		);
-		if (shuffleLetterIndex !== -1) {
-			matchedLetters[index] =
-				shuffledLettersCopy.splice(shuffleLetterIndex, 1)[0] ?? '';
-		}
-	}
-
-	// Fill in the remaining cells with the shuffled letters
-	return matchedLetters.map((letter) => {
-		if (letter === '') {
-			return shuffledLettersCopy.pop() ?? '';
-		}
-		return letter;
-	});
+	setCellsWithProgress: Dispatch<SetStateAction<CellsWithProgress>>;
 };
 
 export const SolutionDisplayCell = ({
 	cellWithProgress,
-	shuffledLetter,
+	index,
 }: {
 	cellWithProgress: CellWithProgress;
-	shuffledLetter: string;
+	index: number;
 }) => {
 	const theme = useTheme();
+	const ref = useRef<HTMLDivElement>(null);
+	const [isDraggedOver, setIsDraggedOver] = useState(false);
+	const [isDroppable, setIsDroppable] = useState(false);
+
+	useEffect(() => {
+		const el = ref.current;
+		if (el) {
+			dropTargetForElements({
+				element: el,
+				getData: () => ({ index }),
+				onDragEnter: ({ source }) => {
+					if (source.data.index === index) {
+						setIsDroppable(true);
+					} else {
+						setIsDroppable(false);
+					}
+					setIsDraggedOver(true);
+				},
+				onDragLeave: () => setIsDraggedOver(false),
+				onDrop: () => setIsDraggedOver(false),
+			});
+		}
+	}, [index]);
+
 	return (
 		<div
+			ref={ref}
+			key={`drop-${index}`}
 			css={css`
 				box-sizing: border-box;
 				${textSans12};
 				font-size: ${theme.cellSize * 0.6}px;
-				background-color: ${theme.foreground};
-				border: 1px solid ${theme.background};
+				background-color: ${!isDraggedOver
+					? theme.foreground
+					: isDroppable || cellWithProgress.candidate === ''
+						? theme.dropTargetBackground
+						: theme.dropTargetInvalidBackground};
+				border: 1px solid ${theme.provisionalText};
 				border-right: ${cellWithProgress.separator === ','
-					? `3px solid ${theme.background}`
-					: `1px solid ${theme.background}`};
+					? `3px solid ${theme.provisionalText}`
+					: `1px solid ${theme.provisionalText}`};
 				width: ${theme.cellSize}px;
 				height: ${theme.cellSize}px;
 				text-align: center;
 				align-content: center;
 				position: relative;
-				color: ${cellWithProgress.progress
-					? theme.text
-					: theme.provisionalText};
+				color: ${theme.provisionalText};
 			`}
 		>
 			{cellWithProgress.separator === '-' && (
@@ -99,23 +102,52 @@ export const SolutionDisplayCell = ({
 					{cellWithProgress.number}
 				</div>
 			)}
-			{cellWithProgress.progress === ''
-				? shuffledLetter
-				: cellWithProgress.progress}
+			{cellWithProgress.candidate && (
+				<CandidateTile candidate={cellWithProgress.candidate} index={index} />
+			)}
+			{cellWithProgress.progress}
 		</div>
 	);
 };
 
 export const SolutionDisplay = ({
 	cellsWithProgress,
-	shuffledLetters,
+	setCellsWithProgress,
 }: SolutionDisplayProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const theme = useTheme();
-	const solutionDisplayLetters = getMatchedAndShuffledLetters({
-		shuffledLetters,
-		cellsWithProgress,
-	});
+
+	useEffect(() => {
+		return monitorForElements({
+			onDrop({ source, location }) {
+				const { clientX, clientY } = location.current.input;
+				console.log(clientX, clientY);
+				const destination = location.current.dropTargets[0];
+				if (!destination) {
+					return;
+				}
+				const destinationIndex = destination.data.index;
+				const sourceIndex = source.data.index;
+				const candidate = source.data.candidate;
+				setCellsWithProgress((cells) => {
+					const newCells = [...cells];
+					if (
+						typeof sourceIndex === 'number' &&
+						typeof destinationIndex === 'number' &&
+						typeof candidate === 'string' &&
+						!isUndefined(newCells[destinationIndex]) &&
+						!isUndefined(newCells[sourceIndex]) &&
+						newCells[destinationIndex].candidate === ''
+					) {
+						newCells[destinationIndex].candidate = candidate;
+						newCells[sourceIndex].candidate = '';
+					}
+					return newCells;
+				});
+			},
+		});
+	}, [cellsWithProgress, setCellsWithProgress]);
+
 	return (
 		<div
 			ref={containerRef}
@@ -141,7 +173,7 @@ export const SolutionDisplay = ({
 					>
 						<SolutionDisplayCell
 							cellWithProgress={cellWithProgress}
-							shuffledLetter={solutionDisplayLetters[index] ?? ''}
+							index={index}
 						/>
 					</div>
 				);

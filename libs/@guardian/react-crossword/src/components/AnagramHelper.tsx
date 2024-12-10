@@ -8,6 +8,7 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useUIState } from '../context/UI';
 import { biasedShuffle } from '../utils/biasedShuffle';
+import type { CellsWithProgress } from '../utils/getCellsWithProgressForGroup';
 import { getCellsWithProgressForGroup } from '../utils/getCellsWithProgressForGroup';
 import { Button } from './Button';
 import { Clue } from './Clue';
@@ -25,12 +26,14 @@ export const AnagramHelper = () => {
 	const { progress } = useProgress();
 	const entry = currentEntryId ? entries.get(currentEntryId) : undefined;
 
-	const cellsWithProgress = getCellsWithProgressForGroup({
-		entry,
-		cells,
-		entries,
-		progress,
-	});
+	const [cellsWithProgress, setCellsWithProgress] = useState<CellsWithProgress>(
+		getCellsWithProgressForGroup({
+			entry,
+			cells,
+			entries,
+			progress,
+		}),
+	);
 
 	const back = useCallback(() => {
 		setShuffledLetters([]);
@@ -44,7 +47,19 @@ export const AnagramHelper = () => {
 	const start = useCallback(() => {
 		shuffle();
 		setSolving(true);
-	}, [shuffle]);
+		const copyOfLetters = [...letters.split('')];
+		setCellsWithProgress((cells) => {
+			const newCells = [...cells];
+			for (const [index, cellWithProgress] of cellsWithProgress.entries()) {
+				const letterIndex = copyOfLetters.indexOf(cellWithProgress.progress);
+				if (letterIndex !== -1 && newCells[index]) {
+					newCells[index].candidate =
+						copyOfLetters.splice(letterIndex, 1)[0] ?? '';
+				}
+			}
+			return newCells;
+		});
+	}, [cellsWithProgress, letters, shuffle]);
 
 	useEffect(() => {
 		back();
@@ -162,7 +177,7 @@ export const AnagramHelper = () => {
 				{entry && <Clue entry={entry} />}
 				<SolutionDisplay
 					cellsWithProgress={cellsWithProgress}
-					shuffledLetters={shuffledLetters}
+					setCellsWithProgress={setCellsWithProgress}
 				/>
 			</div>
 		</div>

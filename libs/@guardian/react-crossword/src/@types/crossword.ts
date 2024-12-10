@@ -50,6 +50,8 @@ export type Theme = {
 	background: string;
 	foreground: string;
 	anagramHelperBackground: string;
+	dropTargetBackground: string;
+	dropTargetInvalidBackground: string;
 	text: string;
 	provisionalText: string;
 	errorText: string;
@@ -60,6 +62,7 @@ export type Theme = {
 	unsavedBackground: string;
 	cellSize: number;
 	buttonBackground: string;
+	candidateBackground: string;
 	buttonBackgroundHover: string;
 	border: string;
 	clueMinWidth: number;

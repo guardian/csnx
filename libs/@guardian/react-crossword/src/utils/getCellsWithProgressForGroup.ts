@@ -5,6 +5,7 @@ import type { Cell, Cells, Entries, Progress } from '../@types/crossword';
 export type CellWithProgress = Cell & {
 	progress: string;
 	separator?: ',' | '-';
+	candidate: string;
 };
 export type CellsWithProgress = CellWithProgress[];
 
@@ -56,6 +57,7 @@ export const getCellsWithProgressForEntry = ({
 				...cell,
 				progress: progress.at(x)?.[y] ?? '',
 				separator: getSeparatorFromEntry(entry, i),
+				candidate: '',
 			});
 		}
 	}
