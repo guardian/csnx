@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
-import { progressTwo } from '../../stories/formats/grouped-clues.progress';
+import { progress12Across } from '../../stories/formats/grouped-clues.progress';
 import { ContextProvider } from '../context/ContextProvider';
 import { AnagramHelper } from './AnagramHelper';
 
@@ -12,7 +12,7 @@ const meta: Meta<typeof AnagramHelper> = {
 			<ContextProvider
 				data={data}
 				selectedEntryId="12-across"
-				userProgress={progressTwo}
+				userProgress={progress12Across}
 			>
 				<Story />
 			</ContextProvider>
