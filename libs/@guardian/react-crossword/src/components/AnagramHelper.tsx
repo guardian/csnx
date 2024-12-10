@@ -139,7 +139,7 @@ export const AnagramHelper = () => {
 						<WordWheel letters={shuffledLetters} />
 						<div
 							css={css`
-								margin: ${space[4]}px ${space[1]}px;
+								margin: ${space[4]}px 0 0;
 								* {
 									margin: 0 ${space[1]}px;
 								}
