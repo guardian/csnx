@@ -45,6 +45,7 @@ declare global {
 				gdpr?: {
 					targetingParams?: {
 						framework: ConsentFramework;
+						excludePage: boolean;
 					};
 				};
 				usnat?: {
