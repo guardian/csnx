@@ -35,9 +35,9 @@ const ClueComponent = ({
 			aria-selected={isHighlighted}
 			css={css`
 				background-color: ${isActive
-					? theme.active
+					? theme.selectedColor
 					: isHighlighted
-						? theme.highlight
+						? theme.relatedColor
 						: 'transparent'};
 				cursor: ${isHighlighted ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};

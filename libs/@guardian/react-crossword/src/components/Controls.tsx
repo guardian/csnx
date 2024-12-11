@@ -32,8 +32,8 @@ const ClueControls = ({ currentEntryId }: { currentEntryId: EntryID }) => {
 	const { updateCell } = useUpdateCell();
 
 	const crosswordButtonTheme: Partial<ThemeButton> = {
-		backgroundPrimary: theme.buttonBackground,
-		backgroundPrimaryHover: theme.buttonBackgroundHover,
+		backgroundPrimary: theme.buttonBackgroundColor,
+		backgroundPrimaryHover: theme.buttonBackgroundHoverColor,
 	};
 
 	const revealEntry = useCallback(() => {

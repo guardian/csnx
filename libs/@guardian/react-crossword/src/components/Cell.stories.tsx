@@ -18,12 +18,12 @@ const meta: Meta<typeof Cell> = {
 			return (
 				<svg
 					style={{
-						padding: theme.gutter,
-						width: theme.cellSize,
-						height: theme.cellSize,
-						backgroundColor: theme.background,
+						padding: theme.gridGutterSize,
+						width: theme.gridCellSize,
+						height: theme.gridCellSize,
+						backgroundColor: theme.gridBackgroundColor,
 					}}
-					viewBox={`0 0 ${theme.cellSize} ${theme.cellSize}`}
+					viewBox={`0 0 ${theme.gridCellSize} ${theme.gridCellSize}`}
 				>
 					<Story />
 				</svg>
@@ -126,7 +126,7 @@ export const BigCellProgressWithNumber: Story = {
 	parameters: {
 		theme: {
 			...defaultTheme,
-			cellSize: 50,
+			gridCellSize: 50,
 		},
 	},
 };
@@ -143,7 +143,7 @@ export const HugeCellProgressWithNumber: Story = {
 	parameters: {
 		theme: {
 			...defaultTheme,
-			cellSize: 100,
+			gridCellSize: 100,
 		},
 	},
 };

@@ -68,7 +68,7 @@ export const AnagramHelper = () => {
 				left: 0;
 				display: flex;
 				flex-direction: column;
-				background-color: ${theme.anagramHelperBackground};
+				background-color: ${theme.anagramHelperBackgroundColor};
 				padding: 10px;
 				min-height: fit-content;
 				z-index: 2;
@@ -158,7 +158,7 @@ export const AnagramHelper = () => {
 					css={css`
 						width: 100%;
 						margin: ${space[4]}px 0 ${space[4]}px;
-						border-top: 1px solid ${theme.background};
+						border-top: 1px solid ${theme.gridBackgroundColor};
 					`}
 				/>
 				{entry && <Clue entry={entry} />}
