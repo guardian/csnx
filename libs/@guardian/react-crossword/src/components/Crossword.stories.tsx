@@ -134,17 +134,17 @@ export const CustomisedLayout: StoryFn = () => {
 
 export const Themed: Story = {
 	args: {
-		background:
+		gridBackgroundColor:
 			'linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)',
-		foreground: 'blue',
-		text: 'limegreen',
-		gutter: 0,
-		highlight: 'yellow',
-		focus: 'black',
-		active: 'orange',
-		cellSize: 30,
-		buttonBackground: 'cyan',
-		buttonBackgroundHover: 'magenta',
-		border: 'lightpink',
+		gridForegroundColor: 'blue',
+		textColor: 'limegreen',
+		gridGutterSize: 0,
+		relatedColor: 'yellow',
+		focusColor: 'black',
+		selectedColor: 'orange',
+		gridCellSize: 30,
+		buttonBackgroundColor: 'cyan',
+		buttonBackgroundHoverColor: 'magenta',
+		borderColor: 'lightpink',
 	},
 };

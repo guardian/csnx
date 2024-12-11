@@ -13,8 +13,10 @@ import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
-const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
-	index * (cellSize + gutter) + gutter;
+const getCellPosition = (
+	index: number,
+	{ gridCellSize, gridGutterSize }: Theme,
+) => index * (gridCellSize + gridGutterSize) + gridGutterSize;
 
 const Separator = memo(
 	({
@@ -32,35 +34,35 @@ const Separator = memo(
 		const x = getCellPosition(position.x, theme);
 		const y = getCellPosition(position.y, theme);
 
-		const { cellSize, gutter } = theme;
+		const { gridCellSize, gridGutterSize } = theme;
 
 		// if this is a 'down' entry, we'll rotate the separator 90 degrees
 		// around the center of the cell
 		const transform: Partial<Record<Direction, string>> = {
-			down: `rotate(90 ${x + cellSize / 2} ${y + cellSize / 2})`,
+			down: `rotate(90 ${x + gridCellSize / 2} ${y + gridCellSize / 2})`,
 		};
 
 		return type === '-' ? (
 			// draws a dash (-) that bisects the border with the next cell
 			<line
-				x1={x + cellSize - 3}
-				y1={y + cellSize / 2}
-				x2={x + cellSize + 4}
-				y2={y + cellSize / 2}
-				strokeWidth={gutter}
-				stroke={theme.background}
+				x1={x + gridCellSize - 3}
+				y1={y + gridCellSize / 2}
+				x2={x + gridCellSize + 4}
+				y2={y + gridCellSize / 2}
+				strokeWidth={gridGutterSize}
+				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
 			/>
 		) : (
 			// draws a thicker border with the next cell
 			<line
-				x1={x + cellSize + gutter / 2}
+				x1={x + gridCellSize + gridGutterSize / 2}
 				y1={y}
-				x2={x + cellSize + gutter / 2}
-				y2={y + cellSize}
-				strokeWidth={gutter * 2}
-				stroke={theme.background}
+				x2={x + gridCellSize + gridGutterSize / 2}
+				y2={y + gridCellSize}
+				strokeWidth={gridGutterSize * 2}
+				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
 			/>
@@ -77,11 +79,17 @@ const FocusIndicator = ({
 
 	return (
 		<rect
-			x={currentCell.x * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
-			y={currentCell.y * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
-			width={theme.cellSize + theme.gutter}
-			height={theme.cellSize + theme.gutter}
-			stroke={theme.focus}
+			x={
+				currentCell.x * (theme.gridCellSize + theme.gridGutterSize) +
+				theme.gridGutterSize * 0.5
+			}
+			y={
+				currentCell.y * (theme.gridCellSize + theme.gridGutterSize) +
+				theme.gridGutterSize * 0.5
+			}
+			width={theme.gridCellSize + theme.gridGutterSize}
+			height={theme.gridCellSize + theme.gridGutterSize}
+			stroke={theme.focusColor}
 			strokeWidth={2}
 			fill="none"
 			rx={2}
@@ -364,15 +372,17 @@ export const Grid = () => {
 	}, [handleKeyDown, selectClickedCell]);
 
 	const height =
-		theme.cellSize * dimensions.rows + theme.gutter * (dimensions.rows + 1);
+		theme.gridCellSize * dimensions.rows +
+		theme.gridGutterSize * (dimensions.rows + 1);
 	const width =
-		theme.cellSize * dimensions.cols + theme.gutter * (dimensions.cols + 1);
+		theme.gridCellSize * dimensions.cols +
+		theme.gridGutterSize * (dimensions.cols + 1);
 
 	return (
 		<svg
 			css={[
 				css`
-					background: ${theme.background};
+					background: ${theme.gridBackgroundColor};
 					width: 100%;
 					max-width: ${width}px;
 				`,

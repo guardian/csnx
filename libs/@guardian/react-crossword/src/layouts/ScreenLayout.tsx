@@ -15,8 +15,8 @@ const CluesHeader = memo(({ direction }: { direction: Direction }) => {
 		<div
 			css={css`
 				${headlineBold17};
-				border-top: 1px solid ${theme.border};
-				border-bottom: 1px dotted ${theme.border};
+				border-top: 1px solid ${theme.borderColor};
+				border-bottom: 1px dotted ${theme.borderColor};
 				height: 2em;
 				margin-bottom: 0.5em;
 			`}
@@ -33,16 +33,16 @@ const Layout = ({
 	Clues,
 	SavedMessage,
 }: LayoutProps) => {
-	const { text, clueMinWidth, clueMaxWidth } = useTheme();
+	const { textColor, clueMinWidth, clueMaxWidth } = useTheme();
 
 	const { showAnagramHelper } = useUIState();
 	const theme = useTheme();
 
-	const { gutter, cellSize } = useTheme();
+	const { gridGutterSize, gridCellSize } = useTheme();
 	const { dimensions } = useData();
 
 	const gridWidth = Math.max(
-		(cellSize + gutter) * dimensions.cols + gutter,
+		(gridCellSize + gridGutterSize) * dimensions.cols + gridGutterSize,
 		300,
 	);
 	const oneColWidth = gridWidth + clueMinWidth;
@@ -51,7 +51,7 @@ const Layout = ({
 	return (
 		<div
 			css={css`
-				color: ${text};
+				color: ${textColor};
 				display: flex;
 				flex-direction: column;
 				gap: ${space[4]}px;
@@ -79,7 +79,7 @@ const Layout = ({
 					css={css`
 						${textSans12};
 						font-style: italic;
-						color: ${theme.text};
+						color: ${theme.textColor};
 					`}
 				>
 					<SavedMessage />
