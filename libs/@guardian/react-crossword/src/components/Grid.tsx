@@ -107,6 +107,7 @@ export const Grid = () => {
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 
 	const gridRef = useRef<SVGSVGElement>(null);
+	const gridWrapperRef = useRef<HTMLDivElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
@@ -132,8 +133,6 @@ export const Grid = () => {
 			if (!newCell) {
 				return;
 			}
-
-			// TODO: this logic is very similar to the click handler entry selection stuff.
 			// maybe we can refactor this out into a shared function?
 			const possibleAcross = newCell.group?.find((group) =>
 				group.includes('across'),
@@ -358,16 +357,22 @@ export const Grid = () => {
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
+	const preventDefault = (event: Event) => {
+		event.preventDefault();
+	};
 
 	useEffect(() => {
-		const grid = gridRef.current;
-
-		grid?.addEventListener('click', selectClickedCell);
-		grid?.addEventListener('keydown', handleKeyDown);
+		const editableElement = gridWrapperRef.current;
+		editableElement?.addEventListener('click', selectClickedCell);
+		editableElement?.addEventListener('keydown', handleKeyDown);
+		editableElement?.addEventListener('beforeinput', preventDefault);
+		editableElement?.addEventListener('selectstart', preventDefault);
 
 		return () => {
-			grid?.removeEventListener('click', selectClickedCell);
-			grid?.removeEventListener('keydown', handleKeyDown);
+			editableElement?.removeEventListener('click', selectClickedCell);
+			editableElement?.removeEventListener('keydown', handleKeyDown);
+			editableElement?.removeEventListener('beforeinput', preventDefault);
+			editableElement?.removeEventListener('selectstart', preventDefault);
 		};
 	}, [handleKeyDown, selectClickedCell]);
 
@@ -379,63 +384,73 @@ export const Grid = () => {
 		theme.gridGutterSize * (dimensions.cols + 1);
 
 	return (
-		<svg
-			css={[
-				css`
-					background: ${theme.gridBackgroundColor};
-					width: 100%;
-					max-width: ${width}px;
-				`,
-				cheatStyles,
-			]}
-			ref={gridRef}
-			viewBox={`0 0 ${width} ${height}`}
-			tabIndex={-1}
+		<div
+			contentEditable={true}
+			ref={gridWrapperRef}
+			css={css`
+				cursor: pointer;
+				caret-color: transparent;
+			`}
+			tabIndex={1}
 		>
-			{
-				/* Render the cells */
-				Array.from(cells.values()).map((cell) => {
-					const x = getCellPosition(cell.x, theme);
-					const y = getCellPosition(cell.y, theme);
+			<svg
+				css={[
+					css`
+						background: ${theme.gridBackgroundColor};
+						width: 100%;
+						max-width: ${width}px;
+					`,
+					cheatStyles,
+				]}
+				ref={gridRef}
+				viewBox={`0 0 ${width} ${height}`}
+				tabIndex={-1}
+			>
+				{
+					/* Render the cells */
+					Array.from(cells.values()).map((cell) => {
+						const x = getCellPosition(cell.x, theme);
+						const y = getCellPosition(cell.y, theme);
 
-					const guess = progress[cell.x]?.[cell.y];
+						const guess = progress[cell.x]?.[cell.y];
 
-					const currentGroup =
-						currentEntryId && entries.get(currentEntryId)?.group;
+						const currentGroup =
+							currentEntryId && entries.get(currentEntryId)?.group;
 
-					const isHighlighted = currentGroup?.some((entryId) =>
-						cell.group?.includes(entryId),
-					);
+						const isHighlighted = currentGroup?.some((entryId) =>
+							cell.group?.includes(entryId),
+						);
 
-					const isActive = currentEntryId
-						? cell.group?.includes(currentEntryId)
-						: false;
+						const isActive = currentEntryId
+							? cell.group?.includes(currentEntryId)
+							: false;
 
-					return (
-						<Cell
-							key={`x${cell.x}y${cell.y}`}
-							data={cell}
-							x={x}
-							y={y}
-							guess={guess}
-							isActive={isActive}
-							isHighlighted={isHighlighted}
+						return (
+							<Cell
+								key={`x${cell.x}y${cell.y}`}
+								data={cell}
+								x={x}
+								y={y}
+								guess={guess}
+								isActive={isActive}
+								isHighlighted={isHighlighted}
+							/>
+						);
+					})
+				}
+				{
+					/* Render the separators between cells */
+					separators.map(({ type, position, direction }) => (
+						<Separator
+							type={type}
+							position={position}
+							direction={direction}
+							key={`${type}${position.x}${position.y}${direction}`}
 						/>
-					);
-				})
-			}
-			{
-				/* Render the separators between cells */
-				separators.map(({ type, position, direction }) => (
-					<Separator
-						type={type}
-						position={position}
-						direction={direction}
-						key={`${type}${position.x}${position.y}${direction}`}
-					/>
-				))
-			}
-			{currentCell && <FocusIndicator currentCell={currentCell} />}
-		</svg>
+					))
+				}
+				{currentCell && <FocusIndicator currentCell={currentCell} />}
+			</svg>
+		</div>
 	);
 };
