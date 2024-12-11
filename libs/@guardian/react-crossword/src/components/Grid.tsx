@@ -147,13 +147,13 @@ export const Grid = () => {
 			}
 
 			if (delta.x !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
 				return;
 			}
@@ -178,7 +178,8 @@ export const Grid = () => {
 			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
 			let preventDefault = true;
 			const { key } = event;
-
+			console.log('upperCase', key.toUpperCase());
+			console.log(keyDownRegex.test(key));
 			switch (key) {
 				case 'ArrowUp':
 					moveFocus({ delta: { x: 0, y: -1 } });
@@ -291,11 +292,13 @@ export const Grid = () => {
 			// applies:
 			let newEntryId = currentEntryId;
 
-			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords({
+			// Get the clicked cell
+			const clickedCell = cells.getByCoords({
 				x: clickedCellX,
 				y: clickedCellY,
-			})?.group;
+			});
+			// Get the entry IDs that apply to the clicked cell:
+			const entryIdsForCell = clickedCell?.group;
 
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
@@ -352,26 +355,27 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			setCurrentCell({ x: clickedCellX, y: clickedCellY });
+			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
-	const preventDefault = (event: Event) => {
-		event.preventDefault();
-	};
 
 	useEffect(() => {
+		const preventDefault = (event: Event) => {
+			event.preventDefault();
+		};
+
 		const editableElement = gridWrapperRef.current;
+		editableElement?.addEventListener('beforeinput', preventDefault);
 		editableElement?.addEventListener('click', selectClickedCell);
 		editableElement?.addEventListener('keydown', handleKeyDown);
-		editableElement?.addEventListener('beforeinput', preventDefault);
 		editableElement?.addEventListener('selectstart', preventDefault);
 
 		return () => {
+			editableElement?.removeEventListener('beforeinput', preventDefault);
 			editableElement?.removeEventListener('click', selectClickedCell);
 			editableElement?.removeEventListener('keydown', handleKeyDown);
-			editableElement?.removeEventListener('beforeinput', preventDefault);
 			editableElement?.removeEventListener('selectstart', preventDefault);
 		};
 	}, [handleKeyDown, selectClickedCell]);
@@ -391,7 +395,7 @@ export const Grid = () => {
 				cursor: pointer;
 				caret-color: transparent;
 			`}
-			tabIndex={1}
+			tabIndex={0}
 		>
 			<svg
 				css={[
