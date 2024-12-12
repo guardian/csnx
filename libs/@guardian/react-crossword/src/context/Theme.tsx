@@ -1,6 +1,5 @@
-import { createContext, type ReactNode, useContext, useMemo } from 'react';
+import { createContext, type ReactNode, useContext } from 'react';
 import type { Theme } from '../@types/crossword';
-import { defaultTheme } from '../theme';
 
 const ThemeContext = createContext<Theme | undefined>(undefined);
 
@@ -8,16 +7,11 @@ export const ThemeProvider = ({
 	theme,
 	children,
 }: {
-	theme?: Partial<Theme>;
+	theme: Theme;
 	children: ReactNode;
 }) => {
-	const finalTheme = useMemo<Theme>(
-		() => ({ ...defaultTheme, ...theme }),
-		[theme],
-	);
-
 	return (
-		<ThemeContext.Provider value={finalTheme}>{children}</ThemeContext.Provider>
+		<ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
 	);
 };
 

@@ -1,8 +1,8 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { ReactNode } from 'react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
 import { quick as quickData } from '../../stories/formats/quick';
-import type { Direction } from '../@types/Direction';
 import type { LayoutProps } from '../@types/Layout';
 import { Crossword } from './Crossword';
 
@@ -69,9 +69,16 @@ export const MultiplePlayersRow: StoryFn = () => {
 };
 
 export const CustomLayoutRaw: StoryFn = () => {
-	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
+	const Layout = ({
+		Clues,
+		Grid,
+		Controls,
+		SavedMessage,
+		gridWidth,
+	}: LayoutProps) => {
 		return (
 			<>
+				<p>gridWidth: {gridWidth}</p>
 				<Grid />
 				<Controls />
 				<SavedMessage />
@@ -84,7 +91,7 @@ export const CustomLayoutRaw: StoryFn = () => {
 };
 
 export const CustomisedLayout: StoryFn = () => {
-	const CluesHeader = (props: { direction: Direction }) => (
+	const CluesHeader = ({ children }: { children: ReactNode }) => (
 		<h2
 			style={{
 				fontFamily: 'monospace',
@@ -97,19 +104,26 @@ export const CustomisedLayout: StoryFn = () => {
 				justifyContent: 'center',
 				alignItems: 'center',
 				marginBottom: '0.5em',
+				color: 'royalblue',
 			}}
 		>
-			{props.direction === 'across' ? '👉' : '👇'}
+			{children}
 		</h2>
 	);
 
-	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
+	const Layout = ({
+		Clues,
+		Grid,
+		Controls,
+		SavedMessage,
+		gridWidth,
+	}: LayoutProps) => {
 		return (
 			<div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
 				<div style={{ flex: 1, minWidth: '15em' }}>
 					<Clues direction="across" Header={CluesHeader} />
 				</div>
-				<div style={{ flexBasis: 496, minWidth: '15em' }}>
+				<div style={{ flexBasis: gridWidth, minWidth: '15em' }}>
 					<Grid />
 					<Controls />
 					<div

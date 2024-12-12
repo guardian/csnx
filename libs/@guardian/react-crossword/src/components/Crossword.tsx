@@ -1,11 +1,12 @@
 import { css } from '@emotion/react';
-import type { ComponentType, ReactNode } from 'react';
+import { type ComponentType, type ReactNode, useMemo } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
 import { useProgress } from '../context/Progress';
 import { ScreenLayout } from '../layouts/ScreenLayout';
+import { defaultTheme } from '../theme';
 import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
@@ -30,7 +31,7 @@ const SavedMessage = () => {
 	);
 };
 
-const layoutProps: LayoutProps = {
+const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	Grid,
 	Controls,
 	AnagramHelper,
@@ -47,9 +48,21 @@ export const Crossword = ({
 }: CrosswordProps) => {
 	const LayoutComponent = Layout ?? ScreenLayout;
 
+	const theme = useMemo<Theme>(
+		() => ({ ...defaultTheme, ...userTheme }),
+		[userTheme],
+	);
+
+	const gridWidth = useMemo(
+		() =>
+			(theme.gridCellSize + theme.gridGutterSize) * data.dimensions.cols +
+			theme.gridGutterSize,
+		[theme.gridCellSize, theme.gridGutterSize, data.dimensions.cols],
+	);
+
 	return (
 		<ContextProvider
-			userTheme={userTheme}
+			theme={theme}
 			data={data}
 			userProgress={progress}
 			selectedEntryId={data.entries[0].id}
@@ -70,7 +83,9 @@ export const Crossword = ({
 					container-type: inline-size;
 				`}
 			>
-				{children ?? <LayoutComponent {...layoutProps} />}
+				{children ?? (
+					<LayoutComponent {...layoutComponents} gridWidth={gridWidth} />
+				)}
 			</div>
 		</ContextProvider>
 	);
