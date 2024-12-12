@@ -8,13 +8,8 @@
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
 	"bumpVersionsWithWorkspaceProtocolOnly": false,
-	"ignore": [
-		"github-pages",
-		"@configs/*",
-		"coverage",
-		"storybooks",
-		"@guardian/react-crossword"
-	],
+	"useCalculatedVersion": true,
+	"ignore": ["github-pages", "@configs/*", "coverage", "storybooks"],
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
 		"onlyUpdatePeerDependentsWhenOutOfRange": true
 	}
