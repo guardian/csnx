@@ -74,7 +74,13 @@ const Layout = ({
 				`}
 			>
 				{showAnagramHelper ? <AnagramHelper /> : <Grid />}
-				<Controls />
+				<div
+					css={css`
+						margin-top: ${space[1]}px;
+					`}
+				>
+					<Controls />
+				</div>
 				<div
 					css={css`
 						${textSans12};
