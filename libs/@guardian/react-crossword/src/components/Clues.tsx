@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 import { useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
@@ -14,9 +14,10 @@ type Props = {
 	/** Use this to provide a custom header component for the list of clues. If
 	 * undefined, the word 'across' or 'down' will be displayed, unstyled. */
 	Header?: ComponentType<{
-		/** If you use a custom clues header, this prop is required to force
-		 * users to do something with it, for the sake of a11y... */
-		direction: Direction;
+		/** If you use a custom clues header, it must accept children so that we
+		 * can provide a properly marked up `label` element, for the sake of
+		 * a11y... */
+		children: ReactNode;
 	}>;
 };
 
@@ -64,19 +65,22 @@ export const Clues = ({ direction, Header }: Props) => {
 		}
 	}
 
+	const label = (
+		<label
+			css={css`
+				color: currentColor;
+			`}
+			id={getId(`${direction}-label`)}
+			htmlFor={getId(`${direction}-hints`)}
+		>
+			{direction}
+		</label>
+	);
+
 	return (
 		<div ref={cluesRef}>
-			<label
-				css={css`
-					display: block;
-					color: currentColor;
-					text-transform: capitalize;
-				`}
-				id={getId(`${direction}-label`)}
-				htmlFor={getId(`${direction}-hints`)}
-			>
-				{Header ? <Header direction={direction} /> : direction}
-			</label>
+			{Header ? <Header>{label}</Header> : label}
+
 			<div
 				tabIndex={0}
 				id={getId(`${direction}-hints`)}

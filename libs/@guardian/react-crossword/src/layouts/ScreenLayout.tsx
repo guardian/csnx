@@ -1,13 +1,13 @@
 import { css } from '@emotion/react';
 import { headlineBold17, space } from '@guardian/source/foundations';
 import { textSans12, textSans14 } from '@guardian/source/foundations';
+import type { ReactNode } from 'react';
 import { memo } from 'react';
-import type { Direction } from '../@types/Direction';
 import type { LayoutProps } from '../@types/Layout';
 import { useTheme } from '../context/Theme';
 import { useUIState } from '../context/UI';
 
-const CluesHeader = memo(({ direction }: { direction: Direction }) => {
+const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 	const theme = useTheme();
 
 	return (
@@ -18,9 +18,10 @@ const CluesHeader = memo(({ direction }: { direction: Direction }) => {
 				border-bottom: 1px dotted ${theme.borderColor};
 				height: 2em;
 				margin-bottom: 0.5em;
+				text-transform: capitalize;
 			`}
 		>
-			{direction}
+			{children}
 		</div>
 	);
 });
