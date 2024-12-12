@@ -363,17 +363,17 @@ export const Grid = () => {
 			event.preventDefault();
 		};
 
-		const editableElement = gridWrapperRef.current;
-		editableElement?.addEventListener('beforeinput', preventDefault);
-		editableElement?.addEventListener('click', selectClickedCell);
-		editableElement?.addEventListener('keydown', handleKeyDown);
-		editableElement?.addEventListener('selectstart', preventDefault);
+		const gridWrapper = gridWrapperRef.current;
+		gridWrapper?.addEventListener('beforeinput', preventDefault);
+		gridWrapper?.addEventListener('click', selectClickedCell);
+		gridWrapper?.addEventListener('keydown', handleKeyDown);
+		gridWrapper?.addEventListener('selectstart', preventDefault);
 
 		return () => {
-			editableElement?.removeEventListener('beforeinput', preventDefault);
-			editableElement?.removeEventListener('click', selectClickedCell);
-			editableElement?.removeEventListener('keydown', handleKeyDown);
-			editableElement?.removeEventListener('selectstart', preventDefault);
+			gridWrapper?.removeEventListener('beforeinput', preventDefault);
+			gridWrapper?.removeEventListener('click', selectClickedCell);
+			gridWrapper?.removeEventListener('keydown', handleKeyDown);
+			gridWrapper?.removeEventListener('selectstart', preventDefault);
 		};
 	}, [handleKeyDown, selectClickedCell]);
 
