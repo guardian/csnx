@@ -392,6 +392,8 @@ export const Grid = () => {
 			css={css`
 				cursor: pointer;
 				caret-color: transparent;
+				width: 100%;
+				max-width: ${width}px;
 			`}
 			tabIndex={-1}
 		>
@@ -399,8 +401,6 @@ export const Grid = () => {
 				css={[
 					css`
 						background: ${theme.gridBackgroundColor};
-						width: 100%;
-						max-width: ${width}px;
 					`,
 					cheatStyles,
 				]}
