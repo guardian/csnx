@@ -1,14 +1,13 @@
 import { css } from '@emotion/react';
 import { headlineBold17, space } from '@guardian/source/foundations';
 import { textSans12, textSans14 } from '@guardian/source/foundations';
+import type { ReactNode } from 'react';
 import { memo } from 'react';
-import type { Direction } from '../@types/Direction';
 import type { LayoutProps } from '../@types/Layout';
-import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 import { useUIState } from '../context/UI';
 
-const CluesHeader = memo(({ direction }: { direction: Direction }) => {
+const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 	const theme = useTheme();
 
 	return (
@@ -19,9 +18,10 @@ const CluesHeader = memo(({ direction }: { direction: Direction }) => {
 				border-bottom: 1px dotted ${theme.borderColor};
 				height: 2em;
 				margin-bottom: 0.5em;
+				text-transform: capitalize;
 			`}
 		>
-			{direction}
+			{children}
 		</div>
 	);
 });
@@ -32,19 +32,14 @@ const Layout = ({
 	AnagramHelper,
 	Clues,
 	SavedMessage,
+	gridWidth: actualGridWidth,
 }: LayoutProps) => {
 	const { textColor, clueMinWidth, clueMaxWidth } = useTheme();
 
 	const { showAnagramHelper } = useUIState();
 	const theme = useTheme();
 
-	const { gridGutterSize, gridCellSize } = useTheme();
-	const { dimensions } = useData();
-
-	const gridWidth = Math.max(
-		(gridCellSize + gridGutterSize) * dimensions.cols + gridGutterSize,
-		300,
-	);
+	const gridWidth = Math.max(actualGridWidth, 300);
 	const oneColWidth = gridWidth + clueMinWidth;
 	const twoColWidth = gridWidth + clueMinWidth * 2;
 
