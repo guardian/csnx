@@ -107,6 +107,7 @@ export const Grid = () => {
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 
 	const gridRef = useRef<SVGSVGElement>(null);
+	// do not call focus() on this element as it will trigger the selection menu on safari
 	const gridWrapperRef = useRef<HTMLDivElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
 
@@ -392,7 +393,7 @@ export const Grid = () => {
 				cursor: pointer;
 				caret-color: transparent;
 			`}
-			tabIndex={0}
+			tabIndex={-1}
 		>
 			<svg
 				css={[
