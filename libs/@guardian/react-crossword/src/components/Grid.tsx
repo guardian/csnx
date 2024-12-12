@@ -394,6 +394,7 @@ export const Grid = () => {
 				caret-color: transparent;
 				width: 100%;
 				max-width: ${width}px;
+				max-height: ${height}px;
 			`}
 			tabIndex={-1}
 		>
