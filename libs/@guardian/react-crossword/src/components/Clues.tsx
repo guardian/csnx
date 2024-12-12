@@ -21,7 +21,7 @@ type Props = {
 };
 
 export const Clues = ({ direction, Header }: Props) => {
-	const { entries, getId, cells } = useData();
+	const { entries, getId } = useData();
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
@@ -40,12 +40,10 @@ export const Clues = ({ direction, Header }: Props) => {
 
 			if (entry) {
 				setCurrentEntryId(entry.id);
-				setCurrentCell(
-					cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
-				);
+				setCurrentCell({ x: entry.position.x, y: entry.position.y });
 			}
 		},
-		[cells, entries, setCurrentCell, setCurrentEntryId],
+		[entries, setCurrentCell, setCurrentEntryId],
 	);
 
 	useEffect(() => {
