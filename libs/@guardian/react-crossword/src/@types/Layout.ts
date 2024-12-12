@@ -10,4 +10,5 @@ export type LayoutProps = {
 	AnagramHelper: typeof AnagramHelper;
 	Clues: typeof Clues;
 	SavedMessage: ComponentType;
+	gridWidth: number;
 };

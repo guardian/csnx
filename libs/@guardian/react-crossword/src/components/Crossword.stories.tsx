@@ -69,9 +69,16 @@ export const MultiplePlayersRow: StoryFn = () => {
 };
 
 export const CustomLayoutRaw: StoryFn = () => {
-	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
+	const Layout = ({
+		Clues,
+		Grid,
+		Controls,
+		SavedMessage,
+		gridWidth,
+	}: LayoutProps) => {
 		return (
 			<>
+				<p>gridWidth: {gridWidth}</p>
 				<Grid />
 				<Controls />
 				<SavedMessage />
@@ -103,13 +110,19 @@ export const CustomisedLayout: StoryFn = () => {
 		</h2>
 	);
 
-	const Layout = ({ Clues, Grid, Controls, SavedMessage }: LayoutProps) => {
+	const Layout = ({
+		Clues,
+		Grid,
+		Controls,
+		SavedMessage,
+		gridWidth,
+	}: LayoutProps) => {
 		return (
 			<div style={{ display: 'flex', alignItems: 'flex-start', gap: 20 }}>
 				<div style={{ flex: 1, minWidth: '15em' }}>
 					<Clues direction="across" Header={CluesHeader} />
 				</div>
-				<div style={{ flexBasis: 496, minWidth: '15em' }}>
+				<div style={{ flexBasis: gridWidth, minWidth: '15em' }}>
 					<Grid />
 					<Controls />
 					<div
