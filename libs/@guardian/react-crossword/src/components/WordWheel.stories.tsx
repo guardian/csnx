@@ -2,6 +2,7 @@ import type { Meta } from '@storybook/react';
 import { type StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { ContextProvider } from '../context/ContextProvider';
+import { defaultTheme } from '../theme';
 import { WordWheel } from './WordWheel';
 
 const meta: Meta<typeof WordWheel> = {
@@ -10,7 +11,7 @@ const meta: Meta<typeof WordWheel> = {
 	args: {},
 	decorators: [
 		(Story) => (
-			<ContextProvider data={data}>
+			<ContextProvider data={data} theme={defaultTheme}>
 				<Story />
 			</ContextProvider>
 		),

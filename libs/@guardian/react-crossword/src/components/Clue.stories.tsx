@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { ContextProvider } from '../context/ContextProvider';
+import { defaultTheme } from '../theme';
 import { Clue } from './Clue';
 
 const meta: Meta<typeof Clue> = {
@@ -11,7 +12,7 @@ const meta: Meta<typeof Clue> = {
 	},
 	decorators: [
 		(Story) => (
-			<ContextProvider data={data}>
+			<ContextProvider data={data} theme={defaultTheme}>
 				<Story />
 			</ContextProvider>
 		),
