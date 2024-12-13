@@ -388,6 +388,7 @@ export const Grid = () => {
 	return (
 		<div
 			contentEditable={true}
+			suppressContentEditableWarning={true}
 			ref={gridWrapperRef}
 			css={css`
 				cursor: pointer;
