@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { Coords, Separator, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
@@ -105,11 +106,12 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
-	// do not call focus() on this element as it will trigger the selection menu on safari
 	const gridWrapperRef = useRef<HTMLDivElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
@@ -120,6 +122,12 @@ export const Grid = () => {
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
+
+	useEffect(() => {
+		if (currentCell) {
+			inputRef.current?.focus();
+		}
+	}, [currentCell]);
 
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -166,12 +174,40 @@ export const Grid = () => {
 		return;
 	}, []);
 
+	const handleChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			if (isUndefined(currentCell)) {
+				return;
+			}
+			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
+			const key = event.target.value.toUpperCase();
+			const value = cheatMode
+				? cells.getByCoords({ x: currentCell.x, y: currentCell.y })?.solution
+				: keyDownRegex.test(key) && key.toUpperCase();
+
+			if (value) {
+				updateCell({
+					x: currentCell.x,
+					y: currentCell.y,
+					value,
+				});
+			}
+			if (direction === 'across') {
+				moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+			}
+			if (direction === 'down') {
+				moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+			}
+			setInputValue('');
+		},
+		[cells, cheatMode, currentCell, currentEntryId, moveFocus, updateCell],
+	);
+
 	const handleKeyDown = useCallback(
-		(event: KeyboardEvent): void => {
+		(event: KeyboardEvent<HTMLInputElement>): void => {
 			if (event.ctrlKey || event.altKey || event.metaKey) {
 				return;
 			}
-
 			if (!currentCell) {
 				return;
 			}
@@ -217,50 +253,20 @@ export const Grid = () => {
 					}
 					break;
 				}
-				default: {
-					if (currentEntryId) {
-						const value = cheatMode
-							? cells.getByCoords({ x: currentCell.x, y: currentCell.y })
-									?.solution
-							: keyDownRegex.test(key) && key.toUpperCase();
-
-						if (value) {
-							updateCell({
-								x: currentCell.x,
-								y: currentCell.y,
-								value,
-							});
-							if (direction === 'across') {
-								moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
-							}
-							if (direction === 'down') {
-								moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
-							}
-						} else {
-							preventDefault = false;
-						}
-					}
+				default:
+					preventDefault = false;
 					break;
-				}
 			}
 
 			if (preventDefault) {
 				event.preventDefault();
 			}
 		},
-		[
-			currentCell,
-			currentEntryId,
-			moveFocus,
-			handleTab,
-			updateCell,
-			cheatMode,
-			cells,
-		],
+		[currentCell, currentEntryId, moveFocus, handleTab, updateCell],
 	);
 
 	const selectClickedCell = useCallback(
-		(event: MouseEvent) => {
+		(event: MouseEvent<HTMLDivElement>) => {
 			// The 'g' elements in the grid SVG are the cells, and we have set
 			// data-x and data-y attributes on them to represent their position
 			// in the grid.
@@ -359,25 +365,6 @@ export const Grid = () => {
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
 
-	useEffect(() => {
-		const preventDefault = (event: Event) => {
-			event.preventDefault();
-		};
-
-		const gridWrapper = gridWrapperRef.current;
-		gridWrapper?.addEventListener('beforeinput', preventDefault);
-		gridWrapper?.addEventListener('click', selectClickedCell);
-		gridWrapper?.addEventListener('keydown', handleKeyDown);
-		gridWrapper?.addEventListener('selectstart', preventDefault);
-
-		return () => {
-			gridWrapper?.removeEventListener('beforeinput', preventDefault);
-			gridWrapper?.removeEventListener('click', selectClickedCell);
-			gridWrapper?.removeEventListener('keydown', handleKeyDown);
-			gridWrapper?.removeEventListener('selectstart', preventDefault);
-		};
-	}, [handleKeyDown, selectClickedCell]);
-
 	const height =
 		theme.gridCellSize * dimensions.rows +
 		theme.gridGutterSize * (dimensions.rows + 1);
@@ -387,16 +374,16 @@ export const Grid = () => {
 
 	return (
 		<div
-			contentEditable={true}
-			suppressContentEditableWarning={true}
 			ref={gridWrapperRef}
 			css={css`
+				position: relative;
 				cursor: pointer;
-				caret-color: transparent;
 				width: 100%;
 				max-width: ${width}px;
 				max-height: ${height}px;
+				-webkit-tap-highlight-color: transparent;
 			`}
+			onClick={selectClickedCell}
 			tabIndex={-1}
 		>
 			<svg
@@ -455,6 +442,31 @@ export const Grid = () => {
 				}
 				{currentCell && <FocusIndicator currentCell={currentCell} />}
 			</svg>
+			{currentCell && (
+				<input
+					ref={inputRef}
+					value={inputValue}
+					id="overlay-input"
+					type="text"
+					onKeyDown={handleKeyDown}
+					onChange={handleChange}
+					tabIndex={0}
+					css={css`
+						position: absolute;
+						pointer-events: none;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+					`}
+					autoComplete="off"
+					spellCheck="false"
+					autoCorrect="off"
+					aria-hidden="false"
+					aria-label={`Type letter for crossword cell x ${currentCell.x}, y ${currentCell.y}`}
+				/>
+			)}
 		</div>
 	);
 };
