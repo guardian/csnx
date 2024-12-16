@@ -101,7 +101,7 @@ const FocusIndicator = ({
 
 export const Grid = () => {
 	const theme = useTheme();
-	const { cells, separators, entries, dimensions } = useData();
+	const { cells, separators, entries, dimensions, getId } = useData();
 	const { progress } = useProgress();
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
@@ -122,12 +122,6 @@ export const Grid = () => {
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
-
-	useEffect(() => {
-		if (currentCell) {
-			inputRef.current?.focus();
-		}
-	}, [currentCell]);
 
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -186,17 +180,19 @@ export const Grid = () => {
 				: keyDownRegex.test(key) && key.toUpperCase();
 
 			if (value) {
+				inputRef.current?.blur();
+				inputRef.current?.focus();
 				updateCell({
 					x: currentCell.x,
 					y: currentCell.y,
 					value,
 				});
-			}
-			if (direction === 'across') {
-				moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
-			}
-			if (direction === 'down') {
-				moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+				if (direction === 'across') {
+					moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+				}
+				if (direction === 'down') {
+					moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+				}
 			}
 			setInputValue('');
 		},
@@ -361,6 +357,7 @@ export const Grid = () => {
 			// Set the new current cell and entry:
 			setCurrentCell({ x: clickedCellX, y: clickedCellY });
 			setCurrentEntryId(newEntryId);
+			inputRef.current?.focus();
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
@@ -393,6 +390,7 @@ export const Grid = () => {
 					`,
 					cheatStyles,
 				]}
+				id={getId('crossword-grid')}
 				ref={gridRef}
 				viewBox={`0 0 ${width} ${height}`}
 				tabIndex={-1}
@@ -440,33 +438,34 @@ export const Grid = () => {
 						/>
 					))
 				}
-				{currentCell && <FocusIndicator currentCell={currentCell} />}
+				{currentCell && document.activeElement?.id === inputRef.current?.id && (
+					<FocusIndicator currentCell={currentCell} />
+				)}
 			</svg>
-			{currentCell && (
-				<input
-					ref={inputRef}
-					value={inputValue}
-					id="overlay-input"
-					type="text"
-					onKeyDown={handleKeyDown}
-					onChange={handleChange}
-					tabIndex={0}
-					css={css`
-						position: absolute;
-						pointer-events: none;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-						opacity: 0;
-					`}
-					autoComplete="off"
-					spellCheck="false"
-					autoCorrect="off"
-					aria-hidden="false"
-					aria-label={`Type letter for crossword cell x ${currentCell.x}, y ${currentCell.y}`}
-				/>
-			)}
+			<input
+				ref={inputRef}
+				value={inputValue}
+				id={getId('overlay-input')}
+				type="text"
+				pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+				onKeyDown={handleKeyDown}
+				onChange={handleChange}
+				tabIndex={0}
+				css={css`
+					position: absolute;
+					pointer-events: none;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+				`}
+				autoComplete="off"
+				spellCheck="false"
+				autoCorrect="off"
+				aria-hidden="false"
+				aria-label={`Type letter for crossword cell x ${currentCell?.x}, y ${currentCell?.y}`}
+			/>
 		</div>
 	);
 };
