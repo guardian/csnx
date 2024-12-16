@@ -180,8 +180,10 @@ export const Grid = () => {
 				: keyDownRegex.test(key) && key.toUpperCase();
 
 			if (value) {
+				// This mimics moving to a new input cell after typing a letter
 				inputRef.current?.blur();
 				inputRef.current?.focus();
+
 				updateCell({
 					x: currentCell.x,
 					y: currentCell.y,
