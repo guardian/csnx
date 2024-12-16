@@ -1,7 +1,6 @@
 {
 	"name": "@guardian/react-crossword",
-	"version": "3.0.0-alpha.0",
-	"private": true,
+	"version": "2.0.2",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
