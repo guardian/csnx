@@ -302,9 +302,19 @@ export const Controls = () => {
 					event.preventDefault();
 					break;
 				case 'Home':
+					if (group === 'clues') {
+						setFocusedClueControlIndex(0);
+					} else {
+						setFocusedGridControlIndex(0);
+					}
 					event.preventDefault();
 					break;
 				case 'End':
+					if (group === 'clues') {
+						setFocusedClueControlIndex(cluesControls.length - 1);
+					} else {
+						setFocusedGridControlIndex(gridControls.length - 1);
+					}
 					event.preventDefault();
 					break;
 				default:
