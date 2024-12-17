@@ -2,15 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
-import type { ReactElement } from 'react';
-import {
-	Children,
-	cloneElement,
-	useCallback,
-	useEffect,
-	useRef,
-	useState,
-} from 'react';
+import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
 import type { Cell, Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -69,11 +61,7 @@ const ClearClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton
-			onClick={clear}
-			disabled={isUndefined(currentEntryId)}
-			{...props}
-		>
+		<ClueButton onClick={clear} {...props}>
 			Clear Word
 		</ClueButton>
 	);
@@ -120,11 +108,7 @@ const CheckClue = (props: ButtonProps) => {
 	}, [cells, checkCell, currentEntryId, updateCell, setValidAnswers]);
 
 	return (
-		<ClueButton
-			onClick={check}
-			disabled={isUndefined(currentEntryId)}
-			{...props}
-		>
+		<ClueButton onClick={check} {...props}>
 			Check Word
 		</ClueButton>
 	);
@@ -151,11 +135,7 @@ const RevealClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton
-			onClick={reveal}
-			disabled={isUndefined(currentEntryId)}
-			{...props}
-		>
+		<ClueButton onClick={reveal} {...props}>
 			Reveal Word
 		</ClueButton>
 	);
@@ -163,14 +143,9 @@ const RevealClue = (props: ButtonProps) => {
 
 const AnagramHelper = (props: ButtonProps) => {
 	const { toggleAnagramHelper } = useUIState();
-	const { currentEntryId } = useCurrentClue();
 
 	return (
-		<ClueButton
-			onClick={toggleAnagramHelper}
-			disabled={isUndefined(currentEntryId)}
-			{...props}
-		>
+		<ClueButton onClick={toggleAnagramHelper} {...props}>
 			Anagram Helper
 		</ClueButton>
 	);
@@ -255,48 +230,95 @@ const ClearGrid = (props: ButtonProps) => {
 	);
 };
 
-const ControlsGroup = ({
-	children,
-}: {
-	children: Array<ReactElement | false>;
-}) => {
-	const [focusedIndex, setFocusedIndex] = useState(0);
-	const groupRef = useRef<HTMLDivElement | null>(null);
+const controlsGroupStyle = css`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: ${space[1]}px;
+	padding: ${space[1]}px 0;
+`;
+
+export const Controls = () => {
+	const { solutionAvailable } = useData();
+	const { currentEntryId } = useCurrentClue();
+
+	const disableClueControls = isUndefined(currentEntryId);
+
+	const [group, setGroup] = useState<'clues' | 'grid'>(
+		disableClueControls ? 'grid' : 'clues',
+	);
+	const [focusedClueControlIndex, setFocusedClueControlIndex] = useState(0);
+	const [focusedGridControlIndex, setFocusedGridControlIndex] = useState(0);
+	const controlsRef = useRef<HTMLDivElement | null>(null);
+
+	const cluesControls = [
+		<ClearClue />,
+		solutionAvailable && <CheckClue />,
+		solutionAvailable && <RevealClue />,
+		<AnagramHelper>Anagram Helper</AnagramHelper>,
+	];
+
+	const gridControls = [
+		<ClearGrid />,
+		solutionAvailable && <CheckGrid />,
+		solutionAvailable && <RevealGrid />,
+	];
 
 	const onKeyDown = useCallback(
 		(event: KeyboardEvent) => {
 			switch (event.key) {
-				case 'ArrowDown':
+				case 'ArrowLeft':
+					if (group === 'clues') {
+						setFocusedClueControlIndex((prev = 0) => Math.max(prev - 1, 0));
+					} else {
+						setFocusedGridControlIndex((prev = 0) => Math.max(prev - 1, 0));
+					}
+					event.preventDefault();
+					break;
 				case 'ArrowRight':
-					setFocusedIndex((prev) => Math.min(prev + 1, children.length - 1));
+					if (group === 'clues') {
+						setFocusedClueControlIndex((prev = 0) =>
+							Math.min(prev + 1, cluesControls.length - 1),
+						);
+					} else {
+						setFocusedGridControlIndex((prev = 0) =>
+							Math.min(prev + 1, gridControls.length - 1),
+						);
+					}
+					event.preventDefault();
+					break;
+				case 'ArrowDown':
+					setGroup('grid');
 					event.preventDefault();
 					break;
 				case 'ArrowUp':
-				case 'ArrowLeft':
-					setFocusedIndex((prev) => Math.max(prev - 1, 0));
+					if (!disableClueControls) {
+						setGroup('clues');
+					}
 					event.preventDefault();
 					break;
 				case 'Home':
-					setFocusedIndex(0);
 					event.preventDefault();
 					break;
 				case 'End':
-					setFocusedIndex(children.length - 1);
 					event.preventDefault();
 					break;
 				default:
 					return;
 			}
 		},
-		[children.length],
+		[cluesControls.length, disableClueControls, gridControls.length, group],
 	);
 
 	useEffect(() => {
-		groupRef.current?.querySelectorAll('button')[focusedIndex]?.focus();
-	}, [focusedIndex]);
+		(
+			controlsRef.current?.querySelector('[tabindex="0"]') as HTMLElement | null
+		)?.focus();
+	}, [group, focusedClueControlIndex, focusedGridControlIndex]);
 
 	useEffect(() => {
-		const controls = groupRef.current;
+		const controls = controlsRef.current;
 
 		if (!controls) {
 			return;
@@ -310,49 +332,45 @@ const ControlsGroup = ({
 	}, [onKeyDown]);
 
 	return (
-		<div
-			role="toolbar"
-			tabIndex={-1}
-			ref={groupRef}
-			css={css`
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				gap: ${space[1]}px;
-				padding: ${space[1]}px 0;
-			`}
-		>
-			{Children.map(children, (child, index) => {
-				if (child) {
-					return cloneElement(child, {
-						tabIndex: index === focusedIndex ? 0 : -1,
-						key: index,
-						'data-index': index,
-					});
-				}
-				return null;
-			})}
+		<div role="menu" ref={controlsRef} aria-label="Crossword controls">
+			<div
+				aria-label="Clue controls"
+				role="group"
+				tabIndex={-1}
+				css={controlsGroupStyle}
+			>
+				{cluesControls.map((child, index) => {
+					if (child) {
+						const isTabTarget =
+							group === 'clues' && focusedClueControlIndex === index;
+
+						return cloneElement(child, {
+							key: index,
+							disabled: disableClueControls,
+							tabIndex: isTabTarget ? 0 : -1,
+						});
+					}
+					return null;
+				})}
+			</div>
+			<div
+				aria-label="Grid controls"
+				role="group"
+				tabIndex={-1}
+				css={controlsGroupStyle}
+			>
+				{gridControls.map((child, index) => {
+					if (child) {
+						const isTabTarget =
+							group === 'grid' && focusedGridControlIndex === index;
+						return cloneElement(child, {
+							key: index,
+							tabIndex: isTabTarget ? 0 : -1,
+						});
+					}
+					return null;
+				})}
+			</div>
 		</div>
-	);
-};
-
-export const Controls = () => {
-	const { solutionAvailable } = useData();
-
-	return (
-		<>
-			<ControlsGroup aria-label="Clue controls">
-				<ClearClue />
-				{solutionAvailable && <CheckClue />}
-				{solutionAvailable && <RevealClue />}
-				<AnagramHelper>Anagram Helper</AnagramHelper>
-			</ControlsGroup>
-			<ControlsGroup aria-label="Grid controls">
-				<ClearGrid />
-				{solutionAvailable && <CheckGrid />}
-				{solutionAvailable && <RevealGrid />}
-			</ControlsGroup>
-		</>
 	);
 };
