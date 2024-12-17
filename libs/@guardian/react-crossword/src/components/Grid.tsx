@@ -180,7 +180,10 @@ export const Grid = () => {
 				: keyDownRegex.test(key) && key.toUpperCase();
 
 			if (value) {
-				// This mimics moving to a new input cell after typing a letter
+				// This mimics moving to a new input cell after typing a letter.
+				// This is needed for a quirk in the Android keyboard.
+				// It stores typed text even if it is cleared by react
+				// and the backspace key does not work as expected.
 				inputRef.current?.blur();
 				inputRef.current?.focus();
 
@@ -380,6 +383,7 @@ export const Grid = () => {
 				width: 100%;
 				max-width: ${width}px;
 				max-height: ${height}px;
+				// This is to prevent the default blue highlight on click on andriod
 				-webkit-tap-highlight-color: transparent;
 			`}
 			onClick={selectClickedCell}
