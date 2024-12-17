@@ -119,17 +119,17 @@ export const Clues = ({ direction, Header }: Props) => {
 							cell[axis]++;
 						}
 
-						const isHighlighted =
+						const isConnected =
 							currentEntryId &&
 							entries.get(currentEntryId)?.group.includes(entry.id);
 
-						const isActive = currentEntryId === entry.id;
+						const isSelected = currentEntryId === entry.id;
 
 						return (
 							<Clue
 								entry={entry}
-								isHighlighted={isHighlighted}
-								isActive={isActive}
+								isConnected={isConnected}
+								isSelected={isSelected}
 								key={entry.id}
 								isComplete={complete}
 							/>

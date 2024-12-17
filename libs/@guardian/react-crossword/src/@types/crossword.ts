@@ -62,8 +62,8 @@ export type Theme = {
 	focusColor: string;
 	/** The colour of cells/clues that are currently selected clue */
 	selectedColor: string;
-	/** The colour of cells/clues that are related to the currently selected clue */
-	relatedColor: string;
+	/** The colour of cells/clues that are connected to the currently selected clue */
+	connectedColor: string;
 
 	/** The background colour of clue-helper buttons */
 	buttonBackgroundColor: string;

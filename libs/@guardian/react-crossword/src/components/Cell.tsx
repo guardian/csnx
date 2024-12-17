@@ -33,7 +33,7 @@ const CellComponent = ({
 		: isHighlighted
 			? isActive
 				? theme.selectedColor
-				: theme.relatedColor
+				: theme.connectedColor
 			: theme.gridForegroundColor;
 
 	return (

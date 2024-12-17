@@ -8,15 +8,15 @@ import { useValidAnswers } from '../context/ValidAnswers';
 
 interface Props {
 	entry: CAPIEntry;
-	isHighlighted?: boolean;
-	isActive?: boolean;
+	isConnected?: boolean;
+	isSelected?: boolean;
 	isComplete?: boolean;
 }
 
 const ClueComponent = ({
 	entry,
-	isHighlighted,
-	isActive,
+	isConnected,
+	isSelected,
 	isComplete,
 }: Props) => {
 	const theme = useTheme();
@@ -32,14 +32,14 @@ const ClueComponent = ({
 			}
 			data-entry-id={entry.id}
 			role="option"
-			aria-selected={isHighlighted}
+			aria-selected={isSelected}
 			css={css`
-				background-color: ${isActive
+				background-color: ${isSelected
 					? theme.selectedColor
-					: isHighlighted
-						? theme.relatedColor
+					: isConnected
+						? theme.connectedColor
 						: 'transparent'};
-				cursor: ${isHighlighted ? 'default' : 'pointer'};
+				cursor: ${isConnected ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};
 
 				padding: 0.5em 0;
