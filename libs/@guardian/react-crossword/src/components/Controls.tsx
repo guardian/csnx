@@ -250,6 +250,7 @@ export const Controls = () => {
 	);
 	const [focusedClueControlIndex, setFocusedClueControlIndex] = useState(0);
 	const [focusedGridControlIndex, setFocusedGridControlIndex] = useState(0);
+	const [shouldFocus, setShouldFocus] = useState(false);
 	const controlsRef = useRef<HTMLDivElement | null>(null);
 
 	const cluesControls = [
@@ -267,6 +268,8 @@ export const Controls = () => {
 
 	const onKeyDown = useCallback(
 		(event: KeyboardEvent) => {
+			setShouldFocus(true);
+
 			switch (event.key) {
 				case 'ArrowLeft':
 					if (group === 'clues') {
@@ -308,14 +311,19 @@ export const Controls = () => {
 					return;
 			}
 		},
-		[cluesControls.length, disableClueControls, gridControls.length, group],
+		[cluesControls.length, gridControls.length, disableClueControls, group],
 	);
 
 	useEffect(() => {
-		(
-			controlsRef.current?.querySelector('[tabindex="0"]') as HTMLElement | null
-		)?.focus();
-	}, [group, focusedClueControlIndex, focusedGridControlIndex]);
+		// We only want to focus the a control after user input
+		if (shouldFocus) {
+			(
+				controlsRef.current?.querySelector(
+					'[tabindex="0"]',
+				) as HTMLElement | null
+			)?.focus();
+		}
+	}, [shouldFocus, group, focusedClueControlIndex, focusedGridControlIndex]);
 
 	useEffect(() => {
 		const controls = controlsRef.current;
