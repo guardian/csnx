@@ -356,6 +356,7 @@ export const Controls = () => {
 							key: index,
 							disabled: disableClueControls,
 							tabIndex: isTabTarget ? 0 : -1,
+							role: 'menuitem',
 						});
 					}
 					return null;
@@ -374,6 +375,7 @@ export const Controls = () => {
 						return cloneElement(child, {
 							key: index,
 							tabIndex: isTabTarget ? 0 : -1,
+							role: 'menuitem',
 						});
 					}
 					return null;
