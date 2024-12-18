@@ -123,11 +123,11 @@ export const Clues = ({ direction, Header }: Props) => {
 		const clues = cluesRef.current;
 
 		clues?.addEventListener('keydown', onKeyDown);
-		clues?.addEventListener('focusin', onFocus);
+		clues?.addEventListener('focus', onFocus);
 
 		return () => {
 			clues?.removeEventListener('keydown', onKeyDown);
-			clues?.removeEventListener('focusin', onFocus);
+			clues?.removeEventListener('focus', onFocus);
 		};
 	}, [onKeyDown, onFocus]);
 
