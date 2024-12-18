@@ -123,6 +123,19 @@ export const Grid = () => {
 		}
 	}, [currentEntryId, entries]);
 
+	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
+	const currentCellProgress = currentCell
+		? progress[currentCell.x]?.[currentCell.y]
+		: undefined;
+	const currentCellLabel = currentCell
+		? `
+		${currentCellProgress ? `${currentCellProgress}  ` : ''}
+		${currentEntry?.group ? `${currentEntry.group.join(',')}  ` : ''}
+		${currentEntry?.clue ? `${currentEntry.clue}  letters` : ''}
+		${!currentCell.group ? 'Blank Cell' : ''}
+		column ${currentCell.x + 1}, row ${currentCell.y + 1}`
+		: '';
+
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
 			if (!currentCell) {
@@ -136,6 +149,7 @@ export const Grid = () => {
 			if (!newCell) {
 				return;
 			}
+
 			// maybe we can refactor this out into a shared function?
 			const possibleAcross = newCell.group?.find((group) =>
 				group.includes('across'),
@@ -149,24 +163,23 @@ export const Grid = () => {
 				return;
 			}
 
+			inputRef.current?.blur();
 			if (delta.x !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
+				inputRef.current?.focus();
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
+				inputRef.current?.focus();
 				return;
 			}
 		},
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
 	);
-
-	const handleTab = useCallback(() => {
-		return;
-	}, []);
 
 	const handleChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
@@ -180,13 +193,6 @@ export const Grid = () => {
 				: keyDownRegex.test(key) && key.toUpperCase();
 
 			if (value) {
-				// This mimics moving to a new input cell after typing a letter.
-				// This is needed for a quirk in the Android keyboard.
-				// It stores typed text even if it is cleared by react
-				// and the backspace key does not work as expected.
-				inputRef.current?.blur();
-				inputRef.current?.focus();
-
 				updateCell({
 					x: currentCell.x,
 					y: currentCell.y,
@@ -230,10 +236,6 @@ export const Grid = () => {
 				case 'ArrowRight':
 					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
-				case ' ':
-				case 'Tab':
-					handleTab();
-					break;
 				case 'Backspace':
 				case 'Delete': {
 					if (!currentEntryId) {
@@ -263,7 +265,7 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, updateCell],
+		[currentCell, currentEntryId, moveFocus, updateCell],
 	);
 
 	const selectClickedCell = useCallback(
@@ -300,11 +302,12 @@ export const Grid = () => {
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords({
+			const clickedCell = cells.getByCoords({
 				x: clickedCellX,
 				y: clickedCellY,
-			})?.group;
+			});
 
+			const entryIdsForCell = clickedCell?.group;
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
 			if (isUndefined(entryIdsForCell)) {
@@ -360,7 +363,7 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			setCurrentCell({ x: clickedCellX, y: clickedCellY });
+			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
 			inputRef.current?.focus();
 		},
@@ -451,11 +454,30 @@ export const Grid = () => {
 			<input
 				ref={inputRef}
 				value={inputValue}
-				autoCapitalize={'characters'}
-				id={getId('overlay-input')}
+				role="grid-cell"
+				autoCapitalize={'none'}
+				id={getId('	crossword-input')}
+				aria-readonly={!currentCell?.group}
 				type="text"
 				pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 				onKeyDown={handleKeyDown}
+				onFocus={() => {
+					if (!currentCell) {
+						setCurrentCell((prevCell) => {
+							if (prevCell) {
+								return prevCell;
+							}
+							if (currentEntryId) {
+								const entry = entries.get(currentEntryId);
+								if (entry) {
+									return cells.getByCoords(entry.position);
+								}
+							}
+							return cells.getByCoords({ x: 0, y: 0 });
+						});
+					}
+				}}
+				onBlur={() => setCurrentCell(undefined)}
 				onChange={handleChange}
 				tabIndex={0}
 				css={css`
@@ -465,13 +487,14 @@ export const Grid = () => {
 					left: 0;
 					width: 100%;
 					height: 100%;
-					opacity: 0;
+					opacity: 0.5;
 				`}
 				autoComplete="off"
 				spellCheck="false"
 				autoCorrect="off"
 				aria-hidden="false"
-				aria-label={`Type letter for crossword cell x ${currentCell?.x}, y ${currentCell?.y}`}
+				aria-live="polite"
+				aria-label={currentCellLabel}
 			/>
 		</div>
 	);
