@@ -69,11 +69,16 @@ export const Clues = ({ direction, Header }: Props) => {
 		[setCurrentCell, setCurrentEntryId],
 	);
 
+	/**
+	 * Resets `setCurrentCluesEntriesIndex` when the clues list gets focus.
+	 *
+	 * If `currentEntryId` matches a clue in `cluesEntries`, the index is set
+	 * that clue's index.
+	 *
+	 * If not, it's set to -1 pressing the down arrow key will select the first
+	 * clue in the list.
+	 */
 	const onFocus = useCallback(() => {
-		// When the list gets focus, if the currentEntryId matches a clue in
-		// this list, set it as the current clue. If not, it's set to -1 and
-		// the first clue will be selected when the user presses the down arrow.
-
 		setCurrentCluesEntriesIndex(
 			cluesEntries.findIndex((entry) => entry.id === currentEntryId),
 		);
@@ -105,7 +110,7 @@ export const Clues = ({ direction, Header }: Props) => {
 		[cluesEntries],
 	);
 
-	// call setCurrentEntryId if currentCluesEntriesIndex changes
+	// Call `setCurrentEntryId` if `currentCluesEntriesIndex` changes
 	useEffect(() => {
 		const entry = cluesEntries[currentCluesEntriesIndex];
 		if (entry) {
@@ -113,6 +118,7 @@ export const Clues = ({ direction, Header }: Props) => {
 		}
 	}, [currentCluesEntriesIndex, cluesEntries, setCurrentEntryId]);
 
+	// Add event listeners
 	useEffect(() => {
 		const clues = cluesRef.current;
 
