@@ -164,10 +164,6 @@ export const Grid = () => {
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
 	);
 
-	const handleTab = useCallback(() => {
-		return;
-	}, []);
-
 	const handleChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
 			if (isUndefined(currentCell)) {
@@ -230,10 +226,6 @@ export const Grid = () => {
 				case 'ArrowRight':
 					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
-				case ' ':
-				case 'Tab':
-					handleTab();
-					break;
 				case 'Backspace':
 				case 'Delete': {
 					if (!currentEntryId) {
@@ -263,7 +255,7 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, moveFocus, handleTab, updateCell],
+		[currentCell, currentEntryId, moveFocus, updateCell],
 	);
 
 	const selectClickedCell = useCallback(
@@ -383,7 +375,7 @@ export const Grid = () => {
 				width: 100%;
 				max-width: ${width}px;
 				max-height: ${height}px;
-				// This is to prevent the default blue highlight on click on andriod
+				// This is to prevent the default blue highlight on click on android
 				-webkit-tap-highlight-color: transparent;
 			`}
 			onClick={selectClickedCell}
@@ -466,6 +458,7 @@ export const Grid = () => {
 					width: 100%;
 					height: 100%;
 					opacity: 0;
+					border: 0;
 				`}
 				autoComplete="off"
 				spellCheck="false"
