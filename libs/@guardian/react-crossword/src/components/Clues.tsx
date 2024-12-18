@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import type { ComponentType, ReactNode } from 'react';
-import { useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import type { Direction } from '../@types/Direction';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
@@ -20,6 +20,22 @@ type Props = {
 		children: ReactNode;
 	}>;
 };
+
+const Label = memo(({ direction }: { direction: Direction }) => {
+	const { getId } = useData();
+
+	return (
+		<label
+			css={css`
+				color: currentColor;
+			`}
+			id={getId(`${direction}-label`)}
+			htmlFor={getId(`${direction}-hints`)}
+		>
+			{direction}
+		</label>
+	);
+});
 
 export const Clues = ({ direction, Header }: Props) => {
 	const { entries, getId } = useData();
@@ -65,21 +81,15 @@ export const Clues = ({ direction, Header }: Props) => {
 		}
 	}
 
-	const label = (
-		<label
-			css={css`
-				color: currentColor;
-			`}
-			id={getId(`${direction}-label`)}
-			htmlFor={getId(`${direction}-hints`)}
-		>
-			{direction}
-		</label>
-	);
-
 	return (
 		<div ref={cluesRef}>
-			{Header ? <Header>{label}</Header> : label}
+			{Header ? (
+				<Header>
+					<Label direction={direction} />
+				</Header>
+			) : (
+				<Label direction={direction} />
+			)}
 
 			<div
 				tabIndex={0}
