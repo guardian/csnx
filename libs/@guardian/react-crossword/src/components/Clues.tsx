@@ -44,15 +44,15 @@ export const Clues = ({ direction, Header }: Props) => {
 	const { setCurrentCell } = useCurrentCell();
 
 	const cluesEntries = useMemo(() => {
-		const _: CAPIEntry[] = [];
+		const cluesEntries: CAPIEntry[] = [];
 
 		for (const entry of entries.values()) {
 			if (entry.direction === direction) {
-				_.push(entry);
+				cluesEntries.push(entry);
 			}
 		}
 
-		return _;
+		return cluesEntries;
 	}, [entries, direction]);
 
 	const [currentCluesEntriesIndex, setCurrentCluesEntriesIndex] = useState(
