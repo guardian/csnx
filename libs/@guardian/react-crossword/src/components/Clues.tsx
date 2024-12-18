@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import type { ComponentType, ReactNode } from 'react';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
 import type { Direction } from '../@types/Direction';
-import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -43,46 +43,90 @@ export const Clues = ({ direction, Header }: Props) => {
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
 
+	const cluesEntries = useMemo(() => {
+		const _: CAPIEntry[] = [];
+
+		for (const entry of entries.values()) {
+			if (entry.direction === direction) {
+				_.push(entry);
+			}
+		}
+
+		return _;
+	}, [entries, direction]);
+
+	const [currentCluesEntriesIndex, setCurrentCluesEntriesIndex] = useState(
+		cluesEntries.findIndex((entry) => entry.id === currentEntryId),
+	);
+
 	const cluesRef = useRef<HTMLDivElement | null>(null);
 
-	const handleClueClick = useCallback(
-		(event: MouseEvent) => {
-			const target = event.target as HTMLElement;
+	const selectClue = useCallback(
+		(entry: CAPIEntry) => {
+			setCurrentEntryId(entry.id);
+			setCurrentCell({ x: entry.position.x, y: entry.position.y });
+		},
+		[setCurrentCell, setCurrentEntryId],
+	);
 
-			const entry = entries.get(
-				target
-					.closest('[role="option"][data-entry-id]')
-					?.getAttribute('data-entry-id') as EntryID,
-			);
+	const onFocus = useCallback(() => {
+		// When the list gets focus, if the currentEntryId matches a clue in
+		// this list, set it as the current clue. If not, it's set to -1 and
+		// the first clue will be selected when the user presses the down arrow.
 
-			if (entry) {
-				setCurrentEntryId(entry.id);
-				setCurrentCell({ x: entry.position.x, y: entry.position.y });
+		setCurrentCluesEntriesIndex(
+			cluesEntries.findIndex((entry) => entry.id === currentEntryId),
+		);
+	}, [currentEntryId, cluesEntries]);
+
+	const onKeyDown = useCallback(
+		(event: KeyboardEvent) => {
+			switch (event.key) {
+				case 'ArrowDown':
+					setCurrentCluesEntriesIndex((prev) =>
+						Math.min(prev + 1, cluesEntries.length - 1),
+					);
+					event.preventDefault();
+					break;
+				case 'ArrowUp':
+					setCurrentCluesEntriesIndex((prev) => Math.max(prev - 1, 0));
+					event.preventDefault();
+					break;
+				case 'Home':
+					setCurrentCluesEntriesIndex(0);
+					event.preventDefault();
+					break;
+				case 'End':
+					setCurrentCluesEntriesIndex(cluesEntries.length - 1);
+					event.preventDefault();
+					break;
 			}
 		},
-		[entries, setCurrentCell, setCurrentEntryId],
+		[cluesEntries],
 	);
+
+	// call setCurrentEntryId if currentCluesEntriesIndex changes
+	useEffect(() => {
+		const entry = cluesEntries[currentCluesEntriesIndex];
+		if (entry) {
+			setCurrentEntryId(entry.id);
+		}
+	}, [currentCluesEntriesIndex, cluesEntries, setCurrentEntryId]);
 
 	useEffect(() => {
 		const clues = cluesRef.current;
 
-		clues?.addEventListener('click', handleClueClick);
+		clues?.addEventListener('keydown', onKeyDown);
+		clues?.addEventListener('focusin', onFocus);
 
 		return () => {
-			clues?.removeEventListener('click', handleClueClick);
+			clues?.removeEventListener('keydown', onKeyDown);
+			clues?.removeEventListener('focusin', onFocus);
 		};
-	}, [handleClueClick]);
-
-	const entriesForClues = [];
-
-	for (const entry of entries.values()) {
-		if (entry.direction === direction) {
-			entriesForClues.push(entry);
-		}
-	}
+	}, [onKeyDown, onFocus]);
 
 	return (
-		<div ref={cluesRef}>
+		<div>
 			{Header ? (
 				<Header>
 					<Label direction={direction} />
@@ -97,12 +141,13 @@ export const Clues = ({ direction, Header }: Props) => {
 				role="listbox"
 				aria-labelledby={getId(`${direction}-label`)}
 				aria-activedescendant={
-					// this must be undefined or match the format used for id in
-					// ./Clue.tsx
+					// this must be undefined or match the format used for
+					// Clue#id in loop below
 					currentEntryId && getId(currentEntryId)
 				}
+				ref={cluesRef}
 			>
-				{entriesForClues
+				{cluesEntries
 					.sort((a, b) => a.number - b.number)
 					.map((entry) => {
 						const cell = { ...entry.position };
@@ -130,8 +175,13 @@ export const Clues = ({ direction, Header }: Props) => {
 								entry={entry}
 								isConnected={isConnected}
 								isSelected={isSelected}
-								key={entry.id}
 								isComplete={complete}
+								key={entry.id}
+								id={getId(entry.id)}
+								tabIndex={-1}
+								role="option"
+								aria-selected={isSelected}
+								onClick={() => selectClue(entry)}
 							/>
 						);
 					})}
