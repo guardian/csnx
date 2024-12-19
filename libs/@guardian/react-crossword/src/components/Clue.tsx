@@ -21,18 +21,14 @@ const formatClueForScreenReader = (clueString: string) => {
 		return punctuateString(clueString);
 	}
 
-	const [last, ...rest] = lengths.split(',').reverse();
+	const [last, ...rest] = lengths
+		.split(',')
+		.map((_) => _.trim() + ' letters')
+		.reverse();
 
-	const lengthsToSentence =
-		[
-			rest
-				.map((_) => _.trim() + ' letters')
-				.reverse()
-				.join(', '),
-			last?.trim(),
-		]
-			.filter(Boolean)
-			.join(' and ') + ' letters';
+	const lengthsToSentence = [rest.reverse().join(', '), last?.trim()]
+		.filter(Boolean)
+		.join(' and ');
 
 	const clueWithPunctuation = punctuateString(clue);
 
