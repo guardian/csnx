@@ -479,7 +479,7 @@ export const Grid = () => {
 			<input
 				ref={inputRef}
 				value={inputValue}
-				autoCapitalize={'characters'}
+				autoCapitalize={'none'}
 				id={getId('overlay-input')}
 				type="text"
 				pattern={'^[A-Za-zÀ-ÿ0-9]$'}
