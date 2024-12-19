@@ -147,11 +147,13 @@ export const Grid = () => {
 				group.includes('down'),
 			);
 
+			//if we are typing in a cell without a group do not move focus
+			if (isTyping && isUndefined(currentCell.group)) {
+				return;
+			}
+
 			// If we're typing, we only want to move focus if the new cell is an entry square
-			if (
-				isTyping &&
-				((!possibleDown && !possibleAcross) || isUndefined(currentCell.group))
-			) {
+			if (isTyping && !possibleDown && !possibleAcross) {
 				return;
 			}
 
