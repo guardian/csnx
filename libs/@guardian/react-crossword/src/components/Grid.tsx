@@ -20,6 +20,22 @@ import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
+const getReadableLabelForCellAndEntry = ({
+	entry,
+	cell,
+	additionalEntry = false,
+}: {
+	entry: CAPIEntry;
+	cell: CellType;
+	additionalEntry?: boolean;
+}): string => {
+	if (entry.direction === 'across') {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
+	} else {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
+	}
+};
+
 const getCellPosition = (
 	index: number,
 	{ gridCellSize, gridGutterSize }: Theme,
@@ -132,36 +148,25 @@ export const Grid = () => {
 		}
 	}, [currentEntryId, entries]);
 
-	const getLetterNumberOfCellForEntry = ({
-		entry,
-		cell,
-		additionalEntry = false,
-	}: {
-		entry: CAPIEntry;
-		cell: CellType;
-		additionalEntry?: boolean;
-	}): string => {
-		if (entry.direction === 'across') {
-			return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
-		} else {
-			return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
-		}
-	};
-
-	const getProgressForEntry = (entry: CAPIEntry): string => {
-		const progressForEntry: string[] = [];
-		for (let i = 0; i < entry.length; i++) {
-			const x =
-				entry.direction === 'across' ? entry.position.x + i : entry.position.x;
-			const y =
-				entry.direction === 'down' ? entry.position.y + i : entry.position.y;
-			const cellProgress = progress[x]?.[y];
-			if (!isUndefined(cellProgress)) {
-				progressForEntry.push(cellProgress !== '' ? cellProgress : 'Empty');
+	const getProgressForEntry = useCallback(
+		(entry: CAPIEntry): string => {
+			const progressForEntry: string[] = [];
+			for (let i = 0; i < entry.length; i++) {
+				const x =
+					entry.direction === 'across'
+						? entry.position.x + i
+						: entry.position.x;
+				const y =
+					entry.direction === 'down' ? entry.position.y + i : entry.position.y;
+				const cellProgress = progress[x]?.[y];
+				if (!isUndefined(cellProgress)) {
+					progressForEntry.push(cellProgress !== '' ? cellProgress : 'Empty');
+				}
 			}
-		}
-		return progressForEntry.join(', ');
-	};
+			return progressForEntry.join(', ');
+		},
+		[progress],
+	);
 
 	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
 	const currentCellProgress = currentCell
@@ -185,11 +190,11 @@ export const Grid = () => {
 			// ('A.') | ('Empty.')
 			`${currentCellProgress ? `${currentCellProgress}. ` : 'Empty. '}` +
 			// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
-			`${currentEntry ? `${getLetterNumberOfCellForEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
+			`${currentEntry ? `${getReadableLabelForCellAndEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
 			// ('Empty, A, Empty, Empty.')
 			`${currentEntry ? `${getProgressForEntry(currentEntry)}. ` : ''}` +
 			// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
-			`${additionalEntries.map((entry) => getLetterNumberOfCellForEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`
+			`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`
 		: '';
 
 	const moveFocus = useCallback(
