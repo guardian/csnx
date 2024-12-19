@@ -2,7 +2,13 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
-import type { Coords, Separator, Theme } from '../@types/crossword';
+import type { CAPIEntry } from '../@types/CAPI';
+import type {
+	Cell as CellType,
+	Coords,
+	Separator,
+	Theme,
+} from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -106,6 +112,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const [focused, setFocused] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
@@ -123,17 +130,64 @@ export const Grid = () => {
 		}
 	}, [currentEntryId, entries]);
 
+	const getLetterNumberOfCellForEntry = ({
+		entry,
+		cell,
+		additionalEntry = false,
+	}: {
+		entry: CAPIEntry;
+		cell: CellType;
+		additionalEntry?: boolean;
+	}): string => {
+		if (entry.direction === 'across') {
+			return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
+		} else {
+			return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
+		}
+	};
+
+	const getProgressForEntry = (entry: CAPIEntry): string => {
+		const progressForEntry: string[] = [];
+		for (let i = 0; i < entry.length; i++) {
+			const x =
+				entry.direction === 'across' ? entry.position.x + i : entry.position.x;
+			const y =
+				entry.direction === 'down' ? entry.position.y + i : entry.position.y;
+			const cellProgress = progress[x]?.[y];
+			if (!isUndefined(cellProgress)) {
+				progressForEntry.push(cellProgress !== '' ? cellProgress : 'Empty');
+			}
+		}
+		return progressForEntry.join(', ');
+	};
+
 	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
 	const currentCellProgress = currentCell
 		? progress[currentCell.x]?.[currentCell.y]
 		: undefined;
+
+	const additionalEntries =
+		currentCell?.group
+			?.map((entryId) => {
+				if (entryId !== currentEntryId) {
+					return entries.get(entryId);
+				}
+				return undefined;
+			})
+			.filter((entry) => !isUndefined(entry)) ?? [];
+
 	const currentCellLabel = currentCell
-		? `
-		${currentCellProgress ? `${currentCellProgress}  ` : ''}
-		${currentEntry?.group ? `${currentEntry.group.join(',')}  ` : ''}
-		${currentEntry?.clue ? `${currentEntry.clue}  letters` : ''}
-		${!currentCell.group ? 'Blank Cell' : ''}
-		column ${currentCell.x + 1}, row ${currentCell.y + 1}`
+		? `` +
+			// ('Column 1, row 1')
+			`Column ${currentCell.x + 1}, row ${currentCell.y + 1}. ` +
+			// ('A.') | ('Empty.')
+			`${currentCellProgress ? `${currentCellProgress}. ` : 'Empty. '}` +
+			// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
+			`${currentEntry ? `${getLetterNumberOfCellForEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
+			// ('Empty, A, Empty, Empty.')
+			`${currentEntry ? `${getProgressForEntry(currentEntry)}. ` : ''}` +
+			// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
+			`${additionalEntries.map((entry) => getLetterNumberOfCellForEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`
 		: '';
 
 	const moveFocus = useCallback(
@@ -365,7 +419,6 @@ export const Grid = () => {
 			// Set the new current cell and entry:
 			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
-			inputRef.current?.focus();
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
@@ -377,9 +430,25 @@ export const Grid = () => {
 		theme.gridCellSize * dimensions.cols +
 		theme.gridGutterSize * (dimensions.cols + 1);
 
+	const focusInput = useCallback(() => {
+		inputRef.current?.focus();
+	}, []);
+
+	useEffect(() => {
+		const gridWrapper = gridWrapperRef.current;
+		gridWrapper?.addEventListener('focusin', focusInput);
+
+		return () => {
+			gridWrapper?.removeEventListener('focusin', focusInput);
+		};
+	}, [focusInput]);
+
 	return (
 		<div
 			ref={gridWrapperRef}
+			role={'grid'}
+			aria-colcount={dimensions.cols}
+			aria-rowcount={dimensions.rows}
 			css={css`
 				position: relative;
 				cursor: pointer;
@@ -403,6 +472,8 @@ export const Grid = () => {
 				ref={gridRef}
 				viewBox={`0 0 ${width} ${height}`}
 				tabIndex={-1}
+				role={'none'}
+				aria-hidden={true}
 			>
 				{
 					/* Render the cells */
@@ -447,55 +518,68 @@ export const Grid = () => {
 						/>
 					))
 				}
-				{currentCell && document.activeElement?.id === inputRef.current?.id && (
-					<FocusIndicator currentCell={currentCell} />
-				)}
+				{currentCell && focused && <FocusIndicator currentCell={currentCell} />}
 			</svg>
-			<input
-				ref={inputRef}
-				value={inputValue}
-				role="grid-cell"
-				autoCapitalize={'none'}
-				id={getId('	crossword-input')}
-				aria-readonly={!currentCell?.group}
-				type="text"
-				pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-				onKeyDown={handleKeyDown}
-				onFocus={() => {
-					if (!currentCell) {
-						setCurrentCell((prevCell) => {
-							if (prevCell) {
-								return prevCell;
-							}
-							if (currentEntryId) {
-								const entry = entries.get(currentEntryId);
-								if (entry) {
-									return cells.getByCoords(entry.position);
-								}
-							}
-							return cells.getByCoords({ x: 0, y: 0 });
-						});
-					}
-				}}
-				onBlur={() => setCurrentCell(undefined)}
-				onChange={handleChange}
-				tabIndex={0}
+			<div
+				role={'row'}
 				css={css`
-					position: absolute;
 					pointer-events: none;
-					top: 0;
-					left: 0;
+					position: absolute;
 					width: 100%;
 					height: 100%;
-					opacity: 0.5;
+					top: 0;
+					left: 0;
 				`}
-				autoComplete="off"
-				spellCheck="false"
-				autoCorrect="off"
-				aria-hidden="false"
-				aria-live="polite"
-				aria-label={currentCellLabel}
-			/>
+			>
+				<input
+					ref={inputRef}
+					value={inputValue}
+					role="grid-cell"
+					aria-colindex={currentCell?.x}
+					aria-rowindex={currentCell?.y}
+					autoCapitalize={'none'}
+					id={getId('	crossword-input')}
+					aria-readonly={!currentCell?.group}
+					type="text"
+					pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+					onKeyDown={handleKeyDown}
+					onChange={handleChange}
+					onFocus={() => {
+						if (!currentCell) {
+							setCurrentCell((prevCell) => {
+								if (prevCell) {
+									return prevCell;
+								}
+								if (currentEntryId) {
+									const entry = entries.get(currentEntryId);
+									if (entry) {
+										return cells.getByCoords(entry.position);
+									}
+								}
+								return cells.getByCoords({ x: 0, y: 0 });
+							});
+						}
+						setFocused(true);
+					}}
+					onBlur={() => setFocused(false)}
+					tabIndex={0}
+					css={css`
+						position: absolute;
+						pointer-events: none;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+					`}
+					autoComplete="off"
+					spellCheck="false"
+					autoCorrect="off"
+					aria-hidden="false"
+					aria-live="polite"
+					aria-label={currentCellLabel}
+				/>
+			</div>
 		</div>
 	);
 };
