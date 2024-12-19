@@ -54,6 +54,7 @@ const Separator = memo(
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
+				pointerEvents={'none'}
 			/>
 		) : (
 			// draws a thicker border with the next cell
@@ -66,6 +67,7 @@ const Separator = memo(
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
+				pointerEvents={'none'}
 			/>
 		);
 	},
@@ -106,6 +108,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const [focused, setFocused] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
@@ -145,7 +148,10 @@ export const Grid = () => {
 			);
 
 			// If we're typing, we only want to move focus if the new cell is an entry square
-			if (isTyping && !possibleDown && !possibleAcross) {
+			if (
+				isTyping &&
+				((!possibleDown && !possibleAcross) || isUndefined(currentCell.group))
+			) {
 				return;
 			}
 
@@ -367,6 +373,37 @@ export const Grid = () => {
 		theme.gridCellSize * dimensions.cols +
 		theme.gridGutterSize * (dimensions.cols + 1);
 
+	const focusInput = useCallback(() => {
+		inputRef.current?.focus();
+	}, []);
+
+	const onFocus = useCallback(() => {
+		if (!currentCell) {
+			setCurrentCell((prevCell) => {
+				if (prevCell) {
+					return prevCell;
+				}
+				if (currentEntryId) {
+					const entry = entries.get(currentEntryId);
+					if (entry) {
+						return cells.getByCoords(entry.position);
+					}
+				}
+				return cells.getByCoords({ x: 0, y: 0 });
+			});
+		}
+		setFocused(true);
+	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
+
+	useEffect(() => {
+		const gridWrapper = gridWrapperRef.current;
+		gridWrapper?.addEventListener('focusin', focusInput);
+
+		return () => {
+			gridWrapper?.removeEventListener('focusin', focusInput);
+		};
+	}, [focusInput]);
+
 	return (
 		<div
 			ref={gridWrapperRef}
@@ -437,9 +474,7 @@ export const Grid = () => {
 						/>
 					))
 				}
-				{currentCell && document.activeElement?.id === inputRef.current?.id && (
-					<FocusIndicator currentCell={currentCell} />
-				)}
+				{currentCell && focused && <FocusIndicator currentCell={currentCell} />}
 			</svg>
 			<input
 				ref={inputRef}
@@ -450,6 +485,8 @@ export const Grid = () => {
 				pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 				onKeyDown={handleKeyDown}
 				onChange={handleChange}
+				onFocus={onFocus}
+				onBlur={() => setFocused(false)}
 				tabIndex={0}
 				css={css`
 					position: absolute;
