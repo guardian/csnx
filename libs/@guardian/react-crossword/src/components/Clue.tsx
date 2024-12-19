@@ -1,10 +1,51 @@
 import { css } from '@emotion/react';
+import { isString } from '@guardian/libs';
+import { visuallyHidden } from '@guardian/source/foundations';
 import { SvgTickRound } from '@guardian/source/react-components';
 import type { HTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
+
+const punctuateString = (string: string) => {
+	const trimmed = string.trim();
+	return /[!?.…]$/.test(trimmed) ? trimmed : `${trimmed}.`;
+};
+
+const formatClueForScreenReader = (clueString: string) => {
+	const [, clue, lengths] = /(.+)\((.+?)\)$/gm.exec(clueString) ?? [];
+
+	// If we can't find the clue or lengths, just return the original string
+	if (!isString(clue) || !isString(lengths)) {
+		return punctuateString(clueString);
+	}
+
+	const [last, ...rest] = lengths
+		.split(',')
+		.map((_) => _.trim() + ' letters')
+		.reverse();
+
+	const lengthsToSentence = [rest.reverse().join(', '), last?.trim()]
+		.filter(Boolean)
+		.join(' and ');
+
+	const clueWithPunctuation = punctuateString(clue);
+
+	return `${clueWithPunctuation} ${lengthsToSentence}.`;
+};
+
+const formatNumberForScreenReader = (
+	humanNumber: string,
+	direction: string,
+) => {
+	return (
+		humanNumber
+			.split(',')
+			.map((number) => `${number.trim()} ${direction}`)
+			.join(', ') + '.'
+	);
+};
 
 type Props = {
 	entry: CAPIEntry;
@@ -37,10 +78,15 @@ const ClueComponent = ({
 
 				padding: 0.5em 0;
 				color: currentColor;
+
+				.visuallyHidden {
+					${visuallyHidden}
+				}
 			`}
 			{...props}
 		>
 			<span
+				aria-hidden="true"
 				css={css`
 					font-weight: bold;
 					display: table-cell;
@@ -51,11 +97,17 @@ const ClueComponent = ({
 				{entry.humanNumber}
 			</span>
 			<span
+				aria-hidden="true"
 				css={css`
 					display: table-cell;
 				`}
-				dangerouslySetInnerHTML={{ __html: entry.clue }}
-			/>
+				dangerouslySetInnerHTML={{
+					__html: entry.clue,
+				}}
+			></span>
+			<span css={css(visuallyHidden)}>
+				{`${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
+			</span>
 			{validAnswers.has(entry.id) && (
 				<span
 					css={css`

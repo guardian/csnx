@@ -151,7 +151,8 @@ export const Clues = ({ direction, Header }: Props) => {
 				aria-activedescendant={
 					// this must be undefined or match the format used for
 					// Clue#id in loop below
-					currentEntryId && getId(currentEntryId)
+					cluesEntries[currentCluesEntriesIndex] &&
+					getId(cluesEntries[currentCluesEntriesIndex].id)
 				}
 				ref={cluesRef}
 			>
