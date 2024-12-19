@@ -291,13 +291,13 @@ export const Controls = () => {
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
 		<AnagramHelper>Anagram Helper</AnagramHelper>,
-	];
+	].filter(Boolean);
 
 	const gridControls = [
 		<ClearGrid />,
 		solutionAvailable && <CheckGrid />,
 		solutionAvailable && <RevealGrid />,
-	];
+	].filter(Boolean);
 
 	const onKeyDown = useCallback(
 		(event: KeyboardEvent) => {
