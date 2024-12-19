@@ -222,9 +222,9 @@ export const Grid = () => {
 			if (isTyping && isUndefined(currentCell.group)) {
 				return;
 			}
+
 			// If we're typing, we only want to move focus if the new cell is an entry square
 			// and not we are at the end of the entry
-
 			if (isTyping && !possibleDown && !possibleAcross) {
 				// The blurring and refocusing mimics moving to a new input cell after typing a letter.
 				// This is needed for a quirk in the Android keyboard.
