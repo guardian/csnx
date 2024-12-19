@@ -226,7 +226,7 @@ export const Grid = () => {
 			// and not we are at the end of the entry
 
 			if (isTyping && !possibleDown && !possibleAcross) {
-				// This mimics moving to a new input cell after typing a letter.
+				// The blurring and refocusing mimics moving to a new input cell after typing a letter.
 				// This is needed for a quirk in the Android keyboard.
 				// It stores typed text even if it is cleared by react
 				// and the backspace key does not work as expected.
@@ -238,6 +238,8 @@ export const Grid = () => {
 				return;
 			}
 
+			// See comment above about the Android keyboard and accessibility
+			// description of blur and focus
 			inputRef.current?.blur();
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
