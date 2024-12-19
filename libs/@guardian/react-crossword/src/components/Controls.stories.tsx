@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { ContextProvider } from '../context/ContextProvider';
+import { defaultTheme } from '../theme';
 import { Controls } from './Controls';
 
 const meta: Meta<typeof Controls> = {
@@ -12,7 +13,11 @@ const meta: Meta<typeof Controls> = {
 			localStorage.removeItem(data.id);
 
 			return (
-				<ContextProvider data={data} selectedEntryId={data.entries[0].id}>
+				<ContextProvider
+					data={data}
+					theme={defaultTheme}
+					selectedEntryId={data.entries[0].id}
+				>
 					<Story />
 				</ContextProvider>
 			);
@@ -30,7 +35,7 @@ export const NoSelectedEntry: Story = {
 		(Story) => {
 			localStorage.removeItem(data.id);
 			return (
-				<ContextProvider data={data}>
+				<ContextProvider data={data} theme={defaultTheme}>
 					<Story />
 				</ContextProvider>
 			);

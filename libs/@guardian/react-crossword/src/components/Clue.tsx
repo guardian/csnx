@@ -1,50 +1,44 @@
 import { css } from '@emotion/react';
 import { SvgTickRound } from '@guardian/source/react-components';
+import type { HTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
 
-interface Props {
+type Props = {
 	entry: CAPIEntry;
-	isHighlighted?: boolean;
-	isActive?: boolean;
+	isConnected?: boolean;
+	isSelected?: boolean;
 	isComplete?: boolean;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 const ClueComponent = ({
 	entry,
-	isHighlighted,
-	isActive,
+	isConnected,
+	isSelected,
 	isComplete,
+	...props
 }: Props) => {
 	const theme = useTheme();
-	const { getId } = useData();
 	const { validAnswers } = useValidAnswers();
 
 	return (
 		<div
-			tabIndex={-1}
-			id={
-				// this must match the format used for aria-activedescendant in ./Clues.tsx
-				getId(`${entry.id}`)
-			}
 			data-entry-id={entry.id}
-			role="option"
-			aria-selected={isHighlighted}
 			css={css`
-				background-color: ${isActive
-					? theme.active
-					: isHighlighted
-						? theme.highlight
+				background-color: ${isSelected
+					? theme.selectedColor
+					: isConnected
+						? theme.connectedColor
 						: 'transparent'};
-				cursor: ${isHighlighted ? 'default' : 'pointer'};
+				cursor: ${isConnected ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};
 
 				padding: 0.5em 0;
 				color: currentColor;
 			`}
+			{...props}
 		>
 			<span
 				css={css`
@@ -61,7 +55,7 @@ const ClueComponent = ({
 					display: table-cell;
 				`}
 				dangerouslySetInnerHTML={{ __html: entry.clue }}
-			></span>
+			/>
 			{validAnswers.has(entry.id) && (
 				<span
 					css={css`

@@ -32,44 +32,44 @@ const CellComponent = ({
 		? 'transparent'
 		: isHighlighted
 			? isActive
-				? theme.active
-				: theme.highlight
-			: theme.foreground;
+				? theme.selectedColor
+				: theme.connectedColor
+			: theme.gridForegroundColor;
 
 	return (
 		<g data-x={data.x} data-y={data.y}>
 			<rect
 				x={x}
 				y={y}
-				width={theme.cellSize}
-				height={theme.cellSize}
+				width={theme.gridCellSize}
+				height={theme.gridCellSize}
 				fill={backgroundColor}
 			/>
 			{data.number && (
 				<text
 					x={x}
 					y={y}
-					dx={Math.max(1, theme.cellSize * 0.05)}
-					dy={Math.max(9, theme.cellSize * 0.22)}
-					fill={theme.text}
+					dx={Math.max(1, theme.gridCellSize * 0.05)}
+					dy={Math.max(9, theme.gridCellSize * 0.22)}
+					fill={theme.textColor}
 					css={css`
 						${textSans12};
-						font-size: ${Math.max(9, Math.round(theme.cellSize * 0.2))}px;
+						font-size: ${Math.max(9, Math.round(theme.gridCellSize * 0.2))}px;
 					`}
 				>
 					{data.number}
 				</text>
 			)}
 			<text
-				x={x + theme.cellSize / 2}
-				y={y + theme.cellSize / 2}
-				dy={theme.cellSize * 0.07}
+				x={x + theme.gridCellSize / 2}
+				y={y + theme.gridCellSize / 2}
+				dy={theme.gridCellSize * 0.07}
 				textAnchor="middle"
 				dominantBaseline="middle"
-				fill={theme.text}
+				fill={theme.textColor}
 				css={css`
 					${textSans12};
-					font-size: ${theme.cellSize * 0.6}px;
+					font-size: ${theme.gridCellSize * 0.6}px;
 				`}
 			>
 				{guess}

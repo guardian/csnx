@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { Coords, Separator, Theme } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
@@ -13,8 +14,10 @@ import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
-const getCellPosition = (index: number, { cellSize, gutter }: Theme) =>
-	index * (cellSize + gutter) + gutter;
+const getCellPosition = (
+	index: number,
+	{ gridCellSize, gridGutterSize }: Theme,
+) => index * (gridCellSize + gridGutterSize) + gridGutterSize;
 
 const Separator = memo(
 	({
@@ -32,35 +35,35 @@ const Separator = memo(
 		const x = getCellPosition(position.x, theme);
 		const y = getCellPosition(position.y, theme);
 
-		const { cellSize, gutter } = theme;
+		const { gridCellSize, gridGutterSize } = theme;
 
 		// if this is a 'down' entry, we'll rotate the separator 90 degrees
 		// around the center of the cell
 		const transform: Partial<Record<Direction, string>> = {
-			down: `rotate(90 ${x + cellSize / 2} ${y + cellSize / 2})`,
+			down: `rotate(90 ${x + gridCellSize / 2} ${y + gridCellSize / 2})`,
 		};
 
 		return type === '-' ? (
 			// draws a dash (-) that bisects the border with the next cell
 			<line
-				x1={x + cellSize - 3}
-				y1={y + cellSize / 2}
-				x2={x + cellSize + 4}
-				y2={y + cellSize / 2}
-				strokeWidth={gutter}
-				stroke={theme.background}
+				x1={x + gridCellSize - 3}
+				y1={y + gridCellSize / 2}
+				x2={x + gridCellSize + 4}
+				y2={y + gridCellSize / 2}
+				strokeWidth={gridGutterSize}
+				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
 			/>
 		) : (
 			// draws a thicker border with the next cell
 			<line
-				x1={x + cellSize + gutter / 2}
+				x1={x + gridCellSize + gridGutterSize / 2}
 				y1={y}
-				x2={x + cellSize + gutter / 2}
-				y2={y + cellSize}
-				strokeWidth={gutter * 2}
-				stroke={theme.background}
+				x2={x + gridCellSize + gridGutterSize / 2}
+				y2={y + gridCellSize}
+				strokeWidth={gridGutterSize * 2}
+				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
 			/>
@@ -77,11 +80,17 @@ const FocusIndicator = ({
 
 	return (
 		<rect
-			x={currentCell.x * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
-			y={currentCell.y * (theme.cellSize + theme.gutter) + theme.gutter * 0.5}
-			width={theme.cellSize + theme.gutter}
-			height={theme.cellSize + theme.gutter}
-			stroke={theme.focus}
+			x={
+				currentCell.x * (theme.gridCellSize + theme.gridGutterSize) +
+				theme.gridGutterSize * 0.5
+			}
+			y={
+				currentCell.y * (theme.gridCellSize + theme.gridGutterSize) +
+				theme.gridGutterSize * 0.5
+			}
+			width={theme.gridCellSize + theme.gridGutterSize}
+			height={theme.gridCellSize + theme.gridGutterSize}
+			stroke={theme.focusColor}
 			strokeWidth={2}
 			fill="none"
 			rx={2}
@@ -92,14 +101,17 @@ const FocusIndicator = ({
 
 export const Grid = () => {
 	const theme = useTheme();
-	const { cells, separators, entries, dimensions } = useData();
+	const { cells, separators, entries, dimensions, getId } = useData();
 	const { progress } = useProgress();
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
+	const gridWrapperRef = useRef<HTMLDivElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
@@ -124,8 +136,6 @@ export const Grid = () => {
 			if (!newCell) {
 				return;
 			}
-
-			// TODO: this logic is very similar to the click handler entry selection stuff.
 			// maybe we can refactor this out into a shared function?
 			const possibleAcross = newCell.group?.find((group) =>
 				group.includes('across'),
@@ -154,16 +164,47 @@ export const Grid = () => {
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
 	);
 
-	const handleTab = useCallback(() => {
-		return;
-	}, []);
+	const handleChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			if (isUndefined(currentCell)) {
+				return;
+			}
+			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
+			const key = event.target.value.toUpperCase();
+			const value = cheatMode
+				? cells.getByCoords({ x: currentCell.x, y: currentCell.y })?.solution
+				: keyDownRegex.test(key) && key.toUpperCase();
+
+			if (value) {
+				// This mimics moving to a new input cell after typing a letter.
+				// This is needed for a quirk in the Android keyboard.
+				// It stores typed text even if it is cleared by react
+				// and the backspace key does not work as expected.
+				inputRef.current?.blur();
+				inputRef.current?.focus();
+
+				updateCell({
+					x: currentCell.x,
+					y: currentCell.y,
+					value,
+				});
+				if (direction === 'across') {
+					moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+				}
+				if (direction === 'down') {
+					moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+				}
+			}
+			setInputValue('');
+		},
+		[cells, cheatMode, currentCell, currentEntryId, moveFocus, updateCell],
+	);
 
 	const handleKeyDown = useCallback(
-		(event: KeyboardEvent): void => {
+		(event: KeyboardEvent<HTMLInputElement>): void => {
 			if (event.ctrlKey || event.altKey || event.metaKey) {
 				return;
 			}
-
 			if (!currentCell) {
 				return;
 			}
@@ -185,10 +226,6 @@ export const Grid = () => {
 				case 'ArrowRight':
 					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
-				case ' ':
-				case 'Tab':
-					handleTab();
-					break;
 				case 'Backspace':
 				case 'Delete': {
 					if (!currentEntryId) {
@@ -209,50 +246,20 @@ export const Grid = () => {
 					}
 					break;
 				}
-				default: {
-					if (currentEntryId) {
-						const value = cheatMode
-							? cells.getByCoords({ x: currentCell.x, y: currentCell.y })
-									?.solution
-							: keyDownRegex.test(key) && key.toUpperCase();
-
-						if (value) {
-							updateCell({
-								x: currentCell.x,
-								y: currentCell.y,
-								value,
-							});
-							if (direction === 'across') {
-								moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
-							}
-							if (direction === 'down') {
-								moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
-							}
-						} else {
-							preventDefault = false;
-						}
-					}
+				default:
+					preventDefault = false;
 					break;
-				}
 			}
 
 			if (preventDefault) {
 				event.preventDefault();
 			}
 		},
-		[
-			currentCell,
-			currentEntryId,
-			moveFocus,
-			handleTab,
-			updateCell,
-			cheatMode,
-			cells,
-		],
+		[currentCell, currentEntryId, moveFocus, updateCell],
 	);
 
 	const selectClickedCell = useCallback(
-		(event: MouseEvent) => {
+		(event: MouseEvent<HTMLDivElement>) => {
 			// The 'g' elements in the grid SVG are the cells, and we have set
 			// data-x and data-y attributes on them to represent their position
 			// in the grid.
@@ -347,85 +354,118 @@ export const Grid = () => {
 			// Set the new current cell and entry:
 			setCurrentCell({ x: clickedCellX, y: clickedCellY });
 			setCurrentEntryId(newEntryId);
+			inputRef.current?.focus();
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
 
-	useEffect(() => {
-		const grid = gridRef.current;
-
-		grid?.addEventListener('click', selectClickedCell);
-		grid?.addEventListener('keydown', handleKeyDown);
-
-		return () => {
-			grid?.removeEventListener('click', selectClickedCell);
-			grid?.removeEventListener('keydown', handleKeyDown);
-		};
-	}, [handleKeyDown, selectClickedCell]);
-
 	const height =
-		theme.cellSize * dimensions.rows + theme.gutter * (dimensions.rows + 1);
+		theme.gridCellSize * dimensions.rows +
+		theme.gridGutterSize * (dimensions.rows + 1);
 	const width =
-		theme.cellSize * dimensions.cols + theme.gutter * (dimensions.cols + 1);
+		theme.gridCellSize * dimensions.cols +
+		theme.gridGutterSize * (dimensions.cols + 1);
 
 	return (
-		<svg
-			css={[
-				css`
-					background: ${theme.background};
-					width: 100%;
-					max-width: ${width}px;
-				`,
-				cheatStyles,
-			]}
-			ref={gridRef}
-			viewBox={`0 0 ${width} ${height}`}
+		<div
+			ref={gridWrapperRef}
+			css={css`
+				position: relative;
+				cursor: pointer;
+				width: 100%;
+				max-width: ${width}px;
+				max-height: ${height}px;
+				// This is to prevent the default blue highlight on click on android
+				-webkit-tap-highlight-color: transparent;
+			`}
+			onClick={selectClickedCell}
 			tabIndex={-1}
 		>
-			{
-				/* Render the cells */
-				Array.from(cells.values()).map((cell) => {
-					const x = getCellPosition(cell.x, theme);
-					const y = getCellPosition(cell.y, theme);
+			<svg
+				css={[
+					css`
+						background: ${theme.gridBackgroundColor};
+					`,
+					cheatStyles,
+				]}
+				id={getId('crossword-grid')}
+				ref={gridRef}
+				viewBox={`0 0 ${width} ${height}`}
+				tabIndex={-1}
+			>
+				{
+					/* Render the cells */
+					Array.from(cells.values()).map((cell) => {
+						const x = getCellPosition(cell.x, theme);
+						const y = getCellPosition(cell.y, theme);
 
-					const guess = progress[cell.x]?.[cell.y];
+						const guess = progress[cell.x]?.[cell.y];
 
-					const currentGroup =
-						currentEntryId && entries.get(currentEntryId)?.group;
+						const currentGroup =
+							currentEntryId && entries.get(currentEntryId)?.group;
 
-					const isHighlighted = currentGroup?.some((entryId) =>
-						cell.group?.includes(entryId),
-					);
+						const isHighlighted = currentGroup?.some((entryId) =>
+							cell.group?.includes(entryId),
+						);
 
-					const isActive = currentEntryId
-						? cell.group?.includes(currentEntryId)
-						: false;
+						const isActive = currentEntryId
+							? cell.group?.includes(currentEntryId)
+							: false;
 
-					return (
-						<Cell
-							key={`x${cell.x}y${cell.y}`}
-							data={cell}
-							x={x}
-							y={y}
-							guess={guess}
-							isActive={isActive}
-							isHighlighted={isHighlighted}
+						return (
+							<Cell
+								key={`x${cell.x}y${cell.y}`}
+								data={cell}
+								x={x}
+								y={y}
+								guess={guess}
+								isActive={isActive}
+								isHighlighted={isHighlighted}
+							/>
+						);
+					})
+				}
+				{
+					/* Render the separators between cells */
+					separators.map(({ type, position, direction }) => (
+						<Separator
+							type={type}
+							position={position}
+							direction={direction}
+							key={`${type}${position.x}${position.y}${direction}`}
 						/>
-					);
-				})
-			}
-			{
-				/* Render the separators between cells */
-				separators.map(({ type, position, direction }) => (
-					<Separator
-						type={type}
-						position={position}
-						direction={direction}
-						key={`${type}${position.x}${position.y}${direction}`}
-					/>
-				))
-			}
-			{currentCell && <FocusIndicator currentCell={currentCell} />}
-		</svg>
+					))
+				}
+				{currentCell && document.activeElement?.id === inputRef.current?.id && (
+					<FocusIndicator currentCell={currentCell} />
+				)}
+			</svg>
+			<input
+				ref={inputRef}
+				value={inputValue}
+				autoCapitalize={'characters'}
+				id={getId('overlay-input')}
+				type="text"
+				pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+				onKeyDown={handleKeyDown}
+				onChange={handleChange}
+				tabIndex={0}
+				css={css`
+					position: absolute;
+					pointer-events: none;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					border: 0;
+				`}
+				autoComplete="off"
+				spellCheck="false"
+				autoCorrect="off"
+				aria-hidden="false"
+				aria-label={`Type letter for crossword cell x ${currentCell?.x}, y ${currentCell?.y}`}
+			/>
+		</div>
 	);
 };

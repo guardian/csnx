@@ -41,11 +41,17 @@ const getIssuer = (stage: Stage) =>
 const getClientId = (stage: Stage) =>
 	stage === 'PROD' ? '0oa79m1fmgzrtaHc1417' : '0oa53x6k5wGYXOGzm0x7';
 
-const getRedirectUri = (stage: Stage) => {
+const getRedirectUri = (stage: Stage, origin: string) => {
 	switch (stage) {
 		case 'PROD':
+			if (origin === 'https://profile.theguardian.com') {
+				return 'https://profile.theguardian.com/';
+			}
 			return 'https://www.theguardian.com/';
 		case 'CODE':
+			if (origin === 'https://profile.code.dev-theguardian.com') {
+				return 'https://profile.code.dev-theguardian.com/';
+			}
 			return 'https://m.code.dev-theguardian.com/';
 		case 'DEV':
 		default:
@@ -71,7 +77,7 @@ export const getIdentityAuth = () => {
 	>({
 		issuer: getIssuer(stageOrDev),
 		clientId: getClientId(stageOrDev),
-		redirectUri: getRedirectUri(stageOrDev),
+		redirectUri: getRedirectUri(stageOrDev, window.location.origin),
 		idCookieSessionRefresh: switches?.idCookieRefresh ?? false,
 		scopes: [
 			'openid', // required for open id connect, returns an id token

@@ -9,8 +9,8 @@ import { useTheme } from '../context/Theme';
 import { useUIState } from '../context/UI';
 import { biasedShuffle } from '../utils/biasedShuffle';
 import { getCellsWithProgressForGroup } from '../utils/getCellsWithProgressForGroup';
-import { Button } from './Button';
 import { Clue } from './Clue';
+import { CrosswordButton } from './CrosswordButton';
 import { SolutionDisplay } from './SolutionDisplay';
 import { WordWheel } from './WordWheel';
 
@@ -68,7 +68,7 @@ export const AnagramHelper = () => {
 				left: 0;
 				display: flex;
 				flex-direction: column;
-				background-color: ${theme.anagramHelperBackground};
+				background-color: ${theme.anagramHelperBackgroundColor};
 				padding: 10px;
 				min-height: fit-content;
 				z-index: 2;
@@ -82,13 +82,13 @@ export const AnagramHelper = () => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				<Button
-					onSuccess={() => setShowAnagramHelper(false)}
+				<CrosswordButton
+					onClick={() => setShowAnagramHelper(false)}
 					size="small"
 					priority="tertiary"
 				>
 					<SvgCross size="xsmall" />
-				</Button>
+				</CrosswordButton>
 			</div>
 			<div
 				css={css`
@@ -118,17 +118,17 @@ export const AnagramHelper = () => {
 								maxLength={cellsWithProgress.length}
 							/>
 						</div>
-						<Button
+						<CrosswordButton
 							cssOverrides={css`
 								margin: ${space[1]}px 0 0 ${space[1]}px;
 							`}
-							onSuccess={start}
+							onClick={start}
 							disabled={letters.length < 1}
 							priority="primary"
 							size="default"
 						>
 							Start
-						</Button>
+						</CrosswordButton>
 						<span>
 							{letters.length}/{cellsWithProgress.length}
 						</span>
@@ -145,12 +145,20 @@ export const AnagramHelper = () => {
 								}
 							`}
 						>
-							<Button onSuccess={reset} size={'default'} priority="secondary">
+							<CrosswordButton
+								onClick={reset}
+								size={'default'}
+								priority="secondary"
+							>
 								Back
-							</Button>
-							<Button onSuccess={shuffle} size={'default'} priority="primary">
+							</CrosswordButton>
+							<CrosswordButton
+								onClick={shuffle}
+								size={'default'}
+								priority="primary"
+							>
 								Shuffle
-							</Button>
+							</CrosswordButton>
 						</div>
 					</>
 				)}
@@ -158,7 +166,7 @@ export const AnagramHelper = () => {
 					css={css`
 						width: 100%;
 						margin: ${space[4]}px 0 ${space[4]}px;
-						border-top: 1px solid ${theme.background};
+						border-top: 1px solid ${theme.gridBackgroundColor};
 					`}
 				/>
 				{entry && <Clue entry={entry} />}

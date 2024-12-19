@@ -69,12 +69,12 @@ const WordWheelComponent = ({ letters }: { letters: string[] }) => {
 					css={css`
 						${textSansBold17}
 					`}
-					fill={theme.text}
+					fill={theme.textColor}
 				>
 					{centerLetter}
 				</text>
 			)}
-			{renderOuterLetters({ letters: wordWheelLetters, fill: theme.text })}
+			{renderOuterLetters({ letters: wordWheelLetters, fill: theme.textColor })}
 		</svg>
 	);
 };
