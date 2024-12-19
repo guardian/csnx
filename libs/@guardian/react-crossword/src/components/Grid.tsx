@@ -226,15 +226,18 @@ export const Grid = () => {
 				return;
 			}
 
+			inputRef.current?.blur();
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
+				inputRef.current?.focus();
 				return;
 			}
 
 			if (delta.y !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
+				inputRef.current?.focus();
 				return;
 			}
 		},
@@ -253,13 +256,6 @@ export const Grid = () => {
 				: keyDownRegex.test(key) && key.toUpperCase();
 
 			if (value) {
-				// This mimics moving to a new input cell after typing a letter.
-				// This is needed for a quirk in the Android keyboard.
-				// It stores typed text even if it is cleared by react
-				// and the backspace key does not work as expected.
-				inputRef.current?.blur();
-				inputRef.current?.focus();
-
 				updateCell({
 					x: currentCell.x,
 					y: currentCell.y,
