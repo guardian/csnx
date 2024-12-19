@@ -440,9 +440,9 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
+			inputRef.current?.blur();
 			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
-			inputRef.current?.blur();
 			inputRef.current?.focus();
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
