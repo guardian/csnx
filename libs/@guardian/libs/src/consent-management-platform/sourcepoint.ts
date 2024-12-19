@@ -8,6 +8,7 @@ import {
 	ENDPOINT,
 	PROPERTY_ID,
 	PROPERTY_ID_AUSTRALIA,
+	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
@@ -134,11 +135,11 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
+					// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
 					if (
-						// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
-						choiceTypeID === 11 ||
-						choiceTypeID === 13 ||
-						choiceTypeID === 15
+						Object.values(SourcePointChoiceTypes).some(
+							(spChoiceType) => spChoiceType === choiceTypeID,
+						)
 					) {
 						setTimeout(invokeCallbacks, 0);
 					}
