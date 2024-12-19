@@ -60,6 +60,7 @@ const Separator = memo(
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
+				pointerEvents={'none'}
 			/>
 		) : (
 			// draws a thicker border with the next cell
@@ -72,6 +73,7 @@ const Separator = memo(
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
+				pointerEvents={'none'}
 			/>
 		);
 	},
@@ -195,7 +197,6 @@ export const Grid = () => {
 			if (!currentCell) {
 				return;
 			}
-
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
 			const newCell = cells.getByCoords({ x: newX, y: newY });
@@ -213,7 +214,10 @@ export const Grid = () => {
 			);
 
 			// If we're typing, we only want to move focus if the new cell is an entry square
-			if (isTyping && !possibleDown && !possibleAcross) {
+			if (
+				isTyping &&
+				((!possibleDown && !possibleAcross) || isUndefined(currentCell.group))
+			) {
 				return;
 			}
 
@@ -434,6 +438,24 @@ export const Grid = () => {
 		inputRef.current?.focus();
 	}, []);
 
+	const onFocus = useCallback(() => {
+		if (!currentCell) {
+			setCurrentCell((prevCell) => {
+				if (prevCell) {
+					return prevCell;
+				}
+				if (currentEntryId) {
+					const entry = entries.get(currentEntryId);
+					if (entry) {
+						return cells.getByCoords(entry.position);
+					}
+				}
+				return cells.getByCoords({ x: 0, y: 0 });
+			});
+		}
+		setFocused(true);
+	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
+
 	useEffect(() => {
 		const gridWrapper = gridWrapperRef.current;
 		gridWrapper?.addEventListener('focusin', focusInput);
@@ -544,23 +566,7 @@ export const Grid = () => {
 					pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 					onKeyDown={handleKeyDown}
 					onChange={handleChange}
-					onFocus={() => {
-						if (!currentCell) {
-							setCurrentCell((prevCell) => {
-								if (prevCell) {
-									return prevCell;
-								}
-								if (currentEntryId) {
-									const entry = entries.get(currentEntryId);
-									if (entry) {
-										return cells.getByCoords(entry.position);
-									}
-								}
-								return cells.getByCoords({ x: 0, y: 0 });
-							});
-						}
-						setFocused(true);
-					}}
+					onFocus={onFocus}
 					onBlur={() => setFocused(false)}
 					tabIndex={0}
 					css={css`
