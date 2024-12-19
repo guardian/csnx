@@ -202,6 +202,7 @@ export const Grid = () => {
 			if (!currentCell) {
 				return;
 			}
+
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
 			const newCell = cells.getByCoords({ x: newX, y: newY });
@@ -209,7 +210,6 @@ export const Grid = () => {
 			if (!newCell) {
 				return;
 			}
-
 			// maybe we can refactor this out into a shared function?
 			const possibleAcross = newCell.group?.find((group) =>
 				group.includes('across'),
@@ -218,11 +218,23 @@ export const Grid = () => {
 				group.includes('down'),
 			);
 
+			//if we are typing in a cell without a group do not move focus
+			if (isTyping && isUndefined(currentCell.group)) {
+				return;
+			}
 			// If we're typing, we only want to move focus if the new cell is an entry square
-			if (
-				isTyping &&
-				((!possibleDown && !possibleAcross) || isUndefined(currentCell.group))
-			) {
+			// and not we are at the end of the entry
+
+			if (isTyping && !possibleDown && !possibleAcross) {
+				// This mimics moving to a new input cell after typing a letter.
+				// This is needed for a quirk in the Android keyboard.
+				// It stores typed text even if it is cleared by react
+				// and the backspace key does not work as expected.
+				//
+				// This is also needed for accessibility as it will read
+				// out the new value of the cell we have moved to
+				inputRef.current?.blur();
+				inputRef.current?.focus();
 				return;
 			}
 
