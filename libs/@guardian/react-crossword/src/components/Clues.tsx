@@ -38,7 +38,7 @@ const Label = memo(({ direction }: { direction: Direction }) => {
 });
 
 export const Clues = ({ direction, Header }: Props) => {
-	const { entries, getId } = useData();
+	const { entries, getId, cells } = useData();
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
@@ -64,9 +64,11 @@ export const Clues = ({ direction, Header }: Props) => {
 	const selectClue = useCallback(
 		(entry: CAPIEntry) => {
 			setCurrentEntryId(entry.id);
-			setCurrentCell({ x: entry.position.x, y: entry.position.y });
+			setCurrentCell(
+				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
+			);
 		},
-		[setCurrentCell, setCurrentEntryId],
+		[cells, setCurrentCell, setCurrentEntryId],
 	);
 
 	/**

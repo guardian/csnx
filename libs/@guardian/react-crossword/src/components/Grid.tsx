@@ -150,13 +150,13 @@ export const Grid = () => {
 			}
 
 			if (delta.x !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
 				return;
 			}
@@ -292,11 +292,12 @@ export const Grid = () => {
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords({
+			const clickedCell = cells.getByCoords({
 				x: clickedCellX,
 				y: clickedCellY,
-			})?.group;
+			});
 
+			const entryIdsForCell = clickedCell?.group;
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
 			if (isUndefined(entryIdsForCell)) {
@@ -352,7 +353,7 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			setCurrentCell({ x: clickedCellX, y: clickedCellY });
+			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
 			inputRef.current?.focus();
 		},
