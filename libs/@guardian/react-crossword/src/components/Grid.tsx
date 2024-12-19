@@ -477,7 +477,7 @@ export const Grid = () => {
 				width: 100%;
 				max-width: ${width}px;
 				max-height: ${height}px;
-				// This is to prevent the default blue highlight on click on andriod
+				// This is to prevent the default blue highlight on click on android
 				-webkit-tap-highlight-color: transparent;
 			`}
 			onClick={selectClickedCell}
