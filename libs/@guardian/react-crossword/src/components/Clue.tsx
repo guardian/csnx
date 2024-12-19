@@ -1,10 +1,12 @@
 import { css } from '@emotion/react';
+import { visuallyHidden } from '@guardian/source/foundations';
 import { SvgTickRound } from '@guardian/source/react-components';
 import type { HTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
+import { VisuallyHidden } from './VisuallyHidden';
 
 type Props = {
 	entry: CAPIEntry;
@@ -37,6 +39,10 @@ const ClueComponent = ({
 
 				padding: 0.5em 0;
 				color: currentColor;
+
+				.visuallyHidden {
+					${visuallyHidden}
+				}
 			`}
 			{...props}
 		>
@@ -48,13 +54,18 @@ const ClueComponent = ({
 					padding-right: 0.625em;
 				`}
 			>
-				{entry.humanNumber}
+				{entry.humanNumber} <VisuallyHidden>{entry.direction},</VisuallyHidden>
 			</span>
 			<span
 				css={css`
 					display: table-cell;
 				`}
-				dangerouslySetInnerHTML={{ __html: entry.clue }}
+				dangerouslySetInnerHTML={{
+					__html: entry.clue.replace(
+						/\((\d+)\)/g,
+						'($1<span class="visuallyHidden"> letters</span>)',
+					),
+				}}
 			/>
 			{validAnswers.has(entry.id) && (
 				<span
