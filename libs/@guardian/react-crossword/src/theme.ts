@@ -10,7 +10,7 @@ export const defaultTheme: Theme = {
 	textColor: palette.neutral[10],
 	focusColor: 'lime',
 	selectedColor: 'deeppink',
-	relatedColor: 'lightpink',
+	connectedColor: 'lightpink',
 
 	buttonBackgroundColor: 'hotpink',
 	buttonBackgroundHoverColor: 'lightpink',

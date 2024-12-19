@@ -32,28 +32,28 @@ export const Complete: Story = {
 
 export const Highlighted: Story = {
 	args: {
-		isHighlighted: true,
+		isConnected: true,
 	},
 };
 
 export const HighlightedAndComplete: Story = {
 	args: {
-		isHighlighted: true,
+		isConnected: true,
 		isComplete: true,
 	},
 };
 
 export const Active: Story = {
 	args: {
-		isHighlighted: true,
-		isActive: true,
+		isConnected: true,
+		isSelected: true,
 	},
 };
 
 export const ActiveAndComplete: Story = {
 	args: {
-		isHighlighted: true,
-		isActive: true,
+		isConnected: true,
+		isSelected: true,
 		isComplete: true,
 	},
 };

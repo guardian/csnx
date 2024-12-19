@@ -153,7 +153,7 @@ export const Themed: Story = {
 		gridForegroundColor: 'blue',
 		textColor: 'limegreen',
 		gridGutterSize: 0,
-		relatedColor: 'yellow',
+		connectedColor: 'yellow',
 		focusColor: 'black',
 		selectedColor: 'orange',
 		gridCellSize: 30,
