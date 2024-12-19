@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { isString } from '@guardian/libs';
 import { visuallyHidden } from '@guardian/source/foundations';
 import { SvgTickRound } from '@guardian/source/react-components';
 import type { HTMLAttributes } from 'react';
@@ -6,7 +7,49 @@ import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
-import { VisuallyHidden } from './VisuallyHidden';
+
+const punctuateString = (string: string) => {
+	const trimmed = string.trim();
+	return /[!?.…]$/.test(trimmed) ? trimmed : `${trimmed}.`;
+};
+
+const formatClueForScreenReader = (clueString: string) => {
+	const [, clue, lengths] = /(.+)\((.+?)\)$/gm.exec(clueString) ?? [];
+
+	// If we can't find the clue or lengths, just return the original string
+	if (!isString(clue) || !isString(lengths)) {
+		return punctuateString(clueString);
+	}
+
+	const [last, ...rest] = lengths.split(',').reverse();
+
+	const lengthsToSentence =
+		[
+			rest
+				.map((_) => _.trim() + ' letters')
+				.reverse()
+				.join(', '),
+			last?.trim(),
+		]
+			.filter(Boolean)
+			.join(' and ') + ' letters';
+
+	const clueWithPunctuation = punctuateString(clue);
+
+	return `${clueWithPunctuation} ${lengthsToSentence}.`;
+};
+
+const formatNumberForScreenReader = (
+	humanNumber: string,
+	direction: string,
+) => {
+	return (
+		humanNumber
+			.split(',')
+			.map((number) => `${number.trim()} ${direction}`)
+			.join(', ') + '.'
+	);
+};
 
 type Props = {
 	entry: CAPIEntry;
@@ -47,6 +90,7 @@ const ClueComponent = ({
 			{...props}
 		>
 			<span
+				aria-hidden="true"
 				css={css`
 					font-weight: bold;
 					display: table-cell;
@@ -54,19 +98,20 @@ const ClueComponent = ({
 					padding-right: 0.625em;
 				`}
 			>
-				{entry.humanNumber} <VisuallyHidden>{entry.direction},</VisuallyHidden>
+				{entry.humanNumber}
 			</span>
 			<span
+				aria-hidden="true"
 				css={css`
 					display: table-cell;
 				`}
 				dangerouslySetInnerHTML={{
-					__html: entry.clue.replace(
-						/\((\d+)\)/g,
-						'($1<span class="visuallyHidden"> letters</span>)',
-					),
+					__html: entry.clue,
 				}}
-			/>
+			></span>
+			<span css={css(visuallyHidden)}>
+				{`${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
+			</span>
 			{validAnswers.has(entry.id) && (
 				<span
 					css={css`
