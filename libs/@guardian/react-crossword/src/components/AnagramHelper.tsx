@@ -5,8 +5,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
+import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
-import { useUIState } from '../context/UI';
 import { biasedShuffle } from '../utils/biasedShuffle';
 import { getCellsWithProgressForGroup } from '../utils/getCellsWithProgressForGroup';
 import { Clue } from './Clue';
@@ -21,7 +21,7 @@ export const AnagramHelper = () => {
 	const [solving, setSolving] = useState(false);
 	const [shuffledLetters, setShuffledLetters] = useState<string[]>([]);
 	const theme = useTheme();
-	const { setShowAnagramHelper } = useUIState();
+	const { setShowAnagramHelper } = useShowAnagramHelper();
 	const { entries, cells } = useData();
 	const { currentEntryId } = useCurrentClue();
 	const { progress } = useProgress();
