@@ -17,7 +17,7 @@ const ButtonComponent = ({
 	const [isConfirming, setIsConfirming] = useState<boolean>(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-	const onClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+	const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
 		if (!requireConfirmation) {
 			userOnClick(event);
 			return;
@@ -35,7 +35,7 @@ const ButtonComponent = ({
 	};
 
 	return (
-		<SourceButton onClick={onClick} size="xsmall" {...props}>
+		<SourceButton onClick={handleClick} size="xsmall" {...props}>
 			{isConfirming && 'Confirm '}
 			{children}
 		</SourceButton>

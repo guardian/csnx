@@ -299,7 +299,7 @@ export const Controls = () => {
 		solutionAvailable && <RevealGrid />,
 	].filter(Boolean);
 
-	const onKeyDown = useCallback(
+	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
 			setShouldSetFocus(true);
 
@@ -385,12 +385,12 @@ export const Controls = () => {
 			return;
 		}
 
-		controls.addEventListener('keydown', onKeyDown);
+		controls.addEventListener('keydown', handleKeyDown);
 
 		return () => {
-			controls.removeEventListener('keydown', onKeyDown);
+			controls.removeEventListener('keydown', handleKeyDown);
 		};
-	}, [onKeyDown]);
+	}, [handleKeyDown]);
 
 	return (
 		<div role="menu" ref={controlsRef} aria-label="Crossword controls">
