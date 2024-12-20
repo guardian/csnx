@@ -17,6 +17,7 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
+import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
@@ -30,9 +31,9 @@ const getReadableLabelForCellAndEntry = ({
 	additionalEntry?: boolean;
 }): string => {
 	if (entry.direction === 'across') {
-		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
 	} else {
-		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${entry.clue.replace(/\)$/gm, ' letters).')}`;
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
 	}
 };
 
