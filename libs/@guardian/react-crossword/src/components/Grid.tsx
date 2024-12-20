@@ -381,18 +381,13 @@ export const Grid = () => {
 
 	const onFocus = useCallback(() => {
 		if (!currentCell) {
-			setCurrentCell((prevCell) => {
-				if (prevCell) {
-					return prevCell;
+			if (currentEntryId) {
+				const entry = entries.get(currentEntryId);
+				if (entry) {
+					setCurrentCell(cells.getByCoords(entry.position));
 				}
-				if (currentEntryId) {
-					const entry = entries.get(currentEntryId);
-					if (entry) {
-						return cells.getByCoords(entry.position);
-					}
-				}
-				return cells.getByCoords({ x: 0, y: 0 });
-			});
+			}
+			return setCurrentCell(cells.getByCoords({ x: 0, y: 0 }));
 		}
 		setFocused(true);
 	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
