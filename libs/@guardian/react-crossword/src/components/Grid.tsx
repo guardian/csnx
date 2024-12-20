@@ -224,22 +224,21 @@ export const Grid = () => {
 				return;
 			}
 
+			// The blurring and refocusing mimics moving to a new input cell after typing a letter.
+			// This is needed for a quirk in the Android keyboard.
+			// It stores typed text even if it is cleared by react
+			// and the backspace key does not work as expected.
+			//
+			// This is also needed for accessibility as it will read
+			// out the new value of the cell we have moved to
+			inputRef.current?.blur();
+
 			// If we're typing, we only want to move focus if the new cell is an entry square
 			if (isTyping && !possibleDown && !possibleAcross) {
-				// The blurring and refocusing mimics moving to a new input cell after typing a letter.
-				// This is needed for a quirk in the Android keyboard.
-				// It stores typed text even if it is cleared by react
-				// and the backspace key does not work as expected.
-				//
-				// This is also needed for accessibility as it will read
-				// out the new value of the cell we have moved to
-				inputRef.current?.blur();
 				inputRef.current?.focus();
 				return;
 			}
 
-			// See comment above about the Android keyboard and accessibility.
-			inputRef.current?.blur();
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
