@@ -243,36 +243,69 @@ export const Controls = () => {
 	const { solutionAvailable } = useData();
 	const { currentEntryId } = useCurrentClue();
 
+	// Controls is a div[role=menu], split into two div[role=group]s containing
+	// clue and grid controls. Each group contains a selection of
+	// button[role=menuitem]s.
+	const controlsRef = useRef<HTMLDivElement | null>(null);
+
+	// If there is no current clue, we disable the clue controls.
 	const disableClueControls = isUndefined(currentEntryId);
 
-	const [group, setGroup] = useState<'clues' | 'grid'>(
-		disableClueControls ? 'grid' : 'clues',
-	);
+	// At any one time, one [role=menuitem] of [role=menu] has a tabindex of 0,
+	// and the rest have a tabindex of -1. This means when you tab to the
+	// controls, the you tab directly to a [role=menuitem].
+	//
+	// The user can navigate between the [role=group]s using the up and down
+	// arrow keys, and within a [role=group] using the left and right arrow
+	// keys.
+	//
+	// We store the index of the focusable [role=menuitem] for each group, so
+	// that when you move between [role=group]s, the focus is restored to the
+	// previously selected [role=menuitem].
+
 	const [focusedClueControlIndex, setFocusedClueControlIndex] = useState(0);
 	const [focusedGridControlIndex, setFocusedGridControlIndex] = useState(0);
-	const [shouldFocus, setShouldFocus] = useState(false);
-	const controlsRef = useRef<HTMLDivElement | null>(null);
+
+	// We store the current group the user is navigating, so that we can manage
+	// moving focus between its menuitems
+	const [focusedGroup, setFocusedGroup] = useState<'clues' | 'grid'>(
+		disableClueControls ? 'grid' : 'clues',
+	);
+
+	// We manually manage focus within the [role=menu].
+	//
+	// This is done by a `useEffect` that runs when the focused index/group changes.
+	//
+	// However, we only want to focus a control after user input (i.e. not when the
+	// component first renders), so we set this to true when the user first navigates
+	// using the arrow keys.
+	const [shouldSetFocus, setShouldSetFocus] = useState(false);
+
+	// We need to know how many controls are in each group, so we can manage the
+	// focused index. To to this, we store them here to two arrays and filter out
+	// any that do not apply. The arrays are then mapped over, below, to render
+	// the controls.
 
 	const cluesControls = [
 		<ClearClue />,
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
 		<AnagramHelper>Anagram Helper</AnagramHelper>,
-	];
+	].filter(Boolean);
 
 	const gridControls = [
 		<ClearGrid />,
 		solutionAvailable && <CheckGrid />,
 		solutionAvailable && <RevealGrid />,
-	];
+	].filter(Boolean);
 
 	const onKeyDown = useCallback(
 		(event: KeyboardEvent) => {
-			setShouldFocus(true);
+			setShouldSetFocus(true);
 
 			switch (event.key) {
 				case 'ArrowLeft':
-					if (group === 'clues') {
+					if (focusedGroup === 'clues') {
 						setFocusedClueControlIndex((prev = 0) => Math.max(prev - 1, 0));
 					} else {
 						setFocusedGridControlIndex((prev = 0) => Math.max(prev - 1, 0));
@@ -280,7 +313,7 @@ export const Controls = () => {
 					event.preventDefault();
 					break;
 				case 'ArrowRight':
-					if (group === 'clues') {
+					if (focusedGroup === 'clues') {
 						setFocusedClueControlIndex((prev = 0) =>
 							Math.min(prev + 1, cluesControls.length - 1),
 						);
@@ -292,17 +325,17 @@ export const Controls = () => {
 					event.preventDefault();
 					break;
 				case 'ArrowDown':
-					setGroup('grid');
+					setFocusedGroup('grid');
 					event.preventDefault();
 					break;
 				case 'ArrowUp':
 					if (!disableClueControls) {
-						setGroup('clues');
+						setFocusedGroup('clues');
 					}
 					event.preventDefault();
 					break;
 				case 'Home':
-					if (group === 'clues') {
+					if (focusedGroup === 'clues') {
 						setFocusedClueControlIndex(0);
 					} else {
 						setFocusedGridControlIndex(0);
@@ -310,7 +343,7 @@ export const Controls = () => {
 					event.preventDefault();
 					break;
 				case 'End':
-					if (group === 'clues') {
+					if (focusedGroup === 'clues') {
 						setFocusedClueControlIndex(cluesControls.length - 1);
 					} else {
 						setFocusedGridControlIndex(gridControls.length - 1);
@@ -321,19 +354,29 @@ export const Controls = () => {
 					return;
 			}
 		},
-		[cluesControls.length, gridControls.length, disableClueControls, group],
+		[
+			cluesControls.length,
+			gridControls.length,
+			disableClueControls,
+			focusedGroup,
+		],
 	);
 
 	useEffect(() => {
-		// We only want to focus the a control after user input
-		if (shouldFocus) {
+		// Only set focus after user input
+		if (shouldSetFocus) {
 			(
 				controlsRef.current?.querySelector(
 					'[tabindex="0"]',
 				) as HTMLElement | null
 			)?.focus();
 		}
-	}, [shouldFocus, group, focusedClueControlIndex, focusedGridControlIndex]);
+	}, [
+		shouldSetFocus,
+		focusedGroup,
+		focusedClueControlIndex,
+		focusedGridControlIndex,
+	]);
 
 	useEffect(() => {
 		const controls = controlsRef.current;
@@ -360,7 +403,7 @@ export const Controls = () => {
 				{cluesControls.map((child, index) => {
 					if (child) {
 						const isTabTarget =
-							group === 'clues' && focusedClueControlIndex === index;
+							focusedGroup === 'clues' && focusedClueControlIndex === index;
 
 						return cloneElement(child, {
 							key: index,
@@ -381,7 +424,7 @@ export const Controls = () => {
 				{gridControls.map((child, index) => {
 					if (child) {
 						const isTabTarget =
-							group === 'grid' && focusedGridControlIndex === index;
+							focusedGroup === 'grid' && focusedGridControlIndex === index;
 						return cloneElement(child, {
 							key: index,
 							tabIndex: isTabTarget ? 0 : -1,
