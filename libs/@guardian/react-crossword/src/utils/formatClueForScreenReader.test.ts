@@ -1,7 +1,7 @@
 import { formatClueForScreenReader } from './formatClueForScreenReader';
 
 describe('formatClueForScreenReader', () => {
-	it('should add punct', () => {
+	it('should add punctuation to a clue without it', () => {
 		const input = 'Writer in retreat welcomed by fat cat (7)';
 		// The clue doesn't end with punctuation, so a full stop should be added.
 		const expected = 'Writer in retreat welcomed by fat cat. 7 letters.';
