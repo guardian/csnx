@@ -80,13 +80,13 @@ export const Clues = ({ direction, Header }: Props) => {
 	 * If not, it's set to -1 pressing the down arrow key will select the first
 	 * clue in the list.
 	 */
-	const onFocus = useCallback(() => {
+	const handleFocus = useCallback(() => {
 		setCurrentCluesEntriesIndex(
 			cluesEntries.findIndex((entry) => entry.id === currentEntryId),
 		);
 	}, [currentEntryId, cluesEntries]);
 
-	const onKeyDown = useCallback(
+	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
 			switch (event.key) {
 				case 'ArrowDown':
@@ -124,14 +124,14 @@ export const Clues = ({ direction, Header }: Props) => {
 	useEffect(() => {
 		const clues = cluesRef.current;
 
-		clues?.addEventListener('keydown', onKeyDown);
-		clues?.addEventListener('focus', onFocus);
+		clues?.addEventListener('keydown', handleKeyDown);
+		clues?.addEventListener('focus', handleFocus);
 
 		return () => {
-			clues?.removeEventListener('keydown', onKeyDown);
-			clues?.removeEventListener('focus', onFocus);
+			clues?.removeEventListener('keydown', handleKeyDown);
+			clues?.removeEventListener('focus', handleFocus);
 		};
-	}, [onKeyDown, onFocus]);
+	}, [handleKeyDown, handleFocus]);
 
 	return (
 		<div>
