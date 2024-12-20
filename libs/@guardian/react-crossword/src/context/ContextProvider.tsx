@@ -26,8 +26,8 @@ import { CurrentCellProvider } from './CurrentCell';
 import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
 import { ProgressProvider } from './Progress';
+import { ShowAnagramHelperProvider } from './ShowAnagramHelper';
 import { ThemeProvider } from './Theme';
-import { UIStateProvider } from './UI';
 import { ValidAnswersProvider } from './ValidAnswers';
 
 export const ContextProvider = ({
@@ -47,7 +47,7 @@ export const ContextProvider = ({
 
 	return (
 		<ThemeProvider theme={theme}>
-			<UIStateProvider>
+			<ShowAnagramHelperProvider>
 				<DataProvider
 					entries={entries}
 					solutionAvailable={solutionAvailable}
@@ -66,7 +66,7 @@ export const ContextProvider = ({
 						</CurrentCellProvider>
 					</ProgressProvider>
 				</DataProvider>
-			</UIStateProvider>
+			</ShowAnagramHelperProvider>
 		</ThemeProvider>
 	);
 };

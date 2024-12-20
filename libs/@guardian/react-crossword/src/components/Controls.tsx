@@ -8,8 +8,8 @@ import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
+import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
-import { useUIState } from '../context/UI';
 import { useValidAnswers } from '../context/ValidAnswers';
 import { useClearUserInput } from '../hooks/useClearUserInput';
 import { useUpdateCell } from '../hooks/useUpdateCell';
@@ -142,7 +142,7 @@ const RevealClue = (props: ButtonProps) => {
 };
 
 const AnagramHelper = (props: ButtonProps) => {
-	const { toggleAnagramHelper } = useUIState();
+	const { toggleAnagramHelper } = useShowAnagramHelper();
 
 	return (
 		<ClueButton onClick={toggleAnagramHelper} {...props}>
