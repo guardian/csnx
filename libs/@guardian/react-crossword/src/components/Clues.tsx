@@ -6,6 +6,7 @@ import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useFocus } from '../context/Focus';
 import { useProgress } from '../context/Progress';
 import { Clue } from './Clue';
 
@@ -40,6 +41,7 @@ const Label = memo(({ direction }: { direction: Direction }) => {
 export const Clues = ({ direction, Header }: Props) => {
 	const { entries, getId, cells } = useData();
 	const { progress } = useProgress();
+	const { currentFocus, focusOn } = useFocus();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
 
@@ -61,14 +63,25 @@ export const Clues = ({ direction, Header }: Props) => {
 
 	const cluesRef = useRef<HTMLDivElement | null>(null);
 
-	const selectClue = useCallback(
+	const handleClick = useCallback(
 		(entry: CAPIEntry) => {
+			if (!(currentFocus === 'grid') && entry.id === currentEntryId) {
+				setCurrentCell(
+					cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
+				);
+				setCurrentCluesEntriesIndex(-1);
+				focusOn('grid');
+			}
 			setCurrentEntryId(entry.id);
-			setCurrentCell(
-				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
-			);
 		},
-		[cells, setCurrentCell, setCurrentEntryId],
+		[
+			currentFocus,
+			currentEntryId,
+			setCurrentEntryId,
+			setCurrentCell,
+			cells,
+			focusOn,
+		],
 	);
 
 	/**
@@ -107,9 +120,16 @@ export const Clues = ({ direction, Header }: Props) => {
 					setCurrentCluesEntriesIndex(cluesEntries.length - 1);
 					event.preventDefault();
 					break;
+				case 'Enter':
+				case ' ':
+					if (cluesEntries[currentCluesEntriesIndex]) {
+						handleClick(cluesEntries[currentCluesEntriesIndex]);
+					}
+					event.preventDefault();
+					break;
 			}
 		},
-		[cluesEntries],
+		[cluesEntries, currentCluesEntriesIndex, handleClick],
 	);
 
 	// Call `setCurrentEntryId` if `currentCluesEntriesIndex` changes
@@ -117,8 +137,17 @@ export const Clues = ({ direction, Header }: Props) => {
 		const entry = cluesEntries[currentCluesEntriesIndex];
 		if (entry) {
 			setCurrentEntryId(entry.id);
+			setCurrentCell(
+				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
+			);
 		}
-	}, [currentCluesEntriesIndex, cluesEntries, setCurrentEntryId]);
+	}, [
+		currentCluesEntriesIndex,
+		cluesEntries,
+		setCurrentEntryId,
+		setCurrentCell,
+		cells,
+	]);
 
 	// Add event listeners
 	useEffect(() => {
@@ -133,6 +162,12 @@ export const Clues = ({ direction, Header }: Props) => {
 		};
 	}, [handleKeyDown, handleFocus]);
 
+	useEffect(() => {
+		if (currentFocus === direction) {
+			cluesRef.current?.focus();
+		}
+	}, [currentFocus, direction]);
+
 	return (
 		<div>
 			{Header ? (
@@ -144,7 +179,7 @@ export const Clues = ({ direction, Header }: Props) => {
 			)}
 
 			<div
-				tabIndex={0}
+				tabIndex={-1}
 				id={getId(`${direction}-hints`)}
 				role="listbox"
 				aria-labelledby={getId(`${direction}-label`)}
@@ -190,7 +225,11 @@ export const Clues = ({ direction, Header }: Props) => {
 								tabIndex={-1}
 								role="option"
 								aria-selected={isSelected}
-								onClick={() => selectClue(entry)}
+								onClick={(event) => {
+									event.preventDefault();
+									focusOn(direction);
+									handleClick(entry);
+								}}
 							/>
 						);
 					})}

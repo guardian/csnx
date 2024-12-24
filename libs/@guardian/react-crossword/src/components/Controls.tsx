@@ -7,6 +7,7 @@ import type { Cell, Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useFocus } from '../context/Focus';
 import { useProgress } from '../context/Progress';
 import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
@@ -241,6 +242,7 @@ const controlsGroupStyle = css`
 
 export const Controls = () => {
 	const { solutionAvailable } = useData();
+	const { currentFocus } = useFocus();
 	const { currentEntryId } = useCurrentClue();
 
 	// Controls is a div[role=menu], split into two div[role=group]s containing
@@ -355,19 +357,35 @@ export const Controls = () => {
 			}
 		},
 		[
+			focusedGroup,
+			disableClueControls,
 			cluesControls.length,
 			gridControls.length,
-			disableClueControls,
-			focusedGroup,
 		],
 	);
+
+	useEffect(() => {
+		setFocusedGroup(disableClueControls ? 'grid' : 'clues');
+	}, [disableClueControls]);
+
+	useEffect(() => {
+		if (currentFocus === 'controls') {
+			(
+				controlsRef.current?.querySelector(
+					'[aria-selected="true"]',
+				) as HTMLElement | null
+			)?.focus();
+		} else if (shouldSetFocus) {
+			setShouldSetFocus(false);
+		}
+	}, [currentFocus, shouldSetFocus]);
 
 	useEffect(() => {
 		// Only set focus after user input
 		if (shouldSetFocus) {
 			(
 				controlsRef.current?.querySelector(
-					'[tabindex="0"]',
+					`[aria-selected="true"]`,
 				) as HTMLElement | null
 			)?.focus();
 		}
@@ -402,13 +420,15 @@ export const Controls = () => {
 			>
 				{cluesControls.map((child, index) => {
 					if (child) {
-						const isTabTarget =
+						const isSelected =
 							focusedGroup === 'clues' && focusedClueControlIndex === index;
 
 						return cloneElement(child, {
 							key: index,
+							'aria-selected': isSelected,
+							id: `clue-control-${index}`,
 							disabled: disableClueControls,
-							tabIndex: isTabTarget ? 0 : -1,
+							tabIndex: -1,
 							role: 'menuitem',
 						});
 					}
@@ -423,11 +443,13 @@ export const Controls = () => {
 			>
 				{gridControls.map((child, index) => {
 					if (child) {
-						const isTabTarget =
+						const isSelected =
 							focusedGroup === 'grid' && focusedGridControlIndex === index;
 						return cloneElement(child, {
 							key: index,
-							tabIndex: isTabTarget ? 0 : -1,
+							'aria-selected': isSelected,
+							id: `clue-control-${index}`,
+							tabIndex: -1,
 							role: 'menuitem',
 						});
 					}
