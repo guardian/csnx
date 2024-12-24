@@ -99,7 +99,6 @@ const TabWrangler = ({ children }: { children: ReactNode }) => {
 				}
 			}}
 		>
-			{currentFocus}
 			{children}
 		</div>
 	);
