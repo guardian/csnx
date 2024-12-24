@@ -132,7 +132,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
-	const { currentFocus } = useFocus();
+	const { currentFocus, focusOn } = useFocus();
 	const [focused, setFocused] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 
@@ -152,7 +152,6 @@ export const Grid = () => {
 	}, [currentEntryId, entries]);
 
 	useEffect(() => {
-		console.log('focus changed', currentFocus);
 		if (currentFocus === 'grid') {
 			inputRef.current?.focus();
 		}
@@ -458,7 +457,8 @@ export const Grid = () => {
 
 	const focusInput = useCallback(() => {
 		inputRef.current?.focus();
-	}, []);
+		focusOn('grid');
+	}, [focusOn]);
 
 	const onFocus = useCallback(() => {
 		if (!currentCell) {

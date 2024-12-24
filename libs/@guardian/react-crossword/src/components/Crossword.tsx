@@ -1,6 +1,13 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { type ComponentType, type ReactNode, useMemo } from 'react';
+import {
+	type ComponentType,
+	type ReactNode,
+	useCallback,
+	useEffect,
+	useMemo,
+	useRef,
+} from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
@@ -44,7 +51,7 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 
 const TabWrangler = ({ children }: { children: ReactNode }) => {
 	const { currentFocus, focusOn } = useFocus();
-
+	const tabWrapperRef = useRef<HTMLDivElement | null>(null);
 	const getTarget = (direction: 'back' | 'forward') => {
 		if (!currentFocus) {
 			if (direction === 'forward') {
@@ -60,26 +67,34 @@ const TabWrangler = ({ children }: { children: ReactNode }) => {
 		return focusTargets[nextIndex];
 	};
 
+	const handleFocusOut = useCallback(() => {
+		focusOn(undefined);
+	}, [focusOn]);
+
+	useEffect(() => {
+		const tabWrapper = tabWrapperRef.current;
+		tabWrapper?.addEventListener('focusout', handleFocusOut);
+		return () => {
+			tabWrapper?.removeEventListener('focusout', handleFocusOut);
+		};
+	}, [handleFocusOut]);
+
 	return (
 		<div
-			tabIndex={0}
+			ref={tabWrapperRef}
+			tabIndex={currentFocus ? -1 : 0}
 			onKeyDown={(event) => {
 				if (event.key === 'Tab') {
+					let nextTarget;
 					if (event.shiftKey) {
-						const nextTarget = getTarget('back');
-						if (isUndefined(nextTarget)) {
-							focusOn(undefined);
-							return;
-						}
-						focusOn(nextTarget);
+						nextTarget = getTarget('back');
 					} else {
-						const nextTarget = getTarget('forward');
-						if (isUndefined(nextTarget)) {
-							focusOn(undefined);
-							return;
-						}
-						focusOn(nextTarget);
+						nextTarget = getTarget('forward');
 					}
+					if (isUndefined(nextTarget)) {
+						return;
+					}
+					focusOn(nextTarget);
 					event.preventDefault();
 				}
 			}}

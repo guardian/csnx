@@ -132,7 +132,7 @@ export const Clues = ({ direction, Header }: Props) => {
 		[cluesEntries, currentCluesEntriesIndex, handleClick],
 	);
 
-	// Call `setCurrentEntryId` if `currentCluesEntriesIndex` changes
+	// Call `setCurrentEntryId` and `setCurrentCell` if `currentCluesEntriesIndex` changes
 	useEffect(() => {
 		const entry = cluesEntries[currentCluesEntriesIndex];
 		if (entry) {
