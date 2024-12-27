@@ -6,7 +6,6 @@ import {
 	useEffect,
 	useMemo,
 	useRef,
-	useState,
 } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
@@ -53,27 +52,37 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 
 const TabWrangler = ({ children }: { children: ReactNode }) => {
 	const { currentFocus, focusOn } = useFocus();
-	const [previousDirection, setPreviousDirection] = useState<TabDirection>();
+	const previousDirectionRef = useRef<TabDirection | undefined>(undefined);
 	const tabWrapperRef = useRef<HTMLDivElement | null>(null);
-	let currentIndex;
+
 	const getTarget = (direction: 'back' | 'forward') => {
-		if (direction === previousDirection && currentFocus === 'application') {
-			setPreviousDirection(undefined);
+		// If direction is the same and we're on 'application', reset previousDirection and return
+		if (
+			direction === previousDirectionRef.current &&
+			currentFocus === 'application'
+		) {
+			previousDirectionRef.current = undefined;
 			return undefined;
 		}
-		if (direction === 'forward') {
-			currentIndex = focusTargets.findIndex(
-				(target) => target === currentFocus,
-			);
-		} else {
-			currentIndex = focusTargets.findLastIndex(
-				(target) => target === currentFocus,
-			);
+
+		// Update previousDirection if needed
+		if (previousDirectionRef.current !== direction) {
+			previousDirectionRef.current = direction;
 		}
-		if (previousDirection !== direction) {
-			setPreviousDirection(direction);
-		}
-		const nextIndex = currentIndex + (direction === 'forward' ? 1 : -1);
+
+		const currentIndex = focusTargets.findIndex(
+			(target) => target === currentFocus,
+		);
+
+		// Move one step forward or backward
+		const step = direction === 'forward' ? 1 : -1;
+
+		// Use modulo to wrap around the array: (index + step + length) % length
+		// In JavaScript, the remainder of a negative number still comes out negative.
+		// For example, -1 % 5 is -1 instead of 4 (hence the + length).
+		const nextIndex =
+			(currentIndex + step + focusTargets.length) % focusTargets.length;
+
 		return focusTargets[nextIndex];
 	};
 

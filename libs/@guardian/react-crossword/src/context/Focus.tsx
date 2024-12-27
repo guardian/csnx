@@ -20,7 +20,6 @@ export const focusTargets: FocusTarget[] = [
 	'grid',
 	'down',
 	'controls',
-	'application',
 ] as const;
 
 const FocusContext = createContext<Context | undefined>(undefined);
