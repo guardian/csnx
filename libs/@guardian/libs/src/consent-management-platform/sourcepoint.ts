@@ -150,6 +150,17 @@ export const init = (
 						)
 					) {
 						setTimeout(invokeCallbacks, 0);
+
+						if (
+							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
+							message_type === 'gdpr' &&
+							!subscribed
+						) {
+							console.log('User has rejected all');
+							window.location.replace(
+								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
+							);
+						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
