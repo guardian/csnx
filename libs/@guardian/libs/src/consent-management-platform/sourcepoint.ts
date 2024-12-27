@@ -2,6 +2,10 @@ import { log } from '../logger/logger';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
+import {
+	sendConsentChoicesToOphan,
+	sendMessageReadyToOphan,
+} from './lib/ophan';
 import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
@@ -110,6 +114,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						return;
 					}
 
+					sendMessageReadyToOphan();
+
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
 				},
@@ -141,6 +147,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 							(spChoiceType) => spChoiceType === choiceTypeID,
 						)
 					) {
+						sendConsentChoicesToOphan(choiceTypeID);
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
