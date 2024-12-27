@@ -10,7 +10,6 @@ import {
 	PROPERTY_ID_AUSTRALIA,
 } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
-import { isExcludedFromCMP } from './routeExclusionList';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
 
@@ -80,8 +79,6 @@ export const init = (
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
-	const pageSection = window.guardian?.config?.page?.section as string;
-
 	window._sp_queue = [];
 	/* istanbul ignore next */
 	window._sp_ = {
@@ -93,7 +90,6 @@ export const init = (
 			targetingParams: {
 				framework,
 				subscribed,
-				isExcluded: isExcludedFromCMP(pageSection),
 			},
 			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
