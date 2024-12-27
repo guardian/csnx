@@ -1,4 +1,10 @@
-import { createContext, type ReactNode, useContext, useState } from 'react';
+import {
+	createContext,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useState,
+} from 'react';
 import type { Direction } from '../@types/Direction';
 
 export type FocusTarget = Direction | 'grid' | 'controls' | 'application';
@@ -22,9 +28,9 @@ const FocusContext = createContext<Context | undefined>(undefined);
 export const FocusProvider = ({ children }: { children: ReactNode }) => {
 	const [currentFocus, setCurrentFocus] = useState<FocusTarget>('application');
 
-	const focusOn = (target: FocusTarget) => {
+	const focusOn = useCallback((target: FocusTarget) => {
 		setCurrentFocus(target);
-	};
+	}, []);
 
 	return (
 		<FocusContext.Provider value={{ currentFocus, focusOn }}>
