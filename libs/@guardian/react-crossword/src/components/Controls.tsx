@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
+import type { MouseEvent } from 'react';
 import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
 import type { Cell, Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
@@ -241,8 +242,8 @@ const controlsGroupStyle = css`
 `;
 
 export const Controls = () => {
-	const { solutionAvailable } = useData();
-	const { currentFocus } = useFocus();
+	const { solutionAvailable, getId } = useData();
+	const { currentFocus, focusOn } = useFocus();
 	const { currentEntryId } = useCurrentClue();
 
 	// Controls is a div[role=menu], split into two div[role=group]s containing
@@ -277,11 +278,6 @@ export const Controls = () => {
 	// We manually manage focus within the [role=menu].
 	//
 	// This is done by a `useEffect` that runs when the focused index/group changes.
-	//
-	// However, we only want to focus a control after user input (i.e. not when the
-	// component first renders), so we set this to true when the user first navigates
-	// using the arrow keys.
-	const [shouldSetFocus, setShouldSetFocus] = useState(false);
 
 	// We need to know how many controls are in each group, so we can manage the
 	// focused index. To to this, we store them here to two arrays and filter out
@@ -303,8 +299,6 @@ export const Controls = () => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
-			setShouldSetFocus(true);
-
 			switch (event.key) {
 				case 'ArrowLeft':
 					if (focusedGroup === 'clues') {
@@ -364,52 +358,74 @@ export const Controls = () => {
 		],
 	);
 
+	const handleClick = useCallback(
+		(event: MouseEvent) => {
+			if (!(event.target instanceof HTMLElement)) {
+				return;
+			}
+
+			const button = event.target.closest('button');
+			// split the button id to get the index and group of the button
+			if (button) {
+				const [group, , index] = button.id.split('-');
+				const numberIndex = Number(index);
+				if (isNaN(numberIndex)) {
+					return;
+				}
+				if (group === 'clues') {
+					setFocusedClueControlIndex(numberIndex);
+					setFocusedGroup('clues');
+				}
+				if (group === 'grid') {
+					setFocusedGridControlIndex(numberIndex);
+					setFocusedGroup('grid');
+				}
+				focusOn('controls');
+			}
+		},
+		[focusOn],
+	);
+
 	useEffect(() => {
 		setFocusedGroup(disableClueControls ? 'grid' : 'clues');
 	}, [disableClueControls]);
 
 	useEffect(() => {
 		if (currentFocus === 'controls') {
-			(
-				controlsRef.current?.querySelector(
-					'[aria-selected="true"]',
-				) as HTMLElement | null
-			)?.focus();
-		}
-	}, [currentFocus]);
-
-	useEffect(() => {
-		// Only set focus after user input
-		if (shouldSetFocus) {
-			(
-				controlsRef.current?.querySelector(
-					`[aria-selected="true"]`,
-				) as HTMLElement | null
-			)?.focus();
+			document
+				.getElementById(
+					getId(
+						`${focusedGroup}-control-${focusedGroup === 'grid' ? focusedGridControlIndex : focusedClueControlIndex}`,
+					),
+				)
+				?.focus();
 		}
 	}, [
-		shouldSetFocus,
-		focusedGroup,
+		currentFocus,
 		focusedClueControlIndex,
 		focusedGridControlIndex,
+		focusedGroup,
+		getId,
 	]);
 
 	useEffect(() => {
 		const controls = controlsRef.current;
-
 		if (!controls) {
 			return;
 		}
-
 		controls.addEventListener('keydown', handleKeyDown);
-
 		return () => {
 			controls.removeEventListener('keydown', handleKeyDown);
 		};
 	}, [handleKeyDown]);
 
 	return (
-		<div role="menu" ref={controlsRef} aria-label="Crossword controls">
+		<div
+			role="menu"
+			ref={controlsRef}
+			onClick={handleClick}
+			aria-label="Crossword controls"
+		>
 			<div
 				aria-label="Clue controls"
 				role="group"
@@ -418,13 +434,9 @@ export const Controls = () => {
 			>
 				{cluesControls.map((child, index) => {
 					if (child) {
-						const isSelected =
-							focusedGroup === 'clues' && focusedClueControlIndex === index;
-
 						return cloneElement(child, {
 							key: index,
-							'aria-selected': isSelected,
-							id: `clue-control-${index}`,
+							id: getId(`clues-control-${index}`),
 							disabled: disableClueControls,
 							tabIndex: -1,
 							role: 'menuitem',
@@ -441,12 +453,9 @@ export const Controls = () => {
 			>
 				{gridControls.map((child, index) => {
 					if (child) {
-						const isSelected =
-							focusedGroup === 'grid' && focusedGridControlIndex === index;
 						return cloneElement(child, {
 							key: index,
-							'aria-selected': isSelected,
-							id: `clue-control-${index}`,
+							id: getId(`grid-control-${index}`),
 							tabIndex: -1,
 							role: 'menuitem',
 						});
