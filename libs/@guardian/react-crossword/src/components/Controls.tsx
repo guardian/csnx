@@ -375,10 +375,8 @@ export const Controls = () => {
 					'[aria-selected="true"]',
 				) as HTMLElement | null
 			)?.focus();
-		} else if (shouldSetFocus) {
-			setShouldSetFocus(false);
 		}
-	}, [currentFocus, shouldSetFocus]);
+	}, [currentFocus]);
 
 	useEffect(() => {
 		// Only set focus after user input

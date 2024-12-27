@@ -3,10 +3,10 @@ import { isUndefined } from '@guardian/libs';
 import {
 	type ComponentType,
 	type ReactNode,
-	useCallback,
 	useEffect,
 	useMemo,
 	useRef,
+	useState,
 } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
@@ -21,6 +21,8 @@ import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
+
+type TabDirection = 'back' | 'forward';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
@@ -51,38 +53,41 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 
 const TabWrangler = ({ children }: { children: ReactNode }) => {
 	const { currentFocus, focusOn } = useFocus();
+	const [previousDirection, setPreviousDirection] = useState<TabDirection>();
 	const tabWrapperRef = useRef<HTMLDivElement | null>(null);
+	let currentIndex;
 	const getTarget = (direction: 'back' | 'forward') => {
-		if (!currentFocus) {
-			if (direction === 'forward') {
-				return focusTargets[0];
-			} else {
-				return focusTargets[focusTargets.length - 1];
-			}
+		if (direction === previousDirection && currentFocus === 'application') {
+			setPreviousDirection(undefined);
+			return undefined;
 		}
-		const currentIndex = focusTargets.findIndex(
-			(target) => target === currentFocus,
-		);
+		if (direction === 'forward') {
+			currentIndex = focusTargets.findIndex(
+				(target) => target === currentFocus,
+			);
+		} else {
+			currentIndex = focusTargets.findLastIndex(
+				(target) => target === currentFocus,
+			);
+		}
+		if (previousDirection !== direction) {
+			setPreviousDirection(direction);
+		}
 		const nextIndex = currentIndex + (direction === 'forward' ? 1 : -1);
 		return focusTargets[nextIndex];
 	};
 
-	const handleFocusOut = useCallback(() => {
-		focusOn(undefined);
-	}, [focusOn]);
-
 	useEffect(() => {
-		const tabWrapper = tabWrapperRef.current;
-		tabWrapper?.addEventListener('focusout', handleFocusOut);
-		return () => {
-			tabWrapper?.removeEventListener('focusout', handleFocusOut);
-		};
-	}, [handleFocusOut]);
+		if (currentFocus === 'application') {
+			tabWrapperRef.current?.focus();
+		}
+	}, [currentFocus]);
 
 	return (
 		<div
+			id={'tab-wrapper'}
 			ref={tabWrapperRef}
-			tabIndex={currentFocus ? -1 : 0}
+			tabIndex={0}
 			onKeyDown={(event) => {
 				if (event.key === 'Tab') {
 					let nextTarget;

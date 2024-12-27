@@ -1,28 +1,28 @@
 import { createContext, type ReactNode, useContext, useState } from 'react';
 import type { Direction } from '../@types/Direction';
 
-export type FocusTarget = Direction | 'grid' | 'controls';
+export type FocusTarget = Direction | 'grid' | 'controls' | 'application';
 
 type Context = {
 	currentFocus?: FocusTarget;
-	focusOn: (target: FocusTarget | undefined) => void;
+	focusOn: (target: FocusTarget) => void;
 };
 
 export const focusTargets: FocusTarget[] = [
+	'application',
 	'across',
 	'grid',
 	'down',
 	'controls',
+	'application',
 ] as const;
 
 const FocusContext = createContext<Context | undefined>(undefined);
 
 export const FocusProvider = ({ children }: { children: ReactNode }) => {
-	const [currentFocus, setCurrentFocus] = useState<FocusTarget | undefined>(
-		undefined,
-	);
+	const [currentFocus, setCurrentFocus] = useState<FocusTarget>('application');
 
-	const focusOn = (target: FocusTarget | undefined) => {
+	const focusOn = (target: FocusTarget) => {
 		setCurrentFocus(target);
 	};
 
