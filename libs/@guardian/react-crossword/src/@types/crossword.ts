@@ -2,11 +2,11 @@ import type { CAPIEntry } from './CAPI';
 import type { Direction } from './Direction';
 import type { Entry, EntryID } from './Entry';
 
-export type Cell = {
-	// grid coords
-	x: number;
-	y: number;
+export type Axis = 'x' | 'y';
 
+export type Coords = Record<Axis, number>;
+
+export type Cell = Coords & {
 	/** Clue number */
 	number?: number;
 
@@ -18,7 +18,7 @@ export type Cell = {
 };
 
 export type Cells = Map<`x${number}y${number}`, Cell> & {
-	getByCoords: (x: number, y: number) => ReturnType<Cells['get']>;
+	getByCoords: (arg0: Coords) => ReturnType<Cells['get']>;
 };
 
 export type Entries = Map<EntryID, CAPIEntry>;
@@ -38,27 +38,50 @@ export type Crossword = {
 	hasSolution: boolean;
 };
 
-export type Focus = {
-	x: number;
-	y: number;
-	entryId?: EntryID;
-};
+export type Separator = keyof CAPIEntry['separatorLocations'];
 
-export type CurrentCell = {
-	x: number;
-	y: number;
-};
-
-export type CurrentEntryId = EntryID;
+export type Separators = Array<{
+	type: Separator;
+	position: Coords;
+	direction: Direction;
+}>;
 
 export type Theme = {
-	background: string;
-	foreground: string;
-	text: string;
-	gutter: number;
-	focus: string;
-	focusBorder: string;
-	cellSize: number;
+	/** The background colour of 'black' squares/dividers etc on the grid */
+	gridBackgroundColor: string;
+	/** The background colour of 'white' squares on the grid */
+	gridForegroundColor: string;
+	/** The size of the gap between grid cells */
+	gridGutterSize: number;
+	/** The length of one side of a cell on on the grid */
+	gridCellSize: number;
+
+	/** The main text colour (grid text, clues etc) */
+	textColor: string;
+	/** The colour of the currently selected cell border */
+	focusColor: string;
+	/** The colour of cells/clues that are currently selected clue */
+	selectedColor: string;
+	/** The colour of cells/clues that are connected to the currently selected clue */
+	connectedColor: string;
+
+	/** The background colour of clue-helper buttons */
+	buttonBackgroundColor: string;
+	/** The hover colour of clue-helper buttons */
+	buttonBackgroundHoverColor: string;
+
+	/** Border colour used to visually separate parts of the UI */
+	borderColor: string;
+
+	/** The minimum width of a clue */
+	clueMinWidth: number;
+	/** The maximum width of a clue */
+	clueMaxWidth: number;
+
+	/** The background colour of the anagram helper */
+	anagramHelperBackgroundColor: string;
+	/** The text colour of shuffled letter that are not yet on the grid */
+	anagramHelperCandidateTextColor: string;
 };
 
 export type Dimensions = {

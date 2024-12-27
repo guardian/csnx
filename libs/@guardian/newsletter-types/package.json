@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/newsletter-types",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"private": false,
 	"description": "A set of types describing the output of the Guardian newsletters API",
 	"sideEffects": false,
@@ -21,8 +21,8 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"eslint": "9.9.0",
-		"rollup": "4.24.0",
+		"eslint": "9.14.0",
+		"rollup": "4.27.4",
 		"tslib": "2.6.2",
 		"typescript": "5.5.2",
 		"wireit": "0.14.8"

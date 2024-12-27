@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/browserslist-config",
-	"version": "6.1.1",
+	"version": "6.1.2",
 	"description": "Browserslist config for Guardian websites",
 	"main": "browserslist.js",
 	"files": [
@@ -17,7 +17,7 @@
 		"@guardian/browserslist-config": "workspace:*",
 		"@guardian/eslint-config": "workspace:*",
 		"browserslist": "4.23.0",
-		"eslint": "9.9.0",
+		"eslint": "9.14.0",
 		"tslib": "2.6.2",
 		"wireit": "0.14.8"
 	},

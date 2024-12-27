@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Crossword } from '../src';
-import { defaultTheme } from '../src/theme';
 import { cryptic } from './formats/cryptic';
 import { everyman } from './formats/everyman';
+import { groupedClues } from './formats/grouped-clues';
 import { prize } from './formats/prize';
 import { quick } from './formats/quick';
 import { quickCryptic } from './formats/quick-cryptic';
@@ -15,9 +15,6 @@ import { weekend } from './formats/weekend';
 const meta: Meta<typeof Crossword> = {
 	component: Crossword,
 	title: 'Formats',
-	args: {
-		theme: defaultTheme,
-	},
 };
 
 export default meta;
@@ -61,4 +58,8 @@ export const Weekend: Story = {
 
 export const Uneven: Story = {
 	args: { data: uneven },
+};
+
+export const GroupedClues: Story = {
+	args: { data: groupedClues },
 };

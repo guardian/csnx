@@ -4,9 +4,7 @@ import { focusHalo, space, textSans14, textSans17 } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeTextArea } from './theme';
 
-const textAreaSize: {
-	[key in InputSize]: string;
-} = {
+const textAreaSize: Record<InputSize, string> = {
 	medium: textSans17,
 	small: textSans14,
 };

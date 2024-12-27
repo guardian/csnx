@@ -19,9 +19,7 @@ const inputSizeSmall = css`
 	height: ${size.small}px;
 `;
 
-const inputSize: {
-	[key in InputSize]: SerializedStyles;
-} = {
+const inputSize: Record<InputSize, SerializedStyles> = {
 	medium: inputSizeDefault,
 	small: inputSizeSmall,
 };

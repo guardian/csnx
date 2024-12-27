@@ -1,5 +1,24 @@
 # @guardian/libs
 
+## 19.2.2
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+- 4f6efbd: Use applicableSections and supportedAPI to get consent state in the US
+
+## 19.2.1
+
+### Patch Changes
+
+- cead399: Fix cmp usnat supported api lookup
+
+## 19.2.0
+
+### Minor Changes
+
+- 3936b1c: `getConsentState`: Check for the Global Privacy Control setting in the user's browser when checking USNAT.
+
 ## 19.1.0
 
 ### Minor Changes

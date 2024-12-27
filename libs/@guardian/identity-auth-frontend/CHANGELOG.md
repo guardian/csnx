@@ -1,5 +1,17 @@
 # @guardian/identity-auth-frontend
 
+## 6.0.3
+
+### Patch Changes
+
+- a35ec51: Add `profile` subdomain as valid `redirect_uri`
+
+## 6.0.2
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 6.0.1
 
 ### Patch Changes

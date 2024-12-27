@@ -26,16 +26,14 @@ type CollapseBreakpoint = Extract<
 	'tablet' | 'desktop' | 'leftCol' | 'wide'
 >;
 
-const collapseUntilMap: { [key in CollapseBreakpoint]: SerializedStyles } = {
+const collapseUntilMap: Record<CollapseBreakpoint, SerializedStyles> = {
 	tablet: tilesCollapseUntilTablet,
 	desktop: tilesCollapseUntilDesktop,
 	leftCol: tilesCollapseUntilleftCol,
 	wide: tilesCollapseUntilWide,
 };
 
-const collapseUntilColumnsMap: {
-	[key in CollapseBreakpoint]: SerializedStyles;
-} = {
+const collapseUntilColumnsMap: Record<CollapseBreakpoint, SerializedStyles> = {
 	tablet: collapseUntilTabletTiles,
 	desktop: collapseUntilDesktopTiles,
 	leftCol: collapseUntilLeftColTiles,
