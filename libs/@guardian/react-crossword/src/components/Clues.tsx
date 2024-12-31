@@ -69,8 +69,18 @@ export const Clues = ({ direction, Header }: Props) => {
 				focusOn('grid');
 			}
 			setCurrentEntryId(entry.id);
+			setCurrentCell(
+				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
+			);
 		},
-		[currentFocus, currentEntryId, setCurrentEntryId, focusOn],
+		[
+			currentFocus,
+			currentEntryId,
+			setCurrentEntryId,
+			setCurrentCell,
+			cells,
+			focusOn,
+		],
 	);
 
 	/**
