@@ -599,7 +599,7 @@ export const Grid = () => {
 					spellCheck="false"
 					autoCorrect="off"
 					aria-hidden="false"
-					aria-live="polite"
+					aria-live={currentFocus === 'grid' ? 'assertive' : 'off'}
 					aria-label={currentCellLabel}
 				/>
 			</div>

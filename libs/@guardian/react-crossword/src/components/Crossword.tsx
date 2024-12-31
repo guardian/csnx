@@ -1,3 +1,4 @@
+import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import {
@@ -11,6 +12,7 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
+import { useData } from '../context/Data';
 import { focusTargets } from '../context/Focus';
 import { useFocus } from '../context/Focus';
 import { useProgress } from '../context/Progress';
@@ -29,6 +31,19 @@ export type CrosswordProps = {
 	children?: ReactNode;
 	Layout?: ComponentType<LayoutProps>;
 } & Partial<Theme>;
+
+const defaultWrapperStyles = css`
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	height: 100%;
+	width: 100%;
+	container-type: inline-size;
+`;
 
 const SavedMessage = () => {
 	const { isStored } = useProgress();
@@ -50,8 +65,15 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	SavedMessage,
 };
 
-const TabWrangler = ({ children }: { children: ReactNode }) => {
+const TabWrangler = ({
+	children,
+	wrapperStyles = defaultWrapperStyles,
+}: {
+	children: ReactNode;
+	wrapperStyles?: SerializedStyles;
+}) => {
 	const { currentFocus, focusOn } = useFocus();
+	const { getId } = useData();
 	const previousDirectionRef = useRef<TabDirection | undefined>(undefined);
 	const tabWrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -94,7 +116,9 @@ const TabWrangler = ({ children }: { children: ReactNode }) => {
 
 	return (
 		<div
-			id={'tab-wrapper'}
+			role="application"
+			css={wrapperStyles}
+			id={getId('crossword')}
 			ref={tabWrapperRef}
 			tabIndex={0}
 			onKeyDown={(event) => {
@@ -152,25 +176,9 @@ export const Crossword = ({
 			selectedEntryId={data.entries[0].id}
 		>
 			<TabWrangler>
-				<div
-					role="application"
-					css={css`
-						*,
-						*::before,
-						*::after {
-							box-sizing: border-box;
-							padding: 0;
-							margin: 0;
-						}
-						height: 100%;
-						width: 100%;
-						container-type: inline-size;
-					`}
-				>
-					{children ?? (
-						<LayoutComponent {...layoutComponents} gridWidth={gridWidth} />
-					)}
-				</div>
+				{children ?? (
+					<LayoutComponent {...layoutComponents} gridWidth={gridWidth} />
+				)}
 			</TabWrangler>
 		</ContextProvider>
 	);
