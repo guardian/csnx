@@ -25,7 +25,9 @@ export const focusTargets: FocusTarget[] = [
 const FocusContext = createContext<Context | undefined>(undefined);
 
 export const FocusProvider = ({ children }: { children: ReactNode }) => {
-	const [currentFocus, setCurrentFocus] = useState<FocusTarget>('application');
+	const [currentFocus, setCurrentFocus] = useState<FocusTarget | undefined>(
+		undefined,
+	);
 
 	const focusOn = useCallback((target: FocusTarget) => {
 		setCurrentFocus(target);

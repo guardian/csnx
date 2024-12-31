@@ -112,6 +112,11 @@ const TabWrangler = ({ children }: { children: ReactNode }) => {
 					event.preventDefault();
 				}
 			}}
+			onFocus={() => {
+				if (isUndefined(currentFocus)) {
+					focusOn('application');
+				}
+			}}
 		>
 			{children}
 		</div>
