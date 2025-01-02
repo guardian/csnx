@@ -13,6 +13,7 @@ import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useFocus } from '../context/Focus';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
@@ -131,6 +132,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const { currentFocus, focusOn } = useFocus();
 	const [focused, setFocused] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 
@@ -148,6 +150,12 @@ export const Grid = () => {
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
+
+	useEffect(() => {
+		if (currentFocus === 'grid') {
+			inputRef.current?.focus();
+		}
+	}, [currentFocus]);
 
 	const getProgressForEntry = useCallback(
 		(entry: CAPIEntry): string => {
@@ -242,16 +250,13 @@ export const Grid = () => {
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
-				inputRef.current?.focus();
-				return;
 			}
 
 			if (delta.y !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
-				inputRef.current?.focus();
-				return;
 			}
+			inputRef.current?.focus();
 		},
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
 	);
@@ -287,9 +292,6 @@ export const Grid = () => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) {
-				return;
-			}
 			if (!currentCell) {
 				return;
 			}
@@ -455,7 +457,8 @@ export const Grid = () => {
 
 	const focusInput = useCallback(() => {
 		inputRef.current?.focus();
-	}, []);
+		focusOn('grid');
+	}, [focusOn]);
 
 	const onFocus = useCallback(() => {
 		if (!currentCell) {
@@ -582,7 +585,7 @@ export const Grid = () => {
 					onChange={handleChange}
 					onFocus={onFocus}
 					onBlur={() => setFocused(false)}
-					tabIndex={0}
+					tabIndex={-1}
 					css={css`
 						position: absolute;
 						pointer-events: none;
@@ -596,7 +599,7 @@ export const Grid = () => {
 					spellCheck="false"
 					autoCorrect="off"
 					aria-hidden="false"
-					aria-live="polite"
+					aria-live={currentFocus === 'grid' ? 'assertive' : 'off'}
 					aria-label={currentCellLabel}
 				/>
 			</div>

@@ -21,7 +21,7 @@ export const AnagramHelper = () => {
 	const [solving, setSolving] = useState(false);
 	const [shuffledLetters, setShuffledLetters] = useState<string[]>([]);
 	const theme = useTheme();
-	const { setShowAnagramHelper } = useShowAnagramHelper();
+	const { setShowAnagramHelper, showAnagramHelper } = useShowAnagramHelper();
 	const { entries, cells } = useData();
 	const { currentEntryId } = useCurrentClue();
 	const { progress } = useProgress();
@@ -57,11 +57,14 @@ export const AnagramHelper = () => {
 		reset();
 	}, [reset]);
 
+	if (!showAnagramHelper) {
+		return null;
+	}
+
 	return (
 		<div
 			css={css`
-				position: fixed;
-				overflow: auto;
+				position: absolute;
 				width: 100%;
 				height: 100%;
 				top: 0;
