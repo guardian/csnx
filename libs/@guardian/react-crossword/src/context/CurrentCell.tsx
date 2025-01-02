@@ -1,17 +1,17 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
-import type { Coords } from '../@types/crossword';
+import type { Cell } from '../@types/crossword';
 
 type Context = {
-	currentCell?: Coords;
-	setCurrentCell: Dispatch<SetStateAction<Coords | undefined>>;
+	currentCell?: Cell;
+	setCurrentCell: Dispatch<SetStateAction<Cell | undefined>>;
 };
 
 const CurrentCellContext = createContext<Context | undefined>(undefined);
 
 export const CurrentCellProvider = ({ children }: { children: ReactNode }) => {
-	const [currentCell, setCurrentCell] = useState<Coords | undefined>(undefined);
+	const [currentCell, setCurrentCell] = useState<Cell | undefined>(undefined);
 
 	return (
 		<CurrentCellContext.Provider value={{ currentCell, setCurrentCell }}>

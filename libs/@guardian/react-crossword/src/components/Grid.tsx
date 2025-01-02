@@ -1,7 +1,14 @@
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useRef } from 'react';
-import type { Coords, Separator, Theme } from '../@types/crossword';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
+import type {
+	Cell as CellType,
+	Coords,
+	Separator,
+	Theme,
+} from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -10,8 +17,25 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
+import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
+
+const getReadableLabelForCellAndEntry = ({
+	entry,
+	cell,
+	additionalEntry = false,
+}: {
+	entry: CAPIEntry;
+	cell: CellType;
+	additionalEntry?: boolean;
+}): string => {
+	if (entry.direction === 'across') {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	} else {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	}
+};
 
 const getCellPosition = (
 	index: number,
@@ -53,6 +77,7 @@ const Separator = memo(
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
+				pointerEvents={'none'}
 			/>
 		) : (
 			// draws a thicker border with the next cell
@@ -65,6 +90,7 @@ const Separator = memo(
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
 				{...props}
+				pointerEvents={'none'}
 			/>
 		);
 	},
@@ -100,16 +126,18 @@ const FocusIndicator = ({
 
 export const Grid = () => {
 	const theme = useTheme();
-	const { cells, separators, entries, dimensions } = useData();
+	const { cells, separators, entries, dimensions, getId } = useData();
 	const { progress } = useProgress();
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
+	const [focused, setFocused] = useState(false);
+	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
-	// do not call focus() on this element as it will trigger the selection menu on safari
 	const gridWrapperRef = useRef<HTMLDivElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
@@ -120,6 +148,55 @@ export const Grid = () => {
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
+
+	const getProgressForEntry = useCallback(
+		(entry: CAPIEntry): string => {
+			const progressForEntry: string[] = [];
+			for (let i = 0; i < entry.length; i++) {
+				const x =
+					entry.direction === 'across'
+						? entry.position.x + i
+						: entry.position.x;
+				const y =
+					entry.direction === 'down' ? entry.position.y + i : entry.position.y;
+				const cellProgress = progress[x]?.[y];
+				if (!isUndefined(cellProgress)) {
+					progressForEntry.push(cellProgress !== '' ? cellProgress : 'Empty');
+				}
+			}
+			return progressForEntry.join(', ');
+		},
+		[progress],
+	);
+
+	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
+	const currentCellProgress = currentCell
+		? progress[currentCell.x]?.[currentCell.y]
+		: undefined;
+
+	const additionalEntries =
+		currentCell?.group
+			?.map((entryId) => {
+				if (entryId !== currentEntryId) {
+					return entries.get(entryId);
+				}
+				return undefined;
+			})
+			.filter((entry) => !isUndefined(entry)) ?? [];
+
+	const currentCellLabel = currentCell
+		? `` +
+			// ('Column 1, row 1')
+			`Column ${currentCell.x + 1}, row ${currentCell.y + 1}. ` +
+			// ('A.') | ('Empty.')
+			`${currentCellProgress ? `${currentCellProgress}. ` : 'Empty. '}` +
+			// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
+			`${currentEntry ? `${getReadableLabelForCellAndEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
+			// ('Empty, A, Empty, Empty.')
+			`${currentEntry ? `${getProgressForEntry(currentEntry)}. ` : ''}` +
+			// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
+			`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`
+		: '';
 
 	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -142,36 +219,77 @@ export const Grid = () => {
 				group.includes('down'),
 			);
 
+			//if we are typing in a cell without a group do not move focus
+			if (isTyping && isUndefined(currentCell.group)) {
+				return;
+			}
+
+			// The blurring and refocusing mimics moving to a new input cell after typing a letter.
+			// This is needed for a quirk in the Android keyboard.
+			// It stores typed text even if it is cleared by react
+			// and the backspace key does not work as expected.
+			//
+			// This is also needed for accessibility as it will read
+			// out the new value of the cell we have moved to
+			inputRef.current?.blur();
+
 			// If we're typing, we only want to move focus if the new cell is an entry square
 			if (isTyping && !possibleDown && !possibleAcross) {
+				inputRef.current?.focus();
 				return;
 			}
 
 			if (delta.x !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
+				inputRef.current?.focus();
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell({ x: newX, y: newY });
+				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
+				inputRef.current?.focus();
 				return;
 			}
 		},
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
 	);
 
-	const handleTab = useCallback(() => {
-		return;
-	}, []);
+	const handleChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			if (isUndefined(currentCell)) {
+				return;
+			}
+			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
+			const key = event.target.value.toUpperCase();
+			const value = cheatMode
+				? cells.getByCoords({ x: currentCell.x, y: currentCell.y })?.solution
+				: keyDownRegex.test(key) && key.toUpperCase();
+
+			if (value) {
+				updateCell({
+					x: currentCell.x,
+					y: currentCell.y,
+					value,
+				});
+				if (direction === 'across') {
+					moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
+				}
+				if (direction === 'down') {
+					moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
+				}
+			}
+			setInputValue('');
+		},
+		[cells, cheatMode, currentCell, currentEntryId, moveFocus, updateCell],
+	);
 
 	const handleKeyDown = useCallback(
-		(event: KeyboardEvent): void => {
+		(event: KeyboardEvent<HTMLInputElement>): void => {
 			if (event.ctrlKey || event.altKey || event.metaKey) {
 				return;
 			}
-
 			if (!currentCell) {
 				return;
 			}
@@ -193,10 +311,6 @@ export const Grid = () => {
 				case 'ArrowRight':
 					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
-				case ' ':
-				case 'Tab':
-					handleTab();
-					break;
 				case 'Backspace':
 				case 'Delete': {
 					if (!currentEntryId) {
@@ -217,50 +331,20 @@ export const Grid = () => {
 					}
 					break;
 				}
-				default: {
-					if (currentEntryId) {
-						const value = cheatMode
-							? cells.getByCoords({ x: currentCell.x, y: currentCell.y })
-									?.solution
-							: keyDownRegex.test(key) && key.toUpperCase();
-
-						if (value) {
-							updateCell({
-								x: currentCell.x,
-								y: currentCell.y,
-								value,
-							});
-							if (direction === 'across') {
-								moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
-							}
-							if (direction === 'down') {
-								moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
-							}
-						} else {
-							preventDefault = false;
-						}
-					}
+				default:
+					preventDefault = false;
 					break;
-				}
 			}
 
 			if (preventDefault) {
 				event.preventDefault();
 			}
 		},
-		[
-			currentCell,
-			currentEntryId,
-			moveFocus,
-			handleTab,
-			updateCell,
-			cheatMode,
-			cells,
-		],
+		[currentCell, currentEntryId, moveFocus, updateCell],
 	);
 
 	const selectClickedCell = useCallback(
-		(event: MouseEvent) => {
+		(event: MouseEvent<HTMLDivElement>) => {
 			// The 'g' elements in the grid SVG are the cells, and we have set
 			// data-x and data-y attributes on them to represent their position
 			// in the grid.
@@ -293,11 +377,12 @@ export const Grid = () => {
 			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
-			const entryIdsForCell = cells.getByCoords({
+			const clickedCell = cells.getByCoords({
 				x: clickedCellX,
 				y: clickedCellY,
-			})?.group;
+			});
 
+			const entryIdsForCell = clickedCell?.group;
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
 			if (isUndefined(entryIdsForCell)) {
@@ -353,30 +438,13 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			setCurrentCell({ x: clickedCellX, y: clickedCellY });
+			inputRef.current?.blur();
+			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
+			inputRef.current?.focus();
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
-
-	useEffect(() => {
-		const preventDefault = (event: Event) => {
-			event.preventDefault();
-		};
-
-		const gridWrapper = gridWrapperRef.current;
-		gridWrapper?.addEventListener('beforeinput', preventDefault);
-		gridWrapper?.addEventListener('click', selectClickedCell);
-		gridWrapper?.addEventListener('keydown', handleKeyDown);
-		gridWrapper?.addEventListener('selectstart', preventDefault);
-
-		return () => {
-			gridWrapper?.removeEventListener('beforeinput', preventDefault);
-			gridWrapper?.removeEventListener('click', selectClickedCell);
-			gridWrapper?.removeEventListener('keydown', handleKeyDown);
-			gridWrapper?.removeEventListener('selectstart', preventDefault);
-		};
-	}, [handleKeyDown, selectClickedCell]);
 
 	const height =
 		theme.gridCellSize * dimensions.rows +
@@ -385,18 +453,48 @@ export const Grid = () => {
 		theme.gridCellSize * dimensions.cols +
 		theme.gridGutterSize * (dimensions.cols + 1);
 
+	const focusInput = useCallback(() => {
+		inputRef.current?.focus();
+	}, []);
+
+	const onFocus = useCallback(() => {
+		if (!currentCell) {
+			if (currentEntryId) {
+				const entry = entries.get(currentEntryId);
+				if (entry) {
+					setCurrentCell(cells.getByCoords(entry.position));
+				}
+			}
+			return setCurrentCell(cells.getByCoords({ x: 0, y: 0 }));
+		}
+		setFocused(true);
+	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
+
+	useEffect(() => {
+		const gridWrapper = gridWrapperRef.current;
+		gridWrapper?.addEventListener('focusin', focusInput);
+
+		return () => {
+			gridWrapper?.removeEventListener('focusin', focusInput);
+		};
+	}, [focusInput]);
+
 	return (
 		<div
-			contentEditable={true}
-			suppressContentEditableWarning={true}
 			ref={gridWrapperRef}
+			role={'grid'}
+			aria-colcount={dimensions.cols}
+			aria-rowcount={dimensions.rows}
 			css={css`
+				position: relative;
 				cursor: pointer;
-				caret-color: transparent;
 				width: 100%;
 				max-width: ${width}px;
 				max-height: ${height}px;
+				// This is to prevent the default blue highlight on click on android
+				-webkit-tap-highlight-color: transparent;
 			`}
+			onClick={selectClickedCell}
 			tabIndex={-1}
 		>
 			<svg
@@ -406,9 +504,12 @@ export const Grid = () => {
 					`,
 					cheatStyles,
 				]}
+				id={getId('crossword-grid')}
 				ref={gridRef}
 				viewBox={`0 0 ${width} ${height}`}
 				tabIndex={-1}
+				role={'none'}
+				aria-hidden={true}
 			>
 				{
 					/* Render the cells */
@@ -453,8 +554,52 @@ export const Grid = () => {
 						/>
 					))
 				}
-				{currentCell && <FocusIndicator currentCell={currentCell} />}
+				{currentCell && focused && <FocusIndicator currentCell={currentCell} />}
 			</svg>
+			<div
+				role={'row'}
+				css={css`
+					pointer-events: none;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+				`}
+			>
+				<input
+					ref={inputRef}
+					value={inputValue}
+					role="grid-cell"
+					aria-colindex={currentCell?.x}
+					aria-rowindex={currentCell?.y}
+					autoCapitalize={'none'}
+					id={getId('	crossword-input')}
+					aria-readonly={!currentCell?.group}
+					type="text"
+					pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+					onKeyDown={handleKeyDown}
+					onChange={handleChange}
+					onFocus={onFocus}
+					onBlur={() => setFocused(false)}
+					tabIndex={0}
+					css={css`
+						position: absolute;
+						pointer-events: none;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+					`}
+					autoComplete="off"
+					spellCheck="false"
+					autoCorrect="off"
+					aria-hidden="false"
+					aria-live="polite"
+					aria-label={currentCellLabel}
+				/>
+			</div>
 		</div>
 	);
 };
