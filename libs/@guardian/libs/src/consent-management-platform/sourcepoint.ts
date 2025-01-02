@@ -90,7 +90,6 @@ export const init = (
 			propertyId: getPropertyId(framework),
 			targetingParams: {
 				framework,
-				subscribed,
 			},
 			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
