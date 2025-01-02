@@ -20,7 +20,6 @@ declare global {
 				tests?: ServerSideTests;
 				page?: {
 					isPreview: boolean;
-					section?: string;
 				};
 				stage?: string;
 				isDev?: boolean;
