@@ -1,24 +1,25 @@
 import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
 import { Button as SourceButton } from '@guardian/source/react-components';
+import type { MouseEventHandler } from 'react';
 import { memo, useRef, useState } from 'react';
 
-type ButtonProps = SourceButtonProps & {
-	onSuccess: () => void;
+export type CrosswordButtonProps = SourceButtonProps & {
+	onClick: MouseEventHandler<HTMLButtonElement>;
 	requireConfirmation?: boolean;
 };
 
 const ButtonComponent = ({
 	children,
 	requireConfirmation = false,
-	onSuccess,
+	onClick: userOnClick,
 	...props
-}: ButtonProps) => {
+}: CrosswordButtonProps) => {
 	const [isConfirming, setIsConfirming] = useState<boolean>(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-	const onClick = () => {
+	const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
 		if (!requireConfirmation) {
-			onSuccess();
+			userOnClick(event);
 			return;
 		}
 		if (!isConfirming) {
@@ -29,16 +30,16 @@ const ButtonComponent = ({
 		if (timeoutRef.current) {
 			clearTimeout(timeoutRef.current);
 		}
-		onSuccess();
+		userOnClick(event);
 		setIsConfirming(false);
 	};
 
 	return (
-		<SourceButton onClick={onClick} size="xsmall" {...props}>
+		<SourceButton onClick={handleClick} size="xsmall" {...props}>
 			{isConfirming && 'Confirm '}
 			{children}
 		</SourceButton>
 	);
 };
 
-export const Button = memo(ButtonComponent);
+export const CrosswordButton = memo(ButtonComponent);

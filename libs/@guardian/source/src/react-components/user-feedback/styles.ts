@@ -37,9 +37,7 @@ const inlineMessageMedium = css`
 	}
 `;
 
-const inlineMessageSize: {
-	[key in InputSize]: SerializedStyles;
-} = {
+const inlineMessageSize: Record<InputSize, SerializedStyles> = {
 	small: inlineMessageSmall,
 	medium: inlineMessageMedium,
 };

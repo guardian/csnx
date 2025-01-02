@@ -1,5 +1,17 @@
 # @guardian/source-development-kitchen
 
+## 13.2.0
+
+### Minor Changes
+
+- c247761: Replace deprecated warning icon in ErrorSummary component
+
+## 13.1.1
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
 ## 13.1.0
 
 ### Minor Changes

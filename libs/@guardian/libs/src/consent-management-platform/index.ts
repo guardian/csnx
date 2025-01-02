@@ -94,7 +94,7 @@ const showPrivacyManager = () => {
 
 export const cmp: CMP = isServerSide
 	? serverCmp
-	: (window.guCmpHotFix.cmp ||= {
+	: (window.guCmpHotFix.cmp ??= {
 			init,
 			willShowPrivacyMessage,
 			willShowPrivacyMessageSync,
@@ -110,10 +110,10 @@ export const cmp: CMP = isServerSide
 
 export const onConsent = isServerSide
 	? serverOnConsent
-	: (window.guCmpHotFix.onConsent ||= clientOnConsent);
+	: (window.guCmpHotFix.onConsent ??= clientOnConsent);
 export const onConsentChange = isServerSide
 	? serverOnConsentChange
-	: (window.guCmpHotFix.onConsentChange ||= clientOnConsentChange);
+	: (window.guCmpHotFix.onConsentChange ??= clientOnConsentChange);
 export const getConsentFor = isServerSide
 	? serverGetConsentFor
-	: (window.guCmpHotFix.getConsentFor ||= clientGetConsentFor);
+	: (window.guCmpHotFix.getConsentFor ??= clientGetConsentFor);

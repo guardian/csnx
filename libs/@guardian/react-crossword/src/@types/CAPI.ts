@@ -1,4 +1,4 @@
-import type { Coords, Dimensions, Separator } from './crossword';
+import type { Coords, Dimensions } from './crossword';
 import type { Direction } from './Direction';
 import type { Entry } from './Entry';
 
@@ -30,9 +30,7 @@ export type CAPIEntry = Entry<number> & {
 	 * - ready,steady,go
 	 * - tofu-eating
 	 */
-	separatorLocations: {
-		[K in Separator]?: number[];
-	};
+	separatorLocations: Record<string, number[]>;
 };
 
 export type CAPICrossword = {

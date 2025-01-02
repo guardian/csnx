@@ -137,10 +137,10 @@ export const storage = new (class {
 	// when it's accessed i.e. we know we're going to use it
 
 	get local() {
-		return (this.#local ||= new StorageFactory('localStorage'));
+		return (this.#local ??= new StorageFactory('localStorage'));
 	}
 
 	get session() {
-		return (this.#session ||= new StorageFactory('sessionStorage'));
+		return (this.#session ??= new StorageFactory('sessionStorage'));
 	}
 })();

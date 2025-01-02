@@ -1,5 +1,29 @@
 # @guardian/eslint-config
 
+## 10.0.0
+
+### Patch Changes
+
+- 064c5fb: Fixes for new eslint config
+
+## 10.0.0-beta.8
+
+### Breaking Changes
+
+- Dep bumps changes, including `||=` → `??=`
+
+## 10.0.0-beta.7
+
+### Breaking Changes
+
+- Run react checks on `js` and `ts` files too (e.g. for custom hooks).
+
+## 10.0.0-beta.6
+
+### Patch Changes
+
+- Updates eslint to v9.14.0 as it updates `@eslint/plugin-kit` v0.2.3 with a security fix.
+
 ## 10.0.0-beta.5
 
 ### Breaking Changes

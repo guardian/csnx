@@ -9,9 +9,7 @@ import {
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeLabel } from './theme';
 
-const textSize: {
-	[key in InputSize]: string;
-} = {
+const textSize: Record<InputSize, string> = {
 	medium: textSansBold17,
 	small: textSansBold14,
 };
