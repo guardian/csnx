@@ -44,7 +44,6 @@ const Layout = ({
 		<div
 			css={css`
 				color: ${textColor};
-				position: relative;
 				display: flex;
 				flex-direction: column;
 				gap: ${space[4]}px;

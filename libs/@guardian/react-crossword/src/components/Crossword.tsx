@@ -1,4 +1,3 @@
-import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import {
@@ -32,7 +31,7 @@ export type CrosswordProps = {
 	Layout?: ComponentType<LayoutProps>;
 } & Partial<Theme>;
 
-const defaultWrapperStyles = css`
+const wrapperStyles = css`
 	*,
 	*::before,
 	*::after {
@@ -42,6 +41,7 @@ const defaultWrapperStyles = css`
 	}
 	height: 100%;
 	width: 100%;
+	position: relative;
 	container-type: inline-size;
 `;
 
@@ -65,13 +65,7 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	SavedMessage,
 };
 
-const TabWrangler = ({
-	children,
-	wrapperStyles = defaultWrapperStyles,
-}: {
-	children: ReactNode;
-	wrapperStyles?: SerializedStyles;
-}) => {
+const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 	const { currentFocus, focusOn } = useFocus();
 	const { getId } = useData();
 	const previousDirectionRef = useRef<TabDirection | undefined>(undefined);
@@ -175,11 +169,11 @@ export const Crossword = ({
 			userProgress={progress}
 			selectedEntryId={data.entries[0].id}
 		>
-			<TabWrangler>
+			<ApplicationWrapper>
 				{children ?? (
 					<LayoutComponent {...layoutComponents} gridWidth={gridWidth} />
 				)}
-			</TabWrangler>
+			</ApplicationWrapper>
 		</ContextProvider>
 	);
 };
