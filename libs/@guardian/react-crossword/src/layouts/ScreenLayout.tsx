@@ -67,7 +67,11 @@ const Layout = ({
 					}
 				`}
 			>
-				<StickyClue />
+				<StickyClue
+					styles={css`
+						max-width: ${gridWidth}px;
+					`}
+				/>
 				<Grid />
 				<div
 					css={css`
