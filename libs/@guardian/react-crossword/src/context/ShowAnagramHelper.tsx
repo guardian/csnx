@@ -17,10 +17,14 @@ const ShowAnagramHelperContext = createContext<Context | undefined>(undefined);
 
 export const ShowAnagramHelperProvider = ({
 	children,
+	userShowAnagramHelper = false,
 }: {
 	children: ReactNode;
+	userShowAnagramHelper?: boolean;
 }) => {
-	const [showAnagramHelper, setShowAnagramHelper] = useState(false);
+	const [showAnagramHelper, setShowAnagramHelper] = useState(
+		userShowAnagramHelper,
+	);
 
 	const toggleAnagramHelper = useCallback(() => {
 		setShowAnagramHelper((prev) => !prev);

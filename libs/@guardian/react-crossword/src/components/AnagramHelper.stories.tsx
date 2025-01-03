@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress12Across } from '../../stories/formats/grouped-clues.progress';
 import { ContextProvider } from '../context/ContextProvider';
+import { ShowAnagramHelperProvider } from '../context/ShowAnagramHelper';
 import { defaultTheme } from '../theme';
 import { AnagramHelper } from './AnagramHelper';
 
@@ -16,7 +17,9 @@ const meta: Meta<typeof AnagramHelper> = {
 				selectedEntryId="12-across"
 				userProgress={progress12Across}
 			>
-				<Story />
+				<ShowAnagramHelperProvider userShowAnagramHelper={true}>
+					<Story />
+				</ShowAnagramHelperProvider>
 			</ContextProvider>
 		),
 	],
@@ -38,7 +41,9 @@ export const LongClue: Story = {
 				theme={defaultTheme}
 				selectedEntryId="7-across"
 			>
-				<Story />
+				<ShowAnagramHelperProvider userShowAnagramHelper={true}>
+					<Story />
+				</ShowAnagramHelperProvider>
 			</ContextProvider>
 		),
 	],
