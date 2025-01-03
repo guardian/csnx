@@ -4,6 +4,7 @@ import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 import type { LayoutProps } from '../@types/Layout';
+import { StickyClue } from '../components/StickyClue';
 import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
 
@@ -68,6 +69,7 @@ const Layout = ({
 					}
 				`}
 			>
+				<StickyClue />
 				{showAnagramHelper ? <AnagramHelper /> : <Grid />}
 				<div
 					css={css`
