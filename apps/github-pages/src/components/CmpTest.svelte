@@ -3,6 +3,11 @@
 	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
+
+	let subscribed = window.location.search.includes('subscribed');
+	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
+	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
+
 	switch (window.location.hash) {
 		case '#tcfv2':
 			localStorage.setItem('framework', JSON.stringify('tcfv2'));
@@ -37,6 +42,13 @@
 		log('cmp', event);
 	}
 
+	let rejectAllFunc = () => {
+		cmp.rejectAll().then(() => {
+			logEvent({ title: 'rejectAll'});
+			// window.location.reload();
+		});
+	};
+
 	let clearPreferences = () => {
 		// clear local storage
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-local-storage
@@ -58,6 +70,23 @@
 		localStorage.setItem('framework', JSON.stringify(framework));
 		window.location.hash = framework;
 		clearPreferences();
+	};
+
+	const toggleSubscribed = () => {
+		subscribed = !subscribed;
+		toggleQueryParams('subscribed');
+		localStorage.setItem('subscribed', JSON.stringify(subscribed));
+	};
+
+	const toggleQueryParams = (param) => {
+		let queryParams = new URLSearchParams(window.location.search);
+		queryParams.has(param) ? queryParams.delete(param) : queryParams.append(param, '');
+		window.location.search = queryParams.toString();
+	};
+
+	const toggleIsFeatureFlagEnabled = () => {
+		isFeatureFlagEnabled = !isFeatureFlagEnabled;
+		toggleQueryParams('CMP_COP');
 	};
 
 	$: consentState = {};
@@ -91,10 +120,7 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
+		cmp.init({ country, subscribed: subscribed ?? false });
 	});
 </script>
 
@@ -104,6 +130,7 @@
 			>open privacy manager</button
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
+		<button on:click={rejectAllFunc}>rejectAll</button>
 		<label class={framework == 'tcfv2' ? 'selected' : 'none'}>
 			<input
 				type="radio"
@@ -132,6 +159,23 @@
 			/>
 			in Australia:
 			<strong>CCPA-like</strong>
+		</label>
+		<label class={subscribed ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleSubscribed}
+				checked={subscribed}
+			/>
+			<strong>Subscribed</strong>
+		</label>
+
+		<label class={isFeatureFlagEnabled ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsFeatureFlagEnabled}
+				checked={isFeatureFlagEnabled}
+			/>
+			<strong>Feature enabled?</strong>
 		</label>
 	</nav>
 

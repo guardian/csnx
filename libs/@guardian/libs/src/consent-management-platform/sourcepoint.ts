@@ -30,7 +30,8 @@ const getPropertyHref = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	return isGuardianDomain() ? null : 'http://ui-dev';
 };
 
 const getPropertyId = (framework: ConsentFramework): number => {
@@ -40,7 +41,11 @@ const getPropertyId = (framework: ConsentFramework): number => {
 	return PROPERTY_ID;
 };
 
-export const init = (framework: ConsentFramework, pubData = {}): void => {
+export const init = (
+	framework: ConsentFramework,
+	pubData = {},
+	subscribed: boolean,
+): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally
@@ -72,6 +77,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
+	const isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
+
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -82,9 +89,11 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework),
 			targetingParams: {
 				framework,
 			},
+			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
@@ -142,6 +151,18 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						)
 					) {
 						setTimeout(invokeCallbacks, 0);
+
+						if (
+							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
+							message_type === 'gdpr' &&
+							!subscribed &&
+							isFeatureFlagEnabled
+						) {
+							console.log('User has rejected all');
+							window.location.replace(
+								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
+							);
+						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
@@ -198,6 +219,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
+					subscribed,
+					isFeatureFlagEnabled,
 				},
 			};
 			break;
