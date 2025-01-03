@@ -77,6 +77,8 @@ export const init = (
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
+	const isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
+
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -153,7 +155,8 @@ export const init = (
 						if (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
-							!subscribed
+							!subscribed &&
+							isFeatureFlagEnabled
 						) {
 							console.log('User has rejected all');
 							window.location.replace(
@@ -217,6 +220,7 @@ export const init = (
 				targetingParams: {
 					framework,
 					subscribed,
+					isFeatureFlagEnabled,
 				},
 			};
 			break;

@@ -50,6 +50,7 @@ declare global {
 					targetingParams?: {
 						framework: ConsentFramework;
 						subscribed: boolean;
+						isFeatureFlagEnabled?: boolean;
 					};
 				};
 				usnat?: {

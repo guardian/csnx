@@ -5,6 +5,7 @@
 
 
 	let subscribed = window.location.search.includes('subscribed');
+	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
 	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
 
 	switch (window.location.hash) {
@@ -64,7 +65,6 @@
 	};
 
 	let framework = JSON.parse(localStorage.getItem('framework'));
-	// let subscribed = JSON.parse(localStorage.getItem('subscribed'));
 
 	let setLocation = () => {
 		localStorage.setItem('framework', JSON.stringify(framework));
@@ -72,10 +72,21 @@
 		clearPreferences();
 	};
 
-	let toggleSubscribed = () => {
+	const toggleSubscribed = () => {
 		subscribed = !subscribed;
-		window.location.search = subscribed ? 'subscribed' : '';
+		toggleQueryParams('subscribed');
 		localStorage.setItem('subscribed', JSON.stringify(subscribed));
+	};
+
+	const toggleQueryParams = (param) => {
+		let queryParams = new URLSearchParams(window.location.search);
+		queryParams.has(param) ? queryParams.delete(param) : queryParams.append(param, '');
+		window.location.search = queryParams.toString();
+	};
+
+	const toggleIsFeatureFlagEnabled = () => {
+		isFeatureFlagEnabled = !isFeatureFlagEnabled;
+		toggleQueryParams('CMP_COP');
 	};
 
 	$: consentState = {};
@@ -110,9 +121,6 @@
 
 		// do this loads to make sure that doesn't break things
 		cmp.init({ country, subscribed: subscribed ?? false });
-		// cmp.init({ country, subscribed: subscribed ?? false });
-		// cmp.init({ country, subscribed: subscribed ?? false });
-		// cmp.init({ country, subscribed: subscribed ?? false });
 	});
 </script>
 
@@ -159,6 +167,15 @@
 				checked={subscribed}
 			/>
 			<strong>Subscribed</strong>
+		</label>
+
+		<label class={isFeatureFlagEnabled ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsFeatureFlagEnabled}
+				checked={isFeatureFlagEnabled}
+			/>
+			<strong>Feature enabled?</strong>
 		</label>
 	</nav>
 
