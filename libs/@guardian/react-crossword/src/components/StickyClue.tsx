@@ -47,7 +47,7 @@ export const StickyClue = forwardRef(
 			position: sticky;
 			display: flex;
 			z-index: 1;
-			min-height: 3.125em;
+			min-height: 3.5em;
 			justify-content: space-between;
 			background: white;
 		`;
