@@ -3,7 +3,6 @@ import type { ComponentType, ReactNode } from 'react';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type { Direction } from '../@types/Direction';
-import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useFocus } from '../context/Focus';
@@ -39,11 +38,10 @@ const Label = memo(({ direction }: { direction: Direction }) => {
 });
 
 export const Clues = ({ direction, Header }: Props) => {
-	const { entries, getId, cells } = useData();
+	const { entries, getId } = useData();
 	const { progress } = useProgress();
 	const { currentFocus, focusOn } = useFocus();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
-	const { setCurrentCell } = useCurrentCell();
 
 	const cluesEntries = useMemo(() => {
 		const cluesEntries: CAPIEntry[] = [];
@@ -69,18 +67,8 @@ export const Clues = ({ direction, Header }: Props) => {
 				focusOn('grid');
 			}
 			setCurrentEntryId(entry.id);
-			setCurrentCell(
-				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
-			);
 		},
-		[
-			currentFocus,
-			currentEntryId,
-			setCurrentEntryId,
-			setCurrentCell,
-			cells,
-			focusOn,
-		],
+		[currentFocus, currentEntryId, setCurrentEntryId, focusOn],
 	);
 
 	/**
@@ -131,22 +119,13 @@ export const Clues = ({ direction, Header }: Props) => {
 		[cluesEntries, currentCluesEntriesIndex, handleClick],
 	);
 
-	// Call `setCurrentEntryId` and `setCurrentCell` if `currentCluesEntriesIndex` changes
+	// Call `setCurrentEntryId` if `currentCluesEntriesIndex` changes
 	useEffect(() => {
 		const entry = cluesEntries[currentCluesEntriesIndex];
 		if (entry) {
 			setCurrentEntryId(entry.id);
-			setCurrentCell(
-				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
-			);
 		}
-	}, [
-		currentCluesEntriesIndex,
-		cluesEntries,
-		setCurrentEntryId,
-		setCurrentCell,
-		cells,
-	]);
+	}, [currentCluesEntriesIndex, cluesEntries, setCurrentEntryId]);
 
 	// Add event listeners
 	useEffect(() => {
