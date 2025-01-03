@@ -22,6 +22,28 @@ import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
+const isCellInEntry = ({
+	cell,
+	entry,
+}: {
+	cell: CellType;
+	entry: CAPIEntry;
+}) => {
+	if (entry.direction === 'across') {
+		return (
+			cell.y === entry.position.y &&
+			cell.x >= entry.position.x &&
+			cell.x < entry.position.x + entry.length
+		);
+	} else {
+		return (
+			cell.x === entry.position.x &&
+			cell.y >= entry.position.y &&
+			cell.y < entry.position.y + entry.length
+		);
+	}
+};
+
 const getReadableLabelForCellAndEntry = ({
 	entry,
 	cell,
@@ -153,9 +175,26 @@ export const Grid = () => {
 
 	useEffect(() => {
 		if (currentFocus === 'grid') {
+			const currentEntry = currentEntryId
+				? entries.get(currentEntryId)
+				: undefined;
+			if (
+				currentEntry &&
+				currentCell &&
+				!isCellInEntry({ cell: currentCell, entry: currentEntry })
+			) {
+				setCurrentCell(cells.getByCoords(currentEntry.position));
+			}
 			inputRef.current?.focus();
 		}
-	}, [currentFocus]);
+	}, [
+		currentFocus,
+		currentCell,
+		currentEntryId,
+		entries,
+		setCurrentCell,
+		cells,
+	]);
 
 	const getProgressForEntry = useCallback(
 		(entry: CAPIEntry): string => {
@@ -467,8 +506,9 @@ export const Grid = () => {
 				if (entry) {
 					setCurrentCell(cells.getByCoords(entry.position));
 				}
+			} else {
+				setCurrentCell(cells.getByCoords({ x: 0, y: 0 }));
 			}
-			return setCurrentCell(cells.getByCoords({ x: 0, y: 0 }));
 		}
 		setFocused(true);
 	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
