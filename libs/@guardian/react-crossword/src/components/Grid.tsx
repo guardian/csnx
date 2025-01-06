@@ -622,10 +622,12 @@ export const Grid = () => {
 					css={css`
 						position: absolute;
 						pointer-events: none;
-						top: 0;
+						top: ${(currentCell?.y ?? 0) *
+							(theme.gridCellSize + theme.gridGutterSize) +
+						theme.gridGutterSize}px;
 						left: 0;
 						width: 100%;
-						height: 100%;
+						height: ${theme.gridCellSize}px;
 						opacity: 0;
 					`}
 					autoComplete="off"
