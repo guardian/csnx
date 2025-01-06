@@ -181,9 +181,12 @@ export const Grid = () => {
 		}
 	}, [currentEntryId, entries]);
 
+	// If the current focus is the grid
+	// and the current cell or current entry ID changes refocus the input.
 	useEffect(() => {
 		if (currentFocus === 'grid') {
-			// if there is a current cell and a current entry, but the cell is not in the entry
+			// If there is a current cell and a current entry, but the cell is not in the entry.
+			// Set the current cell to the first cell in the entry.
 			if (
 				currentEntry &&
 				currentCell &&
@@ -191,7 +194,8 @@ export const Grid = () => {
 			) {
 				setCurrentCell(cells.getByCoords(currentEntry.position));
 			}
-			// if there is no current cell set one
+			// if there is no current cell but there is an Entry
+			// Set the current cell to the first cell in the current entry
 			if (!currentCell && currentEntry) {
 				setCurrentCell(cells.getByCoords(currentEntry.position));
 			}
