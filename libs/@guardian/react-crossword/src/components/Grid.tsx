@@ -170,8 +170,10 @@ export const Grid = () => {
 		: undefined;
 
 	const focusInput = useCallback(() => {
-		focusOn('grid');
-	}, [focusOn]);
+		if (currentFocus !== 'grid') {
+			focusOn('grid');
+		}
+	}, [currentFocus, focusOn]);
 
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
@@ -499,13 +501,16 @@ export const Grid = () => {
 			// Set the new current cell and entry:
 			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
-			focusOn('grid');
+			if (currentFocus !== 'grid') {
+				focusOn('grid');
+			}
 		},
 		[
 			cells,
 			currentCell?.x,
 			currentCell?.y,
 			currentEntryId,
+			currentFocus,
 			focusOn,
 			setCurrentCell,
 			setCurrentEntryId,
