@@ -81,6 +81,7 @@ export const Crossword = ({
 					height: 100%;
 					width: 100%;
 					container-type: inline-size;
+					position: relative;
 				`}
 			>
 				{children ?? (
