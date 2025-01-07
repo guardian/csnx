@@ -38,6 +38,20 @@ export const ShortContainer: StoryFn = () => {
 	);
 };
 
+export const ShortAndNarrowContainer: StoryFn = () => {
+	return (
+		<>
+			<div
+				style={{
+					height: 400,
+					width: 600,
+				}}
+			>
+				<Crossword data={data} progress={progress} />
+			</div>
+		</>
+	);
+};
 export const MultiplePlayersColumn: StoryFn = () => {
 	return (
 		<>
