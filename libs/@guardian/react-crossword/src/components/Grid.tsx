@@ -287,9 +287,6 @@ export const Grid = () => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) {
-				return;
-			}
 			if (!currentCell) {
 				return;
 			}
