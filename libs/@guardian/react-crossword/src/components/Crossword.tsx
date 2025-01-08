@@ -22,8 +22,6 @@ import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
 
-type TabDirection = 'back' | 'forward';
-
 export type CrosswordProps = {
 	data: CAPICrossword;
 	progress?: Progress;
@@ -67,7 +65,6 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 	const { currentFocus, focusOn } = useFocus();
 	const { getId } = useData();
-	const previousDirectionRef = useRef<TabDirection | undefined>(undefined);
 	const startRef = useRef<HTMLDivElement | null>(null);
 	const endRef = useRef<HTMLDivElement | null>(null);
 
@@ -77,13 +74,7 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 			(direction === 'back' && currentFocus === 'application-start') ||
 			(direction === 'forward' && currentFocus === 'application-end')
 		) {
-			previousDirectionRef.current = undefined;
 			return undefined;
-		}
-
-		// Update previousDirection if needed
-		if (previousDirectionRef.current !== direction) {
-			previousDirectionRef.current = direction;
 		}
 
 		const currentIndex = focusTargets.findIndex(
