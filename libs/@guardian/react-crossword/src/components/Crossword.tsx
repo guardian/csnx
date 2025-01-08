@@ -68,13 +68,14 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 	const { currentFocus, focusOn } = useFocus();
 	const { getId } = useData();
 	const previousDirectionRef = useRef<TabDirection | undefined>(undefined);
-	const tabWrapperRef = useRef<HTMLDivElement | null>(null);
+	const startRef = useRef<HTMLDivElement | null>(null);
+	const endRef = useRef<HTMLDivElement | null>(null);
 
 	const getTarget = (direction: 'back' | 'forward') => {
 		// If direction is the same and we're on 'application', reset previousDirection and return
 		if (
-			direction === previousDirectionRef.current &&
-			currentFocus === 'application'
+			(direction === 'back' && currentFocus === 'application-start') ||
+			(direction === 'forward' && currentFocus === 'application-end')
 		) {
 			previousDirectionRef.current = undefined;
 			return undefined;
@@ -102,8 +103,11 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 	};
 
 	useEffect(() => {
-		if (currentFocus === 'application') {
-			tabWrapperRef.current?.focus();
+		if (currentFocus === 'application-start') {
+			startRef.current?.focus();
+		}
+		if (currentFocus === 'application-end') {
+			endRef.current?.focus();
 		}
 	}, [currentFocus]);
 
@@ -112,8 +116,6 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 			role="application"
 			css={wrapperStyles}
 			id={getId('crossword')}
-			ref={tabWrapperRef}
-			tabIndex={0}
 			onKeyDown={(event) => {
 				if (event.key === 'Tab') {
 					let nextTarget;
@@ -129,13 +131,26 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 					event.preventDefault();
 				}
 			}}
-			onFocus={() => {
-				if (isUndefined(currentFocus)) {
-					focusOn('application');
-				}
-			}}
 		>
+			<div
+				ref={startRef}
+				tabIndex={0}
+				onFocus={() => {
+					focusOn('application-start');
+				}}
+			>
+				Crossword Application Start
+			</div>
 			{children}
+			<div
+				ref={endRef}
+				tabIndex={0}
+				onFocus={() => {
+					focusOn('application-end');
+				}}
+			>
+				Crossword Application End
+			</div>
 		</div>
 	);
 };

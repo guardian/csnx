@@ -7,7 +7,12 @@ import {
 } from 'react';
 import type { Direction } from '../@types/Direction';
 
-export type FocusTarget = Direction | 'grid' | 'controls' | 'application';
+export type FocusTarget =
+	| Direction
+	| 'grid'
+	| 'controls'
+	| 'application-start'
+	| 'application-end';
 
 type Context = {
 	currentFocus?: FocusTarget;
@@ -15,11 +20,12 @@ type Context = {
 };
 
 export const focusTargets: FocusTarget[] = [
-	'application',
+	'application-start',
 	'across',
 	'grid',
 	'down',
 	'controls',
+	'application-end',
 ] as const;
 
 const FocusContext = createContext<Context | undefined>(undefined);
