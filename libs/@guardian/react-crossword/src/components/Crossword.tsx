@@ -29,6 +29,17 @@ export type CrosswordProps = {
 	Layout?: ComponentType<LayoutProps>;
 } & Partial<Theme>;
 
+const visuallyHidden = css`
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	padding: 0;
+	margin: -1px 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+`;
 const wrapperStyles = css`
 	*,
 	*::before,
@@ -126,6 +137,7 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 			<div
 				ref={startRef}
 				tabIndex={0}
+				css={visuallyHidden}
 				onFocus={() => {
 					focusOn('application-start');
 				}}
@@ -136,6 +148,7 @@ const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
 			<div
 				ref={endRef}
 				tabIndex={0}
+				css={visuallyHidden}
 				onFocus={() => {
 					focusOn('application-end');
 				}}

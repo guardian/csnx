@@ -63,12 +63,12 @@ export const Clues = ({ direction, Header }: Props) => {
 
 	const handleClick = useCallback(
 		(entry: CAPIEntry) => {
-			if (!(currentFocus === 'grid') && entry.id === currentEntryId) {
+			if (currentFocus === direction) {
 				focusOn('grid');
 			}
 			setCurrentEntryId(entry.id);
 		},
-		[currentFocus, currentEntryId, setCurrentEntryId, focusOn],
+		[currentFocus, direction, setCurrentEntryId, focusOn],
 	);
 
 	/**
