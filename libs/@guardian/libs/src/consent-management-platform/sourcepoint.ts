@@ -11,7 +11,7 @@ import {
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
-import { stub } from './stub';
+import { loadStubs } from './stub';
 import type { ConsentFramework } from './types';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
@@ -41,7 +41,8 @@ const getPropertyId = (framework: ConsentFramework): number => {
 };
 
 export const init = (framework: ConsentFramework, pubData = {}): void => {
-	stub(framework);
+	loadStubs(); // Temporarily load all stubs due the location mismatch. In this solution, SP will load the appropriate banner and record their consent.
+	// loadStubFor(framework);
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
@@ -75,6 +76,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
+	const recordLocationMismatch = (messageType: string) => {
+		log(
+			'cmp',
+			`Data mismatch: sp ${messageType}, fastly ${frameworkMessageType}`,
+		);
+	};
 	window._sp_queue = [];
 	/* istanbul ignore next */
 	window._sp_ = {
@@ -93,7 +100,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				onConsentReady: (message_type, consentUUID, euconsent) => {
 					log('cmp', `onConsentReady ${message_type}`);
 					if (message_type != frameworkMessageType) {
-						return;
+						recordLocationMismatch(message_type);
 					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
@@ -106,10 +113,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 				onMessageReady: (message_type) => {
 					log('cmp', `onMessageReady ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
+					log('cmp', `onMessageReady sp: ${message_type} fastly: ${framework}`);
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
 				},
@@ -118,9 +123,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					// Event fires when a message is displayed to the user and sends data about the message and campaign to the callback.
 					// The data sent to the callback is in the following structure:
 					log('cmp', `onMessageReceiveData ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', 'onMessageReceiveData ', data);
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
@@ -128,10 +130,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
 					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
-
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
@@ -146,34 +144,22 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
 					log('cmp', `onPrivacyManagerAction message_type: ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', `onPrivacyManagerAction ${pmData}`);
 				},
 				onMessageChoiceError: function (message_type, err) {
 					log('cmp', `onMessageChoiceError ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', `onMessageChoiceError ${err}`);
 				},
 				onPMCancel: function (message_type) {
 					log('cmp', `onPMCancel ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 				},
 				onSPPMObjectReady: function () {
 					log('cmp', 'onSPPMObjectReady');
 				},
 				onError: function (message_type, errorCode, errorObject, userReset) {
 					log('cmp', `errorCode: ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', `errorCode: ${errorCode}`);
 					log('cmp', errorObject);
@@ -193,31 +179,25 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
 
-	switch (framework) {
-		case 'tcfv2':
-			window._sp_.config.gdpr = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
-		case 'usnat':
-			window._sp_.config.usnat = {
-				targetingParams: {
-					framework,
-				},
-				includeUspApi: true,
-				transitionCCPAAuth: true,
-			};
-			break;
-		case 'aus':
-			window._sp_.config.ccpa = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
-	}
+	window._sp_.config.gdpr = {
+		targetingParams: {
+			framework,
+		},
+	};
+
+	window._sp_.config.usnat = {
+		targetingParams: {
+			framework,
+		},
+		includeUspApi: true,
+		transitionCCPAAuth: true,
+	};
+
+	window._sp_.config.ccpa = {
+		targetingParams: {
+			framework,
+		},
+	};
 
 	// TODO use libs function loadScript,
 	// change signature of init function to return promise returned by loadScript
