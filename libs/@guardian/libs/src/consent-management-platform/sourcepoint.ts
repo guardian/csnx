@@ -30,7 +30,8 @@ const getPropertyHref = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	return isGuardianDomain() ? null : 'http://ui-dev';
+	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
 };
 
 const getPropertyId = (framework: ConsentFramework): number => {
