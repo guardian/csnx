@@ -75,7 +75,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
-	const pageSection = window.guardian?.config?.page?.section as string;
+
+	const pageSection = window.guardian?.config?.page?.section;
 
 	window._sp_queue = [];
 	/* istanbul ignore next */
@@ -198,15 +199,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	switch (framework) {
 		case 'tcfv2':
-			{
-				const pageSection = window.guardian?.config?.page?.section as string;
-				window._sp_.config.gdpr = {
-					targetingParams: {
-						framework,
-						excludePage: isExcludedFromCMP(pageSection),
-					},
-				};
-			}
+			window._sp_.config.gdpr = {
+				targetingParams: {
+					framework,
+					excludePage: isExcludedFromCMP(pageSection),
+				},
+			};
 			break;
 		case 'usnat':
 			window._sp_.config.usnat = {
