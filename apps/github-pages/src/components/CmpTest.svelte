@@ -4,9 +4,9 @@
 	import { onMount } from 'svelte';
 
 
-	let subscribed = window.location.search.includes('subscribed');
+	let subscriber = window.location.search.includes('subscriber');
 	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
-	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
+	// localStorage.setItem('subscriber', window.location.search.includes('subscriber'));
 
 	switch (window.location.hash) {
 		case '#tcfv2':
@@ -72,10 +72,10 @@
 		clearPreferences();
 	};
 
-	const toggleSubscribed = () => {
-		subscribed = !subscribed;
-		toggleQueryParams('subscribed');
-		localStorage.setItem('subscribed', JSON.stringify(subscribed));
+	const toggleSubscriber = () => {
+		subscriber = !subscriber;
+		toggleQueryParams('subscriber');
+		localStorage.setItem('subscriber', JSON.stringify(subscriber));
 	};
 
 	const toggleQueryParams = (param) => {
@@ -120,7 +120,7 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country, subscribed: subscribed ?? false });
+		cmp.init({ country, subscriber: subscriber ?? false });
 	});
 </script>
 
@@ -160,13 +160,13 @@
 			in Australia:
 			<strong>CCPA-like</strong>
 		</label>
-		<label class={subscribed ? 'selected' : 'none'}>
+		<label class={subscriber ? 'selected' : 'none'}>
 			<input
 				type="checkbox"
-				on:change={toggleSubscribed}
-				checked={subscribed}
+				on:change={toggleSubscriber}
+				checked={subscriber}
 			/>
-			<strong>Subscribed</strong>
+			<strong>Subscriber</strong>
 		</label>
 
 		<label class={isFeatureFlagEnabled ? 'selected' : 'none'}>

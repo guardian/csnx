@@ -49,7 +49,7 @@ declare global {
 				gdpr?: {
 					targetingParams?: {
 						framework: ConsentFramework;
-						subscribed: boolean;
+						subscriber: boolean;
 						isFeatureFlagEnabled?: boolean;
 					};
 				};

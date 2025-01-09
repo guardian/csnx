@@ -18,11 +18,11 @@ import type {
 
 const init = (
 	framework: ConsentFramework,
-	subscribed: boolean,
+	subscriber: boolean,
 	pubData?: PubData,
 ): void => {
 	mark('cmp-init');
-	initSourcepoint(framework, pubData, subscribed);
+	initSourcepoint(framework, pubData, subscriber);
 };
 
 const willShowPrivacyMessage: WillShowPrivacyMessage = () =>

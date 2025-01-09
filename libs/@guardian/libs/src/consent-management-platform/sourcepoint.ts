@@ -44,7 +44,7 @@ const getPropertyId = (framework: ConsentFramework): number => {
 export const init = (
 	framework: ConsentFramework,
 	pubData = {},
-	subscribed: boolean,
+	subscriber: boolean,
 ): void => {
 	stub(framework);
 
@@ -155,7 +155,7 @@ export const init = (
 						if (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
-							!subscribed &&
+							!subscriber &&
 							isFeatureFlagEnabled
 						) {
 							console.log('User has rejected all');
@@ -219,7 +219,7 @@ export const init = (
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
-					subscribed,
+					subscriber,
 					isFeatureFlagEnabled,
 				},
 			};

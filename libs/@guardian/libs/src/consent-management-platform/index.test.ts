@@ -23,8 +23,8 @@ describe('cmp.init', () => {
 	it('does nothing if CMP is disabled', () => {
 		disable();
 
-		cmp.init({ country: 'GB', subscribed: true });
-		cmp.init({ country: 'US', subscribed: true });
+		cmp.init({ country: 'GB', subscriber: true });
+		cmp.init({ country: 'US', subscriber: true });
 
 		expect(CMP.init).not.toHaveBeenCalled();
 
@@ -33,22 +33,22 @@ describe('cmp.init', () => {
 
 	it('requires country to be set', () => {
 		expect(() => {
-			cmp.init({ subscribed: true, pubData: {} });
+			cmp.init({ subscriber: true, pubData: {} });
 		}).toThrow('required');
 	});
 
 	it('initializes CMP when in the US', () => {
-		cmp.init({ country: 'US', subscribed: true });
+		cmp.init({ country: 'US', subscriber: true });
 		expect(CMP.init).toHaveBeenCalledTimes(1);
 	});
 
 	it('initializes CMP when in Australia', () => {
-		cmp.init({ country: 'AU', subscribed: true });
+		cmp.init({ country: 'AU', subscriber: true });
 		expect(CMP.init).toHaveBeenCalledTimes(1);
 	});
 
 	it('initializes TCF when neither in the US or Australia', () => {
-		cmp.init({ country: 'GB', subscribed: true });
+		cmp.init({ country: 'GB', subscriber: true });
 		expect(CMP.init).toHaveBeenCalledTimes(1);
 	});
 });
@@ -56,10 +56,10 @@ describe('cmp.init', () => {
 // *************** START commercial.dcr.js hotfix ***************
 describe('hotfix cmp.init', () => {
 	it('only initialises once per page', () => {
-		cmp.init({ country: 'GB', subscribed: true });
-		cmp.init({ country: 'GB', subscribed: true });
-		cmp.init({ country: 'GB', subscribed: true });
-		cmp.init({ country: 'GB', subscribed: true });
+		cmp.init({ country: 'GB', subscriber: true });
+		cmp.init({ country: 'GB', subscriber: true });
+		cmp.init({ country: 'GB', subscriber: true });
+		cmp.init({ country: 'GB', subscriber: true });
 		expect(CMP.init).toHaveBeenCalledTimes(1);
 		expect(window.guCmpHotFix.initialised).toBe(true);
 	});
@@ -68,7 +68,7 @@ describe('hotfix cmp.init', () => {
 		const consoleWarn = jest
 			.spyOn(global.console, 'warn')
 			.mockImplementation(() => undefined);
-		cmp.init({ country: 'GB', subscribed: true });
+		cmp.init({ country: 'GB', subscriber: true });
 		const currentVersion = window.guCmpHotFix.cmp?.version;
 		const mockedVersion = 'X.X.X-mock';
 

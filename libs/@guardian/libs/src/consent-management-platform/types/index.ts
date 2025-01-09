@@ -22,7 +22,7 @@ export type CMP = {
 export type InitCMP = (arg0: {
 	pubData?: PubData;
 	country?: CountryCode;
-	subscribed?: boolean;
+	subscriber?: boolean;
 }) => void;
 
 export type OnConsentChange = (
@@ -50,7 +50,7 @@ export interface PubData {
 export interface SourcepointImplementation {
 	init: (
 		framework: ConsentFramework,
-		subscribed: boolean,
+		subscriber: boolean,
 		pubData?: PubData,
 	) => void;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
