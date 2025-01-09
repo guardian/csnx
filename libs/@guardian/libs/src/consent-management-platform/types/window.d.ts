@@ -3,6 +3,7 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
+import type { rejectAll } from '../rejectAll';
 import type { AUSData } from './aus';
 import type { TCData } from './tcfv2/TCData';
 import type { GPPData } from './usnat';
@@ -20,6 +21,7 @@ type GuCmpHotFix = {
 	onConsent?: typeof onConsent;
 	onConsentChange?: typeof onConsentChange;
 	getConsentFor?: typeof getConsentFor;
+	rejectAll?: typeof rejectAll;
 };
 
 declare global {
@@ -34,8 +36,10 @@ declare global {
 				accountId: number;
 				propertyHref?: Property;
 				propertyId?: number;
+				campaignEnv: 'prod' | 'stage';
 				targetingParams: {
 					framework: ConsentFramework;
+					isExcluded?: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
@@ -45,6 +49,8 @@ declare global {
 				gdpr?: {
 					targetingParams?: {
 						framework: ConsentFramework;
+						subscriber: boolean;
+						isFeatureFlagEnabled?: boolean;
 					};
 				};
 				usnat?: {

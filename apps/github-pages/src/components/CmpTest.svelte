@@ -3,6 +3,12 @@
 	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
+
+	let subscriber = window.location.search.includes('subscriber');
+	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
+	let isMainSite = window.location.search.includes('CMP_MAIN');
+	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
+
 	switch (window.location.hash) {
 		case '#tcfv2':
 			localStorage.setItem('framework', JSON.stringify('tcfv2'));
@@ -37,6 +43,13 @@
 		log('cmp', event);
 	}
 
+	let rejectAllFunc = () => {
+		cmp.rejectAll().then(() => {
+			logEvent({ title: 'rejectAll'});
+			// window.location.reload();
+		});
+	};
+
 	let clearPreferences = () => {
 		// clear local storage
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-local-storage
@@ -58,6 +71,28 @@
 		localStorage.setItem('framework', JSON.stringify(framework));
 		window.location.hash = framework;
 		clearPreferences();
+	};
+
+	const toggleQueryParams = (param) => {
+		let queryParams = new URLSearchParams(window.location.search);
+		queryParams.has(param) ? queryParams.delete(param) : queryParams.append(param, '');
+		window.location.search = queryParams.toString();
+	};
+
+	const toggleSubscriber = () => {
+		subscriber = !subscriber;
+		toggleQueryParams('subscriber');
+		// localStorage.setItem('subscriber', JSON.stringify(subscriber));
+	};
+
+	const toggleIsFeatureFlagEnabled = () => {
+		isFeatureFlagEnabled = !isFeatureFlagEnabled;
+		toggleQueryParams('CMP_COP');
+	};
+
+	const toggleIsMainSite = () => {
+		isMainSite = !isMainSite;
+		toggleQueryParams('CMP_MAIN');
 	};
 
 	$: consentState = {};
@@ -91,10 +126,7 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
+		cmp.init({ country, subscriber: subscriber ?? false });
 	});
 </script>
 
@@ -104,6 +136,7 @@
 			>open privacy manager</button
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
+		<button on:click={rejectAllFunc}>rejectAll</button>
 		<label class={framework == 'tcfv2' ? 'selected' : 'none'}>
 			<input
 				type="radio"
@@ -132,6 +165,33 @@
 			/>
 			in Australia:
 			<strong>CCPA-like</strong>
+		</label>
+
+		<label class={isMainSite ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsMainSite}
+				checked={isMainSite}
+			/>
+			<strong>Is main site?</strong>
+		</label>
+
+		<label class={subscriber ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleSubscriber}
+				checked={subscriber}
+			/>
+			<strong>Subscriber</strong>
+		</label>
+
+		<label class={isFeatureFlagEnabled ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsFeatureFlagEnabled}
+				checked={isFeatureFlagEnabled}
+			/>
+			<strong>Feature enabled?</strong>
 		</label>
 	</nav>
 
