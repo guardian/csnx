@@ -16,7 +16,12 @@ npm install --save-dev @guardian/prettier
 
 ## Usage
 
-prettier has two configuration files: .prettierignore, which is layed out like git's .gitignore and .prettierrc.json which should have the following contents to call the right instructions.
+Prettier can take two configuration files: 
+
+- `.prettierignore` which works like git's `.gitignore`
+- `.prettierrc.yml` (or [an equivalent](https://prettier.io/docs/en/configuration.html)) which provides settings to prettier
+
+To use this package, your prettier config should [reference it directly](https://prettier.io/docs/en/sharing-configurations#using-a-shareable-config):
 
 ```yaml
 # Prettier configuration file
