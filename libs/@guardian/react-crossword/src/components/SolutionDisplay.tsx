@@ -56,20 +56,20 @@ export const SolutionDisplayCell = ({
 		<div
 			css={css`
 				${textSans12};
-				font-size: ${theme.cellSize * 0.6}px;
-				background-color: ${theme.foreground};
-				border: 1px solid ${theme.background};
+				font-size: ${theme.gridCellSize * 0.6}px;
+				background-color: ${theme.gridForegroundColor};
+				border: 1px solid ${theme.gridBackgroundColor};
 				border-right: ${cellWithProgress.separator === ','
-					? `3px solid ${theme.background}`
-					: `1px solid ${theme.background}`};
-				width: ${theme.cellSize}px;
-				height: ${theme.cellSize}px;
+					? `3px solid ${theme.gridBackgroundColor}`
+					: `1px solid ${theme.gridBackgroundColor}`};
+				width: ${theme.gridCellSize}px;
+				height: ${theme.gridCellSize}px;
 				text-align: center;
 				align-content: center;
 				position: relative;
 				color: ${cellWithProgress.progress
-					? theme.text
-					: theme.provisionalText};
+					? theme.textColor
+					: theme.anagramHelperCandidateTextColor};
 			`}
 		>
 			{cellWithProgress.separator === '-' && (
@@ -77,10 +77,10 @@ export const SolutionDisplayCell = ({
 					css={css`
 						position: absolute;
 						height: 2px;
-						top: ${theme.cellSize / 2 - 0.5}px;
-						left: ${theme.cellSize - 5}px;
+						top: ${theme.gridCellSize / 2 - 0.5}px;
+						left: ${theme.gridCellSize - 5}px;
 						width: 7px;
-						background-color: ${theme.background};
+						background-color: ${theme.gridBackgroundColor};
 						z-index: 1;
 					`}
 				></div>
@@ -89,7 +89,7 @@ export const SolutionDisplayCell = ({
 				<div
 					css={css`
 						${textSans12};
-						font-size: ${Math.max(9, Math.round(theme.cellSize * 0.2))}px;
+						font-size: ${Math.max(9, Math.round(theme.gridCellSize * 0.2))}px;
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -133,7 +133,7 @@ export const SolutionDisplay = ({
 						css={css`
 							display: flex;
 							flex-direction: column;
-							width: ${theme.cellSize}px;
+							width: ${theme.gridCellSize}px;
 							margin-right: -1px;
 							position: relative;
 						`}

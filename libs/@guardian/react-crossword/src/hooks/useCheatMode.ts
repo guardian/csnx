@@ -61,7 +61,7 @@ export const useCheatMode = (ref: RefObject<SVGSVGElement>) => {
 	const [konamiProgress, setKonamiProgress] = useState<string[]>([]);
 	const [cheatMode, setCheatMode] = useState(false);
 
-	const onKeyDown = useCallback(
+	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
 			if (cheatMode) {
 				return;
@@ -78,16 +78,16 @@ export const useCheatMode = (ref: RefObject<SVGSVGElement>) => {
 
 	useEffect(() => {
 		if (konamiProgress.length === konamiCode.length) {
-			document.removeEventListener('keydown', onKeyDown);
+			document.removeEventListener('keydown', handleKeyDown);
 			setCheatMode(true);
 			ref.current?.classList.add('cheat-mode');
 		}
-	}, [konamiProgress.length, onKeyDown, ref]);
+	}, [konamiProgress.length, handleKeyDown, ref]);
 
 	useEffect(() => {
-		document.addEventListener('keydown', onKeyDown);
-		return () => document.removeEventListener('keydown', onKeyDown);
-	}, [onKeyDown]);
+		document.addEventListener('keydown', handleKeyDown);
+		return () => document.removeEventListener('keydown', handleKeyDown);
+	}, [handleKeyDown]);
 
 	return [cheatMode, cheatStyles];
 };

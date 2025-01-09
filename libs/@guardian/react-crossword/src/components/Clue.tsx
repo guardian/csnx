@@ -1,52 +1,92 @@
 import { css } from '@emotion/react';
+import { isString } from '@guardian/libs';
+import { visuallyHidden } from '@guardian/source/foundations';
 import { SvgTickRound } from '@guardian/source/react-components';
+import type { HTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
-import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
 
-interface Props {
+const punctuateString = (string: string) => {
+	const trimmed = string.trim();
+	return /[!?.…]$/.test(trimmed) ? trimmed : `${trimmed}.`;
+};
+
+const formatClueForScreenReader = (clueString: string) => {
+	const [, clue, lengths] = /(.+)\((.+?)\)$/gm.exec(clueString) ?? [];
+
+	// If we can't find the clue or lengths, just return the original string
+	if (!isString(clue) || !isString(lengths)) {
+		return punctuateString(clueString);
+	}
+
+	const [last, ...rest] = lengths
+		.split(',')
+		.map((_) => _.trim() + ' letters')
+		.reverse();
+
+	const lengthsToSentence = [rest.reverse().join(', '), last?.trim()]
+		.filter(Boolean)
+		.join(' and ');
+
+	const clueWithPunctuation = punctuateString(clue);
+
+	return `${clueWithPunctuation} ${lengthsToSentence}.`;
+};
+
+const formatNumberForScreenReader = (
+	humanNumber: string,
+	direction: string,
+) => {
+	return (
+		humanNumber
+			.split(',')
+			.map((number) => `${number.trim()} ${direction}`)
+			.join(', ') + '.'
+	);
+};
+
+type Props = {
 	entry: CAPIEntry;
-	isHighlighted?: boolean;
-	isActive?: boolean;
+	isConnected?: boolean;
+	isSelected?: boolean;
 	isComplete?: boolean;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 const ClueComponent = ({
 	entry,
-	isHighlighted,
-	isActive,
+	isConnected,
+	isSelected,
 	isComplete,
+	...props
 }: Props) => {
 	const theme = useTheme();
-	const { getId } = useData();
 	const { validAnswers } = useValidAnswers();
 
 	return (
 		<div
-			tabIndex={-1}
-			id={
-				// this must match the format used for aria-activedescendant in ./Clues.tsx
-				getId(`${entry.id}`)
-			}
 			data-entry-id={entry.id}
-			role="option"
-			aria-selected={isHighlighted}
 			css={css`
-				background-color: ${isActive
-					? theme.active
-					: isHighlighted
-						? theme.highlight
+				background-color: ${isSelected
+					? theme.selectedColor
+					: isConnected
+						? theme.connectedColor
 						: 'transparent'};
-				cursor: ${isHighlighted ? 'default' : 'pointer'};
+				cursor: ${isConnected ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};
 
 				padding: 0.5em 0;
 				color: currentColor;
+
+				.visuallyHidden {
+					${visuallyHidden}
+				}
 			`}
+			{...props}
 		>
 			<span
+				aria-hidden="true"
 				css={css`
 					font-weight: bold;
 					display: table-cell;
@@ -57,11 +97,17 @@ const ClueComponent = ({
 				{entry.humanNumber}
 			</span>
 			<span
+				aria-hidden="true"
 				css={css`
 					display: table-cell;
 				`}
-				dangerouslySetInnerHTML={{ __html: entry.clue }}
+				dangerouslySetInnerHTML={{
+					__html: entry.clue,
+				}}
 			></span>
+			<span css={css(visuallyHidden)}>
+				{`${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
+			</span>
 			{validAnswers.has(entry.id) && (
 				<span
 					css={css`

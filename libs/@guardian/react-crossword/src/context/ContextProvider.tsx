@@ -20,35 +20,34 @@
 
 import type { ReactNode } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
-import type { Progress } from '../@types/crossword';
+import type { Progress, Theme } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
-import type { CrosswordProps } from '../components/Crossword';
 import { CurrentCellProvider } from './CurrentCell';
 import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
 import { ProgressProvider } from './Progress';
+import { ShowAnagramHelperProvider } from './ShowAnagramHelper';
 import { ThemeProvider } from './Theme';
-import { UIStateProvider } from './UI';
 import { ValidAnswersProvider } from './ValidAnswers';
 
 export const ContextProvider = ({
 	data,
 	selectedEntryId,
 	userProgress,
-	userTheme,
+	theme,
 	children,
 }: {
 	data: CAPICrossword;
 	selectedEntryId?: EntryID;
 	userProgress?: Progress;
-	userTheme?: Partial<CrosswordProps>;
+	theme: Theme;
 	children: ReactNode;
 }) => {
 	const { entries, dimensions, solutionAvailable, id } = data;
 
 	return (
-		<ThemeProvider theme={userTheme}>
-			<UIStateProvider>
+		<ThemeProvider theme={theme}>
+			<ShowAnagramHelperProvider>
 				<DataProvider
 					entries={entries}
 					solutionAvailable={solutionAvailable}
@@ -67,7 +66,7 @@ export const ContextProvider = ({
 						</CurrentCellProvider>
 					</ProgressProvider>
 				</DataProvider>
-			</UIStateProvider>
+			</ShowAnagramHelperProvider>
 		</ThemeProvider>
 	);
 };

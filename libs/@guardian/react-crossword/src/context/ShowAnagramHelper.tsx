@@ -13,9 +13,13 @@ type Context = {
 	toggleAnagramHelper: () => void;
 };
 
-const UIStateContext = createContext<Context | undefined>(undefined);
+const ShowAnagramHelperContext = createContext<Context | undefined>(undefined);
 
-export const UIStateProvider = ({ children }: { children: ReactNode }) => {
+export const ShowAnagramHelperProvider = ({
+	children,
+}: {
+	children: ReactNode;
+}) => {
 	const [showAnagramHelper, setShowAnagramHelper] = useState(false);
 
 	const toggleAnagramHelper = useCallback(() => {
@@ -23,20 +27,20 @@ export const UIStateProvider = ({ children }: { children: ReactNode }) => {
 	}, [setShowAnagramHelper]);
 
 	return (
-		<UIStateContext.Provider
+		<ShowAnagramHelperContext.Provider
 			value={{ showAnagramHelper, setShowAnagramHelper, toggleAnagramHelper }}
 		>
 			{children}
-		</UIStateContext.Provider>
+		</ShowAnagramHelperContext.Provider>
 	);
 };
 
-export const useUIState = () => {
-	const context = useContext(UIStateContext);
+export const useShowAnagramHelper = () => {
+	const context = useContext(ShowAnagramHelperContext);
 
 	if (!context) {
 		throw new Error(
-			'UIStateContext does not exist. Have you used a Crossword subcomponent outside a Crossword component?',
+			'ShowAnagramHelperContext does not exist. Have you used a Crossword subcomponent outside a Crossword component?',
 		);
 	}
 

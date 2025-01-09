@@ -4,6 +4,7 @@ import { progress } from '../../stories/formats/grouped-clues.progress';
 import { separators as separatorData } from '../../stories/formats/separators';
 import type { Progress as ProgressType } from '../@types/crossword';
 import { ContextProvider } from '../context/ContextProvider';
+import { defaultTheme } from '../theme';
 import { Grid } from './Grid';
 
 const meta: Meta<typeof Grid> = {
@@ -16,6 +17,7 @@ const meta: Meta<typeof Grid> = {
 			return (
 				<ContextProvider
 					data={data}
+					theme={defaultTheme}
 					userProgress={parameters.progress as ProgressType}
 				>
 					<Story />
@@ -39,7 +41,7 @@ export const Progress: Story = {
 export const Separators: Story = {
 	decorators: [
 		(Story) => (
-			<ContextProvider data={separatorData}>
+			<ContextProvider data={separatorData} theme={defaultTheme}>
 				<Story />
 			</ContextProvider>
 		),
