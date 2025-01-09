@@ -260,8 +260,8 @@ export const Grid = () => {
 			}
 
 			// The 'g' elements in the grid SVG are the cells, and they have
-			// data-x and data-y attributes that represent their position
-			// in the grid.
+			// data-x and data-y attributes that represent their position in the
+			// grid.
 			const clickedCellX = Number(target.dataset.x);
 			const clickedCellY = Number(target.dataset.y);
 
@@ -308,8 +308,8 @@ export const Grid = () => {
 			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
 		);
 
-		// If the grid is focused, focus the new input if it's a white cell,
-		// or cell itself if it's a black cell.
+		// If the grid is focused, focus the new input if it's a white cell, or
+		// cell itself if it's a black cell.
 		if (focused) {
 			if (inputRef.current) {
 				inputRef.current.focus();
@@ -327,6 +327,21 @@ export const Grid = () => {
 		}
 	}, [currentEntryId, entries]);
 
+	// focus the first cell if the current entry changes
+	useEffect(() => {
+		if (!focused && currentEntryId) {
+			const cell = entries.get(currentEntryId);
+
+			if (cell) {
+				const targetCell = gridRef.current?.querySelector(
+					`[data-x="${cell.position.x}"][data-y="${cell.position.y}"]`,
+				) as HTMLElement | null;
+
+				targetCell?.focus();
+			}
+		}
+	}, [currentEntryId, entries, focused, setCurrentCell]);
+
 	return (
 		<svg
 			css={[
@@ -338,7 +353,8 @@ export const Grid = () => {
 					max-width: ${maxWidth}px;
 					max-height: ${maxHeight}px;
 
-					// This is to prevent the default blue highlight on click on android
+					// This is to prevent the default blue highlight on click on
+					// android
 					-webkit-tap-highlight-color: transparent;
 
 					*:focus {
@@ -417,7 +433,19 @@ export const Grid = () => {
 												type="text"
 												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 												onKeyDown={handleInputKeyDown}
-												onChange={noop}
+												onChange={
+													/**
+													 * keep react happy (it wants a change handler)
+													 *
+													 * we have to use keydown
+													 * because we don't want
+													 * more than one char ever
+													 * in the input, but we
+													 * still need to respond to
+													 * new chars being typed
+													 * */
+													noop
+												}
 												tabIndex={-1}
 												aria-label="guess"
 												css={css`
