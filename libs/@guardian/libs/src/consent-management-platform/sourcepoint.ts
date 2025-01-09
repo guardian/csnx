@@ -76,12 +76,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
-	const recordLocationMismatch = (messageType: string) => {
-		log(
-			'cmp',
-			`Data mismatch: sp ${messageType}, fastly ${frameworkMessageType}`,
-		);
-	};
 	window._sp_queue = [];
 	/* istanbul ignore next */
 	window._sp_ = {
@@ -99,9 +93,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			events: {
 				onConsentReady: (message_type, consentUUID, euconsent) => {
 					log('cmp', `onConsentReady ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						recordLocationMismatch(message_type);
-					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
 					log('cmp', `euconsent ${euconsent}`);
@@ -113,8 +104,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				},
 				onMessageReady: (message_type) => {
 					log('cmp', `onMessageReady ${message_type}`);
-
-					log('cmp', `onMessageReady sp: ${message_type} fastly: ${framework}`);
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
 				},
@@ -123,8 +112,15 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					// Event fires when a message is displayed to the user and sends data about the message and campaign to the callback.
 					// The data sent to the callback is in the following structure:
 					log('cmp', `onMessageReceiveData ${message_type}`);
-
 					log('cmp', 'onMessageReceiveData ', data);
+
+					if (message_type != frameworkMessageType) {
+						log(
+							'cmp',
+							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
+						);
+					}
+
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
 				},
 
