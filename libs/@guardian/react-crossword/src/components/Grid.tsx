@@ -2,14 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import type {
-	ChangeEvent,
-	FocusEvent,
-	FocusEventHandler,
-	KeyboardEvent,
-	MouseEvent,
-} from 'react';
-import type { CAPIEntry } from '../@types/CAPI';
+import type { FocusEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
 	Coords,
@@ -24,24 +17,15 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
-import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
-const getReadableLabelForCellAndEntry = ({
-	entry,
-	cell,
-	additionalEntry = false,
-}: {
-	entry: CAPIEntry;
-	cell: CellType;
-	additionalEntry?: boolean;
-}): string => {
-	if (entry.direction === 'across') {
-		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
-	} else {
-		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
-	}
+const noop = () => {};
+
+const getCellDescription = (cell: CellType) => {
+	return cell.group
+		? `Letter 3 of 7, 3 across. Also letter 1 of 3, 4 down.`
+		: 'Black cell';
 };
 
 const getCellPosition = (
@@ -49,6 +33,10 @@ const getCellPosition = (
 	{ gridCellSize, gridGutterSize }: Theme,
 ) => index * (gridCellSize + gridGutterSize) + gridGutterSize;
 
+const getCurrentEntryForCell = (cell: CellType, direction: Direction) =>
+	cell.group?.find((id) => id.endsWith(direction)) ?? cell.group?.[0];
+
+/** Renders a separator (e.g. a hyphen or solid bar) between cells */
 const Separator = memo(
 	({
 		position,
@@ -83,8 +71,8 @@ const Separator = memo(
 				strokeWidth={gridGutterSize}
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
-				{...props}
 				pointerEvents={'none'}
+				{...props}
 			/>
 		) : (
 			// draws a thicker border with the next cell
@@ -96,13 +84,14 @@ const Separator = memo(
 				strokeWidth={gridGutterSize * 2}
 				stroke={theme.gridBackgroundColor}
 				transform={transform[direction]}
-				{...props}
 				pointerEvents={'none'}
+				{...props}
 			/>
 		);
 	},
 );
 
+/** Renders a focus indicator over the current cell */
 const FocusIndicator = ({
 	currentCell,
 }: {
@@ -131,10 +120,6 @@ const FocusIndicator = ({
 	);
 };
 
-const getCellLabel = (cell: CellType, guess?: string) => {
-	return `${cell.group ? 'Cell' : 'Black cell'}. ${guess ? `Guess: ${guess}.` : ''}`;
-};
-
 export const Grid = () => {
 	const theme = useTheme();
 	const { cells, separators, entries, dimensions, getId } = useData();
@@ -143,7 +128,6 @@ export const Grid = () => {
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const [focused, setFocused] = useState(false);
-	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const currentCellRef = useRef<SVGGElement>(null);
@@ -152,174 +136,109 @@ export const Grid = () => {
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
-	// keep workingDirectionRef.current up to date with the current entry
-	useEffect(() => {
-		if (currentEntryId) {
-			workingDirectionRef.current =
-				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
-		}
-	}, [currentEntryId, entries]);
-
-	const getProgressForEntry = useCallback(
-		(entry: CAPIEntry): string => {
-			const progressForEntry: string[] = [];
-
-			for (let i = 0; i < entry.length; i++) {
-				const x =
-					entry.direction === 'across'
-						? entry.position.x + i
-						: entry.position.x;
-				const y =
-					entry.direction === 'down' ? entry.position.y + i : entry.position.y;
-				const cellProgress = progress[x]?.[y];
-				if (!isUndefined(cellProgress)) {
-					progressForEntry.push(cellProgress !== '' ? cellProgress : 'Empty');
-				}
-			}
-
-			return progressForEntry.join(', ');
-		},
-		[progress],
-	);
-
-	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
-	const currentCellProgress = progress[currentCell.x]?.[currentCell.y];
-
-	const additionalEntries =
-		currentCell.group
-			?.map((entryId) => {
-				if (entryId !== currentEntryId) {
-					return entries.get(entryId);
-				}
-				return undefined;
-			})
-			.filter((entry) => !isUndefined(entry)) ?? [];
-
-	const currentCellLabel =
-		`` +
-		// ('Column 1, row 1')
-		`Column ${currentCell.x + 1}, row ${currentCell.y + 1}. ` +
-		// ('A.') | ('Empty.')
-		`${currentCellProgress ? `${currentCellProgress}. ` : 'Empty. '}` +
-		// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
-		`${currentEntry ? `${getReadableLabelForCellAndEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
-		// ('Empty, A, Empty, Empty.')
-		`${currentEntry ? `${getProgressForEntry(currentEntry)}. ` : ''}` +
-		// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
-		`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`;
-
-	const updateCurrentCell = useCallback(
+	const moveCurrentCell = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
+
 			const newCell = cells.getByCoords({ x: newX, y: newY });
 
 			if (!newCell) {
 				return;
 			}
 
-			// maybe we can refactor this out into a shared function?
-			const possibleAcross = newCell.group?.find((group) =>
-				group.includes('across'),
-			);
-			const possibleDown = newCell.group?.find((group) =>
-				group.includes('down'),
-			);
-
 			//if we are typing in a cell without a group do not move focus
-			if (isTyping && isUndefined(currentCell.group)) {
+			if (
+				isTyping &&
+				(isUndefined(currentCell.group) || isUndefined(newCell.group))
+			) {
 				return;
 			}
 
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
-				setCurrentEntryId(possibleAcross ?? possibleDown);
 				return;
 			}
 
 			if (delta.y !== 0) {
 				setCurrentCell(newCell);
-				setCurrentEntryId(possibleDown ?? possibleAcross);
 				return;
 			}
 		},
-		[currentCell, cells, setCurrentCell, setCurrentEntryId],
+		[currentCell, cells, setCurrentCell],
 	);
 
-	const updateGuess = useCallback(
-		(event: ChangeEvent<HTMLInputElement>) => {
-			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
-			const key = event.target.value.toUpperCase();
-			const value = cheatMode
-				? cells.getByCoords({ x: currentCell.x, y: currentCell.y })?.solution
-				: keyDownRegex.test(key) && key.toUpperCase();
+	const handleInputKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLInputElement>) => {
+			if (event.key === 'Backspace' || event.key === 'Delete') {
+				event.preventDefault();
 
-			if (value) {
-				updateCell({
-					x: currentCell.x,
-					y: currentCell.y,
-					value,
-				});
-				if (direction === 'across') {
-					updateCurrentCell({ delta: { x: 1, y: 0 }, isTyping: true });
+				if ('value' in event.target) {
+					if (event.target.value === '') {
+						if (workingDirectionRef.current === 'across') {
+							moveCurrentCell({ delta: { x: -1, y: 0 }, isTyping: true });
+						} else {
+							moveCurrentCell({ delta: { x: 0, y: -1 }, isTyping: true });
+						}
+					} else {
+						updateCell({
+							x: currentCell.x,
+							y: currentCell.y,
+							value: '',
+						});
+					}
 				}
-				if (direction === 'down') {
-					updateCurrentCell({ delta: { x: 0, y: 1 }, isTyping: true });
+			} else {
+				const value = cheatMode
+					? cells.getByCoords({
+							x: currentCell.x,
+							y: currentCell.y,
+						})?.solution
+					: keyDownRegex.test(event.key) && event.key.toUpperCase();
+
+				if (value) {
+					event.preventDefault();
+					updateCell({
+						x: currentCell.x,
+						y: currentCell.y,
+						value,
+					});
+
+					if (workingDirectionRef.current === 'across') {
+						moveCurrentCell({ delta: { x: 1, y: 0 }, isTyping: true });
+					} else {
+						moveCurrentCell({ delta: { x: 0, y: 1 }, isTyping: true });
+					}
 				}
 			}
-			setInputValue('');
 		},
 		[
 			cells,
 			cheatMode,
-			currentCell,
-			currentEntryId,
-			updateCurrentCell,
+			currentCell.x,
+			currentCell.y,
 			updateCell,
+			moveCurrentCell,
 		],
 	);
 
 	const navigateGrid = useCallback(
-		(event: KeyboardEvent<SVGGElement>): void => {
-			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
-
+		(event: KeyboardEvent): void => {
 			let preventDefault = true;
 
-			const { key } = event;
-
-			switch (key) {
+			switch (event.key) {
 				case 'ArrowUp':
-					updateCurrentCell({ delta: { x: 0, y: -1 } });
+					moveCurrentCell({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
-					updateCurrentCell({ delta: { x: 0, y: 1 } });
+					moveCurrentCell({ delta: { x: 0, y: 1 } });
 					break;
 				case 'ArrowLeft':
-					updateCurrentCell({ delta: { x: -1, y: 0 } });
+					moveCurrentCell({ delta: { x: -1, y: 0 } });
 					break;
 				case 'ArrowRight':
-					updateCurrentCell({ delta: { x: 1, y: 0 } });
+					moveCurrentCell({ delta: { x: 1, y: 0 } });
 					break;
-				case 'Backspace':
-				case 'Delete': {
-					if (!currentEntryId) {
-						return;
-					}
-					updateCell({
-						x: currentCell.x,
-						y: currentCell.y,
-						value: '',
-					});
-					if (key === 'Backspace') {
-						if (direction === 'across') {
-							updateCurrentCell({ delta: { x: -1, y: 0 }, isTyping: true });
-						}
-						if (direction === 'down') {
-							updateCurrentCell({ delta: { x: 0, y: -1 }, isTyping: true });
-						}
-					}
-					break;
-				}
 				default:
 					preventDefault = false;
 					break;
@@ -329,11 +248,11 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, updateCurrentCell, updateCell],
+		[moveCurrentCell],
 	);
 
-	const handleCellClick = useCallback(
-		(event: MouseEvent<SVGGElement>) => {
+	const handleCellFocus = useCallback(
+		(event: FocusEvent<SVGGElement>) => {
 			const target = event.currentTarget as SVGElement | null;
 
 			if (!target) {
@@ -341,20 +260,10 @@ export const Grid = () => {
 			}
 
 			// The 'g' elements in the grid SVG are the cells, and they have
-			// aria-colindex and aria-rowindex attributes that represent their position
+			// data-x and data-y attributes that represent their position
 			// in the grid.
-			//
-			// We can use the event target to find the closest 'g' element, and
-			// then get the aria-colindex and aria-rowindex attributes to determine which cell
-			// was clicked.
-
 			const clickedCellX = Number(target.dataset.x);
 			const clickedCellY = Number(target.dataset.y);
-
-			// We may need to update the current entry based on the cell that
-			// was clicked. We'll start by assuming that the current entry still
-			// applies:
-			let newEntryId = currentEntryId;
 
 			// Get the entry IDs that apply to the clicked cell:
 			const clickedCell = cells.getByCoords({
@@ -368,67 +277,10 @@ export const Grid = () => {
 				);
 			}
 
-			const entryIdsForCell = clickedCell.group;
-
-			// If there are no entries for this cell (i.e. it's a black one),
-			// set the selected entry to undefined
-			if (isUndefined(entryIdsForCell)) {
-				newEntryId = undefined;
-			}
-
-			// This is not a black cell, so we should check if we need to do
-			// anything about the currently selected entry...
-
-			// If there is only one entry for this cell, select it:
-			else if (entryIdsForCell.length === 1) {
-				newEntryId = entryIdsForCell[0];
-			}
-
-			// There are multiple entries for this cell, so we need to decide
-			// which one to select...
-
-			// If we clicked the cell we were already on, switch to the next
-			// entry for this cell, if there is one (i.e. toggle between up
-			// and down entries):
-			else if (
-				currentCell.x === clickedCellX &&
-				currentCell.y === clickedCellY
-			) {
-				const alternateEntryId = entryIdsForCell.find(
-					(id) => id !== currentEntryId,
-				);
-
-				if (alternateEntryId) {
-					newEntryId = alternateEntryId;
-				}
-			}
-
-			// We're in a new cell...
-
-			// If we don't have a current entry to worry about, or if the
-			// current entry does not apply to the new cell, get a new
-			// entry. We'll try to keep the same direction, if possible:
-			else if (!currentEntryId || !entryIdsForCell.includes(currentEntryId)) {
-				const currentDirection = workingDirectionRef.current;
-				const newEntryIdOfCurrentDirection = entryIdsForCell.find((id) =>
-					id.endsWith(currentDirection),
-				);
-				newEntryId = newEntryIdOfCurrentDirection ?? entryIdsForCell[0];
-			}
-
-			// We're done.
-
-			// Save the direction of the final entry, if there is one:
-			const newEntryDirection = newEntryId?.split('-')[1];
-			if (newEntryDirection === 'across' || newEntryDirection === 'down') {
-				workingDirectionRef.current = newEntryDirection;
-			}
-
 			// Set the new current cell and entry:
 			setCurrentCell(clickedCell);
-			setCurrentEntryId(newEntryId);
 		},
-		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
+		[cells, setCurrentCell],
 	);
 
 	const maxHeight =
@@ -439,8 +291,9 @@ export const Grid = () => {
 		theme.gridCellSize * dimensions.cols +
 		theme.gridGutterSize * (dimensions.cols + 1);
 
-	const onGridFocus = useCallback(() => setFocused(true), []);
-	const onGridBlur = useCallback(
+	// keep track of whether the grid (or a child) is the current focus
+	const handleGridFocus = useCallback(() => setFocused(true), []);
+	const handleGridBlur = useCallback(
 		({ relatedTarget }: FocusEvent<SVGSVGElement>) =>
 			setFocused(
 				gridRef.current?.contains(relatedTarget as Node | null) ?? false,
@@ -448,7 +301,15 @@ export const Grid = () => {
 		[],
 	);
 
+	// Handle changes to the current cell
 	useEffect(() => {
+		// If the current cell changes, we need to update the current entry ID
+		setCurrentEntryId(
+			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
+		);
+
+		// If the grid is focused, focus the new input if it's a white cell,
+		// or cell itself if it's a black cell.
 		if (focused) {
 			if (inputRef.current) {
 				inputRef.current.focus();
@@ -456,7 +317,15 @@ export const Grid = () => {
 				currentCellRef.current?.focus();
 			}
 		}
-	}, [currentCell, focused]);
+	}, [currentCell, focused, setCurrentEntryId]);
+
+	// keep workingDirectionRef.current up to date with the current entry
+	useEffect(() => {
+		if (currentEntryId) {
+			workingDirectionRef.current =
+				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
+		}
+	}, [currentEntryId, entries]);
 
 	return (
 		<svg
@@ -484,8 +353,8 @@ export const Grid = () => {
 			tabIndex={-1}
 			role={'grid'}
 			onKeyDown={navigateGrid}
-			onFocus={onGridFocus}
-			onBlur={onGridBlur}
+			onFocus={handleGridFocus}
+			onBlur={handleGridBlur}
 		>
 			{
 				/* Render the cells */
@@ -533,12 +402,11 @@ export const Grid = () => {
 										isConnected={isConnected}
 										isBlackCell={isBlackCell}
 										role="cell"
-										onFocus={() => setCurrentCell(cell)}
 										data-x={cell.x}
 										data-y={cell.y}
 										tabIndex={isCurrentCell ? 0 : -1}
-										aria-label={getCellLabel(cell, guess)}
-										onClick={handleCellClick}
+										aria-description={getCellDescription(cell)}
+										onFocus={handleCellFocus}
 										ref={isCurrentCell ? currentCellRef : undefined}
 									>
 										{!isBlackCell && isCurrentCell && (
@@ -548,8 +416,10 @@ export const Grid = () => {
 												autoCapitalize={'none'}
 												type="text"
 												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-												onChange={updateGuess}
+												onKeyDown={handleInputKeyDown}
+												onChange={noop}
 												tabIndex={-1}
+												aria-label="guess"
 												css={css`
 													position: absolute;
 													top: 0;
