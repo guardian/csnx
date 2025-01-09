@@ -281,10 +281,6 @@ export const Grid = () => {
 
 	const navigateGrid = useCallback(
 		(event: KeyboardEvent<SVGGElement>): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) {
-				return;
-			}
-
 			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
 
 			let preventDefault = true;
@@ -536,7 +532,8 @@ export const Grid = () => {
 										isSelected={isSelected}
 										isConnected={isConnected}
 										isBlackCell={isBlackCell}
-										role="grid-cell"
+										role="cell"
+										onFocus={() => setCurrentCell(cell)}
 										data-x={cell.x}
 										data-y={cell.y}
 										tabIndex={isCurrentCell ? 0 : -1}
