@@ -5,7 +5,7 @@ import { separators as separatorData } from '../../stories/formats/separators';
 import type { Progress as ProgressType } from '../@types/crossword';
 import { ContextProvider } from '../context/ContextProvider';
 import { defaultTheme } from '../theme';
-import { Grid } from './Grid';
+import { Grid } from './Grid.table';
 
 const meta: Meta<typeof Grid> = {
 	component: Grid,

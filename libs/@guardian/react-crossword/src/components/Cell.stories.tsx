@@ -67,15 +67,15 @@ export const Black: Story = {
 export const Highlighted: Story = {
 	args: {
 		...args,
-		isHighlighted: true,
+		isConnected: true,
 	},
 };
 
 export const Active: Story = {
 	args: {
 		...args,
-		isActive: true,
-		isHighlighted: true,
+		isSelected: true,
+		isConnected: true,
 	},
 };
 

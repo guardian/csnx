@@ -2,13 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import type {
-	ChangeEvent,
-	FocusEvent,
-	FocusEventHandler,
-	KeyboardEvent,
-	MouseEvent,
-} from 'react';
+import type { ChangeEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
@@ -26,7 +20,6 @@ import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
 import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
-import { Cell } from './Cell';
 
 const getReadableLabelForCellAndEntry = ({
 	entry,
@@ -131,10 +124,6 @@ const FocusIndicator = ({
 	);
 };
 
-const getCellLabel = (cell: CellType, guess?: string) => {
-	return `${cell.group ? 'Cell' : 'Black cell'}. ${guess ? `Guess: ${guess}.` : ''}`;
-};
-
 export const Grid = () => {
 	const theme = useTheme();
 	const { cells, separators, entries, dimensions, getId } = useData();
@@ -146,9 +135,10 @@ export const Grid = () => {
 	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
-	const currentCellRef = useRef<SVGGElement>(null);
+	const gridWrapperRef = useRef<HTMLTableElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
 	const inputRef = useRef<HTMLInputElement>(null);
+	const focussedCellRef = useRef<HTMLTableCellElement>(null);
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
@@ -163,7 +153,6 @@ export const Grid = () => {
 	const getProgressForEntry = useCallback(
 		(entry: CAPIEntry): string => {
 			const progressForEntry: string[] = [];
-
 			for (let i = 0; i < entry.length; i++) {
 				const x =
 					entry.direction === 'across'
@@ -176,17 +165,18 @@ export const Grid = () => {
 					progressForEntry.push(cellProgress !== '' ? cellProgress : 'Empty');
 				}
 			}
-
 			return progressForEntry.join(', ');
 		},
 		[progress],
 	);
 
 	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
-	const currentCellProgress = progress[currentCell.x]?.[currentCell.y];
+	const currentCellProgress = currentCell
+		? progress[currentCell.x]?.[currentCell.y]
+		: undefined;
 
 	const additionalEntries =
-		currentCell.group
+		currentCell?.group
 			?.map((entryId) => {
 				if (entryId !== currentEntryId) {
 					return entries.get(entryId);
@@ -195,21 +185,26 @@ export const Grid = () => {
 			})
 			.filter((entry) => !isUndefined(entry)) ?? [];
 
-	const currentCellLabel =
-		`` +
-		// ('Column 1, row 1')
-		`Column ${currentCell.x + 1}, row ${currentCell.y + 1}. ` +
-		// ('A.') | ('Empty.')
-		`${currentCellProgress ? `${currentCellProgress}. ` : 'Empty. '}` +
-		// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
-		`${currentEntry ? `${getReadableLabelForCellAndEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
-		// ('Empty, A, Empty, Empty.')
-		`${currentEntry ? `${getProgressForEntry(currentEntry)}. ` : ''}` +
-		// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
-		`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`;
+	const currentCellLabel = currentCell
+		? `` +
+			// ('Column 1, row 1')
+			`Column ${currentCell.x + 1}, row ${currentCell.y + 1}. ` +
+			// ('A.') | ('Empty.')
+			`${currentCellProgress ? `${currentCellProgress}. ` : 'Empty. '}` +
+			// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
+			`${currentEntry ? `${getReadableLabelForCellAndEntry({ entry: currentEntry, cell: currentCell })}. ` : 'Blank. '}` +
+			// ('Empty, A, Empty, Empty.')
+			`${currentEntry ? `${getProgressForEntry(currentEntry)}. ` : ''}` +
+			// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
+			`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: currentCell, additionalEntry: true })).join('. ')}`
+		: '';
 
-	const updateCurrentCell = useCallback(
+	const moveFocus = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
+			if (!currentCell) {
+				return;
+			}
+
 			const newX = currentCell.x + delta.x;
 			const newY = currentCell.y + delta.y;
 			const newCell = cells.getByCoords({ x: newX, y: newY });
@@ -217,7 +212,6 @@ export const Grid = () => {
 			if (!newCell) {
 				return;
 			}
-
 			// maybe we can refactor this out into a shared function?
 			const possibleAcross = newCell.group?.find((group) =>
 				group.includes('across'),
@@ -231,23 +225,43 @@ export const Grid = () => {
 				return;
 			}
 
+			// The blurring and refocusing mimics moving to a new input cell after typing a letter.
+			// This is needed for a quirk in the Android keyboard.
+			// It stores typed text even if it is cleared by react
+			// and the backspace key does not work as expected.
+			//
+			// This is also needed for accessibility as it will read
+			// out the new value of the cell we have moved to
+			inputRef.current?.blur();
+
+			// If we're typing, we only want to move focus if the new cell is an entry square
+			if (isTyping && !possibleDown && !possibleAcross) {
+				inputRef.current?.focus();
+				return;
+			}
+
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
+				inputRef.current?.focus();
 				return;
 			}
 
 			if (delta.y !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
+				inputRef.current?.focus();
 				return;
 			}
 		},
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
 	);
 
-	const updateGuess = useCallback(
+	const handleChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
+			if (isUndefined(currentCell)) {
+				return;
+			}
 			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
 			const key = event.target.value.toUpperCase();
 			const value = cheatMode
@@ -261,48 +275,42 @@ export const Grid = () => {
 					value,
 				});
 				if (direction === 'across') {
-					updateCurrentCell({ delta: { x: 1, y: 0 }, isTyping: true });
+					moveFocus({ delta: { x: 1, y: 0 }, isTyping: true });
 				}
 				if (direction === 'down') {
-					updateCurrentCell({ delta: { x: 0, y: 1 }, isTyping: true });
+					moveFocus({ delta: { x: 0, y: 1 }, isTyping: true });
 				}
 			}
 			setInputValue('');
 		},
-		[
-			cells,
-			cheatMode,
-			currentCell,
-			currentEntryId,
-			updateCurrentCell,
-			updateCell,
-		],
+		[cells, cheatMode, currentCell, currentEntryId, moveFocus, updateCell],
 	);
 
-	const navigateGrid = useCallback(
-		(event: KeyboardEvent<SVGGElement>): void => {
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLTableElement>): void => {
 			if (event.ctrlKey || event.altKey || event.metaKey) {
+				return;
+			}
+			if (!currentCell) {
 				return;
 			}
 
 			const direction = currentEntryId?.includes('across') ? 'across' : 'down';
-
 			let preventDefault = true;
-
 			const { key } = event;
 
 			switch (key) {
 				case 'ArrowUp':
-					updateCurrentCell({ delta: { x: 0, y: -1 } });
+					moveFocus({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
-					updateCurrentCell({ delta: { x: 0, y: 1 } });
+					moveFocus({ delta: { x: 0, y: 1 } });
 					break;
 				case 'ArrowLeft':
-					updateCurrentCell({ delta: { x: -1, y: 0 } });
+					moveFocus({ delta: { x: -1, y: 0 } });
 					break;
 				case 'ArrowRight':
-					updateCurrentCell({ delta: { x: 1, y: 0 } });
+					moveFocus({ delta: { x: 1, y: 0 } });
 					break;
 				case 'Backspace':
 				case 'Delete': {
@@ -316,10 +324,10 @@ export const Grid = () => {
 					});
 					if (key === 'Backspace') {
 						if (direction === 'across') {
-							updateCurrentCell({ delta: { x: -1, y: 0 }, isTyping: true });
+							moveFocus({ delta: { x: -1, y: 0 }, isTyping: true });
 						}
 						if (direction === 'down') {
-							updateCurrentCell({ delta: { x: 0, y: -1 }, isTyping: true });
+							moveFocus({ delta: { x: 0, y: -1 }, isTyping: true });
 						}
 					}
 					break;
@@ -333,27 +341,36 @@ export const Grid = () => {
 				event.preventDefault();
 			}
 		},
-		[currentCell, currentEntryId, updateCurrentCell, updateCell],
+		[currentCell, currentEntryId, moveFocus, updateCell],
 	);
 
-	const handleCellClick = useCallback(
-		(event: MouseEvent<SVGGElement>) => {
-			const target = event.currentTarget as SVGElement | null;
+	const selectClickedCell = useCallback(
+		(event: MouseEvent<HTMLDivElement>) => {
+			// The 'g' elements in the grid SVG are the cells, and we have set
+			// data-x and data-y attributes on them to represent their position
+			// in the grid.
+			//
+			// _Note that this is not same as the x and y attributes of the SVG
+			// element itself, which are the position of the top left corner of
+			// the element._
+			//
+			// We can use the event target to find the closest 'g' element, and
+			// then get the data-x and data-y attributes to determine which cell
+			// was clicked.
 
-			if (!target) {
+			const { target } = event;
+
+			if (!(target instanceof Element)) {
+				return;
+			}
+			const g = target.closest('[data-x][data-y]');
+
+			if (!g) {
 				return;
 			}
 
-			// The 'g' elements in the grid SVG are the cells, and they have
-			// aria-colindex and aria-rowindex attributes that represent their position
-			// in the grid.
-			//
-			// We can use the event target to find the closest 'g' element, and
-			// then get the aria-colindex and aria-rowindex attributes to determine which cell
-			// was clicked.
-
-			const clickedCellX = Number(target.dataset.x);
-			const clickedCellY = Number(target.dataset.y);
+			const clickedCellX = Number(g.getAttribute('data-x'));
+			const clickedCellY = Number(g.getAttribute('data-y'));
 
 			// We may need to update the current entry based on the cell that
 			// was clicked. We'll start by assuming that the current entry still
@@ -366,14 +383,7 @@ export const Grid = () => {
 				y: clickedCellY,
 			});
 
-			if (!clickedCell) {
-				throw new Error(
-					`Could not find cell for x: ${clickedCellX}, y: ${clickedCellY}`,
-				);
-			}
-
-			const entryIdsForCell = clickedCell.group;
-
+			const entryIdsForCell = clickedCell?.group;
 			// If there are no entries for this cell (i.e. it's a black one),
 			// set the selected entry to undefined
 			if (isUndefined(entryIdsForCell)) {
@@ -395,7 +405,7 @@ export const Grid = () => {
 			// entry for this cell, if there is one (i.e. toggle between up
 			// and down entries):
 			else if (
-				currentCell.x === clickedCellX &&
+				currentCell?.x === clickedCellX &&
 				currentCell.y === clickedCellY
 			) {
 				const alternateEntryId = entryIdsForCell.find(
@@ -429,73 +439,92 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
+			inputRef.current?.blur();
 			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
+			inputRef.current?.focus();
 		},
 		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
 	);
 
-	const maxHeight =
+	const height =
 		theme.gridCellSize * dimensions.rows +
 		theme.gridGutterSize * (dimensions.rows + 1);
 
-	const maxWidth =
+	const width =
 		theme.gridCellSize * dimensions.cols +
 		theme.gridGutterSize * (dimensions.cols + 1);
 
-	const onGridFocus = useCallback(() => setFocused(true), []);
-	const onGridBlur = useCallback(
-		({ relatedTarget }: FocusEvent<SVGSVGElement>) =>
-			setFocused(
-				gridRef.current?.contains(relatedTarget as Node | null) ?? false,
-			),
-		[],
-	);
+	// const focusInput = useCallback(() => {
+	// 	inputRef.current?.focus();
+	// }, []);
+
+	const onFocus = useCallback(() => {
+		if (!currentCell) {
+			if (currentEntryId) {
+				const entry = entries.get(currentEntryId);
+				if (entry) {
+					setCurrentCell(cells.getByCoords(entry.position));
+				}
+			}
+			return setCurrentCell(cells.getByCoords({ x: 0, y: 0 }));
+		}
+		setFocused(true);
+	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
+
+	// useEffect(() => {
+	// 	const gridWrapper = gridWrapperRef.current;
+	// 	gridWrapper?.addEventListener('focusin', focusInput);
+
+	// 	return () => {
+	// 		gridWrapper?.removeEventListener('focusin', focusInput);
+	// 	};
+	// }, [focusInput]);
 
 	useEffect(() => {
-		if (focused) {
-			if (inputRef.current) {
-				inputRef.current.focus();
-			} else {
-				currentCellRef.current?.focus();
-			}
-		}
-	}, [currentCell, focused]);
+		inputRef.current?.focus();
+	}, [currentCell]);
 
 	return (
-		<svg
-			css={[
-				css`
-					background: ${theme.gridBackgroundColor};
-					position: relative;
-					cursor: pointer;
-					width: 100%;
-					max-width: ${maxWidth}px;
-					max-height: ${maxHeight}px;
-
-					// This is to prevent the default blue highlight on click on android
-					-webkit-tap-highlight-color: transparent;
-
-					*:focus {
-						outline: none;
-					}
-				`,
-				cheatStyles,
-			]}
-			id={getId('crossword-grid')}
-			ref={gridRef}
-			viewBox={`0 0 ${maxWidth} ${maxHeight}`}
-			tabIndex={-1}
+		<table
+			ref={gridWrapperRef}
 			role={'grid'}
-			onKeyDown={navigateGrid}
-			onFocus={onGridFocus}
-			onBlur={onGridBlur}
+			aria-colcount={dimensions.cols}
+			aria-rowcount={dimensions.rows}
+			css={css`
+				position: relative;
+				cursor: pointer;
+				width: 100%;
+				max-width: ${width}px;
+				max-height: ${height}px;
+				// This is to prevent the default blue highlight on click on android
+				-webkit-tap-highlight-color: transparent;
+				border-collapse: collapse;
+				background-color: ${theme.gridBackgroundColor};
+				border: 1px solid ${theme.gridBackgroundColor};
+			`}
+			onClick={selectClickedCell}
+			onKeyDown={handleKeyDown}
+			tabIndex={-1}
 		>
-			{
-				/* Render the cells */
-				Array.from({ length: dimensions.rows }).map((_, rowIndex) => {
+			<tbody
+				css={css`
+					gap: ${theme.gridGutterSize}px;
+					display: flex;
+					flex-direction: column;
+				`}
+			>
+				{Array.from({ length: dimensions.rows }).map((_, rowIndex) => {
 					return (
-						<g role="row" key={rowIndex}>
+						<tr
+							key={rowIndex}
+							css={css`
+								display: flex;
+								flex-direction: row;
+								flex: 1;
+								gap: ${theme.gridGutterSize}px;
+							`}
+						>
 							{Array.from({ length: dimensions.cols }).map((_, colIndex) => {
 								const cell = cells.getByCoords({ x: colIndex, y: rowIndex });
 
@@ -505,15 +534,9 @@ export const Grid = () => {
 									);
 								}
 
-								const x = getCellPosition(cell.x, theme);
-								const y = getCellPosition(cell.y, theme);
+								const isCurrentCell = Object.is(currentCell, cell);
 
-								const guess = progress[cell.x]?.[cell.y];
-
-								const isCurrentCell =
-									currentCell.x === cell.x && currentCell.y === cell.y;
-
-								const isBlackCell = isUndefined(cell.group);
+								const guess = progress[colIndex]?.[rowIndex];
 
 								const currentGroup =
 									currentEntryId && entries.get(currentEntryId)?.group;
@@ -527,69 +550,91 @@ export const Grid = () => {
 									: false;
 
 								return (
-									<Cell
-										key={`x${cell.x}y${cell.y}`}
-										data={cell}
-										x={x}
-										y={y}
-										guess={guess}
-										isSelected={isSelected}
-										isConnected={isConnected}
-										isBlackCell={isBlackCell}
-										role="grid-cell"
+									<td
+										key={colIndex}
 										data-x={cell.x}
 										data-y={cell.y}
 										tabIndex={isCurrentCell ? 0 : -1}
-										aria-label={getCellLabel(cell, guess)}
-										onClick={handleCellClick}
-										ref={isCurrentCell ? currentCellRef : undefined}
+										ref={isCurrentCell ? focussedCellRef : undefined}
+										css={[
+											css`
+												flex: 1;
+												aspect-ratio: 1;
+												text-align: center;
+												position: relative;
+												${textSans12};
+												font-size: ${theme.gridCellSize * 0.6}px;
+												background: ${isUndefined(cell.group)
+													? theme.gridBackgroundColor
+													: theme.gridForegroundColor};
+											`,
+											isConnected &&
+												css`
+													background: ${theme.connectedColor};
+												`,
+											isSelected &&
+												css`
+													background: ${theme.selectedColor};
+												`,
+											isUndefined(cell.number) ||
+												css`
+													:before {
+														position: absolute;
+														top: 0;
+														left: 0.15em;
+														${textSans12};
+														font-size: 9px;
+														content: '${cell.number}';
+													}
+												`,
+										]}
 									>
-										{!isBlackCell && isCurrentCell && (
+										{isCurrentCell ? (
 											<input
 												ref={inputRef}
 												value={guess}
+												role="grid-cell"
+												aria-colindex={currentCell?.x}
+												aria-rowindex={currentCell?.y}
 												autoCapitalize={'none'}
+												id={getId('	crossword-input')}
+												aria-readonly={!currentCell?.group}
 												type="text"
 												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-												onChange={updateGuess}
+												onChange={handleChange}
+												onFocus={onFocus}
+												onBlur={() => setFocused(false)}
 												tabIndex={-1}
 												css={css`
 													position: absolute;
+													pointer-events: none;
 													top: 0;
 													left: 0;
 													width: 100%;
 													height: 100%;
 													background: transparent;
-													border: none;
+													text-align: center;
 													${textSans12};
 													font-size: ${theme.gridCellSize * 0.6}px;
-													text-align: center;
+													border: none;
 												`}
 												autoComplete="off"
 												spellCheck="false"
 												autoCorrect="off"
+												aria-hidden="false"
+												aria-live="polite"
+												aria-label={currentCellLabel}
 											/>
+										) : (
+											guess
 										)}
-									</Cell>
+									</td>
 								);
 							})}
-						</g>
+						</tr>
 					);
-				})
-			}
-
-			{
-				/* Render the separators between cells */
-				separators.map(({ type, position, direction }) => (
-					<Separator
-						type={type}
-						position={position}
-						direction={direction}
-						key={`${type}${position.x}${position.y}${direction}`}
-					/>
-				))
-			}
-			{focused && <FocusIndicator currentCell={currentCell} />}
-		</svg>
+				})}
+			</tbody>
+		</table>
 	);
 };
