@@ -75,24 +75,22 @@ const CellComponent = forwardRef<SVGGElement, CellProps>(
 							</text>
 						)}
 
-						{children ?? (
-							<text
-								x={x + theme.gridCellSize / 2}
-								y={y + theme.gridCellSize / 2}
-								dy={theme.gridCellSize * 0.07}
-								textAnchor="middle"
-								dominantBaseline="middle"
-								fill={theme.textColor}
-								css={css`
-									${textSans12};
-									font-size: ${theme.gridCellSize * 0.6}px;
-								`}
-								aria-hidden="true"
-								role="presentation"
-							>
-								{guess}
-							</text>
-						)}
+						<text
+							x={x + theme.gridCellSize / 2}
+							y={y + theme.gridCellSize / 2}
+							dy={theme.gridCellSize * 0.07}
+							textAnchor="middle"
+							dominantBaseline="middle"
+							fill={theme.textColor}
+							css={css`
+								${textSans12};
+								font-size: ${theme.gridCellSize * 0.6}px;
+							`}
+							aria-hidden="true"
+							role="presentation"
+						>
+							{guess}
+						</text>
 
 						{children && (
 							<foreignObject
