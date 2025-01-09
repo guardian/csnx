@@ -6,8 +6,9 @@ import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
-	PROPERTY_ID,
 	PROPERTY_ID_AUSTRALIA,
+	PROPERTY_ID_MAIN,
+	PROPERTY_ID_SUPPORT,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
 import { invokeCallbacks } from './onConsentChange';
@@ -26,21 +27,40 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-const getPropertyHref = (framework: ConsentFramework): Property => {
+const getPropertyHref = (
+	framework: ConsentFramework,
+	isMainSite: boolean = true,
+): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	// return isGuardianDomain() ? null : 'http://ui-dev';
+	return isGuardianDomain()
+		? null
+		: isMainSite
+			? 'http://ui-dev'
+			: 'http://support-test';
 };
 
-const getPropertyId = (framework: ConsentFramework): number => {
+const getPropertyId = (
+	framework: ConsentFramework,
+	isMainSite: boolean = true,
+): number => {
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
-	return PROPERTY_ID;
+	if (framework == 'usnat') {
+		return PROPERTY_ID_MAIN;
+	}
+	return isMainSite ? PROPERTY_ID_MAIN : PROPERTY_ID_SUPPORT;
 };
 
-export const init = (framework: ConsentFramework, pubData = {}): void => {
+export const init = (
+	framework: ConsentFramework,
+	pubData = {},
+	subscriber: boolean,
+): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally
@@ -72,6 +92,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
+	const isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
+	const isMainSite = window.location.search.includes('CMP_MAIN');
+
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -81,10 +104,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework),
+			propertyHref: getPropertyHref(framework, isMainSite),
 			targetingParams: {
 				framework,
 			},
+			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
@@ -142,6 +167,18 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						)
 					) {
 						setTimeout(invokeCallbacks, 0);
+
+						if (
+							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
+							message_type === 'gdpr' &&
+							!subscriber &&
+							isFeatureFlagEnabled
+						) {
+							console.log('User has rejected all');
+							window.location.replace(
+								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
+							);
+						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
@@ -198,6 +235,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
+					subscriber,
+					isFeatureFlagEnabled,
 				},
 			};
 			break;

@@ -16,9 +16,13 @@ import type {
 	WillShowPrivacyMessage,
 } from './types';
 
-const init = (framework: ConsentFramework, pubData?: PubData): void => {
+const init = (
+	framework: ConsentFramework,
+	subscriber: boolean,
+	pubData?: PubData,
+): void => {
 	mark('cmp-init');
-	initSourcepoint(framework, pubData);
+	initSourcepoint(framework, pubData, subscriber);
 };
 
 const willShowPrivacyMessage: WillShowPrivacyMessage = () =>

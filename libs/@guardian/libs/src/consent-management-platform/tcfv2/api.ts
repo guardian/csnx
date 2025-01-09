@@ -6,6 +6,7 @@ type Command =
 	| 'ping'
 	| 'addEventListener'
 	| 'removeEventListener'
+	| 'postRejectAll'
 	| 'getCustomVendorConsents'; // Sourcepoint addition https://documentation.sourcepoint.com/web-implementation/sourcepoint-gdpr-and-tcf-v2-support/__tcfapi-getcustomvendorconsents-api
 
 const api = (command: Command) =>
@@ -33,3 +34,6 @@ export const getTCData = (): Promise<TCData> =>
 
 export const getCustomVendorConsents = (): Promise<CustomVendorConsents> =>
 	api('getCustomVendorConsents') as Promise<CustomVendorConsents>;
+
+export const rejectAllForUser = (): Promise<void> =>
+	api('postRejectAll') as Promise<void>;
