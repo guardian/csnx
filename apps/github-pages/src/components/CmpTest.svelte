@@ -6,7 +6,8 @@
 
 	let subscriber = window.location.search.includes('subscriber');
 	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
-	// localStorage.setItem('subscriber', window.location.search.includes('subscriber'));
+	let isMainSite = window.location.search.includes('CMP_MAIN');
+	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
 
 	switch (window.location.hash) {
 		case '#tcfv2':
@@ -72,21 +73,26 @@
 		clearPreferences();
 	};
 
-	const toggleSubscriber = () => {
-		subscriber = !subscriber;
-		toggleQueryParams('subscriber');
-		localStorage.setItem('subscriber', JSON.stringify(subscriber));
-	};
-
 	const toggleQueryParams = (param) => {
 		let queryParams = new URLSearchParams(window.location.search);
 		queryParams.has(param) ? queryParams.delete(param) : queryParams.append(param, '');
 		window.location.search = queryParams.toString();
 	};
 
+	const toggleSubscriber = () => {
+		subscribed = !subscribed;
+		toggleQueryParams('subscribed');
+		localStorage.setItem('subscribed', JSON.stringify(subscribed));
+	};
+
 	const toggleIsFeatureFlagEnabled = () => {
 		isFeatureFlagEnabled = !isFeatureFlagEnabled;
 		toggleQueryParams('CMP_COP');
+	};
+
+	const toggleIsMainSite = () => {
+		isMainSite = !isMainSite;
+		toggleQueryParams('CMP_MAIN');
 	};
 
 	$: consentState = {};
@@ -160,6 +166,16 @@
 			in Australia:
 			<strong>CCPA-like</strong>
 		</label>
+
+		<label class={isMainSite ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsMainSite}
+				checked={isMainSite}
+			/>
+			<strong>Is main site?</strong>
+		</label>
+
 		<label class={subscriber ? 'selected' : 'none'}>
 			<input
 				type="checkbox"
