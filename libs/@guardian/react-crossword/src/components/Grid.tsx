@@ -329,7 +329,7 @@ export const Grid = () => {
 
 	// focus the first cell if the current entry changes
 	useEffect(() => {
-		if (!focused && currentEntryId) {
+		if (!gridRef.current?.contains(document.activeElement) && currentEntryId) {
 			const cell = entries.get(currentEntryId);
 
 			if (cell) {
@@ -340,7 +340,7 @@ export const Grid = () => {
 				targetCell?.focus();
 			}
 		}
-	}, [currentEntryId, entries, focused, setCurrentCell]);
+	}, [currentEntryId, entries]);
 
 	return (
 		<svg
