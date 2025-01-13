@@ -1,5 +1,5 @@
 ---
-'@guardian/libs': minor
+'@guardian/libs': major
 ---
 
-Stop showing CMP on info pages
+The CMP will no longer show for pages with `window.guardian.config.page.section: 'info' | 'help'`
