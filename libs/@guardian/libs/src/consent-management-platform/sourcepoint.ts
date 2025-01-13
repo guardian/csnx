@@ -178,6 +178,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		transitionCCPAAuth: true,
 	};
 
+	window._sp_.config.gdpr = {};
+
+	window._sp_.config.ccpa = {};
+
 	// TODO use libs function loadScript,
 	// change signature of init function to return promise returned by loadScript
 	const spLib = document.createElement('script');
