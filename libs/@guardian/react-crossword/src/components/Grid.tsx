@@ -3,9 +3,11 @@ import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import type { FocusEvent, KeyboardEvent } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
 	Coords,
+	Entries,
 	Separator,
 	Theme,
 } from '../@types/crossword';
@@ -17,15 +19,54 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
+import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
 const noop = () => {};
 
-const getCellDescription = (cell: CellType) => {
-	return cell.group
-		? `Letter 3 of 7, 3 across. Also letter 1 of 3, 4 down.`
-		: 'Black cell';
+const getCellDescription = (
+	cell: CellType,
+	direction: Direction,
+	entries: Entries,
+) => {
+	const cellEntryIds = cell.group ?? [];
+	const cellRelevantEntryId =
+		cell.group?.length === 1
+			? cell.group[0]
+			: cellEntryIds.find((id) => id.endsWith(direction));
+	if (isUndefined(cellRelevantEntryId)) {
+		return 'Blank cell.';
+	}
+	const additionalEntries = cellEntryIds
+		.filter((id) => !id.endsWith(direction) && id !== cellRelevantEntryId)
+		.map((id) => entries.get(id))
+		.filter((entry) => !isUndefined(entry));
+	const relevantEntry = entries.get(cellRelevantEntryId);
+
+	return (
+		`` +
+		// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
+		`${relevantEntry ? `${getReadableLabelForCellAndEntry({ entry: relevantEntry, cell: cell })}. ` : 'Blank. '}` +
+		// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
+		`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: cell, additionalEntry: true })).join('. ')}`
+	);
+};
+
+const getReadableLabelForCellAndEntry = ({
+	entry,
+	cell,
+	additionalEntry = false,
+}: {
+	entry: CAPIEntry;
+	cell: CellType;
+	additionalEntry?: boolean;
+}): string => {
+	if (entry.direction === 'across') {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	} else {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	}
 };
 
 const getCellPosition = (
@@ -130,11 +171,28 @@ export const Grid = () => {
 	const [focused, setFocused] = useState(false);
 
 	const gridRef = useRef<SVGSVGElement>(null);
-	const currentCellRef = useRef<SVGGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
-	const inputRef = useRef<HTMLInputElement>(null);
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
+
+	const updateCellFocus = useCallback(
+		(cell: CellType) => {
+			const clickedCellInput = document.getElementById(
+				getId(`cell-input-${cell.x}-${cell.y}`),
+			);
+			const clickedCellGroup = document.getElementById(
+				getId(`cell-group-${cell.x}-${cell.y}`),
+			);
+
+			if (clickedCellInput) {
+				clickedCellInput.focus();
+			} else {
+				clickedCellGroup?.focus();
+			}
+			setCurrentCell(cell);
+		},
+		[getId, setCurrentCell],
+	);
 
 	const moveCurrentCell = useCallback(
 		({ delta, isTyping = false }: { delta: Coords; isTyping?: boolean }) => {
@@ -142,7 +200,6 @@ export const Grid = () => {
 			const newY = currentCell.y + delta.y;
 
 			const newCell = cells.getByCoords({ x: newX, y: newY });
-
 			if (!newCell) {
 				return;
 			}
@@ -156,16 +213,16 @@ export const Grid = () => {
 			}
 
 			if (delta.x !== 0) {
-				setCurrentCell(newCell);
+				updateCellFocus(newCell);
 				return;
 			}
 
 			if (delta.y !== 0) {
-				setCurrentCell(newCell);
+				updateCellFocus(newCell);
 				return;
 			}
 		},
-		[currentCell, cells, setCurrentCell],
+		[currentCell.x, currentCell.y, currentCell.group, cells, updateCellFocus],
 	);
 
 	const handleInputKeyDown = useCallback(
@@ -278,9 +335,9 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			setCurrentCell(clickedCell);
+			updateCellFocus(clickedCell);
 		},
-		[cells, setCurrentCell],
+		[cells, updateCellFocus],
 	);
 
 	const maxHeight =
@@ -307,16 +364,6 @@ export const Grid = () => {
 		setCurrentEntryId(
 			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
 		);
-
-		// If the grid is focused, focus the new input if it's a white cell, or
-		// cell itself if it's a black cell.
-		if (focused) {
-			if (inputRef.current) {
-				inputRef.current.focus();
-			} else {
-				currentCellRef.current?.focus();
-			}
-		}
 	}, [currentCell, focused, setCurrentEntryId]);
 
 	// keep workingDirectionRef.current up to date with the current entry
@@ -330,17 +377,13 @@ export const Grid = () => {
 	// focus the first cell if the current entry changes
 	useEffect(() => {
 		if (!gridRef.current?.contains(document.activeElement) && currentEntryId) {
-			const cell = entries.get(currentEntryId);
-
+			const entry = entries.get(currentEntryId);
+			const cell = entry ? cells.getByCoords(entry.position) : undefined;
 			if (cell) {
-				const targetCell = gridRef.current?.querySelector(
-					`[data-x="${cell.position.x}"][data-y="${cell.position.y}"]`,
-				) as HTMLElement | null;
-
-				targetCell?.focus();
+				updateCellFocus(cell);
 			}
 		}
-	}, [currentEntryId, entries]);
+	}, [cells, currentEntryId, entries, updateCellFocus]);
 
 	return (
 		<svg
@@ -421,50 +464,52 @@ export const Grid = () => {
 										data-x={cell.x}
 										data-y={cell.y}
 										tabIndex={isCurrentCell ? 0 : -1}
-										aria-description={getCellDescription(cell)}
+										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
-										ref={isCurrentCell ? currentCellRef : undefined}
 									>
-										{!isBlackCell && isCurrentCell && (
-											<input
-												ref={inputRef}
-												value={guess}
-												autoCapitalize={'none'}
-												type="text"
-												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-												onKeyDown={handleInputKeyDown}
-												onChange={
-													/**
-													 * keep react happy (it wants a change handler)
-													 *
-													 * we have to use keydown
-													 * because we don't want
-													 * more than one char ever
-													 * in the input, but we
-													 * still need to respond to
-													 * new chars being typed
-													 * */
-													noop
-												}
-												tabIndex={-1}
-												aria-label="guess"
-												css={css`
-													position: absolute;
-													top: 0;
-													left: 0;
-													width: 100%;
-													height: 100%;
-													background: transparent;
-													border: none;
-													${textSans12};
-													font-size: ${theme.gridCellSize * 0.6}px;
-													text-align: center;
-												`}
-												autoComplete="off"
-												spellCheck="false"
-												autoCorrect="off"
-											/>
-										)}
+										<input
+											value={guess}
+											autoCapitalize={'none'}
+											type="text"
+											pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+											onKeyDown={handleInputKeyDown}
+											id={getId(`cell-input-${cell.x}-${cell.y}`)}
+											onChange={
+												/**
+												 * keep react happy (it wants a change handler)
+												 *
+												 * we have to use keydown
+												 * because we don't want
+												 * more than one char ever
+												 * in the input, but we
+												 * still need to respond to
+												 * new chars being typed
+												 * */
+												noop
+											}
+											tabIndex={-1}
+											aria-label="Crossword cell"
+											aria-description={getCellDescription(
+												cell,
+												workingDirectionRef.current,
+												entries,
+											)}
+											css={css`
+												position: absolute;
+												top: 0;
+												left: 0;
+												width: 100%;
+												height: 100%;
+												background: transparent;
+												border: none;
+												${textSans12};
+												font-size: ${theme.gridCellSize * 0.6}px;
+												text-align: center;
+											`}
+											autoComplete="off"
+											spellCheck="false"
+											autoCorrect="off"
+										/>
 									</Cell>
 								);
 							})}

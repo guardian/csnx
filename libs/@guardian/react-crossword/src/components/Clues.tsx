@@ -64,9 +64,13 @@ export const Clues = ({ direction, Header }: Props) => {
 	const selectClue = useCallback(
 		(entry: CAPIEntry) => {
 			setCurrentEntryId(entry.id);
-			setCurrentCell(
-				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
-			);
+			const newCell = cells.getByCoords({
+				x: entry.position.x,
+				y: entry.position.y,
+			});
+			if (newCell) {
+				setCurrentCell(newCell);
+			}
 		},
 		[cells, setCurrentCell, setCurrentEntryId],
 	);
