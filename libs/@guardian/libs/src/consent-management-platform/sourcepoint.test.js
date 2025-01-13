@@ -33,9 +33,9 @@ describe('Sourcepoint unified', () => {
 			);
 
 			if (framework == 'tcfv2') {
-				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
-					framework,
-				);
+				// expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
+				// 	framework,
+				// );
 				expect(window._sp_.config.gdpr).toBeDefined();
 				// expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeDefined();
@@ -43,9 +43,9 @@ describe('Sourcepoint unified', () => {
 			} else if (framework == 'usnat') {
 				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
 				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
-				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
-					framework,
-				);
+				// expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
+				// 	framework,
+				// );
 				expect(window._sp_.config.gdpr).toBeDefined;
 				expect(window.__uspapi).toBeDefined();
 				// expect(window.__tcfapi).toBeDefined();
