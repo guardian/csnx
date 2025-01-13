@@ -172,15 +172,20 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
+	if (framework == 'aus') {
+		window._sp_.config.ccpa = {
+			targetingParams: {
+				framework: framework,
+			},
+		};
+	} else {
+		window._sp_.config.usnat = {
+			includeUspApi: true,
+			transitionCCPAAuth: true,
+		};
 
-	window._sp_.config.usnat = {
-		includeUspApi: true,
-		transitionCCPAAuth: true,
-	};
-
-	window._sp_.config.gdpr = {};
-
-	window._sp_.config.ccpa = {};
+		window._sp_.config.gdpr = {};
+	}
 
 	// TODO use libs function loadScript,
 	// change signature of init function to return promise returned by loadScript
