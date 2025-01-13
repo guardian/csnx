@@ -1,10 +1,11 @@
 import { css } from '@emotion/react';
 import { textSans12 } from '@guardian/source/foundations';
+import type { SVGProps } from 'react';
 import { memo } from 'react';
 import type { Cell as CellType } from '../@types/crossword';
 import { useTheme } from '../context/Theme';
 
-export type CellProps = {
+export type BaseCellProps = {
 	data: CellType;
 	x: number;
 	y: number;
@@ -14,7 +15,9 @@ export type CellProps = {
 	isConnected?: boolean;
 	/** is the cell for the selected clue? */
 	isSelected?: boolean;
-} & React.SVGProps<SVGGElement>;
+};
+
+export type CellProps = BaseCellProps & SVGProps<SVGGElement>;
 
 const CellComponent = ({
 	data,
