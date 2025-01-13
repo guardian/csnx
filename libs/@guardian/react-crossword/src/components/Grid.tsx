@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import type { FocusEvent, KeyboardEvent } from 'react';
+import type { FocusEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
@@ -177,6 +177,20 @@ export const Grid = () => {
 
 	const updateCellFocus = useCallback(
 		(cell: CellType) => {
+			// Clicking on the current cell changes the current entry if there are multiple
+			if (
+				cell.x === currentCell.x &&
+				cell.y === currentCell.y &&
+				cell.group?.length
+			) {
+				const otherEntry = cell.group.find(
+					(entryId) => entryId !== currentEntryId,
+				);
+				if (otherEntry) {
+					setCurrentEntryId(otherEntry);
+					return;
+				}
+			}
 			const clickedCellInput = document.getElementById(
 				getId(`cell-input-${cell.x}-${cell.y}`),
 			);
@@ -191,7 +205,14 @@ export const Grid = () => {
 			}
 			setCurrentCell(cell);
 		},
-		[getId, setCurrentCell],
+		[
+			currentCell.x,
+			currentCell.y,
+			currentEntryId,
+			getId,
+			setCurrentCell,
+			setCurrentEntryId,
+		],
 	);
 
 	const moveCurrentCell = useCallback(
@@ -308,8 +329,8 @@ export const Grid = () => {
 		[moveCurrentCell],
 	);
 
-	const handleCellFocus = useCallback(
-		(event: FocusEvent<SVGGElement>) => {
+	const handleCellClick = useCallback(
+		(event: MouseEvent<SVGGElement>) => {
 			const target = event.currentTarget as SVGElement | null;
 
 			if (!target) {
@@ -465,7 +486,7 @@ export const Grid = () => {
 										data-y={cell.y}
 										tabIndex={isCurrentCell ? 0 : -1}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
-										onFocus={handleCellFocus}
+										onClick={handleCellClick}
 									>
 										<input
 											value={guess}
