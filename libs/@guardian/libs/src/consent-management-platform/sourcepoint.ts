@@ -11,6 +11,7 @@ import {
 	PROPERTY_ID_SUPPORT,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
+import { mergeUserConsent } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
@@ -94,6 +95,10 @@ export const init = (
 
 	const isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
 	const isMainSite = window.location.search.includes('CMP_MAIN');
+
+	if (!isMainSite) {
+		mergeUserConsent();
+	}
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
