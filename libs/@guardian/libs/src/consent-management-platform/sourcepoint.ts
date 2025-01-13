@@ -30,7 +30,8 @@ const getPropertyHref = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	return isGuardianDomain() ? null : 'https://ui-dev';
+	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
 };
 
 const getPropertyId = (framework: ConsentFramework): number => {
@@ -83,9 +84,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getPropertyHref(framework),
-			targetingParams: {
-				framework,
-			},
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
@@ -175,24 +173,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
 
-	window._sp_.config.gdpr = {
-		targetingParams: {
-			framework,
-		},
-	};
-
 	window._sp_.config.usnat = {
-		targetingParams: {
-			framework,
-		},
 		includeUspApi: true,
 		transitionCCPAAuth: true,
-	};
-
-	window._sp_.config.ccpa = {
-		targetingParams: {
-			framework,
-		},
 	};
 
 	// TODO use libs function loadScript,

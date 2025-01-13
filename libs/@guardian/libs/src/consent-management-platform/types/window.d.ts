@@ -34,24 +34,24 @@ declare global {
 				accountId: number;
 				propertyHref?: Property;
 				propertyId?: number;
-				targetingParams: {
+				targetingParams?: {
 					framework: ConsentFramework;
 				};
 				ccpa?: {
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				gdpr?: {
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				usnat?: {
 					includeUspApi?: boolean;
 					transitionCCPAAuth?: boolean;
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				pubData: PubData;
