@@ -1,4 +1,5 @@
 import { log } from '../logger/logger';
+import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
@@ -75,6 +76,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
+	const pageSection = window.guardian?.config?.page?.section;
+
 	window._sp_queue = [];
 	/* istanbul ignore next */
 	window._sp_ = {
@@ -84,6 +87,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			propertyHref: getPropertyHref(framework),
 			targetingParams: {
 				framework,
+				excludePage: isExcludedFromCMP(pageSection),
 			},
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
@@ -198,6 +202,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
+					excludePage: isExcludedFromCMP(pageSection),
 				},
 			};
 			break;
