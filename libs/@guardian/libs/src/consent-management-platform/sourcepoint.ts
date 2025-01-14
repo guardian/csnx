@@ -57,6 +57,15 @@ const getPropertyId = (
 	return isMainSite ? PROPERTY_ID_MAIN : PROPERTY_ID_SUPPORT;
 };
 
+const isMainSiteFunc = () => {
+	// return window.location.search.includes('CMP_MAIN');
+
+	return (
+		window.location.host === 'www.theguardian.com' ||
+		window.location.host === 'm.code.dev-theguardian.com'
+	);
+};
+
 export const init = (
 	framework: ConsentFramework,
 	pubData = {},
@@ -94,7 +103,8 @@ export const init = (
 		'variant';
 
 	const isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
-	const isMainSite = window.location.search.includes('CMP_MAIN');
+	// const isMainSite = window.location.search.includes('CMP_MAIN');
+	const isMainSite = isMainSiteFunc();
 
 	if (!isMainSite) {
 		mergeUserConsent();
