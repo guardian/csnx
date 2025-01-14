@@ -39,7 +39,7 @@ declare global {
 				campaignEnv: 'prod' | 'stage';
 				targetingParams: {
 					framework: ConsentFramework;
-					isExcluded?: boolean;
+					excludePage: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
@@ -51,6 +51,7 @@ declare global {
 						framework: ConsentFramework;
 						subscriber: boolean;
 						isFeatureFlagEnabled?: boolean;
+						excludePage: boolean;
 					};
 				};
 				usnat?: {

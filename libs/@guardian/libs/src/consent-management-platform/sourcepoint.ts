@@ -1,4 +1,5 @@
 import { log } from '../logger/logger';
+import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
@@ -113,6 +114,8 @@ export const init = (
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
+	const pageSection = window.guardian?.config?.page?.section;
+
 	window._sp_queue = [];
 	/* istanbul ignore next */
 	window._sp_ = {
@@ -123,6 +126,7 @@ export const init = (
 			propertyHref: getPropertyHref(framework, isMainSite),
 			targetingParams: {
 				framework,
+				excludePage: isExcludedFromCMP(pageSection),
 			},
 			campaignEnv: 'stage',
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
@@ -252,6 +256,7 @@ export const init = (
 					framework,
 					subscriber,
 					isFeatureFlagEnabled,
+					excludePage: isExcludedFromCMP(pageSection),
 				},
 			};
 			break;
