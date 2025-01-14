@@ -1,5 +1,18 @@
-import ophan from '@guardian/ophan-tracker-js';
+import type {
+	OphanComponentEvent,
+	OphanRecordFunction,
+} from '../../ophan/@types';
 import { SourcePointChoiceTypes } from './sourcepointConfig';
+
+const getOphanRecordFunction = (): OphanRecordFunction => {
+	const record = window.guardian?.ophan?.record;
+
+	if (record) {
+		return record;
+	}
+	console.log('window.guardian.ophan.record is not available');
+	return () => {};
+};
 
 export const sendConsentChoicesToOphan = (choiceType: number): void => {
 	let actionValue: string = '';
@@ -14,33 +27,32 @@ export const sendConsentChoicesToOphan = (choiceType: number): void => {
 			actionValue = 'dismiss';
 			break;
 	}
-	ophan.record({
-		componentEvent: {
-			component: {
-				componentType: 'CONSENT', //CONSENT_OR_PAY_BANNER
-				id: 'privacy-manager', // TODO: is this the right id?
-			},
-			action: 'CLICK',
-			value: actionValue,
+	const componentEvent: OphanComponentEvent = {
+		component: {
+			componentType: 'CONSENT',
+			id: 'privacy-manager',
 		},
-		ab: {
-			tests: [{ name: 'relevant ab-test', variant: 'treatment' }], // TODO: what abtest?
-		},
-	});
+		action: 'CLICK',
+		value: actionValue,
+	};
+
+	const record = getOphanRecordFunction();
+	record({ componentEvent });
+	console.log('Sending consent choices to Ophan:', componentEvent);
 };
 
 export const sendMessageReadyToOphan = (): void => {
-	ophan.record({
-		componentEvent: {
-			component: {
-				componentType: 'CONSENT',
-				id: 'privacy-manager', // TODO: is this the right id?
-			},
-			action: 'VIEW',
-			value: 'message-read',
+	const componentEvent: OphanComponentEvent = {
+		component: {
+			componentType: 'CONSENT',
+			id: 'privacy-manager',
 		},
-		ab: {
-			tests: [{ name: 'relevant ab-test', variant: 'treatment' }], // TODO: what abtest?
-		},
-	});
+		action: 'VIEW',
+		value: 'message-read',
+	};
+
+	const record = getOphanRecordFunction();
+	record({ componentEvent });
+
+	console.log('Sending consent choices to Ophan:', componentEvent);
 };
