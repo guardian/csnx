@@ -175,6 +175,25 @@ export const Grid = () => {
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
+	const handleCurrentCellClick = useCallback(
+		(cell: CellType) => {
+			if (
+				cell.x === currentCell.x &&
+				cell.y === currentCell.y &&
+				cell.group?.length
+			) {
+				const otherEntry = cell.group.find(
+					(entryId) => entryId !== currentEntryId,
+				);
+				if (otherEntry) {
+					setCurrentEntryId(otherEntry);
+					return;
+				}
+			}
+		},
+		[currentCell, currentEntryId, setCurrentEntryId],
+	);
+
 	const updateCellFocus = useCallback(
 		(cell: CellType) => {
 			const clickedCellInput = document.getElementById(
@@ -190,8 +209,11 @@ export const Grid = () => {
 				clickedCellGroup?.focus();
 			}
 			setCurrentCell(cell);
+			setCurrentEntryId(
+				getCurrentEntryForCell(cell, workingDirectionRef.current),
+			);
 		},
-		[getId, setCurrentCell],
+		[getId, setCurrentCell, setCurrentEntryId],
 	);
 
 	const moveCurrentCell = useCallback(
@@ -358,14 +380,6 @@ export const Grid = () => {
 		[],
 	);
 
-	// Handle changes to the current cell
-	useEffect(() => {
-		// If the current cell changes, we need to update the current entry ID
-		setCurrentEntryId(
-			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
-		);
-	}, [currentCell, focused, setCurrentEntryId]);
-
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
 		if (currentEntryId) {
@@ -466,6 +480,9 @@ export const Grid = () => {
 										tabIndex={isCurrentCell ? 0 : -1}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
+										onPointerDown={
+											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
+										}
 									>
 										<input
 											value={guess}
