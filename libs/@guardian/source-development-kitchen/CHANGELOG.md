@@ -2,9 +2,9 @@
 
 ## 14.0.0
 
-### Patch Changes
+### Major Changes
 
-- Updated dependencies [34042f6]
+- Updated peer dependencies [34042f6]
   - @guardian/libs@20.0.0
 
 ## 13.2.0

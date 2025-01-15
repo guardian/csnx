@@ -2,9 +2,9 @@
 
 ## 7.0.0
 
-### Patch Changes
+### Major Changes
 
-- Updated dependencies [34042f6]
+- Updated Peer dependencies [34042f6]
   - @guardian/libs@20.0.0
   - @guardian/identity-auth@5.0.0
 
