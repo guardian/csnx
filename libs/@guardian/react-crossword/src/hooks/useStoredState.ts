@@ -53,16 +53,17 @@ export function useStoredState<
 		serializer,
 	});
 
-	const validatedState = useMemo(() => {
+	const validatedState: T = useMemo(() => {
 		// If the state is valid, return it (now properly typed).
 		if (validator(state)) {
 			return state;
 		}
 
-		// The state is invalid, so return the default value (which may be
-		// undefined).
+		// The state is invalid, set the state to the default value and return the default value
+		// (which may be undefined).
+		setState(defaultValue);
 		return defaultValue;
-	}, [validator, state, defaultValue]);
+	}, [validator, state, setState, defaultValue]);
 
 	return [validatedState, setState, rest] as const;
 }
