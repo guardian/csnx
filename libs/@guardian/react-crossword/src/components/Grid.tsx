@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import type { FocusEvent, KeyboardEvent, MouseEvent } from 'react';
+import type { FocusEvent, KeyboardEvent } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
@@ -175,9 +175,8 @@ export const Grid = () => {
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
-	const updateCellFocus = useCallback(
+	const handleCurrentCellClick = useCallback(
 		(cell: CellType) => {
-			// Clicking on the current cell changes the current entry if there are multiple
 			if (
 				cell.x === currentCell.x &&
 				cell.y === currentCell.y &&
@@ -191,6 +190,12 @@ export const Grid = () => {
 					return;
 				}
 			}
+		},
+		[currentCell, currentEntryId, setCurrentEntryId],
+	);
+
+	const updateCellFocus = useCallback(
+		(cell: CellType) => {
 			const clickedCellInput = document.getElementById(
 				getId(`cell-input-${cell.x}-${cell.y}`),
 			);
@@ -204,15 +209,11 @@ export const Grid = () => {
 				clickedCellGroup?.focus();
 			}
 			setCurrentCell(cell);
+			setCurrentEntryId(
+				getCurrentEntryForCell(cell, workingDirectionRef.current),
+			);
 		},
-		[
-			currentCell.x,
-			currentCell.y,
-			currentEntryId,
-			getId,
-			setCurrentCell,
-			setCurrentEntryId,
-		],
+		[getId, setCurrentCell, setCurrentEntryId],
 	);
 
 	const moveCurrentCell = useCallback(
@@ -329,8 +330,8 @@ export const Grid = () => {
 		[moveCurrentCell],
 	);
 
-	const handleCellClick = useCallback(
-		(event: MouseEvent<SVGGElement>) => {
+	const handleCellFocus = useCallback(
+		(event: FocusEvent<SVGGElement>) => {
 			const target = event.currentTarget as SVGElement | null;
 
 			if (!target) {
@@ -378,14 +379,6 @@ export const Grid = () => {
 			),
 		[],
 	);
-
-	// Handle changes to the current cell
-	useEffect(() => {
-		// If the current cell changes, we need to update the current entry ID
-		setCurrentEntryId(
-			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
-		);
-	}, [currentCell, focused, setCurrentEntryId]);
 
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
@@ -486,7 +479,10 @@ export const Grid = () => {
 										data-y={cell.y}
 										tabIndex={isCurrentCell ? 0 : -1}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
-										onClick={handleCellClick}
+										onFocus={handleCellFocus}
+										onPointerDown={
+											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
+										}
 									>
 										<input
 											value={guess}
