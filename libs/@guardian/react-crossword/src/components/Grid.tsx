@@ -25,21 +25,17 @@ import { Cell } from './Cell';
 
 const noop = () => {};
 
-const getCellDescription = (
-	cell: CellType,
-	direction: Direction,
-	entries: Entries,
-) => {
+const getCellDescription = (cell: CellType, entries: Entries) => {
 	const cellEntryIds = cell.group ?? [];
 	const cellRelevantEntryId =
 		cell.group?.length === 1
 			? cell.group[0]
-			: cellEntryIds.find((id) => id.endsWith(direction));
+			: cellEntryIds.find((id) => id.endsWith('across'));
 	if (isUndefined(cellRelevantEntryId)) {
 		return 'Blank cell.';
 	}
 	const additionalEntries = cellEntryIds
-		.filter((id) => !id.endsWith(direction) && id !== cellRelevantEntryId)
+		.filter((id) => !id.endsWith('across') && id !== cellRelevantEntryId)
 		.map((id) => entries.get(id))
 		.filter((entry) => !isUndefined(entry));
 	const relevantEntry = entries.get(cellRelevantEntryId);
@@ -506,11 +502,7 @@ export const Grid = () => {
 											}
 											tabIndex={-1}
 											aria-label="Crossword cell"
-											aria-description={getCellDescription(
-												cell,
-												workingDirectionRef.current,
-												entries,
-											)}
+											aria-description={getCellDescription(cell, entries)}
 											css={css`
 												position: absolute;
 												top: 0;
