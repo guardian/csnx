@@ -3,9 +3,11 @@ import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import type { FocusEvent, KeyboardEvent } from 'react';
+import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
 	Coords,
+	Entries,
 	Separator,
 	Theme,
 } from '../@types/crossword';
@@ -17,15 +19,54 @@ import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
+import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
 const noop = () => {};
 
-const getCellDescription = (cell: CellType) => {
-	return cell.group
-		? `Letter 3 of 7, 3 across. Also letter 1 of 3, 4 down.`
-		: 'Black cell';
+const getCellDescription = (
+	cell: CellType,
+	direction: Direction,
+	entries: Entries,
+) => {
+	const cellEntryIds = cell.group ?? [];
+	const cellRelevantEntryId =
+		cell.group?.length === 1
+			? cell.group[0]
+			: cellEntryIds.find((id) => id.endsWith(direction));
+	if (isUndefined(cellRelevantEntryId)) {
+		return 'Blank cell.';
+	}
+	const additionalEntries = cellEntryIds
+		.filter((id) => !id.endsWith(direction) && id !== cellRelevantEntryId)
+		.map((id) => entries.get(id))
+		.filter((entry) => !isUndefined(entry));
+	const relevantEntry = entries.get(cellRelevantEntryId);
+
+	return (
+		`` +
+		// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
+		`${relevantEntry ? `${getReadableLabelForCellAndEntry({ entry: relevantEntry, cell: cell })}. ` : 'Blank. '}` +
+		// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
+		`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: cell, additionalEntry: true })).join('. ')}`
+	);
+};
+
+const getReadableLabelForCellAndEntry = ({
+	entry,
+	cell,
+	additionalEntry = false,
+}: {
+	entry: CAPIEntry;
+	cell: CellType;
+	additionalEntry?: boolean;
+}): string => {
+	if (entry.direction === 'across') {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.x + 1 - entry.position.x} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	} else {
+		return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cell.y + 1 - entry.position.y} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	}
 };
 
 const getCellPosition = (
@@ -448,7 +489,11 @@ export const Grid = () => {
 											}
 											tabIndex={-1}
 											aria-label="Crossword cell"
-											aria-description={getCellDescription(cell)}
+											aria-description={getCellDescription(
+												cell,
+												workingDirectionRef.current,
+												entries,
+											)}
 											css={css`
 												position: absolute;
 												top: 0;
