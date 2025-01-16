@@ -1,9 +1,19 @@
 import { css } from '@emotion/react';
-import { type ComponentType, type ReactNode, useMemo } from 'react';
+import { isUndefined } from '@guardian/libs';
+import {
+	type ComponentType,
+	type ReactNode,
+	useEffect,
+	useMemo,
+	useRef,
+} from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
+import { useData } from '../context/Data';
+import { focusTargets } from '../context/Focus';
+import { useFocus } from '../context/Focus';
 import { useProgress } from '../context/Progress';
 import { ScreenLayout } from '../layouts/ScreenLayout';
 import { defaultTheme } from '../theme';
@@ -18,6 +28,30 @@ export type CrosswordProps = {
 	children?: ReactNode;
 	Layout?: ComponentType<LayoutProps>;
 } & Partial<Theme>;
+
+const visuallyHidden = css`
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+`;
+const wrapperStyles = css`
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	height: 100%;
+	width: 100%;
+	container-type: inline-size;
+`;
 
 const SavedMessage = () => {
 	const { isStored } = useProgress();
@@ -37,6 +71,92 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	AnagramHelper,
 	Clues,
 	SavedMessage,
+};
+
+const ApplicationWrapper = ({ children }: { children: ReactNode }) => {
+	const { currentFocus, focusOn } = useFocus();
+	const { getId } = useData();
+	const startRef = useRef<HTMLDivElement | null>(null);
+	const endRef = useRef<HTMLDivElement | null>(null);
+
+	const getTarget = (direction: 'back' | 'forward') => {
+		// If direction is the same and we're on 'application', reset previousDirection and return
+		if (
+			(direction === 'back' && currentFocus === 'application-start') ||
+			(direction === 'forward' && currentFocus === 'application-end')
+		) {
+			return undefined;
+		}
+
+		const currentIndex = focusTargets.findIndex(
+			(target) => target === currentFocus,
+		);
+
+		// Move one step forward or backward
+		const step = direction === 'forward' ? 1 : -1;
+
+		// Use modulo to wrap around the array: (index + step + length) % length
+		// In JavaScript, the remainder of a negative number still comes out negative.
+		// For example, -1 % 5 is -1 instead of 4 (hence the + length).
+		const nextIndex =
+			(currentIndex + step + focusTargets.length) % focusTargets.length;
+
+		return focusTargets[nextIndex];
+	};
+
+	useEffect(() => {
+		if (currentFocus === 'application-start') {
+			startRef.current?.focus();
+		}
+		if (currentFocus === 'application-end') {
+			endRef.current?.focus();
+		}
+	}, [currentFocus]);
+
+	return (
+		<div
+			role="application"
+			css={wrapperStyles}
+			id={getId('crossword')}
+			onKeyDown={(event) => {
+				if (event.key === 'Tab') {
+					let nextTarget;
+					if (event.shiftKey) {
+						nextTarget = getTarget('back');
+					} else {
+						nextTarget = getTarget('forward');
+					}
+					if (isUndefined(nextTarget)) {
+						return;
+					}
+					focusOn(nextTarget);
+					event.preventDefault();
+				}
+			}}
+		>
+			<div
+				ref={startRef}
+				tabIndex={0}
+				css={visuallyHidden}
+				onFocus={() => {
+					focusOn('application-start');
+				}}
+			>
+				Crossword Application Start
+			</div>
+			{children}
+			<div
+				ref={endRef}
+				tabIndex={0}
+				css={visuallyHidden}
+				onFocus={() => {
+					focusOn('application-end');
+				}}
+			>
+				Crossword Application End
+			</div>
+		</div>
+	);
 };
 
 export const Crossword = ({
@@ -67,26 +187,11 @@ export const Crossword = ({
 			userProgress={progress}
 			selectedEntryId={data.entries[0].id}
 		>
-			<div
-				role="application"
-				css={css`
-					*,
-					*::before,
-					*::after {
-						box-sizing: border-box;
-						padding: 0;
-						margin: 0;
-					}
-
-					height: 100%;
-					width: 100%;
-					container-type: inline-size;
-				`}
-			>
+			<ApplicationWrapper>
 				{children ?? (
 					<LayoutComponent {...layoutComponents} gridWidth={gridWidth} />
 				)}
-			</div>
+			</ApplicationWrapper>
 		</ContextProvider>
 	);
 };

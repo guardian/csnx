@@ -13,6 +13,7 @@ import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useFocus } from '../context/Focus';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
@@ -20,6 +21,28 @@ import { useUpdateCell } from '../hooks/useUpdateCell';
 import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
+
+const isCellInEntry = ({
+	cell,
+	entry,
+}: {
+	cell: CellType;
+	entry: CAPIEntry;
+}) => {
+	if (entry.direction === 'across') {
+		return (
+			cell.y === entry.position.y &&
+			cell.x >= entry.position.x &&
+			cell.x < entry.position.x + entry.length
+		);
+	} else {
+		return (
+			cell.x === entry.position.x &&
+			cell.y >= entry.position.y &&
+			cell.y < entry.position.y + entry.length
+		);
+	}
+};
 
 const getReadableLabelForCellAndEntry = ({
 	entry,
@@ -131,7 +154,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
-	const [focused, setFocused] = useState(false);
+	const { currentFocus, focusOn } = useFocus();
 	const [inputValue, setInputValue] = useState('');
 
 	const gridRef = useRef<SVGSVGElement>(null);
@@ -141,6 +164,17 @@ export const Grid = () => {
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
+	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
+	const currentCellProgress = currentCell
+		? progress[currentCell.x]?.[currentCell.y]
+		: undefined;
+
+	const focusInput = useCallback(() => {
+		if (currentFocus !== 'grid') {
+			focusOn('grid');
+		}
+	}, [currentFocus, focusOn]);
+
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
 		if (currentEntryId) {
@@ -148,6 +182,46 @@ export const Grid = () => {
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
+
+	// If the current focus is the grid
+	// and the current cell or current entry ID changes refocus the input.
+	useEffect(() => {
+		if (currentFocus === 'grid') {
+			// If there is a current cell and a current entry, but the cell is not in the entry.
+			// Set the current cell to the first cell in the entry.
+			if (
+				currentEntry &&
+				currentCell &&
+				!isCellInEntry({ cell: currentCell, entry: currentEntry })
+			) {
+				setCurrentCell(cells.getByCoords(currentEntry.position));
+			}
+			// if there is no current cell but there is an Entry
+			// Set the current cell to the first cell in the current entry
+			if (!currentCell && currentEntry) {
+				setCurrentCell(cells.getByCoords(currentEntry.position));
+			}
+			inputRef.current?.blur();
+			inputRef.current?.focus();
+		}
+	}, [
+		currentFocus,
+		currentCell,
+		currentEntryId,
+		entries,
+		setCurrentCell,
+		cells,
+		currentEntry,
+	]);
+
+	useEffect(() => {
+		const gridWrapper = gridWrapperRef.current;
+		gridWrapper?.addEventListener('focusin', focusInput);
+
+		return () => {
+			gridWrapper?.removeEventListener('focusin', focusInput);
+		};
+	}, [focusInput]);
 
 	const getProgressForEntry = useCallback(
 		(entry: CAPIEntry): string => {
@@ -168,11 +242,6 @@ export const Grid = () => {
 		},
 		[progress],
 	);
-
-	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
-	const currentCellProgress = currentCell
-		? progress[currentCell.x]?.[currentCell.y]
-		: undefined;
 
 	const additionalEntries =
 		currentCell?.group
@@ -231,10 +300,9 @@ export const Grid = () => {
 			//
 			// This is also needed for accessibility as it will read
 			// out the new value of the cell we have moved to
-			inputRef.current?.blur();
-
 			// If we're typing, we only want to move focus if the new cell is an entry square
 			if (isTyping && !possibleDown && !possibleAcross) {
+				inputRef.current?.blur();
 				inputRef.current?.focus();
 				return;
 			}
@@ -242,15 +310,11 @@ export const Grid = () => {
 			if (delta.x !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleAcross ?? possibleDown);
-				inputRef.current?.focus();
-				return;
 			}
 
 			if (delta.y !== 0) {
 				setCurrentCell(newCell);
 				setCurrentEntryId(possibleDown ?? possibleAcross);
-				inputRef.current?.focus();
-				return;
 			}
 		},
 		[currentCell, cells, setCurrentCell, setCurrentEntryId],
@@ -287,9 +351,6 @@ export const Grid = () => {
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>): void => {
-			if (event.ctrlKey || event.altKey || event.metaKey) {
-				return;
-			}
 			if (!currentCell) {
 				return;
 			}
@@ -438,12 +499,22 @@ export const Grid = () => {
 			}
 
 			// Set the new current cell and entry:
-			inputRef.current?.blur();
 			setCurrentCell(clickedCell);
 			setCurrentEntryId(newEntryId);
-			inputRef.current?.focus();
+			if (currentFocus !== 'grid') {
+				focusOn('grid');
+			}
 		},
-		[cells, currentCell, currentEntryId, setCurrentCell, setCurrentEntryId],
+		[
+			cells,
+			currentCell?.x,
+			currentCell?.y,
+			currentEntryId,
+			currentFocus,
+			focusOn,
+			setCurrentCell,
+			setCurrentEntryId,
+		],
 	);
 
 	const height =
@@ -452,32 +523,6 @@ export const Grid = () => {
 	const width =
 		theme.gridCellSize * dimensions.cols +
 		theme.gridGutterSize * (dimensions.cols + 1);
-
-	const focusInput = useCallback(() => {
-		inputRef.current?.focus();
-	}, []);
-
-	const onFocus = useCallback(() => {
-		if (!currentCell) {
-			if (currentEntryId) {
-				const entry = entries.get(currentEntryId);
-				if (entry) {
-					setCurrentCell(cells.getByCoords(entry.position));
-				}
-			}
-			return setCurrentCell(cells.getByCoords({ x: 0, y: 0 }));
-		}
-		setFocused(true);
-	}, [cells, currentCell, currentEntryId, entries, setCurrentCell]);
-
-	useEffect(() => {
-		const gridWrapper = gridWrapperRef.current;
-		gridWrapper?.addEventListener('focusin', focusInput);
-
-		return () => {
-			gridWrapper?.removeEventListener('focusin', focusInput);
-		};
-	}, [focusInput]);
 
 	return (
 		<div
@@ -554,7 +599,9 @@ export const Grid = () => {
 						/>
 					))
 				}
-				{currentCell && focused && <FocusIndicator currentCell={currentCell} />}
+				{currentCell && currentFocus === 'grid' && (
+					<FocusIndicator currentCell={currentCell} />
+				)}
 			</svg>
 			<div
 				role={'row'}
@@ -580,9 +627,7 @@ export const Grid = () => {
 					pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 					onKeyDown={handleKeyDown}
 					onChange={handleChange}
-					onFocus={onFocus}
-					onBlur={() => setFocused(false)}
-					tabIndex={0}
+					tabIndex={-1}
 					css={css`
 						position: absolute;
 						pointer-events: none;
@@ -596,7 +641,7 @@ export const Grid = () => {
 					spellCheck="false"
 					autoCorrect="off"
 					aria-hidden="false"
-					aria-live="polite"
+					aria-live={currentFocus === 'grid' ? 'assertive' : 'off'}
 					aria-label={currentCellLabel}
 				/>
 			</div>
