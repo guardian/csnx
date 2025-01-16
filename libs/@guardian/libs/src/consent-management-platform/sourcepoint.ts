@@ -1,6 +1,8 @@
+import type { CountryCode } from '../../dist';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
+import { isConsentOrPay } from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import type { Property } from './lib/property';
@@ -69,6 +71,7 @@ const isMainSiteFunc = () => {
 
 export const init = (
 	framework: ConsentFramework,
+	countryCode: CountryCode,
 	pubData = {},
 	subscriber: boolean,
 ): void => {
@@ -257,6 +260,7 @@ export const init = (
 					subscriber,
 					isFeatureFlagEnabled,
 					excludePage: isExcludedFromCMP(pageSection),
+					isCorP: isConsentOrPay(countryCode),
 				},
 			};
 			break;

@@ -50,6 +50,7 @@ export interface PubData {
 export interface SourcepointImplementation {
 	init: (
 		framework: ConsentFramework,
+		countryCode: CountryCode,
 		subscriber: boolean,
 		pubData?: PubData,
 	) => void;

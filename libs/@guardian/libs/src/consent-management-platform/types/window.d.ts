@@ -52,6 +52,7 @@ declare global {
 						subscriber: boolean;
 						isFeatureFlagEnabled?: boolean;
 						excludePage: boolean;
+						isCorP: boolean;
 					};
 				};
 				usnat?: {
