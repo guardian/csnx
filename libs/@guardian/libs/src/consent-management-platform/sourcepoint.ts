@@ -1,4 +1,4 @@
-import type { CountryCode } from '../../dist';
+import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
