@@ -12,6 +12,7 @@ export type CMP = {
 	willShowPrivacyMessageSync: () => boolean;
 	hasInitialised: () => boolean;
 	showPrivacyManager: () => void;
+	rejectAll: () => Promise<void>;
 	version: string;
 	__isDisabled: () => boolean;
 	__disable: () => void;
@@ -21,6 +22,9 @@ export type CMP = {
 export type InitCMP = (arg0: {
 	pubData?: PubData;
 	country?: CountryCode;
+	subscriber?: boolean;
+	isUserSignedIn?: boolean;
+	useNonAdvertisedList?: boolean;
 }) => void;
 
 export type OnConsentChange = (
@@ -46,7 +50,14 @@ export interface PubData {
 	[propName: string]: unknown;
 }
 export interface SourcepointImplementation {
-	init: (framework: ConsentFramework, pubData?: PubData) => void;
+	init: (
+		framework: ConsentFramework,
+		countryCode: CountryCode,
+		subscriber: boolean,
+		isUserSignedIn: boolean,
+		useNonAdvertisedList: boolean,
+		pubData?: PubData,
+	) => void;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
 	showPrivacyManager: () => void;
 }
