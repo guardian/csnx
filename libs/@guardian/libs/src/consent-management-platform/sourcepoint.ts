@@ -63,7 +63,6 @@ const getPropertyId = (
 export const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
-	subscriber: boolean,
 	isUserSignedIn: boolean,
 	useNonAdvertisedList: boolean,
 	pubData = {},
@@ -184,8 +183,8 @@ export const init = (
 						if (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
-							!subscriber &&
-							isFeatureFlagEnabled
+							isConsentOrPay(countryCode) &&
+							!useNonAdvertisedList
 						) {
 							console.log('User has rejected all');
 							window.location.replace(
@@ -248,7 +247,6 @@ export const init = (
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
-					subscriber,
 					// isFeatureFlagEnabled,
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPay(countryCode),

@@ -23,8 +23,8 @@ describe('cmp.init', () => {
 	it('does nothing if CMP is disabled', () => {
 		disable();
 
-		cmp.init({ country: 'GB', subscriber: true });
-		cmp.init({ country: 'US', subscriber: true });
+		cmp.init({ country: 'GB' });
+		cmp.init({ country: 'US' });
 
 		expect(CMP.init).not.toHaveBeenCalled();
 

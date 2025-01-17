@@ -3,12 +3,9 @@
 	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
-
-	let subscriber = window.location.search.includes('subscriber');
 	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
 	let useNonAdvertisedList = window.location.search.includes('CMP_MAIN');
 	let isUserSignedIn = window.location.search.includes('CMP_SIGNED_IN');
-	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
 
 	switch (window.location.hash) {
 		case '#tcfv2':
@@ -46,7 +43,7 @@
 
 	let rejectAllFunc = () => {
 		cmp.rejectAll().then(() => {
-			logEvent({ title: 'rejectAll'});
+			logEvent({ title: 'rejectAll' });
 			// window.location.reload();
 		});
 	};
@@ -76,14 +73,10 @@
 
 	const toggleQueryParams = (param) => {
 		let queryParams = new URLSearchParams(window.location.search);
-		queryParams.has(param) ? queryParams.delete(param) : queryParams.append(param, '');
+		queryParams.has(param)
+			? queryParams.delete(param)
+			: queryParams.append(param, '');
 		window.location.search = queryParams.toString();
-	};
-
-	const toggleSubscriber = () => {
-		subscriber = !subscriber;
-		toggleQueryParams('subscriber');
-		// localStorage.setItem('subscriber', JSON.stringify(subscriber));
 	};
 
 	const toggleIsFeatureFlagEnabled = () => {
@@ -119,6 +112,7 @@
 		let country = '';
 		switch (framework) {
 			case 'tcfv2':
+				// country = 'FR';
 				country = 'GB';
 				break;
 
@@ -132,7 +126,11 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country, subscriber: subscriber ?? false, isUserSignedIn: isUserSignedIn ?? false, useNonAdvertisedList: useNonAdvertisedList ?? false });
+		cmp.init({
+			country,
+			isUserSignedIn: isUserSignedIn ?? false,
+			useNonAdvertisedList: useNonAdvertisedList ?? false,
+		});
 	});
 </script>
 
@@ -181,15 +179,6 @@
 			/>
 			<strong>useNonAdvertisedList?</strong>
 		</label>
-
-		<!-- <label class={subscriber ? 'selected' : 'none'}>
-			<input
-				type="checkbox"
-				on:change={toggleSubscriber}
-				checked={subscriber}
-			/>
-			<strong>Subscriber</strong>
-		</label> -->
 
 		<label class={isUserSignedIn ? 'selected' : 'none'}>
 			<input
