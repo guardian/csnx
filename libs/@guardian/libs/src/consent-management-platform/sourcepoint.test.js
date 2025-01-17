@@ -2,6 +2,11 @@ import { ACCOUNT_ID, ENDPOINT } from './lib/sourcepointConfig.ts';
 import { init } from './sourcepoint.ts';
 
 const frameworks = ['tcfv2', 'usnat', 'aus'];
+const frameworksAndCountryCode = [
+	{ framework: 'tcfv2', countryCode: 'FR' },
+	{ framework: 'usnat', countryCode: 'US' },
+	{ framework: 'aus', countryCode: 'AU' },
+];
 
 describe('Sourcepoint unified', () => {
 	beforeEach(() => {
@@ -18,10 +23,13 @@ describe('Sourcepoint unified', () => {
 		expect(init).toThrow();
 	});
 
-	it.each(frameworks)(
+	it.each(frameworksAndCountryCode)(
 		"should initialize window._sp_ with the correct config if it doesn't exist",
-		(framework) => {
-			init(framework);
+		(frameworkAndCountryCode) => {
+			init(
+				frameworkAndCountryCode.framework,
+				frameworkAndCountryCode.countryCode,
+			);
 			expect(window._sp_).toBeDefined();
 			expect(window._sp_.config).toBeDefined();
 			expect(window._sp_.config.baseEndpoint).toEqual(ENDPOINT);
@@ -32,27 +40,27 @@ describe('Sourcepoint unified', () => {
 				'function',
 			);
 
-			if (framework == 'tcfv2') {
+			if (frameworkAndCountryCode.framework == 'tcfv2') {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
-					framework,
+					frameworkAndCountryCode.framework,
 				);
 				expect(window._sp_.config.usnat).toBeUndefined();
 				expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeUndefined();
 				expect(window.__gpp).toBeUndefined();
-			} else if (framework == 'usnat') {
+			} else if (frameworkAndCountryCode.framework == 'usnat') {
 				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
 				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
 				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
-					framework,
+					frameworkAndCountryCode.framework,
 				);
 				expect(window._sp_.config.gdpr).toBeUndefined;
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__tcfapi).toBeUndefined();
 				expect(window.__gpp).toBeDefined();
-			} else if (framework == 'aus') {
+			} else if (frameworkAndCountryCode.framework == 'aus') {
 				expect(window._sp_.config.ccpa.targetingParams.framework).toEqual(
-					framework,
+					frameworkAndCountryCode.framework,
 				);
 				expect(window._sp_.config.gdpr).toBeUndefined;
 				expect(window.__uspapi).toBeDefined();
@@ -71,19 +79,29 @@ describe('Sourcepoint unified', () => {
 		expect(response.ok).toBe(true);
 	});
 
-	it.each(frameworks)('should accept pubData', (framework) => {
-		const now = new Date().getTime();
-		init(framework, {
-			browserId: 'abc123',
-			pageViewId: 'abcdef',
-			cmpInitTimeUtc: 1601511014537,
-		});
-		expect(window._sp_.config.pubData.browserId).toEqual('abc123');
-		expect(window._sp_.config.pubData.pageViewId).toEqual('abcdef');
-		expect(window._sp_.config.pubData.cmpInitTimeUtc).toBeGreaterThanOrEqual(
-			now,
-		);
-	});
+	it.each(frameworksAndCountryCode)(
+		'should accept pubData',
+		(frameworkAndCountryCode) => {
+			const now = new Date().getTime();
+			init(
+				frameworkAndCountryCode.framework,
+				frameworkAndCountryCode.countryCode,
+				true,
+				true,
+				true,
+				{
+					browserId: 'abc123',
+					pageViewId: 'abcdef',
+					cmpInitTimeUtc: 1601511014537,
+				},
+			);
+			expect(window._sp_.config.pubData.browserId).toEqual('abc123');
+			expect(window._sp_.config.pubData.pageViewId).toEqual('abcdef');
+			expect(window._sp_.config.pubData.cmpInitTimeUtc).toBeGreaterThanOrEqual(
+				now,
+			);
+		},
+	);
 
 	it.each(frameworks)('should handle no pubData', (framework) => {
 		const now = new Date().getTime();
