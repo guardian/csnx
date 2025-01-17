@@ -53,6 +53,7 @@ declare global {
 						isFeatureFlagEnabled?: boolean;
 						excludePage: boolean;
 						isCorP: boolean;
+						isUserSignedIn: boolean;
 					};
 				};
 				usnat?: {

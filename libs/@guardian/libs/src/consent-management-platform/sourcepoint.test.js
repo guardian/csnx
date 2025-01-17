@@ -86,6 +86,9 @@ describe('Sourcepoint unified', () => {
 			init(
 				frameworkAndCountryCode.framework,
 				frameworkAndCountryCode.countryCode,
+				true,
+				true,
+				true,
 				{
 					browserId: 'abc123',
 					pageViewId: 'abcdef',

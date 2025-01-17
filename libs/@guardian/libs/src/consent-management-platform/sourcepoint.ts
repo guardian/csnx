@@ -33,7 +33,7 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  */
 const getPropertyHref = (
 	framework: ConsentFramework,
-	isMainSite: boolean = true,
+	useNonAdvertisedList: boolean = true,
 ): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
@@ -42,14 +42,14 @@ const getPropertyHref = (
 	// return isGuardianDomain() ? null : 'http://ui-dev';
 	return isGuardianDomain()
 		? null
-		: isMainSite
-			? 'http://ui-dev'
-			: 'http://support-test';
+		: useNonAdvertisedList
+			? 'http://support-test'
+			: 'http://ui-dev';
 };
 
 const getPropertyId = (
 	framework: ConsentFramework,
-	isMainSite: boolean = true,
+	useNonAdvertisedList: boolean = true,
 ): number => {
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
@@ -57,23 +57,16 @@ const getPropertyId = (
 	if (framework == 'usnat') {
 		return PROPERTY_ID_MAIN;
 	}
-	return isMainSite ? PROPERTY_ID_MAIN : PROPERTY_ID_SUPPORT;
-};
-
-const isMainSiteFunc = () => {
-	// return window.location.search.includes('CMP_MAIN');
-
-	return (
-		window.location.host === 'www.theguardian.com' ||
-		window.location.host === 'm.code.dev-theguardian.com'
-	);
+	return useNonAdvertisedList ? PROPERTY_ID_SUPPORT : PROPERTY_ID_MAIN;
 };
 
 export const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
-	pubData = {},
 	subscriber: boolean,
+	isUserSignedIn: boolean,
+	useNonAdvertisedList: boolean,
+	pubData = {},
 ): void => {
 	stub(framework);
 
@@ -107,10 +100,8 @@ export const init = (
 		'variant';
 
 	const isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
-	// const isMainSite = window.location.search.includes('CMP_MAIN');
-	const isMainSite = isMainSiteFunc();
 
-	if (!isMainSite) {
+	if (useNonAdvertisedList) {
 		mergeUserConsent();
 	}
 
@@ -125,8 +116,8 @@ export const init = (
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyId: getPropertyId(framework),
-			propertyHref: getPropertyHref(framework, isMainSite),
+			propertyId: getPropertyId(framework, useNonAdvertisedList),
+			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
@@ -258,9 +249,10 @@ export const init = (
 				targetingParams: {
 					framework,
 					subscriber,
-					isFeatureFlagEnabled,
+					// isFeatureFlagEnabled,
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPay(countryCode),
+					isUserSignedIn,
 				},
 			};
 			break;

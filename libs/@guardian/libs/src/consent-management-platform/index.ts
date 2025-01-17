@@ -34,7 +34,13 @@ const initialised = new Promise((resolve) => {
 	resolveInitialised = resolve;
 });
 
-const init: InitCMP = ({ pubData, country, subscriber = true }) => {
+const init: InitCMP = ({
+	pubData,
+	country,
+	subscriber = false,
+	isUserSignedIn = false,
+	useNonAdvertisedList = false,
+}) => {
 	if (isDisabled() || isServerSide) {
 		return;
 	}
@@ -62,7 +68,14 @@ const init: InitCMP = ({ pubData, country, subscriber = true }) => {
 
 	const framework = getFramework(country);
 
-	UnifiedCMP.init(framework, country, subscriber, pubData ?? {});
+	UnifiedCMP.init(
+		framework,
+		country,
+		subscriber,
+		isUserSignedIn,
+		useNonAdvertisedList,
+		pubData ?? {},
+	);
 
 	void UnifiedCMP.willShowPrivacyMessage().then((willShowValue) => {
 		_willShowPrivacyMessage = willShowValue;

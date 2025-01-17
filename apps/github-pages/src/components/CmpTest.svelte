@@ -6,7 +6,8 @@
 
 	let subscriber = window.location.search.includes('subscriber');
 	let isFeatureFlagEnabled = window.location.search.includes('CMP_COP');
-	let isMainSite = window.location.search.includes('CMP_MAIN');
+	let useNonAdvertisedList = window.location.search.includes('CMP_MAIN');
+	let isUserSignedIn = window.location.search.includes('CMP_SIGNED_IN');
 	// localStorage.setItem('subscribed', window.location.search.includes('subscribed'));
 
 	switch (window.location.hash) {
@@ -90,8 +91,13 @@
 		toggleQueryParams('CMP_COP');
 	};
 
-	const toggleIsMainSite = () => {
-		isMainSite = !isMainSite;
+	const toggleIsUserSignedIn = () => {
+		isUserSignedIn = !isUserSignedIn;
+		toggleQueryParams('CMP_SIGNED_IN');
+	};
+
+	const toggleUseNonAdvertisedList = () => {
+		useNonAdvertisedList = !useNonAdvertisedList;
 		toggleQueryParams('CMP_MAIN');
 	};
 
@@ -126,7 +132,7 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country, subscriber: subscriber ?? false });
+		cmp.init({ country, subscriber: subscriber ?? false, isUserSignedIn: isUserSignedIn ?? false, useNonAdvertisedList: useNonAdvertisedList ?? false });
 	});
 </script>
 
@@ -167,31 +173,31 @@
 			<strong>CCPA-like</strong>
 		</label>
 
-		<label class={isMainSite ? 'selected' : 'none'}>
+		<label class={useNonAdvertisedList ? 'selected' : 'none'}>
 			<input
 				type="checkbox"
-				on:change={toggleIsMainSite}
-				checked={isMainSite}
+				on:change={toggleUseNonAdvertisedList}
+				checked={useNonAdvertisedList}
 			/>
-			<strong>Is main site?</strong>
+			<strong>useNonAdvertisedList?</strong>
 		</label>
 
-		<label class={subscriber ? 'selected' : 'none'}>
+		<!-- <label class={subscriber ? 'selected' : 'none'}>
 			<input
 				type="checkbox"
 				on:change={toggleSubscriber}
 				checked={subscriber}
 			/>
 			<strong>Subscriber</strong>
-		</label>
+		</label> -->
 
-		<label class={isFeatureFlagEnabled ? 'selected' : 'none'}>
+		<label class={isUserSignedIn ? 'selected' : 'none'}>
 			<input
 				type="checkbox"
-				on:change={toggleIsFeatureFlagEnabled}
-				checked={isFeatureFlagEnabled}
+				on:change={toggleIsUserSignedIn}
+				checked={isUserSignedIn}
 			/>
-			<strong>Feature enabled?</strong>
+			<strong>isUserSignedIn?</strong>
 		</label>
 	</nav>
 

@@ -21,10 +21,19 @@ const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
 	subscriber: boolean,
+	isUserSignedIn: boolean,
+	useNonAdvertisedList: boolean,
 	pubData?: PubData,
 ): void => {
 	mark('cmp-init');
-	initSourcepoint(framework, countryCode, pubData, subscriber);
+	initSourcepoint(
+		framework,
+		countryCode,
+		subscriber,
+		isUserSignedIn,
+		useNonAdvertisedList,
+		pubData,
+	);
 };
 
 const willShowPrivacyMessage: WillShowPrivacyMessage = () =>
