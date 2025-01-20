@@ -180,7 +180,7 @@ export const init = (
 						if (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
-							// isConsentOrPay(countryCode) &&
+							isConsentOrPay(countryCode) &&
 							!useNonAdvertisedList
 						) {
 							console.log('User has rejected all');
