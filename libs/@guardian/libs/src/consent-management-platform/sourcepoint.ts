@@ -17,6 +17,7 @@ import {
 	PROPERTY_ID_SUPPORT,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
+import { mergeUserConsent } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
@@ -79,6 +80,10 @@ export const init = (
 	}
 
 	setCurrentFramework(framework);
+
+	if (useNonAdvertisedList) {
+		mergeUserConsent();
+	}
 
 	// invoke callbacks before we receive Sourcepoint events
 	invokeCallbacks();
