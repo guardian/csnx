@@ -2,6 +2,7 @@ import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
+import { isConsentOrPay } from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import type { Property } from './lib/property';
@@ -183,8 +184,9 @@ export const init = (
 							!useNonAdvertisedList
 						) {
 							console.log('User has rejected all');
-							window.location.replace(
+							window.open(
 								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
+								'_blank',
 							);
 						}
 					}
@@ -247,7 +249,7 @@ export const init = (
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: false,
+					isCorP: isConsentOrPay(countryCode),
 					isUserSignedIn,
 				},
 			};
