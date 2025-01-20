@@ -1,3 +1,4 @@
+import { CountryCode } from '../index.test';
 import { getCurrentFramework } from './getCurrentFramework';
 import { mark } from './lib/mark';
 import {
@@ -16,9 +17,21 @@ import type {
 	WillShowPrivacyMessage,
 } from './types';
 
-const init = (framework: ConsentFramework, pubData?: PubData): void => {
+const init = (
+	framework: ConsentFramework,
+	countryCode: CountryCode,
+	isUserSignedIn: boolean,
+	useNonAdvertisedList: boolean,
+	pubData?: PubData,
+): void => {
 	mark('cmp-init');
-	initSourcepoint(framework, pubData);
+	initSourcepoint(
+		framework,
+		countryCode,
+		isUserSignedIn,
+		useNonAdvertisedList,
+		pubData,
+	);
 };
 
 const willShowPrivacyMessage: WillShowPrivacyMessage = () =>
