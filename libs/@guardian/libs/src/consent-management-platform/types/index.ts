@@ -22,7 +22,6 @@ export type CMP = {
 export type InitCMP = (arg0: {
 	pubData?: PubData;
 	country?: CountryCode;
-	subscriber?: boolean;
 	isUserSignedIn?: boolean;
 	useNonAdvertisedList?: boolean;
 }) => void;
@@ -53,7 +52,6 @@ export interface SourcepointImplementation {
 	init: (
 		framework: ConsentFramework,
 		countryCode: CountryCode,
-		subscriber: boolean,
 		isUserSignedIn: boolean,
 		useNonAdvertisedList: boolean,
 		pubData?: PubData,

@@ -251,6 +251,7 @@ export const init = (
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPay(countryCode),
 					isUserSignedIn,
+					isFeatureFlagEnabled,
 				},
 			};
 			break;

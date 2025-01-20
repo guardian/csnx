@@ -88,7 +88,6 @@ describe('Sourcepoint unified', () => {
 				frameworkAndCountryCode.countryCode,
 				true,
 				true,
-				true,
 				{
 					browserId: 'abc123',
 					pageViewId: 'abcdef',

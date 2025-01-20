@@ -20,7 +20,6 @@ import type {
 const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
-	subscriber: boolean,
 	isUserSignedIn: boolean,
 	useNonAdvertisedList: boolean,
 	pubData?: PubData,
@@ -29,7 +28,6 @@ const init = (
 	initSourcepoint(
 		framework,
 		countryCode,
-		subscriber,
 		isUserSignedIn,
 		useNonAdvertisedList,
 		pubData,

@@ -37,7 +37,6 @@ const initialised = new Promise((resolve) => {
 const init: InitCMP = ({
 	pubData,
 	country,
-	subscriber = false,
 	isUserSignedIn = false,
 	useNonAdvertisedList = false,
 }) => {
@@ -71,7 +70,6 @@ const init: InitCMP = ({
 	UnifiedCMP.init(
 		framework,
 		country,
-		subscriber,
 		isUserSignedIn,
 		useNonAdvertisedList,
 		pubData ?? {},

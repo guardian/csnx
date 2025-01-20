@@ -49,7 +49,6 @@ declare global {
 				gdpr?: {
 					targetingParams?: {
 						framework: ConsentFramework;
-						subscriber: boolean;
 						isFeatureFlagEnabled?: boolean;
 						excludePage: boolean;
 						isCorP: boolean;
