@@ -72,6 +72,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			break;
 	}
 
+	let messageId: string;
+
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
@@ -114,8 +116,6 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						return;
 					}
 
-					sendMessageReadyToOphan();
-
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
 				},
@@ -126,6 +126,11 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					log('cmp', `onMessageReceiveData ${message_type}`);
 					if (message_type != frameworkMessageType) {
 						return;
+					}
+
+					if (data.messageId !== 0) {
+						messageId = data.messageId;
+						sendMessageReadyToOphan(messageId.toString());
 					}
 
 					log('cmp', 'onMessageReceiveData ', data);
@@ -147,7 +152,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 							(spChoiceType) => spChoiceType === choiceTypeID,
 						)
 					) {
-						sendConsentChoicesToOphan(choiceTypeID);
+						sendConsentChoicesToOphan(choiceTypeID, messageId.toString());
 						setTimeout(invokeCallbacks, 0);
 					}
 				},

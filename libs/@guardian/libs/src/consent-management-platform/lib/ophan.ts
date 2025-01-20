@@ -4,6 +4,12 @@ import type {
 } from '../../ophan/@types';
 import { SourcePointChoiceTypes } from './sourcepointConfig';
 
+export type SourcepointButtonActions =
+	| 'accept'
+	| 'reject'
+	| 'manage-cookies'
+	| 'dismiss';
+
 const getOphanRecordFunction = (): OphanRecordFunction => {
 	const record = window.guardian?.ophan?.record;
 
@@ -14,7 +20,10 @@ const getOphanRecordFunction = (): OphanRecordFunction => {
 	return () => {};
 };
 
-export const sendConsentChoicesToOphan = (choiceType: number): void => {
+export const sendConsentChoicesToOphan = (
+	choiceType: number,
+	messageId: string,
+): void => {
 	let actionValue: string = '';
 	switch (choiceType) {
 		case SourcePointChoiceTypes.AcceptAll:
@@ -30,7 +39,7 @@ export const sendConsentChoicesToOphan = (choiceType: number): void => {
 	const componentEvent: OphanComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
-			id: 'privacy-manager',
+			id: messageId,
 		},
 		action: 'CLICK',
 		value: actionValue,
@@ -41,14 +50,13 @@ export const sendConsentChoicesToOphan = (choiceType: number): void => {
 	console.log('Sending consent choices to Ophan:', componentEvent);
 };
 
-export const sendMessageReadyToOphan = (): void => {
+export const sendMessageReadyToOphan = (messageId: string): void => {
 	const componentEvent: OphanComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
-			id: 'privacy-manager',
+			id: messageId,
 		},
 		action: 'VIEW',
-		value: 'message-read',
 	};
 
 	const record = getOphanRecordFunction();
