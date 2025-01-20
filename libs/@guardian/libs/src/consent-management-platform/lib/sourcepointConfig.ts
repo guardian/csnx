@@ -2,8 +2,15 @@ import { isGuardianDomain } from './domain';
 
 export const ACCOUNT_ID = 1257;
 export const PRIVACY_MANAGER_USNAT = 1068329;
+
 export const PROPERTY_ID = 7417;
+export const PROPERTY_ID_MAIN = 9398; // TO BE CHANGED
+export const PROPERTY_ID_SUPPORT = 38161; // TO BE CHANGED
 export const PROPERTY_ID_AUSTRALIA = 13348;
+
+export const PROPERTY_HREF_SUPPORT = 'http://support-test';
+export const PROPERTY_HREF_MAIN = 'http://ui-dev';
+
 export const PRIVACY_MANAGER_TCFV2 = 106842;
 export const PRIVACY_MANAGER_AUSTRALIA = 1178486;
 
