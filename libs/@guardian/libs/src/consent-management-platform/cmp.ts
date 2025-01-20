@@ -1,4 +1,4 @@
-import { CountryCode } from '../index.test';
+import type { CountryCode } from '../index.test';
 import { getCurrentFramework } from './getCurrentFramework';
 import { mark } from './lib/mark';
 import {
