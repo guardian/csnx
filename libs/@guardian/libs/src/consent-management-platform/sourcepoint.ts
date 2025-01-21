@@ -129,6 +129,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						return;
 					}
 
+					// The messageId is 0 when no message is displayed
 					if (data.messageId !== 0) {
 						messageId = data.messageId;
 						sendMessageReadyToOphan(
