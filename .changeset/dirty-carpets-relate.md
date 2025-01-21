@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Send CMP interactions to Ophan
+Send CMP banner interactions to Ophan
