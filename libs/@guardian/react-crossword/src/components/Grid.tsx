@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
-import { isUndefined } from '@guardian/libs';
+import { isString, isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import type { FocusEvent, KeyboardEvent } from 'react';
+import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
@@ -20,6 +20,7 @@ import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
 import { formatClueForScreenReader } from '../utils/formatClueForScreenReader';
+import { isInputEvent } from '../utils/isInputEvent';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
@@ -58,11 +59,11 @@ const getReadableLabelForCellAndEntry = ({
 	cell: CellType;
 	additionalEntry?: boolean;
 }): string => {
-const cellPosition = entry.direction === 'across'
-    ? String(cell.x + 1 - entry.position.x)
-    : String(cell.y + 1 - entry.position.y);
-return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cellPosition} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
-	
+	const cellPosition =
+		entry.direction === 'across'
+			? String(cell.x + 1 - entry.position.x)
+			: String(cell.y + 1 - entry.position.y);
+	return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cellPosition} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
 };
 
 const getCellPosition = (
@@ -243,47 +244,43 @@ export const Grid = () => {
 		[currentCell.x, currentCell.y, currentCell.group, cells, updateCellFocus],
 	);
 
-	const handleInputKeyDown = useCallback(
-		(event: KeyboardEvent<HTMLInputElement>) => {
-			if (event.key === 'Backspace' || event.key === 'Delete') {
-				event.preventDefault();
-
-				if ('value' in event.target) {
-					if (event.target.value === '') {
-						if (workingDirectionRef.current === 'across') {
-							moveCurrentCell({ delta: { x: -1, y: 0 }, isTyping: true });
-						} else {
-							moveCurrentCell({ delta: { x: 0, y: -1 }, isTyping: true });
-						}
-					} else {
-						updateCell({
-							x: currentCell.x,
-							y: currentCell.y,
-							value: '',
-						});
-					}
+	const deleteLetter = useCallback(
+		(value: string) => {
+			if (value === '') {
+				if (workingDirectionRef.current === 'across') {
+					moveCurrentCell({ delta: { x: -1, y: 0 }, isTyping: true });
+				} else {
+					moveCurrentCell({ delta: { x: 0, y: -1 }, isTyping: true });
 				}
 			} else {
-				const value = cheatMode
-					? cells.getByCoords({
-							x: currentCell.x,
-							y: currentCell.y,
-						})?.solution
-					: keyDownRegex.test(event.key) && event.key.toUpperCase();
+				updateCell({
+					x: currentCell.x,
+					y: currentCell.y,
+					value: '',
+				});
+			}
+		},
+		[currentCell.x, currentCell.y, moveCurrentCell, updateCell],
+	);
 
-				if (value) {
-					event.preventDefault();
-					updateCell({
+	const typeLetter = useCallback(
+		(value: string) => {
+			const letter = cheatMode
+				? cells.getByCoords({
 						x: currentCell.x,
 						y: currentCell.y,
-						value,
-					});
-
-					if (workingDirectionRef.current === 'across') {
-						moveCurrentCell({ delta: { x: 1, y: 0 }, isTyping: true });
-					} else {
-						moveCurrentCell({ delta: { x: 0, y: 1 }, isTyping: true });
-					}
+					})?.solution
+				: keyDownRegex.test(value) && value.toUpperCase();
+			if (letter) {
+				updateCell({
+					x: currentCell.x,
+					y: currentCell.y,
+					value: letter,
+				});
+				if (workingDirectionRef.current === 'across') {
+					moveCurrentCell({ delta: { x: 1, y: 0 }, isTyping: true });
+				} else {
+					moveCurrentCell({ delta: { x: 0, y: 1 }, isTyping: true });
 				}
 			}
 		},
@@ -292,11 +289,52 @@ export const Grid = () => {
 			cheatMode,
 			currentCell.x,
 			currentCell.y,
-			updateCell,
 			moveCurrentCell,
+			updateCell,
 		],
 	);
 
+	const handleInputKeyDown = useCallback(
+		(event: KeyboardEvent<HTMLInputElement>) => {
+			if (event.key === 'Backspace' || event.key === 'Delete') {
+				event.preventDefault();
+				if ('value' in event.target) {
+					if (isString(event.target.value)) {
+						deleteLetter(event.target.value);
+					}
+				}
+			} else {
+				if (event.key) {
+					event.preventDefault();
+					typeLetter(event.key);
+				}
+			}
+		},
+		[deleteLetter, typeLetter],
+	);
+
+	const handleChange = (event: FormEvent, guess?: string) => {
+		const nativeEvent = event.nativeEvent;
+
+		if (isInputEvent(nativeEvent)) {
+			const { inputType, data } = nativeEvent;
+
+			switch (inputType) {
+				case 'deleteContentBackward':
+					deleteLetter(guess ?? '');
+					break;
+
+				case 'insertText':
+					if (data) {
+						typeLetter(data);
+					}
+					break;
+
+				default:
+					break;
+			}
+		}
+	};
 	const navigateGrid = useCallback(
 		(event: KeyboardEvent): void => {
 			let preventDefault = true;
@@ -485,21 +523,11 @@ export const Grid = () => {
 											autoCapitalize={'none'}
 											type="text"
 											pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+											onChange={(event: FormEvent) => {
+												handleChange(event, guess);
+											}}
 											onKeyDown={handleInputKeyDown}
 											id={getId(`cell-input-${cell.x}-${cell.y}`)}
-											onChange={
-												/**
-												 * keep react happy (it wants a change handler)
-												 *
-												 * we have to use keydown
-												 * because we don't want
-												 * more than one char ever
-												 * in the input, but we
-												 * still need to respond to
-												 * new chars being typed
-												 * */
-												noop
-											}
 											tabIndex={-1}
 											aria-label="Crossword cell"
 											aria-description={getCellDescription(cell, entries)}
