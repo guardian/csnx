@@ -3,6 +3,11 @@ import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
+import {
+	constructBannerMessageId,
+	sendConsentChoicesToOphan,
+	sendMessageReadyToOphan,
+} from './lib/ophan';
 import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
@@ -69,6 +74,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			break;
 	}
 
+	let messageId: string;
+
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
@@ -126,6 +133,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						return;
 					}
 
+					if (data.messageId !== 0) {
+						messageId = data.messageId;
+						sendMessageReadyToOphan(
+							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						);
+					}
+
 					log('cmp', 'onMessageReceiveData ', data);
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
 				},
@@ -145,6 +159,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 							(spChoiceType) => spChoiceType === choiceTypeID,
 						)
 					) {
+						sendConsentChoicesToOphan(
+							choiceTypeID,
+							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						);
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
