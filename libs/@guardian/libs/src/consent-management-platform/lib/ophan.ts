@@ -10,6 +10,7 @@ export type SourcepointButtonActions =
 	| 'manage-cookies'
 	| 'dismiss';
 
+export type SourcepointMessageType = 'ACCEPT_REJECT';
 const getOphanRecordFunction = (): OphanRecordFunction => {
 	const record = window.guardian?.ophan?.record;
 
@@ -18,6 +19,13 @@ const getOphanRecordFunction = (): OphanRecordFunction => {
 	}
 	console.log('window.guardian.ophan.record is not available');
 	return () => {};
+};
+
+export const constructBannerMessageId = (
+	messageType: SourcepointMessageType,
+	messageId: string,
+): string => {
+	return `${messageType}-${messageId}`;
 };
 
 export const sendConsentChoicesToOphan = (

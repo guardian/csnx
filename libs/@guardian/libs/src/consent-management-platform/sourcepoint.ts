@@ -3,6 +3,7 @@ import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import {
+	constructBannerMessageId,
 	sendConsentChoicesToOphan,
 	sendMessageReadyToOphan,
 } from './lib/ophan';
@@ -130,7 +131,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 					if (data.messageId !== 0) {
 						messageId = data.messageId;
-						sendMessageReadyToOphan(messageId.toString());
+						sendMessageReadyToOphan(
+							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						);
 					}
 
 					log('cmp', 'onMessageReceiveData ', data);
@@ -152,7 +155,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 							(spChoiceType) => spChoiceType === choiceTypeID,
 						)
 					) {
-						sendConsentChoicesToOphan(choiceTypeID, messageId.toString());
+						sendConsentChoicesToOphan(
+							choiceTypeID,
+							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						);
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
