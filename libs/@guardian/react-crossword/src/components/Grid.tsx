@@ -58,11 +58,11 @@ const getReadableLabelForCellAndEntry = ({
 	cell: CellType;
 	additionalEntry?: boolean;
 }): string => {
-const cellPosition = entry.direction === 'across'
-    ? String(cell.x + 1 - entry.position.x)
-    : String(cell.y + 1 - entry.position.y);
-return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cellPosition} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
-	
+	const cellPosition =
+		entry.direction === 'across'
+			? String(cell.x + 1 - entry.position.x)
+			: String(cell.y + 1 - entry.position.y);
+	return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cellPosition} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
 };
 
 const getCellPosition = (
