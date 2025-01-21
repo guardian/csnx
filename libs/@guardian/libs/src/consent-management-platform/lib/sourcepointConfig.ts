@@ -15,6 +15,7 @@ export type EndPoint = typeof ENDPOINT;
 // https://docs.sourcepoint.com/hc/en-us/articles/4405397484307-Event-callbacks-CMP#h_01FTY32EGZ7H3SS192MEE6SNCP
 export const SourcePointChoiceTypes = {
 	AcceptAll: 11,
+	ManageCookies: 12,
 	RejectAll: 13,
 	Dismiss: 15,
 } as const;

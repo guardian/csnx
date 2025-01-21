@@ -8,7 +8,8 @@ export type SourcepointButtonActions =
 	| 'accept'
 	| 'reject'
 	| 'manage-cookies'
-	| 'dismiss';
+	| 'dismiss'
+	| undefined;
 
 export type SourcepointMessageType = 'ACCEPT_REJECT';
 const getOphanRecordFunction = (): OphanRecordFunction => {
@@ -32,16 +33,19 @@ export const sendConsentChoicesToOphan = (
 	choiceType: number,
 	messageId: string,
 ): void => {
-	let actionValue: string = '';
+	let actionValue: SourcepointButtonActions;
 	switch (choiceType) {
 		case SourcePointChoiceTypes.AcceptAll:
-			actionValue = 'accept-all';
+			actionValue = 'accept';
 			break;
 		case SourcePointChoiceTypes.RejectAll:
-			actionValue = 'reject-all';
+			actionValue = 'reject';
 			break;
 		case SourcePointChoiceTypes.Dismiss:
 			actionValue = 'dismiss';
+			break;
+		case SourcePointChoiceTypes.ManageCookies:
+			actionValue = 'manage-cookies';
 			break;
 	}
 	const componentEvent: OphanComponentEvent = {

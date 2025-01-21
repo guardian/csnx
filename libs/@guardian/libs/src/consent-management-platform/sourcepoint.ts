@@ -149,16 +149,18 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
+
+					sendConsentChoicesToOphan(
+						choiceTypeID,
+						constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+					);
+
 					// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
 					if (
-						Object.values(SourcePointChoiceTypes).some(
-							(spChoiceType) => spChoiceType === choiceTypeID,
-						)
+						choiceTypeID === SourcePointChoiceTypes.AcceptAll ||
+						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
+						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
-						sendConsentChoicesToOphan(
-							choiceTypeID,
-							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
-						);
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
