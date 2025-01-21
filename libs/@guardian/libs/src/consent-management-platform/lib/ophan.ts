@@ -55,7 +55,6 @@ export const sendConsentChoicesToOphan = (
 
 	const record = getOphanRecordFunction();
 	record({ componentEvent });
-	console.log('Sending consent choices to Ophan:', componentEvent);
 };
 
 export const sendMessageReadyToOphan = (messageId: string): void => {
@@ -69,6 +68,4 @@ export const sendMessageReadyToOphan = (messageId: string): void => {
 
 	const record = getOphanRecordFunction();
 	record({ componentEvent });
-
-	console.log('Sending consent choices to Ophan:', componentEvent);
 };
