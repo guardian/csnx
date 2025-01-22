@@ -1,5 +1,13 @@
 # @guardian/identity-auth-frontend
 
+## 7.0.0
+
+### Major Changes
+
+- Updated Peer dependencies [34042f6]
+  - @guardian/libs@20.0.0
+  - @guardian/identity-auth@5.0.0
+
 ## 6.0.3
 
 ### Patch Changes
