@@ -141,11 +141,11 @@ export const Grid = () => {
 				cell.y === currentCell.y &&
 				cell.group?.length
 			) {
-				const otherEntry = cell.group.find(
+				const otherEntryId = cell.group.find(
 					(entryId) => entryId !== currentEntryId,
 				);
-				if (otherEntry) {
-					setCurrentEntryId(otherEntry);
+				if (otherEntryId) {
+					setCurrentEntryId(otherEntryId);
 					return;
 				}
 			}
