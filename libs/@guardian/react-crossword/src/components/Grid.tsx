@@ -134,6 +134,25 @@ export const Grid = () => {
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
+	const handleCurrentCellClick = useCallback(
+		(cell: CellType) => {
+			if (
+				cell.x === currentCell.x &&
+				cell.y === currentCell.y &&
+				cell.group?.length
+			) {
+				const otherEntryId = cell.group.find(
+					(entryId) => entryId !== currentEntryId,
+				);
+				if (otherEntryId) {
+					setCurrentEntryId(otherEntryId);
+					return;
+				}
+			}
+		},
+		[currentCell, currentEntryId, setCurrentEntryId],
+	);
+
 	const updateCellFocus = useCallback(
 		(cell: CellType) => {
 			const clickedCellInput = document.getElementById(
@@ -425,6 +444,9 @@ export const Grid = () => {
 										tabIndex={isCurrentCell && isBlackCell ? 0 : -1}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
+										onPointerDown={
+											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
+										}
 									>
 										{!isBlackCell && (
 											<input
