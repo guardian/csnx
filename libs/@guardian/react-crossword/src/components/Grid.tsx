@@ -168,11 +168,8 @@ export const Grid = () => {
 				clickedCellGroup?.focus();
 			}
 			setCurrentCell(cell);
-			setCurrentEntryId(
-				getCurrentEntryForCell(cell, workingDirectionRef.current),
-			);
 		},
-		[getId, setCurrentCell, setCurrentEntryId],
+		[getId, setCurrentCell],
 	);
 
 	const moveCurrentCell = useCallback(
@@ -339,6 +336,14 @@ export const Grid = () => {
 		[],
 	);
 
+	// Handle changes to the current cell
+	useEffect(() => {
+		// If the current cell changes, we need to update the current entry ID
+		setCurrentEntryId(
+			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
+		);
+	}, [currentCell, focused, setCurrentEntryId]);
+
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
 		if (currentEntryId) {
@@ -436,52 +441,54 @@ export const Grid = () => {
 										role="cell"
 										data-x={cell.x}
 										data-y={cell.y}
-										tabIndex={isCurrentCell ? 0 : -1}
+										tabIndex={isCurrentCell && isBlackCell ? 0 : -1}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
 										onPointerDown={
 											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
 										}
 									>
-										<input
-											value={guess}
-											autoCapitalize={'none'}
-											type="text"
-											pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-											onKeyDown={handleInputKeyDown}
-											id={getId(`cell-input-${cell.x}-${cell.y}`)}
-											onChange={
-												/**
-												 * keep react happy (it wants a change handler)
-												 *
-												 * we have to use keydown
-												 * because we don't want
-												 * more than one char ever
-												 * in the input, but we
-												 * still need to respond to
-												 * new chars being typed
-												 * */
-												noop
-											}
-											tabIndex={-1}
-											aria-label="Crossword cell"
-											aria-description={getCellDescription(cell)}
-											css={css`
-												position: absolute;
-												top: 0;
-												left: 0;
-												width: 100%;
-												height: 100%;
-												background: transparent;
-												border: none;
-												${textSans12};
-												font-size: ${theme.gridCellSize * 0.6}px;
-												text-align: center;
-											`}
-											autoComplete="off"
-											spellCheck="false"
-											autoCorrect="off"
-										/>
+										{!isBlackCell && (
+											<input
+												value={guess}
+												autoCapitalize={'none'}
+												type="text"
+												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
+												onKeyDown={handleInputKeyDown}
+												id={getId(`cell-input-${cell.x}-${cell.y}`)}
+												onChange={
+													/**
+													 * keep react happy (it wants a change handler)
+													 *
+													 * we have to use keydown
+													 * because we don't want
+													 * more than one char ever
+													 * in the input, but we
+													 * still need to respond to
+													 * new chars being typed
+													 * */
+													noop
+												}
+												tabIndex={isCurrentCell ? 0 : -1}
+												aria-label="Crossword cell"
+												aria-description={getCellDescription(cell)}
+												css={css`
+													position: absolute;
+													top: 0;
+													left: 0;
+													width: 100%;
+													height: 100%;
+													background: transparent;
+													border: none;
+													${textSans12};
+													font-size: ${theme.gridCellSize * 0.6}px;
+													text-align: center;
+												`}
+												autoComplete="off"
+												spellCheck="false"
+												autoCorrect="off"
+											/>
+										)}
 									</Cell>
 								);
 							})}
