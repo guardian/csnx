@@ -3,7 +3,6 @@ import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import type { FocusEvent, KeyboardEvent } from 'react';
-import type { CAPIEntry } from '../@types/CAPI';
 import type {
 	Cell as CellType,
 	Coords,
@@ -178,11 +177,11 @@ export const Grid = () => {
 				cell.y === currentCell.y &&
 				cell.group?.length
 			) {
-				const otherEntry = cell.group.find(
+				const otherEntryId = cell.group.find(
 					(entryId) => entryId !== currentEntryId,
 				);
-				if (otherEntry) {
-					setCurrentEntryId(otherEntry);
+				if (otherEntryId) {
+					setCurrentEntryId(otherEntryId);
 					return;
 				}
 			}
@@ -205,11 +204,8 @@ export const Grid = () => {
 				clickedCellGroup?.focus();
 			}
 			setCurrentCell(cell);
-			setCurrentEntryId(
-				getCurrentEntryForCell(cell, workingDirectionRef.current),
-			);
 		},
-		[getId, setCurrentCell, setCurrentEntryId],
+		[getId, setCurrentCell],
 	);
 
 	const moveCurrentCell = useCallback(
