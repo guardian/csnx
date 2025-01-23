@@ -257,7 +257,7 @@ export const Grid = () => {
 	 * This function is used to handle keyboard input in the crossword grid.
 	 * It works for devices with a physical keyboard, for mobile devices that use IMEs we use the onInput event.
 	 */
-	const handleInputKeyDown = useCallback(
+	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
 			if (event.key === 'Backspace' || event.key === 'Delete') {
 				event.preventDefault();
@@ -499,7 +499,7 @@ export const Grid = () => {
 												autoCapitalize={'none'}
 												type="text"
 												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-												onKeyDown={handleInputKeyDown}
+												onKeyDown={handleKeyDown}
 												id={getId(`cell-input-${cell.x}-${cell.y}`)}
 												onInput={(event: FormEvent) => {
 													handleInput(event, guess);
