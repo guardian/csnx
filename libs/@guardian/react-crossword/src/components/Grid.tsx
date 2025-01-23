@@ -260,8 +260,8 @@ export const Grid = () => {
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
 			if (event.key === 'Backspace' || event.key === 'Delete') {
-				event.preventDefault();
 				if ('value' in event.target && isString(event.target.value)) {
+					event.preventDefault();
 					deleteLetter(event.target.value);
 				}
 			} else {
