@@ -1,4 +1,3 @@
-import { isUndefined } from '@guardian/libs';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	Cell,
@@ -53,26 +52,9 @@ export const parseCrosswordData = (data: {
 	// For each entry, we'll populate `entries` and `separators` and `cells`.
 	//
 	// We're mutating the 'empty' targets so we can do it all in one loop.
-
-	for (let j = 0; j < data.entries.length; j += 1) {
-		const nextEntryIndex = (j + 1) % data.entries.length;
-		const prevEntryIndex = (j - 1 + data.entries.length) % data.entries.length;
-		const nextEntry = data.entries[nextEntryIndex];
-		const prevEntry = data.entries[prevEntryIndex];
-		const entry = data.entries[j];
-		if (
-			isUndefined(entry) ||
-			isUndefined(nextEntry) ||
-			isUndefined(prevEntry)
-		) {
-			throw new Error('Entry out of range');
-		}
+	for (const entry of data.entries) {
 		// populate the `entries` map
-		entries.set(entry.id, {
-			...entry,
-			nextEntryID: nextEntry.id,
-			prevEntryID: prevEntry.id,
-		});
+		entries.set(entry.id, entry);
 
 		// populate the `separators` array
 		for (const [separator, locations] of Object.entries(

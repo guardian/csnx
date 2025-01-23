@@ -1,6 +1,6 @@
 import type { CAPIEntry } from './CAPI';
 import type { Direction } from './Direction';
-import type { EntryID } from './Entry';
+import type { Entry, EntryID } from './Entry';
 
 export type Axis = 'x' | 'y';
 
@@ -11,7 +11,7 @@ export type Cell = Coords & {
 	number?: number;
 
 	/** Array of entries that this solution is part of */
-	group?: CAPIEntry['group'];
+	group?: CrosswordEntry['group'];
 
 	/** The cell's solution */
 	solution?: string;
@@ -21,13 +21,14 @@ export type Cells = Map<`x${number}y${number}`, Cell> & {
 	getByCoords: (arg0: Coords) => ReturnType<Cells['get']>;
 };
 
-export type Entries = Map<EntryID, CrosswordEntry>;
+export type Entries = Map<EntryID, CAPIEntry>;
 
 export type Progress = string[][];
 
-export type CrosswordEntry = CAPIEntry & {
-	nextEntryID: EntryID;
-	prevEntryID: EntryID;
+export type CrosswordEntry = Entry<number> & {
+	direction: Direction;
+	clue: string;
+	solution?: string;
 };
 
 export type Crossword = {
