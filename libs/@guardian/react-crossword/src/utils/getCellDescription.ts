@@ -3,6 +3,11 @@ import type { CAPIEntry } from '../@types/CAPI';
 import type { Cell, Entries } from '../@types/crossword';
 import { formatClueForScreenReader } from './formatClueForScreenReader';
 
+/**
+ * Get the description of a cell in the format
+ * "Letter 2 of 4-across: Life is in a mess (5 letters).
+ * Also, letter 1 of 5-down Life is always in a mess (2 letters)."
+ */
 export const getCellDescription = (cell: Cell, entries: Entries) => {
 	const cellEntryIds = cell.group ?? [];
 	const cellRelevantEntryId =
@@ -27,6 +32,11 @@ export const getCellDescription = (cell: Cell, entries: Entries) => {
 	);
 };
 
+/**
+ * get the readable label for a cell and entry combination
+ * in the format "Letter 2 of 4-across: Life is in a mess (5 letters)."
+ * or "Also, letter 1 of 5-down Life is always in a mess (2 letters)."
+ */
 const getReadableLabelForCellAndEntry = ({
 	entry,
 	cell,
