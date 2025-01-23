@@ -72,6 +72,9 @@ const Layout = ({
 				<StickyClue
 					styles={css`
 						max-width: ${gridWidth}px;
+						@container (min-width: ${oneColWidth}px) {
+							display: none;
+						}
 					`}
 				/>
 				{showAnagramHelper ? <AnagramHelper /> : <Grid />}

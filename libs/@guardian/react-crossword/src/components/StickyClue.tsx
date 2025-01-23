@@ -33,8 +33,11 @@ export const StickyClue = forwardRef(
 			const newEntryId =
 				direction === 'prev' ? entry.prevEntryID : entry.nextEntryID;
 			const newEntry = entries.get(newEntryId);
-			if (newEntry) {
-				setCurrentCell(cells.getByCoords(newEntry.position));
+			const firstCell = newEntry
+				? cells.getByCoords(newEntry.position)
+				: undefined;
+			if (newEntry && firstCell) {
+				setCurrentCell(firstCell);
 				setCurrentEntryId(newEntryId);
 			}
 		};
