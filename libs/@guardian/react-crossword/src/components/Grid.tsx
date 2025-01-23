@@ -98,25 +98,35 @@ const FocusIndicator = ({
 	currentCell: NonNullable<Coords>;
 }) => {
 	const theme = useTheme();
+	const size = theme.gridCellSize + theme.gridGutterSize;
+	const x = currentCell.x * size;
+	const y = currentCell.y * size;
 
 	return (
-		<rect
-			x={
-				currentCell.x * (theme.gridCellSize + theme.gridGutterSize) +
-				theme.gridGutterSize * 0.5
-			}
-			y={
-				currentCell.y * (theme.gridCellSize + theme.gridGutterSize) +
-				theme.gridGutterSize * 0.5
-			}
-			width={theme.gridCellSize + theme.gridGutterSize}
-			height={theme.gridCellSize + theme.gridGutterSize}
-			stroke={theme.focusColor}
-			strokeWidth={2}
-			fill="none"
-			rx={2}
-			ry={2}
-		/>
+		<>
+			<rect
+				x={x - 1 + theme.gridGutterSize * 0.5}
+				y={y - 1 + theme.gridGutterSize * 0.5}
+				width={size + 2}
+				height={size + 2}
+				stroke={'#fff'}
+				strokeWidth={2}
+				fill="none"
+				rx={4}
+				ry={4}
+			/>
+			<rect
+				x={x + theme.gridGutterSize * 0.5}
+				y={y + theme.gridGutterSize * 0.5}
+				width={size}
+				height={size}
+				stroke={theme.focusColor}
+				strokeWidth={2}
+				fill="none"
+				rx={4}
+				ry={4}
+			/>
+		</>
 	);
 };
 
