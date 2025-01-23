@@ -265,7 +265,7 @@ export const Grid = () => {
 					deleteLetter(event.target.value);
 				}
 			} else {
-				if (event.key) {
+				if (event.key && event.key.length === 1) {
 					event.preventDefault();
 					typeLetter(event.key);
 				}
