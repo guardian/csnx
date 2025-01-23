@@ -7,19 +7,19 @@ export const defaultTheme: Theme = {
 	gridGutterSize: 1,
 	gridCellSize: 32,
 
-	textColor: palette.neutral[10],
-	focusColor: 'lime',
-	selectedColor: 'deeppink',
-	connectedColor: 'lightpink',
+	textColor: palette.neutral[7],
+	focusColor: palette.focus[400],
+	selectedColor: palette.brandAlt[400],
+	connectedColor: '#fff7b2', // One-off colour generated from brandAlt.400
 
-	buttonBackgroundColor: 'hotpink',
-	buttonBackgroundHoverColor: 'lightpink',
+	buttonBackgroundColor: palette.lifestyle[400],
+	buttonBackgroundHoverColor: '#942f65', // One-off colour generated from lifestyle.400
 
-	borderColor: 'orchid',
+	borderColor: palette.neutral[86],
 
 	clueMinWidth: 240,
 	clueMaxWidth: 480,
 
-	anagramHelperBackgroundColor: 'floralwhite',
+	anagramHelperBackgroundColor: palette.neutral[97],
 	anagramHelperCandidateTextColor: palette.neutral[60],
 };
