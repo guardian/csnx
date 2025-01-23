@@ -15,7 +15,7 @@ export const defaultTheme: Theme = {
 	buttonBackgroundColor: palette.lifestyle[400],
 	buttonBackgroundHoverColor: '#942f65', // One-off colour generated from lifestyle.400
 
-	borderColor: palette.neutral[86],
+	borderColor: 'red', //palette.neutral[86],
 
 	clueMinWidth: 240,
 	clueMaxWidth: 480,
