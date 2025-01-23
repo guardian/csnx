@@ -63,12 +63,7 @@ export const Crossword = ({
 	);
 
 	return (
-		<ContextProvider
-			theme={theme}
-			data={data}
-			userProgress={progress}
-			selectedEntryId={data.entries[0].id}
-		>
+		<ContextProvider theme={theme} data={data} userProgress={progress}>
 			<div
 				role="application"
 				css={css`
