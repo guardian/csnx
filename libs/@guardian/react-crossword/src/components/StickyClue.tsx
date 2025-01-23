@@ -28,9 +28,6 @@ export const StickyClueComponent = (props: StickyClueProps) => {
 		align-items: start;
 		${textSans15};
 		background: white;
-		* {
-			padding: 0;
-		}
 	`;
 
 	return (
