@@ -75,6 +75,8 @@ export type Theme = {
 
 	/** Border colour used to visually separate parts of the UI */
 	borderColor: string;
+	/** Border colour applied to the top of the clue lists */
+	clueListBorderColor: string;
 
 	/** The minimum width of a clue */
 	clueMinWidth: number;
