@@ -29,7 +29,7 @@ export const StickyClueComponent = (props: StickyClueProps) => {
 	`;
 
 	return (
-		<div aria-hidden={true} css={[props.styles, stickyClue]}>
+		<div aria-hidden="true" css={[props.styles, stickyClue]}>
 			{entry && (
 				<>
 					<span
