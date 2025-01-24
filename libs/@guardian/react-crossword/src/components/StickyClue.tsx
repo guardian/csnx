@@ -1,11 +1,10 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { textSans15 } from '@guardian/source/foundations';
+import { textSans12 } from '@guardian/source/foundations';
 import { memo } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
-import { Clue } from './Clue';
 
 type StickyClueProps = {
 	styles?: SerializedStyles;
@@ -24,22 +23,34 @@ export const StickyClueComponent = (props: StickyClueProps) => {
 		display: flex;
 		z-index: 1;
 		min-height: 3.5em;
-		justify-content: center;
 		align-items: start;
-		${textSans15};
+		${textSans12};
 		background: white;
 	`;
 
 	return (
 		<div aria-hidden={true} css={[props.styles, stickyClue]}>
 			{entry && (
-				<Clue
-					entry={entry}
-					css={css`
-						margin: 0 5px;
-						padding: 0;
-					`}
-				/>
+				<>
+					<span
+						aria-hidden="true"
+						css={css`
+							flex: 0 0 auto;
+							font-weight: bold;
+							padding-right: 0.625em;
+							text-transform: capitalize;
+						`}
+					>
+						{entry.id.split('-').join(' ')}
+					</span>
+					<span
+						aria-hidden="true"
+						css={css``}
+						dangerouslySetInnerHTML={{
+							__html: entry.clue,
+						}}
+					></span>
+				</>
 			)}
 		</div>
 	);
