@@ -36,6 +36,7 @@ declare global {
 				propertyId?: number;
 				targetingParams?: {
 					framework: ConsentFramework;
+					excludePage: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
@@ -44,7 +45,8 @@ declare global {
 				};
 				gdpr?: {
 					targetingParams?: {
-						framework?: ConsentFramework;
+						framework: ConsentFramework;
+						excludePage: boolean;
 					};
 				};
 				usnat?: {

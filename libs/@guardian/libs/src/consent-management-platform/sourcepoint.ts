@@ -1,7 +1,13 @@
 import { log } from '../logger/logger';
+import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
+import {
+	constructBannerMessageId,
+	sendConsentChoicesToOphan,
+	sendMessageReadyToOphan,
+} from './lib/ophan';
 import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
@@ -70,12 +76,16 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			break;
 	}
 
+	let messageId: string;
+
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
+
+	const pageSection = window.guardian?.config?.page?.section;
 
 	window._sp_queue = [];
 	/* istanbul ignore next */
@@ -84,6 +94,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getPropertyHref(framework),
+			targetingParams: {
+				framework,
+				excludePage: isExcludedFromCMP(pageSection),
+			},
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
 			// ccpa or gdpr object added below
@@ -119,6 +133,15 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						);
 					}
 
+					// The messageId is 0 when no message is displayed
+					if (data.messageId !== 0) {
+						messageId = data.messageId;
+						sendMessageReadyToOphan(
+							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						);
+					}
+
+					log('cmp', 'onMessageReceiveData ', data);
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
 				},
 
@@ -127,11 +150,17 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
+
+					sendConsentChoicesToOphan(
+						choiceTypeID,
+						constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+					);
+
 					// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
 					if (
-						Object.values(SourcePointChoiceTypes).some(
-							(spChoiceType) => spChoiceType === choiceTypeID,
-						)
+						choiceTypeID === SourcePointChoiceTypes.AcceptAll ||
+						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
+						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
 						setTimeout(invokeCallbacks, 0);
 					}
@@ -184,7 +213,12 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			transitionCCPAAuth: true,
 		};
 
-		window._sp_.config.gdpr = {};
+		window._sp_.config.gdpr = {
+			targetingParams: {
+				framework,
+				excludePage: isExcludedFromCMP(pageSection),
+			},
+		};
 	}
 
 	// TODO use libs function loadScript,
