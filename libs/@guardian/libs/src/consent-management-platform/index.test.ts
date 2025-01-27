@@ -106,6 +106,7 @@ describe('hotfix cmp.init', () => {
 			willShowPrivacyMessage: () => new Promise(() => true),
 			willShowPrivacyMessageSync: () => true,
 			hasInitialised: () => true,
+			rejectAll: () => new Promise(() => undefined),
 			showPrivacyManager: () => {
 				console.warn('This is a dummy for showPrivacyManager');
 			},
