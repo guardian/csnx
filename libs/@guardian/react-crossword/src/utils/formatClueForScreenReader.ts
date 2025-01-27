@@ -1,4 +1,5 @@
 import { isString } from '@guardian/libs';
+import { stripHtmlTags } from './stripHtmlTags';
 
 const punctuateString = (string: string) => {
 	const trimmed = string.trim();
@@ -6,12 +7,13 @@ const punctuateString = (string: string) => {
 };
 
 export const formatClueForScreenReader = (clueString: string) => {
-	const trimmedClueString = clueString.trim();
-	const [, clue, lengths] = /(.+)\((.+?)\)$/gm.exec(trimmedClueString) ?? [];
+	const trimmedStrippedClueString = stripHtmlTags(clueString.trim());
+	const [, clue, lengths] =
+		/(.+)\((.+?)\)$/gm.exec(trimmedStrippedClueString) ?? [];
 
 	// If we can't find the clue or lengths, just return the original string
 	if (!isString(clue) || !isString(lengths)) {
-		return punctuateString(trimmedClueString);
+		return punctuateString(trimmedStrippedClueString);
 	}
 
 	// Split lengths, trim them, and validate each as a number
@@ -20,7 +22,7 @@ export const formatClueForScreenReader = (clueString: string) => {
 
 	// If any length is invalid, fallback to just returning the punctuated clue
 	if (!areValidNumbers) {
-		return punctuateString(trimmedClueString);
+		return punctuateString(trimmedStrippedClueString);
 	}
 
 	const [last, ...rest] = lengths
