@@ -6,6 +6,7 @@ import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
 	sendConsentChoicesToOphan,
+	sendJurisdictionMismatchToOphan,
 	sendMessageReadyToOphan,
 } from './lib/ophan';
 import type { Property } from './lib/property';
@@ -127,6 +128,13 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					log('cmp', 'onMessageReceiveData ', data);
 
 					if (message_type != frameworkMessageType) {
+						sendJurisdictionMismatchToOphan(
+							JSON.stringify({
+								sp: message_type,
+								gu: frameworkMessageType,
+							}),
+						);
+
 						log(
 							'cmp',
 							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
