@@ -1,5 +1,6 @@
 import { isUndefined, log } from '@guardian/libs';
 import type { Dispatch, SetStateAction } from 'react';
+import { useEffect } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Progress } from '../@types/crossword';
@@ -90,9 +91,13 @@ export const ProgressProvider = ({
 	});
 
 	const defaultProgress = getInitialProgress({ id, dimensions, userProgress });
-	if (isUndefined(progress)) {
-		setProgress(defaultProgress);
-	}
+
+	// Hydrate the progress state on the client
+	useEffect(() => {
+		if (isUndefined(progress)) {
+			setProgress(defaultProgress);
+		}
+	}, [defaultProgress, progress, setProgress]);
 
 	return (
 		<ProgressContext.Provider
