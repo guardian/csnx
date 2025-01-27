@@ -1,5 +1,7 @@
 import type { CountryCode } from '../index.test';
+import { isObject } from '../isObject/isObject';
 import { log } from '../logger/logger';
+import { storage } from '../storage/storage';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isConsentOrPay } from './isConsentOrPay';
@@ -20,7 +22,7 @@ import {
 import { mergeUserConsent } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
-import type { ConsentFramework } from './types';
+import type { ConsentFramework, Participations } from './types';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -81,11 +83,12 @@ export const init = (
 
 	setCurrentFramework(framework);
 
+	// invoke callbacks before we receive Sourcepoint events
+
 	if (useNonAdvertisedList) {
 		mergeUserConsent();
 	}
 
-	// invoke callbacks before we receive Sourcepoint events
 	invokeCallbacks();
 
 	let frameworkMessageType: string;
@@ -105,6 +108,15 @@ export const init = (
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
+
+	const participations: Participations = storage.local.get(
+		'gu.ab.participations',
+	) as Participations;
+	const isInConsentOrPayABTest = isObject(participations)
+		? participations.ConsentOrPayBanner?.variant === 'activate'
+		: false;
+
+	console.log('participations', participations, isInConsentOrPayABTest);
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);

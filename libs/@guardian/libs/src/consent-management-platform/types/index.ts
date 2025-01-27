@@ -78,3 +78,5 @@ export interface VendorConsents {
 }
 
 export type { VendorName };
+
+export type Participations = Record<string, { variant: string }>;
