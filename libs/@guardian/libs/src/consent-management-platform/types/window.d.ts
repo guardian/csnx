@@ -32,6 +32,7 @@ declare global {
 			config: {
 				baseEndpoint: EndPoint;
 				accountId: number;
+				campaignEnv: 'stage' | 'prod';
 				propertyHref?: Property;
 				propertyId?: number;
 				targetingParams?: {

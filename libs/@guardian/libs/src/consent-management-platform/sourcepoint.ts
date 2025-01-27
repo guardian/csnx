@@ -37,8 +37,7 @@ const getPropertyHref = (framework: ConsentFramework): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://ui-dev';
-	// return isGuardianDomain() ? null : 'https://test.theguardian.com';
+	return isGuardianDomain() ? null : 'https://test.theguardian.com';
 };
 
 const getPropertyId = (framework: ConsentFramework): number => {
@@ -95,6 +94,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
 			propertyHref: getPropertyHref(framework),
+			campaignEnv: 'stage',
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
