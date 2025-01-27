@@ -2,6 +2,7 @@
  * Wrapper for https://github.com/astoilkov/use-local-storage-state that:
  *
  * - adds a `validator` option
+ * - makes `defaultValue` required
  * - provides our own serializer to keep the data stored in localStorage in a
  *   format that matches the format used by @guardian/libs#storage
  *
@@ -46,21 +47,22 @@ export function useStoredState<
 	T = ValidatesAs<V>,
 >(key: string, { validator, ...options }: Options<T>) {
 	const [defaultValue] = useState(options.defaultValue);
+
 	const [state, setState, rest] = useLocalStorageState(key, {
 		...options,
 		serializer,
 	});
 
-	const validatedState: T = useMemo(() => {
+	const validatedState = useMemo(() => {
 		// If the state is valid, return it (now properly typed).
 		if (validator(state)) {
 			return state;
 		}
 
-		// The state is invalid, so return undefined.
-		setState(defaultValue);
+		// The state is invalid, so return the default value (which may be
+		// undefined).
 		return defaultValue;
-	}, [validator, state, setState, defaultValue]);
+	}, [validator, state, defaultValue]);
 
 	return [validatedState, setState, rest] as const;
 }
