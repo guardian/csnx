@@ -85,12 +85,9 @@ export const ProgressProvider = ({
 	progress?: Progress;
 	children: ReactNode;
 }) => {
-	const defaultProgress = getInitialProgress({ id, dimensions, userProgress });
-
 	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
 		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
 		validator: (progress: unknown) => isValid(progress, { dimensions }),
-		defaultValue: defaultProgress,
 	});
 
 	return (
