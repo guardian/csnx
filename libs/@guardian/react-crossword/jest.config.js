@@ -4,7 +4,7 @@ import { config as baseConfig } from '../../../configs/jest.config.js';
 const config = {
 	...baseConfig,
 	displayName: '@guardian/react-crossword',
-	testEnvironment: 'node',
+	testEnvironment: 'jest-environment-jsdom',
 };
 
 export default config;

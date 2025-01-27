@@ -14,7 +14,7 @@ const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 		<div
 			css={css`
 				${headlineBold17};
-				border-top: 1px solid ${theme.borderColor};
+				border-top: 1px solid ${theme.clueListBorderColor};
 				border-bottom: 1px dotted ${theme.borderColor};
 				height: 2em;
 				margin-bottom: 0.5em;

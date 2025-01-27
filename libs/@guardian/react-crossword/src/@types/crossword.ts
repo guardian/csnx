@@ -13,6 +13,9 @@ export type Cell = Coords & {
 	/** Array of entries that this solution is part of */
 	group?: CrosswordEntry['group'];
 
+	/** The cell's description */
+	description?: string;
+
 	/** The cell's solution */
 	solution?: string;
 };
@@ -72,6 +75,8 @@ export type Theme = {
 
 	/** Border colour used to visually separate parts of the UI */
 	borderColor: string;
+	/** Border colour applied to the top of the clue lists */
+	clueListBorderColor: string;
 
 	/** The minimum width of a clue */
 	clueMinWidth: number;

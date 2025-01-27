@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 20.0.0
+
+### Major Changes
+
+- 34042f6: The CMP will no longer show for pages with `window.guardian.config.page.section: 'info' | 'help'`
+
 ## 19.2.2
 
 ### Patch Changes
