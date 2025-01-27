@@ -1,5 +1,5 @@
 import { isString } from '@guardian/libs';
-import { strip } from './stripHTML';
+import { stripHtmlTags } from './stripHtmlTags';
 
 const punctuateString = (string: string) => {
 	const trimmed = string.trim();
@@ -7,7 +7,7 @@ const punctuateString = (string: string) => {
 };
 
 export const formatClueForScreenReader = (clueString: string) => {
-	const trimmedStrippedClueString = strip(clueString.trim());
+	const trimmedStrippedClueString = stripHtmlTags(clueString.trim());
 	const [, clue, lengths] =
 		/(.+)\((.+?)\)$/gm.exec(trimmedStrippedClueString) ?? [];
 
