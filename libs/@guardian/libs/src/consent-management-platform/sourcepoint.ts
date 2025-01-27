@@ -219,6 +219,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		window._sp_.config.usnat = {
 			includeUspApi: true,
 			transitionCCPAAuth: true,
+			targetingParams: {
+				framework: framework,
+			},
 		};
 
 		window._sp_.config.gdpr = {
