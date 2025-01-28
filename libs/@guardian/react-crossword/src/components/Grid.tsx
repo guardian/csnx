@@ -132,6 +132,7 @@ export const Grid = () => {
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const [focused, setFocused] = useState(false);
+	const [, setHydrated] = useState(false);
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
@@ -384,6 +385,11 @@ export const Grid = () => {
 			),
 		[],
 	);
+
+	// As the cells are all memoized we need to force a rerender for the initial load on the client
+	useEffect(() => {
+		setHydrated(true);
+	}, []);
 
 	// Handle changes to the current cell
 	useEffect(() => {
