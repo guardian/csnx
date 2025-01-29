@@ -1,4 +1,4 @@
-import { isUndefined, log } from '@guardian/libs';
+import { log } from '@guardian/libs';
 import type { Dispatch, SetStateAction } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
@@ -86,18 +86,14 @@ export const ProgressProvider = ({
 	children: ReactNode;
 }) => {
 	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
+		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
 		validator: (progress: unknown) => isValid(progress, { dimensions }),
 	});
-
-	const defaultProgress = getInitialProgress({ id, dimensions, userProgress });
-	if (isUndefined(progress)) {
-		setProgress(defaultProgress);
-	}
 
 	return (
 		<ProgressContext.Provider
 			value={{
-				progress: progress ?? defaultProgress,
+				progress,
 				setProgress,
 				isStored: isPersistent,
 			}}
