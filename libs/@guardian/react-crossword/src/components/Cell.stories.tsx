@@ -48,6 +48,8 @@ const args: BaseCellProps = {
 		group: ['1-across'],
 	},
 	isBlackCell: false,
+	handleInput: () => {},
+	handleKeyDown: () => {},
 };
 
 export default meta;
