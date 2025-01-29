@@ -70,7 +70,7 @@ const Layout = ({
 				`}
 			>
 				<StickyClue
-					styles={css`
+					additionalCss={css`
 						max-width: ${gridWidth}px;
 						@container (min-width: ${oneColWidth}px) {
 							display: none;

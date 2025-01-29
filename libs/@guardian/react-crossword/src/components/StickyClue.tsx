@@ -8,10 +8,10 @@ import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 
 type StickyClueProps = {
-	styles?: SerializedStyles;
+	additionalCss?: SerializedStyles;
 };
 
-export const StickyClueComponent = (props: StickyClueProps) => {
+export const StickyClueComponent = ({ additionalCss }: StickyClueProps) => {
 	const { entries } = useData();
 	const { currentEntryId } = useCurrentClue();
 	const theme = useTheme();
@@ -31,7 +31,7 @@ export const StickyClueComponent = (props: StickyClueProps) => {
 	`;
 
 	return (
-		<div aria-hidden="true" css={[props.styles, stickyClue]}>
+		<div aria-hidden="true" css={[additionalCss, stickyClue]}>
 			{entry && (
 				<>
 					<span
