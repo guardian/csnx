@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import type { Theme } from '../@types/crossword';
-import { ThemeProvider, useTheme } from '../context/Theme';
+import { ContextProvider } from '../context/ContextProvider';
+import { useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
 import type { BaseCellProps } from './Cell';
 import { Cell } from './Cell';
@@ -31,9 +33,9 @@ const meta: Meta<typeof Cell> = {
 		},
 		(Story, { parameters }) => {
 			return (
-				<ThemeProvider theme={parameters.theme as Theme}>
+				<ContextProvider data={data} theme={parameters.theme as Theme}>
 					<Story />
-				</ThemeProvider>
+				</ContextProvider>
 			);
 		},
 	],
@@ -48,6 +50,8 @@ const args: BaseCellProps = {
 		group: ['1-across'],
 	},
 	isBlackCell: false,
+	handleInput: () => {},
+	handleKeyDown: () => {},
 };
 
 export default meta;
