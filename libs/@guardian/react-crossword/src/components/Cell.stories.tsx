@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type { Theme } from '../@types/crossword';
-import { ThemeProvider, useTheme } from '../context/Theme';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
+import { ContextProvider } from '../context/ContextProvider';
+import { useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
 import type { BaseCellProps } from './Cell';
 import { Cell } from './Cell';
@@ -8,9 +9,6 @@ import { Cell } from './Cell';
 const meta: Meta<typeof Cell> = {
 	component: Cell,
 	title: 'Components/Cell',
-	parameters: {
-		theme: defaultTheme,
-	},
 	decorators: [
 		(Story) => {
 			const theme = useTheme();
@@ -29,11 +27,11 @@ const meta: Meta<typeof Cell> = {
 				</svg>
 			);
 		},
-		(Story, { parameters }) => {
+		(Story) => {
 			return (
-				<ThemeProvider theme={parameters.theme as Theme}>
+				<ContextProvider data={data} theme={defaultTheme}>
 					<Story />
-				</ThemeProvider>
+				</ContextProvider>
 			);
 		},
 	],
