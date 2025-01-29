@@ -48,6 +48,13 @@ export const AnagramHelper = () => {
 		setShuffledLetters(biasedShuffle(letters.split('')));
 	}, [letters]);
 
+	const close = useCallback(() => {
+		setLetters('');
+		setShuffledLetters([]);
+		setSolving(false);
+		setShowAnagramHelper(false);
+	}, [setShowAnagramHelper]);
+
 	const start = useCallback(() => {
 		shuffle();
 		setSolving(true);
@@ -85,11 +92,7 @@ export const AnagramHelper = () => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				<CrosswordButton
-					onClick={() => setShowAnagramHelper(false)}
-					size="small"
-					priority="tertiary"
-				>
+				<CrosswordButton onClick={close} size="small" priority="tertiary">
 					<SvgCross size="xsmall" />
 				</CrosswordButton>
 			</div>
