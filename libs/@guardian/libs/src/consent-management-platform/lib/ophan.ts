@@ -80,7 +80,7 @@ export const sendJurisdictionMismatchToOphan = (value: string): void => {
 			componentType: 'CONSENT',
 		},
 		value: value,
-		action: 'DISLIKE',
+		action: 'VIEW',
 	};
 
 	const record = getOphanRecordFunction();
