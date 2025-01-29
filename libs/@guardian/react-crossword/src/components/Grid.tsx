@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import { isString, isUndefined } from '@guardian/libs';
-import { textSans12 } from '@guardian/source/foundations';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
@@ -285,27 +284,31 @@ export const Grid = () => {
 	 * This is because the onKeyDown event gives 299 "unidentified" when using native keyboard on android.
 	 * https://clark.engineering/input-on-android-229-unidentified-1d92105b9a04
 	 */
-	const handleInput = (event: FormEvent, guess?: string) => {
-		const nativeEvent = event.nativeEvent;
+	const handleInput = useCallback(
+		(event: FormEvent, guess?: string) => {
+			const nativeEvent = event.nativeEvent;
 
-		if (nativeEvent instanceof InputEvent) {
-			const { inputType, data } = nativeEvent;
+			if (nativeEvent instanceof InputEvent) {
+				const { inputType, data } = nativeEvent;
 
-			switch (inputType) {
-				case 'deleteContentBackward':
-					deleteLetter(guess ?? '');
-					break;
+				switch (inputType) {
+					case 'deleteContentBackward':
+						deleteLetter(guess ?? '');
+						break;
 
-				case 'insertText':
-					if (data) {
-						typeLetter(data);
-					}
-					break;
-				default:
-					break;
+					case 'insertText':
+						if (data) {
+							typeLetter(data);
+						}
+						break;
+					default:
+						break;
+				}
 			}
-		}
-	};
+		},
+		[deleteLetter, typeLetter],
+	);
+
 	const navigateGrid = useCallback(
 		(event: KeyboardEvent): void => {
 			let preventDefault = true;
@@ -487,48 +490,20 @@ export const Grid = () => {
 										isSelected={isSelected}
 										isConnected={isConnected}
 										isBlackCell={isBlackCell}
+										isCurrentCell={isCurrentCell}
 										role="cell"
 										data-x={cell.x}
 										data-y={cell.y}
-										tabIndex={isCurrentCell && isBlackCell ? 0 : -1}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
 										onPointerDown={
 											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
 										}
-									>
-										{!isBlackCell && (
-											<input
-												value={guess}
-												autoCapitalize={'none'}
-												type="text"
-												pattern={'^[A-Za-zÀ-ÿ0-9]$'}
-												onKeyDown={handleKeyDown}
-												id={getId(`cell-input-${cell.x}-${cell.y}`)}
-												onInput={(event: FormEvent) => {
-													handleInput(event, guess);
-												}}
-												tabIndex={isCurrentCell ? 0 : -1}
-												aria-label="Crossword cell"
-												aria-description={cell.description ?? ''}
-												css={css`
-													position: absolute;
-													top: 0;
-													left: 0;
-													width: 100%;
-													height: 100%;
-													background: transparent;
-													border: none;
-													${textSans12};
-													font-size: ${theme.gridCellSize * 0.6}px;
-													text-align: center;
-												`}
-												autoComplete="off"
-												spellCheck="false"
-												autoCorrect="off"
-											/>
-										)}
-									</Cell>
+										handleKeyDown={handleKeyDown}
+										handleInput={(event: FormEvent<HTMLInputElement>) =>
+											handleInput(event, guess)
+										}
+									/>
 								);
 							})}
 						</g>
