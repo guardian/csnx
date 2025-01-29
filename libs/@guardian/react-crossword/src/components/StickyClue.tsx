@@ -5,6 +5,7 @@ import { textSans12 } from '@guardian/source/foundations';
 import { memo } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useTheme } from '../context/Theme';
 
 type StickyClueProps = {
 	styles?: SerializedStyles;
@@ -13,6 +14,7 @@ type StickyClueProps = {
 export const StickyClueComponent = (props: StickyClueProps) => {
 	const { entries } = useData();
 	const { currentEntryId } = useCurrentClue();
+	const theme = useTheme();
 	const entry = !isUndefined(currentEntryId)
 		? entries.get(currentEntryId)
 		: undefined;
@@ -25,7 +27,7 @@ export const StickyClueComponent = (props: StickyClueProps) => {
 		min-height: 3.5em;
 		align-items: start;
 		${textSans12};
-		background: white;
+		background: ${theme.stickyClueBackgroundColour};
 	`;
 
 	return (
