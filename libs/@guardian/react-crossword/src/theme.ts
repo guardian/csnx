@@ -23,4 +23,6 @@ export const defaultTheme: Theme = {
 
 	anagramHelperBackgroundColor: palette.neutral[97],
 	anagramHelperCandidateTextColor: palette.neutral[60],
+
+	stickyClueBackgroundColour: palette.neutral[100],
 };

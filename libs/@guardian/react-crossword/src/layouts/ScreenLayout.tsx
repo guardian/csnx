@@ -4,6 +4,7 @@ import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 import type { LayoutProps } from '../@types/Layout';
+import { StickyClue } from '../components/StickyClue';
 import { useTheme } from '../context/Theme';
 
 const CluesHeader = memo(({ children }: { children: ReactNode }) => {
@@ -66,7 +67,15 @@ const Layout = ({
 					}
 				`}
 			>
-				<Grid />
+				<StickyClue
+					additionalCss={css`
+						max-width: ${gridWidth}px;
+						@container (min-width: ${oneColWidth}px) {
+							display: none;
+						}
+					`}
+				/>
+        <Grid />
 				<div
 					css={css`
 						margin-top: ${space[1]}px;
