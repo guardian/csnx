@@ -13,6 +13,9 @@ export type Cell = Coords & {
 	/** Array of entries that this solution is part of */
 	group?: CrosswordEntry['group'];
 
+	/** The cell's description */
+	description?: string;
+
 	/** The cell's solution */
 	solution?: string;
 };

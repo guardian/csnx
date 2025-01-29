@@ -22,12 +22,6 @@ import { Cell } from './Cell';
 
 const noop = () => {};
 
-const getCellDescription = (cell: CellType) => {
-	return cell.group
-		? `Letter 3 of 7, 3 across. Also letter 1 of 3, 4 down.`
-		: 'Black cell';
-};
-
 const getCellPosition = (
 	index: number,
 	{ gridCellSize, gridGutterSize }: Theme,
@@ -516,7 +510,7 @@ export const Grid = () => {
 												}}
 												tabIndex={isCurrentCell ? 0 : -1}
 												aria-label="Crossword cell"
-												aria-description={getCellDescription(cell)}
+												aria-description={cell.description ?? ''}
 												css={css`
 													position: absolute;
 													top: 0;
