@@ -4,8 +4,8 @@ import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 import type { LayoutProps } from '../@types/Layout';
+import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
-import { useUIState } from '../context/UI';
 
 const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 	const theme = useTheme();
@@ -14,7 +14,7 @@ const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 		<div
 			css={css`
 				${headlineBold17};
-				border-top: 1px solid ${theme.borderColor};
+				border-top: 1px solid ${theme.clueListBorderColor};
 				border-bottom: 1px dotted ${theme.borderColor};
 				height: 2em;
 				margin-bottom: 0.5em;
@@ -36,7 +36,7 @@ const Layout = ({
 }: LayoutProps) => {
 	const { textColor, clueMinWidth, clueMaxWidth } = useTheme();
 
-	const { showAnagramHelper } = useUIState();
+	const { showAnagramHelper } = useShowAnagramHelper();
 	const theme = useTheme();
 
 	const gridWidth = Math.max(actualGridWidth, 300);

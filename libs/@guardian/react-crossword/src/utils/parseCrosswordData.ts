@@ -7,6 +7,7 @@ import type {
 	Entries,
 	Separators,
 } from '../@types/crossword';
+import { getCellDescription } from './getCellDescription';
 
 /**
  * Takes the crossword data from the CAPI and returns some things we can use.
@@ -97,6 +98,12 @@ export const parseCrosswordData = (data: {
 			});
 		}
 	}
+
+	// Map over cells and add descriptions.
+	// We need the entries map for this so have to do it after the loop
+	cells.forEach((cell) => {
+		cell.description = getCellDescription(cell, entries);
+	});
 
 	return {
 		cells,

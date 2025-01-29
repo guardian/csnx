@@ -1,79 +1,111 @@
 import { css } from '@emotion/react';
-import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
+import type { SVGProps } from 'react';
 import { memo } from 'react';
 import type { Cell as CellType } from '../@types/crossword';
 import { useTheme } from '../context/Theme';
 
-export type CellProps = {
+export type BaseCellProps = {
 	data: CellType;
 	x: number;
 	y: number;
 	guess?: string;
-	/** is the cell receiving input? */
-	isFocused?: boolean;
+	isBlackCell: boolean;
 	/** is the cell connected in any way to the active clue? */
-	isHighlighted?: boolean;
-	/** is the cell for the active clue? */
-	isActive?: boolean;
+	isConnected?: boolean;
+	/** is the cell for the selected clue? */
+	isSelected?: boolean;
 };
+
+export type CellProps = BaseCellProps & SVGProps<SVGGElement>;
 
 const CellComponent = ({
 	data,
 	x,
 	y,
 	guess = '',
-	isHighlighted,
-	isActive,
+	isBlackCell,
+	isConnected,
+	isSelected,
+	children,
+	...props
 }: CellProps) => {
 	const theme = useTheme();
 
-	const backgroundColor = isUndefined(data.group)
+	const backgroundColor = isBlackCell
 		? 'transparent'
-		: isHighlighted
-			? isActive
+		: isConnected
+			? isSelected
 				? theme.selectedColor
-				: theme.relatedColor
+				: theme.connectedColor
 			: theme.gridForegroundColor;
 
 	return (
-		<g data-x={data.x} data-y={data.y}>
+		<g {...props}>
 			<rect
 				x={x}
 				y={y}
 				width={theme.gridCellSize}
 				height={theme.gridCellSize}
 				fill={backgroundColor}
+				aria-hidden="true"
+				role="presentation"
 			/>
-			{data.number && (
-				<text
-					x={x}
-					y={y}
-					dx={Math.max(1, theme.gridCellSize * 0.05)}
-					dy={Math.max(9, theme.gridCellSize * 0.22)}
-					fill={theme.textColor}
-					css={css`
-						${textSans12};
-						font-size: ${Math.max(9, Math.round(theme.gridCellSize * 0.2))}px;
-					`}
-				>
-					{data.number}
-				</text>
+			{!isBlackCell && (
+				<>
+					{data.number && (
+						<text
+							x={x}
+							y={y}
+							dx={Math.max(1, theme.gridCellSize * 0.05)}
+							dy={Math.max(9, theme.gridCellSize * 0.22)}
+							fill={theme.textColor}
+							css={css`
+								${textSans12};
+								font-size: ${Math.max(
+									9,
+									Math.round(theme.gridCellSize * 0.2),
+								)}px;
+							`}
+							aria-hidden="true"
+							role="presentation"
+						>
+							{data.number}
+						</text>
+					)}
+
+					{children ? (
+						<foreignObject
+							x={x}
+							y={y}
+							width={theme.gridCellSize}
+							height={theme.gridCellSize}
+							css={css`
+								position: relative;
+							`}
+						>
+							{children}
+						</foreignObject>
+					) : (
+						<text
+							x={x + theme.gridCellSize / 2}
+							y={y + theme.gridCellSize / 2}
+							dy={theme.gridCellSize * 0.07}
+							textAnchor="middle"
+							dominantBaseline="middle"
+							fill={theme.textColor}
+							css={css`
+								${textSans12};
+								font-size: ${theme.gridCellSize * 0.6}px;
+							`}
+							aria-hidden="true"
+							role="presentation"
+						>
+							{guess}
+						</text>
+					)}
+				</>
 			)}
-			<text
-				x={x + theme.gridCellSize / 2}
-				y={y + theme.gridCellSize / 2}
-				dy={theme.gridCellSize * 0.07}
-				textAnchor="middle"
-				dominantBaseline="middle"
-				fill={theme.textColor}
-				css={css`
-					${textSans12};
-					font-size: ${theme.gridCellSize * 0.6}px;
-				`}
-			>
-				{guess}
-			</text>
 		</g>
 	);
 };

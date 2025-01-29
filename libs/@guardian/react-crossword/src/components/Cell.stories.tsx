@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import type { Theme } from '../@types/crossword';
 import { ThemeProvider, useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
-import type { CellProps } from './Cell';
+import type { BaseCellProps } from './Cell';
 import { Cell } from './Cell';
 
 const meta: Meta<typeof Cell> = {
@@ -39,7 +39,7 @@ const meta: Meta<typeof Cell> = {
 	],
 };
 
-const args: CellProps = {
+const args: BaseCellProps = {
 	x: 0,
 	y: 0,
 	data: {
@@ -47,35 +47,37 @@ const args: CellProps = {
 		y: 0,
 		group: ['1-across'],
 	},
+	isBlackCell: false,
 };
 
 export default meta;
 type Story = StoryObj<typeof Cell>;
 
-export const Default: Story = { args };
+export const Default: Story = {
+	args: {
+		...args,
+	},
+};
 
 export const Black: Story = {
 	args: {
 		...args,
-		data: {
-			...args.data,
-			group: undefined,
-		},
+		isBlackCell: true,
 	},
 };
 
 export const Highlighted: Story = {
 	args: {
 		...args,
-		isHighlighted: true,
+		isConnected: true,
 	},
 };
 
 export const Active: Story = {
 	args: {
 		...args,
-		isActive: true,
-		isHighlighted: true,
+		isSelected: true,
+		isConnected: true,
 	},
 };
 
