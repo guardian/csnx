@@ -32,15 +32,16 @@ declare global {
 			config: {
 				baseEndpoint: EndPoint;
 				accountId: number;
+				campaignEnv: 'stage' | 'prod';
 				propertyHref?: Property;
 				propertyId?: number;
-				targetingParams: {
+				targetingParams?: {
 					framework: ConsentFramework;
 					excludePage: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				gdpr?: {
@@ -53,7 +54,7 @@ declare global {
 					includeUspApi?: boolean;
 					transitionCCPAAuth?: boolean;
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				pubData: PubData;

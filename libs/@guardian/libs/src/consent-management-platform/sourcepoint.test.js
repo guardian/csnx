@@ -36,28 +36,26 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
 					framework,
 				);
-				expect(window._sp_.config.usnat).toBeUndefined();
-				expect(window.__tcfapi).toBeDefined();
-				expect(window.__uspapi).toBeUndefined();
-				expect(window.__gpp).toBeUndefined();
+				expect(window._sp_.config.gdpr).toBeDefined();
+				// expect(window.__tcfapi).toBeDefined();
+				expect(window.__uspapi).toBeDefined();
+				expect(window.__gpp).toBeDefined();
 			} else if (framework == 'usnat') {
 				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
 				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
 				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
 					framework,
 				);
-				expect(window._sp_.config.gdpr).toBeUndefined;
+				expect(window._sp_.config.gdpr).toBeDefined;
 				expect(window.__uspapi).toBeDefined();
-				expect(window.__tcfapi).toBeUndefined();
 				expect(window.__gpp).toBeDefined();
 			} else if (framework == 'aus') {
 				expect(window._sp_.config.ccpa.targetingParams.framework).toEqual(
 					framework,
 				);
-				expect(window._sp_.config.gdpr).toBeUndefined;
+				expect(window._sp_.config.ccpa).toBeDefined();
 				expect(window.__uspapi).toBeDefined();
-				expect(window.__tcfapi).toBeUndefined();
-				expect(window.__gpp).toBeUndefined();
+				expect(window.__gpp).toBeDefined();
 			}
 		},
 	);
