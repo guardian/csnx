@@ -75,7 +75,7 @@ const Layout = ({
 						}
 					`}
 				/>
-        <Grid />
+				<Grid />
 				<div
 					css={css`
 						margin-top: ${space[1]}px;
