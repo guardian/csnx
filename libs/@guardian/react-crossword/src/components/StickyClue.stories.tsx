@@ -8,7 +8,6 @@ import { StickyClue } from './StickyClue';
 const meta: Meta<typeof StickyClue> = {
 	component: StickyClue,
 	title: 'Components/StickyClue',
-	args: {},
 	decorators: [
 		(Story) => (
 			<ContextProvider
@@ -26,12 +25,9 @@ export default meta;
 
 type Story = StoryObj<typeof StickyClue>;
 
-export const Across: Story = {
-	args: {},
-};
+export const Across: Story = {};
 
 export const Down: Story = {
-	args: {},
 	decorators: [
 		(Story) => (
 			<ContextProvider
