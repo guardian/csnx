@@ -45,7 +45,6 @@ export const StickyClueComponent = (props: StickyClueProps) => {
 					</span>
 					<span
 						aria-hidden="true"
-						css={css``}
 						dangerouslySetInnerHTML={{
 							__html: entry.clue,
 						}}
