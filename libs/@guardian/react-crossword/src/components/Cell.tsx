@@ -88,9 +88,6 @@ const CellComponent = ({
 						y={y}
 						width={theme.gridCellSize}
 						height={theme.gridCellSize}
-						css={css`
-							position: relative;
-						`}
 					>
 						<input
 							value={guess}
@@ -104,9 +101,6 @@ const CellComponent = ({
 							aria-label="Crossword cell"
 							aria-description={data.description ?? ''}
 							css={css`
-								position: absolute;
-								top: 0;
-								left: 0;
 								width: 100%;
 								height: 100%;
 								background: transparent;
