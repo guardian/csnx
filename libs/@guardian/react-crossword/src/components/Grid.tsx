@@ -389,7 +389,9 @@ export const Grid = () => {
 		[],
 	);
 
-	// As the cells are all memoized we need to force a rerender for the initial load on the client
+	/**
+	 * This forces re-rendering of the crossword when hydrated in Preact, which works in React
+	 */
 	useEffect(() => {
 		setHydrated(true);
 	}, []);
