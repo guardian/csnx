@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { textSans12 } from '@guardian/source/foundations';
 import type { FormEvent, KeyboardEvent, SVGProps } from 'react';
+import { useEffect, useRef } from 'react';
 import { memo } from 'react';
 import type { Cell as CellType } from '../@types/crossword';
 import { useData } from '../context/Data';
@@ -41,6 +42,7 @@ const CellComponent = ({
 }: CellProps) => {
 	const theme = useTheme();
 	const { getId } = useData();
+	const cellRef = useRef<null | SVGGElement>(null);
 
 	const backgroundColor = isBlackCell
 		? 'transparent'
@@ -50,8 +52,20 @@ const CellComponent = ({
 				: theme.connectedColor
 			: theme.gridForegroundColor;
 
+	/**
+	 * Have to do this in a useEffect because there is an issue with preact
+	 * not normalising tabIndex attribute: https://github.com/preactjs/preact/issues/1061
+	 */
+	useEffect(() => {
+		const currentRef = cellRef.current;
+		if (currentRef) {
+			const tabIndex = isCurrentCell && isBlackCell ? '0' : '-1';
+			currentRef.setAttribute('tabindex', tabIndex);
+		}
+	}, [isBlackCell, isCurrentCell]);
+
 	return (
-		<g {...props} tabIndex={isCurrentCell && isBlackCell ? 0 : -1}>
+		<g ref={cellRef} {...props}>
 			<rect
 				x={x}
 				y={y}
