@@ -389,6 +389,9 @@ export const Grid = () => {
 		[],
 	);
 
+	/**
+	 * This forces re-rendering of the crossword when hydrated in Preact, which works in React
+	 */
 	useEffect(() => {
 		setHydrated(true);
 	}, []);
