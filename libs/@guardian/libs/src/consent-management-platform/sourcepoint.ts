@@ -1,6 +1,11 @@
+import type { CountryCode } from '../index.test';
+import { isNonNullable } from '../isNonNullable/isNonNullable';
+import { isObject } from '../isObject/isObject';
 import { log } from '../logger/logger';
+import { storage } from '../storage/storage';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
+import { isConsentOrPay } from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import {
@@ -12,13 +17,18 @@ import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
-	PROPERTY_ID,
+	PROPERTY_HREF_MAIN,
+	PROPERTY_HREF_SUPPORT,
+	// PROPERTY_ID,
 	PROPERTY_ID_AUSTRALIA,
+	PROPERTY_ID_MAIN,
+	PROPERTY_ID_SUPPORT,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
+import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
-import type { ConsentFramework } from './types';
+import type { ConsentFramework, Participations } from './types';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -32,21 +42,47 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-const getPropertyHref = (framework: ConsentFramework): Property => {
+const getPropertyHref = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+
+	return isGuardianDomain()
+		? null
+		: useNonAdvertisedList
+			? PROPERTY_HREF_SUPPORT
+			: PROPERTY_HREF_MAIN;
 };
 
-const getPropertyId = (framework: ConsentFramework): number => {
+const getPropertyId = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+): number => {
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
-	return PROPERTY_ID;
+
+	if (framework == 'usnat') {
+		return PROPERTY_ID_MAIN;
+	}
+
+	return useNonAdvertisedList ? PROPERTY_ID_SUPPORT : PROPERTY_ID_MAIN;
 };
 
-export const init = (framework: ConsentFramework, pubData = {}): void => {
+const hasNotConsentedToNonAdvertisedList = (): boolean => {
+	return !isNonNullable(localStorage.getItem('mergedMinorList'));
+};
+
+export const init = (
+	framework: ConsentFramework,
+	countryCode: CountryCode,
+	isUserSignedIn: boolean,
+	useNonAdvertisedList: boolean,
+	pubData = {},
+): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally
@@ -58,6 +94,11 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	setCurrentFramework(framework);
 
 	// invoke callbacks before we receive Sourcepoint events
+
+	if (useNonAdvertisedList && hasNotConsentedToNonAdvertisedList()) {
+		mergeVendorList();
+	}
+
 	invokeCallbacks();
 
 	let frameworkMessageType: string;
@@ -80,6 +121,15 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
+	const participations: Participations = storage.local.get(
+		'gu.ab.participations',
+	) as Participations;
+	const isInConsentOrPayABTest = isObject(participations)
+		? participations.ConsentOrPayBanner?.variant === 'activate'
+		: false;
+
+	console.log('participations', participations, isInConsentOrPayABTest);
+
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -91,7 +141,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework, useNonAdvertisedList),
+			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
@@ -167,6 +218,19 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
 						setTimeout(invokeCallbacks, 0);
+
+						if (
+							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
+							message_type === 'gdpr' &&
+							isConsentOrPay(countryCode) &&
+							!useNonAdvertisedList
+						) {
+							console.log('User has rejected all');
+							window.open(
+								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
+								'_blank',
+							);
+						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
@@ -209,7 +273,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	};
 
 	if (isInPropertyIdABTest) {
-		window._sp_.config.propertyId = getPropertyId(framework);
+		window._sp_.config.propertyId = getPropertyId(
+			framework,
+			useNonAdvertisedList,
+		);
 	}
 
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
@@ -224,6 +291,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
+					isCorP: isConsentOrPay(countryCode),
+					isUserSignedIn,
 				},
 			};
 			break;
