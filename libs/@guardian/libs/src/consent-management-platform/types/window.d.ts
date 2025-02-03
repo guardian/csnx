@@ -110,7 +110,9 @@ declare global {
 			command: string,
 			version: number,
 			callback: (tcData: TCData, success: boolean) => void,
-			vendorIDs?: number[],
+			vendorIDs?: string[],
+			purposeIds?: string[],
+			legitimateInterestPurposeIds?: string[],
 		) => void;
 		__gpp?: (
 			command: string,
