@@ -1,4 +1,6 @@
 import { getCookie } from '../cookies/getCookie';
+import { setCookie } from '../cookies/setCookie';
+import { storage } from '../storage/storage';
 import { PROPERTY_ID_MAIN, PROPERTY_ID_SUPPORT } from './lib/sourcepointConfig';
 import { postCustomConsent } from './tcfv2/api';
 import type { SPUserConsent } from './types/tcfv2';
@@ -45,6 +47,7 @@ interface UserConsentStatus {
  * https://sourcepoint-public-api.readme.io/reference/get_consent-v3-history-siteid-1
  */
 export const mergeVendorList = () => {
+	console.log('Merging vendor list');
 	const consentUUID = getCookie({ name: 'consentUUID' });
 	const url = `https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/history/${PROPERTY_ID_MAIN}?consentUUID=${consentUUID}`;
 	fetch(url, {
@@ -120,7 +123,12 @@ const mergeUserConsent = () => {
 		body: JSON.stringify({
 			euconsent: userConsent.gdpr?.euconsent,
 		}),
-	}).catch((error) => {
-		console.error('Error:', error);
-	});
+	})
+		.then(() => {
+			localStorage.setItem('mergedMinorList', 'true');
+			window.location.reload();
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
 };

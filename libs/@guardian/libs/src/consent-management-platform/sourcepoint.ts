@@ -1,4 +1,5 @@
 import type { CountryCode } from '../index.test';
+import { isNonNullable } from '../isNonNullable/isNonNullable';
 import { isObject } from '../isObject/isObject';
 import { log } from '../logger/logger';
 import { storage } from '../storage/storage';
@@ -19,7 +20,7 @@ import {
 	PROPERTY_ID_SUPPORT,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
-import { mergeUserConsent } from './mergeUserConsent';
+import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework, Participations } from './types';
@@ -66,6 +67,10 @@ const getPropertyId = (
 	return useNonAdvertisedList ? PROPERTY_ID_SUPPORT : PROPERTY_ID_MAIN;
 };
 
+const hasNotConsentedToNonAdvertisedList = (): boolean => {
+	return !isNonNullable(localStorage.getItem('mergedMinorList'));
+};
+
 export const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
@@ -85,8 +90,8 @@ export const init = (
 
 	// invoke callbacks before we receive Sourcepoint events
 
-	if (useNonAdvertisedList) {
-		mergeUserConsent();
+	if (useNonAdvertisedList && hasNotConsentedToNonAdvertisedList()) {
+		mergeVendorList();
 	}
 
 	invokeCallbacks();
@@ -131,7 +136,6 @@ export const init = (
 			accountId: ACCOUNT_ID,
 			propertyId: getPropertyId(framework, useNonAdvertisedList),
 			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
-			campaignEnv: 'stage',
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
