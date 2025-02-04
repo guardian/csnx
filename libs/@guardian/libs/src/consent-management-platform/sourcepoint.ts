@@ -1,11 +1,12 @@
 import type { CountryCode } from '../index.test';
 import { isNonNullable } from '../isNonNullable/isNonNullable';
-import { isObject } from '../isObject/isObject';
 import { log } from '../logger/logger';
-import { storage } from '../storage/storage';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
-import { isConsentOrPay } from './isConsentOrPay';
+import {
+	isConsentOrPayCountry,
+	isInConsentOrPayABTest,
+} from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import type { Property } from './lib/property';
@@ -23,7 +24,7 @@ import {
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
-import type { ConsentFramework, Participations } from './types';
+import type { ConsentFramework } from './types';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -90,7 +91,11 @@ export const init = (
 
 	// invoke callbacks before we receive Sourcepoint events
 
-	if (useNonAdvertisedList && hasNotConsentedToNonAdvertisedList()) {
+	if (
+		isConsentOrPayCountry(countryCode) &&
+		useNonAdvertisedList &&
+		hasNotConsentedToNonAdvertisedList()
+	) {
 		mergeVendorList();
 	}
 
@@ -114,14 +119,9 @@ export const init = (
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
-	const participations: Participations = storage.local.get(
-		'gu.ab.participations',
-	) as Participations;
-	const isInConsentOrPayABTest = isObject(participations)
-		? participations.ConsentOrPayBanner?.variant === 'activate'
-		: false;
+	const isActiveABTest = isInConsentOrPayABTest();
 
-	console.log('participations', participations, isInConsentOrPayABTest);
+	console.log('participations', isActiveABTest);
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -201,7 +201,7 @@ export const init = (
 						if (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
-							isConsentOrPay(countryCode) &&
+							isConsentOrPayCountry(countryCode) &&
 							!useNonAdvertisedList
 						) {
 							console.log('User has rejected all');
@@ -270,7 +270,7 @@ export const init = (
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPay(countryCode),
+					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
 				},
 			};
