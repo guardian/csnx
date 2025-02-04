@@ -54,6 +54,8 @@ export type Theme = {
 	gridBackgroundColor: string;
 	/** The background colour of 'white' squares on the grid */
 	gridForegroundColor: string;
+	/** The background colour of 'black' squares on grid when printed */
+	gridPrintBackgroundColor: string;
 	/** The size of the gap between grid cells */
 	gridGutterSize: number;
 	/** The length of one side of a cell on on the grid */
