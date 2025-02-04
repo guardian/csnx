@@ -1,6 +1,4 @@
 import { getCookie } from '../cookies/getCookie';
-import { setCookie } from '../cookies/setCookie';
-import { storage } from '../storage/storage';
 import { PROPERTY_ID_MAIN, PROPERTY_ID_SUPPORT } from './lib/sourcepointConfig';
 import { postCustomConsent } from './tcfv2/api';
 import type { SPUserConsent } from './types/tcfv2';
