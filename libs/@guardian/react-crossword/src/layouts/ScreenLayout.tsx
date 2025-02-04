@@ -19,6 +19,10 @@ const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 				height: 2em;
 				margin-bottom: 0.5em;
 				text-transform: capitalize;
+
+				@media print {
+					border-top: none;
+				}
 			`}
 		>
 			{children}
