@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 20.1.0
+
+### Minor Changes
+
+- cb0a30b: Send CMP banner interactions to Ophan
+
 ## 20.0.0
 
 ### Major Changes
