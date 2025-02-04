@@ -79,6 +79,9 @@ const Layout = ({
 				<div
 					css={css`
 						margin-top: ${space[1]}px;
+						@media print {
+							display: none;
+						}
 					`}
 				>
 					<Controls />
@@ -88,6 +91,9 @@ const Layout = ({
 						${textSans12};
 						font-style: italic;
 						color: ${theme.textColor};
+						@media print {
+							display: none;
+						}
 					`}
 				>
 					<SavedMessage />
