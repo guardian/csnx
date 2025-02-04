@@ -253,7 +253,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 20.0.0
-        version: link:../libs
+        version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -341,7 +341,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 20.0.0
-        version: link:../libs
+        version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -383,7 +383,7 @@ importers:
         version: link:../identity-auth
       '@guardian/libs':
         specifier: 20.0.0
-        version: link:../libs
+        version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@types/jest':
         specifier: 29.5.8
         version: 29.5.8
@@ -522,7 +522,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 20.0.0
-        version: link:../libs
+        version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@guardian/source':
         specifier: 8.0.1
         version: link:../source
@@ -718,7 +718,7 @@ importers:
         version: link:../eslint-config
       '@guardian/libs':
         specifier: 20.0.0
-        version: link:../libs
+        version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@guardian/source':
         specifier: 8.0.1
         version: link:../source
@@ -2189,6 +2189,19 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dependencies:
       levn: 0.4.1
+
+  /@guardian/libs@20.0.0(tslib@2.6.2)(typescript@5.5.2):
+    resolution: {integrity: sha512-9wn0hbLao20xB0n6kqUVqni2U994zWSzKSlpSWQu3QfGGf7MggHq8Zw13B262VNsKlDNu667/1StYqMdsICFgw==}
+    peerDependencies:
+      tslib: ^2.6.2
+      typescript: ~5.5.2
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      tslib: 2.6.2
+      typescript: 5.5.2
+    dev: true
 
   /@humanfs/core@0.19.1:
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
