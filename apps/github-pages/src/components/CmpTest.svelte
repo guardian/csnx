@@ -3,6 +3,9 @@
 	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
+	let useNonAdvertisedList = window.location.search.includes('CMP_MAIN');
+	let isUserSignedIn = window.location.search.includes('CMP_SIGNED_IN');
+
 	switch (window.location.hash) {
 		case '#tcfv2':
 			localStorage.setItem('framework', JSON.stringify('tcfv2'));
@@ -52,6 +55,29 @@
 		window.location.reload();
 	};
 
+	const toggleQueryParams = (param) => {
+		let queryParams = new URLSearchParams(window.location.search);
+		queryParams.has(param)
+			? queryParams.delete(param)
+			: queryParams.append(param, '');
+		window.location.search = queryParams.toString();
+	};
+
+	const toggleIsFeatureFlagEnabled = () => {
+		isFeatureFlagEnabled = !isFeatureFlagEnabled;
+		toggleQueryParams('CMP_COP');
+	};
+
+	const toggleIsUserSignedIn = () => {
+		isUserSignedIn = !isUserSignedIn;
+		toggleQueryParams('CMP_SIGNED_IN');
+	};
+
+	const toggleUseNonAdvertisedList = () => {
+		useNonAdvertisedList = !useNonAdvertisedList;
+		toggleQueryParams('CMP_MAIN');
+	};
+
 	let framework = JSON.parse(localStorage.getItem('framework'));
 
 	let setLocation = () => {
@@ -91,10 +117,11 @@
 		}
 
 		// do this loads to make sure that doesn't break things
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
+		cmp.init({
+			country,
+			isUserSignedIn: isUserSignedIn ?? false,
+			useNonAdvertisedList: useNonAdvertisedList ?? false,
+		});
 	});
 </script>
 
@@ -132,6 +159,22 @@
 			/>
 			in Australia:
 			<strong>CCPA-like</strong>
+		</label>
+		<label class={useNonAdvertisedList ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleUseNonAdvertisedList}
+				checked={useNonAdvertisedList}
+			/>
+			<strong>useNonAdvertisedList?</strong>
+		</label>
+		<label class={isUserSignedIn ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsUserSignedIn}
+				checked={isUserSignedIn}
+			/>
+			<strong>isUserSignedIn?</strong>
 		</label>
 	</nav>
 
