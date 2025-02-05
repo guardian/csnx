@@ -59,6 +59,10 @@ const Layout = ({
 				@container (min-width: ${oneColWidth}px) {
 					flex-direction: row;
 				}
+
+				@media print {
+					flex-direction: column;
+				}
 			`}
 		>
 			<AnagramHelper />
@@ -130,6 +134,10 @@ const Layout = ({
 						> * {
 							overflow: auto;
 						}
+					}
+
+					@media print {
+						flex-direction: row;
 					}
 				`}
 			>
