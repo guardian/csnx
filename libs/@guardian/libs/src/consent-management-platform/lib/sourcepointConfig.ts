@@ -12,6 +12,7 @@ export const PROPERTY_HREF_SUPPORT = 'http://support-test';
 export const PROPERTY_HREF_MAIN = 'http://ui-dev';
 
 export const PRIVACY_MANAGER_TCFV2 = 106842;
+export const PRIVACY_MANAGER_TCFV2_CONSENT_OR_PAY = 1251121;
 export const PRIVACY_MANAGER_AUSTRALIA = 1178486;
 
 export const ENDPOINT = isGuardianDomain()

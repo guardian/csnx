@@ -6,6 +6,7 @@ import { setCurrentFramework } from './getCurrentFramework';
 import {
 	isConsentOrPayCountry,
 	isInConsentOrPayABTest,
+	setIsConsentOrPay,
 } from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
@@ -88,6 +89,9 @@ export const init = (
 	}
 
 	setCurrentFramework(framework);
+	setIsConsentOrPay(
+		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
+	);
 
 	// invoke callbacks before we receive Sourcepoint events
 

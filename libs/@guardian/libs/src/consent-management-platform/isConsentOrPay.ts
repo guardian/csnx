@@ -3,6 +3,16 @@ import { isObject } from '../isObject/isObject';
 import { storage } from '../storage/storage';
 import type { Participations } from './types';
 
+let isConsentOrPay = false;
+
+export const setIsConsentOrPay = (_isConsentOrPay: boolean) => {
+	isConsentOrPay = _isConsentOrPay;
+};
+
+export const getIsConsentOrPay = (): boolean => {
+	return isConsentOrPay;
+};
+
 export const isConsentOrPayCountry = (countryCode: CountryCode) => {
 	const consentOrPayCountries = ['GB'];
 	return consentOrPayCountries.includes(countryCode);
