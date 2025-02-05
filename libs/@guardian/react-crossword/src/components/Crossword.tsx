@@ -11,6 +11,7 @@ import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
 import { Grid } from './Grid';
+import { StickyClue } from './StickyClue';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
@@ -35,6 +36,7 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	Grid,
 	Controls,
 	AnagramHelper,
+	StickyClue,
 	Clues,
 	SavedMessage,
 };
@@ -61,12 +63,7 @@ export const Crossword = ({
 	);
 
 	return (
-		<ContextProvider
-			theme={theme}
-			data={data}
-			userProgress={progress}
-			selectedEntryId={data.entries[0].id}
-		>
+		<ContextProvider theme={theme} data={data} userProgress={progress}>
 			<div
 				role="application"
 				css={css`
@@ -81,6 +78,7 @@ export const Crossword = ({
 					height: 100%;
 					width: 100%;
 					container-type: inline-size;
+					position: relative;
 				`}
 			>
 				{children ?? (

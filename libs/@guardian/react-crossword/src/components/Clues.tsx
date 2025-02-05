@@ -64,9 +64,13 @@ export const Clues = ({ direction, Header }: Props) => {
 	const selectClue = useCallback(
 		(entry: CAPIEntry) => {
 			setCurrentEntryId(entry.id);
-			setCurrentCell(
-				cells.getByCoords({ x: entry.position.x, y: entry.position.y }),
-			);
+			const newCell = cells.getByCoords({
+				x: entry.position.x,
+				y: entry.position.y,
+			});
+			if (newCell) {
+				setCurrentCell(newCell);
+			}
 		},
 		[cells, setCurrentCell, setCurrentEntryId],
 	);
@@ -89,6 +93,15 @@ export const Clues = ({ direction, Header }: Props) => {
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
 			switch (event.key) {
+				case ' ':
+				case 'Enter':
+					{
+						const entry = cluesEntries[currentCluesEntriesIndex];
+						if (entry) {
+							selectClue(entry);
+						}
+					}
+					break;
 				case 'ArrowDown':
 					setCurrentCluesEntriesIndex((prev) =>
 						Math.min(prev + 1, cluesEntries.length - 1),
@@ -109,16 +122,17 @@ export const Clues = ({ direction, Header }: Props) => {
 					break;
 			}
 		},
-		[cluesEntries],
+		[cluesEntries, currentCluesEntriesIndex, selectClue],
 	);
 
 	// Call `setCurrentEntryId` if `currentCluesEntriesIndex` changes
 	useEffect(() => {
 		const entry = cluesEntries[currentCluesEntriesIndex];
 		if (entry) {
-			setCurrentEntryId(entry.id);
+			const clue = document.getElementById(getId(entry.id));
+			clue?.focus();
 		}
-	}, [currentCluesEntriesIndex, cluesEntries, setCurrentEntryId]);
+	}, [currentCluesEntriesIndex, cluesEntries, setCurrentEntryId, getId]);
 
 	// Add event listeners
 	useEffect(() => {

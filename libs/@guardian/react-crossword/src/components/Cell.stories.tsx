@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import type { Theme } from '../@types/crossword';
-import { ThemeProvider, useTheme } from '../context/Theme';
+import { ContextProvider } from '../context/ContextProvider';
+import { useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
-import type { CellProps } from './Cell';
+import type { BaseCellProps } from './Cell';
 import { Cell } from './Cell';
 
 const meta: Meta<typeof Cell> = {
@@ -31,15 +33,15 @@ const meta: Meta<typeof Cell> = {
 		},
 		(Story, { parameters }) => {
 			return (
-				<ThemeProvider theme={parameters.theme as Theme}>
+				<ContextProvider data={data} theme={parameters.theme as Theme}>
 					<Story />
-				</ThemeProvider>
+				</ContextProvider>
 			);
 		},
 	],
 };
 
-const args: CellProps = {
+const args: BaseCellProps = {
 	x: 0,
 	y: 0,
 	data: {
@@ -47,35 +49,39 @@ const args: CellProps = {
 		y: 0,
 		group: ['1-across'],
 	},
+	isBlackCell: false,
+	handleInput: () => {},
+	handleKeyDown: () => {},
 };
 
 export default meta;
 type Story = StoryObj<typeof Cell>;
 
-export const Default: Story = { args };
+export const Default: Story = {
+	args: {
+		...args,
+	},
+};
 
 export const Black: Story = {
 	args: {
 		...args,
-		data: {
-			...args.data,
-			group: undefined,
-		},
+		isBlackCell: true,
 	},
 };
 
 export const Highlighted: Story = {
 	args: {
 		...args,
-		isHighlighted: true,
+		isConnected: true,
 	},
 };
 
 export const Active: Story = {
 	args: {
 		...args,
-		isActive: true,
-		isHighlighted: true,
+		isSelected: true,
+		isConnected: true,
 	},
 };
 

@@ -38,6 +38,20 @@ export const ShortContainer: StoryFn = () => {
 	);
 };
 
+export const ShortAndNarrowContainer: StoryFn = () => {
+	return (
+		<>
+			<div
+				style={{
+					height: 400,
+					width: 600,
+				}}
+			>
+				<Crossword data={data} progress={progress} />
+			</div>
+		</>
+	);
+};
 export const MultiplePlayersColumn: StoryFn = () => {
 	return (
 		<>
@@ -73,12 +87,14 @@ export const CustomLayoutRaw: StoryFn = () => {
 		Clues,
 		Grid,
 		Controls,
+		StickyClue,
 		SavedMessage,
 		gridWidth,
 	}: LayoutProps) => {
 		return (
 			<>
 				<p>gridWidth: {gridWidth}</p>
+				<StickyClue />
 				<Grid />
 				<Controls />
 				<SavedMessage />
@@ -116,6 +132,7 @@ export const CustomisedLayout: StoryFn = () => {
 		Grid,
 		Controls,
 		SavedMessage,
+		StickyClue,
 		gridWidth,
 	}: LayoutProps) => {
 		return (
@@ -124,6 +141,7 @@ export const CustomisedLayout: StoryFn = () => {
 					<Clues direction="across" Header={CluesHeader} />
 				</div>
 				<div style={{ flexBasis: gridWidth, minWidth: '15em' }}>
+					<StickyClue />
 					<Grid />
 					<Controls />
 					<div

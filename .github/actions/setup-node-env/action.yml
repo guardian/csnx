@@ -4,6 +4,10 @@ description: 'Sets up Node.js environment and installs dependencies'
 runs:
   using: 'composite'
   steps:
+    # Temporary fix to version with updated npm registry keys. Remove once fixed.
+    # See -> https://github.com/actions/setup-node/issues/1222
+    - run: npm install --global corepack@0.31.0
+      shell: bash
     - run: corepack enable
       shell: bash
 

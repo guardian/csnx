@@ -21,7 +21,7 @@ export const AnagramHelper = () => {
 	const [solving, setSolving] = useState(false);
 	const [shuffledLetters, setShuffledLetters] = useState<string[]>([]);
 	const theme = useTheme();
-	const { setShowAnagramHelper } = useShowAnagramHelper();
+	const { setShowAnagramHelper, showAnagramHelper } = useShowAnagramHelper();
 	const { entries, cells } = useData();
 	const { currentEntryId } = useCurrentClue();
 	const { progress } = useProgress();
@@ -48,6 +48,13 @@ export const AnagramHelper = () => {
 		setShuffledLetters(biasedShuffle(letters.split('')));
 	}, [letters]);
 
+	const close = useCallback(() => {
+		setLetters('');
+		setShuffledLetters([]);
+		setSolving(false);
+		setShowAnagramHelper(false);
+	}, [setShowAnagramHelper]);
+
 	const start = useCallback(() => {
 		shuffle();
 		setSolving(true);
@@ -57,11 +64,14 @@ export const AnagramHelper = () => {
 		reset();
 	}, [reset]);
 
+	if (!showAnagramHelper) {
+		return null;
+	}
+
 	return (
 		<div
 			css={css`
-				position: fixed;
-				overflow: auto;
+				position: absolute;
 				width: 100%;
 				height: 100%;
 				top: 0;
@@ -82,11 +92,7 @@ export const AnagramHelper = () => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				<CrosswordButton
-					onClick={() => setShowAnagramHelper(false)}
-					size="small"
-					priority="tertiary"
-				>
+				<CrosswordButton onClick={close} size="small" priority="tertiary">
 					<SvgCross size="xsmall" />
 				</CrosswordButton>
 			</div>

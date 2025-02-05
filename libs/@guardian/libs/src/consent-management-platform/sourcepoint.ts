@@ -10,6 +10,11 @@ import {
 } from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
+import {
+	constructBannerMessageId,
+	sendConsentChoicesToOphan,
+	sendMessageReadyToOphan,
+} from './lib/ophan';
 import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
@@ -119,6 +124,8 @@ export const init = (
 			break;
 	}
 
+	let messageId: string;
+
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
@@ -181,6 +188,14 @@ export const init = (
 						return;
 					}
 
+					// The messageId is 0 when no message is displayed
+					if (data.messageId !== 0) {
+						messageId = data.messageId;
+						sendMessageReadyToOphan(
+							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						);
+					}
+
 					log('cmp', 'onMessageReceiveData ', data);
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
 				},
@@ -194,11 +209,17 @@ export const init = (
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
+
+					sendConsentChoicesToOphan(
+						choiceTypeID,
+						constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+					);
+
 					// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
 					if (
-						Object.values(SourcePointChoiceTypes).some(
-							(spChoiceType) => spChoiceType === choiceTypeID,
-						)
+						choiceTypeID === SourcePointChoiceTypes.AcceptAll ||
+						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
+						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
 						setTimeout(invokeCallbacks, 0);
 

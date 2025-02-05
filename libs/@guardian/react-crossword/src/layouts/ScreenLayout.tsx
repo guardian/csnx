@@ -4,7 +4,7 @@ import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 import type { LayoutProps } from '../@types/Layout';
-import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
+import { StickyClue } from '../components/StickyClue';
 import { useTheme } from '../context/Theme';
 
 const CluesHeader = memo(({ children }: { children: ReactNode }) => {
@@ -14,7 +14,7 @@ const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 		<div
 			css={css`
 				${headlineBold17};
-				border-top: 1px solid ${theme.borderColor};
+				border-top: 1px solid ${theme.clueListBorderColor};
 				border-bottom: 1px dotted ${theme.borderColor};
 				height: 2em;
 				margin-bottom: 0.5em;
@@ -35,8 +35,6 @@ const Layout = ({
 	gridWidth: actualGridWidth,
 }: LayoutProps) => {
 	const { textColor, clueMinWidth, clueMaxWidth } = useTheme();
-
-	const { showAnagramHelper } = useShowAnagramHelper();
 	const theme = useTheme();
 
 	const gridWidth = Math.max(actualGridWidth, 300);
@@ -59,6 +57,7 @@ const Layout = ({
 				}
 			`}
 		>
+			<AnagramHelper />
 			<div
 				css={css`
 					@container (min-width: ${oneColWidth}px) {
@@ -68,7 +67,15 @@ const Layout = ({
 					}
 				`}
 			>
-				{showAnagramHelper ? <AnagramHelper /> : <Grid />}
+				<StickyClue
+					additionalCss={css`
+						max-width: ${gridWidth}px;
+						@container (min-width: ${oneColWidth}px) {
+							display: none;
+						}
+					`}
+				/>
+				<Grid />
 				<div
 					css={css`
 						margin-top: ${space[1]}px;

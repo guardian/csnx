@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "20.0.0",
+	"version": "20.1.0",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
@@ -37,7 +37,7 @@
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
-		"rollup": "4.27.4",
+		"rollup": "4.32.1",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
 		"tsx": "4.19.0",
