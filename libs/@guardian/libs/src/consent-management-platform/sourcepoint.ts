@@ -192,7 +192,7 @@ export const init = (
 					if (data.messageId !== 0) {
 						messageId = data.messageId;
 						sendMessageReadyToOphan(
-							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+							constructBannerMessageId(messageId.toString()),
 						);
 					}
 
@@ -212,7 +212,7 @@ export const init = (
 
 					sendConsentChoicesToOphan(
 						choiceTypeID,
-						constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						constructBannerMessageId(messageId.toString()),
 					);
 
 					// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
