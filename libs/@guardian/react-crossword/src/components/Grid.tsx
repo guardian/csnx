@@ -427,7 +427,7 @@ export const Grid = () => {
 		<svg
 			css={[
 				css`
-					background-color: ${theme.gridBackgroundColor};
+					background: ${theme.gridBackgroundColor};
 					position: relative;
 					cursor: pointer;
 					width: 100%;
@@ -450,7 +450,7 @@ export const Grid = () => {
 					}
 
 					@media print {
-						background-color: ${theme.gridPrintBackgroundColor};
+						background: ${theme.gridPrintBackgroundColor};
 					}
 				`,
 				cheatStyles,
