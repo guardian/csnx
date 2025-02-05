@@ -61,4 +61,24 @@ export interface SharedButtonProps extends Props {
 	 *
 	 */
 	theme?: Partial<ThemeButton>;
+	/**
+	 * **Component Clicks – Ophan**
+	 *
+	 * The Ophan client automatically tracks click interactions
+	 * on components that have the `data-link-name` attribute.
+	 * To avoid race conditions, it is best to add this attribute only
+	 * to server-rendered HTML.
+	 *
+	 * Some elements are not trackable, e.g. `div`, `span`.
+	 * Refer to the Ophan documentation for more information.
+	 * https://github.com/guardian/ophan/blob/0f365862682cd97cc50cf381299e0f4875e2996c/tracker-js/src/click-path-capture.js
+	 *
+	 * Add `data-component="component-name"` to the element you want
+	 * to track. Then `add data-link-name="link-name"` to the anchor for which
+	 * clicks will be tracked.
+	 *
+	 * The page views table will then contain `link-name` when the
+	 * link is clicked.
+	 */
+	'data-link-name'?: string;
 }
