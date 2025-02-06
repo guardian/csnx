@@ -298,6 +298,7 @@ export const Grid = () => {
 						break;
 
 					case 'insertText':
+					case 'insertCompositionText':
 						if (data) {
 							typeLetter(data);
 						}
