@@ -52,6 +52,13 @@ const CellComponent = ({
 				: theme.connectedColor
 			: theme.gridForegroundColor;
 
+	const cellStyles = css`
+		fill: ${backgroundColor};
+		@media print {
+			fill: ${isBlackCell ? 'transparent' : theme.gridForegroundColor};
+		}
+	`;
+
 	/**
 	 * Have to do this in a useEffect because there is an issue with preact
 	 * not normalising tabIndex attribute: https://github.com/preactjs/preact/issues/1061
@@ -71,9 +78,9 @@ const CellComponent = ({
 				y={y}
 				width={theme.gridCellSize}
 				height={theme.gridCellSize}
-				fill={backgroundColor}
 				aria-hidden="true"
 				role="presentation"
+				css={cellStyles}
 			/>
 			{!isBlackCell && (
 				<>
