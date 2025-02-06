@@ -150,7 +150,7 @@ export const ChoiceCard = ({
 				htmlFor={id}
 			>
 				<div css={[contentWrapper, !iconSvg ? contentWrapperLabelOnly : '']}>
-					{iconSvg ? iconSvg : ''}
+					{iconSvg ?? ''}
 					<div>{labelContent}</div>
 				</div>
 				<span
