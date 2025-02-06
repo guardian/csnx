@@ -287,16 +287,16 @@ export const Controls = () => {
 	// the controls.
 
 	const cluesControls = [
-		<ClearClue />,
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
+		<ClearClue />,
 		<AnagramHelper>Anagram Helper</AnagramHelper>,
 	].filter(Boolean);
 
 	const gridControls = [
-		<ClearGrid />,
 		solutionAvailable && <CheckGrid />,
 		solutionAvailable && <RevealGrid />,
+		<ClearGrid />,
 	].filter(Boolean);
 
 	const handleKeyDown = useCallback(
