@@ -28,6 +28,9 @@ export const StickyClueComponent = ({ additionalCss }: StickyClueProps) => {
 		align-items: start;
 		${textSans12};
 		background: ${theme.stickyClueBackgroundColour};
+		@media print {
+			display: none;
+		}
 	`;
 
 	return (

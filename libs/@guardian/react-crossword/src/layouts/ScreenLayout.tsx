@@ -19,6 +19,10 @@ const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 				height: 2em;
 				margin-bottom: 0.5em;
 				text-transform: capitalize;
+
+				@media print {
+					border-top: none;
+				}
 			`}
 		>
 			{children}
@@ -55,6 +59,10 @@ const Layout = ({
 				@container (min-width: ${oneColWidth}px) {
 					flex-direction: row;
 				}
+
+				@media print {
+					flex-direction: column;
+				}
 			`}
 		>
 			<AnagramHelper />
@@ -79,6 +87,9 @@ const Layout = ({
 				<div
 					css={css`
 						margin-top: ${space[1]}px;
+						@media print {
+							display: none;
+						}
 					`}
 				>
 					<Controls />
@@ -88,6 +99,9 @@ const Layout = ({
 						${textSans12};
 						font-style: italic;
 						color: ${theme.textColor};
+						@media print {
+							display: none;
+						}
 					`}
 				>
 					<SavedMessage />
@@ -120,6 +134,10 @@ const Layout = ({
 						> * {
 							overflow: auto;
 						}
+					}
+
+					@media print {
+						flex-direction: row;
 					}
 				`}
 			>
