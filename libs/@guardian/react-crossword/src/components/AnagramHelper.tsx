@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { space } from '@guardian/source/foundations';
+import { space, textSans17 } from '@guardian/source/foundations';
 import { SvgCross, TextInput } from '@guardian/source/react-components';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -9,7 +9,6 @@ import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
 import { biasedShuffle } from '../utils/biasedShuffle';
 import { getCellsWithProgressForGroup } from '../utils/getCellsWithProgressForGroup';
-import { Clue } from './Clue';
 import { CrosswordButton } from './CrosswordButton';
 import { SolutionDisplay } from './SolutionDisplay';
 import { WordWheel } from './WordWheel';
@@ -78,6 +77,7 @@ export const AnagramHelper = () => {
 				left: 0;
 				display: flex;
 				flex-direction: column;
+				${textSans17};
 				background-color: ${theme.anagramHelperBackgroundColor};
 				padding: 10px;
 				min-height: fit-content;
@@ -92,9 +92,13 @@ export const AnagramHelper = () => {
 					margin-bottom: ${space[4]}px;
 				`}
 			>
-				<CrosswordButton onClick={close} size="small" priority="tertiary">
-					<SvgCross size="xsmall" />
-				</CrosswordButton>
+				<CrosswordButton
+					onClick={close}
+					size="small"
+					priority="tertiary"
+					icon={<SvgCross size="xsmall" />}
+					hideLabel={true}
+				></CrosswordButton>
 			</div>
 			<div
 				css={css`
@@ -175,7 +179,33 @@ export const AnagramHelper = () => {
 						border-top: 1px solid ${theme.gridBackgroundColor};
 					`}
 				/>
-				{entry && <Clue entry={entry} />}
+				{entry && (
+					<div
+						css={css`
+							padding-bottom: ${space[2]}px;
+						`}
+					>
+						<span
+							aria-hidden="true"
+							css={css`
+								font-weight: bold;
+								padding-right: 0.625em;
+								text-transform: capitalize;
+							`}
+						>
+							{entry.id.split('-').join(' ')}
+						</span>
+						<span
+							aria-hidden="true"
+							css={css`
+								text-align: center;
+							`}
+							dangerouslySetInnerHTML={{
+								__html: entry.clue,
+							}}
+						></span>
+					</div>
+				)}
 				<SolutionDisplay
 					cellsWithProgress={cellsWithProgress}
 					shuffledLetters={shuffledLetters}
