@@ -1,5 +1,8 @@
 import { getCookie } from '../cookies/getCookie';
-import { PROPERTY_ID_MAIN, PROPERTY_ID_SUPPORT } from './lib/sourcepointConfig';
+import {
+	PROPERTY_ID_MAIN,
+	PROPERTY_ID_SUBDOMAIN,
+} from './lib/sourcepointConfig';
 import { postCustomConsent } from './tcfv2/api';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -106,7 +109,7 @@ const postUserConsent = (data: UserConsentStatus[]) => {
  */
 const mergeUserConsent = () => {
 	const consentUUID = getCookie({ name: 'consentUUID' });
-	const url = `https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/${PROPERTY_ID_SUPPORT}/tcstring?consentUUID=${consentUUID}`;
+	const url = `https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/${PROPERTY_ID_SUBDOMAIN}/tcstring?consentUUID=${consentUUID}`;
 	const spUserConsentString = localStorage.getItem(
 		`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 	);

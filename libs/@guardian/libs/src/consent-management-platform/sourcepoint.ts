@@ -20,11 +20,11 @@ import {
 	ACCOUNT_ID,
 	ENDPOINT,
 	PROPERTY_HREF_MAIN,
-	PROPERTY_HREF_SUPPORT,
+	PROPERTY_HREF_SUBDOMAIN,
 	// PROPERTY_ID,
 	PROPERTY_ID_AUSTRALIA,
 	PROPERTY_ID_MAIN,
-	PROPERTY_ID_SUPPORT,
+	PROPERTY_ID_SUBDOMAIN,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
@@ -55,7 +55,7 @@ const getPropertyHref = (
 	return isGuardianDomain()
 		? null
 		: useNonAdvertisedList
-			? PROPERTY_HREF_SUPPORT
+			? PROPERTY_HREF_SUBDOMAIN
 			: PROPERTY_HREF_MAIN;
 };
 
@@ -71,7 +71,7 @@ const getPropertyId = (
 		return PROPERTY_ID_MAIN;
 	}
 
-	return useNonAdvertisedList ? PROPERTY_ID_SUPPORT : PROPERTY_ID_MAIN;
+	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN;
 };
 
 const hasNotConsentedToNonAdvertisedList = (): boolean => {
@@ -130,9 +130,9 @@ export const init = (
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
-	const isActiveABTest = isInConsentOrPayABTest();
+	const isCorpABTest = isInConsentOrPayABTest();
 
-	console.log('participations', isActiveABTest);
+	console.log('participations', isCorpABTest);
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -297,6 +297,7 @@ export const init = (
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
+					isCorpABTest,
 				},
 			};
 			break;
