@@ -20,7 +20,7 @@ import {
 	ACCOUNT_ID,
 	ENDPOINT,
 	PROPERTY_HREF_MAIN,
-	PROPERTY_HREF_SUPPORT,
+	PROPERTY_HREF_SUBDOMAIN,
 	// PROPERTY_ID,
 	PROPERTY_ID_AUSTRALIA,
 	PROPERTY_ID_MAIN,
@@ -55,7 +55,7 @@ const getPropertyHref = (
 	return isGuardianDomain()
 		? null
 		: useNonAdvertisedList
-			? PROPERTY_HREF_SUPPORT
+			? PROPERTY_HREF_SUBDOMAIN
 			: PROPERTY_HREF_MAIN;
 };
 
@@ -130,9 +130,9 @@ export const init = (
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
-	const isActiveABTest = isInConsentOrPayABTest();
+	const isCorpABTest = isInConsentOrPayABTest();
 
-	console.log('participations', isActiveABTest);
+	console.log('participations', isCorpABTest);
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -297,6 +297,7 @@ export const init = (
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
+					isCorpABTest,
 				},
 			};
 			break;

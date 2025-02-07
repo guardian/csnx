@@ -8,7 +8,7 @@ export const PROPERTY_ID_MAIN = 9398; // TO BE CHANGED
 export const PROPERTY_ID_SUPPORT = 38161; // TO BE CHANGED
 export const PROPERTY_ID_AUSTRALIA = 13348;
 
-export const PROPERTY_HREF_SUPPORT = 'http://support-test';
+export const PROPERTY_HREF_SUBDOMAIN = 'http://subdomain.theguardian.com';
 export const PROPERTY_HREF_MAIN = 'http://ui-dev';
 
 export const PRIVACY_MANAGER_TCFV2 = 106842;

@@ -50,6 +50,7 @@ declare global {
 						excludePage: boolean;
 						isCorP: boolean;
 						isUserSignedIn: boolean;
+						isCorpABTest: boolean;
 					};
 				};
 				usnat?: {
