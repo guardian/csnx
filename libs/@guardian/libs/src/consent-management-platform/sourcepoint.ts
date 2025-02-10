@@ -105,9 +105,10 @@ export const init = (
 
 	setCurrentFramework(framework);
 
-	const isCorpABTest = getCookie({
-		name: 'X-GU-Experiment-0perc-E',
-	})?.includes('true');
+	const isCorpABTest: boolean =
+		getCookie({
+			name: 'X-GU-Experiment-0perc-E',
+		})?.includes('true') ?? false;
 
 	// To esnure users who are not part
 	if (!isCorpABTest) {
