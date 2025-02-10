@@ -26,3 +26,9 @@ export type TCPingStatusCode =
 	| 'visible'
 	| 'hidden'
 	| 'disabled';
+
+export interface SPUserConsent {
+	gdpr?: {
+		euconsent?: string;
+	};
+}
