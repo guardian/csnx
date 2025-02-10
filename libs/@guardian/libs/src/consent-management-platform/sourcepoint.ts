@@ -1,3 +1,4 @@
+import { getCookie } from '../cookies/getCookie';
 import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
@@ -5,7 +6,6 @@ import { setCurrentFramework } from './getCurrentFramework';
 import {
 	getSupportSignUpPage,
 	isConsentOrPayCountry,
-	isInConsentOrPayABTest,
 	setIsConsentOrPay,
 } from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
@@ -105,7 +105,9 @@ export const init = (
 
 	setCurrentFramework(framework);
 
-	const isCorpABTest = isInConsentOrPayABTest();
+	const isCorpABTest = getCookie({
+		name: 'X-GU-Experiment-0perc-E',
+	})?.includes('true');
 
 	// To esnure users who are not part
 	if (!isCorpABTest) {
