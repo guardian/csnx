@@ -6,7 +6,7 @@ import {
 import { postCustomConsent } from './tcfv2/api';
 import type { SPUserConsent } from './types/tcfv2';
 
-const purposeMap = new Map<number, string>([
+const purposeIdToNonAdvertisingPurposesMap = new Map<number, string>([
 	[1, '677e3387b265dc07332909da'], // 1
 	[2, '677e3386b265dc073328f686'], //2
 	[3, '677e3386b265dc073328f96f'], // 3
@@ -20,6 +20,7 @@ const purposeMap = new Map<number, string>([
 	[11, '677e3386b265dc07332909c2'], //11
 ]);
 
+const spBaseUrl = 'https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3';
 interface Vendors {
 	_id: string;
 	name: string;
@@ -47,30 +48,33 @@ interface UserConsentStatus {
  * then calls postUserConsent
  * https://sourcepoint-public-api.readme.io/reference/get_consent-v3-history-siteid-1
  */
-export const mergeVendorList = () => {
-	console.log('Merging vendor list');
+export const mergeVendorList = async (): Promise<void> => {
+	const userConsent = await getUserConsentOnAdvertisingList();
+	await postUserConsent(userConsent);
+	await mergeUserConsent();
+	window.location.reload();
+};
+
+/**
+ *
+ *
+ * @return {*}  {Promise<UserConsentStatus[]>}
+ */
+const getUserConsentOnAdvertisingList = async (): Promise<
+	UserConsentStatus[]
+> => {
 	const consentUUID = getCookie({ name: 'consentUUID' });
-	const url = `https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/history/${PROPERTY_ID_MAIN}?consentUUID=${consentUUID}`;
-	fetch(url, {
+	const url = `${spBaseUrl}/history/${PROPERTY_ID_MAIN}?consentUUID=${consentUUID}`;
+
+	const getUserConsentOnAdvertisingListResponse = await fetch(url, {
 		method: 'GET',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
 		},
-	})
-		.then((response) => {
-			response
-				.json()
-				.then((data: UserConsentStatus[]) => {
-					postUserConsent(data);
-				})
-				.catch((error) => {
-					console.log('Error:', error);
-				});
-		})
-		.catch((error) => {
-			console.error('Error:', error);
-		});
+	});
+
+	return (await getUserConsentOnAdvertisingListResponse.json()) as UserConsentStatus[];
 };
 
 /**
@@ -78,13 +82,17 @@ export const mergeVendorList = () => {
  *
  * @param {UserConsentStatus[]} data
  */
-const postUserConsent = (data: UserConsentStatus[]) => {
+const postUserConsent = async (data: UserConsentStatus[]): Promise<void> => {
 	const vendorIds = data[0]?.vendors.map((vendor) => vendor._id);
 	let purposeIds = data[0]?.categories.map(
-		(category) => purposeMap.get(category.iabPurposeRef.iabId) ?? '',
+		(category) =>
+			purposeIdToNonAdvertisingPurposesMap.get(category.iabPurposeRef.iabId) ??
+			'',
 	);
 	let legitimateInterestPurposeIds = data[0]?.legIntCategories.map(
-		(category) => purposeMap.get(category.iabPurposeRef.iabId) ?? '',
+		(category) =>
+			purposeIdToNonAdvertisingPurposesMap.get(category.iabPurposeRef.iabId) ??
+			'',
 	);
 
 	purposeIds = purposeIds?.filter((id) => id !== '');
@@ -93,13 +101,11 @@ const postUserConsent = (data: UserConsentStatus[]) => {
 	);
 
 	if (vendorIds && purposeIds && legitimateInterestPurposeIds) {
-		postCustomConsent(vendorIds, purposeIds, legitimateInterestPurposeIds)
-			.then(() => {
-				mergeUserConsent();
-			})
-			.catch((error) => {
-				console.log('Error:', error);
-			});
+		await postCustomConsent(
+			vendorIds,
+			purposeIds,
+			legitimateInterestPurposeIds,
+		);
 	}
 };
 
@@ -107,15 +113,15 @@ const postUserConsent = (data: UserConsentStatus[]) => {
  * This function merges the main vendor list with the sub-domain user consent status
  * https://sourcepoint-public-api.readme.io/reference/post_consent-v3-siteid-tcstring
  */
-const mergeUserConsent = () => {
+const mergeUserConsent = async (): Promise<void> => {
 	const consentUUID = getCookie({ name: 'consentUUID' });
-	const url = `https://cdn.privacy-mgmt.com/consent/tcfv2/consent/v3/${PROPERTY_ID_SUBDOMAIN}/tcstring?consentUUID=${consentUUID}`;
+	const url = `${spBaseUrl}/${PROPERTY_ID_SUBDOMAIN}/tcstring?consentUUID=${consentUUID}`;
 	const spUserConsentString = localStorage.getItem(
 		`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 	);
 	const userConsent = JSON.parse(spUserConsentString ?? '{}') as SPUserConsent;
 
-	fetch(url, {
+	await fetch(url, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -124,12 +130,5 @@ const mergeUserConsent = () => {
 		body: JSON.stringify({
 			euconsent: userConsent.gdpr?.euconsent,
 		}),
-	})
-		.then(() => {
-			localStorage.setItem('mergedMinorList', 'true');
-			window.location.reload();
-		})
-		.catch((error) => {
-			console.error('Error:', error);
-		});
+	});
 };
