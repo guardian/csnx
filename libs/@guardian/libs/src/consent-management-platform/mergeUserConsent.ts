@@ -1,4 +1,6 @@
 import { getCookie } from '../cookies/getCookie';
+import { isString } from '../isString/isString';
+import { isUndefined } from '../isUndefined/isUndefined';
 import {
 	PROPERTY_ID_MAIN,
 	PROPERTY_ID_SUBDOMAIN,
@@ -42,6 +44,11 @@ interface UserConsentStatus {
 	legIntVendors: Vendors[];
 	categories: LegIntCategories[];
 }
+interface PostUserConsentResponse {
+	vendors: string[];
+	purposes: string[];
+	legitimateInterestPurposeIds: string[];
+}
 
 /**
  * THis function gets the user's consent for the larger gdpr vendor list
@@ -49,18 +56,27 @@ interface UserConsentStatus {
  * https://sourcepoint-public-api.readme.io/reference/get_consent-v3-history-siteid-1
  */
 export const mergeVendorList = async (): Promise<void> => {
-	const userConsent = await getUserConsentOnAdvertisingList();
-	await postUserConsent(userConsent);
-	await mergeUserConsent();
-	window.location.reload();
+	const userConsent = await getUserConsentForAdvertisingVendorList();
+	const purposesAndVendors = getConsentedPurposesandVendorsStrings(userConsent);
+
+	if (!isUndefined(purposesAndVendors)) {
+		await postCustomConsent(
+			purposesAndVendors.vendors,
+			purposesAndVendors.purposes,
+			purposesAndVendors.legitimateInterestPurposeIds,
+		);
+		await mergeUserConsent();
+
+		window.location.reload();
+	}
 };
 
 /**
+ * Fetches the users consent to the main GDPR vendor list from the sourcepoint API
  *
- *
- * @return {*}  {Promise<UserConsentStatus[]>}
+ * @return {*}  {Promise<UserConsentStatus[]>}  user consent status
  */
-const getUserConsentOnAdvertisingList = async (): Promise<
+const getUserConsentForAdvertisingVendorList = async (): Promise<
 	UserConsentStatus[]
 > => {
 	const consentUUID = getCookie({ name: 'consentUUID' });
@@ -79,33 +95,37 @@ const getUserConsentOnAdvertisingList = async (): Promise<
 
 /**
  *
- *
- * @param {UserConsentStatus[]} data
+ * Extract user consent data from main vendor list and posts them to Sourcepoint for non advertising vendor list.
  */
-const postUserConsent = async (data: UserConsentStatus[]): Promise<void> => {
+const getConsentedPurposesandVendorsStrings = (
+	data: UserConsentStatus[],
+): PostUserConsentResponse | undefined => {
 	const vendorIds = data[0]?.vendors.map((vendor) => vendor._id);
-	let purposeIds = data[0]?.categories.map(
-		(category) =>
-			purposeIdToNonAdvertisingPurposesMap.get(category.iabPurposeRef.iabId) ??
-			'',
-	);
-	let legitimateInterestPurposeIds = data[0]?.legIntCategories.map(
-		(category) =>
-			purposeIdToNonAdvertisingPurposesMap.get(category.iabPurposeRef.iabId) ??
-			'',
-	);
-
-	purposeIds = purposeIds?.filter((id) => id !== '');
-	legitimateInterestPurposeIds = legitimateInterestPurposeIds?.filter(
-		(id) => id !== '',
-	);
+	const purposeIds = data[0]?.categories
+		.map(
+			(category) =>
+				purposeIdToNonAdvertisingPurposesMap.get(
+					category.iabPurposeRef.iabId,
+				) ?? '',
+		)
+		.filter(isString);
+	const legitimateInterestPurposeIds = data[0]?.legIntCategories
+		.map(
+			(category) =>
+				purposeIdToNonAdvertisingPurposesMap.get(
+					category.iabPurposeRef.iabId,
+				) ?? '',
+		)
+		.filter(isString);
 
 	if (vendorIds && purposeIds && legitimateInterestPurposeIds) {
-		await postCustomConsent(
-			vendorIds,
-			purposeIds,
-			legitimateInterestPurposeIds,
-		);
+		return {
+			vendors: vendorIds,
+			purposes: purposeIds,
+			legitimateInterestPurposeIds: legitimateInterestPurposeIds,
+		};
+	} else {
+		return undefined;
 	}
 };
 
