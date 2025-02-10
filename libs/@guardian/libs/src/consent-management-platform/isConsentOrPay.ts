@@ -1,6 +1,7 @@
 import type { CountryCode } from '../index.test';
 import { isObject } from '../isObject/isObject';
 import { storage } from '../storage/storage';
+import { consentOrPayCountries } from './lib/sourcepointConfig';
 import type { Participations } from './types';
 
 let isConsentOrPay = false;
@@ -14,7 +15,6 @@ export const getIsConsentOrPay = (): boolean => {
 };
 
 export const isConsentOrPayCountry = (countryCode: CountryCode) => {
-	const consentOrPayCountries = ['GB'];
 	return consentOrPayCountries.includes(countryCode);
 };
 

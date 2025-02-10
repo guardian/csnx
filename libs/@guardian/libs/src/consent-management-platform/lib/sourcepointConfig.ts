@@ -3,8 +3,7 @@ import { isGuardianDomain } from './domain';
 export const ACCOUNT_ID = 1257;
 export const PRIVACY_MANAGER_USNAT = 1068329;
 
-export const PROPERTY_ID = 7417;
-export const PROPERTY_ID_MAIN = 9398; // TO BE CHANGED
+export const PROPERTY_ID_MAIN = 9398; // TO BE CHANGED to 7417
 export const PROPERTY_ID_SUBDOMAIN = 38161;
 export const PROPERTY_ID_AUSTRALIA = 13348;
 
@@ -27,3 +26,5 @@ export const SourcePointChoiceTypes = {
 	RejectAll: 13,
 	Dismiss: 15,
 } as const;
+
+export const consentOrPayCountries = ['GB'];
