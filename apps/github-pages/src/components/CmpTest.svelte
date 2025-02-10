@@ -3,8 +3,8 @@
 	import { cmp, onConsentChange, log } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
-	let useNonAdvertisedList = window.location.search.includes('CMP_MAIN');
-	let isUserSignedIn = window.location.search.includes('CMP_SIGNED_IN');
+	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
+	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
 
 	switch (window.location.hash) {
 		case '#tcfv2':
@@ -40,11 +40,22 @@
 		log('cmp', event);
 	}
 
+	let setABTest = () => {
+		localStorage.setItem('gu.ab.participations', JSON.stringify({
+			value: {
+				ConsentOrPayBanner: {
+					variant: 'activate',
+				},
+			}
+		}));
+	}
+
 	let clearPreferences = () => {
 		// clear local storage
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-local-storage
 		localStorage.clear();
 
+		setABTest();
 		// clear cookies
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-cookies
 		document.cookie.split(';').forEach((cookie) => {
@@ -70,12 +81,12 @@
 
 	const toggleIsUserSignedIn = () => {
 		isUserSignedIn = !isUserSignedIn;
-		toggleQueryParams('CMP_SIGNED_IN');
+		toggleQueryParams('SIGNED_IN');
 	};
 
 	const toggleUseNonAdvertisedList = () => {
 		useNonAdvertisedList = !useNonAdvertisedList;
-		toggleQueryParams('CMP_MAIN');
+		toggleQueryParams('NON_ADV');
 	};
 
 	let framework = JSON.parse(localStorage.getItem('framework'));
@@ -116,11 +127,10 @@
 				break;
 		}
 
-		// do this loads to make sure that doesn't break things
 		cmp.init({
 			country,
-			isUserSignedIn: isUserSignedIn ?? false,
-			useNonAdvertisedList: useNonAdvertisedList ?? false,
+			isUserSignedIn: isUserSignedIn,
+			useNonAdvertisedList: useNonAdvertisedList,
 		});
 	});
 </script>
@@ -131,6 +141,7 @@
 			>open privacy manager</button
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
+		<button on:click={setABTest}>set ab test</button>
 		<label class={framework == 'tcfv2' ? 'selected' : 'none'}>
 			<input
 				type="radio"
