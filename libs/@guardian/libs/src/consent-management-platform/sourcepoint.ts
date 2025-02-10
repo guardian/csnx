@@ -1,6 +1,12 @@
+import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
+import {
+	isConsentOrPayCountry,
+	isInConsentOrPayABTest,
+	setIsConsentOrPay,
+} from './isConsentOrPay';
 import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import {
@@ -12,13 +18,18 @@ import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
-	PROPERTY_ID,
+	PROPERTY_HREF_MAIN,
+	PROPERTY_HREF_SUBDOMAIN,
 	PROPERTY_ID_AUSTRALIA,
+	PROPERTY_ID_MAIN,
+	PROPERTY_ID_SUBDOMAIN,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
+import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
+import type { SPUserConsent } from './types/tcfv2';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -32,21 +43,57 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
  * Australia has a single property while the rest of the world has a test and prod property.
  * TODO: incorporate au.theguardian into *.theguardian.com
  */
-const getPropertyHref = (framework: ConsentFramework): Property => {
+const getPropertyHref = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+): Property => {
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
-	return isGuardianDomain() ? null : 'https://test.theguardian.com';
+
+	return isGuardianDomain()
+		? null
+		: useNonAdvertisedList
+			? PROPERTY_HREF_SUBDOMAIN
+			: PROPERTY_HREF_MAIN;
 };
 
-const getPropertyId = (framework: ConsentFramework): number => {
+const getPropertyId = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+): number => {
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
-	return PROPERTY_ID;
+
+	if (framework == 'usnat') {
+		return PROPERTY_ID_MAIN;
+	}
+
+	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN;
 };
 
-export const init = (framework: ConsentFramework, pubData = {}): void => {
+/**
+ * This function checks the hasConsentData in the localStorage
+ * It returns false if it can't find the key to ensure it doesn't get stuck in a loop
+ *
+ * @return {*}  {boolean}
+ */
+const hasConsentedToNonAdvertisedList = (): boolean => {
+	const spUserConsentString = localStorage.getItem(
+		`_sp_user_consent_${PROPERTY_ID_SUBDOMAIN}`,
+	);
+	const userConsent = JSON.parse(spUserConsentString ?? '{}') as SPUserConsent;
+	return userConsent.gdpr?.consentStatus.hasConsentData ?? true;
+};
+
+export const init = (
+	framework: ConsentFramework,
+	countryCode: CountryCode,
+	isUserSignedIn: boolean,
+	useNonAdvertisedList: boolean,
+	pubData = {},
+): void => {
 	stub(framework);
 
 	// make sure nothing else on the page has accidentally
@@ -57,7 +104,30 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 	setCurrentFramework(framework);
 
-	// invoke callbacks before we receive Sourcepoint events
+	const isCorpABTest = isInConsentOrPayABTest();
+
+	// To esnure users who are not part
+	if (!isCorpABTest) {
+		useNonAdvertisedList = false;
+	}
+
+	console.log('participations', isCorpABTest);
+
+	setIsConsentOrPay(
+		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
+	);
+
+	if (
+		isConsentOrPayCountry(countryCode) &&
+		useNonAdvertisedList &&
+		!hasConsentedToNonAdvertisedList()
+	) {
+		mergeVendorList().catch((error) => {
+			console.log('Failed to merge vendor list', error);
+		});
+	}
+
+	// invoke callbacks before we receive Sourcepoint
 	invokeCallbacks();
 
 	let frameworkMessageType: string;
@@ -91,7 +161,8 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyHref: getPropertyHref(framework),
+			propertyId: getPropertyId(framework, useNonAdvertisedList),
+			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
@@ -137,7 +208,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 					if (data.messageId !== 0) {
 						messageId = data.messageId;
 						sendMessageReadyToOphan(
-							constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+							constructBannerMessageId(messageId.toString()),
 						);
 					}
 
@@ -157,7 +228,7 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 
 					sendConsentChoicesToOphan(
 						choiceTypeID,
-						constructBannerMessageId('ACCEPT_REJECT', messageId.toString()),
+						constructBannerMessageId(messageId.toString()),
 					);
 
 					// https://documentation.sourcepoint.com/web-implementation/web-implementation/multi-campaign-web-implementation/event-callbacks#choice-type-id-descriptions
@@ -167,6 +238,19 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
 						setTimeout(invokeCallbacks, 0);
+
+						if (
+							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
+							message_type === 'gdpr' &&
+							isConsentOrPayCountry(countryCode) &&
+							!useNonAdvertisedList &&
+							isCorpABTest
+						) {
+							window.open(
+								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
+								'_blank',
+							);
+						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
@@ -209,7 +293,10 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 	};
 
 	if (isInPropertyIdABTest) {
-		window._sp_.config.propertyId = getPropertyId(framework);
+		window._sp_.config.propertyId = getPropertyId(
+			framework,
+			useNonAdvertisedList,
+		);
 	}
 
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
@@ -224,6 +311,9 @@ export const init = (framework: ConsentFramework, pubData = {}): void => {
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
+					isCorP: isConsentOrPayCountry(countryCode),
+					isUserSignedIn,
+					isCorpABTest,
 				},
 			};
 			break;
