@@ -27,10 +27,11 @@ import {
 	PROPERTY_ID_SUBDOMAIN,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
-import { mergeVendorList } from './mergeUserConsent';
+import { mergedListKey, mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
+import { SPUserConsent } from './types/tcfv2';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -74,8 +75,18 @@ const getPropertyId = (
 	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN;
 };
 
-const hasNotConsentedToNonAdvertisedList = (): boolean => {
-	return !isNonNullable(localStorage.getItem('mergedMinorList'));
+/**
+ * This function checks the hasConsentData in the localStorage
+ * It returns false if it can't find the key to ensure it doesn't get stuck in a loop
+ *
+ * @return {*}  {boolean}
+ */
+const hasConsentedToNonAdvertisedList = (): boolean => {
+	const spUserConsentString = localStorage.getItem(
+		`_sp_user_consent_${PROPERTY_ID_SUBDOMAIN}`,
+	);
+	const userConsent = JSON.parse(spUserConsentString ?? '{}') as SPUserConsent;
+	return userConsent.gdpr?.consentStatus.hasConsentData ?? true;
 };
 
 export const init = (
@@ -94,20 +105,31 @@ export const init = (
 	}
 
 	setCurrentFramework(framework);
+
+	const isCorpABTest = isInConsentOrPayABTest();
+
+	// To esnure users who are not part
+	if (!isCorpABTest) {
+		useNonAdvertisedList = false;
+	}
+
+	console.log('participations', isCorpABTest);
+
 	setIsConsentOrPay(
 		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
 	);
 
-	// invoke callbacks before we receive Sourcepoint events
-
 	if (
 		isConsentOrPayCountry(countryCode) &&
 		useNonAdvertisedList &&
-		hasNotConsentedToNonAdvertisedList()
+		!hasConsentedToNonAdvertisedList()
 	) {
-		mergeVendorList();
+		mergeVendorList().catch((error) => {
+			console.log('Failed to merge vendor list', error);
+		});
 	}
 
+	// invoke callbacks before we receive Sourcepoint
 	invokeCallbacks();
 
 	let frameworkMessageType: string;
@@ -129,10 +151,6 @@ export const init = (
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
-
-	const isCorpABTest = isInConsentOrPayABTest();
-
-	console.log('participations', isCorpABTest);
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
