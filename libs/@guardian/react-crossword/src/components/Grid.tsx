@@ -298,6 +298,7 @@ export const Grid = () => {
 						break;
 
 					case 'insertText':
+					case 'insertCompositionText':
 						if (data) {
 							typeLetter(data);
 						}
@@ -434,12 +435,23 @@ export const Grid = () => {
 					max-width: ${maxWidth}px;
 					max-height: ${maxHeight}px;
 
-					// This is to prevent the default blue highlight on click on
-					// android
+					// This is to prevent the default blue highlight on click on Android
 					-webkit-tap-highlight-color: transparent;
+
+					/**
+					 * Request that the browser respects background colours when printing
+					 * so that the crossword grid and cells are visible. Emotion uses
+					 * Stylis to apply prefixes which only supports the deprecated
+					 * color-adjust property, hence using the prefixed version here.
+					 */
+					-webkit-print-color-adjust: exact;
 
 					*:focus {
 						outline: none;
+					}
+
+					@media print {
+						background: ${theme.gridPrintBackgroundColor};
 					}
 				`,
 				cheatStyles,

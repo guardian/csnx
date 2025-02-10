@@ -4,6 +4,7 @@ import type { Theme } from './@types/crossword';
 export const defaultTheme: Theme = {
 	gridBackgroundColor: palette.neutral[7],
 	gridForegroundColor: palette.neutral[100],
+	gridPrintBackgroundColor: palette.neutral[46],
 	gridGutterSize: 1,
 	gridCellSize: 32,
 

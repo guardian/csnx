@@ -82,6 +82,12 @@ const ClueComponent = ({
 				.visuallyHidden {
 					${visuallyHidden}
 				}
+
+				@media print {
+					padding: 0.125em 0;
+					background-color: transparent;
+					opacity: 1;
+				}
 			`}
 			{...props}
 		>
