@@ -108,6 +108,7 @@ export const init = (
 	const isCorpABTest: boolean =
 		getCookie({
 			name: 'X-GU-Experiment-0perc-E',
+			shouldMemoize: true,
 		})?.includes('true') ?? false;
 
 	// To esnure users who are not part
