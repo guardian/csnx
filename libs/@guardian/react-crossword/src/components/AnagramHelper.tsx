@@ -83,6 +83,7 @@ export const AnagramHelper = () => {
 				min-height: fit-content;
 				z-index: 2;
 			`}
+			data-link-name="Anagram Helper"
 		>
 			<div
 				css={css`
@@ -98,6 +99,7 @@ export const AnagramHelper = () => {
 					priority="tertiary"
 					icon={<SvgCross size="xsmall" />}
 					hideLabel={true}
+					data-link-name="Close"
 				></CrosswordButton>
 			</div>
 			<div
@@ -159,6 +161,7 @@ export const AnagramHelper = () => {
 								onClick={reset}
 								size={'default'}
 								priority="secondary"
+								data-link-name="Start Again"
 							>
 								Back
 							</CrosswordButton>
@@ -166,6 +169,7 @@ export const AnagramHelper = () => {
 								onClick={shuffle}
 								size={'default'}
 								priority="primary"
+								data-link-name="Shuffle"
 							>
 								Shuffle
 							</CrosswordButton>
