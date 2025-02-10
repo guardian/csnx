@@ -1,6 +1,7 @@
 import type { CountryCode } from '../index.test';
 import { isObject } from '../isObject/isObject';
 import { storage } from '../storage/storage';
+import { isGuardianDomain } from './lib/domain';
 import { consentOrPayCountries } from './lib/sourcepointConfig';
 import type { Participations } from './types';
 
@@ -25,4 +26,10 @@ export const isInConsentOrPayABTest = (): boolean => {
 	return isObject(participations)
 		? participations.ConsentOrPayBanner?.variant === 'activate'
 		: false;
+};
+
+export const getSupportSignUpPage = (): string => {
+	return isGuardianDomain()
+		? `https://support.theguardian.com/guardian-ad-lite?returnAddress=${window.location.href}`
+		: `https://support.code.dev-theguardian.com/guardian-ad-lite?returnAddress=${window.location.href}`;
 };

@@ -3,6 +3,7 @@ import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import {
+	getSupportSignUpPage,
 	isConsentOrPayCountry,
 	isInConsentOrPayABTest,
 	setIsConsentOrPay,
@@ -246,10 +247,7 @@ export const init = (
 							!useNonAdvertisedList &&
 							isCorpABTest
 						) {
-							window.open(
-								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
-								'_blank',
-							);
+							window.open(getSupportSignUpPage(), '_blank');
 						}
 					}
 				},
