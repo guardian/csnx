@@ -1,5 +1,4 @@
 import type { CountryCode } from '../index.test';
-import { isNonNullable } from '../isNonNullable/isNonNullable';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
@@ -27,11 +26,11 @@ import {
 	PROPERTY_ID_SUBDOMAIN,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
-import { mergedListKey, mergeVendorList } from './mergeUserConsent';
+import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
 import { stub } from './stub';
 import type { ConsentFramework } from './types';
-import { SPUserConsent } from './types/tcfv2';
+import type { SPUserConsent } from './types/tcfv2';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
