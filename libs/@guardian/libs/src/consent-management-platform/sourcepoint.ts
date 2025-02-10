@@ -227,9 +227,9 @@ export const init = (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
 							isConsentOrPayCountry(countryCode) &&
-							!useNonAdvertisedList
+							!useNonAdvertisedList &&
+							isCorpABTest
 						) {
-							console.log('User has rejected all');
 							window.open(
 								`https://support.theguardian.com/uk/contribute?redirectUrl=${window.location.href}`,
 								'_blank',
