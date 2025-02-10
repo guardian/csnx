@@ -4,14 +4,14 @@ import { storage } from '../storage/storage';
 import { consentOrPayCountries } from './lib/sourcepointConfig';
 import type { Participations } from './types';
 
-let isConsentOrPay = false;
+let _isConsentOrPay = false;
 
-export const setIsConsentOrPay = (_isConsentOrPay: boolean) => {
-	isConsentOrPay = _isConsentOrPay;
+export const setIsConsentOrPay = (isConsentOrPay: boolean) => {
+	_isConsentOrPay = isConsentOrPay;
 };
 
 export const getIsConsentOrPay = (): boolean => {
-	return isConsentOrPay;
+	return _isConsentOrPay;
 };
 
 export const isConsentOrPayCountry = (countryCode: CountryCode) => {
