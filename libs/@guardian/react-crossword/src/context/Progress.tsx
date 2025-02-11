@@ -1,9 +1,11 @@
 import { log } from '@guardian/libs';
-import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useState } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
+import type { LocalStorageOptions } from 'use-local-storage-state';
+import useLocalStorageState from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Progress } from '../@types/crossword';
-import { useStoredState } from '../hooks/useStoredState';
+import { serializer } from '../hooks/useStoredState';
 import { getNewProgress } from '../utils/getNewProgress';
 
 const isValid = (
@@ -68,7 +70,7 @@ const getInitialProgress = ({
 
 type Context = {
 	progress: Progress;
-	setProgress: Dispatch<SetStateAction<Progress | undefined>>;
+	setProgress: (newProgress: Progress) => void;
 	isStored: boolean;
 };
 
@@ -85,17 +87,33 @@ export const ProgressProvider = ({
 	progress?: Progress;
 	children: ReactNode;
 }) => {
-	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
-		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
-		validator: (progress: unknown) => isValid(progress, { dimensions }),
-	});
+	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
+	const [progress, setProgress] = useState(defaultValue);
+
+	const options: LocalStorageOptions<Progress> = {
+		defaultValue,
+		serializer,
+	};
+	const [storedProgress, setStoredProgress, rest] =
+		useLocalStorageState<Progress>(id, options);
+
+	const updateProgress = (newProgress: Progress) => {
+		setProgress(newProgress);
+		setStoredProgress(newProgress);
+	};
+
+	useEffect(() => {
+		if (isValid(storedProgress, { dimensions })) {
+			setProgress(storedProgress);
+		}
+	}, [dimensions, storedProgress]);
 
 	return (
 		<ProgressContext.Provider
 			value={{
 				progress,
-				setProgress,
-				isStored: isPersistent,
+				setProgress: updateProgress,
+				isStored: rest.isPersistent,
 			}}
 		>
 			{children}

@@ -12,57 +12,11 @@
  * the type we stored without validation.
  */
 
-import { useMemo, useState } from 'react';
-import useLocalStorageState from 'use-local-storage-state';
 import type { LocalStorageOptions } from 'use-local-storage-state';
-
-/**
- * A function that checks if a value is of a certain type and returns a type
- * predicate.
- *
- * @link
- * https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
- */
-type Validator<T> = (value: unknown) => value is T;
-
-/** Infer the type predicate returned by a Validator. */
-type ValidatesAs<V> = V extends (value: unknown) => value is infer T
-	? T
-	: never;
 
 // serializer to read/write stored data in our extended format
 // https://github.com/guardian/csnx/blob/main/libs/%40guardian/libs/src/storage/storage.ts
-const serializer: LocalStorageOptions<unknown>['serializer'] = {
+export const serializer: LocalStorageOptions<unknown>['serializer'] = {
 	stringify: (_) => JSON.stringify({ value: _ }),
 	parse: (_) => (JSON.parse(_) as { value: unknown }).value,
 };
-
-type Options<T> = Omit<LocalStorageOptions<T>, 'serializer'> & {
-	validator: Validator<T>;
-	defaultValue: NonNullable<LocalStorageOptions<T>['defaultValue']>;
-};
-
-export function useStoredState<
-	V extends Validator<unknown>,
-	T = ValidatesAs<V>,
->(key: string, { validator, ...options }: Options<T>) {
-	const [defaultValue] = useState(options.defaultValue);
-
-	const [state, setState, rest] = useLocalStorageState(key, {
-		...options,
-		serializer,
-	});
-
-	const validatedState = useMemo(() => {
-		// If the state is valid, return it (now properly typed).
-		if (validator(state)) {
-			return state;
-		}
-
-		// The state is invalid, so return the default value (which may be
-		// undefined).
-		return defaultValue;
-	}, [validator, state, defaultValue]);
-
-	return [validatedState, setState, rest] as const;
-}
