@@ -1,6 +1,6 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
-	import { cmp, onConsentChange, log } from '@guardian/libs';
+	import { cmp, onConsentChange, log, setCookie } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
@@ -41,13 +41,10 @@
 	}
 
 	let setABTest = () => {
-		localStorage.setItem('gu.ab.participations', JSON.stringify({
-			value: {
-				ConsentOrPayBanner: {
-					variant: 'activate',
-				},
-			}
-		}));
+		setCookie({
+			name: 'X-GU-Experiment-0perc-E',
+			value: 'true',
+		})
 	}
 
 	let clearPreferences = () => {
@@ -55,7 +52,6 @@
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-local-storage
 		localStorage.clear();
 
-		setABTest();
 		// clear cookies
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-cookies
 		document.cookie.split(';').forEach((cookie) => {
@@ -63,6 +59,9 @@
 				.replace(/^ +/, '')
 				.replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
 		});
+
+		setABTest();
+
 		window.location.reload();
 	};
 
