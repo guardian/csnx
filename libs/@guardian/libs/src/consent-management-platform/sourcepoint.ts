@@ -76,16 +76,16 @@ const getPropertyId = (
 
 /**
  * This function checks the hasConsentData in the localStorage
- * It returns false if it can't find the key to ensure it doesn't get stuck in a loop
+ * It returns false if it can't find the key to ensure
  *
- * @return {*}  {boolean}
+ * @return {*}  {boolean} User has consented to the non-advertised list
  */
 const hasConsentedToNonAdvertisedList = (): boolean => {
 	const spUserConsentString = localStorage.getItem(
 		`_sp_user_consent_${PROPERTY_ID_SUBDOMAIN}`,
 	);
 	const userConsent = JSON.parse(spUserConsentString ?? '{}') as SPUserConsent;
-	return userConsent.gdpr?.consentStatus.hasConsentData ?? true;
+	return userConsent.gdpr?.consentStatus.hasConsentData ?? false;
 };
 
 export const init = (
@@ -111,15 +111,13 @@ export const init = (
 			shouldMemoize: true,
 		})?.includes('true') ?? false;
 
-	// To esnure users who are not part
-	if (!isCorpABTest) {
+	// To ensure users who are not part of Consent or Pay country or AB Test
+	if (!isCorpABTest || !isConsentOrPayCountry(countryCode)) {
 		useNonAdvertisedList = false;
 	}
 
-	console.log('participations', isCorpABTest);
-
 	setIsConsentOrPay(
-		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
+		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList && isCorpABTest,
 	);
 
 	if (
