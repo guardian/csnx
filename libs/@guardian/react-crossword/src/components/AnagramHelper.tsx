@@ -138,6 +138,7 @@ export const AnagramHelper = () => {
 							disabled={letters.length < 1}
 							priority="primary"
 							size="default"
+							data-link-name="Shuffle"
 						>
 							Start
 						</CrosswordButton>
