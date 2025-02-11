@@ -5,8 +5,12 @@ import type { LocalStorageOptions } from 'use-local-storage-state';
 import useLocalStorageState from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Progress } from '../@types/crossword';
-import { serializer } from '../hooks/useStoredState';
 import { getNewProgress } from '../utils/getNewProgress';
+
+export const serializer: LocalStorageOptions<unknown>['serializer'] = {
+	stringify: (_) => JSON.stringify({ value: _ }),
+	parse: (_) => (JSON.parse(_) as { value: unknown }).value,
+};
 
 const isValid = (
 	progress: unknown,
