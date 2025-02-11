@@ -1,5 +1,5 @@
 import { log } from '@guardian/libs';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
 import type { LocalStorageOptions } from 'use-local-storage-state';
 import useLocalStorageState from 'use-local-storage-state';
@@ -93,25 +93,27 @@ export const ProgressProvider = ({
 }) => {
 	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
 	const [progress, setProgress] = useState(defaultValue);
-	const options: LocalStorageOptions<Progress> = {
-		defaultValue,
-		serializer,
-	};
 	const [storedProgress, setStoredProgress, rest] =
-		useLocalStorageState<Progress>(id, options);
+		useLocalStorageState<Progress>(id, {
+			defaultValue,
+			serializer,
+		});
 
-	const updateProgress = (newProgress: Progress) => {
-		setProgress(newProgress);
-		setStoredProgress(newProgress);
-	};
+	const updateProgress = useCallback(
+		(newProgress: Progress) => {
+			setStoredProgress(newProgress);
+			setProgress(newProgress);
+		},
+		[setStoredProgress],
+	);
 
 	useEffect(() => {
 		if (isValid(storedProgress, { dimensions })) {
 			setProgress(storedProgress);
 		} else {
-			setStoredProgress(defaultValue);
+			updateProgress(defaultValue);
 		}
-	}, [defaultValue, dimensions, setStoredProgress, storedProgress]);
+	}, [defaultValue, dimensions, storedProgress, updateProgress]);
 
 	return (
 		<ProgressContext.Provider
