@@ -1,5 +1,5 @@
 import { log } from '@guardian/libs';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
 import type { LocalStorageOptions } from 'use-local-storage-state';
 import useLocalStorageState from 'use-local-storage-state';
@@ -115,14 +115,17 @@ export const ProgressProvider = ({
 		}
 	}, [defaultValue, dimensions, storedProgress, updateProgress]);
 
+	const contextValue = useMemo(
+		() => ({
+			progress,
+			setProgress: updateProgress,
+			isStored: rest.isPersistent,
+		}),
+		[progress, updateProgress, rest.isPersistent],
+	);
+
 	return (
-		<ProgressContext.Provider
-			value={{
-				progress,
-				setProgress: updateProgress,
-				isStored: rest.isPersistent,
-			}}
-		>
+		<ProgressContext.Provider value={contextValue}>
 			{children}
 		</ProgressContext.Provider>
 	);
