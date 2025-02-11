@@ -74,7 +74,7 @@ const getInitialProgress = ({
 
 type Context = {
 	progress: Progress;
-	setProgress: (newProgress: Progress) => void;
+	updateProgress: (newProgress: Progress) => void;
 	isStored: boolean;
 };
 
@@ -123,7 +123,7 @@ export const ProgressProvider = ({
 	const contextValue = useMemo(
 		() => ({
 			progress,
-			setProgress: updateProgress,
+			updateProgress,
 			isStored: rest.isPersistent,
 		}),
 		[progress, updateProgress, rest.isPersistent],
