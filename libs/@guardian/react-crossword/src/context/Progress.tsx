@@ -92,6 +92,11 @@ export const ProgressProvider = ({
 	children: ReactNode;
 }) => {
 	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
+
+	// The localStorage state (managed by useLocalStorageState) does not use React state
+	// so updates to it do not always trigger a re-render - this behavior is particularly noticeable in Preact.
+	// To ensure the UI is kept up-to-date, we maintain a separate React state (`progress`) that mirrors
+	// the localStorage state and forces the necessary re-renders.
 	const [progress, setProgress] = useState(defaultValue);
 	const [storedProgress, setStoredProgress, rest] =
 		useLocalStorageState<Progress>(id, {
