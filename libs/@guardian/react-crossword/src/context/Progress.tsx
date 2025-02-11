@@ -89,7 +89,6 @@ export const ProgressProvider = ({
 }) => {
 	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
 	const [progress, setProgress] = useState(defaultValue);
-
 	const options: LocalStorageOptions<Progress> = {
 		defaultValue,
 		serializer,
@@ -105,8 +104,10 @@ export const ProgressProvider = ({
 	useEffect(() => {
 		if (isValid(storedProgress, { dimensions })) {
 			setProgress(storedProgress);
+		} else {
+			setStoredProgress(defaultValue);
 		}
-	}, [dimensions, storedProgress]);
+	}, [defaultValue, dimensions, setStoredProgress, storedProgress]);
 
 	return (
 		<ProgressContext.Provider
