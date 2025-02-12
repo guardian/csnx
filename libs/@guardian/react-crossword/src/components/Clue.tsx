@@ -63,7 +63,7 @@ const ClueComponent = ({
 }: Props) => {
 	const theme = useTheme();
 	const { validAnswers } = useValidAnswers();
-
+	const isValid = validAnswers.has(entry.id);
 	return (
 		<div
 			data-entry-id={entry.id}
@@ -78,10 +78,6 @@ const ClueComponent = ({
 
 				padding: 0.5em 0;
 				color: currentColor;
-
-				.visuallyHidden {
-					${visuallyHidden}
-				}
 
 				@media print {
 					padding: 0.125em 0;
@@ -112,9 +108,9 @@ const ClueComponent = ({
 				}}
 			></span>
 			<span css={css(visuallyHidden)}>
-				{`${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
+				{`${isValid ? 'Answer correct.' : ''} ${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
 			</span>
-			{validAnswers.has(entry.id) && (
+			{isValid && (
 				<span
 					css={css`
 						display: table-cell;
