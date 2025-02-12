@@ -314,7 +314,6 @@ export const Controls = () => {
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
 		<ClearClue />,
-		<AnagramHelper>Anagram Helper</AnagramHelper>,
 	].filter(Boolean);
 
 	const gridControls = [
@@ -437,6 +436,11 @@ export const Controls = () => {
 					}
 					return null;
 				})}
+				<AnagramHelper
+					key={'anagram-helper'}
+					disabled={disableClueControls}
+					tabIndex={-1}
+				/>
 			</div>
 			<div
 				aria-label="Grid controls"
