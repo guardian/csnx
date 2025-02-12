@@ -61,7 +61,7 @@ const ClearClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={clear} {...props}>
+		<ClueButton onClick={clear} data-link-name="Clear this" {...props}>
 			Clear Word
 		</ClueButton>
 	);
@@ -104,7 +104,7 @@ const CheckClue = (props: ButtonProps) => {
 	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
 
 	return (
-		<ClueButton onClick={check} {...props}>
+		<ClueButton onClick={check} data-link-name="Check this" {...props}>
 			Check Word
 		</ClueButton>
 	);
@@ -131,7 +131,7 @@ const RevealClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={reveal} {...props}>
+		<ClueButton onClick={reveal} data-link-name="Reveal this" {...props}>
 			Reveal Word
 		</ClueButton>
 	);
@@ -141,7 +141,11 @@ const AnagramHelper = (props: ButtonProps) => {
 	const { toggleAnagramHelper } = useShowAnagramHelper();
 
 	return (
-		<ClueButton onClick={toggleAnagramHelper} {...props}>
+		<ClueButton
+			onClick={toggleAnagramHelper}
+			data-link-name="Show anagram helper"
+			{...props}
+		>
 			Anagram Helper
 		</ClueButton>
 	);
@@ -181,7 +185,7 @@ const CheckGrid = (props: ButtonProps) => {
 	}, [entries, setValidAnswers, cells, progress, setInvalidCellAnswers]);
 
 	return (
-		<CrosswordButton onClick={check} {...props}>
+		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
 			Check All
 		</CrosswordButton>
 	);
@@ -189,7 +193,7 @@ const CheckGrid = (props: ButtonProps) => {
 
 const RevealGrid = (props: ButtonProps) => {
 	const { cells } = useData();
-	const { setProgress } = useProgress();
+	const { updateProgress } = useProgress();
 
 	const reveal = useCallback(() => {
 		const newProgress: Progress = [];
@@ -199,10 +203,15 @@ const RevealGrid = (props: ButtonProps) => {
 			column[cell.y] = cell.solution ?? '';
 		}
 
-		setProgress(newProgress);
-	}, [cells, setProgress]);
+		updateProgress(newProgress);
+	}, [cells, updateProgress]);
 	return (
-		<CrosswordButton onClick={reveal} requireConfirmation={true} {...props}>
+		<CrosswordButton
+			onClick={reveal}
+			requireConfirmation={true}
+			data-link-name="Reveal all"
+			{...props}
+		>
 			Reveal All
 		</CrosswordButton>
 	);
@@ -214,6 +223,7 @@ const ClearGrid = (props: ButtonProps) => {
 		<CrosswordButton
 			onClick={clearUserInput}
 			requireConfirmation={true}
+			data-link-name="Clear all"
 			{...props}
 		>
 			Clear All

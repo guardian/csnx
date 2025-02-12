@@ -133,7 +133,6 @@ export const Grid = () => {
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const [focused, setFocused] = useState(false);
-	const [, setHydrated] = useState(false);
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
@@ -391,13 +390,6 @@ export const Grid = () => {
 			),
 		[],
 	);
-
-	/**
-	 * This forces re-rendering of the crossword when hydrated in Preact, which works in React
-	 */
-	useEffect(() => {
-		setHydrated(true);
-	}, []);
 
 	// Handle changes to the current cell
 	useEffect(() => {

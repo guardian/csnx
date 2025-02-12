@@ -9,6 +9,7 @@ export const useUpdateCell = () => {
 	const { setProgress } = useProgress();
 	const { setValidAnswers, invalidCellAnswers, setInvalidCellAnswers } =
 		useValidAnswers();
+
 	const { cells } = useData();
 
 	const updateCell = useCallback(
@@ -19,16 +20,14 @@ export const useUpdateCell = () => {
 			if (isUndefined(cellGroup)) {
 				return;
 			}
+			const newProgress = [...progress];
+			if (isUndefined(newProgress[x])) {
+				throw new Error('Invalid x coordinate');
+			}
 
-			setProgress((prevProgress) => {
-				const newProgress = [...(prevProgress ?? [])];
-				if (isUndefined(newProgress[x])) {
-					throw new Error('Invalid x coordinate');
-				}
-
-				if (isUndefined(newProgress[x][y])) {
-					throw new Error('Invalid y coordinate');
-				}
+			if (isUndefined(newProgress[x][y])) {
+				throw new Error('Invalid y coordinate');
+			}
 
 				newProgress[x][y] = value;
 				return newProgress;
@@ -40,6 +39,7 @@ export const useUpdateCell = () => {
 					return newInvalidCellAnswers;
 				});
 			}
+
 			setValidAnswers((prev) => {
 				const newSet = new Set(prev);
 				for (const entryId of cellGroup) {
@@ -55,6 +55,7 @@ export const useUpdateCell = () => {
 			setProgress,
 			setValidAnswers,
 		],
+
 	);
 	return { updateCell };
 };
