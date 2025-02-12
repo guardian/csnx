@@ -5,13 +5,13 @@ import { useValidAnswers } from '../context/ValidAnswers';
 import { getNewProgress } from '../utils/getNewProgress';
 
 export const useClearUserInput = () => {
-	const { setProgress } = useProgress();
+	const { updateProgress } = useProgress();
 	const { dimensions } = useData();
 	const { setValidAnswers } = useValidAnswers();
 
 	const clearUserInput = useCallback(() => {
-		setProgress(getNewProgress(dimensions));
+		updateProgress(getNewProgress(dimensions));
 		setValidAnswers(new Set());
-	}, [setProgress, setValidAnswers, dimensions]);
+	}, [updateProgress, setValidAnswers, dimensions]);
 	return { clearUserInput };
 };

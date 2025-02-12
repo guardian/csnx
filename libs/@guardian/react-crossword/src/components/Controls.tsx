@@ -202,7 +202,7 @@ const CheckGrid = (props: ButtonProps) => {
 
 const RevealGrid = (props: ButtonProps) => {
 	const { cells } = useData();
-	const { setProgress } = useProgress();
+	const { updateProgress } = useProgress();
 
 	const reveal = useCallback(() => {
 		const newProgress: Progress = [];
@@ -212,8 +212,8 @@ const RevealGrid = (props: ButtonProps) => {
 			column[cell.y] = cell.solution ?? '';
 		}
 
-		setProgress(newProgress);
-	}, [cells, setProgress]);
+		updateProgress(newProgress);
+	}, [cells, updateProgress]);
 	return (
 		<CrosswordButton
 			onClick={reveal}
