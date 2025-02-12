@@ -163,8 +163,6 @@ const AnagramHelper = (props: ButtonProps) => {
 			onClick={toggleAnagramHelper}
 			data-link-name="Show anagram helper"
 			{...props}
-			role="none"
-			aria-hidden="true"
 		>
 			Anagram Helper
 		</ClueButton>
@@ -311,6 +309,7 @@ export const Controls = () => {
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
 		<ClearClue />,
+		<AnagramHelper />,
 	].filter(Boolean);
 
 	const gridControls = [
@@ -434,11 +433,6 @@ export const Controls = () => {
 					}
 					return null;
 				})}
-				<AnagramHelper
-					key={'anagram-helper'}
-					disabled={disableClueControls}
-					tabIndex={-1}
-				/>
 			</div>
 			<div
 				aria-label="Grid controls"
