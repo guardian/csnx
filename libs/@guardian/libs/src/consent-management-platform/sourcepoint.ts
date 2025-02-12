@@ -1,4 +1,3 @@
-import { getCookie } from '../cookies/getCookie';
 import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
@@ -105,11 +104,7 @@ export const init = (
 
 	setCurrentFramework(framework);
 
-	const isCorpABTest: boolean =
-		getCookie({
-			name: 'X-GU-Experiment-0perc-E',
-			shouldMemoize: true,
-		})?.includes('true') ?? false;
+	const isCorpABTest: boolean = window.location.search.includes('CORP_FLAG');
 
 	// To ensure users who are not part of Consent or Pay country or AB Test
 	if (!isCorpABTest || !isConsentOrPayCountry(countryCode)) {
