@@ -1,10 +1,16 @@
 import { log } from '@guardian/libs';
-import type { Dispatch, SetStateAction } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createContext, type ReactNode, useContext } from 'react';
+import type { LocalStorageOptions } from 'use-local-storage-state';
+import useLocalStorageState from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Progress } from '../@types/crossword';
-import { useStoredState } from '../hooks/useStoredState';
 import { getNewProgress } from '../utils/getNewProgress';
+
+export const serializer: LocalStorageOptions<unknown>['serializer'] = {
+	stringify: (_) => JSON.stringify({ value: _ }),
+	parse: (_) => (JSON.parse(_) as { value: unknown }).value,
+};
 
 const isValid = (
 	progress: unknown,
@@ -68,7 +74,7 @@ const getInitialProgress = ({
 
 type Context = {
 	progress: Progress;
-	setProgress: Dispatch<SetStateAction<Progress | undefined>>;
+	updateProgress: (newProgress: Progress) => void;
 	isStored: boolean;
 };
 
@@ -85,19 +91,46 @@ export const ProgressProvider = ({
 	progress?: Progress;
 	children: ReactNode;
 }) => {
-	const [progress, setProgress, { isPersistent }] = useStoredState(id, {
-		defaultValue: getInitialProgress({ id, dimensions, userProgress }),
-		validator: (progress: unknown) => isValid(progress, { dimensions }),
-	});
+	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
+
+	// The localStorage state (managed by useLocalStorageState) does not use React state
+	// so updates to it do not always trigger a re-render - this behavior is particularly noticeable in Preact.
+	// To ensure the UI is kept up-to-date, we maintain a separate React state (`progress`) that mirrors
+	// the localStorage state and forces the necessary re-renders.
+	const [progress, setProgress] = useState(defaultValue);
+	const [storedProgress, setStoredProgress, rest] =
+		useLocalStorageState<Progress>(id, {
+			defaultValue,
+			serializer,
+		});
+
+	const updateProgress = useCallback(
+		(newProgress: Progress) => {
+			setStoredProgress(newProgress);
+			setProgress(newProgress);
+		},
+		[setStoredProgress],
+	);
+
+	useEffect(() => {
+		if (isValid(storedProgress, { dimensions })) {
+			setProgress(storedProgress);
+		} else {
+			updateProgress(defaultValue);
+		}
+	}, [defaultValue, dimensions, storedProgress, updateProgress]);
+
+	const contextValue = useMemo(
+		() => ({
+			progress,
+			updateProgress,
+			isStored: rest.isPersistent,
+		}),
+		[progress, updateProgress, rest.isPersistent],
+	);
 
 	return (
-		<ProgressContext.Provider
-			value={{
-				progress,
-				setProgress,
-				isStored: isPersistent,
-			}}
-		>
+		<ProgressContext.Provider value={contextValue}>
 			{children}
 		</ProgressContext.Provider>
 	);
