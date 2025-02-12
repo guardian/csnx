@@ -125,7 +125,7 @@ This build command has to be re-run for changes to be picked up.
 2. Navigate to the repo that will test your code changes. In the appropriate folder of that repo, run
 
 ```sh
-npm/yarn/pnpm link ../csnx/dist/libs/@guardian/libs
+npm/yarn/pnpm link ../csnx/libs/@guardian/libs
 ```
 
 where '../csnx' is the path to your local changes in csnx where you cloned the csnx code to.
@@ -135,5 +135,5 @@ After re-building the '@guardian/libs' in step 1. this command does not have to 
 3. Once you’ve developed your changes and tested, you can unlink from the repo where you are testing the changes
 
 ```sh
-npm/yarn/pnpm unlink ../csnx/dist/libs/@guardian/libs
+npm/yarn/pnpm unlink ../csnx/libs/@guardian/libs
 ```
