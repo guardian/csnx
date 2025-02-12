@@ -44,7 +44,6 @@ export const TCFV2VendorIDs = {
 	sentry: ['5f0f39014effda6e8bbd2006'],
 	teads: ['5eab3d5ab8e05c2bbe33f399'],
 	tripleLift: [''], // TODO - triple lift
-	trustX: [''], // TODO - trust X !! can't find on vendor list ?? can only see trust arc
 	ttd: [''], // TODO - the trade desk
 	twitter: ['5e71760b69966540e4554f01'],
 	xandr: [''], // TODO - app nexus
