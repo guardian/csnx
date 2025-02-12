@@ -1,7 +1,10 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
-	import { cmp, onConsentChange, log } from '@guardian/libs';
+	import { cmp, onConsentChange, log, setCookie } from '@guardian/libs';
 	import { onMount } from 'svelte';
+
+	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
+	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
 
 	switch (window.location.hash) {
 		case '#tcfv2':
@@ -37,6 +40,13 @@
 		log('cmp', event);
 	}
 
+	let setABTest = () => {
+		setCookie({
+			name: 'X-GU-Experiment-0perc-E',
+			value: 'true',
+		})
+	}
+
 	let clearPreferences = () => {
 		// clear local storage
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-local-storage
@@ -49,7 +59,33 @@
 				.replace(/^ +/, '')
 				.replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
 		});
+
+		setABTest();
+
 		window.location.reload();
+	};
+
+	const toggleQueryParams = (param) => {
+		let queryParams = new URLSearchParams(window.location.search);
+		queryParams.has(param)
+			? queryParams.delete(param)
+			: queryParams.append(param, '');
+		window.location.search = queryParams.toString();
+	};
+
+	const toggleIsFeatureFlagEnabled = () => {
+		isFeatureFlagEnabled = !isFeatureFlagEnabled;
+		toggleQueryParams('CMP_COP');
+	};
+
+	const toggleIsUserSignedIn = () => {
+		isUserSignedIn = !isUserSignedIn;
+		toggleQueryParams('SIGNED_IN');
+	};
+
+	const toggleUseNonAdvertisedList = () => {
+		useNonAdvertisedList = !useNonAdvertisedList;
+		toggleQueryParams('NON_ADV');
 	};
 
 	let framework = JSON.parse(localStorage.getItem('framework'));
@@ -90,11 +126,11 @@
 				break;
 		}
 
-		// do this loads to make sure that doesn't break things
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
-		cmp.init({ country });
+		cmp.init({
+			country,
+			isUserSignedIn: isUserSignedIn,
+			useNonAdvertisedList: useNonAdvertisedList,
+		});
 	});
 </script>
 
@@ -104,6 +140,7 @@
 			>open privacy manager</button
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
+		<button on:click={setABTest}>set ab test</button>
 		<label class={framework == 'tcfv2' ? 'selected' : 'none'}>
 			<input
 				type="radio"
@@ -132,6 +169,22 @@
 			/>
 			in Australia:
 			<strong>CCPA-like</strong>
+		</label>
+		<label class={useNonAdvertisedList ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleUseNonAdvertisedList}
+				checked={useNonAdvertisedList}
+			/>
+			<strong>useNonAdvertisedList?</strong>
+		</label>
+		<label class={isUserSignedIn ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleIsUserSignedIn}
+				checked={isUserSignedIn}
+			/>
+			<strong>isUserSignedIn?</strong>
 		</label>
 	</nav>
 
