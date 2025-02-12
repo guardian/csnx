@@ -295,13 +295,15 @@ export const Grid = () => {
 
 				switch (inputType) {
 					case 'deleteContentBackward':
+						event.preventDefault();
 						deleteLetter(guess ?? '');
 						break;
 
 					case 'insertText':
 					case 'insertCompositionText':
+						event.preventDefault();
 						if (data) {
-							typeLetter(data);
+							typeLetter(data.slice(-1));
 						}
 						break;
 					default:
