@@ -13,6 +13,6 @@ export const useClearUserInput = () => {
 		updateProgress(getNewProgress(dimensions));
 		setValidAnswers(new Set());
 		setInvalidCellAnswers(new Set());
-	}, [setProgress, dimensions, setValidAnswers, setInvalidCellAnswers]);
+	}, [dimensions, setInvalidCellAnswers, setValidAnswers, updateProgress]);
 	return { clearUserInput };
 };
