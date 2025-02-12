@@ -6,7 +6,7 @@ import { useProgress } from '../context/Progress';
 import { useValidAnswers } from '../context/ValidAnswers';
 
 export const useUpdateCell = () => {
-	const { setProgress } = useProgress();
+	const { progress, updateProgress } = useProgress();
 	const { setValidAnswers, invalidCellAnswers, setInvalidCellAnswers } =
 		useValidAnswers();
 
@@ -29,9 +29,9 @@ export const useUpdateCell = () => {
 				throw new Error('Invalid y coordinate');
 			}
 
-				newProgress[x][y] = value;
-				return newProgress;
-			});
+			newProgress[x][y] = value;
+			updateProgress(newProgress);
+
 			if (invalidCellAnswers.has(`x${x}y${y}`)) {
 				setInvalidCellAnswers((prevState) => {
 					const newInvalidCellAnswers = new Set(prevState);
@@ -51,11 +51,11 @@ export const useUpdateCell = () => {
 		[
 			cells,
 			invalidCellAnswers,
+			progress,
 			setInvalidCellAnswers,
-			setProgress,
 			setValidAnswers,
+			updateProgress,
 		],
-
 	);
 	return { updateCell };
 };
