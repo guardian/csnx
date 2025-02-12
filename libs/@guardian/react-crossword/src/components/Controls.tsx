@@ -66,7 +66,6 @@ const ClearClue = (props: ButtonProps) => {
 			aria-label={`Clear ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			data-link-name="Clear this"
 			aria-live={'off'}
-			role={'menuitem'}
 			{...props}
 		>
 			Clear Word
@@ -115,7 +114,6 @@ const CheckClue = (props: ButtonProps) => {
 			aria-live="off"
 			onClick={check}
 			data-link-name="Check this"
-			role={'menuitem'}
 			aria-label={`Check ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			{...props}
 		>
@@ -148,7 +146,6 @@ const RevealClue = (props: ButtonProps) => {
 		<ClueButton
 			onClick={reveal}
 			aria-live="off"
-			role={'menuitem'}
 			aria-label={`Reveal ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			data-link-name="Reveal this"
 			{...props}
@@ -432,6 +429,7 @@ export const Controls = () => {
 							key: index,
 							disabled: disableClueControls,
 							tabIndex: isTabTarget ? 0 : -1,
+							role: 'menuitem',
 						});
 					}
 					return null;
