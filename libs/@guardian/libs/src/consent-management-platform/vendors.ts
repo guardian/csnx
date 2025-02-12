@@ -17,25 +17,37 @@ export const TCFV2VendorIDs = {
 	// keep the list in README.md up to date with these values
 	a9: ['5f369a02b8e05c308701f829'],
 	acast: ['5f203dcb1f0dea790562e20f'],
+	adYouLike: [''], // TODO - ad you like
 	braze: ['5ed8c49c4b8ce4571c7ad801'],
 	comscore: ['5efefe25b8e05c06542b2a77'],
 	criteo: ['5e98e7f1b8e05c111d01b462'],
 	'google-mobile-ads': ['5f1aada6b8e05c306c0597d7'],
 	'google-tag-manager': ['5e952f6107d9d20c88e7c975'],
 	googletag: ['5f1aada6b8e05c306c0597d7'],
+	groupM: [''], // TODO - xaxis
 	ias: ['5e7ced57b8e05c485246ccf3'],
+	improvedDigital: [''], // TODO - improved digital
 	inizio: ['5e37fc3e56a5e6615502f9c9'],
 	ipsos: ['5fa51b29a228638b4a1980e4'],
+	ix: [''], // TODO - index exchange
+	kargo: [''], // TODO - kargo
 	magnite: ['5e7ced57b8e05c485246cce5'],
 	nielsen: ['5ef5c3a5b8e05c69980eaa5b'],
 	ophan: ['5f203dbeeaaaa8768fd3226a'],
+	openX: [''], // TODO - open X
+	ozone: [''], // TODO - ozone
 	permutive: ['5f369a02b8e05c2f2d546a40'],
 	prebidCustom: ['5f22bfd82a6b6c1afd1181a9'],
+	pubmatic: [''], // TODO - pubmatic
 	qm: ['5f295fa4b8e05c76a44c3149'],
 	remarketing: ['5ed0eb688a76503f1016578f'],
 	sentry: ['5f0f39014effda6e8bbd2006'],
 	teads: ['5eab3d5ab8e05c2bbe33f399'],
+	tripleLift: [''], // TODO - triple lift
+	trustX: [''], // TODO - trust X !! can't find on vendor list ?? can only see trust arc
+	ttd: [''], // TODO - the trade desk
 	twitter: ['5e71760b69966540e4554f01'],
+	xandr: [''], // TODO - app nexus
 	'youtube-player': ['5e7ac3fae30e7d1bc1ebf5e8'],
 } satisfies VendorIDType;
 
