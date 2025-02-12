@@ -61,7 +61,7 @@ const ClearClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={clear} {...props}>
+		<ClueButton onClick={clear} data-link-name="Clear this" {...props}>
 			Clear Word
 		</ClueButton>
 	);
@@ -108,7 +108,7 @@ const CheckClue = (props: ButtonProps) => {
 	}, [cells, checkCell, currentEntryId, updateCell, setValidAnswers]);
 
 	return (
-		<ClueButton onClick={check} {...props}>
+		<ClueButton onClick={check} data-link-name="Check this" {...props}>
 			Check Word
 		</ClueButton>
 	);
@@ -135,7 +135,7 @@ const RevealClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={reveal} {...props}>
+		<ClueButton onClick={reveal} data-link-name="Reveal this" {...props}>
 			Reveal Word
 		</ClueButton>
 	);
@@ -145,7 +145,11 @@ const AnagramHelper = (props: ButtonProps) => {
 	const { toggleAnagramHelper } = useShowAnagramHelper();
 
 	return (
-		<ClueButton onClick={toggleAnagramHelper} {...props}>
+		<ClueButton
+			onClick={toggleAnagramHelper}
+			data-link-name="Show anagram helper"
+			{...props}
+		>
 			Anagram Helper
 		</ClueButton>
 	);
@@ -190,7 +194,7 @@ const CheckGrid = (props: ButtonProps) => {
 	}, [cells, checkCell, entries, updateCell, setValidAnswers]);
 
 	return (
-		<CrosswordButton onClick={check} {...props}>
+		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
 			Check All
 		</CrosswordButton>
 	);
@@ -211,7 +215,12 @@ const RevealGrid = (props: ButtonProps) => {
 		setProgress(newProgress);
 	}, [cells, setProgress]);
 	return (
-		<CrosswordButton onClick={reveal} requireConfirmation={true} {...props}>
+		<CrosswordButton
+			onClick={reveal}
+			requireConfirmation={true}
+			data-link-name="Reveal all"
+			{...props}
+		>
 			Reveal All
 		</CrosswordButton>
 	);
@@ -223,6 +232,7 @@ const ClearGrid = (props: ButtonProps) => {
 		<CrosswordButton
 			onClick={clearUserInput}
 			requireConfirmation={true}
+			data-link-name="Clear all"
 			{...props}
 		>
 			Clear All
