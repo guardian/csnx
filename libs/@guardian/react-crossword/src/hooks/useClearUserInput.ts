@@ -7,11 +7,12 @@ import { getNewProgress } from '../utils/getNewProgress';
 export const useClearUserInput = () => {
 	const { setProgress } = useProgress();
 	const { dimensions } = useData();
-	const { setValidAnswers } = useValidAnswers();
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 
 	const clearUserInput = useCallback(() => {
 		setProgress(getNewProgress(dimensions));
 		setValidAnswers(new Set());
-	}, [setProgress, setValidAnswers, dimensions]);
+		setInvalidCellAnswers(new Set());
+	}, [setProgress, dimensions, setValidAnswers, setInvalidCellAnswers]);
 	return { clearUserInput };
 };

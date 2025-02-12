@@ -14,6 +14,7 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useValidAnswers } from '../context/ValidAnswers';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
@@ -125,6 +126,7 @@ const FocusIndicator = ({
 
 export const Grid = () => {
 	const theme = useTheme();
+	const { invalidCellAnswers } = useValidAnswers();
 	const { cells, separators, entries, dimensions, getId } = useData();
 	const { progress } = useProgress();
 	const { updateCell } = useUpdateCell();
@@ -511,6 +513,7 @@ export const Grid = () => {
 										isConnected={isConnected}
 										isBlackCell={isBlackCell}
 										isCurrentCell={isCurrentCell}
+										isIncorrect={invalidCellAnswers.has(`x${cell.x}y${cell.y}`)}
 										role="cell"
 										data-x={cell.x}
 										data-y={cell.y}

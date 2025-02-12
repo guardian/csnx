@@ -3,7 +3,7 @@ import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
 import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
-import type { Cell, Progress } from '../@types/crossword';
+import type { Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -70,17 +70,8 @@ const ClearClue = (props: ButtonProps) => {
 const CheckClue = (props: ButtonProps) => {
 	const { cells } = useData();
 	const { progress } = useProgress();
-	const { updateCell } = useUpdateCell();
-	const { setValidAnswers } = useValidAnswers();
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
-
-	const checkCell = useCallback(
-		(cell: Cell) => {
-			const currentProgress = progress[cell.x]?.[cell.y];
-			return !!(currentProgress && currentProgress === cell.solution);
-		},
-		[progress],
-	);
 
 	const check = useCallback(() => {
 		if (!currentEntryId) {
@@ -88,15 +79,20 @@ const CheckClue = (props: ButtonProps) => {
 		}
 		let entryIsCorrect = true;
 		for (const cell of cells.values()) {
-			if (cell.group?.includes(currentEntryId)) {
-				if (!checkCell(cell)) {
-					updateCell({
-						x: cell.x,
-						y: cell.y,
-						value: '',
+			const currentProgress = progress[cell.x]?.[cell.y];
+			if (
+				cell.group?.includes(currentEntryId) &&
+				currentProgress &&
+				currentProgress !== cell.solution
+			) {
+				if (currentProgress !== '') {
+					setInvalidCellAnswers((prevState) => {
+						const newInvalidCellAnswers = new Set(prevState);
+						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
+						return newInvalidCellAnswers;
 					});
-					entryIsCorrect = false;
 				}
+				entryIsCorrect = false;
 			}
 		}
 		if (entryIsCorrect) {
@@ -105,7 +101,7 @@ const CheckClue = (props: ButtonProps) => {
 				return newValidAnswers.add(currentEntryId);
 			});
 		}
-	}, [cells, checkCell, currentEntryId, updateCell, setValidAnswers]);
+	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
 
 	return (
 		<ClueButton onClick={check} {...props}>
@@ -154,30 +150,25 @@ const AnagramHelper = (props: ButtonProps) => {
 const CheckGrid = (props: ButtonProps) => {
 	const { progress } = useProgress();
 	const { cells, entries } = useData();
-	const { updateCell } = useUpdateCell();
-	const { setValidAnswers } = useValidAnswers();
-
-	const checkCell = useCallback(
-		(cell: Cell) => {
-			const currentProgress = progress[cell.x]?.[cell.y];
-			return !!(currentProgress && currentProgress === cell.solution);
-		},
-		[progress],
-	);
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 
 	const check = useCallback(() => {
 		const allEntries = entries.keys();
 		const invalidAnswers: Set<EntryID> = new Set();
 		for (const cell of cells.values()) {
+			const currentProgress = progress[cell.x]?.[cell.y];
 			if (!cell.group) {
 				continue;
 			}
-			if (!checkCell(cell)) {
-				updateCell({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
+
+			if (!isUndefined(currentProgress) && currentProgress !== cell.solution) {
+				if (currentProgress !== '') {
+					setInvalidCellAnswers((prevState) => {
+						const newInvalidCellAnswers = new Set(prevState);
+						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
+						return newInvalidCellAnswers;
+					});
+				}
 				for (const entryId of cell.group) {
 					invalidAnswers.add(entryId);
 				}
@@ -187,7 +178,7 @@ const CheckGrid = (props: ButtonProps) => {
 			[...allEntries].filter((x) => !invalidAnswers.has(x)),
 		);
 		setValidAnswers(validAnswers);
-	}, [cells, checkCell, entries, updateCell, setValidAnswers]);
+	}, [entries, setValidAnswers, cells, progress, setInvalidCellAnswers]);
 
 	return (
 		<CrosswordButton onClick={check} {...props}>

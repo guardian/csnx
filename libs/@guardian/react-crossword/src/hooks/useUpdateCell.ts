@@ -7,14 +7,14 @@ import { useValidAnswers } from '../context/ValidAnswers';
 
 export const useUpdateCell = () => {
 	const { setProgress } = useProgress();
-	const { setValidAnswers } = useValidAnswers();
+	const { setValidAnswers, invalidCellAnswers, setInvalidCellAnswers } =
+		useValidAnswers();
 	const { cells } = useData();
 
 	const updateCell = useCallback(
 		({ x, y, value }: Coords & { value: string }) => {
 			const cell = cells.getByCoords({ x, y });
 			const cellGroup = cell?.group;
-
 			// blank cells have no group
 			if (isUndefined(cellGroup)) {
 				return;
@@ -33,7 +33,13 @@ export const useUpdateCell = () => {
 				newProgress[x][y] = value;
 				return newProgress;
 			});
-
+			if (invalidCellAnswers.has(`x${x}y${y}`)) {
+				setInvalidCellAnswers((prevState) => {
+					const newInvalidCellAnswers = new Set(prevState);
+					newInvalidCellAnswers.delete(`x${x}y${y}`);
+					return newInvalidCellAnswers;
+				});
+			}
 			setValidAnswers((prev) => {
 				const newSet = new Set(prev);
 				for (const entryId of cellGroup) {
@@ -42,7 +48,13 @@ export const useUpdateCell = () => {
 				return newSet;
 			});
 		},
-		[cells, setProgress, setValidAnswers],
+		[
+			cells,
+			invalidCellAnswers,
+			setInvalidCellAnswers,
+			setProgress,
+			setValidAnswers,
+		],
 	);
 	return { updateCell };
 };
