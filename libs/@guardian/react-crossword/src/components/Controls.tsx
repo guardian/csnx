@@ -166,7 +166,7 @@ const AnagramHelper = (props: ButtonProps) => {
 			onClick={toggleAnagramHelper}
 			data-link-name="Show anagram helper"
 			{...props}
-			role="presentation"
+			role="none"
 			aria-hidden="true"
 		>
 			Anagram Helper
