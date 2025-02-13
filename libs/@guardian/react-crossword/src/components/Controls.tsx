@@ -61,7 +61,13 @@ const ClearClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={clear} data-link-name="Clear this" {...props}>
+		<ClueButton
+			onClick={clear}
+			aria-label={`Clear ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			data-link-name="Clear this"
+			aria-live={'off'}
+			{...props}
+		>
 			Clear Word
 		</ClueButton>
 	);
@@ -104,7 +110,13 @@ const CheckClue = (props: ButtonProps) => {
 	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
 
 	return (
-		<ClueButton onClick={check} data-link-name="Check this" {...props}>
+		<ClueButton
+			aria-live="off"
+			onClick={check}
+			data-link-name="Check this"
+			aria-label={`Check ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			{...props}
+		>
 			Check Word
 		</ClueButton>
 	);
@@ -131,7 +143,13 @@ const RevealClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={reveal} data-link-name="Reveal this" {...props}>
+		<ClueButton
+			onClick={reveal}
+			aria-live="off"
+			aria-label={`Reveal ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			data-link-name="Reveal this"
+			{...props}
+		>
 			Reveal Word
 		</ClueButton>
 	);
@@ -291,7 +309,7 @@ export const Controls = () => {
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
 		<ClearClue />,
-		<AnagramHelper>Anagram Helper</AnagramHelper>,
+		<AnagramHelper />,
 	].filter(Boolean);
 
 	const gridControls = [
