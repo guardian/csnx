@@ -86,43 +86,41 @@ const Separator = memo(
 );
 
 /** Renders a focus indicator over the current cell */
-const FocusIndicator = ({
-	currentCell,
-}: {
-	currentCell: NonNullable<Coords>;
-}) => {
-	const theme = useTheme();
-	const size = theme.gridCellSize + theme.gridGutterSize;
-	const x = currentCell.x * size;
-	const y = currentCell.y * size;
+const FocusIndicator = memo(
+	({ currentCell }: { currentCell: NonNullable<Coords> }) => {
+		const theme = useTheme();
+		const size = theme.gridCellSize + theme.gridGutterSize;
+		const x = currentCell.x * size;
+		const y = currentCell.y * size;
 
-	return (
-		<>
-			<rect
-				x={x - 1 + theme.gridGutterSize * 0.5}
-				y={y - 1 + theme.gridGutterSize * 0.5}
-				width={size + 2}
-				height={size + 2}
-				stroke={theme.gridForegroundColor}
-				strokeWidth={2}
-				fill="none"
-				rx={4}
-				ry={4}
-			/>
-			<rect
-				x={x + theme.gridGutterSize * 0.5}
-				y={y + theme.gridGutterSize * 0.5}
-				width={size}
-				height={size}
-				stroke={theme.focusColor}
-				strokeWidth={2}
-				fill="none"
-				rx={4}
-				ry={4}
-			/>
-		</>
-	);
-};
+		return (
+			<>
+				<rect
+					x={x - 1 + theme.gridGutterSize * 0.5}
+					y={y - 1 + theme.gridGutterSize * 0.5}
+					width={size + 2}
+					height={size + 2}
+					stroke={theme.gridForegroundColor}
+					strokeWidth={2}
+					fill="none"
+					rx={4}
+					ry={4}
+				/>
+				<rect
+					x={x + theme.gridGutterSize * 0.5}
+					y={y + theme.gridGutterSize * 0.5}
+					width={size}
+					height={size}
+					stroke={theme.focusColor}
+					strokeWidth={2}
+					fill="none"
+					rx={4}
+					ry={4}
+				/>
+			</>
+		);
+	},
+);
 
 export const Grid = () => {
 	const theme = useTheme();
