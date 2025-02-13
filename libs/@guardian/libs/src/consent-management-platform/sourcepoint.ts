@@ -244,7 +244,7 @@ export const init = (
 							!useNonAdvertisedList &&
 							isCorpABTest
 						) {
-							window.open(getSupportSignUpPage(), '_blank');
+							window.location.href = getSupportSignUpPage();
 						}
 					}
 				},
