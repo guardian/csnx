@@ -199,7 +199,7 @@ export const Clues = ({ direction, Header }: Props) => {
 
 						const isConnected = !!currentGroupSet?.has(entry.id);
 						const isSelected = currentEntryId === entry.id;
-						const isValidated = validAnswers.has(entry.id);
+						const isValid = validAnswers.has(entry.id);
 
 						return (
 							<Clue
@@ -207,7 +207,7 @@ export const Clues = ({ direction, Header }: Props) => {
 								isConnected={isConnected}
 								isSelected={isSelected}
 								isComplete={complete}
-								isValidated={isValidated}
+								isValid={isValid}
 								key={entry.id}
 								id={getId(entry.id)}
 								tabIndex={-1}

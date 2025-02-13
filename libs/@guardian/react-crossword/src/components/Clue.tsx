@@ -51,7 +51,7 @@ type Props = {
 	isConnected?: boolean;
 	isSelected?: boolean;
 	isComplete?: boolean;
-	isValidated?: boolean;
+	isValid?: boolean;
 	selectClue: (entry: CAPIEntry) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -60,7 +60,7 @@ const ClueComponent = ({
 	isConnected,
 	isSelected,
 	isComplete,
-	isValidated,
+	isValid,
 	selectClue,
 	...props
 }: Props) => {
@@ -111,9 +111,9 @@ const ClueComponent = ({
 				}}
 			></span>
 			<span css={css(visuallyHidden)}>
-				{`${isValidated ? 'Answer correct.' : ''} ${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
+				{`${isValid ? 'Answer correct.' : ''} ${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
 			</span>
-			{isValidated && (
+			{isValid && (
 				<span
 					css={css`
 						display: table-cell;
