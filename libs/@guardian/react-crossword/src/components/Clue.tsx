@@ -6,7 +6,6 @@ import type { HTMLAttributes } from 'react';
 import { memo } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
-import { useValidAnswers } from '../context/ValidAnswers';
 
 const punctuateString = (string: string) => {
 	const trimmed = string.trim();
@@ -52,6 +51,8 @@ type Props = {
 	isConnected?: boolean;
 	isSelected?: boolean;
 	isComplete?: boolean;
+	isValidated?: boolean;
+	selectClue: (entry: CAPIEntry) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 const ClueComponent = ({
@@ -59,11 +60,12 @@ const ClueComponent = ({
 	isConnected,
 	isSelected,
 	isComplete,
+	isValidated,
+	selectClue,
 	...props
 }: Props) => {
 	const theme = useTheme();
-	const { validAnswers } = useValidAnswers();
-	const isValid = validAnswers.has(entry.id);
+
 	return (
 		<div
 			data-entry-id={entry.id}
@@ -85,6 +87,7 @@ const ClueComponent = ({
 					opacity: 1;
 				}
 			`}
+			onClick={() => selectClue(entry)}
 			{...props}
 		>
 			<span
@@ -108,9 +111,9 @@ const ClueComponent = ({
 				}}
 			></span>
 			<span css={css(visuallyHidden)}>
-				{`${isValid ? 'Answer correct.' : ''} ${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
+				{`${isValidated ? 'Answer correct.' : ''} ${formatNumberForScreenReader(entry.humanNumber, entry.direction)} ${formatClueForScreenReader(entry.clue)}`}
 			</span>
-			{isValid && (
+			{isValidated && (
 				<span
 					css={css`
 						display: table-cell;

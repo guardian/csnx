@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isString, isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
@@ -415,6 +415,14 @@ export const Grid = () => {
 		}
 	}, [cells, currentEntryId, entries, updateCellFocus]);
 
+	const currentGroup = useMemo(() => {
+		return currentEntryId ? entries.get(currentEntryId)?.group : undefined;
+	}, [currentEntryId, entries]);
+
+	const currentGroupSet = useMemo(() => {
+		return currentGroup ? new Set(currentGroup) : null;
+	}, [currentGroup]);
+
 	return (
 		<svg
 			css={[
@@ -480,16 +488,13 @@ export const Grid = () => {
 
 								const isBlackCell = isUndefined(cell.group);
 
-								const currentGroup =
-									currentEntryId && entries.get(currentEntryId)?.group;
-
-								const isConnected = currentGroup?.some((entryId) =>
-									cell.group?.includes(entryId),
+								const isConnected = !!cell.group?.some((entryId) =>
+									currentGroupSet?.has(entryId),
 								);
 
-								const isSelected = currentEntryId
+								const isSelected = !!(currentEntryId
 									? cell.group?.includes(currentEntryId)
-									: false;
+									: false);
 
 								return (
 									<Cell
