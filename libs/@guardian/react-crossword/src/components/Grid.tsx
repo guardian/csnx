@@ -292,6 +292,7 @@ export const Grid = () => {
 
 			if (nativeEvent instanceof InputEvent) {
 				const { inputType, data } = nativeEvent;
+				event.preventDefault();
 
 				switch (inputType) {
 					case 'deleteContentBackward':
@@ -301,10 +302,8 @@ export const Grid = () => {
 					case 'insertText':
 					case 'insertCompositionText':
 						if (data) {
-							typeLetter(data);
+							typeLetter(data.slice(-1));
 						}
-						break;
-					default:
 						break;
 				}
 			}
