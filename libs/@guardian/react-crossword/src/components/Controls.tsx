@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
-import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -300,23 +300,18 @@ export const Controls = () => {
 	// using the arrow keys.
 	const [shouldSetFocus, setShouldSetFocus] = useState(false);
 
-	// We need to know how many controls are in each group, so we can manage the
-	// focused index. To to this, we store them here to two arrays and filter out
-	// any that do not apply. The arrays are then mapped over, below, to render
-	// the controls.
+	// We need to know how many controls are currently visible in each group so we
+	// can manage the focused index.
+	const cluesControlsVisible = solutionAvailable ? 4 : 2;
+	const gridControlsVisible = solutionAvailable ? 3 : 1;
 
-	const cluesControls = [
-		solutionAvailable && <CheckClue />,
-		solutionAvailable && <RevealClue />,
-		<ClearClue />,
-		<AnagramHelper />,
-	].filter(Boolean);
-
-	const gridControls = [
-		solutionAvailable && <CheckGrid />,
-		solutionAvailable && <RevealGrid />,
-		<ClearGrid />,
-	].filter(Boolean);
+	const getTabIndex = (group: 'clues' | 'grid', index: number) => {
+		const focusedControlIndex =
+			focusedGroup === 'clues'
+				? focusedClueControlIndex
+				: focusedGridControlIndex;
+		return focusedGroup === group && focusedControlIndex === index ? 0 : -1;
+	};
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
@@ -334,11 +329,11 @@ export const Controls = () => {
 				case 'ArrowRight':
 					if (focusedGroup === 'clues') {
 						setFocusedClueControlIndex((prev = 0) =>
-							Math.min(prev + 1, cluesControls.length - 1),
+							Math.min(prev + 1, cluesControlsVisible - 1),
 						);
 					} else {
 						setFocusedGridControlIndex((prev = 0) =>
-							Math.min(prev + 1, gridControls.length - 1),
+							Math.min(prev + 1, gridControlsVisible - 1),
 						);
 					}
 					event.preventDefault();
@@ -363,9 +358,9 @@ export const Controls = () => {
 					break;
 				case 'End':
 					if (focusedGroup === 'clues') {
-						setFocusedClueControlIndex(cluesControls.length - 1);
+						setFocusedClueControlIndex(cluesControlsVisible - 1);
 					} else {
-						setFocusedGridControlIndex(gridControls.length - 1);
+						setFocusedGridControlIndex(gridControlsVisible - 1);
 					}
 					event.preventDefault();
 					break;
@@ -374,8 +369,8 @@ export const Controls = () => {
 			}
 		},
 		[
-			cluesControls.length,
-			gridControls.length,
+			cluesControlsVisible,
+			gridControlsVisible,
 			disableClueControls,
 			focusedGroup,
 		],
@@ -419,20 +414,30 @@ export const Controls = () => {
 				tabIndex={-1}
 				css={controlsGroupStyle}
 			>
-				{cluesControls.map((child, index) => {
-					if (child) {
-						const isTabTarget =
-							focusedGroup === 'clues' && focusedClueControlIndex === index;
-
-						return cloneElement(child, {
-							key: index,
-							disabled: disableClueControls,
-							tabIndex: isTabTarget ? 0 : -1,
-							role: 'menuitem',
-						});
-					}
-					return null;
-				})}
+				{solutionAvailable && (
+					<CheckClue
+						disabled={disableClueControls}
+						tabIndex={getTabIndex('clues', 0)}
+						role="menuItem"
+					/>
+				)}
+				{solutionAvailable && (
+					<RevealClue
+						disabled={disableClueControls}
+						tabIndex={getTabIndex('clues', 1)}
+						role="menuItem"
+					/>
+				)}
+				<ClearClue
+					disabled={disableClueControls}
+					tabIndex={getTabIndex('clues', solutionAvailable ? 2 : 0)}
+					role="menuItem"
+				/>
+				<AnagramHelper
+					disabled={disableClueControls}
+					tabIndex={getTabIndex('clues', solutionAvailable ? 3 : 1)}
+					role="menuItem"
+				/>
 			</div>
 			<div
 				aria-label="Grid controls"
@@ -440,18 +445,16 @@ export const Controls = () => {
 				tabIndex={-1}
 				css={controlsGroupStyle}
 			>
-				{gridControls.map((child, index) => {
-					if (child) {
-						const isTabTarget =
-							focusedGroup === 'grid' && focusedGridControlIndex === index;
-						return cloneElement(child, {
-							key: index,
-							tabIndex: isTabTarget ? 0 : -1,
-							role: 'menuitem',
-						});
-					}
-					return null;
-				})}
+				{solutionAvailable && (
+					<CheckGrid tabIndex={getTabIndex('grid', 0)} role="menuItem" />
+				)}
+				{solutionAvailable && (
+					<RevealGrid tabIndex={getTabIndex('grid', 1)} role="menuItem" />
+				)}
+				<ClearGrid
+					tabIndex={getTabIndex('grid', solutionAvailable ? 2 : 0)}
+					role="menuItem"
+				/>
 			</div>
 		</div>
 	);
