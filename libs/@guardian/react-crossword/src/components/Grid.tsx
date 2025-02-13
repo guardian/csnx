@@ -511,9 +511,12 @@ export const Grid = () => {
 										onPointerDown={
 											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
 										}
-										handleKeyDown={handleKeyDown}
-										handleInput={(event: FormEvent<HTMLInputElement>) =>
-											handleInput(event, guess)
+										handleKeyDown={isCurrentCell ? handleKeyDown : noop}
+										handleInput={
+											isCurrentCell
+												? (event: FormEvent<HTMLInputElement>) =>
+														handleInput(event, guess)
+												: noop
 										}
 									/>
 								);
