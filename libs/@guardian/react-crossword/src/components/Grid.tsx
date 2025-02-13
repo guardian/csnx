@@ -20,8 +20,6 @@ import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
 
-const noop = () => {};
-
 const getCellPosition = (
 	index: number,
 	{ gridCellSize, gridGutterSize }: Theme,
@@ -415,13 +413,16 @@ export const Grid = () => {
 		}
 	}, [cells, currentEntryId, entries, updateCellFocus]);
 
-	const currentGroup = useMemo(() => {
-		return currentEntryId ? entries.get(currentEntryId)?.group : undefined;
-	}, [currentEntryId, entries]);
-
 	const currentGroupSet = useMemo(() => {
-		return currentGroup ? new Set(currentGroup) : null;
-	}, [currentGroup]);
+		if (currentEntryId) {
+			const entry = entries.get(currentEntryId);
+			const group = entry?.group;
+			if (group) {
+				return new Set(group);
+			}
+		}
+		return undefined;
+	}, [currentEntryId, entries]);
 
 	return (
 		<svg
@@ -514,14 +515,16 @@ export const Grid = () => {
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
 										onPointerDown={
-											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
+											isCurrentCell
+												? () => handleCurrentCellClick(cell)
+												: undefined
 										}
-										handleKeyDown={isCurrentCell ? handleKeyDown : noop}
+										handleKeyDown={isCurrentCell ? handleKeyDown : undefined}
 										handleInput={
 											isCurrentCell
 												? (event: FormEvent<HTMLInputElement>) =>
 														handleInput(event, guess)
-												: noop
+												: undefined
 										}
 									/>
 								);

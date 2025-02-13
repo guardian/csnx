@@ -22,9 +22,9 @@ export type BaseCellProps = {
 	/** is the cell the current cell? */
 	isCurrentCell?: boolean;
 	/** callback for keydown event */
-	handleKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
+	handleKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
 	/** callback for input event */
-	handleInput: (event: FormEvent<HTMLInputElement>) => void;
+	handleInput?: (event: FormEvent<HTMLInputElement>) => void;
 };
 
 export type CellProps = BaseCellProps & SVGProps<SVGGElement>;
