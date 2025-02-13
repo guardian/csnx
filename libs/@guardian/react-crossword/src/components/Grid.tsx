@@ -297,6 +297,7 @@ export const Grid = () => {
 				switch (inputType) {
 					case 'deleteContentBackward':
 						deleteLetter(guess ?? '');
+						event.preventDefault();
 						break;
 
 					case 'insertText':
@@ -304,6 +305,7 @@ export const Grid = () => {
 						if (data) {
 							typeLetter(data.slice(-1));
 						}
+						event.preventDefault();
 						break;
 				}
 			}
