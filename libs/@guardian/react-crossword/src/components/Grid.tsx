@@ -292,21 +292,18 @@ export const Grid = () => {
 
 			if (nativeEvent instanceof InputEvent) {
 				const { inputType, data } = nativeEvent;
+				event.preventDefault();
 
 				switch (inputType) {
 					case 'deleteContentBackward':
-						event.preventDefault();
 						deleteLetter(guess ?? '');
 						break;
 
 					case 'insertText':
 					case 'insertCompositionText':
-						event.preventDefault();
 						if (data) {
 							typeLetter(data.slice(-1));
 						}
-						break;
-					default:
 						break;
 				}
 			}
