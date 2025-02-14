@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import type { Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -40,7 +40,7 @@ const ClueButton = (props: CrosswordButtonProps) => {
 	);
 };
 
-const ClearClue = (props: ButtonProps) => {
+const ClearClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateCell } = useUpdateCell();
 	const { currentEntryId } = useCurrentClue();
@@ -71,9 +71,9 @@ const ClearClue = (props: ButtonProps) => {
 			Clear Word
 		</ClueButton>
 	);
-};
+});
 
-const CheckClue = (props: ButtonProps) => {
+const CheckClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { progress } = useProgress();
 	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
@@ -120,9 +120,9 @@ const CheckClue = (props: ButtonProps) => {
 			Check Word
 		</ClueButton>
 	);
-};
+});
 
-const RevealClue = (props: ButtonProps) => {
+const RevealClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateCell } = useUpdateCell();
 	const { currentEntryId } = useCurrentClue();
@@ -153,9 +153,9 @@ const RevealClue = (props: ButtonProps) => {
 			Reveal Word
 		</ClueButton>
 	);
-};
+});
 
-const AnagramHelper = (props: ButtonProps) => {
+const AnagramHelper = memo((props: ButtonProps) => {
 	const { toggleAnagramHelper } = useShowAnagramHelper();
 
 	return (
@@ -167,9 +167,9 @@ const AnagramHelper = (props: ButtonProps) => {
 			Anagram Helper
 		</ClueButton>
 	);
-};
+});
 
-const CheckGrid = (props: ButtonProps) => {
+const CheckGrid = memo((props: ButtonProps) => {
 	const { progress } = useProgress();
 	const { cells, entries } = useData();
 	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
@@ -207,9 +207,9 @@ const CheckGrid = (props: ButtonProps) => {
 			Check All
 		</CrosswordButton>
 	);
-};
+});
 
-const RevealGrid = (props: ButtonProps) => {
+const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
 
@@ -223,6 +223,7 @@ const RevealGrid = (props: ButtonProps) => {
 
 		updateProgress(newProgress);
 	}, [cells, updateProgress]);
+
 	return (
 		<CrosswordButton
 			onClick={reveal}
@@ -233,9 +234,9 @@ const RevealGrid = (props: ButtonProps) => {
 			Reveal All
 		</CrosswordButton>
 	);
-};
+});
 
-const ClearGrid = (props: ButtonProps) => {
+const ClearGrid = memo((props: ButtonProps) => {
 	const { clearUserInput } = useClearUserInput();
 	return (
 		<CrosswordButton
@@ -247,7 +248,7 @@ const ClearGrid = (props: ButtonProps) => {
 			Clear All
 		</CrosswordButton>
 	);
-};
+});
 
 const controlsGroupStyle = css`
 	display: flex;
@@ -258,7 +259,7 @@ const controlsGroupStyle = css`
 	padding: ${space[1]}px 0;
 `;
 
-export const Controls = () => {
+export const Controls = memo(() => {
 	const { solutionAvailable } = useData();
 	const { currentEntryId } = useCurrentClue();
 
@@ -415,18 +416,18 @@ export const Controls = () => {
 				css={controlsGroupStyle}
 			>
 				{solutionAvailable && (
-					<CheckClue
-						disabled={disableClueControls}
-						tabIndex={getTabIndex('clues', 0)}
-						role="menuItem"
-					/>
-				)}
-				{solutionAvailable && (
-					<RevealClue
-						disabled={disableClueControls}
-						tabIndex={getTabIndex('clues', 1)}
-						role="menuItem"
-					/>
+					<>
+						<CheckClue
+							disabled={disableClueControls}
+							tabIndex={getTabIndex('clues', 0)}
+							role="menuItem"
+						/>
+						<RevealClue
+							disabled={disableClueControls}
+							tabIndex={getTabIndex('clues', 1)}
+							role="menuItem"
+						/>
+					</>
 				)}
 				<ClearClue
 					disabled={disableClueControls}
@@ -446,10 +447,10 @@ export const Controls = () => {
 				css={controlsGroupStyle}
 			>
 				{solutionAvailable && (
-					<CheckGrid tabIndex={getTabIndex('grid', 0)} role="menuItem" />
-				)}
-				{solutionAvailable && (
-					<RevealGrid tabIndex={getTabIndex('grid', 1)} role="menuItem" />
+					<>
+						<CheckGrid tabIndex={getTabIndex('grid', 0)} role="menuItem" />
+						<RevealGrid tabIndex={getTabIndex('grid', 1)} role="menuItem" />
+					</>
 				)}
 				<ClearGrid
 					tabIndex={getTabIndex('grid', solutionAvailable ? 2 : 0)}
@@ -458,4 +459,4 @@ export const Controls = () => {
 			</div>
 		</div>
 	);
-};
+});
