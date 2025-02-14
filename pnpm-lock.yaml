@@ -525,7 +525,7 @@ importers:
         version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
       '@guardian/source':
         specifier: 8.0.1
-        version: link:../source
+        version: 8.0.1(@emotion/react@11.11.3)(@types/react@18.2.79)(react@18.2.0)(tslib@2.6.2)(typescript@5.5.2)
       '@storybook/addon-a11y':
         specifier: 8.5.1
         version: 8.5.1(storybook@8.5.1)(vitest@3.0.5)
@@ -723,10 +723,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 20.0.0
-        version: 20.0.0(tslib@2.6.2)(typescript@5.5.2)
+        specifier: 20.1.0
+        version: link:../libs
       '@guardian/source':
-        specifier: 8.0.1
+        specifier: 8.0.2
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 8.5.1
@@ -2206,6 +2206,32 @@ packages:
       typescript:
         optional: true
     dependencies:
+      tslib: 2.6.2
+      typescript: 5.5.2
+    dev: true
+
+  /@guardian/source@8.0.1(@emotion/react@11.11.3)(@types/react@18.2.79)(react@18.2.0)(tslib@2.6.2)(typescript@5.5.2):
+    resolution: {integrity: sha512-DRty0UUddv+E3U81uDMc83BvMPkfLIj1Gb+jDQdLi6GdU9enpubsqOZfLtzxUVYQziukOCGf4DmkLhPHxzqoKw==}
+    peerDependencies:
+      '@emotion/react': ^11.11.3
+      '@types/react': ^18.2.79
+      react: ^18.2.0
+      tslib: ^2.6.2
+      typescript: ~5.5.2
+    peerDependenciesMeta:
+      '@emotion/react':
+        optional: true
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@emotion/react': 11.11.3(@types/react@18.2.79)(react@18.2.0)
+      '@types/react': 18.2.79
+      mini-svg-data-uri: 1.4.4
+      react: 18.2.0
       tslib: 2.6.2
       typescript: 5.5.2
     dev: true
@@ -8914,7 +8940,6 @@ packages:
   /mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}

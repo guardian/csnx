@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 8.0.2
+
+### Patch Changes
+
+- 5de61bb: Fix eslint errors after version bump
+
 ## 8.0.1
 
 ### Patch Changes
