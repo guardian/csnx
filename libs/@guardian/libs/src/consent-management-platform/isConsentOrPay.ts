@@ -19,15 +19,6 @@ export const isConsentOrPayCountry = (countryCode: CountryCode) => {
 	return consentOrPayCountries.includes(countryCode);
 };
 
-export const isInConsentOrPayABTest = (): boolean => {
-	const participations: Participations = storage.local.get(
-		'gu.ab.participations',
-	) as Participations;
-	return isObject(participations)
-		? participations.ConsentOrPayBanner?.variant === 'activate'
-		: false;
-};
-
 export const getSupportSignUpPage = (): string => {
 	return isGuardianDomain()
 		? `https://support.theguardian.com/guardian-ad-lite?returnAddress=${window.location.href}`
