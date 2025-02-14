@@ -21,6 +21,8 @@ export type CMP = {
 export type InitCMP = (arg0: {
 	pubData?: PubData;
 	country?: CountryCode;
+	isUserSignedIn?: boolean;
+	useNonAdvertisedList?: boolean;
 }) => void;
 
 export type OnConsentChange = (
@@ -46,7 +48,13 @@ export interface PubData {
 	[propName: string]: unknown;
 }
 export interface SourcepointImplementation {
-	init: (framework: ConsentFramework, pubData?: PubData) => void;
+	init: (
+		framework: ConsentFramework,
+		countryCode: CountryCode,
+		isUserSignedIn: boolean,
+		useNonAdvertisedList: boolean,
+		pubData?: PubData,
+	) => void;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
 	showPrivacyManager: () => void;
 }
@@ -70,3 +78,5 @@ export interface VendorConsents {
 }
 
 export type { VendorName };
+
+export type Participations = Record<string, { variant: string }>;

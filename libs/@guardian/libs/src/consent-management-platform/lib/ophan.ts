@@ -2,6 +2,7 @@ import type {
 	OphanComponentEvent,
 	OphanRecordFunction,
 } from '../../ophan/@types';
+import { getIsConsentOrPay } from '../isConsentOrPay';
 import { SourcePointChoiceTypes } from './sourcepointConfig';
 
 export type SourcepointButtonActions =
@@ -11,7 +12,7 @@ export type SourcepointButtonActions =
 	| 'dismiss'
 	| undefined;
 
-export type SourcepointMessageType = 'ACCEPT_REJECT';
+export type SourcepointMessageType = 'ACCEPT_REJECT' | 'CONSENT_OR_PAY_BANNER';
 const getOphanRecordFunction = (): OphanRecordFunction => {
 	const record = window.guardian?.ophan?.record;
 
@@ -22,10 +23,10 @@ const getOphanRecordFunction = (): OphanRecordFunction => {
 	return () => {};
 };
 
-export const constructBannerMessageId = (
-	messageType: SourcepointMessageType,
-	messageId: string,
-): string => {
+export const constructBannerMessageId = (messageId: string): string => {
+	const messageType: SourcepointMessageType = getIsConsentOrPay()
+		? 'CONSENT_OR_PAY_BANNER'
+		: 'ACCEPT_REJECT';
 	return `${messageType}-${messageId}`;
 };
 
