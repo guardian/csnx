@@ -10,34 +10,6 @@ import { useProgress } from '../context/Progress';
 import { useValidAnswers } from '../context/ValidAnswers';
 import { Clue } from './Clue';
 
-type Props = {
-	direction: Direction;
-	/** Use this to provide a custom header component for the list of clues. If
-	 * undefined, the word 'across' or 'down' will be displayed, unstyled. */
-	Header?: ComponentType<{
-		/** If you use a custom clues header, it must accept children so that we
-		 * can provide a properly marked up `label` element, for the sake of
-		 * a11y... */
-		children: ReactNode;
-	}>;
-};
-
-const Label = memo(({ direction }: { direction: Direction }) => {
-	const { getId } = useData();
-
-	return (
-		<label
-			css={css`
-				color: currentColor;
-			`}
-			id={getId(`${direction}-label`)}
-			htmlFor={getId(`${direction}-hints`)}
-		>
-			{direction}
-		</label>
-	);
-});
-
 export const Clues = ({ direction, Header }: Props) => {
 	const { entries, getId, cells } = useData();
 	const { progress } = useProgress();
@@ -149,13 +121,13 @@ export const Clues = ({ direction, Header }: Props) => {
 		};
 	}, [handleKeyDown, handleFocus]);
 
-	const currentGroup = useMemo(() => {
-		return currentEntryId ? entries.get(currentEntryId)?.group : undefined;
-	}, [currentEntryId, entries]);
-
 	const currentGroupSet = useMemo(() => {
-		return currentGroup ? new Set(currentGroup) : null;
-	}, [currentGroup]);
+		if (currentEntryId) {
+			const group = entries.get(currentEntryId)?.group ?? undefined;
+			return group ? new Set(group) : undefined;
+		}
+		return undefined;
+	}, [currentEntryId, entries]);
 
 	return (
 		<div>
@@ -221,3 +193,31 @@ export const Clues = ({ direction, Header }: Props) => {
 		</div>
 	);
 };
+
+type Props = {
+	direction: Direction;
+	/** Use this to provide a custom header component for the list of clues. If
+	 * undefined, the word 'across' or 'down' will be displayed, unstyled. */
+	Header?: ComponentType<{
+		/** If you use a custom clues header, it must accept children so that we
+		 * can provide a properly marked up `label` element, for the sake of
+		 * a11y... */
+		children: ReactNode;
+	}>;
+};
+
+const Label = memo(({ direction }: { direction: Direction }) => {
+	const { getId } = useData();
+
+	return (
+		<label
+			css={css`
+				color: currentColor;
+			`}
+			id={getId(`${direction}-label`)}
+			htmlFor={getId(`${direction}-hints`)}
+		>
+			{direction}
+		</label>
+	);
+});
