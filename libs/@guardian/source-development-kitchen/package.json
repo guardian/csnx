@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "14.0.0",
+	"version": "14.0.1",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -28,8 +28,8 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.3",
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "20.0.0",
-		"@guardian/source": "8.0.1",
+		"@guardian/libs": "20.1.0",
+		"@guardian/source": "8.0.2",
 		"@storybook/addon-a11y": "8.5.1",
 		"@storybook/addon-essentials": "8.5.1",
 		"@storybook/addon-interactions": "8.5.1",
