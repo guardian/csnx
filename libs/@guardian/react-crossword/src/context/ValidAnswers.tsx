@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
+import { useMemo } from 'react';
 import { createContext, type ReactNode, useContext, useState } from 'react';
 import type { EntryID } from '../@types/Entry';
 
@@ -29,15 +30,18 @@ export const ValidAnswersProvider = ({
 		userValidAnswers ?? new Set(),
 	);
 
+	const contextValue = useMemo(
+		() => ({
+			validAnswers,
+			setValidAnswers,
+			invalidCellAnswers,
+			setInvalidCellAnswers,
+		}),
+		[invalidCellAnswers, validAnswers],
+	);
+
 	return (
-		<validAnswersContext.Provider
-			value={{
-				validAnswers,
-				setValidAnswers,
-				invalidCellAnswers,
-				setInvalidCellAnswers,
-			}}
-		>
+		<validAnswersContext.Provider value={contextValue}>
 			{children}
 		</validAnswersContext.Provider>
 	);

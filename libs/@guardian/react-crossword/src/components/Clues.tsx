@@ -7,6 +7,7 @@ import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
+import { useValidAnswers } from '../context/ValidAnswers';
 import { Clue } from './Clue';
 
 type Props = {
@@ -42,6 +43,7 @@ export const Clues = ({ direction, Header }: Props) => {
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
+	const { validAnswers } = useValidAnswers();
 
 	const cluesEntries = useMemo(() => {
 		const cluesEntries: CAPIEntry[] = [];
@@ -147,6 +149,14 @@ export const Clues = ({ direction, Header }: Props) => {
 		};
 	}, [handleKeyDown, handleFocus]);
 
+	const currentGroupSet = useMemo(() => {
+		if (currentEntryId) {
+			const group = entries.get(currentEntryId)?.group ?? undefined;
+			return group ? new Set(group) : undefined;
+		}
+		return undefined;
+	}, [currentEntryId, entries]);
+
 	return (
 		<div>
 			{Header ? (
@@ -187,11 +197,9 @@ export const Clues = ({ direction, Header }: Props) => {
 							cell[axis]++;
 						}
 
-						const isConnected =
-							currentEntryId &&
-							entries.get(currentEntryId)?.group.includes(entry.id);
-
+						const isConnected = !!currentGroupSet?.has(entry.id);
 						const isSelected = currentEntryId === entry.id;
+						const isValid = validAnswers.has(entry.id);
 
 						return (
 							<Clue
@@ -199,12 +207,13 @@ export const Clues = ({ direction, Header }: Props) => {
 								isConnected={isConnected}
 								isSelected={isSelected}
 								isComplete={complete}
+								isValid={isValid}
 								key={entry.id}
 								id={getId(entry.id)}
 								tabIndex={-1}
 								role="option"
 								aria-selected={isSelected}
-								onClick={() => selectClue(entry)}
+								selectClue={selectClue}
 							/>
 						);
 					})}
