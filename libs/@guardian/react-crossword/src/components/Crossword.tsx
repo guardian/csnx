@@ -36,7 +36,7 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	Grid,
 	Controls,
 	AnagramHelper,
-	StickyClue: FocusedClue,
+	FocusedClue,
 	Clues,
 	SavedMessage,
 };
