@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 8.0.1
+
+### Patch Changes
+
+- latest release - fix for accidental canary release
+
 ## 8.0.0
 
 ### Major Changes
