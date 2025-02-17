@@ -121,7 +121,7 @@ export const init = (
 		!hasConsentedToNonAdvertisedList()
 	) {
 		mergeVendorList().catch((error) => {
-			console.log('Failed to merge vendor list', error);
+			log('cmp', `'Failed to merge vendor list': ${error}`);
 		});
 	}
 
