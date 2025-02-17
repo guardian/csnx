@@ -1,5 +1,12 @@
 # @guardian/source-development-kitchen
 
+## 15.0.0
+
+### Major Changes
+
+- Updated peer dependencies [97822ce]
+  - @guardian/libs@21.0.0
+
 ## 14.0.1
 
 ### Patch Changes
