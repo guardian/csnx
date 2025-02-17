@@ -17,12 +17,14 @@ export type BaseCellProps = {
 	isConnected?: boolean;
 	/** is the cell for the selected clue? */
 	isSelected?: boolean;
+	/** is the cell checked and incorrect */
+	isIncorrect?: boolean;
 	/** is the cell the current cell? */
 	isCurrentCell?: boolean;
 	/** callback for keydown event */
-	handleKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
+	handleKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
 	/** callback for input event */
-	handleInput: (event: FormEvent<HTMLInputElement>) => void;
+	handleInput?: (event: FormEvent<HTMLInputElement>) => void;
 };
 
 export type CellProps = BaseCellProps & SVGProps<SVGGElement>;
@@ -34,6 +36,7 @@ const CellComponent = ({
 	guess = '',
 	isBlackCell,
 	isConnected,
+	isIncorrect = false,
 	isSelected,
 	isCurrentCell,
 	handleKeyDown,
@@ -43,6 +46,9 @@ const CellComponent = ({
 	const theme = useTheme();
 	const { getId } = useData();
 	const cellRef = useRef<null | SVGGElement>(null);
+	const cellDescription = data.description
+		? (isIncorrect ? 'Incorrect letter. ' : '') + data.description
+		: '';
 
 	const backgroundColor = isBlackCell
 		? 'transparent'
@@ -82,6 +88,16 @@ const CellComponent = ({
 				role="presentation"
 				css={cellStyles}
 			/>
+			{isIncorrect && (
+				<line
+					x1={x}
+					y1={y}
+					x2={x + theme.gridCellSize}
+					y2={y + theme.gridCellSize}
+					strokeWidth="2"
+					stroke={theme.gridCellStrikeThrough}
+				/>
+			)}
 			{!isBlackCell && (
 				<>
 					{data.number && (
@@ -120,7 +136,7 @@ const CellComponent = ({
 							onInput={handleInput}
 							tabIndex={isCurrentCell ? 0 : -1}
 							aria-label="Crossword cell"
-							aria-description={data.description ?? ''}
+							aria-description={cellDescription}
 							css={css`
 								width: 100%;
 								height: 100%;

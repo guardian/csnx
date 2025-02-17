@@ -100,7 +100,9 @@ export const AnagramHelper = () => {
 					icon={<SvgCross size="xsmall" />}
 					hideLabel={true}
 					data-link-name="Close"
-				></CrosswordButton>
+				>
+					Close Anagram Helper
+				</CrosswordButton>
 			</div>
 			<div
 				css={css`
@@ -128,6 +130,7 @@ export const AnagramHelper = () => {
 								}}
 								value={letters}
 								maxLength={cellsWithProgress.length}
+								autoFocus={true}
 							/>
 						</div>
 						<CrosswordButton

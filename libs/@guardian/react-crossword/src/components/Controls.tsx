@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
-import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
-import type { Cell, Progress } from '../@types/crossword';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import type { Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -40,7 +40,7 @@ const ClueButton = (props: CrosswordButtonProps) => {
 	);
 };
 
-const ClearClue = (props: ButtonProps) => {
+const ClearClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateCell } = useUpdateCell();
 	const { currentEntryId } = useCurrentClue();
@@ -61,26 +61,23 @@ const ClearClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={clear} data-link-name="Clear this" {...props}>
+		<ClueButton
+			onClick={clear}
+			aria-label={`Clear ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			data-link-name="Clear this"
+			aria-live={'off'}
+			{...props}
+		>
 			Clear Word
 		</ClueButton>
 	);
-};
+});
 
-const CheckClue = (props: ButtonProps) => {
+const CheckClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { progress } = useProgress();
-	const { updateCell } = useUpdateCell();
-	const { setValidAnswers } = useValidAnswers();
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
-
-	const checkCell = useCallback(
-		(cell: Cell) => {
-			const currentProgress = progress[cell.x]?.[cell.y];
-			return !!(currentProgress && currentProgress === cell.solution);
-		},
-		[progress],
-	);
 
 	const check = useCallback(() => {
 		if (!currentEntryId) {
@@ -88,15 +85,20 @@ const CheckClue = (props: ButtonProps) => {
 		}
 		let entryIsCorrect = true;
 		for (const cell of cells.values()) {
-			if (cell.group?.includes(currentEntryId)) {
-				if (!checkCell(cell)) {
-					updateCell({
-						x: cell.x,
-						y: cell.y,
-						value: '',
+			const currentProgress = progress[cell.x]?.[cell.y];
+			if (
+				cell.group?.includes(currentEntryId) &&
+				currentProgress &&
+				currentProgress !== cell.solution
+			) {
+				if (currentProgress !== '') {
+					setInvalidCellAnswers((prevState) => {
+						const newInvalidCellAnswers = new Set(prevState);
+						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
+						return newInvalidCellAnswers;
 					});
-					entryIsCorrect = false;
 				}
+				entryIsCorrect = false;
 			}
 		}
 		if (entryIsCorrect) {
@@ -105,16 +107,22 @@ const CheckClue = (props: ButtonProps) => {
 				return newValidAnswers.add(currentEntryId);
 			});
 		}
-	}, [cells, checkCell, currentEntryId, updateCell, setValidAnswers]);
+	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
 
 	return (
-		<ClueButton onClick={check} data-link-name="Check this" {...props}>
+		<ClueButton
+			aria-live="off"
+			onClick={check}
+			data-link-name="Check this"
+			aria-label={`Check ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			{...props}
+		>
 			Check Word
 		</ClueButton>
 	);
-};
+});
 
-const RevealClue = (props: ButtonProps) => {
+const RevealClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateCell } = useUpdateCell();
 	const { currentEntryId } = useCurrentClue();
@@ -135,13 +143,19 @@ const RevealClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={reveal} data-link-name="Reveal this" {...props}>
+		<ClueButton
+			onClick={reveal}
+			aria-live="off"
+			aria-label={`Reveal ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			data-link-name="Reveal this"
+			{...props}
+		>
 			Reveal Word
 		</ClueButton>
 	);
-};
+});
 
-const AnagramHelper = (props: ButtonProps) => {
+const AnagramHelper = memo((props: ButtonProps) => {
 	const { toggleAnagramHelper } = useShowAnagramHelper();
 
 	return (
@@ -153,35 +167,30 @@ const AnagramHelper = (props: ButtonProps) => {
 			Anagram Helper
 		</ClueButton>
 	);
-};
+});
 
-const CheckGrid = (props: ButtonProps) => {
+const CheckGrid = memo((props: ButtonProps) => {
 	const { progress } = useProgress();
 	const { cells, entries } = useData();
-	const { updateCell } = useUpdateCell();
-	const { setValidAnswers } = useValidAnswers();
-
-	const checkCell = useCallback(
-		(cell: Cell) => {
-			const currentProgress = progress[cell.x]?.[cell.y];
-			return !!(currentProgress && currentProgress === cell.solution);
-		},
-		[progress],
-	);
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 
 	const check = useCallback(() => {
 		const allEntries = entries.keys();
 		const invalidAnswers: Set<EntryID> = new Set();
 		for (const cell of cells.values()) {
+			const currentProgress = progress[cell.x]?.[cell.y];
 			if (!cell.group) {
 				continue;
 			}
-			if (!checkCell(cell)) {
-				updateCell({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
+
+			if (!isUndefined(currentProgress) && currentProgress !== cell.solution) {
+				if (currentProgress !== '') {
+					setInvalidCellAnswers((prevState) => {
+						const newInvalidCellAnswers = new Set(prevState);
+						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
+						return newInvalidCellAnswers;
+					});
+				}
 				for (const entryId of cell.group) {
 					invalidAnswers.add(entryId);
 				}
@@ -191,16 +200,16 @@ const CheckGrid = (props: ButtonProps) => {
 			[...allEntries].filter((x) => !invalidAnswers.has(x)),
 		);
 		setValidAnswers(validAnswers);
-	}, [cells, checkCell, entries, updateCell, setValidAnswers]);
+	}, [entries, setValidAnswers, cells, progress, setInvalidCellAnswers]);
 
 	return (
 		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
 			Check All
 		</CrosswordButton>
 	);
-};
+});
 
-const RevealGrid = (props: ButtonProps) => {
+const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
 
@@ -214,6 +223,7 @@ const RevealGrid = (props: ButtonProps) => {
 
 		updateProgress(newProgress);
 	}, [cells, updateProgress]);
+
 	return (
 		<CrosswordButton
 			onClick={reveal}
@@ -224,9 +234,9 @@ const RevealGrid = (props: ButtonProps) => {
 			Reveal All
 		</CrosswordButton>
 	);
-};
+});
 
-const ClearGrid = (props: ButtonProps) => {
+const ClearGrid = memo((props: ButtonProps) => {
 	const { clearUserInput } = useClearUserInput();
 	return (
 		<CrosswordButton
@@ -238,7 +248,7 @@ const ClearGrid = (props: ButtonProps) => {
 			Clear All
 		</CrosswordButton>
 	);
-};
+});
 
 const controlsGroupStyle = css`
 	display: flex;
@@ -249,7 +259,7 @@ const controlsGroupStyle = css`
 	padding: ${space[1]}px 0;
 `;
 
-export const Controls = () => {
+export const Controls = memo(() => {
 	const { solutionAvailable } = useData();
 	const { currentEntryId } = useCurrentClue();
 
@@ -291,23 +301,18 @@ export const Controls = () => {
 	// using the arrow keys.
 	const [shouldSetFocus, setShouldSetFocus] = useState(false);
 
-	// We need to know how many controls are in each group, so we can manage the
-	// focused index. To to this, we store them here to two arrays and filter out
-	// any that do not apply. The arrays are then mapped over, below, to render
-	// the controls.
+	// We need to know how many controls are currently visible in each group so we
+	// can manage the focused index.
+	const cluesControlsVisible = solutionAvailable ? 4 : 2;
+	const gridControlsVisible = solutionAvailable ? 3 : 1;
 
-	const cluesControls = [
-		solutionAvailable && <CheckClue />,
-		solutionAvailable && <RevealClue />,
-		<ClearClue />,
-		<AnagramHelper>Anagram Helper</AnagramHelper>,
-	].filter(Boolean);
-
-	const gridControls = [
-		solutionAvailable && <CheckGrid />,
-		solutionAvailable && <RevealGrid />,
-		<ClearGrid />,
-	].filter(Boolean);
+	const getTabIndex = (group: 'clues' | 'grid', index: number) => {
+		const focusedControlIndex =
+			focusedGroup === 'clues'
+				? focusedClueControlIndex
+				: focusedGridControlIndex;
+		return focusedGroup === group && focusedControlIndex === index ? 0 : -1;
+	};
 
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent) => {
@@ -325,11 +330,11 @@ export const Controls = () => {
 				case 'ArrowRight':
 					if (focusedGroup === 'clues') {
 						setFocusedClueControlIndex((prev = 0) =>
-							Math.min(prev + 1, cluesControls.length - 1),
+							Math.min(prev + 1, cluesControlsVisible - 1),
 						);
 					} else {
 						setFocusedGridControlIndex((prev = 0) =>
-							Math.min(prev + 1, gridControls.length - 1),
+							Math.min(prev + 1, gridControlsVisible - 1),
 						);
 					}
 					event.preventDefault();
@@ -354,9 +359,9 @@ export const Controls = () => {
 					break;
 				case 'End':
 					if (focusedGroup === 'clues') {
-						setFocusedClueControlIndex(cluesControls.length - 1);
+						setFocusedClueControlIndex(cluesControlsVisible - 1);
 					} else {
-						setFocusedGridControlIndex(gridControls.length - 1);
+						setFocusedGridControlIndex(gridControlsVisible - 1);
 					}
 					event.preventDefault();
 					break;
@@ -365,8 +370,8 @@ export const Controls = () => {
 			}
 		},
 		[
-			cluesControls.length,
-			gridControls.length,
+			cluesControlsVisible,
+			gridControlsVisible,
 			disableClueControls,
 			focusedGroup,
 		],
@@ -410,20 +415,30 @@ export const Controls = () => {
 				tabIndex={-1}
 				css={controlsGroupStyle}
 			>
-				{cluesControls.map((child, index) => {
-					if (child) {
-						const isTabTarget =
-							focusedGroup === 'clues' && focusedClueControlIndex === index;
-
-						return cloneElement(child, {
-							key: index,
-							disabled: disableClueControls,
-							tabIndex: isTabTarget ? 0 : -1,
-							role: 'menuitem',
-						});
-					}
-					return null;
-				})}
+				{solutionAvailable && (
+					<>
+						<CheckClue
+							disabled={disableClueControls}
+							tabIndex={getTabIndex('clues', 0)}
+							role="menuItem"
+						/>
+						<RevealClue
+							disabled={disableClueControls}
+							tabIndex={getTabIndex('clues', 1)}
+							role="menuItem"
+						/>
+					</>
+				)}
+				<ClearClue
+					disabled={disableClueControls}
+					tabIndex={getTabIndex('clues', solutionAvailable ? 2 : 0)}
+					role="menuItem"
+				/>
+				<AnagramHelper
+					disabled={disableClueControls}
+					tabIndex={getTabIndex('clues', solutionAvailable ? 3 : 1)}
+					role="menuItem"
+				/>
 			</div>
 			<div
 				aria-label="Grid controls"
@@ -431,19 +446,17 @@ export const Controls = () => {
 				tabIndex={-1}
 				css={controlsGroupStyle}
 			>
-				{gridControls.map((child, index) => {
-					if (child) {
-						const isTabTarget =
-							focusedGroup === 'grid' && focusedGridControlIndex === index;
-						return cloneElement(child, {
-							key: index,
-							tabIndex: isTabTarget ? 0 : -1,
-							role: 'menuitem',
-						});
-					}
-					return null;
-				})}
+				{solutionAvailable && (
+					<>
+						<CheckGrid tabIndex={getTabIndex('grid', 0)} role="menuItem" />
+						<RevealGrid tabIndex={getTabIndex('grid', 1)} role="menuItem" />
+					</>
+				)}
+				<ClearGrid
+					tabIndex={getTabIndex('grid', solutionAvailable ? 2 : 0)}
+					role="menuItem"
+				/>
 			</div>
 		</div>
 	);
-};
+});

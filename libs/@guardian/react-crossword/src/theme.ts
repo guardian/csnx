@@ -7,6 +7,7 @@ export const defaultTheme: Theme = {
 	gridPrintBackgroundColor: palette.neutral[46],
 	gridGutterSize: 1,
 	gridCellSize: 32,
+	gridCellStrikeThrough: palette.neutral[73],
 
 	textColor: palette.neutral[7],
 	focusColor: palette.focus[400],
@@ -25,5 +26,5 @@ export const defaultTheme: Theme = {
 	anagramHelperBackgroundColor: palette.neutral[97],
 	anagramHelperCandidateTextColor: palette.neutral[60],
 
-	stickyClueBackgroundColour: palette.neutral[100],
+	focusedClueBackgroundColour: palette.neutral[100],
 };

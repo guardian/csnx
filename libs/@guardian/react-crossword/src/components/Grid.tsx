@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isString, isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
@@ -14,12 +14,11 @@ import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
+import { useValidAnswers } from '../context/ValidAnswers';
 import { useCheatMode } from '../hooks/useCheatMode';
 import { useUpdateCell } from '../hooks/useUpdateCell';
 import { keyDownRegex } from '../utils/keydownRegex';
 import { Cell } from './Cell';
-
-const noop = () => {};
 
 const getCellPosition = (
 	index: number,
@@ -85,46 +84,45 @@ const Separator = memo(
 );
 
 /** Renders a focus indicator over the current cell */
-const FocusIndicator = ({
-	currentCell,
-}: {
-	currentCell: NonNullable<Coords>;
-}) => {
-	const theme = useTheme();
-	const size = theme.gridCellSize + theme.gridGutterSize;
-	const x = currentCell.x * size;
-	const y = currentCell.y * size;
+const FocusIndicator = memo(
+	({ currentCell }: { currentCell: NonNullable<Coords> }) => {
+		const theme = useTheme();
+		const size = theme.gridCellSize + theme.gridGutterSize;
+		const x = currentCell.x * size;
+		const y = currentCell.y * size;
 
-	return (
-		<>
-			<rect
-				x={x - 1 + theme.gridGutterSize * 0.5}
-				y={y - 1 + theme.gridGutterSize * 0.5}
-				width={size + 2}
-				height={size + 2}
-				stroke={theme.gridForegroundColor}
-				strokeWidth={2}
-				fill="none"
-				rx={4}
-				ry={4}
-			/>
-			<rect
-				x={x + theme.gridGutterSize * 0.5}
-				y={y + theme.gridGutterSize * 0.5}
-				width={size}
-				height={size}
-				stroke={theme.focusColor}
-				strokeWidth={2}
-				fill="none"
-				rx={4}
-				ry={4}
-			/>
-		</>
-	);
-};
+		return (
+			<>
+				<rect
+					x={x - 1 + theme.gridGutterSize * 0.5}
+					y={y - 1 + theme.gridGutterSize * 0.5}
+					width={size + 2}
+					height={size + 2}
+					stroke={theme.gridForegroundColor}
+					strokeWidth={2}
+					fill="none"
+					rx={4}
+					ry={4}
+				/>
+				<rect
+					x={x + theme.gridGutterSize * 0.5}
+					y={y + theme.gridGutterSize * 0.5}
+					width={size}
+					height={size}
+					stroke={theme.focusColor}
+					strokeWidth={2}
+					fill="none"
+					rx={4}
+					ry={4}
+				/>
+			</>
+		);
+	},
+);
 
 export const Grid = () => {
 	const theme = useTheme();
+	const { invalidCellAnswers } = useValidAnswers();
 	const { cells, separators, entries, dimensions, getId } = useData();
 	const { progress } = useProgress();
 	const { updateCell } = useUpdateCell();
@@ -290,6 +288,7 @@ export const Grid = () => {
 
 			if (nativeEvent instanceof InputEvent) {
 				const { inputType, data } = nativeEvent;
+				event.preventDefault();
 
 				switch (inputType) {
 					case 'deleteContentBackward':
@@ -300,11 +299,9 @@ export const Grid = () => {
 					case 'insertText':
 					case 'insertCompositionText':
 						if (data) {
-							typeLetter(data);
+							typeLetter(data.slice(-1));
 						}
 						event.preventDefault();
-						break;
-					default:
 						break;
 				}
 			}
@@ -418,6 +415,17 @@ export const Grid = () => {
 		}
 	}, [cells, currentEntryId, entries, updateCellFocus]);
 
+	const currentGroupSet = useMemo(() => {
+		if (currentEntryId) {
+			const entry = entries.get(currentEntryId);
+			const group = entry?.group;
+			if (group) {
+				return new Set(group);
+			}
+		}
+		return undefined;
+	}, [currentEntryId, entries]);
+
 	return (
 		<svg
 			css={[
@@ -483,16 +491,13 @@ export const Grid = () => {
 
 								const isBlackCell = isUndefined(cell.group);
 
-								const currentGroup =
-									currentEntryId && entries.get(currentEntryId)?.group;
-
-								const isConnected = currentGroup?.some((entryId) =>
-									cell.group?.includes(entryId),
+								const isConnected = !!cell.group?.some((entryId) =>
+									currentGroupSet?.has(entryId),
 								);
 
-								const isSelected = currentEntryId
+								const isSelected = !!(currentEntryId
 									? cell.group?.includes(currentEntryId)
-									: false;
+									: false);
 
 								return (
 									<Cell
@@ -505,17 +510,23 @@ export const Grid = () => {
 										isConnected={isConnected}
 										isBlackCell={isBlackCell}
 										isCurrentCell={isCurrentCell}
+										isIncorrect={invalidCellAnswers.has(`x${cell.x}y${cell.y}`)}
 										role="cell"
 										data-x={cell.x}
 										data-y={cell.y}
 										id={getId(`cell-group-${cell.x}-${cell.y}`)}
 										onFocus={handleCellFocus}
 										onPointerDown={
-											isCurrentCell ? () => handleCurrentCellClick(cell) : noop
+											isCurrentCell
+												? () => handleCurrentCellClick(cell)
+												: undefined
 										}
-										handleKeyDown={handleKeyDown}
-										handleInput={(event: FormEvent<HTMLInputElement>) =>
-											handleInput(event, guess)
+										handleKeyDown={isCurrentCell ? handleKeyDown : undefined}
+										handleInput={
+											isCurrentCell
+												? (event: FormEvent<HTMLInputElement>) =>
+														handleInput(event, guess)
+												: undefined
 										}
 									/>
 								);

@@ -60,6 +60,8 @@ export type Theme = {
 	gridGutterSize: number;
 	/** The length of one side of a cell on on the grid */
 	gridCellSize: number;
+	/** The colour of the strike through on an incorrect Cell*/
+	gridCellStrikeThrough: string;
 
 	/** The main text colour (grid text, clues etc) */
 	textColor: string;
@@ -90,8 +92,8 @@ export type Theme = {
 	/** The text colour of shuffled letter that are not yet on the grid */
 	anagramHelperCandidateTextColor: string;
 
-	/** The background colour for the sticky clue */
-	stickyClueBackgroundColour: string;
+	/** The background colour for the focused clue */
+	focusedClueBackgroundColour: string;
 };
 
 export type Dimensions = {

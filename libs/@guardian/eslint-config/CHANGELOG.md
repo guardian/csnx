@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 11.0.0
+
+### Major Changes
+
+- 5de61bb: Updates eslint to v9.19.0
+
 ## 10.0.0
 
 ### Patch Changes
