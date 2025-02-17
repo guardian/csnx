@@ -60,6 +60,8 @@ export type Theme = {
 	gridGutterSize: number;
 	/** The length of one side of a cell on on the grid */
 	gridCellSize: number;
+	/** The colour of the strike through on an incorrect Cell*/
+	gridCellStrikeThrough: string;
 
 	/** The main text colour (grid text, clues etc) */
 	textColor: string;

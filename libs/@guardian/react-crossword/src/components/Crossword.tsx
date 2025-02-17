@@ -66,6 +66,7 @@ export const Crossword = ({
 		<ContextProvider theme={theme} data={data} userProgress={progress}>
 			<div
 				role="application"
+				data-link-name="Crosswords"
 				css={css`
 					*,
 					*::before,

@@ -6,33 +6,39 @@ import { useProgress } from '../context/Progress';
 import { useValidAnswers } from '../context/ValidAnswers';
 
 export const useUpdateCell = () => {
-	const { setProgress } = useProgress();
-	const { setValidAnswers } = useValidAnswers();
+	const { progress, updateProgress } = useProgress();
+	const { setValidAnswers, invalidCellAnswers, setInvalidCellAnswers } =
+		useValidAnswers();
+
 	const { cells } = useData();
 
 	const updateCell = useCallback(
 		({ x, y, value }: Coords & { value: string }) => {
 			const cell = cells.getByCoords({ x, y });
 			const cellGroup = cell?.group;
-
 			// blank cells have no group
 			if (isUndefined(cellGroup)) {
 				return;
 			}
+			const newProgress = [...progress];
+			if (isUndefined(newProgress[x])) {
+				throw new Error('Invalid x coordinate');
+			}
 
-			setProgress((prevProgress) => {
-				const newProgress = [...(prevProgress ?? [])];
-				if (isUndefined(newProgress[x])) {
-					throw new Error('Invalid x coordinate');
-				}
+			if (isUndefined(newProgress[x][y])) {
+				throw new Error('Invalid y coordinate');
+			}
 
-				if (isUndefined(newProgress[x][y])) {
-					throw new Error('Invalid y coordinate');
-				}
+			newProgress[x][y] = value;
+			updateProgress(newProgress);
 
-				newProgress[x][y] = value;
-				return newProgress;
-			});
+			if (invalidCellAnswers.has(`x${x}y${y}`)) {
+				setInvalidCellAnswers((prevState) => {
+					const newInvalidCellAnswers = new Set(prevState);
+					newInvalidCellAnswers.delete(`x${x}y${y}`);
+					return newInvalidCellAnswers;
+				});
+			}
 
 			setValidAnswers((prev) => {
 				const newSet = new Set(prev);
@@ -42,7 +48,14 @@ export const useUpdateCell = () => {
 				return newSet;
 			});
 		},
-		[cells, setProgress, setValidAnswers],
+		[
+			cells,
+			invalidCellAnswers,
+			progress,
+			setInvalidCellAnswers,
+			setValidAnswers,
+			updateProgress,
+		],
 	);
 	return { updateCell };
 };

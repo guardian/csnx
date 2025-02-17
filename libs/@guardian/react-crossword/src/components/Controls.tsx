@@ -3,7 +3,7 @@ import { isUndefined } from '@guardian/libs';
 import { space } from '@guardian/source/foundations';
 import type { ButtonProps } from '@guardian/source/react-components';
 import { cloneElement, useCallback, useEffect, useRef, useState } from 'react';
-import type { Cell, Progress } from '../@types/crossword';
+import type { Progress } from '../@types/crossword';
 import type { EntryID } from '../@types/Entry';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -61,7 +61,13 @@ const ClearClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={clear} {...props}>
+		<ClueButton
+			onClick={clear}
+			aria-label={`Clear ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			data-link-name="Clear this"
+			aria-live={'off'}
+			{...props}
+		>
 			Clear Word
 		</ClueButton>
 	);
@@ -70,17 +76,8 @@ const ClearClue = (props: ButtonProps) => {
 const CheckClue = (props: ButtonProps) => {
 	const { cells } = useData();
 	const { progress } = useProgress();
-	const { updateCell } = useUpdateCell();
-	const { setValidAnswers } = useValidAnswers();
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
-
-	const checkCell = useCallback(
-		(cell: Cell) => {
-			const currentProgress = progress[cell.x]?.[cell.y];
-			return !!(currentProgress && currentProgress === cell.solution);
-		},
-		[progress],
-	);
 
 	const check = useCallback(() => {
 		if (!currentEntryId) {
@@ -88,15 +85,20 @@ const CheckClue = (props: ButtonProps) => {
 		}
 		let entryIsCorrect = true;
 		for (const cell of cells.values()) {
-			if (cell.group?.includes(currentEntryId)) {
-				if (!checkCell(cell)) {
-					updateCell({
-						x: cell.x,
-						y: cell.y,
-						value: '',
+			const currentProgress = progress[cell.x]?.[cell.y];
+			if (
+				cell.group?.includes(currentEntryId) &&
+				currentProgress &&
+				currentProgress !== cell.solution
+			) {
+				if (currentProgress !== '') {
+					setInvalidCellAnswers((prevState) => {
+						const newInvalidCellAnswers = new Set(prevState);
+						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
+						return newInvalidCellAnswers;
 					});
-					entryIsCorrect = false;
 				}
+				entryIsCorrect = false;
 			}
 		}
 		if (entryIsCorrect) {
@@ -105,10 +107,16 @@ const CheckClue = (props: ButtonProps) => {
 				return newValidAnswers.add(currentEntryId);
 			});
 		}
-	}, [cells, checkCell, currentEntryId, updateCell, setValidAnswers]);
+	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
 
 	return (
-		<ClueButton onClick={check} {...props}>
+		<ClueButton
+			aria-live="off"
+			onClick={check}
+			data-link-name="Check this"
+			aria-label={`Check ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			{...props}
+		>
 			Check Word
 		</ClueButton>
 	);
@@ -135,7 +143,13 @@ const RevealClue = (props: ButtonProps) => {
 	}, [cells, currentEntryId, updateCell]);
 
 	return (
-		<ClueButton onClick={reveal} {...props}>
+		<ClueButton
+			onClick={reveal}
+			aria-live="off"
+			aria-label={`Reveal ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			data-link-name="Reveal this"
+			{...props}
+		>
 			Reveal Word
 		</ClueButton>
 	);
@@ -145,7 +159,11 @@ const AnagramHelper = (props: ButtonProps) => {
 	const { toggleAnagramHelper } = useShowAnagramHelper();
 
 	return (
-		<ClueButton onClick={toggleAnagramHelper} {...props}>
+		<ClueButton
+			onClick={toggleAnagramHelper}
+			data-link-name="Show anagram helper"
+			{...props}
+		>
 			Anagram Helper
 		</ClueButton>
 	);
@@ -154,30 +172,25 @@ const AnagramHelper = (props: ButtonProps) => {
 const CheckGrid = (props: ButtonProps) => {
 	const { progress } = useProgress();
 	const { cells, entries } = useData();
-	const { updateCell } = useUpdateCell();
-	const { setValidAnswers } = useValidAnswers();
-
-	const checkCell = useCallback(
-		(cell: Cell) => {
-			const currentProgress = progress[cell.x]?.[cell.y];
-			return !!(currentProgress && currentProgress === cell.solution);
-		},
-		[progress],
-	);
+	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
 
 	const check = useCallback(() => {
 		const allEntries = entries.keys();
 		const invalidAnswers: Set<EntryID> = new Set();
 		for (const cell of cells.values()) {
+			const currentProgress = progress[cell.x]?.[cell.y];
 			if (!cell.group) {
 				continue;
 			}
-			if (!checkCell(cell)) {
-				updateCell({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
+
+			if (!isUndefined(currentProgress) && currentProgress !== cell.solution) {
+				if (currentProgress !== '') {
+					setInvalidCellAnswers((prevState) => {
+						const newInvalidCellAnswers = new Set(prevState);
+						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
+						return newInvalidCellAnswers;
+					});
+				}
 				for (const entryId of cell.group) {
 					invalidAnswers.add(entryId);
 				}
@@ -187,10 +200,10 @@ const CheckGrid = (props: ButtonProps) => {
 			[...allEntries].filter((x) => !invalidAnswers.has(x)),
 		);
 		setValidAnswers(validAnswers);
-	}, [cells, checkCell, entries, updateCell, setValidAnswers]);
+	}, [entries, setValidAnswers, cells, progress, setInvalidCellAnswers]);
 
 	return (
-		<CrosswordButton onClick={check} {...props}>
+		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
 			Check All
 		</CrosswordButton>
 	);
@@ -198,7 +211,7 @@ const CheckGrid = (props: ButtonProps) => {
 
 const RevealGrid = (props: ButtonProps) => {
 	const { cells } = useData();
-	const { setProgress } = useProgress();
+	const { updateProgress } = useProgress();
 
 	const reveal = useCallback(() => {
 		const newProgress: Progress = [];
@@ -208,10 +221,15 @@ const RevealGrid = (props: ButtonProps) => {
 			column[cell.y] = cell.solution ?? '';
 		}
 
-		setProgress(newProgress);
-	}, [cells, setProgress]);
+		updateProgress(newProgress);
+	}, [cells, updateProgress]);
 	return (
-		<CrosswordButton onClick={reveal} requireConfirmation={true} {...props}>
+		<CrosswordButton
+			onClick={reveal}
+			requireConfirmation={true}
+			data-link-name="Reveal all"
+			{...props}
+		>
 			Reveal All
 		</CrosswordButton>
 	);
@@ -223,6 +241,7 @@ const ClearGrid = (props: ButtonProps) => {
 		<CrosswordButton
 			onClick={clearUserInput}
 			requireConfirmation={true}
+			data-link-name="Clear all"
 			{...props}
 		>
 			Clear All
@@ -290,7 +309,7 @@ export const Controls = () => {
 		solutionAvailable && <CheckClue />,
 		solutionAvailable && <RevealClue />,
 		<ClearClue />,
-		<AnagramHelper>Anagram Helper</AnagramHelper>,
+		<AnagramHelper />,
 	].filter(Boolean);
 
 	const gridControls = [

@@ -83,6 +83,7 @@ export const AnagramHelper = () => {
 				min-height: fit-content;
 				z-index: 2;
 			`}
+			data-link-name="Anagram Helper"
 		>
 			<div
 				css={css`
@@ -98,7 +99,10 @@ export const AnagramHelper = () => {
 					priority="tertiary"
 					icon={<SvgCross size="xsmall" />}
 					hideLabel={true}
-				></CrosswordButton>
+					data-link-name="Close"
+				>
+					Close Anagram Helper
+				</CrosswordButton>
 			</div>
 			<div
 				css={css`
@@ -126,6 +130,7 @@ export const AnagramHelper = () => {
 								}}
 								value={letters}
 								maxLength={cellsWithProgress.length}
+								autoFocus={true}
 							/>
 						</div>
 						<CrosswordButton
@@ -136,6 +141,7 @@ export const AnagramHelper = () => {
 							disabled={letters.length < 1}
 							priority="primary"
 							size="default"
+							data-link-name="Shuffle"
 						>
 							Start
 						</CrosswordButton>
@@ -159,6 +165,7 @@ export const AnagramHelper = () => {
 								onClick={reset}
 								size={'default'}
 								priority="secondary"
+								data-link-name="Start Again"
 							>
 								Back
 							</CrosswordButton>
@@ -166,6 +173,7 @@ export const AnagramHelper = () => {
 								onClick={shuffle}
 								size={'default'}
 								priority="primary"
+								data-link-name="Shuffle"
 							>
 								Shuffle
 							</CrosswordButton>

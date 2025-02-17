@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 14.0.1
+
+### Patch Changes
+
+- 5de61bb: Fix eslint errors after version bump
+
 ## 14.0.0
 
 ### Major Changes

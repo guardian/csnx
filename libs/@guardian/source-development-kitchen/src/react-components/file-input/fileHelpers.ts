@@ -4,11 +4,12 @@ export const stringifyFileBase64 = (file: File): Promise<string> =>
 		reader.addEventListener(
 			'load',
 			() => {
-				// remove data:*/*;base64, from the start of the base64 string
-				const fileAsBase64 = reader.result?.toString().split(';base64,')[1];
-
-				if (fileAsBase64) {
-					resolve(fileAsBase64);
+				if (typeof reader.result === 'string') {
+					// remove data:*/*;base64, from the start of the base64 string
+					const fileAsBase64 = reader.result.split(';base64,')[1];
+					if (fileAsBase64) {
+						resolve(fileAsBase64);
+					}
 				} else {
 					reject(
 						new Error('Sorry there was a problem with the file you uploaded.'),
