@@ -87,14 +87,14 @@ export const CustomLayoutRaw: StoryFn = () => {
 		Clues,
 		Grid,
 		Controls,
-		StickyClue,
+		FocusedClue,
 		SavedMessage,
 		gridWidth,
 	}: LayoutProps) => {
 		return (
 			<>
 				<p>gridWidth: {gridWidth}</p>
-				<StickyClue />
+				<FocusedClue />
 				<Grid />
 				<Controls />
 				<SavedMessage />
@@ -132,7 +132,7 @@ export const CustomisedLayout: StoryFn = () => {
 		Grid,
 		Controls,
 		SavedMessage,
-		StickyClue,
+		FocusedClue,
 		gridWidth,
 	}: LayoutProps) => {
 		return (
@@ -141,7 +141,7 @@ export const CustomisedLayout: StoryFn = () => {
 					<Clues direction="across" Header={CluesHeader} />
 				</div>
 				<div style={{ flexBasis: gridWidth, minWidth: '15em' }}>
-					<StickyClue />
+					<FocusedClue />
 					<Grid />
 					<Controls />
 					<div

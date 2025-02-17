@@ -3,10 +3,10 @@ import { type StoryObj } from '@storybook/react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { ContextProvider } from '../context/ContextProvider';
 import { defaultTheme } from '../theme';
-import { StickyClue } from './StickyClue';
+import { FocusedClue } from './FocusedClue';
 
-const meta: Meta<typeof StickyClue> = {
-	component: StickyClue,
+const meta: Meta<typeof FocusedClue> = {
+	component: FocusedClue,
 	title: 'Components/StickyClue',
 	decorators: [
 		(Story) => (
@@ -23,7 +23,7 @@ const meta: Meta<typeof StickyClue> = {
 
 export default meta;
 
-type Story = StoryObj<typeof StickyClue>;
+type Story = StoryObj<typeof FocusedClue>;
 
 export const Across: Story = {};
 

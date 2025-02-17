@@ -10,8 +10,8 @@ import { defaultTheme } from '../theme';
 import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
+import { FocusedClue } from './FocusedClue';
 import { Grid } from './Grid';
-import { StickyClue } from './StickyClue';
 
 export type CrosswordProps = {
 	data: CAPICrossword;
@@ -36,7 +36,7 @@ const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
 	Grid,
 	Controls,
 	AnagramHelper,
-	StickyClue,
+	FocusedClue,
 	Clues,
 	SavedMessage,
 };

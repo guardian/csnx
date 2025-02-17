@@ -92,8 +92,8 @@ export type Theme = {
 	/** The text colour of shuffled letter that are not yet on the grid */
 	anagramHelperCandidateTextColor: string;
 
-	/** The background colour for the sticky clue */
-	stickyClueBackgroundColour: string;
+	/** The background colour for the focused clue */
+	focusedClueBackgroundColour: string;
 };
 
 export type Dimensions = {
