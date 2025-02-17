@@ -54,6 +54,7 @@ const Layout = ({
 				gap: ${space[4]}px;
 				max-width: ${gridWidth + clueMaxWidth * 2}px;
 				height: 100%;
+				overflow: auto;
 
 				@container (min-width: ${oneColWidth}px) {
 					flex-direction: row;
