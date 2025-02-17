@@ -11,7 +11,7 @@ type StickyClueProps = {
 	additionalCss?: SerializedStyles;
 };
 
-export const StickyClueComponent = ({ additionalCss }: StickyClueProps) => {
+export const FocusedClueComponent = ({ additionalCss }: StickyClueProps) => {
 	const { entries } = useData();
 	const { currentEntryId } = useCurrentClue();
 	const theme = useTheme();
@@ -21,13 +21,10 @@ export const StickyClueComponent = ({ additionalCss }: StickyClueProps) => {
 
 	const stickyClue = css`
 		top: 0;
-		position: sticky;
 		display: flex;
-		z-index: 1;
-		min-height: 3.5em;
-		align-items: start;
+		min-height: 2.75em;
 		${textSans12};
-		background: ${theme.stickyClueBackgroundColour};
+		background: ${theme.focusedClueBackgroundColour};
 		@media print {
 			display: none;
 		}
@@ -60,4 +57,4 @@ export const StickyClueComponent = ({ additionalCss }: StickyClueProps) => {
 	);
 };
 
-export const StickyClue = memo(StickyClueComponent);
+export const FocusedClue = memo(FocusedClueComponent);

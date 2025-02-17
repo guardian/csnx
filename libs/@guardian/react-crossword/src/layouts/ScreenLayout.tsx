@@ -4,7 +4,7 @@ import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 import type { LayoutProps } from '../@types/Layout';
-import { StickyClue } from '../components/StickyClue';
+import { FocusedClue } from '../components/FocusedClue';
 import { useTheme } from '../context/Theme';
 
 const CluesHeader = memo(({ children }: { children: ReactNode }) => {
@@ -54,7 +54,6 @@ const Layout = ({
 				gap: ${space[4]}px;
 				max-width: ${gridWidth + clueMaxWidth * 2}px;
 				height: 100%;
-				overflow: auto;
 
 				@container (min-width: ${oneColWidth}px) {
 					flex-direction: row;
@@ -75,7 +74,7 @@ const Layout = ({
 					}
 				`}
 			>
-				<StickyClue
+				<FocusedClue
 					additionalCss={css`
 						max-width: ${gridWidth}px;
 						@container (min-width: ${oneColWidth}px) {
@@ -84,6 +83,14 @@ const Layout = ({
 					`}
 				/>
 				<Grid />
+				<FocusedClue
+					additionalCss={css`
+						max-width: ${gridWidth}px;
+						@container (min-width: ${oneColWidth}px) {
+							display: none;
+						}
+					`}
+				/>
 				<div
 					css={css`
 						margin-top: ${space[1]}px;
