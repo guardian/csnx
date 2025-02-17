@@ -2,7 +2,7 @@
 
 ## 15.0.0
 
-### Patch Changes
+### Major Changes
 
 - Updated dependencies [97822ce]
   - @guardian/libs@21.0.0
