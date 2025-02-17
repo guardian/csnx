@@ -75,15 +75,25 @@ const Layout = ({
 					}
 				`}
 			>
-				<StickyClue
-					additionalCss={css`
-						max-width: ${gridWidth}px;
+				<div
+					css={css`
+						position: relative;
+						padding: calc(0.75rem * 3.5) 0;
 						@container (min-width: ${oneColWidth}px) {
-							display: none;
+							padding: 0;
 						}
 					`}
-				/>
-				<Grid />
+				>
+					<StickyClue
+						additionalCss={css`
+							max-width: ${gridWidth}px;
+							@container (min-width: ${oneColWidth}px) {
+								display: none;
+							}
+						`}
+					/>
+					<Grid />
+				</div>
 				<div
 					css={css`
 						margin-top: ${space[1]}px;
