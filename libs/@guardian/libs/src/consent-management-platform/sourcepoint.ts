@@ -87,6 +87,23 @@ const hasConsentedToNonAdvertisedList = (): boolean => {
 	return userConsent.gdpr?.consentStatus.hasConsentData ?? false;
 };
 
+const shouldMergeVendorList = (
+	countryCode: CountryCode,
+	useNonAdvertisedList: boolean,
+): boolean => {
+	return (
+		isConsentOrPayCountry(countryCode) &&
+		useNonAdvertisedList &&
+		!hasConsentedToNonAdvertisedList()
+	);
+};
+
+const initiateBannerScripts = () => {
+	setTimeout(() => {
+		window._sp_?.executeMessaging?.();
+	}, 500);
+};
+
 export const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
@@ -114,16 +131,6 @@ export const init = (
 	setIsConsentOrPay(
 		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList && isCorpABTest,
 	);
-
-	if (
-		isConsentOrPayCountry(countryCode) &&
-		useNonAdvertisedList &&
-		!hasConsentedToNonAdvertisedList()
-	) {
-		mergeVendorList().catch((error) => {
-			log('cmp', `'Failed to merge vendor list': ${error}`);
-		});
-	}
 
 	// invoke callbacks before we receive Sourcepoint
 	invokeCallbacks();
@@ -161,6 +168,7 @@ export const init = (
 			accountId: ACCOUNT_ID,
 			propertyId: getPropertyId(framework, useNonAdvertisedList),
 			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
+			isSPA: true,
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
@@ -337,4 +345,16 @@ export const init = (
 	spLib.src = `${ENDPOINT}/unified/wrapperMessagingWithoutDetection.js`;
 
 	document.body.appendChild(spLib);
+
+	if (shouldMergeVendorList(countryCode, useNonAdvertisedList)) {
+		mergeVendorList()
+			.then(() => {
+				initiateBannerScripts();
+			})
+			.catch((error) => {
+				log('cmp', `'Failed to merge vendor list': ${error}`);
+			});
+	} else {
+		initiateBannerScripts();
+	}
 };
