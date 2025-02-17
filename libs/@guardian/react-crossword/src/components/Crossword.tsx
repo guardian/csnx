@@ -10,8 +10,8 @@ import { defaultTheme } from '../theme';
 import { AnagramHelper } from './AnagramHelper';
 import { Clues } from './Clues';
 import { Controls } from './Controls';
-import { Grid } from './Grid';
 import { FocusedClue } from './FocusedClue';
+import { Grid } from './Grid';
 
 export type CrosswordProps = {
 	data: CAPICrossword;

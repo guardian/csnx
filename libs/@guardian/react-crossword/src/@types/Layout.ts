@@ -2,8 +2,8 @@ import type { ComponentType } from 'react';
 import type { AnagramHelper } from '../components/AnagramHelper';
 import type { Clues } from '../components/Clues';
 import type { Controls } from '../components/Controls';
-import type { Grid } from '../components/Grid';
 import type { FocusedClue } from '../components/FocusedClue';
+import type { Grid } from '../components/Grid';
 
 export type LayoutProps = {
 	Grid: typeof Grid;
