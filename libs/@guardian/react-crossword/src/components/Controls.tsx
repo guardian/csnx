@@ -88,7 +88,7 @@ const CheckClue = memo((props: ButtonProps) => {
 			const currentProgress = progress[cell.x]?.[cell.y];
 			if (
 				cell.group?.includes(currentEntryId) &&
-				currentProgress &&
+				!isUndefined(currentProgress) &&
 				currentProgress !== cell.solution
 			) {
 				if (currentProgress !== '') {
@@ -212,6 +212,7 @@ const CheckGrid = memo((props: ButtonProps) => {
 const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
+	const { setInvalidCellAnswers } = useValidAnswers();
 
 	const reveal = useCallback(() => {
 		const newProgress: Progress = [];
@@ -221,6 +222,7 @@ const RevealGrid = memo((props: ButtonProps) => {
 			column[cell.y] = cell.solution ?? '';
 		}
 
+		setInvalidCellAnswers(new Set());
 		updateProgress(newProgress);
 	}, [cells, updateProgress]);
 
