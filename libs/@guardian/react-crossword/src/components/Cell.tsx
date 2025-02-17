@@ -7,6 +7,8 @@ import type { Cell as CellType } from '../@types/crossword';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
 
+const noop = () => {};
+
 export type BaseCellProps = {
 	data: CellType;
 	x: number;
@@ -133,7 +135,7 @@ const CellComponent = ({
 							pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 							onKeyDown={handleKeyDown}
 							id={getId(`cell-input-${data.x}-${data.y}`)}
-							onInput={handleInput}
+							onInput={handleInput ?? noop}
 							tabIndex={isCurrentCell ? 0 : -1}
 							aria-label="Crossword cell"
 							aria-description={cellDescription}
