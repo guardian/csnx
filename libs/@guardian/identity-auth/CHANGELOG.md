@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-- Updated dependencies [97822ce]
+- Updated peer dependencies [97822ce]
   - @guardian/libs@21.0.0
 
 ## 5.0.0
