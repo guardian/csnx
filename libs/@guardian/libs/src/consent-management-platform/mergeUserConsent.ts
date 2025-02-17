@@ -5,7 +5,6 @@ import {
 	PROPERTY_ID_MAIN,
 	PROPERTY_ID_SUBDOMAIN,
 } from './lib/sourcepointConfig';
-import { postCustomConsent } from './tcfv2/api';
 import type { SPUserConsent } from './types/tcfv2';
 
 const purposeIdToNonAdvertisingPurposesMap = new Map<number, string>([
@@ -60,14 +59,13 @@ export const mergeVendorList = async (): Promise<void> => {
 	const purposesAndVendors = getConsentedPurposesandVendorsStrings(userConsent);
 
 	if (!isUndefined(purposesAndVendors)) {
-		await postCustomConsent(
+		await sendUserCustomConsentToNonAdvertisingVendorList(
 			purposesAndVendors.vendors,
 			purposesAndVendors.purposes,
 			purposesAndVendors.legitimateInterestPurposeIds,
 		);
-		await mergeUserConsent();
 
-		window.location.reload();
+		await mergeUserConsent();
 	}
 };
 
@@ -127,6 +125,36 @@ const getConsentedPurposesandVendorsStrings = (
 	} else {
 		return undefined;
 	}
+};
+
+/**
+ * This function sends the user's consent to the non-advertising vendor list
+ *
+ * @param {string[]} vendorIds
+ * @param {string[]} purposeIds
+ * @param {string[]} legitimateInterestPurposeIds
+ * @return {*}  {Promise<void>}
+ */
+const sendUserCustomConsentToNonAdvertisingVendorList = async (
+	vendorIds: string[],
+	purposeIds: string[],
+	legitimateInterestPurposeIds: string[],
+): Promise<void> => {
+	const consentUUID = getCookie({ name: 'consentUUID' });
+	const url = `${spBaseUrl}/custom/${PROPERTY_ID_SUBDOMAIN}?hasCsp=true&consentUUID=${consentUUID}`;
+
+	await fetch(url, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			vendors: vendorIds,
+			categories: purposeIds,
+			legIntCategories: legitimateInterestPurposeIds,
+		}),
+	});
 };
 
 /**
