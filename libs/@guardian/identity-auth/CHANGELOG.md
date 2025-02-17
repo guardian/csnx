@@ -1,5 +1,11 @@
 # @guardian/identity-auth
 
+## 6.0.1
+
+### Patch Changes
+
+- latest release - fix for accidental canary release
+
 ## 6.0.0
 
 ### Major Changes
