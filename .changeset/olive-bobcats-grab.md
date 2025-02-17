@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Add Prebid adaptors to TCF vendor ID list
+Add Prebid adaptors to CMP TCF vendor ID list
