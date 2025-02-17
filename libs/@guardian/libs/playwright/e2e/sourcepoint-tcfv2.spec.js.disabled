@@ -3,9 +3,15 @@ import { expect, test } from '@playwright/test';
 import { ACCOUNT_ID, ENDPOINT } from '../fixtures/sourcepointConfig';
 
 const iframeMessage = `[id^="sp_message_iframe_"]`;
-const iframePrivacyManager = '#sp_message_iframe_106842';
+// const iframePrivacyManager = '#sp_message_iframe_106842';
+const iframePrivacyManager = '#sp_message_iframe_1251121';
+
+const acceptAllButton = 'sp_choice_type_11';
+const rejectAllButton = 'sp_choice_type_13';
 
 const url = `http://localhost:4321/csnx/cmp-test-page#tcfv2`;
+const nonAdvertisingBannerUrl = `http://localhost:4321/csnx/cmp-test-page?CMP_MAIN#tcfv2`
+
 
 async function getIframeBody(page, selector) {
 	const iframeElement = await page.locator(`iframe${selector}`).elementHandle();
@@ -59,120 +65,201 @@ test.describe('Document', () => {
 	});
 });
 test.describe('Interaction', () => {
-	const buttonTitle = 'Yes, I accept';
 
-	test(`should give all consents when clicking "${buttonTitle}"`, async ({
-		page,
-	}) => {
-		await page.goto(url);
-		await page.context().addCookies([
-			{ name: 'ccpaApplies', value: 'false', url },
-			{ name: 'gdprApplies', value: 'true', url },
-		]);
-
-		const iframe = await getIframeBody(page, iframeMessage);
-		await iframe.click(`button[title="${buttonTitle}"]`);
-
-		await page.waitForTimeout(2000);
-
-		for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
-			const consent = await page.getAttribute(
-				`[data-purpose="${purpose}"]`,
-				'data-consent',
-			);
-			expect(consent).toBe('true');
-		}
-	});
-
-	test(`should deactivate purpose 1 only`, async ({ page }) => {
-		await page.goto(url);
-		await page.context().addCookies([
-			{ name: 'ccpaApplies', value: 'false', url },
-			{ name: 'gdprApplies', value: 'true', url },
-		]);
-
-		const iframe = await getIframeBody(page, iframeMessage);
-		await iframe.click(`button[title="${buttonTitle}"]`);
-
-		await page.waitForTimeout(2000);
-
-		await page.click('[data-cy=pm]');
-
-		const privacyManagerIframe = await getIframeBody(
+	test.describe('Consent or Pay banner', () => {
+		test(`should give all consents when clicking accept all`, async ({
 			page,
-			iframePrivacyManager,
-		);
-		await privacyManagerIframe.click(
-			'div[title="Store and/or access information on a device"] span.off',
-		);
-		await privacyManagerIframe.click('button[title="Save and close"]');
+		}) => {
+			await page.goto(url);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url },
+				{ name: 'gdprApplies', value: 'true', url },
+			]);
 
-		await page.waitForFunction(
-			() =>
-				document
-					.querySelector(`[data-purpose="1"]`)
-					.getAttribute('data-consent') === 'false',
-		);
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${acceptAllButton}`);
 
-		const consent = await page.getAttribute(
-			`[data-purpose="1"]`,
-			'data-consent',
-		);
-		expect(consent).toBe('false');
+			await page.waitForTimeout(2000);
 
-		for (const purpose of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
-			const consent = await page.getAttribute(
-				`[data-purpose="${purpose}"]`,
-				'data-consent',
-			);
-			expect(consent).toBe('true');
-		}
-	});
+			for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('true');
+			}
+		});
 
-	test(`should deactivate all purposes except purpose 1`, async ({ page }) => {
-		await page.goto(url);
-		await page.context().addCookies([
-			{ name: 'ccpaApplies', value: 'false', url },
-			{ name: 'gdprApplies', value: 'true', url },
-		]);
-
-		const iframe = await getIframeBody(page, iframeMessage);
-		await iframe.click(`button[title="${buttonTitle}"]`);
-
-		await page.click('[data-cy=pm]');
-
-		const privacyManagerIframe = await getIframeBody(
+		test(`should have no consents when clicking reject all`, async ({
 			page,
-			iframePrivacyManager,
-		);
-		await privacyManagerIframe.click(
-			'div[title="Store and/or access information on a device"] span.on',
-		);
-		await page
-			.frameLocator('iframe[title="SP Consent Message"]')
-			.getByRole('button', { name: 'Off' })
-			.click();
-		await privacyManagerIframe.click('button[title="Save and close"]');
+		}) => {
+			await page.goto(url);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url },
+				{ name: 'gdprApplies', value: 'true', url },
+			]);
 
-		await page.waitForFunction(
-			() =>
-				document
-					.querySelector(`[data-purpose="2"]`)
-					.getAttribute('data-consent') === 'false',
-		);
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${rejectAllButton}`);
 
-		const consent = await page.getAttribute(
-			`[data-purpose="1"]`,
-			'data-consent',
-		);
-		expect(consent).toBe('true');
+			await page.waitForTimeout(2000);
 
-		for (const purpose of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
-			const consent = await page.getAttribute(
-				`[data-purpose="${purpose}"]`,
-				'data-consent',
+			for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('false');
+			}
+		});
+
+		test(`should deactivate purpose 5, 6, 8, 11 if rejecting 'Personalised content and content measurement' in privacy manager`, async ({ page }) => {
+			await page.goto(url);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url },
+				{ name: 'gdprApplies', value: 'true', url },
+			]);
+
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${acceptAllButton}`);
+
+			await page.waitForTimeout(2000);
+
+			await page.click('[data-cy=pm]');
+
+			const privacyManagerIframe = await getIframeBody(
+				page,
+				iframePrivacyManager,
 			);
-			expect(consent).toBe('false');
-		}
+			await privacyManagerIframe.locator('div.pur-buttons-container').nth(2).locator('button').nth(1).click();
+			await privacyManagerIframe.click('button[title="Save and close"]');
+
+			await page.waitForTimeout(2000);
+
+			for (const purpose of [1, 2, 3, 4, 7,  9, 10]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('true');
+			}
+
+			for (const purpose of [5, 6, 8, 11]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('false');
+			}
+		});
+
+	})
+
+	test.describe('Non Advertising Banner', () => {
+		test(`should give all consents when clicking accept all`, async ({
+			page,
+		}) => {
+			await page.goto(nonAdvertisingBannerUrl);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url: nonAdvertisingBannerUrl },
+				{ name: 'gdprApplies', value: 'true', url: nonAdvertisingBannerUrl },
+			]);
+
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${acceptAllButton}`);
+
+			await page.waitForTimeout(2000);
+
+			for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('true');
+			}
+		});
+
+		test(`should have no consents when clicking reject all`, async ({
+			page,
+		}) => {
+			await page.goto(nonAdvertisingBannerUrl);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url: nonAdvertisingBannerUrl },
+				{ name: 'gdprApplies', value: 'true', url: nonAdvertisingBannerUrl },
+			]);
+
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${rejectAllButton}`);
+
+			await page.waitForTimeout(2000);
+
+			for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('false');
+			}
+		});
+	})
+
+	test.describe('Moving from Consent or Pay to Non Advertising Banner', () => {
+		test(`should give all consents in non advertised banner when clicking accept all in Consent or Pay`, async ({
+			page,
+		}) => {
+			await page.goto(url);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url },
+				{ name: 'gdprApplies', value: 'true', url },
+			]);
+
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${acceptAllButton}`);
+
+			await page.waitForTimeout(2000);
+
+			await page.goto(nonAdvertisingBannerUrl);
+
+			await page.waitForTimeout(2000);
+
+			for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('true');
+			}
+
+		});
+
+		test(`should give no consents in non advertised banner when clicking reject all in Consent or Pay`, async ({
+			page,
+		}) => {
+			await page.goto(url);
+			await page.context().addCookies([
+				{ name: 'ccpaApplies', value: 'false', url },
+				{ name: 'gdprApplies', value: 'true', url },
+			]);
+
+			const iframe = await getIframeBody(page, iframeMessage);
+			await iframe.click(`button.${rejectAllButton}`);
+
+			await page.waitForTimeout(2000);
+
+			await page.goto(nonAdvertisingBannerUrl);
+
+			await page.waitForTimeout(2000);
+
+			for (const purpose of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
+				const consent = await page.getAttribute(
+					`[data-purpose="${purpose}"]`,
+					'data-consent',
+				);
+				expect(consent).toBe('false');
+			}
+
+		});
 	});
+
+
 });
