@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 15.0.1
+
+### Patch Changes
+
+- latest release - fix for accidental canary release
+
 ## 15.0.0
 
 ### Major Changes

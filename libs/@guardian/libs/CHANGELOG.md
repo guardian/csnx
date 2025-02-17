@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 21.0.1
+
+### Patch Changes
+
+- latest release - fix for accidental canary release
+
 ## 21.0.0
 
 ### Major Changes

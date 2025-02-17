@@ -1,5 +1,11 @@
 # @guardian/core-web-vitals
 
+## 10.0.1
+
+### Patch Changes
+
+- latest release - fix for accidental canary release
+
 ## 10.0.0
 
 ### Major Changes
