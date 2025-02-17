@@ -224,7 +224,7 @@ const RevealGrid = memo((props: ButtonProps) => {
 
 		setInvalidCellAnswers(new Set());
 		updateProgress(newProgress);
-	}, [cells, updateProgress]);
+	}, [cells, setInvalidCellAnswers, updateProgress]);
 
 	return (
 		<CrosswordButton
