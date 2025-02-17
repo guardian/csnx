@@ -1,5 +1,12 @@
 # @guardian/core-web-vitals
 
+## 10.0.0
+
+### Major Changes
+
+- Updated peer dependencies [97822ce]
+  - @guardian/libs@21.0.0
+
 ## 9.0.0
 
 ### Major Changes
