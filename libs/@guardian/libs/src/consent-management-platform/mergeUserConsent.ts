@@ -74,7 +74,7 @@ export const mergeVendorList = async (): Promise<void> => {
 /**
  * Fetches the users consent to the main GDPR vendor list from the sourcepoint API
  *
- * @return {*}  {Promise<UserConsentStatus[]>}  user consent status
+ * @return {Promise<UserConsentStatus[]>}  user consent status
  */
 const getUserConsentForAdvertisingVendorList = async (): Promise<
 	UserConsentStatus[]
