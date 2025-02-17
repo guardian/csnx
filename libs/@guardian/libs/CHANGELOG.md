@@ -4,7 +4,7 @@
 
 ### Major Changes
 
- #### Changes to enable consent or pay in the CMP
+#### Changes to enable consent or pay in the CMP
 - 97822ce:
 
   - Add the ability by hiding it behind a query param flag, CORP_FLAG, for consent or pay by adding two new params, useNonAdvertisingList and isUsedSignedIn to cmp.init
