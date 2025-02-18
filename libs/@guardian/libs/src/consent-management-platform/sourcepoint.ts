@@ -98,12 +98,6 @@ const shouldMergeVendorList = (
 	);
 };
 
-const initiateBannerScripts = () => {
-	setTimeout(() => {
-		window._sp_?.executeMessaging?.();
-	}, 500);
-};
-
 export const init = (
 	framework: ConsentFramework,
 	countryCode: CountryCode,
@@ -342,19 +336,21 @@ export const init = (
 	// change signature of init function to return promise returned by loadScript
 	const spLib = document.createElement('script');
 	spLib.id = 'sourcepoint-lib';
+	spLib.addEventListener('load', () => {
+		if (shouldMergeVendorList(countryCode, useNonAdvertisedList)) {
+			mergeVendorList()
+				.then(() => {
+					window._sp_?.executeMessaging?.();
+				})
+				.catch((error) => {
+					log('cmp', `'Failed to merge vendor list': ${error}`);
+				});
+		} else {
+			window._sp_?.executeMessaging?.();
+		}
+	});
+
 	spLib.src = `${ENDPOINT}/unified/wrapperMessagingWithoutDetection.js`;
 
 	document.body.appendChild(spLib);
-
-	if (shouldMergeVendorList(countryCode, useNonAdvertisedList)) {
-		mergeVendorList()
-			.then(() => {
-				initiateBannerScripts();
-			})
-			.catch((error) => {
-				log('cmp', `'Failed to merge vendor list': ${error}`);
-			});
-	} else {
-		initiateBannerScripts();
-	}
 };
