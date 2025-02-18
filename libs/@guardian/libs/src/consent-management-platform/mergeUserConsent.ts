@@ -65,7 +65,7 @@ export const mergeVendorList = async (): Promise<void> => {
 			purposesAndVendors.legitimateInterestPurposeIds,
 		);
 
-		await mergeUserConsent();
+		await sendUserConsentStringToNonAdvertisingVendorList();
 	}
 };
 
@@ -143,17 +143,10 @@ const sendUserCustomConsentToNonAdvertisingVendorList = async (
 	const consentUUID = getCookie({ name: 'consentUUID' });
 	const url = `${spBaseUrl}/custom/${PROPERTY_ID_SUBDOMAIN}?hasCsp=true&consentUUID=${consentUUID}`;
 
-	await fetch(url, {
-		method: 'POST',
-		headers: {
-			Accept: 'application/json',
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			vendors: vendorIds,
-			categories: purposeIds,
-			legIntCategories: legitimateInterestPurposeIds,
-		}),
+	await makePOSTRequest(url, {
+		vendors: vendorIds,
+		categories: purposeIds,
+		legIntCategories: legitimateInterestPurposeIds,
 	});
 };
 
@@ -161,22 +154,30 @@ const sendUserCustomConsentToNonAdvertisingVendorList = async (
  * This function merges the main vendor list with the sub-domain user consent status
  * https://sourcepoint-public-api.readme.io/reference/post_consent-v3-siteid-tcstring
  */
-const mergeUserConsent = async (): Promise<void> => {
-	const consentUUID = getCookie({ name: 'consentUUID' });
-	const url = `${spBaseUrl}/${PROPERTY_ID_SUBDOMAIN}/tcstring?consentUUID=${consentUUID}`;
-	const spUserConsentString = localStorage.getItem(
-		`_sp_user_consent_${PROPERTY_ID_MAIN}`,
-	);
-	const userConsent = JSON.parse(spUserConsentString ?? '{}') as SPUserConsent;
+const sendUserConsentStringToNonAdvertisingVendorList =
+	async (): Promise<void> => {
+		const consentUUID = getCookie({ name: 'consentUUID' });
+		const url = `${spBaseUrl}/${PROPERTY_ID_SUBDOMAIN}/tcstring?consentUUID=${consentUUID}`;
 
+		const spUserConsentString = localStorage.getItem(
+			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
+		);
+		const userConsent = JSON.parse(
+			spUserConsentString ?? '{}',
+		) as SPUserConsent;
+
+		await makePOSTRequest(url, {
+			euconsent: userConsent.gdpr?.euconsent,
+		});
+	};
+
+const makePOSTRequest = async (url: string, body: object): Promise<void> => {
 	await fetch(url, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({
-			euconsent: userConsent.gdpr?.euconsent,
-		}),
+		body: JSON.stringify(body),
 	});
 };
