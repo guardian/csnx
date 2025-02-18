@@ -35,7 +35,6 @@ export const TCFV2VendorIDs = {
 	remarketing: ['5ed0eb688a76503f1016578f'],
 	sentry: ['5f0f39014effda6e8bbd2006'],
 	teads: ['5eab3d5ab8e05c2bbe33f399'],
-	twitter: ['5e71760b69966540e4554f01'],
 	'youtube-player': ['5e7ac3fae30e7d1bc1ebf5e8'],
 } satisfies VendorIDType;
 
