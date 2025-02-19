@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 21.2.0
+
+### Minor Changes
+
+- 80e4712: Add Prebid adaptors to CMP TCF vendor ID list
+
 ## 21.1.0
 
 ### Minor Changes
