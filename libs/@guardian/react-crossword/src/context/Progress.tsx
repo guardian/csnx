@@ -98,8 +98,9 @@ export const ProgressProvider = ({
 	// To ensure the UI is kept up-to-date, we maintain a separate React state (`progress`) that mirrors
 	// the localStorage state and forces the necessary re-renders.
 	const [progress, setProgress] = useState(defaultValue);
+	// Make local storage compatible with prev versions
 	const [storedProgress, setStoredProgress, rest] =
-		useLocalStorageState<Progress>(id, {
+		useLocalStorageState<Progress>(`crosswords.${id}`, {
 			defaultValue,
 			serializer,
 		});

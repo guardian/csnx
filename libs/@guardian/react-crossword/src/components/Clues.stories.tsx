@@ -14,7 +14,7 @@ const meta: Meta<typeof Clues> = {
 	},
 	decorators: [
 		(Story) => {
-			localStorage.removeItem(data.id);
+			localStorage.removeItem(`crosswords.${data.id}`);
 
 			return (
 				<ContextProvider
