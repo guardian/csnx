@@ -55,6 +55,9 @@ const getRedirectUri = (stage: Stage, origin: string) => {
 			return 'https://m.code.dev-theguardian.com/';
 		case 'DEV':
 		default:
+			if (origin === 'https://r.thegulocal.com') {
+				return 'https://r.thegulocal.com/';
+			}
 			return 'http://localhost:3030/';
 	}
 };
