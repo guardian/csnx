@@ -12,7 +12,7 @@ const meta: Meta<typeof Grid> = {
 	title: 'Components/Grid',
 	decorators: [
 		(Story, { parameters }) => {
-			localStorage.removeItem(data.id);
+			localStorage.removeItem(`crosswords.${data.id}`);
 
 			return (
 				<ContextProvider
