@@ -18,8 +18,7 @@ export type CrosswordProps = {
 	progress?: Progress;
 	children?: ReactNode;
 	Layout?: ComponentType<LayoutProps>;
-	shouldHideAds?: boolean;
-	isAdFreeUser?: boolean;
+	MobileBannerAd?: ComponentType;
 } & Partial<Theme>;
 
 const SavedMessage = () => {
@@ -34,10 +33,7 @@ const SavedMessage = () => {
 	);
 };
 
-const layoutComponents: Omit<
-	LayoutProps,
-	'gridWidth' | 'shouldHideAds' | 'isAdFreeUser'
-> = {
+const layoutComponents: Omit<LayoutProps, 'gridWidth' | 'MobileBannerAd'> = {
 	Grid,
 	Controls,
 	AnagramHelper,
@@ -51,8 +47,7 @@ export const Crossword = ({
 	data,
 	progress,
 	Layout,
-	shouldHideAds = false,
-	isAdFreeUser = false,
+	MobileBannerAd,
 	...userTheme
 }: CrosswordProps) => {
 	const LayoutComponent = Layout ?? ScreenLayout;
@@ -92,8 +87,7 @@ export const Crossword = ({
 					<LayoutComponent
 						{...layoutComponents}
 						gridWidth={gridWidth}
-						shouldHideAds={shouldHideAds}
-						isAdFreeUser={isAdFreeUser}
+						MobileBannerAd={MobileBannerAd}
 					/>
 				)}
 			</div>

@@ -13,6 +13,5 @@ export type LayoutProps = {
 	Clues: typeof Clues;
 	SavedMessage: ComponentType;
 	gridWidth: number;
-	shouldHideAds: boolean;
-	isAdFreeUser: boolean;
+	MobileBannerAd: ComponentType | undefined;
 };
