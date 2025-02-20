@@ -35,6 +35,7 @@ declare global {
 				propertyHref?: Property;
 				propertyId?: number;
 				campaignEnv?: 'prod' | 'stage';
+				isSPA: boolean;
 				targetingParams: {
 					framework: ConsentFramework;
 					excludePage: boolean;
@@ -99,6 +100,7 @@ declare global {
 			usnat?: {
 				loadPrivacyManagerModal?: (id: number) => void;
 			};
+			executeMessaging?: () => void;
 		};
 
 		// IAB interfaces - only one should be present at a time

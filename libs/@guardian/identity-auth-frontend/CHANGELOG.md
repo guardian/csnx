@@ -1,5 +1,11 @@
 # @guardian/identity-auth-frontend
 
+## 8.1.0
+
+### Minor Changes
+
+- 18d8837: Add `https://r.thegulocal.com/` and `https://m.thegulocal.com/` as a valid origin for `getRedirectUri` when the stage is `DEV` to allow DCR/frontend local development with okta/oauth tokens
+
 ## 8.0.1
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @guardian/libs
 
+## 21.2.0
+
+### Minor Changes
+
+- 80e4712: Add Prebid adaptors to CMP TCF vendor ID list
+
+## 21.1.0
+
+### Minor Changes
+
+- 745eab9: #### Stop banner flashing due to reload by using sp.executeMessage
+
+  Using http request instead of postCustomConsent from \_\_tcfapi
+  Update SP Config to include isSPA parameter
+  Using window.sp.executeMessaging to trigger the banner after the merging from advertising to non-advertising vendor list.
+  Removed window.location.reload after merging consent
+
 ## 21.0.1
 
 ### Patch Changes

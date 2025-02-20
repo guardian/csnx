@@ -100,7 +100,7 @@ export const ProgressProvider = ({
 	const [progress, setProgress] = useState(defaultValue);
 	// Make local storage compatible with prev versions
 	const [storedProgress, setStoredProgress, rest] =
-		useLocalStorageState<Progress>(`crosswords.` + id, {
+		useLocalStorageState<Progress>(`crosswords.${id}`, {
 			defaultValue,
 			serializer,
 		});
