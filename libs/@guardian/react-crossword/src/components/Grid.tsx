@@ -463,6 +463,7 @@ export const Grid = () => {
 			viewBox={`0 0 ${maxWidth} ${maxHeight}`}
 			tabIndex={-1}
 			role={'grid'}
+			aria-label={'Crossword Grid'}
 			onKeyDown={navigateGrid}
 			onFocus={handleGridFocus}
 			onBlur={handleGridBlur}

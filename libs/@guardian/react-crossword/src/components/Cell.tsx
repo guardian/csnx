@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import type { FormEvent, KeyboardEvent, SVGProps } from 'react';
 import { useEffect, useRef } from 'react';
@@ -48,9 +49,10 @@ const CellComponent = ({
 	const theme = useTheme();
 	const { getId } = useData();
 	const cellRef = useRef<null | SVGGElement>(null);
-	const cellDescription = data.description
-		? (isIncorrect ? 'Incorrect letter. ' : '') + data.description
-		: '';
+	const cellDescription =
+		isUndefined(data.description) && !isIncorrect
+			? undefined
+			: `${isIncorrect ? 'Incorrect Letter. ' : ''} ${data.description ?? ''}`;
 
 	const backgroundColor = isBlackCell
 		? 'transparent'
@@ -137,7 +139,6 @@ const CellComponent = ({
 							id={getId(`cell-input-${data.x}-${data.y}`)}
 							onInput={handleInput ?? noop}
 							tabIndex={isCurrentCell ? 0 : -1}
-							aria-label="Crossword cell"
 							aria-description={cellDescription}
 							css={css`
 								width: 100%;
