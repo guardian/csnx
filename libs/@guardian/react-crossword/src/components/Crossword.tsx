@@ -18,6 +18,8 @@ export type CrosswordProps = {
 	progress?: Progress;
 	children?: ReactNode;
 	Layout?: ComponentType<LayoutProps>;
+	shouldHideAds?: boolean;
+	isAdFreeUser?: boolean;
 } & Partial<Theme>;
 
 const SavedMessage = () => {
@@ -32,7 +34,10 @@ const SavedMessage = () => {
 	);
 };
 
-const layoutComponents: Omit<LayoutProps, 'gridWidth'> = {
+const layoutComponents: Omit<
+	LayoutProps,
+	'gridWidth' | 'shouldHideAds' | 'isAdFreeUser'
+> = {
 	Grid,
 	Controls,
 	AnagramHelper,
@@ -46,6 +51,8 @@ export const Crossword = ({
 	data,
 	progress,
 	Layout,
+	shouldHideAds = false,
+	isAdFreeUser = false,
 	...userTheme
 }: CrosswordProps) => {
 	const LayoutComponent = Layout ?? ScreenLayout;
@@ -82,7 +89,12 @@ export const Crossword = ({
 				`}
 			>
 				{children ?? (
-					<LayoutComponent {...layoutComponents} gridWidth={gridWidth} />
+					<LayoutComponent
+						{...layoutComponents}
+						gridWidth={gridWidth}
+						shouldHideAds={shouldHideAds}
+						isAdFreeUser={isAdFreeUser}
+					/>
 				)}
 			</div>
 		</ContextProvider>
