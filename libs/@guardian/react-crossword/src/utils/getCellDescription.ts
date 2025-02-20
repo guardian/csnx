@@ -5,50 +5,40 @@ import { formatClueForScreenReader } from './formatClueForScreenReader';
 
 /**
  * Get the description of a cell in the format
- * "Letter 2 of 4-across: Life is in a mess (5 letters).
- * Also, letter 1 of 5-down Life is always in a mess (2 letters)."
+ * in the format " 4-across: Life is in a mess (5 letters)."
  */
 export const getCellDescription = (cell: Cell, entries: Entries) => {
 	const cellEntryIds = cell.group ?? [];
-	const cellRelevantEntryId =
-		cell.group?.length === 1
-			? cell.group[0]
-			: cellEntryIds.find((id) => id.endsWith('across'));
-	if (isUndefined(cellRelevantEntryId)) {
-		return 'Blank cell.';
+	const cellNumber = cell.number;
+	if (isUndefined(cellNumber)) {
+		return undefined;
 	}
-	const additionalEntries = cellEntryIds
-		.filter((id) => !id.endsWith('across') && id !== cellRelevantEntryId)
-		.map((id) => entries.get(id))
-		.filter((entry) => !isUndefined(entry));
-	const relevantEntry = entries.get(cellRelevantEntryId);
-
-	return (
-		`` +
-		// ('Letter 2 of 4-across: Life is in a mess (5 letters).) | ('Blank cell.')
-		`${relevantEntry ? `${getReadableLabelForCellAndEntry({ entry: relevantEntry, cell: cell })}. ` : 'Blank. '}` +
-		// (Also, letter 1 of 5-down Life is always in a mess (2 letters).)
-		`${additionalEntries.map((entry) => getReadableLabelForCellAndEntry({ entry, cell: cell, additionalEntry: true })).join('. ')}`
+	const cellRelevantEntryIds = cellEntryIds.filter((id) =>
+		id.startsWith(cellNumber.toString()),
 	);
+	if (cellRelevantEntryIds.length === 0) {
+		return undefined;
+	}
+	return cellRelevantEntryIds
+		.map((entryId) => {
+			const entry = entries.get(entryId);
+			if (entry) {
+				return getReadableLabelForCellAndEntry({ entry, cell });
+			}
+			return undefined;
+		})
+		.join(' Also, ');
 };
 
 /**
  * get the readable label for a cell and entry combination
- * in the format "Letter 2 of 4-across: Life is in a mess (5 letters)."
- * or "Also, letter 1 of 5-down Life is always in a mess (2 letters)."
+ * in the format " 4-across: Life is in a mess (5 letters)."
  */
 const getReadableLabelForCellAndEntry = ({
 	entry,
-	cell,
-	additionalEntry = false,
 }: {
 	entry: CAPIEntry;
 	cell: Cell;
-	additionalEntry?: boolean;
 }): string => {
-	const cellPosition =
-		entry.direction === 'across'
-			? String(cell.x + 1 - entry.position.x)
-			: String(cell.y + 1 - entry.position.y);
-	return `${additionalEntry ? 'Also, letter' : 'Letter'} ${cellPosition} of ${entry.length}. ${entry.id}. ${formatClueForScreenReader(entry.clue)}`;
+	return `${entry.id}: ${formatClueForScreenReader(entry.clue)}`;
 };
