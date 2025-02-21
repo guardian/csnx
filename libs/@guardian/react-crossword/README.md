@@ -2,7 +2,7 @@
 
 A standalone React component for rendering crosswords.
 
-TODO: Add screenshot
+<img src="assets/example-grid.png" />
 
 ## Features
 
