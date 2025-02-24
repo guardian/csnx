@@ -1,5 +1,16 @@
 # @guardian/libs
 
+## 21.3.0
+
+### Minor Changes
+
+- 4b43203: Remove Consent or Pay feature flag.
+
+### Patch Changes
+
+- 6a48c7c: - Use encodeUriComponent to encode url for Support sign up page
+  - Update privacy message for Consent or Pay
+
 ## 21.2.0
 
 ### Minor Changes
