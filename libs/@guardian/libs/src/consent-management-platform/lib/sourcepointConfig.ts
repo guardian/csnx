@@ -11,7 +11,7 @@ export const PROPERTY_HREF_SUBDOMAIN = 'http://subdomain.theguardian.com';
 export const PROPERTY_HREF_MAIN = 'https://test.theguardian.com';
 
 export const PRIVACY_MANAGER_TCFV2 = 106842;
-export const PRIVACY_MANAGER_TCFV2_CONSENT_OR_PAY = 1251121;
+export const PRIVACY_MANAGER_TCFV2_CONSENT_OR_PAY = 1263449;
 export const PRIVACY_MANAGER_AUSTRALIA = 1178486;
 
 export const ENDPOINT = isGuardianDomain()
