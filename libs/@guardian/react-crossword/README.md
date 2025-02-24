@@ -25,13 +25,13 @@ A standalone React component for rendering crosswords.
 
 ### Props
 
-| Prop       | Details                                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------------------------------------- |
-| `data`     | (_Required_) Data to render the crossword, including clues, answers and metadata (See **Crossword data format**) |
-| `progress` | (_Optional_) Current state of the grid (See **Progress format**)                                                 |
-| `Layout`   | (_Optional_) Allows the default layout to be customised (See **Custom layout**)                                  |
+| Prop       | Details                                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `data`     | (_Required_) Data to render the crossword, including clues, answers and metadata (See [**Crossword data format**](#crossword-data-format)) |
+| `progress` | (_Optional_) Current state of the grid (See [**Progress format**](#progress-format))                                                       |
+| `Layout`   | (_Optional_) Allows default layout to be customised (See [**Layout**](#layout))                                                            |
 
-Any of the keys from the default theme can also be passed as a prop to customise the appearance of the crossword. These are detailed in the **Theming** section.
+Any of the keys from the default theme can also be passed as a prop to customise the appearance of the crossword. These are detailed in the [**Theming**](#theming) section.
 
 ### Crossword data format
 
@@ -182,7 +182,9 @@ The following keys from the crossword theme can be passed to the `Crossword` com
 
 ### Layout
 
-A custom layout component can passed to the `Crossword` component via the `Layout` prop. The individual components of the crossword will be passed to the layout as props so that additional elements of styling can be applied as needed. This is used in DCR to customise the styling and layout and to allow the insertion of an ad slot between the crossword grid and controls. This is a simplified example of a layout:
+A custom layout component can passed to the `Crossword` component via the `Layout` prop. The individual components that the crossword is composed of are passed to the layout as props so that additional elements or styles can be applied as required. (This is used in DCR to customise the layout and allow the insertion of ad slots.)
+
+This is a simplified example of a layout:
 
 ```tsx
 const Layout: CrosswordProps['Layout'] = ({
