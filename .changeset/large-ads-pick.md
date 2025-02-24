@@ -2,4 +2,5 @@
 '@guardian/libs': patch
 ---
 
-Add encodeUriComponent to url in Support sign up page
+- Use encodeUriComponent to encode url for Support sign up page
+- Update privacy message for Consent or Pay
