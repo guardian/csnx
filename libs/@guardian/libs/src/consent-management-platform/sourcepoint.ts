@@ -51,11 +51,11 @@ const getPropertyHref = (
 		return 'https://au.theguardian.com';
 	}
 
-	return isGuardianDomain()
-		? null
-		: useNonAdvertisedList
-			? PROPERTY_HREF_SUBDOMAIN
-			: PROPERTY_HREF_MAIN;
+	if (framework == 'usnat') {
+		return 'https://www.theguardian.com';
+	}
+
+	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
 };
 
 const getPropertyId = (
