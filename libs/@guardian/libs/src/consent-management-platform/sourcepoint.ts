@@ -7,7 +7,6 @@ import {
 	isConsentOrPayCountry,
 	setIsConsentOrPay,
 } from './isConsentOrPay';
-import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
