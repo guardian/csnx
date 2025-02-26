@@ -7,7 +7,7 @@ export const PROPERTY_ID_MAIN = 7417;
 export const PROPERTY_ID_SUBDOMAIN = 38161;
 export const PROPERTY_ID_AUSTRALIA = 13348;
 
-export const PROPERTY_HREF_SUBDOMAIN = 'http://subdomain.theguardian.com';
+export const PROPERTY_HREF_SUBDOMAIN = 'https://subdomain.theguardian.com';
 export const PROPERTY_HREF_MAIN = 'https://test.theguardian.com';
 
 export const PRIVACY_MANAGER_TCFV2 = 106842;
