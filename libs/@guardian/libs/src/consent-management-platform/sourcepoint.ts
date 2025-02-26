@@ -7,7 +7,6 @@ import {
 	isConsentOrPayCountry,
 	setIsConsentOrPay,
 } from './isConsentOrPay';
-import { isGuardianDomain } from './lib/domain';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
@@ -51,11 +50,11 @@ const getPropertyHref = (
 		return 'https://au.theguardian.com';
 	}
 
-	return isGuardianDomain()
-		? null
-		: useNonAdvertisedList
-			? PROPERTY_HREF_SUBDOMAIN
-			: PROPERTY_HREF_MAIN;
+	if (framework == 'usnat') {
+		return 'https://www.theguardian.com';
+	}
+
+	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
 };
 
 const getPropertyId = (
