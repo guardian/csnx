@@ -18,6 +18,6 @@ export const isConsentOrPayCountry = (countryCode: CountryCode) => {
 
 export const getSupportSignUpPage = (): string => {
 	return isGuardianDomain()
-		? `https://support.theguardian.com/guardian-ad-lite?returnAddress=${window.location.href}`
-		: `https://support.code.dev-theguardian.com/guardian-ad-lite?returnAddress=${window.location.href}`;
+		? `https://support.theguardian.com/guardian-ad-lite?returnAddress=${encodeURIComponent(window.location.href)}`
+		: `https://support.code.dev-theguardian.com/guardian-ad-lite?returnAddress=${encodeURIComponent(window.location.href)}`;
 };
