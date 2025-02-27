@@ -131,17 +131,14 @@ const Layout = ({
 					}
 
 					@container (min-width: ${oneColWidth}px) {
-						overflow: auto;
-					}
+						max-height: ${gridWidth}px;
+						overflow-y: scroll;
 
 					@container (min-width: ${twoColWidth}px) {
 						flex-direction: row;
 						overflow: auto;
 						min-height: 100%;
-
-						> * {
-							overflow: auto;
-						}
+						max-height: none;
 					}
 
 					@media print {
