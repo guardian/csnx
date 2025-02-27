@@ -20,6 +20,7 @@ type Props = {
 		 * a11y... */
 		children: ReactNode;
 	}>;
+	containerRef?: React.RefObject<HTMLDivElement>;
 };
 
 const Label = memo(({ direction }: { direction: Direction }) => {
@@ -38,7 +39,7 @@ const Label = memo(({ direction }: { direction: Direction }) => {
 	);
 });
 
-export const Clues = ({ direction, Header }: Props) => {
+export const Clues = ({ direction, Header, containerRef }: Props) => {
 	const { entries, getId, cells } = useData();
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
@@ -208,6 +209,7 @@ export const Clues = ({ direction, Header }: Props) => {
 								isSelected={isSelected}
 								isComplete={complete}
 								isValid={isValid}
+								containerRef={containerRef}
 								key={entry.id}
 								id={getId(entry.id)}
 								tabIndex={-1}

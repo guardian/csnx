@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { headlineBold17, space } from '@guardian/source/foundations';
 import { textSans12, textSans14 } from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 import type { LayoutProps } from '../@types/Layout';
 import { FocusedClue } from '../components/FocusedClue';
 import { useTheme } from '../context/Theme';
@@ -40,6 +40,7 @@ const Layout = ({
 }: LayoutProps) => {
 	const { textColor, clueMinWidth, clueMaxWidth } = useTheme();
 	const theme = useTheme();
+	const clueContainerRef = useRef<HTMLDivElement>(null);
 
 	const gridWidth = Math.max(actualGridWidth, 300);
 	const oneColWidth = gridWidth + clueMinWidth;
@@ -117,6 +118,7 @@ const Layout = ({
 			</div>
 
 			<div
+				ref={clueContainerRef}
 				css={css`
 					flex: 1;
 					display: flex;
@@ -147,8 +149,16 @@ const Layout = ({
 					}
 				`}
 			>
-				<Clues direction="across" Header={CluesHeader} />
-				<Clues direction="down" Header={CluesHeader} />
+				<Clues
+					direction="across"
+					Header={CluesHeader}
+					containerRef={clueContainerRef}
+				/>
+				<Clues
+					direction="down"
+					Header={CluesHeader}
+					containerRef={clueContainerRef}
+				/>
 			</div>
 		</div>
 	);

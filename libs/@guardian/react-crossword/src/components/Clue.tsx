@@ -52,6 +52,7 @@ type Props = {
 	isSelected?: boolean;
 	isComplete?: boolean;
 	isValid?: boolean;
+	containerRef?: React.RefObject<HTMLDivElement>;
 	selectClue: (entry: CAPIEntry) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -61,6 +62,7 @@ const ClueComponent = ({
 	isSelected,
 	isComplete,
 	isValid,
+	containerRef,
 	selectClue,
 	...props
 }: Props) => {
@@ -68,11 +70,17 @@ const ClueComponent = ({
 	const clueRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const currentRef = clueRef.current;
-		if (currentRef && isSelected) {
-			currentRef.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		const clue = clueRef.current;
+		const clueContainer = containerRef?.current;
+
+		if (!clue || !clueContainer) {
+			return;
 		}
-	}, [isSelected]);
+
+		if (isSelected && clueContainer.scrollHeight > clueContainer.clientHeight) {
+			clue.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		}
+	}, [isSelected, containerRef]);
 
 	return (
 		<div
