@@ -3,7 +3,7 @@ import { isString } from '@guardian/libs';
 import { visuallyHidden } from '@guardian/source/foundations';
 import { SvgTickRound } from '@guardian/source/react-components';
 import type { HTMLAttributes } from 'react';
-import { memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
 
@@ -65,6 +65,14 @@ const ClueComponent = ({
 	...props
 }: Props) => {
 	const theme = useTheme();
+	const clueRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const currentRef = clueRef.current;
+		if (currentRef && isSelected) {
+			currentRef.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		}
+	}, [isSelected]);
 
 	return (
 		<div
@@ -88,6 +96,7 @@ const ClueComponent = ({
 				}
 			`}
 			onClick={() => selectClue(entry)}
+			ref={clueRef}
 			{...props}
 		>
 			<span
