@@ -76,8 +76,9 @@ const ClearClue = memo((props: ButtonProps) => {
 const CheckClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { progress } = useProgress();
-	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
+	const { setValidAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
+	const { updateCell } = useUpdateCell();
 
 	const check = useCallback(() => {
 		if (!currentEntryId) {
@@ -92,10 +93,10 @@ const CheckClue = memo((props: ButtonProps) => {
 				currentProgress !== cell.solution
 			) {
 				if (currentProgress !== '') {
-					setInvalidCellAnswers((prevState) => {
-						const newInvalidCellAnswers = new Set(prevState);
-						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
-						return newInvalidCellAnswers;
+					updateCell({
+						x: cell.x,
+						y: cell.y,
+						value: '',
 					});
 				}
 				entryIsCorrect = false;
@@ -107,7 +108,7 @@ const CheckClue = memo((props: ButtonProps) => {
 				return newValidAnswers.add(currentEntryId);
 			});
 		}
-	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
+	}, [currentEntryId, cells, progress, updateCell, setValidAnswers]);
 
 	return (
 		<ClueButton
@@ -172,7 +173,8 @@ const AnagramHelper = memo((props: ButtonProps) => {
 const CheckGrid = memo((props: ButtonProps) => {
 	const { progress } = useProgress();
 	const { cells, entries } = useData();
-	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
+	const { setValidAnswers } = useValidAnswers();
+	const { updateCell } = useUpdateCell();
 
 	const check = useCallback(() => {
 		const allEntries = entries.keys();
@@ -185,10 +187,10 @@ const CheckGrid = memo((props: ButtonProps) => {
 
 			if (!isUndefined(currentProgress) && currentProgress !== cell.solution) {
 				if (currentProgress !== '') {
-					setInvalidCellAnswers((prevState) => {
-						const newInvalidCellAnswers = new Set(prevState);
-						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
-						return newInvalidCellAnswers;
+					updateCell({
+						x: cell.x,
+						y: cell.y,
+						value: '',
 					});
 				}
 				for (const entryId of cell.group) {
@@ -200,7 +202,7 @@ const CheckGrid = memo((props: ButtonProps) => {
 			[...allEntries].filter((x) => !invalidAnswers.has(x)),
 		);
 		setValidAnswers(validAnswers);
-	}, [entries, setValidAnswers, cells, progress, setInvalidCellAnswers]);
+	}, [entries, setValidAnswers, cells, progress, updateCell]);
 
 	return (
 		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
