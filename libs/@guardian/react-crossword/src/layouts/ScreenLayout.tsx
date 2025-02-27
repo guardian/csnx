@@ -133,6 +133,7 @@ const Layout = ({
 					@container (min-width: ${oneColWidth}px) {
 						max-height: ${gridWidth}px;
 						overflow-y: scroll;
+					}
 
 					@container (min-width: ${twoColWidth}px) {
 						flex-direction: row;
