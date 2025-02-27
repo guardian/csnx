@@ -1,5 +1,12 @@
 # @guardian/libs
 
+## 21.4.0
+
+### Minor Changes
+
+- 6d76848: Send propertyHref to Sourcepoint for all domains.
+  Reinstate CORP_FLAG for testing
+
 ## 21.3.0
 
 ### Minor Changes
