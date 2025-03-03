@@ -22,3 +22,4 @@
 /libs/@guardian/identity-auth-frontend/ 						@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity
 
 /libs/@guardian/identity-auth/ 									@guardian/client-side-infra @guardian/identity
+/libs/@guardian/react-crossword/ 									@guardian/client-side-infra @guardian/dotcom-platform
