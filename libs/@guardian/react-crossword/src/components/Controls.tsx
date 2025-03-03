@@ -44,21 +44,41 @@ const ClearClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateCell } = useUpdateCell();
 	const { currentEntryId } = useCurrentClue();
+	const { progress } = useProgress();
 
 	const clear = useCallback(() => {
 		if (!currentEntryId) {
 			return;
 		}
+
+		const isClueCompletelyFilled = (clueId: EntryID) => {
+			for (const cell of cells.values()) {
+				if (cell.group?.includes(clueId)) {
+					const cellProgress = progress[cell.x]?.[cell.y];
+					if (cellProgress === undefined || cellProgress === '') {
+						return false;
+					}
+				}
+			}
+			return true;
+		};
+
 		for (const cell of cells.values()) {
 			if (cell.group?.includes(currentEntryId)) {
-				updateCell({
-					x: cell.x,
-					y: cell.y,
-					value: '',
-				});
+				const otherClues = cell.group.filter((id) => id !== currentEntryId);
+				const hasCompletedIntersectingClue = otherClues.some(
+					isClueCompletelyFilled,
+				);
+				if (!hasCompletedIntersectingClue) {
+					updateCell({
+						x: cell.x,
+						y: cell.y,
+						value: '',
+					});
+				}
 			}
 		}
-	}, [cells, currentEntryId, updateCell]);
+	}, [cells, currentEntryId, updateCell, progress]);
 
 	return (
 		<ClueButton
