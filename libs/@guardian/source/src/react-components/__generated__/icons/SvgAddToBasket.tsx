@@ -14,15 +14,19 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
+			d="m11.425 18.031-.088-2.15-2.15-.1V14.77l2.15-.088.088-2.15h1.012l.1 2.15 2.15.088v1.012l-2.15.1-.1 2.15z"
+			fill={theme?.fill}
+		/>
+		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M21.2 12a9.2 9.2 0 1 1-18.4 0 9.2 9.2 0 0 1 18.4 0m.8 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-4.862-4.358-.782-.78-4.349 3.982-4.364-3.967-.782.78L10.85 12l-3.988 4.342.782.781 4.364-3.967 4.35 3.982.781-.78L13.165 12z"
+			d="m11.31 3.578-.534.175-3.79 6.56H4.5l-.812.812V12l.042.259 2.5 7.437.77.554h10l.77-.554 2.5-7.437.043-.259v-.875l-.813-.812h-2.495l-3.78-6.56-.533-.175-.691.399zM12 4.88l3.13 5.432H8.861zM7.585 18.625l-2.248-6.687h13.328l-2.248 6.687z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgCrossRoundOutlined = ({
+export const SvgAddToBasket = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +39,7 @@ export const SvgCrossRoundOutlined = ({
 					${visuallyHidden}
 				`}
 			>
-				Close
+				Add to basket
 			</span>
 		) : (
 			''

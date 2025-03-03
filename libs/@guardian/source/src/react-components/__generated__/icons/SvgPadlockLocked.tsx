@@ -16,13 +16,13 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M21.2 12a9.2 9.2 0 1 1-18.4 0 9.2 9.2 0 0 1 18.4 0m.8 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-4.862-4.358-.782-.78-4.349 3.982-4.364-3.967-.782.78L10.85 12l-3.988 4.342.782.781 4.364-3.967 4.35 3.982.781-.78L13.165 12z"
+			d="M8.063 10.438V7.59c0-2.164 1.77-3.903 3.937-3.903s3.938 1.739 3.938 3.903v2.847H17l.813.812v8.25l-.813.813H7l-.812-.813v-8.25L7 10.438zM9.687 7.59c0-1.25 1.027-2.278 2.313-2.278s2.313 1.028 2.313 2.278v2.847H9.686zM7.813 18.687v-6.625h8.375v6.626z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgCrossRoundOutlined = ({
+export const SvgPadlockLocked = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +35,7 @@ export const SvgCrossRoundOutlined = ({
 					${visuallyHidden}
 				`}
 			>
-				Close
+				Padlock locked
 			</span>
 		) : (
 			''
