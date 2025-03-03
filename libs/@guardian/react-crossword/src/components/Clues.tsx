@@ -12,6 +12,7 @@ import { Clue } from './Clue';
 
 type Props = {
 	direction: Direction;
+	scrollToSelected?: boolean;
 	/** Use this to provide a custom header component for the list of clues. If
 	 * undefined, the word 'across' or 'down' will be displayed, unstyled. */
 	Header?: ComponentType<{
@@ -20,7 +21,6 @@ type Props = {
 		 * a11y... */
 		children: ReactNode;
 	}>;
-	containerRef?: React.RefObject<HTMLDivElement>;
 };
 
 const Label = memo(({ direction }: { direction: Direction }) => {
@@ -39,7 +39,7 @@ const Label = memo(({ direction }: { direction: Direction }) => {
 	);
 });
 
-export const Clues = ({ direction, Header, containerRef }: Props) => {
+export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 	const { entries, getId, cells } = useData();
 	const { progress } = useProgress();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
@@ -209,7 +209,7 @@ export const Clues = ({ direction, Header, containerRef }: Props) => {
 								isSelected={isSelected}
 								isComplete={complete}
 								isValid={isValid}
-								containerRef={containerRef}
+								scrollToSelected={scrollToSelected}
 								key={entry.id}
 								id={getId(entry.id)}
 								tabIndex={-1}
