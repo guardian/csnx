@@ -16,13 +16,13 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-8.909-.318-.659-7.864h-.886l-.682 8.523 1.159 1.159 6.34-.59V12z"
+			d="M6.48 2h11.01l.71.71v4.97h2.37l1.44 1.6-.01.01v3.14l-.02 7.48v.66l-.46.47-.48.49-.47.47h-.66l-15.79.02h-.66l-.47-.46-.52-.51-.47-.47V9.28l.007.003L3.42 7.68h2.36V2.71zm-.7 7.28H4.14l-.54.609v1.391l2.18 1.385zm1.3 4.211 4.61 2.929h.54l4.67-2.95V3.3H7.08zm11.12-.841 2.2-1.39V9.876l-.54-.596H18.2zm-2.77-7.61H8.56v1h6.87zm4.98 7.4v7.48l-.5.49-15.79.02-.52-.51v-7.47l7.57 5.59h1.59l7.64-5.6zM8.56 10.32h6.87v1H8.56zm6.87-2.64H8.56v1h6.87z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgClock = ({
+export const SvgNewsletterOutlined = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +35,7 @@ export const SvgClock = ({
 					${visuallyHidden}
 				`}
 			>
-				Clock
+				Newsletter
 			</span>
 		) : (
 			''

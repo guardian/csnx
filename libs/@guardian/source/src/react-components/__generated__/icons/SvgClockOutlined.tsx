@@ -16,13 +16,13 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M21.2 12a9.2 9.2 0 1 1-18.4 0 9.2 9.2 0 0 1 18.4 0m.8 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-4.862-4.358-.782-.78-4.349 3.982-4.364-3.967-.782.78L10.85 12l-3.988 4.342.782.781 4.364-3.967 4.35 3.982.781-.78L13.165 12z"
+			d="M2 12c0 5.51 4.49 10 10 10s10-4.49 10-10S17.51 2 12 2 2 6.49 2 12m1.6 0c0-4.63 3.77-8.4 8.4-8.4s8.4 3.77 8.4 8.4-3.77 8.4-8.4 8.4-8.4-3.77-8.4-8.4m14.47.15-5.01-.31-.63-7.61h-.83l-.68 8.15 1.14 1.14 6.01-.54z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgCrossRoundOutlined = ({
+export const SvgClockOutlined = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +35,7 @@ export const SvgCrossRoundOutlined = ({
 					${visuallyHidden}
 				`}
 			>
-				Close
+				Clock
 			</span>
 		) : (
 			''

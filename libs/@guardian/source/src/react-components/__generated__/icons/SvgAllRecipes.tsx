@@ -13,16 +13,23 @@ const Svg = ({ size, theme }: IconProps) => (
 		focusable={false}
 		aria-hidden={true}
 	>
+		<path d="M6.125 12.25h7.75v1.625h-7.75z" fill={theme?.fill} />
+		<path d="M12.25 14.875H6.125V16.5h6.125z" fill={theme?.fill} />
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M21.2 12a9.2 9.2 0 1 1-18.4 0 9.2 9.2 0 0 1 18.4 0m.8 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-4.862-4.358-.782-.78-4.349 3.982-4.364-3.967-.782.78L10.85 12l-3.988 4.342.782.781 4.364-3.967 4.35 3.982.781-.78L13.165 12z"
+			d="m4.375 3.627-.875.875V19.5l.875.875h11.75L17 19.5V4.502l-.875-.875zm.75 5.873V5.252h10.25V9.5zm0 1.625v7.625h10.25v-7.625z"
+			fill={theme?.fill}
+		/>
+		<path d="M18.762 5.5H17.75v13l.877-.01.748-.75V6.127z" fill={theme?.fill} />
+		<path
+			d="M21.012 7.492H20v9.086l.877-.01.748-.75V8.12z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgCrossRoundOutlined = ({
+export const SvgAllRecipes = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +42,7 @@ export const SvgCrossRoundOutlined = ({
 					${visuallyHidden}
 				`}
 			>
-				Close
+				All recipes
 			</span>
 		) : (
 			''
