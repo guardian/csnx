@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 21.5.0
+
+### Minor Changes
+
+- df58c5f: Remove Consent or Pay Flag that hides CorP logic
+
 ## 21.4.0
 
 ### Minor Changes
