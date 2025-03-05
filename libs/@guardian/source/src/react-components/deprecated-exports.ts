@@ -14,11 +14,6 @@ import type { Props as InternalPropsType } from './@types/Props';
 export type Props = InternalPropsType;
 
 export {
-	/** @deprecated Use `SvgAlertRound` instead. */
-	SvgAlertTriangle,
-} from './__generated__/icons/SvgAlertTriangle';
-
-export {
 	/** @deprecated Use `SvgFilterOutlinedWeb` instead. */
 	SvgFilter,
 } from './__generated__/icons/SvgFilter';
