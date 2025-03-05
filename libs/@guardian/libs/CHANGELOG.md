@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 21.6.0
+
+### Minor Changes
+
+- 59ea52c: Add joinHref property to Sourcepoint Config
+
 ## 21.5.0
 
 ### Minor Changes
