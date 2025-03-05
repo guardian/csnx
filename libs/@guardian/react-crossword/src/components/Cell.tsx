@@ -68,6 +68,7 @@ const CellComponent = ({
 			fill: ${isBlackCell
 				? theme.gridPrintBackgroundColor
 				: theme.gridForegroundColor};
+			stroke: ${theme.gridPrintBackgroundColor};
 		}
 	`;
 
