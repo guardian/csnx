@@ -159,6 +159,7 @@ export const init = (
 			accountId: ACCOUNT_ID,
 			propertyId: getPropertyId(framework, useNonAdvertisedList),
 			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
+			joinHref: true,
 			isSPA: true,
 			targetingParams: {
 				framework,
