@@ -16,7 +16,7 @@
 		"@types/node": "22.10.0",
 		"husky": "9.1.4",
 		"lint-staged": "15.4.3",
-		"prettier": "3.3.3",
+		"prettier": "3.5.3",
 		"sort-package-json": "2.14.0",
 		"syncpack": "13.0.0",
 		"typescript": "5.5.2",
