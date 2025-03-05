@@ -114,13 +114,14 @@ export const init = (
 
 	setCurrentFramework(framework);
 
+	const isCorpABTest: boolean = window.location.search.includes('CORP_FLAG');
 	// To ensure users who are not part of Consent or Pay country or AB Test
-	if (!isConsentOrPayCountry(countryCode)) {
+	if (!isCorpABTest || !isConsentOrPayCountry(countryCode)) {
 		useNonAdvertisedList = false;
 	}
 
 	setIsConsentOrPay(
-		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
+		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList && isCorpABTest,
 	);
 
 	// invoke callbacks before we receive Sourcepoint
@@ -241,7 +242,8 @@ export const init = (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
 							isConsentOrPayCountry(countryCode) &&
-							!useNonAdvertisedList
+							!useNonAdvertisedList &&
+							isCorpABTest
 						) {
 							window.location.href = getSupportSignUpPage();
 						}
@@ -307,6 +309,7 @@ export const init = (
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
+					isCorpABTest,
 				},
 			};
 			break;
