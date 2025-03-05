@@ -65,7 +65,9 @@ const CellComponent = ({
 	const cellStyles = css`
 		fill: ${backgroundColor};
 		@media print {
-			fill: ${isBlackCell ? 'transparent' : theme.gridForegroundColor};
+			fill: ${isBlackCell
+				? theme.gridPrintBackgroundColor
+				: theme.gridForegroundColor};
 		}
 	`;
 
