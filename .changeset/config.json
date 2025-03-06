@@ -8,7 +8,6 @@
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
 	"bumpVersionsWithWorkspaceProtocolOnly": false,
-	"useCalculatedVersion": true,
 	"ignore": ["github-pages", "@configs/*", "coverage", "storybooks"],
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
 		"onlyUpdatePeerDependentsWhenOutOfRange": true
