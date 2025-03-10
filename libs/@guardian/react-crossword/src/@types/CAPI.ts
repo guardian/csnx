@@ -52,7 +52,7 @@ export type CAPICrossword = {
 	date: number;
 	dateSolutionAvailable?: number;
 	dimensions: Dimensions;
-	entries: [CAPIEntry, ...CAPIEntry[]];
+	entries: CAPIEntry[];
 	id: string;
 	name: string;
 	number: number;
