@@ -16,7 +16,7 @@ const meta: Meta<typeof Controls> = {
 				<ContextProvider
 					data={data}
 					theme={defaultTheme}
-					selectedEntryId={data.entries[0].id}
+					selectedEntryId={data.entries[0]?.id}
 				>
 					<Story />
 				</ContextProvider>
