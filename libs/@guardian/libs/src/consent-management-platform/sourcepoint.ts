@@ -236,15 +236,6 @@ export const init = (
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
 						setTimeout(invokeCallbacks, 0);
-
-						if (
-							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
-							message_type === 'gdpr' &&
-							isConsentOrPayCountry(countryCode) &&
-							!useNonAdvertisedList
-						) {
-							window.location.href = getSupportSignUpPage();
-						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {

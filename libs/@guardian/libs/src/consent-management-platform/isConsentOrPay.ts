@@ -1,6 +1,9 @@
 import type { CountryCode } from '../index.test';
 import { isGuardianDomain } from './lib/domain';
-import { consentOrPayCountries } from './lib/sourcepointConfig';
+import {
+	consentOrPayCountries,
+	SourcePointChoiceTypes,
+} from './lib/sourcepointConfig';
 
 let _isConsentOrPay = false;
 
@@ -20,4 +23,19 @@ export const getSupportSignUpPage = (): string => {
 	return isGuardianDomain()
 		? `https://support.theguardian.com/guardian-ad-lite?returnAddress=${encodeURIComponent(window.location.href)}`
 		: `https://support.code.dev-theguardian.com/guardian-ad-lite?returnAddress=${encodeURIComponent(window.location.href)}`;
+};
+
+export const redirectToSupportSignUpPage = (
+	choiceTypeId: number,
+	messageType: string,
+	shouldUseNonAdvertisedList: boolean,
+) => {
+	if (
+		choiceTypeId === SourcePointChoiceTypes.RejectAll &&
+		messageType === 'gdpr' &&
+		getIsConsentOrPay() &&
+		!shouldUseNonAdvertisedList
+	) {
+		window.location.href = getSupportSignUpPage();
+	}
 };
