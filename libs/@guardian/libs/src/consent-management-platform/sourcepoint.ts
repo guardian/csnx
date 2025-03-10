@@ -2,11 +2,7 @@ import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
-import {
-	getSupportSignUpPage,
-	isConsentOrPayCountry,
-	setIsConsentOrPay,
-} from './isConsentOrPay';
+import { isConsentOrPayCountry, setIsConsentOrPay } from './isConsentOrPay';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
