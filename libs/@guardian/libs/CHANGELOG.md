@@ -1,5 +1,23 @@
 # @guardian/libs
 
+## 22.0.0
+
+### Major Changes
+
+- 6c811ba: Remove Consent or Pay Flag that hides CorP logic
+
+## 21.6.0
+
+### Minor Changes
+
+- 59ea52c: Add joinHref property to Sourcepoint Config
+
+## 21.5.0
+
+### Minor Changes
+
+- df58c5f: Remove Consent or Pay Flag that hides CorP logic
+
 ## 21.4.0
 
 ### Minor Changes
