@@ -5,6 +5,7 @@ import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
 import { useProgress } from '../context/Progress';
+import { useTheme } from '../context/Theme';
 import { ScreenLayout } from '../layouts/ScreenLayout';
 import { defaultTheme } from '../theme';
 import { AnagramHelper } from './AnagramHelper';
@@ -23,9 +24,14 @@ export type CrosswordProps = {
 
 const SavedMessage = () => {
 	const { isStored } = useProgress();
+	const { textColor } = useTheme();
 
 	return (
-		<p>
+		<p
+			css={css`
+				color: ${textColor};
+			`}
+		>
 			{isStored
 				? 'Crosswords are saved automatically.'
 				: 'Crossword will not be saved.'}
