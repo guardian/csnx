@@ -58,8 +58,8 @@ const CellComponent = ({
 		? 'transparent'
 		: isConnected
 			? isSelected
-				? theme.selectedColor
-				: theme.connectedColor
+				? theme.selectedBackgroundColor
+				: theme.connectedBackgroundColor
 			: theme.gridForegroundColor;
 
 	const cellStyles = css`
@@ -147,6 +147,7 @@ const CellComponent = ({
 								width: 100%;
 								height: 100%;
 								background: transparent;
+								color: ${theme.textColor};
 								border: none;
 								${textSans12};
 								font-size: ${theme.gridCellSize * 0.6}px;
