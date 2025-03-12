@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 22.0.1
+
+### Patch Changes
+
+- 6bcf6d6: Adds new ACQUISITION_GUTTER OphanComponentTypes
+
 ## 22.0.0
 
 ### Major Changes
