@@ -2,7 +2,6 @@ import { Meta, Canvas, Controls } from '@storybook/blocks';
 import IconStories, {
 	XsmallIconsDefaultTheme,
 	PaymentIconsDefaultTheme,
-	WidePaymentIconsDefaultTheme,
 } from './Icons.stories';
 import { IconGallery, IconItem } from './IconGallery';
 
@@ -24,16 +23,6 @@ import { IconGallery, IconItem } from './IconGallery';
 
 <IconGallery>
 	{PaymentIconsDefaultTheme.args.icons.map((Icon) => (
-		<IconItem name={Icon.name} key={Icon.name}>
-			<Icon size="medium" />
-		</IconItem>
-	))}
-</IconGallery>
-
-## Wide payment
-
-<IconGallery>
-	{WidePaymentIconsDefaultTheme.args.icons.map((Icon) => (
 		<IconItem name={Icon.name} key={Icon.name}>
 			<Icon size="medium" />
 		</IconItem>
