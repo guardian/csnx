@@ -98,7 +98,6 @@ export type OphanComponentType =
 	| 'CARD'
 	| 'CAROUSEL'
 	| 'CONTAINER'
-	| 'MENU'
 	| 'ACQUISITIONS_GUTTER';
 
 export type OphanComponent = {
