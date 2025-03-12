@@ -97,7 +97,7 @@ export type Theme = {
 	anagramHelperCandidateTextColor: string;
 
 	/** Background colour for the focused clue */
-	focusedClueBackgroundColour: string;
+	focusedClueBackgroundColor: string;
 };
 
 export type Dimensions = {
