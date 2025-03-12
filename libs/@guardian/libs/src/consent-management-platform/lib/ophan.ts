@@ -48,6 +48,12 @@ export const sendConsentChoicesToOphan = (
 		case SourcePointChoiceTypes.ManageCookies:
 			actionValue = 'manage-cookies';
 			break;
+		case SourcePointChoiceTypes.Redirect:
+			actionValue = 'reject';
+			break;
+		default:
+			actionValue = undefined;
+			break;
 	}
 	const componentEvent: OphanComponentEvent = {
 		component: {
