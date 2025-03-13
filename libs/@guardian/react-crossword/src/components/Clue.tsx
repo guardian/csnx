@@ -86,15 +86,15 @@ const ClueComponent = ({
 			data-entry-id={entry.id}
 			css={css`
 				background-color: ${isSelected
-					? theme.selectedColor
+					? theme.selectedBackgroundColor
 					: isConnected
-						? theme.connectedColor
+						? theme.connectedBackgroundColor
 						: 'transparent'};
 				cursor: ${isConnected ? 'default' : 'pointer'};
 				opacity: ${isComplete ? 0.5 : 1};
 
 				padding: 0.5em 0;
-				color: currentColor;
+				color: ${isSelected ? theme.selectedTextColor : theme.textColor};
 
 				@media print {
 					padding: 0.125em 0;
