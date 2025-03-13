@@ -229,6 +229,38 @@ const CheckGrid = memo((props: ButtonProps) => {
 	);
 });
 
+const RemoveMistakesGrid = memo((props: ButtonProps) => {
+	const { setInvalidCellAnswers, invalidCellAnswers } = useValidAnswers();
+	const { updateCell } = useUpdateCell();
+	const { cells } = useData();
+
+	const removeMistakes = () => {
+		invalidCellAnswers.forEach((invalidCell) => {
+			const cell = cells.get(invalidCell);
+			if (cell) {
+				updateCell({ x: cell.x, y: cell.y, value: '' });
+			}
+			setInvalidCellAnswers(new Set());
+		});
+	};
+
+	return (
+		<CrosswordButton
+			onClick={removeMistakes}
+			data-link-name="Remove mistakes"
+			disabled={invalidCellAnswers.size <= 0}
+			cssOverrides={css`
+				:disabled {
+					cursor: not-allowed;
+					opacity: 0.25;
+				}
+			`}
+			{...props}
+		>
+			Remove Mistakes
+		</CrosswordButton>
+	);
+});
 const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
@@ -326,7 +358,7 @@ export const Controls = memo(() => {
 	// We need to know how many controls are currently visible in each group so we
 	// can manage the focused index.
 	const cluesControlsVisible = solutionAvailable ? 4 : 2;
-	const gridControlsVisible = solutionAvailable ? 3 : 1;
+	const gridControlsVisible = solutionAvailable ? 4 : 2;
 
 	const getTabIndex = (group: 'clues' | 'grid', index: number) => {
 		const focusedControlIndex =
@@ -476,6 +508,10 @@ export const Controls = memo(() => {
 				)}
 				<ClearGrid
 					tabIndex={getTabIndex('grid', solutionAvailable ? 2 : 0)}
+					role="menuItem"
+				/>
+				<RemoveMistakesGrid
+					tabIndex={getTabIndex('grid', solutionAvailable ? 3 : 1)}
 					role="menuItem"
 				/>
 			</div>
