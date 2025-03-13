@@ -97,7 +97,8 @@ export type OphanComponentType =
 	| 'APP_FEATURE'
 	| 'CARD'
 	| 'CAROUSEL'
-	| 'CONTAINER';
+	| 'CONTAINER'
+	| 'ACQUISITIONS_GUTTER';
 
 export type OphanComponent = {
 	componentType: OphanComponentType;

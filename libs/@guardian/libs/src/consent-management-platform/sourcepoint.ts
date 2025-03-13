@@ -114,14 +114,13 @@ export const init = (
 
 	setCurrentFramework(framework);
 
-	const isCorpABTest: boolean = window.location.search.includes('CORP_FLAG');
 	// To ensure users who are not part of Consent or Pay country or AB Test
-	if (!isCorpABTest || !isConsentOrPayCountry(countryCode)) {
+	if (!isConsentOrPayCountry(countryCode)) {
 		useNonAdvertisedList = false;
 	}
 
 	setIsConsentOrPay(
-		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList && isCorpABTest,
+		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
 	);
 
 	// invoke callbacks before we receive Sourcepoint
@@ -160,6 +159,7 @@ export const init = (
 			accountId: ACCOUNT_ID,
 			propertyId: getPropertyId(framework, useNonAdvertisedList),
 			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
+			joinHref: true,
 			isSPA: true,
 			targetingParams: {
 				framework,
@@ -241,8 +241,7 @@ export const init = (
 							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
 							message_type === 'gdpr' &&
 							isConsentOrPayCountry(countryCode) &&
-							!useNonAdvertisedList &&
-							isCorpABTest
+							!useNonAdvertisedList
 						) {
 							window.location.href = getSupportSignUpPage();
 						}
@@ -308,7 +307,6 @@ export const init = (
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
-					isCorpABTest,
 				},
 			};
 			break;
