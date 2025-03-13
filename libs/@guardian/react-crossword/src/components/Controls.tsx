@@ -448,7 +448,7 @@ export const Controls = memo(() => {
 		focusedGridControlIndex,
 	]);
 
-	// I	f there are no letters to remove change the tab index to not be the disabled remove mistakes button
+	// If there are no letters to remove change the tab index to not be the disabled remove mistakes button
 	useEffect(() => {
 		if (disableRemoveControls && focusedGroup === 'grid') {
 			if (focusedGridControlIndex === 3 && solutionAvailable) {
