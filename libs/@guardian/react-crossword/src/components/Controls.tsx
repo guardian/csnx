@@ -248,7 +248,6 @@ const RemoveMistakesGrid = memo((props: ButtonProps) => {
 		<CrosswordButton
 			onClick={removeMistakes}
 			data-link-name="Remove mistakes"
-			disabled={invalidCellAnswers.size <= 0}
 			cssOverrides={css`
 				:disabled {
 					cursor: not-allowed;
@@ -315,6 +314,7 @@ const controlsGroupStyle = css`
 
 export const Controls = memo(() => {
 	const { solutionAvailable } = useData();
+	const { invalidCellAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
 
 	// Controls is a div[role=menu], split into two div[role=group]s containing
@@ -324,6 +324,7 @@ export const Controls = memo(() => {
 
 	// If there is no current clue, we disable the clue controls.
 	const disableClueControls = isUndefined(currentEntryId);
+	const disableRemoveControls = invalidCellAnswers.size <= 0;
 
 	// At any one time, one [role=menuitem] of [role=menu] has a tabindex of 0,
 	// and the rest have a tabindex of -1. This means when you tab to the
@@ -447,6 +448,23 @@ export const Controls = memo(() => {
 		focusedGridControlIndex,
 	]);
 
+	// I	f there are no letters to remove change the tab index to not be the disabled remove mistakes button
+	useEffect(() => {
+		if (disableRemoveControls && focusedGroup === 'grid') {
+			if (focusedGridControlIndex === 3 && solutionAvailable) {
+				setFocusedGridControlIndex(2);
+			}
+			if (focusedGridControlIndex === 1 && !solutionAvailable) {
+				setFocusedGridControlIndex(0);
+			}
+		}
+	}, [
+		disableRemoveControls,
+		focusedGridControlIndex,
+		focusedGroup,
+		solutionAvailable,
+	]);
+
 	useEffect(() => {
 		const controls = controlsRef.current;
 
@@ -513,6 +531,7 @@ export const Controls = memo(() => {
 				<RemoveMistakesGrid
 					tabIndex={getTabIndex('grid', solutionAvailable ? 3 : 1)}
 					role="menuItem"
+					disabled={invalidCellAnswers.size <= 0}
 				/>
 			</div>
 		</div>
