@@ -95,17 +95,6 @@ export const WithNumber: Story = {
 	},
 };
 
-export const WithIncorrect: Story = {
-	args: {
-		...args,
-		isIncorrect: true,
-		data: {
-			...args.data,
-			number: 1,
-		},
-	},
-};
-
 export const Progress: Story = {
 	args: {
 		...args,
