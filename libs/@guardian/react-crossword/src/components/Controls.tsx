@@ -135,7 +135,7 @@ const CheckClue = memo((props: ButtonProps) => {
 			aria-live="off"
 			onClick={check}
 			data-link-name="Check this"
-			aria-label={`Check ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			aria-label={`Remove incorrect letters from ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			{...props}
 		>
 			Check Word
@@ -225,7 +225,12 @@ const CheckGrid = memo((props: ButtonProps) => {
 	}, [entries, setValidAnswers, cells, progress, updateCell]);
 
 	return (
-		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
+		<CrosswordButton
+			onClick={check}
+			data-link-name="Check all"
+			{...props}
+			aria-label="Check and Remove all incorrect letters"
+		>
 			Check All
 		</CrosswordButton>
 	);
@@ -234,7 +239,6 @@ const CheckGrid = memo((props: ButtonProps) => {
 const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
-	const { setInvalidCellAnswers } = useValidAnswers();
 
 	const reveal = useCallback(() => {
 		const newProgress: Progress = [];
@@ -244,9 +248,8 @@ const RevealGrid = memo((props: ButtonProps) => {
 			column[cell.y] = cell.solution ?? '';
 		}
 
-		setInvalidCellAnswers(new Set());
 		updateProgress(newProgress);
-	}, [cells, setInvalidCellAnswers, updateProgress]);
+	}, [cells, updateProgress]);
 
 	return (
 		<CrosswordButton
