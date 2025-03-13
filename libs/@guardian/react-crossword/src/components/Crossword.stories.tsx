@@ -112,7 +112,7 @@ export const CustomisedLayout: StoryFn = () => {
 			style={{
 				fontFamily: 'monospace',
 				border: `3px solid lightgrey`,
-				backgroundColor: 'black',
+				backgroundColor: 'royalblue',
 				borderRadius: 100,
 				aspectRatio: 1,
 				width: '2em',
@@ -120,7 +120,6 @@ export const CustomisedLayout: StoryFn = () => {
 				justifyContent: 'center',
 				alignItems: 'center',
 				marginBottom: '0.5em',
-				color: 'royalblue',
 			}}
 		>
 			{children}
@@ -179,6 +178,7 @@ export const Themed: Story = {
 		gridCellSize: 30,
 		buttonBackgroundColor: 'cyan',
 		buttonBackgroundHoverColor: 'magenta',
-		borderColor: 'lightpink',
+		borderColor: 'orange',
+		clueListBorderColor: 'orange',
 	},
 };
