@@ -7,12 +7,7 @@ import { useValidAnswers } from '../context/ValidAnswers';
 
 export const useUpdateCell = () => {
 	const { progress, updateProgress } = useProgress();
-	const {
-		setValidAnswers,
-		invalidCellAnswers,
-		setInvalidCellAnswers,
-		validAnswers,
-	} = useValidAnswers();
+	const { setValidAnswers, validAnswers } = useValidAnswers();
 
 	const { cells } = useData();
 
@@ -36,13 +31,6 @@ export const useUpdateCell = () => {
 			newProgress[x][y] = value;
 			updateProgress(newProgress);
 
-			if (invalidCellAnswers.has(`x${x}y${y}`)) {
-				setInvalidCellAnswers((prevState) => {
-					const newInvalidCellAnswers = new Set(prevState);
-					newInvalidCellAnswers.delete(`x${x}y${y}`);
-					return newInvalidCellAnswers;
-				});
-			}
 			for (const entryId of cellGroup) {
 				if (validAnswers.has(entryId)) {
 					setValidAnswers((prev) => {
@@ -53,15 +41,7 @@ export const useUpdateCell = () => {
 				}
 			}
 		},
-		[
-			cells,
-			invalidCellAnswers,
-			progress,
-			setInvalidCellAnswers,
-			setValidAnswers,
-			updateProgress,
-			validAnswers,
-		],
+		[cells, progress, setValidAnswers, updateProgress, validAnswers],
 	);
 	return { updateCell };
 };

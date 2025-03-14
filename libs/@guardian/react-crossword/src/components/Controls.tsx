@@ -96,8 +96,9 @@ const ClearClue = memo((props: ButtonProps) => {
 const CheckClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { progress } = useProgress();
-	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
+	const { setValidAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
+	const { updateCell } = useUpdateCell();
 
 	const check = useCallback(() => {
 		if (!currentEntryId) {
@@ -112,10 +113,10 @@ const CheckClue = memo((props: ButtonProps) => {
 				currentProgress !== cell.solution
 			) {
 				if (currentProgress !== '') {
-					setInvalidCellAnswers((prevState) => {
-						const newInvalidCellAnswers = new Set(prevState);
-						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
-						return newInvalidCellAnswers;
+					updateCell({
+						x: cell.x,
+						y: cell.y,
+						value: '',
 					});
 				}
 				entryIsCorrect = false;
@@ -127,14 +128,14 @@ const CheckClue = memo((props: ButtonProps) => {
 				return newValidAnswers.add(currentEntryId);
 			});
 		}
-	}, [currentEntryId, cells, progress, setInvalidCellAnswers, setValidAnswers]);
+	}, [currentEntryId, cells, progress, updateCell, setValidAnswers]);
 
 	return (
 		<ClueButton
 			aria-live="off"
 			onClick={check}
 			data-link-name="Check this"
-			aria-label={`Check ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			aria-label={`Remove incorrect letters from ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			{...props}
 		>
 			Check Word
@@ -192,7 +193,8 @@ const AnagramHelper = memo((props: ButtonProps) => {
 const CheckGrid = memo((props: ButtonProps) => {
 	const { progress } = useProgress();
 	const { cells, entries } = useData();
-	const { setValidAnswers, setInvalidCellAnswers } = useValidAnswers();
+	const { setValidAnswers } = useValidAnswers();
+	const { updateCell } = useUpdateCell();
 
 	const check = useCallback(() => {
 		const allEntries = entries.keys();
@@ -205,10 +207,10 @@ const CheckGrid = memo((props: ButtonProps) => {
 
 			if (!isUndefined(currentProgress) && currentProgress !== cell.solution) {
 				if (currentProgress !== '') {
-					setInvalidCellAnswers((prevState) => {
-						const newInvalidCellAnswers = new Set(prevState);
-						newInvalidCellAnswers.add(`x${cell.x}y${cell.y}`);
-						return newInvalidCellAnswers;
+					updateCell({
+						x: cell.x,
+						y: cell.y,
+						value: '',
 					});
 				}
 				for (const entryId of cell.group) {
@@ -220,10 +222,15 @@ const CheckGrid = memo((props: ButtonProps) => {
 			[...allEntries].filter((x) => !invalidAnswers.has(x)),
 		);
 		setValidAnswers(validAnswers);
-	}, [entries, setValidAnswers, cells, progress, setInvalidCellAnswers]);
+	}, [entries, setValidAnswers, cells, progress, updateCell]);
 
 	return (
-		<CrosswordButton onClick={check} data-link-name="Check all" {...props}>
+		<CrosswordButton
+			onClick={check}
+			data-link-name="Check all"
+			{...props}
+			aria-label="Check and Remove all incorrect letters"
+		>
 			Check All
 		</CrosswordButton>
 	);
@@ -232,7 +239,6 @@ const CheckGrid = memo((props: ButtonProps) => {
 const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
-	const { setInvalidCellAnswers } = useValidAnswers();
 
 	const reveal = useCallback(() => {
 		const newProgress: Progress = [];
@@ -242,9 +248,8 @@ const RevealGrid = memo((props: ButtonProps) => {
 			column[cell.y] = cell.solution ?? '';
 		}
 
-		setInvalidCellAnswers(new Set());
 		updateProgress(newProgress);
-	}, [cells, setInvalidCellAnswers, updateProgress]);
+	}, [cells, updateProgress]);
 
 	return (
 		<CrosswordButton
