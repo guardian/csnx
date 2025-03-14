@@ -15,7 +15,6 @@ type Story = StoryObj<typeof Columns>;
 
 const style: React.CSSProperties = {
 	backgroundColor: 'rgba(255, 0, 0, 0.25)',
-	textAlign: 'center',
 };
 const Code = (args: HTMLAttributes<HTMLElement>) => (
 	<code
