@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 4.1.0
+
+### Minor Changes
+
+- 37baa6e: restore "check word" feature to remove incorrect letters from grid
+
 ## 4.0.0
 
 ### Major Changes
