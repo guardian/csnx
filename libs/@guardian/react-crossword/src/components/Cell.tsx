@@ -50,8 +50,8 @@ const CellComponent = ({
 		? 'transparent'
 		: isConnected
 			? isSelected
-				? theme.selectedColor
-				: theme.connectedColor
+				? theme.selectedBackgroundColor
+				: theme.connectedBackgroundColor
 			: theme.gridForegroundColor;
 
 	const cellStyles = css`
@@ -95,7 +95,7 @@ const CellComponent = ({
 							y={y}
 							dx={Math.max(1, theme.gridCellSize * 0.05)}
 							dy={Math.max(9, theme.gridCellSize * 0.22)}
-							fill={theme.textColor}
+							fill={theme.gridTextColor}
 							css={css`
 								${textSans12};
 								font-size: ${Math.max(
@@ -129,6 +129,7 @@ const CellComponent = ({
 								width: 100%;
 								height: 100%;
 								background: transparent;
+								color: ${theme.gridTextColor};
 								border: none;
 								${textSans12};
 								font-size: ${theme.gridCellSize * 0.6}px;

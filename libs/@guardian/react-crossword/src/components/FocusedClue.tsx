@@ -24,7 +24,7 @@ export const FocusedClueComponent = ({ additionalCss }: StickyClueProps) => {
 		display: flex;
 		min-height: 2.75em;
 		${textSans12};
-		background: ${theme.focusedClueBackgroundColour};
+		background: ${theme.focusedClueBackgroundColor};
 		@media print {
 			display: none;
 		}

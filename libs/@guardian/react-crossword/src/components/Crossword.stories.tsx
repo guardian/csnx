@@ -112,7 +112,7 @@ export const CustomisedLayout: StoryFn = () => {
 			style={{
 				fontFamily: 'monospace',
 				border: `3px solid lightgrey`,
-				backgroundColor: 'black',
+				backgroundColor: 'royalblue',
 				borderRadius: 100,
 				aspectRatio: 1,
 				width: '2em',
@@ -120,7 +120,6 @@ export const CustomisedLayout: StoryFn = () => {
 				justifyContent: 'center',
 				alignItems: 'center',
 				marginBottom: '0.5em',
-				color: 'royalblue',
 			}}
 		>
 			{children}
@@ -169,14 +168,17 @@ export const Themed: Story = {
 		gridBackgroundColor:
 			'linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)',
 		gridForegroundColor: 'blue',
+		gridTextColor: 'limegreen',
 		textColor: 'limegreen',
 		gridGutterSize: 0,
-		connectedColor: 'yellow',
+		connectedBackgroundColor: 'yellow',
 		focusColor: 'black',
-		selectedColor: 'orange',
+		selectedTextColor: 'limegreen',
+		selectedBackgroundColor: 'orange',
 		gridCellSize: 30,
 		buttonBackgroundColor: 'cyan',
 		buttonBackgroundHoverColor: 'magenta',
-		borderColor: 'lightpink',
+		borderColor: 'orange',
+		clueListBorderColor: 'orange',
 	},
 };
