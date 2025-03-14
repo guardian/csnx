@@ -13,7 +13,7 @@ const meta: Meta<typeof Column> = {
 export default meta;
 type Story = StoryObj<typeof Columns>;
 
-const style: React.CSSProperties = {
+const style = {
 	backgroundColor: 'rgba(255, 0, 0, 0.25)',
 };
 const Code = (args: HTMLAttributes<HTMLElement>) => (
