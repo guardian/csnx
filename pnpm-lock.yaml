@@ -132,8 +132,8 @@ importers:
         specifier: 6.2.0
         version: 6.2.0(esbuild@0.25.1)(rollup@4.36.0)
       rollup-plugin-node-externals:
-        specifier: 7.1.2
-        version: 7.1.2(rollup@4.36.0)
+        specifier: 8.0.0
+        version: 8.0.0(rollup@4.36.0)
 
   coverage:
     dependencies:
@@ -10250,11 +10250,11 @@ packages:
       - supports-color
     dev: true
 
-  /rollup-plugin-node-externals@7.1.2(rollup@4.36.0):
-    resolution: {integrity: sha512-cVJFKs+ulZxpMmn/s+oi431d93Jq5+G7Sc5ixWDrL2k+Gj+MqXg0KMNWgKf8Mw5qpaG4jVDpsvuqFfiCvRcGeA==}
+  /rollup-plugin-node-externals@8.0.0(rollup@4.36.0):
+    resolution: {integrity: sha512-2HIOpWsWn5DqBoYl6iCAmB4kd5GoGbF68PR4xKR1YBPvywiqjtYvDEjHFodyqRL51iAMDITP074Zxs0OKs6F+g==}
     engines: {node: '>= 21 || ^20.6.0 || ^18.19.0'}
     peerDependencies:
-      rollup: ^3.0.0 || ^4.0.0
+      rollup: ^4.0.0
     dependencies:
       rollup: 4.36.0
     dev: true

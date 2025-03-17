@@ -10,6 +10,6 @@
 		"rollup": "4.36.0",
 		"rollup-plugin-dts": "6.1.0",
 		"rollup-plugin-esbuild": "6.2.0",
-		"rollup-plugin-node-externals": "7.1.2"
+		"rollup-plugin-node-externals": "8.0.0"
 	}
 }
