@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { isUndefined } from '@guardian/libs';
 import { textSans12 } from '@guardian/source/foundations';
 import type { FormEvent, KeyboardEvent, SVGProps } from 'react';
 import { useEffect, useRef } from 'react';
@@ -20,8 +19,6 @@ export type BaseCellProps = {
 	isConnected?: boolean;
 	/** is the cell for the selected clue? */
 	isSelected?: boolean;
-	/** is the cell checked and incorrect */
-	isIncorrect?: boolean;
 	/** is the cell the current cell? */
 	isCurrentCell?: boolean;
 	/** callback for keydown event */
@@ -39,7 +36,6 @@ const CellComponent = ({
 	guess = '',
 	isBlackCell,
 	isConnected,
-	isIncorrect = false,
 	isSelected,
 	isCurrentCell,
 	handleKeyDown,
@@ -49,17 +45,13 @@ const CellComponent = ({
 	const theme = useTheme();
 	const { getId } = useData();
 	const cellRef = useRef<null | SVGGElement>(null);
-	const cellDescription =
-		isUndefined(data.description) && !isIncorrect
-			? undefined
-			: `${isIncorrect ? 'Incorrect Letter. ' : ''} ${data.description ?? ''}`;
 
 	const backgroundColor = isBlackCell
 		? 'transparent'
 		: isConnected
 			? isSelected
-				? theme.selectedColor
-				: theme.connectedColor
+				? theme.selectedBackgroundColor
+				: theme.connectedBackgroundColor
 			: theme.gridForegroundColor;
 
 	const cellStyles = css`
@@ -95,16 +87,6 @@ const CellComponent = ({
 				role="presentation"
 				css={cellStyles}
 			/>
-			{isIncorrect && (
-				<line
-					x1={x}
-					y1={y}
-					x2={x + theme.gridCellSize}
-					y2={y + theme.gridCellSize}
-					strokeWidth="2"
-					stroke={theme.gridCellStrikeThrough}
-				/>
-			)}
 			{!isBlackCell && (
 				<>
 					{data.number && (
@@ -113,7 +95,7 @@ const CellComponent = ({
 							y={y}
 							dx={Math.max(1, theme.gridCellSize * 0.05)}
 							dy={Math.max(9, theme.gridCellSize * 0.22)}
-							fill={theme.textColor}
+							fill={theme.gridTextColor}
 							css={css`
 								${textSans12};
 								font-size: ${Math.max(
@@ -142,11 +124,12 @@ const CellComponent = ({
 							id={getId(`cell-input-${data.x}-${data.y}`)}
 							onInput={handleInput ?? noop}
 							tabIndex={isCurrentCell ? 0 : -1}
-							aria-description={cellDescription}
+							aria-description={data.description}
 							css={css`
 								width: 100%;
 								height: 100%;
 								background: transparent;
+								color: ${theme.gridTextColor};
 								border: none;
 								${textSans12};
 								font-size: ${theme.gridCellSize * 0.6}px;

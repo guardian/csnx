@@ -13,9 +13,14 @@ const meta: Meta<typeof Column> = {
 export default meta;
 type Story = StoryObj<typeof Columns>;
 
-const style = { backgroundColor: 'rgba(255, 0, 0, 0.25)' };
+const style = {
+	backgroundColor: 'rgba(255, 0, 0, 0.25)',
+};
 const Code = (args: HTMLAttributes<HTMLElement>) => (
-	<code style={{ whiteSpace: 'nowrap' }} {...args} />
+	<code
+		style={{ whiteSpace: 'nowrap', fontSize: '10px', verticalAlign: 'middle' }}
+		{...args}
+	/>
 );
 
 const Template: Story = {

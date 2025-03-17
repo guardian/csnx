@@ -50,31 +50,35 @@ export type Separators = Array<{
 }>;
 
 export type Theme = {
-	/** The background colour of 'black' squares/dividers etc on the grid */
+	/** Background colour of 'black' squares/dividers etc on the grid */
 	gridBackgroundColor: string;
-	/** The background colour of 'white' squares on the grid */
+	/** Background colour of 'white' squares on the grid */
 	gridForegroundColor: string;
-	/** The background colour of 'black' squares on grid when printed */
+	/** Colour of text in the grid (clue number and entered letters) */
+	gridTextColor: string;
+	/** Background colour of 'black' squares on grid when printed */
 	gridPrintBackgroundColor: string;
-	/** The size of the gap between grid cells */
+	/** Size of the gap between grid cells */
 	gridGutterSize: number;
-	/** The length of one side of a cell on on the grid */
+	/** Length of one side of a cell on on the grid */
 	gridCellSize: number;
-	/** The colour of the strike through on an incorrect Cell*/
+	/** Colour of the strike through on an incorrect cell */
 	gridCellStrikeThrough: string;
 
-	/** The main text colour (grid text, clues etc) */
+	/** Main text colour outside grid (headings, clues etc) */
 	textColor: string;
-	/** The colour of the currently selected cell border */
+	/** Colour of the currently selected cell border */
 	focusColor: string;
-	/** The colour of cells/clues that are currently selected clue */
-	selectedColor: string;
-	/** The colour of cells/clues that are connected to the currently selected clue */
-	connectedColor: string;
+	/** Colour of currently selected clue */
+	selectedTextColor: string;
+	/** Colour of selected cells / clues */
+	selectedBackgroundColor: string;
+	/** Colour of cells / clues that are connected to the currently selected clue */
+	connectedBackgroundColor: string;
 
-	/** The background colour of clue-helper buttons */
+	/** Background colour of clue helper buttons */
 	buttonBackgroundColor: string;
-	/** The hover colour of clue-helper buttons */
+	/** Hover colour of clue helper buttons */
 	buttonBackgroundHoverColor: string;
 
 	/** Border colour used to visually separate parts of the UI */
@@ -82,18 +86,18 @@ export type Theme = {
 	/** Border colour applied to the top of the clue lists */
 	clueListBorderColor: string;
 
-	/** The minimum width of a clue */
+	/** Minimum width of a clue */
 	clueMinWidth: number;
-	/** The maximum width of a clue */
+	/** Maximum width of a clue */
 	clueMaxWidth: number;
 
-	/** The background colour of the anagram helper */
+	/** Background colour of the anagram helper */
 	anagramHelperBackgroundColor: string;
-	/** The text colour of shuffled letter that are not yet on the grid */
+	/** Text colour of shuffled letter that are not yet on the grid */
 	anagramHelperCandidateTextColor: string;
 
-	/** The background colour for the focused clue */
-	focusedClueBackgroundColour: string;
+	/** Background colour for the focused clue */
+	focusedClueBackgroundColor: string;
 };
 
 export type Dimensions = {

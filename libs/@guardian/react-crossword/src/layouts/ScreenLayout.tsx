@@ -1,6 +1,10 @@
 import { css } from '@emotion/react';
-import { headlineBold17, space } from '@guardian/source/foundations';
-import { textSans12, textSans14 } from '@guardian/source/foundations';
+import {
+	headlineBold17,
+	space,
+	textSans14,
+	textSansItalic12,
+} from '@guardian/source/foundations';
 import type { ReactNode } from 'react';
 import { memo } from 'react';
 import type { LayoutProps } from '../@types/Layout';
@@ -38,8 +42,7 @@ const Layout = ({
 	SavedMessage,
 	gridWidth: actualGridWidth,
 }: LayoutProps) => {
-	const { textColor, clueMinWidth, clueMaxWidth } = useTheme();
-	const theme = useTheme();
+	const { clueMinWidth, clueMaxWidth } = useTheme();
 
 	const gridWidth = Math.max(actualGridWidth, 300);
 	const oneColWidth = gridWidth + clueMinWidth;
@@ -48,7 +51,6 @@ const Layout = ({
 	return (
 		<div
 			css={css`
-				color: ${textColor};
 				display: flex;
 				flex-direction: column;
 				gap: ${space[4]}px;
@@ -104,9 +106,7 @@ const Layout = ({
 				</div>
 				<div
 					css={css`
-						${textSans12};
-						font-style: italic;
-						color: ${theme.textColor};
+						${textSansItalic12};
 						@media print {
 							display: none;
 						}

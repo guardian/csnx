@@ -4,13 +4,10 @@ import { createContext, type ReactNode, useContext, useState } from 'react';
 import type { EntryID } from '../@types/Entry';
 
 type ValidAnswers = Set<EntryID>;
-type InvalidCellAnswers = Set<`x${number}y${number}`>;
 
 type ValidAnswersContext = {
 	validAnswers: ValidAnswers;
-	invalidCellAnswers: InvalidCellAnswers;
 	setValidAnswers: Dispatch<SetStateAction<ValidAnswers>>;
-	setInvalidCellAnswers: Dispatch<SetStateAction<InvalidCellAnswers>>;
 };
 
 const validAnswersContext = createContext<ValidAnswersContext | undefined>(
@@ -24,8 +21,6 @@ export const ValidAnswersProvider = ({
 	validAnswers?: ValidAnswers;
 	children: ReactNode;
 }) => {
-	const [invalidCellAnswers, setInvalidCellAnswers] =
-		useState<InvalidCellAnswers>(new Set());
 	const [validAnswers, setValidAnswers] = useState<ValidAnswers>(
 		userValidAnswers ?? new Set(),
 	);
@@ -34,10 +29,8 @@ export const ValidAnswersProvider = ({
 		() => ({
 			validAnswers,
 			setValidAnswers,
-			invalidCellAnswers,
-			setInvalidCellAnswers,
 		}),
-		[invalidCellAnswers, validAnswers],
+		[validAnswers],
 	);
 
 	return (
