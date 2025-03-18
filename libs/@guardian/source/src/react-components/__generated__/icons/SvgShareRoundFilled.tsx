@@ -14,15 +14,13 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
-			fillRule="evenodd"
-			clipRule="evenodd"
-			d="M21.2 12a9.2 9.2 0 1 1-18.4 0 9.2 9.2 0 0 1 18.4 0m.8 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-4.862-4.358-.782-.78-4.349 3.982-4.364-3.967-.782.78L10.85 12l-3.988 4.342.782.781 4.364-3.967 4.35 3.982.781-.78L13.165 12z"
+			d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m-.17 4.79h.33l2.43 2.43-.43.41-1.69-1.29v4.13h-.95V8.34L9.83 9.63l-.41-.41 2.42-2.43zm5.38 8.99-.49.49H7.25l-.46-.49v-4.72h.47l.47.47v3.79h8.53v-3.79l.47-.47h.47v4.72z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgCrossRoundOutlined = ({
+export const SvgShareRoundFilled = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +33,7 @@ export const SvgCrossRoundOutlined = ({
 					${visuallyHidden}
 				`}
 			>
-				Close
+				Share
 			</span>
 		) : (
 			''

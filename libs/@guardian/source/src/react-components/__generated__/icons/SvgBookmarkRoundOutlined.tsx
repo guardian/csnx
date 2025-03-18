@@ -16,13 +16,13 @@ const Svg = ({ size, theme }: IconProps) => (
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"
-			d="M18.364 2H5.636v5.68H3.43L2 9.29l9.048 7.504h1.904L22 9.289 20.571 7.68h-2.207zm-1.819 5.68v-.946h-9.09v.946zm0-3.787h-9.09v.947h9.09zM2 20.58v-8.994l9.048 6.627h1.904L22 11.586v8.994L20.571 22H3.43zM7.455 9.574h9.09v.947h-9.09z"
+			d="M21.167 12a9.167 9.167 0 1 1-18.334 0 9.167 9.167 0 0 1 18.334 0M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-8.046-4.05-.214-.217h-3.477l-.217.217v8.103L12 14.969l1.954 1.084zM9.9 6.797l4.198-.008.793.797V17.4l-.27.174L12 16.07l-2.625 1.505-.27-.171V7.586z"
 			fill={theme?.fill}
 		/>
 	</svg>
 );
 
-export const SvgNewsletter = ({
+export const SvgBookmarkRoundOutlined = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -35,7 +35,7 @@ export const SvgNewsletter = ({
 					${visuallyHidden}
 				`}
 			>
-				Newsletter
+				Bookmark
 			</span>
 		) : (
 			''

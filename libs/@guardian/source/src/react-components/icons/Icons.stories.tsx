@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import type { IconProps, IconSize } from '../@types/Icons';
+import { SvgAddToBasket } from '../__generated__/icons/SvgAddToBasket';
 import { SvgAlarmClockFilled } from '../__generated__/icons/SvgAlarmClockFilled';
 import { SvgAlarmClockOutlined } from '../__generated__/icons/SvgAlarmClockOutlined';
 import { SvgAlarmClockSounded } from '../__generated__/icons/SvgAlarmClockSounded';
 import { SvgAlertPhone } from '../__generated__/icons/SvgAlertPhone';
 import { SvgAlertRound } from '../__generated__/icons/SvgAlertRound';
-import { SvgAlertTriangle } from '../__generated__/icons/SvgAlertTriangle';
+import { SvgAllRecipes } from '../__generated__/icons/SvgAllRecipes';
 import { SvgAppleBrand } from '../__generated__/icons/SvgAppleBrand';
 import { SvgArrowContract } from '../__generated__/icons/SvgArrowContract';
 import { SvgArrowDownStraight } from '../__generated__/icons/SvgArrowDownStraight';
@@ -26,26 +27,32 @@ import { SvgBin } from '../__generated__/icons/SvgBin';
 import { SvgBookmarkCross } from '../__generated__/icons/SvgBookmarkCross';
 import { SvgBookmarkFilled } from '../__generated__/icons/SvgBookmarkFilled';
 import { SvgBookmarkOutlined } from '../__generated__/icons/SvgBookmarkOutlined';
+import { SvgBookmarkRoundFilled } from '../__generated__/icons/SvgBookmarkRoundFilled';
+import { SvgBookmarkRoundOutlined } from '../__generated__/icons/SvgBookmarkRoundOutlined';
 import { SvgBookOutlined } from '../__generated__/icons/SvgBookOutlined';
 import { SvgCalendar } from '../__generated__/icons/SvgCalendar';
 import { SvgCamera } from '../__generated__/icons/SvgCamera';
 import { SvgCameraRoundOutlined } from '../__generated__/icons/SvgCameraRoundOutlined';
 import { SvgCameraSmall } from '../__generated__/icons/SvgCameraSmall';
 import { SvgCheckmark } from '../__generated__/icons/SvgCheckmark';
+import { SvgChef } from '../__generated__/icons/SvgChef';
 import { SvgChevronDownDouble } from '../__generated__/icons/SvgChevronDownDouble';
 import { SvgChevronDownSingle } from '../__generated__/icons/SvgChevronDownSingle';
 import { SvgChevronDownSingleSmall } from '../__generated__/icons/SvgChevronDownSingleSmall';
 import { SvgChevronDownSingleXsmall } from '../__generated__/icons/SvgChevronDownSingleXsmall';
 import { SvgChevronLeftDouble } from '../__generated__/icons/SvgChevronLeftDouble';
 import { SvgChevronLeftSingle } from '../__generated__/icons/SvgChevronLeftSingle';
+import { SvgChevronLeftSingleSmall } from '../__generated__/icons/SvgChevronLeftSingleSmall';
 import { SvgChevronRightDouble } from '../__generated__/icons/SvgChevronRightDouble';
 import { SvgChevronRightSingle } from '../__generated__/icons/SvgChevronRightSingle';
+import { SvgChevronRightSingleSmall } from '../__generated__/icons/SvgChevronRightSingleSmall';
 import { SvgChevronUpAndDownSmall } from '../__generated__/icons/SvgChevronUpAndDownSmall';
 import { SvgChevronUpDouble } from '../__generated__/icons/SvgChevronUpDouble';
 import { SvgChevronUpSingle } from '../__generated__/icons/SvgChevronUpSingle';
 import { SvgChevronUpSingleSmall } from '../__generated__/icons/SvgChevronUpSingleSmall';
-import { SvgClock } from '../__generated__/icons/SvgClock';
 import { SvgClockBaselineSmall } from '../__generated__/icons/SvgClockBaselineSmall';
+import { SvgClockFilled } from '../__generated__/icons/SvgClockFilled';
+import { SvgClockOutlined } from '../__generated__/icons/SvgClockOutlined';
 import { SvgCreditCard } from '../__generated__/icons/SvgCreditCard';
 import { SvgCross } from '../__generated__/icons/SvgCross';
 import { SvgCrossedOutCloud } from '../__generated__/icons/SvgCrossedOutCloud';
@@ -53,8 +60,10 @@ import { SvgCrossRoundFilled } from '../__generated__/icons/SvgCrossRoundFilled'
 import { SvgCrossRoundOutlined } from '../__generated__/icons/SvgCrossRoundOutlined';
 import { SvgCrossSmall } from '../__generated__/icons/SvgCrossSmall';
 import { SvgCrosswords } from '../__generated__/icons/SvgCrosswords';
+import { SvgCuisines } from '../__generated__/icons/SvgCuisines';
+import { SvgDiets } from '../__generated__/icons/SvgDiets';
 import { SvgDirectDebit } from '../__generated__/icons/SvgDirectDebit';
-import { SvgDirectDebitWide } from '../__generated__/icons/SvgDirectDebitWide';
+import { SvgDiscover } from '../__generated__/icons/SvgDiscover';
 import { SvgDocument } from '../__generated__/icons/SvgDocument';
 import { SvgDownload } from '../__generated__/icons/SvgDownload';
 import { SvgDragHandle } from '../__generated__/icons/SvgDragHandle';
@@ -74,11 +83,17 @@ import { SvgFilterAndroidAppSmall } from '../__generated__/icons/SvgFilterAndroi
 import { SvgFilterIosApp } from '../__generated__/icons/SvgFilterIosApp';
 import { SvgFilterIosAppSmall } from '../__generated__/icons/SvgFilterIosAppSmall';
 import { SvgFilterOutlinedWeb } from '../__generated__/icons/SvgFilterOutlinedWeb';
+import { SvgFolder } from '../__generated__/icons/SvgFolder';
+import { SvgFolderFilled } from '../__generated__/icons/SvgFolderFilled';
 import { SvgGift } from '../__generated__/icons/SvgGift';
 import { SvgGlobe } from '../__generated__/icons/SvgGlobe';
 import { SvgGoogleBrand } from '../__generated__/icons/SvgGoogleBrand';
 import { SvgGps } from '../__generated__/icons/SvgGps';
 import { SvgHandPointed } from '../__generated__/icons/SvgHandPointed';
+import { SvgHeadphonesFilled } from '../__generated__/icons/SvgHeadphonesFilled';
+import { SvgHeadphonesOutlined } from '../__generated__/icons/SvgHeadphonesOutlined';
+import { SvgHeadphonesRoundFilled } from '../__generated__/icons/SvgHeadphonesRoundFilled';
+import { SvgHeadphonesRoundOutlined } from '../__generated__/icons/SvgHeadphonesRoundOutlined';
 import { SvgHomeHouseFilled } from '../__generated__/icons/SvgHomeHouseFilled';
 import { SvgHomeHouseOutlined } from '../__generated__/icons/SvgHomeHouseOutlined';
 import { SvgHomeSquareFilled } from '../__generated__/icons/SvgHomeSquareFilled';
@@ -93,11 +108,13 @@ import { SvgIngredient2 } from '../__generated__/icons/SvgIngredient2';
 import { SvgIngredient3 } from '../__generated__/icons/SvgIngredient3';
 import { SvgKnifeAndFork } from '../__generated__/icons/SvgKnifeAndFork';
 import { SvgLinkedIn } from '../__generated__/icons/SvgLinkedIn';
+import { SvgList } from '../__generated__/icons/SvgList';
 import { SvgLocationMarker } from '../__generated__/icons/SvgLocationMarker';
 import { SvgMagnifyingGlass } from '../__generated__/icons/SvgMagnifyingGlass';
 import { SvgMagnifyingGlassMinus } from '../__generated__/icons/SvgMagnifyingGlassMinus';
 import { SvgMagnifyingGlassPlus } from '../__generated__/icons/SvgMagnifyingGlassPlus';
 import { SvgMagnifyingGlassSadFace } from '../__generated__/icons/SvgMagnifyingGlassSadFace';
+import { SvgMealTypes } from '../__generated__/icons/SvgMealTypes';
 import { SvgMediaControlsBack } from '../__generated__/icons/SvgMediaControlsBack';
 import { SvgMediaControlsForward } from '../__generated__/icons/SvgMediaControlsForward';
 import { SvgMediaControlsPause } from '../__generated__/icons/SvgMediaControlsPause';
@@ -108,7 +125,9 @@ import { SvgMessage } from '../__generated__/icons/SvgMessage';
 import { SvgMessageRound } from '../__generated__/icons/SvgMessageRound';
 import { SvgMinus } from '../__generated__/icons/SvgMinus';
 import { SvgMoon } from '../__generated__/icons/SvgMoon';
-import { SvgNewsletter } from '../__generated__/icons/SvgNewsletter';
+import { SvgNewsletterFilled } from '../__generated__/icons/SvgNewsletterFilled';
+import { SvgNewsletterOutlined } from '../__generated__/icons/SvgNewsletterOutlined';
+import { SvgNewspaperArchive } from '../__generated__/icons/SvgNewspaperArchive';
 import { SvgNoteFilled } from '../__generated__/icons/SvgNoteFilled';
 import { SvgNoteOutlined } from '../__generated__/icons/SvgNoteOutlined';
 import { SvgNotificationsOff } from '../__generated__/icons/SvgNotificationsOff';
@@ -116,6 +135,8 @@ import { SvgNotificationsOffRound } from '../__generated__/icons/SvgNotification
 import { SvgNotificationsOn } from '../__generated__/icons/SvgNotificationsOn';
 import { SvgNotificationsOnRound } from '../__generated__/icons/SvgNotificationsOnRound';
 import { SvgPadlock } from '../__generated__/icons/SvgPadlock';
+import { SvgPadlockLocked } from '../__generated__/icons/SvgPadlockLocked';
+import { SvgPadlockUnlocked } from '../__generated__/icons/SvgPadlockUnlocked';
 import { SvgPartyOfThree } from '../__generated__/icons/SvgPartyOfThree';
 import { SvgPartyPopperFilled } from '../__generated__/icons/SvgPartyPopperFilled';
 import { SvgPartyPopperOutlined } from '../__generated__/icons/SvgPartyPopperOutlined';
@@ -137,8 +158,13 @@ import { SvgSettings } from '../__generated__/icons/SvgSettings';
 import { SvgShareApp } from '../__generated__/icons/SvgShareApp';
 import { SvgShareAppSmall } from '../__generated__/icons/SvgShareAppSmall';
 import { SvgShareCallout } from '../__generated__/icons/SvgShareCallout';
+import { SvgShareRoundFilled } from '../__generated__/icons/SvgShareRoundFilled';
+import { SvgShareRoundOutline } from '../__generated__/icons/SvgShareRoundOutline';
 import { SvgShareWeb } from '../__generated__/icons/SvgShareWeb';
+import { SvgShoppingBasket } from '../__generated__/icons/SvgShoppingBasket';
+import { SvgShoppingList } from '../__generated__/icons/SvgShoppingList';
 import { SvgSignalBrand } from '../__generated__/icons/SvgSignalBrand';
+import { SvgSort } from '../__generated__/icons/SvgSort';
 import { SvgSpeechBubble } from '../__generated__/icons/SvgSpeechBubble';
 import { SvgSpeechBubbleCross } from '../__generated__/icons/SvgSpeechBubbleCross';
 import { SvgSpeechBubblePlus } from '../__generated__/icons/SvgSpeechBubblePlus';
@@ -147,9 +173,12 @@ import { SvgStarOutline } from '../__generated__/icons/SvgStarOutline';
 import { SvgTelegramBrand } from '../__generated__/icons/SvgTelegramBrand';
 import { SvgTextLarge } from '../__generated__/icons/SvgTextLarge';
 import { SvgTextSize } from '../__generated__/icons/SvgTextSize';
+import { SvgTextSizeRoundFilled } from '../__generated__/icons/SvgTextSizeRoundFilled';
+import { SvgTextSizeRoundOutline } from '../__generated__/icons/SvgTextSizeRoundOutline';
 import { SvgTextSmall } from '../__generated__/icons/SvgTextSmall';
 import { SvgTickRound } from '../__generated__/icons/SvgTickRound';
 import { SvgTimer } from '../__generated__/icons/SvgTimer';
+import { SvgTransparentArrowLeftStraightRound } from '../__generated__/icons/SvgTransparentArrowLeftStraightRound';
 import { SvgTwitter } from '../__generated__/icons/SvgTwitter';
 import { SvgUpload } from '../__generated__/icons/SvgUpload';
 import { SvgVideo } from '../__generated__/icons/SvgVideo';
@@ -158,12 +187,13 @@ import { SvgWhatsAppBrand } from '../__generated__/icons/SvgWhatsAppBrand';
 import type { ThemeIcon } from './theme';
 
 const uiIcons = [
+	SvgAddToBasket,
 	SvgAlarmClockFilled,
 	SvgAlarmClockOutlined,
 	SvgAlarmClockSounded,
 	SvgAlertPhone,
 	SvgAlertRound,
-	SvgAlertTriangle,
+	SvgAllRecipes,
 	SvgAppleBrand,
 	SvgArrowContract,
 	SvgArrowDownStraight,
@@ -184,24 +214,30 @@ const uiIcons = [
 	SvgBookmarkCross,
 	SvgBookmarkFilled,
 	SvgBookmarkOutlined,
+	SvgBookmarkRoundFilled,
+	SvgBookmarkRoundOutlined,
 	SvgCalendar,
 	SvgCamera,
 	SvgCameraRoundOutlined,
 	SvgCameraSmall,
 	SvgCheckmark,
+	SvgChef,
 	SvgChevronDownDouble,
 	SvgChevronDownSingle,
 	SvgChevronDownSingleSmall,
 	SvgChevronDownSingleXsmall,
 	SvgChevronLeftDouble,
 	SvgChevronLeftSingle,
+	SvgChevronLeftSingleSmall,
 	SvgChevronRightDouble,
 	SvgChevronRightSingle,
+	SvgChevronRightSingleSmall,
 	SvgChevronUpAndDownSmall,
 	SvgChevronUpDouble,
 	SvgChevronUpSingle,
 	SvgChevronUpSingleSmall,
-	SvgClock,
+	SvgClockFilled,
+	SvgClockOutlined,
 	SvgClockBaselineSmall,
 	SvgCross,
 	SvgCrossRoundFilled,
@@ -209,6 +245,9 @@ const uiIcons = [
 	SvgCrossSmall,
 	SvgCrossedOutCloud,
 	SvgCrosswords,
+	SvgCuisines,
+	SvgDiets,
+	SvgDiscover,
 	SvgDocument,
 	SvgDownload,
 	SvgDragHandle,
@@ -228,11 +267,17 @@ const uiIcons = [
 	SvgFilterIosApp,
 	SvgFilterIosAppSmall,
 	SvgFilterOutlinedWeb,
+	SvgFolder,
+	SvgFolderFilled,
 	SvgGift,
 	SvgGlobe,
 	SvgGoogleBrand,
 	SvgGps,
 	SvgHandPointed,
+	SvgHeadphonesFilled,
+	SvgHeadphonesOutlined,
+	SvgHeadphonesRoundFilled,
+	SvgHeadphonesRoundOutlined,
 	SvgHomeHouseFilled,
 	SvgHomeHouseOutlined,
 	SvgHomeSquareFilled,
@@ -247,11 +292,13 @@ const uiIcons = [
 	SvgIngredient3,
 	SvgKnifeAndFork,
 	SvgLinkedIn,
+	SvgList,
 	SvgLocationMarker,
 	SvgMagnifyingGlass,
 	SvgMagnifyingGlassMinus,
 	SvgMagnifyingGlassPlus,
 	SvgMagnifyingGlassSadFace,
+	SvgMealTypes,
 	SvgMediaControlsBack,
 	SvgMediaControlsForward,
 	SvgMediaControlsPause,
@@ -262,7 +309,9 @@ const uiIcons = [
 	SvgMessageRound,
 	SvgMinus,
 	SvgMoon,
-	SvgNewsletter,
+	SvgNewsletterFilled,
+	SvgNewsletterOutlined,
+	SvgNewspaperArchive,
 	SvgNoteFilled,
 	SvgNoteOutlined,
 	SvgNotificationsOff,
@@ -270,6 +319,8 @@ const uiIcons = [
 	SvgNotificationsOn,
 	SvgNotificationsOnRound,
 	SvgPadlock,
+	SvgPadlockLocked,
+	SvgPadlockUnlocked,
 	SvgPartyOfThree,
 	SvgPartyPopperFilled,
 	SvgPartyPopperOutlined,
@@ -290,8 +341,13 @@ const uiIcons = [
 	SvgShareApp,
 	SvgShareAppSmall,
 	SvgShareCallout,
+	SvgShareRoundFilled,
+	SvgShareRoundOutline,
 	SvgShareWeb,
+	SvgShoppingBasket,
+	SvgShoppingList,
 	SvgSignalBrand,
+	SvgSort,
 	SvgSpeechBubble,
 	SvgSpeechBubbleCross,
 	SvgSpeechBubblePlus,
@@ -300,9 +356,12 @@ const uiIcons = [
 	SvgTelegramBrand,
 	SvgTextLarge,
 	SvgTextSize,
+	SvgTextSizeRoundFilled,
+	SvgTextSizeRoundOutline,
 	SvgTextSmall,
 	SvgTickRound,
 	SvgTimer,
+	SvgTransparentArrowLeftStraightRound,
 	SvgTwitter,
 	SvgUpload,
 	SvgVideo,
@@ -311,8 +370,6 @@ const uiIcons = [
 ];
 
 const paymentIcons = [SvgCreditCard, SvgDirectDebit, SvgPayPalBrand];
-
-const widePaymentIcons = [SvgDirectDebitWide];
 
 const IconLibrary = (args: {
 	size: IconSize;
@@ -407,13 +464,6 @@ export const PaymentIconsDefaultTheme: Story = {
 	args: {
 		...MediumIconsDefaultTheme.args,
 		icons: paymentIcons,
-	},
-};
-
-export const WidePaymentIconsDefaultTheme: Story = {
-	args: {
-		...MediumIconsDefaultTheme.args,
-		icons: widePaymentIcons,
 	},
 };
 
