@@ -1,9 +1,6 @@
 import type { CountryCode } from '../index.test';
 import { isGuardianDomain } from './lib/domain';
-import {
-	consentOrPayCountries,
-	SourcePointChoiceTypes,
-} from './lib/sourcepointConfig';
+import { consentOrPayCountries } from './lib/sourcepointConfig';
 
 let _isConsentOrPay = false;
 
