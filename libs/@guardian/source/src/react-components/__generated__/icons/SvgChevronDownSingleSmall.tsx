@@ -14,7 +14,7 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
-			d="m18.03 9.08-6.015 4.925-5.985-4.92-.885.88 6.54 6.54h.685l6.545-6.54z"
+			d="m18.1 9.08-6.115 5.007L5.9 9.085 5 9.98l6.65 6.649h.696L19 9.979z"
 			fill={theme?.fill}
 		/>
 	</svg>
