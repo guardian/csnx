@@ -7,6 +7,7 @@ import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useProgress } from '../context/Progress';
+import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
 import { Clue } from './Clue';
 
@@ -25,11 +26,12 @@ type Props = {
 
 const Label = memo(({ direction }: { direction: Direction }) => {
 	const { getId } = useData();
+	const { textColor } = useTheme();
 
 	return (
 		<label
 			css={css`
-				color: currentColor;
+				color: ${textColor};
 			`}
 			id={getId(`${direction}-label`)}
 			htmlFor={getId(`${direction}-hints`)}

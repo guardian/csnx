@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/libs",
-	"version": "22.0.0",
+	"version": "22.0.1",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
@@ -29,7 +29,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@playwright/test": "1.50.1",
+		"@playwright/test": "1.51.0",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
 		"eslint": "9.19.0",
@@ -37,7 +37,7 @@
 		"jest-environment-jsdom": "29.7.0",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
-		"rollup": "4.34.8",
+		"rollup": "4.36.0",
 		"ts-jest": "29.2.3",
 		"tslib": "2.6.2",
 		"tsx": "4.19.0",

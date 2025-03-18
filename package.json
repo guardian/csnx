@@ -15,7 +15,7 @@
 		"@manypkg/get-packages": "2.2.0",
 		"@types/node": "22.10.0",
 		"husky": "9.1.4",
-		"lint-staged": "15.4.3",
+		"lint-staged": "15.5.0",
 		"prettier": "3.3.3",
 		"sort-package-json": "2.14.0",
 		"syncpack": "13.0.0",

@@ -2,7 +2,7 @@
 
 A standalone React component for rendering crosswords.
 
-<img src="assets/example-grid.png" />
+![Example crossword grid](https://raw.githubusercontent.com/guardian/csnx/refs/heads/main/libs/@guardian/react-crossword/assets/example-grid.png)
 
 ## Features
 
@@ -160,14 +160,16 @@ The following keys from the crossword theme can be passed to the `Crossword` com
 | --------------------------------- | ------------------------------------------------------------------------- |
 | `gridBackgroundColor`             | background colour of 'black' squares/dividers etc on the grid             |
 | `gridForegroundColor`             | background colour of 'white' squares on the grid                          |
+| `gridTextColor`                   | colour of text in the grid (clue numbers and entered letters)             |
 | `gridPrintBackgroundColor`        | background colour of 'black' squares on grid when printed                 |
 | `gridGutterSize`                  | size of the gap between grid cells                                        |
 | `gridCellSize`                    | length of one side of a cell on on the grid                               |
 | `gridCellStrikeThrough`           | colour of the strike through on an incorrect cell                         |
 | `textColor`                       | main text colour (grid text, clues etc.)                                  |
 | `focusColor`                      | colour of the currently selected cell border                              |
-| `selectedColor`                   | colour of cells / clues that are currently selected                       |
-| `connectedColor`                  | colour of cells / clues that are connected to the currently selected clue |
+| `selectedTextColor`               | colour of currently selected clue                                         |
+| `selectedBackgroundColor`         | colour of cells / clues that are currently selected                       |
+| `connectedBackgroundColor`        | colour of cells / clues that are connected to the currently selected clue |
 | `buttonBackgroundColor`           | background colour of clue-helper buttons                                  |
 | `buttonBackgroundHoverColor`      | hover colour of clue-helper buttons                                       |
 | `borderColor`                     | border colour used to visually separate parts of the UI                   |
@@ -176,7 +178,7 @@ The following keys from the crossword theme can be passed to the `Crossword` com
 | `clueMaxWidth`                    | maximum width of a clue                                                   |
 | `anagramHelperBackgroundColor`    | background colour of the anagram helper                                   |
 | `anagramHelperCandidateTextColor` | text colour of shuffled letter that are not yet on the grid               |
-| `focusedClueBackgroundColour`     | background colour for the focused clue                                    |
+| `focusedClueBackgroundColor`      | background colour for the focused clue                                    |
 
 ## Architecture
 
