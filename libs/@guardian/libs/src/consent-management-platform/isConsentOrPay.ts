@@ -24,18 +24,3 @@ export const getSupportSignUpPage = (): string => {
 		? `https://support.theguardian.com/guardian-ad-lite?returnAddress=${encodeURIComponent(window.location.href)}`
 		: `https://support.code.dev-theguardian.com/guardian-ad-lite?returnAddress=${encodeURIComponent(window.location.href)}`;
 };
-
-export const redirectToSupportSignUpPage = (
-	choiceTypeId: number,
-	messageType: string,
-	shouldUseNonAdvertisedList: boolean,
-) => {
-	if (
-		choiceTypeId === SourcePointChoiceTypes.RejectAll &&
-		messageType === 'gdpr' &&
-		getIsConsentOrPay() &&
-		!shouldUseNonAdvertisedList
-	) {
-		window.location.href = getSupportSignUpPage();
-	}
-};
