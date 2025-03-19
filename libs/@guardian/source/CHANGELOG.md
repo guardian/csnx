@@ -1,5 +1,59 @@
 # @guardian/source
 
+## 9.0.0
+
+### Major Changes
+
+- 29e58ba: Adds new icons to source and both renames and removes some existing icons. This is a major bump and consumers using removed icons will need to update their UI.
+- The following icons have been **added** to source:
+
+```
+'add-to-basket': 'Add to basket',
+'all-recipes': 'All recipes',
+'bookmark-round-filled': 'Bookmarked',
+'bookmark-round-outlined': 'Bookmark',
+chef: 'Chef',
+'chevron-left-single-small': 'Chevron left',
+'chevron-right-single-small': 'Chevron right',
+'clock-filled': 'Clock',
+'clock-outlined': 'Clock',
+cuisines: 'Cuisines',
+diets: 'Diets',
+discover: 'Discover',
+'folder-filled': 'Folder',
+folder: 'Folder',
+'headphones-filled': 'Listening',
+'headphones-outlined': 'Listen',
+'headphones-round-filled': 'Listening',
+'headphones-round-outlined': 'Listen',
+list: 'list',
+'meal-types': 'Meal types',
+'newspaper-archive': 'Newspaper archive',
+'newsletter-outlined': 'Newsletter',
+'padlock-locked': 'Padlock locked',
+'padlock-unlocked': 'Padlock unlocked',
+'share-round-filled': 'Share',
+'share-round-outline': 'Share',
+'shopping-list': 'Shopping list',
+'shopping-basket': 'Shopping basket',
+sort: 'Sort',
+'text-size-round-filled': 'Text size active',
+'text-size-round-outline': 'Text size',
+'transparent-arrow-left-straight-round': 'Go back',
+'white-arrow-left-straight-round': 'Go back',
+```
+
+- The following icons have been **updated** in source:
+
+  `newsletter` has become `newsletter-filled`
+
+- The following icons have been **removed** in source:
+
+```
+SvgAlertTriangle
+SvgDirectDebitWide
+```
+
 ## 8.0.2
 
 ### Patch Changes
