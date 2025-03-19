@@ -54,7 +54,7 @@ export const getCellsWithProgressForEntry = ({
 		if (cell) {
 			cellsWithProgress.push({
 				...cell,
-				progress: progress.at(x)?.[y] ?? '',
+				progress: progress[x]?.[y] ?? '',
 				separator: getSeparatorFromEntry(entry, i),
 			});
 		}
