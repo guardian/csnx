@@ -1,5 +1,13 @@
 # @guardian/react-crossword
 
+## 5.0.0
+
+### Patch Changes
+
+- d9fe8b2: remove usage of Array.at() - it is not supported in older browser versions.
+- Updated dependencies [29e58ba]
+  - @guardian/source@9.0.0
+
 ## 4.1.0
 
 ### Minor Changes
