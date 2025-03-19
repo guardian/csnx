@@ -2,7 +2,7 @@
 
 ## 5.0.0
 
-### Patch Changes
+### Major Changes
 
 - d9fe8b2: remove usage of Array.at() - it is not supported in older browser versions.
 - Updated dependencies [29e58ba]

@@ -2,7 +2,7 @@
 
 ## 17.0.0
 
-### Patch Changes
+### Major Changes
 
 - Updated dependencies [29e58ba]
   - @guardian/source@9.0.0
