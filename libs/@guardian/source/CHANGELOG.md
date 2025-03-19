@@ -6,6 +6,7 @@
 
 - 29e58ba: Adds new icons to source and both renames and removes some existing icons. This is a major bump and consumers using removed icons will need to update their UI.
 - The following icons have been **added** to source:
+
 ```
 'add-to-basket': 'Add to basket',
 'all-recipes': 'All recipes',
@@ -44,13 +45,15 @@ sort: 'Sort',
 
 - The following icons have been **updated** in source:
 
-	`newsletter` has become `newsletter-filled`
+  `newsletter` has become `newsletter-filled`
 
 - The following icons have been **removed** in source:
- ```
+
+```
 SvgAlertTriangle
 SvgDirectDebitWide
 ```
+
 ## 8.0.2
 
 ### Patch Changes
