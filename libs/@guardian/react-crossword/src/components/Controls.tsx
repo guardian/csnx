@@ -228,6 +228,7 @@ const CheckGrid = memo((props: ButtonProps) => {
 		<CrosswordButton
 			onClick={check}
 			data-link-name="Check all"
+			requireConfirmation={true}
 			{...props}
 			aria-label="Check and remove all incorrect letters"
 		>
