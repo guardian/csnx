@@ -93,8 +93,8 @@ export type Theme = {
 
 	/** Background colour of the anagram helper */
 	anagramHelperBackgroundColor: string;
-	/** Text colour of shuffled letter that are not yet on the grid */
-	anagramHelperCandidateTextColor: string;
+	/** Background colour of shuffled letters that are on the grid */
+	anagramHelperProgressBackgroundColor: string;
 
 	/** Background colour for the focused clue */
 	focusedClueBackgroundColor: string;
