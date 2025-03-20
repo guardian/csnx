@@ -63,6 +63,13 @@ export const AnagramHelper = () => {
 		reset();
 	}, [reset]);
 
+	useEffect(() => {
+		if (showAnagramHelper) {
+			// TODO: Source doesn't support ref forwarding
+			document.getElementById('anagram-helper-input')?.focus();
+		}
+	}, [showAnagramHelper]);
+
 	if (!showAnagramHelper) {
 		return null;
 	}
@@ -131,6 +138,7 @@ export const AnagramHelper = () => {
 								value={letters}
 								maxLength={cellsWithProgress.length}
 								autoFocus={true}
+								id="anagram-helper-input"
 							/>
 						</div>
 						<CrosswordButton
