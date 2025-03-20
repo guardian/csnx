@@ -91,7 +91,7 @@ const ClueComponent = ({
 						? theme.connectedBackgroundColor
 						: 'transparent'};
 				cursor: ${isConnected ? 'default' : 'pointer'};
-				opacity: ${isComplete ? 0.5 : 1};
+				opacity: ${isComplete ? 0.7 : 1};
 
 				padding: 0.5em 0;
 				color: ${isSelected ? theme.selectedTextColor : theme.textColor};
