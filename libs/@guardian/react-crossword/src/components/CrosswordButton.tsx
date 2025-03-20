@@ -35,7 +35,7 @@ const ButtonComponent = ({
 	};
 
 	return (
-		<SourceButton onClick={handleClick} size="xsmall" {...props}>
+		<SourceButton onClick={handleClick} size="small" {...props}>
 			{isConfirming && 'Confirm '}
 			{children}
 		</SourceButton>
