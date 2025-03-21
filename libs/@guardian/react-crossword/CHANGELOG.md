@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 6.0.0
+
+### Major Changes
+
+- 3125a18: improve accessibility of crossword
+
 ## 5.0.0
 
 ### Major Changes
