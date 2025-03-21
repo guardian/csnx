@@ -26,7 +26,7 @@ export const defaultTheme: Theme = {
 	clueMaxWidth: 480,
 
 	anagramHelperBackgroundColor: palette.neutral[97],
-	anagramHelperCandidateTextColor: palette.neutral[60],
+	anagramHelperProgressBackgroundColor: palette.neutral[86],
 
 	focusedClueBackgroundColor: palette.neutral[100],
 };

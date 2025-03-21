@@ -1,7 +1,7 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
-import { textSans12 } from '@guardian/source/foundations';
+import { textSans14 } from '@guardian/source/foundations';
 import { memo } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -22,8 +22,8 @@ export const FocusedClueComponent = ({ additionalCss }: StickyClueProps) => {
 	const stickyClue = css`
 		top: 0;
 		display: flex;
-		min-height: 2.75em;
-		${textSans12};
+		min-height: 2em;
+		${textSans14};
 		background: ${theme.focusedClueBackgroundColor};
 		@media print {
 			display: none;

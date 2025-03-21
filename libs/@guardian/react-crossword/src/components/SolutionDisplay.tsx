@@ -57,7 +57,9 @@ export const SolutionDisplayCell = ({
 			css={css`
 				${textSans12};
 				font-size: ${theme.gridCellSize * 0.6}px;
-				background-color: ${theme.gridForegroundColor};
+				background-color: ${cellWithProgress.progress
+					? theme.anagramHelperProgressBackgroundColor
+					: theme.gridForegroundColor};
 				border: 1px solid ${theme.gridBackgroundColor};
 				border-right: ${cellWithProgress.separator === ','
 					? `3px solid ${theme.gridBackgroundColor}`
@@ -67,9 +69,7 @@ export const SolutionDisplayCell = ({
 				text-align: center;
 				align-content: center;
 				position: relative;
-				color: ${cellWithProgress.progress
-					? theme.textColor
-					: theme.anagramHelperCandidateTextColor};
+				color: ${theme.textColor};
 			`}
 		>
 			{cellWithProgress.separator === '-' && (
