@@ -237,6 +237,37 @@ const CheckGrid = memo((props: ButtonProps) => {
 	);
 });
 
+const RemoveMistakesGrid = memo((props: ButtonProps) => {
+	const { setInvalidCellAnswers, invalidCellAnswers } = useValidAnswers();
+	const { updateCell } = useUpdateCell();
+	const { cells } = useData();
+
+	const removeMistakes = () => {
+		invalidCellAnswers.forEach((invalidCell) => {
+			const cell = cells.get(invalidCell);
+			if (cell) {
+				updateCell({ x: cell.x, y: cell.y, value: '' });
+			}
+			setInvalidCellAnswers(new Set());
+		});
+	};
+
+	return (
+		<CrosswordButton
+			onClick={removeMistakes}
+			data-link-name="Remove mistakes"
+			cssOverrides={css`
+				:disabled {
+					cursor: not-allowed;
+					opacity: 0.25;
+				}
+			`}
+			{...props}
+		>
+			Remove Mistakes
+		</CrosswordButton>
+	);
+});
 const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
 	const { updateProgress } = useProgress();
@@ -289,6 +320,7 @@ const controlsGroupStyle = css`
 
 export const Controls = memo(() => {
 	const { solutionAvailable } = useData();
+	const { invalidCellAnswers } = useValidAnswers();
 	const { currentEntryId } = useCurrentClue();
 
 	// Controls is a div[role=menu], split into two div[role=group]s containing
@@ -298,6 +330,7 @@ export const Controls = memo(() => {
 
 	// If there is no current clue, we disable the clue controls.
 	const disableClueControls = isUndefined(currentEntryId);
+	const disableRemoveControls = invalidCellAnswers.size <= 0;
 
 	// At any one time, one [role=menuitem] of [role=menu] has a tabindex of 0,
 	// and the rest have a tabindex of -1. This means when you tab to the
@@ -332,7 +365,7 @@ export const Controls = memo(() => {
 	// We need to know how many controls are currently visible in each group so we
 	// can manage the focused index.
 	const cluesControlsVisible = solutionAvailable ? 4 : 2;
-	const gridControlsVisible = solutionAvailable ? 3 : 1;
+	const gridControlsVisible = solutionAvailable ? 4 : 2;
 
 	const getTabIndex = (group: 'clues' | 'grid', index: number) => {
 		const focusedControlIndex =
@@ -421,6 +454,23 @@ export const Controls = memo(() => {
 		focusedGridControlIndex,
 	]);
 
+	// If there are no letters to remove change the tab index to not be the disabled remove mistakes button
+	useEffect(() => {
+		if (disableRemoveControls && focusedGroup === 'grid') {
+			if (focusedGridControlIndex === 3 && solutionAvailable) {
+				setFocusedGridControlIndex(2);
+			}
+			if (focusedGridControlIndex === 1 && !solutionAvailable) {
+				setFocusedGridControlIndex(0);
+			}
+		}
+	}, [
+		disableRemoveControls,
+		focusedGridControlIndex,
+		focusedGroup,
+		solutionAvailable,
+	]);
+
 	useEffect(() => {
 		const controls = controlsRef.current;
 
@@ -483,6 +533,11 @@ export const Controls = memo(() => {
 				<ClearGrid
 					tabIndex={getTabIndex('grid', solutionAvailable ? 2 : 0)}
 					role="menuItem"
+				/>
+				<RemoveMistakesGrid
+					tabIndex={getTabIndex('grid', solutionAvailable ? 3 : 1)}
+					role="menuItem"
+					disabled={invalidCellAnswers.size <= 0}
 				/>
 			</div>
 		</div>
