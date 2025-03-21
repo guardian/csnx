@@ -15,8 +15,8 @@ const meta: Meta<typeof Crossword> = {
 	},
 	decorators: [
 		(Story) => {
-			localStorage.removeItem(data.id);
-			localStorage.removeItem(quickData.id);
+			localStorage.removeItem(`crosswords.${data.id}`);
+			localStorage.removeItem(`crosswords.${quickData.id}`);
 
 			return <Story />;
 		},
