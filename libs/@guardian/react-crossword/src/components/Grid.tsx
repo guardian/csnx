@@ -393,29 +393,33 @@ export const Grid = () => {
 		[],
 	);
 
-	// Handle changes to the current cell
+	// Handle changes to the current cell when moving in the grid (with arrow keys) or clicking on cells
 	useEffect(() => {
-		// If the current cell changes, we need to update the current entry ID
-		setCurrentEntryId(
-			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
-		);
-	}, [currentCell, focused, setCurrentEntryId]);
-
-	// keep workingDirectionRef.current up to date with the current entry
-	useEffect(() => {
-		if (currentEntryId) {
-			workingDirectionRef.current =
-				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
+		// If the current cell changes + we are focused on the grid, we need to update the current entry ID
+		if (gridRef.current?.contains(document.activeElement)) {
+			const newEntryId = getCurrentEntryForCell(
+				currentCell,
+				workingDirectionRef.current,
+			);
+			setCurrentEntryId(newEntryId);
 		}
-	}, [currentEntryId, entries]);
+	}, [currentCell, setCurrentEntryId]);
 
-	// focus the first cell if the current entry changes
+	// Clicking on a clue
+	// Focus the first cell if the current entry changes and set the appropriate working direction.
 	useEffect(() => {
 		if (!gridRef.current?.contains(document.activeElement) && currentEntryId) {
 			const entry = entries.get(currentEntryId);
+			const entryDirection = entry?.direction;
 			const cell = entry ? cells.getByCoords(entry.position) : undefined;
 			if (cell) {
 				updateCellFocus(cell);
+			}
+			if (
+				!isUndefined(entryDirection) &&
+				entryDirection !== workingDirectionRef.current
+			) {
+				workingDirectionRef.current = entryDirection;
 			}
 		}
 	}, [cells, currentEntryId, entries, updateCellFocus]);
