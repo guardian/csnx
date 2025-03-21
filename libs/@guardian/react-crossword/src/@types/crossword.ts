@@ -32,6 +32,9 @@ export type CrosswordEntry = Entry<number> & {
 	direction: Direction;
 	clue: string;
 	solution?: string;
+	position: Coords;
+	nextEntryId?: EntryID;
+	previousEntryId?: EntryID;
 };
 
 export type Crossword = {

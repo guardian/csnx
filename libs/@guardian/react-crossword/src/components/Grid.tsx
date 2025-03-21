@@ -5,6 +5,7 @@ import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
 	Coords,
+	CrosswordEntry,
 	Separator,
 	Theme,
 } from '../@types/crossword';
@@ -258,6 +259,31 @@ export const Grid = () => {
 	 */
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
+			if (currentEntryId) {
+				const currentEntry: CrosswordEntry = entries.get(currentEntryId);
+				const nextEntryId = currentEntry.nextEntryId;
+				if (event.key === '.' && nextEntryId) {
+					const nextEntry = entries.get(nextEntryId);
+					const nextEntryFirstCell = cells.getByCoords(nextEntry.position);
+					if (nextEntryFirstCell) {
+						updateWorkingDirection({
+							direction: nextEntry?.direction ?? workingDirectionRef.current,
+						});
+						updateCellFocus(nextEntryFirstCell);
+					}
+				}
+				if (event.key === ',' && currentEntry.previousEntryId) {
+					const nextEntry = entries.get(currentEntry.previousEntryId);
+					const nextEntryFirstCell = cells.getByCoords(nextEntry.position);
+					if (nextEntryFirstCell) {
+						updateWorkingDirection({
+							direction: nextEntry?.direction ?? workingDirectionRef.current,
+						});
+						updateCellFocus(nextEntryFirstCell);
+					}
+				}
+			}
+
 			if (event.key === 'Backspace' || event.key === 'Delete') {
 				if ('value' in event.target && isString(event.target.value)) {
 					event.preventDefault();
@@ -270,7 +296,7 @@ export const Grid = () => {
 				}
 			}
 		},
-		[deleteLetter, typeLetter],
+		[cells, currentEntryId, deleteLetter, entries, typeLetter, updateCellFocus],
 	);
 
 	/**
