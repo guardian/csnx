@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 6.0.1
+
+### Patch Changes
+
+- 86eeb73: fix for navigation in small crosswords, when moving down or across the working direction now changes to the direction you move in
+
 ## 6.0.0
 
 ### Major Changes
