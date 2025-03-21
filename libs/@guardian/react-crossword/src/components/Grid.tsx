@@ -305,21 +305,30 @@ export const Grid = () => {
 		[deleteLetter, typeLetter],
 	);
 
+	const updateWorkingDirection = ({ direction }: { direction: Direction }) => {
+		if (workingDirectionRef.current !== direction) {
+			workingDirectionRef.current = direction;
+		}
+	};
 	const navigateGrid = useCallback(
 		(event: KeyboardEvent): void => {
 			let preventDefault = true;
 
 			switch (event.key) {
 				case 'ArrowUp':
+					updateWorkingDirection({ direction: 'down' });
 					moveCurrentCell({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
 					moveCurrentCell({ delta: { x: 0, y: 1 } });
+					updateWorkingDirection({ direction: 'down' });
 					break;
 				case 'ArrowLeft':
+					updateWorkingDirection({ direction: 'across' });
 					moveCurrentCell({ delta: { x: -1, y: 0 } });
 					break;
 				case 'ArrowRight':
+					updateWorkingDirection({ direction: 'across' });
 					moveCurrentCell({ delta: { x: 1, y: 0 } });
 					break;
 				default:
