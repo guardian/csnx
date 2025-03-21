@@ -135,7 +135,7 @@ const CheckClue = memo((props: ButtonProps) => {
 			aria-live="off"
 			onClick={check}
 			data-link-name="Check this"
-			aria-label={`Remove incorrect letters from ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
+			aria-label={`Check and remove incorrect letters from ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			{...props}
 		>
 			Check Word
@@ -228,8 +228,9 @@ const CheckGrid = memo((props: ButtonProps) => {
 		<CrosswordButton
 			onClick={check}
 			data-link-name="Check all"
+			requireConfirmation={true}
 			{...props}
-			aria-label="Check and Remove all incorrect letters"
+			aria-label="Check and remove all incorrect letters"
 		>
 			Check All
 		</CrosswordButton>
