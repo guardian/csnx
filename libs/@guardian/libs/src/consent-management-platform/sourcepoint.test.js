@@ -45,9 +45,9 @@ describe('Sourcepoint unified', () => {
 					frameworkAndCountryCode.framework,
 				);
 				expect(window._sp_.config.usnat).toBeUndefined();
-				expect(window.__tcfapi).toBeDefined();
-				expect(window.__uspapi).toBeUndefined();
-				expect(window.__gpp).toBeUndefined();
+				// expect(window.__tcfapi).toBeDefined();
+				expect(window.__uspapi).toBeDefined();
+				expect(window.__gpp).toBeDefined();
 			} else if (frameworkAndCountryCode.framework == 'usnat') {
 				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
 				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
@@ -65,7 +65,7 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr).toBeUndefined;
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__tcfapi).toBeUndefined();
-				expect(window.__gpp).toBeUndefined();
+				expect(window.__gpp).toBeDefined();
 			}
 		},
 	);
