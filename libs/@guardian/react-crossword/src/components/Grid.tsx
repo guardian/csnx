@@ -262,13 +262,17 @@ export const Grid = () => {
 			if (currentEntryId) {
 				const currentEntry: CrosswordEntry = entries.get(currentEntryId);
 				const nextEntryId = currentEntry.nextEntryId;
-				if (event.key === '.' && nextEntryId) {
-					const nextEntry = entries.get(nextEntryId);
-					const nextEntryFirstCell = cells.getByCoords(nextEntry.position);
+				if (event.key === '.') {
+					const nextEntry = nextEntryId ? entries.get(nextEntryId) : undefined;
+					const nextEntryFirstCell = nextEntry?.position
+						? cells.getByCoords(nextEntry.position)
+						: undefined;
 					if (nextEntryFirstCell) {
-						updateWorkingDirection({
-							direction: nextEntry?.direction ?? workingDirectionRef.current,
-						});
+						if (!isUndefined(nextEntry?.direction)) {
+							updateWorkingDirection({
+								direction: nextEntry.direction,
+							});
+						}
 						updateCellFocus(nextEntryFirstCell);
 					}
 				}
@@ -276,9 +280,11 @@ export const Grid = () => {
 					const nextEntry = entries.get(currentEntry.previousEntryId);
 					const nextEntryFirstCell = cells.getByCoords(nextEntry.position);
 					if (nextEntryFirstCell) {
-						updateWorkingDirection({
-							direction: nextEntry?.direction ?? workingDirectionRef.current,
-						});
+						if (!isUndefined(nextEntry?.direction)) {
+							updateWorkingDirection({
+								direction: nextEntry.direction,
+							});
+						}
 						updateCellFocus(nextEntryFirstCell);
 					}
 				}
