@@ -11,6 +11,7 @@ import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
 	sendConsentChoicesToOphan,
+	sendJurisdictionMismatchToOphan,
 	sendMessageReadyToOphan,
 } from './lib/ophan';
 import type { Property } from './lib/property';
@@ -26,7 +27,7 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
-import { stub } from './stub';
+import { loadAllStubs } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -104,7 +105,7 @@ export const init = (
 	useNonAdvertisedList: boolean,
 	pubData = {},
 ): void => {
-	stub(framework);
+	loadAllStubs();
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
@@ -173,7 +174,12 @@ export const init = (
 				onConsentReady: (message_type, consentUUID, euconsent) => {
 					log('cmp', `onConsentReady ${message_type}`);
 					if (message_type != frameworkMessageType) {
-						return;
+						sendJurisdictionMismatchToOphan(
+							JSON.stringify({
+								sp: message_type,
+								gu: frameworkMessageType,
+							}),
+						);
 					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
@@ -186,9 +192,6 @@ export const init = (
 				},
 				onMessageReady: (message_type) => {
 					log('cmp', `onMessageReady ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
@@ -198,9 +201,6 @@ export const init = (
 					// Event fires when a message is displayed to the user and sends data about the message and campaign to the callback.
 					// The data sent to the callback is in the following structure:
 					log('cmp', `onMessageReceiveData ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					// The messageId is 0 when no message is displayed
 					if (data.messageId !== 0) {
@@ -216,10 +216,6 @@ export const init = (
 
 				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
 					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
-
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
@@ -249,35 +245,21 @@ export const init = (
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
 					log('cmp', `onPrivacyManagerAction message_type: ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
-
 					log('cmp', `onPrivacyManagerAction ${pmData}`);
 				},
 				onMessageChoiceError: function (message_type, err) {
 					log('cmp', `onMessageChoiceError ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 
 					log('cmp', `onMessageChoiceError ${err}`);
 				},
 				onPMCancel: function (message_type) {
 					log('cmp', `onPMCancel ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
 				},
 				onSPPMObjectReady: function () {
 					log('cmp', 'onSPPMObjectReady');
 				},
 				onError: function (message_type, errorCode, errorObject, userReset) {
 					log('cmp', `errorCode: ${message_type}`);
-					if (message_type != frameworkMessageType) {
-						return;
-					}
-
 					log('cmp', `errorCode: ${errorCode}`);
 					log('cmp', errorObject);
 					log('cmp', `userReset: ${userReset}`);
