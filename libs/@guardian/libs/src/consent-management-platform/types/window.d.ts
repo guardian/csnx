@@ -37,13 +37,13 @@ declare global {
 				propertyId?: number;
 				campaignEnv?: 'prod' | 'stage';
 				isSPA: boolean;
-				targetingParams: {
+				targetingParams?: {
 					framework: ConsentFramework;
 					excludePage: boolean;
 				};
 				ccpa?: {
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				gdpr?: {
@@ -58,7 +58,7 @@ declare global {
 					includeUspApi?: boolean;
 					transitionCCPAAuth?: boolean;
 					targetingParams?: {
-						framework: ConsentFramework;
+						framework?: ConsentFramework;
 					};
 				};
 				pubData: PubData;
