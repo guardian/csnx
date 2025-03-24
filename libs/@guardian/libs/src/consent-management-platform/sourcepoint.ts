@@ -2,11 +2,7 @@ import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
-import {
-	getSupportSignUpPage,
-	isConsentOrPayCountry,
-	setIsConsentOrPay,
-} from './isConsentOrPay';
+import { isConsentOrPayCountry, setIsConsentOrPay } from './isConsentOrPay';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
@@ -236,15 +232,6 @@ export const init = (
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
 						setTimeout(invokeCallbacks, 0);
-
-						if (
-							choiceTypeID === SourcePointChoiceTypes.RejectAll &&
-							message_type === 'gdpr' &&
-							isConsentOrPayCountry(countryCode) &&
-							!useNonAdvertisedList
-						) {
-							window.location.href = getSupportSignUpPage();
-						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
