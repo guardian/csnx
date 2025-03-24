@@ -180,6 +180,11 @@ export const init = (
 								gu: frameworkMessageType,
 							}),
 						);
+
+						log(
+							'cmp',
+							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
+						);
 					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
@@ -281,33 +286,29 @@ export const init = (
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
 
-	switch (framework) {
-		case 'tcfv2':
-			window._sp_.config.gdpr = {
-				targetingParams: {
-					framework,
-					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPayCountry(countryCode),
-					isUserSignedIn,
-				},
-			};
-			break;
-		case 'usnat':
-			window._sp_.config.usnat = {
-				targetingParams: {
-					framework,
-				},
-				includeUspApi: true,
-				transitionCCPAAuth: true,
-			};
-			break;
-		case 'aus':
-			window._sp_.config.ccpa = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
+	window._sp_.config.gdpr = {
+		targetingParams: {
+			framework,
+			excludePage: isExcludedFromCMP(pageSection),
+			isCorP: isConsentOrPayCountry(countryCode),
+			isUserSignedIn,
+		},
+	};
+
+	if (framework == 'aus') {
+		window._sp_.config.ccpa = {
+			targetingParams: {
+				framework: framework,
+			},
+		};
+	} else {
+		window._sp_.config.usnat = {
+			targetingParams: {
+				framework,
+			},
+			includeUspApi: true,
+			transitionCCPAAuth: true,
+		};
 	}
 
 	// TODO use libs function loadScript,
