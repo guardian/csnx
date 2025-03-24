@@ -44,7 +44,7 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,
 				);
-				expect(window._sp_.config.usnat).toBeUndefined();
+				expect(window._sp_.config.usnat).toBeDefined();
 				// expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__gpp).toBeDefined();
