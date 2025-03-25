@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import type { ComponentType, ReactNode } from 'react';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { CAPIEntry } from '../@types/CAPI';
+import type { CrosswordEntry } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
@@ -49,7 +49,7 @@ export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 	const { validAnswers } = useValidAnswers();
 
 	const cluesEntries = useMemo(() => {
-		const cluesEntries: CAPIEntry[] = [];
+		const cluesEntries: CrosswordEntry[] = [];
 
 		for (const entry of entries.values()) {
 			if (entry.direction === direction) {
@@ -67,7 +67,7 @@ export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 	const cluesRef = useRef<HTMLDivElement | null>(null);
 
 	const selectClue = useCallback(
-		(entry: CAPIEntry) => {
+		(entry: CrosswordEntry) => {
 			setCurrentEntryId(entry.id);
 			const newCell = cells.getByCoords({
 				x: entry.position.x,
