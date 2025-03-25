@@ -131,7 +131,6 @@ export const Grid = () => {
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
-	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
@@ -257,19 +256,22 @@ export const Grid = () => {
 	/**
 	 * This function moves the focus to a different entry in the crossword
 	 */
-	const handleSwitchClue = (entryId?: EntryID) => {
-		const entry = entryId ? entries.get(entryId) : undefined;
-		const firstCell = entry?.position
-			? cells.getByCoords(entry.position)
-			: undefined;
+	const handleSwitchClue = useCallback(
+		(entryId: EntryID) => {
+			const entry = entries.get(entryId);
+			const firstCell = entry?.position
+				? cells.getByCoords(entry.position)
+				: undefined;
 
-		if (firstCell) {
-			if (!isUndefined(entry?.direction)) {
-				updateWorkingDirection({ direction: entry.direction });
+			if (firstCell) {
+				if (!isUndefined(entry?.direction)) {
+					updateWorkingDirection({ direction: entry.direction });
+				}
+				updateCellFocus(firstCell);
 			}
-			updateCellFocus(firstCell);
-		}
-	};
+		},
+		[cells, entries, updateCellFocus],
+	);
 	/**
 	 * This function is used to handle keyboard input in the crossword grid.
 	 * It works for devices with a physical keyboard, for mobile devices that use IMEs we use the onInput event.
@@ -277,10 +279,13 @@ export const Grid = () => {
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
 			if (currentEntryId) {
-				if (event.key === '.') {
-					handleSwitchClue(currentEntry?.nextEntryId);
-				} else if (event.key === ',') {
-					handleSwitchClue(currentEntry?.previousEntryId);
+				const currentEntry = entries.get(currentEntryId);
+				const nextClueID = currentEntry?.nextEntryId;
+				const previousClueID = currentEntry?.previousEntryId;
+				if (event.key === '.' && nextClueID) {
+					handleSwitchClue(nextClueID);
+				} else if (event.key === ',' && previousClueID) {
+					handleSwitchClue(previousClueID);
 				}
 			}
 
@@ -296,7 +301,7 @@ export const Grid = () => {
 				}
 			}
 		},
-		[cells, currentEntryId, deleteLetter, entries, typeLetter, updateCellFocus],
+		[currentEntryId, deleteLetter, entries, handleSwitchClue, typeLetter],
 	);
 
 	/**
