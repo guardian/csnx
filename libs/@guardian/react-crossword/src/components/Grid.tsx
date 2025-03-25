@@ -5,11 +5,11 @@ import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
 	Coords,
-	CrosswordEntry,
 	Separator,
 	Theme,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
+import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -131,6 +131,7 @@ export const Grid = () => {
 
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
+	const currentEntry = currentEntryId ? entries.get(currentEntryId) : undefined;
 
 	const [cheatMode, cheatStyles] = useCheatMode(gridRef);
 
@@ -254,39 +255,32 @@ export const Grid = () => {
 	);
 
 	/**
+	 * This function moves the focus to a different entry in the crossword
+	 */
+	const handleSwitchClue = (entryId?: EntryID) => {
+		const entry = entryId ? entries.get(entryId) : undefined;
+		const firstCell = entry?.position
+			? cells.getByCoords(entry.position)
+			: undefined;
+
+		if (firstCell) {
+			if (!isUndefined(entry?.direction)) {
+				updateWorkingDirection({ direction: entry.direction });
+			}
+			updateCellFocus(firstCell);
+		}
+	};
+	/**
 	 * This function is used to handle keyboard input in the crossword grid.
 	 * It works for devices with a physical keyboard, for mobile devices that use IMEs we use the onInput event.
 	 */
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
 			if (currentEntryId) {
-				const currentEntry: CrosswordEntry = entries.get(currentEntryId);
-				const nextEntryId = currentEntry.nextEntryId;
 				if (event.key === '.') {
-					const nextEntry = nextEntryId ? entries.get(nextEntryId) : undefined;
-					const nextEntryFirstCell = nextEntry?.position
-						? cells.getByCoords(nextEntry.position)
-						: undefined;
-					if (nextEntryFirstCell) {
-						if (!isUndefined(nextEntry?.direction)) {
-							updateWorkingDirection({
-								direction: nextEntry.direction,
-							});
-						}
-						updateCellFocus(nextEntryFirstCell);
-					}
-				}
-				if (event.key === ',' && currentEntry.previousEntryId) {
-					const nextEntry = entries.get(currentEntry.previousEntryId);
-					const nextEntryFirstCell = cells.getByCoords(nextEntry.position);
-					if (nextEntryFirstCell) {
-						if (!isUndefined(nextEntry?.direction)) {
-							updateWorkingDirection({
-								direction: nextEntry.direction,
-							});
-						}
-						updateCellFocus(nextEntryFirstCell);
-					}
+					handleSwitchClue(currentEntry?.nextEntryId);
+				} else if (event.key === ',') {
+					handleSwitchClue(currentEntry?.previousEntryId);
 				}
 			}
 
