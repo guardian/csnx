@@ -278,7 +278,7 @@ export const Grid = () => {
 	 */
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
-			if (currentEntryId) {
+			if (currentEntryId && (event.key === '.' || event.key === ',')) {
 				const currentEntry = entries.get(currentEntryId);
 				const nextClueID = currentEntry?.nextEntryId;
 				const previousClueID = currentEntry?.previousEntryId;
@@ -424,33 +424,29 @@ export const Grid = () => {
 		[],
 	);
 
-	// Handle changes to the current cell when moving in the grid (with arrow keys) or clicking on cells
+	// Handle changes to the current cell
 	useEffect(() => {
-		// If the current cell changes + we are focused on the grid, we need to update the current entry ID
-		if (gridRef.current?.contains(document.activeElement)) {
-			const newEntryId = getCurrentEntryForCell(
-				currentCell,
-				workingDirectionRef.current,
-			);
-			setCurrentEntryId(newEntryId);
-		}
-	}, [currentCell, setCurrentEntryId]);
+		// If the current cell changes, we need to update the current entry ID
+		setCurrentEntryId(
+			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
+		);
+	}, [currentCell, focused, setCurrentEntryId]);
 
-	// Clicking on a clue
-	// Focus the first cell if the current entry changes and set the appropriate working direction.
+	// keep workingDirectionRef.current up to date with the current entry
+	useEffect(() => {
+		if (currentEntryId) {
+			workingDirectionRef.current =
+				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
+		}
+	}, [currentEntryId, entries]);
+
+	// focus the first cell if the current entry changes
 	useEffect(() => {
 		if (!gridRef.current?.contains(document.activeElement) && currentEntryId) {
 			const entry = entries.get(currentEntryId);
-			const entryDirection = entry?.direction;
 			const cell = entry ? cells.getByCoords(entry.position) : undefined;
 			if (cell) {
 				updateCellFocus(cell);
-			}
-			if (
-				!isUndefined(entryDirection) &&
-				entryDirection !== workingDirectionRef.current
-			) {
-				workingDirectionRef.current = entryDirection;
 			}
 		}
 	}, [cells, currentEntryId, entries, updateCellFocus]);
