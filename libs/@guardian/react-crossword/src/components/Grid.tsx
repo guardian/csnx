@@ -259,14 +259,9 @@ export const Grid = () => {
 	const handleSwitchClue = useCallback(
 		(entryId: EntryID) => {
 			const entry = entries.get(entryId);
-			const firstCell = entry?.position
-				? cells.getByCoords(entry.position)
-				: undefined;
-
-			if (firstCell) {
-				if (!isUndefined(entry?.direction)) {
-					updateWorkingDirection({ direction: entry.direction });
-				}
+			const firstCell = entry ? cells.getByCoords(entry.position) : undefined;
+			if (entry && firstCell) {
+				updateWorkingDirection({ direction: entry.direction });
 				updateCellFocus(firstCell);
 			}
 		},
