@@ -273,13 +273,14 @@ export const Grid = () => {
 	 */
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
-			if (currentEntryId && (event.key === '.' || event.key === ',')) {
+			if (currentEntryId && (event.key === '[' || event.key === ']')) {
 				const currentEntry = entries.get(currentEntryId);
 				const nextClueID = currentEntry?.nextEntryId;
 				const previousClueID = currentEntry?.previousEntryId;
-				if (event.key === '.' && nextClueID) {
+				if (event.key === ']' && nextClueID) {
 					handleSwitchClue(nextClueID);
-				} else if (event.key === ',' && previousClueID) {
+				}
+				if (event.key === '[' && previousClueID) {
 					handleSwitchClue(previousClueID);
 				}
 			}
