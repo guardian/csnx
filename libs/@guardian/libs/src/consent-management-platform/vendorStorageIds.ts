@@ -58,6 +58,7 @@ export const vendorStorageIds = {
 			'permutive-data-queries',
 			'permutive-events-for-page',
 			'__permutiveConfigQueryParams',
+			'_psegs',
 		],
 		sessionStorage: ['__permutiveConfigQueryParams'],
 	},
