@@ -35,7 +35,6 @@ export const TCFV2VendorIDs = {
 	openX: ['5e865b36b8e05c6f984a37e6'],
 	ozone: ['5e7ced57b8e05c5a7d171cd3'],
 	permutive: ['5f369a02b8e05c2f2d546a40'],
-	prebidCustom: ['5f22bfd82a6b6c1afd1181a9'],
 	pubmatic: ['5eab3d5ab8e05c241a63c5db'],
 	qm: ['5f295fa4b8e05c76a44c3149'],
 	remarketing: ['5ed0eb688a76503f1016578f'],
@@ -47,10 +46,6 @@ export const TCFV2VendorIDs = {
 	'youtube-player': ['5e7ac3fae30e7d1bc1ebf5e8'],
 } satisfies VendorIDType;
 
-export const MiscVendorID = {
-	prebid: ['5f92a62aa22863685f4daa4c'],
-} satisfies VendorIDType;
-
 export const AusVendorIDs = {
 	redplanet: ['not-tcfv2-vendor'],
 } satisfies VendorIDType;
@@ -58,7 +53,6 @@ export const AusVendorIDs = {
 export const VendorIDs = {
 	...TCFV2VendorIDs,
 	...AusVendorIDs,
-	...MiscVendorID,
 } as const;
 
 export type VendorName = keyof typeof VendorIDs;
