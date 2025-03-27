@@ -10,6 +10,7 @@ import { quickCryptic } from './formats/quick-cryptic';
 import { quiptic } from './formats/quiptic';
 import { special } from './formats/special';
 import { speedy } from './formats/speedy';
+import { sundayQuick } from './formats/sunday-quick';
 import { uneven } from './formats/uneven';
 import { weekend } from './formats/weekend';
 
@@ -51,6 +52,10 @@ export const Special: Story = {
 
 export const Speedy: Story = {
 	args: { data: speedy },
+};
+
+export const SundayQuick: Story = {
+	args: { data: sundayQuick },
 };
 
 export const Weekend: Story = {
