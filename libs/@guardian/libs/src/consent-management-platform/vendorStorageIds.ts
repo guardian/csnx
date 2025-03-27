@@ -61,9 +61,6 @@ export const vendorStorageIds = {
 		],
 		sessionStorage: ['__permutiveConfigQueryParams'],
 	},
-	prebid: {
-		localStorage: ['_psegs', '_pubcid_exp'],
-	},
 	googletag: { cookies: ['__gpi', '__gads'] },
 } satisfies Partial<Record<VendorName, VendorData>>;
 
