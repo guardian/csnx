@@ -53,9 +53,16 @@ export const parseCrosswordData = (data: {
 	// For each entry, we'll populate `entries` and `separators` and `cells`.
 	//
 	// We're mutating the 'empty' targets so we can do it all in one loop.
-	for (const entry of data.entries) {
+	for (const [index, entry] of data.entries.entries()) {
 		// populate the `entries` map
-		entries.set(entry.id, entry);
+		const prevIndex = (index + data.entries.length - 1) % data.entries.length;
+		const nextIndex = (index + 1) % data.entries.length;
+
+		entries.set(entry.id, {
+			...entry,
+			nextEntryId: data.entries[nextIndex]?.id,
+			previousEntryId: data.entries[prevIndex]?.id,
+		});
 
 		// populate the `separators` array
 		for (const [separator, locations] of Object.entries(
