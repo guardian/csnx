@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 22.1.0
+
+### Minor Changes
+
+- ff8e80e: Remove logic to redirect users to Support after Redirect as this is handled in Sourcepoint platform
+
 ## 22.0.1
 
 ### Patch Changes

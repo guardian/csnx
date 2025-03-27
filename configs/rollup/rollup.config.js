@@ -19,40 +19,52 @@ const output = {
 	preserveModulesRoot: 'src',
 };
 
-/** @type {Plugins} */
-const defaultPlugins = [
+/**
+ * @param {import('rollup-plugin-node-externals').ExternalsOptions} externalsOptions
+ * @returns {Plugins}
+ */
+
+const defaultPlugins = (externalsOptions) => [
 	nodeResolve({
 		extensions: ['.cjs', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
 	}),
 	commonjs(),
 	json(),
-	nodeExternals(),
+	nodeExternals(externalsOptions),
 ];
 
 /**
  * @param {object} param0
  * @param {Plugins} [param0.plugins]
  * @param {Input} [param0.input]
+ * @param {import('rollup-plugin-node-externals').ExternalsOptions} [param0.externalsOptions]
+ * @param {import("rollup").RollupOptions["output"]} [param0.cjsOutputOptions]
  * @returns {import("rollup").RollupOptions[]}
  */
-export default ({ input = defaultInput, plugins = [] } = {}) => [
+export default ({
+	input = defaultInput,
+	plugins = [],
+	externalsOptions,
+	cjsOutputOptions,
+} = {}) => [
 	{
 		input,
 		output,
-		plugins: [...defaultPlugins, ...plugins, esbuild()],
+		plugins: [...defaultPlugins(externalsOptions), ...plugins, esbuild()],
 	},
 	{
 		input,
 		output: {
 			...output,
+			...cjsOutputOptions,
 			format: 'cjs',
 			entryFileNames: '[name].cjs',
 		},
-		plugins: [...defaultPlugins, ...plugins, esbuild()],
+		plugins: [...defaultPlugins(externalsOptions), ...plugins, esbuild()],
 	},
 	{
 		input,
 		output,
-		plugins: [...defaultPlugins, ...plugins, dts()],
+		plugins: [...defaultPlugins(externalsOptions), ...plugins, dts()],
 	},
 ];
