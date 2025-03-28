@@ -9,6 +9,7 @@ import { quickCryptic } from './stories/quick-cryptic';
 import { quiptic } from './stories/quiptic';
 import { special } from './stories/special';
 import { speedy } from './stories/speedy';
+import { sundayQuick } from './stories/sunday-quick';
 import { weekend } from './stories/weekend';
 
 const meta: Meta<typeof Crossword> = {
@@ -45,6 +46,9 @@ Special.args = { data: special };
 
 export const Speedy: StoryFn<typeof Crossword> = Template.bind({});
 Speedy.args = { data: speedy };
+
+export const SundayQuick: StoryFn<typeof Crossword> = Template.bind({});
+SundayQuick.args = { data: sundayQuick };
 
 export const Weekend: StoryFn<typeof Crossword> = Template.bind({});
 Weekend.args = { data: weekend };

@@ -12,6 +12,7 @@ export type CrosswordData = {
 		| 'quiptic'
 		| 'special'
 		| 'speedy'
+		| 'sunday-quick'
 		| 'weekend';
 
 	date: number;

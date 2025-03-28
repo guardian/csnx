@@ -47,6 +47,7 @@ export type CAPICrossword = {
 		| 'quiptic'
 		| 'special'
 		| 'speedy'
+		| 'sunday-quick'
 		| 'weekend';
 
 	date: number;
