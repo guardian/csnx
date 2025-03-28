@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 6.2.0
+
+### Minor Changes
+
+- 728e454: Add the ability to move through the clues using the `[` and `]` keys
+
 ## 6.1.0
 
 ### Minor Changes
