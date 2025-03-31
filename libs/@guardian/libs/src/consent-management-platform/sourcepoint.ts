@@ -174,6 +174,7 @@ export const init = (
 							JSON.stringify({
 								sp: message_type,
 								gu: frameworkMessageType,
+								gu_country: countryCode,
 							}),
 						);
 
