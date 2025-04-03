@@ -74,3 +74,16 @@ export const sendMessageReadyToOphan = (messageId: string): void => {
 	const record = getOphanRecordFunction();
 	record({ componentEvent });
 };
+
+export const sendJurisdictionMismatchToOphan = (value: string): void => {
+	const componentEvent: OphanComponentEvent = {
+		component: {
+			componentType: 'CONSENT',
+		},
+		value: value,
+		action: 'CONSENT_GEOLOCATION_MISMATCH',
+	};
+
+	const record = getOphanRecordFunction();
+	record({ componentEvent });
+};
