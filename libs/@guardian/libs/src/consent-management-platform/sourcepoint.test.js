@@ -45,7 +45,6 @@ describe('Sourcepoint unified', () => {
 					frameworkAndCountryCode.framework,
 				);
 				expect(window._sp_.config.usnat).toBeDefined();
-				// expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__gpp).toBeDefined();
 			} else if (frameworkAndCountryCode.framework == 'usnat') {
