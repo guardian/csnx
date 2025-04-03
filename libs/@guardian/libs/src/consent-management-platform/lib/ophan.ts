@@ -81,7 +81,7 @@ export const sendJurisdictionMismatchToOphan = (value: string): void => {
 			componentType: 'CONSENT',
 		},
 		value: value,
-		action: 'VIEW',
+		action: 'CONSENT_GEOLOCATION_MISMATCH',
 	};
 
 	const record = getOphanRecordFunction();
