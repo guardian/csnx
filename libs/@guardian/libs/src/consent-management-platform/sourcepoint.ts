@@ -283,6 +283,8 @@ export const init = (
 		},
 	};
 
+	// USNAT and CCPA can't be loaded at the same time.
+	// We use the country code to determine Austrialian users and set ccpa.
 	if (framework == 'aus') {
 		window._sp_.config.ccpa = {
 			targetingParams: {
