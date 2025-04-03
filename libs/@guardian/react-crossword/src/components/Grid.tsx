@@ -9,6 +9,7 @@ import type {
 	Theme,
 } from '../@types/crossword';
 import type { Direction } from '../@types/Direction';
+import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
@@ -253,11 +254,37 @@ export const Grid = () => {
 	);
 
 	/**
+	 * This function moves the focus to a different entry in the crossword
+	 */
+	const handleSwitchClue = useCallback(
+		(entryId: EntryID) => {
+			const entry = entries.get(entryId);
+			const firstCell = entry ? cells.getByCoords(entry.position) : undefined;
+			if (entry && firstCell) {
+				updateWorkingDirection({ direction: entry.direction });
+				updateCellFocus(firstCell);
+			}
+		},
+		[cells, entries, updateCellFocus],
+	);
+	/**
 	 * This function is used to handle keyboard input in the crossword grid.
 	 * It works for devices with a physical keyboard, for mobile devices that use IMEs we use the onInput event.
 	 */
 	const handleKeyDown = useCallback(
 		(event: KeyboardEvent<HTMLInputElement>) => {
+			if (currentEntryId && (event.key === '[' || event.key === ']')) {
+				const currentEntry = entries.get(currentEntryId);
+				const nextClueID = currentEntry?.nextEntryId;
+				const previousClueID = currentEntry?.previousEntryId;
+				if (event.key === ']' && nextClueID) {
+					handleSwitchClue(nextClueID);
+				}
+				if (event.key === '[' && previousClueID) {
+					handleSwitchClue(previousClueID);
+				}
+			}
+
 			if (event.key === 'Backspace' || event.key === 'Delete') {
 				if ('value' in event.target && isString(event.target.value)) {
 					event.preventDefault();
@@ -270,7 +297,7 @@ export const Grid = () => {
 				}
 			}
 		},
-		[deleteLetter, typeLetter],
+		[currentEntryId, deleteLetter, entries, handleSwitchClue, typeLetter],
 	);
 
 	/**

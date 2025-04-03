@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useMemo } from 'react';
 import type { CAPICrossword } from '../@types/CAPI';
 import type {
 	Cells,
+	CrosswordEntry,
 	Dimensions,
 	Entries,
 	Separators,
@@ -30,7 +31,7 @@ export const DataProvider = ({
 	solutionAvailable: CAPICrossword['solutionAvailable'];
 	id: CAPICrossword['id'];
 	dimensions: Dimensions;
-	entries: CAPICrossword['entries'];
+	entries: CrosswordEntry[];
 	children: ReactNode;
 }) => {
 	const { entries, cells, separators } = useMemo(
