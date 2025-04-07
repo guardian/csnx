@@ -274,17 +274,8 @@ export const init = (
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
 
-	window._sp_.config.gdpr = {
-		targetingParams: {
-			framework,
-			excludePage: isExcludedFromCMP(pageSection),
-			isCorP: isConsentOrPayCountry(countryCode),
-			isUserSignedIn,
-		},
-	};
-
 	// USNAT and CCPA can't be loaded at the same time.
-	// We use the country code to determine Austrialian users and set ccpa.
+	// We use the country code to determine Austrialian users and set only ccpa for aus.
 	if (framework == 'aus') {
 		window._sp_.config.ccpa = {
 			targetingParams: {
@@ -292,10 +283,16 @@ export const init = (
 			},
 		};
 	} else {
-		window._sp_.config.usnat = {
+		// Set both for gdpr and usnat
+		window._sp_.config.gdpr = {
 			targetingParams: {
-				framework,
+				excludePage: isExcludedFromCMP(pageSection),
+				isCorP: isConsentOrPayCountry(countryCode),
+				isUserSignedIn,
 			},
+		};
+
+		window._sp_.config.usnat = {
 			includeUspApi: true,
 			transitionCCPAAuth: true,
 		};
