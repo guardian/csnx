@@ -7,7 +7,7 @@
 		"dev": "wireit"
 	},
 	"devDependencies": {
-		"@emotion/react": "11.11.3",
+		"@emotion/react": "11.11.4",
 		"@guardian/source": "workspace:*",
 		"@storybook/addon-a11y": "8.6.4",
 		"@storybook/addon-essentials": "8.6.4",
