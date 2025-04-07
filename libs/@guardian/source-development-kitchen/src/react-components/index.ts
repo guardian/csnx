@@ -62,6 +62,3 @@ export type { TabContainerProps, TabProps } from './tabs/types';
 
 export { Ticker } from './ticker/Ticker';
 export type { TickerSettings } from './ticker/Ticker';
-
-export { Crossword } from './crossword/Crossword';
-export type { CrosswordProps } from './crossword/Crossword';
