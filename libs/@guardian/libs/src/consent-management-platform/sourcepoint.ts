@@ -286,6 +286,7 @@ export const init = (
 		// Set both for gdpr and usnat
 		window._sp_.config.gdpr = {
 			targetingParams: {
+				framework,
 				excludePage: isExcludedFromCMP(pageSection),
 				isCorP: isConsentOrPayCountry(countryCode),
 				isUserSignedIn,
@@ -295,6 +296,9 @@ export const init = (
 		window._sp_.config.usnat = {
 			includeUspApi: true,
 			transitionCCPAAuth: true,
+			targetingParams: {
+				framework,
+			},
 		};
 	}
 
