@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 6.3.0
+
+### Minor Changes
+
+- 37cfbcf: Add sunday-quick support to crossword player
+
 ## 6.2.0
 
 ### Minor Changes
