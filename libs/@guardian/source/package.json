@@ -44,7 +44,7 @@
 		"@cobalt-ui/plugin-css": "1.7.0",
 		"@cobalt-ui/plugin-js": "1.4.3",
 		"@cobalt-ui/utils": "1.2.2",
-		"@emotion/react": "11.11.4",
+		"@emotion/react": "11.11.3",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "workspace:*",
 		"@storybook/addon-a11y": "8.6.4",
@@ -79,7 +79,7 @@
 		"wireit": "0.14.8"
 	},
 	"peerDependencies": {
-		"@emotion/react": "^11.11.4",
+		"@emotion/react": "^11.11.3",
 		"@types/react": "^18.2.79",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2",
