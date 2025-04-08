@@ -1,5 +1,16 @@
 # @guardian/react-crossword
 
+## 7.0.0
+
+### Major Changes
+
+- 3f1442d: Bump @emotion/react to 11.11.4
+
+### Patch Changes
+
+- Updated dependencies [3f1442d]
+  - @guardian/source@10.0.0
+
 ## 6.3.0
 
 ### Minor Changes

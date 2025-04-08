@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 10.0.0
+
+### Major Changes
+
+- 3f1442d: Bump @emotion/react to 11.11.4
+
 ## 9.0.0
 
 ### Major Changes
