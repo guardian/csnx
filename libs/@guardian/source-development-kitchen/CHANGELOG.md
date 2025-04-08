@@ -1,5 +1,17 @@
 # @guardian/source-development-kitchen
 
+## 18.0.0
+
+### Major Changes
+
+- 3f1442d: Bump @emotion/react to 11.11.4
+- f360ebe: Remove `Crossword` component. This has been superseded by the [`@guardian/react-crossword`](https://github.com/guardian/csnx/tree/main/libs/%40guardian/react-crossword) package.
+
+### Patch Changes
+
+- Updated dependencies [3f1442d]
+  - @guardian/source@10.0.0
+
 ## 17.0.0
 
 ### Major Changes
