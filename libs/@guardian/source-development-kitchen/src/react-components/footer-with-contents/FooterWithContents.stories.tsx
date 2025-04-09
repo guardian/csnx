@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
+import { FooterLinks } from './FooterLinks';
 import {
 	DefaultFooterLinks,
 	FooterLinksInColumns,
@@ -25,7 +26,7 @@ const Template: StoryFn<typeof FooterWithContents> = (
 export const DefaultFooterWithContents: StoryFn<typeof FooterWithContents> =
 	Template.bind({});
 DefaultFooterWithContents.args = {
-	children: <DefaultFooterLinks />,
+	children: <FooterLinks {...DefaultFooterLinks.args} />,
 };
 
 // *****************************************************************************
@@ -33,5 +34,5 @@ DefaultFooterWithContents.args = {
 export const FooterWithColumnLinks: StoryFn<typeof FooterWithContents> =
 	Template.bind({});
 FooterWithColumnLinks.args = {
-	children: <FooterLinksInColumns {...FooterLinksInColumns.args} />,
+	children: <FooterLinks {...FooterLinksInColumns.args} />,
 };

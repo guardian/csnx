@@ -1,8 +1,9 @@
 import type { ReactElement } from 'react';
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, isValidElement } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
+import type { AccordionRowProps } from './AccordionRow';
 import { accordion } from './styles';
 import type { ThemeAccordion } from './theme';
 import {
@@ -69,7 +70,12 @@ export const Accordion = ({
 			{...props}
 		>
 			{Children.map(children, (child) => {
-				return cloneElement(child, { hideToggleLabel });
+				if (isValidElement<AccordionRowProps>(child)) {
+					return cloneElement<AccordionRowProps>(child, {
+						hideToggleLabel,
+					});
+				}
+				return child;
 			})}
 		</div>
 	);

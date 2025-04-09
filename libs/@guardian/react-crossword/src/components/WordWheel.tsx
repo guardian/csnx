@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { textSans17, textSansBold17 } from '@guardian/source/foundations';
+import type { ReactElement } from 'react';
 import { memo } from 'react';
 import { useTheme } from '../context/Theme';
 
@@ -28,7 +29,7 @@ const renderOuterLetters = ({
 }: {
 	letters: string[];
 	fill?: string;
-}): JSX.Element[] => {
+}): ReactElement[] => {
 	return letters.map((letter, index) => {
 		const { x, y } = getPosition({ letters: letters, index });
 		return (
