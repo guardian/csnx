@@ -57,7 +57,7 @@ const cheatStyles = css`
 	}
 `;
 
-export const useCheatMode = (ref: RefObject<SVGSVGElement>) => {
+export const useCheatMode = (ref: RefObject<SVGSVGElement | null>) => {
 	const [konamiProgress, setKonamiProgress] = useState<string[]>([]);
 	const [cheatMode, setCheatMode] = useState(false);
 
