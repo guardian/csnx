@@ -25,6 +25,7 @@ import type { EntryID } from '../@types/Entry';
 import { CurrentCellProvider } from './CurrentCell';
 import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
+import { FocusGridProvider } from './FocusContext';
 import { ProgressProvider } from './Progress';
 import { ShowAnagramHelperProvider } from './ShowAnagramHelper';
 import { ThemeProvider } from './Theme';
@@ -60,9 +61,11 @@ export const ContextProvider = ({
 						progress={userProgress}
 					>
 						<CurrentCellProvider>
-							<CurrentClueProvider selectedEntryId={selectedEntryId}>
-								<ValidAnswersProvider>{children}</ValidAnswersProvider>
-							</CurrentClueProvider>
+							<FocusGridProvider>
+								<CurrentClueProvider selectedEntryId={selectedEntryId}>
+									<ValidAnswersProvider>{children}</ValidAnswersProvider>
+								</CurrentClueProvider>
+							</FocusGridProvider>
 						</CurrentCellProvider>
 					</ProgressProvider>
 				</DataProvider>

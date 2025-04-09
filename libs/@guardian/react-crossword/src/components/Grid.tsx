@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isString, isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
@@ -13,6 +13,7 @@ import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useFocusGrid } from '../context/FocusContext';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
@@ -127,8 +128,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
-	const [focused, setFocused] = useState(false);
-
+	const { focusGrid, setFocusGrid } = useFocusGrid();
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
 
@@ -168,8 +168,11 @@ export const Grid = () => {
 				clickedCellGroup?.focus();
 			}
 			setCurrentCell(cell);
+			setCurrentEntryId(
+				getCurrentEntryForCell(cell, workingDirectionRef.current),
+			);
 		},
-		[getId, setCurrentCell],
+		[getId, setCurrentCell, setCurrentEntryId],
 	);
 
 	const moveCurrentCell = useCallback(
@@ -347,8 +350,8 @@ export const Grid = () => {
 					moveCurrentCell({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
-					moveCurrentCell({ delta: { x: 0, y: 1 } });
 					updateWorkingDirection({ direction: 'down' });
+					moveCurrentCell({ delta: { x: 0, y: 1 } });
 					break;
 				case 'ArrowLeft':
 					updateWorkingDirection({ direction: 'across' });
@@ -411,22 +414,20 @@ export const Grid = () => {
 		theme.gridGutterSize * (dimensions.cols + 1);
 
 	// keep track of whether the grid (or a child) is the current focus
-	const handleGridFocus = useCallback(() => setFocused(true), []);
-	const handleGridBlur = useCallback(
-		({ relatedTarget }: FocusEvent<SVGSVGElement>) =>
-			setFocused(
-				gridRef.current?.contains(relatedTarget as Node | null) ?? false,
-			),
-		[],
-	);
+	const handleGridFocus = useCallback(() => {
+		if (!focusGrid) {
+			setFocusGrid(true);
+		}
+	}, [focusGrid, setFocusGrid]);
 
-	// Handle changes to the current cell
-	useEffect(() => {
-		// If the current cell changes, we need to update the current entry ID
-		setCurrentEntryId(
-			getCurrentEntryForCell(currentCell, workingDirectionRef.current),
-		);
-	}, [currentCell, focused, setCurrentEntryId]);
+	const handleGridBlur = useCallback(
+		({ relatedTarget }: FocusEvent<SVGSVGElement>) => {
+			if (!gridRef.current?.contains(relatedTarget as Node | null)) {
+				setFocusGrid(false);
+			}
+		},
+		[setFocusGrid],
+	);
 
 	// keep workingDirectionRef.current up to date with the current entry
 	useEffect(() => {
@@ -441,11 +442,11 @@ export const Grid = () => {
 		if (!gridRef.current?.contains(document.activeElement) && currentEntryId) {
 			const entry = entries.get(currentEntryId);
 			const cell = entry ? cells.getByCoords(entry.position) : undefined;
-			if (cell) {
+			if (cell && focusGrid) {
 				updateCellFocus(cell);
 			}
 		}
-	}, [cells, currentEntryId, entries, updateCellFocus]);
+	}, [cells, focusGrid, currentEntryId, entries, updateCellFocus]);
 
 	const currentGroupSet = useMemo(() => {
 		if (currentEntryId) {
@@ -579,7 +580,7 @@ export const Grid = () => {
 					/>
 				))
 			}
-			{focused && <FocusIndicator currentCell={currentCell} />}
+			{focusGrid && <FocusIndicator currentCell={currentCell} />}
 		</svg>
 	);
 };

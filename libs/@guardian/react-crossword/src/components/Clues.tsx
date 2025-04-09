@@ -6,6 +6,7 @@ import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
+import { useFocusGrid } from '../context/FocusContext';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
@@ -47,6 +48,7 @@ export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
 	const { validAnswers } = useValidAnswers();
+	const { setFocusGrid } = useFocusGrid();
 
 	const cluesEntries = useMemo(() => {
 		const cluesEntries: CrosswordEntry[] = [];
@@ -76,8 +78,9 @@ export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 			if (newCell) {
 				setCurrentCell(newCell);
 			}
+			setFocusGrid(true);
 		},
-		[cells, setCurrentCell, setCurrentEntryId],
+		[cells, setCurrentCell, setCurrentEntryId, setFocusGrid],
 	);
 
 	/**
