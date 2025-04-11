@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { isString, isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
 import type {
 	Cell as CellType,
@@ -13,7 +13,6 @@ import type { EntryID } from '../@types/Entry';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
-import { useFocusGrid } from '../context/FocusContext';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useCheatMode } from '../hooks/useCheatMode';
@@ -128,7 +127,7 @@ export const Grid = () => {
 	const { updateCell } = useUpdateCell();
 	const { currentCell, setCurrentCell } = useCurrentCell();
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
-	const { focusGrid, setFocusGrid } = useFocusGrid();
+	const [focused, setFocused] = useState(false);
 	const gridRef = useRef<SVGSVGElement>(null);
 	const workingDirectionRef = useRef<Direction>('across');
 
@@ -414,19 +413,13 @@ export const Grid = () => {
 		theme.gridGutterSize * (dimensions.cols + 1);
 
 	// keep track of whether the grid (or a child) is the current focus
-	const handleGridFocus = useCallback(() => {
-		if (!focusGrid) {
-			setFocusGrid(true);
-		}
-	}, [focusGrid, setFocusGrid]);
-
+	const handleGridFocus = useCallback(() => setFocused(true), []);
 	const handleGridBlur = useCallback(
-		({ relatedTarget }: FocusEvent<SVGSVGElement>) => {
-			if (!gridRef.current?.contains(relatedTarget as Node | null)) {
-				setFocusGrid(false);
-			}
-		},
-		[setFocusGrid],
+		({ relatedTarget }: FocusEvent<SVGSVGElement>) =>
+			setFocused(
+				gridRef.current?.contains(relatedTarget as Node | null) ?? false,
+			),
+		[],
 	);
 
 	// keep workingDirectionRef.current up to date with the current entry
@@ -436,17 +429,6 @@ export const Grid = () => {
 				entries.get(currentEntryId)?.direction ?? workingDirectionRef.current;
 		}
 	}, [currentEntryId, entries]);
-
-	// focus the first cell if the current entry changes
-	useEffect(() => {
-		if (!gridRef.current?.contains(document.activeElement) && currentEntryId) {
-			const entry = entries.get(currentEntryId);
-			const cell = entry ? cells.getByCoords(entry.position) : undefined;
-			if (cell && focusGrid) {
-				updateCellFocus(cell);
-			}
-		}
-	}, [cells, focusGrid, currentEntryId, entries, updateCellFocus]);
 
 	const currentGroupSet = useMemo(() => {
 		if (currentEntryId) {
@@ -580,7 +562,7 @@ export const Grid = () => {
 					/>
 				))
 			}
-			{focusGrid && <FocusIndicator currentCell={currentCell} />}
+			{focused && <FocusIndicator currentCell={currentCell} />}
 		</svg>
 	);
 };

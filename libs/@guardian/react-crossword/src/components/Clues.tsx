@@ -6,7 +6,6 @@ import type { Direction } from '../@types/Direction';
 import { useCurrentCell } from '../context/CurrentCell';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
-import { useFocusGrid } from '../context/FocusContext';
 import { useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
@@ -48,7 +47,6 @@ export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 	const { currentEntryId, setCurrentEntryId } = useCurrentClue();
 	const { setCurrentCell } = useCurrentCell();
 	const { validAnswers } = useValidAnswers();
-	const { setFocusGrid } = useFocusGrid();
 
 	const cluesEntries = useMemo(() => {
 		const cluesEntries: CrosswordEntry[] = [];
@@ -70,17 +68,27 @@ export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 
 	const selectClue = useCallback(
 		(entry: CrosswordEntry) => {
-			setCurrentEntryId(entry.id);
 			const newCell = cells.getByCoords({
 				x: entry.position.x,
 				y: entry.position.y,
 			});
 			if (newCell) {
+				const clickedCellInput = document.getElementById(
+					getId(`cell-input-${newCell.x}-${newCell.y}`),
+				);
+				const clickedCellGroup = document.getElementById(
+					getId(`cell-group-${newCell.x}-${newCell.y}`),
+				);
+				if (clickedCellInput) {
+					clickedCellInput.focus();
+				} else {
+					clickedCellGroup?.focus();
+				}
 				setCurrentCell(newCell);
+				setCurrentEntryId(entry.id);
 			}
-			setFocusGrid(true);
 		},
-		[cells, setCurrentCell, setCurrentEntryId, setFocusGrid],
+		[cells, getId, setCurrentCell, setCurrentEntryId],
 	);
 
 	/**
