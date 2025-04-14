@@ -10,7 +10,7 @@
 		"test": "./scripts/use-make-instead"
 	},
 	"devDependencies": {
-		"@changesets/cli": "2.28.0",
+		"@changesets/cli": "2.29.0",
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
 		"@types/node": "22.10.0",
