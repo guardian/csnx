@@ -165,6 +165,25 @@ describe('coreWebVitals', () => {
 		expect(mockBeacon).toHaveBeenCalledTimes(1);
 	});
 
+	it('sends a beacon for beforeunload when sampling is 100%', async () => {
+		const mockAddEventListener = jest.spyOn(global, 'addEventListener');
+
+		const sampling = 100 / 100;
+		await initCoreWebVitals({
+			browserId,
+			pageViewId,
+			isDev: true,
+			sampling,
+			useBeforeUnload: true,
+		});
+
+		expect(mockAddEventListener).toHaveBeenCalledTimes(3);
+
+		global.dispatchEvent(new Event('beforeunload'));
+
+		expect(mockBeacon).toHaveBeenCalledTimes(1);
+	});
+
 	it('does not run web-vitals if sampling is 0%', async () => {
 		const sampling = 0 / 100;
 		await initCoreWebVitals({
