@@ -92,12 +92,13 @@ const listener = (e: Event): void => {
 			}
 			return;
 		case 'pagehide':
+		case 'beforeunload':
 			sendData();
 			return;
 	}
 };
 
-const getCoreWebVitals = async (): Promise<void> => {
+const getCoreWebVitals = async (useBeforeUnload: boolean): Promise<void> => {
 	const webVitals = await import('web-vitals/attribution');
 	const { onCLS, onFCP, onFID, onLCP, onTTFB, onINP } = webVitals;
 
@@ -108,7 +109,17 @@ const getCoreWebVitals = async (): Promise<void> => {
 	onFID(onReport);
 	onTTFB(onReport);
 
-	// Report all available metrics when the page is unloaded or in background.
+	// A quick remediation for the test europe-beta-front-test-2
+	// We discovered we are currently collecting ~0% of CWV for fronts related tests. We have observed
+	// in-flight requests by sendBeacon or even fetch with keep-alive being cancelled on unload events
+	// e.g. for page navigations or refreshes.
+	// We understand the tradeoffs of this approach, but we'd prefer to have _some_ CWV for the test.
+	// https://developer.chrome.com/docs/web-platform/page-lifecycle-api#legacy_lifecycle_apis_to_avoid
+	if (useBeforeUnload) {
+		addEventListener('beforeunload', listener);
+	}
+
+	// Report all available metrics when the page is in background.
 	addEventListener('visibilitychange', listener);
 
 	// Safari does not reliably fire the `visibilitychange` on page unload.
@@ -123,6 +134,7 @@ type InitCoreWebVitalsOptions = {
 
 	sampling?: number;
 	team?: Subscription;
+	useBeforeUnload?: boolean;
 };
 
 /**
@@ -143,6 +155,7 @@ export const initCoreWebVitals = async ({
 	sampling = 1 / 100, // 1% of page view by default
 	isDev,
 	team,
+	useBeforeUnload = false,
 }: InitCoreWebVitalsOptions): Promise<void> => {
 	if (initialised) {
 		console.warn(
@@ -188,7 +201,7 @@ export const initCoreWebVitals = async ({
 		window.location.hash === '#bypassCoreWebVitalsSampling';
 
 	if (pageViewInSample || bypassWithHash) {
-		return getCoreWebVitals();
+		return getCoreWebVitals(useBeforeUnload);
 	}
 };
 
@@ -198,6 +211,7 @@ export const initCoreWebVitals = async ({
  */
 export const bypassCoreWebVitalsSampling = async (
 	team?: Subscription,
+	useBeforeUnload: boolean = false,
 ): Promise<void> => {
 	if (!initialised) {
 		console.warn('initCoreWebVitals not yet initialised');
@@ -206,7 +220,7 @@ export const bypassCoreWebVitalsSampling = async (
 	if (team) {
 		teamsForLogging.add(team);
 	}
-	return getCoreWebVitals();
+	return getCoreWebVitals(useBeforeUnload);
 };
 
 export const _ = {
