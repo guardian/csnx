@@ -36,7 +36,7 @@
 		"tslib": "2.6.2",
 		"typescript": "5.5.2",
 		"web-vitals": "4.2.1",
-		"wireit": "0.14.8"
+		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
 		"@guardian/libs": "^22.0.0",

@@ -20,7 +20,7 @@
 		"sort-package-json": "3.0.0",
 		"syncpack": "13.0.0",
 		"typescript": "5.5.2",
-		"wireit": "0.14.8"
+		"wireit": "0.14.12"
 	},
 	"packageManager": "pnpm@8.14.0",
 	"pnpm": {
