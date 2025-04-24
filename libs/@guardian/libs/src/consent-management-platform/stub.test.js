@@ -26,7 +26,7 @@ describe('stub', () => {
 		it('should load the correct stub for the usnat', () => {
 			loadStubsFor('usnat');
 			expect(window.__gpp).toBeDefined();
-			expect(window.__uspapi).toBeDefined();
+			expect(window.__uspapi).toBeUndefined();
 			expect(window.__tcfapi).toBeUndefined();
 		});
 	});

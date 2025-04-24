@@ -294,8 +294,6 @@ export const init = (
 		};
 
 		window._sp_.config.usnat = {
-			includeUspApi: true,
-			transitionCCPAAuth: true,
 			targetingParams: {
 				framework,
 			},
