@@ -23,7 +23,7 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
-import { loadAllStubs, loadStubsFor } from './stub';
+import { loadStubsFor } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
