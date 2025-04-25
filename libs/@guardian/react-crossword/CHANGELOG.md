@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 7.0.1
+
+### Patch Changes
+
+- 1bfe15f: fix for moving down with arrow keys
+
 ## 7.0.0
 
 ### Major Changes

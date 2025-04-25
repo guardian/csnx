@@ -347,8 +347,8 @@ export const Grid = () => {
 					moveCurrentCell({ delta: { x: 0, y: -1 } });
 					break;
 				case 'ArrowDown':
-					moveCurrentCell({ delta: { x: 0, y: 1 } });
 					updateWorkingDirection({ direction: 'down' });
+					moveCurrentCell({ delta: { x: 0, y: 1 } });
 					break;
 				case 'ArrowLeft':
 					updateWorkingDirection({ direction: 'across' });

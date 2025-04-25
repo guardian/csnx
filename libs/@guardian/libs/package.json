@@ -29,7 +29,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@playwright/test": "1.51.0",
+		"@playwright/test": "1.52.0",
 		"@types/jest": "29.5.8",
 		"@types/wcag-contrast": "3.0.3",
 		"eslint": "9.19.0",
@@ -43,7 +43,7 @@
 		"tsx": "4.19.0",
 		"typescript": "5.5.2",
 		"wcag-contrast": "3.0.0",
-		"wireit": "0.14.8"
+		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
