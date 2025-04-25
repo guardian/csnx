@@ -144,7 +144,7 @@
 			]
 		},
 		"build-tokens": {
-			"command": "style-dictionary build --config src/design-tokens/config.js",
+			"command": "node src/design-tokens/build.js",
 			"files": [
 				"./src/design-tokens/**"
 			],
