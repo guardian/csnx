@@ -179,6 +179,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/source:build`
 - `make @guardian/source:build-generated`
 - `make @guardian/source:build-storybook`
+- `make @guardian/source:build-tokens`
 - `make @guardian/source:create-icons`
 - `make @guardian/source:dev`
 - `make @guardian/source:fix`
