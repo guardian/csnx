@@ -28,6 +28,7 @@ HalfwayContributed.args = {
 	tickerData: {
 		total: 50000,
 		goal: 100000,
+		goalCopy: 'goal',
 	},
 	tickerStylingSettings,
 	size: 'small',
@@ -42,6 +43,7 @@ SmallDonationsSoFar.args = {
 	tickerData: {
 		total: 99,
 		goal: 100000,
+		goalCopy: 'goal',
 	},
 	tickerStylingSettings,
 	size: 'small',
@@ -56,6 +58,7 @@ ContributionGoalMet.args = {
 	tickerData: {
 		total: 10000000,
 		goal: 1000000,
+		goalCopy: 'goal',
 	},
 	tickerStylingSettings,
 	size: 'small',
