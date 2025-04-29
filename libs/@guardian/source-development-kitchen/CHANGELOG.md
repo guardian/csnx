@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 18.1.0
+
+### Minor Changes
+
+- 0791b4b: Make the goalCopy in tickerCopy configurable
+
 ## 18.0.0
 
 ### Major Changes
