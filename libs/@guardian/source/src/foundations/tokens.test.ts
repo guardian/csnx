@@ -136,6 +136,7 @@ describe('Palette tokens', () => {
 				'500': '#FF7F0F',
 				'550': '#FF9941',
 				'600': '#F9B376',
+				'700': '#FFE7D4',
 				'800': '#FEF9F5',
 			},
 			specialReport: {
