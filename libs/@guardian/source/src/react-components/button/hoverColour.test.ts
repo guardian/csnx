@@ -9,12 +9,12 @@ describe('calculateHoverColor background colours', () => {
 		expect(hoverColour).toBe('#454545');
 	});
 
-	it('returns 4% darker color for dark background colors', () => {
+	it('returns 8% darker color for dark background colors', () => {
 		const dark = '#052962';
 
 		const hoverColour = calculateHoverColour(dark);
 
-		expect(hoverColour).toBe('#04204E');
+		expect(hoverColour).toBe('#03183A');
 	});
 
 	it('returns 5% darker color for medium background colors', () => {
@@ -60,7 +60,16 @@ describe('calculateHoverColor transparent backgrounds', () => {
 		expect(hoverColour).toBe('rgba(5, 41, 98, 0.1)');
 	});
 
-	it('returns the border colour with 20% opacity for lighter border', () => {
+	it('returns the border colour with 15% opacity for lighter border', () => {
+		const transparent = 'transparent';
+		const borderColour = '#FFE500';
+
+		const hoverColour = calculateHoverColour(transparent, borderColour);
+
+		expect(hoverColour).toBe('rgba(255, 229, 0, 0.15)');
+	});
+
+	it('returns the border colour with 20% opacity for lighest border', () => {
 		const transparent = 'transparent';
 		const borderColour = '#FFFFFF';
 
