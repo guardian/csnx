@@ -158,6 +158,7 @@ export const init = (
 			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
 			joinHref: true,
 			isSPA: true,
+			campaignEnv: 'stage',
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
