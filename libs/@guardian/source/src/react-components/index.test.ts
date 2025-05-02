@@ -142,6 +142,8 @@ it('Should have exactly these exports', () => {
 		'SvgClockBaselineSmall',
 		'SvgClockFilled',
 		'SvgClockOutlined',
+		'SvgCloudSync',
+		'SvgCloudUpload',
 		'SvgCreditCard',
 		'SvgCross',
 		'SvgCrossRoundFilled',

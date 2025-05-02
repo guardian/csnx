@@ -53,6 +53,8 @@ import { SvgChevronUpSingleSmall } from '../__generated__/icons/SvgChevronUpSing
 import { SvgClockBaselineSmall } from '../__generated__/icons/SvgClockBaselineSmall';
 import { SvgClockFilled } from '../__generated__/icons/SvgClockFilled';
 import { SvgClockOutlined } from '../__generated__/icons/SvgClockOutlined';
+import { SvgCloudSync } from '../__generated__/icons/SvgCloudSync';
+import { SvgCloudUpload } from '../__generated__/icons/SvgCloudUpload';
 import { SvgCreditCard } from '../__generated__/icons/SvgCreditCard';
 import { SvgCross } from '../__generated__/icons/SvgCross';
 import { SvgCrossedOutCloud } from '../__generated__/icons/SvgCrossedOutCloud';
@@ -239,6 +241,8 @@ const uiIcons = [
 	SvgClockFilled,
 	SvgClockOutlined,
 	SvgClockBaselineSmall,
+	SvgCloudSync,
+	SvgCloudUpload,
 	SvgCross,
 	SvgCrossRoundFilled,
 	SvgCrossRoundOutlined,
