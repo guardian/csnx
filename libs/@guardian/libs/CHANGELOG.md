@@ -1,5 +1,12 @@
 # @guardian/libs
 
+## 22.3.0
+
+### Minor Changes
+
+- 9c24f08: Use our own geolocation to determine the correct stubs and sp config to load.
+- d5a9b7b: Add deprecation warnings to Ophan types in libs
+
 ## 22.2.0
 
 ### Minor Changes
