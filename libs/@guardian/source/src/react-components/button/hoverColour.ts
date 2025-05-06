@@ -1,4 +1,4 @@
-import convert from 'color-convert';
+import { hexToHsl, hexToRgb, hslToHex } from '../utils/colourConversions';
 
 export const calculateHoverColour = (
 	backgroundColour: string,
@@ -11,11 +11,11 @@ export const calculateHoverColour = (
 		return backgroundColour;
 	}
 
-	const [h, s, l] = convert.hex.hsl(backgroundColour);
+	const [h, s, l] = hexToHsl(backgroundColour);
 
 	const luminosityAdjustment = calculateLuminosityAdjustment(l);
 
-	const hex = convert.hsl.hex([h, s, l + luminosityAdjustment]);
+	const hex = hslToHex([h, s, l + luminosityAdjustment]);
 
 	return `#${hex}`;
 };
@@ -51,8 +51,8 @@ const calculateLuminosityAdjustment = (luminosity: number): number => {
 	with its opacity adjusted
 */
 const calculateTransparentBackgroundHover = (borderColour: string): string => {
-	const [, , luminosity] = convert.hex.hsl(borderColour);
-	const [r, g, b] = convert.hex.rgb(borderColour);
+	const [, , luminosity] = hexToHsl(borderColour);
+	const [r, g, b] = hexToRgb(borderColour);
 
 	const opacity = calculateOpacityForTransparentBackground(luminosity);
 

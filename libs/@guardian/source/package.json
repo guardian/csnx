@@ -35,7 +35,6 @@
 		"verify-dist": "wireit"
 	},
 	"dependencies": {
-		"color-convert": "3.0.1",
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
