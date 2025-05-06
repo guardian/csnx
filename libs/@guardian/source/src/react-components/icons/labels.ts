@@ -52,6 +52,8 @@ export const labels: Record<string, string> = {
 	'clock-filled': 'Clock',
 	'clock-baseline-small': 'Clock',
 	'clock-outlined': 'Clock',
+	'cloud-sync': 'Cloud sync',
+	'cloud-upload': 'Cloud upload',
 	'credit-card': 'Credit card',
 	cross: 'Close',
 	'cross-round-filled': 'Close',

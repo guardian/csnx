@@ -124,6 +124,7 @@ describe('Palette tokens', () => {
 				'500': '#FF5943',
 				'550': '#FF9081',
 				'600': '#FFBAC8',
+				'700': '#FFD8D1',
 				'800': '#FFF4F2',
 			},
 			opinion: {
@@ -135,6 +136,7 @@ describe('Palette tokens', () => {
 				'500': '#FF7F0F',
 				'550': '#FF9941',
 				'600': '#F9B376',
+				'700': '#FFE7D4',
 				'800': '#FEF9F5',
 			},
 			specialReport: {
@@ -161,6 +163,7 @@ describe('Palette tokens', () => {
 				'400': '#0077B6',
 				'500': '#00B2FF',
 				'600': '#90DCFF',
+				'700': '#D8F1FF',
 				'800': '#F1F8FC',
 			},
 			success: {

@@ -13,6 +13,7 @@ import { useTicker } from './useTicker';
 
 interface TickerCopy {
 	headline?: string;
+	goalCopy?: string;
 }
 
 export interface TickerData {
@@ -186,7 +187,7 @@ export const Ticker = ({
 								{runningTotal.toLocaleString()}
 							</span>{' '}
 							of {currencySymbol}
-							{tickerData.goal.toLocaleString()} goal
+							{tickerData.goal.toLocaleString()} {copy.goalCopy ?? 'goal'}
 						</div>
 					</div>
 				</div>
