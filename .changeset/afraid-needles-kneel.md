@@ -9,12 +9,13 @@ Add automatic hover colour calculation for Button themes
 | Background colour:             |                          |
 | ------------------------------ | ------------------------ |
 | Very Dark (Luminosity: 0–10)   | Lighten by 20% on hover. |
-| Dark (Luminosity: 11–20)       | Darken by 4% on hover.   |
+| Dark (Luminosity: 11–20)       | Darken by 8% on hover.   |
 | Medium (Luminosity: 21–80)     | Darken by 5% on hover.   |
 | Light (Luminosity: 81-90)      | Darken by 7% on hover.   |
 | Very Light (Luminosity 91-100) | Darken by 10% on hover.  |
 
 | Borders with transparent backgrounds: |                                   |
 | ------------------------------------- | --------------------------------- |
-| Luminosity 0–50                       | Set border colour opacity to 10%. |
+| Luminosity 0–40                       | Set border colour opacity to 10%. |
+| Luminosity 40–50                      | Set border colour opacity to 15%. |
 | Luminosity 51–100                     | Set border colour opacity to 20%. |
