@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-Remove CCPA stub and transitional SP config from US/MSPS/USNAT
+Remove uspapi stub and deprecated CCPA fallback configuration variables from Usnat Sourcepoint config.
