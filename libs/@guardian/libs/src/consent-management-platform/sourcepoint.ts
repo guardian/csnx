@@ -23,7 +23,7 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
-import { loadAllStubs } from './stub';
+import { loadStubsFor } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -101,7 +101,7 @@ export const init = (
 	useNonAdvertisedList: boolean,
 	pubData = {},
 ): void => {
-	loadAllStubs();
+	loadStubsFor(framework);
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
@@ -182,6 +182,8 @@ export const init = (
 							'cmp',
 							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
 						);
+
+						return;
 					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
@@ -194,7 +196,9 @@ export const init = (
 				},
 				onMessageReady: (message_type) => {
 					log('cmp', `onMessageReady ${message_type}`);
-
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 					// Event fires when a message is about to display.
 					mark('cmp-ui-displayed');
 				},
@@ -213,12 +217,17 @@ export const init = (
 					}
 
 					log('cmp', 'onMessageReceiveData ', data);
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 					void resolveWillShowPrivacyMessage(data.messageId !== 0);
 				},
 
 				onMessageChoiceSelect: (message_type, choice_id, choiceTypeID) => {
 					log('cmp', `onMessageChoiceSelect message_type: ${message_type}`);
-
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 					log('cmp', `onMessageChoiceSelect choice_id: ${choice_id}`);
 					log('cmp', `onMessageChoiceSelect choice_type_id: ${choiceTypeID}`);
 
@@ -238,15 +247,24 @@ export const init = (
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
 					log('cmp', `onPrivacyManagerAction message_type: ${message_type}`);
+					if (message_type != frameworkMessageType) {
+						return;
+					}
+
 					log('cmp', `onPrivacyManagerAction ${pmData}`);
 				},
 				onMessageChoiceError: function (message_type, err) {
 					log('cmp', `onMessageChoiceError ${message_type}`);
-
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 					log('cmp', `onMessageChoiceError ${err}`);
 				},
 				onPMCancel: function (message_type) {
 					log('cmp', `onPMCancel ${message_type}`);
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 				},
 				onSPPMObjectReady: function () {
 					log('cmp', 'onSPPMObjectReady');
@@ -254,6 +272,9 @@ export const init = (
 				onError: function (message_type, errorCode, errorObject, userReset) {
 					log('cmp', `errorCode: ${message_type}`);
 					log('cmp', `errorCode: ${errorCode}`);
+					if (message_type != frameworkMessageType) {
+						return;
+					}
 					log('cmp', errorObject);
 					log('cmp', `userReset: ${userReset}`);
 				},
@@ -273,33 +294,33 @@ export const init = (
 	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
-
-	// USNAT and CCPA can't be loaded at the same time.
-	// We use the country code to determine Austrialian users and set only ccpa for aus.
-	if (framework == 'aus') {
-		window._sp_.config.ccpa = {
-			targetingParams: {
-				framework: framework,
-			},
-		};
-	} else {
-		// Set both for gdpr and usnat
-		window._sp_.config.gdpr = {
-			targetingParams: {
-				framework,
-				excludePage: isExcludedFromCMP(pageSection),
-				isCorP: isConsentOrPayCountry(countryCode),
-				isUserSignedIn,
-			},
-		};
-
-		window._sp_.config.usnat = {
-			includeUspApi: true,
-			transitionCCPAAuth: true,
-			targetingParams: {
-				framework,
-			},
-		};
+	switch (framework) {
+		case 'tcfv2':
+			window._sp_.config.gdpr = {
+				targetingParams: {
+					framework,
+					excludePage: isExcludedFromCMP(pageSection),
+					isCorP: isConsentOrPayCountry(countryCode),
+					isUserSignedIn,
+				},
+			};
+			break;
+		case 'usnat':
+			window._sp_.config.usnat = {
+				targetingParams: {
+					framework,
+				},
+				includeUspApi: true,
+				transitionCCPAAuth: true,
+			};
+			break;
+		case 'aus':
+			window._sp_.config.ccpa = {
+				targetingParams: {
+					framework,
+				},
+			};
+			break;
 	}
 
 	// TODO use libs function loadScript,
