@@ -4,7 +4,7 @@ export const config = {
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
 	testPathIgnorePatterns: ['/node_modules/', '/.wireit/'],
 	transformIgnorePatterns: [
-		'node_modules/.pnpm/(?!@guardian|use-local-storage-state|color-convert|color-name)',
+		'node_modules/.pnpm/(?!@guardian|use-local-storage-state)',
 	],
 	transform: {
 		'^.+\\.[tj]sx?$': ['ts-jest'],
