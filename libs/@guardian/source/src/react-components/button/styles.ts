@@ -17,6 +17,7 @@ import type {
 	SharedButtonProps,
 	Size,
 } from './@types/SharedButtonProps';
+import { calculateHoverColour } from './hoverColour';
 import type { ThemeButton } from './theme';
 import { themeButton as defaultTheme } from './theme';
 
@@ -67,7 +68,8 @@ const primary = (button: ThemeButton): SerializedStyles => css`
 	color: ${button.textPrimary};
 
 	&:hover {
-		background-color: ${button.backgroundPrimaryHover};
+		background-color: ${button.backgroundPrimaryHover ??
+		calculateHoverColour(button.backgroundPrimary)};
 	}
 `;
 
@@ -76,7 +78,8 @@ const secondary = (button: ThemeButton): SerializedStyles => css`
 	color: ${button.textSecondary};
 
 	&:hover {
-		background-color: ${button.backgroundSecondaryHover};
+		background-color: ${button.backgroundSecondaryHover ??
+		calculateHoverColour(button.backgroundSecondary)};
 	}
 `;
 
@@ -86,7 +89,8 @@ const tertiary = (button: ThemeButton): SerializedStyles => css`
 	border: 1px solid ${button.borderTertiary};
 
 	&:hover {
-		background-color: ${button.backgroundTertiaryHover};
+		background-color: ${button.backgroundTertiaryHover ??
+		calculateHoverColour(button.backgroundTertiary, button.borderTertiary)};
 	}
 `;
 

@@ -379,7 +379,21 @@ export const CustomTheme: Story = {
 		theme: {
 			textPrimary: palette.brand[400],
 			backgroundPrimary: palette.brandAlt[400],
-			backgroundPrimaryHover: palette.brandAlt[200],
+		},
+	},
+	parameters: {
+		...themeParameters.custom,
+	},
+};
+
+export const CustomTransparentTheme: Story = {
+	args: {
+		...PrimaryPriorityDefaultTheme.args,
+		priority: 'tertiary',
+		theme: {
+			textTertiary: palette.neutral[100],
+			borderTertiary: palette.neutral[100],
+			backgroundTertiary: 'transparent',
 		},
 	},
 	parameters: {
