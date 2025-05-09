@@ -310,8 +310,6 @@ export const init = (
 				targetingParams: {
 					framework,
 				},
-				includeUspApi: true,
-				transitionCCPAAuth: true,
 			};
 			break;
 		case 'aus':
