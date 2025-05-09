@@ -1,3 +1,9 @@
+> [!WARNING] Deprecation warning
+>
+> Ophan types in `@guardian/libs` are now deprecated.
+>
+> Please use type definitions from `@guardian/ophan-tracker-js` instead.
+
 # Ophan
 
 Types related to Ophan.

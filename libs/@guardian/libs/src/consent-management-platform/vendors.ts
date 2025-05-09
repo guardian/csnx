@@ -26,6 +26,7 @@ export const TCFV2VendorIDs = {
 	googletag: ['5f1aada6b8e05c306c0597d7'],
 	groupM: ['5e37fc3e56a5e66147767231'],
 	ias: ['5e7ced57b8e05c485246ccf3'],
+	id5: ['5ee15bc7b8e05c16366599cb'],
 	inizio: ['5e37fc3e56a5e6615502f9c9'],
 	ipsos: ['5fa51b29a228638b4a1980e4'],
 	indexExchange: ['5e7ced57b8e05c485246ccd8'],

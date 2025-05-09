@@ -1,5 +1,6 @@
 /**
  * an individual A/B test, structured for Ophan
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
  */
 export type OphanABEvent = {
 	variantName: string;
@@ -9,11 +10,15 @@ export type OphanABEvent = {
 
 /**
  * the actual payload we send to Ophan: an object of OphanABEvents with test IDs as keys
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
  */
 export type OphanABPayload = {
 	abTestRegister: Record<string, OphanABEvent>;
 };
 
+/**
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
+ */
 export type OphanProduct =
 	| 'CONTRIBUTION'
 	| 'RECURRING_CONTRIBUTION'
@@ -23,6 +28,9 @@ export type OphanProduct =
 	| 'DIGITAL_SUBSCRIPTION'
 	| 'PRINT_SUBSCRIPTION';
 
+/**
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
+ */
 export type OphanAction =
 	| 'INSERT'
 	| 'VIEW'
@@ -44,6 +52,9 @@ export type OphanAction =
 	| 'SIGN_IN'
 	| 'CREATE_ACCOUNT';
 
+/**
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
+ */
 export type OphanComponentType =
 	| 'READERS_QUESTIONS_ATOM'
 	| 'QANDA_ATOM'
@@ -101,6 +112,9 @@ export type OphanComponentType =
 	| 'CONTAINER'
 	| 'ACQUISITIONS_GUTTER';
 
+/**
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
+ */
 export type OphanComponent = {
 	componentType: OphanComponentType;
 	id?: string;
@@ -109,6 +123,9 @@ export type OphanComponent = {
 	labels?: string[];
 };
 
+/**
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
+ */
 export type OphanComponentEvent = {
 	component: OphanComponent;
 	action: OphanAction;
@@ -120,6 +137,9 @@ export type OphanComponentEvent = {
 	};
 };
 
+/**
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
+ */
 export type OphanABTestMeta = {
 	abTestName: string;
 	abTestVariant: string;
@@ -135,6 +155,8 @@ export type OphanABTestMeta = {
  * Typically exposed on `window.guardian.ophan.record`
  *
  * Source: [`ophan/transmit.coffee#L27-L32`](https://github.com/guardian/ophan/blob/ccaa57bcee3f5f3f83ec28973074c9b3f98f1438/tracker-js/assets/coffee/ophan/transmit.coffee#L27-L32)
+ *
+ * @deprecated Please use type definitions from `@guardian/ophan-tracker-js` instead
  */
 export type OphanRecordFunction = (
 	data: Record<string, unknown>,

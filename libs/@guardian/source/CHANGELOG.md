@@ -1,5 +1,12 @@
 # @guardian/source
 
+## 10.1.0
+
+### Minor Changes
+
+- 65c6eaf: Add new colour shades news.700, sport.700 and opinion.700
+- 601cc6e: Adds new icons `SvgCloudSync` and `SvgCloudUpload`
+
 ## 10.0.0
 
 ### Major Changes
