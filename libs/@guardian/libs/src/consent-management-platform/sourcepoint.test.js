@@ -50,8 +50,6 @@ describe('Sourcepoint unified', () => {
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__gpp).toBeDefined();
 			} else if (frameworkAndCountryCode.framework == 'usnat') {
-				expect(window._sp_.config.usnat.includeUspApi).toBeTruthy();
-				expect(window._sp_.config.usnat.transitionCCPAAuth).toBeTruthy();
 				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,
 				);

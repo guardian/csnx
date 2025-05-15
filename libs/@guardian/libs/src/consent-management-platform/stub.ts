@@ -15,7 +15,6 @@ export const loadStubsFor = (framework: ConsentFramework): void => {
 			break;
 		case 'usnat':
 			stub_gpp_usnat();
-			stub_uspapi_ccpa();
 			break;
 		case 'aus':
 			stub_uspapi_ccpa();
