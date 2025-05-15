@@ -252,7 +252,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.4.0
+        specifier: 22.5.0
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -340,7 +340,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.4.0
+        specifier: 22.5.0
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -382,7 +382,7 @@ importers:
         specifier: 7.0.0
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 22.4.0
+        specifier: 22.5.0
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -521,7 +521,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.4.0
+        specifier: 22.5.0
         version: link:../libs
       '@guardian/source':
         specifier: 10.2.0
@@ -723,7 +723,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.4.0
+        specifier: 22.5.0
         version: link:../libs
       '@guardian/source':
         specifier: 10.2.0
@@ -1079,6 +1079,7 @@ packages:
   /@babel/helper-validator-identifier@7.27.1:
     resolution: {integrity: sha512-D2hP9eA+Sqx1kBZgzxZh0y1trbuU+JoDkiEwqhQ36nodYqJwyEIhPSdMNd7lOm/4io72luTPWH20Yda0xOuUow==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
 
   /@babel/helper-validator-option@7.25.9:
     resolution: {integrity: sha512-e/zv1co8pp55dNdEcCynfj9X7nyUKUXoUEwfXqaZt0omVOmDe9oOTdKStH4GmAw6zxMFs50ZayuMfHDKlO7Tfw==}
