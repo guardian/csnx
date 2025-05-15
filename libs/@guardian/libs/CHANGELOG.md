@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 22.5.0
+
+### Minor Changes
+
+- bfd08c9: Remove uspapi stub and deprecated CCPA fallback configuration variables from Usnat Sourcepoint config.
+
 ## 22.4.0
 
 ### Minor Changes
