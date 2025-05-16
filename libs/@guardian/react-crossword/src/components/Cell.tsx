@@ -122,6 +122,7 @@ const CellComponent = ({
 							pattern={'^[A-Za-zÀ-ÿ0-9]$'}
 							onKeyDown={handleKeyDown}
 							id={getId(`cell-input-${data.x}-${data.y}`)}
+							data-testid={getId(`cell-test-id-${data.x}-${data.y}`)}
 							onInput={handleInput ?? noop}
 							tabIndex={isCurrentCell ? 0 : -1}
 							aria-description={data.description}
