@@ -30,7 +30,7 @@ export type TCPingStatusCode =
 export interface SPUserConsent {
 	gdpr?: {
 		euconsent?: string;
-		consentStatus: {
+		consentStatus?: {
 			hasConsentData: boolean;
 		};
 	};
