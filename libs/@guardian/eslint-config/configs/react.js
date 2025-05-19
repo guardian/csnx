@@ -3,26 +3,19 @@ import react from 'eslint-plugin-react';
 import hooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
-const files = ['**/*.{js,ts,jsx,mjsx,tsx,mtsx}'];
-
 export default [
 	{
-		files,
-		...react.configs.flat.recommended,
-	},
-	{
-		files,
-		...react.configs.flat['jsx-runtime'],
-	},
-	{
 		name: '@guardian/react',
-		files,
+		files: ['**/*.{js,ts,jsx,mjsx,tsx,mtsx}'],
 		languageOptions: {
+			...react.configs.flat.recommended.languageOptions,
 			globals: {
 				...globals.serviceworker,
 				...globals.browser,
 			},
 		},
+		...react.configs.flat.recommended,
+		...react.configs.flat['jsx-runtime'],
 		plugins: {
 			react,
 			'react-hooks': hooks,
