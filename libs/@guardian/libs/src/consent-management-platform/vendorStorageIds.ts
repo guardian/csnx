@@ -58,11 +58,9 @@ export const vendorStorageIds = {
 			'permutive-data-queries',
 			'permutive-events-for-page',
 			'__permutiveConfigQueryParams',
+			'_psegs',
 		],
 		sessionStorage: ['__permutiveConfigQueryParams'],
-	},
-	prebid: {
-		localStorage: ['_psegs', '_pubcid_exp'],
 	},
 	googletag: { cookies: ['__gpi', '__gads'] },
 } satisfies Partial<Record<VendorName, VendorData>>;
