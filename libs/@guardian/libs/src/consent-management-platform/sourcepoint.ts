@@ -103,6 +103,11 @@ export const init = (
 ): void => {
 	loadAllStubs();
 
+	console.log('cmp', `init: framework: ${framework}`);
+	console.log('cmp', `init: countryCode: ${countryCode}`);
+	console.log('cmp', `init: isUserSignedIn: ${isUserSignedIn}`);
+	console.log('cmp', `init: useNonAdvertisedList: ${useNonAdvertisedList}`);
+
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
 	if (window._sp_) {
@@ -181,14 +186,14 @@ export const init = (
 
 						log(
 							'cmp',
-							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
+							`onConsentReady Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
 						);
 
 						return;
 					}
 
-					log('cmp', `consentUUID ${consentUUID}`);
-					log('cmp', `euconsent ${euconsent}`);
+					log('cmp', `onConsentReady: consentUUID ${consentUUID}`);
+					log('cmp', `onConsentReady: euconsent ${euconsent}`);
 
 					mark('cmp-got-consent');
 
@@ -207,7 +212,7 @@ export const init = (
 				onMessageReceiveData: (message_type, data) => {
 					// Event fires when a message is displayed to the user and sends data about the message and campaign to the callback.
 					// The data sent to the callback is in the following structure:
-					log('cmp', `onMessageReceiveData ${message_type}`);
+					log('cmp', `onMessageReceiveData: ${message_type}`);
 
 					// The messageId is 0 when no message is displayed
 					if (data.messageId !== 0) {
