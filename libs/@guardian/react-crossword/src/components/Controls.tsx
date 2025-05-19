@@ -85,6 +85,7 @@ const ClearClue = memo((props: ButtonProps) => {
 			onClick={clear}
 			aria-label={`Clear ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			data-link-name="Clear this"
+			data-testid="clear-this"
 			aria-live={'off'}
 			{...props}
 		>
@@ -135,6 +136,7 @@ const CheckClue = memo((props: ButtonProps) => {
 			aria-live="off"
 			onClick={check}
 			data-link-name="Check this"
+			data-testid="check-this"
 			aria-label={`Check and remove incorrect letters from ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			{...props}
 		>
@@ -169,6 +171,7 @@ const RevealClue = memo((props: ButtonProps) => {
 			aria-live="off"
 			aria-label={`Reveal ${currentEntryId ? currentEntryId.split('-').join(' ') : 'word'}`}
 			data-link-name="Reveal this"
+			data-testid="reveal-this"
 			{...props}
 		>
 			Reveal Word
@@ -183,6 +186,7 @@ const AnagramHelper = memo((props: ButtonProps) => {
 		<ClueButton
 			onClick={toggleAnagramHelper}
 			data-link-name="Show anagram helper"
+			data-testid="show-anagram-helper"
 			{...props}
 		>
 			Anagram Helper
@@ -228,6 +232,7 @@ const CheckGrid = memo((props: ButtonProps) => {
 		<CrosswordButton
 			onClick={check}
 			data-link-name="Check all"
+			data-testid="check-all"
 			requireConfirmation={true}
 			{...props}
 			aria-label="Check and remove all incorrect letters"
@@ -257,6 +262,7 @@ const RevealGrid = memo((props: ButtonProps) => {
 			onClick={reveal}
 			requireConfirmation={true}
 			data-link-name="Reveal all"
+			data-testid="reveal-all"
 			{...props}
 		>
 			Reveal All
@@ -271,6 +277,7 @@ const ClearGrid = memo((props: ButtonProps) => {
 			onClick={clearUserInput}
 			requireConfirmation={true}
 			data-link-name="Clear all"
+			data-testid="clear-all"
 			{...props}
 		>
 			Clear All
