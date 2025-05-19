@@ -23,7 +23,7 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
-import { loadStubsFor } from './stub';
+import { loadAllStubs } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -101,7 +101,12 @@ export const init = (
 	useNonAdvertisedList: boolean,
 	pubData = {},
 ): void => {
-	loadStubsFor(framework);
+	loadAllStubs();
+
+	console.log('cmp', `init: framework: ${framework}`);
+	console.log('cmp', `init: countryCode: ${countryCode}`);
+	console.log('cmp', `init: isUserSignedIn: ${isUserSignedIn}`);
+	console.log('cmp', `init: useNonAdvertisedList: ${useNonAdvertisedList}`);
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
@@ -158,6 +163,7 @@ export const init = (
 			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
 			joinHref: true,
 			isSPA: true,
+			campaignEnv: 'stage',
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
@@ -180,14 +186,14 @@ export const init = (
 
 						log(
 							'cmp',
-							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
+							`onConsentReady Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
 						);
 
 						return;
 					}
 
-					log('cmp', `consentUUID ${consentUUID}`);
-					log('cmp', `euconsent ${euconsent}`);
+					log('cmp', `onConsentReady: consentUUID ${consentUUID}`);
+					log('cmp', `onConsentReady: euconsent ${euconsent}`);
 
 					mark('cmp-got-consent');
 
@@ -206,7 +212,7 @@ export const init = (
 				onMessageReceiveData: (message_type, data) => {
 					// Event fires when a message is displayed to the user and sends data about the message and campaign to the callback.
 					// The data sent to the callback is in the following structure:
-					log('cmp', `onMessageReceiveData ${message_type}`);
+					log('cmp', `onMessageReceiveData: ${message_type}`);
 
 					// The messageId is 0 when no message is displayed
 					if (data.messageId !== 0) {
@@ -294,31 +300,57 @@ export const init = (
 	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
 	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
-	switch (framework) {
-		case 'tcfv2':
-			window._sp_.config.gdpr = {
-				targetingParams: {
-					framework,
-					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPayCountry(countryCode),
-					isUserSignedIn,
-				},
-			};
-			break;
-		case 'usnat':
-			window._sp_.config.usnat = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
-		case 'aus':
-			window._sp_.config.ccpa = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
+	// switch (framework) {
+	// 	case 'tcfv2':
+	// 		window._sp_.config.gdpr = {
+	// 			targetingParams: {
+	// 				framework,
+	// 				excludePage: isExcludedFromCMP(pageSection),
+	// 				isCorP: isConsentOrPayCountry(countryCode),
+	// 				isUserSignedIn,
+	// 			},
+	// 		};
+	// 		break;
+	// 	case 'usnat':
+	// 		window._sp_.config.usnat = {
+	// 			targetingParams: {
+	// 				framework,
+	// 			},
+	// 			includeUspApi: true,
+	// 			transitionCCPAAuth: true,
+	// 		};
+	// 		break;
+	// 	case 'aus':
+	// 		window._sp_.config.ccpa = {
+	// 			targetingParams: {
+	// 				framework,
+	// 			},
+	// 		};
+	// 		break;
+	// }
+
+	if (framework == 'aus') {
+		window._sp_.config.ccpa = {
+			targetingParams: {
+				framework: framework,
+			},
+		};
+	} else {
+		// Set both for gdpr and usnat
+		window._sp_.config.gdpr = {
+			targetingParams: {
+				framework,
+				excludePage: isExcludedFromCMP(pageSection),
+				isCorP: isConsentOrPayCountry(countryCode),
+				isUserSignedIn,
+			},
+		};
+
+		window._sp_.config.usnat = {
+			targetingParams: {
+				framework,
+			},
+		};
 	}
 
 	// TODO use libs function loadScript,
