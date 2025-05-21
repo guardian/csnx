@@ -40,6 +40,7 @@ const Label = memo(({ direction }: { direction: Direction }) => {
 		</label>
 	);
 });
+Label.displayName = 'Label';
 
 export const Clues = ({ direction, scrollToSelected, Header }: Props) => {
 	const { entries, getId, cells } = useData();

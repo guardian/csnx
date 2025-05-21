@@ -93,6 +93,7 @@ const ClearClue = memo((props: ButtonProps) => {
 		</ClueButton>
 	);
 });
+ClearClue.displayName = 'ClearClue';
 
 const CheckClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
@@ -144,6 +145,7 @@ const CheckClue = memo((props: ButtonProps) => {
 		</ClueButton>
 	);
 });
+CheckClue.displayName = 'CheckClue';
 
 const RevealClue = memo((props: ButtonProps) => {
 	const { cells } = useData();
@@ -178,6 +180,7 @@ const RevealClue = memo((props: ButtonProps) => {
 		</ClueButton>
 	);
 });
+RevealClue.displayName = 'RevealClue';
 
 const AnagramHelper = memo((props: ButtonProps) => {
 	const { toggleAnagramHelper } = useShowAnagramHelper();
@@ -193,6 +196,7 @@ const AnagramHelper = memo((props: ButtonProps) => {
 		</ClueButton>
 	);
 });
+AnagramHelper.displayName = 'AnagramHelper';
 
 const CheckGrid = memo((props: ButtonProps) => {
 	const { progress } = useProgress();
@@ -241,6 +245,7 @@ const CheckGrid = memo((props: ButtonProps) => {
 		</CrosswordButton>
 	);
 });
+CheckGrid.displayName = 'CheckGrid';
 
 const RevealGrid = memo((props: ButtonProps) => {
 	const { cells } = useData();
@@ -269,6 +274,7 @@ const RevealGrid = memo((props: ButtonProps) => {
 		</CrosswordButton>
 	);
 });
+RevealGrid.displayName = 'RevealGrid';
 
 const ClearGrid = memo((props: ButtonProps) => {
 	const { clearUserInput } = useClearUserInput();
@@ -284,6 +290,7 @@ const ClearGrid = memo((props: ButtonProps) => {
 		</CrosswordButton>
 	);
 });
+ClearGrid.displayName = 'ClearGrid';
 
 const controlsGroupStyle = css`
 	display: flex;
@@ -495,3 +502,4 @@ export const Controls = memo(() => {
 		</div>
 	);
 });
+Controls.displayName = 'Controls';
