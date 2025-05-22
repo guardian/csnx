@@ -33,6 +33,7 @@ const CluesHeader = memo(({ children }: { children: ReactNode }) => {
 		</div>
 	);
 });
+CluesHeader.displayName = 'CluesHeader';
 
 const Layout = ({
 	Controls,

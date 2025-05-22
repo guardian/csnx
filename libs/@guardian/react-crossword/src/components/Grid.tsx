@@ -82,6 +82,7 @@ const Separator = memo(
 		);
 	},
 );
+Separator.displayName = 'Separator';
 
 /** Renders a focus indicator over the current cell */
 const FocusIndicator = memo(
@@ -119,6 +120,7 @@ const FocusIndicator = memo(
 		);
 	},
 );
+FocusIndicator.displayName = 'FocusIndicator';
 
 export const Grid = () => {
 	const theme = useTheme();
