@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 12.0.0
+
+### Major Changes
+
+- 0333bbe: Bugfix to re-enable recommended react rules
+
 ## 11.0.0
 
 ### Major Changes
