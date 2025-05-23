@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 18.1.1
+
+### Patch Changes
+
+- 22b7d0d: Improve ticker animation
+
 ## 18.1.0
 
 ### Minor Changes
