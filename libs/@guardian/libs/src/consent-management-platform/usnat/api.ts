@@ -1,19 +1,15 @@
-import type { GPPData } from '../types/usnat';
+import type { UsnatData } from '../types/usnat';
 
-type Command = 'ping';
-
-const api = (command: Command) =>
+export const api = () =>
 	new Promise((resolve, reject) => {
-		if (window.__gpp) {
-			window.__gpp(command, (result, success) =>
-				success
-					? resolve(result)
-					: /* istanbul ignore next */
-						reject(new Error(`Unable to get ${command} data`)),
-			);
+		if (window._sp_?.usnat?.getUserConsents) {
+			window._sp_.usnat.getUserConsents((usNatData) => {
+				return resolve({ ...usNatData, signalStatus: 'ready' });
+			});
 		} else {
-			reject(new Error('No __gpp found on window'));
+			reject(new Error('No _sp_?.usnat?.getUserConsents found on window'));
 		}
 	});
-export const getGPPData = (): Promise<GPPData> =>
-	api('ping') as Promise<GPPData>;
+
+export const getUsnatData = (): Promise<UsnatData> =>
+	api() as Promise<UsnatData>;
