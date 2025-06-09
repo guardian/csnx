@@ -80,7 +80,7 @@ const hasConsentedToNonAdvertisedList = (): boolean => {
 		`_sp_user_consent_${PROPERTY_ID_SUBDOMAIN}`,
 	);
 	const userConsent = JSON.parse(spUserConsentString ?? '{}') as SPUserConsent;
-	return userConsent.gdpr?.consentStatus.hasConsentData ?? false;
+	return userConsent.gdpr?.consentStatus?.hasConsentData ?? false;
 };
 
 const shouldMergeVendorList = (
