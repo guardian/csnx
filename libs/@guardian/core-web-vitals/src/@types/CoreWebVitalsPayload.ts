@@ -11,4 +11,5 @@ export type CoreWebVitalsPayload = {
 	fcp: number;
 	ttfb: number;
 	stage: 'CODE' | 'PROD';
+	platform: string;
 };
