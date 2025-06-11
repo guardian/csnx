@@ -123,6 +123,7 @@ type InitCoreWebVitalsOptions = {
 
 	sampling?: number;
 	team?: Subscription;
+	platform?: string;
 };
 
 /**
@@ -136,6 +137,7 @@ type InitCoreWebVitalsOptions = {
  * @param init.sampling - sampling rate for sending data. Defaults to `0.01`.
  *
  * @param init.team - Optional team to trigger a log event once metrics are queued.
+ * @param init.platform - Optional platform to include in the payload.
  */
 export const initCoreWebVitals = async ({
 	browserId,
@@ -143,6 +145,7 @@ export const initCoreWebVitals = async ({
 	sampling = 1 / 100, // 1% of page view by default
 	isDev,
 	team,
+	platform,
 }: InitCoreWebVitalsOptions): Promise<void> => {
 	if (initialised) {
 		console.warn(
@@ -161,6 +164,10 @@ export const initCoreWebVitals = async ({
 	coreWebVitalsPayload.stage = isDev ? 'CODE' : 'PROD';
 	coreWebVitalsPayload.browser_id = browserId;
 	coreWebVitalsPayload.page_view_id = pageViewId;
+
+	if (platform) {
+		coreWebVitalsPayload.platform = platform;
+	}
 
 	if (!browserId || !pageViewId) {
 		console.warn(
