@@ -5,7 +5,7 @@ import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
 import type { AUSData } from './aus';
 import type { TCData } from './tcfv2/TCData';
-import type { GPPData } from './usnat';
+import type { GPPData, UsnatData } from './usnat';
 import type { CMP, ConsentFramework, PubData } from '.';
 
 type OnMessageChoiceSelect = (
@@ -97,6 +97,7 @@ declare global {
 			};
 			usnat?: {
 				loadPrivacyManagerModal?: (id: number) => void;
+				getUserConsents?: (callback: (usNatData: UsnatData) => void) => void;
 			};
 			executeMessaging?: () => void;
 		};
