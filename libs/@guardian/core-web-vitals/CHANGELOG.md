@@ -1,5 +1,11 @@
 # @guardian/core-web-vitals
 
+## 11.1.0
+
+### Minor Changes
+
+- 9db362a: Add optional platform arg to InitCoreWebVitalsOptions
+
 ## 11.0.0
 
 ### Patch Changes
