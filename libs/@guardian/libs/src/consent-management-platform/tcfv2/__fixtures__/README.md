@@ -3,7 +3,7 @@
 These were obtained by running
 
 ```
-window.__tcfapi('getTCData', 2, copy)
+window.__tcfapi('addEventListener', 2, copy)
 ```
 
 and

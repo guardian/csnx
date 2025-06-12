@@ -2,7 +2,6 @@ import type { CustomVendorConsents } from '../types/tcfv2/CustomVendorConsents';
 import type { TCData } from '../types/tcfv2/TCData';
 
 type Command =
-	| 'getTCData'
 	| 'ping'
 	| 'addEventListener'
 	| 'removeEventListener'
