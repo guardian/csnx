@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 22.5.2
+
+### Patch Changes
+
+- e2baca2: Remove deprecated getTCData command
+
 ## 22.5.1
 
 ### Patch Changes
