@@ -1,13 +1,16 @@
-import { getGPPData } from './api.ts';
+import { getUsnatData } from './api.ts';
 
-it('calls the correct IAB api with the correct methods', async () => {
-	expect(getGPPData()).rejects.toThrow();
+it('calls the correct Sourcepoint api with the correct methods', async () => {
+	expect(getUsnatData()).rejects.toThrow();
 
-	window.__gpp = jest.fn((a, cb) => {
-		cb({}, true);
-	});
+	window._sp_ = {
+		usnat: {
+			getUserConsents: jest.fn((cb) => {
+				cb({});
+			}),
+		},
+	};
+	await getUsnatData();
 
-	await getGPPData();
-
-	expect(window.__gpp).toHaveBeenCalledWith('ping', expect.any(Function));
+	expect(window._sp_.usnat.getUserConsents).toHaveBeenCalled();
 });

@@ -23,3 +23,18 @@ export interface GPPData {
 	signalStatus: GPPSignalStatus;
 	gpcEnabled: boolean;
 }
+
+interface UsnatVendors {
+	consented: boolean;
+	_id: string;
+}
+interface UsnatCategories extends UsnatVendors {
+	systemId: number;
+}
+
+export interface UsnatData {
+	applies: boolean;
+	categories: UsnatCategories[];
+	vendors: UsnatVendors[];
+	signalStatus: GPPSignalStatus;
+}
