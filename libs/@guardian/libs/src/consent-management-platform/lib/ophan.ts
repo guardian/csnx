@@ -1,7 +1,5 @@
-import type {
-	OphanComponentEvent,
-	OphanRecordFunction,
-} from '../../ophan/@types';
+import type { ComponentEvent } from '@guardian/ophan-tracker-js';
+import type { OphanRecordFunction } from '../../ophan/@types';
 import { getIsConsentOrPay } from '../isConsentOrPay';
 import { SourcePointChoiceTypes } from './sourcepointConfig';
 
@@ -61,7 +59,7 @@ export const sendConsentChoicesToOphan = (
 			actionValue = 'manage-cookies';
 			break;
 	}
-	const componentEvent: OphanComponentEvent = {
+	const componentEvent: ComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
 			id: messageId,
@@ -80,7 +78,7 @@ export const sendConsentChoicesToOphan = (
  * @param {string} messageId
  */
 export const sendMessageReadyToOphan = (messageId: string): void => {
-	const componentEvent: OphanComponentEvent = {
+	const componentEvent: ComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
 			id: messageId,
@@ -98,7 +96,7 @@ export const sendMessageReadyToOphan = (messageId: string): void => {
  * @param {string} value
  */
 export const sendJurisdictionMismatchToOphan = (value: string): void => {
-	const componentEvent: OphanComponentEvent = {
+	const componentEvent: ComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
 		},
