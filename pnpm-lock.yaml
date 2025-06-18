@@ -418,7 +418,7 @@ importers:
   libs/@guardian/libs:
     dependencies:
       '@guardian/ophan-tracker-js':
-        specifier: ^2.2.10
+        specifier: 2.2.10
         version: 2.2.10
     devDependencies:
       '@guardian/eslint-config':
