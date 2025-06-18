@@ -51,37 +51,4 @@ describe('getConsentState', () => {
 		expect(getUsnatData).toHaveBeenCalledTimes(1);
 		expect(doNotSell).toBe(false);
 	});
-
-	// xit('should return false if the supportedAPIs has an incorrect format  - doNotSell is false', async () => {
-	// 	let applicableSectionsIncorrect = gppDataCanSell;
-	// 	applicableSectionsIncorrect.applicableSections = [-1];
-	// 	getGPPData.mockResolvedValue(applicableSectionsIncorrect);
-
-	// 	const { doNotSell } = await getConsentState();
-
-	// 	expect(getGPPData).toHaveBeenCalledTimes(1);
-	// 	expect(doNotSell).toBe(false);
-	// });
-
-	// xit('should return false if supportedAPIs and parsedSections are different - doNotSell is false', async () => {
-	// 	let supportedApiParsedSectionMismatch = gppDataCanSell;
-	// 	supportedApiParsedSectionMismatch.supportedAPIs = ['7:usnat'];
-	// 	getGPPData.mockResolvedValue(supportedApiParsedSectionMismatch);
-
-	// 	const { doNotSell } = await getConsentState();
-
-	// 	expect(getGPPData).toHaveBeenCalledTimes(1);
-	// 	expect(doNotSell).toBe(false);
-	// });
-
-	// xit('should return false if the parsedSections is not correctly set - doNotSell is false', async () => {
-	// 	let parsedSectionsIncorrect = gppDataCanSell;
-	// 	parsedSectionsIncorrect.parsedSections = {};
-	// 	getGPPData.mockResolvedValue(parsedSectionsIncorrect);
-
-	// 	const { doNotSell } = await getConsentState();
-
-	// 	expect(getGPPData).toHaveBeenCalledTimes(1);
-	// 	expect(doNotSell).toBe(false);
-	// });
 });
