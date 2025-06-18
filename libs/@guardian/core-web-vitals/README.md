@@ -89,6 +89,21 @@ initCoreWebVitals(init);
 // should call log('dotcom', 'Core Web Vitals payload successfully queued […]')
 ```
 
+### `init.platform`
+
+Optional platform which is passed through to the events-collector and can be
+used to segment data downstream. Defaults to `dcr` in the events-collector if
+not specified.
+
+```ts
+const init: InitCoreWebVitalsOptions = {
+	isDev: false,
+	platform: 'support',
+};
+
+initCoreWebVitals(init);
+```
+
 ### `bypassCoreWebVitalsSampling`
 
 Allows to asynchronously bypass the sampling rate.

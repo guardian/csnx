@@ -24,6 +24,7 @@ const defaultCoreWebVitalsPayload = {
 	fid: 50.5,
 	fcp: 100.1,
 	ttfb: 9.99,
+	platform: 'dcr',
 } satisfies CoreWebVitalsPayload;
 
 const browserId = defaultCoreWebVitalsPayload.browser_id;
@@ -364,6 +365,42 @@ describe('Endpoints', () => {
 		global.dispatchEvent(new Event('pagehide'));
 
 		expect(_.coreWebVitalsPayload.stage).toBe('PROD');
+	});
+});
+
+describe('platform', () => {
+	beforeEach(() => {
+		reset();
+	});
+
+	it('should include the platform in the payload if provided', async () => {
+		const isDev = true;
+		const platform = 'dcr';
+		await initCoreWebVitals({
+			browserId,
+			pageViewId,
+			isDev,
+			sampling: 1,
+			platform,
+		});
+
+		global.dispatchEvent(new Event('pagehide'));
+
+		expect(_.coreWebVitalsPayload.platform).toBe(platform);
+	});
+
+	it('should omit the platform in the payload if not provided', async () => {
+		const isDev = true;
+		await initCoreWebVitals({
+			browserId,
+			pageViewId,
+			isDev,
+			sampling: 1,
+		});
+
+		global.dispatchEvent(new Event('pagehide'));
+
+		expect(_.coreWebVitalsPayload.platform).toBe(undefined);
 	});
 });
 

@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 22.5.1
+
+### Patch Changes
+
+- ca7af8f: fix: make consentStatus optional to handle undefined cases
+
 ## 22.5.0
 
 ### Minor Changes
