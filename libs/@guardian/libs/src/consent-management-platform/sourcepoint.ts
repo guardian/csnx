@@ -48,7 +48,7 @@ const getPropertyHref = (
 	}
 
 	if (framework == 'usnat') {
-		return 'https://www.theguardian.com';
+		return PROPERTY_HREF_MAIN;
 	}
 
 	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
