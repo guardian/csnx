@@ -34,7 +34,7 @@ interface UsnatCategories extends UsnatVendors {
 
 export interface UsnatData {
 	applies: boolean;
-	categories: UsnatCategories[];
-	vendors: UsnatVendors[];
+	categories?: UsnatCategories[];
+	vendors?: UsnatVendors[];
 	signalStatus: GPPSignalStatus;
 }

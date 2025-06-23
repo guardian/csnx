@@ -28,7 +28,12 @@ describe('getConsentState', () => {
 	});
 
 	it('gets the gpp consent state correctly if it fails - doNotSell is false', async () => {
-		getUsnatData.mockResolvedValue({});
+		getUsnatData.mockResolvedValue({
+			applies: false,
+			categories: [],
+			vendors: [],
+			signalStatus: 'not ready',
+		});
 
 		const { doNotSell } = await getConsentState();
 
