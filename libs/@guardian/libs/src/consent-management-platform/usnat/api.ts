@@ -6,6 +6,13 @@ export const api = () =>
 			window._sp_.usnat.getUserConsents((usNatData) => {
 				return resolve({ ...usNatData, signalStatus: 'ready' });
 			});
+		} else {
+			resolve({
+				applies: false,
+				categories: [],
+				vendors: [],
+				signalStatus: 'not ready',
+			});
 		}
 	});
 

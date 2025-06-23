@@ -1,7 +1,11 @@
 import { getUsnatData } from './api.ts';
 
 it('calls the correct Sourcepoint api with the correct methods', async () => {
-	expect(getUsnatData()).rejects.toThrow();
+	const usnatData = await getUsnatData();
+	expect(usnatData.applies).toBe(false);
+	expect(usnatData.categories).toEqual([]);
+	expect(usnatData.vendors).toEqual([]);
+	expect(usnatData.signalStatus).toEqual('not ready');
 
 	window._sp_ = {
 		usnat: {
