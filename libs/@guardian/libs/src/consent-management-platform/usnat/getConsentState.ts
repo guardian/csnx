@@ -5,10 +5,9 @@ export const getConsentState = async (): Promise<USNATConsentState> => {
 	let doNotSell = false; // Opt-Out
 	const usnatData = await getUsnatData();
 
-	doNotSell = usnatData.applies
-		? usnatData.categories.find((category) => category.systemId === 3)
-				?.consented !== true //check for sale or share consent https://sourcepoint-public-api.readme.io/reference/reference-systemid-for-iab-privacy-choices
-		: doNotSell;
+	doNotSell =
+		usnatData.categories.find((category) => category.systemId === 3)
+			?.consented !== true; //check for sale or share consent https://sourcepoint-public-api.readme.io/reference/reference-systemid-for-iab-privacy-choices
 
 	return {
 		doNotSell,
