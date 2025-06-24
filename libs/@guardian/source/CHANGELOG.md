@@ -1,5 +1,13 @@
 # @guardian/source
 
+## 11.0.0
+
+### Major Changes
+
+- f1248c7: Update lifestyle 800 colour
+
+  This change improves contrast against the neutral.46 colour, ensuring compliance with WCAG accessibility standards for text and background colour contrast.
+
 ## 10.2.0
 
 ### Minor Changes

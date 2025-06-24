@@ -1,5 +1,14 @@
 # @guardian/source-development-kitchen
 
+## 19.0.0
+
+### Patch Changes
+
+- Updated dependencies [bef13f1]
+- Updated dependencies [f1248c7]
+  - @guardian/libs@23.0.0
+  - @guardian/source@11.0.0
+
 ## 18.1.1
 
 ### Patch Changes
