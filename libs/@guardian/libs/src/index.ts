@@ -52,7 +52,6 @@ export type {
 	OphanComponentEvent,
 	OphanComponentType,
 	OphanProduct,
-	OphanRecordFunction,
 } from './ophan/@types';
 
 export { storage } from './storage/storage';
