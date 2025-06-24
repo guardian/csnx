@@ -56,7 +56,7 @@ export const palette = {
 		'450': '#F37ABC',
 		'500': '#FFABDB',
 		'600': '#FEC8D3',
-		'800': '#FEEEF7',
+		'800': '#FEF1F8',
 	},
 	neutral: {
 		'0': '#000000',
