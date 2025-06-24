@@ -4,25 +4,6 @@ export * from './deprecated-exports';
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
-export type {
-	OnConsentChangeCallback,
-	CMP,
-	ConsentState,
-	ConsentFramework,
-	VendorName,
-} from './consent-management-platform/types';
-export type {
-	TCEventStatusCode,
-	TCFv2ConsentState,
-} from './consent-management-platform/types/tcfv2';
-export type { USNATConsentState } from './consent-management-platform/types/usnat';
-export {
-	cmp,
-	getConsentFor,
-	onConsentChange,
-	onConsent,
-} from './consent-management-platform';
-
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
 export { setCookie } from './cookies/setCookie';
@@ -71,6 +52,7 @@ export type {
 	OphanComponentEvent,
 	OphanComponentType,
 	OphanProduct,
+	OphanRecordFunction,
 } from './ophan/@types';
 
 export { storage } from './storage/storage';

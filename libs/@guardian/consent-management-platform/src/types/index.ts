@@ -1,4 +1,4 @@
-import type { CountryCode } from '../../countries/@types/CountryCode';
+import type { CountryCode } from '@guardian/libs';
 import type { VendorName } from '../vendors';
 import type { AUSConsentState } from './aus';
 import type { TCFv2ConsentState } from './tcfv2';

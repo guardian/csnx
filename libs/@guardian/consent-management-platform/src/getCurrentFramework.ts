@@ -1,4 +1,4 @@
-import { log } from '../logger/logger';
+import { log } from '@guardian/libs';
 import type { ConsentFramework } from './types';
 
 let currentFramework: ConsentFramework | undefined;
