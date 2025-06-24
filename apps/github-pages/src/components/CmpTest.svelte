@@ -1,6 +1,7 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
-	import { cmp, onConsentChange, log, setCookie } from '@guardian/libs';
+	import { cmp, onConsentChange } from "@guardian/consent-management-platform"
+	import { log, setCookie } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
