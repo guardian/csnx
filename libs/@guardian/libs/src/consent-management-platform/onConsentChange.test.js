@@ -3,7 +3,7 @@ import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
 import tcData from './tcfv2/__fixtures__/api.getTCData.json';
-import gppData from './usnat/__fixtures__/api.getGPPData.canSell.json';
+import usnatData from './usnat/__fixtures__/api.getUserConsents.canSell.json';
 
 const resolveAllPromises = () =>
 	new Promise((resolve) => process.nextTick(resolve));
@@ -23,11 +23,13 @@ it('throws an error if no framework is present', () => {
 
 describe('under USNAT', () => {
 	beforeEach(() => {
-		window.__gpp = jest.fn((command, callback) => {
-			if (command === 'ping') {
-				callback(gppData, true);
-			}
-		});
+		window._sp_ = {
+			usnat: {
+				getUserConsents: jest.fn((cb) => {
+					cb(usnatData);
+				}),
+			},
+		};
 
 		setCurrentFramework('usnat');
 	});
@@ -66,8 +68,11 @@ describe('under USNAT', () => {
 
 		expect(callback).toHaveBeenCalledTimes(1);
 
-		//
-		gppData.parsedSections.usnatv1.SaleOptOut = 1; // Opted Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
+		usnatData.categories.map((category) => {
+			category.consented = false; // Opted out
+			return category;
+		});
+
 		invokeCallbacks();
 		await resolveAllPromises();
 
@@ -84,8 +89,10 @@ describe('under USNAT', () => {
 		const callback2 = jest.fn(() => setCallbackLastExecuted(2));
 		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
 		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
-
-		gppData.parsedSections.usnatv1.SaleOptOut = 2; // Did Not Opt Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
+		usnatData.categories.map((category) => {
+			category.consented = true; // Did not opt out
+			return category;
+		});
 
 		// callback 3 and 4 registered first with final flag
 		onConsentChange(callback3, true);
@@ -104,7 +111,11 @@ describe('under USNAT', () => {
 		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
-		gppData.parsedSections.usnatv1.SaleOptOut = 1; // Opted Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
+		// gppData.parsedSections.usnatv1.SaleOptOut = 1; // Opted Out https://github.com/InteractiveAdvertisingBureau/Global-Privacy-Platform/blob/main/Sections/US-National/IAB%20Privacy%E2%80%99s%20National%20Privacy%20Technical%20Specification.md#core-segment
+		usnatData.categories.map((category) => {
+			category.consented = false; // Opted out
+			return category;
+		});
 
 		invokeCallbacks();
 
