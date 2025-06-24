@@ -1,0 +1,3 @@
+interface Navigator {
+	globalPrivacyControl?: boolean;
+}

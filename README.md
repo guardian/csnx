@@ -157,6 +157,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/libs:e2e:ui`
 - `make @guardian/libs:fix`
 - `make @guardian/libs:lint`
+- `make @guardian/libs:sourcepoint-integration-test`
 - `make @guardian/libs:test`
 - `make @guardian/libs:tsc`
 - `make @guardian/libs:verify-dist`
