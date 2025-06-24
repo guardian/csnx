@@ -1,6 +1,6 @@
 import assert from 'node:assert';
 import { test } from 'node:test';
-import { TCFV2VendorIDs } from '../dist/consent-management-platform/vendors.js';
+import { TCFV2VendorIDs } from '../src/vendors.ts';
 
 const cmpBaseUrl = 'cdn.privacy-mgmt.com';
 const guardianId = '5ec67f5bb8e05c4a1160fda1';

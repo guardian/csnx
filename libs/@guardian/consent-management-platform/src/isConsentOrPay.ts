@@ -1,4 +1,4 @@
-import type { CountryCode } from '../index.test';
+import type { CountryCode } from '@guardian/libs';
 import { isGuardianDomain } from './lib/domain';
 import { consentOrPayCountries } from './lib/sourcepointConfig';
 

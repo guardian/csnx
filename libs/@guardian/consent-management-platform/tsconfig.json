@@ -1,0 +1,5 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"include": ["**/*", "../../../@types/window.d.ts"],
+	"exclude": ["node_modules", "dist", ".wireit", "jest.dist.setup.js"]
+}

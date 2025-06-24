@@ -1,7 +1,4 @@
-import type {
-	OphanComponentEvent,
-	OphanRecordFunction,
-} from '../../ophan/@types';
+import type { OphanComponentEvent, OphanRecordFunction } from '@guardian/libs';
 import { getIsConsentOrPay } from '../isConsentOrPay';
 import { SourcePointChoiceTypes } from './sourcepointConfig';
 

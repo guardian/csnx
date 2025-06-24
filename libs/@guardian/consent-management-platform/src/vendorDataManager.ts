@@ -1,5 +1,4 @@
-import { removeCookie } from '../cookies/removeCookie';
-import { storage } from '../storage/storage';
+import { removeCookie, storage } from '@guardian/libs';
 import { getConsentFor } from './getConsentFor';
 import { onConsentChange } from './onConsentChange';
 import type { ConsentState } from './types';

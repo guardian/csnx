@@ -230,6 +230,46 @@ install: check-node-version
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
 
+.PHONY: @guardian/consent-management-platform\:build
+@guardian/consent-management-platform\:build: env
+	@corepack pnpm --filter @guardian/consent-management-platform build
+
+.PHONY: @guardian/consent-management-platform\:dev
+@guardian/consent-management-platform\:dev: env
+	@corepack pnpm --filter @guardian/consent-management-platform dev
+
+.PHONY: @guardian/consent-management-platform\:e2e
+@guardian/consent-management-platform\:e2e: env
+	@corepack pnpm --filter @guardian/consent-management-platform e2e
+
+.PHONY: @guardian/consent-management-platform\:e2e\:ui
+@guardian/consent-management-platform\:e2e\:ui: env
+	@corepack pnpm --filter @guardian/consent-management-platform e2e:ui
+
+.PHONY: @guardian/consent-management-platform\:fix
+@guardian/consent-management-platform\:fix: env
+	@corepack pnpm --filter @guardian/consent-management-platform fix
+
+.PHONY: @guardian/consent-management-platform\:lint
+@guardian/consent-management-platform\:lint: env
+	@corepack pnpm --filter @guardian/consent-management-platform lint
+
+.PHONY: @guardian/consent-management-platform\:sourcepoint-integration-test
+@guardian/consent-management-platform\:sourcepoint-integration-test: env
+	@corepack pnpm --filter @guardian/consent-management-platform sourcepoint-integration-test
+
+.PHONY: @guardian/consent-management-platform\:test
+@guardian/consent-management-platform\:test: env
+	@corepack pnpm --filter @guardian/consent-management-platform test
+
+.PHONY: @guardian/consent-management-platform\:tsc
+@guardian/consent-management-platform\:tsc: env
+	@corepack pnpm --filter @guardian/consent-management-platform tsc
+
+.PHONY: @guardian/consent-management-platform\:verify-dist
+@guardian/consent-management-platform\:verify-dist: env
+	@corepack pnpm --filter @guardian/consent-management-platform verify-dist
+
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
 	@corepack pnpm --filter @guardian/core-web-vitals build
@@ -345,10 +385,6 @@ install: check-node-version
 .PHONY: @guardian/libs\:lint
 @guardian/libs\:lint: env
 	@corepack pnpm --filter @guardian/libs lint
-
-.PHONY: @guardian/libs\:sourcepoint-integration-test
-@guardian/libs\:sourcepoint-integration-test: env
-	@corepack pnpm --filter @guardian/libs sourcepoint-integration-test
 
 .PHONY: @guardian/libs\:test
 @guardian/libs\:test: env

@@ -1,5 +1,4 @@
-import type { CountryCode } from '../index.test';
-import { log } from '../logger/logger';
+import { type CountryCode, log } from '@guardian/libs';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import { isConsentOrPayCountry, setIsConsentOrPay } from './isConsentOrPay';

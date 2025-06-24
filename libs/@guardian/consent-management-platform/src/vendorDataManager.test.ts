@@ -1,5 +1,4 @@
-import { removeCookie } from '../cookies/removeCookie';
-import { storage } from '../storage/storage';
+import { removeCookie, storage } from '@guardian/libs';
 import { onConsentChange } from './onConsentChange';
 import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { TCFv2ConsentState } from './types/tcfv2';
@@ -55,20 +54,23 @@ const mockOnConsentChange = (consentState: ConsentState) =>
 		(cb: OnConsentChangeCallback) => cb(consentState),
 	);
 
-jest.mock('../cookies/removeCookie', () => ({
-	removeCookie: jest.fn(),
-}));
-
-jest.mock('../storage/storage', () => ({
-	storage: {
-		local: {
-			remove: jest.fn(),
-		},
-		session: {
-			remove: jest.fn(),
-		},
-	},
-}));
+jest.mock(
+	'@guardian/libs',
+	() =>
+		({
+			...jest.requireActual('@guardian/libs'),
+			removeCookie: jest.fn() as jest.Mocked<typeof removeCookie>,
+			storage: {
+				local: {
+					remove: jest.fn() as jest.Mocked<typeof storage.local.remove>,
+				},
+				session: {
+					remove: jest.fn() as jest.Mocked<typeof storage.session.remove>,
+				},
+			},
+			// eslint-disable-next-line @typescript-eslint/consistent-type-imports -- ignore for test file
+		}) as typeof import('@guardian/libs'),
+);
 
 describe('initVendorDataManager', () => {
 	it('should remove cookies and localStorage data only for vendors that the user has not consented to', () => {
