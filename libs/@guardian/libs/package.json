@@ -22,6 +22,7 @@
 		"e2e:ui": "wireit",
 		"fix": "wireit",
 		"lint": "wireit",
+		"sourcepoint-integration-test": "wireit",
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
@@ -120,6 +121,12 @@
 				"!.eslintcache"
 			],
 			"output": []
+		},
+		"sourcepoint-integration-test": {
+			"command": "node --test sourcepoint-integration-tests/*.test.{js,mjs,cjs}",
+			"dependencies": [
+				"build"
+			]
 		},
 		"test": {
 			"command": "jest",
