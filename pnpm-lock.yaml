@@ -252,7 +252,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.5.2
+        specifier: 23.0.0
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -340,7 +340,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.5.2
+        specifier: 23.0.0
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -379,10 +379,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/identity-auth':
-        specifier: 7.0.0
+        specifier: 8.0.0
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 22.5.2
+        specifier: 23.0.0
         version: link:../libs
       '@types/jest':
         specifier: 29.5.8
@@ -521,10 +521,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.5.2
+        specifier: 23.0.0
         version: link:../libs
       '@guardian/source':
-        specifier: 10.2.0
+        specifier: 11.0.0
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 8.6.4
@@ -726,10 +726,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 22.5.2
+        specifier: 23.0.0
         version: link:../libs
       '@guardian/source':
-        specifier: 10.2.0
+        specifier: 11.0.0
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 8.6.4
