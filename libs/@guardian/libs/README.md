@@ -10,10 +10,6 @@
 
 Type that describes the role of an element in an article.
 
-### [Consent](./src/consent-management-platform)
-
-The Guardian's consent management platform.
-
 ### [Cookies](./src/cookies)
 
 API over `document.cookies`.

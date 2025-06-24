@@ -1,6 +1,4 @@
-import { getCookie } from '../cookies/getCookie';
-import { isString } from '../isString/isString';
-import { isUndefined } from '../isUndefined/isUndefined';
+import { getCookie, isString, isUndefined } from '@guardian/libs';
 import {
 	PROPERTY_ID_MAIN,
 	PROPERTY_ID_SUBDOMAIN,
