@@ -27,6 +27,9 @@
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
+	"dependencies": {
+		"@guardian/ophan-tracker-js": "2.2.10"
+	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
 		"@playwright/test": "1.53.1",
@@ -46,6 +49,7 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
+		"@guardian/ophan-tracker-js": "^2.2.10",
 		"tslib": "^2.6.2",
 		"typescript": "~5.5.2"
 	},
