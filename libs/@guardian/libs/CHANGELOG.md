@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 23.0.0
+
+### Major Changes
+
+- bef13f1: Migrate from \_gpp framework to Sourcepoint api for US
+
 ## 22.5.2
 
 ### Patch Changes
