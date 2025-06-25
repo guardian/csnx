@@ -31,3 +31,19 @@ export const loadAllStubs = (): void => {
 	stub_gpp_usnat();
 	stub_uspapi_ccpa();
 };
+
+/**
+ * Load all stubs for the consent management platform.
+ *
+ */
+export const loadStubsForGeolocationTest = (
+	framework: ConsentFramework,
+): void => {
+	if (framework === 'aus') {
+		stub_uspapi_ccpa();
+		return;
+	}
+
+	stub_tcfv2();
+	stub_gpp_usnat();
+};
