@@ -23,7 +23,7 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
-import { loadAllStubs } from './stub';
+import { loadStubsForGeolocationTest } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -101,7 +101,7 @@ export const init = (
 	useNonAdvertisedList: boolean,
 	pubData = {},
 ): void => {
-	loadAllStubs();
+	loadStubsForGeolocationTest(framework);
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
