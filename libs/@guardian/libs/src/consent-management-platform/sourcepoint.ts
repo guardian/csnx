@@ -129,7 +129,7 @@ export const init = (
 			frameworkMessageType = 'usnat';
 			break;
 		case 'aus':
-			frameworkMessageType = 'ccpa';
+			frameworkMessageType = 'globalcmp';
 			break;
 		case 'tcfv2':
 		default:
@@ -313,7 +313,7 @@ export const init = (
 			};
 			break;
 		case 'aus':
-			window._sp_.config.ccpa = {
+			window._sp_.config.globalcmp = {
 				targetingParams: {
 					framework,
 				},
