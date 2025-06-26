@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/react-crossword",
-	"version": "7.0.1",
+	"version": "8.0.0",
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -32,8 +32,8 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "22.5.2",
-		"@guardian/source": "10.2.0",
+		"@guardian/libs": "23.0.0",
+		"@guardian/source": "11.0.0",
 		"@storybook/addon-a11y": "8.6.4",
 		"@storybook/addon-essentials": "8.6.4",
 		"@storybook/addon-interactions": "8.6.4",
@@ -51,17 +51,17 @@
 		"prettier": "3.3.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"rollup": "4.40.0",
+		"rollup": "4.44.0",
 		"storybook": "8.6.4",
-		"ts-jest": "29.3.0",
+		"ts-jest": "29.4.0",
 		"tslib": "2.6.2",
 		"typescript": "5.5.2",
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.4",
-		"@guardian/libs": "^22.0.0",
-		"@guardian/source": "^10.0.0",
+		"@guardian/libs": "^23.0.0",
+		"@guardian/source": "^11.0.0",
 		"@types/react": "^18.2.79",
 		"react": "^18.2.0",
 		"typescript": "~5.5.2"
