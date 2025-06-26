@@ -3,7 +3,7 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
-import type { AUSData } from './aus';
+import type { AUSData, GlobalEnterpriseConsents } from './aus';
 import type { TCData } from './tcfv2/TCData';
 import type { GPPData, UsnatData } from './usnat';
 import type { CMP, ConsentFramework, PubData } from '.';
@@ -42,6 +42,11 @@ declare global {
 					excludePage: boolean;
 				};
 				ccpa?: {
+					targetingParams?: {
+						framework: ConsentFramework;
+					};
+				};
+				globalcmp?: {
 					targetingParams?: {
 						framework: ConsentFramework;
 					};
@@ -98,6 +103,15 @@ declare global {
 			usnat?: {
 				loadPrivacyManagerModal?: (id: number) => void;
 				getUserConsents?: (callback: (usNatData: UsnatData) => void) => void;
+			};
+			globalcmp?: {
+				loadPrivacyManagerModal?: (id: number) => void;
+				getUserConsents?: (
+					callback: (
+						consents: GlobalEnterpriseConsents,
+						success: boolean,
+					) => void,
+				) => void;
 			};
 			executeMessaging?: () => void;
 		};
