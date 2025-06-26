@@ -23,7 +23,7 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
-import { loadStubsFor } from './stub';
+import { loadStubsForGeolocationTest } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -48,7 +48,7 @@ const getPropertyHref = (
 	}
 
 	if (framework == 'usnat') {
-		return 'https://www.theguardian.com';
+		return PROPERTY_HREF_MAIN;
 	}
 
 	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
@@ -101,7 +101,7 @@ export const init = (
 	useNonAdvertisedList: boolean,
 	pubData = {},
 ): void => {
-	loadStubsFor(framework);
+	loadStubsForGeolocationTest(framework);
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
@@ -293,32 +293,29 @@ export const init = (
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
 	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
-	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
-	switch (framework) {
-		case 'tcfv2':
-			window._sp_.config.gdpr = {
-				targetingParams: {
-					framework,
-					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPayCountry(countryCode),
-					isUserSignedIn,
-				},
-			};
-			break;
-		case 'usnat':
-			window._sp_.config.usnat = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
-		case 'aus':
-			window._sp_.config.ccpa = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
+	// USNAT and CCPA can't be loaded at the same time.
+	// We use the country code to determine Austrialian users and set only ccpa for aus.
+	if (framework == 'aus') {
+		window._sp_.config.ccpa = {
+			targetingParams: {
+				framework,
+			},
+		};
+	} else {
+		// Set both for gdpr and usnat
+		window._sp_.config.gdpr = {
+			targetingParams: {
+				framework,
+				excludePage: isExcludedFromCMP(pageSection),
+				isCorP: isConsentOrPayCountry(countryCode),
+				isUserSignedIn,
+			},
+		};
+		window._sp_.config.usnat = {
+			targetingParams: {
+				framework,
+			},
+		};
 	}
 
 	// TODO use libs function loadScript,
