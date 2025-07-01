@@ -1,3 +1,4 @@
+import { log } from '../../logger/logger';
 import type { AUSConsentState } from '../types/aus';
 import { getGlobalEnterpriseConsents, getUSPData } from './api';
 
@@ -16,11 +17,11 @@ export const oldGetConsentState: () => Promise<AUSConsentState> = async () => {
 export const getConsentState: () => Promise<AUSConsentState> = async () => {
 	const globalEnterpriseData = await getGlobalEnterpriseConsents();
 
-	// If the CMP doesn't apply to this user, assume consent
-	// *** CHECK WITH EMILY ***
+	// If the CMP doesn't apply to this user, assume no consent
 	if (!globalEnterpriseData.applies) {
+		log('cmp', `Global Enterprise CMP does not apply to this user`);
 		return {
-			personalisedAdvertising: true,
+			personalisedAdvertising: false,
 		};
 	}
 
