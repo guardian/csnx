@@ -1,4 +1,4 @@
-import { PRIVACY_CHOICE_ID_AUSTRALIA } from '../lib/sourcepointConfig';
+import { PRIVACY_CHOICE_ID_AUSTRALIA } from '../lib/sourcepointConfig.ts';
 import { getGlobalEnterpriseConsents } from './api.ts';
 import { getConsentState } from './getConsentState.ts';
 
