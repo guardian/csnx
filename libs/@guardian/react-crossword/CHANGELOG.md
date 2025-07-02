@@ -1,5 +1,12 @@
 # @guardian/react-crossword
 
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [559d04f]
+  - @guardian/libs@24.0.0
+
 ## 8.0.0
 
 ### Patch Changes
