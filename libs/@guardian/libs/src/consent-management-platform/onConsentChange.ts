@@ -121,7 +121,8 @@ export const invokeCallbacks = (): void => {
 	void getConsentState().then((state) => {
 		if (
 			awaitingUserInteractionInTCFv2(state) ||
-			awaitingUserInteractionInUSNAT(state)
+			awaitingUserInteractionInUSNAT(state) ||
+			awaitingUserInteractionInAus(state)
 		) {
 			return;
 		}
