@@ -134,13 +134,26 @@ describe('under USNAT', () => {
 
 describe('under AUS', () => {
 	beforeEach(() => {
-		window.__uspapi = jest.fn((command, b, callback) => {
-			if (command === 'getUSPData') {
-				callback(ausData, true);
-			}
-		});
-
-		// needed to distinguish from US
+		window._sp_ = {
+			globalcmp: {
+				getUserConsents: jest.fn((callback) => {
+					callback(
+						{
+							applies: true,
+							categories: [
+								{
+									_id: 'PRIVACY_CHOICE_ID_AUSTRALIA',
+									consented: true,
+								},
+							],
+							vendors: [],
+							signalStatus: 'ready',
+						},
+						true,
+					);
+				}),
+			},
+		};
 		setCurrentFramework('aus');
 	});
 
