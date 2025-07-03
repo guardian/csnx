@@ -1,3 +1,4 @@
+import { sign } from 'crypto';
 import type { AUSData, GlobalEnterpriseConsents } from '../types/aus';
 
 type Command = 'getUSPData' | 'getGlobalEnterpriseConsents';
@@ -23,12 +24,17 @@ const globalEnterpriseApi = (command: Command) =>
 		if (window._sp_?.globalcmp?.getUserConsents) {
 			window._sp_.globalcmp.getUserConsents((consents, success) =>
 				success
-					? resolve(consents)
+					? resolve({ ...consents, signalStatus: 'ready' })
 					: /* istanbul ignore next */
 						reject(new Error(`Unable to get ${command} data`)),
 			);
 		} else {
-			reject(new Error('No _sp_.globalcmp.getUserConsents found on window'));
+			resolve({
+				applies: false,
+				categories: [],
+				vendors: [],
+				signalStatus: 'not ready',
+			} as GlobalEnterpriseConsents);
 		}
 	});
 

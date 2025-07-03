@@ -11,6 +11,7 @@ export const oldGetConsentState: () => Promise<AUSConsentState> = async () => {
 
 	return {
 		personalisedAdvertising: !optedOut,
+		signalStatus: 'not ready',
 	};
 };
 
@@ -22,6 +23,7 @@ export const getConsentState: () => Promise<AUSConsentState> = async () => {
 		log('cmp', `Global Enterprise CMP does not apply to this user`);
 		return {
 			personalisedAdvertising: false,
+			signalStatus: 'not ready',
 		};
 	}
 
@@ -36,5 +38,6 @@ export const getConsentState: () => Promise<AUSConsentState> = async () => {
 
 	return {
 		personalisedAdvertising: personalizedAdCategory?.consented ?? false,
+		signalStatus: globalEnterpriseData.signalStatus,
 	};
 };

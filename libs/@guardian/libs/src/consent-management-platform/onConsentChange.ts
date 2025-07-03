@@ -29,10 +29,14 @@ const awaitingUserInteractionInTCFv2 = (state: ConsentState): boolean =>
 const awaitingUserInteractionInUSNAT = (state: ConsentState): boolean =>
 	state.usnat?.signalStatus === 'not ready';
 
+const awaitingUserInteractionInAus = (state: ConsentState): boolean =>
+	state.aus?.signalStatus === 'not ready';
+
 const invokeCallback = (callback: CallbackQueueItem, state: ConsentState) => {
 	if (
 		awaitingUserInteractionInTCFv2(state) ||
-		awaitingUserInteractionInUSNAT(state)
+		awaitingUserInteractionInUSNAT(state) ||
+		awaitingUserInteractionInAus(state)
 	) {
 		return;
 	}

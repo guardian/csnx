@@ -1,5 +1,8 @@
+type AusSignalStatus = 'ready' | 'not ready';
+
 export interface AUSConsentState {
 	personalisedAdvertising: boolean;
+	signalStatus: AusSignalStatus;
 }
 
 export interface AUSData {
@@ -22,4 +25,5 @@ export interface GlobalEnterpriseConsents {
 	applies: boolean;
 	categories: GlobalEnterpriseCategory[];
 	vendors: GlobalEnterpriseVendor[];
+	signalStatus: AusSignalStatus;
 }
