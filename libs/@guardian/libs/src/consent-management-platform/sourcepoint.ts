@@ -325,17 +325,17 @@ export const init = (
 		};
 	} else {
 		// Set both for gdpr and usnat
+		window._sp_.config.usnat = {
+			targetingParams: {
+				framework,
+			},
+		};
 		window._sp_.config.gdpr = {
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
 				isCorP: isConsentOrPayCountry(countryCode),
 				isUserSignedIn,
-			},
-		};
-		window._sp_.config.usnat = {
-			targetingParams: {
-				framework,
 			},
 		};
 	}
