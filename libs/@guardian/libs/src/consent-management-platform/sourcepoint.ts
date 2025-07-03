@@ -109,7 +109,7 @@ export const init = (
 		throw new Error('Sourcepoint global (window._sp_) is already defined!');
 	}
 
-	setCurrentFramework(framework);
+	// setCurrentFramework(framework);
 
 	// To ensure users who are not part of Consent or Pay country or AB Test
 	if (!isConsentOrPayCountry(countryCode)) {
@@ -170,6 +170,27 @@ export const init = (
 			events: {
 				onConsentReady: (message_type, consentUUID, euconsent) => {
 					log('cmp', `onConsentReady ${message_type}`);
+
+					let spFramework: ConsentFramework | undefined;
+
+					switch (message_type) {
+						case 'gdpr':
+							spFramework = 'tcfv2';
+							break;
+						case 'usnat':
+							spFramework = 'usnat';
+							break;
+						case 'ccpa':
+							spFramework = 'aus';
+							break;
+						default:
+							spFramework = undefined;
+							break;
+					}
+
+					if (spFramework !== undefined) {
+						setCurrentFramework(spFramework);
+					}
 					if (message_type != frameworkMessageType) {
 						sendJurisdictionMismatchToOphan(
 							JSON.stringify({
@@ -181,7 +202,7 @@ export const init = (
 
 						log(
 							'cmp',
-							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
+							`onConsentReady Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
 						);
 
 						return;
