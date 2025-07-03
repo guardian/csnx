@@ -1,4 +1,3 @@
-import { sign } from 'crypto';
 import type { AUSData, GlobalEnterpriseConsents } from '../types/aus';
 
 type Command = 'getUSPData' | 'getGlobalEnterpriseConsents';
