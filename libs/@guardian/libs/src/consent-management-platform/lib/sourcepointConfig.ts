@@ -14,6 +14,8 @@ export const PRIVACY_MANAGER_TCFV2 = 106842;
 export const PRIVACY_MANAGER_TCFV2_CONSENT_OR_PAY = 1263449;
 export const PRIVACY_MANAGER_AUSTRALIA = 1325716;
 
+export const PRIVACY_CHOICE_ID_AUSTRALIA = '685d16549dd54334f95e2b05';
+
 export const ENDPOINT = isGuardianDomain()
 	? 'https://sourcepoint.theguardian.com'
 	: 'https://cdn.privacy-mgmt.com';

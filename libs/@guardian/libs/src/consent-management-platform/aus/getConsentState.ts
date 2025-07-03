@@ -1,4 +1,5 @@
 import { log } from '../../logger/logger';
+import { PRIVACY_CHOICE_ID_AUSTRALIA } from '../lib/sourcepointConfig';
 import type { AUSConsentState } from '../types/aus';
 import { getGlobalEnterpriseConsents, getUSPData } from './api';
 
@@ -28,13 +29,8 @@ export const getConsentState: () => Promise<AUSConsentState> = async () => {
 	}
 
 	const personalizedAdCategory = globalEnterpriseData.categories.find(
-		(category) => category._id === '685d16549dd54334f95e2b05', // *** DOUBLE-CHECK WITH JOSIE
+		(category) => category._id === PRIVACY_CHOICE_ID_AUSTRALIA,
 	);
-
-	// // https://sourcepoint-public-api.readme.io/reference/reference-systemid-for-iab-privacy-choices
-	// const personalizedAdCategory = globalEnterpriseData.categories.find(
-	//     category => category.systemId === 3 // *** DOUBLE-CHECK WITH JOSIE
-	// );
 
 	return {
 		personalisedAdvertising: personalizedAdCategory?.consented ?? false,
