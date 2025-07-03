@@ -168,30 +168,33 @@ export const init = (
 			// ccpa or gdpr object added below
 
 			events: {
-				onConsentReady: (message_type, consentUUID, euconsent) => {
-					log('cmp', `onConsentReady ${message_type}`);
+				onConsentReady: (message_type, consentUUID, euconsent, info) => {
+					log('cmp', `onConsentReady ${message_type}`, info.applies);
 
-					let spFramework: ConsentFramework | undefined;
+					if (info.applies) {
+						let spFramework: ConsentFramework | undefined;
 
-					switch (message_type) {
-						case 'gdpr':
-							spFramework = 'tcfv2';
-							break;
-						case 'usnat':
-							spFramework = 'usnat';
-							break;
-						case 'ccpa':
-							spFramework = 'aus';
-							break;
-						default:
-							spFramework = undefined;
-							break;
+						switch (message_type) {
+							case 'gdpr':
+								spFramework = 'tcfv2';
+								break;
+							case 'usnat':
+								spFramework = 'usnat';
+								break;
+							case 'ccpa':
+								spFramework = 'aus';
+								break;
+							default:
+								spFramework = undefined;
+								break;
+						}
+
+						if (spFramework !== undefined) {
+							setCurrentFramework(spFramework);
+						}
 					}
 
-					if (spFramework !== undefined) {
-						setCurrentFramework(spFramework);
-					}
-					if (message_type != frameworkMessageType) {
+					if (info.applies && message_type != frameworkMessageType) {
 						sendJurisdictionMismatchToOphan(
 							JSON.stringify({
 								sp: message_type,
@@ -204,8 +207,6 @@ export const init = (
 							'cmp',
 							`onConsentReady Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
 						);
-
-						return;
 					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
@@ -325,17 +326,17 @@ export const init = (
 		};
 	} else {
 		// Set both for gdpr and usnat
+		window._sp_.config.usnat = {
+			targetingParams: {
+				framework,
+			},
+		};
 		window._sp_.config.gdpr = {
 			targetingParams: {
 				framework,
 				excludePage: isExcludedFromCMP(pageSection),
 				isCorP: isConsentOrPayCountry(countryCode),
 				isUserSignedIn,
-			},
-		};
-		window._sp_.config.usnat = {
-			targetingParams: {
-				framework,
 			},
 		};
 	}
