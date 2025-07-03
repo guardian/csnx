@@ -1,5 +1,13 @@
 # @guardian/identity-auth-frontend
 
+## 11.0.0
+
+### Patch Changes
+
+- Updated dependencies [559d04f]
+  - @guardian/libs@24.0.0
+  - @guardian/identity-auth@9.0.0
+
 ## 10.0.0
 
 ### Patch Changes

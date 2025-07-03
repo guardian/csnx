@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 24.0.0
+
+### Major Changes
+
+- 559d04f: Remove calls to deprecated Ophan functions
+
 ## 23.0.0
 
 ### Major Changes
