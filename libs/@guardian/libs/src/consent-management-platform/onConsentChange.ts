@@ -114,16 +114,19 @@ export const invokeCallbacks = (): void => {
 	if (callbacksToInvoke.length === 0) {
 		return;
 	}
-	void getConsentState().then((state) => {
-		if (
-			awaitingUserInteractionInTCFv2(state) ||
-			awaitingUserInteractionInUSNAT(state)
-		) {
-			return;
-		}
 
-		callbacksToInvoke.forEach((callback) => invokeCallback(callback, state));
-	});
+	if (getCurrentFramework() !== undefined) {
+		void getConsentState().then((state) => {
+			if (
+				awaitingUserInteractionInTCFv2(state) ||
+				awaitingUserInteractionInUSNAT(state)
+			) {
+				return;
+			}
+
+			callbacksToInvoke.forEach((callback) => invokeCallback(callback, state));
+		});
+	}
 };
 
 export const onConsentChange: OnConsentChange = (callBack, final = false) => {
