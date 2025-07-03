@@ -134,13 +134,13 @@ describe('under USNAT', () => {
 
 describe('under AUS', () => {
 	beforeEach(() => {
-		window.__uspapi = jest.fn((command, b, callback) => {
-			if (command === 'getUSPData') {
-				callback(ausData, true);
-			}
-		});
-
-		// needed to distinguish from US
+		window._sp_ = {
+			globalcmp: {
+				getUserConsents: jest.fn((callback) => {
+					callback(ausData, true);
+				}),
+			},
+		};
 		setCurrentFramework('aus');
 	});
 
@@ -170,19 +170,15 @@ describe('under AUS', () => {
 		onConsentChange(callback);
 		invokeCallbacks();
 		await resolveAllPromises();
-
 		expect(callback).toHaveBeenCalledTimes(1);
 
 		invokeCallbacks();
 		await resolveAllPromises();
-
 		expect(callback).toHaveBeenCalledTimes(1);
 
-		ausData.uspString = '1YYN';
-
+		ausData.categories[0].consented = false;
 		invokeCallbacks();
 		await resolveAllPromises();
-
 		expect(callback).toHaveBeenCalledTimes(2);
 	});
 
@@ -197,7 +193,7 @@ describe('under AUS', () => {
 		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
 		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
 
-		ausData.uspString = '1YYN';
+		ausData.categories[0].consented = true;
 
 		// callback 3 and 4 registered first with final flag
 		onConsentChange(callback3, true);
@@ -216,7 +212,7 @@ describe('under AUS', () => {
 		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
-		ausData.uspString = '1YNN';
+		ausData.categories[0].consented = false;
 		invokeCallbacks();
 
 		await resolveAllPromises();

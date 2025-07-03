@@ -52,15 +52,16 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,
 				);
-				expect(window._sp_.config.gdpr).toBeUndefined;
+				expect(window._sp_.config.gdpr).toBeUndefined();
 				expect(window.__uspapi).toBeUndefined();
 				expect(window.__tcfapi).toBeUndefined();
 				expect(window.__gpp).toBeDefined();
 			} else if (frameworkAndCountryCode.framework == 'aus') {
-				expect(window._sp_.config.ccpa.targetingParams.framework).toEqual(
+				expect(window._sp_.config.globalcmp.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,
 				);
-				expect(window._sp_.config.gdpr).toBeUndefined;
+				expect(window._sp_.config.gdpr).toBeUndefined();
+				expect(window._sp_.config.usnat).toBeUndefined();
 				expect(window.__uspapi).toBeDefined();
 				expect(window.__tcfapi).toBeUndefined();
 				expect(window.__gpp).toBeUndefined();
