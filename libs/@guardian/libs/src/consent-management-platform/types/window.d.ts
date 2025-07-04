@@ -71,6 +71,9 @@ declare global {
 						message_type: string,
 						consentUUID: string,
 						euconsent: string,
+						info: {
+							applies: boolean;
+						},
 					) => void;
 					onMessageReady: (message_type: string) => void;
 					onMessageChoiceSelect: OnMessageChoiceSelect;

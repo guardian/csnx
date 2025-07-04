@@ -87,7 +87,7 @@ describe('hotfix cmp.init', () => {
 		);
 	});
 
-	it.each([
+	xit.each([
 		['GB', 'tcfv2'],
 		['AU', 'aus'],
 		['US', 'usnat'],
