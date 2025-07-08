@@ -3,7 +3,7 @@ import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
 import type { onConsentChange } from '../onConsentChange';
-import type { AUSData, GlobalEnterpriseConsents } from './aus';
+import type { GlobalEnterpriseConsents } from './aus';
 import type { TCData } from './tcfv2/TCData';
 import type { GPPData, UsnatData } from './usnat';
 import type { CMP, ConsentFramework, PubData } from '.';
@@ -40,11 +40,6 @@ declare global {
 				targetingParams: {
 					framework: ConsentFramework;
 					excludePage: boolean;
-				};
-				ccpa?: {
-					targetingParams?: {
-						framework: ConsentFramework;
-					};
 				};
 				globalcmp?: {
 					targetingParams?: {
@@ -97,9 +92,6 @@ declare global {
 			gdpr?: {
 				loadPrivacyManagerModal?: (id: number) => void;
 			};
-			ccpa?: {
-				loadPrivacyManagerModal?: (id: number) => void;
-			};
 			usnat?: {
 				loadPrivacyManagerModal?: (id: number) => void;
 				getUserConsents?: (callback: (usNatData: UsnatData) => void) => void;
@@ -117,11 +109,6 @@ declare global {
 		};
 
 		// IAB interfaces - only one should be present at a time
-		__uspapi?: (
-			command: string,
-			version: number,
-			callback: (tcData: AUSData | undefined, success: boolean) => void,
-		) => void;
 		__tcfapi?: (
 			command: string,
 			version: number,

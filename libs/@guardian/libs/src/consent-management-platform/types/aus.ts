@@ -5,11 +5,6 @@ export interface AUSConsentState {
 	signalStatus: AusSignalStatus;
 }
 
-export interface AUSData {
-	version: number;
-	uspString: string;
-}
-
 export interface GlobalEnterpriseCategory {
 	_id: string;
 	systemId: number;

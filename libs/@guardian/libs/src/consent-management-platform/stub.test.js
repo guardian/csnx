@@ -16,9 +16,9 @@ describe('stub', () => {
 			expect(window.__uspapi).toBeUndefined();
 		});
 
-		it('should load the correct stub for the aus', () => {
+		it('should not load a stub for the aus', () => {
 			loadStubsFor('aus');
-			expect(window.__uspapi).toBeDefined();
+			expect(window.__uspapi).toBeUndefined();
 			expect(window.__tcfapi).toBeUndefined();
 			expect(window.__gpp).toBeUndefined();
 		});
@@ -45,7 +45,7 @@ describe('stub', () => {
 			expect(window.__uspapi).toBeUndefined();
 			loadAllStubs();
 			expect(window.__gpp).toBeDefined();
-			expect(window.__uspapi).toBeDefined();
+			expect(window.__uspapi).toBeUndefined();
 		});
 	});
 });
