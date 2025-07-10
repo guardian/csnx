@@ -40,6 +40,7 @@ describe('Sourcepoint unified', () => {
 				'function',
 			);
 
+			// Verify each framework only attaches its intended API and no others (prevents cross-contamination)
 			if (frameworkAndCountryCode.framework == 'tcfv2') {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,

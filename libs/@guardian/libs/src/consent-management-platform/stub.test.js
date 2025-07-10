@@ -9,6 +9,7 @@ describe('stub', () => {
 			window.__gpp = undefined;
 		});
 
+		// Verify each framework only loads its intended stub API and no others (prevents cross-contamination)
 		it('should load the correct stub for the tcfv2', () => {
 			loadStubsFor('tcfv2');
 			expect(window.__tcfapi).toBeDefined();

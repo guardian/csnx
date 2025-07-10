@@ -1,4 +1,4 @@
-import ausData from './aus/__fixtures__/api.getUSPData.json';
+import ausData from './aus/__fixtures__/api.getGlobalEnterpriseData.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
@@ -9,7 +9,6 @@ const resolveAllPromises = () =>
 	new Promise((resolve) => process.nextTick(resolve));
 
 beforeEach(() => {
-	window.__uspapi = undefined;
 	window.__tcfapi = undefined;
 	window.__gpp = undefined;
 	window.guCmpHotFix = undefined;
