@@ -115,6 +115,10 @@ export const invokeCallbacks = (): void => {
 		return;
 	}
 
+	// We are checking if the current framework is set before calling getConsentState
+	// as the framework is only set after Sourcepoint config has loaded.
+	// This was prevously set once we determined the country code which
+	// occured at the beginning of the sourcepoint.ts file
 	if (getCurrentFramework() !== undefined) {
 		void getConsentState().then((state) => {
 			if (

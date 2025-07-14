@@ -109,8 +109,6 @@ export const init = (
 		throw new Error('Sourcepoint global (window._sp_) is already defined!');
 	}
 
-	// setCurrentFramework(framework);
-
 	// To ensure users who are not part of Consent or Pay country or AB Test
 	if (!isConsentOrPayCountry(countryCode)) {
 		useNonAdvertisedList = false;
@@ -168,8 +166,10 @@ export const init = (
 
 			events: {
 				onConsentReady: (message_type, consentUUID, euconsent, info) => {
-					log('cmp', `onConsentReady ${message_type}`, info.applies);
+					log('cmp', `onConsentReady ${message_type}`);
 
+					// If the Sourcepoint vendor list applies to the user, we set the current framework.
+					// This event callback is called for each Sourcepoint framework set i.e. both gdpr and usnat.
 					if (info.applies) {
 						let spFramework: ConsentFramework | undefined;
 
