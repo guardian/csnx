@@ -114,16 +114,23 @@ export const invokeCallbacks = (): void => {
 	if (callbacksToInvoke.length === 0) {
 		return;
 	}
-	void getConsentState().then((state) => {
-		if (
-			awaitingUserInteractionInTCFv2(state) ||
-			awaitingUserInteractionInUSNAT(state)
-		) {
-			return;
-		}
 
-		callbacksToInvoke.forEach((callback) => invokeCallback(callback, state));
-	});
+	// We are checking if the current framework is set before calling getConsentState
+	// as the framework is only set after Sourcepoint config has loaded.
+	// This was prevously set once we determined the country code which
+	// occured at the beginning of the sourcepoint.ts file
+	if (getCurrentFramework() !== undefined) {
+		void getConsentState().then((state) => {
+			if (
+				awaitingUserInteractionInTCFv2(state) ||
+				awaitingUserInteractionInUSNAT(state)
+			) {
+				return;
+			}
+
+			callbacksToInvoke.forEach((callback) => invokeCallback(callback, state));
+		});
+	}
 };
 
 export const onConsentChange: OnConsentChange = (callBack, final = false) => {
