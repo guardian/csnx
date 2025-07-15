@@ -1,7 +1,8 @@
-import { faker } from '@faker-js/faker';
+// import { faker } from '@faker-js/faker';
 import type { Node } from 'prosemirror-model';
 import type { Command } from 'prosemirror-state';
 import type { EditorView } from 'prosemirror-view';
+import { contributors } from './contributors';
 import { bylineEditorSchema } from './schema';
 
 type ContributorType = 'tagged' | 'untagged';
@@ -123,13 +124,19 @@ export const getCurrentText = (
 };
 
 export const getTaggedContributors = ({ name }: { name: string }): string[] => {
-	// This is a placeholder function that simulates fetching tagged contributors
-	// In a real application, this would fetch from a database or API
-	return Array.from({ length: 5 }, () => {
-		return faker.person.fullName({
-			firstName: name,
-		});
-	});
+	// // This is a placeholder function that simulates fetching tagged contributors
+	// // In a real application, this would fetch from a database or API
+	// return Array.from({ length: 5 }, () => {
+	// 	return faker.person.fullName({
+	// 		firstName: name,
+	// 	});
+	// });
+
+	return contributors
+		.filter((contributor) =>
+			contributor.toLowerCase().startsWith(name.toLowerCase()),
+		)
+		.slice(0, 4);
 };
 
 export const addUntaggedContributor = (
@@ -140,7 +147,6 @@ export const addUntaggedContributor = (
 		return;
 	}
 
-	// eslint-disable-next-line @typescript-eslint/unbound-method -- test
 	const { state, dispatch } = viewRef.current;
 
 	const doc = state.doc;
@@ -197,7 +203,6 @@ export const addTaggedContributor = (
 		return;
 	}
 
-	// eslint-disable-next-line @typescript-eslint/unbound-method -- test
 	const { state, dispatch } = viewRef.current;
 
 	const doc = state.doc;
