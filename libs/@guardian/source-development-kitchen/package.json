@@ -25,6 +25,14 @@
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
+	"dependencies": {
+		"@faker-js/faker": "^9.9.0",
+		"prosemirror-history": "^1.4.1",
+		"prosemirror-keymap": "^1.2.3",
+		"prosemirror-model": "^1.25.2",
+		"prosemirror-state": "^1.4.3",
+		"prosemirror-view": "^1.40.0"
+	},
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
