@@ -83,6 +83,9 @@ export const palette = {
 		'700': '#FFD8D1',
 		'800': '#FFF4F2',
 	},
+	notificationBlue: {
+		'400': '#0190F7',
+	},
 	opinion: {
 		'100': '#672005',
 		'200': '#8D2700',
@@ -93,6 +96,7 @@ export const palette = {
 		'500': '#FF7F0F',
 		'550': '#FF9941',
 		'600': '#F9B376',
+		'700': '#FFE7D4',
 		'800': '#FEF9F5',
 	},
 	specialReport: {

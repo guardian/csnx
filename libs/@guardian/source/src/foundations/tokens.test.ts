@@ -127,6 +127,9 @@ describe('Palette tokens', () => {
 				'700': '#FFD8D1',
 				'800': '#FFF4F2',
 			},
+			notificationBlue: {
+				'400': '#0190F7',
+			},
 			opinion: {
 				'100': '#672005',
 				'200': '#8D2700',
