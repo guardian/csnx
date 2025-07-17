@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 11.1.0
+
+### Minor Changes
+
+- 4186157: Add notificationBlue.400 colour. Fixes previous addition of opinion.700 which was not built
+
 ## 11.0.0
 
 ### Major Changes
