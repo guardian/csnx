@@ -51,9 +51,14 @@ export const AusVendorIDs = {
 	redplanet: ['not-tcfv2-vendor'],
 } satisfies VendorIDType;
 
+export const UsVendorIDs = {
+	admiral: ['not-tcfv2-vendor'],
+} satisfies VendorIDType;
+
 export const VendorIDs = {
 	...TCFV2VendorIDs,
 	...AusVendorIDs,
+	...UsVendorIDs,
 } as const;
 
 export type VendorName = keyof typeof VendorIDs;
