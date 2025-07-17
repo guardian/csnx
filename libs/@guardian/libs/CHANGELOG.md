@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 25.1.0
+
+### Minor Changes
+
+- 19a2aa3: Add admiral to list of VendorIDs in consent management platform
+
 ## 25.0.0
 
 ### Major Changes
