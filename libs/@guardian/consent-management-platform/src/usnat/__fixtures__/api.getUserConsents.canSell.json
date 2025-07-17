@@ -1,0 +1,16 @@
+{
+	"applies": true,
+	"categories": [
+		{
+			"_id": "aaaaaaaaaaaaaaaaaaaaaaaa",
+			"consented": true,
+			"systemId": 3
+		}
+	],
+	"vendors": [
+		{
+			"_id": "aaaaaaaaaaaaaaaaaaaaaaaa",
+			"consented": true
+		}
+	]
+}
