@@ -87,9 +87,7 @@ describe('hotfix cmp.init', () => {
 		);
 	});
 
-	// The country code no longer determines the framework used for the Sourcepoint test.
-	// Instead, the framework is determined by the Sourcepoint config.
-	xit.each([
+	it.each([
 		['GB', 'tcfv2'],
 		['AU', 'aus'],
 		['US', 'usnat'],
