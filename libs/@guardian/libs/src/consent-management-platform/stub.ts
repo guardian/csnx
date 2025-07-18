@@ -31,19 +31,3 @@ export const loadAllStubs = (): void => {
 	stub_gpp_usnat();
 	stub_uspapi_ccpa();
 };
-
-/**
- * Load  stubs for the geolocation test.
- *
- */
-export const loadStubsForGeolocationTest = (
-	framework: ConsentFramework,
-): void => {
-	if (framework === 'aus') {
-		stub_uspapi_ccpa();
-		return;
-	}
-
-	stub_tcfv2();
-	stub_gpp_usnat();
-};

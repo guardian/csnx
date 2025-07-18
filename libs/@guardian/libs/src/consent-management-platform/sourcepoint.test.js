@@ -44,9 +44,10 @@ describe('Sourcepoint unified', () => {
 				expect(window._sp_.config.gdpr.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,
 				);
-				expect(window._sp_.config.usnat).toBeDefined();
+				expect(window._sp_.config.usnat).toBeUndefined();
+				expect(window.__tcfapi).toBeDefined();
 				expect(window.__uspapi).toBeUndefined();
-				expect(window.__gpp).toBeDefined();
+				expect(window.__gpp).toBeUndefined();
 			} else if (frameworkAndCountryCode.framework == 'usnat') {
 				expect(window._sp_.config.usnat.targetingParams.framework).toEqual(
 					frameworkAndCountryCode.framework,
