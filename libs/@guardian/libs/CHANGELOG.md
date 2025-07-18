@@ -1,5 +1,13 @@
 # @guardian/libs
 
+## 25.2.0
+
+### Minor Changes
+
+- b2ab965: Revert sourcepoint geolocation test.
+
+  We'll continue this test next week, possibly via a canary or beta build.
+
 ## 25.1.0
 
 ### Minor Changes
