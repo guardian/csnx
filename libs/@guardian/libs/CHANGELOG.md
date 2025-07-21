@@ -19,7 +19,6 @@
 ### Major Changes
 
 - 4384c52: Temporarily switching to use Sourcepoint geolocation
-
   - Load all stubs (tcfv2, usnat, ccpa) regardless of location except for Australia
   - Loading all jurisdiction config objects to allow Sourcepoint to choose depending on their geolocation except for Australia
   - Australia will use our current geolocation as SP's framework doesn't allow us to load both ccpa and usnat config objects.
@@ -73,7 +72,6 @@
 ### Minor Changes
 
 - 2811059: Temporarily switching to use Sourcepoint geolocation
-
   - Load all stubs (tcfv2, usnat, ccpa) regardless of location
   - Loading all jurisdiction config objects to allow Sourcepoint to choose depending on their geolocation
   - Sending jurisdiction mismatch to Ophan using CONSENT_GEOLOCATION_MISMATCH
@@ -157,7 +155,6 @@
 #### Changes to enable consent or pay in the CMP
 
 - 97822ce:
-
   - Add the ability by hiding it behind a query param flag, CORP_FLAG, for consent or pay by adding two new params, useNonAdvertisingList and isUsedSignedIn to cmp.init
   - Using Sourcepoint Subdomain property if useNonAdvertisedList is true
   - Merging user consent from Advertising to Non-Advertising vendor list will reload the page if a user has not previously consented to the non-advertising list.

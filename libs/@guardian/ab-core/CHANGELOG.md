@@ -49,7 +49,6 @@
   In order to update your code to work identically, you must now provide the
   following keys to the constructor’s argument. They are listed here along with
   the fallbacks previously applied:
-
   - `serverSideTests` &rarr; `{}`
   - `errorReporter` &rarr; `() => undefined`
   - `ophanRecord` &rarr; `() => undefined`

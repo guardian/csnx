@@ -14,20 +14,20 @@ export const stub_tcfv2 = () => {
 		function n(r) {
 			if (e[r]) return e[r].exports;
 			var o = (e[r] = { i: r, l: !1, exports: {} });
-			return t[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+			return (t[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports);
 		}
-		(n.m = t),
+		((n.m = t),
 			(n.c = e),
 			(n.d = function (t, e, r) {
 				n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: r });
 			}),
 			(n.r = function (t) {
-				'undefined' != typeof Symbol &&
+				('undefined' != typeof Symbol &&
 					Symbol.toStringTag &&
 					Object.defineProperty(t, Symbol.toStringTag, {
 						value: 'Module',
 					}),
-					Object.defineProperty(t, '__esModule', { value: !0 });
+					Object.defineProperty(t, '__esModule', { value: !0 }));
 			}),
 			(n.t = function (t, e) {
 				if ((1 & e && (t = n(t)), 8 & e)) return t;
@@ -60,13 +60,13 @@ export const stub_tcfv2 = () => {
 						: function () {
 								return t;
 							};
-				return n.d(e, 'a', e), e;
+				return (n.d(e, 'a', e), e);
 			}),
 			(n.o = function (t, e) {
 				return Object.prototype.hasOwnProperty.call(t, e);
 			}),
 			(n.p = ''),
-			n((n.s = 3));
+			n((n.s = 3)));
 	})([
 		function (t, e, n) {
 			var r = n(2);
@@ -96,7 +96,7 @@ export const stub_tcfv2 = () => {
 			};
 		},
 		function (t, e, n) {
-			n(4),
+			(n(4),
 				(function () {
 					if ('function' != typeof window.__tcfapi) {
 						var t,
@@ -109,9 +109,9 @@ export const stub_tcfv2 = () => {
 								if (!e)
 									if (r.body) {
 										var o = r.createElement('iframe');
-										(o.style.cssText = 'display:none'),
+										((o.style.cssText = 'display:none'),
 											(o.name = '__tcfapiLocator'),
-											r.body.appendChild(o);
+											r.body.appendChild(o));
 									} else setTimeout(t, 5);
 								return !e;
 							})() &&
@@ -164,8 +164,8 @@ export const stub_tcfv2 = () => {
 														callId: o.callId,
 													},
 												};
-												e && (i = JSON.stringify(i)),
-													t.source.postMessage(i, '*');
+												(e && (i = JSON.stringify(i)),
+													t.source.postMessage(i, '*'));
 											},
 											o.parameter,
 										);
@@ -173,7 +173,7 @@ export const stub_tcfv2 = () => {
 								!1,
 							));
 					}
-				})();
+				})());
 		},
 		function (t, e, n) {
 			var r = n(0),
@@ -209,7 +209,7 @@ export const stub_tcfv2 = () => {
 							} catch (t) {}
 						if ('get' in n || 'set' in n)
 							throw TypeError('Accessors not supported');
-						return 'value' in n && (t[e] = n.value), t;
+						return ('value' in n && (t[e] = n.value), t);
 					};
 		},
 		function (t, e, n) {
