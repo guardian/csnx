@@ -97,7 +97,6 @@ See the [README](README.md) for full details.
 ### Major Changes
 
 - 80eea1d: ## Update packages to use
-
   - "@typescript-eslint/eslint-plugin": "8.1.0",
   - "@typescript-eslint/parser": "8.1.0",
   - "@stylistic/eslint-plugin": "2.6.2",
@@ -128,7 +127,6 @@ See the [README](README.md) for full details.
 ### Patch Changes
 
 - 225e542: Dependencies updates:
-
   - `@typescript-eslint/eslint-plugin` from 6.14.0 to 6.18.0
   - `@typescript-eslint/parser` from 6.14.0 to 6.18.0
 
@@ -192,7 +190,6 @@ See the [README](README.md) for full details.
 ### Major Changes
 
 - 0f0888d: _tl;dr_
-
   - linting for conformance with our `prettier` config is slow
   - to speed up linting, we will stop doing that
   - you should use `prettier` directly
@@ -200,7 +197,6 @@ See the [README](README.md) for full details.
   ### Before
 
   We extended `plugin:prettier/recommended` which
-
   1.  used `eslint-config-prettier` to disable any white-space formatting rules that would conflict with our prettier
       config
   2.  used `eslint-plugin-prettier` to lint for formatting errors that did not match our prettier config
@@ -216,7 +212,6 @@ See the [README](README.md) for full details.
   ### Recommendations
 
   Your project should handle `prettier` formatting in another way, e.g.
-
   - via [editor integration](https://prettier.io/docs/en/editors.html)
   - via a [pre-commit hook](https://prettier.io/docs/en/precommit.html)
 
