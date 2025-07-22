@@ -27,15 +27,18 @@
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
+	"dependencies": {
+		"@guardian/ophan-tracker-js": "2.2.10"
+	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"@playwright/test": "1.53.1",
+		"@playwright/test": "1.54.1",
 		"@types/jest": "29.5.8",
 		"eslint": "9.19.0",
 		"jest": "29.7.0",
 		"jest-environment-jsdom": "29.7.0",
-		"rollup": "4.44.0",
+		"rollup": "4.45.1",
 		"ts-jest": "29.4.0",
 		"tsx": "4.20.3",
 		"typescript": "5.5.2",
@@ -43,6 +46,7 @@
 	},
 	"peerDependencies": {
 		"@guardian/ophan-tracker-js": "^2.2.10",
+		"tslib": "^2.6.2",
 		"typescript": "~5.5.2"
 	},
 	"peerDependenciesMeta": {

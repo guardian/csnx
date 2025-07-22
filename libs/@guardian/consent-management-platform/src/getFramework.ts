@@ -1,4 +1,4 @@
-import type { CountryCode } from '../countries/@types/CountryCode';
+import type { CountryCode } from '@guardian/libs';
 import type { ConsentFramework } from './types';
 
 export const getFramework = (countryCode: CountryCode): ConsentFramework => {
