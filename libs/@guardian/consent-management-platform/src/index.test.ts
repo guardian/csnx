@@ -1,4 +1,4 @@
-import type { CountryCode } from '../countries/@types/CountryCode';
+import type { CountryCode } from '@guardian/libs';
 import { CMP as actualCMP } from './cmp';
 import { disable, enable } from './disable';
 import { getCurrentFramework } from './getCurrentFramework';

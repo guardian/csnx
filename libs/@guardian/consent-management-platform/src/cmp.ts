@@ -1,4 +1,4 @@
-import type { CountryCode } from '../index.test';
+import type { CountryCode } from '@guardian/libs';
 import { getCurrentFramework } from './getCurrentFramework';
 import { getIsConsentOrPay } from './isConsentOrPay';
 import { mark } from './lib/mark';
