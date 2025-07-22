@@ -255,6 +255,10 @@ importers:
         version: 0.14.12
 
   libs/@guardian/consent-management-platform:
+    dependencies:
+      '@guardian/ophan-tracker-js':
+        specifier: ^2.2.10
+        version: 2.2.10
     devDependencies:
       '@guardian/eslint-config':
         specifier: workspace:*
