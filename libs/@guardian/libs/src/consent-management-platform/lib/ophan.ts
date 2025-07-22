@@ -1,7 +1,4 @@
-import type {
-	OphanComponentEvent,
-	OphanRecordFunction,
-} from '../../ophan/@types';
+import type { ComponentEvent, EventPayload } from '@guardian/ophan-tracker-js';
 import { getIsConsentOrPay } from '../isConsentOrPay';
 import { SourcePointChoiceTypes } from './sourcepointConfig';
 
@@ -13,7 +10,8 @@ export type SourcepointButtonActions =
 	| undefined;
 
 export type SourcepointMessageType = 'ACCEPT_REJECT' | 'CONSENT_OR_PAY_BANNER';
-const getOphanRecordFunction = (): OphanRecordFunction => {
+type OphanSendFunction = (data: EventPayload, callback?: () => void) => void;
+const getOphanRecordFunction = (): OphanSendFunction => {
 	const record = window.guardian?.ophan?.record;
 
 	if (record) {
@@ -61,7 +59,7 @@ export const sendConsentChoicesToOphan = (
 			actionValue = 'manage-cookies';
 			break;
 	}
-	const componentEvent: OphanComponentEvent = {
+	const componentEvent: ComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
 			id: messageId,
@@ -80,7 +78,7 @@ export const sendConsentChoicesToOphan = (
  * @param {string} messageId
  */
 export const sendMessageReadyToOphan = (messageId: string): void => {
-	const componentEvent: OphanComponentEvent = {
+	const componentEvent: ComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
 			id: messageId,
@@ -98,7 +96,7 @@ export const sendMessageReadyToOphan = (messageId: string): void => {
  * @param {string} value
  */
 export const sendJurisdictionMismatchToOphan = (value: string): void => {
-	const componentEvent: OphanComponentEvent = {
+	const componentEvent: ComponentEvent = {
 		component: {
 			componentType: 'CONSENT',
 		},
