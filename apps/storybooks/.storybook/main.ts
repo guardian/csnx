@@ -29,6 +29,11 @@ const config: StorybookConfig = {
 				// port set in libs/@guardian/react-crossword/package.json
 				url: 'http://localhost:4403',
 			},
+			stand: {
+				title: 'stand',
+				// port set in libs/@guardian/stand/package.json
+				url: 'http://localhost:4404',
+			},
 		};
 	},
 };
