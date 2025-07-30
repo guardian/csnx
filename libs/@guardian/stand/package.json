@@ -113,7 +113,7 @@
 			],
 			"files": [
 				"**",
-				"!(dist)/**",
+				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
 			"clean": false,
@@ -128,7 +128,7 @@
 			],
 			"files": [
 				"**",
-				"!(dist)/**",
+				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
 			"output": []
@@ -141,7 +141,7 @@
 			"files": [
 				"**",
 				"../../../configs/jest.*",
-				"!(dist)/**",
+				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
 			"output": []
@@ -157,7 +157,7 @@
 				"../tsconfig/tsconfig.json",
 				"../../../@types/**",
 				"../../../tsconfig.base.json",
-				"!(dist)/**",
+				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
 			"output": []
@@ -170,7 +170,7 @@
 			"files": [
 				"**",
 				"../../../configs/jest.*",
-				"!(dist)/**",
+				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
 			"output": []
