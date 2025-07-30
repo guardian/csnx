@@ -171,7 +171,6 @@ export const addUntaggedContributor = (
 		return;
 	}
 
-	// eslint-disable-next-line @typescript-eslint/unbound-method -- test
 	const { state, dispatch } = viewRef.current;
 
 	const doc = state.doc;
@@ -233,7 +232,6 @@ export const addTaggedContributor = (
 		return;
 	}
 
-	// eslint-disable-next-line @typescript-eslint/unbound-method -- test
 	const { state, dispatch } = viewRef.current;
 
 	const doc = state.doc;

@@ -28,7 +28,7 @@ const disableSnapshot = {
 };
 
 const meta = {
-	title: 'Flexible-Frontend/Components/Byline',
+	title: 'Components/Byline',
 	component: Byline,
 	parameters: {},
 	args: {

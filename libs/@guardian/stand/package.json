@@ -25,9 +25,22 @@
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
+	"dependencies": {
+		"@guardian/prosemirror-invisibles": "^3.1.1",
+		"prosemirror-dropcursor": "^1.8.2",
+		"prosemirror-history": "^1.4.1",
+		"prosemirror-keymap": "^1.2.3",
+		"prosemirror-model": "^1.25.2",
+		"prosemirror-state": "^1.4.3",
+		"prosemirror-view": "^1.40.1",
+		"react": "18.2.0"
+	},
 	"devDependencies": {
+		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
+		"@storybook/react": "8.6.4",
 		"@types/jest": "29.5.8",
+		"@types/react": "18.2.79",
 		"eslint": "9.19.0",
 		"jest": "29.7.0",
 		"rollup": "4.45.1",

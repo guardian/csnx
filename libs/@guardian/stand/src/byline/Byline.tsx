@@ -251,7 +251,6 @@ export const Byline = ({
 		return () => {
 			viewRef.current?.destroy();
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps -- We only want to run this once
 	}, []);
 
 	useEffect(() => {
