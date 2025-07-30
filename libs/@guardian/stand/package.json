@@ -1,0 +1,143 @@
+{
+	"name": "@guardian/stand",
+	"version": "0.0.0",
+	"private": false,
+	"description": "",
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "wireit",
+		"dev": "jest --watch",
+		"fix": "wireit",
+		"lint": "wireit",
+		"test": "wireit",
+		"tsc": "wireit",
+		"verify-dist": "wireit"
+	},
+	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
+		"@types/jest": "29.5.8",
+		"eslint": "9.19.0",
+		"jest": "29.7.0",
+		"rollup": "4.45.1",
+		"ts-jest": "29.4.0",
+		"tslib": "2.6.2",
+		"typescript": "5.5.2",
+		"wireit": "0.14.12"
+	},
+	"peerDependencies": {
+		"tslib": "^2.6.2",
+		"typescript": "~5.5.2"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"wireit": {
+		"__deps__": {
+			"dependencies": [
+				"../libs:build"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"src/**",
+				"package.json",
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
+			],
+			"output": [
+				"dist"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"clean": false,
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
+	}
+}
