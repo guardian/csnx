@@ -204,9 +204,11 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 #### @guardian/stand
 
 - `make @guardian/stand:build`
+- `make @guardian/stand:build-storybook`
 - `make @guardian/stand:dev`
 - `make @guardian/stand:fix`
 - `make @guardian/stand:lint`
+- `make @guardian/stand:storybook`
 - `make @guardian/stand:test`
 - `make @guardian/stand:tsc`
 - `make @guardian/stand:verify-dist`

@@ -514,6 +514,10 @@ install: check-node-version
 @guardian/stand\:build: env
 	@corepack pnpm --filter @guardian/stand build
 
+.PHONY: @guardian/stand\:build-storybook
+@guardian/stand\:build-storybook: env
+	@corepack pnpm --filter @guardian/stand build-storybook
+
 .PHONY: @guardian/stand\:dev
 @guardian/stand\:dev: env
 	@corepack pnpm --filter @guardian/stand dev
@@ -525,6 +529,10 @@ install: check-node-version
 .PHONY: @guardian/stand\:lint
 @guardian/stand\:lint: env
 	@corepack pnpm --filter @guardian/stand lint
+
+.PHONY: @guardian/stand\:storybook
+@guardian/stand\:storybook: env
+	@corepack pnpm --filter @guardian/stand storybook
 
 .PHONY: @guardian/stand\:test
 @guardian/stand\:test: env
