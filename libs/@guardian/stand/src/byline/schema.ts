@@ -14,17 +14,17 @@ export const bylineEditorSchema = new Schema({
 				label: { default: '' },
 				type: { default: 'untagged' },
 				tagId: { default: '' }, // tagId is optional for untagged contributors
-				tagInternalId: { default: '' }, // internalTagManagerId is optional for untagged contributors
+				path: { default: '' }, // path is optional for untagged contributors
 			},
 			parseDOM: [
 				{
-					tag: 'chip[data-label][data-type][data-tag-id][data-tag-internal-id]',
+					tag: 'chip[data-label][data-type][data-tag-id][data-path]',
 					getAttrs(dom: HTMLElement) {
 						return {
 							label: dom.getAttribute('data-label'),
 							type: dom.getAttribute('data-type'),
 							tagId: dom.getAttribute('data-tag-id') ?? '',
-							tagInternalId: dom.getAttribute('data-tag-internal-id') ?? '',
+							path: dom.getAttribute('data-path') ?? '',
 						};
 					},
 				},
@@ -39,8 +39,8 @@ export const bylineEditorSchema = new Schema({
 						'data-type': node.attrs.type,
 						// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- tagId exists as string on chip node
 						'data-tag-id': node.attrs.tagId,
-						// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- tagInternalId exists as string on chip node
-						'data-tag-internal-id': node.attrs.tagInternalId,
+						// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- path exists as string on chip node
+						'data-path': node.attrs.path,
 					},
 					node.attrs.label,
 				];

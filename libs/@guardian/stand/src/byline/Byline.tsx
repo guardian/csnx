@@ -36,6 +36,7 @@ type BylineProps = {
 	theme?: PartialBylineTheme;
 	allowUntaggedContributors?: boolean;
 	contributorLimit?: number;
+	enablePreview?: boolean;
 	placeholder?: string;
 	initialValue?: BylineModel;
 	handleSave: (newValue: BylineModel) => void;
@@ -46,6 +47,7 @@ export const Byline = ({
 	theme,
 	allowUntaggedContributors,
 	contributorLimit,
+	enablePreview,
 	placeholder,
 	initialValue,
 	handleSave,
@@ -59,9 +61,11 @@ export const Byline = ({
 	const [taggedContributors, setTaggedContributors] = useState<
 		TaggedContributor[]
 	>([]);
-
-	const [previewDoc, setPreviewDoc] = useState<Node | null>(null);
-
+	const [addedTaggedContributors, setAddedTaggedContributors] = useState<
+		TaggedContributor[]
+	>([]);
+	const [currentDoc, setCurrentDoc] = useState<Node | null>(null);
+	const [allowSave, setAllowSave] = useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
 
 	const hideOrShowDropdown = (view: EditorView) => {
@@ -119,6 +123,20 @@ export const Byline = ({
 		}
 	};
 
+	// Handle save when document or added contributors change
+	useEffect(() => {
+		if (currentDoc && !allowSave) {
+			// If allowSave is false, we need to set it to true
+			// this only needs to run once after the first transaction
+			// i.e after the initial doc state is set
+			setAllowSave(true);
+		}
+
+		if (currentDoc && allowSave) {
+			handleSave(convertNodeToBylineModel(currentDoc, addedTaggedContributors));
+		}
+	}, [currentDoc]);
+
 	useEffect(() => {
 		if (!editorRef.current) {
 			return;
@@ -144,7 +162,7 @@ export const Byline = ({
 		});
 
 		// Set the initial document in the preview
-		setPreviewDoc(initialDoc);
+		setCurrentDoc(initialDoc);
 
 		viewRef.current = new EditorView(editorRef.current, {
 			state,
@@ -241,9 +259,11 @@ export const Byline = ({
 							});
 					}
 
-					// Update the preview document after each transaction
-					setPreviewDoc(newState.doc);
-					handleSave(convertNodeToBylineModel(newState.doc));
+					// Update the current document state after each transaction
+					// if a transform step has happened
+					if (tr.steps.length > 0) {
+						setCurrentDoc(newState.doc);
+					}
 				}
 			},
 		});
@@ -294,6 +314,7 @@ export const Byline = ({
 						contributorToAdd,
 						viewRef,
 						setShowDropdown,
+						setAddedTaggedContributors,
 						contributorLimit,
 					);
 				}
@@ -325,7 +346,7 @@ export const Byline = ({
 				<ul id="byline-dropdown" role="listbox" css={dropdownUlStyles}>
 					{taggedContributors.map((contributor, i) => (
 						<li
-							key={contributor.internalId}
+							key={contributor.tagId}
 							id={`contributor-option-${i}`}
 							role="option"
 							aria-selected={i === currentOptionIndex}
@@ -344,6 +365,7 @@ export const Byline = ({
 									contributor,
 									viewRef,
 									setShowDropdown,
+									setAddedTaggedContributors,
 									contributorLimit,
 								);
 							}}
@@ -381,7 +403,7 @@ export const Byline = ({
 				</ul>
 			</div>
 
-			<Preview doc={previewDoc} />
+			{enablePreview && <Preview doc={currentDoc} />}
 		</div>
 	);
 };

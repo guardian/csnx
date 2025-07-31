@@ -26,12 +26,12 @@ export const Preview = ({ doc }: { doc: Node | null }) => {
 						</span>
 					);
 				} else if (node.type.name === 'chip') {
-					if (node.attrs.tagId) {
+					if (node.attrs.path) {
 						return (
 							<a
 								key={`${node.text}${i}`}
 								css={previewContributorStyles(node)}
-								href={`https://theguardian.com/${node.attrs.tagId}`}
+								href={`https://theguardian.com/${node.attrs.path}`}
 								target="_blank"
 							>
 								{node.attrs.label as string}

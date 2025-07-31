@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Byline } from './Byline';
 import { contributors } from './contributors-fixture';
+import type { BylineModel } from './lib';
 import type { TaggedContributor } from './lib';
 
 const searchContributors = (
@@ -10,10 +11,10 @@ const searchContributors = (
 		const results = contributors
 			.filter((name) => name.toLowerCase().includes(selectedText.toLowerCase()))
 			.map((name, index) => ({
-				id: `profile/${name.toLowerCase().replace(/\s/g, '-')}`,
+				path: `profile/${name.toLowerCase().replace(/\s/g, '-')}`,
 				label: name,
 				type: 'Contributor',
-				internalId: index + 1,
+				tagId: `${index + 1}`,
 			}))
 			.slice(0, 20);
 
@@ -28,13 +29,16 @@ const disableSnapshot = {
 };
 
 const meta = {
-	title: 'Components/Byline',
+	title: 'Flexible-Frontend/Components/Byline',
 	component: Byline,
 	parameters: {},
 	args: {
-		handleSave: () => {},
+		handleSave: (value: BylineModel) => {
+			console.log(value);
+		},
 		initialValue: [],
 		searchContributors,
+		enablePreview: true,
 	},
 } satisfies Meta<typeof Byline>;
 
@@ -91,8 +95,8 @@ export const WithInitialValue = {
 			{
 				type: 'contributor',
 				value: 'Joe Bloggs',
-				tagId: 'profile/joebloggs',
-				tagInternalId: '1',
+				tagId: '1',
+				path: 'profile/joebloggs',
 			},
 			{
 				type: 'text',
@@ -135,6 +139,14 @@ export const WithCustomPlaceholder = {
 
 export const WithContributorLimit = {
 	args: { contributorLimit: 1 },
+	...disableSnapshot,
+} satisfies Story;
+
+export const WithoutPreview = {
+	args: {
+		allowUntaggedContributors: true,
+		enablePreview: false,
+	},
 	...disableSnapshot,
 } satisfies Story;
 

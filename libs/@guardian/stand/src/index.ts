@@ -1,3 +1,1 @@
-export function byline() {
-	return 'byline';
-}
+export { Byline } from './byline/Byline';

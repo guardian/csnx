@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import type { EditorView } from 'prosemirror-view';
 import { mockEditorViewMethods } from '../../mocks/prosemirror-view';
 import { Byline } from './Byline';
-import type { BylineModel, TaggedContributor } from './lib';
+import type { TaggedContributor } from './lib';
 
 jest.mock('prosemirror-view', () => {
 	const actualProsemirrorView = jest.requireActual('prosemirror-view');
@@ -32,16 +32,14 @@ const mockSearchContributors: (
 ) => Promise<TaggedContributor[]> = () => {
 	return Promise.resolve([
 		{
-			id: 'mahesh-makani',
+			path: 'profile/mahesh-makani',
 			label: 'Mahesh Makani',
-			type: 'tagged',
-			internalId: 1,
+			tagId: '1',
 		},
 		{
-			id: 'andrew-howe-ely',
+			path: 'profile/andrew-howe-ely',
 			label: 'Andrew Howe-Ely',
-			type: 'tagged',
-			internalId: 2,
+			tagId: '2',
 		},
 	]);
 };
@@ -52,6 +50,7 @@ describe('Byline editor', () => {
 		render(<Byline allowUntaggedContributors={true} handleSave={() => {}} />);
 
 		await act(async () => {
+			await user.click(screen.getByRole('combobox'));
 			await user.type(screen.getByRole('combobox'), 'Test');
 		});
 
@@ -69,6 +68,7 @@ describe('Byline editor', () => {
 
 		const editor = screen.getByRole('combobox');
 		await act(async () => {
+			await user.click(editor);
 			await user.type(screen.getByRole('combobox'), 'Test');
 			await user.click(screen.getByRole('option'));
 		});
@@ -83,6 +83,7 @@ describe('Byline editor', () => {
 
 		const editor = screen.getByRole('combobox');
 		await act(async () => {
+			await user.click(editor);
 			await user.type(screen.getByRole('combobox'), 'Test');
 			await user.click(screen.getByRole('option'));
 		});
@@ -102,6 +103,7 @@ describe('Byline editor', () => {
 		render(<Byline allowUntaggedContributors={true} handleSave={() => {}} />);
 
 		await act(async () => {
+			await user.click(screen.getByRole('combobox'));
 			await user.type(screen.getByRole('combobox'), 'Test');
 		});
 
@@ -127,6 +129,7 @@ describe('Byline editor', () => {
 		expect(placeholder).toBeInTheDocument();
 
 		await act(async () => {
+			await user.click(screen.getByRole('combobox'));
 			await user.type(screen.getByRole('combobox'), 'Test');
 		});
 
@@ -144,6 +147,7 @@ describe('Byline editor', () => {
 		);
 
 		await act(async () => {
+			await user.click(screen.getByRole('combobox'));
 			await user.type(screen.getByRole('combobox'), 'Test');
 		});
 
@@ -162,6 +166,7 @@ describe('Byline editor', () => {
 		);
 
 		await act(async () => {
+			await user.click(screen.getByRole('combobox'));
 			await user.type(screen.getByRole('combobox'), 'Test');
 			await user.type(screen.getByRole('combobox'), '{ArrowDown}');
 			await user.type(screen.getByRole('combobox'), '{ArrowDown}');
@@ -183,9 +188,10 @@ describe('Byline editor', () => {
 		const editor = screen.getByRole('combobox');
 
 		await act(async () => {
-			await user.type(editor, 'Test');
-			await user.type(editor, '{ArrowDown}');
-			await user.type(editor, '{Enter}');
+			await user.click(editor);
+			await user.type(screen.getByRole('combobox'), 'Test');
+			await user.type(screen.getByRole('combobox'), '{ArrowDown}');
+			await user.type(screen.getByRole('combobox'), '{Enter}');
 		});
 
 		const chip = editor.querySelector('chip[data-label="Andrew Howe-Ely"]');

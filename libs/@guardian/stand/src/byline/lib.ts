@@ -32,7 +32,7 @@ export function insertChip(
 	to: number,
 	type: 'tagged',
 	tagId: string,
-	tagInternalId: number,
+	path?: string,
 ): Command;
 export function insertChip(
 	text: string,
@@ -40,7 +40,6 @@ export function insertChip(
 	to: number,
 	type: 'untagged',
 	tagId?: undefined,
-	tagInternalId?: undefined,
 ): Command;
 export function insertChip(
 	text: string,
@@ -48,14 +47,14 @@ export function insertChip(
 	to: number,
 	type: ContributorType,
 	tagId?: string,
-	tagInternalId?: number,
+	path?: string,
 ): Command {
 	const command: Command = (state, dispatch) => {
 		const chipNode = bylineEditorSchema.nodes.chip.create({
 			label: text,
 			type,
 			tagId,
-			tagInternalId: tagInternalId?.toString() ?? '',
+			path,
 		});
 
 		const tr = state.tr.replaceRangeWith(from, to, chipNode);
@@ -156,10 +155,14 @@ export const hasHitContributorLimit = (
 };
 
 export type TaggedContributor = {
-	id: string;
-	label: string;
-	type: string;
-	internalId: number;
+	tagId: string; // unique id for the contributor
+	label: string; // display text for the contributor, usually their name
+	path?: string; // optional path parameter linking to their Guardian profile, e.g. profile/joebloggs
+	// additional metadata e.g. the tag object from tag manager/capi
+	// this allows us to persist the meta data back to the consumer
+	// so it makes it possible to avoid additional network requests
+	// to load the full tag object
+	meta?: unknown;
 };
 
 export const addUntaggedContributor = (
@@ -226,6 +229,9 @@ export const addTaggedContributor = (
 	contributor: TaggedContributor,
 	viewRef: React.MutableRefObject<EditorView | null>,
 	setShowDropdown: React.Dispatch<React.SetStateAction<boolean>>,
+	setAddedTaggedContributors: React.Dispatch<
+		React.SetStateAction<TaggedContributor[]>
+	>,
 	contributorLimit?: number,
 ) => {
 	if (!viewRef.current) {
@@ -246,13 +252,14 @@ export const addTaggedContributor = (
 	// If there's a selection, replace it with the tagged contributor
 	if (hasSelection) {
 		setShowDropdown(false);
+		setAddedTaggedContributors((prev) => [...prev, contributor]);
 		const result = insertChip(
 			contributor.label,
 			state.selection.from,
 			state.selection.to,
 			'tagged',
-			contributor.id,
-			contributor.internalId,
+			contributor.tagId,
+			contributor.path,
 		)(state, dispatch);
 
 		refocusEditor(viewRef);
@@ -267,14 +274,15 @@ export const addTaggedContributor = (
 	}
 
 	setShowDropdown(false);
+	setAddedTaggedContributors((prev) => [...prev, contributor]);
 
 	const result = insertChip(
 		contributor.label,
 		startOffset,
 		endOffset,
 		'tagged',
-		contributor.id,
-		contributor.internalId,
+		contributor.tagId,
+		contributor.path,
 	)(state, dispatch);
 
 	refocusEditor(viewRef);
@@ -282,19 +290,20 @@ export const addTaggedContributor = (
 	return result;
 };
 
-type BylinePart =
-	| {
-			type: 'text';
-			value: string;
-	  }
-	| {
-			type: 'contributor';
-			value: string;
-			// if tagId and tagInternalId are provided, this is a tagged contributor
-			// otherwise, it's an untagged contributor
-			tagId?: string;
-			tagInternalId?: string;
-	  };
+type BylineText = {
+	type: 'text';
+	value: string;
+};
+
+type BylineContributor = {
+	type: 'contributor';
+	value: string; // display text for the contributor, usually their name
+	tagId?: string; // if tagId doesn't exist then it's an untagged contributor, usually a unique id for the tagged contributor
+	path?: string; // optional path parameter linking to their Guardian profile, e.g. profile/joebloggs
+	meta?: unknown; // additional metadata e.g. the tag object from tag manager/capi
+};
+
+type BylinePart = BylineText | BylineContributor;
 
 export type BylineModel = BylinePart[];
 
@@ -303,9 +312,9 @@ export const convertBylineModelToNode = (value?: BylineModel): Node => {
 		if (part.type === 'contributor') {
 			return bylineEditorSchema.nodes.chip.create({
 				label: part.value,
-				type: part.tagInternalId ? 'tagged' : 'untagged',
+				type: part.tagId ? 'tagged' : 'untagged',
 				tagId: part.tagId,
-				tagInternalId: part.tagInternalId,
+				path: part.path,
 			});
 		} else {
 			return bylineEditorSchema.text(part.value);
@@ -314,7 +323,10 @@ export const convertBylineModelToNode = (value?: BylineModel): Node => {
 	return bylineEditorSchema.node('doc', null, nodes);
 };
 
-export const convertNodeToBylineModel = (doc: Node): BylineModel => {
+export const convertNodeToBylineModel = (
+	doc: Node,
+	addedTaggedContributors: TaggedContributor[],
+): BylineModel => {
 	const model: BylineModel = [];
 	doc.forEach((node) => {
 		if (node.isText) {
@@ -323,12 +335,31 @@ export const convertNodeToBylineModel = (doc: Node): BylineModel => {
 				value: node.text ?? '',
 			});
 		} else if (node.type.name === 'chip') {
-			model.push({
-				type: 'contributor',
-				value: node.attrs.label as string,
-				tagId: node.attrs.tagId as string,
-				tagInternalId: node.attrs.tagInternalId as string,
-			});
+			// check if the chip exists in the addedTaggedContributors
+			const maybeAddedTaggedContributor = addedTaggedContributors.find(
+				(c) => c.tagId === node.attrs.tagId,
+			);
+
+			// if it exists, use the data from the addedTaggedContributors
+			// this allows us to persist meta data back to the consumer
+			// e.g. the tag object from tag manager/capi
+			if (maybeAddedTaggedContributor) {
+				model.push({
+					type: 'contributor',
+					value: maybeAddedTaggedContributor.label,
+					tagId: maybeAddedTaggedContributor.tagId,
+					path: maybeAddedTaggedContributor.path,
+					meta: maybeAddedTaggedContributor.meta,
+				});
+			} else {
+				// otherwise, use the data from the node
+				model.push({
+					type: 'contributor',
+					value: node.attrs.label as string,
+					tagId: node.attrs.tagId as string,
+					path: node.attrs.path as string,
+				});
+			}
 		}
 	});
 	return model;

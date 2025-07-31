@@ -144,10 +144,7 @@ export const bylinePlugin = (): Plugin => {
 					dom.setAttribute('data-label', node.attrs.label as string);
 					dom.setAttribute('data-type', node.attrs.type as string);
 					dom.setAttribute('data-tag-id', node.attrs.tagId as string);
-					dom.setAttribute(
-						'data-tag-internal-id',
-						node.attrs.tagInternalId as string,
-					);
+					dom.setAttribute('data-path', node.attrs.path as string);
 					dom.textContent = node.attrs.label as string;
 
 					const deleteHandle = document.createElement('span');
