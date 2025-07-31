@@ -816,9 +816,6 @@ importers:
       prosemirror-view:
         specifier: 1.40.1
         version: 1.40.1
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
     devDependencies:
       '@emotion/react':
         specifier: 11.11.4
@@ -856,6 +853,9 @@ importers:
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@22.10.0)
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
       rollup:
         specifier: 4.45.1
         version: 4.45.1
