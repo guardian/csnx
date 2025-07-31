@@ -59,7 +59,9 @@
 	},
 	"peerDependencies": {
 		"tslib": "^2.6.2",
-		"typescript": "~5.5.2"
+		"typescript": "~5.5.2",
+		"@emotion/react": "11.11.4",
+		"react": "18.2.0"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {
@@ -163,7 +165,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js -c=./jest.dist.config.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],
