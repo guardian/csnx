@@ -33,6 +33,7 @@ export const Preview = ({ doc }: { doc: Node | null }) => {
 								css={previewContributorStyles(node)}
 								href={`https://theguardian.com/${node.attrs.path}`}
 								target="_blank"
+								rel="noreferrer"
 							>
 								{node.attrs.label as string}
 							</a>
