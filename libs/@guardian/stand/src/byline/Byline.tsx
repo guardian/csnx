@@ -135,6 +135,7 @@ export const Byline = ({
 		if (currentDoc && allowSave) {
 			handleSave(convertNodeToBylineModel(currentDoc, addedTaggedContributors));
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps -- We only want to run this when currentDoc changes
 	}, [currentDoc]);
 
 	useEffect(() => {
@@ -271,6 +272,7 @@ export const Byline = ({
 		return () => {
 			viewRef.current?.destroy();
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps -- We only want to run this once
 	}, []);
 
 	useEffect(() => {
@@ -397,7 +399,7 @@ export const Byline = ({
 								);
 							}}
 						>
-							Add "{currentText}" as untagged contributor
+							Add &quot;{currentText}&quot; as untagged contributor
 						</li>
 					)}
 				</ul>
