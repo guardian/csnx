@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, fn, userEvent, within } from '@storybook/test';
 import { Byline } from './Byline';
 import { contributors } from './contributors-fixture';
 import type { BylineModel } from './lib';
@@ -33,9 +34,7 @@ const meta = {
 	component: Byline,
 	parameters: {},
 	args: {
-		handleSave: (value: BylineModel) => {
-			console.log(value);
-		},
+		handleSave: () => {},
 		initialValue: [],
 		searchContributors,
 		enablePreview: true,
@@ -148,6 +147,58 @@ export const WithoutPreview = {
 		enablePreview: false,
 	},
 	...disableSnapshot,
+} satisfies Story;
+
+export const WithTextTyped = {
+	args: {
+		placeholder: 'My placeholder',
+	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const editor = canvas.getByRole('combobox');
+
+		const placeholder = await canvas.findByText('My placeholder');
+		await expect(placeholder).toBeInTheDocument();
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, 'Test');
+
+		await expect(placeholder).not.toBeInTheDocument();
+	},
+} satisfies Story;
+
+export const WithMockSave = {
+	args: {
+		handleSave: fn(),
+	},
+	play: async ({ args, canvasElement }) => {
+		const canvas = within(canvasElement);
+		const editor = canvas.getByRole('combobox');
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, 'Test');
+		await expect(args.handleSave).toBeCalledTimes(4);
+	},
+} satisfies Story;
+
+const saveLog: BylineModel[] = [];
+export const WithMockSaveLog = {
+	args: {
+		handleSave: (savedModel: BylineModel) => {
+			saveLog.push(savedModel);
+		},
+	},
+	play: async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const editor = canvas.getByRole('combobox');
+
+		await userEvent.click(editor);
+		await userEvent.type(editor, 'Test');
+		await expect(saveLog.at(0)?.pop()?.value).toBe('T');
+		await expect(saveLog.at(1)?.pop()?.value).toBe('Te');
+		await expect(saveLog.at(2)?.pop()?.value).toBe('Tes');
+		await expect(saveLog.at(3)?.pop()?.value).toBe('Test');
+	},
 } satisfies Story;
 
 export default meta;
