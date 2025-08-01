@@ -538,6 +538,10 @@ install: check-node-version
 @guardian/stand\:test: env
 	@corepack pnpm --filter @guardian/stand test
 
+.PHONY: @guardian/stand\:test-ct
+@guardian/stand\:test-ct: env
+	@corepack pnpm --filter @guardian/stand test-ct
+
 .PHONY: @guardian/stand\:tsc
 @guardian/stand\:tsc: env
 	@corepack pnpm --filter @guardian/stand tsc
