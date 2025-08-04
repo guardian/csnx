@@ -162,6 +162,7 @@ export type TaggedContributor = {
 	// this allows us to persist the meta data back to the consumer
 	// so it makes it possible to avoid additional network requests
 	// to load the full tag object
+	// use type guards, validation library (like zod), or an `as` assertion when using this
 	meta?: unknown;
 };
 
@@ -300,7 +301,7 @@ type BylineContributor = {
 	value: string; // display text for the contributor, usually their name
 	tagId?: string; // if tagId doesn't exist then it's an untagged contributor, usually a unique id for the tagged contributor
 	path?: string; // optional path parameter linking to their Guardian profile, e.g. profile/joebloggs
-	meta?: unknown; // additional metadata e.g. the tag object from tag manager/capi
+	meta?: unknown; // additional metadata e.g. the tag object from tag manager/capi, use type guards, validation library (like zod), or an `as` assertion when using this
 };
 
 type BylinePart = BylineText | BylineContributor;
