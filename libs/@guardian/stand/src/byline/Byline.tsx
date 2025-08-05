@@ -33,25 +33,39 @@ import {
 import type { PartialBylineTheme } from './theme';
 
 type BylineProps = {
+	handleSave: (newValue: BylineModel) => void;
+	searchContributors?: (selectedText: string) => Promise<TaggedContributor[]>;
+	initialValue?: BylineModel;
 	theme?: PartialBylineTheme;
 	allowUntaggedContributors?: boolean;
 	contributorLimit?: number;
 	enablePreview?: boolean;
 	placeholder?: string;
-	initialValue?: BylineModel;
-	handleSave: (newValue: BylineModel) => void;
-	searchContributors?: (selectedText: string) => Promise<TaggedContributor[]>;
 };
 
+/**
+ * @name Byline
+ * @description A component for managing bylines in a ProseMirror editor.
+ *
+ * @param props {BylineProps} - The properties for the Byline component.
+ * @param props.handleSave {function} - Callback function to handle saving the byline model using the internal BylineModel type.
+ * @param props.searchContributors {function} - Optional function to search for contributors in a dropdown based on the selected text.
+ * @param props.initialValue {BylineModel} - Optional initial value for the byline editor, based on the internal BylineModel type.
+ * @param props.theme {PartialBylineTheme} - Optional theme for styling the byline editor.
+ * @param props.allowUntaggedContributors {boolean} - Whether to allow untagged contributors, default is false.
+ * @param props.contributorLimit {number} - Optional limit on the number of contributors that can be added.
+ * @param props.enablePreview {boolean} - Whether to enable the preview of the byline, default is false.
+ * @param props.placeholder {string} - Optional placeholder text for the byline editor.
+ */
 export const Byline = ({
+	handleSave,
+	searchContributors,
+	initialValue,
 	theme,
 	allowUntaggedContributors,
 	contributorLimit,
 	enablePreview,
 	placeholder,
-	initialValue,
-	handleSave,
-	searchContributors,
 }: BylineProps) => {
 	const editorRef = useRef<HTMLDivElement>(null);
 	const viewRef = useRef<EditorView | null>(null);

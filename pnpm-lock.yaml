@@ -796,25 +796,25 @@ importers:
   libs/@guardian/stand:
     dependencies:
       '@guardian/prosemirror-invisibles':
-        specifier: 3.1.1
+        specifier: ^3.1.1
         version: 3.1.1(prosemirror-model@1.25.2)(prosemirror-state@1.4.3)(prosemirror-view@1.40.1)
       prosemirror-dropcursor:
-        specifier: 1.8.2
+        specifier: ^1.8.2
         version: 1.8.2
       prosemirror-history:
-        specifier: 1.4.1
+        specifier: ^1.4.1
         version: 1.4.1
       prosemirror-keymap:
-        specifier: 1.2.3
+        specifier: ^1.2.3
         version: 1.2.3
       prosemirror-model:
-        specifier: 1.25.2
+        specifier: ^1.25.2
         version: 1.25.2
       prosemirror-state:
-        specifier: 1.4.3
+        specifier: ^1.4.3
         version: 1.4.3
       prosemirror-view:
-        specifier: 1.40.1
+        specifier: ^1.40.1
         version: 1.40.1
     devDependencies:
       '@emotion/react':
