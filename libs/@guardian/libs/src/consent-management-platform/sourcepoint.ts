@@ -47,7 +47,11 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
 const getPropertyHref = (
 	framework: ConsentFramework,
 	useNonAdvertisedList: boolean,
+	isInSourcepointGeolocationTest: boolean,
 ): Property => {
+	if (isInSourcepointGeolocationTest) {
+		return getPropertyHrefForGeolocationTest(framework, useNonAdvertisedList);
+	}
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
@@ -57,6 +61,26 @@ const getPropertyHref = (
 	}
 
 	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
+};
+
+const getPropertyId = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+	isInSourcepointGeolocationTest: boolean,
+): number => {
+	if (isInSourcepointGeolocationTest) {
+		return getPropertyIdForGeolocationTest(framework, useNonAdvertisedList);
+	}
+
+	if (framework == 'aus') {
+		return PROPERTY_ID_AUSTRALIA;
+	}
+
+	if (framework == 'usnat') {
+		return PROPERTY_ID_MAIN;
+	}
+
+	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN;
 };
 
 const getPropertyHrefForGeolocationTest = (
@@ -74,21 +98,6 @@ const getPropertyHrefForGeolocationTest = (
 	return useNonAdvertisedList
 		? PROPERTY_HREF_SUBDOMAIN
 		: PROPERTY_HREF_MAIN_TEST;
-};
-
-const getPropertyId = (
-	framework: ConsentFramework,
-	useNonAdvertisedList: boolean,
-): number => {
-	if (framework == 'aus') {
-		return PROPERTY_ID_AUSTRALIA;
-	}
-
-	if (framework == 'usnat') {
-		return PROPERTY_ID_MAIN;
-	}
-
-	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN;
 };
 
 const getPropertyIdForGeolocationTest = (
@@ -204,12 +213,16 @@ export const init = (
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyId: isInSourcepointGeolocationTest
-				? getPropertyIdForGeolocationTest(framework, useNonAdvertisedList)
-				: getPropertyId(framework, useNonAdvertisedList),
-			propertyHref: isInSourcepointGeolocationTest
-				? getPropertyHrefForGeolocationTest(framework, useNonAdvertisedList)
-				: getPropertyHref(framework, useNonAdvertisedList),
+			propertyId: getPropertyId(
+				framework,
+				useNonAdvertisedList,
+				isInSourcepointGeolocationTest,
+			),
+			propertyHref: getPropertyHref(
+				framework,
+				useNonAdvertisedList,
+				isInSourcepointGeolocationTest,
+			),
 			joinHref: true,
 			isSPA: true,
 			targetingParams: {
