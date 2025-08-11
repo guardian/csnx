@@ -15,15 +15,20 @@ import {
 	ACCOUNT_ID,
 	ENDPOINT,
 	PROPERTY_HREF_MAIN,
+	PROPERTY_HREF_MAIN_TEST,
 	PROPERTY_HREF_SUBDOMAIN,
 	PROPERTY_ID_AUSTRALIA,
 	PROPERTY_ID_MAIN,
+	PROPERTY_ID_MAIN_TEST,
 	PROPERTY_ID_SUBDOMAIN,
 	SourcePointChoiceTypes,
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
-import { invokeCallbacks } from './onConsentChange';
-import { loadStubsFor } from './stub';
+import {
+	invokeCallbacks,
+	invokeCallbacksForGeolocationTest,
+} from './onConsentChange';
+import { loadStubsFor, loadStubsForGeolocationTest } from './stub';
 import type { ConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
@@ -42,13 +47,17 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
 const getPropertyHref = (
 	framework: ConsentFramework,
 	useNonAdvertisedList: boolean,
+	isInSourcepointGeolocationTest: boolean,
 ): Property => {
+	if (isInSourcepointGeolocationTest) {
+		return getPropertyHrefForGeolocationTest(framework, useNonAdvertisedList);
+	}
 	if (framework == 'aus') {
 		return 'https://au.theguardian.com';
 	}
 
 	if (framework == 'usnat') {
-		return 'https://www.theguardian.com';
+		return PROPERTY_HREF_MAIN;
 	}
 
 	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
@@ -57,7 +66,12 @@ const getPropertyHref = (
 const getPropertyId = (
 	framework: ConsentFramework,
 	useNonAdvertisedList: boolean,
+	isInSourcepointGeolocationTest: boolean,
 ): number => {
+	if (isInSourcepointGeolocationTest) {
+		return getPropertyIdForGeolocationTest(framework, useNonAdvertisedList);
+	}
+
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
@@ -67,6 +81,38 @@ const getPropertyId = (
 	}
 
 	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN;
+};
+
+const getPropertyHrefForGeolocationTest = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+): Property => {
+	if (framework == 'aus') {
+		return 'https://au.theguardian.com';
+	}
+
+	if (framework == 'usnat') {
+		return PROPERTY_HREF_MAIN_TEST;
+	}
+
+	return useNonAdvertisedList
+		? PROPERTY_HREF_SUBDOMAIN
+		: PROPERTY_HREF_MAIN_TEST;
+};
+
+const getPropertyIdForGeolocationTest = (
+	framework: ConsentFramework,
+	useNonAdvertisedList: boolean,
+): number => {
+	if (framework == 'aus') {
+		return PROPERTY_ID_AUSTRALIA;
+	}
+
+	if (framework == 'usnat') {
+		return PROPERTY_ID_MAIN_TEST;
+	}
+
+	return useNonAdvertisedList ? PROPERTY_ID_SUBDOMAIN : PROPERTY_ID_MAIN_TEST;
 };
 
 /**
@@ -100,8 +146,15 @@ export const init = (
 	isUserSignedIn: boolean,
 	useNonAdvertisedList: boolean,
 	pubData = {},
+	isInSourcepointGeolocationTest: boolean,
 ): void => {
-	loadStubsFor(framework);
+	console.log('isInSourcepointGeolocationTest', isInSourcepointGeolocationTest);
+	if (isInSourcepointGeolocationTest) {
+		log('cmp', 'Sourcepoint geolocation test is enabled');
+		loadStubsForGeolocationTest(framework);
+	} else {
+		loadStubsFor(framework);
+	}
 
 	// make sure nothing else on the page has accidentally
 	// used the `_sp_` name as well
@@ -109,7 +162,9 @@ export const init = (
 		throw new Error('Sourcepoint global (window._sp_) is already defined!');
 	}
 
-	setCurrentFramework(framework);
+	if (!isInSourcepointGeolocationTest) {
+		setCurrentFramework(framework);
+	}
 
 	// To ensure users who are not part of Consent or Pay country or AB Test
 	if (!isConsentOrPayCountry(countryCode)) {
@@ -121,7 +176,11 @@ export const init = (
 	);
 
 	// invoke callbacks before we receive Sourcepoint
-	invokeCallbacks();
+	if (isInSourcepointGeolocationTest) {
+		invokeCallbacksForGeolocationTest();
+	} else {
+		invokeCallbacks();
+	}
 
 	let frameworkMessageType: string;
 	switch (framework) {
@@ -154,8 +213,16 @@ export const init = (
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyId: getPropertyId(framework, useNonAdvertisedList),
-			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
+			propertyId: getPropertyId(
+				framework,
+				useNonAdvertisedList,
+				isInSourcepointGeolocationTest,
+			),
+			propertyHref: getPropertyHref(
+				framework,
+				useNonAdvertisedList,
+				isInSourcepointGeolocationTest,
+			),
 			joinHref: true,
 			isSPA: true,
 			targetingParams: {
@@ -167,9 +234,33 @@ export const init = (
 			// ccpa or gdpr object added below
 
 			events: {
-				onConsentReady: (message_type, consentUUID, euconsent) => {
+				onConsentReady: (message_type, consentUUID, euconsent, info) => {
 					log('cmp', `onConsentReady ${message_type}`);
-					if (message_type != frameworkMessageType) {
+
+					if (isInSourcepointGeolocationTest && info.applies) {
+						let spFramework: ConsentFramework | undefined;
+
+						switch (message_type) {
+							case 'gdpr':
+								spFramework = 'tcfv2';
+								break;
+							case 'usnat':
+								spFramework = 'usnat';
+								break;
+							case 'ccpa':
+								spFramework = 'aus';
+								break;
+							default:
+								spFramework = undefined;
+								break;
+						}
+
+						if (spFramework !== undefined) {
+							setCurrentFramework(spFramework);
+						}
+					}
+
+					if (info.applies && message_type != frameworkMessageType) {
 						sendJurisdictionMismatchToOphan(
 							JSON.stringify({
 								sp: message_type,
@@ -180,10 +271,8 @@ export const init = (
 
 						log(
 							'cmp',
-							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
+							`onConsentReady Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
 						);
-
-						return;
 					}
 
 					log('cmp', `consentUUID ${consentUUID}`);
@@ -192,7 +281,11 @@ export const init = (
 					mark('cmp-got-consent');
 
 					// onConsentReady is triggered before SP update the consent settings :(
-					setTimeout(invokeCallbacks, 0);
+					if (isInSourcepointGeolocationTest) {
+						setTimeout(invokeCallbacksForGeolocationTest, 0);
+					} else {
+						setTimeout(invokeCallbacks, 0);
+					}
 				},
 				onMessageReady: (message_type) => {
 					log('cmp', `onMessageReady ${message_type}`);
@@ -242,7 +335,11 @@ export const init = (
 						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
-						setTimeout(invokeCallbacks, 0);
+						if (isInSourcepointGeolocationTest) {
+							setTimeout(invokeCallbacksForGeolocationTest, 0);
+						} else {
+							setTimeout(invokeCallbacks, 0);
+						}
 					}
 				},
 				onPrivacyManagerAction: function (message_type, pmData) {
@@ -289,13 +386,23 @@ export const init = (
 		);
 	}
 
-	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
-	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
-	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
-	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
-	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
-	switch (framework) {
-		case 'tcfv2':
+	if (isInSourcepointGeolocationTest) {
+		window._sp_.config.campaignEnv = 'stage';
+		// USNAT and CCPA can't be loaded at the same time.
+		// We use the country code to determine Austrialian users and set only ccpa for aus.
+		if (framework == 'aus') {
+			window._sp_.config.ccpa = {
+				targetingParams: {
+					framework,
+				},
+			};
+		} else {
+			// Set both for gdpr and usnat
+			window._sp_.config.usnat = {
+				targetingParams: {
+					framework,
+				},
+			};
 			window._sp_.config.gdpr = {
 				targetingParams: {
 					framework,
@@ -304,23 +411,40 @@ export const init = (
 					isUserSignedIn,
 				},
 			};
-			break;
-		case 'usnat':
-			window._sp_.config.usnat = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
-		case 'aus':
-			window._sp_.config.ccpa = {
-				targetingParams: {
-					framework,
-				},
-			};
-			break;
+		}
+	} else {
+		// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
+		// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
+		// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
+		// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
+		// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
+		switch (framework) {
+			case 'tcfv2':
+				window._sp_.config.gdpr = {
+					targetingParams: {
+						framework,
+						excludePage: isExcludedFromCMP(pageSection),
+						isCorP: isConsentOrPayCountry(countryCode),
+						isUserSignedIn,
+					},
+				};
+				break;
+			case 'usnat':
+				window._sp_.config.usnat = {
+					targetingParams: {
+						framework,
+					},
+				};
+				break;
+			case 'aus':
+				window._sp_.config.ccpa = {
+					targetingParams: {
+						framework,
+					},
+				};
+				break;
+		}
 	}
-
 	// TODO use libs function loadScript,
 	// change signature of init function to return promise returned by loadScript
 	const spLib = document.createElement('script');
