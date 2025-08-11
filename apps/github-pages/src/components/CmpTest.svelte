@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
+	let inSourcepointGeolocation = window.location.search.includes('SP_GEO');
 	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
 
 	switch (window.location.hash) {
@@ -44,8 +45,8 @@
 		setCookie({
 			name: 'X-GU-Experiment-0perc-E',
 			value: 'true',
-		})
-	}
+		});
+	};
 
 	let clearPreferences = () => {
 		// clear local storage
@@ -86,6 +87,11 @@
 	const toggleUseNonAdvertisedList = () => {
 		useNonAdvertisedList = !useNonAdvertisedList;
 		toggleQueryParams('NON_ADV');
+	};
+
+	const toggleInSourcepointGeolocation = () => {
+		inSourcepointGeolocation = !inSourcepointGeolocation;
+		toggleQueryParams('SP_GEO');
 	};
 
 	let framework = JSON.parse(localStorage.getItem('framework'));
@@ -130,6 +136,7 @@
 			country,
 			isUserSignedIn: isUserSignedIn,
 			useNonAdvertisedList: useNonAdvertisedList,
+			isInSourcepointGeolocationTest: inSourcepointGeolocation,
 		});
 	});
 </script>
@@ -185,6 +192,14 @@
 				checked={isUserSignedIn}
 			/>
 			<strong>isUserSignedIn?</strong>
+		</label>
+		<label class={inSourcepointGeolocation ? 'selected' : 'none'}>
+			<input
+				type="checkbox"
+				on:change={toggleInSourcepointGeolocation}
+				checked={inSourcepointGeolocation}
+			/>
+			<strong>isInSourcepointGeolocation?</strong>
 		</label>
 	</nav>
 
