@@ -187,7 +187,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Invalid nonce');
+		}).toThrow('Invalid nonce');
 	});
 
 	it('should verify the id token and throw if the issuer is incorrect', () => {
@@ -211,7 +211,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Invalid issuer');
+		}).toThrow('Invalid issuer');
 	});
 
 	it('should verify the id token and throw if the client id is incorrect', () => {
@@ -235,7 +235,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Invalid audience');
+		}).toThrow('Invalid audience');
 	});
 
 	it('should verify the id token and throw if the token was issued in the future', () => {
@@ -259,7 +259,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Token was issued in the future');
+		}).toThrow('Token was issued in the future');
 	});
 
 	it('should verify the id token and throw if iat is missing', () => {
@@ -282,7 +282,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Token does not contain required claims');
+		}).toThrow('Token does not contain required claims');
 	});
 
 	it('id token: positive clock skew checking iat: normalised local time > iat is valid (token not issued in future)', () => {
@@ -308,7 +308,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).not.toThrowError();
+		}).not.toThrow();
 	});
 
 	it('id token: positive clock skew checking iat: normalised local time < iat is invalid (token issued in future)', () => {
@@ -335,7 +335,7 @@ describe('IdentityAuth#Token', () => {
 		// should fail because local time is 1 second behind server time
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Token was issued in the future');
+		}).toThrow('Token was issued in the future');
 	});
 
 	it('id token: negative clock skew checking iat: normalised local time < iat is valid (token not in future)', () => {
@@ -361,7 +361,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).not.toThrowError();
+		}).not.toThrow();
 	});
 
 	it('id token: negative clock skew checking iat: normalised local time > iat is invalid (token issued in future)', () => {
@@ -387,7 +387,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyIdTokenClaims(idToken, claims, options);
-		}).toThrowError('Token was issued in the future');
+		}).toThrow('Token was issued in the future');
 	});
 
 	it('should verify the access token timestamps and throw if the token iat is after exp', () => {
@@ -407,7 +407,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token has expired before it was issued');
+		}).toThrow('Token has expired before it was issued');
 	});
 
 	it('should verify the access token timestamps and throw if the token is expired', () => {
@@ -427,7 +427,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token has expired');
+		}).toThrow('Token has expired');
 	});
 
 	it('should verify the access token timestamps and throw if the token was issued in the future', () => {
@@ -447,7 +447,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token was issued in the future');
+		}).toThrow('Token was issued in the future');
 	});
 
 	it('should verify the access token timestamps and throw if iat or exp are missing', () => {
@@ -477,11 +477,11 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken1, claims1);
-		}).toThrowError('Token does not contain required claims');
+		}).toThrow('Token does not contain required claims');
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken2, claims2);
-		}).toThrowError('Token does not contain required claims');
+		}).toThrow('Token does not contain required claims');
 	});
 
 	it('access token timestamps: positive clock skew checking exp: exp > normalised local time is valid (token not expired)', () => {
@@ -503,7 +503,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).not.toThrowError();
+		}).not.toThrow();
 	});
 
 	it('access token timestamps: positive clock skew checking exp: exp < normalised local time is invalid (token expired)', () => {
@@ -525,7 +525,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token has expired');
+		}).toThrow('Token has expired');
 	});
 
 	it('access token timestamps: negative clock skew checking exp: exp > normalised local time is valid (token not expired)', () => {
@@ -547,7 +547,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).not.toThrowError();
+		}).not.toThrow();
 	});
 
 	it('access token timestamps: negative clock skew checking exp: exp < normalised local time is invalid (token has expired)', () => {
@@ -569,7 +569,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token has expired');
+		}).toThrow('Token has expired');
 	});
 
 	it('access token timestamps: positive clock skew checking iat: normalised local time > iat is valid (token not issued in future)', () => {
@@ -591,7 +591,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).not.toThrowError();
+		}).not.toThrow();
 	});
 
 	it('access token timestamps: positive clock skew checking iat: normalised local time < iat is invalid (token issued in future)', () => {
@@ -614,7 +614,7 @@ describe('IdentityAuth#Token', () => {
 		// should fail because local time is 1 second behind server time
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token was issued in the future');
+		}).toThrow('Token was issued in the future');
 	});
 
 	it('access token timestamps: negative clock skew checking iat: normalised local time < iat is valid (token not in future)', () => {
@@ -636,7 +636,7 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).not.toThrowError();
+		}).not.toThrow();
 	});
 
 	it('access token timestamps: negative clock skew checking iat: normalised local time > iat is invalid (token issued in future)', () => {
@@ -658,6 +658,6 @@ describe('IdentityAuth#Token', () => {
 
 		expect(() => {
 			TokenModule.verifyAccessTokenTimestamps(accessToken, claims);
-		}).toThrowError('Token was issued in the future');
+		}).toThrow('Token was issued in the future');
 	});
 });
