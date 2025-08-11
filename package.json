@@ -38,6 +38,9 @@
 				"react",
 				"react-dom"
 			]
+		},
+		"patchedDependencies": {
+			"jsdom@26.1.0": "patches/jsdom@26.1.0.patch"
 		}
 	}
 }

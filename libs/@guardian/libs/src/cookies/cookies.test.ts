@@ -89,7 +89,7 @@ describe('cookies', () => {
 				name: 'cookie-1-name-@',
 				value: 'cookie-1-value',
 			}),
-		).toThrowError(
+		).toThrow(
 			`Cookie must not contain invalid characters (space, tab and the following characters: '()<>@,;"/[]?={}') cookie-1-name-@=cookie-1-value`,
 		);
 		expect(document.cookie).toEqual('');
@@ -101,7 +101,7 @@ describe('cookies', () => {
 				name: 'cookie-1-name',
 				value: 'cookie-1-value-<',
 			}),
-		).toThrowError(
+		).toThrow(
 			`Cookie must not contain invalid characters (space, tab and the following characters: '()<>@,;"/[]?={}') cookie-1-name=cookie-1-value-<`,
 		);
 		expect(document.cookie).toEqual('');
@@ -135,7 +135,7 @@ describe('cookies', () => {
 				name: 'cookie-1-name-@',
 				value: 'cookie-1-value',
 			}),
-		).toThrowError(
+		).toThrow(
 			`Cookie must not contain invalid characters (space, tab and the following characters: '()<>@,;"/[]?={}') cookie-1-name-@=cookie-1-value`,
 		);
 		expect(document.cookie).toEqual('');
@@ -147,7 +147,7 @@ describe('cookies', () => {
 				name: 'cookie-1-name',
 				value: 'cookie-1-value-<',
 			}),
-		).toThrowError(
+		).toThrow(
 			`Cookie must not contain invalid characters (space, tab and the following characters: '()<>@,;"/[]?={}') cookie-1-name=cookie-1-value-<`,
 		);
 		expect(document.cookie).toEqual('');
