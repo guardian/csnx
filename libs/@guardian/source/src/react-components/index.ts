@@ -165,11 +165,11 @@ export { SvgFilterIosAppSmall } from './__generated__/icons/SvgFilterIosAppSmall
 export { SvgFilterOutlinedWeb } from './__generated__/icons/SvgFilterOutlinedWeb';
 export { SvgFolder } from './__generated__/icons/SvgFolder';
 export { SvgFolderFilled } from './__generated__/icons/SvgFolderFilled';
-export { SvgGuessPuzzles } from './__generated__/icons/SvgGuessPuzzles';
 export { SvgGift } from './__generated__/icons/SvgGift';
 export { SvgGlobe } from './__generated__/icons/SvgGlobe';
 export { SvgGoogleBrand } from './__generated__/icons/SvgGoogleBrand';
 export { SvgGps } from './__generated__/icons/SvgGps';
+export { SvgGuessPuzzles } from './__generated__/icons/SvgGuessPuzzles';
 export { SvgHandPointed } from './__generated__/icons/SvgHandPointed';
 export { SvgHeadphonesFilled } from './__generated__/icons/SvgHeadphonesFilled';
 export { SvgHeadphonesOutlined } from './__generated__/icons/SvgHeadphonesOutlined';

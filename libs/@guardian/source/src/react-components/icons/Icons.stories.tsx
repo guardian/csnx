@@ -88,11 +88,11 @@ import { SvgFilterIosAppSmall } from '../__generated__/icons/SvgFilterIosAppSmal
 import { SvgFilterOutlinedWeb } from '../__generated__/icons/SvgFilterOutlinedWeb';
 import { SvgFolder } from '../__generated__/icons/SvgFolder';
 import { SvgFolderFilled } from '../__generated__/icons/SvgFolderFilled';
-import { SvgGuessPuzzles } from '../__generated__/icons/SvgGuessPuzzles';
 import { SvgGift } from '../__generated__/icons/SvgGift';
 import { SvgGlobe } from '../__generated__/icons/SvgGlobe';
 import { SvgGoogleBrand } from '../__generated__/icons/SvgGoogleBrand';
 import { SvgGps } from '../__generated__/icons/SvgGps';
+import { SvgGuessPuzzles } from '../__generated__/icons/SvgGuessPuzzles';
 import { SvgHandPointed } from '../__generated__/icons/SvgHandPointed';
 import { SvgHeadphonesFilled } from '../__generated__/icons/SvgHeadphonesFilled';
 import { SvgHeadphonesOutlined } from '../__generated__/icons/SvgHeadphonesOutlined';
@@ -277,11 +277,11 @@ const uiIcons = [
 	SvgFilterOutlinedWeb,
 	SvgFolder,
 	SvgFolderFilled,
-	SvgGuessPuzzles,
 	SvgGift,
 	SvgGlobe,
 	SvgGoogleBrand,
 	SvgGps,
+	SvgGuessPuzzles,
 	SvgHandPointed,
 	SvgHeadphonesFilled,
 	SvgHeadphonesOutlined,
