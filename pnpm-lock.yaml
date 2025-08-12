@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   jsdom@26.1.0:
-    hash: agxokpip6xisdr4e5v7aduty54
+    hash: bld754pt2rccrfojs6tbcgt5kq
     path: patches/jsdom@26.1.0.patch
 
 importers:
@@ -2730,7 +2730,7 @@ packages:
       '@types/node': 22.10.0
       jest-mock: 30.0.5
       jest-util: 30.0.5
-      jsdom: 26.1.0(patch_hash=agxokpip6xisdr4e5v7aduty54)
+      jsdom: 26.1.0(patch_hash=bld754pt2rccrfojs6tbcgt5kq)
     dev: true
 
   /@jest/environment@30.0.5:
@@ -7756,7 +7756,7 @@ packages:
       '@jest/environment-jsdom-abstract': 30.0.5(jsdom@26.1.0)
       '@types/jsdom': 21.1.7
       '@types/node': 22.10.0
-      jsdom: 26.1.0(patch_hash=agxokpip6xisdr4e5v7aduty54)
+      jsdom: 26.1.0(patch_hash=bld754pt2rccrfojs6tbcgt5kq)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -8053,7 +8053,7 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: true
 
-  /jsdom@26.1.0(patch_hash=agxokpip6xisdr4e5v7aduty54):
+  /jsdom@26.1.0(patch_hash=bld754pt2rccrfojs6tbcgt5kq):
     resolution: {integrity: sha512-Cvc9WUhxSMEo4McES3P7oK3QaXldCfNWp7pl2NNeiIFlCoLr3kfq9kb1fxftiwk1FLV7CvpvDfonxtzUDeSOPg==}
     engines: {node: '>=18'}
     peerDependencies:
