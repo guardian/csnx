@@ -38,6 +38,7 @@ const init: InitCMP = ({
 	country,
 	isUserSignedIn = false,
 	useNonAdvertisedList = false,
+	isInSourcepointGeolocationTest = false,
 }) => {
 	if (isDisabled() || isServerSide) {
 		return;
@@ -72,6 +73,7 @@ const init: InitCMP = ({
 		isUserSignedIn,
 		useNonAdvertisedList,
 		pubData ?? {},
+		isInSourcepointGeolocationTest,
 	);
 
 	void UnifiedCMP.willShowPrivacyMessage().then((willShowValue) => {

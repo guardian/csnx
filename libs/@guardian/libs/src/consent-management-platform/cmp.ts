@@ -25,6 +25,7 @@ const init = (
 	isUserSignedIn: boolean,
 	useNonAdvertisedList: boolean,
 	pubData?: PubData,
+	isInSourcepointGeolocationTest = false,
 ): void => {
 	mark('cmp-init');
 	initSourcepoint(
@@ -33,6 +34,7 @@ const init = (
 		isUserSignedIn,
 		useNonAdvertisedList,
 		pubData,
+		isInSourcepointGeolocationTest,
 	);
 };
 
