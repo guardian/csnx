@@ -1,5 +1,29 @@
 # @guardian/libs
 
+## 25.2.0
+
+### Minor Changes
+
+- b2ab965: Revert sourcepoint geolocation test.
+
+  We'll continue this test next week, possibly via a canary or beta build.
+
+## 25.1.0
+
+### Minor Changes
+
+- 19a2aa3: Add admiral to list of VendorIDs in consent management platform
+
+## 25.0.0
+
+### Major Changes
+
+- 4384c52: Temporarily switching to use Sourcepoint geolocation
+
+  - Load all stubs (tcfv2, usnat, ccpa) regardless of location except for Australia
+  - Loading all jurisdiction config objects to allow Sourcepoint to choose depending on their geolocation except for Australia
+  - Australia will use our current geolocation as SP's framework doesn't allow us to load both ccpa and usnat config objects.
+
 ## 24.0.0
 
 ### Major Changes

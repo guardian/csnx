@@ -510,6 +510,42 @@ install: check-node-version
 @guardian/source-development-kitchen\:verify-dist: env
 	@corepack pnpm --filter @guardian/source-development-kitchen verify-dist
 
+.PHONY: @guardian/stand\:build
+@guardian/stand\:build: env
+	@corepack pnpm --filter @guardian/stand build
+
+.PHONY: @guardian/stand\:build-storybook
+@guardian/stand\:build-storybook: env
+	@corepack pnpm --filter @guardian/stand build-storybook
+
+.PHONY: @guardian/stand\:dev
+@guardian/stand\:dev: env
+	@corepack pnpm --filter @guardian/stand dev
+
+.PHONY: @guardian/stand\:fix
+@guardian/stand\:fix: env
+	@corepack pnpm --filter @guardian/stand fix
+
+.PHONY: @guardian/stand\:lint
+@guardian/stand\:lint: env
+	@corepack pnpm --filter @guardian/stand lint
+
+.PHONY: @guardian/stand\:storybook
+@guardian/stand\:storybook: env
+	@corepack pnpm --filter @guardian/stand storybook
+
+.PHONY: @guardian/stand\:test
+@guardian/stand\:test: env
+	@corepack pnpm --filter @guardian/stand test
+
+.PHONY: @guardian/stand\:tsc
+@guardian/stand\:tsc: env
+	@corepack pnpm --filter @guardian/stand tsc
+
+.PHONY: @guardian/stand\:verify-dist
+@guardian/stand\:verify-dist: env
+	@corepack pnpm --filter @guardian/stand verify-dist
+
 .PHONY: github-pages\:build
 github-pages\:build: env
 	@corepack pnpm --filter github-pages build

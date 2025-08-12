@@ -1,0 +1,181 @@
+{
+	"name": "@guardian/stand",
+	"version": "0.0.0",
+	"private": false,
+	"description": "",
+	"license": "Apache-2.0",
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "wireit",
+		"build-storybook": "wireit",
+		"dev": "jest --watch",
+		"fix": "wireit",
+		"lint": "wireit",
+		"storybook": "storybook dev --port 4404",
+		"test": "wireit",
+		"tsc": "wireit",
+		"verify-dist": "wireit"
+	},
+	"dependencies": {
+		"@guardian/prosemirror-invisibles": "3.1.1",
+		"prosemirror-dropcursor": "1.8.2",
+		"prosemirror-history": "1.4.1",
+		"prosemirror-keymap": "1.2.3",
+		"prosemirror-model": "1.25.2",
+		"prosemirror-state": "1.4.3",
+		"prosemirror-view": "1.40.1"
+	},
+	"devDependencies": {
+		"@emotion/react": "11.11.4",
+		"@guardian/eslint-config": "workspace:*",
+		"@storybook/addon-a11y": "8.6.4",
+		"@storybook/addon-essentials": "8.6.4",
+		"@storybook/addon-interactions": "8.6.4",
+		"@storybook/addon-links": "8.6.4",
+		"@storybook/react": "8.6.4",
+		"@storybook/react-vite": "8.6.4",
+		"@types/jest": "30.0.0",
+		"@types/react": "18.2.79",
+		"eslint": "9.19.0",
+		"jest": "30.0.5",
+		"react": "18.2.0",
+		"rollup": "4.46.2",
+		"storybook": "8.6.4",
+		"ts-jest": "29.4.0",
+		"tslib": "2.6.2",
+		"typescript": "5.5.2",
+		"wireit": "0.14.12"
+	},
+	"peerDependencies": {
+		"tslib": "^2.6.2",
+		"typescript": "~5.5.2",
+		"@emotion/react": "^11.11.4",
+		"react": "^18.2.0"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"wireit": {
+		"__deps__": {
+			"dependencies": [
+				"../libs:build"
+			]
+		},
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"src/**",
+				"package.json",
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
+			],
+			"output": [
+				"dist"
+			]
+		},
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!storybook-static/**",
+				"!jest*",
+				"!.eslintcache"
+			],
+			"output": [
+				"storybook-static"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"clean": false,
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"dependencies": [
+				"__deps__"
+			],
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
+	}
+}

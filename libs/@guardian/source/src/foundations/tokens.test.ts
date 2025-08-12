@@ -88,9 +88,13 @@ describe('Palette tokens', () => {
 				'400': '#0077B6',
 			},
 			labs: {
+				'100': '#09615B',
 				'200': '#0C7A73',
 				'300': '#65A897',
 				'400': '#69D1CA',
+				'500': '#A8E3DF',
+				'600': '#DCF4F3',
+				'700': '#F3FBFB',
 			},
 			lifestyle: {
 				'100': '#510043',
@@ -126,6 +130,9 @@ describe('Palette tokens', () => {
 				'600': '#FFBAC8',
 				'700': '#FFD8D1',
 				'800': '#FFF4F2',
+			},
+			notificationBlue: {
+				'400': '#0190F7',
 			},
 			opinion: {
 				'100': '#672005',

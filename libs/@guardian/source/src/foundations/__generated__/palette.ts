@@ -44,9 +44,13 @@ export const palette = {
 		'400': '#0077B6',
 	},
 	labs: {
+		'100': '#09615B',
 		'200': '#0C7A73',
 		'300': '#65A897',
 		'400': '#69D1CA',
+		'500': '#A8E3DF',
+		'600': '#DCF4F3',
+		'700': '#F3FBFB',
 	},
 	lifestyle: {
 		'100': '#510043',
@@ -83,6 +87,9 @@ export const palette = {
 		'700': '#FFD8D1',
 		'800': '#FFF4F2',
 	},
+	notificationBlue: {
+		'400': '#0190F7',
+	},
 	opinion: {
 		'100': '#672005',
 		'200': '#8D2700',
@@ -93,6 +100,7 @@ export const palette = {
 		'500': '#FF7F0F',
 		'550': '#FF9941',
 		'600': '#F9B376',
+		'700': '#FFE7D4',
 		'800': '#FEF9F5',
 	},
 	specialReport: {

@@ -17,7 +17,7 @@
 		"husky": "9.1.4",
 		"lint-staged": "16.1.2",
 		"prettier": "3.3.3",
-		"sort-package-json": "3.2.1",
+		"sort-package-json": "3.4.0",
 		"syncpack": "13.0.0",
 		"typescript": "5.5.2",
 		"wireit": "0.14.12"
@@ -38,6 +38,9 @@
 				"react",
 				"react-dom"
 			]
+		},
+		"patchedDependencies": {
+			"jsdom@26.1.0": "patches/jsdom@26.1.0.patch"
 		}
 	}
 }
