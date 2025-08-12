@@ -47,9 +47,13 @@
 	--source-palette-error-400: #c70000;
 	--source-palette-error-500: #ff9081;
 	--source-palette-focus-400: #0077b6;
+	--source-palette-labs-100: #09615b;
 	--source-palette-labs-200: #0c7a73;
 	--source-palette-labs-300: #65a897;
 	--source-palette-labs-400: #69d1ca;
+	--source-palette-labs-500: #a8e3df;
+	--source-palette-labs-600: #dcf4f3;
+	--source-palette-labs-700: #f3fbfb;
 	--source-palette-lifestyle-100: #510043;
 	--source-palette-lifestyle-200: #650054;
 	--source-palette-lifestyle-300: #7d0068;
