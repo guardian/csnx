@@ -3,6 +3,7 @@
 import { css } from '@emotion/react';
 import type { IconProps } from '../..';
 import { iconSize, visuallyHidden } from '../../../foundations';
+
 const Svg = ({ size, theme }: IconProps) => (
 	<svg
 		width={size ? iconSize[size] : undefined}
