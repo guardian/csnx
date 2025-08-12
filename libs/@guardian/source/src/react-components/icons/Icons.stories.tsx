@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAddToBasket } from '../__generated__/icons/SvgAddToBasket';
+import { SvgAiIndicator } from '../__generated__/icons/SvgAiIndicator';
 import { SvgAlarmClockFilled } from '../__generated__/icons/SvgAlarmClockFilled';
 import { SvgAlarmClockOutlined } from '../__generated__/icons/SvgAlarmClockOutlined';
 import { SvgAlarmClockSounded } from '../__generated__/icons/SvgAlarmClockSounded';
@@ -87,6 +88,7 @@ import { SvgFilterIosAppSmall } from '../__generated__/icons/SvgFilterIosAppSmal
 import { SvgFilterOutlinedWeb } from '../__generated__/icons/SvgFilterOutlinedWeb';
 import { SvgFolder } from '../__generated__/icons/SvgFolder';
 import { SvgFolderFilled } from '../__generated__/icons/SvgFolderFilled';
+import { SvgGuessPuzzles } from '../__generated__/icons/SvgGuessPuzzles';
 import { SvgGift } from '../__generated__/icons/SvgGift';
 import { SvgGlobe } from '../__generated__/icons/SvgGlobe';
 import { SvgGoogleBrand } from '../__generated__/icons/SvgGoogleBrand';
@@ -181,6 +183,7 @@ import { SvgTextSmall } from '../__generated__/icons/SvgTextSmall';
 import { SvgTickRound } from '../__generated__/icons/SvgTickRound';
 import { SvgTimer } from '../__generated__/icons/SvgTimer';
 import { SvgTransparentArrowLeftStraightRound } from '../__generated__/icons/SvgTransparentArrowLeftStraightRound';
+import { SvgTrophy } from '../__generated__/icons/SvgTrophy';
 import { SvgTwitter } from '../__generated__/icons/SvgTwitter';
 import { SvgUpload } from '../__generated__/icons/SvgUpload';
 import { SvgVideo } from '../__generated__/icons/SvgVideo';
@@ -190,6 +193,7 @@ import type { ThemeIcon } from './theme';
 
 const uiIcons = [
 	SvgAddToBasket,
+	SvgAiIndicator,
 	SvgAlarmClockFilled,
 	SvgAlarmClockOutlined,
 	SvgAlarmClockSounded,
@@ -273,6 +277,7 @@ const uiIcons = [
 	SvgFilterOutlinedWeb,
 	SvgFolder,
 	SvgFolderFilled,
+	SvgGuessPuzzles,
 	SvgGift,
 	SvgGlobe,
 	SvgGoogleBrand,
@@ -366,6 +371,7 @@ const uiIcons = [
 	SvgTickRound,
 	SvgTimer,
 	SvgTransparentArrowLeftStraightRound,
+	SvgTrophy,
 	SvgTwitter,
 	SvgUpload,
 	SvgVideo,

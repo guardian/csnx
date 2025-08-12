@@ -80,6 +80,7 @@ export type { FooterProps } from './footer/Footer';
 export { footerThemeBrand } from './footer/theme';
 
 export { SvgAddToBasket } from './__generated__/icons/SvgAddToBasket';
+export { SvgAiIndicator } from './__generated__/icons/SvgAiIndicator';
 export { SvgAlarmClockFilled } from './__generated__/icons/SvgAlarmClockFilled';
 export { SvgAlarmClockOutlined } from './__generated__/icons/SvgAlarmClockOutlined';
 export { SvgAlarmClockSounded } from './__generated__/icons/SvgAlarmClockSounded';
@@ -164,6 +165,7 @@ export { SvgFilterIosAppSmall } from './__generated__/icons/SvgFilterIosAppSmall
 export { SvgFilterOutlinedWeb } from './__generated__/icons/SvgFilterOutlinedWeb';
 export { SvgFolder } from './__generated__/icons/SvgFolder';
 export { SvgFolderFilled } from './__generated__/icons/SvgFolderFilled';
+export { SvgGuessPuzzles } from './__generated__/icons/SvgGuessPuzzles';
 export { SvgGift } from './__generated__/icons/SvgGift';
 export { SvgGlobe } from './__generated__/icons/SvgGlobe';
 export { SvgGoogleBrand } from './__generated__/icons/SvgGoogleBrand';
@@ -257,6 +259,7 @@ export { SvgTextSmall } from './__generated__/icons/SvgTextSmall';
 export { SvgTickRound } from './__generated__/icons/SvgTickRound';
 export { SvgTimer } from './__generated__/icons/SvgTimer';
 export { SvgTransparentArrowLeftStraightRound } from './__generated__/icons/SvgTransparentArrowLeftStraightRound';
+export { SvgTrophy } from './__generated__/icons/SvgTrophy';
 export { SvgTwitter } from './__generated__/icons/SvgTwitter';
 export { SvgUpload } from './__generated__/icons/SvgUpload';
 export { SvgVideo } from './__generated__/icons/SvgVideo';
