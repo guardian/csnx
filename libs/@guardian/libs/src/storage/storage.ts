@@ -128,19 +128,21 @@ class StorageFactory {
  *
  * All methods are available for both `localStorage` and `sessionStorage`.
  */
-export const storage = new (class {
-	#local: StorageFactory | undefined;
-	#session: StorageFactory | undefined;
+export const storage = (() => {
+	let localInstance: StorageFactory | undefined;
+	let sessionInstance: StorageFactory | undefined;
 
-	// creating the instance requires testing the native implementation
-	// which is blocking. therefore, only create new instances of the factory
-	// when it's accessed i.e. we know we're going to use it
+	return {
+		// creating the instance requires testing the native implementation
+		// which is blocking. therefore, only create new instances of the factory
+		// when it's accessed i.e. we know we're going to use it
 
-	get local() {
-		return (this.#local ??= new StorageFactory('localStorage'));
-	}
+		get local() {
+			return (localInstance ??= new StorageFactory('localStorage'));
+		},
 
-	get session() {
-		return (this.#session ??= new StorageFactory('sessionStorage'));
-	}
+		get session() {
+			return (sessionInstance ??= new StorageFactory('sessionStorage'));
+		},
+	};
 })();

@@ -1,6 +1,7 @@
 import guardian from '@guardian/eslint-config';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	{
 		ignores: [
 			'dist',
@@ -19,3 +20,5 @@ export default [
 		...guardian.configs.cjs,
 	},
 ];
+
+export default config;

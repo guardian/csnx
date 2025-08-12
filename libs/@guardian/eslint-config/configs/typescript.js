@@ -1,7 +1,6 @@
 // https://typescript-eslint.io/getting-started/
 
 import importX from 'eslint-plugin-import-x';
-// eslint-disable-next-line import/no-unresolved -- why can't this be resolved? literally no one knows
 import { config, configs } from 'typescript-eslint';
 
 export default config({

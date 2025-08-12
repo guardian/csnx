@@ -35,23 +35,23 @@
 		"@playwright/test": "1.54.1",
 		"@types/jest": "30.0.0",
 		"@types/wcag-contrast": "3.0.3",
-		"eslint": "9.19.0",
+		"eslint": "9.33.0",
 		"jest": "30.0.5",
 		"jest-environment-jsdom": "30.0.5",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
 		"rollup": "4.46.2",
 		"ts-jest": "29.4.0",
-		"tslib": "2.6.2",
+		"tslib": "2.8.1",
 		"tsx": "4.20.3",
-		"typescript": "5.5.2",
+		"typescript": "5.9.2",
 		"wcag-contrast": "3.0.0",
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
 		"@guardian/ophan-tracker-js": "^2.2.10",
-		"tslib": "^2.6.2",
-		"typescript": "~5.5.2"
+		"tslib": "^2.8.1",
+		"typescript": "~5.9.2"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {

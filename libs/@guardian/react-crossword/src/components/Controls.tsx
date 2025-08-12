@@ -255,7 +255,7 @@ const RevealGrid = memo((props: ButtonProps) => {
 		const newProgress: Progress = [];
 
 		for (const cell of cells.values()) {
-			const column = (newProgress[cell.x] ||= []);
+			const column = (newProgress[cell.x] ??= []);
 			column[cell.y] = cell.solution ?? '';
 		}
 
