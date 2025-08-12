@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 11.2.0
+
+### Minor Changes
+
+- f1cb6e6: Add new palette colours for Labs: 100, 500, 600, 700
+
 ## 11.1.0
 
 ### Minor Changes
