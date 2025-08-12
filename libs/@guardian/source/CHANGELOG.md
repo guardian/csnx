@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 11.3.0
+
+### Minor Changes
+
+- f5e3b0b: Add new icons: AI Indicator, Guess Puzzles and Trophy
+
 ## 11.2.0
 
 ### Minor Changes
