@@ -74,9 +74,8 @@ export const createIconComponent = async ({
 		if (!retainFill) {
 			return tpl`
 			import { css } from '@emotion/react';
-
-			import { iconSize, visuallyHidden } from '../../../foundations';
 			import type { IconProps } from '../..';
+			import { iconSize, visuallyHidden } from '../../../foundations';
 
 			${variables.imports};
 
@@ -90,9 +89,8 @@ export const createIconComponent = async ({
 		}
 		return tpl`
 			import { css } from '@emotion/react';
-
-			import { iconSize, visuallyHidden } from '../../../foundations';
 			import type { IconProps } from '../..';
+			import { iconSize, visuallyHidden } from '../../../foundations';
 
 			${variables.imports};
 
