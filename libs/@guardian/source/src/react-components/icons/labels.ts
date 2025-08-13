@@ -1,5 +1,6 @@
 export const labels: Record<string, string> = {
 	'add-to-basket': 'Add to basket',
+	'ai-indicator': 'AI indicator',
 	'alarm-clock-filled': 'Alarm',
 	'alarm-clock-outlined': 'Alarm',
 	'alarm-clock-sounded': 'Alarm sounded',
@@ -87,6 +88,7 @@ export const labels: Record<string, string> = {
 	'filter-outlined-web': 'Filter',
 	'folder-filled': 'Folder',
 	folder: 'Folder',
+	'guess-puzzles': 'Guess',
 	gift: 'Gift',
 	globe: 'Globe',
 	'google-brand': 'Google logo',
@@ -180,6 +182,7 @@ export const labels: Record<string, string> = {
 	'text-small': 'Small text',
 	'tick-round': 'Ticked',
 	'transparent-arrow-left-straight-round': 'Go back',
+	trophy: 'Trophy',
 	timer: 'Timer',
 	twitter: 'Twitter logo',
 	upload: 'Upload',
