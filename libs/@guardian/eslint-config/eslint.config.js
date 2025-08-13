@@ -1,6 +1,7 @@
 import guardian from './index.js';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	...guardian.configs.recommended,
 	{
 		ignores: ['.wireit'],
@@ -12,3 +13,5 @@ export default [
 		},
 	},
 ];
+
+export default config;

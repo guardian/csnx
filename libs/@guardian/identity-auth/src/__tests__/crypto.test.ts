@@ -45,6 +45,7 @@ describe('IdentityAuth#crypto#generateCodeVerifier', () => {
 describe('IdentityAuth#crypto#generateCodeChallenge', () => {
 	beforeAll(() => {
 		// this fixes a `ReferenceError: TextEncoder is not defined` error in a jsdom environment
+		// @ts-expect-error TypeScript 5.9.2 stricter global assignment
 		global.TextEncoder = TextEncoder;
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- this fixes `TypeError: Cannot read properties of undefined (reading 'digest')` error in a jsdom environment
 		// @ts-expect-error

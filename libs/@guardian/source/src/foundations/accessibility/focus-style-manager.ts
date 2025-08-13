@@ -67,12 +67,10 @@ const FOCUS_DISABLED = 'src-focus-disabled';
 let _focusEngine: InteractionModeEngine | undefined;
 
 const focusEngine = (): InteractionModeEngine => {
-	if (!_focusEngine) {
-		_focusEngine = new InteractionModeEngine(
-			document.documentElement,
-			FOCUS_DISABLED,
-		);
-	}
+	_focusEngine ??= new InteractionModeEngine(
+		document.documentElement,
+		FOCUS_DISABLED,
+	);
 
 	return _focusEngine;
 };

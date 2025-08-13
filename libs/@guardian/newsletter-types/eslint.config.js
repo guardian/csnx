@@ -1,8 +1,11 @@
 import guardian from '@guardian/eslint-config';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	...guardian.configs.recommended,
 	{
 		ignores: ['dist', '.wireit'],
 	},
 ];
+
+export default config;
