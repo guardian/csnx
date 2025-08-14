@@ -28,12 +28,13 @@ describe('getConsentState', () => {
 		expect(personalisedAdvertising).toBe(true);
 		expect(signalStatus).toBe('ready');
 	});
-	it('returns false for personalised advertising when CMP does not apply', async () => {
-		getGlobalEnterpriseConsents.mockResolvedValueOnce({
-			...mockGlobalEnterpriseData,
-			applies: false,
-		});
 
+	it('returns false for personalised advertising when consent is not available', async () => {
+		getGlobalEnterpriseConsents.mockResolvedValueOnce({
+			applies: false,
+			signalStatus: 'not ready',
+			categories: [],
+		});
 		const { personalisedAdvertising, signalStatus } = await getConsentState();
 		expect(personalisedAdvertising).toBe(false);
 		expect(signalStatus).toBe('not ready');
