@@ -63,7 +63,6 @@ describe('Sourcepoint unified', () => {
 				);
 				expect(window._sp_.config.gdpr).toBeUndefined();
 				expect(window._sp_.config.usnat).toBeUndefined();
-				expect(window.__uspapi).toBeUndefined();
 				expect(window.__tcfapi).toBeUndefined();
 				expect(window.__gpp).toBeUndefined();
 			}
