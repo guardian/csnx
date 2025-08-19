@@ -14,6 +14,7 @@ import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
+	PROPERTY_HREF_AUSTRALIA,
 	PROPERTY_HREF_MAIN,
 	PROPERTY_HREF_MAIN_TEST,
 	PROPERTY_HREF_SUBDOMAIN,
@@ -47,13 +48,9 @@ export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
 const getPropertyHref = (
 	framework: ConsentFramework,
 	useNonAdvertisedList: boolean,
-	isInSourcepointGeolocationTest: boolean,
 ): Property => {
-	if (isInSourcepointGeolocationTest) {
-		return getPropertyHrefForGeolocationTest(framework, useNonAdvertisedList);
-	}
 	if (framework == 'aus') {
-		return 'https://au.theguardian.com';
+		return PROPERTY_HREF_AUSTRALIA;
 	}
 
 	if (framework == 'usnat') {
@@ -66,12 +63,7 @@ const getPropertyHref = (
 const getPropertyId = (
 	framework: ConsentFramework,
 	useNonAdvertisedList: boolean,
-	isInSourcepointGeolocationTest: boolean,
 ): number => {
-	if (isInSourcepointGeolocationTest) {
-		return getPropertyIdForGeolocationTest(framework, useNonAdvertisedList);
-	}
-
 	if (framework == 'aus') {
 		return PROPERTY_ID_AUSTRALIA;
 	}
@@ -88,7 +80,7 @@ const getPropertyHrefForGeolocationTest = (
 	useNonAdvertisedList: boolean,
 ): Property => {
 	if (framework == 'aus') {
-		return 'https://au.theguardian.com';
+		return PROPERTY_HREF_AUSTRALIA;
 	}
 
 	if (framework == 'usnat') {
@@ -148,7 +140,6 @@ export const init = (
 	pubData = {},
 	isInSourcepointGeolocationTest: boolean,
 ): void => {
-	console.log('isInSourcepointGeolocationTest', isInSourcepointGeolocationTest);
 	if (isInSourcepointGeolocationTest) {
 		log('cmp', 'Sourcepoint geolocation test is enabled');
 		loadStubsForGeolocationTest(framework);
@@ -213,16 +204,8 @@ export const init = (
 		config: {
 			baseEndpoint: ENDPOINT,
 			accountId: ACCOUNT_ID,
-			propertyId: getPropertyId(
-				framework,
-				useNonAdvertisedList,
-				isInSourcepointGeolocationTest,
-			),
-			propertyHref: getPropertyHref(
-				framework,
-				useNonAdvertisedList,
-				isInSourcepointGeolocationTest,
-			),
+			propertyId: getPropertyId(framework, useNonAdvertisedList),
+			propertyHref: getPropertyHref(framework, useNonAdvertisedList),
 			joinHref: true,
 			isSPA: true,
 			targetingParams: {
@@ -383,12 +366,21 @@ export const init = (
 		window._sp_.config.propertyId = getPropertyId(
 			framework,
 			useNonAdvertisedList,
-			isInSourcepointGeolocationTest,
 		);
 	}
 
 	if (isInSourcepointGeolocationTest) {
-		window._sp_.config.campaignEnv = 'stage';
+		// For the Sourcepoint geolocation test, we need to set the propertyHref and propertyId to point to the test environment.
+		window._sp_.config.propertyHref = getPropertyHrefForGeolocationTest(
+			framework,
+			useNonAdvertisedList,
+		);
+
+		window._sp_.config.propertyId = getPropertyIdForGeolocationTest(
+			framework,
+			useNonAdvertisedList,
+		);
+
 		// USNAT and CCPA can't be loaded at the same time.
 		// We use the country code to determine Austrialian users and set only ccpa for aus.
 		if (framework == 'aus') {
