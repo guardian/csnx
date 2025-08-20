@@ -27,4 +27,4 @@ export const SourcePointChoiceTypes = {
 	Dismiss: 15,
 } as const;
 
-export const consentOrPayCountries = ['GB'];
+export const consentOrPayCountries = ['GB', 'ES'];
