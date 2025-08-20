@@ -798,88 +798,6 @@ importers:
         specifier: 0.14.12
         version: 0.14.12
 
-  libs/@guardian/stand:
-    dependencies:
-      '@guardian/prosemirror-invisibles':
-        specifier: 3.1.1
-        version: 3.1.1(prosemirror-model@1.25.2)(prosemirror-state@1.4.3)(prosemirror-view@1.40.1)
-      prosemirror-dropcursor:
-        specifier: 1.8.2
-        version: 1.8.2
-      prosemirror-history:
-        specifier: 1.4.1
-        version: 1.4.1
-      prosemirror-keymap:
-        specifier: 1.2.3
-        version: 1.2.3
-      prosemirror-model:
-        specifier: 1.25.2
-        version: 1.25.2
-      prosemirror-state:
-        specifier: 1.4.3
-        version: 1.4.3
-      prosemirror-view:
-        specifier: 1.40.1
-        version: 1.40.1
-    devDependencies:
-      '@emotion/react':
-        specifier: 11.11.4
-        version: 11.11.4(@types/react@18.2.79)(react@18.2.0)
-      '@guardian/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@storybook/addon-a11y':
-        specifier: 8.6.4
-        version: 8.6.4(storybook@8.6.4)
-      '@storybook/addon-essentials':
-        specifier: 8.6.4
-        version: 8.6.4(@types/react@18.2.79)(storybook@8.6.4)
-      '@storybook/addon-interactions':
-        specifier: 8.6.4
-        version: 8.6.4(storybook@8.6.4)
-      '@storybook/addon-links':
-        specifier: 8.6.4
-        version: 8.6.4(react@18.2.0)(storybook@8.6.4)
-      '@storybook/react':
-        specifier: 8.6.4
-        version: 8.6.4(@storybook/test@8.6.4)(react-dom@18.2.0)(react@18.2.0)(storybook@8.6.4)(typescript@5.5.2)
-      '@storybook/react-vite':
-        specifier: 8.6.4
-        version: 8.6.4(@storybook/test@8.6.4)(react-dom@18.2.0)(react@18.2.0)(rollup@4.46.2)(storybook@8.6.4)(typescript@5.5.2)(vite@6.3.5)
-      '@types/jest':
-        specifier: 30.0.0
-        version: 30.0.0
-      '@types/react':
-        specifier: 18.2.79
-        version: 18.2.79
-      eslint:
-        specifier: 9.19.0
-        version: 9.19.0
-      jest:
-        specifier: 30.0.5
-        version: 30.0.5(@types/node@22.10.0)
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      rollup:
-        specifier: 4.46.2
-        version: 4.46.2
-      storybook:
-        specifier: 8.6.4
-        version: 8.6.4(prettier@3.3.3)
-      ts-jest:
-        specifier: 29.4.0
-        version: 29.4.0(@babel/core@7.28.0)(esbuild@0.25.8)(jest@30.0.5)(typescript@5.5.2)
-      tslib:
-        specifier: 2.6.2
-        version: 2.6.2
-      typescript:
-        specifier: 5.5.2
-        version: 5.5.2
-      wireit:
-        specifier: 0.14.12
-        version: 0.14.12
-
   libs/@guardian/tsconfig: {}
 
   scripts:
@@ -2650,18 +2568,6 @@ packages:
     engines: {node: '>=16'}
     dependencies:
       '@guardian/tsconfig': 1.0.0
-    dev: false
-
-  /@guardian/prosemirror-invisibles@3.1.1(prosemirror-model@1.25.2)(prosemirror-state@1.4.3)(prosemirror-view@1.40.1):
-    resolution: {integrity: sha512-gdx6cCfDqWCht6JIgxsnACxfR6hGn8fSFgEFQyHoTuyGlYVaRoXIpRGfYjZDnLj+PDiLZiBg8+OUjnlsioTEDw==}
-    peerDependencies:
-      prosemirror-model: ^1.18.2
-      prosemirror-state: ^1.4.2
-      prosemirror-view: ^1.29.1
-    dependencies:
-      prosemirror-model: 1.25.2
-      prosemirror-state: 1.4.3
-      prosemirror-view: 1.40.1
     dev: false
 
   /@guardian/tsconfig@1.0.0:
@@ -9488,10 +9394,6 @@ packages:
       strip-ansi: 7.1.0
     dev: true
 
-  /orderedmap@2.1.1:
-    resolution: {integrity: sha512-TvAWxi0nDe1j/rtMcWcIj94+Ffe6n7zhow33h40SKxmsmozs6dz/e+EajymfoFcHd7sxNn8yHM8839uixMOV6g==}
-    dev: false
-
   /os-tmpdir@1.0.2:
     resolution: {integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==}
     engines: {node: '>=0.10.0'}
@@ -9849,58 +9751,6 @@ packages:
   /property-information@7.1.0:
     resolution: {integrity: sha512-TwEZ+X+yCJmYfL7TPUOcvBZ4QfoT5YenQiJuX//0th53DE6w0xxLEtfK3iyryQFddXuvkIk51EEgrJQ0WJkOmQ==}
     dev: true
-
-  /prosemirror-dropcursor@1.8.2:
-    resolution: {integrity: sha512-CCk6Gyx9+Tt2sbYk5NK0nB1ukHi2ryaRgadV/LvyNuO3ena1payM2z6Cg0vO1ebK8cxbzo41ku2DE5Axj1Zuiw==}
-    dependencies:
-      prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.4
-      prosemirror-view: 1.40.1
-    dev: false
-
-  /prosemirror-history@1.4.1:
-    resolution: {integrity: sha512-2JZD8z2JviJrboD9cPuX/Sv/1ChFng+xh2tChQ2X4bB2HeK+rra/bmJ3xGntCcjhOqIzSDG6Id7e8RJ9QPXLEQ==}
-    dependencies:
-      prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.4
-      prosemirror-view: 1.40.1
-      rope-sequence: 1.3.4
-    dev: false
-
-  /prosemirror-keymap@1.2.3:
-    resolution: {integrity: sha512-4HucRlpiLd1IPQQXNqeo81BGtkY8Ai5smHhKW9jjPKRc2wQIxksg7Hl1tTI2IfT2B/LgX6bfYvXxEpJl7aKYKw==}
-    dependencies:
-      prosemirror-state: 1.4.3
-      w3c-keyname: 2.2.8
-    dev: false
-
-  /prosemirror-model@1.25.2:
-    resolution: {integrity: sha512-BVypCAJ4SL6jOiTsDffP3Wp6wD69lRhI4zg/iT8JXjp3ccZFiq5WyguxvMKmdKFC3prhaig7wSr8dneDToHE1Q==}
-    dependencies:
-      orderedmap: 2.1.1
-    dev: false
-
-  /prosemirror-state@1.4.3:
-    resolution: {integrity: sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==}
-    dependencies:
-      prosemirror-model: 1.25.2
-      prosemirror-transform: 1.10.4
-      prosemirror-view: 1.40.1
-    dev: false
-
-  /prosemirror-transform@1.10.4:
-    resolution: {integrity: sha512-pwDy22nAnGqNR1feOQKHxoFkkUtepoFAd3r2hbEDsnf4wp57kKA36hXsB3njA9FtONBEwSDnDeCiJe+ItD+ykw==}
-    dependencies:
-      prosemirror-model: 1.25.2
-    dev: false
-
-  /prosemirror-view@1.40.1:
-    resolution: {integrity: sha512-pbwUjt3G7TlsQQHDiYSupWBhJswpLVB09xXm1YiJPdkjkh9Pe7Y51XdLh5VWIZmROLY8UpUpG03lkdhm9lzIBA==}
-    dependencies:
-      prosemirror-model: 1.25.2
-      prosemirror-state: 1.4.3
-      prosemirror-transform: 1.10.4
-    dev: false
 
   /proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
@@ -10394,10 +10244,6 @@ packages:
       '@rollup/rollup-win32-x64-msvc': 4.46.2
       fsevents: 2.3.3
     dev: true
-
-  /rope-sequence@1.3.4:
-    resolution: {integrity: sha512-UT5EDe2cu2E/6O4igUr5PSFs23nvvukicWHx6GnOPlHAiiYbzNuCRQCuiUdHJQcqKalLKlrYJnjY0ySGsXNQXQ==}
-    dev: false
 
   /rrweb-cssom@0.8.0:
     resolution: {integrity: sha512-guoltQEx+9aMf2gDZ0s62EcV8lsXR+0w8915TC3ITdn2YueuNjdAYh/levpU9nFaoChh9RUS5ZdQMrKfVEN9tw==}
@@ -11911,10 +11757,6 @@ packages:
   /vscode-uri@3.0.8:
     resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==}
     dev: true
-
-  /w3c-keyname@2.2.8:
-    resolution: {integrity: sha512-dpojBhNsCNN7T82Tm7k26A6G9ML3NkhDsnw9n/eoxSRlVBB4CEtIQ/KTCLI2Fwf3ataSXRhYFkQi3SlnFwPvPQ==}
-    dev: false
 
   /w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
