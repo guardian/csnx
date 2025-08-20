@@ -28,3 +28,10 @@ export const SourcePointChoiceTypes = {
 } as const;
 
 export const consentOrPayCountries = ['GB', 'ES'];
+
+export type Currency = 'GBP' | 'EUR';
+
+export const consentOrPayCurrencyMap = {
+	GB: 'GBP' as Currency,
+	_default: 'EUR' as Currency,
+} as const;
