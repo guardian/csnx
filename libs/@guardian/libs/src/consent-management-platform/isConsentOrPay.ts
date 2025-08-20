@@ -26,7 +26,7 @@ export const getConsentOrPayCurrency = (countryCode: CountryCode): Currency => {
 	}
 	return consentOrPayCurrencyMap[
 		countryCode as keyof typeof consentOrPayCurrencyMap
-	];
+	]!;
 };
 
 export const getSupportSignUpPage = (): string => {

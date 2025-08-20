@@ -27,11 +27,21 @@ export const SourcePointChoiceTypes = {
 	Dismiss: 15,
 } as const;
 
-export const consentOrPayCountries = ['GB', 'ES'];
+export const consentOrPayCountries = ['GB', 'ES', 'FR'];
 
 export type Currency = 'GBP' | 'EUR';
 
-export const consentOrPayCurrencyMap = {
-	GB: 'GBP' as Currency,
-	_default: 'EUR' as Currency,
-} as const;
+// Return EUR unless otherwise specified (to avoid duplicating the list of European countries)
+export const consentOrPayCurrencyMap = new Proxy(
+	{
+		GB: 'GBP' as Currency,
+	} as Record<string, Currency>,
+	{
+		get(target, prop): Currency {
+			if (typeof prop === 'string') {
+				return target[prop] ?? 'EUR';
+			}
+			return 'EUR';
+		},
+	},
+);
