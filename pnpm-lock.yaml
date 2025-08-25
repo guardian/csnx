@@ -137,8 +137,8 @@ importers:
         specifier: 6.2.0
         version: 6.2.0(esbuild@0.25.9)(rollup@4.46.2)
       rollup-plugin-node-externals:
-        specifier: 8.0.0
-        version: 8.0.0(rollup@4.46.2)
+        specifier: 8.1.0
+        version: 8.1.0(rollup@4.46.2)
 
   coverage:
     dependencies:
@@ -430,8 +430,8 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@playwright/test':
-        specifier: 1.54.1
-        version: 1.54.1
+        specifier: 1.55.0
+        version: 1.55.0
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -3190,12 +3190,12 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  /@playwright/test@1.54.1:
-    resolution: {integrity: sha512-FS8hQ12acieG2dYSksmLOF7BNxnVf2afRJdCuM1eMSxj6QTSE6G4InGF7oApGgDb65MX7AwMVlIkpru0yZA4Xw==}
+  /@playwright/test@1.55.0:
+    resolution: {integrity: sha512-04IXzPwHrW69XusN/SIdDdKZBzMfOT9UNT/YiJit/xpy2VuAoB8NHc8Aplb96zsWDddLnbkPL3TsmrS04ZU2xQ==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
-      playwright: 1.54.1
+      playwright: 1.55.0
     dev: true
 
   /@pnpm/config.env-replace@1.1.0:
@@ -4974,7 +4974,7 @@ packages:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.2
     dev: true
 
   /astro@5.13.2(@types/node@22.10.0)(typescript@5.5.2):
@@ -9618,18 +9618,18 @@ packages:
     dependencies:
       find-up: 4.1.0
 
-  /playwright-core@1.54.1:
-    resolution: {integrity: sha512-Nbjs2zjj0htNhzgiy5wu+3w09YetDx5pkrpI/kZotDlDUaYk0HVA5xrBVPdow4SAUIlhgKcJeJg4GRKW6xHusA==}
+  /playwright-core@1.55.0:
+    resolution: {integrity: sha512-GvZs4vU3U5ro2nZpeiwyb0zuFaqb9sUiAJuyrWpcGouD8y9/HLgGbNRjIph7zU9D3hnPaisMl9zG9CgFi/biIg==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
 
-  /playwright@1.54.1:
-    resolution: {integrity: sha512-peWpSwIBmSLi6aW2auvrUtf2DqY16YYcCMO8rTVx486jKmDTJg7UAhyrraP98GB8BoPURZP8+nxO7TSd4cPr5g==}
+  /playwright@1.55.0:
+    resolution: {integrity: sha512-sdCWStblvV1YU909Xqx0DhOjPZE4/5lJsIS84IfN9dAZfcl/CIZ5O8l3o0j7hPMjDvqoTF8ZUcc+i/GL5erstA==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
-      playwright-core: 1.54.1
+      playwright-core: 1.55.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -9897,7 +9897,7 @@ packages:
       esprima: 4.0.1
       source-map: 0.6.1
       tiny-invariant: 1.3.3
-      tslib: 2.8.1
+      tslib: 2.6.2
     dev: true
 
   /redent@3.0.0:
@@ -10206,8 +10206,8 @@ packages:
       - supports-color
     dev: true
 
-  /rollup-plugin-node-externals@8.0.0(rollup@4.46.2):
-    resolution: {integrity: sha512-2HIOpWsWn5DqBoYl6iCAmB4kd5GoGbF68PR4xKR1YBPvywiqjtYvDEjHFodyqRL51iAMDITP074Zxs0OKs6F+g==}
+  /rollup-plugin-node-externals@8.1.0(rollup@4.46.2):
+    resolution: {integrity: sha512-0D3S0E0Dl1V3Q6Cywnc7wt88VAfOB9AC5QHwVdgvP1vByRHW2wnEXoK0x3VYZzJ/EmGsR5Uix5HUmMJNG+hz2Q==}
     engines: {node: '>= 21 || ^20.6.0 || ^18.19.0'}
     peerDependencies:
       rollup: ^4.0.0
