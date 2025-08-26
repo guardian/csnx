@@ -120,6 +120,11 @@ export const init = (
 		useNonAdvertisedList = false;
 	}
 
+	console.log(
+		'====================> DEBUG: countryCode detected as ',
+		countryCode,
+	);
+
 	setIsConsentOrPay(
 		isConsentOrPayCountry(countryCode) && !useNonAdvertisedList,
 	);
