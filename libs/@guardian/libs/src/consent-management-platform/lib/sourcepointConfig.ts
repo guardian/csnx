@@ -27,7 +27,43 @@ export const SourcePointChoiceTypes = {
 	Dismiss: 15,
 } as const;
 
-export const consentOrPayCountries = ['GB', 'ES', 'FR'];
+export const consentOrPayCountries = [
+	'GB',
+	'JE',
+	'GG',
+	'IM',
+	'GI',
+	'AT',
+	'BE',
+	'BG',
+	'HR',
+	'CY',
+	'CZ',
+	'DK',
+	'EE',
+	'FI',
+	'FR',
+	'DE',
+	'GR',
+	'HU',
+	'IS',
+	'IE',
+	'IT',
+	'LV',
+	'LT',
+	'LU',
+	'MT',
+	'NL',
+	'NO',
+	'PL',
+	'PT',
+	'RO',
+	'SK',
+	'SI',
+	'ES',
+	'SE',
+	'CH',
+];
 
 export type Currency = 'GBP' | 'EUR';
 
