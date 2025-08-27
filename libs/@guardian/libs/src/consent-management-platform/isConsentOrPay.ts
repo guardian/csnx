@@ -1,10 +1,13 @@
+import type { ConsentOrPayCurrency } from '../countries/consentOrPay';
+import {
+	consentOrPayCurrencyMap,
+	isConsentOrPayCountry,
+} from '../countries/consentOrPay';
 import type { CountryCode } from '../index.test';
 import { isGuardianDomain } from './lib/domain';
-import {
-	consentOrPayCountries,
-	consentOrPayCurrencyMap,
-} from './lib/sourcepointConfig';
-import type { Currency } from './lib/sourcepointConfig';
+
+// Re-export for backward compatibility
+export { isConsentOrPayCountry };
 
 let _isConsentOrPay = false;
 
@@ -16,11 +19,9 @@ export const getIsConsentOrPay = (): boolean => {
 	return _isConsentOrPay;
 };
 
-export const isConsentOrPayCountry = (countryCode: CountryCode) => {
-	return consentOrPayCountries.includes(countryCode);
-};
-
-export const getConsentOrPayCurrency = (countryCode: CountryCode): Currency => {
+export const getConsentOrPayCurrency = (
+	countryCode: CountryCode,
+): ConsentOrPayCurrency => {
 	if (!isConsentOrPayCountry(countryCode)) {
 		return 'GBP';
 	}
