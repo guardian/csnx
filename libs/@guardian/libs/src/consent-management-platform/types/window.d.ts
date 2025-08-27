@@ -1,3 +1,4 @@
+import type { ConsentOrPayCurrency } from '../../countries/consentOrPay';
 import type { getConsentFor } from '../getConsentFor';
 import type { Property } from '../lib/property';
 import type { EndPoint } from '../lib/sourcepointConfig';
@@ -52,6 +53,7 @@ declare global {
 						excludePage: boolean;
 						isCorP: boolean;
 						isUserSignedIn: boolean;
+						corPCurrency: ConsentOrPayCurrency;
 					};
 				};
 				usnat?: {
