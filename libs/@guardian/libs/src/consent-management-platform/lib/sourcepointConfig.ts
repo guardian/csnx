@@ -4,11 +4,14 @@ export const ACCOUNT_ID = 1257;
 export const PRIVACY_MANAGER_USNAT = 1068329;
 
 export const PROPERTY_ID_MAIN = 7417;
+export const PROPERTY_ID_MAIN_TEST = 9398;
 export const PROPERTY_ID_SUBDOMAIN = 38161;
 export const PROPERTY_ID_AUSTRALIA = 13348;
 
 export const PROPERTY_HREF_SUBDOMAIN = 'https://subdomain.theguardian.com';
 export const PROPERTY_HREF_MAIN = 'https://test.theguardian.com';
+export const PROPERTY_HREF_MAIN_TEST = 'https://ui-dev';
+export const PROPERTY_HREF_AUSTRALIA = 'https://au.theguardian.com';
 
 export const PRIVACY_MANAGER_TCFV2 = 106842;
 export const PRIVACY_MANAGER_TCFV2_CONSENT_OR_PAY = 1263449;
