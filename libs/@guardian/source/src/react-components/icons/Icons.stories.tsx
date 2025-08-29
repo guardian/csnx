@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { palette } from '../../foundations';
 import type { IconProps, IconSize } from '../@types/Icons';
 import { SvgAddToBasket } from '../__generated__/icons/SvgAddToBasket';
+import { SvgAiIndicator } from '../__generated__/icons/SvgAiIndicator';
 import { SvgAlarmClockFilled } from '../__generated__/icons/SvgAlarmClockFilled';
 import { SvgAlarmClockOutlined } from '../__generated__/icons/SvgAlarmClockOutlined';
 import { SvgAlarmClockSounded } from '../__generated__/icons/SvgAlarmClockSounded';
@@ -91,6 +92,7 @@ import { SvgGift } from '../__generated__/icons/SvgGift';
 import { SvgGlobe } from '../__generated__/icons/SvgGlobe';
 import { SvgGoogleBrand } from '../__generated__/icons/SvgGoogleBrand';
 import { SvgGps } from '../__generated__/icons/SvgGps';
+import { SvgGuessPuzzles } from '../__generated__/icons/SvgGuessPuzzles';
 import { SvgHandPointed } from '../__generated__/icons/SvgHandPointed';
 import { SvgHeadphonesFilled } from '../__generated__/icons/SvgHeadphonesFilled';
 import { SvgHeadphonesOutlined } from '../__generated__/icons/SvgHeadphonesOutlined';
@@ -181,6 +183,7 @@ import { SvgTextSmall } from '../__generated__/icons/SvgTextSmall';
 import { SvgTickRound } from '../__generated__/icons/SvgTickRound';
 import { SvgTimer } from '../__generated__/icons/SvgTimer';
 import { SvgTransparentArrowLeftStraightRound } from '../__generated__/icons/SvgTransparentArrowLeftStraightRound';
+import { SvgTrophy } from '../__generated__/icons/SvgTrophy';
 import { SvgTwitter } from '../__generated__/icons/SvgTwitter';
 import { SvgUpload } from '../__generated__/icons/SvgUpload';
 import { SvgVideo } from '../__generated__/icons/SvgVideo';
@@ -190,6 +193,7 @@ import type { ThemeIcon } from './theme';
 
 const uiIcons = [
 	SvgAddToBasket,
+	SvgAiIndicator,
 	SvgAlarmClockFilled,
 	SvgAlarmClockOutlined,
 	SvgAlarmClockSounded,
@@ -277,6 +281,7 @@ const uiIcons = [
 	SvgGlobe,
 	SvgGoogleBrand,
 	SvgGps,
+	SvgGuessPuzzles,
 	SvgHandPointed,
 	SvgHeadphonesFilled,
 	SvgHeadphonesOutlined,
@@ -366,6 +371,7 @@ const uiIcons = [
 	SvgTickRound,
 	SvgTimer,
 	SvgTransparentArrowLeftStraightRound,
+	SvgTrophy,
 	SvgTwitter,
 	SvgUpload,
 	SvgVideo,

@@ -13,8 +13,8 @@
 		"@astrojs/check": "0.9.4",
 		"@astrojs/svelte": "7.1.0",
 		"@guardian/libs": "workspace:*",
-		"astro": "5.12.8",
-		"svelte": "5.37.3",
+		"astro": "5.13.2",
+		"svelte": "5.38.0",
 		"typescript": "5.5.2",
 		"wireit": "0.14.12"
 	},
