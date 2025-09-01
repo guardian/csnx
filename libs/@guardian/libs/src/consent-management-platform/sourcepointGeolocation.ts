@@ -14,8 +14,8 @@ interface GeolocationCheckStatusApplies {
 }
 
 export /**
- * Gets the Sourcepoint applied consent framework based on geolocation.
- *
+ * Gets the Sourcepoint applied consent framework based on their geolocation.
+ * This is pointing to the test SP environment which is set up using SP's geolocation
  * @return {*}  {(Promise<{
  * 	frameworkAppliedBySP: SourcepointConsentFramework | undefined;
  * }>)}

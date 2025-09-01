@@ -173,7 +173,6 @@ export const init = (
 
 					getSourcepointAppliedConsentFramework()
 						.then(({ frameworkAppliedBySP }) => {
-							// Handle the result here
 							// Compare the framework applied by Sourcepoint with the one we expect
 							if (frameworkAppliedBySP !== frameworkMessageType) {
 								sendJurisdictionMismatchToOphan(
@@ -188,12 +187,14 @@ export const init = (
 									'cmp',
 									`onConsentReady Data mismatch ;sp:${frameworkAppliedBySP};fastly:${frameworkMessageType};`,
 								);
-							} else {
-								console.log('Geolocation handled correctly');
 							}
 						})
-						.catch((error) => {
-							console.log('Geolocation handling failed', error);
+						.catch(() => {
+							log(
+								'cmp',
+								`onConsentReady`,
+								'Failed to get Sourcepoint applied consent framework',
+							);
 						});
 
 					if (message_type != frameworkMessageType) {
