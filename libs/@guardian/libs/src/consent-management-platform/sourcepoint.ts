@@ -188,12 +188,14 @@ export const init = (
 									'cmp',
 									`onConsentReady Data mismatch ;sp:${frameworkAppliedBySP};fastly:${frameworkMessageType};`,
 								);
-							} else {
-								console.log('Geolocation handled correctly');
 							}
 						})
-						.catch((error) => {
-							console.log('Geolocation handling failed', error);
+						.catch(() => {
+							log(
+								'cmp',
+								`onConsentReady`,
+								'Failed to get Sourcepoint applied consent framework',
+							);
 						});
 
 					if (message_type != frameworkMessageType) {
