@@ -1,4 +1,4 @@
-import { ENDPOINT } from './lib/sourcepointConfig';
+import { log } from '../logger/logger';
 import type { SourcepointConsentFramework } from './types';
 
 interface GeolocationCheckStatusApplies {
@@ -13,22 +13,35 @@ interface GeolocationCheckStatusApplies {
 	};
 }
 
-export /**
+/**
  * Gets the Sourcepoint applied consent framework based on their geolocation.
  * This is pointing to the test SP environment which is set up using SP's geolocation
  * @return {*}  {(Promise<{
  * 	frameworkAppliedBySP: SourcepointConsentFramework | undefined;
  * }>)}
  */
-const getSourcepointAppliedConsentFramework = async (): Promise<{
+export const getSourcepointAppliedConsentFramework = async (): Promise<{
 	frameworkAppliedBySP: SourcepointConsentFramework | undefined;
 }> => {
-	const response = await fetch(
-		`${ENDPOINT}/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
+	const prodResponse = await fetch(
+		`https://sourcepoint.theguardian.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
 	);
 
-	const geolocationCheckObject =
-		(await response.json()) as GeolocationCheckStatusApplies;
+	const codeResponse = await fetch(
+		`https://cdn.privacy-mgmt.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
+	);
+
+	const codeGeolocationCheckObject =
+		(await codeResponse.json()) as GeolocationCheckStatusApplies;
+
+	const prodGeolocationCheckObject =
+		(await prodResponse.json()) as GeolocationCheckStatusApplies;
+
+	if (
+		!isEqualGeoStatus(prodGeolocationCheckObject, codeGeolocationCheckObject)
+	) {
+		log('cmp', 'Geolocation check objects are not equal');
+	}
 
 	const consentFrameworks: SourcepointConsentFramework[] = [
 		'gdpr',
@@ -36,10 +49,20 @@ const getSourcepointAppliedConsentFramework = async (): Promise<{
 		'ccpa',
 	];
 	const frameworkAppliedBySP = consentFrameworks.find(
-		(framework) => geolocationCheckObject[framework].applies,
+		(framework) => prodGeolocationCheckObject[framework].applies,
 	);
 
 	return {
 		frameworkAppliedBySP,
 	};
+};
+const isEqualGeoStatus = (
+	a: GeolocationCheckStatusApplies,
+	b: GeolocationCheckStatusApplies,
+): boolean => {
+	return (
+		a.gdpr.applies === b.gdpr.applies &&
+		a.usnat.applies === b.usnat.applies &&
+		a.ccpa.applies === b.ccpa.applies
+	);
 };
