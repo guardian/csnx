@@ -172,23 +172,26 @@ export const init = (
 					log('cmp', `onConsentReady ${message_type}`);
 
 					getSourcepointAppliedConsentFramework()
-						.then(({ frameworkAppliedBySP }) => {
-							// Compare the framework applied by Sourcepoint with the one we expect
-							if (frameworkAppliedBySP !== frameworkMessageType) {
-								sendJurisdictionMismatchToOphan(
-									JSON.stringify({
-										sp: frameworkAppliedBySP,
-										gu: frameworkMessageType,
-										gu_country: countryCode,
-									}),
-								);
+						.then(
+							({ frameworkAppliedByCDNSPUrl, frameworkAppliedByOriginUrl }) => {
+								// Compare the framework applied by Sourcepoint with the one we expect
+								if (frameworkAppliedByCDNSPUrl !== frameworkMessageType) {
+									sendJurisdictionMismatchToOphan(
+										JSON.stringify({
+											sp: frameworkAppliedByCDNSPUrl,
+											sp_origin: frameworkAppliedByOriginUrl,
+											gu: frameworkMessageType,
+											gu_country: countryCode,
+										}),
+									);
 
-								log(
-									'cmp',
-									`onConsentReady Data mismatch ;sp:${frameworkAppliedBySP};fastly:${frameworkMessageType};`,
-								);
-							}
-						})
+									log(
+										'cmp',
+										`onConsentReady Data mismatch ;sp:${frameworkAppliedByCDNSPUrl};fastly:${frameworkMessageType};`,
+									);
+								}
+							},
+						)
 						.catch(() => {
 							log(
 								'cmp',

@@ -21,7 +21,8 @@ interface GeolocationCheckStatusApplies {
  * }>)}
  */
 export const getSourcepointAppliedConsentFramework = async (): Promise<{
-	frameworkAppliedBySP: SourcepointConsentFramework | undefined;
+	frameworkAppliedByCDNSPUrl: SourcepointConsentFramework | undefined;
+	frameworkAppliedByOriginUrl: SourcepointConsentFramework | undefined;
 }> => {
 	const cdnUrlResponse = await fetch(
 		`https://sourcepoint.theguardian.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
@@ -51,12 +52,17 @@ export const getSourcepointAppliedConsentFramework = async (): Promise<{
 		'usnat',
 		'ccpa',
 	];
-	const frameworkAppliedBySP = consentFrameworks.find(
+	const frameworkAppliedByCDNSPUrl = consentFrameworks.find(
 		(framework) => cdnUrlGeolocationCheckObject[framework].applies,
 	);
 
+	const frameworkAppliedByOriginUrl = consentFrameworks.find(
+		(framework) => originUrlGeolocationCheckObject[framework].applies,
+	);
+
 	return {
-		frameworkAppliedBySP,
+		frameworkAppliedByCDNSPUrl,
+		frameworkAppliedByOriginUrl,
 	};
 };
 const isEqualGeoStatus = (
