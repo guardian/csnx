@@ -23,22 +23,25 @@ interface GeolocationCheckStatusApplies {
 export const getSourcepointAppliedConsentFramework = async (): Promise<{
 	frameworkAppliedBySP: SourcepointConsentFramework | undefined;
 }> => {
-	const prodResponse = await fetch(
+	const cdnUrlResponse = await fetch(
 		`https://sourcepoint.theguardian.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
 	);
 
-	const codeResponse = await fetch(
+	const originUrlResponse = await fetch(
 		`https://cdn.privacy-mgmt.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
 	);
 
-	const codeGeolocationCheckObject =
-		(await codeResponse.json()) as GeolocationCheckStatusApplies;
+	const originUrlGeolocationCheckObject =
+		(await originUrlResponse.json()) as GeolocationCheckStatusApplies;
 
-	const prodGeolocationCheckObject =
-		(await prodResponse.json()) as GeolocationCheckStatusApplies;
+	const cdnUrlGeolocationCheckObject =
+		(await cdnUrlResponse.json()) as GeolocationCheckStatusApplies;
 
 	if (
-		!isEqualGeoStatus(prodGeolocationCheckObject, codeGeolocationCheckObject)
+		!isEqualGeoStatus(
+			cdnUrlGeolocationCheckObject,
+			originUrlGeolocationCheckObject,
+		)
 	) {
 		log('cmp', 'Geolocation check objects are not equal');
 	}
@@ -49,7 +52,7 @@ export const getSourcepointAppliedConsentFramework = async (): Promise<{
 		'ccpa',
 	];
 	const frameworkAppliedBySP = consentFrameworks.find(
-		(framework) => prodGeolocationCheckObject[framework].applies,
+		(framework) => cdnUrlGeolocationCheckObject[framework].applies,
 	);
 
 	return {
