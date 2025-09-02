@@ -23,6 +23,7 @@ export type InitCMP = (arg0: {
 	country?: CountryCode;
 	isUserSignedIn?: boolean;
 	useNonAdvertisedList?: boolean;
+	isInSourcepointGeolocationTest?: boolean;
 }) => void;
 
 export type OnConsentChange = (
@@ -54,6 +55,7 @@ export interface SourcepointImplementation {
 		isUserSignedIn: boolean,
 		useNonAdvertisedList: boolean,
 		pubData?: PubData,
+		isInSourcepointGeolocationTest?: boolean,
 	) => void;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
 	showPrivacyManager: () => void;
