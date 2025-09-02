@@ -23,8 +23,9 @@ import {
 } from './lib/sourcepointConfig';
 import { mergeVendorList } from './mergeUserConsent';
 import { invokeCallbacks } from './onConsentChange';
+import { getSourcepointAppliedConsentFramework } from './sourcepointGeolocation';
 import { loadStubsFor } from './stub';
-import type { ConsentFramework } from './types';
+import type { ConsentFramework, SourcepointConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
@@ -123,7 +124,7 @@ export const init = (
 	// invoke callbacks before we receive Sourcepoint
 	invokeCallbacks();
 
-	let frameworkMessageType: string;
+	let frameworkMessageType: SourcepointConsentFramework;
 	switch (framework) {
 		case 'usnat':
 			frameworkMessageType = 'usnat';
@@ -169,20 +170,37 @@ export const init = (
 			events: {
 				onConsentReady: (message_type, consentUUID, euconsent) => {
 					log('cmp', `onConsentReady ${message_type}`);
+
+					getSourcepointAppliedConsentFramework()
+						.then(
+							({ frameworkAppliedByCDNSPUrl, frameworkAppliedByOriginUrl }) => {
+								// Compare the framework applied by Sourcepoint with the one we expect
+								if (frameworkAppliedByCDNSPUrl !== frameworkMessageType) {
+									sendJurisdictionMismatchToOphan(
+										JSON.stringify({
+											sp: frameworkAppliedByCDNSPUrl,
+											sp_origin: frameworkAppliedByOriginUrl,
+											gu: frameworkMessageType,
+											gu_country: countryCode,
+										}),
+									);
+
+									log(
+										'cmp',
+										`onConsentReady Data mismatch ;sp:${frameworkAppliedByCDNSPUrl};fastly:${frameworkMessageType};`,
+									);
+								}
+							},
+						)
+						.catch(() => {
+							log(
+								'cmp',
+								`onConsentReady`,
+								'Failed to get Sourcepoint applied consent framework',
+							);
+						});
+
 					if (message_type != frameworkMessageType) {
-						sendJurisdictionMismatchToOphan(
-							JSON.stringify({
-								sp: message_type,
-								gu: frameworkMessageType,
-								gu_country: countryCode,
-							}),
-						);
-
-						log(
-							'cmp',
-							`onMessageReceiveData Data mismatch ;sp:${message_type};fastly:${frameworkMessageType};`,
-						);
-
 						return;
 					}
 
