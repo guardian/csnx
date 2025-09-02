@@ -4,8 +4,9 @@ import type { AUSConsentState } from './aus';
 import type { TCFv2ConsentState } from './tcfv2';
 import type { USNATConsentState } from './usnat';
 
-export type ConsentFramework = 'tcfv2' | 'aus' | 'usnat';
+export type ConsentFramework = 'tcfv2' | 'aus' | 'usnat'; // Our internal consent framework id's
 
+export type SourcepointConsentFramework = 'gdpr' | 'usnat' | 'ccpa'; // Sourcepoint consent framework id's
 export type CMP = {
 	init: InitCMP;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
