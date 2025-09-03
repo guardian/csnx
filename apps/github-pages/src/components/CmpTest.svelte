@@ -168,7 +168,7 @@
 				on:change={setLocation}
 			/>
 			in Australia:
-			<strong>CCPA-like</strong>
+			<strong>Global Enterprise</strong>
 		</label>
 		<label class={useNonAdvertisedList ? 'selected' : 'none'}>
 			<input
