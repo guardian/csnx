@@ -28,7 +28,7 @@
 		"verify-dist": "wireit"
 	},
 	"dependencies": {
-		"@guardian/ophan-tracker-js": "2.2.10"
+		"@guardian/ophan-tracker-js": "2.4.4"
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
