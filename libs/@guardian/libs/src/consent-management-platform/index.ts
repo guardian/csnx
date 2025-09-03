@@ -60,12 +60,13 @@ const init: InitCMP = ({
 	// initComplete is set true once we have _finished_ initialising
 	window.guCmpHotFix.initialised = true;
 
-	// Check for URL parameter country override
+	// Check for URL parameter country override (only in non-production)
 	const urlParams = new URLSearchParams(window.location.search);
 	const countryOverride = urlParams.get('_sp_geo_override');
+	const isProduction = window.location.origin === 'https://www.theguardian.com';
 
 	let finalCountry: CountryCode | undefined;
-	if (countryOverride) {
+	if (countryOverride && !isProduction) {
 		try {
 			getCountryByCountryCode(countryOverride as CountryCode);
 			console.log('Using valid country override:', countryOverride);
@@ -82,6 +83,9 @@ const init: InitCMP = ({
 			finalCountry = country;
 		}
 	} else {
+		if (countryOverride && isProduction) {
+			console.warn('Country override ignored in production environment');
+		}
 		finalCountry = country;
 	}
 
