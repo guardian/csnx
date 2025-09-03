@@ -1,4 +1,6 @@
 import { version } from '../../package.json';
+import type { CountryCode } from '../countries/@types/CountryCode';
+import { getCountryByCountryCode } from '../countries/getCountryByCountryCode';
 import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
@@ -58,17 +60,42 @@ const init: InitCMP = ({
 	// initComplete is set true once we have _finished_ initialising
 	window.guCmpHotFix.initialised = true;
 
-	if (typeof country === 'undefined') {
+	// Check for URL parameter country override
+	const urlParams = new URLSearchParams(window.location.search);
+	const countryOverride = urlParams.get('_sp_geo_override');
+
+	let finalCountry: CountryCode | undefined;
+	if (countryOverride) {
+		try {
+			getCountryByCountryCode(countryOverride as CountryCode);
+			console.log('Using valid country override:', countryOverride);
+			if (country) {
+				console.log('Original country would have been:', country);
+			}
+			finalCountry = countryOverride as CountryCode;
+		} catch (error) {
+			console.warn(
+				'Invalid country override "' +
+					countryOverride +
+					'" - falling back to detected country',
+			);
+			finalCountry = country;
+		}
+	} else {
+		finalCountry = country;
+	}
+
+	if (typeof finalCountry === 'undefined') {
 		throw new Error(
 			'CMP initialised without `country` property. A 2-letter, ISO ISO_3166-1 country code is required.',
 		);
 	}
 
-	const framework = getFramework(country);
+	const framework = getFramework(finalCountry);
 
 	UnifiedCMP.init(
 		framework,
-		country,
+		finalCountry,
 		isUserSignedIn,
 		useNonAdvertisedList,
 		pubData ?? {},
