@@ -1,6 +1,6 @@
 import { version } from '../../package.json';
 import type { CountryCode } from '../countries/@types/CountryCode';
-import { getCountryByCountryCode } from '../countries/getCountryByCountryCode';
+import { countries } from '../countries/countries';
 import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
@@ -67,14 +67,17 @@ const init: InitCMP = ({
 
 	let finalCountry: CountryCode | undefined;
 	if (countryOverride && !isProduction) {
-		try {
-			getCountryByCountryCode(countryOverride as CountryCode);
+		const isValidCountry = Object.values(countries).some(
+			(country) => country.countryCode === countryOverride,
+		);
+
+		if (isValidCountry) {
 			console.log('Using valid country override:', countryOverride);
 			if (country) {
 				console.log('Original country would have been:', country);
 			}
 			finalCountry = countryOverride as CountryCode;
-		} catch (error) {
+		} else {
 			console.warn(
 				'Invalid country override "' +
 					countryOverride +
