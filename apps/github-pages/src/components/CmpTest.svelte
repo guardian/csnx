@@ -3,24 +3,31 @@
 	import { cmp, onConsentChange, log, setCookie } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
+	import { isConsentOrPayCountry, getConsentOrPayCurrency } from '../../../../libs/@guardian/libs/src/consent-management-platform/isConsentOrPay';
+	import { countries } from '../../../../libs/@guardian/libs/src/countries/countries';
+
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
 	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
 
-	switch (window.location.hash) {
-		case '#tcfv2':
-			localStorage.setItem('framework', JSON.stringify('tcfv2'));
-			break;
-		case '#usnat':
-			localStorage.setItem('framework', JSON.stringify('usnat'));
-			break;
-		case '#aus':
-			localStorage.setItem('framework', JSON.stringify('aus'));
-			break;
-		default:
-			window.location.hash = 'tcfv2';
-			localStorage.setItem('framework', JSON.stringify('tcfv2'));
-			break;
-	}
+	// Extract country from URL parameter or default to GB
+	let getInitialCountry = () => {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get('country') || 'GB';
+	};
+
+	let selectedCountry = getInitialCountry();
+
+	// Calculate what currency should be displayed
+	$: isCorP = isConsentOrPayCountry(selectedCountry);
+	$: expectedCurrency = isCorP ? getConsentOrPayCurrency(selectedCountry) : 'N/A';
+	$: currencySymbol = expectedCurrency === 'EUR' ? '€' : expectedCurrency === 'GBP' ? '£' : 'N/A';
+
+	const getCountryName = (countryCode) => {
+		const country = Object.values(countries).find(c => c.countryCode === countryCode);
+		return country ? country.name : countryCode;
+	};
+
+	$: countryDisplay = `${selectedCountry} (${getCountryName(selectedCountry)})`;
 
 	window.guardian.logger.subscribeTo('cmp');
 
@@ -73,6 +80,17 @@
 		window.location.search = queryParams.toString();
 	};
 
+	const setCountryParam = (country) => {
+		let queryParams = new URLSearchParams(window.location.search);
+		if (country) {
+			queryParams.set('country', country);
+		} else {
+			queryParams.delete('country');
+		}
+		window.history.replaceState({}, '', `${window.location.pathname}?${queryParams.toString()}`);
+		clearPreferences();
+	};
+
 	const toggleIsFeatureFlagEnabled = () => {
 		isFeatureFlagEnabled = !isFeatureFlagEnabled;
 		toggleQueryParams('CMP_COP');
@@ -88,14 +106,6 @@
 		toggleQueryParams('NON_ADV');
 	};
 
-	let framework = JSON.parse(localStorage.getItem('framework'));
-
-	let setLocation = () => {
-		localStorage.setItem('framework', JSON.stringify(framework));
-		window.location.hash = framework;
-		clearPreferences();
-	};
-
 	$: consentState = {};
 	$: eventsList = [];
 
@@ -109,25 +119,9 @@
 	});
 
 	onMount(async () => {
-		// Set the country based on chosen framework.
-		// This is not to be used in production
-		let country = '';
-		switch (framework) {
-			case 'tcfv2':
-				country = 'GB';
-				break;
-
-			case 'usnat':
-				country = 'US';
-				break;
-
-			case 'aus':
-				country = 'AU';
-				break;
-		}
-
+		console.log('Test page: Initializing CMP with country:', selectedCountry);
 		cmp.init({
-			country,
+			country: selectedCountry,
 			isUserSignedIn: isUserSignedIn,
 			useNonAdvertisedList: useNonAdvertisedList,
 		});
@@ -141,31 +135,50 @@
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
 		<button on:click={setABTest}>set ab test</button>
-		<label class={framework == 'tcfv2' ? 'selected' : 'none'}>
+
+		<label class={selectedCountry == 'GB' ? 'selected' : 'none'}>
 			<input
 				type="radio"
-				value="tcfv2"
-				bind:group={framework}
-				on:change={setLocation}
+				value="GB"
+				bind:group={selectedCountry}
+				on:change={() => setCountryParam('GB')}
+			/>
+			in GB:<strong>TCFv2 (CorP)</strong>
+		</label>
+		<label class={selectedCountry == 'FR' ? 'selected' : 'none'}>
+			<input
+				type="radio"
+				value="FR"
+				bind:group={selectedCountry}
+				on:change={() => setCountryParam('FR')}
+			/>
+			in EU:<strong>TCFv2 (CorP)</strong>
+		</label>
+		<label class={selectedCountry == 'CA' ? 'selected' : 'none'}>
+			<input
+				type="radio"
+				value="CA"
+				bind:group={selectedCountry}
+				on:change={() => setCountryParam('CA')}
 			/>
 			in RoW:<strong>TCFv2</strong>
 		</label>
-		<label class={framework == 'usnat' ? 'selected' : 'none'}>
+		<label class={selectedCountry == 'US' ? 'selected' : 'none'}>
 			<input
 				type="radio"
-				value="usnat"
-				bind:group={framework}
-				on:change={setLocation}
+				value="US"
+				bind:group={selectedCountry}
+				on:change={() => setCountryParam('US')}
 			/>
 			in USA:
 			<strong>USNAT</strong>
 		</label>
-		<label class={framework == 'aus' ? 'selected' : 'none'}>
+		<label class={selectedCountry == 'AU' ? 'selected' : 'none'}>
 			<input
 				type="radio"
-				value="aus"
-				bind:group={framework}
-				on:change={setLocation}
+				value="AU"
+				bind:group={selectedCountry}
+				on:change={() => setCountryParam('AU')}
 			/>
 			in Australia:
 			<strong>CCPA-like</strong>
@@ -189,6 +202,27 @@
 	</nav>
 
 	<div id="consent-state">
+		<div class="currency-status">
+			<h3>Test Environment Status</h3>
+			<div class="status-row">
+				<span class="label">Selected Country:</span>
+				<span class="value">{countryDisplay}</span>
+			</div>
+			<div class="status-row">
+				<span class="label">Consent-or-Pay Country:</span>
+				<span class="value">{isCorP ? '✅ Yes' : '❌ No'}</span>
+			</div>
+			<div class="status-row">
+				<span class="label">Expected Currency:</span>
+				<span class="value {expectedCurrency === 'N/A' ? 'neutral' : ''}">{expectedCurrency === 'N/A' ? 'N/A' : `${expectedCurrency} (${currencySymbol})`}</span>
+			</div>
+			{#if isCorP && expectedCurrency === 'EUR'}
+			<div class="status-note">
+				<strong>Note:</strong> Test environment shows £ due to generic CDN configuration.<br>Production shows correct € symbol.
+			</div>
+			{/if}
+		</div>
+
 		{#if consentState.tcfv2}
 			<h2>tcfv2.eventStatus</h2>
 			<span class="label">{consentState.tcfv2.eventStatus}</span>
@@ -371,5 +405,42 @@
 
 	* + h2 {
 		margin-top: 1rem;
+	}
+
+	.currency-status {
+		padding: 12px 0;
+		margin: 12px 0;
+		max-width: 600px;
+	}
+
+	.currency-status h3 {
+		margin: 0 0 8px 0;
+		font-size: 14px;
+	}
+
+	.status-row {
+		display: flex;
+		justify-content: space-between;
+		margin: 4px 0;
+		align-items: center;
+	}
+
+	.status-row .label {
+		font-weight: 500;
+	}
+
+	.status-row .value {
+		font-weight: normal;
+		color: #000 !important;
+	}
+
+	.status-note {
+		background: #fff3cd;
+		border: 1px solid #ffeaa7;
+		border-radius: 3px;
+		padding: 8px;
+		margin-top: 8px;
+		font-size: 11px;
+		color: #856404;
 	}
 </style>

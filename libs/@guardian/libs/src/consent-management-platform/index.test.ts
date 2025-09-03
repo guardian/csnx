@@ -37,6 +37,58 @@ describe('cmp.init', () => {
 		}).toThrow('required');
 	});
 
+	describe('with country override parameter', () => {
+		beforeEach(() => {
+			Object.defineProperty(window, 'location', {
+				writable: true,
+				value: {
+					...window.location,
+					search: '?_sp_geo_override=LV',
+				},
+			});
+		});
+
+		it('should use valid country override when not in production', () => {
+			cmp.init({
+				country: 'GB',
+			});
+
+			expect(CMP.init).toHaveBeenCalledWith('tcfv2', 'LV', false, false, {});
+		});
+
+		it('should fall back to detected country when invalid override is provided', () => {
+			Object.defineProperty(window, 'location', {
+				writable: true,
+				value: {
+					...window.location,
+					search: '?_sp_geo_override=INVALID',
+				},
+			});
+
+			cmp.init({
+				country: 'GB',
+			});
+
+			expect(CMP.init).toHaveBeenCalledWith('tcfv2', 'GB', false, false, {});
+		});
+
+		it('should ignore country override in production environment', () => {
+			Object.defineProperty(window, 'location', {
+				writable: true,
+				value: {
+					...window.location,
+					origin: 'https://www.theguardian.com',
+				},
+			});
+
+			cmp.init({
+				country: 'GB',
+			});
+
+			expect(CMP.init).toHaveBeenCalledWith('tcfv2', 'GB', false, false, {});
+		});
+	});
+
 	it('initializes CMP when in the US', () => {
 		cmp.init({ country: 'US' });
 		expect(CMP.init).toHaveBeenCalledTimes(1);
