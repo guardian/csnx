@@ -3,9 +3,6 @@
 	import { cmp, onConsentChange, log, setCookie } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
-	import { isConsentOrPayCountry, getConsentOrPayCurrency } from '../../../../libs/@guardian/libs/src/consent-management-platform/isConsentOrPay';
-	import { countries } from '../../../../libs/@guardian/libs/src/countries/countries';
-
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
 	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
 
@@ -16,18 +13,6 @@
 	};
 
 	let selectedCountry = getInitialCountry();
-
-	// Calculate what currency should be displayed
-	$: isCorP = isConsentOrPayCountry(selectedCountry);
-	$: expectedCurrency = isCorP ? getConsentOrPayCurrency(selectedCountry) : 'N/A';
-	$: currencySymbol = expectedCurrency === 'EUR' ? '€' : expectedCurrency === 'GBP' ? '£' : 'N/A';
-
-	const getCountryName = (countryCode) => {
-		const country = Object.values(countries).find(c => c.countryCode === countryCode);
-		return country ? country.name : countryCode;
-	};
-
-	$: countryDisplay = `${selectedCountry} (${getCountryName(selectedCountry)})`;
 
 	window.guardian.logger.subscribeTo('cmp');
 
@@ -202,27 +187,6 @@
 	</nav>
 
 	<div id="consent-state">
-		<div class="currency-status">
-			<h3>Test Environment Status</h3>
-			<div class="status-row">
-				<span class="label">Selected Country:</span>
-				<span class="value">{countryDisplay}</span>
-			</div>
-			<div class="status-row">
-				<span class="label">Consent-or-Pay Country:</span>
-				<span class="value">{isCorP ? '✅ Yes' : '❌ No'}</span>
-			</div>
-			<div class="status-row">
-				<span class="label">Expected Currency:</span>
-				<span class="value {expectedCurrency === 'N/A' ? 'neutral' : ''}">{expectedCurrency === 'N/A' ? 'N/A' : `${expectedCurrency} (${currencySymbol})`}</span>
-			</div>
-			{#if isCorP && expectedCurrency === 'EUR'}
-			<div class="status-note">
-				<strong>Note:</strong> Test environment shows £ due to generic CDN configuration.<br>Production shows correct € symbol.
-			</div>
-			{/if}
-		</div>
-
 		{#if consentState.tcfv2}
 			<h2>tcfv2.eventStatus</h2>
 			<span class="label">{consentState.tcfv2.eventStatus}</span>
@@ -405,42 +369,5 @@
 
 	* + h2 {
 		margin-top: 1rem;
-	}
-
-	.currency-status {
-		padding: 12px 0;
-		margin: 12px 0;
-		max-width: 600px;
-	}
-
-	.currency-status h3 {
-		margin: 0 0 8px 0;
-		font-size: 14px;
-	}
-
-	.status-row {
-		display: flex;
-		justify-content: space-between;
-		margin: 4px 0;
-		align-items: center;
-	}
-
-	.status-row .label {
-		font-weight: 500;
-	}
-
-	.status-row .value {
-		font-weight: normal;
-		color: #000 !important;
-	}
-
-	.status-note {
-		background: #fff3cd;
-		border: 1px solid #ffeaa7;
-		border-radius: 3px;
-		padding: 8px;
-		margin-top: 8px;
-		font-size: 11px;
-		color: #856404;
 	}
 </style>
