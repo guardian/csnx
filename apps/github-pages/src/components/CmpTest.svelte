@@ -104,7 +104,6 @@
 	});
 
 	onMount(async () => {
-		console.log('Test page: Initializing CMP with country:', selectedCountry);
 		cmp.init({
 			country: selectedCountry,
 			isUserSignedIn: isUserSignedIn,
