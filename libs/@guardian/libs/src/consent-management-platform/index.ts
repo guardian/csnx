@@ -1,4 +1,6 @@
 import { version } from '../../package.json';
+import type { CountryCode } from '../countries/@types/CountryCode';
+import { countries } from '../countries/countries';
 import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
@@ -58,17 +60,49 @@ const init: InitCMP = ({
 	// initComplete is set true once we have _finished_ initialising
 	window.guCmpHotFix.initialised = true;
 
-	if (typeof country === 'undefined') {
+	// Check for URL parameter country override (only in non-production)
+	const urlParams = new URLSearchParams(window.location.search);
+	const countryOverride = urlParams.get('_sp_geo_override');
+	const isProduction = window.location.origin === 'https://www.theguardian.com';
+
+	let finalCountry: CountryCode | undefined;
+	if (countryOverride && !isProduction) {
+		const isValidCountry = Object.values(countries).some(
+			(country) => country.countryCode === countryOverride,
+		);
+
+		if (isValidCountry) {
+			console.log('Using valid country override:', countryOverride);
+			if (country) {
+				console.log('Original country would have been:', country);
+			}
+			finalCountry = countryOverride as CountryCode;
+		} else {
+			console.warn(
+				'Invalid country override "' +
+					countryOverride +
+					'" - falling back to detected country',
+			);
+			finalCountry = country;
+		}
+	} else {
+		if (countryOverride && isProduction) {
+			console.warn('Country override ignored in production environment');
+		}
+		finalCountry = country;
+	}
+
+	if (typeof finalCountry === 'undefined') {
 		throw new Error(
 			'CMP initialised without `country` property. A 2-letter, ISO ISO_3166-1 country code is required.',
 		);
 	}
 
-	const framework = getFramework(country);
+	const framework = getFramework(finalCountry);
 
 	UnifiedCMP.init(
 		framework,
-		country,
+		finalCountry,
 		isUserSignedIn,
 		useNonAdvertisedList,
 		pubData ?? {},
