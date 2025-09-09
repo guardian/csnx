@@ -28,7 +28,7 @@
 		"verify-dist": "wireit"
 	},
 	"dependencies": {
-		"@guardian/ophan-tracker-js": "2.2.10"
+		"@guardian/ophan-tracker-js": "2.6.0"
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
@@ -36,7 +36,7 @@
 		"@types/jest": "30.0.0",
 		"@types/wcag-contrast": "3.0.3",
 		"eslint": "9.19.0",
-		"jest": "30.0.5",
+		"jest": "30.1.3",
 		"jest-environment-jsdom": "30.1.2",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
