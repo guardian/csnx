@@ -34,7 +34,7 @@
 		"@types/react-dom": "18.2.25",
 		"eslint": "9.19.0",
 		"jest": "30.0.5",
-		"jest-environment-jsdom": "30.0.5",
+		"jest-environment-jsdom": "30.1.2",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"rollup": "4.50.1",
