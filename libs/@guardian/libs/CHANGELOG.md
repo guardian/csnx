@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 25.4.0
+
+### Minor Changes
+
+- 99b1b54: Add `getErrorMessage` helper function
+
 ## 25.3.0
 
 ### Minor Changes
