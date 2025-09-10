@@ -43,7 +43,7 @@ describe('cmp.init', () => {
 				writable: true,
 				value: {
 					...window.location,
-					search: '?_sp_geo_override=LV',
+					search: '?_sp_geo_override=LV-XX',
 				},
 			});
 		});

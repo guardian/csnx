@@ -62,32 +62,42 @@ const init: InitCMP = ({
 
 	// Check for URL parameter country override (only in non-production)
 	const urlParams = new URLSearchParams(window.location.search);
-	const countryOverride = urlParams.get('_sp_geo_override');
+	const geoOverride = urlParams.get('_sp_geo_override');
 	const isProduction = window.location.origin === 'https://www.theguardian.com';
 
 	let finalCountry: CountryCode | undefined;
-	if (countryOverride && !isProduction) {
+	if (geoOverride && !isProduction) {
+		// Parse the geo override format: CC-RR (e.g., US-CA, CA-QC, DE-XX)
+		const countryOverride = geoOverride.split('-')[0];
+
 		const isValidCountry = Object.values(countries).some(
 			(country) => country.countryCode === countryOverride,
 		);
 
 		if (isValidCountry) {
-			console.log('Using valid country override:', countryOverride);
+			console.log(
+				'Using geolocation override:',
+				geoOverride,
+				'(country:',
+				countryOverride + ')',
+			);
 			if (country) {
 				console.log('Original country would have been:', country);
 			}
 			finalCountry = countryOverride as CountryCode;
 		} else {
 			console.warn(
-				'Invalid country override "' +
+				'Invalid geolocation override "' +
+					geoOverride +
+					'" - invalid country code "' +
 					countryOverride +
 					'" - falling back to detected country',
 			);
 			finalCountry = country;
 		}
 	} else {
-		if (countryOverride && isProduction) {
-			console.warn('Country override ignored in production environment');
+		if (geoOverride && isProduction) {
+			console.warn('Geolocation override ignored in production environment');
 		}
 		finalCountry = country;
 	}
