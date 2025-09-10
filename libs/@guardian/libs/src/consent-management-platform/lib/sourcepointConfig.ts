@@ -27,57 +27,43 @@ export const SourcePointChoiceTypes = {
 	Dismiss: 15,
 } as const;
 
-export const consentOrPayCountries = [
-	'GB',
-	'JE',
-	'GG',
-	'IM',
-	'GI',
-	'AT',
-	'BE',
-	'BG',
-	'HR',
-	'CY',
-	'CZ',
-	'DK',
-	'EE',
-	'FI',
-	'FR',
-	'DE',
-	'GR',
-	'HU',
-	'IS',
-	'IE',
-	'IT',
-	'LV',
-	'LT',
-	'LU',
-	'MT',
-	'NL',
-	'NO',
-	'PL',
-	'PT',
-	'RO',
-	'SK',
-	'SI',
-	'ES',
-	'SE',
-	'CH',
-];
-
 export type Currency = 'GBP' | 'EUR';
 
-// Return EUR unless otherwise specified (to avoid duplicating the list of European countries)
-export const consentOrPayCurrencyMap = new Proxy(
-	{
-		GB: 'GBP' as Currency,
-	} as Record<string, Currency>,
-	{
-		get(target, prop): Currency {
-			if (typeof prop === 'string') {
-				return target[prop] ?? 'EUR';
-			}
-			return 'EUR';
-		},
-	},
-);
+// Consent or Pay countries with their respective currencies
+export const consentOrPayCountries = {
+	GB: 'GBP', // United Kingdom
+	JE: 'GBP', // Jersey
+	GG: 'GBP', // Guernsey
+	IM: 'GBP', // Isle of Man
+	GI: 'GBP', // Gibraltar
+	AT: 'EUR', // Austria
+	BE: 'EUR', // Belgium
+	BG: 'EUR', // Bulgaria
+	HR: 'EUR', // Croatia
+	CY: 'EUR', // Cyprus
+	CZ: 'EUR', // Czech Republic
+	DK: 'EUR', // Denmark
+	EE: 'EUR', // Estonia
+	FI: 'EUR', // Finland
+	FR: 'EUR', // France
+	DE: 'EUR', // Germany
+	GR: 'EUR', // Greece
+	HU: 'EUR', // Hungary
+	IS: 'EUR', // Iceland
+	IE: 'EUR', // Ireland
+	IT: 'EUR', // Italy
+	LV: 'EUR', // Latvia
+	LT: 'EUR', // Lithuania
+	LU: 'EUR', // Luxembourg
+	MT: 'EUR', // Malta
+	NL: 'EUR', // Netherlands
+	NO: 'EUR', // Norway
+	PL: 'EUR', // Poland
+	PT: 'EUR', // Portugal
+	RO: 'EUR', // Romania
+	SK: 'EUR', // Slovakia
+	SI: 'EUR', // Slovenia
+	ES: 'EUR', // Spain
+	SE: 'EUR', // Sweden
+	CH: 'EUR', // Switzerland
+} as const satisfies Record<string, Currency>;

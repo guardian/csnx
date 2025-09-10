@@ -1,9 +1,6 @@
 import type { CountryCode } from '../index.test';
 import { isGuardianDomain } from './lib/domain';
-import {
-	consentOrPayCountries,
-	consentOrPayCurrencyMap,
-} from './lib/sourcepointConfig';
+import { consentOrPayCountries } from './lib/sourcepointConfig';
 import type { Currency } from './lib/sourcepointConfig';
 
 let _isConsentOrPay = false;
@@ -17,16 +14,16 @@ export const getIsConsentOrPay = (): boolean => {
 };
 
 export const isConsentOrPayCountry = (countryCode: CountryCode) => {
-	return consentOrPayCountries.includes(countryCode);
+	return countryCode in consentOrPayCountries;
 };
 
 export const getConsentOrPayCurrency = (countryCode: CountryCode): Currency => {
 	if (!isConsentOrPayCountry(countryCode)) {
 		return 'GBP';
 	}
-	return consentOrPayCurrencyMap[
-		countryCode as keyof typeof consentOrPayCurrencyMap
-	]!;
+	return consentOrPayCountries[
+		countryCode as keyof typeof consentOrPayCountries
+	];
 };
 
 export const getSupportSignUpPage = (): string => {
