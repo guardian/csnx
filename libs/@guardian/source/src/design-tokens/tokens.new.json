@@ -1,0 +1,622 @@
+{
+	"palette": {
+		"$type": "color",
+		"$description": "Colour palette organised by type e.g. 'error', or pillar e.g. 'opinion'.",
+		"brand": {
+			"100": {
+				"$value": "#001536"
+			},
+			"300": {
+				"$value": "#041F4A"
+			},
+			"400": {
+				"$value": "#052962"
+			},
+			"500": {
+				"$value": "#0077B6"
+			},
+			"600": {
+				"$value": "#506991"
+			},
+			"800": {
+				"$value": "#C1D8FC"
+			}
+		},
+		"brandAlt": {
+			"200": {
+				"$value": "#F3C100"
+			},
+			"300": {
+				"$value": "#FFD900"
+			},
+			"400": {
+				"$value": "#FFE500"
+			}
+		},
+		"neutral": {
+			"0": {
+				"$value": "#000000"
+			},
+			"7": {
+				"$value": "#121212"
+			},
+			"10": {
+				"$value": "#1A1A1A"
+			},
+			"20": {
+				"$value": "#333333"
+			},
+			"38": {
+				"$value": "#545454"
+			},
+			"46": {
+				"$value": "#707070"
+			},
+			"60": {
+				"$value": "#999999"
+			},
+			"73": {
+				"$value": "#BABABA"
+			},
+			"86": {
+				"$value": "#DCDCDC"
+			},
+			"93": {
+				"$value": "#EDEDED"
+			},
+			"97": {
+				"$value": "#F6F6F6"
+			},
+			"100": {
+				"$value": "#FFFFFF"
+			}
+		},
+		"error": {
+			"400": {
+				"$value": "#C70000"
+			},
+			"500": {
+				"$value": "#FF9081"
+			}
+		},
+		"success": {
+			"300": {
+				"$value": "#185E36"
+			},
+			"400": {
+				"$value": "#22874D"
+			},
+			"500": {
+				"$value": "#58D08B"
+			}
+		},
+		"news": {
+			"100": {
+				"$value": "#660505"
+			},
+			"200": {
+				"$value": "#8B0000"
+			},
+			"300": {
+				"$value": "#AB0613"
+			},
+			"400": {
+				"$value": "#C70000"
+			},
+			"500": {
+				"$value": "#FF5943"
+			},
+			"550": {
+				"$value": "#FF9081"
+			},
+			"600": {
+				"$value": "#FFBAC8"
+			},
+			"700": {
+				"$value": "#FFD8D1"
+			},
+			"800": {
+				"$value": "#FFF4F2"
+			}
+		},
+		"opinion": {
+			"100": {
+				"$value": "#672005"
+			},
+			"200": {
+				"$value": "#8D2700"
+			},
+			"300": {
+				"$value": "#C74600",
+				"$description": "@deprecated Use palette.opinion.400"
+			},
+			"400": {
+				"$value": "#C74600"
+			},
+			"450": {
+				"$value": "#E05E00"
+			},
+			"500": {
+				"$value": "#FF7F0F"
+			},
+			"550": {
+				"$value": "#FF9941"
+			},
+			"600": {
+				"$value": "#F9B376"
+			},
+			"700": {
+				"$value": "#FFE7D4"
+			},
+			"800": {
+				"$value": "#FEF9F5"
+			}
+		},
+		"sport": {
+			"100": {
+				"$value": "#003C60"
+			},
+			"200": {
+				"$value": "#004E7C"
+			},
+			"300": {
+				"$value": "#005689"
+			},
+			"400": {
+				"$value": "#0077B6"
+			},
+			"500": {
+				"$value": "#00B2FF"
+			},
+			"600": {
+				"$value": "#90DCFF"
+			},
+			"700": {
+				"$value": "#D8F1FF"
+			},
+			"800": {
+				"$value": "#F1F8FC"
+			}
+		},
+		"culture": {
+			"50": {
+				"$value": "#2B2625"
+			},
+			"100": {
+				"$value": "#3E3323"
+			},
+			"200": {
+				"$value": "#574835"
+			},
+			"300": {
+				"$value": "#6B5840"
+			},
+			"350": {
+				"$value": "#866D50",
+				"$description": "@deprecated Use palette.culture.400"
+			},
+			"400": {
+				"$value": "#866D50"
+			},
+			"450": {
+				"$value": "#A1845C"
+			},
+			"500": {
+				"$value": "#EACCA0"
+			},
+			"600": {
+				"$value": "#E7D4B9"
+			},
+			"700": {
+				"$value": "#EFE8DD"
+			},
+			"800": {
+				"$value": "#FBF6EF"
+			}
+		},
+		"lifestyle": {
+			"100": {
+				"$value": "#510043"
+			},
+			"200": {
+				"$value": "#650054"
+			},
+			"300": {
+				"$value": "#7D0068"
+			},
+			"400": {
+				"$value": "#BB3B80"
+			},
+			"450": {
+				"$value": "#F37ABC"
+			},
+			"500": {
+				"$value": "#FFABDB"
+			},
+			"600": {
+				"$value": "#FEC8D3"
+			},
+			"800": {
+				"$value": "#FEF1F8"
+			}
+		},
+		"labs": {
+			"100": {
+				"$value": "#09615B"
+			},
+			"200": {
+				"$value": "#0C7A73"
+			},
+			"300": {
+				"$value": "#65A897"
+			},
+			"400": {
+				"$value": "#69D1CA"
+			},
+			"500": {
+				"$value": "#A8E3DF"
+			},
+			"600": {
+				"$value": "#DCF4F3"
+			},
+			"700": {
+				"$value": "#F3FBFB"
+			}
+		},
+		"specialReport": {
+			"100": {
+				"$value": "#222527"
+			},
+			"200": {
+				"$value": "#303538"
+			},
+			"300": {
+				"$value": "#3F464A"
+			},
+			"400": {
+				"$value": "#595C5F"
+			},
+			"450": {
+				"$value": "#9DA0A2"
+			},
+			"500": {
+				"$value": "#ABC2C9"
+			},
+			"700": {
+				"$value": "#E4E5E8"
+			},
+			"800": {
+				"$value": "#EFF1F2"
+			}
+		},
+		"specialReportAlt": {
+			"100": {
+				"$value": "#2B2B2A"
+			},
+			"200": {
+				"$value": "#B9300A"
+			},
+			"300": {
+				"$value": "#FF663D"
+			},
+			"700": {
+				"$value": "#EBE6E1"
+			},
+			"800": {
+				"$value": "#F5F0EB"
+			}
+		},
+		"focus": {
+			"400": {
+				"$value": "#0077B6"
+			}
+		},
+		"notificationBlue": {
+			"400": {
+				"$value": "#0190F7"
+			}
+		}
+	},
+	"size": {
+		"$type": "dimension",
+		"$description": "May be used for call to action buttons and user input fields.",
+		"xsmall": {
+			"$value": "24px"
+		},
+		"small": {
+			"$value": "36px"
+		},
+		"medium": {
+			"$value": "44px",
+			"$description": "Meets WCAG 2.1 AAA compliance for touch targets."
+		}
+	},
+	"iconSize": {
+		"$type": "dimension",
+		"xsmall": {
+			"$value": "20px"
+		},
+		"small": {
+			"$value": "26px"
+		},
+		"medium": {
+			"$value": "30px"
+		}
+	},
+	"height": {
+		"$type": "dimension",
+		"ctaMedium": {
+			"$description": "Call to action buttons and links",
+			"$value": "{size.medium}"
+		},
+		"ctaSmall": {
+			"$description": "Secondary calls to action",
+			"$value": "{size.small}"
+		},
+		"ctaXsmall": {
+			"$description": "Calls to action where there is very limited space",
+			"$value": "{size.xsmall}"
+		},
+		"inputMedium": {
+			"$description": "Text input fields, radio and checkbox labels",
+			"$value": "{size.medium}"
+		},
+		"inputXsmall": {
+			"$description": "Checkables such as checkboxes or radio buttons",
+			"$value": "{size.xsmall}"
+		},
+		"iconMedium": {
+			"$value": "{iconSize.medium}"
+		},
+		"iconSmall": {
+			"$value": "{iconSize.small}"
+		},
+		"iconXsmall": {
+			"$value": "{iconSize.xsmall}"
+		}
+	},
+	"width": {
+		"$type": "dimension",
+		"ctaMedium": {
+			"$description": "Medium height call to action buttons and links",
+			"$value": "{size.medium}"
+		},
+		"ctaSmall": {
+			"$description": "Small height call to action buttons and links",
+			"$value": "{size.small}"
+		},
+		"ctaXsmall": {
+			"$description": "Extra small height call to action buttons and links",
+			"$value": "{size.xsmall}"
+		},
+		"inputXsmall": {
+			"$value": "{size.xsmall}"
+		},
+		"iconMedium": {
+			"$value": "{iconSize.medium}"
+		},
+		"iconSmall": {
+			"$value": "{iconSize.small}"
+		},
+		"iconXsmall": {
+			"$description": "Checkables such as checkboxes or radio buttons",
+			"$value": "{iconSize.xsmall}"
+		}
+	},
+	"space": {
+		"$type": "dimension",
+		"$description": "Can be applied to margin or padding properties, vertically or horizontally.",
+		"0": {
+			"$value": "2px"
+		},
+		"1": {
+			"$value": "4px"
+		},
+		"2": {
+			"$value": "8px"
+		},
+		"3": {
+			"$value": "12px"
+		},
+		"4": {
+			"$value": "16px"
+		},
+		"5": {
+			"$value": "20px"
+		},
+		"6": {
+			"$value": "24px"
+		},
+		"8": {
+			"$value": "32px"
+		},
+		"9": {
+			"$value": "36px"
+		},
+		"10": {
+			"$value": "40px"
+		},
+		"12": {
+			"$value": "48px"
+		},
+		"14": {
+			"$value": "56px"
+		},
+		"16": {
+			"$value": "64px"
+		},
+		"18": {
+			"$value": "72px"
+		},
+		"24": {
+			"$value": "96px"
+		}
+	},
+	"breakpoint": {
+		"$type": "dimension",
+		"mobile": {
+			"$value": "320px"
+		},
+		"mobileMedium": {
+			"$value": "375px"
+		},
+		"mobileLandscape": {
+			"$value": "480px"
+		},
+		"phablet": {
+			"$value": "660px"
+		},
+		"tablet": {
+			"$value": "740px"
+		},
+		"desktop": {
+			"$value": "980px"
+		},
+		"leftCol": {
+			"$value": "1140px"
+		},
+		"wide": {
+			"$value": "1300px"
+		}
+	},
+	"typography": {
+		"fontFamily": {
+			"$type": "fontFamily",
+			"titlepiece": {
+				"$value": ["GT Guardian Titlepiece", "Georgia", "serif"]
+			},
+			"headline": {
+				"$value": [
+					"GH Guardian Headline",
+					"Guardian Egyptian Web",
+					"Georgia",
+					"serif"
+				]
+			},
+			"body": {
+				"$value": [
+					"GuardianTextEgyptian",
+					"Guardian Text Egyptian Web",
+					"Georgia",
+					"serif"
+				]
+			},
+			"textSans": {
+				"$value": [
+					"GuardianTextSans",
+					"Guardian Text Sans Web",
+					"Helvetica Neue",
+					"Helvetica",
+					"Arial",
+					"Lucida Grande",
+					"sans-serif"
+				]
+			}
+		},
+		"fontSize": {
+			"$type": "dimension",
+			"12": {
+				"$value": "12px"
+			},
+			"14": {
+				"$value": "14px"
+			},
+			"15": {
+				"$value": "15px"
+			},
+			"17": {
+				"$value": "17px"
+			},
+			"20": {
+				"$value": "20px"
+			},
+			"24": {
+				"$value": "24px"
+			},
+			"28": {
+				"$value": "28px"
+			},
+			"34": {
+				"$value": "34px"
+			},
+			"42": {
+				"$value": "42px"
+			},
+			"50": {
+				"$value": "50px"
+			},
+			"64": {
+				"$value": "64px"
+			},
+			"70": {
+				"$value": "70px"
+			}
+		},
+		"lineHeight": {
+			"$type": "number",
+			"tight": {
+				"$value": 1.15
+			},
+			"regular": {
+				"$value": 1.3
+			},
+			"loose": {
+				"$value": 1.4
+			}
+		},
+		"fontWeight": {
+			"$type": "number",
+			"light": {
+				"$value": 300
+			},
+			"regular": {
+				"$value": 400
+			},
+			"medium": {
+				"$value": 500
+			},
+			"bold": {
+				"$value": 700
+			}
+		},
+		"textDecorationThicknessForFontSize": {
+			"$type": "dimension",
+			"12": {
+				"$value": "2px"
+			},
+			"14": {
+				"$value": "2px"
+			},
+			"15": {
+				"$value": "2px"
+			},
+			"17": {
+				"$value": "2px"
+			},
+			"20": {
+				"$value": "3px"
+			},
+			"24": {
+				"$value": "3px"
+			},
+			"28": {
+				"$value": "3px"
+			},
+			"34": {
+				"$value": "4px"
+			},
+			"42": {
+				"$value": "5px"
+			},
+			"50": {
+				"$value": "6px"
+			},
+			"64": {
+				"$value": "6px"
+			},
+			"70": {
+				"$value": "6px"
+			}
+		}
+	}
+}
