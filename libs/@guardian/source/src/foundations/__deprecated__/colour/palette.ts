@@ -27,10 +27,10 @@ export const background = {
 	secondary: palette.neutral[97],
 	inverse: palette.neutral[10],
 	ctaPrimary: palette.brand[400],
-	ctaPrimaryHover: '#234B8A',
+	ctaPrimaryHover: '#234b8a',
 	ctaSecondary: palette.brand[800],
-	ctaSecondaryHover: '#ACC9F7',
-	ctaTertiaryHover: '#E5E5E5',
+	ctaSecondaryHover: '#acc9f7',
+	ctaTertiaryHover: '#e5e5e5',
 	input: palette.neutral[100],
 	inputChecked: palette.brand[500],
 } as const;
@@ -44,9 +44,9 @@ export const brandBackground = {
 	primary: palette.brand[400],
 	inputChecked: palette.neutral[100],
 	ctaPrimary: palette.neutral[100],
-	ctaPrimaryHover: '#E0E0E0',
+	ctaPrimaryHover: '#e0e0e0',
 	ctaSecondary: palette.brand[600],
-	ctaSecondaryHover: '#234B8A',
+	ctaSecondaryHover: '#234b8a',
 	ctaTertiaryHover: palette.brand[300],
 } as const;
 
@@ -60,8 +60,8 @@ export const brandAltBackground = {
 	ctaPrimary: palette.neutral[7],
 	ctaPrimaryHover: '#454545',
 	ctaSecondary: palette.brandAlt[200],
-	ctaSecondaryHover: '#F2AE00',
-	ctaTertiaryHover: '#FFD213',
+	ctaSecondaryHover: '#f2ae00',
+	ctaTertiaryHover: '#ffd213',
 } as const;
 
 /**
