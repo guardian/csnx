@@ -1,14 +1,18 @@
+import { fileHeader, minifyDictionary } from 'style-dictionary/utils';
+
 // eslint-disable-next-line import/no-default-export -- required by Style Dictionary
 export default {
 	source: ['src/design-tokens/tokens.json'],
-	// hooks: {
-	// 	formats: {
-	// 		'source/palette': ({ dictionary }) =>
-	// 			dictionary.allTokens
-	// 				.map((token) => `export const ${token.name} = '${token.$value}';`)
-	// 				.join('\n'),
-	// 	},
-	// },
+	hooks: {
+		formats: {
+			'typescript/const': async ({ dictionary, file }) => {
+				const { tokens } = dictionary;
+				const header = await fileHeader({ file });
+				const module = JSON.stringify(minifyDictionary(tokens, true), null, 2);
+				return `${header}export default ${module} as const;\n`;
+			},
+		},
+	},
 	platforms: {
 		typescript: {
 			buildPath: 'src/design-tokens/build/',
@@ -16,11 +20,7 @@ export default {
 			files: [
 				{
 					destination: 'tokens.ts',
-					// filter: (token) => token.path[0] === 'palette',
-					format: 'javascript/esm',
-					options: {
-						minify: true,
-					},
+					format: 'typescript/const',
 				},
 			],
 		},
