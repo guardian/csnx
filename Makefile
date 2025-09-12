@@ -442,6 +442,10 @@ install: check-node-version
 @guardian/source\:build-storybook: env
 	@corepack pnpm --filter @guardian/source build-storybook
 
+.PHONY: @guardian/source\:build-tokens
+@guardian/source\:build-tokens: env
+	@corepack pnpm --filter @guardian/source build-tokens
+
 .PHONY: @guardian/source\:create-icons
 @guardian/source\:create-icons: env
 	@corepack pnpm --filter @guardian/source create-icons
