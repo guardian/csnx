@@ -18,12 +18,11 @@ export const isConsentOrPayCountry = (countryCode: CountryCode) => {
 };
 
 export const getConsentOrPayCurrency = (countryCode: CountryCode): Currency => {
-	if (!isConsentOrPayCountry(countryCode)) {
-		return 'GBP';
-	}
-	return consentOrPayCountries[
-		countryCode as keyof typeof consentOrPayCountries
-	];
+	return (
+		(consentOrPayCountries as Record<string, Currency | undefined>)[
+			countryCode
+		] ?? 'GBP'
+	);
 };
 
 export const getSupportSignUpPage = (): string => {
