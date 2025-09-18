@@ -149,7 +149,11 @@ export const init = (
 		'variant';
 
 	const isOptedInForConsentOrPayEurope =
-		window.guardian?.config?.tests?.consentOrPayEuropeVariant === 'variant'; // Will update once the test is created
+		window.guardian?.config?.tests?.consentOrPayEuropeInternalTestVariant ===
+		'variant';
+
+	const consentOrPayEuropeSwitch =
+		window.guardian?.config?.switches?.consentOrPayEurope;
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -315,7 +319,7 @@ export const init = (
 	}
 
 	const isConsentOrPayCountryTest = (_countryCode: CountryCode) => {
-		if (isOptedInForConsentOrPayEurope) {
+		if (isOptedInForConsentOrPayEurope || consentOrPayEuropeSwitch) {
 			return isConsentOrPayCountry(_countryCode);
 		}
 
