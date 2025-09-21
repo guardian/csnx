@@ -4,11 +4,17 @@ export * from './deprecated-exports';
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
+export {
+	cmp,
+	getConsentFor,
+	onConsent,
+	onConsentChange,
+} from './consent-management-platform';
 export type {
-	OnConsentChangeCallback,
 	CMP,
-	ConsentState,
 	ConsentFramework,
+	ConsentState,
+	OnConsentChangeCallback,
 	VendorName,
 } from './consent-management-platform/types';
 export type {
@@ -16,12 +22,6 @@ export type {
 	TCFv2ConsentState,
 } from './consent-management-platform/types/tcfv2';
 export type { USNATConsentState } from './consent-management-platform/types/usnat';
-export {
-	cmp,
-	getConsentFor,
-	onConsentChange,
-	onConsent,
-} from './consent-management-platform';
 
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
@@ -55,12 +55,12 @@ export { loadScript } from './loadScript/loadScript';
 
 export { getLocale } from './locale/getLocale';
 
+export type { Subscription } from './logger/@types/logger';
 export { debug } from './logger/debug';
 export { log } from './logger/logger';
-export type { Subscription } from './logger/@types/logger';
 
-export { startPerformanceMeasure } from './performance/startPerformanceMeasure';
 export { getMeasures } from './performance/getMeasures';
+export { startPerformanceMeasure } from './performance/startPerformanceMeasure';
 
 export type {
 	OphanABEvent,
@@ -77,3 +77,5 @@ export { storage } from './storage/storage';
 
 export type { Switches } from './switches/@types/Switches';
 export { getSwitches } from './switches/getSwitches';
+
+export { getErrorMessage } from './getErrorMessage/getErrorMessage';
