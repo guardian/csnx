@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 25.5.0
+
+### Minor Changes
+
+- 3f12014: Export the getErrorMessage function
+
 ## 25.4.0
 
 ### Minor Changes
