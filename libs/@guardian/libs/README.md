@@ -30,7 +30,7 @@ Codified editorial design and information architecture.
 
 Get the user’s current location.
 
-### [Switches](./src/getSwitches)
+### [Switches](./src/switches)
 
 Get the active switches on theguardian.com.
 
@@ -85,6 +85,10 @@ Robust API over `localStorage` and `sessionStorage`.
 ### [`timeAgo`](./src/timeAgo)
 
 Format absolute dates as time-ago strings.
+
+### [`getErrorMessage`](./src/getErrorMessage)
+
+Utility for extracting a useful error message from Errors (or other values) that can be thrown in JavaScript.
 
 ## Installation
 
