@@ -2,7 +2,11 @@ import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
-import { isConsentOrPayCountry, setIsConsentOrPay } from './isConsentOrPay';
+import {
+	getConsentOrPayCurrency,
+	isConsentOrPayCountry,
+	setIsConsentOrPay,
+} from './isConsentOrPay';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
@@ -320,6 +324,7 @@ export const init = (
 					excludePage: isExcludedFromCMP(pageSection),
 					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
+					corPCurrency: getConsentOrPayCurrency(countryCode),
 				},
 			};
 			break;
