@@ -12,3 +12,5 @@ Within the gdpr framework, uses the jurisdiction to populate a new corPCurrency 
 - EUR for all other Consent or Pay jursidictions
 
 The corPCurrency is used by the Sourcepoint Scenario to determine which cookie banner is displayed
+
+The functionality is hidden behind a 0% A/B Test and Switch (defaulting to off), and will only be available where either a user has opted-in or the Switch has been turned on
