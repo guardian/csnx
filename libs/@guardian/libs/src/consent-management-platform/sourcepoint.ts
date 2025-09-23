@@ -2,7 +2,11 @@ import type { CountryCode } from '../index.test';
 import { log } from '../logger/logger';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
-import { isConsentOrPayCountry, setIsConsentOrPay } from './isConsentOrPay';
+import {
+	getConsentOrPayCurrency,
+	isConsentOrPayCountry,
+	setIsConsentOrPay,
+} from './isConsentOrPay';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
@@ -143,6 +147,13 @@ export const init = (
 	const isInPropertyIdABTest =
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
+
+	const isOptedInForConsentOrPayEurope =
+		window.guardian?.config?.tests?.consentOrPayEuropeInternalTestVariant ===
+		'variant';
+
+	const consentOrPayEuropeSwitch =
+		window.guardian?.config?.switches?.consentOrPayEurope;
 
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
@@ -307,6 +318,18 @@ export const init = (
 		);
 	}
 
+	const isConsentOrPayCountryTest = (_countryCode: CountryCode) => {
+		if (isOptedInForConsentOrPayEurope || consentOrPayEuropeSwitch) {
+			return isConsentOrPayCountry(_countryCode);
+		}
+
+		if (_countryCode === 'GB') {
+			return true;
+		}
+
+		return false;
+	};
+
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
@@ -318,8 +341,9 @@ export const init = (
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPayCountry(countryCode),
+					isCorP: isConsentOrPayCountryTest(countryCode),
 					isUserSignedIn,
+					corPCurrency: getConsentOrPayCurrency(countryCode),
 				},
 			};
 			break;
