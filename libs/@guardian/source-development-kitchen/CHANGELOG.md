@@ -1,5 +1,12 @@
 # @guardian/source-development-kitchen
 
+## 22.0.0
+
+### Patch Changes
+
+- Updated dependencies [f3d443f]
+  - @guardian/libs@26.0.0
+
 ## 21.0.0
 
 ### Patch Changes

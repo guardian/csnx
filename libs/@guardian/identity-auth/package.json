@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/identity-auth",
-	"version": "10.0.0",
+	"version": "11.0.0",
 	"private": false,
 	"description": "",
 	"license": "Apache-2.0",
@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "25.5.0",
+		"@guardian/libs": "26.0.0",
 		"@types/jest": "30.0.0",
 		"eslint": "9.19.0",
 		"jest": "30.0.5",
@@ -40,7 +40,7 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^25.0.0",
+		"@guardian/libs": "^26.0.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.5.2"
 	},

@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "21.0.0",
+	"version": "22.0.0",
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "25.5.0",
+		"@guardian/libs": "26.0.0",
 		"@guardian/source": "11.3.0",
 		"@storybook/addon-a11y": "8.6.4",
 		"@storybook/addon-essentials": "8.6.4",
@@ -52,7 +52,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.4",
-		"@guardian/libs": "^25.0.0",
+		"@guardian/libs": "^26.0.0",
 		"@guardian/source": "^11.0.0",
 		"@types/react": "^18.2.79",
 		"react": "^18.2.0",
