@@ -319,7 +319,14 @@ export const init = (
 	}
 
 	const isConsentOrPayCountryTest = (_countryCode: CountryCode) => {
-		if (isOptedInForConsentOrPayEurope || consentOrPayEuropeSwitch) {
+		const isTestPage =
+			window.location.hostname === 'localhost' &&
+			window.location.port === '4321';
+		if (
+			isOptedInForConsentOrPayEurope ||
+			consentOrPayEuropeSwitch ||
+			isTestPage
+		) {
 			return isConsentOrPayCountry(_countryCode);
 		}
 
