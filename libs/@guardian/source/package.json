@@ -25,6 +25,7 @@
 		"build": "wireit",
 		"build-generated": "wireit",
 		"build-storybook": "wireit",
+		"build-tokens": "wireit",
 		"create-icons": "tsx scripts/create-icons/index.ts",
 		"dev": "jest --watch",
 		"fix": "wireit",
@@ -72,6 +73,7 @@
 		"react-dom": "18.2.0",
 		"rollup": "4.50.1",
 		"storybook": "8.6.4",
+		"style-dictionary": "^5.0.4",
 		"ts-jest": "29.4.0",
 		"tslib": "2.6.2",
 		"tsx": "4.20.3",
@@ -139,6 +141,15 @@
 			],
 			"output": [
 				"storybook-static"
+			]
+		},
+		"build-tokens": {
+			"command": "style-dictionary build --config src/design-tokens/config.js",
+			"files": [
+				"./src/design-tokens/**"
+			],
+			"output": [
+				"./src/foundations/build"
 			]
 		},
 		"fix": {

@@ -1,1 +1,2 @@
-export { palette } from '../__generated__/palette';
+import tokens from '../../design-tokens/build/tokens';
+export const palette = tokens.palette;
