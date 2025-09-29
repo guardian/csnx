@@ -3,6 +3,7 @@ import { Crossword } from '../src';
 import { cryptic } from './formats/cryptic';
 import { everyman } from './formats/everyman';
 import { groupedClues } from './formats/grouped-clues';
+import { mini } from './formats/mini';
 import { miniCryptic } from './formats/mini-cryptic';
 import { prize } from './formats/prize';
 import { quick } from './formats/quick';
@@ -72,4 +73,8 @@ export const MiniCryptic: Story = {
 
 export const GroupedClues: Story = {
 	args: { data: groupedClues },
+};
+
+export const Mini: Story = {
+	args: { data: mini },
 };
