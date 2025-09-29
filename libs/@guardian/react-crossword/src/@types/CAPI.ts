@@ -48,7 +48,8 @@ export type CAPICrossword = {
 		| 'special'
 		| 'speedy'
 		| 'sunday-quick'
-		| 'weekend';
+		| 'weekend'
+		| 'mini';
 
 	date: number;
 	dateSolutionAvailable?: number;

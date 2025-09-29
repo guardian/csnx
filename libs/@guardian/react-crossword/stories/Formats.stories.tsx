@@ -13,6 +13,7 @@ import { speedy } from './formats/speedy';
 import { sundayQuick } from './formats/sunday-quick';
 import { uneven } from './formats/uneven';
 import { weekend } from './formats/weekend';
+import { mini } from './formats/mini';
 
 const meta: Meta<typeof Crossword> = {
 	component: Crossword,
@@ -72,4 +73,8 @@ export const MiniCryptic: Story = {
 
 export const GroupedClues: Story = {
 	args: { data: groupedClues },
+};
+
+export const Mini: Story = {
+	args: { data: mini },
 };
