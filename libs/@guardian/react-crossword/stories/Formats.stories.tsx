@@ -3,6 +3,7 @@ import { Crossword } from '../src';
 import { cryptic } from './formats/cryptic';
 import { everyman } from './formats/everyman';
 import { groupedClues } from './formats/grouped-clues';
+import { mini } from './formats/mini';
 import { miniCryptic } from './formats/mini-cryptic';
 import { prize } from './formats/prize';
 import { quick } from './formats/quick';
@@ -13,7 +14,6 @@ import { speedy } from './formats/speedy';
 import { sundayQuick } from './formats/sunday-quick';
 import { uneven } from './formats/uneven';
 import { weekend } from './formats/weekend';
-import { mini } from './formats/mini';
 
 const meta: Meta<typeof Crossword> = {
 	component: Crossword,
