@@ -134,7 +134,7 @@ export const init = (
 			frameworkMessageType = 'usnat';
 			break;
 		case 'aus':
-			frameworkMessageType = 'ccpa';
+			frameworkMessageType = 'globalcmp';
 			break;
 		case 'tcfv2':
 		default:
@@ -176,7 +176,7 @@ export const init = (
 			},
 			pubData: { ...pubData, cmpInitTimeUtc: new Date().getTime() },
 
-			// ccpa or gdpr object added below
+			// globalcmp or gdpr object added below
 
 			events: {
 				onConsentReady: (message_type, consentUUID, euconsent) => {
@@ -337,11 +337,10 @@ export const init = (
 		return false;
 	};
 
-	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
+	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr, usnat, OR globalcmp
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
-	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
-	// advertisers seem to assume that __tcfapi is the one to use, breaking CCPA consent.
-	// https://documentation.sourcepoint.com/implementation/web-implementation/multi-campaign-web-implementation#implementation-code-snippet-overview
+	// the appropriate consent API to the window object (__tcfapi for gdpr, __gpp for usnat, none for globalcmp).
+	// If multiple APIs appear on the window, advertisers may make incorrect assumptions about which to use.
 	switch (framework) {
 		case 'tcfv2':
 			window._sp_.config.gdpr = {
@@ -362,7 +361,7 @@ export const init = (
 			};
 			break;
 		case 'aus':
-			window._sp_.config.ccpa = {
+			window._sp_.config.globalcmp = {
 				targetingParams: {
 					framework,
 				},
