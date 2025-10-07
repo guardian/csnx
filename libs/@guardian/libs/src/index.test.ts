@@ -15,6 +15,7 @@ describe('The package', () => {
 			'getConsentFor',
 			'getCookie',
 			'getCountryByCountryCode',
+			'getErrorMessage',
 			'getLocale',
 			'getMeasures',
 			'getSwitches',

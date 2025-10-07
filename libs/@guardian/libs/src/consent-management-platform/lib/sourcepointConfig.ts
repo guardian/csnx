@@ -29,4 +29,43 @@ export const SourcePointChoiceTypes = {
 	Dismiss: 15,
 } as const;
 
-export const consentOrPayCountries = ['GB'];
+export type Currency = 'GBP' | 'EUR';
+
+// Consent or Pay countries with their respective currencies
+export const consentOrPayCountries = {
+	GB: 'GBP', // United Kingdom
+	JE: 'GBP', // Jersey
+	GG: 'GBP', // Guernsey
+	IM: 'GBP', // Isle of Man
+	GI: 'GBP', // Gibraltar
+	AT: 'EUR', // Austria
+	BE: 'EUR', // Belgium
+	BG: 'EUR', // Bulgaria
+	HR: 'EUR', // Croatia
+	CY: 'EUR', // Cyprus
+	CZ: 'EUR', // Czech Republic
+	DK: 'EUR', // Denmark
+	EE: 'EUR', // Estonia
+	FI: 'EUR', // Finland
+	FR: 'EUR', // France
+	DE: 'EUR', // Germany
+	GR: 'EUR', // Greece
+	HU: 'EUR', // Hungary
+	IS: 'EUR', // Iceland
+	IE: 'EUR', // Ireland
+	IT: 'EUR', // Italy
+	LV: 'EUR', // Latvia
+	LT: 'EUR', // Lithuania
+	LU: 'EUR', // Luxembourg
+	MT: 'EUR', // Malta
+	NL: 'EUR', // Netherlands
+	NO: 'EUR', // Norway
+	PL: 'EUR', // Poland
+	PT: 'EUR', // Portugal
+	RO: 'EUR', // Romania
+	SK: 'EUR', // Slovakia
+	SI: 'EUR', // Slovenia
+	ES: 'EUR', // Spain
+	SE: 'EUR', // Sweden
+	CH: 'EUR', // Switzerland
+} as const satisfies Record<string, Currency>;

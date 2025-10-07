@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/core-web-vitals",
-	"version": "14.0.0",
+	"version": "15.0.0",
 	"private": false,
 	"description": "Methods to help with the implementation of Google's Core Web Vitals",
 	"sideEffects": false,
@@ -26,12 +26,12 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "25.3.0",
+		"@guardian/libs": "26.0.0",
 		"@types/jest": "30.0.0",
 		"eslint": "9.19.0",
 		"jest": "30.0.5",
-		"jest-environment-jsdom": "30.0.5",
-		"rollup": "4.46.2",
+		"jest-environment-jsdom": "30.1.2",
+		"rollup": "4.50.1",
 		"ts-jest": "29.4.0",
 		"tslib": "2.6.2",
 		"typescript": "5.5.2",
@@ -39,7 +39,7 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^25.0.0",
+		"@guardian/libs": "^26.0.0",
 		"tslib": "^2.6.2",
 		"typescript": "~5.5.2",
 		"web-vitals": "^4.2.1"
