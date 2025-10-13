@@ -32,13 +32,6 @@
 		log('cmp', event);
 	}
 
-	let setABTest = () => {
-		setCookie({
-			name: 'X-GU-Experiment-0perc-E',
-			value: 'true',
-		})
-	}
-
 	let clearPreferences = () => {
 		// clear local storage
 		// https://documentation.sourcepoint.com/web-implementation/general/cookies-and-local-storage#cmp-local-storage
@@ -52,8 +45,6 @@
 				.replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
 		});
 
-		setABTest();
-
 		window.location.reload();
 	};
 
@@ -65,6 +56,14 @@
 		window.location.search = queryParams.toString();
 	};
 
+	const listOfCountriesandFrameworkApplied = {
+		GB: 'tcfv2 - consent or pay',
+		FR: 'tcfv2 - consent or pay',
+		CA: 'tcfv2 - rest of world',
+		US: 'usnat',
+		AU: 'aus',
+	};
+
 	const setCountryParam = (country) => {
 		let queryParams = new URLSearchParams(window.location.search);
 		if (country) {
@@ -72,13 +71,12 @@
 		} else {
 			queryParams.delete('country');
 		}
-		window.history.replaceState({}, '', `${window.location.pathname}?${queryParams.toString()}`);
+		window.history.replaceState(
+			{},
+			'',
+			`${window.location.pathname}?${queryParams.toString()}`,
+		);
 		clearPreferences();
-	};
-
-	const toggleIsFeatureFlagEnabled = () => {
-		isFeatureFlagEnabled = !isFeatureFlagEnabled;
-		toggleQueryParams('CMP_COP');
 	};
 
 	const toggleIsUserSignedIn = () => {
@@ -118,55 +116,24 @@
 			>open privacy manager</button
 		>
 		<button on:click={clearPreferences}>clear preferences</button>
-		<button on:click={setABTest}>set ab test</button>
 
-		<label class={selectedCountry == 'GB' ? 'selected' : 'none'}>
-			<input
-				type="radio"
-				value="GB"
-				bind:group={selectedCountry}
-				on:change={() => setCountryParam('GB')}
-			/>
-			in GB:<strong>TCFv2 (CorP)</strong>
+		<label>
+			<strong>Country:</strong>
+			<select
+				bind:value={selectedCountry}
+				on:change={() => setCountryParam(selectedCountry)}
+			>
+				{#each Object.keys(listOfCountriesandFrameworkApplied) as country}
+					<option value={country}>{country}</option>
+				{/each}
+			</select>
 		</label>
-		<label class={selectedCountry == 'FR' ? 'selected' : 'none'}>
-			<input
-				type="radio"
-				value="FR"
-				bind:group={selectedCountry}
-				on:change={() => setCountryParam('FR')}
-			/>
-			in EU:<strong>TCFv2 (CorP)</strong>
-		</label>
-		<label class={selectedCountry == 'CA' ? 'selected' : 'none'}>
-			<input
-				type="radio"
-				value="CA"
-				bind:group={selectedCountry}
-				on:change={() => setCountryParam('CA')}
-			/>
-			in RoW:<strong>TCFv2</strong>
-		</label>
-		<label class={selectedCountry == 'US' ? 'selected' : 'none'}>
-			<input
-				type="radio"
-				value="US"
-				bind:group={selectedCountry}
-				on:change={() => setCountryParam('US')}
-			/>
-			in USA:
-			<strong>USNAT</strong>
-		</label>
-		<label class={selectedCountry == 'AU' ? 'selected' : 'none'}>
-			<input
-				type="radio"
-				value="AU"
-				bind:group={selectedCountry}
-				on:change={() => setCountryParam('AU')}
-			/>
-			in Australia:
-			<strong>CCPA-like</strong>
-		</label>
+		<div class="label-header">
+			<p>
+				<strong>Selected Framework:</strong>
+				{listOfCountriesandFrameworkApplied[selectedCountry]}
+			</p>
+		</div>
 		<label class={useNonAdvertisedList ? 'selected' : 'none'}>
 			<input
 				type="checkbox"
@@ -324,6 +291,14 @@
 
 	label.selected {
 		background-color: lightgrey;
+	}
+
+	.label-header {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.25em;
+		border-radius: 0.25em;
+		border: rgba(0, 0, 0, 0.1) solid 1px;
 	}
 
 	summary {
