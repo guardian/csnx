@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 11.1.0
+
+### Minor Changes
+
+- b40eb19: Add a mini crossword type
+
 ## 11.0.0
 
 ### Patch Changes
