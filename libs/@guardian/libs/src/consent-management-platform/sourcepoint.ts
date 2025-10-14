@@ -148,13 +148,6 @@ export const init = (
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
-	const isOptedInForConsentOrPayEurope =
-		window.guardian?.config?.tests?.consentOrPayEuropeInternalTestVariant ===
-		'variant';
-
-	const consentOrPayEuropeSwitch =
-		window.guardian?.config?.switches?.consentOrPayEurope;
-
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -318,25 +311,6 @@ export const init = (
 		);
 	}
 
-	const isConsentOrPayCountryTest = (_countryCode: CountryCode) => {
-		const isTestPage =
-			window.location.hostname === 'localhost' &&
-			window.location.port === '4321';
-		if (
-			isOptedInForConsentOrPayEurope ||
-			consentOrPayEuropeSwitch ||
-			isTestPage
-		) {
-			return isConsentOrPayCountry(_countryCode);
-		}
-
-		if (_countryCode === 'GB') {
-			return true;
-		}
-
-		return false;
-	};
-
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr OR ccpa
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// __tcfapi or __uspapi to the window object respectively. If both of these functions appear on the window,
@@ -348,7 +322,7 @@ export const init = (
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPayCountryTest(countryCode),
+					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
 					corPCurrency: getConsentOrPayCurrency(countryCode),
 				},
