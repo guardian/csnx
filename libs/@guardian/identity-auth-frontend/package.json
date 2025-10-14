@@ -28,7 +28,7 @@
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/identity-auth": "11.0.0",
-		"@guardian/libs": "26.0.0",
+		"@guardian/libs": "26.0.1",
 		"@types/jest": "30.0.0",
 		"eslint": "9.19.0",
 		"jest": "30.0.5",
