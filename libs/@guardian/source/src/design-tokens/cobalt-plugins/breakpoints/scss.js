@@ -2,14 +2,9 @@
 
 // @ts-check
 
-import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
-import { dirname, join } from 'node:path';
 import { defaultTransformer } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
 import { template } from '../../lib/template.js';
-
-const require = createRequire(import.meta.url);
 
 /**
  * @param {{ filename: string; }} options
@@ -37,41 +32,26 @@ export default function pluginBreakpointsScss(options) {
 				set(transformedTokens, token.id, defaultTransformer(token));
 			}
 
-			const breakpointEntries = [];
+			const breakpointPairs = [];
 
 			for (const breakpoints of Object.values(transformedTokens)) {
 				for (const [name, value] of Object.entries(breakpoints)) {
-					breakpointEntries.push(`\t${name}: ${value},`);
+					breakpointPairs.push({ name, value });
 				}
 			}
 
-			// Inline the `mq` mixin provided by sass-mq, and offer that as a tool for accessing breakpoints, eg. `@include mq($from: desktop)`
-			const sassMqPackagePath = require.resolve('sass-mq/package.json');
-			const sassMqPath = join(dirname(sassMqPackagePath), '_mq.scss');
-			let sassMqContent = readFileSync(sassMqPath, 'utf-8');
+			breakpointPairs.sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
 
-			// Remove the "Name your breakpoints..." paragraph from the comment
-			sassMqContent = sassMqContent.replace(
-				/\/\/\/ Name your breakpoints.*?\/\/\/\n\/\/\/ @type Map\n/s,
-				'/// @type Map\n',
+			const breakpointEntries = breakpointPairs.map(
+				({ name, value }) => `\t${name}: ${value},`,
 			);
 
-			// Replace just the contents of $breakpoints map with Source breakpoints
-			sassMqContent = sassMqContent.replace(
-				/(\$breakpoints:\s*\()\s*mobile:.*?\)/s,
-				`$1\n${breakpointEntries.join('\n')}\n)`,
-			);
-
-			const scssSource = sassMqContent;
+			const scssSource = `$breakpoints: (\n${breakpointEntries.join('\n')}\n);`;
 
 			return [
 				{
 					filename: options.filename,
-					contents: template(
-						import.meta.filename,
-						scssSource,
-						'This file copies the media query mixins provided by https://github.com/sass-mq/sass-mq, configured with Source breakpoints.',
-					),
+					contents: template(import.meta.filename, scssSource),
 				},
 			];
 		},
