@@ -15,6 +15,11 @@ runs:
       with:
         node-version-file: '.nvmrc'
         cache: 'pnpm'
+        registry-url: 'https://registry.npmjs.org'
+
+    # Trusted publishing requires npm CLI v11.5.1 or later:
+    - run: npm install -g npm@11.6.1
+      shell: bash
 
     # Set up GitHub Actions caching for Wireit.
     - uses: google/wireit@setup-github-actions-caching/v2
