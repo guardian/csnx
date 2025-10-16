@@ -5,6 +5,10 @@
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
 	"sideEffects": false,
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/guardian/csnx.git"
+	},
 	"exports": {
 		"types": "./dist/index.d.ts",
 		"import": "./dist/index.js",
