@@ -362,6 +362,12 @@ export const init = (
 		}
 	});
 
+	// Handle back navigation to ensure CMP messaging is shown when needed
+	window.addEventListener('pageshow', () => {
+		console.log('CMP: pageshow detected, executing messaging');
+		window._sp_?.executeMessaging?.();
+	});
+
 	spLib.src = `${ENDPOINT}/unified/wrapperMessagingWithoutDetection.js`;
 
 	document.body.appendChild(spLib);
