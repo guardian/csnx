@@ -1,3 +1,6 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import postcss from 'postcss';
 import {
 	background,
 	border,
@@ -26,6 +29,17 @@ import {
 } from './size/size';
 import { remSpace, space } from './space/space';
 
+function kebabToCamel(name: string) {
+	return name
+		.toLowerCase()
+		.split('-')
+		.filter((word) => word.length > 0)
+		.map((word, index) =>
+			index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1),
+		)
+		.join('');
+}
+
 describe('Transition tokens', () => {
 	it('should match expected output', () => {
 		expect(transitions).toEqual({
@@ -36,7 +50,7 @@ describe('Transition tokens', () => {
 	});
 });
 
-describe('Breakpoint tokens', () => {
+describe('Breakpoint tokens object output', () => {
 	it('should match expected output', () => {
 		expect(breakpoints).toEqual({
 			desktop: 980,
@@ -51,134 +65,180 @@ describe('Breakpoint tokens', () => {
 	});
 });
 
+describe.only('Breakpoint tokens mixin output', () => {
+	it.only('should generate correct SCSS breakpoints with mq mixin', () => {
+		const cssPath = join(__dirname, '__generated__/breakpoints.scss');
+		const cssContent = readFileSync(cssPath, 'utf-8');
+
+		const expectedRegex = new RegExp(
+			'\\$breakpoints:\\s*\\(' +
+				'\\s*mobile:\\s*320px,' +
+				'\\s*mobileMedium:\\s*375px,' +
+				'\\s*mobileLandscape:\\s*480px,' +
+				'\\s*phablet:\\s*660px,' +
+				'\\s*tablet:\\s*740px,' +
+				'\\s*desktop:\\s*980px,' +
+				'\\s*leftCol:\\s*1140px,' +
+				'\\s*wide:\\s*1300px,' +
+				'\\s*\\);',
+		);
+
+		expect(cssContent).toMatch(expectedRegex);
+	});
+});
+
 describe('Palette tokens', () => {
+	const expectedPalette = {
+		brand: {
+			'100': '#001536',
+			'300': '#041F4A',
+			'400': '#052962',
+			'500': '#0077B6',
+			'600': '#506991',
+			'800': '#C1D8FC',
+		},
+		brandAlt: {
+			'200': '#F3C100',
+			'300': '#FFD900',
+			'400': '#FFE500',
+		},
+		culture: {
+			'100': '#3E3323',
+			'200': '#574835',
+			'300': '#6B5840',
+			'350': '#866D50',
+			'400': '#866D50',
+			'450': '#A1845C',
+			'50': '#2B2625',
+			'500': '#EACCA0',
+			'600': '#E7D4B9',
+			'700': '#EFE8DD',
+			'800': '#FBF6EF',
+		},
+		error: {
+			'400': '#C70000',
+			'500': '#FF9081',
+		},
+		focus: {
+			'400': '#0077B6',
+		},
+		labs: {
+			'100': '#09615B',
+			'200': '#0C7A73',
+			'300': '#65A897',
+			'400': '#69D1CA',
+			'500': '#A8E3DF',
+			'600': '#DCF4F3',
+			'700': '#F3FBFB',
+		},
+		lifestyle: {
+			'100': '#510043',
+			'200': '#650054',
+			'300': '#7D0068',
+			'400': '#BB3B80',
+			'450': '#F37ABC',
+			'500': '#FFABDB',
+			'600': '#FEC8D3',
+			'800': '#FEF1F8',
+		},
+		neutral: {
+			'0': '#000000',
+			'10': '#1A1A1A',
+			'100': '#FFFFFF',
+			'20': '#333333',
+			'38': '#545454',
+			'46': '#707070',
+			'60': '#999999',
+			'7': '#121212',
+			'73': '#BABABA',
+			'86': '#DCDCDC',
+			'93': '#EDEDED',
+			'97': '#F6F6F6',
+		},
+		news: {
+			'100': '#660505',
+			'200': '#8B0000',
+			'300': '#AB0613',
+			'400': '#C70000',
+			'500': '#FF5943',
+			'550': '#FF9081',
+			'600': '#FFBAC8',
+			'700': '#FFD8D1',
+			'800': '#FFF4F2',
+		},
+		notificationBlue: {
+			'400': '#0190F7',
+		},
+		opinion: {
+			'100': '#672005',
+			'200': '#8D2700',
+			'300': '#C74600',
+			'400': '#C74600',
+			'450': '#E05E00',
+			'500': '#FF7F0F',
+			'550': '#FF9941',
+			'600': '#F9B376',
+			'700': '#FFE7D4',
+			'800': '#FEF9F5',
+		},
+		specialReport: {
+			'100': '#222527',
+			'200': '#303538',
+			'300': '#3F464A',
+			'400': '#595C5F',
+			'450': '#9DA0A2',
+			'500': '#ABC2C9',
+			'700': '#E4E5E8',
+			'800': '#EFF1F2',
+		},
+		specialReportAlt: {
+			'100': '#2B2B2A',
+			'200': '#B9300A',
+			'300': '#FF663D',
+			'700': '#EBE6E1',
+			'800': '#F5F0EB',
+		},
+		sport: {
+			'100': '#003C60',
+			'200': '#004E7C',
+			'300': '#005689',
+			'400': '#0077B6',
+			'500': '#00B2FF',
+			'600': '#90DCFF',
+			'700': '#D8F1FF',
+			'800': '#F1F8FC',
+		},
+		success: {
+			'300': '#185E36',
+			'400': '#22874D',
+			'500': '#58D08B',
+		},
+	};
+
 	it('should match expected output', () => {
-		expect(palette).toEqual({
-			brand: {
-				'100': '#001536',
-				'300': '#041F4A',
-				'400': '#052962',
-				'500': '#0077B6',
-				'600': '#506991',
-				'800': '#C1D8FC',
-			},
-			brandAlt: {
-				'200': '#F3C100',
-				'300': '#FFD900',
-				'400': '#FFE500',
-			},
-			culture: {
-				'100': '#3E3323',
-				'200': '#574835',
-				'300': '#6B5840',
-				'350': '#866D50',
-				'400': '#866D50',
-				'450': '#A1845C',
-				'50': '#2B2625',
-				'500': '#EACCA0',
-				'600': '#E7D4B9',
-				'700': '#EFE8DD',
-				'800': '#FBF6EF',
-			},
-			error: {
-				'400': '#C70000',
-				'500': '#FF9081',
-			},
-			focus: {
-				'400': '#0077B6',
-			},
-			labs: {
-				'100': '#09615B',
-				'200': '#0C7A73',
-				'300': '#65A897',
-				'400': '#69D1CA',
-				'500': '#A8E3DF',
-				'600': '#DCF4F3',
-				'700': '#F3FBFB',
-			},
-			lifestyle: {
-				'100': '#510043',
-				'200': '#650054',
-				'300': '#7D0068',
-				'400': '#BB3B80',
-				'450': '#F37ABC',
-				'500': '#FFABDB',
-				'600': '#FEC8D3',
-				'800': '#FEF1F8',
-			},
-			neutral: {
-				'0': '#000000',
-				'10': '#1A1A1A',
-				'100': '#FFFFFF',
-				'20': '#333333',
-				'38': '#545454',
-				'46': '#707070',
-				'60': '#999999',
-				'7': '#121212',
-				'73': '#BABABA',
-				'86': '#DCDCDC',
-				'93': '#EDEDED',
-				'97': '#F6F6F6',
-			},
-			news: {
-				'100': '#660505',
-				'200': '#8B0000',
-				'300': '#AB0613',
-				'400': '#C70000',
-				'500': '#FF5943',
-				'550': '#FF9081',
-				'600': '#FFBAC8',
-				'700': '#FFD8D1',
-				'800': '#FFF4F2',
-			},
-			notificationBlue: {
-				'400': '#0190F7',
-			},
-			opinion: {
-				'100': '#672005',
-				'200': '#8D2700',
-				'300': '#C74600',
-				'400': '#C74600',
-				'450': '#E05E00',
-				'500': '#FF7F0F',
-				'550': '#FF9941',
-				'600': '#F9B376',
-				'700': '#FFE7D4',
-				'800': '#FEF9F5',
-			},
-			specialReport: {
-				'100': '#222527',
-				'200': '#303538',
-				'300': '#3F464A',
-				'400': '#595C5F',
-				'450': '#9DA0A2',
-				'500': '#ABC2C9',
-				'700': '#E4E5E8',
-				'800': '#EFF1F2',
-			},
-			specialReportAlt: {
-				'100': '#2B2B2A',
-				'200': '#B9300A',
-				'300': '#FF663D',
-				'700': '#EBE6E1',
-				'800': '#F5F0EB',
-			},
-			sport: {
-				'100': '#003C60',
-				'200': '#004E7C',
-				'300': '#005689',
-				'400': '#0077B6',
-				'500': '#00B2FF',
-				'600': '#90DCFF',
-				'700': '#D8F1FF',
-				'800': '#F1F8FC',
-			},
-			success: {
-				'300': '#185E36',
-				'400': '#22874D',
-				'500': '#58D08B',
-			},
+		expect(palette).toEqual(expectedPalette);
+	});
+
+	it('should generate correct CSS variables', () => {
+		const cssPath = join(__dirname, '__generated__/palette.css');
+		const cssContent = readFileSync(cssPath, 'utf-8');
+		const root = postcss.parse(cssContent);
+
+		const reconstructedPalette = {} as Record<string, Record<string, string>>;
+
+		root.walkDecls((decl) => {
+			// Match eg. "brand-alt" and "300" from --src-brand-alt-300
+			const match = decl.prop.match(/^--src-([a-z-]+)-(\d+)$/);
+
+			if (match?.[1] && match[2]) {
+				const [, colorName, shade] = match;
+				const camelColorName = kebabToCamel(colorName);
+				reconstructedPalette[camelColorName] ??= {};
+				reconstructedPalette[camelColorName][shade] = decl.value.toUpperCase();
+			}
 		});
+
+		expect(reconstructedPalette).toEqual(expectedPalette);
 	});
 });
 
@@ -2093,9 +2153,996 @@ describe('Typography preset object output', () => {
 	});
 });
 
-/**
- * Deprecated tokens
- */
+describe('Typography preset CSS classes output', () => {
+	it('should match expected output', () => {
+		const cssPath = join(__dirname, '__generated__/typography.css');
+		const cssContent = readFileSync(cssPath, 'utf-8');
+		const root = postcss.parse(cssContent);
+
+		const findRule = (className: string) => {
+			const rule = root.nodes.find(
+				(node) => node.type === 'rule' && node.selector === `.${className}`,
+			);
+
+			if (!rule) {
+				throw new Error(`rule with class name .${className} not found`);
+			}
+
+			return rule.toString();
+		};
+
+		expect(findRule('src-article-15')).toMatchCSS(
+			`.src-article-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.4;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-17')).toMatchCSS(
+			`.src-article-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.4;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-bold-15')).toMatchCSS(
+			`.src-article-bold-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.4;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-bold-17')).toMatchCSS(
+			`.src-article-bold-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.4;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-bold-italic-15')).toMatchCSS(
+			`.src-article-bold-italic-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.4;
+				font-weight: 700;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-bold-italic-17')).toMatchCSS(
+			`.src-article-bold-italic-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.4;
+				font-weight: 700;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-italic-15')).toMatchCSS(
+			`.src-article-italic-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.4;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-article-italic-17')).toMatchCSS(
+			`.src-article-italic-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.4;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-14')).toMatchCSS(
+			`.src-headline-bold-14 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-15')).toMatchCSS(
+			`.src-headline-bold-15 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-17')).toMatchCSS(
+			`.src-headline-bold-17 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-20')).toMatchCSS(
+			`.src-headline-bold-20 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.25rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-24')).toMatchCSS(
+			`.src-headline-bold-24 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.5rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-28')).toMatchCSS(
+			`.src-headline-bold-28 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.75rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-34')).toMatchCSS(
+			`.src-headline-bold-34 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.125rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-42')).toMatchCSS(
+			`.src-headline-bold-42 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.625rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 5px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-50')).toMatchCSS(
+			`.src-headline-bold-50 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 3.125rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-bold-64')).toMatchCSS(
+			`.src-headline-bold-64 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 4rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-light-14')).toMatchCSS(
+			`.src-headline-light-14 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-light-15')).toMatchCSS(
+			`.src-headline-light-15 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-light-17')).toMatchCSS(
+			`.src-headline-light-17 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-light-20')).toMatchCSS(
+			`.src-headline-light-20 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.25rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-light-24')).toMatchCSS(
+			`.src-headline-light-24 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.5rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-light-28')).toMatchCSS(
+			`.src-headline-light-28 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.75rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-light-34')).toMatchCSS(
+			`.src-headline-light-34 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.125rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-headline-light-42')).toMatchCSS(
+			`.src-headline-light-42 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.625rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 5px;
+			}`,
+		);
+		expect(findRule('src-headline-light-50')).toMatchCSS(
+			`.src-headline-light-50 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 3.125rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-light-64')).toMatchCSS(
+			`.src-headline-light-64 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 4rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-14')).toMatchCSS(
+			`.src-headline-light-italic-14 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-15')).toMatchCSS(
+			`.src-headline-light-italic-15 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-17')).toMatchCSS(
+			`.src-headline-light-italic-17 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-20')).toMatchCSS(
+			`.src-headline-light-italic-20 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.25rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-24')).toMatchCSS(
+			`.src-headline-light-italic-24 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.5rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-28')).toMatchCSS(
+			`.src-headline-light-italic-28 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.75rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-34')).toMatchCSS(
+			`.src-headline-light-italic-34 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.125rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-42')).toMatchCSS(
+			`.src-headline-light-italic-42 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.625rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 5px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-50')).toMatchCSS(
+			`.src-headline-light-italic-50 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 3.125rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-light-italic-64')).toMatchCSS(
+			`.src-headline-light-italic-64 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 4rem;
+				line-height: 1.15;
+				font-weight: 300;
+				font-style: italic;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-14')).toMatchCSS(
+			`.src-headline-medium-14 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-15')).toMatchCSS(
+			`.src-headline-medium-15 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-17')).toMatchCSS(
+			`.src-headline-medium-17 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-20')).toMatchCSS(
+			`.src-headline-medium-20 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.25rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-24')).toMatchCSS(
+			`.src-headline-medium-24 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.5rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-28')).toMatchCSS(
+			`.src-headline-medium-28 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.75rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-34')).toMatchCSS(
+			`.src-headline-medium-34 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.125rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-42')).toMatchCSS(
+			`.src-headline-medium-42 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.625rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 5px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-50')).toMatchCSS(
+			`.src-headline-medium-50 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 3.125rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-64')).toMatchCSS(
+			`.src-headline-medium-64 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 4rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-14')).toMatchCSS(
+			`.src-headline-medium-italic-14 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-15')).toMatchCSS(
+			`.src-headline-medium-italic-15 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-17')).toMatchCSS(
+			`.src-headline-medium-italic-17 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-20')).toMatchCSS(
+			`.src-headline-medium-italic-20 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.25rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-24')).toMatchCSS(
+			`.src-headline-medium-italic-24 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.5rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-28')).toMatchCSS(
+			`.src-headline-medium-italic-28 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 1.75rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-34')).toMatchCSS(
+			`.src-headline-medium-italic-34 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.125rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-42')).toMatchCSS(
+			`.src-headline-medium-italic-42 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 2.625rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 5px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-50')).toMatchCSS(
+			`.src-headline-medium-italic-50 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 3.125rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-headline-medium-italic-64')).toMatchCSS(
+			`.src-headline-medium-italic-64 {
+				font-family: "GH Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+				font-size: 4rem;
+				line-height: 1.15;
+				font-weight: 500;
+				font-style: italic;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-14')).toMatchCSS(
+			`.src-text-egyptian-14 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-15')).toMatchCSS(
+			`.src-text-egyptian-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-17')).toMatchCSS(
+			`.src-text-egyptian-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-bold-14')).toMatchCSS(
+			`.src-text-egyptian-bold-14 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-bold-15')).toMatchCSS(
+			`.src-text-egyptian-bold-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-bold-17')).toMatchCSS(
+			`.src-text-egyptian-bold-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-bold-italic-14')).toMatchCSS(
+			`.src-text-egyptian-bold-italic-14 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-bold-italic-15')).toMatchCSS(
+			`.src-text-egyptian-bold-italic-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-bold-italic-17')).toMatchCSS(
+			`.src-text-egyptian-bold-italic-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-italic-14')).toMatchCSS(
+			`.src-text-egyptian-italic-14 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-italic-15')).toMatchCSS(
+			`.src-text-egyptian-italic-15 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-egyptian-italic-17')).toMatchCSS(
+			`.src-text-egyptian-italic-17 {
+				font-family: GuardianTextEgyptian, "Guardian Text Egyptian Web", Georgia, serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-12')).toMatchCSS(
+			`.src-text-sans-12 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.75rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-14')).toMatchCSS(
+			`.src-text-sans-14 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-15')).toMatchCSS(
+			`.src-text-sans-15 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-17')).toMatchCSS(
+			`.src-text-sans-17 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-20')).toMatchCSS(
+			`.src-text-sans-20 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.25rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-24')).toMatchCSS(
+			`.src-text-sans-24 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.5rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-28')).toMatchCSS(
+			`.src-text-sans-28 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.75rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-34')).toMatchCSS(
+			`.src-text-sans-34 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 2.125rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: normal;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-12')).toMatchCSS(
+			`.src-text-sans-bold-12 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.75rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-14')).toMatchCSS(
+			`.src-text-sans-bold-14 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-15')).toMatchCSS(
+			`.src-text-sans-bold-15 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-17')).toMatchCSS(
+			`.src-text-sans-bold-17 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-20')).toMatchCSS(
+			`.src-text-sans-bold-20 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.25rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-24')).toMatchCSS(
+			`.src-text-sans-bold-24 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.5rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-28')).toMatchCSS(
+			`.src-text-sans-bold-28 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.75rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-bold-34')).toMatchCSS(
+			`.src-text-sans-bold-34 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 2.125rem;
+				line-height: 1.3;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-12')).toMatchCSS(
+			`.src-text-sans-italic-12 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.75rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-14')).toMatchCSS(
+			`.src-text-sans-italic-14 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.875rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-15')).toMatchCSS(
+			`.src-text-sans-italic-15 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 0.9375rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-17')).toMatchCSS(
+			`.src-text-sans-italic-17 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.0625rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 2px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-20')).toMatchCSS(
+			`.src-text-sans-italic-20 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.25rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-24')).toMatchCSS(
+			`.src-text-sans-italic-24 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.5rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-28')).toMatchCSS(
+			`.src-text-sans-italic-28 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 1.75rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 3px;
+			}`,
+		);
+		expect(findRule('src-text-sans-italic-34')).toMatchCSS(
+			`.src-text-sans-italic-34 {
+				font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-size: 2.125rem;
+				line-height: 1.3;
+				font-weight: 400;
+				font-style: italic;
+				--source-text-decoration-thickness: 4px;
+			}`,
+		);
+		expect(findRule('src-titlepiece-42')).toMatchCSS(
+			`.src-titlepiece-42 {
+				font-family: "GT Guardian Titlepiece", Georgia, serif;
+				font-size: 2.625rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 5px;
+			}`,
+		);
+		expect(findRule('src-titlepiece-50')).toMatchCSS(
+			`.src-titlepiece-50 {
+				font-family: "GT Guardian Titlepiece", Georgia, serif;
+				font-size: 3.125rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+		expect(findRule('src-titlepiece-70')).toMatchCSS(
+			`.src-titlepiece-70 {
+				font-family: "GT Guardian Titlepiece", Georgia, serif;
+				font-size: 4.375rem;
+				line-height: 1.15;
+				font-weight: 700;
+				font-style: normal;
+				--source-text-decoration-thickness: 6px;
+			}`,
+		);
+	});
+});
 
 describe('Palette theme tokens (deprecated)', () => {
 	it('should match expected output', () => {
