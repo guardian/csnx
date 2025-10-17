@@ -4,8 +4,8 @@
 
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
-import { getCommentId } from '../lib/get-comment-id.js';
-import { template } from '../lib/template.js';
+import { getCommentId } from '../../lib/get-comment-id.js';
+import { template } from '../../lib/template.js';
 
 /**
  * @param {{ filename: string; }} options
@@ -13,7 +13,7 @@ import { template } from '../lib/template.js';
  */
 export default function pluginPalette(options) {
 	return {
-		name: 'plugin-palette',
+		name: 'plugin-palette-typescript',
 
 		config(/* config */) {},
 		async build({ tokens, rawSchema /*, metadata */ }) {
