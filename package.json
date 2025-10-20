@@ -39,6 +39,9 @@
 				"react-dom"
 			]
 		},
+		"overrides": {
+			"@types/glob": "^8.1.0"
+		},
 		"patchedDependencies": {
 			"jsdom@26.1.0": "patches/jsdom@26.1.0.patch"
 		}
