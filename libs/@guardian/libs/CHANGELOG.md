@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 26.0.1
+
+### Patch Changes
+
+- 621b835: Remove ab-test and switch logic from the CMP
+
 ## 26.0.0
 
 ### Major Changes
