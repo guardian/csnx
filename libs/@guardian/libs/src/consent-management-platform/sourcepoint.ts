@@ -363,8 +363,11 @@ export const init = (
 	});
 
 	// Handle back navigation to ensure CMP messaging is shown when needed
-	window.addEventListener('pageshow', () => {
-		console.log('CMP: pageshow detected, executing messaging');
+	window.addEventListener('pageshow', (event: PageTransitionEvent) => {
+		// Only re-execute messaging if the page is being loaded from cache i.e. via back/forward navigation
+		if (!event.persisted) {
+			return;
+		}
 		window._sp_?.executeMessaging?.();
 	});
 
