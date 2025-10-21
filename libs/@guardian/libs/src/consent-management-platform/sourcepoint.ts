@@ -363,9 +363,11 @@ export const init = (
 	});
 
 	// Handle back navigation to ensure CMP messaging is shown when needed
-	window.addEventListener('pageshow', () => {
-		console.log('CMP: pageshow detected, executing messaging');
-		window._sp_?.executeMessaging?.();
+	window.addEventListener('pageshow', (event: PageTransitionEvent) => {
+		// Only re-execute messaging if the page is being loaded from cache i.e. via back/forward navigation
+		if (event.persisted) {
+			window._sp_?.executeMessaging?.();
+		}
 	});
 
 	spLib.src = `${ENDPOINT}/unified/wrapperMessagingWithoutDetection.js`;
