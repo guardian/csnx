@@ -230,6 +230,46 @@ install: check-node-version
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
 
+.PHONY: @guardian/cmp\:build
+@guardian/cmp\:build: env
+	@corepack pnpm --filter @guardian/cmp build
+
+.PHONY: @guardian/cmp\:dev
+@guardian/cmp\:dev: env
+	@corepack pnpm --filter @guardian/cmp dev
+
+.PHONY: @guardian/cmp\:e2e
+@guardian/cmp\:e2e: env
+	@corepack pnpm --filter @guardian/cmp e2e
+
+.PHONY: @guardian/cmp\:e2e\:ui
+@guardian/cmp\:e2e\:ui: env
+	@corepack pnpm --filter @guardian/cmp e2e:ui
+
+.PHONY: @guardian/cmp\:fix
+@guardian/cmp\:fix: env
+	@corepack pnpm --filter @guardian/cmp fix
+
+.PHONY: @guardian/cmp\:lint
+@guardian/cmp\:lint: env
+	@corepack pnpm --filter @guardian/cmp lint
+
+.PHONY: @guardian/cmp\:sourcepoint-integration-test
+@guardian/cmp\:sourcepoint-integration-test: env
+	@corepack pnpm --filter @guardian/cmp sourcepoint-integration-test
+
+.PHONY: @guardian/cmp\:test
+@guardian/cmp\:test: env
+	@corepack pnpm --filter @guardian/cmp test
+
+.PHONY: @guardian/cmp\:tsc
+@guardian/cmp\:tsc: env
+	@corepack pnpm --filter @guardian/cmp tsc
+
+.PHONY: @guardian/cmp\:verify-dist
+@guardian/cmp\:verify-dist: env
+	@corepack pnpm --filter @guardian/cmp verify-dist
+
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
 	@corepack pnpm --filter @guardian/core-web-vitals build
