@@ -253,9 +253,6 @@ importers:
 
   libs/@guardian/cmp:
     dependencies:
-      '@guardian/ophan-tracker-js':
-        specifier: 2.2.10
-        version: 2.2.10
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -266,6 +263,9 @@ importers:
       '@guardian/libs':
         specifier: workspace:*
         version: link:../libs
+      '@guardian/ophan-tracker-js':
+        specifier: 2.2.10
+        version: 2.2.10
       '@playwright/test':
         specifier: 1.54.1
         version: 1.54.1
@@ -2404,11 +2404,9 @@ packages:
     engines: {node: '>=16'}
     dependencies:
       '@guardian/tsconfig': 1.0.0
-    dev: false
 
   /@guardian/tsconfig@1.0.0:
     resolution: {integrity: sha512-xgajw/jq4lEtQoN72vnmiXeRnejUcd3DgNFmH6TfAbWV6NRK4KC4hAjzKf0H69zBSJMxEfFVfGKP9wBzGII7qg==}
-    dev: false
 
   /@humanfs/core@0.19.1:
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}

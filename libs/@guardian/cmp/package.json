@@ -27,12 +27,11 @@
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
-	"dependencies": {
-		"@guardian/ophan-tracker-js": "2.2.10"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "workspace:*",
+		"@guardian/ophan-tracker-js": "2.2.10",
 		"@playwright/test": "1.54.1",
 		"@types/jest": "29.5.8",
 		"eslint": "9.19.0",
@@ -45,7 +44,6 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"@guardian/ophan-tracker-js": "^2.2.10",
 		"tslib": "^2.6.2",
 		"typescript": "~5.5.2"
 	},
@@ -60,6 +58,9 @@
 	"wireit": {
 		"build": {
 			"command": "rollup -c",
+			"dependencies": [
+				"../libs:build"
+			],
 			"files": [
 				"src/**",
 				"package.json",
