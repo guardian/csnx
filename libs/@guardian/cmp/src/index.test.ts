@@ -5,8 +5,8 @@ describe('The package', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
 			'cmp',
 			'getConsentFor',
-			'onConsentChange',
 			'onConsent',
+			'onConsentChange',
 		]);
 	});
 });
