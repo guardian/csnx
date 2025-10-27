@@ -17,6 +17,7 @@ The following packages live in `libs/@guardian/*` and are published to NPM:
 - [@guardian/ab-core](libs/@guardian/ab-core)
 - [@guardian/ab-react](libs/@guardian/ab-react)
 - [@guardian/browserslist-config](libs/@guardian/browserslist-config)
+- [@guardian/cmp](libs/@guardian/cmp)
 - [@guardian/core-web-vitals](libs/@guardian/core-web-vitals)
 - [@guardian/eslint-config](libs/@guardian/eslint-config)
 - [@guardian/identity-auth](libs/@guardian/identity-auth)
@@ -99,6 +100,19 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 - `make @guardian/browserslist-config:lint`
 - `make @guardian/browserslist-config:tsc`
 - `make @guardian/browserslist-config:update-readme`
+
+#### @guardian/cmp
+
+- `make @guardian/cmp:build`
+- `make @guardian/cmp:dev`
+- `make @guardian/cmp:e2e`
+- `make @guardian/cmp:e2e:ui`
+- `make @guardian/cmp:fix`
+- `make @guardian/cmp:lint`
+- `make @guardian/cmp:sourcepoint-integration-test`
+- `make @guardian/cmp:test`
+- `make @guardian/cmp:tsc`
+- `make @guardian/cmp:verify-dist`
 
 #### @guardian/core-web-vitals
 

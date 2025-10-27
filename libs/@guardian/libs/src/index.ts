@@ -4,25 +4,6 @@ export * from './deprecated-exports';
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
-export {
-	cmp,
-	getConsentFor,
-	onConsent,
-	onConsentChange,
-} from './consent-management-platform';
-export type {
-	CMP,
-	ConsentFramework,
-	ConsentState,
-	OnConsentChangeCallback,
-	VendorName,
-} from './consent-management-platform/types';
-export type {
-	TCEventStatusCode,
-	TCFv2ConsentState,
-} from './consent-management-platform/types/tcfv2';
-export type { USNATConsentState } from './consent-management-platform/types/usnat';
-
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
 export { setCookie } from './cookies/setCookie';
