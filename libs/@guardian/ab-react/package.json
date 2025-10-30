@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/ab-react",
-	"version": "9.0.1",
+	"version": "9.0.2",
 	"private": false,
 	"description": "A React library for A/B & multivariate testing",
 	"repository": {
@@ -30,7 +30,7 @@
 		"verify-dist": "wireit"
 	},
 	"devDependencies": {
-		"@guardian/ab-core": "8.0.1",
+		"@guardian/ab-core": "8.0.2",
 		"@guardian/eslint-config": "workspace:*",
 		"@testing-library/react": "16.3.0",
 		"@types/jest": "30.0.0",

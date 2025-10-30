@@ -182,7 +182,7 @@ importers:
   libs/@guardian/ab-react:
     devDependencies:
       '@guardian/ab-core':
-        specifier: 8.0.1
+        specifier: 8.0.2
         version: link:../ab-core
       '@guardian/eslint-config':
         specifier: workspace:*
@@ -257,7 +257,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 26.0.1
+        specifier: 26.0.2
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -345,7 +345,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 26.0.1
+        specifier: 26.0.2
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -384,10 +384,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/identity-auth':
-        specifier: 11.0.0
+        specifier: 11.0.1
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 26.0.1
+        specifier: 26.0.2
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -530,10 +530,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 26.0.1
+        specifier: 26.0.2
         version: link:../libs
       '@guardian/source':
-        specifier: 11.3.0
+        specifier: 11.3.1
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 8.6.4
@@ -735,10 +735,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 26.0.1
+        specifier: 26.0.2
         version: link:../libs
       '@guardian/source':
-        specifier: 11.3.0
+        specifier: 11.3.1
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 8.6.4

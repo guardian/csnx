@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "22.0.0",
+	"version": "22.0.1",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/source-development-kitchen"
@@ -32,8 +32,8 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "26.0.1",
-		"@guardian/source": "11.3.0",
+		"@guardian/libs": "26.0.2",
+		"@guardian/source": "11.3.1",
 		"@storybook/addon-a11y": "8.6.4",
 		"@storybook/addon-essentials": "8.6.4",
 		"@storybook/addon-interactions": "8.6.4",
