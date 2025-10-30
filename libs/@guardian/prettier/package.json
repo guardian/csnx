@@ -2,6 +2,10 @@
 	"name": "@guardian/prettier",
 	"version": "8.0.1",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/prettier"
+	},
 	"main": "index.js",
 	"files": [
 		"index.d.ts"
