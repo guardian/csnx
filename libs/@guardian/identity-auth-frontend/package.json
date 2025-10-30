@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/identity-auth-frontend",
-	"version": "13.0.0",
+	"version": "13.0.1",
 	"private": false,
 	"description": "",
 	"repository": {
@@ -31,8 +31,8 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/identity-auth": "11.0.0",
-		"@guardian/libs": "26.0.1",
+		"@guardian/identity-auth": "11.0.1",
+		"@guardian/libs": "26.0.2",
 		"@types/jest": "30.0.0",
 		"eslint": "9.19.0",
 		"jest": "30.0.5",

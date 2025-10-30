@@ -1,5 +1,13 @@
 # @guardian/source
 
+## 11.3.1
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 11.3.0
 
 ### Minor Changes

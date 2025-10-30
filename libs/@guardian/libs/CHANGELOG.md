@@ -1,5 +1,13 @@
 # @guardian/libs
 
+## 26.0.2
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 26.0.1
 
 ### Patch Changes
