@@ -1,6 +1,10 @@
 {
 	"name": "@guardian/react-crossword",
 	"version": "11.1.0",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/react-crossword"
+	},
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",

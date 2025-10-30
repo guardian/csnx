@@ -2,5 +2,9 @@
 	"name": "@guardian/tsconfig",
 	"version": "1.0.0",
 	"description": "TSConfig base for Guardian TypeScript projects",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/tsconfig"
+	},
 	"main": "tsconfig.json"
 }

@@ -3,6 +3,10 @@
 	"version": "3.0.1",
 	"private": false,
 	"description": "A set of types describing the output of the Guardian newsletters API",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/newsletter-types"
+	},
 	"sideEffects": false,
 	"type": "module",
 	"exports": {

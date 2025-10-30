@@ -3,6 +3,10 @@
 	"version": "8.0.1",
 	"private": false,
 	"description": "A client-side library for A/B & multivariate testing",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/ab-core"
+	},
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",

@@ -3,6 +3,10 @@
 	"version": "11.0.0",
 	"private": false,
 	"description": "",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/identity-auth"
+	},
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",

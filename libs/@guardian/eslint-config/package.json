@@ -2,6 +2,10 @@
 	"name": "@guardian/eslint-config",
 	"version": "12.0.0",
 	"description": "ESLint config for Guardian JavaScript projects",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/eslint-config"
+	},
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
