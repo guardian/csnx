@@ -362,6 +362,14 @@ export const init = (
 		}
 	});
 
+	// Handle back navigation to ensure CMP messaging is shown when needed
+	window.addEventListener('pageshow', (event: PageTransitionEvent) => {
+		// Only re-execute messaging if the page is being loaded from cache i.e. via back/forward navigation
+		if (event.persisted) {
+			window._sp_?.executeMessaging?.();
+		}
+	});
+
 	spLib.src = `${ENDPOINT}/unified/wrapperMessagingWithoutDetection.js`;
 
 	document.body.appendChild(spLib);
