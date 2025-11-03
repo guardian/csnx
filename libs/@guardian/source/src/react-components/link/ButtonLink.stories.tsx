@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import { ButtonLink } from './ButtonLink';

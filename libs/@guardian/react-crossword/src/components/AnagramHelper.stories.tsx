@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress12Across } from '../../stories/formats/grouped-clues.progress';
 import { ContextProvider } from '../context/ContextProvider';

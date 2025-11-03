@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { SvgCamera } from '../__generated__/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';

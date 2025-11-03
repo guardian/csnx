@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
@@ -21,7 +21,6 @@ type Story = StoryObj<
 
 const Template: Story = {
 	render: (args) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [checked, setChecked] = useState(
 			CheckboxStories.DefaultDefaultTheme.args?.checked,
 		);

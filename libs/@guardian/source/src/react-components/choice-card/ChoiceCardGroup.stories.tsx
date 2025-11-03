@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { breakpoints, palette } from '../../foundations';
 import { ChoiceCard } from './ChoiceCard';
@@ -230,7 +230,6 @@ export const WithWildlyVaryingLengthsTabletDefaultTheme: Story = {
 
 export const ControlledMultiSelectDefaultTheme: Story = {
 	render: (args) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [state, setState] = useState({
 			opt1: true,
 			opt2: true,

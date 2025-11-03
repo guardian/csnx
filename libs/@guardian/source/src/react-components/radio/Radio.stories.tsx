@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { breakpoints, palette } from '../../foundations';
 import { Radio } from './Radio';
 import { themeRadioBrand } from './theme';

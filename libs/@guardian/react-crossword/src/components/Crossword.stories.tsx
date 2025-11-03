@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import type { ReactNode } from 'react';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';

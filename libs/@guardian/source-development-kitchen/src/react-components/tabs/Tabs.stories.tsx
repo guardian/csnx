@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { palette } from '@guardian/source/foundations';
 import { SvgAppleBrand } from '@guardian/source/react-components';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Tabs } from './tabs';
 import { tabsDarkTheme } from './theme';

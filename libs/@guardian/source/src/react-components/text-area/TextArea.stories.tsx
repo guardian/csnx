@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { palette } from '../../foundations';
 import { TextArea } from './TextArea';
@@ -31,7 +31,6 @@ type Story = StoryObj<typeof TextArea>;
 
 const Template: Story = {
 	render: (args) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [value, setValue] = useState(args.value);
 		const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
 			setValue(e.target.value);
