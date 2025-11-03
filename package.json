@@ -13,7 +13,7 @@
 		"@changesets/cli": "2.29.2",
 		"@guardian/prettier": "workspace:*",
 		"@manypkg/get-packages": "2.2.0",
-		"@types/node": "22.10.0",
+		"@types/node": "24.10.0",
 		"husky": "9.1.4",
 		"lint-staged": "16.2.6",
 		"prettier": "3.3.3",
