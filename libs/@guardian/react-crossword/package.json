@@ -42,6 +42,7 @@
 		"@storybook/addon-docs": "9.1.16",
 		"@storybook/addon-links": "9.1.16",
 		"@storybook/react-vite": "9.1.16",
+		"@types/chai": "5.2.3",
 		"@types/jest": "30.0.0",
 		"@types/react": "18.2.79",
 		"dotenv": "17.2.0",
