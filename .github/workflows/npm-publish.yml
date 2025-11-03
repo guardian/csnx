@@ -29,10 +29,6 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
-      # Ensure npm 11.5.1 or later is installed
-      - name: Update npm
-        run: npm install -g npm@latest
-
       - name: Version
         run: pnpm changeset version --snapshot canary
 
@@ -93,10 +89,6 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/actions/setup-node-env
-
-      # Ensure npm 11.5.1 or later is installed
-      - name: Update npm
-        run: npm install -g npm@latest
 
       - run: make build
 
