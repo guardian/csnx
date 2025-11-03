@@ -36,7 +36,7 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "26.0.2",
+		"@guardian/libs": "26.1.0",
 		"@guardian/source": "11.3.1",
 		"@storybook/addon-a11y": "9.1.16",
 		"@storybook/addon-docs": "9.1.16",
