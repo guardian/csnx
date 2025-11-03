@@ -1,7 +1,11 @@
 {
 	"name": "@guardian/browserslist-config",
-	"version": "6.1.2",
+	"version": "6.1.3",
 	"description": "Browserslist config for Guardian websites",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/browserslist-config"
+	},
 	"main": "browserslist.js",
 	"files": [
 		".browserslistrc",

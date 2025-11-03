@@ -1,8 +1,12 @@
 {
 	"name": "@guardian/libs",
-	"version": "26.0.0",
+	"version": "26.0.2",
 	"private": false,
 	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/libs"
+	},
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -32,15 +36,15 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@playwright/test": "1.55.0",
+		"@playwright/test": "1.56.1",
 		"@types/jest": "30.0.0",
 		"@types/wcag-contrast": "3.0.3",
 		"eslint": "9.19.0",
 		"jest": "30.0.5",
-		"jest-environment-jsdom": "30.1.2",
+		"jest-environment-jsdom": "30.2.0",
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
-		"rollup": "4.50.1",
+		"rollup": "4.52.5",
 		"ts-jest": "29.4.0",
 		"tslib": "2.6.2",
 		"tsx": "4.20.3",

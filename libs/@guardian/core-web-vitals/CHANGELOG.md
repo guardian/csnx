@@ -1,5 +1,13 @@
 # @guardian/core-web-vitals
 
+## 15.0.1
+
+### Patch Changes
+
+- 0f141c4: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 15.0.0
 
 ### Patch Changes

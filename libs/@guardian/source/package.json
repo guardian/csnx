@@ -1,6 +1,10 @@
 {
 	"name": "@guardian/source",
-	"version": "11.3.0",
+	"version": "11.3.1",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/source"
+	},
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -70,7 +74,7 @@
 		"prettier": "3.3.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"rollup": "4.50.1",
+		"rollup": "4.52.5",
 		"storybook": "8.6.4",
 		"ts-jest": "29.4.0",
 		"tslib": "2.6.2",
