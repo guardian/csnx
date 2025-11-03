@@ -85,9 +85,9 @@ export const DefaultBrandTheme = (args: MyComponentProps) => (
 		<Template {...args} />
 	</ThemeProvider>
 );
-DefaultBrandTheme.parameters = {
+DefaultBrandTheme.globals = {
 	backgrounds: {
-		default: 'brandBackground.primary',
+		value: 'brandBackground.primary',
 	},
 };
 
@@ -108,9 +108,9 @@ export const HideLabelBrandTheme = (args: MyComponentProps) => (
 HideLabelLightTheme.args = {
 	hideLabel: true,
 };
-HideLabelBrandTheme.parameters = {
+HideLabelBrandTheme.globals = {
 	backgrounds: {
-		default: 'brandBackground.primary',
+		value: 'brandBackground.primary',
 	},
 };
 ```

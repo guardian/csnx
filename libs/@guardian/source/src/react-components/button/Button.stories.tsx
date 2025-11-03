@@ -9,31 +9,31 @@ import {
 	themeButtonReaderRevenueBrandAlt,
 } from './theme-reader-revenue';
 
-const themeParameters = {
+const themeGlobals = {
 	default: {},
 	brand: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 	brandAlt: {
 		backgrounds: {
-			default: 'palette.brandAlt[400]',
+			value: 'palette.brandAlt[400]',
 		},
 	},
 	readerRevenueBrand: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 	readerRevenueBrandAlt: {
 		backgrounds: {
-			default: 'palette.brandAlt[400]',
+			value: 'palette.brandAlt[400]',
 		},
 	},
 	custom: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };
@@ -95,8 +95,8 @@ export const PrimaryPriorityBrandTheme: Story = {
 		...PrimaryPriorityDefaultTheme.args,
 		theme: themeButtonBrand,
 	},
-	parameters: {
-		...themeParameters.brand,
+	globals: {
+		...themeGlobals.brand,
 	},
 };
 
@@ -105,8 +105,8 @@ export const SecondaryPriorityBrandTheme: Story = {
 		...SecondaryPriorityDefaultTheme.args,
 		theme: themeButtonBrand,
 	},
-	parameters: {
-		...themeParameters.brand,
+	globals: {
+		...themeGlobals.brand,
 	},
 };
 
@@ -115,8 +115,8 @@ export const TertiaryPriorityBrandTheme: Story = {
 		...TertiaryPriorityDefaultTheme.args,
 		theme: themeButtonBrand,
 	},
-	parameters: {
-		...themeParameters.brand,
+	globals: {
+		...themeGlobals.brand,
 	},
 };
 
@@ -125,8 +125,8 @@ export const SubduedPriorityBrandTheme: Story = {
 		...SubduedPriorityDefaultTheme.args,
 		theme: themeButtonBrand,
 	},
-	parameters: {
-		...themeParameters.brand,
+	globals: {
+		...themeGlobals.brand,
 	},
 };
 
@@ -135,8 +135,8 @@ export const PrimaryPriorityBrandAltTheme: Story = {
 		...PrimaryPriorityDefaultTheme.args,
 		theme: themeButtonBrandAlt,
 	},
-	parameters: {
-		...themeParameters.brandAlt,
+	globals: {
+		...themeGlobals.brandAlt,
 	},
 };
 
@@ -145,8 +145,8 @@ export const SecondaryPriorityBrandAltTheme: Story = {
 		...SecondaryPriorityDefaultTheme.args,
 		theme: themeButtonBrandAlt,
 	},
-	parameters: {
-		...themeParameters.brandAlt,
+	globals: {
+		...themeGlobals.brandAlt,
 	},
 };
 
@@ -155,8 +155,8 @@ export const TertiaryPriorityBrandAltTheme: Story = {
 		...TertiaryPriorityDefaultTheme.args,
 		theme: themeButtonBrandAlt,
 	},
-	parameters: {
-		...themeParameters.brandAlt,
+	globals: {
+		...themeGlobals.brandAlt,
 	},
 };
 
@@ -165,8 +165,8 @@ export const SubduedPriorityBrandAltTheme: Story = {
 		...SubduedPriorityDefaultTheme.args,
 		theme: themeButtonBrandAlt,
 	},
-	parameters: {
-		...themeParameters.brandAlt,
+	globals: {
+		...themeGlobals.brandAlt,
 	},
 };
 
@@ -189,8 +189,8 @@ export const PrimaryPriorityReaderRevenueBrandTheme: Story = {
 		...PrimaryPriorityDefaultTheme.args,
 		theme: themeButtonReaderRevenueBrand,
 	},
-	parameters: {
-		...themeParameters.readerRevenueBrand,
+	globals: {
+		...themeGlobals.readerRevenueBrand,
 	},
 };
 
@@ -199,8 +199,8 @@ export const TertiaryPriorityReaderRevenueBrandTheme: Story = {
 		...TertiaryPriorityDefaultTheme.args,
 		theme: themeButtonReaderRevenueBrand,
 	},
-	parameters: {
-		...themeParameters.readerRevenueBrand,
+	globals: {
+		...themeGlobals.readerRevenueBrand,
 	},
 };
 
@@ -209,8 +209,8 @@ export const PrimaryPriorityReaderRevenueBrandAltTheme: Story = {
 		...PrimaryPriorityDefaultTheme.args,
 		theme: themeButtonReaderRevenueBrandAlt,
 	},
-	parameters: {
-		...themeParameters.readerRevenueBrandAlt,
+	globals: {
+		...themeGlobals.readerRevenueBrandAlt,
 	},
 };
 
@@ -219,8 +219,8 @@ export const TertiaryPriorityReaderRevenueBrandAltTheme: Story = {
 		...TertiaryPriorityDefaultTheme.args,
 		theme: themeButtonReaderRevenueBrandAlt,
 	},
-	parameters: {
-		...themeParameters.readerRevenueBrandAlt,
+	globals: {
+		...themeGlobals.readerRevenueBrandAlt,
 	},
 };
 
@@ -381,8 +381,8 @@ export const CustomTheme: Story = {
 			backgroundPrimary: palette.brandAlt[400],
 		},
 	},
-	parameters: {
-		...themeParameters.custom,
+	globals: {
+		...themeGlobals.custom,
 	},
 };
 
@@ -396,7 +396,7 @@ export const CustomTransparentTheme: Story = {
 			backgroundTertiary: 'transparent',
 		},
 	},
-	parameters: {
-		...themeParameters.custom,
+	globals: {
+		...themeGlobals.custom,
 	},
 };

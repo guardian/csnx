@@ -8,9 +8,9 @@ const meta: Meta<typeof Logo> = {
 	args: {
 		logoType: 'standard',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };

@@ -194,9 +194,9 @@ export const SupportingTextCustomTheme: Story = {
 			backgroundInput: palette.neutral[20],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };
@@ -213,9 +213,9 @@ export const ErrorWithMessageCustomTheme: Story = {
 			backgroundInput: palette.neutral[20],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

@@ -82,9 +82,9 @@ export const IconCustomTheme: Story = {
 			backgroundTick: palette.brand[400],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

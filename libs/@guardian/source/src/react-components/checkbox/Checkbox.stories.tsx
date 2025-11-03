@@ -40,9 +40,9 @@ export const DefaultBrandTheme: Story = {
 		...DefaultDefaultTheme.args,
 		theme: themeCheckboxBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -61,8 +61,8 @@ export const SupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'Supporting text',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -80,8 +80,8 @@ export const SupportingTextOnlyBrandTheme: Story = {
 		...SupportingTextBrandTheme.args,
 		label: null,
 	},
-	parameters: {
-		...SupportingTextBrandTheme.parameters,
+	globals: {
+		...SupportingTextBrandTheme.globals,
 	},
 };
 
@@ -101,8 +101,8 @@ export const IndeterminateBrandTheme: Story = {
 		checked: undefined,
 		indeterminate: true,
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -143,9 +143,9 @@ export const DefaultCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

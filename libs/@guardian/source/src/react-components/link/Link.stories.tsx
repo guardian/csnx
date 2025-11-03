@@ -78,9 +78,9 @@ export const PrimaryLinkBrandTheme: Story = {
 		...PrimaryLinkDefaultTheme.args,
 		theme: themeLinkBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -90,9 +90,9 @@ export const PrimaryLinkBrandAltTheme: Story = {
 		...PrimaryLinkDefaultTheme.args,
 		theme: themeLinkBrandAlt,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brandAlt[400]',
+			value: 'palette.brandAlt[400]',
 		},
 	},
 };
@@ -133,9 +133,9 @@ export const PrimaryIconLinkCustomTheme: Story = {
 			textPrimaryHover: palette.brand[800],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

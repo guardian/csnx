@@ -316,9 +316,9 @@ export const WithSupportingCustomTheme: Story = {
 		},
 	},
 
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

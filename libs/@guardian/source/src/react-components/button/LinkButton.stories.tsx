@@ -143,9 +143,9 @@ export const PrimaryPriorityCustomTheme: Story = {
 			backgroundPrimaryHover: palette.brandAlt[200],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

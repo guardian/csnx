@@ -59,9 +59,9 @@ export const DefaultBrandTheme: Story = {
 		...DefaultDefaultTheme.args,
 		theme: themeLabelBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -72,9 +72,9 @@ export const WithSupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'alex@example.com',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -85,9 +85,9 @@ export const WithOptionalBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		optional: true,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -98,9 +98,9 @@ export const WithHiddenLabelBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		hideLabel: true,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -137,9 +137,9 @@ export const DefaultSmallBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		size: 'small',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -151,9 +151,9 @@ export const WithSupportingTextSmallBrandTheme: Story = {
 		supporting: 'alex@example.com',
 		size: 'small',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -165,9 +165,9 @@ export const WithOptionalSmallBrandTheme: Story = {
 		optional: true,
 		size: 'small',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -180,9 +180,9 @@ export const DefaultCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

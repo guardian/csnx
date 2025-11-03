@@ -86,9 +86,9 @@ export const MediumIconsBrandTheme: Story = {
 		...MediumIconsDefaultTheme.args,
 		theme: { fill: palette.neutral[100] },
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -98,9 +98,9 @@ export const MediumIconsCustomTheme: Story = {
 		...MediumIconsDefaultTheme.args,
 		theme: { fill: palette.neutral[86] },
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

@@ -25,9 +25,9 @@ export const InlineErrorBrandTheme: Story = {
 		...InlineErrorDefaultTheme.args,
 		theme: themeUserFeedbackBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -57,8 +57,8 @@ export const InlineErrorSmallBrandTheme: Story = {
 		...InlineErrorBrandTheme.args,
 		size: 'small',
 	},
-	parameters: {
-		...InlineErrorBrandTheme.parameters,
+	globals: {
+		...InlineErrorBrandTheme.globals,
 	},
 };
 
@@ -67,9 +67,9 @@ export const InlineErrorCustomTheme: Story = {
 		...InlineErrorDefaultTheme.args,
 		theme: { textError: palette.error[500] },
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

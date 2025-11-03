@@ -56,9 +56,9 @@ export const WithCTALabelsCustomTheme: Story = {
 			iconFill: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };
@@ -69,7 +69,7 @@ export const WithoutCTALabelsCustomTheme: Story = {
 		...WithCTALabelsCustomTheme.args,
 		hideToggleLabel: true,
 	},
-	parameters: {
-		...WithCTALabelsCustomTheme.parameters,
+	globals: {
+		...WithCTALabelsCustomTheme.globals,
 	},
 };
