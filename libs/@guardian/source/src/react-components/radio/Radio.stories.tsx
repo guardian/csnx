@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { breakpoints, palette } from '../../foundations';
 import { Radio } from './Radio';
 import { themeRadioBrand } from './theme';
@@ -38,9 +38,9 @@ export const DefaultBrandTheme: Story = {
 		...DefaultDefaultTheme.args,
 		theme: themeRadioBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -57,8 +57,8 @@ export const SupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'Hex colour code: #ff0000',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -76,8 +76,8 @@ export const SupportingTextOnlyBrandTheme: Story = {
 		supporting: 'Hex colour code: #ff0000',
 		label: null,
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -114,9 +114,9 @@ export const DefaultCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

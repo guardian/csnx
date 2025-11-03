@@ -4,8 +4,8 @@ import {
 	Primary,
 	Subtitle,
 	Title,
-} from '@storybook/blocks';
-import type { Decorator, Preview } from '@storybook/react';
+} from '@storybook/addon-docs/blocks';
+import type { Decorator, Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
 import { FocusStyleManager, palette } from '@guardian/source/foundations';
 import { viewport } from './preview/viewport';
@@ -44,33 +44,43 @@ const preview: Preview = {
 			toc: true,
 		},
 		backgrounds: {
-			default: 'palette.neutral[100]',
-			values: [
-				{
+			options: {
+				'palette.neutral[100]': {
 					name: 'palette.neutral[100]',
 					value: palette.neutral[100],
 				},
-				{
+
+				'palette.neutral[97]': {
 					name: 'palette.neutral[97]',
 					value: palette.neutral[97],
 				},
-				{
+
+				'palette.neutral[10]': {
 					name: 'palette.neutral[10]',
 					value: palette.neutral[10],
 				},
-				{
+
+				'palette.brand[400]': {
 					name: 'palette.brand[400]',
 					value: palette.brand[400],
 				},
-				{
+
+				'palette.brandAlt[400]': {
 					name: 'palette.brandAlt[400]',
 					value: palette.brandAlt[400],
 				},
-			],
+			},
 		},
 		viewport,
 	},
+
 	tags: ['autodocs'],
+
+	initialGlobals: {
+		backgrounds: {
+			value: 'palette.neutral[100]',
+		},
+	},
 };
 
 export const decorators = [FocusManagerDecorator];

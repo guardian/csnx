@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Crossword } from '../src';
 import { cryptic } from './formats/cryptic';
 import { everyman } from './formats/everyman';

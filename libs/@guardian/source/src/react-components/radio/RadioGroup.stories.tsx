@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { Radio } from './Radio';
 import * as RadioStories from './Radio.stories';
@@ -69,9 +69,9 @@ export const DefaultBrandTheme: Story = {
 		theme: themeRadioGroupBrand,
 		themeChild: themeRadioBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -106,8 +106,8 @@ export const SupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'You can always change it later',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -133,8 +133,8 @@ export const ErrorBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		error: 'The selected colour is out of stock',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -161,9 +161,9 @@ export const DefaultCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SvgRoundelInverse } from './SvgRoundelInverse';
 
 const meta: Meta<typeof SvgRoundelInverse> = {

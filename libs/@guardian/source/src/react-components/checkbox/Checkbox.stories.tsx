@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { breakpoints, palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
@@ -14,7 +14,6 @@ type Story = StoryObj<typeof Checkbox>;
 
 const Template: Story = {
 	render: (args) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [checked, setChecked] = useState(args.checked);
 		return (
 			<Checkbox
@@ -41,9 +40,9 @@ export const DefaultBrandTheme: Story = {
 		...DefaultDefaultTheme.args,
 		theme: themeCheckboxBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -62,8 +61,8 @@ export const SupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'Supporting text',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -81,8 +80,8 @@ export const SupportingTextOnlyBrandTheme: Story = {
 		...SupportingTextBrandTheme.args,
 		label: null,
 	},
-	parameters: {
-		...SupportingTextBrandTheme.parameters,
+	globals: {
+		...SupportingTextBrandTheme.globals,
 	},
 };
 
@@ -102,8 +101,8 @@ export const IndeterminateBrandTheme: Story = {
 		checked: undefined,
 		indeterminate: true,
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -144,9 +143,9 @@ export const DefaultCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { DashedLines as DashedLinesComponent } from './DashedLines';
 import { DottedLines as DottedLinesComponent } from './DottedLines';
 import type { LinesProps } from './Lines';

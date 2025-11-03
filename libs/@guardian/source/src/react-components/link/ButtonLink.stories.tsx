@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import { ButtonLink } from './ButtonLink';
@@ -66,9 +66,9 @@ export const PrimaryIconLinkCustomTheme: Story = {
 			textPrimaryHover: palette.brand[800],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

@@ -1,0 +1,18 @@
+diff --git a/lib/main.d.ts b/lib/main.d.ts
+index 9b54fef0086ea0c99368d8a95f2476e5dcd6d9c1..108b65544a15bdec2e6617d7c7945026d3a034b2 100644
+--- a/lib/main.d.ts
++++ b/lib/main.d.ts
+@@ -1,8 +1,8 @@
+-import { ASTNode, Type, AnyType, Field } from "./types";
+-import { NodePath } from "./node-path";
+-import { namedTypes } from "./gen/namedTypes";
+-import { builders } from "./gen/builders";
+-import { Visitor } from "./gen/visitor";
++import type { ASTNode, Type, AnyType, Field } from "./types";
++import type { NodePath } from "./node-path";
++import type { namedTypes } from "./gen/namedTypes";
++import type { builders } from "./gen/builders";
++import type { Visitor } from "./gen/visitor";
+ declare const astNodesAreEquivalent: {
+     (a: any, b: any, problemPath?: any): boolean;
+     assert(a: any, b: any): void;

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
@@ -21,7 +21,6 @@ type Story = StoryObj<
 
 const Template: Story = {
 	render: (args) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks -- it _is_ actually a react function component
 		const [checked, setChecked] = useState(
 			CheckboxStories.DefaultDefaultTheme.args?.checked,
 		);
@@ -56,9 +55,9 @@ export const DefaultBrandTheme: Story = {
 		theme: themeCheckboxGroupBrand,
 		themeChild: themeCheckboxBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -77,8 +76,8 @@ export const VisuallyHideLegendBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		hideLabel: true,
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -104,8 +103,8 @@ export const SupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'Pick the issues and topics that interest you',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -123,8 +122,8 @@ export const ErrorBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		error: 'This newsletter is not available in your region',
 	},
-	parameters: {
-		...DefaultBrandTheme.parameters,
+	globals: {
+		...DefaultBrandTheme.globals,
 	},
 };
 
@@ -147,9 +146,9 @@ export const ErrorCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

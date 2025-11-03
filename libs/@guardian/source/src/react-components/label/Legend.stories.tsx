@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { Legend } from './Legend';
 import { themeLabelBrand } from './theme';
@@ -82,9 +82,9 @@ export const DefaultBrandTheme: Story = {
 		...DefaultDefaultTheme.args,
 		theme: themeLabelBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -95,9 +95,9 @@ export const WithSupportingTextBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'text',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -108,9 +108,9 @@ export const WithSupportingComponentBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		supporting: 'component',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -121,9 +121,9 @@ export const WithOptionalBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		optional: true,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -134,9 +134,9 @@ export const WithHiddenLabelBrandTheme: Story = {
 		...DefaultBrandTheme.args,
 		hideLabel: true,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -149,9 +149,9 @@ export const DefaultCustomTheme: Story = {
 			textLabel: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

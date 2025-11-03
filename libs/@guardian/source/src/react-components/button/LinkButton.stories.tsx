@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { SvgArrowRightStraight } from '../__generated__/icons/SvgArrowRightStraight';
 import { LinkButton } from './LinkButton';
@@ -143,9 +143,9 @@ export const PrimaryPriorityCustomTheme: Story = {
 			backgroundPrimaryHover: palette.brandAlt[200],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

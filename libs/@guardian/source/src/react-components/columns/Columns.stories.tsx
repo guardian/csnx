@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { HTMLAttributes } from 'react';
 import { breakpoints } from '../../foundations';
 import { Container } from '../container/Container';

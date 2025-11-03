@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
 import { separators as separatorData } from '../../stories/formats/separators';

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { Accordion } from './Accordion';
 import { AccordionRow } from './AccordionRow';
@@ -56,9 +56,9 @@ export const WithCTALabelsCustomTheme: Story = {
 			iconFill: palette.neutral[86],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };
@@ -69,7 +69,7 @@ export const WithoutCTALabelsCustomTheme: Story = {
 		...WithCTALabelsCustomTheme.args,
 		hideToggleLabel: true,
 	},
-	parameters: {
-		...WithCTALabelsCustomTheme.parameters,
+	globals: {
+		...WithCTALabelsCustomTheme.globals,
 	},
 };

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { InlineSuccess } from './InlineSuccess';
 import { themeUserFeedbackBrand } from './theme';
@@ -25,9 +25,9 @@ export const InlineSuccessBrandTheme: Story = {
 		...InlineSuccessDefaultTheme.args,
 		theme: themeUserFeedbackBrand,
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };
@@ -45,8 +45,8 @@ export const InlineSuccessSmallBrandTheme: Story = {
 		size: 'small',
 	},
 
-	parameters: {
-		...InlineSuccessBrandTheme.parameters,
+	globals: {
+		...InlineSuccessBrandTheme.globals,
 	},
 };
 
@@ -55,9 +55,9 @@ export const InlineSuccessCustomTheme: Story = {
 		...InlineSuccessDefaultTheme.args,
 		theme: { textSuccess: palette.success[500] },
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };
