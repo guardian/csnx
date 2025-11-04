@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 26.1.0
+
+### Minor Changes
+
+- 3521dd6: Add pageshow event listener for pageshow event to ensure the Consent or Pay banner is shown after clicking the Browser's back button
+
 ## 26.0.2
 
 ### Patch Changes
