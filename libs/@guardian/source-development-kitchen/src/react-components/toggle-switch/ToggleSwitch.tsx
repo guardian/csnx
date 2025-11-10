@@ -1,6 +1,5 @@
 import { descriptionId, generateSourceId } from '@guardian/source/foundations';
 import type { Props } from '@guardian/source/react-components';
-import { useEffect, useState } from 'react';
 import {
 	buttonStyles,
 	buttonStylesMargin,
@@ -88,7 +87,8 @@ export const ToggleSwitch = ({
 }: ToggleSwitchProps) => {
 	const buttonId = id ?? generateSourceId();
 	const labelId = descriptionId(buttonId);
-	const [isBrowser, setIsBrowser] = useState(false);
+	const isBrowser =
+		typeof window !== 'undefined' && typeof document !== 'undefined';
 	let tooltiptext = '';
 
 	const isChecked = (): boolean => {
@@ -98,11 +98,6 @@ export const ToggleSwitch = ({
 
 		return !!defaultChecked;
 	};
-
-	useEffect(() => {
-		// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
-		setIsBrowser(true);
-	}, []);
 
 	if (!isBrowser) {
 		tooltiptext = 'tooltiptext';
