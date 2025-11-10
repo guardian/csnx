@@ -4,6 +4,23 @@ export const calculateHoverColour = (
 	backgroundColour: string,
 	borderColour?: string,
 ): string => {
+	// A CSS variable supplied - try fetch value in browser
+	if (backgroundColour.startsWith('var')) {
+		const cssVariableName = backgroundColour
+			.substring(4, backgroundColour.length - 1)
+			.trim();
+
+		const backgroundColourFromVar = getComputedStyle(
+			document.body,
+		).getPropertyValue(cssVariableName);
+
+		if (backgroundColourFromVar === '') {
+			return backgroundColour;
+		}
+
+		return calculateHoverColour(backgroundColourFromVar, borderColour);
+	}
+
 	if (backgroundColour === 'transparent') {
 		if (borderColour !== undefined) {
 			return calculateTransparentBackgroundHover(borderColour);
