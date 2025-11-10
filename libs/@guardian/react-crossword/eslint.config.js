@@ -3,7 +3,8 @@ import guardian from '@guardian/eslint-config';
 // eslint-disable-next-line import/no-unresolved -- ToDo: why is this unresolved?
 import storybook from 'eslint-plugin-storybook';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	{
 		ignores: [
 			'dist',
@@ -24,3 +25,5 @@ export default [
 	},
 	...storybook.configs['flat/recommended'],
 ];
+
+export default config;
