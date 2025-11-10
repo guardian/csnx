@@ -110,7 +110,6 @@
 ### Major Changes
 
 - aeb7ed2: Extends theme to support additional elements and renames some existing keys for consistency and clarity:
-
   - Adds `gridTextColor` to theme to allow text in the grid to be themed independently of other text
   - Explicitly applies `textColor` to other elements rather than rely on inheritance or `currentColor`
   - Renames `selectedColor` and `connectedColor` to make it clear they apply to background colours
@@ -123,7 +122,6 @@
 - 586ab4a: This is a complete rebuild of the React crossword player.
 
   It includes the following feature:
-
   - Renders crossword grid and clues
   - Supports hyphenated and multiple-word answers
   - Supports grouped clues that span multiple columns or rows

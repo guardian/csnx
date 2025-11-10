@@ -160,7 +160,6 @@ SvgDirectDebitWide
   This release removes that old API, in order to simplify the ongoing maintenance of the library.
 
   The following exports have been removed:
-
   - `titlepiece`
   - `headline`
   - `body`
@@ -182,7 +181,6 @@ SvgDirectDebitWide
   - `titlepieceObjectStyles`
 
   along with the following `type` exports:
-
   - `ScaleUnit`
   - `Category`
   - `LineHeight`
