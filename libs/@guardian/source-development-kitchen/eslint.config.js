@@ -1,5 +1,6 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import guardian from '@guardian/eslint-config';
+// eslint-disable-next-line import/no-unresolved -- ToDo: why is this unresolved?
 import storybook from 'eslint-plugin-storybook';
 
 export default [
