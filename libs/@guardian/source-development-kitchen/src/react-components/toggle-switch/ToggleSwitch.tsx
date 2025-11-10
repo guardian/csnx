@@ -100,6 +100,7 @@ export const ToggleSwitch = ({
 	};
 
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
 		setIsBrowser(true);
 	}, []);
 

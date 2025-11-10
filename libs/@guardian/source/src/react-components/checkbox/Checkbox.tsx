@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/static-components -- TODO: investigate how to fix this */
 import type { InputHTMLAttributes, ReactNode } from 'react';
 import { useId } from 'react';
 import type { Props } from '../@types/Props';
