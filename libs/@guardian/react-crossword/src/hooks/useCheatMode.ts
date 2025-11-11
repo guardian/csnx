@@ -79,6 +79,7 @@ export const useCheatMode = (ref: RefObject<SVGSVGElement>) => {
 	useEffect(() => {
 		if (konamiProgress.length === konamiCode.length) {
 			document.removeEventListener('keydown', handleKeyDown);
+			// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
 			setCheatMode(true);
 			ref.current?.classList.add('cheat-mode');
 		}

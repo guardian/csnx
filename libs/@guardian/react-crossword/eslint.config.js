@@ -1,9 +1,7 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import guardian from '@guardian/eslint-config';
-// eslint-disable-next-line import/no-unresolved -- ToDo: why is this unresolved?
-import storybook from 'eslint-plugin-storybook';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	{
 		ignores: [
 			'dist',
@@ -15,12 +13,14 @@ export default [
 	...guardian.configs.recommended,
 	...guardian.configs.jest,
 	...guardian.configs.react,
-	// Investigating adding latest (storybook.configs['flat/recommended']) to @guardian/eslint-config
-	//...guardian.configs.storybook,
+
 	{
 		// storybook is in a world of its own
 		files: ['.storybook/main.js'],
 		...guardian.configs.cjs,
 	},
-	...storybook.configs['flat/recommended'],
+
+	...guardian.configs.storybook,
 ];
+
+export default config;

@@ -28,7 +28,10 @@ describe('IdentityAuth#CookieRefresh', () => {
 	});
 
 	afterAll(() => {
-		window.location = location;
+		Object.defineProperty(window, 'location', {
+			value: location,
+			writable: true,
+		});
 	});
 
 	it('mocks `location.replace`', () => {

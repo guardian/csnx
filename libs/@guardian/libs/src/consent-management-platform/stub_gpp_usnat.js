@@ -2,13 +2,13 @@
 /* istanbul ignore file */
 // Reference : https://docs.sourcepoint.com/hc/en-us/articles/18007731422099-Enable-GPP-Multi-State-Privacy-String-MSPS-with-U-S-Privacy-CCPA-solution
 export const stub_gpp_usnat = () => {
-	(window.__gpp_addFrame = function (e) {
+	((window.__gpp_addFrame = function (e) {
 		if (!window.frames[e])
 			if (document.body) {
 				var t = document.createElement('iframe');
-				(t.style.cssText = 'display:none'),
+				((t.style.cssText = 'display:none'),
 					(t.name = e),
-					document.body.appendChild(t);
+					document.body.appendChild(t));
 			} else window.setTimeout(window.__gpp_addFrame, 10, e);
 	}),
 		(window.__gpp_stub = function () {
@@ -50,9 +50,9 @@ export const stub_gpp_usnat = () => {
 					!0,
 				);
 			else if ('addEventListener' === t) {
-				'lastId' in __gpp || (__gpp.lastId = 0), __gpp.lastId++;
+				('lastId' in __gpp || (__gpp.lastId = 0), __gpp.lastId++);
 				var n = __gpp.lastId;
-				__gpp.events.push({ id: n, callback: p, parameter: s }),
+				(__gpp.events.push({ id: n, callback: p, parameter: s }),
 					p(
 						{
 							eventName: 'listenerRegistered',
@@ -82,11 +82,11 @@ export const stub_gpp_usnat = () => {
 							},
 						},
 						!0,
-					);
+					));
 			} else if ('removeEventListener' === t) {
 				for (var a = !1, i = 0; i < __gpp.events.length; i++)
 					if (__gpp.events[i].id == s) {
-						__gpp.events.splice(i, 1), (a = !0);
+						(__gpp.events.splice(i, 1), (a = !0));
 						break;
 					}
 				p(
@@ -155,5 +155,5 @@ export const stub_gpp_usnat = () => {
 		('__gpp' in window && 'function' == typeof window.__gpp) ||
 			((window.__gpp = window.__gpp_stub),
 			window.addEventListener('message', window.__gpp_msghandler, !1),
-			window.__gpp_addFrame('__gppLocator'));
+			window.__gpp_addFrame('__gppLocator')));
 };

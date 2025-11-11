@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { HTMLAttributes } from 'react';
 import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import type { Props } from '../@types/Props';
@@ -78,7 +78,8 @@ export const AccordionRow = ({
 	const [expanded, setExpanded] = useState(false);
 	const collapse = () => setExpanded(false);
 	const expand = () => setExpanded(true);
-	const [isBrowser, setIsBrowser] = useState(false);
+	const isBrowser =
+		typeof window !== 'undefined' && typeof document !== 'undefined';
 
 	const mergedTheme = (providerTheme: Theme['accordion']) =>
 		mergeThemes<ThemeAccordion, Theme['accordion']>(
@@ -95,10 +96,6 @@ export const AccordionRow = ({
 		}
 		onClick(event);
 	}
-
-	useEffect(() => {
-		setIsBrowser(true);
-	}, []);
 
 	if (isBrowser) {
 		return (

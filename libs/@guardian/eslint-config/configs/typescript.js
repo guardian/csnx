@@ -1,10 +1,9 @@
 // https://typescript-eslint.io/getting-started/
-
+import { defineConfig } from 'eslint/config';
 import importX from 'eslint-plugin-import-x';
-// eslint-disable-next-line import/no-unresolved -- why can't this be resolved? literally no one knows
-import { config, configs } from 'typescript-eslint';
+import { configs } from 'typescript-eslint';
 
-export default config({
+export default defineConfig({
 	files: ['**/*.{ts,tsx,mtsx,mts,cts}'],
 	extends: [
 		...configs.recommended,

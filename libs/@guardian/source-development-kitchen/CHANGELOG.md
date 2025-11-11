@@ -225,7 +225,6 @@ Updated peer dependency to `@guardian/source@7.0.0`
 ### Major Changes
 
 - bdd830b: Update dependencies:
-
   - `@guardian/source@3.0.0`
   - `@guardian/libs@16.1.3`
 

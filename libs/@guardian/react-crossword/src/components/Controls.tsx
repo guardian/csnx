@@ -255,6 +255,7 @@ const RevealGrid = memo((props: ButtonProps) => {
 		const newProgress: Progress = [];
 
 		for (const cell of cells.values()) {
+			// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- undefined is a valid value
 			const column = (newProgress[cell.x] ||= []);
 			column[cell.y] = cell.solution ?? '';
 		}

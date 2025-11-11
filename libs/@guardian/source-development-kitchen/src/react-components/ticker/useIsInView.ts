@@ -49,6 +49,7 @@ const useIsInView = (
 
 	useEffect(() => {
 		if (options.node) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
 			setNode(options.node);
 		}
 	}, [options.node]);

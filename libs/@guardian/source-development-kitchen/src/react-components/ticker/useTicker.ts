@@ -8,6 +8,7 @@ export const useTicker = (total: number, readyToAnimate: boolean): number => {
 
 	useEffect(() => {
 		if (!readyToAnimate) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
 			setRunningTotal(0);
 			return;
 		}
