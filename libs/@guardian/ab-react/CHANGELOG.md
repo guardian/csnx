@@ -1,5 +1,14 @@
 # @guardian/ab-react
 
+## 10.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/ab-core` to `9.0.0`
+
 ## 9.0.2
 
 ### Patch Changes

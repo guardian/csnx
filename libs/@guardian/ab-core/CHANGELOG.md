@@ -1,5 +1,13 @@
 # @guardian/ab-core
 
+## 9.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
 ## 8.0.2
 
 ### Patch Changes

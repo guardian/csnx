@@ -1,5 +1,25 @@
 # @guardian/eslint-config
 
+## 13.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `eslint` to `9.39.1`
+  - Add storybook configuration from `eslint-plugin-storybook` to config
+
+  ```ts
+  import guardian from '@guardian/eslint-config';
+
+  const config = [
+  	// other eslint configuration
+
+  	...guardian.configs.storybook,
+  ];
+
+  export default config;
+  ```
+
 ## 12.0.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @guardian/libs
 
+## 27.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
 ## 26.1.0
 
 ### Minor Changes
