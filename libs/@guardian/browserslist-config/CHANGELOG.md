@@ -1,5 +1,12 @@
 # @guardian/browserslist-config
 
+## 7.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
 ## 6.1.3
 
 ### Patch Changes

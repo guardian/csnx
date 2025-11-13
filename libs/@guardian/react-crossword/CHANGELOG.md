@@ -1,5 +1,15 @@
 # @guardian/react-crossword
 
+## 12.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/source` to `12.0.0`
+  - Peer Dependency: Update `@guardian/libs` to `27.0.0`
+
 ## 11.1.1
 
 ### Patch Changes

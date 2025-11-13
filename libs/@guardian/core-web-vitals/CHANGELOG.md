@@ -1,5 +1,14 @@
 # @guardian/core-web-vitals
 
+## 16.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/libs` to `27.0.0`
+
 ## 15.0.1
 
 ### Patch Changes

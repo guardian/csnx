@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "12.0.1",
+	"version": "13.0.0",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",

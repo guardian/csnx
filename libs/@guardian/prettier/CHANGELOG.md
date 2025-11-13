@@ -1,5 +1,13 @@
 # @guardian/prettier
 
+## 9.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `prettier` to `3.6.2`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
 ## 8.0.2
 
 ### Patch Changes
