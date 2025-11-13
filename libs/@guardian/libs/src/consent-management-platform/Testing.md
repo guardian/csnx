@@ -35,12 +35,10 @@ This guide describes how to test changes to the CMP logic in Dotcom Rendering an
    - UK/ROW should load **tcfapi but no **gpp. Note: this is only present after interacting with the banner.
    - AUS shouldn't have a stub.
 5. Check Google Ad Requests
-
    - Open the Network tab in Developer tools
    - Filter by `securepubads`
    - Confirm if there are requests to `https://securepubads.g.doubleclick.net/gampad/ads`. Please note: for AUS and US this will be there without interacting with the banner. For GDPR (UK and ROW), this will show only after interacting with the banner.
    - Copy the full request url to the commercial request parser (https://guardian.github.io/commercial-request-parser/)
-
      - Check the rdp and pa values
 
    - | Framework | RDP for Accept All |  RDP for Reject All  | PA for Accept All |  PA for Reject All   |
@@ -51,5 +49,4 @@ This guide describes how to test changes to the CMP logic in Dotcom Rendering an
      | ROW       |         na         | No requests are made |         t         | No requests are made |
 
    \*\* This is only true for non-subscribed users.
-
    - Scroll the page and check if you see ads loading on the page.

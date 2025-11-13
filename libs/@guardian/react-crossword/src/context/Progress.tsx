@@ -115,6 +115,7 @@ export const ProgressProvider = ({
 
 	useEffect(() => {
 		if (isValid(storedProgress, { dimensions })) {
+			// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
 			setProgress(storedProgress);
 		} else {
 			updateProgress(defaultValue);

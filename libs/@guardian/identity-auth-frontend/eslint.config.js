@@ -1,6 +1,7 @@
 import guardian from '@guardian/eslint-config';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	...guardian.configs.recommended,
 	...guardian.configs.jest,
 	{
@@ -11,3 +12,5 @@ export default [
 		],
 	},
 ];
+
+export default config;

@@ -13,6 +13,36 @@ import {
 import type { ThemeRadio } from './theme';
 import { themeRadio, transformProviderTheme } from './theme';
 
+const LabelText = ({
+	children,
+	mergedTheme,
+}: {
+	children: ReactNode;
+	mergedTheme: (providerTheme: Theme) => ThemeRadio;
+}) => {
+	return (
+		<div css={(providerTheme: Theme) => labelText(mergedTheme(providerTheme))}>
+			{children}
+		</div>
+	);
+};
+
+const SupportingText = ({
+	children,
+	mergedTheme,
+}: {
+	children: ReactNode;
+	mergedTheme: (providerTheme: Theme) => ThemeRadio;
+}) => {
+	return (
+		<div
+			css={(providerTheme: Theme) => supportingText(mergedTheme(providerTheme))}
+		>
+			{children}
+		</div>
+	);
+};
+
 export interface RadioProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		Props {
@@ -98,28 +128,6 @@ export const Radio = ({
 			transformProviderTheme,
 		);
 
-	const LabelText = ({ children }: { children: ReactNode }) => {
-		return (
-			<div
-				css={(providerTheme: Theme) => labelText(mergedTheme(providerTheme))}
-			>
-				{children}
-			</div>
-		);
-	};
-
-	const SupportingText = ({ children }: { children: ReactNode }) => {
-		return (
-			<div
-				css={(providerTheme: Theme) =>
-					supportingText(mergedTheme(providerTheme))
-				}
-			>
-				{children}
-			</div>
-		);
-	};
-
 	const radioControl = (
 		<input
 			id={radioId}
@@ -143,11 +151,13 @@ export const Radio = ({
 			<label htmlFor={radioId} css={label}>
 				{supporting ? (
 					<div>
-						<LabelText>{labelContent}</LabelText>
-						<SupportingText>{supporting}</SupportingText>
+						<LabelText mergedTheme={mergedTheme}>{labelContent}</LabelText>
+						<SupportingText mergedTheme={mergedTheme}>
+							{supporting}
+						</SupportingText>
 					</div>
 				) : (
-					<LabelText>{labelContent}</LabelText>
+					<LabelText mergedTheme={mergedTheme}>{labelContent}</LabelText>
 				)}
 			</label>
 		</div>
