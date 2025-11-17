@@ -9,6 +9,7 @@ import {
 	transitions,
 	width,
 } from '../../foundations';
+import { calculateHoverColour } from '../../foundations/buttonHoverColour/hoverColour';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import type {
@@ -17,7 +18,6 @@ import type {
 	SharedButtonProps,
 	Size,
 } from './@types/SharedButtonProps';
-import { calculateHoverColour } from './hoverColour';
 import type { ThemeButton } from './theme';
 import { themeButton as defaultTheme } from './theme';
 

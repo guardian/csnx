@@ -1,0 +1,26 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import HoverColourStory, { HoverColours } from './hoverColour.stories.tsx';
+
+<Meta of={HoverColourStory} />
+
+# `Button Hover Colours`
+
+## Background
+
+The Source design system previously assigned a unique hover colour to buttons. However, as button colours have become customisable, that approach is no longer scalable or consistent.
+
+To address this, we’ve established clear guidelines for hover colour selection and automated the process in code. This eliminates confusion and ensures consistent behaviour across all custom-coloured buttons.
+
+Designers no longer need to specify hover colours—simply provide the background colour to developers.
+
+## Note for developers
+
+The automatic behaviour only works if a hex code is supplied. For example, if your code is using CSS variables you will need to use the exported `calculateHoverColour` function to perform the calculation for you.
+
+```tsx
+import { calculateHoverColour } from '@guardian/source/foundations';
+```
+
+## Playground
+
+<Story of={HoverColours} />
