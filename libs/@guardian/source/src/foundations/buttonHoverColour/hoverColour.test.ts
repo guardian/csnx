@@ -1,4 +1,4 @@
-import { calculateHoverColour } from './hoverColour';
+import { calculateHoverColour, isValidHexColour } from './hoverColour';
 
 describe('calculateHoverColor background colours', () => {
 	it('returns 20% lighter color for very dark background colors', () => {
@@ -41,12 +41,12 @@ describe('calculateHoverColor background colours', () => {
 		expect(hoverColour).toBe('#E6E6E6');
 	});
 
-	it('returns some fallback for invalid hex values', () => {
-		const invalid = 'invalid';
+	it('returns the input for invalid hex values', () => {
+		const invalid = 'var(--product-button-primary-background)';
 
 		const hoverColour = calculateHoverColour(invalid);
 
-		expect(hoverColour).toBe('#333333');
+		expect(hoverColour).toBe('var(--product-button-primary-background)');
 	});
 });
 
@@ -76,5 +76,43 @@ describe('calculateHoverColor transparent backgrounds', () => {
 		const hoverColour = calculateHoverColour(transparent, borderColour);
 
 		expect(hoverColour).toBe('rgba(255, 255, 255, 0.2)');
+	});
+});
+
+describe('isValidHexColour', () => {
+	it('returns true for valid 6 char hex code', () => {
+		const colour = '#AD99C2';
+		const result = isValidHexColour(colour);
+		expect(result).toBe(true);
+	});
+
+	it('returns true for valid 6 char hex code in lowercase', () => {
+		const colour = '#ad99c2';
+		const result = isValidHexColour(colour);
+		expect(result).toBe(true);
+	});
+
+	it('returns true for valid 3 char hex code', () => {
+		const colour = '#FFF';
+		const result = isValidHexColour(colour);
+		expect(result).toBe(true);
+	});
+
+	it('returns false for invalid hex code with 4 chars', () => {
+		const colour = '#FFFF';
+		const result = isValidHexColour(colour);
+		expect(result).toBe(false);
+	});
+
+	it('returns false for invalid hex code with with non-hexadecimal chars', () => {
+		const colour = '#ZZ99C2';
+		const result = isValidHexColour(colour);
+		expect(result).toBe(false);
+	});
+
+	it('returns false for some other string', () => {
+		const colour = 'var(background-colour)';
+		const result = isValidHexColour(colour);
+		expect(result).toBe(false);
 	});
 });

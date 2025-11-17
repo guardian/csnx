@@ -19,6 +19,9 @@ export { between, from, until } from './mq/mq';
 // palette
 export { palette } from './palette/palette';
 
+// hover colours
+export { calculateHoverColour } from './buttonHoverColour/hoverColour';
+
 // size
 export {
 	height,
