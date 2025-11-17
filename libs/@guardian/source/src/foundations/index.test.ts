@@ -38,6 +38,7 @@ it('Should have exactly these exports', () => {
 		'brandLine',
 		'brandText',
 		'breakpoints',
+		'calculateHoverColour',
 		'culture',
 		'descriptionId',
 		'error',
