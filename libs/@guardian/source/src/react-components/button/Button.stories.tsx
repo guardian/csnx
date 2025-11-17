@@ -386,6 +386,21 @@ export const CustomTheme: Story = {
 	},
 };
 
+export const CustomThemeCssVar: Story = {
+	args: {
+		...PrimaryPriorityDefaultTheme.args,
+		theme: {
+			textPrimary: palette.neutral[100],
+			backgroundPrimary: 'var(--bg)',
+		},
+	},
+	render: (args) => {
+		document.documentElement.style.setProperty('--bg', '#7d0068');
+
+		return <Button {...args} />;
+	},
+};
+
 export const CustomTransparentTheme: Story = {
 	args: {
 		...PrimaryPriorityDefaultTheme.args,
