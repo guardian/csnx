@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { userEvent, within } from 'storybook/test';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { progress } from '../../stories/formats/grouped-clues.progress';
 import { quick as quickData } from '../../stories/formats/quick';
@@ -25,7 +25,7 @@ const meta: Meta<typeof Crossword> = {
 export default meta;
 type Story = StoryObj<typeof Crossword>;
 
-export const clickedCell: Story = {
+export const ClickedCell: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -37,7 +37,7 @@ export const clickedCell: Story = {
 	},
 };
 
-export const enteredClue: Story = {
+export const EnteredClue: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -50,7 +50,7 @@ export const enteredClue: Story = {
 	},
 };
 
-export const enteredClueWithSpaces: Story = {
+export const EnteredClueWithSpaces: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -63,7 +63,7 @@ export const enteredClueWithSpaces: Story = {
 	},
 };
 
-export const multipleClues: Story = {
+export const MultipleClues: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -83,7 +83,7 @@ export const multipleClues: Story = {
 	},
 };
 
-export const checkWordIncorrectLetter: Story = {
+export const CheckWordIncorrectLetter: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -97,7 +97,7 @@ export const checkWordIncorrectLetter: Story = {
 	},
 };
 
-export const checkWordAllCorrect: Story = {
+export const CheckWordAllCorrect: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -111,7 +111,7 @@ export const checkWordAllCorrect: Story = {
 	},
 };
 
-export const clearWord: Story = {
+export const ClearWord: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -125,7 +125,7 @@ export const clearWord: Story = {
 	},
 };
 
-export const revealWord: Story = {
+export const RevealWord: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -138,7 +138,7 @@ export const revealWord: Story = {
 	},
 };
 
-export const revealAll: Story = {
+export const RevealAll: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -150,7 +150,7 @@ export const revealAll: Story = {
 	},
 };
 
-export const checkAll: Story = {
+export const CheckAll: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 
@@ -161,7 +161,7 @@ export const checkAll: Story = {
 	},
 };
 
-export const clearAll: Story = {
+export const ClearAll: Story = {
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
 

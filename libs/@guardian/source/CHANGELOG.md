@@ -1,5 +1,21 @@
 # @guardian/source
 
+## 12.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
+## 11.3.1
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 11.3.0
 
 ### Minor Changes
@@ -152,7 +168,6 @@ SvgDirectDebitWide
   This release removes that old API, in order to simplify the ongoing maintenance of the library.
 
   The following exports have been removed:
-
   - `titlepiece`
   - `headline`
   - `body`
@@ -174,7 +189,6 @@ SvgDirectDebitWide
   - `titlepieceObjectStyles`
 
   along with the following `type` exports:
-
   - `ScaleUnit`
   - `Category`
   - `LineHeight`

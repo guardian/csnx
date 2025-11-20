@@ -1,5 +1,5 @@
 import { breakpoints } from '@guardian/source/foundations';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { Logo } from './Logo';
 
 const meta: Meta<typeof Logo> = {
@@ -8,9 +8,9 @@ const meta: Meta<typeof Logo> = {
 	args: {
 		logoType: 'standard',
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.brand[400]',
+			value: 'palette.brand[400]',
 		},
 	},
 };

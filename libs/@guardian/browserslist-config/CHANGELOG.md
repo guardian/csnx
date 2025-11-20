@@ -1,5 +1,20 @@
 # @guardian/browserslist-config
 
+## 7.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
+## 6.1.3
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 6.1.2
 
 ### Patch Changes

@@ -1,6 +1,7 @@
 import guardian from '@guardian/eslint-config';
 
-export default [
+/** @type {import('eslint').Linter.Config} */
+const config = [
 	{
 		ignores: [
 			'dist',
@@ -12,10 +13,14 @@ export default [
 	...guardian.configs.recommended,
 	...guardian.configs.jest,
 	...guardian.configs.react,
-	...guardian.configs.storybook,
+
 	{
 		// storybook is in a world of its own
 		files: ['.storybook/main.js'],
 		...guardian.configs.cjs,
 	},
+
+	...guardian.configs.storybook,
 ];
+
+export default config;

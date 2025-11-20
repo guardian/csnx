@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useState } from 'react';
 import { ToggleSwitch } from './ToggleSwitch';
 import type { ToggleSwitchProps } from './ToggleSwitch';

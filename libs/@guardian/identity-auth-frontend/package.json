@@ -1,8 +1,12 @@
 {
 	"name": "@guardian/identity-auth-frontend",
-	"version": "13.0.0",
+	"version": "14.0.0",
 	"private": false,
 	"description": "",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/identity-auth-frontend"
+	},
 	"license": "Apache-2.0",
 	"sideEffects": false,
 	"type": "module",
@@ -27,24 +31,24 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/identity-auth": "11.0.0",
-		"@guardian/libs": "26.0.0",
+		"@guardian/identity-auth": "12.0.0",
+		"@guardian/libs": "27.0.0",
 		"@types/jest": "30.0.0",
-		"eslint": "9.19.0",
+		"eslint": "9.39.1",
 		"jest": "30.0.5",
-		"jest-environment-jsdom": "30.1.2",
+		"jest-environment-jsdom": "30.2.0",
 		"jest-fetch-mock": "3.0.3",
-		"rollup": "4.50.1",
+		"rollup": "4.52.5",
 		"ts-jest": "29.4.0",
-		"tslib": "2.6.2",
-		"typescript": "5.5.2",
+		"tslib": "2.8.1",
+		"typescript": "5.9.3",
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"@guardian/identity-auth": "^11.0.0",
-		"@guardian/libs": "^26.0.0",
-		"tslib": "^2.6.2",
-		"typescript": "~5.5.2"
+		"@guardian/identity-auth": "^12.0.0",
+		"@guardian/libs": "^27.0.0",
+		"tslib": "^2.8.1",
+		"typescript": "~5.9.3"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {

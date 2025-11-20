@@ -1,5 +1,23 @@
 # @guardian/identity-auth-frontend
 
+## 14.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/identity-auth` to `12.0.0`
+  - Peer Dependency: Update `@guardian/libs` to `27.0.0`
+
+## 13.0.1
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 13.0.0
 
 ### Patch Changes

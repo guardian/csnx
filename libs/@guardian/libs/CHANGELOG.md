@@ -1,5 +1,33 @@
 # @guardian/libs
 
+## 27.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+
+## 26.1.0
+
+### Minor Changes
+
+- 3521dd6: Add pageshow event listener for pageshow event to ensure the Consent or Pay banner is shown after clicking the Browser's back button
+
+## 26.0.2
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
+## 26.0.1
+
+### Patch Changes
+
+- 621b835: Remove ab-test and switch logic from the CMP
+
 ## 26.0.0
 
 ### Major Changes
@@ -9,7 +37,6 @@
   Extends existing Consent or Pay functionality to include 34 additional European countries
 
   Within the gdpr framework, uses the jurisdiction to populate a new corPCurrency parameter with:
-
   - GBP for GB
   - EUR for all other Consent or Pay jursidictions
 
@@ -34,7 +61,6 @@
 ### Minor Changes
 
 - f97e460: Add request to fetch Sourcepoint's geolocation and track location mismatches between Fastly.
-
   - Fetch Sourcepoint's geolocation from `sourcepoint.theguardian.com/wrapper/v2/meta-data` to determine the Sourcepoint's applied framework.
   - Send an Ophan event when Sourcepoint's geolocation framework differs from Fastly's.
 
@@ -57,7 +83,6 @@
 ### Major Changes
 
 - 4384c52: Temporarily switching to use Sourcepoint geolocation
-
   - Load all stubs (tcfv2, usnat, ccpa) regardless of location except for Australia
   - Loading all jurisdiction config objects to allow Sourcepoint to choose depending on their geolocation except for Australia
   - Australia will use our current geolocation as SP's framework doesn't allow us to load both ccpa and usnat config objects.
@@ -111,7 +136,6 @@
 ### Minor Changes
 
 - 2811059: Temporarily switching to use Sourcepoint geolocation
-
   - Load all stubs (tcfv2, usnat, ccpa) regardless of location
   - Loading all jurisdiction config objects to allow Sourcepoint to choose depending on their geolocation
   - Sending jurisdiction mismatch to Ophan using CONSENT_GEOLOCATION_MISMATCH
@@ -195,7 +219,6 @@
 #### Changes to enable consent or pay in the CMP
 
 - 97822ce:
-
   - Add the ability by hiding it behind a query param flag, CORP_FLAG, for consent or pay by adding two new params, useNonAdvertisingList and isUsedSignedIn to cmp.init
   - Using Sourcepoint Subdomain property if useNonAdvertisedList is true
   - Merging user consent from Advertising to Non-Advertising vendor list will reload the page if a user has not previously consented to the non-advertising list.

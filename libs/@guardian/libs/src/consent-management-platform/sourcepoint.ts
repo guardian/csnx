@@ -148,13 +148,6 @@ export const init = (
 		window.guardian?.config?.tests?.useSourcepointPropertyIdVariant ===
 		'variant';
 
-	const isOptedInForConsentOrPayEurope =
-		window.guardian?.config?.tests?.consentOrPayEuropeInternalTestVariant ===
-		'variant';
-
-	const consentOrPayEuropeSwitch =
-		window.guardian?.config?.switches?.consentOrPayEurope;
-
 	log('cmp', `framework: ${framework}`);
 	log('cmp', `frameworkMessageType: ${frameworkMessageType}`);
 
@@ -318,25 +311,6 @@ export const init = (
 		);
 	}
 
-	const isConsentOrPayCountryTest = (_countryCode: CountryCode) => {
-		const isTestPage =
-			window.location.hostname === 'localhost' &&
-			window.location.port === '4321';
-		if (
-			isOptedInForConsentOrPayEurope ||
-			consentOrPayEuropeSwitch ||
-			isTestPage
-		) {
-			return isConsentOrPayCountry(_countryCode);
-		}
-
-		if (_countryCode === 'GB') {
-			return true;
-		}
-
-		return false;
-	};
-
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr, usnat, OR globalcmp
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// the appropriate consent API to the window object (__tcfapi for gdpr, __gpp for usnat, none for globalcmp).
@@ -347,7 +321,7 @@ export const init = (
 				targetingParams: {
 					framework,
 					excludePage: isExcludedFromCMP(pageSection),
-					isCorP: isConsentOrPayCountryTest(countryCode),
+					isCorP: isConsentOrPayCountry(countryCode),
 					isUserSignedIn,
 					corPCurrency: getConsentOrPayCurrency(countryCode),
 				},
@@ -383,6 +357,14 @@ export const init = (
 					log('cmp', `'Failed to merge vendor list': ${error}`);
 				});
 		} else {
+			window._sp_?.executeMessaging?.();
+		}
+	});
+
+	// Handle back navigation to ensure CMP messaging is shown when needed
+	window.addEventListener('pageshow', (event: PageTransitionEvent) => {
+		// Only re-execute messaging if the page is being loaded from cache i.e. via back/forward navigation
+		if (event.persisted) {
 			window._sp_?.executeMessaging?.();
 		}
 	});

@@ -1,7 +1,11 @@
 {
 	"name": "@guardian/browserslist-config",
-	"version": "6.1.2",
+	"version": "7.0.0",
 	"description": "Browserslist config for Guardian websites",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/browserslist-config"
+	},
 	"main": "browserslist.js",
 	"files": [
 		".browserslistrc",
@@ -17,13 +21,13 @@
 		"@guardian/browserslist-config": "workspace:*",
 		"@guardian/eslint-config": "workspace:*",
 		"browserslist": "4.23.0",
-		"eslint": "9.19.0",
-		"tslib": "2.6.2",
+		"eslint": "9.39.1",
+		"tslib": "2.8.1",
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
 		"browserslist": "^4.22.2",
-		"tslib": "^2.6.2"
+		"tslib": "^2.8.1"
 	},
 	"publishConfig": {
 		"access": "public"

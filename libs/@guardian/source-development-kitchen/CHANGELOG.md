@@ -1,5 +1,23 @@
 # @guardian/source-development-kitchen
 
+## 23.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/source` to `12.0.0`
+  - Peer Dependency: Update `@guardian/libs` to `27.0.0`
+
+## 22.0.1
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 22.0.0
 
 ### Patch Changes
@@ -217,7 +235,6 @@ Updated peer dependency to `@guardian/source@7.0.0`
 ### Major Changes
 
 - bdd830b: Update dependencies:
-
   - `@guardian/source@3.0.0`
   - `@guardian/libs@16.1.3`
 

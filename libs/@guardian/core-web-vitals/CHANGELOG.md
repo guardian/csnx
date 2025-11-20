@@ -1,5 +1,22 @@
 # @guardian/core-web-vitals
 
+## 16.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/libs` to `27.0.0`
+
+## 15.0.1
+
+### Patch Changes
+
+- 0f141c4: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
 ## 15.0.0
 
 ### Patch Changes
@@ -140,7 +157,6 @@
 ### Major Changes
 
 - ed13a6c: Update to use web-vitals v3.0.0.
-
   - Add a config object param to all metric functions ([#​225](https://togithub.com/GoogleChrome/web-vitals/pull/225))
   - Report TTFB after a bfcache restore ([#​220](https://togithub.com/GoogleChrome/web-vitals/pull/220))
   - Only include last LCP entry in metric entries ([#​218](https://togithub.com/GoogleChrome/web-vitals/pull/218))

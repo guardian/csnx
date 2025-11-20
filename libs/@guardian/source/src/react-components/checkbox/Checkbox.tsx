@@ -15,6 +15,42 @@ import {
 import { themeCheckbox as defaultTheme, transformProviderTheme } from './theme';
 import type { ThemeCheckbox } from './theme';
 
+const SupportingText = ({
+	children,
+	mergedTheme,
+}: {
+	children: ReactNode;
+	mergedTheme: (providerTheme: Theme['checkbox']) => ThemeCheckbox;
+}) => {
+	return (
+		<div
+			css={(providerTheme: Theme) =>
+				supportingText(mergedTheme(providerTheme.checkbox))
+			}
+		>
+			{children}
+		</div>
+	);
+};
+
+const LabelText = ({
+	children,
+	mergedTheme,
+}: {
+	children: ReactNode;
+	mergedTheme: (providerTheme: Theme['checkbox']) => ThemeCheckbox;
+}) => {
+	return (
+		<div
+			css={(providerTheme: Theme) =>
+				labelText(mergedTheme(providerTheme.checkbox))
+			}
+		>
+			{children}
+		</div>
+	);
+};
+
 export interface CheckboxProps
 	extends InputHTMLAttributes<HTMLInputElement>,
 		Props {
@@ -116,30 +152,6 @@ export const Checkbox = ({
 			transformProviderTheme,
 		);
 
-	const SupportingText = ({ children }: { children: ReactNode }) => {
-		return (
-			<div
-				css={(providerTheme: Theme) =>
-					supportingText(mergedTheme(providerTheme.checkbox))
-				}
-			>
-				{children}
-			</div>
-		);
-	};
-
-	const LabelText = ({ children }: { children: ReactNode }) => {
-		return (
-			<div
-				css={(providerTheme: Theme) =>
-					labelText(mergedTheme(providerTheme.checkbox))
-				}
-			>
-				{children}
-			</div>
-		);
-	};
-
 	return (
 		<div
 			css={(providerTheme: Theme) =>
@@ -169,11 +181,13 @@ export const Checkbox = ({
 			<label htmlFor={checkboxId} css={label}>
 				{supporting ? (
 					<div>
-						<LabelText>{labelContent}</LabelText>
-						<SupportingText>{supporting}</SupportingText>
+						<LabelText mergedTheme={mergedTheme}>{labelContent}</LabelText>
+						<SupportingText mergedTheme={mergedTheme}>
+							{supporting}
+						</SupportingText>
 					</div>
 				) : (
-					<LabelText>{labelContent}</LabelText>
+					<LabelText mergedTheme={mergedTheme}>{labelContent}</LabelText>
 				)}
 			</label>
 		</div>

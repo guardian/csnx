@@ -1,8 +1,12 @@
 {
 	"name": "@guardian/newsletter-types",
-	"version": "3.0.1",
+	"version": "4.0.0",
 	"private": false,
 	"description": "A set of types describing the output of the Guardian newsletters API",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/newsletter-types"
+	},
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
@@ -21,15 +25,15 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"eslint": "9.19.0",
-		"rollup": "4.50.1",
-		"tslib": "2.6.2",
-		"typescript": "5.5.2",
+		"eslint": "9.39.1",
+		"rollup": "4.52.5",
+		"tslib": "2.8.1",
+		"typescript": "5.9.3",
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"tslib": "^2.6.2",
-		"typescript": "~5.5.2"
+		"tslib": "^2.8.1",
+		"typescript": "~5.9.3"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {

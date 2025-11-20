@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { Option } from './Option';
 import { Select } from './Select';
@@ -125,9 +125,9 @@ export const SupportingTextCustomTheme: Story = {
 			backgroundInput: palette.neutral[20],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };
@@ -145,9 +145,9 @@ export const ErrorWithMessageCustomTheme: Story = {
 			backgroundInput: palette.neutral[20],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

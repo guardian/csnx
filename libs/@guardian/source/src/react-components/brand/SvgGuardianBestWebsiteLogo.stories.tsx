@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SvgGuardianBestWebsiteLogo } from './SvgGuardianBestWebsiteLogo';
 
 const meta: Meta<typeof SvgGuardianBestWebsiteLogo> = {

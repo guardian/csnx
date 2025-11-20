@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { palette } from '../../foundations';
 import { SvgCamera } from '../__generated__/icons/SvgCamera';
 import { ChoiceCard } from './ChoiceCard';
@@ -82,9 +82,9 @@ export const IconCustomTheme: Story = {
 			backgroundTick: palette.brand[400],
 		},
 	},
-	parameters: {
+	globals: {
 		backgrounds: {
-			default: 'palette.neutral[10]',
+			value: 'palette.neutral[10]',
 		},
 	},
 };

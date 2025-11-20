@@ -1,5 +1,29 @@
 # @guardian/react-crossword
 
+## 12.0.0
+
+### Major Changes
+
+- 816eebd:
+  - Peer Dependency: Update `typescript` to `5.9.3`
+  - Peer Dependency: Update `tslib` to `2.8.1`
+  - Peer Dependency: Update `@guardian/source` to `12.0.0`
+  - Peer Dependency: Update `@guardian/libs` to `27.0.0`
+
+## 11.1.1
+
+### Patch Changes
+
+- 56dab8a: no-op
+
+  This is a no-op release to test migration to [NPM trusted publishing](https://docs.npmjs.com/trusted-publishers).
+
+## 11.1.0
+
+### Minor Changes
+
+- b40eb19: Add a mini crossword type
+
 ## 11.0.0
 
 ### Patch Changes
@@ -96,7 +120,6 @@
 ### Major Changes
 
 - aeb7ed2: Extends theme to support additional elements and renames some existing keys for consistency and clarity:
-
   - Adds `gridTextColor` to theme to allow text in the grid to be themed independently of other text
   - Explicitly applies `textColor` to other elements rather than rely on inheritance or `currentColor`
   - Renames `selectedColor` and `connectedColor` to make it clear they apply to background colours
@@ -109,7 +132,6 @@
 - 586ab4a: This is a complete rebuild of the React crossword player.
 
   It includes the following feature:
-
   - Renders crossword grid and clues
   - Supports hyphenated and multiple-word answers
   - Supports grouped clues that span multiple columns or rows
