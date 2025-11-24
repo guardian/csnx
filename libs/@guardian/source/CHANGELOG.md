@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 12.1.0
+
+### Minor Changes
+
+- c31ae0c: Validate `calculateHoverColour` input as hex code and export the function
+
 ## 12.0.0
 
 ### Major Changes
