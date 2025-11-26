@@ -14,9 +14,7 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
-			fillRule="evenodd"
-			clipRule="evenodd"
-			d="M3 5h2.8v2.8H3zm18.05.31h-13v2h12.61l.39-.5zm0 6.2h-13v2h12.61l.39-.5zm-13 6.2h13v1.5l-.39.5H8.05zm-2.25-6.3H3v2.8h2.8zm-2.79 5.97h2.8v2.8h-2.8z"
+			d="M5.81 17.38v2.8h-2.8v-2.8zm15.24 1.83-.39.5H8.05v-2h13zm-15.25-5H3v-2.8h2.8zm15.25-1.2-.39.5H8.05v-2h13zM5.8 7.8H3V5h2.8zm15.25-.99-.39.5H8.05v-2h13z"
 			fill={theme?.fill}
 		/>
 	</svg>

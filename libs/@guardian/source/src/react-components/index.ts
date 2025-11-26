@@ -131,6 +131,8 @@ export { SvgChevronUpSingle } from './__generated__/icons/SvgChevronUpSingle';
 export { SvgChevronUpSingleSmall } from './__generated__/icons/SvgChevronUpSingleSmall';
 export { SvgClockFilled } from './__generated__/icons/SvgClockFilled';
 export { SvgClockOutlined } from './__generated__/icons/SvgClockOutlined';
+export { SvgClosedCaptionsOff } from './__generated__/icons/SvgClosedCaptionsOff';
+export { SvgClosedCaptionsOn } from './__generated__/icons/SvgClosedCaptionsOn';
 export { SvgClockBaselineSmall } from './__generated__/icons/SvgClockBaselineSmall';
 export { SvgCloudSync } from './__generated__/icons/SvgCloudSync';
 export { SvgCloudUpload } from './__generated__/icons/SvgCloudUpload';
