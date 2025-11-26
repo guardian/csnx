@@ -1134,6 +1134,17 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
+		expect(typePreset.textSans42).toMatchCSS(
+			`
+			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 2.625rem;
+			line-height: 1.3;
+			font-weight: 400;
+			font-style: normal;
+			--source-text-decoration-thickness: 5px;
+			`,
+			{ isFragment: true },
+		);
 		expect(typePreset.textSansBold12).toMatchCSS(
 			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -1222,6 +1233,17 @@ describe('Typography preset CSS output', () => {
 			`,
 			{ isFragment: true },
 		);
+		expect(typePreset.textSansBold42).toMatchCSS(
+			`
+			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 2.625rem;
+			line-height: 1.3;
+			font-weight: 700;
+			font-style: normal;
+			--source-text-decoration-thickness: 5px;
+			`,
+			{ isFragment: true },
+		);
 		expect(typePreset.textSansItalic12).toMatchCSS(
 			`
 			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -1307,6 +1329,17 @@ describe('Typography preset CSS output', () => {
 			font-weight: 400;
 			font-style: italic;
 			--source-text-decoration-thickness: 4px;
+			`,
+			{ isFragment: true },
+		);
+		expect(typePreset.textSansItalic42).toMatchCSS(
+			`
+			font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-size: 2.625rem;
+			line-height: 1.3;
+			font-weight: 400;
+			font-style: italic;
+			--source-text-decoration-thickness: 5px;
 			`,
 			{ isFragment: true },
 		);

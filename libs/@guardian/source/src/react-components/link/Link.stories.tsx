@@ -18,6 +18,7 @@ import {
 	textSans24,
 	textSans28,
 	textSans34,
+	textSans42,
 } from '../../foundations';
 import { SvgExternal } from '../__generated__/icons/SvgExternal';
 import { Link } from './Link';
@@ -42,6 +43,7 @@ export default meta;
 type Story = StoryObj<typeof Link>;
 
 const textSans = [
+	textSans42,
 	textSans34,
 	textSans28,
 	textSans24,
