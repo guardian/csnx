@@ -1360,6 +1360,24 @@ export const textSans34Object = {
 	fontStyle: 'normal',
 } as const;
 
+export const textSans42 = `
+	font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 2.625rem;
+	line-height: 1.3;
+	font-weight: 400;
+	font-style: normal;
+	--source-text-decoration-thickness: 5px;
+`;
+
+export const textSans42Object = {
+	fontFamily:
+		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
+	fontSize: '2.625rem',
+	lineHeight: 1.3,
+	fontWeight: 400,
+	fontStyle: 'normal',
+} as const;
+
 export const textSansBold12 = `
 	font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 0.75rem;
@@ -1504,6 +1522,24 @@ export const textSansBold34Object = {
 	fontStyle: 'normal',
 } as const;
 
+export const textSansBold42 = `
+	font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 2.625rem;
+	line-height: 1.3;
+	font-weight: 700;
+	font-style: normal;
+	--source-text-decoration-thickness: 5px;
+`;
+
+export const textSansBold42Object = {
+	fontFamily:
+		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
+	fontSize: '2.625rem',
+	lineHeight: 1.3,
+	fontWeight: 700,
+	fontStyle: 'normal',
+} as const;
+
 export const textSansItalic12 = `
 	font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 0.75rem;
@@ -1643,6 +1679,24 @@ export const textSansItalic34Object = {
 	fontFamily:
 		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
 	fontSize: '2.125rem',
+	lineHeight: 1.3,
+	fontWeight: 400,
+	fontStyle: 'italic',
+} as const;
+
+export const textSansItalic42 = `
+	font-family: GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 2.625rem;
+	line-height: 1.3;
+	font-weight: 400;
+	font-style: italic;
+	--source-text-decoration-thickness: 5px;
+`;
+
+export const textSansItalic42Object = {
+	fontFamily:
+		'GuardianTextSans, "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif',
+	fontSize: '2.625rem',
 	lineHeight: 1.3,
 	fontWeight: 400,
 	fontStyle: 'italic',
