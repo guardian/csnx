@@ -13,17 +13,8 @@ const Svg = ({ size, theme }: IconProps) => (
 		focusable={false}
 		aria-hidden={true}
 	>
-		<path d="M6.125 12.25h7.75v1.625h-7.75z" fill={theme?.fill} />
-		<path d="M12.25 14.875H6.125V16.5h6.125z" fill={theme?.fill} />
 		<path
-			fillRule="evenodd"
-			clipRule="evenodd"
-			d="m4.375 3.627-.875.875V19.5l.875.875h11.75L17 19.5V4.502l-.875-.875zm.75 5.873V5.252h10.25V9.5zm0 1.625v7.625h10.25v-7.625z"
-			fill={theme?.fill}
-		/>
-		<path d="M18.762 5.5H17.75v13l.877-.01.748-.75V6.127z" fill={theme?.fill} />
-		<path
-			d="M21.012 7.492H20v9.086l.877-.01.748-.75V8.12z"
+			d="M17 4.502V19.5l-.875.875H4.375L3.5 19.5V4.502l.875-.875h11.75zM5.125 18.75h10.25v-7.625H5.125zm14.25-12.623V17.74l-.748.75-.877.01v-13h1.012zm1.637 1.365.613.627v7.7l-.748.75-.877.01V7.491zM12.25 16.5H6.125v-1.625h6.125zm1.625-2.625h-7.75V12.25h7.75zM5.125 9.5h10.25V5.252H5.125z"
 			fill={theme?.fill}
 		/>
 	</svg>
