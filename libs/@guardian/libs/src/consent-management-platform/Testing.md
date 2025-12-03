@@ -15,19 +15,21 @@ This guide describes how to test changes to the CMP logic in Dotcom Rendering an
 
 1. Setup the monitoring tool in https://github.com/guardian/consent-management-platform
 2. Use a vpn to test the different frameworks
+   - GB for `tcfv2_corp_gb` (Consent or Pay TCFV2 in GB)
+   - Ireland (or other European country) for `tcfv2_corp_eu` (Consent or Pay TCFV2 in Europe)
+   - Canada (other other non-European ROW country) for `tcfv2_row`
    - US for `usnat`
-   - GB for `tcfv2_corp` (Consent or Pay TCFV2)
    - AUS for `aus`
-   - Ireland/ROW for `tcfv2`
 3. Execute `make synthetics-start-debug` in the @guardian/consent-management-platform and select the appropriate settings for the CODE environment and relevant framework. Please note: you can also select the Sourcepoint stage.
 
 ### Manual checks to the website
 
 1. Use a vpn to test the different frameworks
+   - GB for `tcfv2_corp_gb` (Consent or Pay TCFV2 in GB)
+   - Ireland (or other European country) for `tcfv2_corp_eu` (Consent or Pay TCFV2 in Europe)
+   - Canada (other other non-European ROW country) for `tcfv2_row`
    - US for `usnat`
-   - GB for `tcfv2_corp` (Consent or Pay TCFV2)
    - AUS for `aus`
-   - Ireland/ROW for `tcfv2`
 2. Load the CODE environment: https://m.code.dev-theguardian.com
 3. Check the correct banner is shown depending on the region
 4. Open the browser console and check if the appropriate stub is loaded or not. https://github.com/guardian/transparency-consent-docs/blob/main/docs/testing-cmp-locally.md#tools-to-test-cmp
@@ -37,7 +39,7 @@ This guide describes how to test changes to the CMP logic in Dotcom Rendering an
 5. Check Google Ad Requests
    - Open the Network tab in Developer tools
    - Filter by `securepubads`
-   - Confirm if there are requests to `https://securepubads.g.doubleclick.net/gampad/ads`. Please note: for AUS and US this will be there without interacting with the banner. For GDPR (UK and ROW), this will show only after interacting with the banner.
+   - Confirm if there are requests to `https://securepubads.g.doubleclick.net/gampad/ads`. Please note: for AUS and US this will be there without interacting with the banner. For GDPR (UK, Europe and ROW), this will show only after interacting with the banner.
    - Copy the full request url to the commercial request parser (https://guardian.github.io/commercial-request-parser/)
      - Check the rdp and pa values
 
