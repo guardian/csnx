@@ -185,6 +185,9 @@
 		{:else}
 			<h2>¯\_(ツ)_/¯</h2>
 		{/if}
+
+		<h2>getConsentOptOutStatus</h2>
+        <span class="label">{window.guCmpHotFix.getConsentOptOutStatus?.(consentState) ?? 'Function not available'}</span>
 	</div>
 
 	<ol id="events">
