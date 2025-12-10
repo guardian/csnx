@@ -19,17 +19,7 @@ describe('getConsentOptOutStatus', () => {
 		);
 	});
 
-	it('returns correct status for GPC signal when no explicit opt-out', () => {
-		const consent = {
-			usnat: {},
-			gpcSignal: true,
-		};
-		expect(getConsentOptOutStatus(consent)).toBe(
-			'You have opted out of the sale/sharing of personal information via Global Privacy Control (opt-out request honoured)',
-		);
-	});
-
-	it('returns blank string for undefined doNotSell and no GPC', () => {
+	it('returns correct status for undefined doNotSell', () => {
 		const consent = {
 			usnat: {},
 		};
