@@ -5,6 +5,7 @@ import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
 import { getConsentFor as clientGetConsentFor } from './getConsentFor';
+import { getConsentOptOutStatus as clientGetConsentOptOutStatus } from './getConsentOptOutStatus';
 import { getFramework } from './getFramework';
 import { onConsent as clientOnConsent } from './onConsent';
 import { onConsentChange as clientOnConsentChange } from './onConsentChange';
@@ -12,6 +13,7 @@ import {
 	isServerSide,
 	cmp as serverCmp,
 	getConsentFor as serverGetConsentFor,
+	getConsentOptOutStatus as serverGetConsentOptOutStatus,
 	onConsent as serverOnConsent,
 	onConsentChange as serverOnConsentChange,
 } from './server';
@@ -172,3 +174,7 @@ export const onConsentChange = isServerSide
 export const getConsentFor = isServerSide
 	? serverGetConsentFor
 	: (window.guCmpHotFix.getConsentFor ??= clientGetConsentFor);
+export const getConsentOptOutStatus = isServerSide
+	? serverGetConsentOptOutStatus
+	: (window.guCmpHotFix.getConsentOptOutStatus ??=
+			clientGetConsentOptOutStatus);

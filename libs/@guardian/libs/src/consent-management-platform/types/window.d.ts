@@ -1,4 +1,5 @@
 import type { getConsentFor } from '../getConsentFor';
+import type { getConsentOptOutStatus } from '../getConsentOptOutStatus';
 import type { Property } from '../lib/property';
 import type { Currency, EndPoint } from '../lib/sourcepointConfig';
 import type { onConsent } from '../onConsent';
@@ -20,6 +21,7 @@ type GuCmpHotFix = {
 	onConsent?: typeof onConsent;
 	onConsentChange?: typeof onConsentChange;
 	getConsentFor?: typeof getConsentFor;
+	getConsentOptOutStatus?: typeof getConsentOptOutStatus;
 };
 
 declare global {
