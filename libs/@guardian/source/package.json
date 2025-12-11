@@ -14,9 +14,7 @@
 			"import": "./dist/foundations.js",
 			"require": "./dist/foundations.cjs"
 		},
-		"./foundations/breakpoints.scss": "./dist/foundations/__generated__/breakpoints.scss",
-		"./foundations/palette.css": "./dist/foundations/__generated__/palette.css",
-		"./foundations/typography.css": "./dist/foundations/__generated__/typography.css",
+		"./foundations/*": "./dist/foundations/__generated__/*",
 		"./react-components": {
 			"types": "./dist/react-components.d.ts",
 			"import": "./dist/react-components.js",

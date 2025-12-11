@@ -14,7 +14,8 @@ import paletteCss from './cobalt-plugins/palette/css.js';
 import palette from './cobalt-plugins/palette/typescript.js';
 import size from './cobalt-plugins/size.js';
 import space from './cobalt-plugins/space.js';
-import typographyCss from './cobalt-plugins/typography/css.js';
+import typographyClassesCss from './cobalt-plugins/typography/css-classes.js';
+import typographyMixinsScss from './cobalt-plugins/typography/scss-mixins.js';
 import typography from './cobalt-plugins/typography/typescript.js';
 
 /**
@@ -46,7 +47,8 @@ export default {
 		breakpointsScss({ filename: 'breakpoints.scss' }),
 
 		typography({ filename: 'typography.ts' }),
-		typographyCss({ filename: 'typography.css' }),
+		typographyClassesCss({ filename: 'typography-classes.css' }),
+		typographyMixinsScss({ filename: 'typography-mixins.scss' }),
 
 		space({ filename: 'space.ts' }),
 		size({ filename: 'size.ts' }),

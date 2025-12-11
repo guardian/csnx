@@ -65,8 +65,8 @@ describe('Breakpoint tokens object output', () => {
 	});
 });
 
-describe.only('Breakpoint tokens mixin output', () => {
-	it.only('should generate correct SCSS breakpoints with mq mixin', () => {
+describe('Breakpoint tokens mixin output', () => {
+	it('should generate correct SCSS breakpoints with mq mixin', () => {
 		const cssPath = join(__dirname, '__generated__/breakpoints.scss');
 		const cssContent = readFileSync(cssPath, 'utf-8');
 
@@ -2155,7 +2155,7 @@ describe('Typography preset object output', () => {
 
 describe('Typography preset CSS classes output', () => {
 	it('should match expected output', () => {
-		const cssPath = join(__dirname, '__generated__/typography.css');
+		const cssPath = join(__dirname, '__generated__/typography-classes.css');
 		const cssContent = readFileSync(cssPath, 'utf-8');
 		const root = postcss.parse(cssContent);
 
