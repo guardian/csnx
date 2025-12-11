@@ -8,11 +8,15 @@
 // @ts-check
 
 import pluginCSS, { defaultNameGenerator } from '@cobalt-ui/plugin-css';
-import breakpoints from './cobalt-plugins/breakpoints.js';
-import palette from './cobalt-plugins/palette.js';
+import breakpointsScss from './cobalt-plugins/breakpoints/scss.js';
+import breakpoints from './cobalt-plugins/breakpoints/typescript.js';
+import paletteCss from './cobalt-plugins/palette/css.js';
+import palette from './cobalt-plugins/palette/typescript.js';
 import size from './cobalt-plugins/size.js';
 import space from './cobalt-plugins/space.js';
-import typography from './cobalt-plugins/typography.js';
+import typographyClassesCss from './cobalt-plugins/typography/css-classes.js';
+import typographyMixinsScss from './cobalt-plugins/typography/scss-mixins.js';
+import typography from './cobalt-plugins/typography/typescript.js';
 
 /**
  * @param {string} variableId
@@ -37,10 +41,18 @@ export default {
 	outDir: '../foundations/__generated__',
 	plugins: [
 		palette({ filename: 'palette.ts' }),
+		paletteCss({ filename: 'palette.css' }),
+
 		breakpoints({ filename: 'breakpoints.ts' }),
+		breakpointsScss({ filename: 'breakpoints.scss' }),
+
 		typography({ filename: 'typography.ts' }),
+		typographyClassesCss({ filename: 'typography-classes.css' }),
+		typographyMixinsScss({ filename: 'typography-mixins.scss' }),
+
 		space({ filename: 'space.ts' }),
 		size({ filename: 'size.ts' }),
+
 		pluginCSS({
 			p3: false,
 			generateName: prefixCustomProperty,

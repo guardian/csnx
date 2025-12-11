@@ -4,31 +4,10 @@
 
 import { defaultTransformer } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
-import { fontArrayToString, pxStringToRem } from '../lib/convert-value.js';
-import { getCommentId } from '../lib/get-comment-id.js';
-import { template } from '../lib/template.js';
-
-const GROUP_PREFIX = 'typographyPresets.';
-
-/** @param {string} fontSize */
-const textDecorationThickness = (fontSize) => {
-	switch (fontSize) {
-		case '20px':
-		case '24px':
-		case '28px':
-			return '3px';
-		case '34px':
-			return '4px';
-		case '42px':
-			return '5px';
-		case '50px':
-		case '64px':
-		case '70px':
-			return '6px';
-		default:
-			return '2px';
-	}
-};
+import { fontArrayToString, pxStringToRem } from '../../lib/convert-value.js';
+import { getCommentId } from '../../lib/get-comment-id.js';
+import { template } from '../../lib/template.js';
+import { textDecorationThickness } from './common.js';
 
 /**
  * @typedef {Object} TypographyPreset
@@ -38,6 +17,8 @@ const textDecorationThickness = (fontSize) => {
  * @property {number} fontWeight
  * @property {string} fontStyle
  */
+
+const GROUP_PREFIX = 'typographyPresets.';
 
 /**
  *
@@ -69,7 +50,7 @@ export const ${preset}Object = {
  */
 export default function pluginBreakpoints(options) {
 	return {
-		name: 'plugin-typography',
+		name: 'plugin-typography-typescript',
 
 		config(/* config */) {},
 		async build({ tokens /* metadata, rawSchema */ }) {
