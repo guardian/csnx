@@ -4,9 +4,9 @@
 
 import { defaultTransformer, serializeJS } from '@cobalt-ui/plugin-js';
 import { set } from '@cobalt-ui/utils';
-import { pxStringToNumber } from '../lib/convert-value.js';
-import { getCommentId } from '../lib/get-comment-id.js';
-import { template } from '../lib/template.js';
+import { pxStringToNumber } from '../../lib/convert-value.js';
+import { getCommentId } from '../../lib/get-comment-id.js';
+import { template } from '../../lib/template.js';
 
 /**
  * @param {{ filename: string; }} options
@@ -14,7 +14,7 @@ import { template } from '../lib/template.js';
  */
 export default function pluginBreakpoints(options) {
 	return {
-		name: 'plugin-breakpoints',
+		name: 'plugin-breakpoints-typescript',
 
 		config(/* config */) {},
 		async build({ tokens, rawSchema /*, metadata */ }) {
