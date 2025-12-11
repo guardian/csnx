@@ -3,6 +3,7 @@ import type {
 	CMP,
 	ConsentState,
 	GetConsentFor,
+	GetConsentOptOutStatus,
 	OnConsentChange,
 	VendorName,
 } from './types';
@@ -59,4 +60,9 @@ export const getConsentFor: GetConsentFor = (
 	serverSideWarn();
 
 	return false;
+};
+
+export const getConsentOptOutStatus: GetConsentOptOutStatus = () => {
+	serverSideWarn();
+	return '';
 };

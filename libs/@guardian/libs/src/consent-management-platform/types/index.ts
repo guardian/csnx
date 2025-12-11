@@ -34,6 +34,7 @@ export type GetConsentFor = (
 	vendor: VendorName,
 	consent: ConsentState,
 ) => boolean;
+export type GetConsentOptOutStatus = (consent: ConsentState) => string;
 
 export interface ConsentState {
 	tcfv2?: TCFv2ConsentState;
