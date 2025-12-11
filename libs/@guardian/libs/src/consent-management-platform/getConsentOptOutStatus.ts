@@ -11,7 +11,7 @@ export const getConsentOptOutStatus: GetConsentOptOutStatus = (
 	// check explicit opt-out via CMP UI or Sourcepoint-honoured GPC signal (via the portal setting
 	// “Respect Global Privacy Control”)
 	if (consent.usnat.doNotSell) {
-		return 'You have opted out of the sale/sharing of personal information (opt-out request honoured)';
+		return 'You have opted out of the sale/sharing of personal information';
 	}
 
 	return 'You have not opted out of the sale/sharing of personal information';

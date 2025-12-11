@@ -6,7 +6,7 @@ describe('getConsentOptOutStatus', () => {
 			usnat: { doNotSell: true },
 		};
 		expect(getConsentOptOutStatus(consent)).toBe(
-			'You have opted out of the sale/sharing of personal information (opt-out request honoured)',
+			'You have opted out of the sale/sharing of personal information',
 		);
 	});
 
