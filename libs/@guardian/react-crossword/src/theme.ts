@@ -9,6 +9,7 @@ export const defaultTheme: Theme = {
 	gridGutterSize: 1,
 	gridCellSize: 32,
 	gridCellStrikeThrough: palette.neutral[46],
+	gridMinWidth: 300,
 
 	textColor: palette.neutral[7],
 	focusColor: palette.focus[400],
