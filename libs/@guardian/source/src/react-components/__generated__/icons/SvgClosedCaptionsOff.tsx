@@ -14,13 +14,19 @@ const Svg = ({ size, theme }: IconProps) => (
 		aria-hidden={true}
 	>
 		<path
-			d="M10 9.5V11H8v6h8v-6h-2V9.5h2.5l1 .99v7.01l-1.01 1h-9l-.99-1v-7.01l1-.99zM12.27 4l3.365 3.365-.66.665-2.21-1.59V13h-1.5V6.44L9.04 8.04l-.66-.665L11.755 4z"
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M21.35 2 23 3.703v15.112l-1.65 1.446H16l-2.9 3.495h-2.347V20.26H2.65L1 18.814V3.704L2.65 2zM3.75 4.21l-.55.553V17.5l.528.5h8.822v3.5L15.5 18h4.75l.55-.5V4.763l-.55-.552z"
 			fill={theme?.fill}
 		/>
+		<path d="M5 10h9v2H5z" fill={theme?.fill} />
+		<path d="M19 16h-9v-2h9z" fill={theme?.fill} />
+		<path d="M15 10h4v2h-4z" fill={theme?.fill} />
+		<path d="M9 16H5v-2h4z" fill={theme?.fill} />
 	</svg>
 );
 
-export const SvgShareAppSmall = ({
+export const SvgClosedCaptionsOff = ({
 	size,
 	theme,
 	isAnnouncedByScreenReader = false,
@@ -33,7 +39,7 @@ export const SvgShareAppSmall = ({
 					${visuallyHidden}
 				`}
 			>
-				Share
+				Closed captions off
 			</span>
 		) : (
 			''

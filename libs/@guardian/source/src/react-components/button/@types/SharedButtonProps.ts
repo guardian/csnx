@@ -59,6 +59,8 @@ export interface SharedButtonProps extends Props {
 	 *  `borderTertiary`<br>
 	 *  `textSubdued`<br>
 	 *
+	 *  If you do not supply `backgroundPrimaryHover`, `backgroundSecondaryHover` or `backgroundTertiaryHover`
+	 *  they will be calculated if there is hex code background colour.
 	 */
 	theme?: Partial<ThemeButton>;
 }

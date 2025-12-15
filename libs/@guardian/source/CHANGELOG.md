@@ -1,5 +1,18 @@
 # @guardian/source
 
+## 12.2.0
+
+### Minor Changes
+
+- 71ca777: Update icons and add `SvgClosedCaptionsOff` and `SvgClosedCaptionsOn`
+- 81de86f: Add textSans 42 presets (`textSans42`, `textSansBold42`, `textSansItalic42`)
+
+## 12.1.0
+
+### Minor Changes
+
+- c31ae0c: Validate `calculateHoverColour` input as hex code and export the function
+
 ## 12.0.0
 
 ### Major Changes
