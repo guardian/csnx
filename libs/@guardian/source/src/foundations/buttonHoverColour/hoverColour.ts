@@ -1,13 +1,23 @@
 import { hexToHsl, hexToRgb, hslToHex } from '../utils/colourConversions';
 
+export const isValidHexColour = (colour: string): boolean => {
+	const regex = /^#(?:[0-9a-f]{6}|[0-9a-f]{3})$/i;
+
+	return regex.test(colour);
+};
+
 export const calculateHoverColour = (
 	backgroundColour: string,
 	borderColour?: string,
 ): string => {
 	if (backgroundColour === 'transparent') {
-		if (borderColour !== undefined) {
+		if (borderColour !== undefined && isValidHexColour(borderColour)) {
 			return calculateTransparentBackgroundHover(borderColour);
 		}
+		return backgroundColour;
+	}
+
+	if (!isValidHexColour(backgroundColour)) {
 		return backgroundColour;
 	}
 

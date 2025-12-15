@@ -1442,6 +1442,19 @@
 	--source-typographyPresets-textSans34-line-height: var(
 		--source-typography-lineHeight-regular
 	);
+	--source-typographyPresets-textSans42-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typographyPresets-textSans42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typographyPresets-textSans42-font-style: normal;
+	--source-typographyPresets-textSans42-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typographyPresets-textSans42-line-height: var(
+		--source-typography-lineHeight-regular
+	);
 	--source-typographyPresets-textSansBold12-font-family: var(
 		--source-typography-fontFamily-textSans
 	);
@@ -1546,6 +1559,19 @@
 	--source-typographyPresets-textSansBold34-line-height: var(
 		--source-typography-lineHeight-regular
 	);
+	--source-typographyPresets-textSansBold42-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typographyPresets-textSansBold42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typographyPresets-textSansBold42-font-style: normal;
+	--source-typographyPresets-textSansBold42-font-weight: var(
+		--source-typography-fontWeight-bold
+	);
+	--source-typographyPresets-textSansBold42-line-height: var(
+		--source-typography-lineHeight-regular
+	);
 	--source-typographyPresets-textSansItalic12-font-family: var(
 		--source-typography-fontFamily-textSans
 	);
@@ -1648,6 +1674,19 @@
 		--source-typography-fontWeight-regular
 	);
 	--source-typographyPresets-textSansItalic34-line-height: var(
+		--source-typography-lineHeight-regular
+	);
+	--source-typographyPresets-textSansItalic42-font-family: var(
+		--source-typography-fontFamily-textSans
+	);
+	--source-typographyPresets-textSansItalic42-font-size: var(
+		--source-typography-fontSize-42
+	);
+	--source-typographyPresets-textSansItalic42-font-style: italic;
+	--source-typographyPresets-textSansItalic42-font-weight: var(
+		--source-typography-fontWeight-regular
+	);
+	--source-typographyPresets-textSansItalic42-line-height: var(
 		--source-typography-lineHeight-regular
 	);
 	--source-typographyPresets-titlepiece42-font-family: var(
