@@ -1,13 +1,19 @@
+import { getGpcSignal } from '../lib/signals';
 import { type USNATConsentState } from '../types/usnat';
 import { getUsnatData } from './api';
 
 export const getConsentState = async (): Promise<USNATConsentState> => {
 	let doNotSell = false; // Opt-Out
 	const usnatData = await getUsnatData();
+	const saleCategory = usnatData.categories?.find((c) => c.systemId === 3);
 
-	doNotSell =
-		usnatData.categories?.find((category) => category.systemId === 3)
-			?.consented === false; //check for sale or share consent https://sourcepoint-public-api.readme.io/reference/reference-systemid-for-iab-privacy-choices
+	if (saleCategory?.consented === undefined) {
+		// use value of GPC signal if consented is undefined
+		doNotSell = getGpcSignal() === true;
+	} else {
+		// use explicit consent value
+		doNotSell = !saleCategory.consented;
+	}
 
 	return {
 		doNotSell,
