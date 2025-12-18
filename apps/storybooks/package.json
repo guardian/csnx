@@ -9,14 +9,14 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@guardian/source": "workspace:*",
-		"@storybook/addon-a11y": "10.1.2",
-		"@storybook/addon-docs": "10.1.2",
-		"@storybook/addon-links": "10.1.2",
-		"@storybook/react-vite": "10.1.2",
+		"@storybook/addon-a11y": "10.1.10",
+		"@storybook/addon-docs": "10.1.10",
+		"@storybook/addon-links": "10.1.10",
+		"@storybook/react-vite": "10.1.10",
 		"@types/react": "18.2.79",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"storybook": "10.1.2",
+		"storybook": "10.1.10",
 		"wireit": "0.14.12"
 	},
 	"wireit": {
