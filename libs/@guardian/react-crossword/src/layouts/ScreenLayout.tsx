@@ -43,9 +43,9 @@ const Layout = ({
 	SavedMessage,
 	gridWidth: actualGridWidth,
 }: LayoutProps) => {
-	const { clueMinWidth, clueMaxWidth } = useTheme();
+	const { clueMinWidth, clueMaxWidth, gridMinWidth } = useTheme();
 
-	const gridWidth = Math.max(actualGridWidth, 300);
+	const gridWidth = Math.max(actualGridWidth, gridMinWidth);
 	const oneColWidth = gridWidth + clueMinWidth;
 	const twoColWidth = gridWidth + clueMinWidth * 2;
 

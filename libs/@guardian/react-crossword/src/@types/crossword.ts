@@ -56,6 +56,8 @@ export type Theme = {
 	gridCellSize: number;
 	/** Colour of the strike through on an incorrect cell */
 	gridCellStrikeThrough: string;
+	/** Minimum width of the grid in pixels */
+	gridMinWidth: number;
 
 	/** Main text colour outside grid (headings, clues etc) */
 	textColor: string;
