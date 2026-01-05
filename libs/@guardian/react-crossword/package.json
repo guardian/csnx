@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/react-crossword",
-	"version": "12.0.0",
+	"version": "13.0.0",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/react-crossword"
