@@ -25,7 +25,7 @@
 		"eslint-plugin-storybook": "10.1.10",
 		"globals": "16.5.0",
 		"read-package-up": "12.0.0",
-		"typescript-eslint": "8.48.1"
+		"typescript-eslint": "8.51.0"
 	},
 	"devDependencies": {
 		"eslint": "9.39.1",
