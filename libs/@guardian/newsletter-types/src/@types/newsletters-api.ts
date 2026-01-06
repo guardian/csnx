@@ -36,6 +36,7 @@ export type NewsletterEmailRenderingOptions = {
 	contactEmail: string;
 	displayImageCaptions: boolean;
 	mainBannerUrl?: string;
+	mainBannerMobileUrl?: string;
 	subheadingBannerUrl?: string;
 	darkSubheadingBannerUrl?: string;
 	darkHeadlineBackground?: boolean;
