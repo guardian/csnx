@@ -17,8 +17,7 @@ import type { ThemeChoiceCardGroup } from './theme';
 export type ChoiceCardColumns = 2 | 3 | 4 | 5;
 
 export interface ChoiceCardGroupProps
-	extends FieldsetHTMLAttributes<HTMLFieldSetElement>,
-		Props {
+	extends FieldsetHTMLAttributes<HTMLFieldSetElement>, Props {
 	id?: string;
 	/**
 	 * Passed as the name attribute for each `<ChoiceCard />`

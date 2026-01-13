@@ -44,8 +44,7 @@ const SupportingText = ({
 };
 
 export interface RadioProps
-	extends InputHTMLAttributes<HTMLInputElement>,
-		Props {
+	extends InputHTMLAttributes<HTMLInputElement>, Props {
 	id?: string;
 	/**
 	 * Whether radio button is checked. This is necessary when using the

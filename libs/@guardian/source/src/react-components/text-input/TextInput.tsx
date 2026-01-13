@@ -33,8 +33,7 @@ const widths: Record<Width, SerializedStyles> = {
 };
 
 export interface TextInputProps
-	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'size'>,
-		Props {
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'size'>, Props {
 	id?: string;
 	/**
 	 * Appears above the text input

@@ -16,8 +16,7 @@ import { themeRadioGroup } from './theme';
 type Orientation = 'vertical' | 'horizontal';
 
 export interface RadioGroupProps
-	extends FieldsetHTMLAttributes<HTMLFieldSetElement>,
-		Props {
+	extends FieldsetHTMLAttributes<HTMLFieldSetElement>, Props {
 	id?: string;
 	/**
 	 * Appears as a legend at the top of the radio group

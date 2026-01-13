@@ -30,8 +30,7 @@ const visuallyHidden = css`
 `;
 
 export interface AccordionRowProps
-	extends Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>,
-		Props {
+	extends Omit<HTMLAttributes<HTMLDivElement>, 'onClick'>, Props {
 	/**
 	 * A line of text to summarise the information that lies within the expanded state.
 	 * Appears in the collapsed state, as well as prominently at the top of the expanded state.

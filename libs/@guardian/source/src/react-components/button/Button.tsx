@@ -4,8 +4,7 @@ import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
 
 export interface ButtonProps
-	extends SharedButtonProps,
-		ButtonHTMLAttributes<HTMLButtonElement> {}
+	extends SharedButtonProps, ButtonHTMLAttributes<HTMLButtonElement> {}
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-button--primary-priority-default-theme) •
