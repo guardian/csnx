@@ -63,12 +63,17 @@ export const Crossword = ({
 		[userTheme],
 	);
 
-	const gridWidth = useMemo(
-		() =>
+	const gridWidth = useMemo(() => {
+		const gridDefaultWidth =
 			(theme.gridCellSize + theme.gridGutterSize) * data.dimensions.cols +
-			theme.gridGutterSize,
-		[theme.gridCellSize, theme.gridGutterSize, data.dimensions.cols],
-	);
+			theme.gridGutterSize;
+		return Math.max(gridDefaultWidth, theme.gridMinWidth);
+	}, [
+		theme.gridCellSize,
+		theme.gridGutterSize,
+		theme.gridMinWidth,
+		data.dimensions.cols,
+	]);
 
 	return (
 		<ContextProvider theme={theme} data={data} userProgress={progress}>

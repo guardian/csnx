@@ -23,8 +23,7 @@ import {
 } from './theme';
 
 export interface ChoiceCardProps
-	extends InputHTMLAttributes<HTMLInputElement>,
-		Props {
+	extends InputHTMLAttributes<HTMLInputElement>, Props {
 	id: string;
 	/**
 	 * Appears inside the choice card

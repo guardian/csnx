@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 13.0.0
+
+### Major Changes
+
+- 8fbf002: Relax grid size constraints to allow small grids to fill more space
+
 ## 12.0.0
 
 ### Major Changes

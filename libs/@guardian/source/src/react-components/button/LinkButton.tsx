@@ -4,8 +4,7 @@ import { buttonContents } from './shared';
 import { buttonStyles } from './styles';
 
 export interface LinkButtonProps
-	extends SharedButtonProps,
-		AnchorHTMLAttributes<HTMLAnchorElement> {}
+	extends SharedButtonProps, AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-linkbutton--primary-priority-default-theme) •

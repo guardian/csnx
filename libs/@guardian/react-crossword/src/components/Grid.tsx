@@ -469,7 +469,7 @@ export const Grid = () => {
 					cursor: pointer;
 					width: 100%;
 					max-width: ${maxWidth}px;
-					max-height: ${maxHeight}px;
+					min-width: min(100%, ${theme.gridMinWidth}px);
 
 					// This is to prevent the default blue highlight on click on Android
 					-webkit-tap-highlight-color: transparent;

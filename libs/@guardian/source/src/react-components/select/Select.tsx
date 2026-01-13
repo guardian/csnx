@@ -22,8 +22,7 @@ import type { ThemeSelect } from './theme';
 import { themeSelect as defaultTheme, transformProviderTheme } from './theme';
 
 export interface SelectProps
-	extends SelectHTMLAttributes<HTMLSelectElement>,
-		Props {
+	extends SelectHTMLAttributes<HTMLSelectElement>, Props {
 	id?: string;
 	/**
 	 * Appears above the select box

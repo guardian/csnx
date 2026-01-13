@@ -4,8 +4,7 @@ import { linkContents } from './shared';
 import { linkStyles } from './styles';
 
 export interface LinkProps
-	extends AnchorHTMLAttributes<HTMLAnchorElement>,
-		SharedLinkProps {}
+	extends AnchorHTMLAttributes<HTMLAnchorElement>, SharedLinkProps {}
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-link--primary-link-default-theme) •
