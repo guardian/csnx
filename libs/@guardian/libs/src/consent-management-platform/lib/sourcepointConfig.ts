@@ -12,7 +12,9 @@ export const PROPERTY_HREF_MAIN = 'https://test.theguardian.com';
 
 export const PRIVACY_MANAGER_TCFV2 = 106842;
 export const PRIVACY_MANAGER_TCFV2_CONSENT_OR_PAY = 1263449;
-export const PRIVACY_MANAGER_AUSTRALIA = 1178486;
+export const PRIVACY_MANAGER_AUSTRALIA = 1349649;
+
+export const PRIVACY_CHOICE_ID_AUSTRALIA = '685d16549dd54334f95e2b05';
 
 export const ENDPOINT = isGuardianDomain()
 	? 'https://sourcepoint.theguardian.com'
