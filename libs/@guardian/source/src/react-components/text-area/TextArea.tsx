@@ -19,8 +19,7 @@ import type { ThemeTextArea } from './theme';
 import { themeTextArea } from './theme';
 
 export interface TextAreaProps
-	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>,
-		Props {
+	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>, Props {
 	id?: string;
 	/**
 	 * The contents of the text area. This is necessary when using the [controlled approach](https://reactjs.org/docs/forms.html#controlled-components) to form state management.
