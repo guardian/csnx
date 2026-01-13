@@ -1,5 +1,11 @@
 # @guardian/prettier
 
+## 10.0.0
+
+### Major Changes
+
+- be5fc5c: Bump prettier peer dep to `3.7.4`
+
 ## 9.0.0
 
 ### Major Changes

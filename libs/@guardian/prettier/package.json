@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/prettier",
-	"version": "9.0.0",
+	"version": "10.0.0",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
