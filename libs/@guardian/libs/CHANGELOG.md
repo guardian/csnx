@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 27.1.0
+
+### Minor Changes
+
+- ad2c146: Add liveramp sourcepoint id to vendor list
+
 ## 27.0.0
 
 ### Major Changes
