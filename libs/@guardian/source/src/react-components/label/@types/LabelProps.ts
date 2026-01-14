@@ -5,8 +5,7 @@ import type { Props } from '../../@types/Props';
 import type { ThemeLabel } from '../theme';
 
 export interface LabelProps
-	extends LabelHTMLAttributes<HTMLLabelElement>,
-		Props {
+	extends LabelHTMLAttributes<HTMLLabelElement>, Props {
 	/**
 	 * The label text
 	 */

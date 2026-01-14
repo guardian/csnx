@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 13.0.2
+
+### Patch Changes
+
+- 41b8d2b: Bump `@stylistic/eslint-plugin` and `typescript-eslint` deps
+
 ## 13.0.1
 
 ### Patch Changes

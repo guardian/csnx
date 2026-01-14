@@ -4,8 +4,7 @@ import { linkContents } from './shared';
 import { linkStyles } from './styles';
 
 export interface ButtonLinkProps
-	extends ButtonHTMLAttributes<HTMLButtonElement>,
-		SharedLinkProps {}
+	extends ButtonHTMLAttributes<HTMLButtonElement>, SharedLinkProps {}
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/story/source_react-components-buttonlink--primary-button-link-default-theme) •

@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 4.1.0
+
+### Minor Changes
+
+- 077ece1: Adds mobile banner url for newsletter types
+
 ## 4.0.0
 
 ### Major Changes

@@ -52,8 +52,7 @@ const LabelText = ({
 };
 
 export interface CheckboxProps
-	extends InputHTMLAttributes<HTMLInputElement>,
-		Props {
+	extends InputHTMLAttributes<HTMLInputElement>, Props {
 	id?: string;
 	/**
 	 * Whether checkbox is checked. This is necessary when using the
