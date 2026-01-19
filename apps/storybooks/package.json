@@ -15,7 +15,7 @@
 		"@storybook/react-vite": "10.1.10",
 		"@types/react": "18.2.79",
 		"react": "18.2.0",
-		"react-dom": "18.2.0",
+		"react-dom": "19.2.3",
 		"storybook": "10.1.10",
 		"wireit": "0.14.12"
 	},
