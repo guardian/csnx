@@ -57,7 +57,7 @@ importers:
         version: 0.9.4(prettier@3.7.4)(typescript@5.9.3)
       '@astrojs/svelte':
         specifier: 7.2.0
-        version: 7.2.0(@types/node@24.10.1)(astro@5.16.0(@types/node@24.10.1)(lightningcss@1.30.0)(rollup@4.55.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1))(lightningcss@1.30.0)(svelte@5.46.4)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
+        version: 7.2.0(@types/node@24.10.1)(astro@5.16.0(@types/node@24.10.1)(lightningcss@1.30.0)(rollup@4.55.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1))(lightningcss@1.30.0)(svelte@5.47.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       '@guardian/libs':
         specifier: workspace:*
         version: link:../../libs/@guardian/libs
@@ -65,8 +65,8 @@ importers:
         specifier: 5.16.0
         version: 5.16.0(@types/node@24.10.1)(lightningcss@1.30.0)(rollup@4.55.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       svelte:
-        specifier: 5.46.4
-        version: 5.46.4
+        specifier: 5.47.0
+        version: 5.47.0
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -2978,8 +2978,8 @@ packages:
     resolution: {integrity: sha512-2NovHVesVF5TXefsGX1yzx1xgr7+m9JQenvz6FQY3qd+YXkKkYiv+vTCc7OriP9mcDZpTC5mAOYN4ocd29+erA==}
     hasBin: true
 
-  baseline-browser-mapping@2.9.14:
-    resolution: {integrity: sha512-B0xUquLkiGLgHhpPBqvl7GWegWBUNuujQ6kXd/r1U38ElPT6Ok8KZ8e+FpUGEc2ZoRQUzq/aUnaKFc/svWUGSg==}
+  baseline-browser-mapping@2.9.15:
+    resolution: {integrity: sha512-kX8h7K2srmDyYnXRIppo4AH/wYgzWVCs+eKr3RusRSQ5PvRYoEFmR/I0PbdTjKFAoKqp5+kbxnNTFO9jOfSVJg==}
     hasBin: true
 
   better-path-resolve@1.0.0:
@@ -3074,8 +3074,8 @@ packages:
   caniuse-lite@1.0.30001754:
     resolution: {integrity: sha512-x6OeBXueoAceOmotzx3PO4Zpt4rzpeIFsSr6AAePTZxSkXiYDUmpypEl7e2+8NCd9bD7bXjqyef8CJYPC1jfxg==}
 
-  caniuse-lite@1.0.30001764:
-    resolution: {integrity: sha512-9JGuzl2M+vPL+pz70gtMF9sHdMFbY9FJaQBi186cHKH3pSzDvzoUJUPV6fqiKIMyXbud9ZLg4F3Yza1vJ1+93g==}
+  caniuse-lite@1.0.30001765:
+    resolution: {integrity: sha512-LWcNtSyZrakjECqmpP4qdg0MMGdN368D7X8XvvAqOcqMv0RxnlqVKZl2V6/mBR68oYMxOZPLw/gO7DuisMHUvQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -5899,8 +5899,8 @@ packages:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
       typescript: ^4.9.4 || ^5.0.0
 
-  svelte@5.46.4:
-    resolution: {integrity: sha512-VJwdXrmv9L8L7ZasJeWcCjoIuMRVbhuxbss0fpVnR8yorMmjNDwcjIH08vS6wmSzzzgAG5CADQ1JuXPS2nwt9w==}
+  svelte@5.47.0:
+    resolution: {integrity: sha512-LRhAvzhvb4lHLNAcAMJZ2ifUSOif8OuItF4khbssrIeitj01GjpumeeauSnCeAGnSI+X6P2R3Z7S4c5STv4iQQ==}
     engines: {node: '>=18'}
 
   svg-parser@2.0.4:
@@ -6737,12 +6737,12 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/svelte@7.2.0(@types/node@24.10.1)(astro@5.16.0(@types/node@24.10.1)(lightningcss@1.30.0)(rollup@4.55.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1))(lightningcss@1.30.0)(svelte@5.46.4)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)':
+  '@astrojs/svelte@7.2.0(@types/node@24.10.1)(astro@5.16.0(@types/node@24.10.1)(lightningcss@1.30.0)(rollup@4.55.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1))(lightningcss@1.30.0)(svelte@5.47.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
       astro: 5.16.0(@types/node@24.10.1)(lightningcss@1.30.0)(rollup@4.55.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
-      svelte: 5.46.4
-      svelte2tsx: 0.7.45(svelte@5.46.4)(typescript@5.9.3)
+      svelte: 5.47.0
+      svelte2tsx: 0.7.45(svelte@5.47.0)(typescript@5.9.3)
       typescript: 5.9.3
       vite: 6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)
     transitivePeerDependencies:
@@ -8398,23 +8398,23 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
-  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)))(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)))(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
       debug: 4.4.3
-      svelte: 5.46.4
+      svelte: 5.47.0
       vite: 6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)))(svelte@5.46.4)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)))(svelte@5.47.0)(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
       debug: 4.4.3
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.21
-      svelte: 5.46.4
+      svelte: 5.47.0
       vite: 6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1)
       vitefu: 1.1.1(vite@6.4.1(@types/node@24.10.1)(lightningcss@1.30.0)(tsx@4.21.0)(yaml@2.8.1))
     transitivePeerDependencies:
@@ -9331,7 +9331,7 @@ snapshots:
 
   baseline-browser-mapping@2.8.25: {}
 
-  baseline-browser-mapping@2.9.14:
+  baseline-browser-mapping@2.9.15:
     optional: true
 
   better-path-resolve@1.0.0:
@@ -9391,8 +9391,8 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.14
-      caniuse-lite: 1.0.30001764
+      baseline-browser-mapping: 2.9.15
+      caniuse-lite: 1.0.30001765
       electron-to-chromium: 1.5.267
       node-releases: 2.0.27
       update-browserslist-db: 1.2.3(browserslist@4.28.1)
@@ -9439,7 +9439,7 @@ snapshots:
 
   caniuse-lite@1.0.30001754: {}
 
-  caniuse-lite@1.0.30001764:
+  caniuse-lite@1.0.30001765:
     optional: true
 
   ccount@2.0.1: {}
@@ -13044,14 +13044,14 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte2tsx@0.7.45(svelte@5.46.4)(typescript@5.9.3):
+  svelte2tsx@0.7.45(svelte@5.47.0)(typescript@5.9.3):
     dependencies:
       dedent-js: 1.0.1
       scule: 1.3.0
-      svelte: 5.46.4
+      svelte: 5.47.0
       typescript: 5.9.3
 
-  svelte@5.46.4:
+  svelte@5.47.0:
     dependencies:
       '@jridgewell/remapping': 2.3.5
       '@jridgewell/sourcemap-codec': 1.5.5
