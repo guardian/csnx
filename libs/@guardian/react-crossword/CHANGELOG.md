@@ -1,5 +1,12 @@
 # @guardian/react-crossword
 
+## 14.0.0
+
+### Major Changes
+
+- Updated peer dependencies [f93c41a]
+  - @guardian/libs@28.0.0
+
 ## 13.0.0
 
 ### Major Changes
