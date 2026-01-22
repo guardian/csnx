@@ -2,9 +2,9 @@
 
 ## 13.0.0
 
-### Patch Changes
+### Major Changes
 
-- Updated dependencies [f93c41a]
+- Updated peer dependencies [f93c41a]
   - @guardian/libs@28.0.0
 
 ## 12.0.0
