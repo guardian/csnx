@@ -35,13 +35,6 @@ export { getCountryByCountryCode } from './countries/getCountryByCountryCode';
 
 export { timeAgo } from './datetime/timeAgo';
 
-export { ArticleDesign } from './format/ArticleDesign';
-export { ArticleDisplay } from './format/ArticleDisplay';
-export type { ArticleFormat } from './format/ArticleFormat';
-export { ArticleSpecial } from './format/ArticleSpecial';
-export type { ArticleTheme } from './format/ArticleTheme';
-export { Pillar } from './format/Pillar';
-
 export { isBoolean } from './isBoolean/isBoolean';
 export { isNonNullable } from './isNonNullable/isNonNullable';
 export { isObject } from './isObject/isObject';
