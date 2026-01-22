@@ -1,5 +1,12 @@
 # @guardian/core-web-vitals
 
+## 17.0.0
+
+### Patch Changes
+
+- Updated dependencies [f93c41a]
+  - @guardian/libs@28.0.0
+
 ## 16.0.0
 
 ### Major Changes
