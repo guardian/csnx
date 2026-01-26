@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 13.0.3
+
+### Patch Changes
+
+- a79dc08: Fix ERR_MODULE_NOT_FOUND when importing @guardian/eslint-config in a project that does not have Storybook.
+
 ## 13.0.2
 
 ### Patch Changes
