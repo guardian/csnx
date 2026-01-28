@@ -1,6 +1,5 @@
 import { stub_gpp_usnat } from './stub_gpp_usnat';
 import { stub_tcfv2 } from './stub_tcfv2';
-import { stub_uspapi_ccpa } from './stub_uspapi_ccpa';
 import type { ConsentFramework } from './types';
 
 /**
@@ -17,7 +16,6 @@ export const loadStubsFor = (framework: ConsentFramework): void => {
 			stub_gpp_usnat();
 			break;
 		case 'aus':
-			stub_uspapi_ccpa();
 			break;
 	}
 };
@@ -29,5 +27,4 @@ export const loadStubsFor = (framework: ConsentFramework): void => {
 export const loadAllStubs = (): void => {
 	stub_tcfv2();
 	stub_gpp_usnat();
-	stub_uspapi_ccpa();
 };
