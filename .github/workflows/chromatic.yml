@@ -33,7 +33,7 @@ jobs:
 
       - run: make build-storybook
 
-      - uses: chromaui/action@v13
+      - uses: chromaui/action@v14
         with:
           projectToken: ${{ secrets[matrix.token] }}
           token: ${{ secrets.GITHUB_TOKEN }}
