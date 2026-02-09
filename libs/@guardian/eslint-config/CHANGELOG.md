@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 13.0.4
+
+### Patch Changes
+
+- accf6d8: update deps: `eslint-plugin-storybook` from 10.1.10 to 10.2.0, `globals` from 17.0.0 to 17.1.0
+
 ## 13.0.3
 
 ### Patch Changes
