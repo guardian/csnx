@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 14.0.1
+
+### Patch Changes
+
+- 7fb0f8a: bump `@isaacs/brace-expansion` transitive dep
+
 ## 14.0.0
 
 ### Major Changes

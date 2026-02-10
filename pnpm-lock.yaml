@@ -527,7 +527,7 @@ importers:
         specifier: 28.0.0
         version: link:../libs
       '@guardian/source':
-        specifier: 12.2.0
+        specifier: 12.2.1
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 10.2.0
@@ -714,7 +714,7 @@ importers:
         specifier: 28.0.0
         version: link:../libs
       '@guardian/source':
-        specifier: 12.2.0
+        specifier: 12.2.1
         version: link:../source
       '@storybook/addon-a11y':
         specifier: 10.2.0

@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source",
-	"version": "12.2.0",
+	"version": "12.2.1",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/source"
