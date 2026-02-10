@@ -42,7 +42,7 @@
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
-		"@babel/core": "7.28.0",
+		"@babel/core": "7.29.0",
 		"@cobalt-ui/cli": "1.12.0",
 		"@cobalt-ui/core": "1.12.0",
 		"@cobalt-ui/plugin-css": "1.7.0",
