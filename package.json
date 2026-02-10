@@ -12,7 +12,7 @@
 	"devDependencies": {
 		"@changesets/cli": "2.29.2",
 		"@guardian/prettier": "workspace:*",
-		"@manypkg/get-packages": "2.2.0",
+		"@manypkg/get-packages": "3.1.0",
 		"@types/node": "24.10.0",
 		"husky": "9.1.4",
 		"lint-staged": "16.2.6",
