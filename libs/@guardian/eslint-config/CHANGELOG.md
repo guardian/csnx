@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 13.0.5
+
+### Patch Changes
+
+- d8e3ce5: bump dependencies
+
 ## 13.0.4
 
 ### Patch Changes

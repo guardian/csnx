@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/react-crossword",
-	"version": "14.0.0",
+	"version": "14.0.1",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/react-crossword"
@@ -37,7 +37,7 @@
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "28.0.0",
-		"@guardian/source": "12.2.0",
+		"@guardian/source": "12.2.1",
 		"@storybook/addon-a11y": "10.2.0",
 		"@storybook/addon-docs": "10.2.0",
 		"@storybook/addon-links": "10.2.0",
