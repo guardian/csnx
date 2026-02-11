@@ -6,7 +6,7 @@ import type { USNATConsentState } from './usnat';
 
 export type ConsentFramework = 'tcfv2' | 'aus' | 'usnat'; // Our internal consent framework id's
 
-export type SourcepointConsentFramework = 'gdpr' | 'usnat' | 'ccpa'; // Sourcepoint consent framework id's
+export type SourcepointConsentFramework = 'gdpr' | 'usnat' | 'globalcmp'; // Sourcepoint consent framework id's
 export type CMP = {
 	init: InitCMP;
 	willShowPrivacyMessage: WillShowPrivacyMessage;
