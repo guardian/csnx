@@ -18,7 +18,7 @@
 		"lint-staged": "16.2.6",
 		"prettier": "3.8.0",
 		"sort-package-json": "3.6.0",
-		"syncpack": "13.0.0",
+		"syncpack": "14.0.0",
 		"typescript": "5.9.3",
 		"wireit": "0.14.12"
 	},
