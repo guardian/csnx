@@ -1,5 +1,23 @@
 # @guardian/eslint-config
 
+## 13.0.5
+
+### Patch Changes
+
+- d8e3ce5: bump dependencies
+
+## 13.0.4
+
+### Patch Changes
+
+- accf6d8: update deps: `eslint-plugin-storybook` from 10.1.10 to 10.2.0, `globals` from 17.0.0 to 17.1.0
+
+## 13.0.3
+
+### Patch Changes
+
+- a79dc08: Fix ERR_MODULE_NOT_FOUND when importing @guardian/eslint-config in a project that does not have Storybook.
+
 ## 13.0.2
 
 ### Patch Changes

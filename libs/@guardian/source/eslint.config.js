@@ -19,8 +19,13 @@ const config = [
 		files: ['.storybook/main.js'],
 		...guardian.configs.cjs,
 	},
-
 	...guardian.configs.storybook,
+	{
+		files: guardian.configs.storybook[0].files,
+		rules: {
+			'react-hooks/rules-of-hooks': 'off',
+		},
+	},
 ];
 
 export default config;

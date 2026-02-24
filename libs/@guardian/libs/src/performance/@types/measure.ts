@@ -28,3 +28,5 @@ export interface GuardianMeasure {
 	detail: Detail;
 	toJson(): string;
 }
+
+export {};

@@ -1,5 +1,18 @@
 # @guardian/source-development-kitchen
 
+## 24.0.1
+
+### Patch Changes
+
+- 7fb0f8a: bump `@isaacs/brace-expansion` transitive dep
+
+## 24.0.0
+
+### Major Changes
+
+- Updated peer dependencies [f93c41a]
+  - @guardian/libs@28.0.0
+
 ## 23.0.0
 
 ### Major Changes
