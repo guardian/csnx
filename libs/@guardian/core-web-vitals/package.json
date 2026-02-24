@@ -32,7 +32,7 @@
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "28.0.0",
 		"@types/jest": "30.0.0",
-		"eslint": "9.39.1",
+		"eslint": "10.0.2",
 		"jest": "30.2.0",
 		"jest-environment-jsdom": "30.2.0",
 		"rollup": "4.59.0",
