@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 13.0.6
+
+### Patch Changes
+
+- 6c80178: Update transitive deps to fix vuln in minimatch
+
 ## 13.0.5
 
 ### Patch Changes
