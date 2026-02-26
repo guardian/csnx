@@ -1,20 +1,28 @@
-import type { AUSData } from '../types/aus';
+import type { GlobalEnterpriseConsents } from '../types/aus';
 
-type Command = 'getUSPData';
+type Command = 'getGlobalEnterpriseConsents';
 
-const api = (command: Command) =>
+const globalEnterpriseApi = (command: Command) =>
 	new Promise((resolve, reject) => {
-		if (window.__uspapi) {
-			window.__uspapi(command, 1, (result, success) =>
+		if (window._sp_?.globalcmp?.getUserConsents) {
+			window._sp_.globalcmp.getUserConsents((consents, success) =>
 				success
-					? resolve(result)
+					? resolve({ ...consents, signalStatus: 'ready' })
 					: /* istanbul ignore next */
 						reject(new Error(`Unable to get ${command} data`)),
 			);
 		} else {
-			reject(new Error('No __uspapi found on window'));
+			resolve({
+				applies: false,
+				categories: [],
+				vendors: [],
+				signalStatus: 'not ready',
+			} as GlobalEnterpriseConsents);
 		}
 	});
 
-export const getUSPData = (): Promise<AUSData> =>
-	api('getUSPData') as Promise<AUSData>;
+export const getGlobalEnterpriseConsents =
+	(): Promise<GlobalEnterpriseConsents> =>
+		globalEnterpriseApi(
+			'getGlobalEnterpriseConsents',
+		) as Promise<GlobalEnterpriseConsents>;
