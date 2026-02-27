@@ -264,6 +264,7 @@ export const init = (
 						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
+						document.dispatchEvent(new Event('cmp:banner-close'));
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
