@@ -317,7 +317,7 @@ importers:
         specifier: 7.0.1
         version: 7.0.1(eslint@9.39.1)
       eslint-plugin-storybook:
-        specifier: 10.2.13
+        specifier: ^10.2.13
         version: 10.2.13(eslint@9.39.1)(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(typescript@5.9.3)
       globals:
         specifier: 17.3.0
