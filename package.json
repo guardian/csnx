@@ -28,6 +28,7 @@
 			"ignoreMissing": [
 				"@types/node",
 				"eslint",
+				"eslint-plugin-storybook",
 				"prettier"
 			]
 		},
