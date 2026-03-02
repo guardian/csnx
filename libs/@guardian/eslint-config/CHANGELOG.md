@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 13.0.7
+
+### Patch Changes
+
+- 9e96546: bump storybook to 10.2.13
+
 ## 13.0.6
 
 ### Patch Changes
