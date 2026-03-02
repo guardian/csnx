@@ -325,6 +325,9 @@ importers:
       read-package-up:
         specifier: 12.0.0
         version: 12.0.0
+      storybook:
+        specifier: ^10.2.13
+        version: 10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       typescript-eslint:
         specifier: 8.55.0
         version: 8.55.0(eslint@9.39.1)(typescript@5.9.3)

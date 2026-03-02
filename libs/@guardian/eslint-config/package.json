@@ -32,7 +32,13 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"eslint": "^9.39.1"
+		"eslint": "^9.39.1",
+		"storybook": "^10.2.13"
+	},
+	"peerDependenciesMeta": {
+		"storybook": {
+			"optional": true
+		}
 	},
 	"wireit": {
 		"lint": {
