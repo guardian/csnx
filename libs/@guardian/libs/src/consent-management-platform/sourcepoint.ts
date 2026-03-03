@@ -264,6 +264,18 @@ export const init = (
 						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
+						if (window.guardian) {
+							window.guardian.commercial ??= { queue: [] };
+							(
+								window.guardian.commercial as {
+									queue: Array<() => Promise<void>>;
+								}
+							).queue.push(() =>
+								Promise.resolve(
+									void document.dispatchEvent(new Event('cmp:banner-close')),
+								),
+							);
+						}
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
