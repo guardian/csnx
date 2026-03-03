@@ -8,7 +8,7 @@ interface GeolocationCheckStatusApplies {
 	usnat: {
 		applies: boolean;
 	};
-	ccpa: {
+	globalcmp: {
 		applies: boolean;
 	};
 }
@@ -25,11 +25,11 @@ export const getSourcepointAppliedConsentFramework = async (): Promise<{
 	frameworkAppliedByOriginUrl: SourcepointConsentFramework | undefined;
 }> => {
 	const cdnUrlResponse = await fetch(
-		`https://sourcepoint.theguardian.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
+		`https://sourcepoint.theguardian.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"globalcmp":{}}&propertyId=9398`,
 	);
 
 	const originUrlResponse = await fetch(
-		`https://cdn.privacy-mgmt.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"ccpa":{}}&propertyId=9398`,
+		`https://cdn.privacy-mgmt.com/wrapper/v2/meta-data?accountId=1257&env=prod&metadata={"gdpr":{},"usnat":{},"globalcmp":{}}&propertyId=9398`,
 	);
 
 	const originUrlGeolocationCheckObject =
@@ -50,7 +50,7 @@ export const getSourcepointAppliedConsentFramework = async (): Promise<{
 	const consentFrameworks: SourcepointConsentFramework[] = [
 		'gdpr',
 		'usnat',
-		'ccpa',
+		'globalcmp',
 	];
 	const frameworkAppliedByCDNSPUrl = consentFrameworks.find(
 		(framework) => cdnUrlGeolocationCheckObject[framework].applies,
@@ -72,6 +72,6 @@ const isEqualGeoStatus = (
 	return (
 		a.gdpr.applies === b.gdpr.applies &&
 		a.usnat.applies === b.usnat.applies &&
-		a.ccpa.applies === b.ccpa.applies
+		a.globalcmp.applies === b.globalcmp.applies
 	);
 };
