@@ -106,3 +106,5 @@ Provides a collection of configs for checking React components.
 #### [`configs.storybook`](./configs/storybook.js)
 
 Provides a collection of configs for checking Storybook stories.
+
+When using the storybook config, be sure to also have `eslint-plugin-storybook` and `storybook` installed in your project, otherwise the config will be ignored.

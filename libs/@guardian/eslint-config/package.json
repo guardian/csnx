@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/eslint-config",
-	"version": "13.0.6",
+	"version": "14.0.0",
 	"description": "ESLint config for Guardian JavaScript projects",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
@@ -22,7 +22,6 @@
 		"eslint-plugin-jsx-a11y": "6.10.2",
 		"eslint-plugin-react": "7.37.5",
 		"eslint-plugin-react-hooks": "7.0.1",
-		"eslint-plugin-storybook": "10.2.0",
 		"globals": "17.3.0",
 		"read-package-up": "12.0.0",
 		"typescript-eslint": "8.55.0"
@@ -32,7 +31,13 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"eslint": "^9.39.1"
+		"eslint": "^9.39.1",
+		"eslint-plugin-storybook": "^10.2.13"
+	},
+	"peerDependenciesMeta": {
+		"eslint-plugin-storybook": {
+			"optional": true
+		}
 	},
 	"wireit": {
 		"lint": {
