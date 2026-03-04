@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 29.0.1
+
+### Patch Changes
+
+- 5f685ce: Export new AUSConsentState type
+
 ## 29.0.0
 
 ### Major Changes
