@@ -22,6 +22,7 @@ export type {
 	TCFv2ConsentState,
 } from './consent-management-platform/types/tcfv2';
 export type { USNATConsentState } from './consent-management-platform/types/usnat';
+export type { AUSConsentState } from './consent-management-platform/types/aus';
 
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
