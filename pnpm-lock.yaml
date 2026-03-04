@@ -254,7 +254,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 28.0.0
+        specifier: 29.0.0
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -342,7 +342,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 28.0.0
+        specifier: 29.0.0
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -381,10 +381,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/identity-auth':
-        specifier: 13.0.0
+        specifier: 14.0.0
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 28.0.0
+        specifier: 29.0.0
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -527,7 +527,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 28.0.0
+        specifier: 29.0.0
         version: link:../libs
       '@guardian/source':
         specifier: 12.2.1
@@ -714,7 +714,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 28.0.0
+        specifier: 29.0.0
         version: link:../libs
       '@guardian/source':
         specifier: 12.2.1

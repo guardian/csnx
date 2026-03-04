@@ -1,5 +1,18 @@
 # @guardian/libs
 
+## 29.0.0
+
+### Major Changes
+
+- a208b66: #### Sourcepoint Australia Migration
+
+  Migration from CCPA to Sourcepoint Global Enterprise as the privacy framework for Australia
+
+  To use this new version in a consumer:
+  - update the version of @guardian/libs
+  - replace any references to the `ccpaUUID` cookie with `globalcmpUUID`
+  - if any tests use the ConsentState interface, add a new property `signalStatus: 'ready'`
+
 ## 28.0.0
 
 ### Major Changes
