@@ -2,4 +2,4 @@
 '@guardian/libs': minor
 ---
 
-trigger event when cmp banner is closed
+Pushes a function to dispatch a custom event to the commercial queue when the CMP banner is closed
