@@ -1,4 +1,4 @@
-import ausData from './aus/__fixtures__/api.getGlobalEnterpriseData.json';
+import ausData from './aus/__fixtures__/api.getUSPData.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';
 import customVendorConsents from './tcfv2/__fixtures__/api.getCustomVendorConsents.json';
@@ -9,6 +9,7 @@ const resolveAllPromises = () =>
 	new Promise((resolve) => process.nextTick(resolve));
 
 beforeEach(() => {
+	window.__uspapi = undefined;
 	window.__tcfapi = undefined;
 	window.__gpp = undefined;
 	window.guCmpHotFix = undefined;
@@ -133,13 +134,13 @@ describe('under USNAT', () => {
 
 describe('under AUS', () => {
 	beforeEach(() => {
-		window._sp_ = {
-			globalcmp: {
-				getUserConsents: jest.fn((callback) => {
-					callback(ausData, true);
-				}),
-			},
-		};
+		window.__uspapi = jest.fn((command, b, callback) => {
+			if (command === 'getUSPData') {
+				callback(ausData, true);
+			}
+		});
+
+		// needed to distinguish from US
 		setCurrentFramework('aus');
 	});
 
@@ -169,15 +170,19 @@ describe('under AUS', () => {
 		onConsentChange(callback);
 		invokeCallbacks();
 		await resolveAllPromises();
+
 		expect(callback).toHaveBeenCalledTimes(1);
 
 		invokeCallbacks();
 		await resolveAllPromises();
+
 		expect(callback).toHaveBeenCalledTimes(1);
 
-		ausData.categories[0].consented = false;
+		ausData.uspString = '1YYN';
+
 		invokeCallbacks();
 		await resolveAllPromises();
+
 		expect(callback).toHaveBeenCalledTimes(2);
 	});
 
@@ -192,7 +197,7 @@ describe('under AUS', () => {
 		const callback3 = jest.fn(() => setCallbackLastExecuted(3));
 		const callback4 = jest.fn(() => setCallbackLastExecuted(4));
 
-		ausData.categories[0].consented = true;
+		ausData.uspString = '1YYN';
 
 		// callback 3 and 4 registered first with final flag
 		onConsentChange(callback3, true);
@@ -211,7 +216,7 @@ describe('under AUS', () => {
 		expect(callbackLastExecuted[4]).toBeLessThan(callbackLastExecuted[1]);
 		expect(callbackLastExecuted[1]).toBeLessThan(callbackLastExecuted[2]);
 
-		ausData.categories[0].consented = false;
+		ausData.uspString = '1YNN';
 		invokeCallbacks();
 
 		await resolveAllPromises();

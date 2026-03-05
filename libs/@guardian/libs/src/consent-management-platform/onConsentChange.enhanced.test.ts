@@ -30,7 +30,6 @@ const usnatConsentState: USNATConsentState = {
 
 const ausConsentState: AUSConsentState = {
 	personalisedAdvertising: true,
-	signalStatus: 'ready',
 };
 
 const setAPI = (framework: ConsentFramework | null) => {
@@ -129,14 +128,12 @@ describe('onConsentChange enhances basic consent state', () => {
 		(getAUSConsentState as jest.Mock).mockImplementation(() =>
 			Promise.resolve<AUSConsentState>({
 				personalisedAdvertising: false,
-				signalStatus: 'ready',
 			}),
 		);
 		setAPI('aus');
 		const expectedConsentState: ConsentState = {
 			aus: {
 				personalisedAdvertising: false,
-				signalStatus: 'ready',
 			},
 			canTarget: false,
 			framework: 'aus',

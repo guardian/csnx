@@ -9,7 +9,6 @@ describe('stub', () => {
 			window.__gpp = undefined;
 		});
 
-		// Verify each framework only loads its intended stub API and no others (prevents cross-contamination)
 		it('should load the correct stub for the tcfv2', () => {
 			loadStubsFor('tcfv2');
 			expect(window.__tcfapi).toBeDefined();
@@ -17,8 +16,9 @@ describe('stub', () => {
 			expect(window.__uspapi).toBeUndefined();
 		});
 
-		it('should not load a stub for the aus', () => {
+		it('should load the correct stub for the aus', () => {
 			loadStubsFor('aus');
+			expect(window.__uspapi).toBeDefined();
 			expect(window.__tcfapi).toBeUndefined();
 			expect(window.__gpp).toBeUndefined();
 		});
@@ -45,6 +45,7 @@ describe('stub', () => {
 			expect(window.__uspapi).toBeUndefined();
 			loadAllStubs();
 			expect(window.__gpp).toBeDefined();
+			expect(window.__uspapi).toBeDefined();
 		});
 	});
 });

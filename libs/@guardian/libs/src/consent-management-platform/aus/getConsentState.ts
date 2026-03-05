@@ -1,16 +1,14 @@
-import { PRIVACY_CHOICE_ID_AUSTRALIA } from '../lib/sourcepointConfig';
 import type { AUSConsentState } from '../types/aus';
-import { getGlobalEnterpriseConsents } from './api';
+import { getUSPData } from './api';
 
+// get the current consent state using the official IAB method
 export const getConsentState: () => Promise<AUSConsentState> = async () => {
-	const globalEnterpriseData = await getGlobalEnterpriseConsents();
+	const uspData = await getUSPData();
 
-	const personalizedAdCategory = globalEnterpriseData.categories.find(
-		(category) => category._id === PRIVACY_CHOICE_ID_AUSTRALIA,
-	);
+	// https://github.com/InteractiveAdvertisingBureau/CCPA-reference-code
+	const optedOut = uspData.uspString.charAt(2) === 'Y';
 
 	return {
-		personalisedAdvertising: personalizedAdCategory?.consented ?? false,
-		signalStatus: globalEnterpriseData.signalStatus,
+		personalisedAdvertising: !optedOut,
 	};
 };
