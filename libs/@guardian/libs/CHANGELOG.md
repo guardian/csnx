@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 30.0.0
+
+### Major Changes
+
+- 135f060: Revert AUS framework update due to testing.
+
 ## 29.0.1
 
 ### Patch Changes
