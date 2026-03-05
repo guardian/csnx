@@ -270,18 +270,17 @@ export const init = (
 						 * dispatches the cmp:banner-close event for the commercial code to handle once it is ready
 						 */
 						if (window.guardian) {
-							// Stub the commercial object
 							window.guardian.commercial ??= { queue: [] };
-							// Stub the commercial.queue object
 							window.guardian.commercial.queue = Array.isArray(
 								window.guardian.commercial.queue,
 							)
 								? window.guardian.commercial.queue
 								: [];
-							// Push to the commercial queue a function that dispatches a custom event
 							window.guardian.commercial.queue.push(() =>
-								// Commercial listens for this event and when handlin it,
-								// decides whether the mobile-sticky ad is allowed to launch
+								/**
+								 * Commercial listens for this event and on handling it,
+								 * decides whether the mobile-sticky ad should display
+								 */
 								document.dispatchEvent(new Event('cmp:banner-close')),
 							);
 						}
