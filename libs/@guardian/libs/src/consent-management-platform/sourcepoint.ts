@@ -270,19 +270,13 @@ export const init = (
 						 * dispatches the cmp:banner-close event for the commercial code to handle once it is ready
 						 */
 						if (window.guardian) {
-							// Stub the commercial object
 							window.guardian.commercial ??= { queue: [] };
-							// Stub the commercial.queue object
-							window.guardian.commercial.queue = Array.isArray(
-								window.guardian.commercial.queue,
-							)
-								? window.guardian.commercial.queue
-								: [];
-							// Push to the commercial queue a function that dispatches a custom event
-							window.guardian.commercial.queue.push(() =>
-								// Commercial listens for this event and when handlin it,
-								// decides whether the mobile-sticky ad is allowed to launch
-								document.dispatchEvent(new Event('cmp:banner-close')),
+							// Stub in case guardian commercial present but without a queue
+							// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Window types aren't solid
+							window.guardian.commercial.queue ??= [];
+							window.guardian.commercial.queue.push(
+								() =>
+									void document.dispatchEvent(new Event('cmp:banner-close')),
 							);
 						}
 						setTimeout(invokeCallbacks, 0);
