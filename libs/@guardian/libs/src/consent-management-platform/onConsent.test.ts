@@ -25,7 +25,6 @@ const usnatConsentState: USNATConsentState = {
 
 const ausConsentState: AUSConsentState = {
 	personalisedAdvertising: true,
-	signalStatus: 'ready',
 };
 
 const mockOnConsentChange = (consentState: ConsentState) =>
