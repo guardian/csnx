@@ -280,11 +280,9 @@ export const init = (
 								: [];
 							// Push to the commercial queue a function that dispatches a custom event
 							window.guardian.commercial.queue.push(() =>
-								Promise.resolve(
-									// Commercial listens for this event and when handlin it,
-									// decides whether the mobile-sticky ad is allowed to launch
-									void document.dispatchEvent(new Event('cmp:banner-close')),
-								),
+								// Commercial listens for this event and when handlin it,
+								// decides whether the mobile-sticky ad is allowed to launch
+								document.dispatchEvent(new Event('cmp:banner-close')),
 							);
 						}
 						setTimeout(invokeCallbacks, 0);
