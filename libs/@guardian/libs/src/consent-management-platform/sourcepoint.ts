@@ -270,6 +270,7 @@ export const init = (
 						 * dispatches the cmp:banner-close event for the commercial code to handle once it is ready
 						 */
 						if (window.guardian) {
+							// If guardian.commercial not present, set it up with a queue stub
 							window.guardian.commercial ??= { queue: [] };
 							// Stub in case guardian commercial present but without a queue
 							// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Window types aren't solid
