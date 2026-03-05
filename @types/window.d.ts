@@ -50,7 +50,7 @@ declare global {
 			};
 			identityAuth?: FrontendIdentityAuth;
 			commercial?: {
-				queue: Array<() => Promise<void>>;
+				queue: Array<() => void>;
 			};
 		};
 	}
