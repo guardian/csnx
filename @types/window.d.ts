@@ -49,6 +49,9 @@ declare global {
 				pageViewId: string;
 			};
 			identityAuth?: FrontendIdentityAuth;
+			commercial?: {
+				queue?: Array<() => void>;
+			};
 		};
 	}
 }
