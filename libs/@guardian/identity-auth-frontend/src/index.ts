@@ -1,5 +1,4 @@
-import { IdentityAuth } from '@guardian/identity-auth';
-import type { CustomClaims } from '@guardian/identity-auth';
+import { type CustomClaims, IdentityAuth } from '@guardian/identity-auth';
 import { isOneOf } from '@guardian/libs';
 
 const stages = ['PROD', 'CODE', 'DEV'] as const;

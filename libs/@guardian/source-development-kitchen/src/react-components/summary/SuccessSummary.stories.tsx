@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { SuccessSummaryProps } from './SuccessSummary';
-import { SuccessSummary } from './SuccessSummary';
+import { SuccessSummary, type SuccessSummaryProps } from './SuccessSummary';
 
 const meta: Meta<typeof SuccessSummary> = {
 	title: 'React Components/Success Summary',

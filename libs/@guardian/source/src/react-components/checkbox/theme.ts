@@ -1,14 +1,14 @@
 import { palette } from '../../foundations';
 import type { Theme } from '../@types/Theme';
-import type { ThemeLabel } from '../label/theme';
 import {
 	labelThemeBrand,
 	labelThemeDefault,
 	themeLabel,
+	type ThemeLabel,
 	themeLabelBrand,
 } from '../label/theme';
-import type { ThemeUserFeedback } from '../user-feedback/theme';
 import {
+	type ThemeUserFeedback,
 	userFeedbackThemeBrand,
 	userFeedbackThemeDefault,
 } from '../user-feedback/theme';

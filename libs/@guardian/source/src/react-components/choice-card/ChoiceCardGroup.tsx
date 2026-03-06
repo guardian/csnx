@@ -1,6 +1,10 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
-import type { FieldsetHTMLAttributes } from 'react';
-import { Children, cloneElement, useId } from 'react';
+import {
+	Children,
+	cloneElement,
+	type FieldsetHTMLAttributes,
+	useId,
+} from 'react';
 import { descriptionId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import { Legend } from '../label/Legend';

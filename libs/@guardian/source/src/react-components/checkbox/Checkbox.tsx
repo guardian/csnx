@@ -1,5 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from 'react';
-import { useId } from 'react';
+import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
@@ -12,8 +11,11 @@ import {
 	supportingText,
 	tick,
 } from './styles';
-import { themeCheckbox as defaultTheme, transformProviderTheme } from './theme';
-import type { ThemeCheckbox } from './theme';
+import {
+	themeCheckbox as defaultTheme,
+	type ThemeCheckbox,
+	transformProviderTheme,
+} from './theme';
 
 const SupportingText = ({
 	children,

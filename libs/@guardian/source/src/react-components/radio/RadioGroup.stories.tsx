@@ -3,8 +3,11 @@ import { palette } from '../../foundations';
 import { Radio } from './Radio';
 import * as RadioStories from './Radio.stories';
 import { RadioGroup } from './RadioGroup';
-import type { ThemeRadio } from './theme';
-import { themeRadioBrand, themeRadioGroupBrand } from './theme';
+import {
+	type ThemeRadio,
+	themeRadioBrand,
+	themeRadioGroupBrand,
+} from './theme';
 
 const meta: Meta<typeof RadioGroup> = {
 	title: 'React Components/RadioGroup',

@@ -1,5 +1,4 @@
-import { breakpoints } from '../breakpoints/breakpoints';
-import type { Breakpoint } from '../breakpoints/breakpoints';
+import { type Breakpoint, breakpoints } from '../breakpoints/breakpoints';
 
 export type BreakpointMap = Record<Breakpoint, string>;
 

@@ -1,5 +1,4 @@
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import { remHeight, remWidth, textSans14, textSans17 } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { ThemeUserFeedback } from './theme';

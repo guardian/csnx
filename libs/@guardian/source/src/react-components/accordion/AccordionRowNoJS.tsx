@@ -16,9 +16,9 @@ import {
 	toggleIconWithLabel,
 	toggleLabel,
 } from './styles';
-import type { ThemeAccordion } from './theme';
 import {
 	themeAccordion as defaultTheme,
+	type ThemeAccordion,
 	transformProviderTheme,
 } from './theme';
 

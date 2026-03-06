@@ -13,8 +13,7 @@ import { useTheme } from '../context/Theme';
 import { useValidAnswers } from '../context/ValidAnswers';
 import { useClearUserInput } from '../hooks/useClearUserInput';
 import { useUpdateCell } from '../hooks/useUpdateCell';
-import type { CrosswordButtonProps } from './CrosswordButton';
-import { CrosswordButton } from './CrosswordButton';
+import { CrosswordButton, type CrosswordButtonProps } from './CrosswordButton';
 
 const ClueButton = (props: CrosswordButtonProps) => {
 	const theme = useTheme();

@@ -1,6 +1,5 @@
 import type { SerializedStyles } from '@emotion/react';
-import type { InputHTMLAttributes } from 'react';
-import { useId } from 'react';
+import { type InputHTMLAttributes, useId } from 'react';
 import { descriptionId } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
@@ -21,8 +20,7 @@ import {
 	width4,
 	widthFluid,
 } from './styles';
-import type { ThemeTextInput } from './theme';
-import { themeTextInput } from './theme';
+import { type ThemeTextInput, themeTextInput } from './theme';
 
 export type Width = 30 | 10 | 4;
 

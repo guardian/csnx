@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { TickerSettings } from './Ticker';
-import { Ticker } from './Ticker';
+import { Ticker, type TickerSettings } from './Ticker';
 
 const meta: Meta<typeof Ticker> = {
 	component: Ticker,

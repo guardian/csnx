@@ -2,8 +2,7 @@ import { css } from '@emotion/react';
 import { isString } from '@guardian/libs';
 import { visuallyHidden } from '@guardian/source/foundations';
 import { SvgTickRound } from '@guardian/source/react-components';
-import type { HTMLAttributes } from 'react';
-import { memo, useEffect, useRef } from 'react';
+import { type HTMLAttributes, memo, useEffect, useRef } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
 

@@ -1,5 +1,4 @@
-import { guard } from './guard';
-import type { Guard } from './guard';
+import { guard, type Guard } from './guard';
 import type { AccessToken, CustomClaims, IDToken } from './Token';
 
 /**

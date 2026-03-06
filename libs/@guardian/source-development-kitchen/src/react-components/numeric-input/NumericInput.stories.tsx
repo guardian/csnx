@@ -1,7 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useState } from 'react';
-import type { NumericInputProps } from './NumericInput';
-import { NumericInput } from './NumericInput';
+import { NumericInput, type NumericInputProps } from './NumericInput';
 
 const meta: Meta<typeof NumericInput> = {
 	title: 'React Components/NumericInput',

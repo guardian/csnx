@@ -1,5 +1,4 @@
-import type { Subscription } from '@guardian/libs';
-import { log } from '@guardian/libs';
+import { log, type Subscription } from '@guardian/libs';
 import type {
 	CLSMetricWithAttribution,
 	FCPMetricWithAttribution,

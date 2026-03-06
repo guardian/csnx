@@ -1,5 +1,4 @@
-import type { Warning } from 'lightningcss';
-import { transform } from 'lightningcss';
+import { transform, type Warning } from 'lightningcss';
 
 expect.extend({
 	/**

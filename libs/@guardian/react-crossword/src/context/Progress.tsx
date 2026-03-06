@@ -1,8 +1,16 @@
 import { log } from '@guardian/libs';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { createContext, type ReactNode, useContext } from 'react';
-import type { LocalStorageOptions } from 'use-local-storage-state';
-import useLocalStorageState from 'use-local-storage-state';
+import {
+	createContext,
+	type ReactNode,
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useState,
+} from 'react';
+import useLocalStorageState, {
+	type LocalStorageOptions,
+} from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Progress } from '../@types/crossword';
 import { getNewProgress } from '../utils/getNewProgress';

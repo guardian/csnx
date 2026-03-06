@@ -4,8 +4,11 @@ import { palette } from '../../foundations';
 import { Checkbox } from './Checkbox';
 import * as CheckboxStories from './Checkbox.stories';
 import { CheckboxGroup } from './CheckboxGroup';
-import type { ThemeCheckbox } from './theme';
-import { themeCheckboxBrand, themeCheckboxGroupBrand } from './theme';
+import {
+	type ThemeCheckbox,
+	themeCheckboxBrand,
+	themeCheckboxGroupBrand,
+} from './theme';
 
 const meta: Meta<typeof CheckboxGroup> = {
 	title: 'React Components/CheckboxGroup',

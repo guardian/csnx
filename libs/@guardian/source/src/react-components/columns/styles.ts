@@ -1,7 +1,11 @@
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
-import type { Breakpoint } from '../../foundations';
-import { between, from, space, until } from '../../foundations';
+import { css, type SerializedStyles } from '@emotion/react';
+import {
+	between,
+	type Breakpoint,
+	from,
+	space,
+	until,
+} from '../../foundations';
 import type { Space } from '../@types/Space';
 
 type ColumnBreakpoint = {

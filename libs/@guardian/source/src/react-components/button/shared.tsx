@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import type { ReactElement, ReactNode } from 'react';
-import { cloneElement } from 'react';
+import { cloneElement, type ReactElement, type ReactNode } from 'react';
 import { visuallyHidden } from '../../foundations';
 import { Spinner } from '../spinner/Spinner';
 

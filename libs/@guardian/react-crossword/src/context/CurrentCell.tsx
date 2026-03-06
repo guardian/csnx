@@ -1,7 +1,12 @@
-import type { Dispatch, SetStateAction } from 'react';
-import { useMemo } from 'react';
-import { useState } from 'react';
-import { createContext, type ReactNode, useContext } from 'react';
+import {
+	createContext,
+	type Dispatch,
+	type ReactNode,
+	type SetStateAction,
+	useContext,
+	useMemo,
+	useState,
+} from 'react';
 import type { Cell } from '../@types/crossword';
 
 type Context = {

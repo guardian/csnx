@@ -1,12 +1,11 @@
-import type { ReactElement } from 'react';
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, type ReactElement } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
 import { accordion } from './styles';
-import type { ThemeAccordion } from './theme';
 import {
 	themeAccordion as defaultTheme,
+	type ThemeAccordion,
 	transformProviderTheme,
 } from './theme';
 

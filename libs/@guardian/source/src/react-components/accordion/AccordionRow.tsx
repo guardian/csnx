@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import { useState } from 'react';
-import type { HTMLAttributes } from 'react';
+import { type HTMLAttributes, useState } from 'react';
 import { visuallyHidden as _visuallyHidden } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
@@ -19,9 +18,9 @@ import {
 	toggleIconWithLabel,
 	toggleLabel,
 } from './styles';
-import type { ThemeAccordion } from './theme';
 import {
 	themeAccordion as defaultTheme,
+	type ThemeAccordion,
 	transformProviderTheme,
 } from './theme';
 

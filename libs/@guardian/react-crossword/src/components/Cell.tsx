@@ -1,8 +1,13 @@
 import { css } from '@emotion/react';
 import { textSans12 } from '@guardian/source/foundations';
-import type { FormEvent, KeyboardEvent, SVGProps } from 'react';
-import { useEffect, useRef } from 'react';
-import { memo } from 'react';
+import {
+	type FormEvent,
+	type KeyboardEvent,
+	memo,
+	type SVGProps,
+	useEffect,
+	useRef,
+} from 'react';
 import type { Cell as CellType } from '../@types/crossword';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';

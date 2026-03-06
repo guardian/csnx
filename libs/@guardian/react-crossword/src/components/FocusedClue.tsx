@@ -1,5 +1,4 @@
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import { isUndefined } from '@guardian/libs';
 import { textSans14 } from '@guardian/source/foundations';
 import { memo } from 'react';

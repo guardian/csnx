@@ -1,6 +1,9 @@
 import { getCookie, storage } from '@guardian/libs';
-import type { IdentityAuthOptions, ProfileUrl } from './@types/OAuth';
-import { isProfileUrl } from './@types/OAuth';
+import {
+	type IdentityAuthOptions,
+	isProfileUrl,
+	type ProfileUrl,
+} from './@types/OAuth';
 import { OAuthError } from './error';
 
 // 30 days in milliseconds, used to determine if the lastRefresh value is older than 30 days.

@@ -4,8 +4,7 @@ import type { Theme } from '../@types/crossword';
 import { ContextProvider } from '../context/ContextProvider';
 import { useTheme } from '../context/Theme';
 import { defaultTheme } from '../theme';
-import type { BaseCellProps } from './Cell';
-import { Cell } from './Cell';
+import { type BaseCellProps, Cell } from './Cell';
 
 const meta: Meta<typeof Cell> = {
 	component: Cell,

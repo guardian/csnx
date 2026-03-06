@@ -1,7 +1,9 @@
-import type { ABTestAPI, AbTestConfig } from '@guardian/ab-core';
-import { AB as ABConstructor } from '@guardian/ab-core';
-import { createContext, useContext } from 'react';
-import type { ReactNode } from 'react';
+import {
+	AB as ABConstructor,
+	type ABTestAPI,
+	type AbTestConfig,
+} from '@guardian/ab-core';
+import { createContext, type ReactNode, useContext } from 'react';
 
 /**
  * ABContext is the global context container for the AB object

@@ -1,5 +1,4 @@
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import { space } from '../../foundations';
 import type { Space } from '../@types/Space';
 

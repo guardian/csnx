@@ -3,10 +3,11 @@ import { storage } from '../storage/storage';
 import { getConsentFor } from './getConsentFor';
 import { onConsentChange } from './onConsentChange';
 import type { ConsentState } from './types';
-import type { VendorData, VendorWithData } from './vendorStorageIds';
 import {
 	deprecatedVendorStorageIds,
+	type VendorData,
 	vendorStorageIds,
+	type VendorWithData,
 } from './vendorStorageIds';
 
 const removeData = ({

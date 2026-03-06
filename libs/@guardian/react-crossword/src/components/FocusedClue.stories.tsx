@@ -1,5 +1,4 @@
-import type { Meta } from '@storybook/react-vite';
-import { type StoryObj } from '@storybook/react-vite';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { groupedClues as data } from '../../stories/formats/grouped-clues';
 import { ContextProvider } from '../context/ContextProvider';
 import { defaultTheme } from '../theme';

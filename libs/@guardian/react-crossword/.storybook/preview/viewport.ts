@@ -1,5 +1,4 @@
-import { breakpoints } from '@guardian/source/foundations';
-import type { Breakpoint } from '@guardian/source/foundations';
+import { type Breakpoint, breakpoints } from '@guardian/source/foundations';
 
 type ViewportMeta = Record<
 	Breakpoint,

@@ -1,6 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { FooterLinksProps } from './FooterLinks';
-import { defaultGuardianLinks, FooterLinks } from './FooterLinks';
+import {
+	defaultGuardianLinks,
+	FooterLinks,
+	type FooterLinksProps,
+} from './FooterLinks';
 
 const meta: Meta<typeof FooterLinks> = {
 	title: 'React Components/FooterLinks',

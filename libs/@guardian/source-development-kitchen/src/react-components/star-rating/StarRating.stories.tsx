@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { StarRatingProps } from './StarRating';
-import { StarRating } from './StarRating';
+import { StarRating, type StarRatingProps } from './StarRating';
 
 const meta: Meta<typeof StarRating> = {
 	title: 'React Components/Star Rating',

@@ -1,5 +1,4 @@
-import type { InputHTMLAttributes } from 'react';
-import { useId } from 'react';
+import { type InputHTMLAttributes, useId } from 'react';
 import { descriptionId } from '../../foundations';
 import type { InputSize } from '../@types/InputSize';
 import type { Props } from '../@types/Props';
@@ -15,8 +14,7 @@ import {
 	textArea,
 	widthFluid,
 } from './styles';
-import type { ThemeTextArea } from './theme';
-import { themeTextArea } from './theme';
+import { type ThemeTextArea, themeTextArea } from './theme';
 
 export interface TextAreaProps
 	extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'size'>, Props {

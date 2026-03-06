@@ -25,6 +25,10 @@ export default [
 			// less diff noise (they're hoisted anyway)
 			'import/first': 'error',
 
+			// merge duplicate imports from the same module;
+			// prefer inline type imports for less diff noise
+			'import/no-duplicates': ['error', { 'prefer-inline': true }],
+
 			// fixable import formatting, designed to minimise diff noise
 			'sort-imports': [
 				'error',

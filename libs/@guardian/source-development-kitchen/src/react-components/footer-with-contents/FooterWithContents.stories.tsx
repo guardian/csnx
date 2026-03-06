@@ -3,8 +3,10 @@ import {
 	DefaultFooterLinks,
 	FooterLinksInColumns,
 } from './FooterLinks.stories';
-import type { FooterWithContentsProps } from './FooterWithContents';
-import { FooterWithContents } from './FooterWithContents';
+import {
+	FooterWithContents,
+	type FooterWithContentsProps,
+} from './FooterWithContents';
 
 const meta: Meta<typeof FooterWithContents> = {
 	title: 'React Components/FooterWithContents',

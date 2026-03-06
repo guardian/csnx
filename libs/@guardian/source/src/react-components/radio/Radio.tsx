@@ -1,5 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from 'react';
-import { useId } from 'react';
+import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
@@ -10,8 +9,7 @@ import {
 	radioContainer,
 	supportingText,
 } from './styles';
-import type { ThemeRadio } from './theme';
-import { themeRadio, transformProviderTheme } from './theme';
+import { type ThemeRadio, themeRadio, transformProviderTheme } from './theme';
 
 const LabelText = ({
 	children,

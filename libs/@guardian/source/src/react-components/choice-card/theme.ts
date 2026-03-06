@@ -1,8 +1,10 @@
 import { palette } from '../../foundations';
 import type { Theme } from '../@types/Theme';
 import { themeLabel, type ThemeLabel } from '../label/theme';
-import type { ThemeUserFeedback } from '../user-feedback/theme';
-import { userFeedbackThemeDefault } from '../user-feedback/theme';
+import {
+	type ThemeUserFeedback,
+	userFeedbackThemeDefault,
+} from '../user-feedback/theme';
 
 export type ThemeChoiceCard = {
 	textUnselected: string;

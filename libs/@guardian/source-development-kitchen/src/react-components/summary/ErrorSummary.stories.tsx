@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { ErrorSummaryProps } from './ErrorSummary';
-import { ErrorSummary } from './ErrorSummary';
+import { ErrorSummary, type ErrorSummaryProps } from './ErrorSummary';
 
 const meta: Meta<typeof ErrorSummary> = {
 	title: 'React Components/Error Summary',

@@ -1,7 +1,6 @@
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
-import type { ThemeLabel } from './theme';
-import { themeLabel as defaultTheme } from './theme';
+import { themeLabel as defaultTheme, type ThemeLabel } from './theme';
 
 export const mergedTheme = (
 	providerTheme: Theme['label'],

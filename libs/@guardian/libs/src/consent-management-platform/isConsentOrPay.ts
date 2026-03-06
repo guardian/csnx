@@ -1,7 +1,6 @@
 import type { CountryCode } from '../index.test';
 import { isGuardianDomain } from './lib/domain';
-import { consentOrPayCountries } from './lib/sourcepointConfig';
-import type { Currency } from './lib/sourcepointConfig';
+import { consentOrPayCountries, type Currency } from './lib/sourcepointConfig';
 
 let _isConsentOrPay = false;
 

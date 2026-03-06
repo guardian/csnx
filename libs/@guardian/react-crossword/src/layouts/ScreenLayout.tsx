@@ -5,8 +5,7 @@ import {
 	textSans14,
 	textSansItalic12,
 } from '@guardian/source/foundations';
-import type { ReactNode } from 'react';
-import { memo } from 'react';
+import { memo, type ReactNode } from 'react';
 import type { LayoutProps } from '../@types/Layout';
 import { FocusedClue } from '../components/FocusedClue';
 import { useTheme } from '../context/Theme';

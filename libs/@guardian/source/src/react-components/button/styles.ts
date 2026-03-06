@@ -1,5 +1,4 @@
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import {
 	focusHaloSpaced,
 	height,
@@ -18,8 +17,7 @@ import type {
 	SharedButtonProps,
 	Size,
 } from './@types/SharedButtonProps';
-import type { ThemeButton } from './theme';
-import { themeButton as defaultTheme } from './theme';
+import { themeButton as defaultTheme, type ThemeButton } from './theme';
 
 const button = css`
 	display: inline-flex;

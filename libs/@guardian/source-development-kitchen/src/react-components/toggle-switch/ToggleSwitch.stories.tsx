@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useState } from 'react';
-import { ToggleSwitch } from './ToggleSwitch';
-import type { ToggleSwitchProps } from './ToggleSwitch';
+import { ToggleSwitch, type ToggleSwitchProps } from './ToggleSwitch';
 
 const meta: Meta<typeof ToggleSwitch> = {
 	title: 'React Components/ToggleSwitch',

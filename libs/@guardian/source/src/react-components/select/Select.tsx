@@ -1,5 +1,4 @@
-import type { ReactNode, SelectHTMLAttributes } from 'react';
-import { useId } from 'react';
+import { type ReactNode, type SelectHTMLAttributes, useId } from 'react';
 import { descriptionId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
@@ -18,8 +17,11 @@ import {
 	successInput,
 	supportingTextMargin,
 } from './styles';
-import type { ThemeSelect } from './theme';
-import { themeSelect as defaultTheme, transformProviderTheme } from './theme';
+import {
+	themeSelect as defaultTheme,
+	type ThemeSelect,
+	transformProviderTheme,
+} from './theme';
 
 export interface SelectProps
 	extends SelectHTMLAttributes<HTMLSelectElement>, Props {

@@ -9,8 +9,7 @@ import type {
 	TokenType,
 } from './@types/Token';
 import type { Emitter } from './emitter';
-import type { Token } from './token';
-import { isAccessToken, isIDToken } from './token';
+import { isAccessToken, isIDToken, type Token } from './token';
 
 /**
  * @class TokenManager

@@ -1,7 +1,9 @@
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
-import type { ThemeUserFeedback } from './theme';
-import { themeUserFeedback as defaultTheme } from './theme';
+import {
+	themeUserFeedback as defaultTheme,
+	type ThemeUserFeedback,
+} from './theme';
 
 export const mergedTheme = (
 	providerTheme: Theme['userFeedback'],

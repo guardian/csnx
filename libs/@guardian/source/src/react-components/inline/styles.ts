@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import type { Breakpoint } from '../../foundations';
-import { space, until } from '../../foundations';
+import { type Breakpoint, space, until } from '../../foundations';
 import type { Space } from '../@types/Space';
 
 export const inline = css`

@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { InfoSummaryProps } from './InfoSummary';
-import { InfoSummary } from './InfoSummary';
+import { InfoSummary, type InfoSummaryProps } from './InfoSummary';
 
 const meta: Meta<typeof InfoSummary> = {
 	title: 'React Components/Info Summary',

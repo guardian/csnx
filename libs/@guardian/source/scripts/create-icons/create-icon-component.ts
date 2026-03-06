@@ -1,6 +1,5 @@
 import type { TransformOptions } from '@babel/core';
-import { transform } from '@svgr/core';
-import type { Config } from '@svgr/core';
+import { type Config, transform } from '@svgr/core';
 import { labels } from '../../src/react-components/icons/labels';
 
 // SVGR uses babel under the hood to create the jsx

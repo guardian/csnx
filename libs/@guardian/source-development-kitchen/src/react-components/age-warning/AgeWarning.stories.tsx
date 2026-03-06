@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
-import type { AgeWarningProps } from './AgeWarning';
-import { AgeWarning } from './AgeWarning';
+import { AgeWarning, type AgeWarningProps } from './AgeWarning';
 
 const meta: Meta<typeof AgeWarning> = {
 	component: AgeWarning,

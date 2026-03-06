@@ -1,7 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useState } from 'react';
-import { ToggleSwitchApps } from './ToggleSwitchApps';
-import type { ToggleSwitchAppsProps } from './ToggleSwitchApps';
+import {
+	ToggleSwitchApps,
+	type ToggleSwitchAppsProps,
+} from './ToggleSwitchApps';
 
 const meta: Meta<typeof ToggleSwitchApps> = {
 	title: 'React Components/ToggleSwitchApps',

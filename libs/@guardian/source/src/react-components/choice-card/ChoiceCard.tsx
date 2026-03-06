@@ -1,9 +1,9 @@
-import type {
-	ChangeEventHandler,
-	InputHTMLAttributes,
-	ReactElement,
+import {
+	type ChangeEventHandler,
+	type InputHTMLAttributes,
+	type ReactElement,
+	useState,
 } from 'react';
-import { useState } from 'react';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
 import { mergeThemes } from '../utils/themes';
@@ -16,9 +16,9 @@ import {
 	tick,
 	tickAnimation,
 } from './styles';
-import type { ThemeChoiceCard } from './theme';
 import {
 	themeChoiceCard as defaultTheme,
+	type ThemeChoiceCard,
 	transformProviderTheme,
 } from './theme';
 

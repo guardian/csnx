@@ -1,6 +1,10 @@
 import type { JSX } from '@emotion/react/jsx-runtime';
-import type { FieldsetHTMLAttributes } from 'react';
-import { Children, cloneElement, useId } from 'react';
+import {
+	Children,
+	cloneElement,
+	type FieldsetHTMLAttributes,
+	useId,
+} from 'react';
 import { descriptionId } from '../../foundations';
 import type { Props } from '../@types/Props';
 import type { Theme } from '../@types/Theme';
@@ -10,8 +14,7 @@ import { Stack } from '../stack/Stack';
 import { InlineError } from '../user-feedback/InlineError';
 import { mergeThemes } from '../utils/themes';
 import { fieldset } from './styles';
-import type { ThemeRadioGroup } from './theme';
-import { themeRadioGroup } from './theme';
+import { type ThemeRadioGroup, themeRadioGroup } from './theme';
 
 type Orientation = 'vertical' | 'horizontal';
 

@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import type { RefObject } from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { type RefObject, useCallback, useEffect, useState } from 'react';
 
 const konamiCode = [
 	'ArrowUp',

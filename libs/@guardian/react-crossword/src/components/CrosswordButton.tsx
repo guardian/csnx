@@ -1,7 +1,8 @@
-import type { ButtonProps as SourceButtonProps } from '@guardian/source/react-components';
-import { Button as SourceButton } from '@guardian/source/react-components';
-import type { MouseEventHandler } from 'react';
-import { memo, useRef, useState } from 'react';
+import {
+	Button as SourceButton,
+	type ButtonProps as SourceButtonProps,
+} from '@guardian/source/react-components';
+import { memo, type MouseEventHandler, useRef, useState } from 'react';
 
 export type CrosswordButtonProps = SourceButtonProps & {
 	onClick: MouseEventHandler<HTMLButtonElement>;

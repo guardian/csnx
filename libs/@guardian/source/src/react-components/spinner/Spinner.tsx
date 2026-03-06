@@ -1,7 +1,6 @@
 import { iconSize } from '../../foundations';
 import type { IconSize } from '../@types/Icons';
-import type { ThemeSpinner } from './theme';
-import { themeSpinner } from './theme';
+import { type ThemeSpinner, themeSpinner } from './theme';
 
 export interface SpinnerProps {
 	/**

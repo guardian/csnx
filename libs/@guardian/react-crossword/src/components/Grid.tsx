@@ -1,7 +1,16 @@
 import { css } from '@emotion/react';
 import { isString, isUndefined } from '@guardian/libs';
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { FocusEvent, FormEvent, KeyboardEvent } from 'react';
+import {
+	type FocusEvent,
+	type FormEvent,
+	type KeyboardEvent,
+	memo,
+	useCallback,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from 'react';
 import type {
 	Cell as CellType,
 	Coords,
