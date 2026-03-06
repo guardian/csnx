@@ -264,6 +264,22 @@ export const init = (
 						choiceTypeID === SourcePointChoiceTypes.RejectAll ||
 						choiceTypeID === SourcePointChoiceTypes.Dismiss
 					) {
+						/**
+						 * The following logic is in aid of supporting the mobile-sticky ad slot.
+						 * This stubs the window.guardian.commercial.queue and pushes to this queue a function that
+						 * dispatches the cmp:banner-close event for the commercial code to handle once it is ready
+						 */
+						if (window.guardian) {
+							// If guardian.commercial not present, set it up with a queue stub
+							window.guardian.commercial ??= { queue: [] };
+							// Stub in case guardian commercial present but without a queue
+							// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Window types aren't solid
+							window.guardian.commercial.queue ??= [];
+							window.guardian.commercial.queue.push(
+								() =>
+									void document.dispatchEvent(new Event('cmp:banner-close')),
+							);
+						}
 						setTimeout(invokeCallbacks, 0);
 					}
 				},
