@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 30.1.0
+
+### Minor Changes
+
+- 683f2a6: Pushes a function to dispatch a custom event to the commercial queue when the CMP banner is closed
+
 ## 30.0.0
 
 ### Major Changes
