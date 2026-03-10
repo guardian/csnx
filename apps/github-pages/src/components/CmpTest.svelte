@@ -1,6 +1,6 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
-	import { cmp, onConsentChange, log, setCookie } from '@guardian/libs';
+	import { cmp, onConsentChange, log, setCookie, getConsentDetailsForOphan } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
@@ -99,6 +99,7 @@
 	onConsentChange((payload) => {
 		logEvent({ title: 'onConsentChange', payload });
 		consentState = payload;
+		console.log('getConsentDetailsForOphan', getConsentDetailsForOphan(payload));
 	});
 
 	onMount(async () => {
