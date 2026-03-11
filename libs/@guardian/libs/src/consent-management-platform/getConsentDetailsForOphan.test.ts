@@ -71,15 +71,15 @@ function clearCookies(): void {
 }
 
 describe('getConsentDetailsForOphan', () => {
+	afterEach(() => {
+		clearCookies();
+		jest.restoreAllMocks();
+	});
 	describe('when consent framework is TCFv2', () => {
 		beforeEach(() => {
 			setCookie('consentUUID', 'fakeConsentUUID');
 		});
 
-		afterEach(() => {
-			clearCookies();
-			jest.restoreAllMocks();
-		});
 		it('returns the correct consent details', () => {
 			const ophanConsentDetails =
 				getConsentDetailsForOphan(consentStateForTCFV2);
@@ -95,11 +95,6 @@ describe('getConsentDetailsForOphan', () => {
 		describe('and the only cookie dropped is usnatUUID', () => {
 			beforeEach(() => {
 				setCookie('usnatUUID', 'fakeUsnatUUID');
-			});
-
-			afterEach(() => {
-				clearCookies();
-				jest.restoreAllMocks();
 			});
 			it('returns the correct consent details - consent is true', () => {
 				const ophanConsentDetails =
@@ -128,10 +123,6 @@ describe('getConsentDetailsForOphan', () => {
 				setCookie('ccpaUUID', 'fakeCcpaUUID');
 			});
 
-			afterEach(() => {
-				clearCookies();
-				jest.restoreAllMocks();
-			});
 			it('returns the correct consent details - consent is true', () => {
 				const ophanConsentDetails =
 					getConsentDetailsForOphan(consentStateForUSNAT);
@@ -160,10 +151,6 @@ describe('getConsentDetailsForOphan', () => {
 				setCookie('usnatUUID', 'fakeUsnatUUID');
 			});
 
-			afterEach(() => {
-				clearCookies();
-				jest.restoreAllMocks();
-			});
 			it('returns the correct consent details - consent is true', () => {
 				const ophanConsentDetails =
 					getConsentDetailsForOphan(consentStateForUSNAT);
@@ -192,10 +179,6 @@ describe('getConsentDetailsForOphan', () => {
 			setCookie('ccpaUUID', 'fakeCcpaUUID');
 		});
 
-		afterEach(() => {
-			clearCookies();
-			jest.restoreAllMocks();
-		});
 		it('returns the correct consent details - consent is true', () => {
 			const ophanConsentDetails = getConsentDetailsForOphan(consentStateForAUS);
 			expect(ophanConsentDetails).toEqual({
