@@ -48,6 +48,12 @@ export interface PubData {
 	pageViewId?: string;
 	[propName: string]: unknown;
 }
+
+export interface OphanConsentDetails {
+	consentJurisdiction: 'TCF' | 'USNAT' | 'AUS' | 'OTHER';
+	consentUUID: string;
+	consent: string;
+}
 export interface SourcepointImplementation {
 	init: (
 		framework: ConsentFramework,

@@ -4,6 +4,7 @@ import { countries } from '../countries/countries';
 import { log } from '../logger/logger';
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
+import { getConsentDetailsForOphan as clientGetConsentDetailsForOphan } from './getConsentDetailsForOphan';
 import { getConsentFor as clientGetConsentFor } from './getConsentFor';
 import { getFramework } from './getFramework';
 import { onConsent as clientOnConsent } from './onConsent';
@@ -11,6 +12,7 @@ import { onConsentChange as clientOnConsentChange } from './onConsentChange';
 import {
 	isServerSide,
 	cmp as serverCmp,
+	getConsentDetailsForOphan as serverGetConsentDetailsForOphan,
 	getConsentFor as serverGetConsentFor,
 	onConsent as serverOnConsent,
 	onConsentChange as serverOnConsentChange,
@@ -172,3 +174,8 @@ export const onConsentChange = isServerSide
 export const getConsentFor = isServerSide
 	? serverGetConsentFor
 	: (window.guCmpHotFix.getConsentFor ??= clientGetConsentFor);
+
+export const getConsentDetailsForOphan = isServerSide
+	? serverGetConsentDetailsForOphan
+	: (window.guCmpHotFix.getConsentDetailsForOphan ??=
+			clientGetConsentDetailsForOphan);
