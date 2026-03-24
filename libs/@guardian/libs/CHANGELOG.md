@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 30.1.1
+
+### Patch Changes
+
+- cc58030: Adds a new helper function to produce a uniform consent payload for Ophan tracking across consent frameworks (TCFv2/USNAT/AUS),
+
 ## 30.1.0
 
 ### Minor Changes

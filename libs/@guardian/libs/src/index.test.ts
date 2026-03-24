@@ -7,6 +7,7 @@ describe('The package', () => {
 			'cmp',
 			'countries',
 			'debug',
+			'getConsentDetailsForOphan',
 			'getConsentFor',
 			'getCookie',
 			'getCountryByCountryCode',

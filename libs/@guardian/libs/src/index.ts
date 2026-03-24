@@ -6,6 +6,7 @@ export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
 export {
 	cmp,
+	getConsentDetailsForOphan,
 	getConsentFor,
 	onConsent,
 	onConsentChange,
@@ -16,6 +17,7 @@ export type {
 	ConsentState,
 	OnConsentChangeCallback,
 	VendorName,
+	OphanConsentDetails,
 } from './consent-management-platform/types';
 export type {
 	TCEventStatusCode,
