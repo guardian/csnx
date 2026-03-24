@@ -19,7 +19,9 @@ export const getConsentDetailsForOphan = (
 	}
 
 	if (consentState.usnat) {
-		// Users who interacted with the CCPA banner before the migration to usnat will still have a ccpaUUID cookie. The usnatUUID cookie is set when the USNAT banner is interacted with. We need to check both cookies to ensure we have the correct consentUUID.
+		// Users who interacted with the CCPA banner before the migration to usnat will still have a ccpaUUID cookie.
+		// The usnatUUID cookie is set when the USNAT banner is interacted with.
+		// We need to check both cookies to ensure we have the correct consentUUID.
 		const consentUUID =
 			getCookie({ name: 'usnatUUID' }) ?? getCookie({ name: 'ccpaUUID' });
 		return {
@@ -30,9 +32,14 @@ export const getConsentDetailsForOphan = (
 	}
 
 	if (consentState.aus) {
+		// Users who interacted with the CCPA banner before the migration to usnat will still have a ccpaUUID cookie.
+		// The globalcmpUUID cookie is set when the AUS banner is interacted with.
+		// We need to check both cookies to ensure we have the correct consentUUID.
+		const consentUUID =
+			getCookie({ name: 'globalcmpUUID' }) ?? getCookie({ name: 'ccpaUUID' });
 		return {
 			consentJurisdiction: 'AUS',
-			consentUUID: getCookie({ name: 'ccpaUUID' }) ?? '',
+			consentUUID: consentUUID ?? '',
 			consent: consentState.aus.personalisedAdvertising ? 'true' : 'false',
 		};
 	}
