@@ -40,6 +40,7 @@ const consentStateForUSNAT: ConsentState = {
 const consentStateForAUS: ConsentState = {
 	aus: {
 		personalisedAdvertising: true,
+		signalStatus: 'ready',
 	},
 	canTarget: true,
 	framework: 'aus',
@@ -48,6 +49,7 @@ const consentStateForAUS: ConsentState = {
 const nonConsentStateForAUS: ConsentState = {
 	aus: {
 		personalisedAdvertising: false,
+		signalStatus: 'ready',
 	},
 	canTarget: false,
 	framework: 'aus',
