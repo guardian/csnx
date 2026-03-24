@@ -6,6 +6,7 @@ settings:
 
 overrides:
   minimatch: ~10.2.3
+  effect: ~3.20.0
 
 patchedDependencies:
   ast-types@0.16.1:
@@ -1178,7 +1179,7 @@ packages:
     resolution: {integrity: sha512-XvFttkuBUL3s4ofZ+OVE4Pagb4wsPG8laSS8iO5lVI9Yt1zIM49uxlYIA2BJ45jjS3MdplUepC0NilotKnjU2A==}
     deprecated: this package has been merged into the main effect package
     peerDependencies:
-      effect: ^3.6.5
+      effect: ~3.20.0
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -2639,6 +2640,9 @@ packages:
   '@sinonjs/fake-timers@15.1.1':
     resolution: {integrity: sha512-cO5W33JgAPbOh07tvZjUOJ7oWhtaqGHiZw+11DPbyqh2kHTBc3eF/CjJDeQ4205RLQsX6rxCuYOroFQwl7JDRw==}
 
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
   '@storybook/addon-a11y@10.2.13':
     resolution: {integrity: sha512-zuR1n1xgWoieEnr6E5xdTR40BI61IBQahgmsRpTvqRffL3mxAs5aFoORDmA5pZWI2LE9URdMkY85h218ijuLiw==}
     peerDependencies:
@@ -3870,8 +3874,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.6.5:
-    resolution: {integrity: sha512-NhopZTAKljaAlR0CEroOAJJngdqg7bzlnWcDrCwh4d2WNVohVbBtUS4SGqLt8tUy7IFsTWATYiUtmhDG+YELjA==}
+  effect@3.20.1:
+    resolution: {integrity: sha512-Jl4IbaJQqerCRA2k1bAuz6k1IkCjeGTUyIq5zgCza+QN1v7/8EIKpR49MRhjI+7Ye96WjclsOQyYYdiLySViMA==}
 
   ejs@3.1.10:
     resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
@@ -4155,6 +4159,10 @@ packages:
 
   fast-check@3.21.0:
     resolution: {integrity: sha512-QpmbiqRFRZ+SIlBJh6xi5d/PgXciUc/xWKc4Vi2RWEHHIRx6oM3f0fWNna++zP9VB5HUBTObUK9gTKQP3vVcrQ==}
+    engines: {node: '>=8.0.0'}
+
+  fast-check@3.23.2:
+    resolution: {integrity: sha512-h5+1OzzfCC3Ef7VbtKdcv7zsstUQwUDlYpUTvjeUsJAssPgLn7QzbboPtL5ro04Mq0rPOsMzl7q5hIbRs2wD1A==}
     engines: {node: '>=8.0.0'}
 
   fast-deep-equal@3.1.3:
@@ -7653,9 +7661,9 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@effect/schema@0.71.1(effect@3.6.5)':
+  '@effect/schema@0.71.1(effect@3.20.1)':
     dependencies:
-      effect: 3.6.5
+      effect: 3.20.1
       fast-check: 3.21.0
 
   '@emmetio/abbreviation@2.3.3':
@@ -8843,6 +8851,8 @@ snapshots:
   '@sinonjs/fake-timers@15.1.1':
     dependencies:
       '@sinonjs/commons': 3.0.1
+
+  '@standard-schema/spec@1.1.0': {}
 
   '@storybook/addon-a11y@10.2.13(storybook@10.2.13(@testing-library/dom@10.4.1)(prettier@3.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
@@ -10379,7 +10389,10 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.6.5: {}
+  effect@3.20.1:
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      fast-check: 3.23.2
 
   ejs@3.1.10:
     dependencies:
@@ -10885,6 +10898,10 @@ snapshots:
   extendable-error@0.1.7: {}
 
   fast-check@3.21.0:
+    dependencies:
+      pure-rand: 6.1.0
+
+  fast-check@3.23.2:
     dependencies:
       pure-rand: 6.1.0
 
@@ -13770,12 +13787,12 @@ snapshots:
 
   syncpack@13.0.0(typescript@5.9.3):
     dependencies:
-      '@effect/schema': 0.71.1(effect@3.6.5)
+      '@effect/schema': 0.71.1(effect@3.20.1)
       chalk: 5.3.0
       chalk-template: 1.1.0
       commander: 12.1.0
       cosmiconfig: 9.0.0(typescript@5.9.3)
-      effect: 3.6.5
+      effect: 3.20.1
       enquirer: 2.4.1
       fast-check: 3.21.0
       globby: 14.0.2
