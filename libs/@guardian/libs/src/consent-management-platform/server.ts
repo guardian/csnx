@@ -4,6 +4,7 @@ import type {
 	ConsentState,
 	GetConsentFor,
 	OnConsentChange,
+	OphanConsentDetails,
 	VendorName,
 } from './types';
 
@@ -46,6 +47,18 @@ export const onConsent = (): ReturnType<typeof OnConsent> => {
 
 export const onConsentChange: OnConsentChange = () => {
 	return serverSideWarn();
+};
+
+export const getConsentDetailsForOphan = (
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars -- consentState is not used in the server-side implementation, but we want to keep the same function signature.
+	consentState: ConsentState,
+): OphanConsentDetails => {
+	serverSideWarn();
+	return {
+		consentJurisdiction: 'OTHER',
+		consentUUID: '',
+		consent: '',
+	};
 };
 
 export const getConsentFor: GetConsentFor = (
