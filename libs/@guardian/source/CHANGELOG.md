@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 12.2.1
+
+### Patch Changes
+
+- 7fb0f8a: bump `@isaacs/brace-expansion` transitive dep
+
 ## 12.2.0
 
 ### Minor Changes

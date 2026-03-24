@@ -1,5 +1,50 @@
 # @guardian/libs
 
+## 30.1.0
+
+### Minor Changes
+
+- 683f2a6: Pushes a function to dispatch a custom event to the commercial queue when the CMP banner is closed
+
+## 30.0.0
+
+### Major Changes
+
+- 135f060: Revert AUS framework update due to testing.
+
+## 29.0.1
+
+### Patch Changes
+
+- 5f685ce: Export new AUSConsentState type
+
+## 29.0.0
+
+### Major Changes
+
+- a208b66: #### Sourcepoint Australia Migration
+
+  Migration from CCPA to Sourcepoint Global Enterprise as the privacy framework for Australia
+
+  To use this new version in a consumer:
+  - update the version of @guardian/libs
+  - replace any references to the `ccpaUUID` cookie with `globalcmpUUID`
+  - if any tests use the ConsentState interface, add a new property `signalStatus: 'ready'`
+
+## 28.0.0
+
+### Major Changes
+
+- f93c41a: Removes `ArticleFormat` and its sub-types `ArticleDesign`, `ArticleDisplay`, `ArticleTheme`, `ArticleSpecial` and `Pillar` from `guardian/libs`. These types were primarily used by DCAR and AR, but we moved them into DCAR a long time ago and have now deleted AR, so they can now be removed from here. This also reduces confusion when developing in DCAR, as two versions of these types are currently available for import there: the local version and the `guardian/libs` version.
+
+  This is a breaking change, but there should not be any consumers now using the `guardian/libs` version of these types, as they were deprecated some time ago. If for some reason there is a consumer still using these types, when upgrading to this version of `guardian/libs` the TypeScript build in that project should fail and surface those usages.
+
+## 27.1.0
+
+### Minor Changes
+
+- ad2c146: Add liveramp sourcepoint id to vendor list
+
 ## 27.0.0
 
 ### Major Changes
