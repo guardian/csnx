@@ -311,6 +311,7 @@ type: `string`
 - `"inizio"`
 - `"ipsos"`
 - `"magnite"` (do not use until contract signed)
+- `"mparticle"`
 - `"nielsen"`
 - `"ophan"`
 - `"permutive"`
