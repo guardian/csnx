@@ -2,7 +2,9 @@ import type { GlobalEnterpriseConsents } from '../types/aus';
 
 type Command = 'getGlobalEnterpriseConsents';
 
-const globalEnterpriseApi = (command: Command) =>
+const globalEnterpriseApi = (
+	command: Command,
+): Promise<GlobalEnterpriseConsents> =>
 	new Promise((resolve, reject) => {
 		if (window._sp_?.globalcmp?.getUserConsents) {
 			window._sp_.globalcmp.getUserConsents((consents, success) =>
@@ -17,12 +19,10 @@ const globalEnterpriseApi = (command: Command) =>
 				categories: [],
 				vendors: [],
 				signalStatus: 'not ready',
-			} as GlobalEnterpriseConsents);
+			});
 		}
 	});
 
 export const getGlobalEnterpriseConsents =
 	(): Promise<GlobalEnterpriseConsents> =>
-		globalEnterpriseApi(
-			'getGlobalEnterpriseConsents',
-		) as Promise<GlobalEnterpriseConsents>;
+		globalEnterpriseApi('getGlobalEnterpriseConsents');
