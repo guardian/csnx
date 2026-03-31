@@ -32,6 +32,7 @@ export const TCFV2VendorIDs = {
 	indexExchange: ['5e7ced57b8e05c485246ccd8'],
 	liveramp: ['5eb559cfb8e05c2bbe33f3f3'],
 	magnite: ['5e7ced57b8e05c485246cce5'],
+	mparticle: ['62470f577e1e3605d5bc0b8a'],
 	nielsen: ['5ef5c3a5b8e05c69980eaa5b'],
 	ophan: ['5f203dbeeaaaa8768fd3226a'],
 	openX: ['5e865b36b8e05c6f984a37e6'],
