@@ -142,7 +142,7 @@ importers:
     dependencies:
       jest:
         specifier: 30.3.0
-        version: 30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
+        version: 30.3.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)
 
   libs/@guardian/ab-core:
     devDependencies:
@@ -157,7 +157,7 @@ importers:
         version: 9.39.1
       jest:
         specifier: 30.3.0
-        version: 30.3.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)
+        version: 30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 30.3.0
         version: 30.3.0
@@ -166,7 +166,7 @@ importers:
         version: 4.60.0
       ts-jest:
         specifier: 29.4.0
-        version: 29.4.0(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(esbuild@0.27.4)(jest-util@30.3.0)(jest@30.3.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0))(typescript@5.9.3)
+        version: 29.4.0(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@5.9.3)
       tslib:
         specifier: 2.8.1
         version: 2.8.1
@@ -255,7 +255,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 30.1.1
+        specifier: 31.0.0
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -343,7 +343,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 30.1.1
+        specifier: 31.0.0
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -382,10 +382,10 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/identity-auth':
-        specifier: 15.0.0
+        specifier: 16.0.0
         version: link:../identity-auth
       '@guardian/libs':
-        specifier: 30.1.1
+        specifier: 31.0.0
         version: link:../libs
       '@types/jest':
         specifier: 30.0.0
@@ -528,7 +528,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 30.1.1
+        specifier: 31.0.0
         version: link:../libs
       '@guardian/source':
         specifier: 12.2.1
@@ -715,7 +715,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config
       '@guardian/libs':
-        specifier: 30.1.1
+        specifier: 31.0.0
         version: link:../libs
       '@guardian/source':
         specifier: 12.2.1
@@ -13079,6 +13079,26 @@ snapshots:
       '@jest/types': 30.3.0
       babel-jest: 30.3.0(@babel/core@7.29.0)
       esbuild: 0.27.4
+      jest-util: 30.3.0
+
+  ts-jest@29.4.0(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@5.9.3):
+    dependencies:
+      bs-logger: 0.2.6
+      ejs: 3.1.10
+      fast-json-stable-stringify: 2.1.0
+      jest: 30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
+      json5: 2.2.3
+      lodash.memoize: 4.1.2
+      make-error: 1.3.6
+      semver: 7.7.3
+      type-fest: 4.41.0
+      typescript: 5.9.3
+      yargs-parser: 21.1.1
+    optionalDependencies:
+      '@babel/core': 7.29.0
+      '@jest/transform': 30.3.0
+      '@jest/types': 30.3.0
+      babel-jest: 30.3.0(@babel/core@7.29.0)
       jest-util: 30.3.0
 
   ts-toolbelt@9.6.0: {}
