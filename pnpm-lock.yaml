@@ -142,7 +142,7 @@ importers:
     dependencies:
       jest:
         specifier: 30.3.0
-        version: 30.3.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)
+        version: 30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
 
   libs/@guardian/ab-core:
     devDependencies:
@@ -157,7 +157,7 @@ importers:
         version: 9.39.1
       jest:
         specifier: 30.3.0
-        version: 30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
+        version: 30.3.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)
       jest-environment-jsdom:
         specifier: 30.3.0
         version: 30.3.0
@@ -166,7 +166,7 @@ importers:
         version: 4.60.0
       ts-jest:
         specifier: 29.4.0
-        version: 29.4.0(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@5.9.3)
+        version: 29.4.0(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(esbuild@0.27.4)(jest-util@30.3.0)(jest@30.3.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0))(typescript@5.9.3)
       tslib:
         specifier: 2.8.1
         version: 2.8.1
@@ -282,8 +282,8 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       web-vitals:
-        specifier: 4.2.1
-        version: 4.2.1
+        specifier: 5.2.0
+        version: 5.2.0
       wireit:
         specifier: 0.14.12
         version: 0.14.12
@@ -6437,8 +6437,8 @@ packages:
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
-  web-vitals@4.2.1:
-    resolution: {integrity: sha512-U6bAxeudnhDqcXNl50JC4hLlqox9DZnngxfISZm3DMZnonW35xtJOVUc091L+DOY+6hVZVpKXoiCP0RiT6339Q==}
+  web-vitals@5.2.0:
+    resolution: {integrity: sha512-i2z98bEmaCqSDiHEDu+gHl/dmR4Q+TxFmG3/13KkMO+o8UxQzCqWaDRCiLgEa41nlO4VpXSI0ASa1xWmO9sBlA==}
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
@@ -13081,26 +13081,6 @@ snapshots:
       esbuild: 0.27.4
       jest-util: 30.3.0
 
-  ts-jest@29.4.0(@babel/core@7.29.0)(@jest/transform@30.3.0)(@jest/types@30.3.0)(babel-jest@30.3.0(@babel/core@7.29.0))(jest-util@30.3.0)(jest@30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@5.9.3):
-    dependencies:
-      bs-logger: 0.2.6
-      ejs: 3.1.10
-      fast-json-stable-stringify: 2.1.0
-      jest: 30.3.0(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
-      json5: 2.2.3
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.7.3
-      type-fest: 4.41.0
-      typescript: 5.9.3
-      yargs-parser: 21.1.1
-    optionalDependencies:
-      '@babel/core': 7.29.0
-      '@jest/transform': 30.3.0
-      '@jest/types': 30.3.0
-      babel-jest: 30.3.0(@babel/core@7.29.0)
-      jest-util: 30.3.0
-
   ts-toolbelt@9.6.0: {}
 
   tsconfck@3.1.6(typescript@5.9.3):
@@ -13502,7 +13482,7 @@ snapshots:
 
   web-namespaces@2.0.1: {}
 
-  web-vitals@4.2.1: {}
+  web-vitals@5.2.0: {}
 
   webidl-conversions@3.0.1: {}
 
