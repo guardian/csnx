@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 4.2.0
+
+### Minor Changes
+
+- bb007d3: Adds question block subheading for newsletter types
+
 ## 4.1.0
 
 ### Minor Changes
