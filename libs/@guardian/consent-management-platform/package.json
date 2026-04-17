@@ -1,0 +1,176 @@
+{
+	"name": "@guardian/consent-management-platform",
+	"version": "1.0.0",
+	"private": false,
+	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/consent-management-platform"
+	},
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "wireit",
+		"dev": "jest --watch",
+		"e2e": "wireit",
+		"e2e:ui": "wireit",
+		"fix": "wireit",
+		"lint": "wireit",
+		"sourcepoint-integration-test": "wireit",
+		"test": "wireit",
+		"tsc": "wireit",
+		"verify-dist": "wireit"
+	},
+	"dependencies": {
+		"@guardian/libs": "workspace:*",
+		"@guardian/ophan-tracker-js": "2.8.0"
+	},
+	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
+		"@playwright/test": "1.58.0",
+		"@types/jest": "30.0.0",
+		"@types/wcag-contrast": "3.0.3",
+		"eslint": "9.39.1",
+		"jest": "30.3.0",
+		"jest-environment-jsdom": "30.3.0",
+		"jest-fetch-mock": "3.0.3",
+		"mockdate": "3.0.5",
+		"rollup": "4.60.0",
+		"ts-jest": "29.4.0",
+		"tslib": "2.8.1",
+		"tsx": "4.21.0",
+		"typescript": "5.9.3",
+		"wcag-contrast": "3.0.0",
+		"wireit": "0.14.12"
+	},
+	"peerDependencies": {
+		"@guardian/ophan-tracker-js": "^2.2.10",
+		"tslib": "^2.8.1",
+		"typescript": "~5.9.3"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"wireit": {
+		"build": {
+			"command": "rollup -c",
+			"files": [
+				"src/**",
+				"package.json",
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
+			],
+			"output": [
+				"dist"
+			]
+		},
+		"e2e": {
+			"command": "pnpm exec playwright install chromium && playwright test",
+			"dependencies": [
+				"../../../apps/github-pages:start"
+			],
+			"files": [
+				"**",
+				"!(dist|playwright-report|test-results)/**",
+				"!.eslintcache",
+				"!jest*",
+				"!*.md"
+			],
+			"output": []
+		},
+		"e2e:ui": {
+			"command": "pnpm exec playwright install chromium && playwright test --ui",
+			"dependencies": [
+				"../../../apps/github-pages:start"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"clean": false,
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"sourcepoint-integration-test": {
+			"command": "node --test sourcepoint-integration-tests/*.test.{js,mjs,cjs}",
+			"dependencies": [
+				"build"
+			]
+		},
+		"test": {
+			"command": "jest",
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"dependencies": [
+				"../identity-auth-frontend:build"
+			],
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
+	}
+}
