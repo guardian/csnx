@@ -340,10 +340,7 @@ The consent object passed to the `onConsentChange` callback.
 #### Example
 
 ```js
-import {
-	onConsentChange,
-	getConsentFor,
-} from '@guardian/consent-management-platform';
+import { onConsentChange, getConsentFor } from '@guardian/consent-manager';
 
 onConsentChange((consentState) => {
 	const ga = getConsentFor('google-analytics', consentState); // true

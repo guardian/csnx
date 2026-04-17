@@ -12,6 +12,7 @@
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
 		"@astrojs/svelte": "8.0.3",
+		"@guardian/consent-manager": "workspace:*",
 		"@guardian/libs": "workspace:*",
 		"astro": "6.0.8",
 		"svelte": "5.54.1",
@@ -28,6 +29,7 @@
 				"dist"
 			],
 			"dependencies": [
+				"../../libs/@guardian/consent-manager:build",
 				"../../libs/@guardian/libs:build"
 			]
 		},
@@ -39,6 +41,7 @@
 				}
 			},
 			"dependencies": [
+				"../../libs/@guardian/consent-manager:build",
 				"../../libs/@guardian/libs:build"
 			]
 		},
@@ -61,7 +64,7 @@
 			"files": [
 				"src/**/*",
 				"tsconfig.json",
-				"../../libs/@guardian/tsconfig/tsconfig.json",
+				"../../libs/@guardian/consent-manager/tsconfig/tsconfig.json",
 				"../../@types/**",
 				"../../tsconfig.base.json",
 				"!(dist)/**"
