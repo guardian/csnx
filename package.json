@@ -41,6 +41,8 @@
 			]
 		},
 		"overrides": {
+			"effect": "~3.20.0",
+			"lodash": "~4.18.0",
 			"minimatch": "~10.2.3"
 		},
 		"patchedDependencies": {

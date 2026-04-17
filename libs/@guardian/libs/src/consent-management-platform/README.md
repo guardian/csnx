@@ -7,7 +7,7 @@
 
 > Consent management for `*.theguardian.com`.
 
-The Guardian CMP handles applying the USNAT to users in the USA, CCPA to Aus
+The Guardian CMP handles applying the USNAT to users in the USA, Sourcepoint Global Enterprise to Aus
 and TCFv2 to everyone else.
 
 ## Table of Contents
@@ -311,6 +311,7 @@ type: `string`
 - `"inizio"`
 - `"ipsos"`
 - `"magnite"` (do not use until contract signed)
+- `"mparticle"`
 - `"nielsen"`
 - `"ophan"`
 - `"permutive"`

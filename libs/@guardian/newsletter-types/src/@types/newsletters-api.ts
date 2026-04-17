@@ -19,6 +19,7 @@ export type AutomatedFrontSection = {
 
 export type NewsletterEmailRenderingOptions = {
 	linkListSubheading?: string[] | undefined;
+	questionBlockSubheading?: string[] | undefined;
 	podcastSubheading?: string[] | undefined;
 	darkThemeSubheading?: string[] | undefined;
 	readMoreSections?:

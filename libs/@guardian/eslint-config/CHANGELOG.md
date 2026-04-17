@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 14.0.1
+
+### Patch Changes
+
+- 354e311: Bump transitive deps
+
 ## 14.0.0
 
 ### Major Changes
