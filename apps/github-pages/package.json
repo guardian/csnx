@@ -64,7 +64,7 @@
 			"files": [
 				"src/**/*",
 				"tsconfig.json",
-				"../../libs/@guardian/consent-manager/tsconfig/tsconfig.json",
+				"../../libs/@guardian/tsconfig/tsconfig.json",
 				"../../@types/**",
 				"../../tsconfig.base.json",
 				"!(dist)/**"

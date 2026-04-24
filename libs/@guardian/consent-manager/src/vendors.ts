@@ -1,5 +1,5 @@
 /*********************
- * The list of vendors in this file is used in the function 'getConsentfFor'
+ * The list of vendors in this file is used in the function 'getConsentFor'
  * when additional checks on consent are used.
  *
  * For example when loading an in-page audio player: getConsentFor('acast', state )

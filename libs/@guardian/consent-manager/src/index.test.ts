@@ -4,7 +4,7 @@ describe('The package', () => {
 	it('exports everything it did before', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
 			'cmp',
-			"getConsentDetailsForOphan",
+			'getConsentDetailsForOphan',
 			'getConsentFor',
 			'onConsent',
 			'onConsentChange',

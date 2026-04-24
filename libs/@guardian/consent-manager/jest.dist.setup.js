@@ -4,3 +4,8 @@
 import * as dist from '.';
 
 jest.mock('./src/index', () => dist);
+jest.mock('./src/cmp', () => require('./dist/cmp'));
+jest.mock('./src/disable', () => require('./dist/disable'));
+jest.mock('./src/getCurrentFramework', () =>
+	require('./dist/getCurrentFramework'),
+);

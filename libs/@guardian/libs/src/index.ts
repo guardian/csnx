@@ -4,27 +4,27 @@ export * from './deprecated-exports';
 
 export { ArticleElementRole } from './ArticleElementRole/ArticleElementRole';
 
-export {
-	cmp,
-	getConsentDetailsForOphan,
-	getConsentFor,
-	onConsent,
-	onConsentChange,
-} from './consent-management-platform';
-export type {
-	CMP,
-	ConsentFramework,
-	ConsentState,
-	OnConsentChangeCallback,
-	VendorName,
-	OphanConsentDetails,
-} from './consent-management-platform/types';
-export type {
-	TCEventStatusCode,
-	TCFv2ConsentState,
-} from './consent-management-platform/types/tcfv2';
-export type { USNATConsentState } from './consent-management-platform/types/usnat';
-export type { AUSConsentState } from './consent-management-platform/types/aus';
+// export {
+// 	cmp,
+// 	getConsentDetailsForOphan,
+// 	getConsentFor,
+// 	onConsent,
+// 	onConsentChange,
+// } from './consent-management-platform';
+// export type {
+// 	CMP,
+// 	ConsentFramework,
+// 	ConsentState,
+// 	OnConsentChangeCallback,
+// 	VendorName,
+// 	OphanConsentDetails,
+// } from './consent-management-platform/types';
+// export type {
+// 	TCEventStatusCode,
+// 	TCFv2ConsentState,
+// } from './consent-management-platform/types/tcfv2';
+// export type { USNATConsentState } from './consent-management-platform/types/usnat';
+// export type { AUSConsentState } from './consent-management-platform/types/aus';
 
 export { getCookie } from './cookies/getCookie';
 export { removeCookie } from './cookies/removeCookie';
