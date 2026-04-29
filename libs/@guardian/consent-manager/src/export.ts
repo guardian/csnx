@@ -112,13 +112,6 @@ const init: InitCMP = ({
 
 	const framework = getFramework(finalCountry);
 
-	console.log(
-		'Initializing CMP with framework:',
-		framework,
-		'and country:',
-		finalCountry,
-	);
-
 	UnifiedCMP.init(
 		framework,
 		finalCountry,

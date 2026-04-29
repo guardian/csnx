@@ -20,7 +20,7 @@ This guide describes how to test changes to the CMP logic in Dotcom Rendering an
    - Canada (other other non-European ROW country) for `tcfv2_row`
    - US for `usnat`
    - AUS for `aus`
-3. Execute `make synthetics-start-debug` in the @guardian/consent-manager and select the appropriate settings for the CODE environment and relevant framework. Please note: you can also select the Sourcepoint stage.
+3. Execute `make synthetics-start-debug` in the [consent-management-platform](https://github.com/guardian/consent-management-platform/). and select the appropriate settings for the CODE environment and relevant framework. Please note: you can also select the Sourcepoint stage.
 
 ### Manual checks to the website
 
