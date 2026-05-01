@@ -30,7 +30,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "31.0.0",
+		"@guardian/libs": "31.0.1",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
 		"jest": "30.3.0",
