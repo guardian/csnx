@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { textSans20 } from '@guardian/source/foundations';
+import { Button, SvgInfoRound } from '@guardian/source/react-components';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import { Popover } from './Popover';
@@ -29,7 +30,14 @@ const meta: Meta<typeof Popover> = {
 		<>
 			<div css={popoverWrapperStyles}>
 				<h2>Medium</h2>
-				<Popover {...args} />
+				<Popover {...args}>
+					<Button
+						icon={<SvgInfoRound />}
+						size="xsmall"
+						priority="tertiary"
+						hideLabel={true}
+					/>
+				</Popover>
 			</div>
 			<hr />
 
