@@ -43,6 +43,7 @@ export type NewsletterEmailRenderingOptions = {
 	darkHeadlineBackground?: boolean;
 	displayNewsletterName?: boolean;
 	paletteOverride?: PillarName;
+	bulletListStyle?: 'lined' | 'bulleted';
 };
 
 export type NewsletterApiData = {
