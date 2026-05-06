@@ -8,7 +8,7 @@
 # By default all files are owned by these teams:
 * 																@guardian/client-side-infra
 
-/.changeset/ 													@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity @guardian/source @guardian/identity
+/.changeset/ 													@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity @guardian/source @guardian/identity @guardian/newsletters
 
 /libs/@guardian/source/ 										@guardian/client-side-infra @guardian/source
 /libs/@guardian/source-development-kitchen/ 					@guardian/client-side-infra @guardian/source
@@ -22,4 +22,6 @@
 /libs/@guardian/identity-auth-frontend/ 						@guardian/client-side-infra @guardian/dotcom-platform @guardian/commercial-dev @guardian/identity
 
 /libs/@guardian/identity-auth/ 									@guardian/client-side-infra @guardian/identity
-/libs/@guardian/react-crossword/ 									@guardian/client-side-infra @guardian/dotcom-platform
+/libs/@guardian/react-crossword/ 								@guardian/client-side-infra @guardian/dotcom-platform
+
+/libs/@guardian/newsletters-types/ 								@guardian/client-side-infra @guardian/dotcom-platform @guardian/newsletters
