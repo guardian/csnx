@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import {
 	palette,
 	space,
@@ -33,10 +33,19 @@ export interface PopoverProps {
 	 * Primary button action
 	 */
 	buttonOnClick?: () => void;
+	/**
+	 * Describes which side the pointer should be on
+	 */
+	pointerSide?: 'top' | 'bottom' | 'left' | 'right';
+	/**
+	 * The target element that controls the popover visibility
+	 */
+	children: React.ReactNode;
 }
 
 const containerStyles = css`
 	${textSans15};
+	position: absolute;
 	z-index: 1000;
 	background-color: var(--background);
 	border-radius: ${space[2]}px;
@@ -46,6 +55,78 @@ const containerStyles = css`
 	color: var(--text);
 `;
 
+const bottomPointer = css`
+	&:after {
+		position: absolute;
+		content: '';
+		left: calc(50% - 4px);
+		bottom: -8px;
+		width: 0px;
+		height: 0px;
+		border-top: 8px solid var(--background);
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+	}
+`;
+
+const topPointer = css`
+	&:after {
+		position: absolute;
+		content: '';
+		left: calc(50% - 4px);
+		top: -8px;
+		width: 0px;
+		height: 0px;
+		border-bottom: 8px solid var(--background);
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+	}
+`;
+
+const leftPointer = css`
+	&:after {
+		position: absolute;
+		content: '';
+		top: calc(50% - 4px);
+		left: -8px;
+		width: 0px;
+		height: 0px;
+		border-right: 8px solid var(--background);
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+	}
+`;
+
+const rightPointer = css`
+	&:after {
+		position: absolute;
+		content: '';
+		top: calc(50% - 4px);
+		right: -8px;
+		width: 0px;
+		height: 0px;
+		border-left: 8px solid var(--background);
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+	}
+`;
+
+const getPointerStyles = (
+	pointerSide: PopoverProps['pointerSide'],
+): SerializedStyles | undefined => {
+	switch (pointerSide) {
+		case 'bottom':
+			return bottomPointer;
+		case 'top':
+			return topPointer;
+		case 'left':
+			return leftPointer;
+		case 'right':
+			return rightPointer;
+		default:
+			return undefined;
+	}
+};
 const headerStyles = css`
 	display: flex;
 	justify-content: space-between;
@@ -59,6 +140,10 @@ const headerStylesWithoutTitle = css`
 const titleStyles = css`
 	${textSansBold15}
 	margin-bottom: ${space[2]}px;
+`;
+
+const marginTop = css`
+	margin-top: ${space[3]}px;
 `;
 
 const themeStyles = (theme: PopoverProps['theme']) => {
@@ -109,50 +194,63 @@ export const Popover = ({
 	theme,
 	buttonText,
 	buttonOnClick,
+	children,
+	pointerSide,
 }: PopoverProps) => {
 	return (
-		<div css={[themeStyles(theme), containerStyles]} role="dialog">
-			<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
-				{!!title && <span css={titleStyles}>{title}</span>}
+		<div
+			css={css`
+				position: relative;
+			`}
+		>
+			{children}
 
-				<Button
-					icon={<SvgCross />}
-					size="xsmall"
-					priority="tertiary"
-					theme={{
-						textTertiary: 'var(--dismiss-btn)',
-						backgroundTertiary: 'var(--dismiss-btn-background)',
-						backgroundTertiaryHover: 'var(--dismiss-btn-background-hover)',
-						borderTertiary: 'unset',
-					}}
-					onClick={onDismiss}
-					hideLabel={true}
-					aria-label="Dismiss"
-					type="button"
-					cssOverrides={css`
-						svg {
-							width: 16px;
-							height: auto;
-						}
-					`}
-				>
-					Dismiss
-				</Button>
-			</div>
+			<div
+				css={[
+					themeStyles(theme),
+					containerStyles,
+					getPointerStyles(pointerSide),
+				]}
+				role="dialog"
+			>
+				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
+					{!!title && <span css={titleStyles}>{title}</span>}
 
-			{content}
-
-			{!!buttonText && (
-				<div
-					css={css`
-						margin-top: ${space[3]}px;
-					`}
-				>
-					<Button priority="primary" size="xsmall" onClick={buttonOnClick}>
-						{buttonText}
+					<Button
+						icon={<SvgCross />}
+						size="xsmall"
+						priority="tertiary"
+						theme={{
+							textTertiary: 'var(--dismiss-btn)',
+							backgroundTertiary: 'var(--dismiss-btn-background)',
+							backgroundTertiaryHover: 'var(--dismiss-btn-background-hover)',
+							borderTertiary: 'unset',
+						}}
+						onClick={onDismiss}
+						hideLabel={true}
+						aria-label="Dismiss"
+						type="button"
+						cssOverrides={css`
+							svg {
+								width: 16px;
+								height: auto;
+							}
+						`}
+					>
+						Dismiss
 					</Button>
 				</div>
-			)}
+
+				{content}
+
+				{!!buttonText && (
+					<div css={marginTop}>
+						<Button priority="primary" size="xsmall" onClick={buttonOnClick}>
+							{buttonText}
+						</Button>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };
