@@ -6,6 +6,7 @@ import type { HTMLAttributes } from 'react';
 import { memo, useEffect, useRef } from 'react';
 import type { CAPIEntry } from '../@types/CAPI';
 import { useTheme } from '../context/Theme';
+import { restoreClueFormattingStyles } from '../utils/clueFormattingStyles';
 
 const punctuateString = (string: string) => {
 	const trimmed = string.trim();
@@ -121,6 +122,7 @@ const ClueComponent = ({
 				aria-hidden="true"
 				css={css`
 					display: table-cell;
+					${restoreClueFormattingStyles}
 				`}
 				dangerouslySetInnerHTML={{
 					__html: entry.clue,
