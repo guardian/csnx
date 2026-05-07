@@ -1,11 +1,17 @@
-import { css, type SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
 import {
 	palette,
 	space,
 	textSans15,
 	textSansBold15,
 } from '@guardian/source/foundations';
-import { Button, SvgCross } from '@guardian/source/react-components';
+import {
+	Button,
+	type ButtonProps,
+	SvgCross,
+	SvgInfoRound,
+} from '@guardian/source/react-components';
+import { useEffect, useState } from 'react';
 
 export interface PopoverProps {
 	/**
@@ -28,11 +34,11 @@ export interface PopoverProps {
 	/**
 	 * Primary button text. If not provided, no button will render
 	 */
-	buttonText?: string;
+	ctaButtonText?: string;
 	/**
 	 * Primary button action
 	 */
-	buttonOnClick?: () => void;
+	ctaButtonOnClick?: () => void;
 	/**
 	 * Describes which side the pointer should be on
 	 */
@@ -41,12 +47,18 @@ export interface PopoverProps {
 	 * The target element that controls the popover visibility
 	 */
 	children: React.ReactNode;
+	/**
+	 *
+	 */
+	refButtonOverrides: Partial<ButtonProps>;
+	width?: number;
 }
 
 const containerStyles = css`
+	display: none;
+	z-index: -1;
 	${textSans15};
 	position: absolute;
-	z-index: 1000;
 	background-color: var(--background);
 	border-radius: ${space[2]}px;
 	padding: ${space[3]}px ${space[4]}px ${space[4]}px;
@@ -56,77 +68,74 @@ const containerStyles = css`
 `;
 
 const bottomPointer = css`
+	bottom: calc(100% + ${space[5]}px);
+	right: -100px; /* Fixme */
 	&:after {
 		position: absolute;
 		content: '';
-		left: calc(50% - 4px);
-		bottom: -8px;
 		width: 0px;
 		height: 0px;
-		border-top: 8px solid var(--background);
-		border-left: 8px solid transparent;
-		border-right: 8px solid transparent;
+		left: calc(50% - ${space[3] / 2}px);
+		bottom: -${space[3]}px;
+		border-top: ${space[3]}px solid var(--background);
+		border-left: ${space[3]}px solid transparent;
+		border-right: ${space[3]}px solid transparent;
 	}
 `;
 
 const topPointer = css`
+	top: calc(100% + ${space[5]}px);
+	right: -100px; /* Fixme */
 	&:after {
 		position: absolute;
 		content: '';
-		left: calc(50% - 4px);
-		top: -8px;
 		width: 0px;
 		height: 0px;
-		border-bottom: 8px solid var(--background);
-		border-left: 8px solid transparent;
-		border-right: 8px solid transparent;
+		left: calc(50% - ${space[3] / 2}px);
+		top: -${space[3]}px;
+		border-bottom: ${space[3]}px solid var(--background);
+		border-left: ${space[3]}px solid transparent;
+		border-right: ${space[3]}px solid transparent;
 	}
 `;
 
 const leftPointer = css`
+	left: calc(100% + ${space[5]}px);
+	bottom: -100px; /* Fixme */
 	&:after {
 		position: absolute;
 		content: '';
-		top: calc(50% - 4px);
-		left: -8px;
+		top: calc(50% - ${space[3] / 2}px);
+		left: -${space[3]}px;
 		width: 0px;
 		height: 0px;
-		border-right: 8px solid var(--background);
-		border-top: 8px solid transparent;
-		border-bottom: 8px solid transparent;
+		border-right: ${space[3]}px solid var(--background);
+		border-top: ${space[3]}px solid transparent;
+		border-bottom: ${space[3]}px solid transparent;
 	}
 `;
 
 const rightPointer = css`
+	right: calc(100% + ${space[5]}px);
+	bottom: -100px; /* Fixme */
 	&:after {
 		position: absolute;
 		content: '';
-		top: calc(50% - 4px);
-		right: -8px;
 		width: 0px;
 		height: 0px;
-		border-left: 8px solid var(--background);
-		border-top: 8px solid transparent;
-		border-bottom: 8px solid transparent;
+		top: calc(50% - ${space[3] / 2}px);
+		right: -${space[3]}px;
+		border-left: ${space[3]}px solid var(--background);
+		border-top: ${space[3]}px solid transparent;
+		border-bottom: ${space[3]}px solid transparent;
 	}
 `;
 
-const getPointerStyles = (
-	pointerSide: PopoverProps['pointerSide'],
-): SerializedStyles | undefined => {
-	switch (pointerSide) {
-		case 'bottom':
-			return bottomPointer;
-		case 'top':
-			return topPointer;
-		case 'left':
-			return leftPointer;
-		case 'right':
-			return rightPointer;
-		default:
-			return undefined;
-	}
-};
+const visibleStyles = css`
+	display: block;
+	z-index: 1000;
+`;
+
 const headerStyles = css`
 	display: flex;
 	justify-content: space-between;
@@ -192,30 +201,88 @@ export const Popover = ({
 	content,
 	title,
 	theme,
-	buttonText,
-	buttonOnClick,
-	children,
+	ctaButtonText,
+	ctaButtonOnClick,
 	pointerSide,
+	refButtonOverrides,
 }: PopoverProps) => {
+	const [isExpanded, setIsExpanded] = useState(false);
+
+	const dismissButtonOnClick = () => {
+		setIsExpanded(false);
+		onDismiss();
+	};
+
+	useEffect(() => {
+		const dismissOnEsc = (event: KeyboardEvent) => {
+			if (isExpanded && event.code === 'Escape') {
+				setIsExpanded(false);
+			}
+		};
+
+		document.addEventListener('keydown', dismissOnEsc, false);
+
+		// Remove listener on unmount
+		return () => document.removeEventListener('keydown', dismissOnEsc);
+	}, [isExpanded]);
+
+	// TODO: Handle clicking away from the popover (dismiss if click is outside of popover area)
+	// useEffect(() => {
+	// 	if (!isExpanded) {
+	// 		return;
+	// 	}
+
+	// 	const dismissOnClickAway = (event: MouseEvent) => {
+	// 		// If the source of the click is the button, do nothing as the
+	// 		// button's click handler will have already toggled the isExpanded
+	// 		// state
+	// 		// if (buttonRef === event.target) {
+	// 		// 	return;
+	// 		// }
+	// 		event.stopPropagation();
+	// 		setIsExpanded(false);
+	// 	};
+
+	// 	document.addEventListener('click', dismissOnClickAway, false);
+
+	// 	// Remove listener on unmount
+	// 	return () => document.removeEventListener('click', dismissOnClickAway);
+	// }, [isExpanded]);
+
 	return (
 		<div
+			className="popover-root"
 			css={css`
 				position: relative;
 			`}
 		>
-			{children}
+			{/** This is the trigger which opens the popover */}
+			<Button
+				icon={<SvgInfoRound />}
+				size="xsmall"
+				priority="tertiary"
+				theme={{ borderTertiary: 'unset' }}
+				hideLabel={true}
+				onClick={() => setIsExpanded(!isExpanded)}
+				{...refButtonOverrides}
+			/>
 
 			<div
+				className="popover"
 				css={[
 					themeStyles(theme),
 					containerStyles,
-					getPointerStyles(pointerSide),
+					pointerSide === 'top' && topPointer,
+					pointerSide === 'right' && rightPointer,
+					pointerSide === 'bottom' && bottomPointer,
+					pointerSide === 'left' && leftPointer,
+					isExpanded && visibleStyles,
 				]}
 				role="dialog"
+				aria-hidden={!isExpanded}
 			>
 				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
 					{!!title && <span css={titleStyles}>{title}</span>}
-
 					<Button
 						icon={<SvgCross />}
 						size="xsmall"
@@ -226,7 +293,7 @@ export const Popover = ({
 							backgroundTertiaryHover: 'var(--dismiss-btn-background-hover)',
 							borderTertiary: 'unset',
 						}}
-						onClick={onDismiss}
+						onClick={dismissButtonOnClick}
 						hideLabel={true}
 						aria-label="Dismiss"
 						type="button"
@@ -243,10 +310,10 @@ export const Popover = ({
 
 				{content}
 
-				{!!buttonText && (
+				{!!ctaButtonText && (
 					<div css={marginTop}>
-						<Button priority="primary" size="xsmall" onClick={buttonOnClick}>
-							{buttonText}
+						<Button priority="primary" size="xsmall" onClick={ctaButtonOnClick}>
+							{ctaButtonText}
 						</Button>
 					</div>
 				)}
