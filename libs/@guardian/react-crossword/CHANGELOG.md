@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 17.1.0
+
+### Minor Changes
+
+- c300928: Readd clue styling
+
 ## 17.0.0
 
 ### Patch Changes
