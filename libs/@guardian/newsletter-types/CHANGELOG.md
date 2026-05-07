@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 4.3.0
+
+### Minor Changes
+
+- 3a946b7: add bullet list style to newsletters api
+
 ## 4.2.0
 
 ### Minor Changes

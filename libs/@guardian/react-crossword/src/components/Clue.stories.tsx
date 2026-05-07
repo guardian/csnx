@@ -57,3 +57,23 @@ export const ActiveAndComplete: Story = {
 		isComplete: true,
 	},
 };
+
+export const Styled: Story = {
+	args: {
+		entry: {
+			id: '1-across',
+			number: 1,
+			humanNumber: '1',
+			clue: 'Plain <b>Bold</b> <i>Italic</i> <b><i>BoldItalic</i></b> <sub>Subscript</sub> <sup>Superscript</sup> <span>Span</span> (4)',
+			direction: 'across',
+			length: 4,
+			group: ['1-across'],
+			position: {
+				x: 0,
+				y: 1,
+			},
+			separatorLocations: {},
+			solution: 'CAKE',
+		},
+	},
+};

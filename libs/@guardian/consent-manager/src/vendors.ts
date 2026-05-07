@@ -28,6 +28,7 @@ export const TCFV2VendorIDs = {
 	ias: ['5e7ced57b8e05c485246ccf3'],
 	id5: ['5ee15bc7b8e05c16366599cb'],
 	inizio: ['5e37fc3e56a5e6615502f9c9'],
+	intentIQ: ['6690256f4f9aeedb88306507'],
 	ipsos: ['5fa51b29a228638b4a1980e4'],
 	indexExchange: ['5e7ced57b8e05c485246ccd8'],
 	liveramp: ['5eb559cfb8e05c2bbe33f3f3'],

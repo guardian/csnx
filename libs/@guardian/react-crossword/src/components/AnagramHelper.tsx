@@ -8,6 +8,7 @@ import { useProgress } from '../context/Progress';
 import { useShowAnagramHelper } from '../context/ShowAnagramHelper';
 import { useTheme } from '../context/Theme';
 import { biasedShuffle } from '../utils/biasedShuffle';
+import { restoreClueFormattingStyles } from '../utils/clueFormattingStyles';
 import { getCellsWithProgressForGroup } from '../utils/getCellsWithProgressForGroup';
 import { CrosswordButton } from './CrosswordButton';
 import { SolutionDisplay } from './SolutionDisplay';
@@ -215,6 +216,7 @@ export const AnagramHelper = () => {
 							aria-hidden="true"
 							css={css`
 								text-align: center;
+								${restoreClueFormattingStyles}
 							`}
 							dangerouslySetInnerHTML={{
 								__html: entry.clue,

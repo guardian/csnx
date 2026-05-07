@@ -1,5 +1,11 @@
 # @guardian/libs
 
+## 31.0.1
+
+### Patch Changes
+
+- cabe944: Add intentIQ to list of vendors.
+
 ## 31.0.0
 
 ### Major Changes

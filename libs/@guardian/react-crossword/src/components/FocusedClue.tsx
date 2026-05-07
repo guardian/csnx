@@ -6,6 +6,7 @@ import { memo } from 'react';
 import { useCurrentClue } from '../context/CurrentClue';
 import { useData } from '../context/Data';
 import { useTheme } from '../context/Theme';
+import { restoreClueFormattingStyles } from '../utils/clueFormattingStyles';
 
 type StickyClueProps = {
 	additionalCss?: SerializedStyles;
@@ -47,6 +48,7 @@ export const FocusedClueComponent = ({ additionalCss }: StickyClueProps) => {
 					</span>
 					<span
 						aria-hidden="true"
+						css={restoreClueFormattingStyles}
 						dangerouslySetInnerHTML={{
 							__html: entry.clue,
 						}}
