@@ -1,16 +1,10 @@
 import { css } from '@emotion/react';
 import { textSans20 } from '@guardian/source/foundations';
-import { Button, SvgInfoRound } from '@guardian/source/react-components';
+import { SvgInfoRound } from '@guardian/source/react-components';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 import { Popover } from './Popover';
 
-const popoverWrapperStyles = css`
-	${textSans20}
-	margin: auto;
-	padding: 20px;
-	min-height: 200px;
-`;
 const meta: Meta<typeof Popover> = {
 	title: 'React Components/Popover',
 	component: Popover,
@@ -23,35 +17,27 @@ const meta: Meta<typeof Popover> = {
 		),
 		onDismiss: fn(),
 		title: 'Title',
-		buttonText: 'Primary button xs',
-		buttonOnClick: fn(),
+		ctaButtonText: 'Primary button xs',
+		ctaButtonOnClick: fn(),
+		pointerSide: 'top',
+		refButtonOverrides: {
+			icon: <SvgInfoRound />,
+			size: 'xsmall',
+			priority: 'tertiary',
+			hideLabel: true,
+		},
+		width: 200,
 	},
 	render: (args) => (
-		<>
-			<div css={popoverWrapperStyles}>
-				<h2>Medium</h2>
-				<Popover {...args}>
-					<Button
-						icon={<SvgInfoRound />}
-						size="xsmall"
-						priority="tertiary"
-						hideLabel={true}
-					/>
-				</Popover>
-			</div>
-			<hr />
-
-			<div css={popoverWrapperStyles}>
-				<h2>Light</h2>
-				<Popover {...args} theme="light" />
-			</div>
-			<hr />
-
-			<div css={popoverWrapperStyles}>
-				<h2>Dark</h2>
-				<Popover {...args} theme="dark" />
-			</div>
-		</>
+		<div
+			css={css`
+				position: relative;
+				left: 300px;
+				top: 300px;
+			`}
+		>
+			<Popover {...args} theme="medium" />
+		</div>
 	),
 };
 
@@ -68,6 +54,6 @@ export const WithoutTitle: Story = {
 
 export const WithoutButton: Story = {
 	args: {
-		buttonText: undefined,
+		ctaButtonText: undefined,
 	},
 };
