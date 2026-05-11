@@ -65,11 +65,12 @@ const containerStyles = css`
 `;
 
 const topPosition = css`
-	bottom: calc(100% + ${space[5]}px);
+	bottom: calc(100% + ${space[2]}px);
 	left: 50%;
 	transform: translateX(-50%);
 `;
 const bottomPointer = css`
+	bottom: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
 		content: '';
@@ -84,11 +85,12 @@ const bottomPointer = css`
 `;
 
 const bottomPosition = css`
-	top: calc(100% + ${space[5]}px);
+	top: calc(100% + ${space[2]}px);
 	left: 50%;
 	transform: translateX(-50%);
 `;
 const topPointer = css`
+	top: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
 		content: '';
@@ -103,11 +105,12 @@ const topPointer = css`
 `;
 
 const rightPosition = css`
-	left: calc(100% + ${space[5]}px);
+	left: calc(100% + ${space[2]}px);
 	top: 50%;
 	transform: translateY(-50%);
 `;
 const leftPointer = css`
+	left: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
 		content: '';
@@ -122,11 +125,12 @@ const leftPointer = css`
 `;
 
 const leftPosition = css`
-	right: calc(100% + ${space[5]}px);
+	right: calc(100% + ${space[2]}px);
 	top: 50%;
 	transform: translateY(-50%);
 `;
 const rightPointer = css`
+	right: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
 		content: '';
