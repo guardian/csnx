@@ -6,6 +6,7 @@ import {
 	textSansBold15,
 } from '@guardian/source/foundations';
 import { Button, SvgCross } from '@guardian/source/react-components';
+import { useEffect } from 'react';
 
 export interface PopoverProps {
 	/**
@@ -236,6 +237,18 @@ export const Popover = ({
 	showPointer,
 	positionOverrides,
 }: PopoverProps) => {
+	// Respond to escape key by dismissing Popover
+	useEffect(() => {
+		const dismissOnEsc = (event: KeyboardEvent) => {
+			if (isOpen && event.code === 'Escape') {
+				handleClose();
+			}
+		};
+		document.addEventListener('keydown', dismissOnEsc);
+		// Remove listeners on unmount
+		return () => document.removeEventListener('keydown', dismissOnEsc);
+	}, [isOpen, handleClose]);
+
 	return (
 		<div
 			className="popover-root"
