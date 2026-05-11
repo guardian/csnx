@@ -21,13 +21,17 @@ export interface PopoverProps {
 	 */
 	handleClose: () => void;
 	/**
-	 * The target element which triggers the Popover component to show
+	 * The anchor element which triggers the Popover component to show
 	 */
-	target: React.ReactElement;
+	anchorElement: React.ReactElement;
 	/**
 	 * Optional title for the popover
 	 */
 	title?: string;
+	/**
+	 * The width of the Popover component
+	 */
+	width?: string;
 	/**
 	 * Colour theme to apply to the popover.
 	 * Options are: medium, light, dark
@@ -42,13 +46,9 @@ export interface PopoverProps {
 	 */
 	showPointer?: boolean;
 	/**
-	 * Popover position override styles
+	 * Popover position override styles. The pointer styles can be overridden by targeting the :after pseudo element
 	 */
 	positionOverrides?: SerializedStyles;
-	/**
-	 * Pointer override styles
-	 */
-	pointerOverrides?: SerializedStyles;
 }
 
 const containerStyles = css`
@@ -59,8 +59,9 @@ const containerStyles = css`
 	background-color: var(--background);
 	border-radius: ${space[2]}px;
 	padding: ${space[3]}px ${space[4]}px ${space[4]}px;
-	min-width: 200px;
-	max-width: 320px;
+	min-width: 120px;
+	max-width: 600px;
+	height: auto;
 	color: var(--text);
 `;
 
@@ -218,29 +219,32 @@ const themeStyles = (theme: PopoverProps['theme']) => {
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/popover/Popover.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
- * Displays a popover component, with children and an optional title, positioned relative to its parent element.
+ * Displays a popover component, with children and an optional title, positioned relative to its anchor element.
  * Has a dismiss button but should also be dismissable with the escape key or by clicking outside of the popover element area.
+ * The state of the Popover component is controlled by the parent, which control the Popover visibiliy via the isOpen and handleClose props.
  * See the accompanying stories for visual examples.
  */
 export const Popover = ({
 	isOpen,
 	handleClose,
 	children,
-	target,
+	anchorElement,
 	title,
+	width,
 	theme,
 	position,
 	showPointer,
+	positionOverrides,
 }: PopoverProps) => {
 	return (
 		<div
 			className="popover-root"
 			css={css`
 				position: relative;
-				width: fit-content;
 			`}
 		>
-			{target}
+			{anchorElement}
+
 			<div
 				className="popover"
 				css={[
@@ -248,9 +252,11 @@ export const Popover = ({
 					containerStyles,
 					isOpen && visibleStyles,
 					...getPositionStyles(position, showPointer),
+					!!positionOverrides && positionOverrides,
 				]}
 				role="dialog"
 				aria-hidden={!isOpen}
+				style={{ width }}
 			>
 				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
 					{!!title && <span css={titleStyles}>{title}</span>}

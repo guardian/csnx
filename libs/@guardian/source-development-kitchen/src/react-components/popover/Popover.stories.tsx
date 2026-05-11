@@ -7,6 +7,7 @@ import {
 } from '@guardian/source/react-components';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { userEvent, within } from 'storybook/test';
 import { Popover } from './Popover';
 
 const meta: Meta<typeof Popover> = {
@@ -17,14 +18,12 @@ const meta: Meta<typeof Popover> = {
 		position: 'top',
 		showPointer: true,
 		theme: 'medium',
+		width: '250px',
 	},
 	render: (args) => {
 		// eslint-disable-next-line react-hooks/rules-of-hooks -- Storybook
 		const [isExpanded, setIsExpanded] = useState(false);
-		const handleButtonClick = () => {
-			console.log('isExpanded?', isExpanded);
-			setIsExpanded(!isExpanded);
-		};
+		const handleButtonClick = () => setIsExpanded(!isExpanded);
 
 		return (
 			<div
@@ -37,15 +36,18 @@ const meta: Meta<typeof Popover> = {
 			>
 				<Popover
 					{...args}
-					target={
+					anchorElement={
 						<Button
+							id="info-icon"
 							icon={<SvgInfoRound />}
 							size="xsmall"
 							priority="tertiary"
 							theme={{ borderTertiary: 'unset' }}
 							hideLabel={true}
 							onClick={handleButtonClick}
-						/>
+						>
+							More information
+						</Button>
 					}
 					isOpen={isExpanded}
 					handleClose={() => setIsExpanded(false)}
@@ -76,10 +78,27 @@ const meta: Meta<typeof Popover> = {
 export default meta;
 type Story = StoryObj<typeof Popover>;
 
-export const WithTitle: Story = {};
+export const WithTitleAndPointerTop: Story = {
+	play: async ({ canvasElement, step }) => {
+		const canvas = within(canvasElement);
 
-export const WithoutTitle: Story = {
+		await step('Click anchor element', async () => {
+			await userEvent.click(canvas.getByText('More information'));
+		});
+	},
+};
+
+export const WithoutTitleAndPointerLeft: Story = {
 	args: {
 		title: undefined,
+		position: 'left',
+		showPointer: false,
+	},
+	play: async ({ canvasElement, step }) => {
+		const canvas = within(canvasElement);
+
+		await step('Click anchor element', async () => {
+			await userEvent.click(canvas.getByText('More information'));
+		});
 	},
 };
