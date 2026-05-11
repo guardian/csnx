@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { textSans20 } from '@guardian/source/foundations';
 import { SvgInfoRound } from '@guardian/source/react-components';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
@@ -19,7 +18,8 @@ const meta: Meta<typeof Popover> = {
 		title: 'Title',
 		ctaButtonText: 'Primary button xs',
 		ctaButtonOnClick: fn(),
-		pointerSide: 'top',
+		position: 'top',
+		showPointer: true,
 		refButtonOverrides: {
 			icon: <SvgInfoRound />,
 			size: 'xsmall',
@@ -32,6 +32,7 @@ const meta: Meta<typeof Popover> = {
 		<div
 			css={css`
 				position: relative;
+				width: fit-content;
 				left: 300px;
 				top: 300px;
 			`}
