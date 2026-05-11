@@ -5,40 +5,34 @@ import {
 	textSans15,
 	textSansBold15,
 } from '@guardian/source/foundations';
-import {
-	Button,
-	type ButtonProps,
-	SvgCross,
-	SvgInfoRound,
-} from '@guardian/source/react-components';
-import { useEffect, useState } from 'react';
+import { Button, SvgCross } from '@guardian/source/react-components';
 
 export interface PopoverProps {
 	/**
-	 * Children to render inside the popover component. Can include text and buttons, for example
+	 * Children to render inside the popover component e.g. text, links or buttons
 	 */
-	content?: React.ReactNode;
+	children: React.ReactNode;
+	/**
+	 * Is the Popover open or closed?
+	 */
+	isOpen: boolean;
+	/**
+	 * Callback fired when the Popover is closed
+	 */
+	handleClose: () => void;
+	/**
+	 * The target element which triggers the Popover component to show
+	 */
+	target: React.ReactElement;
 	/**
 	 * Optional title for the popover
 	 */
 	title?: string;
 	/**
-	 * Callback fired when the dismiss button is clicked.
-	 */
-	onDismiss: () => void;
-	/**
 	 * Colour theme to apply to the popover.
 	 * Options are: medium, light, dark
 	 */
 	theme?: 'medium' | 'light' | 'dark';
-	/**
-	 * Primary button text. If not provided, no button will render
-	 */
-	ctaButtonText?: string;
-	/**
-	 * Primary button action
-	 */
-	ctaButtonOnClick?: () => void;
 	/**
 	 * Describes which side of the target element the popover should appear
 	 */
@@ -48,18 +42,13 @@ export interface PopoverProps {
 	 */
 	showPointer?: boolean;
 	/**
+	 * Popover position override styles
+	 */
+	positionOverrides?: SerializedStyles;
+	/**
 	 * Pointer override styles
 	 */
 	pointerOverrides?: SerializedStyles;
-	/**
-	 * The target element that controls the popover visibility
-	 */
-	children: React.ReactNode;
-	/**
-	 *
-	 */
-	refButtonOverrides: Partial<ButtonProps>;
-	width?: number;
 }
 
 const containerStyles = css`
@@ -77,7 +66,8 @@ const containerStyles = css`
 
 const topPosition = css`
 	bottom: calc(100% + ${space[5]}px);
-	right: -100px; /* Fixme */
+	left: 50%;
+	transform: translateX(-50%);
 `;
 const bottomPointer = css`
 	&:after {
@@ -85,7 +75,7 @@ const bottomPointer = css`
 		content: '';
 		width: 0px;
 		height: 0px;
-		left: calc(50% - ${space[3] / 2}px);
+		left: calc(50% - ${space[3]}px);
 		bottom: -${space[3]}px;
 		border-top: ${space[3]}px solid var(--background);
 		border-left: ${space[3]}px solid transparent;
@@ -95,7 +85,8 @@ const bottomPointer = css`
 
 const bottomPosition = css`
 	top: calc(100% + ${space[5]}px);
-	right: -100px; /* Fixme */
+	left: 50%;
+	transform: translateX(-50%);
 `;
 const topPointer = css`
 	&:after {
@@ -103,7 +94,7 @@ const topPointer = css`
 		content: '';
 		width: 0px;
 		height: 0px;
-		left: calc(50% - ${space[3] / 2}px);
+		left: calc(50% - ${space[3]}px);
 		top: -${space[3]}px;
 		border-bottom: ${space[3]}px solid var(--background);
 		border-left: ${space[3]}px solid transparent;
@@ -113,13 +104,14 @@ const topPointer = css`
 
 const rightPosition = css`
 	left: calc(100% + ${space[5]}px);
-	bottom: -100px; /* Fixme */
+	top: 50%;
+	transform: translateY(-50%);
 `;
 const leftPointer = css`
 	&:after {
 		position: absolute;
 		content: '';
-		top: calc(50% - ${space[3] / 2}px);
+		top: calc(50% - ${space[3]}px);
 		left: -${space[3]}px;
 		width: 0px;
 		height: 0px;
@@ -131,7 +123,8 @@ const leftPointer = css`
 
 const leftPosition = css`
 	right: calc(100% + ${space[5]}px);
-	bottom: -100px; /* Fixme */
+	top: 50%;
+	transform: translateY(-50%);
 `;
 const rightPointer = css`
 	&:after {
@@ -139,7 +132,7 @@ const rightPointer = css`
 		content: '';
 		width: 0px;
 		height: 0px;
-		top: calc(50% - ${space[3] / 2}px);
+		top: calc(50% - ${space[3]}px);
 		right: -${space[3]}px;
 		border-left: ${space[3]}px solid var(--background);
 		border-top: ${space[3]}px solid transparent;
@@ -147,6 +140,7 @@ const rightPointer = css`
 	}
 `;
 
+/** Relatively positions the Popover element and pointer, if applicable */
 const getPositionStyles = (
 	position: PopoverProps['position'],
 	showPointer: PopoverProps['showPointer'],
@@ -182,10 +176,6 @@ const headerStylesWithoutTitle = css`
 const titleStyles = css`
 	${textSansBold15}
 	margin-bottom: ${space[2]}px;
-`;
-
-const marginTop = css`
-	margin-top: ${space[3]}px;
 `;
 
 const themeStyles = (theme: PopoverProps['theme']) => {
@@ -224,87 +214,39 @@ const themeStyles = (theme: PopoverProps['theme']) => {
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/popover/Popover.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
- * Displays a popover component, with text and optional CTA button as well as a dismiss button.
- * Positioned absolutely relative to its nearest positioned ancestor.
+ * Displays a popover component, with children and an optional title, positioned relative to its parent element.
+ * Has a dismiss button but should also be dismissable with the escape key or by clicking outside of the popover element area.
  * See the accompanying stories for visual examples.
- *
  */
 export const Popover = ({
-	onDismiss,
-	content,
+	isOpen,
+	handleClose,
+	children,
+	target,
 	title,
 	theme,
-	ctaButtonText,
-	ctaButtonOnClick,
 	position,
 	showPointer,
-	refButtonOverrides,
-	// width,
-	// height,
 }: PopoverProps) => {
-	const [isExpanded, setIsExpanded] = useState(false);
-
-	const dismissButtonOnClick = () => {
-		setIsExpanded(false);
-		onDismiss();
-	};
-
-	useEffect(() => {
-		const dismissOnEsc = (event: KeyboardEvent) => {
-			if (isExpanded && event.code === 'Escape') {
-				setIsExpanded(false);
-			}
-		};
-
-		document.addEventListener('keydown', dismissOnEsc, false);
-
-		// Remove listener on unmount
-		return () => document.removeEventListener('keydown', dismissOnEsc);
-	}, [isExpanded]);
-
-	// TODO: Handle clicking away from the popover (dismiss if click is outside of popover area)
-	// useEffect(() => {
-	// 	const dismissOnClickAway = (event: MouseEvent) => {
-	// 		if (isExpanded) {
-	// 			event.stopPropagation();
-	// 			setIsExpanded(false);
-	// 		}
-	// 	};
-
-	// 	document.addEventListener('click', dismissOnClickAway, false);
-
-	// 	// Remove listener on unmount
-	// 	return () => document.removeEventListener('click', dismissOnClickAway);
-	// }, [isExpanded]);
-
 	return (
 		<div
 			className="popover-root"
 			css={css`
 				position: relative;
+				width: fit-content;
 			`}
 		>
-			{/** This is the trigger which opens the popover */}
-			<Button
-				icon={<SvgInfoRound />}
-				size="xsmall"
-				priority="tertiary"
-				theme={{ borderTertiary: 'unset' }}
-				hideLabel={true}
-				onClick={() => setIsExpanded(!isExpanded)}
-				{...refButtonOverrides}
-			/>
-
+			{target}
 			<div
 				className="popover"
 				css={[
 					themeStyles(theme),
 					containerStyles,
+					isOpen && visibleStyles,
 					...getPositionStyles(position, showPointer),
-					isExpanded && visibleStyles,
 				]}
 				role="dialog"
-				aria-hidden={!isExpanded}
+				aria-hidden={!isOpen}
 			>
 				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
 					{!!title && <span css={titleStyles}>{title}</span>}
@@ -318,7 +260,7 @@ export const Popover = ({
 							backgroundTertiaryHover: 'var(--dismiss-btn-background-hover)',
 							borderTertiary: 'unset',
 						}}
-						onClick={dismissButtonOnClick}
+						onClick={handleClose}
 						hideLabel={true}
 						aria-label="Dismiss"
 						type="button"
@@ -333,15 +275,7 @@ export const Popover = ({
 					</Button>
 				</div>
 
-				{content}
-
-				{!!ctaButtonText && (
-					<div css={marginTop}>
-						<Button priority="primary" size="xsmall" onClick={ctaButtonOnClick}>
-							{ctaButtonText}
-						</Button>
-					</div>
-				)}
+				{children}
 			</div>
 		</div>
 	);
