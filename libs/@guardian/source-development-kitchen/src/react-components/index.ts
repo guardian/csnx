@@ -62,3 +62,6 @@ export type { TabContainerProps, TabProps } from './tabs/types';
 
 export { Ticker } from './ticker/Ticker';
 export type { TickerSettings } from './ticker/Ticker';
+
+export { Popover } from './popover/Popover';
+export type { PopoverProps } from './popover/Popover';
