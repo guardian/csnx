@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, type SerializedStyles } from '@emotion/react';
 import {
 	palette,
 	space,
@@ -40,9 +40,17 @@ export interface PopoverProps {
 	 */
 	ctaButtonOnClick?: () => void;
 	/**
-	 * Describes which side the pointer should be on
+	 * Describes which side of the target element the popover should appear
 	 */
-	pointerSide?: 'top' | 'bottom' | 'left' | 'right';
+	position?: 'top' | 'bottom' | 'left' | 'right';
+	/**
+	 * Whether to show the pointer or not
+	 */
+	showPointer?: boolean;
+	/**
+	 * Pointer override styles
+	 */
+	pointerOverrides?: SerializedStyles;
 	/**
 	 * The target element that controls the popover visibility
 	 */
@@ -67,9 +75,11 @@ const containerStyles = css`
 	color: var(--text);
 `;
 
-const bottomPointer = css`
+const topPosition = css`
 	bottom: calc(100% + ${space[5]}px);
 	right: -100px; /* Fixme */
+`;
+const bottomPointer = css`
 	&:after {
 		position: absolute;
 		content: '';
@@ -83,9 +93,11 @@ const bottomPointer = css`
 	}
 `;
 
-const topPointer = css`
+const bottomPosition = css`
 	top: calc(100% + ${space[5]}px);
 	right: -100px; /* Fixme */
+`;
+const topPointer = css`
 	&:after {
 		position: absolute;
 		content: '';
@@ -99,9 +111,11 @@ const topPointer = css`
 	}
 `;
 
-const leftPointer = css`
+const rightPosition = css`
 	left: calc(100% + ${space[5]}px);
 	bottom: -100px; /* Fixme */
+`;
+const leftPointer = css`
 	&:after {
 		position: absolute;
 		content: '';
@@ -115,9 +129,11 @@ const leftPointer = css`
 	}
 `;
 
-const rightPointer = css`
+const leftPosition = css`
 	right: calc(100% + ${space[5]}px);
 	bottom: -100px; /* Fixme */
+`;
+const rightPointer = css`
 	&:after {
 		position: absolute;
 		content: '';
@@ -130,6 +146,23 @@ const rightPointer = css`
 		border-bottom: ${space[3]}px solid transparent;
 	}
 `;
+
+const getPositionStyles = (
+	position: PopoverProps['position'],
+	showPointer: PopoverProps['showPointer'],
+): SerializedStyles[] => {
+	switch (position) {
+		case 'right':
+			return showPointer ? [rightPosition, leftPointer] : [rightPosition];
+		case 'left':
+			return showPointer ? [leftPosition, rightPointer] : [leftPosition];
+		case 'top':
+			return showPointer ? [topPosition, bottomPointer] : [topPosition];
+		case 'bottom':
+		default:
+			return showPointer ? [bottomPosition, topPointer] : [bottomPosition];
+	}
+};
 
 const visibleStyles = css`
 	display: block;
@@ -203,8 +236,11 @@ export const Popover = ({
 	theme,
 	ctaButtonText,
 	ctaButtonOnClick,
-	pointerSide,
+	position,
+	showPointer,
 	refButtonOverrides,
+	// width,
+	// height,
 }: PopoverProps) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
@@ -228,19 +264,11 @@ export const Popover = ({
 
 	// TODO: Handle clicking away from the popover (dismiss if click is outside of popover area)
 	// useEffect(() => {
-	// 	if (!isExpanded) {
-	// 		return;
-	// 	}
-
 	// 	const dismissOnClickAway = (event: MouseEvent) => {
-	// 		// If the source of the click is the button, do nothing as the
-	// 		// button's click handler will have already toggled the isExpanded
-	// 		// state
-	// 		// if (buttonRef === event.target) {
-	// 		// 	return;
-	// 		// }
-	// 		event.stopPropagation();
-	// 		setIsExpanded(false);
+	// 		if (isExpanded) {
+	// 			event.stopPropagation();
+	// 			setIsExpanded(false);
+	// 		}
 	// 	};
 
 	// 	document.addEventListener('click', dismissOnClickAway, false);
@@ -272,10 +300,7 @@ export const Popover = ({
 				css={[
 					themeStyles(theme),
 					containerStyles,
-					pointerSide === 'top' && topPointer,
-					pointerSide === 'right' && rightPointer,
-					pointerSide === 'bottom' && bottomPointer,
-					pointerSide === 'left' && leftPointer,
+					...getPositionStyles(position, showPointer),
 					isExpanded && visibleStyles,
 				]}
 				role="dialog"
