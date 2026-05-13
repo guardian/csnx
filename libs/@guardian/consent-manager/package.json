@@ -159,7 +159,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],
