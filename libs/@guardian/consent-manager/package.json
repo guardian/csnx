@@ -2,7 +2,7 @@
 	"name": "@guardian/consent-manager",
 	"version": "0.0.1",
 	"private": false,
-	"description": "A collection of JavaScript libraries and TypeScript types for Guardian projects",
+	"description": "Consent Manager for the Guardian",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/consent-manager"
@@ -55,8 +55,7 @@
 	},
 	"peerDependencies": {
 		"@guardian/ophan-tracker-js": "^2.2.10",
-		"tslib": "^2.8.1",
-		"typescript": "~5.9.3"
+		"tslib": "^2.8.1"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {
