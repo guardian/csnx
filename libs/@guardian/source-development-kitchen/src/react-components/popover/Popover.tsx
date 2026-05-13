@@ -287,12 +287,6 @@ export const Popover = ({
 						hideLabel={true}
 						aria-label="Dismiss"
 						type="button"
-						cssOverrides={css`
-							svg {
-								width: 16px;
-								height: auto;
-							}
-						`}
 					>
 						Dismiss
 					</Button>
