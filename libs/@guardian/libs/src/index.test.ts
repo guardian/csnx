@@ -4,11 +4,8 @@ describe('The package', () => {
 	it('exports everything it did before', () => {
 		expect(Object.keys(packageExports).sort()).toEqual([
 			'ArticleElementRole',
-			'cmp',
 			'countries',
 			'debug',
-			'getConsentDetailsForOphan',
-			'getConsentFor',
 			'getCookie',
 			'getCountryByCountryCode',
 			'getErrorMessage',
@@ -24,8 +21,6 @@ describe('The package', () => {
 			'joinUrl',
 			'loadScript',
 			'log',
-			'onConsent',
-			'onConsentChange',
 			'removeCookie',
 			'setCookie',
 			'setSessionCookie',

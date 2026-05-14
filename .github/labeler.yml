@@ -29,6 +29,9 @@
 '@guardian/libs':
   - changed-files:
       - any-glob-to-any-file: 'libs/@guardian/libs/**/*'
+'@guardian/consent-manager':
+  - changed-files:
+      - any-glob-to-any-file: 'libs/@guardian/consent-manager/**/*'
 '@guardian/prettier':
   - changed-files:
       - any-glob-to-any-file: 'libs/@guardian/prettier/**/*'

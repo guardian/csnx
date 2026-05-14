@@ -9,6 +9,7 @@ const config = {
 		'<rootDir>/libs/@guardian/eslint-config',
 		'<rootDir>/libs/@guardian/eslint-config-typescript',
 		'<rootDir>/libs/@guardian/libs',
+		'<rootDir>/libs/@guardian/consent-manager',
 		'<rootDir>/libs/@guardian/prettier',
 		'<rootDir>/libs/@guardian/source',
 		'<rootDir>/libs/@guardian/tsconfig',

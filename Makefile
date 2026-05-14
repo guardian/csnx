@@ -230,6 +230,46 @@ install: check-node-version
 @guardian/browserslist-config\:update-readme: env
 	@corepack pnpm --filter @guardian/browserslist-config update-readme
 
+.PHONY: @guardian/consent-manager\:build
+@guardian/consent-manager\:build: env
+	@corepack pnpm --filter @guardian/consent-manager build
+
+.PHONY: @guardian/consent-manager\:dev
+@guardian/consent-manager\:dev: env
+	@corepack pnpm --filter @guardian/consent-manager dev
+
+.PHONY: @guardian/consent-manager\:e2e
+@guardian/consent-manager\:e2e: env
+	@corepack pnpm --filter @guardian/consent-manager e2e
+
+.PHONY: @guardian/consent-manager\:e2e\:ui
+@guardian/consent-manager\:e2e\:ui: env
+	@corepack pnpm --filter @guardian/consent-manager e2e:ui
+
+.PHONY: @guardian/consent-manager\:fix
+@guardian/consent-manager\:fix: env
+	@corepack pnpm --filter @guardian/consent-manager fix
+
+.PHONY: @guardian/consent-manager\:lint
+@guardian/consent-manager\:lint: env
+	@corepack pnpm --filter @guardian/consent-manager lint
+
+.PHONY: @guardian/consent-manager\:sourcepoint-integration-test
+@guardian/consent-manager\:sourcepoint-integration-test: env
+	@corepack pnpm --filter @guardian/consent-manager sourcepoint-integration-test
+
+.PHONY: @guardian/consent-manager\:test
+@guardian/consent-manager\:test: env
+	@corepack pnpm --filter @guardian/consent-manager test
+
+.PHONY: @guardian/consent-manager\:tsc
+@guardian/consent-manager\:tsc: env
+	@corepack pnpm --filter @guardian/consent-manager tsc
+
+.PHONY: @guardian/consent-manager\:verify-dist
+@guardian/consent-manager\:verify-dist: env
+	@corepack pnpm --filter @guardian/consent-manager verify-dist
+
 .PHONY: @guardian/core-web-vitals\:build
 @guardian/core-web-vitals\:build: env
 	@corepack pnpm --filter @guardian/core-web-vitals build
