@@ -7,6 +7,6 @@
 		"start": "jest"
 	},
 	"dependencies": {
-		"jest": "30.3.0"
+		"jest": "30.4.2"
 	}
 }

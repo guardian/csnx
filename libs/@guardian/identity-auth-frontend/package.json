@@ -35,7 +35,7 @@
 		"@guardian/libs": "32.0.0",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
-		"jest": "30.3.0",
+		"jest": "30.4.2",
 		"jest-environment-jsdom": "30.3.0",
 		"jest-fetch-mock": "3.0.3",
 		"rollup": "4.60.0",
