@@ -15,7 +15,7 @@
 		"@guardian/consent-manager": "workspace:*",
 		"@guardian/libs": "workspace:*",
 		"astro": "6.1.6",
-		"svelte": "5.54.1",
+		"svelte": "5.55.7",
 		"typescript": "5.9.3",
 		"wireit": "0.14.12"
 	},
