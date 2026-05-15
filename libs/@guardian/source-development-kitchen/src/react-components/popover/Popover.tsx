@@ -1,12 +1,13 @@
 import { css, type SerializedStyles } from '@emotion/react';
 import {
-	palette,
 	space,
 	textSans15,
 	textSansBold15,
 } from '@guardian/source/foundations';
 import { Button, SvgCross } from '@guardian/source/react-components';
 import { useEffect } from 'react';
+import { getPositionStyles } from './position';
+import { getThemeColours, type ThemePopover } from './theme';
 
 export interface PopoverProps {
 	/**
@@ -22,7 +23,8 @@ export interface PopoverProps {
 	 */
 	handleClose: () => void;
 	/**
-	 * The anchor element which triggers the Popover component to show
+	 * The element which the popover is anchored to, in terms of positioning.
+	 * This element should control the visibility of the Popover by allowing it to show (by setting `isOpen`)
 	 */
 	anchorElement: React.ReactElement;
 	/**
@@ -34,12 +36,20 @@ export interface PopoverProps {
 	 */
 	width?: string;
 	/**
-	 * Colour theme to apply to the popover.
-	 * Options are: medium, light, dark
+	 * Partial or complete theme to override the component's colour palette.
+	 * The colours which can be changed are:
+	 *
+	 *  `text`<br>
+	 *  `background`<br>
+	 *  `dismissButtonText`<br>
+	 *  `dismissButtonBackground`<br>
+	 *  `dismissButtonBackgroundHover`<br>
+	 *
+	 * If you do not supply `dismissButtonBackgroundHover`, it will be calculated if there is a hex code background colour.
 	 */
-	theme?: 'medium' | 'light' | 'dark';
+	theme?: Partial<ThemePopover>;
 	/**
-	 * Describes which side of the target element the popover should appear
+	 * Describes which side of the anchor element the popover should appear
 	 */
 	position?: 'top' | 'bottom' | 'left' | 'right';
 	/**
@@ -47,126 +57,34 @@ export interface PopoverProps {
 	 */
 	showPointer?: boolean;
 	/**
-	 * Popover position override styles. The pointer styles can be overridden by targeting the :after pseudo element
+	 * Popover position override styles.
+	 * The pointer styles can be overridden by targeting the :after pseudo element of the `popover` class
 	 */
 	positionOverrides?: SerializedStyles;
 }
 
-const containerStyles = css`
+const containerStyles = (
+	backgroundColour?: string,
+	textColour?: string,
+	width?: string | number,
+) => css`
 	display: none;
-	z-index: -1;
-	${textSans15};
 	position: absolute;
-	background-color: var(--background);
+	${textSans15};
+	color: ${textColour};
+	background-color: ${backgroundColour};
 	border-radius: ${space[2]}px;
 	padding: ${space[3]}px ${space[4]}px ${space[4]}px;
+	height: auto;
+	width: ${width}px;
+	/* TODO - Check these values */
 	min-width: 120px;
 	max-width: 600px;
-	height: auto;
-	color: var(--text);
 `;
-
-const topPosition = css`
-	bottom: calc(100% + ${space[2]}px);
-	left: 50%;
-	transform: translateX(-50%);
-`;
-const bottomPointer = css`
-	bottom: calc(100% + ${space[5]}px);
-	&:after {
-		position: absolute;
-		content: '';
-		width: 0px;
-		height: 0px;
-		left: calc(50% - ${space[3]}px);
-		bottom: -${space[3]}px;
-		border-top: ${space[3]}px solid var(--background);
-		border-left: ${space[3]}px solid transparent;
-		border-right: ${space[3]}px solid transparent;
-	}
-`;
-
-const bottomPosition = css`
-	top: calc(100% + ${space[2]}px);
-	left: 50%;
-	transform: translateX(-50%);
-`;
-const topPointer = css`
-	top: calc(100% + ${space[5]}px);
-	&:after {
-		position: absolute;
-		content: '';
-		width: 0px;
-		height: 0px;
-		left: calc(50% - ${space[3]}px);
-		top: -${space[3]}px;
-		border-bottom: ${space[3]}px solid var(--background);
-		border-left: ${space[3]}px solid transparent;
-		border-right: ${space[3]}px solid transparent;
-	}
-`;
-
-const rightPosition = css`
-	left: calc(100% + ${space[2]}px);
-	top: 50%;
-	transform: translateY(-50%);
-`;
-const leftPointer = css`
-	left: calc(100% + ${space[5]}px);
-	&:after {
-		position: absolute;
-		content: '';
-		top: calc(50% - ${space[3]}px);
-		left: -${space[3]}px;
-		width: 0px;
-		height: 0px;
-		border-right: ${space[3]}px solid var(--background);
-		border-top: ${space[3]}px solid transparent;
-		border-bottom: ${space[3]}px solid transparent;
-	}
-`;
-
-const leftPosition = css`
-	right: calc(100% + ${space[2]}px);
-	top: 50%;
-	transform: translateY(-50%);
-`;
-const rightPointer = css`
-	right: calc(100% + ${space[5]}px);
-	&:after {
-		position: absolute;
-		content: '';
-		width: 0px;
-		height: 0px;
-		top: calc(50% - ${space[3]}px);
-		right: -${space[3]}px;
-		border-left: ${space[3]}px solid var(--background);
-		border-top: ${space[3]}px solid transparent;
-		border-bottom: ${space[3]}px solid transparent;
-	}
-`;
-
-/** Relatively positions the Popover element and pointer, if applicable */
-const getPositionStyles = (
-	position: PopoverProps['position'],
-	showPointer: PopoverProps['showPointer'],
-): SerializedStyles[] => {
-	switch (position) {
-		case 'right':
-			return showPointer ? [rightPosition, leftPointer] : [rightPosition];
-		case 'left':
-			return showPointer ? [leftPosition, rightPointer] : [leftPosition];
-		case 'top':
-			return showPointer ? [topPosition, bottomPointer] : [topPosition];
-		case 'bottom':
-		default:
-			return showPointer ? [bottomPosition, topPointer] : [bottomPosition];
-	}
-};
 
 const visibleStyles = css`
 	display: block;
-	z-index: 1000;
+	z-index: 1;
 `;
 
 const headerStyles = css`
@@ -183,36 +101,6 @@ const titleStyles = css`
 	${textSansBold15}
 	margin-bottom: ${space[2]}px;
 `;
-
-const themeStyles = (theme: PopoverProps['theme']) => {
-	switch (theme) {
-		case 'light':
-			return css`
-				--background: ${palette.neutral[100]};
-				--text: ${palette.neutral[7]};
-				--dismiss-btn: ${palette.neutral[0]};
-				--dismiss-btn-background: ${palette.neutral[97]};
-				--dismiss-btn-background-hover: ${palette.neutral[93]};
-			`;
-		case 'dark':
-			return css`
-				--background: ${palette.neutral[10]};
-				--text: ${palette.neutral[97]};
-				--dismiss-btn: ${palette.neutral[100]};
-				--dismiss-btn-background: ${palette.neutral[20]};
-				--dismiss-btn-background-hover: ${palette.neutral[38]};
-			`;
-		case 'medium':
-		default:
-			return css`
-				--background: ${palette.neutral[93]};
-				--text: ${palette.neutral[7]};
-				--dismiss-btn: ${palette.neutral[0]};
-				--dismiss-btn-background: ${palette.neutral[86]};
-				--dismiss-btn-background-hover: ${palette.neutral[73]};
-			`;
-	}
-};
 
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-popover--default) •
@@ -237,6 +125,13 @@ export const Popover = ({
 	showPointer,
 	positionOverrides,
 }: PopoverProps) => {
+	const {
+		background: backgroundColour,
+		text: textColour,
+		dismissButtonText,
+		dismissButtonBackground,
+		dismissButtonBackgroundHover,
+	} = getThemeColours(theme);
 	// Respond to escape key by dismissing Popover
 	useEffect(() => {
 		const dismissOnEsc = (event: KeyboardEvent) => {
@@ -252,24 +147,24 @@ export const Popover = ({
 	return (
 		<div
 			className="popover-root"
-			css={css`
-				position: relative;
-			`}
+			css={[
+				css`
+					position: relative;
+				`,
+			]}
 		>
 			{anchorElement}
 
 			<div
 				className="popover"
 				css={[
-					themeStyles(theme),
-					containerStyles,
+					containerStyles(backgroundColour, textColour, width),
 					isOpen && visibleStyles,
-					...getPositionStyles(position, showPointer),
+					...getPositionStyles(position, showPointer, backgroundColour),
 					!!positionOverrides && positionOverrides,
 				]}
 				role="dialog"
 				aria-hidden={!isOpen}
-				style={{ width }}
 			>
 				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
 					{!!title && <span css={titleStyles}>{title}</span>}
@@ -278,9 +173,9 @@ export const Popover = ({
 						size="xsmall"
 						priority="tertiary"
 						theme={{
-							textTertiary: 'var(--dismiss-btn)',
-							backgroundTertiary: 'var(--dismiss-btn-background)',
-							backgroundTertiaryHover: 'var(--dismiss-btn-background-hover)',
+							textTertiary: dismissButtonText,
+							backgroundTertiary: dismissButtonBackground,
+							backgroundTertiaryHover: dismissButtonBackgroundHover,
 							borderTertiary: 'unset',
 						}}
 						onClick={handleClose}
