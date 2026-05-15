@@ -35,8 +35,7 @@ const PopoverWithWrapper = (args: PopoverProps) => {
 							id="info-icon"
 							icon={<SvgInfoRound />}
 							size="xsmall"
-							priority="tertiary"
-							theme={{ borderTertiary: 'unset' }}
+							priority="secondary"
 							hideLabel={true}
 							onClick={handleButtonClick}
 						>
@@ -127,12 +126,16 @@ export const WithLightTheme: Story = {
 		showPointer: true,
 		position: 'top',
 		theme: {
-			text: palette.neutral[100],
-			background: palette.neutral[7],
+			text: palette.neutral[7],
+			background: palette.neutral[100],
 			dismissButtonText: palette.neutral[0],
 			dismissButtonBackground: palette.neutral[97],
 			dismissButtonBackgroundHover: palette.neutral[93],
 		},
 	},
-	render: (args) => <PopoverWithWrapper {...args} />,
+	render: (args) => (
+		<div style={{ backgroundColor: palette.neutral[38] }}>
+			<PopoverWithWrapper {...args} />
+		</div>
+	),
 };

@@ -63,20 +63,16 @@ export interface PopoverProps {
 	positionOverrides?: SerializedStyles;
 }
 
-const containerStyles = (
-	backgroundColour?: string,
-	textColour?: string,
-	width?: string | number,
-) => css`
+const containerStyles = css`
 	display: none;
 	position: absolute;
 	${textSans15};
-	color: ${textColour};
-	background-color: ${backgroundColour};
+	background-color: var(--popover-background);
+	color: var(--popover-text);
 	border-radius: ${space[2]}px;
 	padding: ${space[3]}px ${space[4]}px ${space[4]}px;
 	height: auto;
-	width: ${width}px;
+	width: var(--popover-width);
 	/* TODO - Check these values */
 	min-width: 120px;
 	max-width: 600px;
@@ -150,6 +146,9 @@ export const Popover = ({
 			css={[
 				css`
 					position: relative;
+					--popover-background: ${backgroundColour};
+					--popover-text: ${textColour};
+					--popover-width: ${width};
 				`,
 			]}
 		>
@@ -158,9 +157,9 @@ export const Popover = ({
 			<div
 				className="popover"
 				css={[
-					containerStyles(backgroundColour, textColour, width),
+					containerStyles,
 					isOpen && visibleStyles,
-					...getPositionStyles(position, showPointer, backgroundColour),
+					...getPositionStyles(position, showPointer),
 					!!positionOverrides && positionOverrides,
 				]}
 				role="dialog"
