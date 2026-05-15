@@ -64,7 +64,10 @@ export interface PopoverProps {
 }
 
 const containerStyles = css`
-	display: block;
+	display: grid;
+	grid-template-areas:
+		'title dismissButton'
+		'children children';
 	position: absolute;
 	/* Arbitrary large value to sit on top of other content */
 	z-index: 1000;
@@ -84,17 +87,8 @@ const hiddenStyles = css`
 	display: none;
 `;
 
-const headerStyles = css`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`;
-
-const headerStylesWithoutTitle = css`
-	justify-content: end;
-`;
-
 const titleStyles = css`
+	grid-area: title;
 	${textSansBold15}
 	margin-bottom: ${space[2]}px;
 `;
@@ -189,28 +183,35 @@ export const Popover = ({
 				]}
 				role="dialog"
 			>
-				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
-					{!!title && <span css={titleStyles}>{title}</span>}
-					<Button
-						icon={<SvgCross />}
-						size="xsmall"
-						priority="tertiary"
-						theme={{
-							textTertiary: dismissButtonText,
-							backgroundTertiary: dismissButtonBackground,
-							backgroundTertiaryHover: dismissButtonBackgroundHover,
-							borderTertiary: 'unset',
-						}}
-						onClick={handleClose}
-						hideLabel={true}
-						aria-label="Dismiss"
-						type="button"
-					>
-						Dismiss
-					</Button>
+				{!!title && <span css={titleStyles}>{title}</span>}
+
+				<div
+					css={css`
+						grid-area: children;
+					`}
+				>
+					{children}
 				</div>
 
-				{children}
+				<Button
+					icon={<SvgCross size="xsmall" />}
+					size="xsmall"
+					priority="tertiary"
+					theme={{
+						textTertiary: dismissButtonText,
+						backgroundTertiary: dismissButtonBackground,
+						backgroundTertiaryHover: dismissButtonBackgroundHover,
+						borderTertiary: 'unset',
+					}}
+					onClick={handleClose}
+					hideLabel={true}
+					cssOverrides={css`
+						grid-area: dismissButton;
+						justify-self: end;
+					`}
+				>
+					Dismiss
+				</Button>
 			</div>
 		</div>
 	);
