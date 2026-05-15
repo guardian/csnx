@@ -11,20 +11,20 @@ import { getThemeColours, type ThemePopover } from './theme';
 
 export interface PopoverProps {
 	/**
-	 * Children to render inside the popover component e.g. text, links or buttons
+	 * Children to render inside the popover component e.g. text, links, buttons
 	 */
 	children: React.ReactNode;
 	/**
-	 * Is the Popover open or closed?
+	 * Determines whether the popover is open or closed
 	 */
 	isOpen: boolean;
 	/**
-	 * Callback fired when the Popover is closed
+	 * A function to handle closing of the Popover
 	 */
 	handleClose: () => void;
 	/**
 	 * The element which the popover is anchored to, in terms of positioning.
-	 * This element should control the visibility of the Popover by allowing it to show (by setting `isOpen`)
+	 * This should control the visibility of the Popover by setting the `isOpen` prop.
 	 */
 	anchorElement: React.ReactElement;
 	/**
@@ -49,18 +49,18 @@ export interface PopoverProps {
 	 */
 	theme?: Partial<ThemePopover>;
 	/**
-	 * Describes which side of the anchor element the popover should appear
+	 * Determines which side of the anchor element the popover should appear.
 	 */
 	position?: 'top' | 'bottom' | 'left' | 'right';
 	/**
-	 * Whether to show the pointer or not
+	 * Determines whether to show the pointer or not.
 	 */
 	showPointer?: boolean;
 	/**
-	 * Popover position override styles.
-	 * The pointer styles can be overridden by targeting the :after pseudo element of the `popover` class
+	 * Allows overriding the popover styles. This can include overriding positioning styles as well as the pointer.
+	 * The pointer styles can be overridden by targeting the :after pseudo element of the `popover` class.
 	 */
-	positionOverrides?: SerializedStyles;
+	cssOverrides?: SerializedStyles;
 }
 
 const containerStyles = css`
@@ -101,7 +101,7 @@ const titleStyles = css`
  *
  * Displays a popover component, with children and an optional title, positioned relative to its anchor element.
  * Has a dismiss button but should also be dismissable with the escape key or by clicking outside of the popover element area.
- * The state of the Popover component is controlled by the parent, which control the Popover visibiliy via the isOpen and handleClose props.
+ * The state of the Popover component is controlled by the parent, which controls the Popover visibiliy via the isOpen and handleClose props.
  * See the accompanying stories for visual examples.
  */
 export const Popover = ({
@@ -114,7 +114,7 @@ export const Popover = ({
 	theme,
 	position,
 	showPointer,
-	positionOverrides,
+	cssOverrides,
 }: PopoverProps) => {
 	const {
 		background: backgroundColour,
@@ -179,7 +179,7 @@ export const Popover = ({
 					containerStyles,
 					!isOpen && hiddenStyles,
 					...getPositionStyles(position, showPointer),
-					!!positionOverrides && positionOverrides,
+					!!cssOverrides && cssOverrides,
 				]}
 				role="dialog"
 			>
