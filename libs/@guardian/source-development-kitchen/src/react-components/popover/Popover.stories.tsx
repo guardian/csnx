@@ -117,7 +117,7 @@ export const WithDarkTheme: Story = {
 
 export const WithLightTheme: Story = {
 	args: {
-		title: 'Title2',
+		title: 'Title',
 		showPointer: true,
 		position: 'top',
 		theme: {
