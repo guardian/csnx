@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { space } from '@guardian/source/foundations';
+import { palette, space } from '@guardian/source/foundations';
 import {
 	Button,
 	LinkButton,
@@ -8,24 +8,18 @@ import {
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { userEvent, within } from 'storybook/test';
-import { Popover } from './Popover';
+import { Popover, type PopoverProps } from './Popover';
 
-const meta: Meta<typeof Popover> = {
-	title: 'React Components/Popover',
-	component: Popover,
-	args: {
-		title: 'Title',
-		position: 'top',
-		showPointer: true,
-		theme: 'medium',
-		width: '250px',
-	},
-	render: (args) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks -- Storybook
-		const [isExpanded, setIsExpanded] = useState(false);
-		const handleButtonClick = () => setIsExpanded(!isExpanded);
+const PopoverWithWrapper = (args: PopoverProps) => {
+	const [isExpanded, setIsExpanded] = useState(false);
+	const handleButtonClick = () => setIsExpanded(!isExpanded);
 
-		return (
+	return (
+		<div
+			css={css`
+				min-height: 360px;
+			`}
+		>
 			<div
 				css={css`
 					position: relative;
@@ -71,34 +65,74 @@ const meta: Meta<typeof Popover> = {
 					</div>
 				</Popover>
 			</div>
-		);
+		</div>
+	);
+};
+
+const meta: Meta<typeof Popover> = {
+	title: 'React Components/Popover',
+	component: Popover,
+	args: {
+		title: 'Title',
+		showPointer: true,
+		width: '250px',
+	},
+	render: (args) => <PopoverWithWrapper {...args} />,
+	play: async ({ canvasElement, step }) => {
+		const canvas = within(canvasElement);
+
+		await step('Click anchor element', async () => {
+			await userEvent.click(canvas.getByText('More information'));
+		});
 	},
 };
 
 export default meta;
 type Story = StoryObj<typeof Popover>;
 
-export const WithTitleAndPointerTop: Story = {
-	play: async ({ canvasElement, step }) => {
-		const canvas = within(canvasElement);
-
-		await step('Click anchor element', async () => {
-			await userEvent.click(canvas.getByText('More information'));
-		});
+export const WithTitleAndPointer: Story = {
+	args: {
+		title: 'Title',
+		showPointer: true,
+		position: 'top',
 	},
 };
 
-export const WithoutTitleAndPointerLeft: Story = {
+export const WithoutTitleAndPointer: Story = {
 	args: {
 		title: undefined,
-		position: 'left',
 		showPointer: false,
+		position: 'top',
 	},
-	play: async ({ canvasElement, step }) => {
-		const canvas = within(canvasElement);
+};
 
-		await step('Click anchor element', async () => {
-			await userEvent.click(canvas.getByText('More information'));
-		});
+export const WithDarkTheme: Story = {
+	args: {
+		title: 'Title',
+		showPointer: true,
+		position: 'top',
+		theme: {
+			text: palette.neutral[97],
+			background: palette.neutral[10],
+			dismissButtonText: palette.neutral[100],
+			dismissButtonBackground: palette.neutral[20],
+			dismissButtonBackgroundHover: palette.neutral[38],
+		},
 	},
+};
+
+export const WithLightTheme: Story = {
+	args: {
+		title: 'Title2',
+		showPointer: true,
+		position: 'top',
+		theme: {
+			text: palette.neutral[100],
+			background: palette.neutral[7],
+			dismissButtonText: palette.neutral[0],
+			dismissButtonBackground: palette.neutral[97],
+			dismissButtonBackgroundHover: palette.neutral[93],
+		},
+	},
+	render: (args) => <PopoverWithWrapper {...args} />,
 };
