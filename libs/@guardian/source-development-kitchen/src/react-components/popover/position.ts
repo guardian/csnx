@@ -52,11 +52,11 @@ const leftPointer = css`
 	&:after {
 		position: absolute;
 		content: '';
-		top: calc(50% - ${space[3]}px);
-		left: -${space[3]}px;
 		width: 0px;
 		height: 0px;
-		border-right: ${space[3]}px var(--popover-background);
+		top: calc(50% - ${space[3]}px);
+		left: -${space[3]}px;
+		border-right: ${space[3]}px solid var(--popover-background);
 		border-top: ${space[3]}px solid transparent;
 		border-bottom: ${space[3]}px solid transparent;
 	}
