@@ -187,7 +187,6 @@ export const Popover = ({
 					!!positionOverrides && positionOverrides,
 				]}
 				role="dialog"
-				aria-hidden={!isOpen}
 			>
 				<div css={[headerStyles, !title && headerStylesWithoutTitle]}>
 					{!!title && <span css={titleStyles}>{title}</span>}
