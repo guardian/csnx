@@ -5,7 +5,7 @@ import {
 	textSansBold15,
 } from '@guardian/source/foundations';
 import { Button, SvgCross } from '@guardian/source/react-components';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { getPositionStyles } from './position';
 import { getThemeColours, type ThemePopover } from './theme';
 
@@ -128,7 +128,10 @@ export const Popover = ({
 		dismissButtonBackground,
 		dismissButtonBackgroundHover,
 	} = getThemeColours(theme);
-	// Respond to escape key by dismissing Popover
+
+	const popoverRef = useRef<HTMLDivElement>(null);
+
+	// Respond to escape key by closing Popover
 	useEffect(() => {
 		const dismissOnEsc = (event: KeyboardEvent) => {
 			if (isOpen && event.code === 'Escape') {
@@ -140,8 +143,29 @@ export const Popover = ({
 		return () => document.removeEventListener('keydown', dismissOnEsc);
 	}, [isOpen, handleClose]);
 
+	// Respond to clicking outside of the popover and triggering button area by closing Popover
+	useEffect(() => {
+		if (!isOpen || !popoverRef.current) {
+			return;
+		}
+
+		const dismissOnClickElsewhere = (event: MouseEvent) => {
+			if (
+				event.target instanceof Node &&
+				!popoverRef.current?.contains(event.target)
+			) {
+				event.stopPropagation();
+				handleClose();
+			}
+		};
+		document.addEventListener('click', dismissOnClickElsewhere);
+		// Remove listeners on unmount
+		return () => document.removeEventListener('click', dismissOnClickElsewhere);
+	}, [isOpen, handleClose]);
+
 	return (
 		<div
+			ref={popoverRef}
 			className="popover-root"
 			css={[
 				css`
