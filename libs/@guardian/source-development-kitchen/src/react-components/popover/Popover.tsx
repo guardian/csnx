@@ -64,8 +64,10 @@ export interface PopoverProps {
 }
 
 const containerStyles = css`
-	display: none;
+	display: block;
 	position: absolute;
+	/* Arbitrary large value to sit on top of other content */
+	z-index: 1000;
 	${textSans15};
 	background-color: var(--popover-background);
 	color: var(--popover-text);
@@ -78,9 +80,8 @@ const containerStyles = css`
 	max-width: 600px;
 `;
 
-const visibleStyles = css`
-	display: block;
-	z-index: 1;
+const hiddenStyles = css`
+	display: none;
 `;
 
 const headerStyles = css`
@@ -182,7 +183,7 @@ export const Popover = ({
 				className="popover"
 				css={[
 					containerStyles,
-					isOpen && visibleStyles,
+					!isOpen && hiddenStyles,
 					...getPositionStyles(position, showPointer),
 					!!positionOverrides && positionOverrides,
 				]}
