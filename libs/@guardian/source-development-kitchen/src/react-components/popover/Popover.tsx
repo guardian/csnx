@@ -101,7 +101,7 @@ const titleStyles = css`
  *
  * Displays a popover component, with children and an optional title, positioned relative to its anchor element.
  * Has a dismiss button but should also be dismissable with the escape key or by clicking outside of the popover element area.
- * The state of the Popover component is controlled by the parent, which controls the Popover visibiliy via the isOpen and handleClose props.
+ * The visibility of the Popover component is controlled by the parent via the isOpen and handleClose props.
  * See the accompanying stories for visual examples.
  */
 export const Popover = ({
