@@ -133,9 +133,4 @@ export const WithLightTheme: Story = {
 			dismissButtonBackgroundHover: palette.neutral[93],
 		},
 	},
-	render: (args) => (
-		<div style={{ backgroundColor: palette.neutral[38] }}>
-			<PopoverWithWrapper {...args} />
-		</div>
-	),
 };
