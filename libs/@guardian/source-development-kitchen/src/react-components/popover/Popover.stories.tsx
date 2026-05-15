@@ -17,53 +17,48 @@ const PopoverWithWrapper = (args: PopoverProps) => {
 	return (
 		<div
 			css={css`
-				min-height: 360px;
+				position: relative;
+				width: fit-content;
+				left: 300px;
+				top: 200px;
+				min-height: 300px;
 			`}
 		>
-			<div
-				css={css`
-					position: relative;
-					width: fit-content;
-					left: 300px;
-					top: 300px;
-				`}
-			>
-				<Popover
-					{...args}
-					anchorElement={
-						<Button
-							id="info-icon"
-							icon={<SvgInfoRound />}
-							size="xsmall"
-							priority="secondary"
-							hideLabel={true}
-							onClick={handleButtonClick}
-						>
-							More information
-						</Button>
-					}
-					isOpen={isExpanded}
-					handleClose={() => setIsExpanded(false)}
-				>
-					<span>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					</span>
-					<div
-						css={css`
-							margin-top: ${space[3]}px;
-						`}
+			<Popover
+				{...args}
+				anchorElement={
+					<Button
+						id="info-icon"
+						icon={<SvgInfoRound />}
+						size="xsmall"
+						priority="secondary"
+						hideLabel={true}
+						onClick={handleButtonClick}
 					>
-						<LinkButton
-							priority="primary"
-							size="xsmall"
-							href="https://www.theguardian.com/uk"
-						>
-							Primary button xs
-						</LinkButton>
-					</div>
-				</Popover>
-			</div>
+						More information
+					</Button>
+				}
+				isOpen={isExpanded}
+				handleClose={() => setIsExpanded(false)}
+			>
+				<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				</span>
+				<div
+					css={css`
+						margin-top: ${space[3]}px;
+					`}
+				>
+					<LinkButton
+						priority="primary"
+						size="xsmall"
+						href="https://www.theguardian.com/uk"
+					>
+						Primary button xs
+					</LinkButton>
+				</div>
+			</Popover>
 		</div>
 	);
 };
