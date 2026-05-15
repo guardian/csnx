@@ -7,7 +7,7 @@ const topPosition = css`
 	left: 50%;
 	transform: translateX(-50%);
 `;
-const bottomPointer = (backgroundColour?: string) => css`
+const bottomPointer = css`
 	bottom: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
@@ -16,7 +16,7 @@ const bottomPointer = (backgroundColour?: string) => css`
 		height: 0px;
 		left: calc(50% - ${space[3]}px);
 		bottom: -${space[3]}px;
-		border-top: ${space[3]}px solid ${backgroundColour};
+		border-top: ${space[3]}px solid var(--popover-background);
 		border-left: ${space[3]}px solid transparent;
 		border-right: ${space[3]}px solid transparent;
 	}
@@ -27,7 +27,7 @@ const bottomPosition = css`
 	left: 50%;
 	transform: translateX(-50%);
 `;
-const topPointer = (backgroundColour?: string) => css`
+const topPointer = css`
 	top: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
@@ -36,7 +36,7 @@ const topPointer = (backgroundColour?: string) => css`
 		height: 0px;
 		left: calc(50% - ${space[3]}px);
 		top: -${space[3]}px;
-		border-bottom: ${space[3]}px solid ${backgroundColour};
+		border-bottom: ${space[3]}px solid var(--popover-background);
 		border-left: ${space[3]}px solid transparent;
 		border-right: ${space[3]}px solid transparent;
 	}
@@ -47,7 +47,7 @@ const rightPosition = css`
 	top: 50%;
 	transform: translateY(-50%);
 `;
-const leftPointer = (backgroundColour?: string) => css`
+const leftPointer = css`
 	left: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
@@ -56,7 +56,7 @@ const leftPointer = (backgroundColour?: string) => css`
 		left: -${space[3]}px;
 		width: 0px;
 		height: 0px;
-		border-right: ${space[3]}px ${backgroundColour};
+		border-right: ${space[3]}px var(--popover-background);
 		border-top: ${space[3]}px solid transparent;
 		border-bottom: ${space[3]}px solid transparent;
 	}
@@ -67,7 +67,7 @@ const leftPosition = css`
 	top: 50%;
 	transform: translateY(-50%);
 `;
-const rightPointer = (backgroundColour?: string) => css`
+const rightPointer = css`
 	right: calc(100% + ${space[5]}px);
 	&:after {
 		position: absolute;
@@ -76,7 +76,7 @@ const rightPointer = (backgroundColour?: string) => css`
 		height: 0px;
 		top: calc(50% - ${space[3]}px);
 		right: -${space[3]}px;
-		border-left: ${space[3]}px solid ${backgroundColour};
+		border-left: ${space[3]}px solid var(--popover-background);
 		border-top: ${space[3]}px solid transparent;
 		border-bottom: ${space[3]}px solid transparent;
 	}
@@ -86,25 +86,16 @@ const rightPointer = (backgroundColour?: string) => css`
 export const getPositionStyles = (
 	position: PopoverProps['position'],
 	showPointer: PopoverProps['showPointer'],
-	backgroundColour?: string,
 ): SerializedStyles[] => {
 	switch (position) {
 		case 'right':
-			return showPointer
-				? [rightPosition, leftPointer(backgroundColour)]
-				: [rightPosition];
+			return showPointer ? [rightPosition, leftPointer] : [rightPosition];
 		case 'left':
-			return showPointer
-				? [leftPosition, rightPointer(backgroundColour)]
-				: [leftPosition];
+			return showPointer ? [leftPosition, rightPointer] : [leftPosition];
 		case 'top':
-			return showPointer
-				? [topPosition, bottomPointer(backgroundColour)]
-				: [topPosition];
+			return showPointer ? [topPosition, bottomPointer] : [topPosition];
 		case 'bottom':
 		default:
-			return showPointer
-				? [bottomPosition, topPointer(backgroundColour)]
-				: [bottomPosition];
+			return showPointer ? [bottomPosition, topPointer] : [bottomPosition];
 	}
 };
