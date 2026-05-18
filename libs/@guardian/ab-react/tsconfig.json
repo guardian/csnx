@@ -3,6 +3,7 @@
 	"include": ["**/*"],
 	"exclude": ["node_modules", "dist", ".wireit", "jest.dist.setup.js"],
 	"compilerOptions": {
-		"jsxImportSource": "react"
+		"jsxImportSource": "react",
+		"types": ["jest"]
 	}
 }

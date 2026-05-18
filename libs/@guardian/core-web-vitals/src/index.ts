@@ -3,7 +3,6 @@ import { log } from '@guardian/libs';
 import type {
 	CLSMetricWithAttribution,
 	FCPMetricWithAttribution,
-	FIDMetricWithAttribution,
 	INPMetricWithAttribution,
 	LCPMetricWithAttribution,
 	TTFBMetricWithAttribution,
@@ -49,7 +48,6 @@ type MetricTypeWithAttribution =
 	| INPMetricWithAttribution
 	| LCPMetricWithAttribution
 	| FCPMetricWithAttribution
-	| FIDMetricWithAttribution
 	| TTFBMetricWithAttribution;
 
 const onReport = (metric: MetricTypeWithAttribution) => {
@@ -66,16 +64,12 @@ const onReport = (metric: MetricTypeWithAttribution) => {
 		case 'LCP':
 			// Browser support: Chromium
 			coreWebVitalsPayload.lcp = roundWithDecimals(metric.value);
-			coreWebVitalsPayload.lcp_target = metric.attribution.element;
+			coreWebVitalsPayload.lcp_target = metric.attribution.target;
 			break;
 		/** none-core web vital metrics */
 		case 'FCP':
 			// Browser support: Chromium, Firefox, Safari Technology Preview
 			coreWebVitalsPayload.fcp = roundWithDecimals(metric.value);
-			break;
-		case 'FID':
-			// Browser support: Chromium, Firefox, Safari, Internet Explorer (with the polyfill)
-			coreWebVitalsPayload.fid = roundWithDecimals(metric.value);
 			break;
 		case 'TTFB':
 			// Browser support: Chromium, Firefox, Safari, Internet Explorer
@@ -99,13 +93,12 @@ const listener = (e: Event): void => {
 
 const getCoreWebVitals = async (): Promise<void> => {
 	const webVitals = await import('web-vitals/attribution');
-	const { onCLS, onFCP, onFID, onLCP, onTTFB, onINP } = webVitals;
+	const { onCLS, onFCP, onLCP, onTTFB, onINP } = webVitals;
 
 	onCLS(onReport, { reportAllChanges: false });
 	onINP(onReport);
 	onLCP(onReport);
 	onFCP(onReport);
-	onFID(onReport);
 	onTTFB(onReport);
 
 	// Report all available metrics when the page is unloaded or in background.
