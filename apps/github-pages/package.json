@@ -11,10 +11,10 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
-		"@astrojs/svelte": "8.0.3",
+		"@astrojs/svelte": "8.1.1",
 		"@guardian/consent-manager": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"astro": "6.1.6",
+		"astro": "6.3.3",
 		"svelte": "5.55.7",
 		"typescript": "5.9.3",
 		"wireit": "0.14.12"
