@@ -68,8 +68,9 @@ const meta: Meta<typeof Popover> = {
 	component: Popover,
 	args: {
 		title: 'Title',
-		showPointer: true,
 		width: '250px',
+		showPointer: true,
+		position: 'top',
 	},
 	render: (args) => <PopoverWithWrapper {...args} />,
 	play: async ({ canvasElement, step }) => {
@@ -86,7 +87,6 @@ type Story = StoryObj<typeof Popover>;
 
 export const WithTitleAndPointer: Story = {
 	args: {
-		title: 'Title',
 		showPointer: true,
 		position: 'top',
 	},
@@ -94,7 +94,7 @@ export const WithTitleAndPointer: Story = {
 
 export const WithoutTitleAndPointer: Story = {
 	args: {
-		title: undefined,
+		hideTitle: true,
 		showPointer: false,
 		position: 'top',
 	},
@@ -102,7 +102,6 @@ export const WithoutTitleAndPointer: Story = {
 
 export const WithDarkTheme: Story = {
 	args: {
-		title: 'Title',
 		showPointer: true,
 		position: 'top',
 		theme: {

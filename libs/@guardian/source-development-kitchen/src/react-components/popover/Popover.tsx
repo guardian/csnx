@@ -28,9 +28,14 @@ export interface PopoverProps {
 	 */
 	anchorElement: React.ReactElement;
 	/**
-	 * Optional title for the popover
+	 * Title for the Popover. This is used for the aria label so is a required prop.
+	 * The visibility of the title can be controlled using the prop `hideTitle`.
 	 */
-	title?: string;
+	title: string;
+	/**
+	 * Controls the visibility of the title.
+	 */
+	hideTitle?: boolean;
 	/**
 	 * The width of the Popover component
 	 */
@@ -78,7 +83,7 @@ const containerStyles = css`
 	padding: ${space[3]}px ${space[4]}px ${space[4]}px;
 	height: auto;
 	width: var(--popover-width);
-	/* TODO - Check these values */
+	/* Keep popovers usable across content sizes by enforcing sensible width bounds */
 	min-width: 120px;
 	max-width: 600px;
 `;
@@ -96,11 +101,11 @@ const titleStyles = css`
 /**
  * [Storybook](https://guardian.github.io/storybooks/?path=/story/source-development-kitchen_react-components-popover--default) •
  * [Design System](https://theguardian.design) •
- * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/popover/Popover.tsx) •
+ * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/react-components/popover/Popover.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
  * Displays a popover component, with children and an optional title, positioned relative to its anchor element.
- * Has a dismiss button but should also be dismissable with the escape key or by clicking outside of the popover element area.
+ * Has a dismiss button but should also be dismissible with the escape key or by clicking outside of the popover element area.
  * The visibility of the Popover component is controlled by the parent via the isOpen and handleClose props.
  * See the accompanying stories for visual examples.
  */
@@ -110,6 +115,7 @@ export const Popover = ({
 	children,
 	anchorElement,
 	title,
+	hideTitle,
 	width,
 	theme,
 	position,
@@ -149,7 +155,6 @@ export const Popover = ({
 				event.target instanceof Node &&
 				!popoverRef.current?.contains(event.target)
 			) {
-				event.stopPropagation();
 				handleClose();
 			}
 		};
@@ -167,7 +172,7 @@ export const Popover = ({
 					position: relative;
 					--popover-background: ${backgroundColour};
 					--popover-text: ${textColour};
-					--popover-width: ${width};
+					--popover-width: ${width ?? 'auto'};
 				`,
 			]}
 		>
@@ -182,8 +187,9 @@ export const Popover = ({
 					!!cssOverrides && cssOverrides,
 				]}
 				role="dialog"
+				aria-label={title}
 			>
-				{!!title && <span css={titleStyles}>{title}</span>}
+				{!hideTitle && <span css={titleStyles}>{title}</span>}
 
 				<div
 					css={css`
