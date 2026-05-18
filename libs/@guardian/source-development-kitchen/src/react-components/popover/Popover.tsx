@@ -134,14 +134,26 @@ export const Popover = ({
 
 	// Respond to escape key by closing Popover
 	useEffect(() => {
-		const dismissOnEsc = (event: KeyboardEvent) => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			console.log(event.code);
+			console.log(document.activeElement);
+			// close on click escape key
 			if (isOpen && event.code === 'Escape') {
 				handleClose();
 			}
+			// close on tab away from popover
+			else if (
+				isOpen &&
+				event.code === 'Tab' &&
+				document.activeElement ===
+					popoverRef.current?.querySelector(`button[name='dismiss-button']`)
+			) {
+				handleClose();
+			}
 		};
-		document.addEventListener('keydown', dismissOnEsc);
+		document.addEventListener('keydown', handleKeyDown);
 		// Remove listeners on unmount
-		return () => document.removeEventListener('keydown', dismissOnEsc);
+		return () => document.removeEventListener('keydown', handleKeyDown);
 	}, [isOpen, handleClose]);
 
 	// Respond to clicking outside of the popover and triggering button area by closing Popover
@@ -150,7 +162,7 @@ export const Popover = ({
 			return;
 		}
 
-		const dismissOnClickElsewhere = (event: MouseEvent) => {
+		const dismissOnClickAway = (event: MouseEvent) => {
 			if (
 				event.target instanceof Node &&
 				!popoverRef.current?.contains(event.target)
@@ -158,14 +170,13 @@ export const Popover = ({
 				handleClose();
 			}
 		};
-		document.addEventListener('click', dismissOnClickElsewhere);
+		document.addEventListener('click', dismissOnClickAway);
 		// Remove listeners on unmount
-		return () => document.removeEventListener('click', dismissOnClickElsewhere);
+		return () => document.removeEventListener('click', dismissOnClickAway);
 	}, [isOpen, handleClose]);
 
 	return (
 		<div
-			ref={popoverRef}
 			className="popover-root"
 			css={[
 				css`
@@ -175,6 +186,7 @@ export const Popover = ({
 					--popover-width: ${width ?? 'auto'};
 				`,
 			]}
+			ref={popoverRef}
 		>
 			{anchorElement}
 
@@ -200,6 +212,7 @@ export const Popover = ({
 				</div>
 
 				<Button
+					name="dismiss-button"
 					icon={<SvgCross size="xsmall" />}
 					size="xsmall"
 					priority="tertiary"
