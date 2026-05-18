@@ -1,0 +1,78 @@
+diff --git a/dist/legacy/compiler/ts-compiler.js b/dist/legacy/compiler/ts-compiler.js
+index 78ae1661d520674794502580c961c983550cadf8..0ee37927cc672a9cb8a1875a9c2ad68ef477431a 100644
+--- a/dist/legacy/compiler/ts-compiler.js
++++ b/dist/legacy/compiler/ts-compiler.js
+@@ -108,16 +108,13 @@ class TsCompiler {
+         return importedModulePaths;
+     }
+     fixupCompilerOptionsForModuleKind(compilerOptions, isEsm) {
+-        const moduleResolution = this._ts.ModuleResolutionKind.Node10 ?? this._ts.ModuleResolutionKind.NodeJs;
+         if (!isEsm) {
++            const moduleResolution = this.resolveCompatibleModuleResolution(this._ts.ModuleKind.CommonJS, compilerOptions.moduleResolution);
+             return {
+                 ...compilerOptions,
+                 module: this._ts.ModuleKind.CommonJS,
+                 moduleResolution,
+-                /**
+-                 * This option is only supported in `Node16`/`NodeNext` and `Bundler` module, see https://www.typescriptlang.org/tsconfig/#customConditions
+-                 */
+-                customConditions: undefined,
++                customConditions: this.preserveCustomConditionsIfCompatible(moduleResolution, compilerOptions.customConditions),
+             };
+         }
+         let moduleKind = compilerOptions.module ?? this._ts.ModuleKind.ESNext;
+@@ -126,17 +123,50 @@ class TsCompiler {
+             esModuleInterop = true;
+             moduleKind = this._ts.ModuleKind.ESNext;
+         }
++        const moduleResolution = this.resolveCompatibleModuleResolution(moduleKind, compilerOptions.moduleResolution);
+         return {
+             ...compilerOptions,
+             module: moduleKind,
+             esModuleInterop,
+             moduleResolution,
+-            /**
+-             * This option is only supported in `Node16`/`NodeNext` and `Bundler` module, see https://www.typescriptlang.org/tsconfig/#customConditions
+-             */
+-            customConditions: undefined,
++            customConditions: this.preserveCustomConditionsIfCompatible(moduleResolution, compilerOptions.customConditions),
+         };
+     }
++    resolveCompatibleModuleResolution(forcedModule, userResolution) {
++        const node10Default = this._ts.ModuleResolutionKind.Node10 ?? this._ts.ModuleResolutionKind.NodeJs;
++        if (userResolution === undefined) {
++            return node10Default;
++        }
++        const { Node16, NodeNext, Bundler } = this._ts.ModuleResolutionKind;
++        const bundlerResolution = Bundler ?? node10Default;
++        const canUseBundler = this.isBundlerCompatibleModuleKind(forcedModule);
++        if (userResolution === Node16 || userResolution === NodeNext) {
++            return canUseBundler ? bundlerResolution : node10Default;
++        }
++        if (userResolution === Bundler && !canUseBundler) {
++            return node10Default;
++        }
++        return userResolution;
++    }
++    isBundlerCompatibleModuleKind(moduleKind) {
++        const M = this._ts.ModuleKind;
++        if (moduleKind === M.ESNext || moduleKind === M.ES2015 || moduleKind === M.ES2020 || moduleKind === M.ES2022) {
++            return true;
++        }
++        if (M.Preserve !== undefined && moduleKind === M.Preserve) {
++            return true;
++        }
++        // TypeScript 6.0+ relaxed TS5095: CommonJS + Bundler is now a valid pair
++        if (moduleKind === M.CommonJS && parseInt(this._ts.version.split('.')[0], 10) >= 6) {
++            return true;
++        }
++        return false;
++    }
++    preserveCustomConditionsIfCompatible(resolvedModuleResolution, userCustomConditions) {
++        const R = this._ts.ModuleResolutionKind;
++        const supportsCustomConditions = resolvedModuleResolution === R.Bundler || resolvedModuleResolution === R.Node16 || resolvedModuleResolution === R.NodeNext;
++        return supportsCustomConditions ? userCustomConditions : undefined;
++    }
+     getCompiledOutput(fileContent, fileName, options) {
+         const isEsmMode = this.configSet.useESM && options.supportsStaticESM;
+         this._compilerOptions = this.fixupCompilerOptionsForModuleKind(this._initialCompilerOptions, isEsmMode);

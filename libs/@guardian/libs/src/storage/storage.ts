@@ -128,7 +128,7 @@ class StorageFactory {
  *
  * All methods are available for both `localStorage` and `sessionStorage`.
  */
-export const storage = new (class {
+class StorageManager {
 	#local: StorageFactory | undefined;
 	#session: StorageFactory | undefined;
 
@@ -143,4 +143,6 @@ export const storage = new (class {
 	get session() {
 		return (this.#session ??= new StorageFactory('sessionStorage'));
 	}
-})();
+}
+
+export const storage = new StorageManager();

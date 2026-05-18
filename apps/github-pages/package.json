@@ -16,7 +16,7 @@
 		"@guardian/libs": "workspace:*",
 		"astro": "6.3.3",
 		"svelte": "5.55.7",
-		"typescript": "5.9.3",
+		"typescript": "6.0.3",
 		"wireit": "0.14.12"
 	},
 	"wireit": {
