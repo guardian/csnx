@@ -1,5 +1,11 @@
 # @guardian/eslint-config
 
+## 15.0.0
+
+### Major Changes
+
+- 2ec7ffb: Update `eslint-plugin-react-hooks`, `globals`, `typescript-eslint` dependencies
+
 ## 14.0.1
 
 ### Patch Changes
