@@ -61,6 +61,7 @@ export const AnagramHelper = () => {
 	}, [shuffle]);
 
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect -- we want to reset the anagram helper whenever the entry changes
 		reset();
 	}, [reset]);
 

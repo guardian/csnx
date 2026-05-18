@@ -74,6 +74,7 @@ export const parseCrosswordData = (data: {
 					entry.position.x + (direction === 'across' ? location - 1 : 0);
 				const y = entry.position.y + (direction === 'down' ? location - 1 : 0);
 				separators.push({
+					// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion -- we know this is valid because of the type of `separatorLocations`
 					type: separator as ',' | '-',
 					position: { x, y },
 					direction,
