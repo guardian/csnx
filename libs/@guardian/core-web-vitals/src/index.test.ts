@@ -1,7 +1,6 @@
 import type {
 	CLSMetricWithAttribution,
 	FCPMetric,
-	FIDMetric,
 	INPMetricWithAttribution,
 	LCPMetricWithAttribution,
 	TTFBMetric,
@@ -21,7 +20,6 @@ const defaultCoreWebVitalsPayload = {
 	inp_target: 'adSlot',
 	lcp: 150,
 	lcp_target: 'mainMedia',
-	fid: 50.5,
 	fcp: 100.1,
 	ttfb: 9.99,
 	platform: 'dcr',
@@ -51,7 +49,7 @@ jest.mock('web-vitals/attribution', () => ({
 			name: 'LCP',
 			id: 'lcp',
 			attribution: {
-				element: 'mainMedia',
+				target: 'mainMedia',
 				timeToFirstByte: 0,
 				resourceLoadDelay: 0,
 				elementRenderDelay: 0,
@@ -70,7 +68,6 @@ jest.mock('web-vitals/attribution', () => ({
 			id: 'inp',
 			attribution: {
 				interactionTarget: 'adSlot',
-				interactionTargetElement: undefined,
 				interactionTime: 0,
 				nextPaintTime: 0,
 				interactionType: 'pointer',
@@ -108,17 +105,6 @@ jest.mock('web-vitals/attribution', () => ({
 			rating: 'good',
 			delta: defaultCoreWebVitalsPayload.fcp,
 		} satisfies FCPMetric);
-	},
-	onFID: (onReport: (metric: FIDMetric) => void) => {
-		onReport({
-			value: defaultCoreWebVitalsPayload.fid,
-			name: 'FID',
-			id: 'fid',
-			entries: [],
-			rating: 'good',
-			navigationType: 'navigate',
-			delta: defaultCoreWebVitalsPayload.cls,
-		} satisfies FIDMetric);
 	},
 }));
 
@@ -183,7 +169,6 @@ describe('coreWebVitals', () => {
 		expect(coreWebVitalsPayload).toEqual(
 			expect.not.objectContaining({
 				/* eslint-disable @typescript-eslint/no-unsafe-assignment -- we expect any(thing) */
-				fid: expect.anything(),
 				fcp: expect.anything(),
 				lcp: expect.anything(),
 				ttfb: expect.anything(),
