@@ -9,7 +9,7 @@ const meta: Meta<typeof ErrorSummary> = {
 		message: 'There has been a problem',
 		context: '',
 		errorReportUrl: '',
-	} as ErrorSummaryProps,
+	},
 };
 
 export default meta;
