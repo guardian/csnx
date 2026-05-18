@@ -201,7 +201,7 @@ export const Popover = ({
 						textTertiary: dismissButtonText,
 						backgroundTertiary: dismissButtonBackground,
 						backgroundTertiaryHover: dismissButtonBackgroundHover,
-						borderTertiary: 'unset',
+						borderTertiary: 'transparent',
 					}}
 					onClick={handleClose}
 					hideLabel={true}
