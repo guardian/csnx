@@ -4,34 +4,26 @@ import {
 	textSans15,
 	textSansBold15,
 } from '@guardian/source/foundations';
-import { Button, SvgCross } from '@guardian/source/react-components';
-import { useEffect, useRef } from 'react';
+import {
+	Button,
+	type ButtonProps,
+	SvgCross,
+	SvgInfoRound,
+} from '@guardian/source/react-components';
+import { useEffect, useRef, useState } from 'react';
 import { getPositionStyles } from './position';
 import { getThemeColours, type ThemePopover } from './theme';
 
 export interface PopoverProps {
 	/**
-	 * Children to render inside the popover component e.g. text, links, buttons
-	 */
-	children: React.ReactNode;
-	/**
-	 * Determines whether the popover is open or closed
-	 */
-	isOpen: boolean;
-	/**
-	 * A function to handle closing of the Popover
-	 */
-	handleClose: () => void;
-	/**
-	 * The element which the popover is anchored to, in terms of positioning.
-	 * This should control the visibility of the Popover by setting the `isOpen` prop.
-	 */
-	anchorElement: React.ReactElement;
-	/**
 	 * Title for the Popover. This is used for the aria label so is a required prop.
 	 * The visibility of the title can be controlled using the prop `hideTitle`.
 	 */
 	title: string;
+	/**
+	 * Content to render inside the popover component e.g. text, links, buttons
+	 */
+	content: React.ReactNode;
 	/**
 	 * Controls the visibility of the title.
 	 */
@@ -62,6 +54,10 @@ export interface PopoverProps {
 	 */
 	showPointer?: boolean;
 	/**
+	 * The items which control the popover visibility, which the popover is anchored to
+	 */
+	triggerButtonProps?: ButtonProps;
+	/**
 	 * Allows overriding the popover styles. This can include overriding positioning styles as well as the pointer.
 	 * The pointer styles can be overridden by targeting the :after pseudo element of the `popover` class.
 	 */
@@ -72,7 +68,7 @@ const containerStyles = css`
 	display: grid;
 	grid-template-areas:
 		'title dismissButton'
-		'children children';
+		'content content';
 	position: absolute;
 	/* Arbitrary large value to sit on top of other content */
 	z-index: 1000;
@@ -80,6 +76,7 @@ const containerStyles = css`
 	background-color: var(--popover-background);
 	color: var(--popover-text);
 	border-radius: ${space[2]}px;
+	border: none;
 	padding: ${space[3]}px ${space[4]}px ${space[4]}px;
 	height: auto;
 	width: var(--popover-width);
@@ -104,24 +101,26 @@ const titleStyles = css`
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/react-components/popover/Popover.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
- * Displays a popover component, with children and an optional title, positioned relative to its anchor element.
- * Has a dismiss button but should also be dismissible with the escape key or by clicking outside of the popover element area.
- * The visibility of the Popover component is controlled by the parent via the isOpen and handleClose props.
+ * Displays a popover component, with content and an optional title, positioned relative to its trigger button.
+ * The popover has a dismiss button but should also be dismissible with the escape key or by clicking outside of the element area.
+ * The trigger button props are set to a default value but can be overridden via `triggerButtonProps`.
+ * The pointer and position of the popover in relation to the trigger button can be controlled via the `cssOverrides` prop.
  * See the accompanying stories for visual examples.
  */
 export const Popover = ({
-	isOpen,
-	handleClose,
-	children,
-	anchorElement,
+	content,
 	title,
 	hideTitle,
 	width,
 	theme,
 	position,
 	showPointer,
+	triggerButtonProps,
 	cssOverrides,
 }: PopoverProps) => {
+	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const popoverRootRef = useRef<HTMLDivElement>(null);
+
 	const {
 		background: backgroundColour,
 		text: textColour,
@@ -130,42 +129,40 @@ export const Popover = ({
 		dismissButtonBackgroundHover,
 	} = getThemeColours(theme);
 
-	const popoverRef = useRef<HTMLDivElement>(null);
-
-	// Respond to escape key by closing Popover
 	useEffect(() => {
-		const dismissOnEsc = (event: KeyboardEvent) => {
-			if (isOpen && event.code === 'Escape') {
-				handleClose();
-			}
-		};
-		document.addEventListener('keydown', dismissOnEsc);
-		// Remove listeners on unmount
-		return () => document.removeEventListener('keydown', dismissOnEsc);
-	}, [isOpen, handleClose]);
-
-	// Respond to clicking outside of the popover and triggering button area by closing Popover
-	useEffect(() => {
-		if (!isOpen || !popoverRef.current) {
+		if (!isOpen || !popoverRootRef.current) {
 			return;
 		}
 
+		const handleKeyDown = (event: KeyboardEvent) => {
+			// Respond to escape key press by closing popover
+			if (event.code === 'Escape') {
+				setIsOpen(false);
+			}
+		};
+
+		// Respond to clicking away by closing popover
 		const dismissOnClickElsewhere = (event: MouseEvent) => {
 			if (
 				event.target instanceof Node &&
-				!popoverRef.current?.contains(event.target)
+				!popoverRootRef.current?.contains(event.target)
 			) {
-				handleClose();
+				setIsOpen(false);
 			}
 		};
+
+		document.addEventListener('keydown', handleKeyDown);
 		document.addEventListener('click', dismissOnClickElsewhere);
 		// Remove listeners on unmount
-		return () => document.removeEventListener('click', dismissOnClickElsewhere);
-	}, [isOpen, handleClose]);
+		return () => {
+			document.removeEventListener('keydown', handleKeyDown);
+			document.removeEventListener('click', dismissOnClickElsewhere);
+		};
+	}, [isOpen]);
 
 	return (
 		<div
-			ref={popoverRef}
+			ref={popoverRootRef}
 			className="popover-root"
 			css={[
 				css`
@@ -176,7 +173,19 @@ export const Popover = ({
 				`,
 			]}
 		>
-			{anchorElement}
+			<Button
+				type="button"
+				size="xsmall"
+				hideLabel={true}
+				icon={<SvgInfoRound />}
+				onClick={() => setIsOpen(!isOpen)}
+				priority="subdued"
+				{...triggerButtonProps}
+				data-testid="popover-trigger"
+				aria-haspopup="dialog"
+			>
+				{`More information about ${title}`}
+			</Button>
 
 			<div
 				className="popover"
@@ -187,16 +196,17 @@ export const Popover = ({
 					!!cssOverrides && cssOverrides,
 				]}
 				role="dialog"
+				aria-modal={false}
 				aria-label={title}
 			>
 				{!hideTitle && <span css={titleStyles}>{title}</span>}
 
 				<div
 					css={css`
-						grid-area: children;
+						grid-area: content;
 					`}
 				>
-					{children}
+					{content}
 				</div>
 
 				<Button
@@ -209,7 +219,7 @@ export const Popover = ({
 						backgroundTertiaryHover: dismissButtonBackgroundHover,
 						borderTertiary: 'transparent',
 					}}
-					onClick={handleClose}
+					onClick={() => setIsOpen(false)}
 					hideLabel={true}
 					cssOverrides={css`
 						grid-area: dismissButton;
