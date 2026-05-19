@@ -19,14 +19,12 @@ const PopoverWithWrapper = (args: PopoverProps) => {
 			css={css`
 				position: relative;
 				width: fit-content;
-				left: 300px;
-				top: 200px;
-				min-height: 300px;
+				margin: 200px 300px;
 			`}
 		>
 			<Popover
 				{...args}
-				anchorElement={
+				trigger={
 					<Button
 						id="info-icon"
 						icon={<SvgInfoRound />}
@@ -34,31 +32,36 @@ const PopoverWithWrapper = (args: PopoverProps) => {
 						priority="secondary"
 						hideLabel={true}
 						onClick={handleButtonClick}
+						aria-haspopup="dialog"
+						data-testid="popover-trigger"
 					>
 						More information
 					</Button>
 				}
 				isOpen={isExpanded}
 				handleClose={() => setIsExpanded(false)}
-			>
-				<span>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				</span>
-				<div
-					css={css`
-						margin-top: ${space[3]}px;
-					`}
-				>
-					<LinkButton
-						priority="primary"
-						size="xsmall"
-						href="https://www.theguardian.com/uk"
-					>
-						Primary button xs
-					</LinkButton>
-				</div>
-			</Popover>
+				content={
+					<>
+						<span>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</span>
+						<div
+							css={css`
+								margin-top: ${space[3]}px;
+							`}
+						>
+							<LinkButton
+								priority="primary"
+								size="xsmall"
+								href="https://www.theguardian.com/uk"
+							>
+								Primary button xs
+							</LinkButton>
+						</div>
+					</>
+				}
+			/>
 		</div>
 	);
 };
@@ -75,9 +78,8 @@ const meta: Meta<typeof Popover> = {
 	render: (args) => <PopoverWithWrapper {...args} />,
 	play: async ({ canvasElement, step }) => {
 		const canvas = within(canvasElement);
-
-		await step('Click anchor element', async () => {
-			await userEvent.click(canvas.getByText('More information'));
+		await step('Click trigger element', async () => {
+			await userEvent.click(canvas.getByTestId('popover-trigger'));
 		});
 	},
 };

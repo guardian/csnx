@@ -5,15 +5,15 @@ import {
 	textSansBold15,
 } from '@guardian/source/foundations';
 import { Button, SvgCross } from '@guardian/source/react-components';
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import { getPositionStyles } from './position';
 import { getThemeColours, type ThemePopover } from './theme';
 
 export interface PopoverProps {
 	/**
-	 * Children to render inside the popover component e.g. text, links, buttons
+	 * Content to render inside the popover component e.g. text, links, buttons
 	 */
-	children: React.ReactNode;
+	content: React.ReactNode;
 	/**
 	 * Determines whether the popover is open or closed
 	 */
@@ -23,10 +23,10 @@ export interface PopoverProps {
 	 */
 	handleClose: () => void;
 	/**
-	 * The element which the popover is anchored to, in terms of positioning.
-	 * This should control the visibility of the Popover by setting the `isOpen` prop.
+	 * The element which triggers the popover to open by setting the `isOpen` prop.
+	 * The positioning of the popover is relative to this trigger element.
 	 */
-	anchorElement: React.ReactElement;
+	trigger: React.ReactElement;
 	/**
 	 * Title for the Popover. This is used for the aria label so is a required prop.
 	 * The visibility of the title can be controlled using the prop `hideTitle`.
@@ -72,7 +72,7 @@ const containerStyles = css`
 	display: grid;
 	grid-template-areas:
 		'title dismissButton'
-		'children children';
+		'content content';
 	position: absolute;
 	/* Arbitrary large value to sit on top of other content */
 	z-index: 1000;
@@ -104,7 +104,7 @@ const titleStyles = css`
  * [GitHub](https://github.com/guardian/csnx/tree/main/libs/@guardian/source-development-kitchen/src/react-components/popover/Popover.tsx) •
  * [NPM](https://www.npmjs.com/package/@guardian/source-development-kitchen)
  *
- * Displays a popover component, with children and an optional title, positioned relative to its anchor element.
+ * Displays a popover component, with children and an optional title, positioned relative to its trigger element.
  * Has a dismiss button but should also be dismissible with the escape key or by clicking outside of the popover element area.
  * The visibility of the Popover component is controlled by the parent via the isOpen and handleClose props.
  * See the accompanying stories for visual examples.
@@ -112,8 +112,8 @@ const titleStyles = css`
 export const Popover = ({
 	isOpen,
 	handleClose,
-	children,
-	anchorElement,
+	content,
+	trigger,
 	title,
 	hideTitle,
 	width,
@@ -130,43 +130,44 @@ export const Popover = ({
 		dismissButtonBackgroundHover,
 	} = getThemeColours(theme);
 
-	const popoverRef = useRef<HTMLDivElement>(null);
+	const popoverId = useId();
+	const titleId = useId();
+	const contentId = useId();
+	const containerRef = useRef<HTMLDivElement>(null);
 
-	// Respond to escape key by closing Popover
 	useEffect(() => {
-		const dismissOnEsc = (event: KeyboardEvent) => {
-			if (isOpen && event.code === 'Escape') {
-				handleClose();
-			}
-		};
-		document.addEventListener('keydown', dismissOnEsc);
-		// Remove listeners on unmount
-		return () => document.removeEventListener('keydown', dismissOnEsc);
-	}, [isOpen, handleClose]);
-
-	// Respond to clicking outside of the popover and triggering button area by closing Popover
-	useEffect(() => {
-		if (!isOpen || !popoverRef.current) {
+		if (!isOpen || !containerRef.current) {
 			return;
 		}
 
+		/** Respond to clicking outside of the popover and triggering button area by closing Popover */
 		const dismissOnClickElsewhere = (event: MouseEvent) => {
 			if (
 				event.target instanceof Node &&
-				!popoverRef.current?.contains(event.target)
+				!containerRef.current?.contains(event.target)
 			) {
 				handleClose();
 			}
 		};
+		/** Respond to escape key by closing Popover */
+		const dismissOnEsc = (event: KeyboardEvent) => {
+			if (event.code === 'Escape') {
+				handleClose();
+			}
+		};
+
 		document.addEventListener('click', dismissOnClickElsewhere);
+		document.addEventListener('keydown', dismissOnEsc);
 		// Remove listeners on unmount
-		return () => document.removeEventListener('click', dismissOnClickElsewhere);
+		return () => {
+			document.removeEventListener('click', dismissOnClickElsewhere);
+			document.removeEventListener('keydown', dismissOnEsc);
+		};
 	}, [isOpen, handleClose]);
 
 	return (
 		<div
-			ref={popoverRef}
-			className="popover-root"
+			ref={containerRef}
 			css={[
 				css`
 					position: relative;
@@ -176,9 +177,10 @@ export const Popover = ({
 				`,
 			]}
 		>
-			{anchorElement}
+			{trigger}
 
 			<div
+				id={popoverId}
 				className="popover"
 				css={[
 					containerStyles,
@@ -187,16 +189,23 @@ export const Popover = ({
 					!!cssOverrides && cssOverrides,
 				]}
 				role="dialog"
-				aria-label={title}
+				aria-modal={false}
+				aria-labelledby={hideTitle ? title : titleId}
+				aria-describedby={contentId}
 			>
-				{!hideTitle && <span css={titleStyles}>{title}</span>}
+				{!hideTitle && (
+					<span id={titleId} css={titleStyles}>
+						{title}
+					</span>
+				)}
 
 				<div
+					id={contentId}
 					css={css`
-						grid-area: children;
+						grid-area: content;
 					`}
 				>
-					{children}
+					{content}
 				</div>
 
 				<Button
@@ -216,7 +225,7 @@ export const Popover = ({
 						justify-self: end;
 					`}
 				>
-					Dismiss
+					Close
 				</Button>
 			</div>
 		</div>
