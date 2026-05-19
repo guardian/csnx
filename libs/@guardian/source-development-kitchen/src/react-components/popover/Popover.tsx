@@ -190,7 +190,7 @@ export const Popover = ({
 				]}
 				role="dialog"
 				aria-modal={false}
-				aria-labelledby={titleId}
+				aria-labelledby={hideTitle ? title : titleId}
 				aria-describedby={contentId}
 			>
 				{!hideTitle && (
