@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { getConsentDetailsForOphan } from './getConsentDetailsForOphan';
 import type { ConsentState } from './types';
 import type { TCFv2ConsentState } from './types/tcfv2';

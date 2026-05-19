@@ -1,8 +1,12 @@
+import { jest } from '@jest/globals';
 import { PRIVACY_CHOICE_ID_AUSTRALIA } from '../lib/sourcepointConfig.ts';
-import { getGlobalEnterpriseConsents } from './api.ts';
-import { getConsentState } from './getConsentState.ts';
 
-jest.mock('./api');
+jest.unstable_mockModule('./api', () => ({
+	getGlobalEnterpriseConsents: jest.fn(),
+}));
+
+const { getGlobalEnterpriseConsents } = await import('./api.ts');
+const { getConsentState } = await import('./getConsentState.ts');
 
 const mockGlobalEnterpriseData = {
 	applies: true,

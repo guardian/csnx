@@ -4,7 +4,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"start": "jest"
+		"start": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
 	},
 	"dependencies": {
 		"jest": "30.4.2"

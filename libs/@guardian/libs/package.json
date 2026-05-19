@@ -36,6 +36,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
+		"@jest/globals": "30.4.1",
 		"@playwright/test": "1.60.0",
 		"@types/jest": "30.0.0",
 		"@types/wcag-contrast": "3.0.3",
@@ -45,7 +46,7 @@
 		"jest-fetch-mock": "3.0.3",
 		"mockdate": "3.0.5",
 		"rollup": "4.60.0",
-		"ts-jest": "29.4.0",
+		"ts-jest": "29.4.10",
 		"tslib": "2.8.1",
 		"tsx": "4.22.1",
 		"typescript": "5.9.3",
@@ -133,7 +134,7 @@
 			]
 		},
 		"test": {
-			"command": "jest",
+			"command": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
 			"files": [
 				"**",
 				"../../../configs/jest.*",
@@ -159,7 +160,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest -c=./jest.dist.config.js --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],

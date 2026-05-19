@@ -31,12 +31,13 @@
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "32.0.0",
+		"@jest/globals": "30.4.1",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
 		"jest": "30.4.2",
 		"jest-environment-jsdom": "30.4.1",
 		"rollup": "4.60.0",
-		"ts-jest": "29.4.0",
+		"ts-jest": "29.4.10",
 		"tslib": "2.8.1",
 		"typescript": "5.9.3",
 		"web-vitals": "4.2.1",
@@ -106,7 +107,7 @@
 			"output": []
 		},
 		"test": {
-			"command": "jest",
+			"command": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest",
 			"dependencies": [
 				"__deps__"
 			],
@@ -135,7 +136,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --setupFilesAfterEnv ./jest.dist.setup.js",
 			"dependencies": [
 				"build"
 			],

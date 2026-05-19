@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { getGlobalEnterpriseConsents } from './api.ts';
 
 jest.mock('../sourcepoint', () => ({

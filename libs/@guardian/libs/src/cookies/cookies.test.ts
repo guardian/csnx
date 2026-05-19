@@ -1,9 +1,16 @@
+import { jest } from '@jest/globals';
 import MockDate from 'mockdate';
-import { getCookie } from './getCookie';
-import * as getCookieValues from './getCookieValues';
-import { removeCookie } from './removeCookie';
-import { setCookie } from './setCookie';
-import { setSessionCookie } from './setSessionCookie';
+import { getCookieValues as realGetCookieValues } from './getCookieValues';
+
+jest.unstable_mockModule('./getCookieValues', () => ({
+	getCookieValues: jest.fn(realGetCookieValues),
+}));
+
+const { getCookie } = await import('./getCookie');
+const { setCookie } = await import('./setCookie');
+const { setSessionCookie } = await import('./setSessionCookie');
+const { removeCookie } = await import('./removeCookie');
+const { getCookieValues } = await import('./getCookieValues');
 
 describe('cookies', () => {
 	let cookieValue = '';
@@ -160,7 +167,8 @@ describe('cookies', () => {
 			daysToLive: 1,
 			isCrossSubdomain: true,
 		});
-		const spy = jest.spyOn(getCookieValues, 'getCookieValues');
+		const getCookieValuesSpy = jest.mocked(getCookieValues);
+
 		expect(
 			getCookie({
 				name: 'GU_geo_country',
@@ -173,7 +181,7 @@ describe('cookies', () => {
 				shouldMemoize: true,
 			}),
 		).toEqual('GB');
-		expect(spy).toHaveBeenCalledTimes(1);
+		expect(getCookieValuesSpy).toHaveBeenCalledTimes(1);
 	});
 
 	it('gets a memoized cookie with days to live', () => {
@@ -182,7 +190,9 @@ describe('cookies', () => {
 			value: 'IT',
 			daysToLive: 1,
 		});
-		const spy = jest.spyOn(getCookieValues, 'getCookieValues');
+
+		const getCookieValuesSpy = jest.mocked(getCookieValues);
+
 		expect(
 			getCookie({
 				name: 'GU_geo_country',
@@ -201,8 +211,7 @@ describe('cookies', () => {
 				shouldMemoize: true,
 			}),
 		).toEqual('IT');
-		// for some reason the spy is been called 1 additional time although that's not happening in reality
-		expect(spy).not.toHaveBeenCalledTimes(2);
+		expect(getCookieValuesSpy).not.toHaveBeenCalledTimes(2);
 	});
 
 	it('re-sets a memoized cookie', () => {

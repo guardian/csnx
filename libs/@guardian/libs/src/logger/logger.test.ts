@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { hex } from 'wcag-contrast';
 import { storage } from '../storage/storage';
 import type { Subscription } from './@types/logger';

@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import type { AccessToken, IDToken } from '../@types/Token';
 import { AuthStateManager } from '../authState';
 import { Emitter } from '../emitter';

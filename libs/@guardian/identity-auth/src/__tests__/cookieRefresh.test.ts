@@ -1,21 +1,24 @@
 /* eslint-disable @typescript-eslint/unbound-method -- jest mocks */
-import * as libs from '@guardian/libs';
-import { cookieRefreshIfRequired } from '../cookieRefresh';
+import { jest } from '@jest/globals';
 
-// jest is really not good with es modules :(
-jest.mock(
-	'@guardian/libs',
-	() =>
-		({
-			__esModule: true,
-			...jest.requireActual('@guardian/libs'),
-		}) as typeof libs,
-);
+jest.unstable_mockModule('@guardian/libs', () => ({
+	getCookie: jest.fn(),
+	storage: {
+		local: {
+			set: jest.fn(),
+			get: jest.fn(),
+			isAvailable: jest.fn(),
+		},
+	},
+}));
 
-const mockedSetLocal = jest.spyOn(libs.storage.local, 'set');
-const mockedGetLocal = jest.spyOn(libs.storage.local, 'get');
-const mockedLocalIsAvailable = jest.spyOn(libs.storage.local, 'isAvailable');
-const mockedGetCookie = jest.spyOn(libs, 'getCookie');
+const libs = await import('@guardian/libs');
+const { cookieRefreshIfRequired } = await import('../cookieRefresh');
+
+const mockedSetLocal = jest.mocked(libs.storage.local.set);
+const mockedGetLocal = jest.mocked(libs.storage.local.get);
+const mockedLocalIsAvailable = jest.mocked(libs.storage.local.isAvailable);
+const mockedGetCookie = jest.mocked(libs.getCookie);
 
 describe('IdentityAuth#CookieRefresh', () => {
 	const { location } = window;

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/unbound-method -- jest mocks */
 import { storage } from '@guardian/libs';
+import { jest } from '@jest/globals';
 import type {
 	AccessToken,
 	AccessTokenStorage,

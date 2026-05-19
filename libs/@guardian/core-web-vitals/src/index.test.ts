@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import type {
 	CLSMetricWithAttribution,
 	FCPMetric,
@@ -7,9 +8,6 @@ import type {
 	TTFBMetric,
 } from 'web-vitals/attribution';
 import type { CoreWebVitalsPayload } from './@types/CoreWebVitalsPayload';
-import { _, bypassCoreWebVitalsSampling, initCoreWebVitals } from './index';
-
-const { coreWebVitalsPayload, reset } = _;
 
 const defaultCoreWebVitalsPayload = {
 	page_view_id: '123456',
@@ -30,7 +28,7 @@ const defaultCoreWebVitalsPayload = {
 const browserId = defaultCoreWebVitalsPayload.browser_id;
 const pageViewId = defaultCoreWebVitalsPayload.page_view_id;
 
-jest.mock('web-vitals/attribution', () => ({
+jest.unstable_mockModule('web-vitals/attribution', () => ({
 	onCLS: (onReport: (metric: CLSMetricWithAttribution) => void) => {
 		onReport({
 			value: defaultCoreWebVitalsPayload.cls,
@@ -122,7 +120,11 @@ jest.mock('web-vitals/attribution', () => ({
 	},
 }));
 
-const mockBeacon = jest.fn().mockReturnValue(true);
+const { _, bypassCoreWebVitalsSampling, initCoreWebVitals } =
+	await import('./index');
+const { coreWebVitalsPayload, reset } = _;
+
+const mockBeacon = jest.fn<typeof navigator.sendBeacon>().mockReturnValue(true);
 navigator.sendBeacon = mockBeacon;
 
 const mockConsoleWarn = jest

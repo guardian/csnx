@@ -1,9 +1,13 @@
-import usnatDataCanSell from './__fixtures__/api.getUserConsents.canSell.json';
-import usnatDataDoNotSell from './__fixtures__/api.getUserConsents.doNotSell.json';
-import { getUsnatData } from './api.ts';
-import { getConsentState } from './getConsentState.ts';
+import { jest } from '@jest/globals';
+import usnatDataCanSell from './__fixtures__/api.getUserConsents.canSell.json' with { type: 'json' };
+import usnatDataDoNotSell from './__fixtures__/api.getUserConsents.doNotSell.json' with { type: 'json' };
 
-jest.mock('./api');
+jest.unstable_mockModule('./api', () => ({
+	getUsnatData: jest.fn(),
+}));
+
+const { getUsnatData } = await import('./api.ts');
+const { getConsentState } = await import('./getConsentState.ts');
 
 describe('getConsentState', () => {
 	beforeEach(() => {

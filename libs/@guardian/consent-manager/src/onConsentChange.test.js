@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import ausData from './aus/__fixtures__/api.getGlobalEnterpriseData.json';
 import { setCurrentFramework } from './getCurrentFramework.ts';
 import { _, invokeCallbacks, onConsentChange } from './onConsentChange.ts';

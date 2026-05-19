@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { getIdentityAuth } from './index';
 
 jest.mock('@guardian/identity-auth');

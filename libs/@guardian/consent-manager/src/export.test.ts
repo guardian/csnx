@@ -1,4 +1,5 @@
 import type { CountryCode } from '@guardian/libs';
+import { jest } from '@jest/globals';
 import { CMP as actualCMP } from './cmp';
 import { disable, enable } from './disable';
 import { cmp } from './export';
@@ -152,7 +153,7 @@ describe('hotfix cmp.init', () => {
 		expect(getCurrentFramework()).toEqual(framework);
 	});
 
-	it('uses window.guCmpHotFix instances if they exist', () => {
+	it('uses window.guCmpHotFix instances if they exist', async () => {
 		const mockCmp: typeCMP = {
 			init: () => undefined,
 			willShowPrivacyMessage: () => new Promise(() => true),
@@ -174,17 +175,12 @@ describe('hotfix cmp.init', () => {
 		window.guCmpHotFix.cmp = mockCmp;
 
 		jest.resetModules();
-		import('./export')
-			.then((module) => {
-				expect(module.cmp).toEqual(mockCmp);
+		const module = await import('./export');
+		expect(module.cmp).toEqual(mockCmp);
 
-				window.guCmpHotFix = {};
-				jest.resetModules();
-				void import('./export');
-			})
-			.catch((error) => {
-				console.error(error);
-			});
+		window.guCmpHotFix = {};
+		jest.resetModules();
+		await import('./export');
 	});
 });
 // *************** END commercial.dcr.js hotfix ***************

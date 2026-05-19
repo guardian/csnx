@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import type { AccessToken, CustomClaims, IDToken } from '../@types/Token';
 import { IdentityAuth } from '../index';
 

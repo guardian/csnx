@@ -1,5 +1,6 @@
 // Mock `src/index` with whatever the dist `package.json` points at.
 // This means we can run `src/index.test.ts` against `dist` instead.
+import { jest } from '@jest/globals';
 
 // Register our custom Jest matcher.
 import './lib/jest-matchers/toBeValidCSS';

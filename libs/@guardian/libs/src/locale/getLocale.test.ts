@@ -1,10 +1,17 @@
+import { jest } from '@jest/globals';
 import fetchMock from 'jest-fetch-mock';
-import * as getCookieForSpy from '../cookies/getCookie';
-import { getCookie } from '../cookies/getCookie';
+import { getCookie as realGetCookie } from '../cookies/getCookie';
 import { removeCookie } from '../cookies/removeCookie';
 import { setSessionCookie } from '../cookies/setSessionCookie';
 import { storage } from '../storage/storage';
-import { __resetCachedValue, getLocale } from './getLocale';
+
+jest.unstable_mockModule('../cookies/getCookie', () => ({
+	getCookie: jest.fn(realGetCookie),
+}));
+
+const { getCookie } = await import('../cookies/getCookie');
+const getCookieSpy = jest.mocked(getCookie);
+const { __resetCachedValue, getLocale } = await import('./getLocale');
 
 const KEY = 'GU_geo_country';
 const KEY_OVERRIDE = 'gu.geo.override';
@@ -61,14 +68,12 @@ describe('getLocale', () => {
 	});
 
 	it('uses the cached value if available', async () => {
-		const spy = jest.spyOn(getCookieForSpy, 'getCookie');
-
 		setSessionCookie({ name: KEY, value: 'CY' });
 		const locale = await getLocale();
 		const locale2 = await getLocale();
 
 		expect(locale).toBe(locale2);
-		expect(spy).toHaveBeenCalledTimes(1);
+		expect(getCookieSpy).toHaveBeenCalledTimes(1);
 		expect(fetchMock).not.toHaveBeenCalled();
 	});
 });

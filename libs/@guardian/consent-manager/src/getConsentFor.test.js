@@ -1,7 +1,6 @@
 // cSpell:ignore doesnotexist
 
-import { getConsentFor } from './getConsentFor.ts';
-import vendors from './vendors.ts';
+import { jest } from '@jest/globals';
 
 const vendorOne = 'd3b07384d113edec49eaa623';
 const vendorAlt = 'c157a79031e1c40f85931829';
@@ -23,13 +22,16 @@ const usnatWithoutConsent = { usnat: { doNotSell: true } };
 const ausWithConsent = { aus: { personalisedAdvertising: true } };
 const ausWithoutConsent = { aus: { personalisedAdvertising: false } };
 
-jest.mock('./vendors', () => ({
+jest.unstable_mockModule('./vendors', () => ({
 	VendorIDs: jest.fn(),
 }));
 
+const vendors = await import('./vendors.ts');
+const { getConsentFor } = await import('./getConsentFor.ts');
+
 it('throws an error if the vendor found ', () => {
 	jest
-		.spyOn(vendors, 'VendorIDs')
+		.mocked(vendors.VendorIDs)
 		.mockReturnValue({ vendorOne: [vendorOne, vendorAlt] });
 	expect(() => {
 		getConsentFor('doesnotexist', tcfv2ConsentFoundTrue);
@@ -49,7 +51,7 @@ test.each([
 	`In %s mode, returns %s, for vendor %s`,
 	(cmpMode, expected, vendor, mock) => {
 		jest
-			.spyOn(vendors, 'VendorIDs')
+			.mocked(vendors.VendorIDs)
 			.mockReturnValue({ vendorOne: [vendorOne, vendorAlt] });
 		expect(() => {
 			getConsentFor(vendor, mock);

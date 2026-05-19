@@ -1,11 +1,15 @@
-import { onConsent } from './onConsent';
-import { onConsentChange } from './onConsentChange';
+import { jest } from '@jest/globals';
 import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { AUSConsentState } from './types/aus';
 import type { TCFv2ConsentState } from './types/tcfv2';
 import type { USNATConsentState } from './types/usnat';
 
-jest.mock('./onConsentChange');
+jest.unstable_mockModule('./onConsentChange', () => ({
+	onConsentChange: jest.fn(),
+}));
+
+const { onConsentChange } = await import('./onConsentChange');
+const { onConsent } = await import('./onConsent');
 
 const tcfv2ConsentState: TCFv2ConsentState = {
 	consents: { 1: true },
@@ -29,9 +33,9 @@ const ausConsentState: AUSConsentState = {
 };
 
 const mockOnConsentChange = (consentState: ConsentState) =>
-	(onConsentChange as jest.Mock).mockImplementation(
-		(cb: OnConsentChangeCallback) => cb(consentState),
-	);
+	jest
+		.mocked(onConsentChange)
+		.mockImplementation((cb: OnConsentChangeCallback) => cb(consentState));
 
 describe('onConsent returns a promise that resolves the initial consent state', () => {
 	test('tcfv2', async () => {

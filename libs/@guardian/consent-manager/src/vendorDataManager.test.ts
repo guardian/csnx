@@ -1,36 +1,19 @@
-import { removeCookie } from '@guardian/libs';
-import { storage } from '@guardian/libs';
-import { onConsentChange } from './onConsentChange';
+import { jest } from '@jest/globals';
 import type { ConsentState, OnConsentChangeCallback } from './types';
 import type { TCFv2ConsentState } from './types/tcfv2';
-import { initVendorDataManager } from './vendorDataManager';
-import {
-	deprecatedVendorStorageIds,
-	vendorStorageIds,
-} from './vendorStorageIds';
 
-jest.mock('./onConsentChange');
+jest.unstable_mockModule('./onConsentChange', () => ({
+	onConsentChange: jest.fn(),
+}));
 
-const tcfv2ConsentState: TCFv2ConsentState = {
-	consents: { 1: true },
-	eventStatus: 'tcloaded',
-	vendorConsents: {
-		'5fa51b29a228638b4a1980e4': true, // ipsos
-		'5eff0d77969bfa03746427eb': false, // permutive
-	},
-	addtlConsent: 'xyz',
-	gdprApplies: true,
-	tcString: 'YAAA',
-};
-
-jest.mock('./vendors', () => ({
+jest.unstable_mockModule('./vendors', () => ({
 	VendorIDs: {
 		permutive: ['5eff0d77969bfa03746427eb'],
 		ipsos: ['5fa51b29a228638b4a1980e4'],
 	},
 }));
 
-jest.mock('./vendorStorageIds', () => ({
+jest.unstable_mockModule('./vendorStorageIds', () => ({
 	vendorStorageIds: {
 		permutive: {
 			cookies: ['permutiveCookie1', 'permutiveCookie2'],
@@ -50,12 +33,7 @@ jest.mock('./vendorStorageIds', () => ({
 	},
 }));
 
-const mockOnConsentChange = (consentState: ConsentState) =>
-	(onConsentChange as jest.Mock).mockImplementation(
-		(cb: OnConsentChangeCallback) => cb(consentState),
-	);
-
-jest.mock('@guardian/libs', () => ({
+jest.unstable_mockModule('@guardian/libs', () => ({
 	removeCookie: jest.fn(),
 	storage: {
 		local: {
@@ -66,6 +44,29 @@ jest.mock('@guardian/libs', () => ({
 		},
 	},
 }));
+
+const { onConsentChange } = await import('./onConsentChange');
+const { removeCookie, storage } = await import('@guardian/libs');
+const { initVendorDataManager } = await import('./vendorDataManager');
+const { vendorStorageIds, deprecatedVendorStorageIds } =
+	await import('./vendorStorageIds');
+
+const tcfv2ConsentState: TCFv2ConsentState = {
+	consents: { 1: true },
+	eventStatus: 'tcloaded',
+	vendorConsents: {
+		'5fa51b29a228638b4a1980e4': true, // ipsos
+		'5eff0d77969bfa03746427eb': false, // permutive
+	},
+	addtlConsent: 'xyz',
+	gdprApplies: true,
+	tcString: 'YAAA',
+};
+
+const mockOnConsentChange = (consentState: ConsentState) =>
+	jest
+		.mocked(onConsentChange)
+		.mockImplementation((cb: OnConsentChangeCallback) => cb(consentState));
 
 describe('initVendorDataManager', () => {
 	it('should remove cookies and localStorage data only for vendors that the user has not consented to', () => {

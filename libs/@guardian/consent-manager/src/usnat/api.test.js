@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { getUsnatData } from './api.ts';
 
 it('calls the correct Sourcepoint api with the correct methods', async () => {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/unbound-method -- jest mocks */
-
+import { jest } from '@jest/globals';
 import type { IdentityAuthOptions } from '../@types/OAuth';
 import { AuthStateManager } from '../authState';
 import { AutoRenewService } from '../autoRenew';
@@ -87,9 +87,11 @@ describe('IdentityAuth#AutoRenewService', () => {
 			authStateManager,
 		);
 
-		authStateManager.getAuthState = jest.fn().mockReturnValue({
-			isAuthenticated: false,
-		});
+		authStateManager.getAuthState = jest
+			.fn<typeof authStateManager.getAuthState>()
+			.mockReturnValue({
+				isAuthenticated: false,
+			} as ReturnType<typeof authStateManager.getAuthState>);
 
 		autoRenewService.start();
 
@@ -131,14 +133,16 @@ describe('IdentityAuth#AutoRenewService', () => {
 			authStateManager,
 		);
 
-		authStateManager.getAuthState = jest.fn().mockReturnValue({
-			accessToken: {
-				expiresAt: 0,
-			},
-			isAuthenticated: true,
-		});
+		authStateManager.getAuthState = jest
+			.fn<typeof authStateManager.getAuthState>()
+			.mockReturnValue({
+				accessToken: {
+					expiresAt: 0,
+				},
+				isAuthenticated: true,
+			} as ReturnType<typeof authStateManager.getAuthState>);
 
-		emitter.emit = jest.fn();
+		emitter.emit = jest.fn<typeof emitter.emit>();
 
 		autoRenewService.start();
 
@@ -169,14 +173,16 @@ describe('IdentityAuth#AutoRenewService', () => {
 			authStateManager,
 		);
 
-		authStateManager.getAuthState = jest.fn().mockReturnValue({
-			accessToken: {
-				expiresAt: 0,
-			},
-			isAuthenticated: true,
-		});
+		authStateManager.getAuthState = jest
+			.fn<typeof authStateManager.getAuthState>()
+			.mockReturnValue({
+				accessToken: {
+					expiresAt: 0,
+				},
+				isAuthenticated: true,
+			} as ReturnType<typeof authStateManager.getAuthState>);
 
-		emitter.emit = jest.fn();
+		emitter.emit = jest.fn<typeof emitter.emit>();
 
 		autoRenewService.start();
 
@@ -216,18 +222,18 @@ describe('IdentityAuth#AutoRenewService', () => {
 		);
 
 		authStateManager.getAuthState = jest
-			.fn()
+			.fn<typeof authStateManager.getAuthState>()
 			.mockReturnValueOnce({
 				accessToken: {
 					expiresAt: 0,
 				},
 				isAuthenticated: true,
-			})
+			} as ReturnType<typeof authStateManager.getAuthState>)
 			.mockReturnValueOnce({
 				isAuthenticated: false,
-			});
+			} as ReturnType<typeof authStateManager.getAuthState>);
 
-		emitter.emit = jest.fn();
+		emitter.emit = jest.fn<typeof emitter.emit>();
 
 		autoRenewService.start();
 

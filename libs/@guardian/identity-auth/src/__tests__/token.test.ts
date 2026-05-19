@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import fetchMock from 'jest-fetch-mock';
 import type {
 	AuthorizeParams,
@@ -45,7 +46,7 @@ describe('IdentityAuth#Token', () => {
 	});
 
 	it('should perform auth code flow in iframe and return OAuthAuthorizeResponse', async () => {
-		jest.spyOn(TokenModule, 'addPostMessageListener').mockImplementation(() =>
+		jest.spyOn(TokenModule._, 'addPostMessageListener').mockImplementation(() =>
 			Promise.resolve({
 				code: 'code',
 				state: 'state',
@@ -53,7 +54,7 @@ describe('IdentityAuth#Token', () => {
 		);
 
 		jest
-			.spyOn(TokenModule, 'loadFrame')
+			.spyOn(TokenModule._, 'loadFrame')
 			.mockReturnValue(document.createElement('iframe'));
 
 		const result = await TokenModule.performAuthCodeFlowIframe(
@@ -69,7 +70,7 @@ describe('IdentityAuth#Token', () => {
 	});
 
 	it('should perform auth code flow in iframe and return OAuthAuthorizeResponseError', async () => {
-		jest.spyOn(TokenModule, 'addPostMessageListener').mockImplementation(() =>
+		jest.spyOn(TokenModule._, 'addPostMessageListener').mockImplementation(() =>
 			Promise.resolve({
 				state: 'state',
 				error: 'error',
@@ -78,7 +79,7 @@ describe('IdentityAuth#Token', () => {
 		);
 
 		jest
-			.spyOn(TokenModule, 'loadFrame')
+			.spyOn(TokenModule._, 'loadFrame')
 			.mockReturnValue(document.createElement('iframe'));
 
 		const result = await TokenModule.performAuthCodeFlowIframe(

@@ -1,9 +1,15 @@
-import customVendorConsents from './__fixtures__/api.getCustomVendorConsents.json';
-import tcData from './__fixtures__/api.getTCData.json';
-import { getCustomVendorConsents, getTCData } from './api.ts';
-import { getConsentState } from './getConsentState.ts';
+import { jest } from '@jest/globals';
+import customVendorConsents from './__fixtures__/api.getCustomVendorConsents.json' with { type: 'json' };
+import tcData from './__fixtures__/api.getTCData.json' with { type: 'json' };
 
-jest.mock('./api');
+jest.unstable_mockModule('./api', () => ({
+	getTCData: jest.fn(),
+	getCustomVendorConsents: jest.fn(),
+}));
+
+const { getTCData, getCustomVendorConsents } = await import('./api.ts');
+const { getConsentState } = await import('./getConsentState.ts');
+
 getTCData.mockReturnValue(Promise.resolve(tcData));
 getCustomVendorConsents.mockReturnValue(Promise.resolve(customVendorConsents));
 

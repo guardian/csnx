@@ -1,7 +1,7 @@
 import { log } from '@guardian/libs';
 import { countries } from '@guardian/libs';
 import type { CountryCode } from '@guardian/libs';
-import { version } from '../package.json';
+import packageJson from '../package.json' with { type: 'json' };
 import { CMP as UnifiedCMP } from './cmp';
 import { disable, enable, isDisabled } from './disable';
 import { getConsentDetailsForOphan as clientGetConsentDetailsForOphan } from './getConsentDetailsForOphan';
@@ -48,9 +48,9 @@ const init: InitCMP = ({
 	}
 
 	if (window.guCmpHotFix.initialised) {
-		if (window.guCmpHotFix.cmp?.version !== version) {
+		if (window.guCmpHotFix.cmp?.version !== packageJson.version) {
 			console.warn('Two different versions of the CMP are running:', [
-				version,
+				packageJson.version,
 				window.guCmpHotFix.cmp?.version,
 			]);
 		}
@@ -157,7 +157,7 @@ export const cmp: CMP = isServerSide
 			willShowPrivacyMessageSync,
 			hasInitialised,
 			showPrivacyManager,
-			version: version,
+			version: packageJson.version,
 
 			// special helper methods for disabling CMP
 			__isDisabled: isDisabled,

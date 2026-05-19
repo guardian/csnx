@@ -1,6 +1,7 @@
+import { jest } from '@jest/globals';
 import { storage } from './storage';
 
-function functionThatThrowsAnError() {
+function functionThatThrowsAnError(): never {
 	throw new Error('bang');
 }
 
@@ -12,12 +13,12 @@ describe.each([
 	[LOCAL, storage[LOCAL], globalThis.localStorage],
 	[SESSION, storage[SESSION], globalThis.sessionStorage],
 ])('storage.%s', (name, implementation, native) => {
-	let getSpy: jest.SpyInstance;
-	let setSpy: jest.SpyInstance;
+	let getSpy: jest.SpiedFunction<Storage['getItem']>;
+	let setSpy: jest.SpiedFunction<Storage['setItem']>;
 
 	beforeEach(() => {
-		getSpy = jest.spyOn(native.__proto__, 'getItem');
-		setSpy = jest.spyOn(native.__proto__, 'setItem');
+		getSpy = jest.spyOn(Object.getPrototypeOf(native) as Storage, 'getItem');
+		setSpy = jest.spyOn(Object.getPrototypeOf(native) as Storage, 'setItem');
 		jest.resetModules();
 		native.clear();
 	});

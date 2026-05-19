@@ -1,3 +1,7 @@
+import { createDefaultEsmPreset } from 'ts-jest';
+
+const presetConfig = createDefaultEsmPreset();
+
 /** @typedef {import("jest").Config} Config  */
 export const config = {
 	clearMocks: true,
@@ -6,8 +10,6 @@ export const config = {
 	transformIgnorePatterns: [
 		'node_modules/.pnpm/(?!@guardian|use-local-storage-state)',
 	],
-	transform: {
-		'^.+\\.[tj]sx?$': ['ts-jest'],
-	},
 	coveragePathIgnorePatterns: ['/__generated__/'],
+	...presetConfig,
 };

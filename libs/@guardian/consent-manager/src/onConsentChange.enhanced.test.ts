@@ -1,16 +1,27 @@
-import { getConsentState as getAUSConsentState } from './aus/getConsentState';
+import { jest } from '@jest/globals';
 import { setCurrentFramework, unsetFramework } from './getCurrentFramework';
-import { _ } from './onConsentChange';
-import { getConsentState as getTCFv2ConsentState } from './tcfv2/getConsentState';
 import type { ConsentFramework, ConsentState } from './types';
 import type { AUSConsentState } from './types/aus';
 import type { TCFv2ConsentState } from './types/tcfv2';
 import type { USNATConsentState } from './types/usnat';
-import { getConsentState as getUSNATConsentState } from './usnat/getConsentState';
 
-jest.mock('./tcfv2/getConsentState');
-jest.mock('./usnat/getConsentState');
-jest.mock('./aus/getConsentState');
+jest.unstable_mockModule('./tcfv2/getConsentState', () => ({
+	getConsentState: jest.fn(),
+}));
+jest.unstable_mockModule('./usnat/getConsentState', () => ({
+	getConsentState: jest.fn(),
+}));
+jest.unstable_mockModule('./aus/getConsentState', () => ({
+	getConsentState: jest.fn(),
+}));
+
+const { getConsentState: getTCFv2ConsentState } =
+	await import('./tcfv2/getConsentState');
+const { getConsentState: getUSNATConsentState } =
+	await import('./usnat/getConsentState');
+const { getConsentState: getAUSConsentState } =
+	await import('./aus/getConsentState');
+const { _ } = await import('./onConsentChange');
 
 const tcfv2ConsentState: TCFv2ConsentState = {
 	consents: { 1: true },
@@ -54,9 +65,11 @@ const setGpc = (globalPrivacyControl: undefined | boolean) => {
 
 describe('onConsentChange enhances basic consent state', () => {
 	test('tcfv2 can target', async () => {
-		(getTCFv2ConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<TCFv2ConsentState>(tcfv2ConsentState),
-		);
+		jest
+			.mocked(getTCFv2ConsentState)
+			.mockImplementation(() =>
+				Promise.resolve<TCFv2ConsentState>(tcfv2ConsentState),
+			);
 		setAPI('tcfv2');
 		const expectedConsentState: ConsentState = {
 			tcfv2: tcfv2ConsentState,
@@ -71,9 +84,11 @@ describe('onConsentChange enhances basic consent state', () => {
 			...tcfv2ConsentState,
 			consents: { 1: false },
 		};
-		(getTCFv2ConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<TCFv2ConsentState>(basicConsentState),
-		);
+		jest
+			.mocked(getTCFv2ConsentState)
+			.mockImplementation(() =>
+				Promise.resolve<TCFv2ConsentState>(basicConsentState),
+			);
 		setAPI('tcfv2');
 		const expectedConsentState: ConsentState = {
 			tcfv2: basicConsentState,
@@ -84,9 +99,11 @@ describe('onConsentChange enhances basic consent state', () => {
 		expect(consentState).toEqual(expectedConsentState);
 	});
 	test('usnat can target', async () => {
-		(getUSNATConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<USNATConsentState>(usnatConsentState),
-		);
+		jest
+			.mocked(getUSNATConsentState)
+			.mockImplementation(() =>
+				Promise.resolve<USNATConsentState>(usnatConsentState),
+			);
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
 			usnat: usnatConsentState,
@@ -97,7 +114,7 @@ describe('onConsentChange enhances basic consent state', () => {
 		expect(consentState).toEqual(expectedConsentState);
 	});
 	test('usnat can NOT target', async () => {
-		(getUSNATConsentState as jest.Mock).mockImplementation(() =>
+		jest.mocked(getUSNATConsentState).mockImplementation(() =>
 			Promise.resolve<USNATConsentState>({
 				doNotSell: true,
 				signalStatus: 'ready',
@@ -113,9 +130,11 @@ describe('onConsentChange enhances basic consent state', () => {
 		expect(consentState).toEqual(expectedConsentState);
 	});
 	test('aus can target', async () => {
-		(getAUSConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<AUSConsentState>(ausConsentState),
-		);
+		jest
+			.mocked(getAUSConsentState)
+			.mockImplementation(() =>
+				Promise.resolve<AUSConsentState>(ausConsentState),
+			);
 		setAPI('aus');
 		const expectedConsentState: ConsentState = {
 			aus: ausConsentState,
@@ -126,7 +145,7 @@ describe('onConsentChange enhances basic consent state', () => {
 		expect(consentState).toEqual(expectedConsentState);
 	});
 	test('aus can NOT target', async () => {
-		(getAUSConsentState as jest.Mock).mockImplementation(() =>
+		jest.mocked(getAUSConsentState).mockImplementation(() =>
 			Promise.resolve<AUSConsentState>({
 				personalisedAdvertising: false,
 				signalStatus: 'ready',
@@ -152,9 +171,11 @@ describe('onConsentChange enhances basic consent state', () => {
 	});
 	test('notices a GPC signal', async () => {
 		setGpc(true);
-		(getUSNATConsentState as jest.Mock).mockImplementation(() =>
-			Promise.resolve<USNATConsentState>(usnatConsentState),
-		);
+		jest
+			.mocked(getUSNATConsentState)
+			.mockImplementation(() =>
+				Promise.resolve<USNATConsentState>(usnatConsentState),
+			);
 		setAPI('usnat');
 		const expectedConsentState: ConsentState = {
 			usnat: usnatConsentState,

@@ -751,6 +751,12 @@ export const loadFrame = (url: string) => {
 	return document.body.appendChild(frame);
 };
 
+/** @internal - exported for testing spyOn only */
+export const _ = {
+	addPostMessageListener,
+	loadFrame,
+};
+
 /**
  * @name performAuthCodeFlowIframe
  * @description Performs the authorization code flow with PKCE using an iframe, and returns the AuthorizationResponse
@@ -769,12 +775,12 @@ export const performAuthCodeFlowIframe = async (
 	const searchParams = new URLSearchParams(authorizeParams);
 
 	// create the postMessage listener for the iframe
-	const postMessageListener = addPostMessageListener(
+	const postMessageListener = _.addPostMessageListener(
 		options,
 		authorizeParams.state,
 	);
 	// load the iframe with the authorize url
-	const iframe = loadFrame(
+	const iframe = _.loadFrame(
 		`${oauthUrls.authorizeUrl}?${searchParams.toString()}`,
 	);
 
