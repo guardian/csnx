@@ -259,8 +259,8 @@ importers:
         specifier: workspace:*
         version: link:../libs
       '@guardian/ophan-tracker-js':
-        specifier: 2.8.0
-        version: 2.8.0
+        specifier: 3.1.0
+        version: 3.1.0
     devDependencies:
       '@guardian/eslint-config':
         specifier: workspace:*
@@ -483,8 +483,8 @@ importers:
   libs/@guardian/libs:
     dependencies:
       '@guardian/ophan-tracker-js':
-        specifier: 2.8.0
-        version: 2.8.0
+        specifier: 3.1.0
+        version: 3.1.0
     devDependencies:
       '@guardian/eslint-config':
         specifier: workspace:*
@@ -1670,8 +1670,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@guardian/ophan-tracker-js@2.8.0':
-    resolution: {integrity: sha512-RPoyxPPKaT1em1LZiD1LKsTYzoXBG8Zjs4OzyP5dhEmfoXD99qK48JI4oGUPlq3wOOB0ZT8UrbtbWDKzeMSBHA==}
+  '@guardian/ophan-tracker-js@3.1.0':
+    resolution: {integrity: sha512-3KCZ9leh1171Q6kdiBWRb0f+Nb8Ab5uweMehjTM7OMGvLY+9kUjATNBSeIYvHwrDlqqi1nR+657wckXK4b0MUQ==}
     engines: {node: '>=16'}
 
   '@guardian/tsconfig@1.0.1':
@@ -8012,7 +8012,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@guardian/ophan-tracker-js@2.8.0':
+  '@guardian/ophan-tracker-js@3.1.0':
     dependencies:
       '@guardian/tsconfig': 1.0.1
 
