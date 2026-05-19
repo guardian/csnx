@@ -1,5 +1,12 @@
 # @guardian/source-development-kitchen
 
+## 28.1.0
+
+### Minor Changes
+
+- 18192a9: Adds a Popover component which can be opened via the trigger.
+  The Popover is used to display information on top of the document, positioned relative to the triggering element.
+
 ## 28.0.0
 
 ### Minor Changes
