@@ -1,5 +1,11 @@
 # @guardian/newsletter-types
 
+## 4.4.0
+
+### Minor Changes
+
+- 230224f: Add highlight card title
+
 ## 4.3.0
 
 ### Minor Changes
