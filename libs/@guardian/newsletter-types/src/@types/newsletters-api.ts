@@ -96,6 +96,8 @@ export type NewsletterApiData = {
 	signUpDescription: string;
 	/** the description text used in embedded in-article sign-up forms for this newsletter */
 	signUpEmbedDescription: string;
+	/** the title used in the fronts signup highlight card */
+	highlightCardTitle: string;
 	/** a custom message to display when comfirming to a user that their subscription request was received */
 	mailSuccessDescription?: string;
 
