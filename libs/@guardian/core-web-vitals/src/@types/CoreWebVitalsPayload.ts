@@ -7,7 +7,6 @@ export type CoreWebVitalsPayload = {
 	inp_target: string;
 	lcp: number;
 	lcp_target: string;
-	fid: number;
 	fcp: number;
 	ttfb: number;
 	stage: 'CODE' | 'PROD';
