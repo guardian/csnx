@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/ab-core",
-	"version": "9.0.0",
+	"version": "10.0.0",
 	"private": false,
 	"description": "A client-side library for A/B & multivariate testing",
 	"repository": {

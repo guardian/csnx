@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/identity-auth",
-	"version": "17.0.0",
+	"version": "18.0.0",
 	"private": false,
 	"description": "",
 	"repository": {
@@ -31,7 +31,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "32.0.0",
+		"@guardian/libs": "33.0.0",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
 		"jest": "30.4.2",
@@ -44,7 +44,7 @@
 		"wireit": "0.14.12"
 	},
 	"peerDependencies": {
-		"@guardian/libs": "^32.0.0",
+		"@guardian/libs": "^33.0.0",
 		"tslib": "^2.8.1",
 		"typescript": "~6.0.3"
 	},
