@@ -2,6 +2,7 @@
 	"name": "@guardian/prettier",
 	"version": "11.0.0",
 	"description": "Prettier config for Guardian JavaScript & TypeScript projects",
+	"license": "Apache-2.0",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/prettier"
