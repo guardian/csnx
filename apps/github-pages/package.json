@@ -14,8 +14,8 @@
 		"@astrojs/svelte": "8.1.1",
 		"@guardian/consent-manager": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"astro": "6.3.3",
-		"svelte": "5.55.7",
+		"astro": "6.4.6",
+		"svelte": "5.56.3",
 		"typescript": "6.0.3",
 		"wireit": "0.14.12"
 	},
