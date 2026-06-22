@@ -37,7 +37,7 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
-		"@playwright/test": "1.60.0",
+		"@playwright/test": "1.61.0",
 		"@types/jest": "30.0.0",
 		"@types/wcag-contrast": "3.0.3",
 		"eslint": "9.39.1",
