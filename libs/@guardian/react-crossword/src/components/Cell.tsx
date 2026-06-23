@@ -139,6 +139,9 @@ const CellComponent = ({
 							autoComplete="off"
 							spellCheck="false"
 							autoCorrect="off"
+							aria-label={`
+								${data.description ?? 'Cell'} at row ${data.y + 1}, column ${data.x + 1}
+							`}
 						/>
 					</foreignObject>
 				</>
