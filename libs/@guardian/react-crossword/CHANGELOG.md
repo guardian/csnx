@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 19.0.1
+
+### Patch Changes
+
+- 882c40c: Added an aria-label to the cell component to remove the accessibilty violation
+
 ## 19.0.0
 
 ### Major Changes
