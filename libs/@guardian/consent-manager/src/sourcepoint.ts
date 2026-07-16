@@ -1,4 +1,4 @@
-import { log } from '@guardian/libs';
+import { getCookie, log } from '@guardian/libs';
 import type { CountryCode } from '@guardian/libs';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
@@ -324,6 +324,11 @@ export const init = (
 		);
 	}
 
+	const usAbTestCookie = getCookie({
+		name: 'gu_client_ab_tests',
+	});
+	const usAbTestGroup = usAbTestCookie?.split(':')[1];
+
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr, usnat, OR globalcmp
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// the appropriate consent API to the window object (__tcfapi for gdpr, __gpp for usnat, none for globalcmp).
@@ -346,6 +351,15 @@ export const init = (
 					framework,
 				},
 			};
+
+			if (usAbTestGroup) {
+				window._sp_.config.usnat = {
+					targetingParams: {
+						framework,
+						abTestGroup: usAbTestGroup,
+					},
+				};
+			}
 			break;
 		case 'aus':
 			window._sp_.config.globalcmp = {
@@ -370,7 +384,10 @@ export const init = (
 					log('cmp', `'Failed to merge vendor list': ${error}`);
 				});
 		} else {
-			window._sp_?.executeMessaging?.();
+			// If the user is in US and in the variant group we don't want to execute a message.
+			if (framework !== 'usnat' || usAbTestGroup !== 'variant') {
+				window._sp_?.executeMessaging?.();
+			}
 		}
 	});
 
