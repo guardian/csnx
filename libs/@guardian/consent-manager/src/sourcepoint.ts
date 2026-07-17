@@ -18,6 +18,7 @@ import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
+	PROPERTY_HREF_AUS,
 	PROPERTY_HREF_MAIN,
 	PROPERTY_HREF_SUBDOMAIN,
 	PROPERTY_ID_AUSTRALIA,
@@ -49,11 +50,11 @@ const getPropertyHref = (
 	useNonAdvertisedList: boolean,
 ): Property => {
 	if (framework == 'aus') {
-		return 'https://au.theguardian.com';
+		return PROPERTY_HREF_AUS;
 	}
 
 	if (framework == 'usnat') {
-		return 'https://www.theguardian.com';
+		return PROPERTY_HREF_MAIN;
 	}
 
 	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
@@ -349,17 +350,9 @@ export const init = (
 			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
+					...(usAbTestGroup && { abTestGroup: usAbTestGroup }),
 				},
 			};
-
-			if (usAbTestGroup) {
-				window._sp_.config.usnat = {
-					targetingParams: {
-						framework,
-						abTestGroup: usAbTestGroup,
-					},
-				};
-			}
 			break;
 		case 'aus':
 			window._sp_.config.globalcmp = {
@@ -384,10 +377,7 @@ export const init = (
 					log('cmp', `'Failed to merge vendor list': ${error}`);
 				});
 		} else {
-			// If the user is in US and in the variant group we don't want to execute a message.
-			if (framework !== 'usnat' || usAbTestGroup !== 'variant') {
-				window._sp_?.executeMessaging?.();
-			}
+			window._sp_?.executeMessaging?.();
 		}
 	});
 
