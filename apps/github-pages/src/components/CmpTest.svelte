@@ -1,7 +1,7 @@
 <script>
 	// this maps to the version in libs/@guardian/libs
 	import { cmp, onConsentChange } from '@guardian/consent-manager';
-	import { log } from '@guardian/libs';
+	import { log, setCookie } from '@guardian/libs';
 	import { onMount } from 'svelte';
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
@@ -103,6 +103,21 @@
 	});
 
 	onMount(async () => {
+		const isControl = false;
+		setCookie({
+			name: 'gu_client_ab_tests',
+			value: isControl
+				? 'identity-and-trust-us-banner:control'
+				: 'identity-and-trust-us-banner:variant',
+			isCrossSubdomain: true,
+		});
+
+		setCookie({
+			name: 'gu_country_region',
+			value: 'US-CA',
+			isCrossSubdomain: true,
+		});
+
 		cmp.init({
 			country: selectedCountry,
 			isUserSignedIn: isUserSignedIn,

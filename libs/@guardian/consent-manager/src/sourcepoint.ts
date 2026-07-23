@@ -1,4 +1,4 @@
-import { getCookie, log } from '@guardian/libs';
+import { log } from '@guardian/libs';
 import type { CountryCode } from '@guardian/libs';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
@@ -7,6 +7,7 @@ import {
 	isConsentOrPayCountry,
 	setIsConsentOrPay,
 } from './isConsentOrPay';
+import { getUsAbTestGroup, isUserInAbTest } from './lib/abtest';
 import { mark } from './lib/mark';
 import {
 	constructBannerMessageId,
@@ -325,11 +326,8 @@ export const init = (
 		);
 	}
 
-	const usAbTestCookie = getCookie({
-		name: 'gu_client_ab_tests',
-	});
-	const usAbTestGroup = usAbTestCookie?.split(':')[1];
-
+	const isInAbTest = isUserInAbTest();
+	const usAbTestGroup = getUsAbTestGroup();
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr, usnat, OR globalcmp
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// the appropriate consent API to the window object (__tcfapi for gdpr, __gpp for usnat, none for globalcmp).
@@ -350,7 +348,7 @@ export const init = (
 			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
-					...(usAbTestGroup && { abTestGroup: usAbTestGroup }),
+					...(isInAbTest && { abTestGroup: usAbTestGroup }),
 				},
 			};
 			break;
