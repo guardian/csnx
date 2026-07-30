@@ -31,5 +31,5 @@ export interface DisclaimerProps extends HTMLAttributes<HTMLDivElement>, Props {
 	 *  `backgroundPrimary` - bg colour of box<br>
 	 *  `linkPrimary` - primary colour of <a> tag text<br>
 	 */
-	theme: Partial<DisclaimerTheme>;
+	theme?: Partial<DisclaimerTheme>;
 }
