@@ -20,7 +20,14 @@ const themeGlobals = {
 };
 
 const disclaimerContent = (
-	<p style={{ marginInline: 'auto', width: 'fit-content' }}>
+	<p
+		style={{
+			marginInline: 'auto',
+			marginTop: 0,
+			marginBottom: 0,
+			width: 'fit-content',
+		}}
+	>
 		The Guardian’s journalism is independent. We will earn a commission if you
 		buy something through an affiliate link.&nbsp;
 		<a href="https://www.theguardian.com/info/2017/nov/01/reader-information-on-affiliate-links">
