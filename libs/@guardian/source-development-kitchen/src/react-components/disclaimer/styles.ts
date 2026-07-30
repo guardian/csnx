@@ -2,9 +2,7 @@ import { css } from '@emotion/react';
 import { textSans14 } from '@guardian/source/foundations';
 import { defaultDisclaimerTheme, type DisclaimerTheme } from './theme';
 
-export const defaultDisclaimerStyles = (
-	themeOverrides: Partial<DisclaimerTheme>,
-) => {
+export const disclaimerStyles = (themeOverrides: Partial<DisclaimerTheme>) => {
 	const theme = { ...defaultDisclaimerTheme, ...themeOverrides };
 	return css`
 		${textSans14};

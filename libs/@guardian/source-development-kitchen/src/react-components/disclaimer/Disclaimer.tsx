@@ -1,6 +1,6 @@
 import type { Props } from '@guardian/source/react-components';
 import type { HTMLAttributes } from 'react';
-import { defaultDisclaimerStyles } from './styles';
+import { disclaimerStyles } from './styles';
 import { type DisclaimerTheme } from './theme';
 
 /**
@@ -17,7 +17,7 @@ export const Disclaimer = ({
 	...props
 }: DisclaimerProps) => (
 	<aside
-		css={[defaultDisclaimerStyles(theme), cssOverrides]}
+		css={[disclaimerStyles(theme), cssOverrides]}
 		data-testid={affiliateDisclaimerId}
 		data-component={affiliateDisclaimerId}
 		{...props}
