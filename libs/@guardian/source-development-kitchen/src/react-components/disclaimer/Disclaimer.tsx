@@ -14,14 +14,14 @@ export const Disclaimer = ({
 }: DisclaimerProps) => (
 	<aside
 		css={[disclaimerStyles(theme), cssOverrides]}
-		data-testid={affiliateDisclaimerId}
-		data-component={affiliateDisclaimerId}
+		data-testid={disclaimerComponentId}
+		data-component={disclaimerComponentId}
 		{...props}
 	>
 		{children}
 	</aside>
 );
-const affiliateDisclaimerId = 'affiliate-disclaimer';
+const disclaimerComponentId = 'disclaimer-component';
 
 export interface DisclaimerProps extends HTMLAttributes<HTMLDivElement>, Props {
 	/**
