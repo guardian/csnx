@@ -434,6 +434,34 @@ install: check-node-version
 @guardian/prettier\:tsc: env
 	@corepack pnpm --filter @guardian/prettier tsc
 
+.PHONY: @guardian/pulse\:build
+@guardian/pulse\:build: env
+	@corepack pnpm --filter @guardian/pulse build
+
+.PHONY: @guardian/pulse\:dev
+@guardian/pulse\:dev: env
+	@corepack pnpm --filter @guardian/pulse dev
+
+.PHONY: @guardian/pulse\:fix
+@guardian/pulse\:fix: env
+	@corepack pnpm --filter @guardian/pulse fix
+
+.PHONY: @guardian/pulse\:lint
+@guardian/pulse\:lint: env
+	@corepack pnpm --filter @guardian/pulse lint
+
+.PHONY: @guardian/pulse\:test
+@guardian/pulse\:test: env
+	@corepack pnpm --filter @guardian/pulse test
+
+.PHONY: @guardian/pulse\:tsc
+@guardian/pulse\:tsc: env
+	@corepack pnpm --filter @guardian/pulse tsc
+
+.PHONY: @guardian/pulse\:verify-dist
+@guardian/pulse\:verify-dist: env
+	@corepack pnpm --filter @guardian/pulse verify-dist
+
 .PHONY: @guardian/react-crossword\:build
 @guardian/react-crossword\:build: env
 	@corepack pnpm --filter @guardian/react-crossword build
