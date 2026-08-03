@@ -23,7 +23,7 @@ export const Disclaimer = ({
 );
 const disclaimerComponentId = 'disclaimer-component';
 
-export interface DisclaimerProps extends HTMLAttributes<HTMLDivElement>, Props {
+export interface DisclaimerProps extends HTMLAttributes<HTMLElement>, Props {
 	/**
 	 * Partial or complete theme to override the component's colour palette.
 	 *
