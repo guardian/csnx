@@ -51,7 +51,7 @@ importers:
         version: 13.0.0(typescript@6.0.3)
       ts-jest:
         specifier: 29.4.11
-        version: 29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(jest-util@30.4.1)(jest@30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3)
+        version: 29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(esbuild@0.28.1)(jest-util@30.4.1)(jest@30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -150,7 +150,7 @@ importers:
     dependencies:
       jest:
         specifier: 30.4.2
-        version: 30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
+        version: 30.4.2(@types/node@25.8.0)(babel-plugin-macros@3.1.0)
 
   libs/@guardian/ab-core:
     devDependencies:
@@ -583,6 +583,15 @@ importers:
       '@guardian/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@terrazzo/cli':
+        specifier: ^2.5.0
+        version: 2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)
+      '@terrazzo/plugin-css':
+        specifier: ^2.5.0
+        version: 2.5.0(@terrazzo/cli@2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1))(@terrazzo/parser@2.5.0(yaml-to-momoa@0.0.9))
+      '@terrazzo/plugin-js':
+        specifier: ^2.5.0
+        version: 2.5.0(@terrazzo/cli@2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1))(@terrazzo/parser@2.5.0(yaml-to-momoa@0.0.9))
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -591,7 +600,7 @@ importers:
         version: 9.39.1
       jest:
         specifier: 30.4.2
-        version: 30.4.2(@types/node@25.8.0)(babel-plugin-macros@3.1.0)
+        version: 30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
       prettier:
         specifier: 3.8.0
         version: 3.8.0
@@ -600,7 +609,7 @@ importers:
         version: 4.62.2
       ts-jest:
         specifier: 29.4.11
-        version: 29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(esbuild@0.28.1)(jest-util@30.4.1)(jest@30.4.2(@types/node@25.8.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3)
+        version: 29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(esbuild@0.28.1)(jest-util@30.4.1)(jest@30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3)
       tslib:
         specifier: 2.8.1
         version: 2.8.1
@@ -1846,6 +1855,10 @@ packages:
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
     engines: {node: '>=12.22'}
 
+  '@humanwhocodes/momoa@3.3.10':
+    resolution: {integrity: sha512-KWiFQpSAqEIyrTXko3hFNLeQvSK8zXlJQzhhxsyVn58WFRYXST99b3Nqnu+ttOtjds2Pl2grUHGpe2NzhPynuQ==}
+    engines: {node: '>=18'}
+
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
@@ -2954,6 +2967,45 @@ packages:
     peerDependencies:
       '@svgr/core': '*'
 
+  '@terrazzo/cli@2.5.0':
+    resolution: {integrity: sha512-6pcapLrLyEsRfgnF3w93w3iqxyctelVg2WCO7+mhlR4Fl4VwkiTZm9WbNL5r5voI5R82RnmBd42cb2Y+bOBX5g==}
+    hasBin: true
+
+  '@terrazzo/json-schema-tools@0.2.2':
+    resolution: {integrity: sha512-4g+n4yG5XfqSJRMiH8wz+mTGibDavrGkxQ3s0gOrUsvYBHe9HU/j0ElW0PMYtR54+dcW8Tt9qpFSE7BfZcInmA==}
+    peerDependencies:
+      '@humanwhocodes/momoa': ^3.0.0
+      yaml-to-momoa: 0.0.9
+    peerDependenciesMeta:
+      yaml-to-momoa:
+        optional: true
+
+  '@terrazzo/parser@2.5.0':
+    resolution: {integrity: sha512-u8q7KDWJPXvcm3jOiTEBs1xCqNT8ZFu5QCN08YXeRhbekGe78JF+16c65p9y4t29Z6fN2fakc4bMCvGALlgIaQ==}
+    peerDependencies:
+      yaml-to-momoa: 0.0.9
+    peerDependenciesMeta:
+      yaml-to-momoa:
+        optional: true
+
+  '@terrazzo/plugin-css@2.5.0':
+    resolution: {integrity: sha512-Bbrd7+kjyZp1TANzcXLWI/5/3j2eEBW0NBJFkhDoHdc7uh1vSXg+ev3VMFq/ycrS9AkqFZ9NvcjDFc/ypoNPeA==}
+    peerDependencies:
+      '@terrazzo/cli': ^2.5.0
+      '@terrazzo/parser': ^2.5.0
+
+  '@terrazzo/plugin-js@2.5.0':
+    resolution: {integrity: sha512-nMcs7T+ttpkk0xUwV8uYVfJuvtkz9H3mp6qQXPDCLPN81W3MI09bii88aTSvxmmRYWPrPA/p0YCdgfjUq/X7yw==}
+    peerDependencies:
+      '@terrazzo/cli': ^2.5.0
+      '@terrazzo/parser': ^2.5.0
+
+  '@terrazzo/token-tools@2.5.0':
+    resolution: {integrity: sha512-CREnj4kmbskWugkNCA8SYFcjJmlNpXci2ft9U8GjLOdi5eNkWGjDSW5U3oxn+BQkm0mNjWrWBloyg/L6vzFnWA==}
+
+  '@terrazzo/token-types@2.5.0':
+    resolution: {integrity: sha512-KJIG2a20UbG1+fCCuh9TvmyJ5NjHrZ8byFAEiNNJ8FZZ1Ut0DTo4V2vJY1i62bEYRm1kkLd+PkRM7KjsU1JgxQ==}
+
   '@testing-library/dom@10.4.1':
     resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
     engines: {node: '>=18'}
@@ -2994,6 +3046,9 @@ packages:
 
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
+
+  '@types/babel__code-frame@7.27.0':
+    resolution: {integrity: sha512-Dwlo+LrxDx/0SpfmJ/BKveHf7QXWvLBLc+x03l5sbzykj3oB9nHygCpSECF1a+s+QIxbghe+KHqC90vGtxLRAA==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -3565,6 +3620,10 @@ packages:
     resolution: {integrity: sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==}
     engines: {node: '>=18'}
 
+  cac@7.0.0:
+    resolution: {integrity: sha512-tixWYgm5ZoOD+3g6UTea91eow5z6AAHaho3g0V9CNSNb45gM8SmflpAc+GRd1InC4AqN/07Unrgp56Y94N9hJQ==}
+    engines: {node: '>=20.19.0'}
+
   call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
     engines: {node: '>= 0.4'}
@@ -3682,6 +3741,9 @@ packages:
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
+
+  colorjs.io@0.6.1:
+    resolution: {integrity: sha512-8lyR2wHzuIykCpqHKgluGsqQi5iDm3/a2IgP2GBZrasn2sBRkE4NOGsglZxWLs/jZQoNkmA/KM/8NV16rLUdBg==}
 
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
@@ -3917,6 +3979,10 @@ packages:
     resolution: {integrity: sha512-qE3Veg1YXzGHQhlA6jzebZN2qVf6NX+A7m7qlhCGG30dJixrAQhYOsJjsnBjJkCSmuOPpCk30145fr8FV0bzog==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
+  detect-package-manager@3.0.2:
+    resolution: {integrity: sha512-8JFjJHutStYrfWwzfretQoyNGoZVW1Fsrp4JO9spa7h/fBfwgTMEIy4/LBzRDGsxwVPHU0q+T9YvwLDJoOApLQ==}
+    engines: {node: '>=12'}
+
   devalue@5.8.2:
     resolution: {integrity: sha512-DObPPAfdtFbXjxLqK8s2Xk9ZuWz5+ZoFEhC7J76es4GU/rEiXwHTmbImoCdyoCOcBH1UF3+Cz6Z2sYD4hyl5TA==}
 
@@ -3972,6 +4038,9 @@ packages:
   dset@3.1.4:
     resolution: {integrity: sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA==}
     engines: {node: '>=4'}
+
+  dtcg-examples@1.0.3:
+    resolution: {integrity: sha512-gKHpa3kLAYDP8g36sDtjG6oLQHrxfSYm5HW97QIwo4C6d0XnhU5H+N2q0j++uSMuCAxAu17JUG6Q6T5e2T6N0g==}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -4090,6 +4159,11 @@ packages:
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+
+  escodegen@2.1.0:
+    resolution: {integrity: sha512-2NlIDTwUWJN0mRPQOdtQBzbUHvdGY2P1VXSyU83Q3xKxM7WHX2Ql8dKq782Q9TgQUNOLEzEYu9bzLNj1q88I5w==}
+    engines: {node: '>=6.0'}
+    hasBin: true
 
   eslint-config-prettier@10.1.8:
     resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
@@ -4823,6 +4897,10 @@ packages:
     resolution: {integrity: sha512-mfcwb6IzQyOKTs84CQMrOwW4gQcaTOAWJ0zzJCl2WSPDrWk/OzDaImWFH3djXhb24g4eudZfLRozAvPGw4d9hQ==}
     engines: {node: '>= 0.4'}
 
+  is-what@4.1.16:
+    resolution: {integrity: sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==}
+    engines: {node: '>=12.13'}
+
   is-windows@1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
     engines: {node: '>=0.10.0'}
@@ -5260,12 +5338,20 @@ packages:
   mdn-data@2.27.1:
     resolution: {integrity: sha512-9Yubnt3e8A0OKwxYSXyhLymGW4sCufcLG6VdiDdUGVkPhpqLxlvP5vl1983gQjJl3tqbrM731mjaZaP68AgosQ==}
 
+  merge-anything@5.1.7:
+    resolution: {integrity: sha512-eRtbOb1N5iyH0tkQDAoQ4Ipsp/5qSR79Dzrz8hEPxRX10RWWR/iQXdoKmBSRCThY1Fh5EhISDtpSc93fpxUniQ==}
+    engines: {node: '>=12.13'}
+
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
+
+  meriyah@7.3.0:
+    resolution: {integrity: sha512-TFAu09uiyoLlx/aEhIZGmlDmycB8Orzml2lpNzwRhLip4a5WJiCxOEoQ8mF6zNhfGqbuI7baS+ZV/0Q9YUBzvw==}
+    engines: {node: '>=20.0.0'}
 
   micromark-util-character@2.1.1:
     resolution: {integrity: sha512-wv8tdUTJ3thSFFFJKtpYKOYiGP2+v96Hvk4Tu8KpCAsTMs6yi+nVmGh1syvSCsaxz45J6Jbw+9DD6g97+NV67Q==}
@@ -5289,6 +5375,11 @@ packages:
   mime@3.0.0:
     resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
     engines: {node: '>=10.0.0'}
+    hasBin: true
+
+  mime@4.1.0:
+    resolution: {integrity: sha512-X5ju04+cAzsojXKes0B/S4tcYtFAJ6tTMuSPBEn9CPGlrWr8Fiw7qYeLT0XyH80HSoAoqWCaz+MWKh22P7G1cw==}
+    engines: {node: '>=16'}
     hasBin: true
 
   mimic-fn@2.1.0:
@@ -6646,6 +6737,11 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
+  vite-node@6.0.0:
+    resolution: {integrity: sha512-oj4PVrT+pDh6GYf5wfUXkcZyekYS8kKPfLPXVl8qe324Ec6l4K2DUKNadRbZ3LQl0qGcDz+PyOo7ZAh00Y+JjQ==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    hasBin: true
+
   vite@7.3.3:
     resolution: {integrity: sha512-/4XH147Ui7OGTjg3HbdWe5arnZQSbfuRzdr9Ec7TQi5I7R+ir0Rlc9GIvD4v0XZurELqA035KVXJXpR61xhiTA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -6892,6 +6988,9 @@ packages:
     engines: {node: '>= 8'}
     hasBin: true
 
+  wildcard-match@5.1.4:
+    resolution: {integrity: sha512-wldeCaczs8XXq7hj+5d/F38JE2r7EXgb6WQDM84RVwxy81T/sxB5e9+uZLK9Q9oNz1mlvjut+QtvgaOQFPVq/g==}
+
   wireit@0.14.12:
     resolution: {integrity: sha512-gNSd+nZmMo6cuICezYXRIayu6TSOeCSCDzjSF0q6g8FKDsRbdqrONrSZYzdk/uBISmRcv4vZtsno6GyGvdXwGA==}
     engines: {node: '>=18.0.0'}
@@ -6955,6 +7054,9 @@ packages:
   yaml-language-server@1.19.2:
     resolution: {integrity: sha512-9F3myNmJzUN/679jycdMxqtydPSDRAarSj3wPiF7pchEPnO9Dg07Oc+gIYLqXR4L+g+FSEVXXv2+mr54StLFOg==}
     hasBin: true
+
+  yaml-to-momoa@0.0.9:
+    resolution: {integrity: sha512-HUsUaZv0yPTfwMQIYfGwuhNwqJXnT4vgdsuC1XJmP6PiGuzK3JXm1Mllz23bkca4h2Xq/i3hA5Hsmat1EAq9QQ==}
 
   yaml@1.10.3:
     resolution: {integrity: sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA==}
@@ -7134,7 +7236,7 @@ snapshots:
 
   '@astrojs/svelte@8.1.1(@types/node@25.8.0)(astro@7.1.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.8.0)(rollup@4.62.2)(tsx@4.23.1)(yaml@2.9.0))(lightningcss@1.33.0)(svelte@5.56.7(@typescript-eslint/types@8.59.3))(tsx@4.23.1)(typescript@6.0.3)(yaml@2.9.0)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@8.1.5(@types/node@25.8.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0))
+      '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))
       astro: 7.1.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.8.0)(rollup@4.62.2)(tsx@4.23.1)(yaml@2.9.0)
       svelte: 5.56.7(@typescript-eslint/types@8.59.3)
       svelte2tsx: 0.7.55(svelte@5.56.7(@typescript-eslint/types@8.59.3))(typescript@6.0.3)
@@ -8015,6 +8117,8 @@ snapshots:
       '@humanwhocodes/retry': 0.4.3
 
   '@humanwhocodes/module-importer@1.0.1': {}
+
+  '@humanwhocodes/momoa@3.3.10': {}
 
   '@humanwhocodes/retry@0.4.3': {}
 
@@ -9058,21 +9162,21 @@ snapshots:
     dependencies:
       acorn: 8.17.0
 
-  '@sveltejs/vite-plugin-svelte-inspector@5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0)))(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))':
+  '@sveltejs/vite-plugin-svelte-inspector@5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@8.1.5(@types/node@25.8.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0)))(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@8.1.5(@types/node@25.8.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0))
+      '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))
       obug: 2.1.4
       svelte: 5.56.7(@typescript-eslint/types@8.59.3)
       vite: 7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0)
 
-  '@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@8.1.5(@types/node@25.8.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0))':
+  '@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0)))(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))
+      '@sveltejs/vite-plugin-svelte-inspector': 5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@8.1.5(@types/node@25.8.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0)))(svelte@5.56.7(@typescript-eslint/types@8.59.3))(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))
       deepmerge: 4.3.1
       magic-string: 0.30.21
       obug: 2.1.4
       svelte: 5.56.7(@typescript-eslint/types@8.59.3)
-      vite: 8.1.5(@types/node@25.8.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0)
+      vite: 7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0)
       vitefu: 1.1.3(vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0))
 
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0(@babel/core@7.29.6)':
@@ -9160,6 +9264,82 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
+  '@terrazzo/cli@2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)':
+    dependencies:
+      '@clack/prompts': 1.7.0
+      '@humanwhocodes/momoa': 3.3.10
+      '@terrazzo/json-schema-tools': 0.2.2(@humanwhocodes/momoa@3.3.10)(yaml-to-momoa@0.0.9)
+      '@terrazzo/parser': 2.5.0(yaml-to-momoa@0.0.9)
+      '@terrazzo/token-tools': 2.5.0
+      chokidar: 5.0.0
+      detect-package-manager: 3.0.2
+      dtcg-examples: 1.0.3
+      escodegen: 2.1.0
+      merge-anything: 5.1.7
+      meriyah: 7.3.0
+      mime: 4.1.0
+      picocolors: 1.1.1
+      scule: 1.3.0
+      vite: 8.1.5(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0)
+      vite-node: 6.0.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0)
+      yaml: 2.9.0
+      yaml-to-momoa: 0.0.9
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@vitejs/devtools'
+      - esbuild
+      - jiti
+      - less
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+
+  '@terrazzo/json-schema-tools@0.2.2(@humanwhocodes/momoa@3.3.10)(yaml-to-momoa@0.0.9)':
+    dependencies:
+      '@humanwhocodes/momoa': 3.3.10
+    optionalDependencies:
+      yaml-to-momoa: 0.0.9
+
+  '@terrazzo/parser@2.5.0(yaml-to-momoa@0.0.9)':
+    dependencies:
+      '@humanwhocodes/momoa': 3.3.10
+      '@terrazzo/json-schema-tools': 0.2.2(@humanwhocodes/momoa@3.3.10)(yaml-to-momoa@0.0.9)
+      '@terrazzo/token-tools': 2.5.0
+      '@terrazzo/token-types': 2.5.0
+      '@types/babel__code-frame': 7.27.0
+      colorjs.io: 0.6.1
+      fast-deep-equal: 3.1.3
+      merge-anything: 5.1.7
+      picocolors: 1.1.1
+      scule: 1.3.0
+    optionalDependencies:
+      yaml-to-momoa: 0.0.9
+
+  '@terrazzo/plugin-css@2.5.0(@terrazzo/cli@2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1))(@terrazzo/parser@2.5.0(yaml-to-momoa@0.0.9))':
+    dependencies:
+      '@terrazzo/cli': 2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)
+      '@terrazzo/parser': 2.5.0(yaml-to-momoa@0.0.9)
+      '@terrazzo/token-tools': 2.5.0
+
+  '@terrazzo/plugin-js@2.5.0(@terrazzo/cli@2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1))(@terrazzo/parser@2.5.0(yaml-to-momoa@0.0.9))':
+    dependencies:
+      '@terrazzo/cli': 2.5.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)
+      '@terrazzo/parser': 2.5.0(yaml-to-momoa@0.0.9)
+      '@terrazzo/token-types': 2.5.0
+      scule: 1.3.0
+
+  '@terrazzo/token-tools@2.5.0':
+    dependencies:
+      '@humanwhocodes/momoa': 3.3.10
+      '@terrazzo/token-types': 2.5.0
+      colorjs.io: 0.6.1
+      wildcard-match: 5.1.4
+
+  '@terrazzo/token-types@2.5.0': {}
+
   '@testing-library/dom@10.4.1':
     dependencies:
       '@babel/code-frame': 7.29.7
@@ -9210,6 +9390,8 @@ snapshots:
     optional: true
 
   '@types/aria-query@5.0.4': {}
+
+  '@types/babel__code-frame@7.27.0': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -9921,6 +10103,8 @@ snapshots:
     dependencies:
       run-applescript: 7.1.0
 
+  cac@7.0.0: {}
+
   call-bind-apply-helpers@1.0.2:
     dependencies:
       es-errors: 1.3.0
@@ -10028,6 +10212,8 @@ snapshots:
   color-name@1.1.4: {}
 
   colorette@2.0.20: {}
+
+  colorjs.io@0.6.1: {}
 
   comma-separated-tokens@2.0.3: {}
 
@@ -10248,6 +10434,10 @@ snapshots:
 
   detect-newline@4.0.1: {}
 
+  detect-package-manager@3.0.2:
+    dependencies:
+      execa: 5.1.1
+
   devalue@5.8.2: {}
 
   devlop@1.1.0:
@@ -10300,6 +10490,8 @@ snapshots:
   dotenv@17.4.2: {}
 
   dset@3.1.4: {}
+
+  dtcg-examples@1.0.3: {}
 
   dunder-proto@1.0.1:
     dependencies:
@@ -10528,6 +10720,14 @@ snapshots:
   escape-string-regexp@2.0.0: {}
 
   escape-string-regexp@4.0.0: {}
+
+  escodegen@2.1.0:
+    dependencies:
+      esprima: 4.0.1
+      estraverse: 5.3.0
+      esutils: 2.0.3
+    optionalDependencies:
+      source-map: 0.6.1
 
   eslint-config-prettier@10.1.8(eslint@9.39.1):
     dependencies:
@@ -11364,6 +11564,8 @@ snapshots:
       call-bound: 1.0.4
       get-intrinsic: 1.3.0
 
+  is-what@4.1.16: {}
+
   is-windows@1.0.2: {}
 
   is-wsl@3.1.1:
@@ -12049,9 +12251,15 @@ snapshots:
 
   mdn-data@2.27.1: {}
 
+  merge-anything@5.1.7:
+    dependencies:
+      is-what: 4.1.16
+
   merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
+
+  meriyah@7.3.0: {}
 
   micromark-util-character@2.1.1:
     dependencies:
@@ -12076,6 +12284,8 @@ snapshots:
       picomatch: 2.3.2
 
   mime@3.0.0: {}
+
+  mime@4.1.0: {}
 
   mimic-fn@2.1.0: {}
 
@@ -13357,6 +13567,27 @@ snapshots:
 
   ts-dedent@2.2.0: {}
 
+  ts-jest@29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(esbuild@0.28.1)(jest-util@30.4.1)(jest@30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3):
+    dependencies:
+      bs-logger: 0.2.6
+      fast-json-stable-stringify: 2.1.0
+      handlebars: 4.7.9
+      jest: 30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
+      json5: 2.2.3
+      lodash.memoize: 4.1.2
+      make-error: 1.3.6
+      semver: 7.8.5
+      type-fest: 4.41.0
+      typescript: 6.0.3
+      yargs-parser: 21.1.1
+    optionalDependencies:
+      '@babel/core': 7.29.6
+      '@jest/transform': 30.4.1
+      '@jest/types': 30.4.1
+      babel-jest: 30.4.1(@babel/core@7.29.6)
+      esbuild: 0.28.1
+      jest-util: 30.4.1
+
   ts-jest@29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(esbuild@0.28.1)(jest-util@30.4.1)(jest@30.4.2(@types/node@25.8.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3):
     dependencies:
       bs-logger: 0.2.6
@@ -13376,26 +13607,6 @@ snapshots:
       '@jest/types': 30.4.1
       babel-jest: 30.4.1(@babel/core@7.29.6)
       esbuild: 0.28.1
-      jest-util: 30.4.1
-
-  ts-jest@29.4.11(@babel/core@7.29.6)(@jest/transform@30.4.1)(@jest/types@30.4.1)(babel-jest@30.4.1(@babel/core@7.29.6))(jest-util@30.4.1)(jest@30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0))(typescript@6.0.3):
-    dependencies:
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      handlebars: 4.7.9
-      jest: 30.4.2(@types/node@24.11.0)(babel-plugin-macros@3.1.0)
-      json5: 2.2.3
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.8.5
-      type-fest: 4.41.0
-      typescript: 6.0.3
-      yargs-parser: 21.1.1
-    optionalDependencies:
-      '@babel/core': 7.29.6
-      '@jest/transform': 30.4.1
-      '@jest/types': 30.4.1
-      babel-jest: 30.4.1(@babel/core@7.29.6)
       jest-util: 30.4.1
 
   ts-toolbelt@9.6.0: {}
@@ -13648,6 +13859,27 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
+  vite-node@6.0.0(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0):
+    dependencies:
+      cac: 7.0.0
+      es-module-lexer: 2.3.1
+      obug: 2.1.4
+      pathe: 2.0.3
+      vite: 8.1.5(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@vitejs/devtools'
+      - esbuild
+      - jiti
+      - less
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - terser
+      - tsx
+      - yaml
+
   vite@7.3.3(@types/node@25.8.0)(lightningcss@1.33.0)(tsx@4.23.1)(yaml@2.9.0):
     dependencies:
       esbuild: 0.27.7
@@ -13660,6 +13892,20 @@ snapshots:
       '@types/node': 25.8.0
       fsevents: 2.3.3
       lightningcss: 1.33.0
+      tsx: 4.23.1
+      yaml: 2.9.0
+
+  vite@8.1.5(@types/node@24.11.0)(esbuild@0.28.1)(tsx@4.23.1)(yaml@2.9.0):
+    dependencies:
+      lightningcss: 1.33.0
+      picomatch: 4.0.5
+      postcss: 8.5.21
+      rolldown: 1.1.5
+      tinyglobby: 0.2.17
+    optionalDependencies:
+      '@types/node': 24.11.0
+      esbuild: 0.28.1
+      fsevents: 2.3.3
       tsx: 4.23.1
       yaml: 2.9.0
 
@@ -13865,6 +14111,8 @@ snapshots:
     dependencies:
       isexe: 2.0.0
 
+  wildcard-match@5.1.4: {}
+
   wireit@0.14.12:
     dependencies:
       brace-expansion: 4.0.1
@@ -13926,6 +14174,11 @@ snapshots:
       vscode-languageserver-types: 3.17.5
       vscode-uri: 3.1.0
       yaml: 2.7.1
+
+  yaml-to-momoa@0.0.9:
+    dependencies:
+      '@humanwhocodes/momoa': 3.3.10
+      yaml: 2.9.0
 
   yaml@1.10.3: {}
 

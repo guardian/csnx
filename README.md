@@ -180,6 +180,7 @@ Project-specific tasks are defined as `scripts` in their `package.json`, and can
 #### @guardian/pulse
 
 - `make @guardian/pulse:build`
+- `make @guardian/pulse:build-tokens`
 - `make @guardian/pulse:dev`
 - `make @guardian/pulse:fix`
 - `make @guardian/pulse:lint`

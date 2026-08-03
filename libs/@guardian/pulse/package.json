@@ -20,6 +20,7 @@
 	],
 	"scripts": {
 		"build": "wireit",
+		"build-tokens": "wireit",
 		"dev": "jest --watch",
 		"fix": "wireit",
 		"lint": "wireit",
@@ -29,6 +30,9 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
+		"@terrazzo/cli": "^2.5.0",
+		"@terrazzo/plugin-css": "^2.5.0",
+		"@terrazzo/plugin-js": "^2.5.0",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
 		"jest": "30.4.2",
@@ -63,6 +67,15 @@
 			],
 			"output": [
 				"dist"
+			]
+		},
+		"build-tokens": {
+			"command": "tz build",
+			"files": [
+				"./tokens/**"
+			],
+			"output": [
+				"./dist"
 			]
 		},
 		"fix": {
