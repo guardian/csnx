@@ -9,7 +9,6 @@ export const disclaimerStyles = (
 	const theme = { ...defaultDisclaimerTheme, ...themeOverrides };
 	return css`
 		${textSans14};
-		width: 100%;
 		padding: ${space[2]}px 10px 10px 10px;
 		background-color: ${theme.backgroundPrimary};
 		color: ${theme.textPrimary};
