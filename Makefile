@@ -454,6 +454,10 @@ install: check-node-version
 @guardian/pulse\:lint: env
 	@corepack pnpm --filter @guardian/pulse lint
 
+.PHONY: @guardian/pulse\:lint-tokens
+@guardian/pulse\:lint-tokens: env
+	@corepack pnpm --filter @guardian/pulse lint-tokens
+
 .PHONY: @guardian/pulse\:test
 @guardian/pulse\:test: env
 	@corepack pnpm --filter @guardian/pulse test

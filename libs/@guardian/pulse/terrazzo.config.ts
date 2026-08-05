@@ -1,10 +1,42 @@
 import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
+import cssInJs from '@terrazzo/plugin-css-in-js';
 import js from '@terrazzo/plugin-js';
 
+const variableName = (token: { id: string }) =>
+	`--pulse-${token.id.replace(/\./g, '-')}`;
+
 export default defineConfig({
-	tokens: ['tokens/colour.json'],
-	plugins: [css(), js()],
+	tokens: ['tokens/pulse.resolver.json'],
+	plugins: [
+		css({
+			filename: 'colour.css',
+			include: ['colour.**'],
+			variableName,
+		}),
+		css({
+			filename: 'padding.css',
+			include: ['padding.**'],
+			variableName,
+		}),
+		css({
+			filename: 'radius.css',
+			include: ['radius.**'],
+			variableName,
+		}),
+		css({
+			filename: 'space.css',
+			include: ['space.**'],
+			variableName,
+		}),
+		css({
+			filename: 'typography.css',
+			include: ['typography.**'],
+			variableName,
+		}),
+		cssInJs(),
+		js(),
+	],
 	outDir: './dist/',
 	lint: {
 		build: { enabled: true },

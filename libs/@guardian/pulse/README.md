@@ -12,4 +12,11 @@ $ npm install @guardian/pulse
 
 ## Usage
 
-This project is a placeholder for now
+### Terrazzo (WIP)
+
+Building and linting design tokens:
+
+```sh
+$ make @guardian/pulse:build-tokens
+$ make @guardian/pulse:lint-tokens
+```
