@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 13.1.0
+
+### Minor Changes
+
+- fe522f8: Add new error, success and informative utility
+
 ## 13.0.0
 
 ### Major Changes

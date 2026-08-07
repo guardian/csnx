@@ -24,7 +24,7 @@ const SwatchLabelStyles = css`
 	font-size: 12px;
 	line-height: 1;
 	overflow: hidden;
-	color: #33333399;
+	color: #333333;
 
 	div {
 		display: inline-block;
@@ -110,7 +110,7 @@ const ListHeadingStyles = css`
 	align-items: center;
 	padding-bottom: 20px;
 	font-weight: 700;
-	color: #33333399;
+	color: #333333;
 	font-size: 14px;
 `;
 
