@@ -18,7 +18,7 @@ export default defineConfig({
 			include: ['typography.semantic.**'],
 		}),
 	],
-	outDir: './dist/',
+	outDir: './dist/terrazzo',
 	lint: {
 		build: { enabled: true },
 		rules: {
