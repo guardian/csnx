@@ -14,7 +14,8 @@ export default defineConfig({
 			variableName,
 		}),
 		typography({
-			filename: 'typography.js',
+			filename: 'typography.ts',
+			include: ['typography.semantic.**'],
 		}),
 	],
 	outDir: './dist/',

@@ -2,24 +2,34 @@
 	"$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
 	"name": "Guardian Pulse",
 	"version": "2025.10",
-	"resolutionOrder": [{ "$ref": "#/sets/base" }],
+	"resolutionOrder": [
+		{ "$ref": "#/sets/primitive" },
+		{ "$ref": "#/sets/semantic" }
+	],
 	"sets": {
-		"base": {
+		"primitive": {
 			"sources": [
 				{
-					"$ref": "./primitives/colour.tokens.json"
+					"$ref": "./primitive/colour.tokens.json"
 				},
 				{
-					"$ref": "./primitives/padding.tokens.json"
+					"$ref": "./primitive/padding.tokens.json"
 				},
 				{
-					"$ref": "./primitives/radius.tokens.json"
+					"$ref": "./primitive/radius.tokens.json"
 				},
 				{
-					"$ref": "./primitives/space.tokens.json"
+					"$ref": "./primitive/space.tokens.json"
 				},
 				{
-					"$ref": "./primitives/typography.tokens.json"
+					"$ref": "./primitive/typography.tokens.json"
+				}
+			]
+		},
+		"semantic": {
+			"sources": [
+				{
+					"$ref": "./semantic/typography.tokens.json"
 				}
 			]
 		}

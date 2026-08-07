@@ -1,37 +1,34 @@
 import type { Plugin, TokenTransformed } from '@terrazzo/parser';
 import { FORMAT_ID as FORMAT_CSS } from '@terrazzo/plugin-css';
-import { CachedWildcardMatcher } from '@terrazzo/token-tools';
 import { camelCase } from 'scule';
 
 export interface TypographyOptions {
 	/**
 	 * Name the output file.
-	 * @default "typography.js"
+	 * @default "typography.ts"
 	 */
 	filename?: string;
+	/**
+	 * IDs of tokens to include in output
+	 */
+	include?: string | string[];
 }
 
 const PLUGIN_NAME = 'typography';
 
 export default function typography({
-	filename = 'typography.js',
+	filename = 'typography.ts',
+	include,
 }: TypographyOptions = {}): Plugin {
 	return {
 		name: PLUGIN_NAME,
 		async build({ context, getTransforms, outputFile }) {
-			const css = getTransforms({ format: FORMAT_CSS });
+			const css = getTransforms({ format: FORMAT_CSS, id: include });
 			const tokens = {} as any;
-
-			const cachedMatcher = new CachedWildcardMatcher();
-			const include = cachedMatcher.tokenIDMatch(['typographyPresets.**']);
 
 			// 1. Get base groups
 			css.sort(alphaComparator);
 			for (const token of css) {
-				if (!include(token.id)) {
-					continue;
-				}
-
 				if (!token.localID) {
 					context.logger.warn({
 						group: 'plugin',
@@ -100,20 +97,23 @@ export default function typography({
 			});
 
 			// 3. second pass: build output
+			// TODO: flatten to single level so we don't have to assume structure
 			let js = '';
-			let dts = '';
-			for (const group of Object.keys(tokens)) {
-				js += `export const ${jsIdent(group)} = ${JSON.stringify(tokens[group], undefined, 2)};\n`;
-				dts += `export const ${jsIdent(group)}: ${JSON.stringify(tokens[group], undefined, 2).replaceAll(/"var\(--[^)]+\)"/g, 'string')};\n`;
+			for (const parentGroup of Object.keys(tokens)) {
+				for (const group of Object.keys(tokens[parentGroup])) {
+					for (const typography of Object.keys(tokens[parentGroup][group])) {
+						js += `export const ${jsIdent(typography)} = \`\n`;
+						js += `  font-family: ${tokens[parentGroup][group][typography].fontFamily};\n`;
+						js += `  font-size: ${tokens[parentGroup][group][typography].fontSize};\n`;
+						js += `  line-height: ${tokens[parentGroup][group][typography].lineHeight};\n`;
+						js += `  font-weight: ${tokens[parentGroup][group][typography].fontWeight};\n`;
+						js += `  letter-spacing: ${tokens[parentGroup][group][typography].letterSpacing};\n`;
+						js += `\`;\n`;
+					}
+				}
 			}
 
 			outputFile(filename, js);
-
-			const dtsFilename =
-				typeof filename === 'string'
-					? filename.replace(/\.(c|m)?js$/, '.d.$1ts')
-					: 'vars.d.ts';
-			outputFile(dtsFilename, dts);
 		},
 	};
 }
