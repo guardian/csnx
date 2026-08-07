@@ -23,6 +23,7 @@ it('Should have exactly these exports', () => {
 	expect(Object.keys(pkgExports).sort()).toEqual([
 		'AgeWarning',
 		'DashedLines',
+		'Disclaimer',
 		'Divider',
 		'DottedLines',
 		'ErrorSummary',
