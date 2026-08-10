@@ -351,3 +351,6 @@ export {
 	themeUserFeedbackBrand,
 } from './user-feedback/theme';
 export type { ThemeUserFeedback } from './user-feedback/theme';
+
+export { Disclaimer } from './disclaimer/Disclaimer';
+export type { DisclaimerProps } from './disclaimer/Disclaimer';
