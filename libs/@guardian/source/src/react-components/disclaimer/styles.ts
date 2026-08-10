@@ -1,6 +1,6 @@
 import type { SerializedStyles } from '@emotion/react';
 import { css } from '@emotion/react';
-import { space, textSans14 } from '@guardian/source/foundations';
+import { space, textSans14 } from '../../foundations';
 import { defaultDisclaimerTheme, type DisclaimerTheme } from './theme';
 
 export const disclaimerStyles = (

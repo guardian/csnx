@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import type { Props } from '@guardian/source/react-components';
+import type { Props } from '../@types/Props';
 import { disclaimerStyles } from './styles';
 import { type DisclaimerTheme } from './theme';
 
