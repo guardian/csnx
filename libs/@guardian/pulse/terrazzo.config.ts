@@ -1,7 +1,7 @@
+/* eslint-disable import/no-default-export -- Terrazzo expects config as default export */
 import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
-import cssInJs from '@terrazzo/plugin-css-in-js';
-import typography from './terrazzo/plugins/typgraphy';
+import typography from './terrazzo/plugins/typography';
 
 const variableName = (token: { id: string }) =>
 	`--pulse-${token.id.replace(/\./g, '-')}`;
