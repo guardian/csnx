@@ -65,3 +65,6 @@ export type { TickerSettings } from './ticker/Ticker';
 
 export { Popover } from './popover/Popover';
 export type { PopoverProps } from './popover/Popover';
+
+export { Disclaimer } from './disclaimer/Disclaimer';
+export type { DisclaimerProps } from './disclaimer/Disclaimer';
