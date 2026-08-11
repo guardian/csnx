@@ -1,5 +1,5 @@
+import { palette } from '@guardian/source/foundations';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { palette } from '../../foundations';
 import { Disclaimer } from './Disclaimer';
 
 const meta: Meta<typeof Disclaimer> = {

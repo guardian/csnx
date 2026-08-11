@@ -1,4 +1,4 @@
-import { palette } from '../../foundations';
+import { palette } from '@guardian/source/foundations';
 
 export type DisclaimerTheme = {
 	textPrimary: string;
