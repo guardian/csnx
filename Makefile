@@ -438,6 +438,14 @@ install: check-node-version
 @guardian/pulse\:build: env
 	@corepack pnpm --filter @guardian/pulse build
 
+.PHONY: @guardian/pulse\:build-tokens
+@guardian/pulse\:build-tokens: env
+	@corepack pnpm --filter @guardian/pulse build-tokens
+
+.PHONY: @guardian/pulse\:build-tokens-sd
+@guardian/pulse\:build-tokens-sd: env
+	@corepack pnpm --filter @guardian/pulse build-tokens-sd
+
 .PHONY: @guardian/pulse\:dev
 @guardian/pulse\:dev: env
 	@corepack pnpm --filter @guardian/pulse dev
@@ -449,6 +457,10 @@ install: check-node-version
 .PHONY: @guardian/pulse\:lint
 @guardian/pulse\:lint: env
 	@corepack pnpm --filter @guardian/pulse lint
+
+.PHONY: @guardian/pulse\:lint-tokens
+@guardian/pulse\:lint-tokens: env
+	@corepack pnpm --filter @guardian/pulse lint-tokens
 
 .PHONY: @guardian/pulse\:test
 @guardian/pulse\:test: env

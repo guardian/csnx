@@ -12,4 +12,23 @@ $ npm install @guardian/pulse
 
 ## Usage
 
-This project is a placeholder for now
+### Terrazzo
+
+Building and linting design tokens:
+
+```sh
+$ make @guardian/pulse:build-tokens
+$ make @guardian/pulse:lint-tokens
+```
+
+Generated CSS and JS artefacts are output to `/dist/terrazzo/`
+
+### Style Dictionary
+
+Building design tokens:
+
+```sh
+$ make @guardian/pulse:build-tokens-sd
+```
+
+Generated CSS and JS artefacts are output to `/dist/sd/`

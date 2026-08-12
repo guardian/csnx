@@ -1,0 +1,14 @@
+{
+	"typography": {
+		"semantic": {
+			"headline": {
+				"$type": "typography",
+				"$value": "{typography.preset.headlineMedium42}"
+			},
+			"display": {
+				"$type": "typography",
+				"$value": "{typography.preset.article17}"
+			}
+		}
+	}
+}
