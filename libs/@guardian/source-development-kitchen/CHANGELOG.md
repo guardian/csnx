@@ -1,5 +1,11 @@
 # @guardian/source-development-kitchen
 
+## 29.1.0
+
+### Minor Changes
+
+- 15ae29b: Add new Disclaimer component
+
 ## 29.0.1
 
 ### Patch Changes
