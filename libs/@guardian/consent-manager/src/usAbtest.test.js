@@ -2,7 +2,7 @@ import {
 	getUsAbTestGroup,
 	isInUsStateForAbTest,
 	isUserInAbTest,
-} from './abtest.ts';
+} from './usAbtest.ts';
 
 const mockGetCookie = jest.fn();
 
@@ -14,7 +14,7 @@ beforeEach(() => {
 	mockGetCookie.mockReset();
 });
 
-describe('abtest', () => {
+describe('usAbtest', () => {
 	describe('isInUsStateForAbTest', () => {
 		it('returns true when the geo region cookie contains a supported US state', () => {
 			mockGetCookie.mockReturnValue('US-CA');
@@ -64,7 +64,7 @@ describe('abtest', () => {
 	describe('isUserInAbTest', () => {
 		it('returns true when the user is in a supported US state and is in the control ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
-				if (name === 'GU_geo_region') {
+				if (name === 'GU_geo_country_region') {
 					return 'US-CA';
 				}
 				if (name === 'gu_client_ab_tests') {
@@ -77,7 +77,7 @@ describe('abtest', () => {
 
 		it('returns true when the user is in a supported US state and is in the variant-1 ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
-				if (name === 'GU_geo_region') {
+				if (name === 'GU_geo_country_region') {
 					return 'US-CA';
 				}
 				if (name === 'gu_client_ab_tests') {
@@ -90,7 +90,7 @@ describe('abtest', () => {
 
 		it('returns true when the user is in a supported US state and is in the variant-2 ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
-				if (name === 'GU_geo_region') {
+				if (name === 'GU_geo_country_region') {
 					return 'US-CA';
 				}
 				if (name === 'gu_client_ab_tests') {
@@ -103,7 +103,7 @@ describe('abtest', () => {
 
 		it('returns false when the user is in a supported US state but has no ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
-				if (name === 'GU_geo_region') {
+				if (name === 'GU_geo_country_region') {
 					return 'US-CA';
 				}
 				if (name === 'gu_client_ab_tests') {
@@ -116,7 +116,7 @@ describe('abtest', () => {
 
 		it('returns false when the user has an ab test group but is not in a supported US state', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
-				if (name === 'GU_geo_region') {
+				if (name === 'GU_geo_country_region') {
 					return 'US-NY';
 				}
 				if (name === 'gu_client_ab_tests') {

@@ -2,7 +2,7 @@ import { getCookie } from '@guardian/libs';
 
 const AB_TEST_COOKIE_NAME = 'gu_client_ab_tests';
 const AB_TEST_GROUP_PREFIX = 'identity-and-trust-us-banner:';
-const AB_TEST_GEO_REGION_COOKIE = 'GU_geo_region';
+const AB_TEST_GEO_REGION_COOKIE = 'GU_geo_country_region';
 const AB_TEST_US_STATES = ['CA']; // Add more US states here if needed
 
 export const isInUsStateForAbTest = (): boolean => {

@@ -1,6 +1,6 @@
 import { log } from '@guardian/libs';
 import type { CountryCode } from '@guardian/libs';
-import { getUsAbTestGroup, isUserInAbTest } from './abtest';
+import { getUsAbTestGroup, isUserInAbTest } from './usAbtest';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import {
