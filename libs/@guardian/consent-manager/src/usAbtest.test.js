@@ -2,7 +2,7 @@ import {
 	getUsAbTestGroup,
 	isInUsStateForAbTest,
 	isUserInAbTest,
-} from './abtest.ts';
+} from './usAbtest.ts';
 
 const mockGetCookie = jest.fn();
 
