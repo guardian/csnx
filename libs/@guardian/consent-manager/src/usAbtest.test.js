@@ -2,7 +2,7 @@ import {
 	getUsAbTestGroup,
 	isInUsStateForAbTest,
 	isUserInAbTest,
-} from './abtest.ts';
+} from './usAbtest.ts';
 
 const mockGetCookie = jest.fn();
 
@@ -14,7 +14,7 @@ beforeEach(() => {
 	mockGetCookie.mockReset();
 });
 
-describe('abtest', () => {
+describe('usAbtest', () => {
 	describe('isInUsStateForAbTest', () => {
 		it('returns true when the geo region cookie contains a supported US state', () => {
 			mockGetCookie.mockReturnValue('US-CA');
