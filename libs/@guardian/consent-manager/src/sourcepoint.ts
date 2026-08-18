@@ -1,6 +1,5 @@
 import { log } from '@guardian/libs';
 import type { CountryCode } from '@guardian/libs';
-import { getUsAbTestGroup, isUserInAbTest } from './abtest';
 import { isExcludedFromCMP } from './exclusionList';
 import { setCurrentFramework } from './getCurrentFramework';
 import {
@@ -33,6 +32,7 @@ import { getSourcepointAppliedConsentFramework } from './sourcepointGeolocation'
 import { loadStubsFor } from './stub';
 import type { ConsentFramework, SourcepointConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
+import { getUsAbTestGroup, isUserInAbTest } from './usAbtest';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
