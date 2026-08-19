@@ -60,6 +60,7 @@ declare global {
 				usnat?: {
 					targetingParams?: {
 						framework: ConsentFramework;
+						abTestGroup?: string;
 					};
 				};
 				pubData: PubData;
