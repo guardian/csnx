@@ -1,1 +1,0 @@
-export { palette } from './palette';
