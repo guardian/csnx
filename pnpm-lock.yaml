@@ -729,6 +729,9 @@ importers:
       '@guardian/libs':
         specifier: workspace:*
         version: link:../libs
+      '@guardian/pulse':
+        specifier: workspace:*
+        version: link:../pulse
       '@storybook/addon-a11y':
         specifier: 10.4.0
         version: 10.4.0(storybook@10.4.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@testing-library/dom@10.4.1)(@types/react@18.2.79)(prettier@3.8.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
