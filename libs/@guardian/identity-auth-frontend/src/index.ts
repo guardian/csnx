@@ -103,5 +103,3 @@ export const getIdentityAuth = () => {
 
 	return window.guardian.identityAuth;
 };
-
-// FAKE CHANGE: To test why Chromatic is not rebuilding the storybook when a change is made to a file that is not in the storybook folder. This change should not be merged.
