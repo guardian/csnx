@@ -1,0 +1,22 @@
+{
+	"mode": {
+		"color": {
+			"fill": {
+				"bg": {
+					"$type": "color",
+					"$value": "{brand.color.fill.bg.dark}"
+				},
+				"primary": {
+					"$type": "color",
+					"$value": "{brand.color.fill.primary.dark}"
+				}
+			},
+			"text": {
+				"primary": {
+					"$type": "color",
+					"$value": "{brand.color.text.primary.dark}"
+				}
+			}
+		}
+	}
+}

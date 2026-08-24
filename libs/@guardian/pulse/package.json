@@ -1,0 +1,132 @@
+{
+	"name": "@guardian/pulse",
+	"version": "0.0.0",
+	"repository": {
+		"url": "https://github.com/guardian/csnx",
+		"directory": "libs/@guardian/pulse"
+	},
+	"license": "Apache-2.0",
+	"sideEffects": [
+		"./dist/pulse.css"
+	],
+	"type": "module",
+	"exports": {
+		".": null,
+		"./pulse.css": "./dist/pulse.css"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "wireit",
+		"dev": "jest --watch --passWithNoTests",
+		"fix": "wireit",
+		"lint": "wireit",
+		"test": "wireit",
+		"tsc": "wireit",
+		"verify-dist": "wireit"
+	},
+	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
+		"@terrazzo/cli": "2.7.1",
+		"@terrazzo/plugin-css": "2.7.1",
+		"@types/jest": "30.0.0",
+		"eslint": "9.39.1",
+		"jest": "30.4.2",
+		"prettier": "3.8.0",
+		"rollup": "4.62.2",
+		"ts-jest": "29.4.11",
+		"tslib": "2.8.1",
+		"typescript": "6.0.3",
+		"wireit": "0.14.12"
+	},
+	"peerDependencies": {
+		"tslib": "^2.8.1",
+		"typescript": "~6.0.3"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"wireit": {
+		"build": {
+			"command": "tz build",
+			"files": [
+				"pulse.resolver.json",
+				"src/tokens/**",
+				"package.json",
+				"terrazzo.config.ts"
+			],
+			"output": [
+				"dist/**"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"clean": false,
+			"output": [
+				"."
+			]
+		},
+		"lint": {
+			"command": "tz lint",
+			"files": [
+				"pulse.resolver.json",
+				"src/tokens/**",
+				"terrazzo.config.ts"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest --passWithNoTests",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "test -f dist/pulse.css",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
+	}
+}
