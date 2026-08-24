@@ -23,7 +23,7 @@
 		"browserslist": "4.23.0",
 		"eslint": "9.39.1",
 		"tslib": "2.8.1",
-		"wireit": "0.14.12"
+		"wireit": "0.14.13"
 	},
 	"peerDependencies": {
 		"browserslist": "^4.22.2",

@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"eslint": "9.39.1",
-		"wireit": "0.14.12"
+		"wireit": "0.14.13"
 	},
 	"peerDependencies": {
 		"eslint": "^9.39.1",
