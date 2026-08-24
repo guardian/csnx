@@ -77,7 +77,7 @@
 		"tslib": "2.8.1",
 		"tsx": "4.23.1",
 		"typescript": "6.0.3",
-		"wireit": "0.14.12"
+		"wireit": "0.14.13"
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.11.4",

@@ -51,7 +51,7 @@
 		"tsx": "4.23.1",
 		"typescript": "6.0.3",
 		"wcag-contrast": "3.0.0",
-		"wireit": "0.14.12"
+		"wireit": "0.14.13"
 	},
 	"peerDependencies": {
 		"@guardian/ophan-tracker-js": "^2.2.10",
