@@ -1,0 +1,77 @@
+{
+	"$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+	"name": "Guardian Pulse",
+	"version": "2025.10",
+	"sets": {
+		"primitives": {
+			"sources": [
+				{
+					"$ref": "./src/tokens/primitives/primitives.json"
+				}
+			]
+		},
+		"components": {
+			"sources": [
+				{
+					"$ref": "./src/tokens/components/button.json"
+				}
+			]
+		}
+	},
+	"modifiers": {
+		"brand": {
+			"contexts": {
+				"core": [
+					{
+						"$ref": "./src/tokens/brand/core.json"
+					}
+				],
+				"alt": [
+					{
+						"$ref": "./src/tokens/brand/alt.json"
+					}
+				],
+				"support": [
+					{
+						"$ref": "./src/tokens/brand/support.json"
+					}
+				]
+			},
+			"default": "core"
+		},
+		"mode": {
+			"contexts": {
+				"light": [
+					{
+						"$ref": "./src/tokens/mode/light.json"
+					}
+				],
+				"dark": [
+					{
+						"$ref": "./src/tokens/mode/dark.json"
+					}
+				],
+				"highcontrast": [
+					{
+						"$ref": "./src/tokens/mode/highcontrast.json"
+					}
+				]
+			},
+			"default": "light"
+		}
+	},
+	"resolutionOrder": [
+		{
+			"$ref": "#/sets/primitives"
+		},
+		{
+			"$ref": "#/modifiers/brand"
+		},
+		{
+			"$ref": "#/modifiers/mode"
+		},
+		{
+			"$ref": "#/sets/components"
+		}
+	]
+}

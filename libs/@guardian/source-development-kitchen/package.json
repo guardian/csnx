@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "29.0.0",
+	"version": "29.1.0",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/source-development-kitchen"
@@ -33,7 +33,7 @@
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "33.0.0",
-		"@guardian/source": "13.0.0",
+		"@guardian/source": "13.1.0",
 		"@storybook/addon-a11y": "10.4.0",
 		"@storybook/addon-docs": "10.4.0",
 		"@storybook/addon-links": "10.4.0",
@@ -45,8 +45,9 @@
 		"jest": "30.4.2",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"rollup": "4.60.0",
+		"rollup": "4.62.2",
 		"storybook": "10.4.0",
+		"tabbable": "6.5.0",
 		"ts-jest": "29.4.11",
 		"tslib": "2.8.1",
 		"typescript": "6.0.3",

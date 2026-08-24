@@ -85,6 +85,7 @@ export const UnlabelledDefaultTheme: Story = {
 	args: {
 		...DefaultDefaultTheme.args,
 		label: undefined,
+		'aria-label': 'Radio',
 	},
 };
 

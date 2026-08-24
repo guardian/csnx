@@ -6,6 +6,7 @@ import {
 } from '@guardian/source/foundations';
 import { Button, SvgCross } from '@guardian/source/react-components';
 import { useEffect, useId, useRef } from 'react';
+import { tabbable } from 'tabbable';
 import { getPositionStyles } from './position';
 import { getThemeColours, type ThemePopover } from './theme';
 
@@ -149,21 +150,55 @@ export const Popover = ({
 				handleClose();
 			}
 		};
-		/** Respond to escape key by closing Popover */
-		const dismissOnEsc = (event: KeyboardEvent) => {
+
+		/**
+		 * Handles tab key events by moving focus between tabbable elements within the container
+		 */
+		const handleTabKey = (event: KeyboardEvent) => {
+			const popoverEl = document.getElementById(popoverId);
+			const tabbableItems = popoverEl ? tabbable(popoverEl) : [];
+			const firstTabbableItem = tabbableItems[0];
+			const lastTabbableItem = tabbableItems[tabbableItems.length - 1];
+			// Shift + tab moves focus from first element to last element
+			if (event.shiftKey && document.activeElement === firstTabbableItem) {
+				// Move focus to last tabbable element
+				event.preventDefault();
+				lastTabbableItem?.focus();
+			}
+			// Tab moves focus from last element to first element
+			else if (document.activeElement === lastTabbableItem) {
+				// Move focus to first tabbable element
+				event.preventDefault();
+				firstTabbableItem?.focus();
+			}
+		};
+
+		/**
+		 * Handler for keydown event listener
+		 * - Respond to escape key by closing Popover
+		 * - Respond to tab key by keeping focus within Popover area
+		 */
+		const handleKeydown = (event: KeyboardEvent) => {
 			if (event.code === 'Escape') {
+				// Close on escape key
 				handleClose();
+			} else if (event.code !== 'Tab') {
+				// Early return if not tab key
+				return;
+			} else {
+				// Otherwise, handle tab key
+				handleTabKey(event);
 			}
 		};
 
 		document.addEventListener('click', dismissOnClickElsewhere);
-		document.addEventListener('keydown', dismissOnEsc);
+		document.addEventListener('keydown', handleKeydown);
 		// Remove listeners on unmount
 		return () => {
 			document.removeEventListener('click', dismissOnClickElsewhere);
-			document.removeEventListener('keydown', dismissOnEsc);
+			document.removeEventListener('keydown', handleKeydown);
 		};
-	}, [isOpen, handleClose]);
+	}, [isOpen, handleClose, popoverId]);
 
 	return (
 		<div

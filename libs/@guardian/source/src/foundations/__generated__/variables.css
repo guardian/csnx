@@ -44,9 +44,14 @@
 	--source-palette-culture-600: #e7d4b9;
 	--source-palette-culture-700: #efe8dd;
 	--source-palette-culture-800: #fbf6ef;
+	--source-palette-error-100: #4d0000;
+	--source-palette-error-200: #8a0000;
 	--source-palette-error-400: #c70000;
 	--source-palette-error-500: #ff9081;
+	--source-palette-error-800: #ffb3b3;
+	--source-palette-error-950: #fff0f0;
 	--source-palette-focus-400: #0077b6;
+	--source-palette-informative-950: #ebf8ff;
 	--source-palette-labs-100: #09615b;
 	--source-palette-labs-200: #0c7a73;
 	--source-palette-labs-300: #65a897;
@@ -115,9 +120,13 @@
 	--source-palette-sport-600: #90dcff;
 	--source-palette-sport-700: #d8f1ff;
 	--source-palette-sport-800: #f1f8fc;
+	--source-palette-success-100: #0e3921;
 	--source-palette-success-300: #185e36;
 	--source-palette-success-400: #22874d;
 	--source-palette-success-500: #58d08b;
+	--source-palette-success-700: #99e5ba;
+	--source-palette-success-800: #c2f0d5;
+	--source-palette-success-950: #effbf4;
 	--source-size-medium: 2.75rem;
 	--source-size-small: 2.25rem;
 	--source-size-xsmall: 1.5rem;
