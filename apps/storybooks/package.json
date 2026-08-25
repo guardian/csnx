@@ -17,7 +17,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"storybook": "10.4.0",
-		"wireit": "0.14.12"
+		"wireit": "0.14.13"
 	},
 	"wireit": {
 		"dev": {

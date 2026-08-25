@@ -1,26 +1,25 @@
 {
 	"name": "@guardian/pulse",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/pulse"
 	},
 	"license": "Apache-2.0",
-	"sideEffects": false,
+	"sideEffects": [
+		"./dist/pulse.css"
+	],
 	"type": "module",
 	"exports": {
-		"types": "./dist/index.d.ts",
-		"import": "./dist/index.js",
-		"require": "./dist/index.cjs"
+		".": null,
+		"./pulse.css": "./dist/pulse.css"
 	},
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
 		"build": "wireit",
-		"dev": "jest --watch",
+		"dev": "jest --watch --passWithNoTests",
 		"fix": "wireit",
 		"lint": "wireit",
 		"test": "wireit",
@@ -29,6 +28,8 @@
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
+		"@terrazzo/cli": "2.7.1",
+		"@terrazzo/plugin-css": "2.7.1",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
 		"jest": "30.4.2",
@@ -37,7 +38,7 @@
 		"ts-jest": "29.4.11",
 		"tslib": "2.8.1",
 		"typescript": "6.0.3",
-		"wireit": "0.14.12"
+		"wireit": "0.14.13"
 	},
 	"peerDependencies": {
 		"tslib": "^2.8.1",
@@ -50,19 +51,15 @@
 	},
 	"wireit": {
 		"build": {
-			"command": "rollup -c",
-			"dependencies": [
-				"../libs:build"
-			],
+			"command": "tz build",
 			"files": [
-				"src/**",
+				"pulse.resolver.json",
+				"src/tokens/**",
 				"package.json",
-				"tsconfig.json",
-				"rollup.config.js",
-				"../../../configs/rollup/rollup.config.js"
+				"terrazzo.config.ts"
 			],
 			"output": [
-				"dist"
+				"dist/**"
 			]
 		},
 		"fix": {
@@ -81,19 +78,16 @@
 			]
 		},
 		"lint": {
-			"dependencies": [
-				"build"
-			],
-			"command": "eslint --cache --color .",
+			"command": "tz lint",
 			"files": [
-				"**",
-				"!(dist|storybook-static)/**",
-				"!.eslintcache"
+				"pulse.resolver.json",
+				"src/tokens/**",
+				"terrazzo.config.ts"
 			],
 			"output": []
 		},
 		"test": {
-			"command": "jest",
+			"command": "jest --passWithNoTests",
 			"dependencies": [
 				"build"
 			],
@@ -122,7 +116,7 @@
 			"output": []
 		},
 		"verify-dist": {
-			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"command": "test -f dist/pulse.css",
 			"dependencies": [
 				"build"
 			],
