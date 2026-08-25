@@ -18,6 +18,7 @@ import type { Property } from './lib/property';
 import {
 	ACCOUNT_ID,
 	ENDPOINT,
+	PROPERTY_HREF_AUS,
 	PROPERTY_HREF_MAIN,
 	PROPERTY_HREF_SUBDOMAIN,
 	PROPERTY_ID_AUSTRALIA,
@@ -31,6 +32,7 @@ import { getSourcepointAppliedConsentFramework } from './sourcepointGeolocation'
 import { loadStubsFor } from './stub';
 import type { ConsentFramework, SourcepointConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
+import { getUsAbTestGroup, isUserInAbTest } from './usAbtest';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -49,11 +51,11 @@ const getPropertyHref = (
 	useNonAdvertisedList: boolean,
 ): Property => {
 	if (framework == 'aus') {
-		return 'https://au.theguardian.com';
+		return PROPERTY_HREF_AUS;
 	}
 
 	if (framework == 'usnat') {
-		return 'https://www.theguardian.com';
+		return PROPERTY_HREF_MAIN;
 	}
 
 	return useNonAdvertisedList ? PROPERTY_HREF_SUBDOMAIN : PROPERTY_HREF_MAIN;
@@ -324,6 +326,8 @@ export const init = (
 		);
 	}
 
+	const isInAbTest = isUserInAbTest();
+	const usAbTestGroup = getUsAbTestGroup();
 	// NOTE - Contrary to the SourcePoint documentation, it's important that we add EITHER gdpr, usnat, OR globalcmp
 	// to the _sp_ object. wrapperMessagingWithoutDetection.js uses the presence of these keys to attach
 	// the appropriate consent API to the window object (__tcfapi for gdpr, __gpp for usnat, none for globalcmp).
@@ -344,6 +348,7 @@ export const init = (
 			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
+					...(isInAbTest && { abTestGroup: usAbTestGroup }),
 				},
 			};
 			break;
