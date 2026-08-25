@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/consent-manager",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"private": false,
 	"description": "Consent Manager for the Guardian",
 	"repository": {
@@ -30,40 +30,6 @@
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
-	},
-	"dependencies": {
-		"@guardian/libs": "workspace:*",
-		"@guardian/ophan-tracker-js": "3.1.0"
-	},
-	"devDependencies": {
-		"@guardian/eslint-config": "workspace:*",
-		"@playwright/test": "1.62.1",
-		"@types/jest": "30.0.0",
-		"@types/wcag-contrast": "3.0.3",
-		"eslint": "9.39.1",
-		"jest": "30.4.2",
-		"jest-environment-jsdom": "30.4.1",
-		"jest-fetch-mock": "3.0.3",
-		"mockdate": "3.0.5",
-		"rollup": "4.62.2",
-		"ts-jest": "29.4.11",
-		"tslib": "2.8.1",
-		"tsx": "4.23.1",
-		"typescript": "6.0.3",
-		"wcag-contrast": "3.0.0",
-		"wireit": "0.14.13"
-	},
-	"peerDependencies": {
-		"@guardian/ophan-tracker-js": "^2.2.10",
-		"tslib": "^2.8.1"
-	},
-	"peerDependenciesMeta": {
-		"typescript": {
-			"optional": true
-		}
-	},
-	"publishConfig": {
-		"access": "public"
 	},
 	"wireit": {
 		"build": {
@@ -109,10 +75,10 @@
 				"!(dist)/**",
 				"!.eslintcache"
 			],
-			"clean": false,
 			"output": [
 				"."
-			]
+			],
+			"clean": false
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
@@ -171,5 +137,39 @@
 			],
 			"output": []
 		}
+	},
+	"dependencies": {
+		"@guardian/libs": "workspace:*",
+		"@guardian/ophan-tracker-js": "3.1.0"
+	},
+	"devDependencies": {
+		"@guardian/eslint-config": "workspace:*",
+		"@playwright/test": "1.62.1",
+		"@types/jest": "30.0.0",
+		"@types/wcag-contrast": "3.0.3",
+		"eslint": "9.39.1",
+		"jest": "30.4.2",
+		"jest-environment-jsdom": "30.4.1",
+		"jest-fetch-mock": "3.0.3",
+		"mockdate": "3.0.5",
+		"rollup": "4.62.2",
+		"ts-jest": "29.4.11",
+		"tslib": "2.8.1",
+		"tsx": "4.23.1",
+		"typescript": "6.0.3",
+		"wcag-contrast": "3.0.0",
+		"wireit": "0.14.13"
+	},
+	"peerDependencies": {
+		"@guardian/ophan-tracker-js": "^2.2.10",
+		"tslib": "^2.8.1"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
+		}
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
