@@ -32,7 +32,12 @@ describe('usAbtest', () => {
 		});
 
 		it('returns false when the geo region cookie is for a non-US region', () => {
-			mockGetCookie.mockReturnValue('GB');
+			mockGetCookie.mockReturnValue('GB-PNM');
+			expect(isInUsStateForAbTest()).toBe(false);
+		});
+
+		it('returns false when the geo region cookie is for a non-US region but with a state code that matches', () => {
+			mockGetCookie.mockReturnValue('GB-WA');
 			expect(isInUsStateForAbTest()).toBe(false);
 		});
 

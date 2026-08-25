@@ -1,7 +1,7 @@
 import { getCookie } from '@guardian/libs';
 
 const AB_TEST_COOKIE_NAME = 'gu_client_ab_tests';
-const AB_TEST_GROUP_PREFIX = 'identity-and-trust-consent-rr-banner-us';
+const AB_TEST_GROUP_PREFIX = 'identity-and-trust-consent-rr-banner-us:';
 const AB_TEST_GEO_REGION_COOKIE = 'GU_geo_country_region';
 const AB_TEST_US_STATES = [
 	'WA', // Washington
@@ -22,7 +22,12 @@ export const isInUsStateForAbTest = (): boolean => {
 	const usStateCookie = getCookie({
 		name: AB_TEST_GEO_REGION_COOKIE,
 	});
-	const usState = usStateCookie?.split('-')[1] ?? '';
+
+	if (usStateCookie?.split('-')[0] !== 'US') {
+		return false;
+	}
+
+	const usState = usStateCookie.split('-')[1] ?? '';
 	return AB_TEST_US_STATES.includes(usState);
 };
 
