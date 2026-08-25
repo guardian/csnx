@@ -95,6 +95,8 @@ export const getIdentityAuth = () => {
 			'guardian.identity-api.newsletters.update.self', // allows the access token to be used to make requests to the identity api to update the user's newsletter subscriptions
 			'guardian.identity-api.user.username.create.self.secure', // allows the access token to set the user's username
 			'guardian.members-data-api.read.self', // allows the access token to be used to make requests to the members data api to read the user's membership status
+			'guardian.feast-api.saved-from-web.update.self', // allows the access token to be used to make requests to the feast api to save/unsave recipes from the web
+			'guardian.feast-api.saved-from-web.read.self', // allows the access token to be used to make requests to the feast api to read the user's saved from web recipes
 			'id_token.profile.theguardian', // populates the id token with application specific profile information
 		],
 	});
