@@ -22,7 +22,7 @@ describe('usAbtest', () => {
 
 	describe('isInUsStateForAbTest', () => {
 		it('returns true when the geo region cookie contains a supported US state', () => {
-			mockGetCookie.mockReturnValue('US-CA');
+			mockGetCookie.mockReturnValue('US-WA');
 			expect(isInUsStateForAbTest()).toBe(true);
 		});
 
@@ -72,7 +72,7 @@ describe('usAbtest', () => {
 		it('returns true when the user is in a supported US state and is in the control ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-CA';
+					return 'US-WA';
 				}
 				if (name === abTestCookieName) {
 					return `${identityAndTrustConsentAbTestCookieName}:control`;
@@ -85,7 +85,7 @@ describe('usAbtest', () => {
 		it('returns true when the user is in a supported US state and is in the variant-1 ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-CA';
+					return 'US-WA';
 				}
 				if (name === abTestCookieName) {
 					return `${identityAndTrustConsentAbTestCookieName}:variant-1`;
@@ -98,7 +98,7 @@ describe('usAbtest', () => {
 		it('returns true when the user is in a supported US state and is in the variant-2 ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-CA';
+					return 'US-WA';
 				}
 				if (name === abTestCookieName) {
 					return `${identityAndTrustConsentAbTestCookieName}:variant-2`;
@@ -111,7 +111,7 @@ describe('usAbtest', () => {
 		it('returns false when the user is in a supported US state but has no ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-CA';
+					return 'US-WA';
 				}
 				if (name === abTestCookieName) {
 					return 'some-other-test:control';
