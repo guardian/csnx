@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.1.0
+
+### Minor Changes
+
+- 8eb178b: Add US Banner AB Test logic that checks both `gu_client_ab_tests` and `GU_geo_country_region` cookie to determine the targetingParams sent to Sourcepoint.
+
 ## 2.0.0
 
 ### Major Changes
