@@ -1,0 +1,54 @@
+name: Sync Design Tokens
+
+on:
+  repository_dispatch:
+    types: [tokens-release]
+  workflow_dispatch:
+
+permissions:
+  contents: write # Required to commit token files
+
+defaults:
+  run:
+    working-directory: ./libs/@guardian/pulse
+
+jobs:
+  sync-tokens:
+    runs-on: ubuntu-latest
+    env:
+      STUDIO_SERVICE_TOKEN: ${{ secrets.STUDIO_SERVICE_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Create config file
+        run: |
+          cat > .studio.json << "EOF"
+          {
+            "version": 2,
+            "source": {
+              "project": "${{ vars.TOKENS_PROJECT }}",
+              "ref": { "type": "branch", "name": "main" }
+            },
+            "outputs": {
+              "tokens": {
+                "format": "dtcg",
+                "dir": "src/tokens"
+              }
+            }
+          }
+          EOF
+
+      - name: Clean token output folder
+        run: rm -rf ./src/tokens
+
+      - name: Pull tokens from Studio
+        run: pnpm dlx @tokens-studio/studio-cli pull --ci
