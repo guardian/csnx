@@ -21,13 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-
-      - name: Enable Corepack
-        run: corepack enable
+      - uses: ./.github/actions/setup-node-env
 
       - name: Create config file
         run: |
