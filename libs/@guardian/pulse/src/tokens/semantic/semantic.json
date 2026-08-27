@@ -1,0 +1,68 @@
+{
+	"core-color-fill-primary": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "color",
+		"$value": "{brand-blue-400}"
+	},
+	"core-color-text-inverse-primary": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "color",
+		"$value": "{neutral-980}"
+	},
+	"fixed-label-sansbold-m": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": []
+			}
+		},
+		"$type": "typography",
+		"$value": "{primitive-textsans-17-bold}"
+	},
+	"padding-horizontal-l": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "dimension",
+		"$value": "{padding-20px}"
+	},
+	"padding-vertical-m": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "dimension",
+		"$value": "{padding-10px}"
+	},
+	"radius-round": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "borderRadius",
+		"$value": "{radius-100px}"
+	}
+}
