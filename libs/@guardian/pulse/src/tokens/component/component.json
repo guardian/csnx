@@ -1,0 +1,68 @@
+{
+	"button-color-fill": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "color",
+		"$value": "{core-color-fill-primary}"
+	},
+	"button-color-text": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": []
+			}
+		},
+		"$type": "color",
+		"$value": "{core-color-text-inverse-primary}"
+	},
+	"button-label": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": []
+			}
+		},
+		"$type": "typography",
+		"$value": "{fixed-label-sansbold-m}"
+	},
+	"button-padding-horizontal": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "dimension",
+		"$value": "{padding-horizontal-l}"
+	},
+	"button-padding-vertical": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "dimension",
+		"$value": "{padding-vertical-m}"
+	},
+	"button-radius": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "borderRadius",
+		"$value": "{radius-round}"
+	}
+}

@@ -7,55 +7,6 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 	plugins: [
 		css({
 			filename: 'pulse.css',
-			permutations: [
-				{
-					input: {},
-					include: ['primitives.**'],
-					prepare: (contents: string) => `:root {\n\t${contents}\n}`,
-				},
-				{
-					input: { brand: 'core' },
-					include: ['brand.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-brand="core"] {\n\t${contents}\n}`,
-				},
-				{
-					input: { brand: 'alt' },
-					include: ['brand.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-brand="alt"] {\n\t${contents}\n}`,
-				},
-				{
-					input: { brand: 'support' },
-					include: ['brand.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-brand="support"] {\n\t${contents}\n}`,
-				},
-				{
-					input: { mode: 'light' },
-					include: ['mode.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-mode="light"] {\n\t${contents}\n}`,
-				},
-				{
-					input: { mode: 'dark' },
-					include: ['mode.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-mode="dark"] {\n\t${contents}\n}`,
-				},
-				{
-					input: { mode: 'highcontrast' },
-					include: ['mode.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-mode="highcontrast"] {\n\t${contents}\n}`,
-				},
-				{
-					input: {},
-					include: ['components.button.**'],
-					prepare: (contents: string) =>
-						`[data-pulse-component="button"] {\n\t${contents}\n}`,
-				},
-			],
 		}),
 	],
 	outDir: './dist',

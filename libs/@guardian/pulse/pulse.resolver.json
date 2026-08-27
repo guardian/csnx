@@ -10,54 +10,19 @@
 				}
 			]
 		},
-		"components": {
+		"semantic": {
 			"sources": [
 				{
-					"$ref": "./src/tokens/components/button.json"
+					"$ref": "./src/tokens/semantic/semantic.json"
 				}
 			]
-		}
-	},
-	"modifiers": {
-		"brand": {
-			"contexts": {
-				"core": [
-					{
-						"$ref": "./src/tokens/brand/core.json"
-					}
-				],
-				"alt": [
-					{
-						"$ref": "./src/tokens/brand/alt.json"
-					}
-				],
-				"support": [
-					{
-						"$ref": "./src/tokens/brand/support.json"
-					}
-				]
-			},
-			"default": "core"
 		},
-		"mode": {
-			"contexts": {
-				"light": [
-					{
-						"$ref": "./src/tokens/mode/light.json"
-					}
-				],
-				"dark": [
-					{
-						"$ref": "./src/tokens/mode/dark.json"
-					}
-				],
-				"highcontrast": [
-					{
-						"$ref": "./src/tokens/mode/highcontrast.json"
-					}
-				]
-			},
-			"default": "light"
+		"component": {
+			"sources": [
+				{
+					"$ref": "./src/tokens/component/component.json"
+				}
+			]
 		}
 	},
 	"resolutionOrder": [
@@ -65,13 +30,10 @@
 			"$ref": "#/sets/primitives"
 		},
 		{
-			"$ref": "#/modifiers/brand"
+			"$ref": "#/sets/semantic"
 		},
 		{
-			"$ref": "#/modifiers/mode"
-		},
-		{
-			"$ref": "#/sets/components"
+			"$ref": "#/sets/component"
 		}
 	]
 }
