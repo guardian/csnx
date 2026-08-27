@@ -46,3 +46,19 @@ jobs:
 
       - name: Pull tokens from Studio
         run: pnpm dlx @tokens-studio/studio-cli pull --ci
+
+      - name: Build tokens with Terrazzo
+        run: pnpm run build
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add src/tokens/ dist/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: sync design tokens from Studio"
+            git push
+          fi
