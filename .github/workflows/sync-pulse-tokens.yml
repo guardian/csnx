@@ -21,7 +21,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - uses: ./.github/actions/setup-node-env
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Create config file
         run: |
@@ -47,15 +53,12 @@ jobs:
       - name: Pull tokens from Studio
         run: pnpm dlx @tokens-studio/studio-cli pull --ci
 
-      - name: Build tokens with Terrazzo
-        run: pnpm run build
-
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add src/tokens/ dist/
+          git add src/tokens/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
