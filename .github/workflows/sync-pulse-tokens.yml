@@ -21,13 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Enable Corepack
-        run: corepack enable
+      - uses: ./.github/actions/setup-node-env
 
       - name: Create config file
         run: |
@@ -52,6 +46,9 @@ jobs:
 
       - name: Pull tokens from Studio
         run: pnpm dlx @tokens-studio/studio-cli pull --ci
+
+      - name: Format token files
+        run: pnpm prettier src/tokens --write
 
       - name: Commit changes
         run: |
