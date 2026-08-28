@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  id-token: write # Required for OIDC authentication
   contents: write # Required to commit token files
 
 defaults:
@@ -15,8 +16,6 @@ defaults:
 jobs:
   sync-tokens:
     runs-on: ubuntu-latest
-    env:
-      STUDIO_SERVICE_TOKEN: ${{ secrets.STUDIO_SERVICE_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
