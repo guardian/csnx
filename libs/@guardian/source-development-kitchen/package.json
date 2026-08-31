@@ -42,7 +42,7 @@
 		"@types/jest": "30.0.0",
 		"@types/react": "18.2.79",
 		"eslint": "9.39.1",
-		"jest": "30.4.2",
+		"jest": "30.5.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"rollup": "4.62.2",

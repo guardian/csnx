@@ -127,7 +127,7 @@
 		"@guardian/libs": "33.0.0",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
-		"jest": "30.4.2",
+		"jest": "30.5.0",
 		"jest-environment-jsdom": "30.4.1",
 		"jest-fetch-mock": "3.0.3",
 		"rollup": "4.62.2",
