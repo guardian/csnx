@@ -1,4 +1,3 @@
-import '@guardian/pulse/pulse.css';
 import type { ButtonHTMLAttributes } from 'react';
 import type { SharedButtonProps } from './@types/SharedButtonProps';
 import { buttonContents } from './shared';
