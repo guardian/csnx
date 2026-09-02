@@ -75,6 +75,7 @@ it('Should have exactly these exports', () => {
 		'Column',
 		'Columns',
 		'Container',
+		'CoreButton',
 		'Footer',
 		'Hide',
 		'Inline',
