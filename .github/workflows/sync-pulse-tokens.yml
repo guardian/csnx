@@ -1,0 +1,63 @@
+name: Sync Design Tokens
+
+on:
+  repository_dispatch:
+    types: [tokens-release]
+  workflow_dispatch:
+
+permissions:
+  id-token: write # Required for OIDC authentication
+  contents: write # Required to commit token files
+
+defaults:
+  run:
+    working-directory: ./libs/@guardian/pulse
+
+jobs:
+  sync-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup-node-env
+
+      - name: Create config file
+        run: |
+          cat > .studio.json << "EOF"
+          {
+            "version": 2,
+            "source": {
+              "project": "${{ vars.TOKENS_PROJECT }}",
+              "ref": { "type": "branch", "name": "main" }
+            },
+            "outputs": {
+              "tokens": {
+                "format": "dtcg",
+                "dir": "src/tokens"
+              }
+            }
+          }
+          EOF
+
+      - name: Clean token output folder
+        run: rm -rf ./src/tokens
+
+      - name: Pull tokens from Studio
+        run: pnpm dlx @tokens-studio/studio-cli pull --ci
+
+      - name: Format token files
+        run: pnpm prettier src/tokens --write
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add src/tokens/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: sync design tokens from Studio"
+            git push
+          fi
