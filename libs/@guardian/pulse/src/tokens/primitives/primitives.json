@@ -183,7 +183,7 @@
 				"scopes": ["ALL_SCOPES"]
 			}
 		},
-		"$type": "borderRadius",
+		"$type": "dimension",
 		"$value": {
 			"unit": "px",
 			"value": 100
