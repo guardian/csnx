@@ -14,7 +14,7 @@ const styles = css`
 	font: var(--button-label);
 	letter-spacing: var(--button-letter-spacing);
 	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
-	border-radius: 100px; // var(--button-border-radius);
+	border-radius: var(--button-radius);
 	border: none;
 	cursor: pointer;
 	text-decoration: none;
