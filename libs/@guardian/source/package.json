@@ -43,6 +43,7 @@
 			"command": "rollup -c",
 			"dependencies": [
 				"../libs:build",
+				"../pulse:build",
 				"build-generated"
 			],
 			"files": [
