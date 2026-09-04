@@ -1,2 +1,2 @@
-// Recognize CSS files as module imports
-declare module '*.css' {}
+// Recognise CSS imported with `?inline` as valid module import
+declare module '*.css?inline' {}
