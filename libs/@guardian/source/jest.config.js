@@ -5,6 +5,9 @@ const config = {
 	...baseConfig,
 	displayName: '@guardian/source',
 	testEnvironment: 'node',
+	moduleNameMapper: {
+		'\\.css\\?inline$': '<rootDir>/lib/jest-mocks/empty.ts',
+	},
 	setupFilesAfterEnv: [
 		'./lib/jest-matchers/toBeValidCSS.ts',
 		'./lib/jest-matchers/toMatchCSS.ts',

@@ -38,6 +38,119 @@
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
+	"wireit": {
+		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"../libs:build",
+				"../pulse:build",
+				"build-generated"
+			],
+			"files": [
+				"src/**",
+				"package.json",
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
+			],
+			"output": [
+				"dist"
+			]
+		},
+		"build-generated": {
+			"command": "co build --config src/design-tokens/tokens.config.js && prettier --write src/foundations/__generated__/**",
+			"files": [
+				"./src/design-tokens/**"
+			],
+			"output": [
+				"./src/foundations/__generated__"
+			]
+		},
+		"build-storybook": {
+			"command": "NODE_ENV=production storybook build --webpack-stats-json",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!storybook-static/**",
+				"!jest*",
+				"!.eslintcache"
+			],
+			"output": [
+				"storybook-static"
+			]
+		},
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": [
+				"."
+			],
+			"clean": false
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"test": {
+			"command": "jest",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"tsc": {
+			"command": "tsc --pretty",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"tsconfig.json",
+				"../tsconfig/tsconfig.json",
+				"../../../@types/**",
+				"../../../tsconfig.base.json",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"verify-dist": {
+			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
+			"dependencies": [
+				"build"
+			],
+			"files": [
+				"**",
+				"../../../configs/jest.*",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
+	},
 	"dependencies": {
 		"mini-svg-data-uri": "1.4.4"
 	},
@@ -99,118 +212,6 @@
 		},
 		"typescript": {
 			"optional": true
-		}
-	},
-	"wireit": {
-		"build": {
-			"command": "rollup -c",
-			"dependencies": [
-				"../libs:build",
-				"build-generated"
-			],
-			"files": [
-				"src/**",
-				"package.json",
-				"tsconfig.json",
-				"rollup.config.js",
-				"../../../configs/rollup/rollup.config.js"
-			],
-			"output": [
-				"dist"
-			]
-		},
-		"build-generated": {
-			"command": "co build --config src/design-tokens/tokens.config.js && prettier --write src/foundations/__generated__/**",
-			"files": [
-				"./src/design-tokens/**"
-			],
-			"output": [
-				"./src/foundations/__generated__"
-			]
-		},
-		"build-storybook": {
-			"command": "NODE_ENV=production storybook build --webpack-stats-json",
-			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"!storybook-static/**",
-				"!jest*",
-				"!.eslintcache"
-			],
-			"output": [
-				"storybook-static"
-			]
-		},
-		"fix": {
-			"command": "eslint --cache --color . --fix",
-			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"!(dist|storybook-static)/**",
-				"!.eslintcache"
-			],
-			"clean": false,
-			"output": [
-				"."
-			]
-		},
-		"lint": {
-			"dependencies": [
-				"build"
-			],
-			"command": "eslint --cache --color .",
-			"files": [
-				"**",
-				"!(dist|storybook-static)/**",
-				"!.eslintcache"
-			],
-			"output": []
-		},
-		"test": {
-			"command": "jest",
-			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"../../../configs/jest.*",
-				"!(dist|storybook-static)/**",
-				"!.eslintcache"
-			],
-			"output": []
-		},
-		"tsc": {
-			"command": "tsc --pretty",
-			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"tsconfig.json",
-				"../tsconfig/tsconfig.json",
-				"../../../@types/**",
-				"../../../tsconfig.base.json",
-				"!(dist|storybook-static)/**",
-				"!.eslintcache"
-			],
-			"output": []
-		},
-		"verify-dist": {
-			"command": "jest --setupFilesAfterEnv ./jest.dist.setup.js",
-			"dependencies": [
-				"build"
-			],
-			"files": [
-				"**",
-				"../../../configs/jest.*",
-				"!(dist|storybook-static)/**",
-				"!.eslintcache"
-			],
-			"output": []
 		}
 	}
 }
