@@ -156,6 +156,7 @@ it('Should have exactly these exports', () => {
 		'news',
 		'opinion',
 		'palette',
+		'pulse',
 		'pxToRem',
 		'remHeight',
 		'remSpace',
