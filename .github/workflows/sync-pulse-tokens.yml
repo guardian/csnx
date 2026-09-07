@@ -13,7 +13,8 @@ on:
 
 permissions:
   id-token: write # Required for OIDC authentication
-  contents: write # Required to commit token files
+  contents: write # Required to push the token branch
+  pull-requests: write # Required to open tokens PR
 
 defaults:
   run:
@@ -22,6 +23,9 @@ defaults:
 jobs:
   sync-tokens:
     runs-on: ubuntu-latest
+    env:
+      # fallback for `repository_dispatch` event where inputs not populated
+      TOKENS_BRANCH: ${{ inputs.branch || 'main' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -29,7 +33,7 @@ jobs:
       - uses: ./.github/actions/setup-node-env
 
       - name: Output name of Tokens Studio branch being used
-        run: echo "Using Tokens Studio branch:${{ inputs.branch }}"
+        run: echo "Using Tokens Studio branch:${{ env.TOKENS_BRANCH }}"
 
       - name: Create config file
         run: |
@@ -38,7 +42,7 @@ jobs:
             "version": 2,
             "source": {
               "project": "${{ vars.TOKENS_PROJECT }}",
-              "ref": { "type": "branch", "name": "${{ inputs.branch }}" }
+              "ref": { "type": "branch", "name": "${{ env.TOKENS_BRANCH }}" }
             },
             "outputs": {
               "tokens": {
@@ -55,18 +59,35 @@ jobs:
       - name: Pull tokens from Studio
         run: pnpm dlx @tokens-studio/studio-cli pull --ci
 
-      # - name: Format token files
-      #   run: pnpm prettier src/tokens --write
+      - name: Format token files
+        run: pnpm prettier src/tokens --write
 
-      # - name: Commit changes
-      #   run: |
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Create branch and open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: studio/${{ env.TOKENS_BRANCH }}
+        run: |
+          if git diff --quiet -- src/tokens; then
+            echo "No changes to commit"
+            exit 0
+          fi
 
-      #     git add src/tokens/
-      #     if git diff --staged --quiet; then
-      #       echo "No changes to commit"
-      #     else
-      #       git commit -m "chore: sync design tokens from Studio"
-      #       git push
-      #     fi
+          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null; then
+            echo "Branch $BRANCH already exists, skipping"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH"
+          git add src/tokens/
+          git commit -m "chore: sync design tokens from Studio"
+          git push -u origin "$BRANCH"
+
+          gh pr create \
+            --base "${{ github.ref_name }}" \
+            --head "$BRANCH" \
+            --title "chore: sync design tokens from Studio (${{ env.TOKENS_BRANCH }})" \
+            --body "Automated sync of design tokens from the \`${{ env.TOKENS_BRANCH }}\` branch in Tokens Studio."
+          fi
