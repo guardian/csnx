@@ -14,6 +14,21 @@
 			"components": [0.0196078431372549, 0.1607843137254902, 0.3843137254901961]
 		}
 	},
+	"brand-blue-500": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "color",
+		"$value": {
+			"alpha": 1,
+			"colorSpace": "srgb",
+			"components": [0, 0.4666666666666667, 0.7137254901960784]
+		}
+	},
 	"fontfamily-GuardianTextSans": {
 		"$extensions": {
 			"com.figma": {
@@ -183,7 +198,7 @@
 				"scopes": ["ALL_SCOPES"]
 			}
 		},
-		"$type": "borderRadius",
+		"$type": "dimension",
 		"$value": {
 			"unit": "px",
 			"value": 100
