@@ -31,7 +31,7 @@
 		"@terrazzo/cli": "2.7.1",
 		"@terrazzo/plugin-css": "2.7.1",
 		"@types/jest": "30.0.0",
-		"eslint": "9.39.1",
+		"eslint": "10.9.1",
 		"jest": "30.4.2",
 		"prettier": "3.8.0",
 		"rollup": "4.62.2",
