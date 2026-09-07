@@ -4,6 +4,12 @@ on:
   repository_dispatch:
     types: [tokens-release]
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Name of branch in Tokens Studio to pull tokens from'
+        type: string
+        required: false
+        default: 'main'
 
 permissions:
   id-token: write # Required for OIDC authentication
@@ -22,6 +28,9 @@ jobs:
 
       - uses: ./.github/actions/setup-node-env
 
+      - name: Output name of Tokens Studio branch being used
+        run: echo "Using Tokens Studio branch:${{ inputs.branch }}"
+
       - name: Create config file
         run: |
           cat > .studio.json << "EOF"
@@ -29,7 +38,7 @@ jobs:
             "version": 2,
             "source": {
               "project": "${{ vars.TOKENS_PROJECT }}",
-              "ref": { "type": "branch", "name": "main" }
+              "ref": { "type": "branch", "name": "${{ inputs.branch }}" }
             },
             "outputs": {
               "tokens": {
@@ -46,18 +55,18 @@ jobs:
       - name: Pull tokens from Studio
         run: pnpm dlx @tokens-studio/studio-cli pull --ci
 
-      - name: Format token files
-        run: pnpm prettier src/tokens --write
+      # - name: Format token files
+      #   run: pnpm prettier src/tokens --write
 
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      # - name: Commit changes
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add src/tokens/
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: sync design tokens from Studio"
-            git push
-          fi
+      #     git add src/tokens/
+      #     if git diff --staged --quiet; then
+      #       echo "No changes to commit"
+      #     else
+      #       git commit -m "chore: sync design tokens from Studio"
+      #       git push
+      #     fi
