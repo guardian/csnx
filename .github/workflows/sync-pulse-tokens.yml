@@ -86,4 +86,6 @@ jobs:
             --base "${{ github.ref_name }}" \
             --head "$BRANCH" \
             --title "chore: sync design tokens from Studio (${{ env.TOKENS_BRANCH }})" \
-            --body "Automated sync of design tokens from the \`${{ env.TOKENS_BRANCH }}\` branch in Tokens Studio."
+            --body "Automated sync of design tokens from the \`${{ env.TOKENS_BRANCH }}\` branch in Tokens Studio." \
+            --label maintenance \
+            --label run_chromatic
