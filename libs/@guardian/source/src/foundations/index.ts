@@ -38,6 +38,9 @@ export { space, remSpace } from './space/space';
 // typography
 export * from './typography/typography';
 
+// pulse
+export { pulse } from './pulse/pulse';
+
 // utils
 export { appearance } from './utils/supports-queries';
 export { FocusStyleManager } from './accessibility/focus-style-manager';
