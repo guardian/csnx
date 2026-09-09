@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 9.0.0
+
+### Major Changes
+
+- 24f16be: Updates `browserslist` peer dependency to `4.28.9`
+
 ## 8.0.0
 
 ### Major Changes
