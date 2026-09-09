@@ -17,32 +17,17 @@
 		"tsc": "wireit",
 		"update-readme": "node ./scripts/update-readme.mjs"
 	},
-	"devDependencies": {
-		"@guardian/browserslist-config": "workspace:*",
-		"@guardian/eslint-config": "workspace:*",
-		"browserslist": "4.23.0",
-		"eslint": "9.39.1",
-		"tslib": "2.8.1",
-		"wireit": "0.14.13"
-	},
-	"peerDependencies": {
-		"browserslist": "^4.22.2",
-		"tslib": "^2.8.1"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
 	"wireit": {
 		"fix": {
 			"command": "eslint --cache --color . --fix",
-			"clean": false,
 			"files": [
 				"**",
 				"!.eslintcache"
 			],
 			"output": [
 				"."
-			]
+			],
+			"clean": false
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
@@ -65,5 +50,20 @@
 			],
 			"output": []
 		}
+	},
+	"devDependencies": {
+		"@guardian/browserslist-config": "workspace:*",
+		"@guardian/eslint-config": "workspace:*",
+		"browserslist": "4.28.9",
+		"eslint": "9.39.1",
+		"tslib": "2.8.1",
+		"wireit": "0.14.13"
+	},
+	"peerDependencies": {
+		"browserslist": "^4.28.9",
+		"tslib": "^2.8.1"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
