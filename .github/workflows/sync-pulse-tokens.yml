@@ -4,10 +4,17 @@ on:
   repository_dispatch:
     types: [tokens-release]
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Name of branch in Tokens Studio to pull tokens from'
+        type: string
+        required: false
+        default: 'main'
 
 permissions:
   id-token: write # Required for OIDC authentication
-  contents: write # Required to commit token files
+  contents: write # Required to push the token branch
+  pull-requests: write # Required to open tokens PR
 
 defaults:
   run:
@@ -16,6 +23,9 @@ defaults:
 jobs:
   sync-tokens:
     runs-on: ubuntu-latest
+    env:
+      # fallback for `repository_dispatch` event where inputs not populated
+      TOKENS_BRANCH: ${{ inputs.branch || 'main' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -29,7 +39,7 @@ jobs:
             "version": 2,
             "source": {
               "project": "${{ vars.TOKENS_PROJECT }}",
-              "ref": { "type": "branch", "name": "main" }
+              "ref": { "type": "branch", "name": "${{ env.TOKENS_BRANCH }}" }
             },
             "outputs": {
               "tokens": {
@@ -49,15 +59,27 @@ jobs:
       - name: Format token files
         run: pnpm prettier src/tokens --write
 
-      - name: Commit changes
+      - name: Create branch and open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- src/tokens; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add src/tokens/
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
+            GIT_BRANCH="tokens/update-$(date +%s)"
+            git checkout -b "$GIT_BRANCH"
+            git add src/tokens/
             git commit -m "chore: sync design tokens from Studio"
-            git push
+            git push -u origin "$GIT_BRANCH"
+
+            gh pr create \
+              --base "${{ github.ref_name }}" \
+              --head "$GIT_BRANCH" \
+              --title "chore: sync design tokens from Tokens Studio (${{ env.TOKENS_BRANCH }})" \
+              --body "Automated sync of design tokens from \`${{ env.TOKENS_BRANCH }}\` branch in Tokens Studio." \
+              --label maintenance \
+              --label run_chromatic
+          else
+            echo "No token updates to commit."
           fi
