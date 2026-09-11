@@ -1,4 +1,5 @@
 import {
+	AB_TEST_US_STATES,
 	getUsAbTestGroup,
 	isInUsStateForAbTest,
 	isUserInAbTest,
@@ -18,7 +19,7 @@ describe('usAbtest', () => {
 	const identityAndTrustConsentAbTestCookieName =
 		'identity-and-trust-consent-rr-banner-us';
 	const abTestCookieName = 'gu_client_ab_tests';
-	const usStateInSupportedList = 'SC';
+	const usStateInSupportedList = AB_TEST_US_STATES[0];
 	const guCountryRegionCookieName = 'GU_geo_country_region';
 
 	describe('isInUsStateForAbTest', () => {
