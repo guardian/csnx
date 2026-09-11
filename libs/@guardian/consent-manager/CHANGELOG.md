@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.1.1
+
+### Patch Changes
+
+- acfab2d: Roll out US AB test to South Carolina
+
 ## 2.1.0
 
 ### Minor Changes
