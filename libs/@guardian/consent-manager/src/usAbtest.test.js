@@ -18,26 +18,27 @@ describe('usAbtest', () => {
 	const identityAndTrustConsentAbTestCookieName =
 		'identity-and-trust-consent-rr-banner-us';
 	const abTestCookieName = 'gu_client_ab_tests';
+	const usStateInSupportedList = 'SC';
 	const guCountryRegionCookieName = 'GU_geo_country_region';
 
 	describe('isInUsStateForAbTest', () => {
 		it('returns true when the geo region cookie contains a supported US state', () => {
-			mockGetCookie.mockReturnValue('US-WA');
+			mockGetCookie.mockReturnValue(`US-${usStateInSupportedList}`);
 			expect(isInUsStateForAbTest()).toBe(true);
 		});
 
 		it('returns false when the geo region cookie contains an unsupported US state', () => {
-			mockGetCookie.mockReturnValue('US-NY');
+			mockGetCookie.mockReturnValue('US-NY'); // NY is not in the supported list
 			expect(isInUsStateForAbTest()).toBe(false);
 		});
 
 		it('returns false when the geo region cookie is for a non-US region', () => {
-			mockGetCookie.mockReturnValue('GB-PNM');
+			mockGetCookie.mockReturnValue('GB-PNM'); // Non-US region
 			expect(isInUsStateForAbTest()).toBe(false);
 		});
 
 		it('returns false when the geo region cookie is for a non-US region but with a state code that matches', () => {
-			mockGetCookie.mockReturnValue('GB-WA');
+			mockGetCookie.mockReturnValue('GB-WA'); // Non-US region with a state code that matches
 			expect(isInUsStateForAbTest()).toBe(false);
 		});
 
@@ -77,7 +78,7 @@ describe('usAbtest', () => {
 		it('returns true when the user is in a supported US state and is in the control ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-WA';
+					return `US-${usStateInSupportedList}`;
 				}
 				if (name === abTestCookieName) {
 					return `${identityAndTrustConsentAbTestCookieName}:control`;
@@ -90,7 +91,7 @@ describe('usAbtest', () => {
 		it('returns true when the user is in a supported US state and is in the variant-1 ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-WA';
+					return `US-${usStateInSupportedList}`;
 				}
 				if (name === abTestCookieName) {
 					return `${identityAndTrustConsentAbTestCookieName}:variant-1`;
@@ -103,7 +104,7 @@ describe('usAbtest', () => {
 		it('returns true when the user is in a supported US state and is in the variant-2 ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-WA';
+					return `US-${usStateInSupportedList}`;
 				}
 				if (name === abTestCookieName) {
 					return `${identityAndTrustConsentAbTestCookieName}:variant-2`;
@@ -116,7 +117,7 @@ describe('usAbtest', () => {
 		it('returns false when the user is in a supported US state but has no ab test group', () => {
 			mockGetCookie.mockImplementation(({ name }) => {
 				if (name === guCountryRegionCookieName) {
-					return 'US-WA';
+					return `US-${usStateInSupportedList}`;
 				}
 				if (name === abTestCookieName) {
 					return 'some-other-test:control';
