@@ -86,6 +86,21 @@
 		"$type": "lineHeight",
 		"$value": 1.3
 	},
+	"neutral-000": {
+		"$extensions": {
+			"com.figma": {
+				"codeSyntax": {},
+				"hiddenFromPublishing": false,
+				"scopes": ["ALL_SCOPES"]
+			}
+		},
+		"$type": "color",
+		"$value": {
+			"alpha": 1,
+			"colorSpace": "srgb",
+			"components": [0, 0, 0]
+		}
+	},
 	"neutral-700": {
 		"$extensions": {
 			"com.figma": {
@@ -183,7 +198,7 @@
 				"scopes": ["ALL_SCOPES"]
 			}
 		},
-		"$type": "borderRadius",
+		"$type": "dimension",
 		"$value": {
 			"unit": "px",
 			"value": 100
