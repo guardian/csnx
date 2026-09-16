@@ -7,6 +7,33 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 	plugins: [
 		css({
 			filename: 'pulse.css',
+			permutations: [
+				{
+					input: {}, // default
+					exclude: ['brand.**', 'mode.**'],
+					prepare: (contents) => `:root {\n  ${contents}\n}`,
+				},
+				{
+					input: { brand: 'core' },
+					include: ['brand.**'],
+					prepare: (contents) => `[data-brand="core"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { brand: 'news' },
+					include: ['brand.**'],
+					prepare: (contents) => `[data-brand="news"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { mode: 'light' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-mode="light"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { mode: 'dark' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-mode="dark"] {\n  ${contents}\n}`,
+				},
+			],
 		}),
 	],
 	outDir: './dist',
