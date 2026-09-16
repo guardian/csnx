@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/consent-manager",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"private": false,
 	"description": "Consent Manager for the Guardian",
 	"repository": {

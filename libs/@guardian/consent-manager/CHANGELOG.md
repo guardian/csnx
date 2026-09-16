@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.1.2
+
+### Patch Changes
+
+- 569eb7e: Add 11 additional states to Banner AB test list
+
 ## 2.1.1
 
 ### Patch Changes
