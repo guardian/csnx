@@ -1,0 +1,32 @@
+{
+	"mode": {
+		"color": {
+			"fill": {
+				"primary": {
+					"$extensions": {
+						"com.figma": {
+							"codeSyntax": {},
+							"hiddenFromPublishing": false,
+							"scopes": ["ALL_SCOPES"]
+						}
+					},
+					"$type": "color",
+					"$value": "{brand.color.fill.primary.light}"
+				}
+			},
+			"text": {
+				"primary": {
+					"$extensions": {
+						"com.figma": {
+							"codeSyntax": {},
+							"hiddenFromPublishing": false,
+							"scopes": ["ALL_SCOPES"]
+						}
+					},
+					"$type": "color",
+					"$value": "{brand.color.text.primary.light}"
+				}
+			}
+		}
+	}
+}
