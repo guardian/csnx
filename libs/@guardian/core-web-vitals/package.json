@@ -39,7 +39,7 @@
 		"ts-jest": "29.4.11",
 		"tslib": "2.8.1",
 		"typescript": "6.0.3",
-		"web-vitals": "5.2.0",
+		"web-vitals": "6.2.1",
 		"wireit": "0.14.13"
 	},
 	"peerDependencies": {
