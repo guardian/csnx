@@ -7,12 +7,12 @@ export const button = css`
 	justify-content: center;
 	align-items: center;
 	appearance: none;
-	color: var(--button-color-text);
-	background-color: var(--button-color-fill);
-	font: var(--button-label);
-	letter-spacing: var(--button-letter-spacing);
-	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
-	border-radius: var(--button-radius);
+	color: var(--mode-color-text-primary);
+	background-color: var(--mode-color-fill-primary);
+	font: var(--label-sans-bold-m);
+	letter-spacing: var(--label-sans-bold-m-letter-spacing);
+	padding: var(--padding-vertical-m) var(--padding-horizontal-l);
+	border-radius: var(--radius-round);
 	border: none;
 	cursor: pointer;
 	text-decoration: none;
@@ -28,6 +28,6 @@ export const button = css`
 	}
 
 	&:hover {
-		background-color: hsl(from var(--button-color-fill) h s calc(l - 5));
+		background-color: hsl(from var(--mode-color-fill-primary) h s calc(l - 5));
 	}
 `;
