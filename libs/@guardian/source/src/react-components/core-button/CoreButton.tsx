@@ -10,10 +10,10 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
  * Buttons enable users to make choices or perform actions.
  */
 export const CoreButton = ({ children, ...props }: ButtonProps) => (
-	<>
+	<div data-brand="core" data-mode="light">
 		<Global styles={pulse} />
 		<button css={button} {...props}>
 			{children}
 		</button>
-	</>
+	</div>
 );
