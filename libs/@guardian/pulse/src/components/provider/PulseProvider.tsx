@@ -1,8 +1,10 @@
+import { Global } from '@emotion/react';
+import styles from '@guardian/pulse/pulse.css?inline';
 import { type ReactNode } from 'react';
-// import { Global } from '@emotion/react';
 
 export const PulseProvider = ({ children }: { children: ReactNode }) => (
-	<div data-brand="core" data-mode="light">
+	<>
+		<Global styles={styles} />
 		{children}
-	</div>
+	</>
 );
