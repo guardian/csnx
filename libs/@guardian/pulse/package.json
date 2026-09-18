@@ -11,7 +11,11 @@
 	],
 	"type": "module",
 	"exports": {
-		".": null,
+		".": {
+			"types": "./dist/components/index.d.ts",
+			"import": "./dist/components/index.js",
+			"require": "./dist/components/index.cjs"
+		},
 		"./pulse.css": "./dist/pulse.css"
 	},
 	"files": [
@@ -19,38 +23,34 @@
 	],
 	"scripts": {
 		"build": "wireit",
+		"build:tokens": "wireit",
 		"dev": "jest --watch --passWithNoTests",
 		"fix": "wireit",
 		"lint": "wireit",
+		"lint:tokens": "wireit",
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
 	},
-	"devDependencies": {
-		"@guardian/eslint-config": "workspace:*",
-		"@terrazzo/cli": "2.7.1",
-		"@terrazzo/plugin-css": "2.7.1",
-		"@types/jest": "30.0.0",
-		"eslint": "9.39.1",
-		"jest": "30.4.2",
-		"prettier": "3.8.0",
-		"rollup": "4.62.2",
-		"ts-jest": "29.4.11",
-		"tslib": "2.8.1",
-		"typescript": "6.0.3",
-		"wireit": "0.14.13"
-	},
-	"peerDependencies": {
-		"tslib": "^2.8.1",
-		"typescript": "~6.0.3"
-	},
-	"peerDependenciesMeta": {
-		"typescript": {
-			"optional": true
-		}
-	},
 	"wireit": {
 		"build": {
+			"command": "rollup -c",
+			"dependencies": [
+				"build:tokens"
+			],
+			"files": [
+				"src/**",
+				"package.json",
+				"tsconfig.json",
+				"rollup.config.js",
+				"../../../configs/rollup/rollup.config.js"
+			],
+			"output": [
+				"dist"
+			],
+			"clean": false
+		},
+		"build:tokens": {
 			"command": "tz build",
 			"files": [
 				"pulse.resolver.json",
@@ -59,7 +59,7 @@
 				"terrazzo.config.ts"
 			],
 			"output": [
-				"dist/**"
+				"dist"
 			]
 		},
 		"fix": {
@@ -72,12 +72,21 @@
 				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
-			"clean": false,
 			"output": [
 				"."
-			]
+			],
+			"clean": false
 		},
 		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"!(dist|storybook-static)/**",
+				"!.eslintcache"
+			],
+			"output": []
+		},
+		"lint:tokens": {
 			"command": "tz lint",
 			"files": [
 				"pulse.resolver.json",
@@ -127,6 +136,36 @@
 				"!.eslintcache"
 			],
 			"output": []
+		}
+	},
+	"devDependencies": {
+		"@emotion/react": "11.11.4",
+		"@guardian/eslint-config": "workspace:*",
+		"@terrazzo/cli": "2.7.1",
+		"@terrazzo/plugin-css": "2.7.1",
+		"@types/jest": "30.0.0",
+		"@types/react": "18.2.79",
+		"eslint": "9.39.1",
+		"jest": "30.4.2",
+		"prettier": "3.8.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"rollup": "4.62.2",
+		"ts-jest": "29.4.11",
+		"tslib": "2.8.1",
+		"typescript": "6.0.3",
+		"wireit": "0.14.13"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.11.4",
+		"@types/react": "^18.2.79",
+		"react": "^18.2.0",
+		"tslib": "^2.8.1",
+		"typescript": "~6.0.3"
+	},
+	"peerDependenciesMeta": {
+		"typescript": {
+			"optional": true
 		}
 	}
 }

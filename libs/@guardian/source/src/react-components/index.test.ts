@@ -85,6 +85,7 @@ it('Should have exactly these exports', () => {
 		'Link',
 		'LinkButton',
 		'Option',
+		'PulseButton',
 		'Radio',
 		'RadioGroup',
 		'Select',
