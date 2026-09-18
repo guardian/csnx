@@ -1,0 +1,13 @@
+{
+	"version": 2,
+	"source": {
+		"project": "58d16642-7870-417a-b3c6-ed96bc379169",
+		"ref": { "type": "branch", "name": "button-theming" }
+	},
+	"outputs": {
+		"tokens": {
+			"format": "dtcg",
+			"dir": "libs/@guardian/pulse/src/tokens"
+		}
+	}
+}
