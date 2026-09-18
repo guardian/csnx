@@ -352,4 +352,4 @@ export {
 } from './user-feedback/theme';
 export type { ThemeUserFeedback } from './user-feedback/theme';
 
-export { CoreButton } from './core-button/CoreButton';
+export { PulseButton } from './pulse-button/PulseButton';
