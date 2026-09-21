@@ -152,6 +152,7 @@
 		}
 	},
 	"dependencies": {
+		"@guardian/pulse": "workspace:*",
 		"mini-svg-data-uri": "1.4.4"
 	},
 	"devDependencies": {
@@ -164,7 +165,6 @@
 		"@emotion/react": "11.11.4",
 		"@guardian/eslint-config": "workspace:*",
 		"@guardian/libs": "workspace:*",
-		"@guardian/pulse": "workspace:*",
 		"@storybook/addon-a11y": "10.4.0",
 		"@storybook/addon-docs": "10.4.0",
 		"@storybook/addon-links": "10.4.0",

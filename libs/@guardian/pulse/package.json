@@ -6,9 +6,7 @@
 		"directory": "libs/@guardian/pulse"
 	},
 	"license": "Apache-2.0",
-	"sideEffects": [
-		"./dist/pulse.css"
-	],
+	"sideEffects": false,
 	"type": "module",
 	"exports": {
 		".": {
