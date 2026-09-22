@@ -5,17 +5,24 @@
 	"sets": {
 		"base": {
 			"sources": [
-				{
-					"$ref": "./src/tokens/base/base.json"
-				}
+				{ "$ref": "./src/tokens/base/base.json" },
+				{ "$ref": "./src/tokens/radius/corner-radius.json" },
+				{ "$ref": "./src/tokens/spacing/spacing.json" },
+				{ "$ref": "./src/tokens/typography/fixed.json" }
 			]
 		}
 	},
 	"modifiers": {
-		"brand": {
+		"theme": {
 			"contexts": {
-				"core": [{ "$ref": "./src/tokens/brand/core.json" }],
-				"news": [{ "$ref": "./src/tokens/brand/news.json" }]
+				"core": [{ "$ref": "./src/tokens/theme/core.json" }],
+				"core-alt": [{ "$ref": "./src/tokens/theme/core-alt.json" }],
+				"core-support": [{ "$ref": "./src/tokens/theme/core-support.json" }],
+				"culture": [{ "$ref": "./src/tokens/theme/culture.json" }],
+				"lifestyle": [{ "$ref": "./src/tokens/theme/lifestyle.json" }],
+				"news": [{ "$ref": "./src/tokens/theme/news.json" }],
+				"opinion": [{ "$ref": "./src/tokens/theme/opinion.json" }],
+				"sport": [{ "$ref": "./src/tokens/theme/sport.json" }]
 			},
 			"default": "core"
 		},
@@ -32,7 +39,7 @@
 			"$ref": "#/sets/base"
 		},
 		{
-			"$ref": "#/modifiers/brand"
+			"$ref": "#/modifiers/theme"
 		},
 		{
 			"$ref": "#/modifiers/mode"

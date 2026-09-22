@@ -7,13 +7,13 @@ export const button = css`
 	justify-content: center;
 	align-items: center;
 	appearance: none;
-	color: var(--mode-color-text-primary);
-	background-color: var(--mode-color-fill-primary);
-	font: var(--label-sans-bold-m);
-	letter-spacing: var(--label-sans-bold-m-letter-spacing);
-	padding: var(--padding-vertical-m) var(--padding-horizontal-l);
+	color: var(--color-text-button-primary);
+	background-color: var(--color-fill-button-primary);
+	font: var(--fixed-label-sans-bold-m);
+	letter-spacing: var(--fixed-label-sans-bold-m-letter-spacing);
+	padding: var(--padding-125) var(--padding-250);
+	border: var(--border-button-primary);
 	border-radius: var(--radius-round);
-	border: none;
 	cursor: pointer;
 	text-decoration: none;
 	white-space: nowrap;
@@ -25,9 +25,5 @@ export const button = css`
 
 	&:focus {
 		${focusHaloSpaced};
-	}
-
-	&:hover {
-		background-color: hsl(from var(--mode-color-fill-primary) h s calc(l - 5));
 	}
 `;
