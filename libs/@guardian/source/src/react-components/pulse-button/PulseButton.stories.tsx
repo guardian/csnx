@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { PulseProvider } from '@guardian/pulse';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PulseButton } from './PulseButton';
@@ -17,6 +18,25 @@ export const Default: Story = {
 	render: (args) => (
 		<PulseProvider>
 			<PulseButton {...args} />
+		</PulseProvider>
+	),
+};
+
+export const Inverse: Story = {
+	args: {
+		children: 'Primary button',
+		style: 'inverse',
+	},
+	render: (args) => (
+		<PulseProvider>
+			<div
+				css={css`
+					background-color: var(--base-color-brand-blue-400);
+					padding: var(--padding-200);
+				`}
+			>
+				<PulseButton {...args} />
+			</div>
 		</PulseProvider>
 	),
 };
