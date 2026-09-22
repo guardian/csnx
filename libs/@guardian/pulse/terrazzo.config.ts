@@ -10,27 +10,58 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 			permutations: [
 				{
 					input: {}, // default
-					exclude: ['brand.**', 'mode.**'],
+					exclude: ['mode.**', 'color.**'],
 					prepare: (contents) => `:root {\n  ${contents}\n}`,
 				},
 				{
-					input: { brand: 'core' },
-					include: ['brand.**'],
+					input: { theme: 'core' },
+					include: ['mode.**'],
 					prepare: (contents) => `[data-brand="core"] {\n  ${contents}\n}`,
 				},
 				{
-					input: { brand: 'news' },
-					include: ['brand.**'],
+					input: { theme: 'core-alt' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-brand="core-alt"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'core-support' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-brand="core-support"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'culture' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-brand="culture"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'lifestyle' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-brand="lifestyle"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'news' },
+					include: ['mode.**'],
 					prepare: (contents) => `[data-brand="news"] {\n  ${contents}\n}`,
+				},
+				// {
+				// 	input: { theme: 'opinion' },
+				// 	include: ['mode.**'],
+				// 	prepare: (contents) => `[data-brand="opinion"] {\n  ${contents}\n}`,
+				// },
+				{
+					input: { theme: 'sport' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-brand="sport"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { mode: 'light' },
-					include: ['mode.**'],
+					include: ['color.**', 'border.**'],
 					prepare: (contents) => `[data-mode="light"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { mode: 'dark' },
-					include: ['mode.**'],
+					include: ['color.**', 'border.**'],
 					prepare: (contents) => `[data-mode="dark"] {\n  ${contents}\n}`,
 				},
 			],

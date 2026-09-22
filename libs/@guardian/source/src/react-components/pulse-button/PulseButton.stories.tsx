@@ -1,6 +1,6 @@
+import { PulseProvider } from '@guardian/pulse';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PulseButton } from './PulseButton';
-import { PulseProvider } from '@guardian/pulse';
 
 const meta: Meta<typeof PulseButton> = {
 	title: 'React Components/Pulse Button',
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof PulseButton>;
 
 export const Default: Story = {
 	args: {
-		children: 'Subscribe now',
+		children: 'Primary button',
 	},
 	render: (args) => (
 		<PulseProvider>
@@ -28,12 +28,12 @@ export const BrandsAndModes: Story = {
 	render: (args) => (
 		<PulseProvider>
 			<PulseButton {...args} />
-			<PulseProvider brand="news">
+			<PulseProvider theme="core-alt">
 				<PulseButton {...args} />
 			</PulseProvider>
 			<PulseProvider mode="dark">
 				<PulseButton {...args} />
-				<PulseProvider brand="news">
+				<PulseProvider theme="core-alt">
 					<PulseButton {...args} />
 				</PulseProvider>
 			</PulseProvider>

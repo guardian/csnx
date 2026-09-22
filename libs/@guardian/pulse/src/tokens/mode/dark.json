@@ -1,20 +1,67 @@
 {
-	"mode": {
-		"color": {
-			"fill": {
-				"primary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
-						}
+	"border": {
+		"button": {
+			"primary": {
+				"$extensions": {
+					"com.figma": {
+						"codeSyntax": {},
+						"hiddenFromPublishing": false,
+						"scopes": []
+					}
+				},
+				"$type": "border",
+				"$value": {
+					"color": {
+						"alpha": 1,
+						"colorSpace": "srgb",
+						"components": [0.862745098, 0.862745098, 0.862745098]
 					},
-					"$type": "color",
-					"$value": "{brand.color.fill.primary.dark}"
+					"style": "solid",
+					"width": {
+						"unit": "px",
+						"value": 1
+					}
 				}
 			},
-			"text": {
+			"primary-inverse": {
+				"$extensions": {
+					"com.figma": {
+						"codeSyntax": {},
+						"hiddenFromPublishing": false,
+						"scopes": []
+					}
+				},
+				"$type": "border",
+				"$value": {
+					"color": {
+						"alpha": 1,
+						"colorSpace": "srgb",
+						"components": [0.862745098, 0.862745098, 0.862745098]
+					},
+					"style": "solid",
+					"width": {
+						"unit": "px",
+						"value": 1
+					}
+				}
+			}
+		}
+	},
+	"color": {
+		"border": {
+			"button": {
+				"primary": {
+					"$type": "color",
+					"$value": "{mode.dark.color.border.button.primary}"
+				},
+				"primary-inverse": {
+					"$type": "color",
+					"$value": "{mode.dark.color.border.button.primary-inverse}"
+				}
+			}
+		},
+		"fill": {
+			"button": {
 				"primary": {
 					"$extensions": {
 						"com.figma": {
@@ -24,7 +71,66 @@
 						}
 					},
 					"$type": "color",
-					"$value": "{brand.color.text.primary.dark}"
+					"$value": "{mode.dark.color.fill.button.primary}"
+				},
+				"primary-inverse": {
+					"$type": "color",
+					"$value": "{mode.dark.color.fill.button.primary-inverse}"
+				}
+			}
+		},
+		"surface": {
+			"bg": {
+				"neutral": {
+					"primary": {
+						"$extensions": {
+							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
+								"scopes": ["ALL_SCOPES"]
+							}
+						},
+						"$type": "color",
+						"$value": "{mode.dark.color.surface.bg.neutral.primary}"
+					},
+					"secondary": {
+						"$type": "color",
+						"$value": "{mode.dark.color.surface.bg.neutral.secondary}"
+					}
+				}
+			}
+		},
+		"text": {
+			"button": {
+				"primary": {
+					"$extensions": {
+						"com.figma": {
+							"codeSyntax": {},
+							"hiddenFromPublishing": false,
+							"scopes": ["ALL_SCOPES"]
+						}
+					},
+					"$type": "color",
+					"$value": "{mode.dark.color.text.button.primary}"
+				},
+				"primary-inverse": {
+					"$type": "color",
+					"$value": "{mode.dark.color.text.button.primary-inverse}"
+				},
+				"secondary": {
+					"$extensions": {
+						"com.figma": {
+							"codeSyntax": {},
+							"hiddenFromPublishing": false,
+							"scopes": ["ALL_SCOPES"]
+						}
+					},
+					"$type": "color",
+					"$value": "{mode.dark.color.text.button.secondary}"
+				},
+				"secondary-inverse": {
+					"$type": "color",
+					"$value": "{mode.dark.color.text.button.secondary-inverse}"
 				}
 			}
 		}
