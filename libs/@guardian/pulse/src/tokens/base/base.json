@@ -2070,6 +2070,21 @@
 						}
 					}
 				}
+			},
+			"none": {
+				"$extensions": {
+					"com.figma": {
+						"codeSyntax": {},
+						"hiddenFromPublishing": false,
+						"scopes": ["ALL_SCOPES"]
+					}
+				},
+				"$type": "color",
+				"$value": {
+					"alpha": 0,
+					"colorSpace": "srgb",
+					"components": [0, 0, 0]
+				}
 			}
 		},
 		"dimension": {
