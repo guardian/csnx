@@ -2,7 +2,7 @@ import { Global } from '@emotion/react';
 import styles from '@guardian/pulse/pulse.css?inline';
 import { createContext, type ReactNode, useContext } from 'react';
 
-type Theme =
+export type Theme =
 	| 'core'
 	| 'core-alt'
 	| 'core-support'
@@ -12,7 +12,7 @@ type Theme =
 	| 'opinion'
 	| 'sport';
 
-type Mode = 'light' | 'dark';
+export type Mode = 'light' | 'dark';
 
 type PulseConfig = {
 	stylesImported: boolean;
