@@ -14,13 +14,13 @@ export type Theme =
 
 export type Mode = 'light' | 'dark';
 
-type PulseConfig = {
+export type PulseConfig = {
 	stylesImported: boolean;
 	theme: Theme;
 	mode: Mode;
 };
 
-const PulseContext = createContext<PulseConfig>({
+export const PulseContext = createContext<PulseConfig>({
 	stylesImported: false,
 	theme: 'core',
 	mode: 'light',
@@ -45,9 +45,7 @@ export const PulseProvider = ({
 			}}
 		>
 			{!config.stylesImported && <Global styles={styles} />}
-			<span data-brand={theme ?? config.theme} data-mode={mode ?? config.mode}>
-				{children}
-			</span>
+			{children}
 		</PulseContext.Provider>
 	);
 };
