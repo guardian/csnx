@@ -1,6 +1,10 @@
 import { css } from '@emotion/react';
 import { focusHaloSpaced } from '../../foundations';
-import { ButtonStyleProps } from './PulseButton';
+
+export type ButtonStyleProps = {
+	style?: 'default' | 'inverse';
+	priority?: 'primary' | 'secondary' | 'tertiary';
+};
 
 export const buttonStyles = ({
 	style = 'default',
