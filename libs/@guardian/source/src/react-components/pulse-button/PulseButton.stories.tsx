@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { PulseProvider } from '@guardian/pulse';
+import { PulseProvider, type Theme } from '@guardian/pulse';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PulseButton } from './PulseButton';
 
@@ -10,6 +10,17 @@ const meta: Meta<typeof PulseButton> = {
 
 export default meta;
 type Story = StoryObj<typeof PulseButton>;
+
+const themes: Theme[] = [
+	'core',
+	'core-alt',
+	'core-support',
+	'culture',
+	'lifestyle',
+	'news',
+	'opinion',
+	'sport',
+];
 
 export const Default: Story = {
 	args: {
@@ -41,21 +52,83 @@ export const Inverse: Story = {
 	),
 };
 
-export const BrandsAndModes: Story = {
-	args: {
-		children: 'Subscribe now',
-	},
+export const Themes: Story = {
 	render: (args) => (
 		<PulseProvider>
-			<PulseButton {...args} />
-			<PulseProvider theme="core-alt">
-				<PulseButton {...args} />
-			</PulseProvider>
+			<h2
+				css={css`
+					font: var(--fixed-heading-sans-bold-m);
+				`}
+			>
+				Light
+			</h2>
+			<section
+				css={css`
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--gap-200);
+					padding: var(--padding-200);
+				`}
+			>
+				{themes.map((theme) => (
+					<PulseProvider theme={theme}>
+						<PulseButton>Primary button</PulseButton>
+					</PulseProvider>
+				))}
+			</section>
+			<section
+				css={css`
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--gap-200);
+					padding: var(--padding-200);
+					background-color: var(--base-color-brand-blue-400);
+				`}
+			>
+				{themes.map((theme) => (
+					<PulseProvider theme={theme}>
+						<PulseButton style="inverse">Primary button</PulseButton>
+					</PulseProvider>
+				))}
+			</section>
+			<h2
+				css={css`
+					font: var(--fixed-heading-sans-bold-m);
+				`}
+			>
+				Dark
+			</h2>
 			<PulseProvider mode="dark">
-				<PulseButton {...args} />
-				<PulseProvider theme="core-alt">
-					<PulseButton {...args} />
-				</PulseProvider>
+				<section
+					css={css`
+						display: flex;
+						flex-wrap: wrap;
+						gap: var(--gap-200);
+						padding: var(--padding-200);
+						background-color: var(--color-surface-bg-neutral-primary);
+					`}
+				>
+					{themes.map((theme) => (
+						<PulseProvider theme={theme}>
+							<PulseButton>Primary button</PulseButton>
+						</PulseProvider>
+					))}
+				</section>
+				<section
+					css={css`
+						display: flex;
+						flex-wrap: wrap;
+						gap: var(--gap-200);
+						padding: var(--padding-200);
+						background-color: var(--color-surface-bg-neutral-primary);
+					`}
+				>
+					{themes.map((theme) => (
+						<PulseProvider theme={theme}>
+							<PulseButton style="inverse">Primary button</PulseButton>
+						</PulseProvider>
+					))}
+				</section>
 			</PulseProvider>
 		</PulseProvider>
 	),
