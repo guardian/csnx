@@ -85,10 +85,6 @@
 							},
 							"$type": "color",
 							"$value": "{base.color.brand.yellow.200}"
-						},
-						"tertiary": {
-							"$type": "color",
-							"$value": "{base.color.dark.pillar.orange.200}"
 						}
 					},
 					"bg": {
@@ -236,10 +232,6 @@
 						"primary": {
 							"$type": "color",
 							"$value": "{base.color.brand.yellow.400}"
-						},
-						"tertiary": {
-							"$type": "color",
-							"$value": "{base.color.light.pillar.orange.800}"
 						}
 					},
 					"bg": {

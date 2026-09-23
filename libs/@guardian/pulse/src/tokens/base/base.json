@@ -2188,16 +2188,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextEgyptian",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextEgyptian}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -2214,16 +2208,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextEgyptian",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextEgyptian}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -2235,16 +2223,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextEgyptian",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextEgyptian}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 21
@@ -2254,16 +2236,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextEgyptian",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextEgyptian}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 21
@@ -2275,16 +2251,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextEgyptian",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextEgyptian}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 24
@@ -2294,16 +2264,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextEgyptian",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextEgyptian}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 24
@@ -2367,7 +2331,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 12
@@ -2381,7 +2345,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 13
@@ -2395,7 +2359,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 14
@@ -2409,7 +2373,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 15
@@ -2423,7 +2387,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 16
@@ -2437,7 +2401,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 17
@@ -2451,7 +2415,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 18
@@ -2465,7 +2429,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 19
@@ -2479,7 +2443,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 20
@@ -2493,7 +2457,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 22
@@ -2507,7 +2471,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 24
@@ -2521,7 +2485,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 26
@@ -2535,7 +2499,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 28
@@ -2549,7 +2513,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 30
@@ -2563,7 +2527,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 32
@@ -2577,7 +2541,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 34
@@ -2591,7 +2555,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 36
@@ -2605,7 +2569,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 38
@@ -2619,7 +2583,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 40
@@ -2633,7 +2597,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 42
@@ -2647,7 +2611,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 50
@@ -2661,7 +2625,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 64
@@ -2675,7 +2639,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "fontSize",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 70
@@ -2761,16 +2725,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -2787,16 +2745,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -2806,16 +2758,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -2825,16 +2771,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -2844,16 +2784,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -2865,16 +2799,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 17
@@ -2884,16 +2812,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 17
@@ -2903,16 +2825,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 17
@@ -2922,16 +2838,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 17
@@ -2941,16 +2851,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 17
@@ -2962,16 +2866,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -2981,16 +2879,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -3000,16 +2892,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -3019,16 +2905,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -3038,16 +2918,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -3059,16 +2933,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 23
@@ -3078,16 +2946,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 23
@@ -3097,16 +2959,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 23
@@ -3116,16 +2972,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 23
@@ -3135,16 +2985,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 23
@@ -3156,16 +3000,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 28
@@ -3175,16 +3013,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 28
@@ -3194,16 +3026,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 28
@@ -3213,16 +3039,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 28
@@ -3232,16 +3052,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 28
@@ -3253,16 +3067,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 32
@@ -3272,16 +3080,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 32
@@ -3291,16 +3093,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 32
@@ -3310,16 +3106,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 32
@@ -3329,16 +3119,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 32
@@ -3350,16 +3134,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 39
@@ -3369,16 +3147,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 39
@@ -3388,16 +3160,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 39
@@ -3407,16 +3173,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 39
@@ -3426,16 +3186,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 39
@@ -3447,16 +3201,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 48
@@ -3466,16 +3214,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 48
@@ -3485,16 +3227,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 48
@@ -3504,16 +3240,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 48
@@ -3523,16 +3253,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 48
@@ -3544,16 +3268,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 50
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.50px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 57
@@ -3563,16 +3281,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 50
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.50px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 57
@@ -3582,16 +3294,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 50
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.50px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 57
@@ -3601,16 +3307,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 50
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.50px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 57
@@ -3620,16 +3320,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 50
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.50px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 57
@@ -3641,16 +3335,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 64
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.64px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 74
@@ -3660,16 +3348,10 @@
 				"light": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 64
-						},
-						"fontWeight": 300,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.64px}",
+						"fontWeight": "{base.fontweight.300}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 74
@@ -3679,16 +3361,10 @@
 				"medium": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 64
-						},
-						"fontWeight": 500,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.64px}",
+						"fontWeight": "{base.fontweight.500}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 74
@@ -3698,16 +3374,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 64
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.64px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 74
@@ -3717,16 +3387,10 @@
 				"semibold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GH Guardian Headline",
-						"fontSize": {
-							"unit": "px",
-							"value": 64
-						},
-						"fontWeight": 600,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GHGuardianHeadline}",
+						"fontSize": "{base.fontsize.64px}",
+						"fontWeight": "{base.fontweight.600}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 74
@@ -3747,16 +3411,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GT Guardian Titlepiece",
-						"fontSize": {
-							"unit": "px",
-							"value": 32
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GTGuardianTitlepiece}",
+						"fontSize": "{base.fontsize.32px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 37
@@ -3768,16 +3426,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GT Guardian Titlepiece",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GTGuardianTitlepiece}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 48
@@ -3789,16 +3441,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GT Guardian Titlepiece",
-						"fontSize": {
-							"unit": "px",
-							"value": 70
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GTGuardianTitlepiece}",
+						"fontSize": "{base.fontsize.70px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 81
@@ -3940,7 +3586,7 @@
 						"scopes": ["ALL_SCOPES"]
 					}
 				},
-				"$type": "letterSpacing",
+				"$type": "dimension",
 				"$value": {
 					"unit": "px",
 					"value": 0
@@ -4192,16 +3838,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 12
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.12px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -4218,16 +3858,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 12
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.12px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 16
@@ -4239,16 +3873,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 18
@@ -4265,16 +3893,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 14
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.14px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 18
@@ -4286,16 +3908,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -4305,16 +3921,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 15
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.15px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 20
@@ -4326,16 +3936,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 22
@@ -4345,16 +3949,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 17
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.17px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 22
@@ -4366,16 +3964,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 26
@@ -4385,16 +3977,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 20
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.20px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 26
@@ -4406,16 +3992,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 31
@@ -4432,16 +4012,10 @@
 					},
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 24
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.24px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 31
@@ -4453,16 +4027,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 36
@@ -4472,16 +4040,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 28
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.28px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 36
@@ -4493,16 +4055,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 44
@@ -4512,16 +4068,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 34
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.34px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 44
@@ -4533,16 +4083,10 @@
 				"bold": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 700,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.700}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 55
@@ -4552,16 +4096,10 @@
 				"regular": {
 					"$type": "typography",
 					"$value": {
-						"fontFamily": "GuardianTextSans",
-						"fontSize": {
-							"unit": "px",
-							"value": 42
-						},
-						"fontWeight": 400,
-						"letterSpacing": {
-							"unit": "px",
-							"value": 0
-						},
+						"fontFamily": "{base.fontfamily.GuardianTextSans}",
+						"fontSize": "{base.fontsize.42px}",
+						"fontWeight": "{base.fontweight.400}",
+						"letterSpacing": "{base.letterspacing.0}",
 						"lineHeight": {
 							"unit": "px",
 							"value": 55

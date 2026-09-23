@@ -44,11 +44,11 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 					include: ['mode.**'],
 					prepare: (contents) => `[data-brand="news"] {\n  ${contents}\n}`,
 				},
-				// {
-				// 	input: { theme: 'opinion' },
-				// 	include: ['mode.**'],
-				// 	prepare: (contents) => `[data-brand="opinion"] {\n  ${contents}\n}`,
-				// },
+				{
+					input: { theme: 'opinion' },
+					include: ['mode.**'],
+					prepare: (contents) => `[data-brand="opinion"] {\n  ${contents}\n}`,
+				},
 				{
 					input: { theme: 'sport' },
 					include: ['mode.**'],
