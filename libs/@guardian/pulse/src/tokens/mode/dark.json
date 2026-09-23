@@ -11,16 +11,9 @@
 				},
 				"$type": "border",
 				"$value": {
-					"color": {
-						"alpha": 1,
-						"colorSpace": "srgb",
-						"components": [0.862745098, 0.862745098, 0.862745098]
-					},
+					"color": "{color.border.button.primary}",
 					"style": "solid",
-					"width": {
-						"unit": "px",
-						"value": 1
-					}
+					"width": "{base.size.1px}"
 				}
 			},
 			"primary-inverse": {
@@ -33,16 +26,9 @@
 				},
 				"$type": "border",
 				"$value": {
-					"color": {
-						"alpha": 1,
-						"colorSpace": "srgb",
-						"components": [0.862745098, 0.862745098, 0.862745098]
-					},
+					"color": "{color.border.button.primary-inverse}",
 					"style": "solid",
-					"width": {
-						"unit": "px",
-						"value": 1
-					}
+					"width": "{base.size.1px}"
 				}
 			}
 		}
