@@ -1,1 +1,1 @@
-export { PulseProvider } from './provider/PulseProvider';
+export { PulseProvider, type Mode, type Theme } from './provider/PulseProvider';
