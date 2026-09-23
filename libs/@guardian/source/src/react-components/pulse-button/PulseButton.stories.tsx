@@ -53,7 +53,7 @@ export const Inverse: Story = {
 };
 
 export const Themes: Story = {
-	render: (args) => (
+	render: () => (
 		<PulseProvider>
 			<h2
 				css={css`
@@ -71,7 +71,7 @@ export const Themes: Story = {
 				`}
 			>
 				{themes.map((theme) => (
-					<PulseProvider theme={theme}>
+					<PulseProvider theme={theme} key={theme}>
 						<PulseButton>Primary button</PulseButton>
 					</PulseProvider>
 				))}
@@ -86,7 +86,7 @@ export const Themes: Story = {
 				`}
 			>
 				{themes.map((theme) => (
-					<PulseProvider theme={theme}>
+					<PulseProvider theme={theme} key={theme}>
 						<PulseButton style="inverse">Primary button</PulseButton>
 					</PulseProvider>
 				))}
@@ -105,11 +105,11 @@ export const Themes: Story = {
 						flex-wrap: wrap;
 						gap: var(--gap-200);
 						padding: var(--padding-200);
-						background-color: var(--color-surface-bg-neutral-primary);
+						background-color: var(--base-color-dark-neutral-50);
 					`}
 				>
 					{themes.map((theme) => (
-						<PulseProvider theme={theme}>
+						<PulseProvider theme={theme} key={theme}>
 							<PulseButton>Primary button</PulseButton>
 						</PulseProvider>
 					))}
@@ -120,11 +120,11 @@ export const Themes: Story = {
 						flex-wrap: wrap;
 						gap: var(--gap-200);
 						padding: var(--padding-200);
-						background-color: var(--color-surface-bg-neutral-primary);
+						background-color: var(--base-color-dark-neutral-50);
 					`}
 				>
 					{themes.map((theme) => (
-						<PulseProvider theme={theme}>
+						<PulseProvider theme={theme} key={theme}>
 							<PulseButton style="inverse">Primary button</PulseButton>
 						</PulseProvider>
 					))}
