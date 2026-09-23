@@ -4,6 +4,17 @@
 			"color": {
 				"border": {
 					"button": {
+						"none": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{base.color.none}"
+						},
 						"primary": {
 							"$extensions": {
 								"com.figma": {
@@ -18,6 +29,36 @@
 						"primary-inverse": {
 							"$type": "color",
 							"$value": "{base.color.dark.pillar.blue.500}"
+						},
+						"secondary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{base.color.dark.pillar.blue.500}"
+						},
+						"secondary-inverse": {
+							"$type": "color",
+							"$value": "{base.color.dark.pillar.blue.500}"
+						},
+						"tertiary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{mode.dark.color.border.button.none}"
+						},
+						"tertiary-inverse": {
+							"$type": "color",
+							"$value": "{mode.dark.color.border.button.none}"
 						}
 					}
 				},
@@ -44,6 +85,29 @@
 							},
 							"$type": "color",
 							"$value": "{base.color.dark.pillar.blue.500}"
+						},
+						"secondary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{mode.dark.color.fill.transparent}"
+						},
+						"secondary-inverse": {
+							"$type": "color",
+							"$value": "{mode.dark.color.fill.transparent}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{mode.dark.color.fill.transparent}"
+						},
+						"tertiary-inverse": {
+							"$type": "color",
+							"$value": "{mode.dark.color.fill.transparent}"
 						}
 					},
 					"neutral": {
@@ -71,6 +135,17 @@
 							"$type": "color",
 							"$value": "{base.color.dark.neutral.800}"
 						}
+					},
+					"transparent": {
+						"$extensions": {
+							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
+								"scopes": ["ALL_SCOPES"]
+							}
+						},
+						"$type": "color",
+						"$value": "{base.color.none}"
 					}
 				},
 				"surface": {
@@ -151,6 +226,17 @@
 			"color": {
 				"border": {
 					"button": {
+						"none": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{base.color.none}"
+						},
 						"primary": {
 							"$extensions": {
 								"com.figma": {
@@ -165,6 +251,36 @@
 						"primary-inverse": {
 							"$type": "color",
 							"$value": "{base.color.light.neutral.999}"
+						},
+						"secondary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{base.color.light.pillar.blue.400}"
+						},
+						"secondary-inverse": {
+							"$type": "color",
+							"$value": "{base.color.light.neutral.999}"
+						},
+						"tertiary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": ["ALL_SCOPES"]
+								}
+							},
+							"$type": "color",
+							"$value": "{mode.light.color.border.button.none}"
+						},
+						"tertiary-inverse": {
+							"$type": "color",
+							"$value": "{mode.light.color.border.button.none}"
 						}
 					}
 				},
@@ -191,6 +307,22 @@
 							},
 							"$type": "color",
 							"$value": "{base.color.light.pillar.blue.400}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{mode.light.color.fill.transparent}"
+						},
+						"secondary-inverse": {
+							"$type": "color",
+							"$value": "{mode.light.color.fill.transparent}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{mode.light.color.fill.transparent}"
+						},
+						"tertiary-inverse": {
+							"$type": "color",
+							"$value": "{mode.light.color.fill.transparent}"
 						}
 					},
 					"neutral": {
@@ -225,6 +357,17 @@
 							"$type": "color",
 							"$value": "{base.color.light.neutral.200}"
 						}
+					},
+					"transparent": {
+						"$extensions": {
+							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
+								"scopes": ["ALL_SCOPES"]
+							}
+						},
+						"$type": "color",
+						"$value": "{base.color.none}"
 					}
 				},
 				"surface": {
