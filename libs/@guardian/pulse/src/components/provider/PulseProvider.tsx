@@ -1,6 +1,6 @@
 import { Global } from '@emotion/react';
-import styles from '@guardian/pulse/pulse.css?inline';
 import { createContext, type ReactNode, useContext } from 'react';
+import styles from '@guardian/pulse/pulse.css?inline';
 
 export type Theme =
 	| 'core'
