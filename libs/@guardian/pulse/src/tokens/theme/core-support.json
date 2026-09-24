@@ -215,6 +215,14 @@
 						"secondary-inverse": {
 							"$type": "color",
 							"$value": "{base.color.brand.yellow.200}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{base.color.brand.yellow.200}"
+						},
+						"tertiary-inverse": {
+							"$type": "color",
+							"$value": "{base.color.brand.yellow.200}"
 						}
 					},
 					"neutral": {
@@ -455,6 +463,14 @@
 							"$value": "{base.color.brand.blue.400}"
 						},
 						"secondary-inverse": {
+							"$type": "color",
+							"$value": "{base.color.brand.yellow.400}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.400}"
+						},
+						"tertiary-inverse": {
 							"$type": "color",
 							"$value": "{base.color.brand.yellow.400}"
 						}
