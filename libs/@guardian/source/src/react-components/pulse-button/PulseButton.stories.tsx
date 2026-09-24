@@ -22,6 +22,73 @@ const themes: Theme[] = [
 	'sport',
 ];
 
+const Heading = ({ children }: { children: React.ReactNode }) => (
+	<h2
+		css={css`
+			font: var(--fixed-heading-sans-bold-s);
+			margin-top: var(--margin-200);
+			margin-bottom: var(--margin-100);
+			:first-of-type {
+				margin-top: 0;
+			}
+		`}
+	>
+		{children}
+	</h2>
+);
+
+const Section = ({
+	style,
+	mode,
+	children,
+}: {
+	style: 'default' | 'inverse';
+	mode: 'light' | 'dark';
+	children: React.ReactNode;
+}) => {
+	const backgroundColour =
+		mode === 'dark'
+			? 'var(--base-color-dark-neutral-50)'
+			: style === 'default'
+				? 'transparent'
+				: 'var(--base-color-brand-blue-400)';
+
+	return (
+		<section
+			css={css`
+				display: flex;
+				flex-wrap: wrap;
+				gap: var(--gap-200);
+				padding: var(--padding-200);
+				background-color: ${backgroundColour};
+			`}
+		>
+			{children}
+		</section>
+	);
+};
+
+const ButtonThemes = ({ style }: { style: 'default' | 'inverse' }) =>
+	themes.map((theme) => (
+		<PulseProvider theme={theme} key={theme}>
+			<div
+				css={css`
+					display: flex;
+					flex-direction: column;
+					gap: var(--gap-200);
+				`}
+			>
+				<PulseButton style={style}>Primary button</PulseButton>
+				<PulseButton style={style} priority="secondary">
+					Secondary button
+				</PulseButton>
+				<PulseButton style={style} priority="tertiary">
+					Tertiary button
+				</PulseButton>
+			</div>
+		</PulseProvider>
+	));
+
 export const Default: Story = {
 	args: {
 		children: 'Primary button',
@@ -40,14 +107,9 @@ export const Inverse: Story = {
 	},
 	render: (args) => (
 		<PulseProvider>
-			<div
-				css={css`
-					background-color: var(--base-color-brand-blue-400);
-					padding: var(--padding-200);
-				`}
-			>
+			<Section style="inverse" mode="light">
 				<PulseButton {...args} />
-			</div>
+			</Section>
 		</PulseProvider>
 	),
 };
@@ -55,80 +117,23 @@ export const Inverse: Story = {
 export const Themes: Story = {
 	render: () => (
 		<PulseProvider>
-			<h2
-				css={css`
-					font: var(--fixed-heading-sans-bold-m);
-				`}
-			>
-				Light
-			</h2>
-			<section
-				css={css`
-					display: flex;
-					flex-wrap: wrap;
-					gap: var(--gap-200);
-					padding: var(--padding-200);
-				`}
-			>
-				{themes.map((theme) => (
-					<PulseProvider theme={theme} key={theme}>
-						<PulseButton>Primary button</PulseButton>
-					</PulseProvider>
-				))}
-			</section>
-			<section
-				css={css`
-					display: flex;
-					flex-wrap: wrap;
-					gap: var(--gap-200);
-					padding: var(--padding-200);
-					background-color: var(--base-color-brand-blue-400);
-				`}
-			>
-				{themes.map((theme) => (
-					<PulseProvider theme={theme} key={theme}>
-						<PulseButton style="inverse">Primary button</PulseButton>
-					</PulseProvider>
-				))}
-			</section>
-			<h2
-				css={css`
-					font: var(--fixed-heading-sans-bold-m);
-				`}
-			>
-				Dark
-			</h2>
+			<Heading>Default (Light)</Heading>
+			<Section style="default" mode="light">
+				<ButtonThemes style="default" />
+			</Section>
+			<Heading>Inverse (Light)</Heading>
+			<Section style="inverse" mode="light">
+				<ButtonThemes style="inverse" />
+			</Section>
 			<PulseProvider mode="dark">
-				<section
-					css={css`
-						display: flex;
-						flex-wrap: wrap;
-						gap: var(--gap-200);
-						padding: var(--padding-200);
-						background-color: var(--base-color-dark-neutral-50);
-					`}
-				>
-					{themes.map((theme) => (
-						<PulseProvider theme={theme} key={theme}>
-							<PulseButton>Primary button</PulseButton>
-						</PulseProvider>
-					))}
-				</section>
-				<section
-					css={css`
-						display: flex;
-						flex-wrap: wrap;
-						gap: var(--gap-200);
-						padding: var(--padding-200);
-						background-color: var(--base-color-dark-neutral-50);
-					`}
-				>
-					{themes.map((theme) => (
-						<PulseProvider theme={theme} key={theme}>
-							<PulseButton style="inverse">Primary button</PulseButton>
-						</PulseProvider>
-					))}
-				</section>
+				<Heading>Default (Dark)</Heading>
+				<Section style="default" mode="dark">
+					<ButtonThemes style="default" />
+				</Section>
+				<Heading>Inverse (Dark)</Heading>
+				<Section style="inverse" mode="dark">
+					<ButtonThemes style="inverse" />
+				</Section>
 			</PulseProvider>
 		</PulseProvider>
 	),
