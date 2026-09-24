@@ -233,6 +233,14 @@
 				"secondary-inverse": {
 					"$type": "color",
 					"$value": "{mode.light.color.text.button.secondary-inverse}"
+				},
+				"tertiary": {
+					"$type": "color",
+					"$value": "{mode.light.color.text.button.tertiary}"
+				},
+				"tertiary-inverse": {
+					"$type": "color",
+					"$value": "{mode.light.color.text.button.tertiary-inverse}"
 				}
 			},
 			"neutral": {
