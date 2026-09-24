@@ -6,10 +6,25 @@ import { PulseButton } from './PulseButton';
 const meta: Meta<typeof PulseButton> = {
 	title: 'React Components/Pulse Button',
 	component: PulseButton,
+	decorators: [
+		(Story) => (
+			<PulseProvider>
+				<Story />
+			</PulseProvider>
+		),
+	],
 };
 
 export default meta;
 type Story = StoryObj<typeof PulseButton>;
+
+const themeBackground = {
+	lightInverse: {
+		backgrounds: {
+			value: 'palette.brand[400]',
+		},
+	},
+};
 
 const themes: Theme[] = [
 	'core',
@@ -89,34 +104,59 @@ const ButtonThemes = ({ style }: { style: 'default' | 'inverse' }) =>
 		</PulseProvider>
 	));
 
-export const Default: Story = {
+export const PrimaryDefault: Story = {
 	args: {
 		children: 'Primary button',
 	},
-	render: (args) => (
-		<PulseProvider>
-			<PulseButton {...args} />
-		</PulseProvider>
-	),
 };
 
-export const Inverse: Story = {
+export const PrimaryInverse: Story = {
 	args: {
-		children: 'Primary button',
+		...PrimaryDefault.args,
 		style: 'inverse',
 	},
-	render: (args) => (
-		<PulseProvider>
-			<Section style="inverse" mode="light">
-				<PulseButton {...args} />
-			</Section>
-		</PulseProvider>
-	),
+	globals: {
+		...themeBackground.lightInverse,
+	},
 };
 
-export const Themes: Story = {
+export const SecondaryDefault: Story = {
+	args: {
+		children: 'Secondary button',
+		priority: 'secondary',
+	},
+};
+
+export const SecondaryInverse: Story = {
+	args: {
+		...SecondaryDefault.args,
+		style: 'inverse',
+	},
+	globals: {
+		...themeBackground.lightInverse,
+	},
+};
+
+export const TertiaryDefault: Story = {
+	args: {
+		children: 'Tertiary button',
+		priority: 'tertiary',
+	},
+};
+
+export const TertiaryInverse: Story = {
+	args: {
+		...TertiaryDefault.args,
+		style: 'inverse',
+	},
+	globals: {
+		...themeBackground.lightInverse,
+	},
+};
+
+export const AllThemes: Story = {
 	render: () => (
-		<PulseProvider>
+		<>
 			<Heading>Default (Light)</Heading>
 			<Section style="default" mode="light">
 				<ButtonThemes style="default" />
@@ -135,6 +175,6 @@ export const Themes: Story = {
 					<ButtonThemes style="inverse" />
 				</Section>
 			</PulseProvider>
-		</PulseProvider>
+		</>
 	),
 };
