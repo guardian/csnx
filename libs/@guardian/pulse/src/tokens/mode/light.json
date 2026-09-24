@@ -197,6 +197,12 @@
 			}
 		},
 		"text": {
+			"brand": {
+				"primary": {
+					"$type": "color",
+					"$value": "{mode.light.color.text.brand.primary}"
+				}
+			},
 			"button": {
 				"primary": {
 					"$extensions": {
@@ -227,6 +233,31 @@
 				"secondary-inverse": {
 					"$type": "color",
 					"$value": "{mode.light.color.text.button.secondary-inverse}"
+				}
+			},
+			"neutral": {
+				"primary": {
+					"$extensions": {
+						"com.figma": {
+							"codeSyntax": {},
+							"hiddenFromPublishing": false,
+							"scopes": ["ALL_SCOPES"]
+						}
+					},
+					"$type": "color",
+					"$value": "{mode.light.color.text.neutral.primary}"
+				},
+				"primary-inverse": {
+					"$type": "color",
+					"$value": "{mode.light.color.text.neutral.primary-inverse}"
+				},
+				"secondary": {
+					"$type": "color",
+					"$value": "{mode.light.color.text.neutral.secondary}"
+				},
+				"secondary-inverse": {
+					"$type": "color",
+					"$value": "{mode.light.color.text.neutral.secondary-inverse}"
 				}
 			}
 		}

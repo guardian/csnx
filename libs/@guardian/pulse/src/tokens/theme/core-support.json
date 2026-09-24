@@ -173,9 +173,25 @@
 								"$value": "{base.color.dark.neutral.200}"
 							}
 						}
+					},
+					"brand": {
+						"primary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.400}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.800}"
+						}
 					}
 				},
 				"text": {
+					"brand": {
+						"primary": {
+							"$type": "color",
+							"$value": "{base.color.light.neutral.999}"
+						}
+					},
 					"button": {
 						"primary": {
 							"$extensions": {
@@ -404,10 +420,20 @@
 						"secondary": {
 							"$type": "color",
 							"$value": "{base.color.brand.blue.800}"
+						},
+						"secondary-copy": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.800}"
 						}
 					}
 				},
 				"text": {
+					"brand": {
+						"primary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.400}"
+						}
+					},
 					"button": {
 						"primary": {
 							"$extensions": {

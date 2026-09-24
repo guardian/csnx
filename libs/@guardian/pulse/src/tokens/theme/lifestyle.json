@@ -173,9 +173,25 @@
 								"$value": "{base.color.dark.neutral.200}"
 							}
 						}
+					},
+					"brand": {
+						"primary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.400}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.800}"
+						}
 					}
 				},
 				"text": {
+					"brand": {
+						"primary": {
+							"$type": "color",
+							"$value": "{base.color.light.neutral.999}"
+						}
+					},
 					"button": {
 						"primary": {
 							"$extensions": {
@@ -250,7 +266,7 @@
 						},
 						"primary-inverse": {
 							"$type": "color",
-							"$value": "{base.color.light.neutral.999}"
+							"$value": "{base.color.light.pillar.purple.400}"
 						},
 						"secondary": {
 							"$extensions": {
@@ -261,11 +277,11 @@
 								}
 							},
 							"$type": "color",
-							"$value": "{base.color.brand.blue.400}"
+							"$value": "{base.color.light.pillar.purple.400}"
 						},
 						"secondary-inverse": {
 							"$type": "color",
-							"$value": "{base.color.light.pillar.purple.400}"
+							"$value": "{base.color.light.neutral.999}"
 						},
 						"tertiary": {
 							"$extensions": {
@@ -404,10 +420,20 @@
 						"secondary": {
 							"$type": "color",
 							"$value": "{base.color.brand.blue.800}"
+						},
+						"secondary-copy": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.800}"
 						}
 					}
 				},
 				"text": {
+					"brand": {
+						"primary": {
+							"$type": "color",
+							"$value": "{base.color.brand.blue.400}"
+						}
+					},
 					"button": {
 						"primary": {
 							"$extensions": {
