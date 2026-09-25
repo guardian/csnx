@@ -1,0 +1,35 @@
+{
+	"radius": {
+		"2xs": {
+			"$type": "dimension",
+			"$value": "{base.dimension.50}"
+		},
+		"m": {
+			"$type": "dimension",
+			"$value": "{base.dimension.150}"
+		},
+		"none": {
+			"$extensions": {
+				"com.figma": {
+					"codeSyntax": {},
+					"hiddenFromPublishing": false,
+					"scopes": ["ALL_SCOPES"]
+				}
+			},
+			"$type": "dimension",
+			"$value": "{base.dimension.0}"
+		},
+		"round": {
+			"$type": "dimension",
+			"$value": "{base.dimension.9999}"
+		},
+		"xl": {
+			"$type": "dimension",
+			"$value": "{base.dimension.300}"
+		},
+		"xs": {
+			"$type": "dimension",
+			"$value": "{base.dimension.100}"
+		}
+	}
+}
