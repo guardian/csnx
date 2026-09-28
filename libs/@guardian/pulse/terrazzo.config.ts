@@ -16,53 +16,61 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 				{
 					input: { theme: 'core' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="core"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="core"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'core-alt' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="core-alt"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="core-alt"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'core-support' },
 					include: ['mode.**'],
 					prepare: (contents) =>
-						`[data-brand="core-support"] {\n  ${contents}\n}`,
+						`[data-pulse-brand="core-support"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'culture' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="culture"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="culture"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'lifestyle' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="lifestyle"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="lifestyle"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'news' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="news"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="news"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'opinion' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="opinion"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="opinion"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { theme: 'sport' },
 					include: ['mode.**'],
-					prepare: (contents) => `[data-brand="sport"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-brand="sport"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { mode: 'light' },
 					include: ['color.**', 'border.**'],
-					prepare: (contents) => `[data-mode="light"] {\n  ${contents}\n}`,
+					prepare: (contents) =>
+						`[data-pulse-mode="light"] {\n  ${contents}\n}`,
 				},
 				{
 					input: { mode: 'dark' },
 					include: ['color.**', 'border.**'],
-					prepare: (contents) => `[data-mode="dark"] {\n  ${contents}\n}`,
+					prepare: (contents) => `[data-pulse-mode="dark"] {\n  ${contents}\n}`,
 				},
 			],
 		}),
