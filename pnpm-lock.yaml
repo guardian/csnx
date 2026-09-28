@@ -348,8 +348,8 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
       web-vitals:
-        specifier: 5.2.0
-        version: 5.2.0
+        specifier: 6.2.2
+        version: 6.2.2
       wireit:
         specifier: 0.14.13
         version: 0.14.13
@@ -7339,8 +7339,8 @@ packages:
   wcag-contrast@3.0.0:
     resolution: {integrity: sha512-RWbpg/S7FOXDCwqC2oFhN/vh8dHzj0OS6dpyOSDHyQFSmqmR+lAUStV/ziTT1GzDqL9wol+nZQB4vCi5yEak+w==}
 
-  web-vitals@5.2.0:
-    resolution: {integrity: sha512-i2z98bEmaCqSDiHEDu+gHl/dmR4Q+TxFmG3/13KkMO+o8UxQzCqWaDRCiLgEa41nlO4VpXSI0ASa1xWmO9sBlA==}
+  web-vitals@6.2.2:
+    resolution: {integrity: sha512-oto5x6dLEgrRqfcWed+pZEUb2q6ikbFmqF54CRDhI/QGbn+qxC49b4C4OkbH+kb9C3a8shpFD3SgR9kRcs80ZQ==}
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
@@ -14612,7 +14612,7 @@ snapshots:
     dependencies:
       relative-luminance: 2.0.1
 
-  web-vitals@5.2.0: {}
+  web-vitals@6.2.2: {}
 
   webidl-conversions@3.0.1: {}
 
