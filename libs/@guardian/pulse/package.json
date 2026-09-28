@@ -77,6 +77,9 @@
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
+			"dependencies": [
+				"build"
+			],
 			"files": [
 				"**",
 				"!(dist|storybook-static)/**",

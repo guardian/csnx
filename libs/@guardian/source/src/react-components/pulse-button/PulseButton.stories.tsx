@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { PulseProvider, type Theme } from '@guardian/pulse';
+import { Pulse, type PulseTheme, Theme } from '@guardian/pulse';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { PulseButton } from './PulseButton';
 
@@ -8,9 +8,9 @@ const meta: Meta<typeof PulseButton> = {
 	component: PulseButton,
 	decorators: [
 		(Story) => (
-			<PulseProvider>
+			<Pulse theme="core" mode="light">
 				<Story />
-			</PulseProvider>
+			</Pulse>
 		),
 	],
 };
@@ -26,7 +26,7 @@ const themeBackground = {
 	},
 };
 
-const themes: Theme[] = [
+const themes: PulseTheme[] = [
 	'core',
 	'core-alt',
 	'core-support',
@@ -85,7 +85,7 @@ const Section = ({
 
 const ButtonThemes = ({ style }: { style: 'default' | 'inverse' }) =>
 	themes.map((theme) => (
-		<PulseProvider theme={theme} key={theme}>
+		<Theme theme={theme} key={theme}>
 			<div
 				css={css`
 					display: flex;
@@ -101,7 +101,7 @@ const ButtonThemes = ({ style }: { style: 'default' | 'inverse' }) =>
 					Tertiary button
 				</PulseButton>
 			</div>
-		</PulseProvider>
+		</Theme>
 	));
 
 export const PrimaryDefault: Story = {
@@ -165,7 +165,7 @@ export const AllThemes: Story = {
 			<Section style="inverse" mode="light">
 				<ButtonThemes style="inverse" />
 			</Section>
-			<PulseProvider mode="dark">
+			<Theme mode="dark">
 				<Heading>Default (Dark)</Heading>
 				<Section style="default" mode="dark">
 					<ButtonThemes style="default" />
@@ -174,7 +174,7 @@ export const AllThemes: Story = {
 				<Section style="inverse" mode="dark">
 					<ButtonThemes style="inverse" />
 				</Section>
-			</PulseProvider>
+			</Theme>
 		</>
 	),
 };
