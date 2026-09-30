@@ -162,17 +162,11 @@
 		},
 		"$type": "typography",
 		"$value": {
-			"fontFamily": "GuardianTextSans",
-			"fontSize": {
-				"unit": "px",
-				"value": 17
-			},
-			"fontWeight": 700,
-			"letterSpacing": {
-				"unit": "px",
-				"value": 0
-			},
-			"lineHeight": 1.3
+			"fontFamily": "{fontfamily-GuardianTextSans}",
+			"fontSize": "{fontsize-17px}",
+			"fontWeight": "{fontweight-700}",
+			"letterSpacing": "{letterspacing-0}",
+			"lineHeight": "{lineheight-130}"
 		}
 	},
 	"radius-100px": {
@@ -183,7 +177,7 @@
 				"scopes": ["ALL_SCOPES"]
 			}
 		},
-		"$type": "borderRadius",
+		"$type": "dimension",
 		"$value": {
 			"unit": "px",
 			"value": 100
