@@ -1,0 +1,48 @@
+{
+	"$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+	"name": "Guardian Pulse",
+	"version": "2025.10",
+	"sets": {
+		"base": {
+			"sources": [
+				{ "$ref": "./tokens/base/base.json" },
+				{ "$ref": "./tokens/radius/corner-radius.json" },
+				{ "$ref": "./tokens/spacing/spacing.json" },
+				{ "$ref": "./tokens/typography/fixed.json" }
+			]
+		}
+	},
+	"modifiers": {
+		"theme": {
+			"contexts": {
+				"core": [{ "$ref": "./tokens/theme/core.json" }],
+				"core-alt": [{ "$ref": "./tokens/theme/core-alt.json" }],
+				"core-support": [{ "$ref": "./tokens/theme/core-support.json" }],
+				"culture": [{ "$ref": "./tokens/theme/culture.json" }],
+				"lifestyle": [{ "$ref": "./tokens/theme/lifestyle.json" }],
+				"news": [{ "$ref": "./tokens/theme/news.json" }],
+				"opinion": [{ "$ref": "./tokens/theme/opinion.json" }],
+				"sport": [{ "$ref": "./tokens/theme/sport.json" }]
+			},
+			"default": "core"
+		},
+		"mode": {
+			"contexts": {
+				"light": [{ "$ref": "./tokens/mode/light.json" }],
+				"dark": [{ "$ref": "./tokens/mode/dark.json" }]
+			},
+			"default": "light"
+		}
+	},
+	"resolutionOrder": [
+		{
+			"$ref": "#/sets/base"
+		},
+		{
+			"$ref": "#/modifiers/theme"
+		},
+		{
+			"$ref": "#/modifiers/mode"
+		}
+	]
+}
