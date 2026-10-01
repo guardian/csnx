@@ -3,7 +3,7 @@ import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
 
 const config: ReturnType<typeof defineConfig> = defineConfig({
-	tokens: ['pulse.resolver.json'],
+	tokens: ['src/pulse.resolver.json'],
 	plugins: [
 		css({
 			filename: 'pulse.css',
