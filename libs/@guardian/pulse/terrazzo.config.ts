@@ -1,12 +1,14 @@
 /* eslint-disable import/no-default-export -- Terrazzo expects config as default export */
 import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
+import { makeCSSVar } from '@terrazzo/token-tools/css';
 
 const config: ReturnType<typeof defineConfig> = defineConfig({
 	tokens: ['src/pulse.resolver.json'],
 	plugins: [
 		css({
 			filename: 'pulse.css',
+			variableName: (token) => makeCSSVar(token.id, { prefix: 'pulse' }),
 			// Temporarily exclude tokens that have not been defined for all themes
 			exclude: [
 				'mode.light.color.fill.accent.tertiary',
