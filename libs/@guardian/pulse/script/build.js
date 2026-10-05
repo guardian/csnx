@@ -1,6 +1,6 @@
 import StyleDictionary from 'style-dictionary';
 
-const baseTokens = [
+const BASE_TOKENS = [
 	'./src/tokens/base/base.json',
 	'./src/tokens/radius/corner-radius.json',
 	'./src/tokens/spacing/spacing.json',
@@ -21,7 +21,7 @@ const themes = [
 const modes = ['light', 'dark'];
 
 const baseConfig = {
-	source: baseTokens,
+	source: BASE_TOKENS,
 	platforms: {
 		web: {
 			transformGroup: 'css',
@@ -40,7 +40,7 @@ const baseConfig = {
 };
 
 const themeConfig = (theme) => ({
-	source: [...baseTokens, `./src/tokens/theme/${theme}.json`],
+	source: [...BASE_TOKENS, `./src/tokens/theme/${theme}.json`],
 	platforms: {
 		web: {
 			transformGroup: 'css',
@@ -48,6 +48,13 @@ const themeConfig = (theme) => ({
 			options: {
 				outputReferences: true,
 				selector: `[data-pulse-theme='${theme}']`,
+			},
+			log: {
+				warnings: 'disabled',
+				verbosity: 'silent',
+				errors: {
+					brokenReferences: 'throw',
+				},
 			},
 			files: [
 				{
@@ -62,8 +69,8 @@ const themeConfig = (theme) => ({
 
 const modeConfig = (mode) => ({
 	source: [
-		...baseTokens,
-		`./src/tokens/theme/*.json`,
+		...BASE_TOKENS,
+		`./src/tokens/theme/core.json`,
 		`./src/tokens/mode/${mode}.json`,
 	],
 	platforms: {
@@ -73,6 +80,13 @@ const modeConfig = (mode) => ({
 			options: {
 				outputReferences: true,
 				selector: `[data-pulse-mode='${mode}']`,
+			},
+			log: {
+				warnings: 'disabled',
+				verbosity: 'silent',
+				errors: {
+					brokenReferences: 'throw',
+				},
 			},
 			files: [
 				{
@@ -86,18 +100,17 @@ const modeConfig = (mode) => ({
 });
 
 // Build base tokens
-new StyleDictionary(baseConfig, { verbosity: 'verbose' }).buildAllPlatforms();
+const sd = new StyleDictionary(baseConfig);
+sd.buildAllPlatforms();
 
 // Build theme tokens
 themes.map((theme) => {
-	new StyleDictionary(themeConfig(theme), {
-		verbosity: 'verbose',
-	}).buildAllPlatforms();
+	const sd = new StyleDictionary(themeConfig(theme));
+	sd.buildAllPlatforms();
 });
 
 // Build mode tokens
 modes.map((mode) => {
-	new StyleDictionary(modeConfig(mode), {
-		verbosity: 'verbose',
-	}).buildAllPlatforms();
+	const sd = new StyleDictionary(modeConfig(mode));
+	sd.buildAllPlatforms();
 });
