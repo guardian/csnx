@@ -110,6 +110,7 @@
 		"@guardian/eslint-config": "workspace:*",
 		"@terrazzo/cli": "2.7.1",
 		"@terrazzo/plugin-css": "2.7.1",
+		"@terrazzo/token-tools": "2.7.1",
 		"@types/jest": "30.0.0",
 		"eslint": "9.39.1",
 		"jest": "30.4.2",
