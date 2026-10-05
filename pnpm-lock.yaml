@@ -288,8 +288,8 @@ importers:
         specifier: 30.5.2
         version: 30.5.2
       jest-fetch-mock:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 4.2.0
+        version: 4.2.0
       mockdate:
         specifier: 3.0.5
         version: 3.0.5
@@ -424,8 +424,8 @@ importers:
         specifier: 30.5.2
         version: 30.5.2
       jest-fetch-mock:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 4.2.0
+        version: 4.2.0
       rollup:
         specifier: 4.63.5
         version: 4.63.5
@@ -466,8 +466,8 @@ importers:
         specifier: 30.5.2
         version: 30.5.2
       jest-fetch-mock:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 4.2.0
+        version: 4.2.0
       rollup:
         specifier: 4.63.5
         version: 4.63.5
@@ -512,8 +512,8 @@ importers:
         specifier: 30.5.2
         version: 30.5.2
       jest-fetch-mock:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 4.2.0
+        version: 4.2.0
       mockdate:
         specifier: 3.0.5
         version: 3.0.5
@@ -5367,8 +5367,9 @@ packages:
     resolution: {integrity: sha512-4FZYVOk85hz2AyT6BbarKy9u37g6DbrDyCdFhsnDdXqyrueYQvB+0zO4f/kqLCRD0BsPRXPMNJeQwihKZV8naw==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
-  jest-fetch-mock@3.0.3:
-    resolution: {integrity: sha512-Ux1nWprtLrdrH4XwE7O7InRY6psIi3GOsqNESJgMJ+M5cv4A8Lh7SN9d2V2kKRZ8ebAfcd1LNyZguAOb6JiDqw==}
+  jest-fetch-mock@4.2.0:
+    resolution: {integrity: sha512-/Yya+k/bopdCSG+cEIL9Kxj1cr4j73DeOQiroicwrTkTEfyMsnQxrugjSopn8RnwginmX/Nlsp57BGy1I1mQSg==}
+    engines: {node: '>=18'}
 
   jest-haste-map@30.4.1:
     resolution: {integrity: sha512-rFrcONd8jeFsyw+Z9CrScJgglRf2+NFmNam8dKu7n+SoHqNYT47mn0DdEcVUZJpvh7Iz6/si7f7yUH7GJHVgnw==}
@@ -6183,9 +6184,6 @@ packages:
   process-ancestry@0.1.0:
     resolution: {integrity: sha512-tGqJW/UnclpYASFcM6Xh8D8l/BMtaQ9+CSG0vlJSJTcdMM4lDRv4c6H0Pdcsfted+bVczdYSfk2fdukg2gQkZg==}
     engines: {node: '>=18.0.0'}
-
-  promise-polyfill@8.3.0:
-    resolution: {integrity: sha512-H5oELycFml5yto/atYqmjyigJoAo3+OXwolYiH7OfQuYlAqhxNvTfiNMbV9hsC6Yp83yE5r2KTVmtrG6R9i6Pg==}
 
   prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
@@ -12428,10 +12426,9 @@ snapshots:
       jest-util: 30.4.1
       jest-validate: 30.4.1
 
-  jest-fetch-mock@3.0.3:
+  jest-fetch-mock@4.2.0:
     dependencies:
       cross-fetch: 3.2.0
-      promise-polyfill: 8.3.0
     transitivePeerDependencies:
       - encoding
 
@@ -13373,8 +13370,6 @@ snapshots:
   proc-log@4.2.0: {}
 
   process-ancestry@0.1.0: {}
-
-  promise-polyfill@8.3.0: {}
 
   prompts@2.4.2:
     dependencies:
