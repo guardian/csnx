@@ -3,8 +3,22 @@ import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
 import { makeCSSVar } from '@terrazzo/token-tools/css';
 
+const themes = [
+	'core',
+	'core-alt',
+	'core-support',
+	'culture',
+	'lifestyle',
+	'news',
+	'opinion',
+	'sport',
+];
+
+const modes = ['light', 'dark'];
+
 const config: ReturnType<typeof defineConfig> = defineConfig({
 	tokens: ['src/pulse.resolver.json'],
+	outDir: './dist',
 	plugins: [
 		css({
 			filename: 'pulse.css',
@@ -22,73 +36,25 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 			],
 			permutations: [
 				{
-					input: {}, // default
+					input: {},
 					exclude: ['mode.**', 'color.**', 'border.**'],
 					prepare: (contents) => `:root {\n  ${contents}\n}`,
 				},
-				{
-					input: { theme: 'core' },
+				...themes.map((theme) => ({
+					input: { theme },
 					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="core"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'core-alt' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="core-alt"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'core-support' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="core-support"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'culture' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="culture"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'lifestyle' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="lifestyle"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'news' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="news"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'opinion' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="opinion"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { theme: 'sport' },
-					include: ['mode.**'],
-					prepare: (contents) =>
-						`[data-pulse-theme="sport"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { mode: 'light' },
+					prepare: (contents: string) =>
+						`[data-pulse-theme="${theme}"] {\n  ${contents}\n}`,
+				})),
+				...modes.map((mode) => ({
+					input: { mode },
 					include: ['color.**', 'border.**'],
-					prepare: (contents) =>
-						`[data-pulse-mode="light"] {\n  ${contents}\n}`,
-				},
-				{
-					input: { mode: 'dark' },
-					include: ['color.**', 'border.**'],
-					prepare: (contents) => `[data-pulse-mode="dark"] {\n  ${contents}\n}`,
-				},
+					prepare: (contents: string) =>
+						`[data-pulse-mode="${mode}"] {\n  ${contents}\n}`,
+				})),
 			],
 		}),
 	],
-	outDir: './dist',
 	lint: {
 		build: { enabled: true },
 		rules: {
