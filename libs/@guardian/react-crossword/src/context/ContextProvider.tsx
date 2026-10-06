@@ -25,7 +25,7 @@ import type { EntryID } from '../@types/Entry';
 import { CurrentCellProvider } from './CurrentCell';
 import { CurrentClueProvider } from './CurrentClue';
 import { DataProvider } from './Data';
-import { ProgressProvider } from './Progress';
+import { type ProgressChange, ProgressProvider } from './Progress';
 import { ShowAnagramHelperProvider } from './ShowAnagramHelper';
 import { ThemeProvider } from './Theme';
 import { ValidAnswersProvider } from './ValidAnswers';
@@ -34,12 +34,14 @@ export const ContextProvider = ({
 	data,
 	selectedEntryId,
 	userProgress,
+	onProgressChange,
 	theme,
 	children,
 }: {
 	data: CAPICrossword;
 	selectedEntryId?: EntryID;
 	userProgress?: Progress;
+	onProgressChange?: (change: ProgressChange) => void;
 	theme: Theme;
 	children: ReactNode;
 }) => {
@@ -58,6 +60,7 @@ export const ContextProvider = ({
 						id={id}
 						dimensions={dimensions}
 						progress={userProgress}
+						onProgressChange={onProgressChange}
 					>
 						<CurrentCellProvider>
 							<CurrentClueProvider selectedEntryId={selectedEntryId}>
