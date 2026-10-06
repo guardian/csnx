@@ -25,11 +25,12 @@ A standalone React component for rendering crosswords.
 
 ### Props
 
-| Prop       | Details                                                                                                                                    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `data`     | (_Required_) Data to render the crossword, including clues, answers and metadata (See [**Crossword data format**](#crossword-data-format)) |
-| `progress` | (_Optional_) Current state of the grid (See [**Progress format**](#progress-format))                                                       |
-| `Layout`   | (_Optional_) Allows default layout to be customised (See [**Layout**](#layout))                                                            |
+| Prop               | Details                                                                                                                                                                                                                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data`             | (_Required_) Data to render the crossword, including clues, answers and metadata (See [**Crossword data format**](#crossword-data-format))                                                                                                                                               |
+| `progress`         | (_Optional_) Current state of the grid (See [**Progress format**](#progress-format))                                                                                                                                                                                                     |
+| `onProgressChange` | (_Optional_) Called each time the reader changes the grid, with `{ progress, filledCells, totalCells, isComplete }`. `isComplete` is `true` when every cell holds its solution, and always `false` when solutions are not available. Not called when saved progress is restored on load. |
+| `Layout`           | (_Optional_) Allows default layout to be customised (See [**Layout**](#layout))                                                                                                                                                                                                          |
 
 Any of the keys from the default theme can also be passed as a prop to customise the appearance of the crossword. These are detailed in the [**Theming**](#theming) section.
 

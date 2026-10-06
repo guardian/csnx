@@ -4,7 +4,7 @@ import type { CAPICrossword } from '../@types/CAPI';
 import type { Progress, Theme } from '../@types/crossword';
 import type { LayoutProps } from '../@types/Layout';
 import { ContextProvider } from '../context/ContextProvider';
-import { useProgress } from '../context/Progress';
+import { type ProgressChange, useProgress } from '../context/Progress';
 import { useTheme } from '../context/Theme';
 import { ScreenLayout } from '../layouts/ScreenLayout';
 import { defaultTheme } from '../theme';
@@ -17,6 +17,11 @@ import { Grid } from './Grid';
 export type CrosswordProps = {
 	data: CAPICrossword;
 	progress?: Progress;
+	/**
+	 * Called each time the reader changes the grid (typing, deleting, clearing,
+	 * revealing). Not called when saved progress is restored on load.
+	 */
+	onProgressChange?: (change: ProgressChange) => void;
 	children?: ReactNode;
 	Layout?: ComponentType<LayoutProps>;
 	MobileBannerAd?: ComponentType;
@@ -52,6 +57,7 @@ export const Crossword = ({
 	children,
 	data,
 	progress,
+	onProgressChange,
 	Layout,
 	MobileBannerAd,
 	...userTheme
@@ -76,7 +82,12 @@ export const Crossword = ({
 	]);
 
 	return (
-		<ContextProvider theme={theme} data={data} userProgress={progress}>
+		<ContextProvider
+			theme={theme}
+			data={data}
+			userProgress={progress}
+			onProgressChange={onProgressChange}
+		>
 			<div
 				data-link-name="Crosswords"
 				css={css`

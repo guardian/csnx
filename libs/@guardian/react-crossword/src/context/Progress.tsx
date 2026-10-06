@@ -6,6 +6,17 @@ import useLocalStorageState from 'use-local-storage-state';
 import type { CAPICrossword } from '../@types/CAPI';
 import type { Dimensions, Progress } from '../@types/crossword';
 import { getNewProgress } from '../utils/getNewProgress';
+import type { ProgressSummary } from '../utils/getProgressSummary';
+import { getProgressSummary } from '../utils/getProgressSummary';
+import { useData } from './Data';
+
+/**
+ * Describes a change the reader made to the grid.
+ */
+export type ProgressChange = ProgressSummary & {
+	/** The new state of the grid (See `Progress`) */
+	progress: Progress;
+};
 
 export const serializer: LocalStorageOptions<unknown>['serializer'] = {
 	stringify: (_) => JSON.stringify({ value: _ }),
@@ -85,12 +96,16 @@ export const ProgressProvider = ({
 	id,
 	dimensions,
 	progress: userProgress,
+	onProgressChange,
 }: {
 	id: CAPICrossword['id'];
 	dimensions: Dimensions;
 	progress?: Progress;
+	onProgressChange?: (change: ProgressChange) => void;
 	children: ReactNode;
 }) => {
+	const { cells, solutionAvailable } = useData();
+
 	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
 
 	// The localStorage state (managed by useLocalStorageState) does not use React state
@@ -105,7 +120,9 @@ export const ProgressProvider = ({
 			serializer,
 		});
 
-	const updateProgress = useCallback(
+	// Stores a progress without telling the consumer. Used for state the
+	// reader did not change: restoring from, or resetting, local storage.
+	const applyProgress = useCallback(
 		(newProgress: Progress) => {
 			setStoredProgress(newProgress);
 			setProgress(newProgress);
@@ -113,14 +130,30 @@ export const ProgressProvider = ({
 		[setStoredProgress],
 	);
 
+	// Stores a progress the reader changed and tells the consumer.
+	const updateProgress = useCallback(
+		(newProgress: Progress) => {
+			applyProgress(newProgress);
+			onProgressChange?.({
+				progress: newProgress,
+				...getProgressSummary({
+					cells,
+					progress: newProgress,
+					solutionAvailable,
+				}),
+			});
+		},
+		[applyProgress, cells, onProgressChange, solutionAvailable],
+	);
+
 	useEffect(() => {
 		if (isValid(storedProgress, { dimensions })) {
 			// eslint-disable-next-line react-hooks/set-state-in-effect -- TODO: investigate how to fix this
 			setProgress(storedProgress);
 		} else {
-			updateProgress(defaultValue);
+			applyProgress(defaultValue);
 		}
-	}, [defaultValue, dimensions, storedProgress, updateProgress]);
+	}, [defaultValue, dimensions, storedProgress, applyProgress]);
 
 	const contextValue = useMemo(
 		() => ({
