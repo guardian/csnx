@@ -9,7 +9,6 @@ import type { ThemeLink } from './theme';
 import { themeLink as defaultTheme } from './theme';
 
 export const link = css`
-	position: relative;
 	${textSans17};
 	cursor: pointer;
 	text-decoration: underline;
