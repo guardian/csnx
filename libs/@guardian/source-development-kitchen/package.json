@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/source-development-kitchen",
-	"version": "29.1.0",
+	"version": "30.0.0",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/source-development-kitchen"
@@ -28,53 +28,6 @@
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
-	},
-	"devDependencies": {
-		"@emotion/react": "11.11.4",
-		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "33.0.0",
-		"@guardian/source": "13.1.0",
-		"@storybook/addon-a11y": "10.4.0",
-		"@storybook/addon-docs": "10.4.0",
-		"@storybook/addon-links": "10.4.0",
-		"@storybook/react-vite": "10.4.0",
-		"@types/chai": "5.2.3",
-		"@types/jest": "30.0.0",
-		"@types/react": "18.2.79",
-		"eslint": "9.39.1",
-		"jest": "30.4.2",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"rollup": "4.63.5",
-		"storybook": "10.4.0",
-		"tabbable": "6.5.0",
-		"ts-jest": "29.4.11",
-		"tslib": "2.8.1",
-		"typescript": "6.0.3",
-		"wireit": "0.14.13"
-	},
-	"peerDependencies": {
-		"@emotion/react": "^11.11.4",
-		"@guardian/libs": "^33.0.0",
-		"@guardian/source": "^13.0.0",
-		"@types/react": "^18.2.79",
-		"react": "^18.2.0",
-		"tslib": "^2.8.1",
-		"typescript": "~6.0.3"
-	},
-	"peerDependenciesMeta": {
-		"@emotion/react": {
-			"optional": true
-		},
-		"@types/react": {
-			"optional": true
-		},
-		"react": {
-			"optional": true
-		},
-		"typescript": {
-			"optional": true
-		}
 	},
 	"wireit": {
 		"__deps__": {
@@ -123,10 +76,10 @@
 				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
-			"clean": false,
 			"output": [
 				"."
-			]
+			],
+			"clean": false
 		},
 		"lint": {
 			"command": "eslint --cache --color .",
@@ -181,6 +134,53 @@
 				"!.eslintcache"
 			],
 			"output": []
+		}
+	},
+	"devDependencies": {
+		"@emotion/react": "11.11.4",
+		"@guardian/eslint-config": "workspace:*",
+		"@guardian/libs": "33.0.0",
+		"@guardian/source": "14.0.0",
+		"@storybook/addon-a11y": "10.4.0",
+		"@storybook/addon-docs": "10.4.0",
+		"@storybook/addon-links": "10.4.0",
+		"@storybook/react-vite": "10.4.0",
+		"@types/chai": "5.2.3",
+		"@types/jest": "30.0.0",
+		"@types/react": "18.2.79",
+		"eslint": "9.39.1",
+		"jest": "30.4.2",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"rollup": "4.63.5",
+		"storybook": "10.4.0",
+		"tabbable": "6.5.0",
+		"ts-jest": "29.4.11",
+		"tslib": "2.8.1",
+		"typescript": "6.0.3",
+		"wireit": "0.14.13"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.11.4",
+		"@guardian/libs": "^33.0.0",
+		"@guardian/source": "^14.0.0",
+		"@types/react": "^18.2.79",
+		"react": "^18.2.0",
+		"tslib": "^2.8.1",
+		"typescript": "~6.0.3"
+	},
+	"peerDependenciesMeta": {
+		"@emotion/react": {
+			"optional": true
+		},
+		"@types/react": {
+			"optional": true
+		},
+		"react": {
+			"optional": true
+		},
+		"typescript": {
+			"optional": true
 		}
 	}
 }

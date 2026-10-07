@@ -1,5 +1,12 @@
 # @guardian/react-crossword
 
+## 20.0.0
+
+### Patch Changes
+
+- Updated dependencies [2a689cf]
+  - @guardian/source@14.0.0
+
 ## 19.0.1
 
 ### Patch Changes
