@@ -3,37 +3,46 @@
 	"name": "Guardian Pulse",
 	"version": "2025.10",
 	"sets": {
-		"primitives": {
+		"base": {
 			"sources": [
-				{
-					"$ref": "./src/tokens/primitives/primitives.json"
-				}
+				{ "$ref": "./src/tokens/base/base.json" },
+				{ "$ref": "./src/tokens/radius/corner-radius.json" },
+				{ "$ref": "./src/tokens/spacing/spacing.json" },
+				{ "$ref": "./src/tokens/typography/fixed.json" }
 			]
+		}
+	},
+	"modifiers": {
+		"theme": {
+			"contexts": {
+				"core": [{ "$ref": "./src/tokens/theme/core.json" }],
+				"core-alt": [{ "$ref": "./src/tokens/theme/core-alt.json" }],
+				"core-support": [{ "$ref": "./src/tokens/theme/core-support.json" }],
+				"culture": [{ "$ref": "./src/tokens/theme/culture.json" }],
+				"lifestyle": [{ "$ref": "./src/tokens/theme/lifestyle.json" }],
+				"news": [{ "$ref": "./src/tokens/theme/news.json" }],
+				"opinion": [{ "$ref": "./src/tokens/theme/opinion.json" }],
+				"sport": [{ "$ref": "./src/tokens/theme/sport.json" }]
+			},
+			"default": "core"
 		},
-		"semantic": {
-			"sources": [
-				{
-					"$ref": "./src/tokens/semantic/semantic.json"
-				}
-			]
-		},
-		"component": {
-			"sources": [
-				{
-					"$ref": "./src/tokens/component/component.json"
-				}
-			]
+		"mode": {
+			"contexts": {
+				"light": [{ "$ref": "./src/tokens/mode/light.json" }],
+				"dark": [{ "$ref": "./src/tokens/mode/dark.json" }]
+			},
+			"default": "light"
 		}
 	},
 	"resolutionOrder": [
 		{
-			"$ref": "#/sets/primitives"
+			"$ref": "#/sets/base"
 		},
 		{
-			"$ref": "#/sets/semantic"
+			"$ref": "#/modifiers/theme"
 		},
 		{
-			"$ref": "#/sets/component"
+			"$ref": "#/modifiers/mode"
 		}
 	]
 }
