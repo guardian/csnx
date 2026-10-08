@@ -1,5 +1,11 @@
 # @guardian/source
 
+## 14.0.0
+
+### Major Changes
+
+- 2a689cf: Drop `position: relative` from `Link` and `ButtonLink` elements
+
 ## 13.1.0
 
 ### Minor Changes

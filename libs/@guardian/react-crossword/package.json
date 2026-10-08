@@ -1,6 +1,6 @@
 {
 	"name": "@guardian/react-crossword",
-	"version": "19.0.1",
+	"version": "20.0.0",
 	"repository": {
 		"url": "https://github.com/guardian/csnx",
 		"directory": "libs/@guardian/react-crossword"
@@ -28,52 +28,6 @@
 		"test": "wireit",
 		"tsc": "wireit",
 		"verify-dist": "wireit"
-	},
-	"dependencies": {
-		"tslib": "2.8.1",
-		"use-local-storage-state": "19.5.0"
-	},
-	"devDependencies": {
-		"@emotion/react": "11.11.4",
-		"@guardian/eslint-config": "workspace:*",
-		"@guardian/libs": "33.0.0",
-		"@guardian/source": "13.1.0",
-		"@storybook/addon-a11y": "10.4.0",
-		"@storybook/addon-docs": "10.4.0",
-		"@storybook/addon-links": "10.4.0",
-		"@storybook/react-vite": "10.4.0",
-		"@types/chai": "5.2.3",
-		"@types/jest": "30.0.0",
-		"@types/react": "18.2.79",
-		"dotenv": "18.0.5",
-		"eslint": "9.39.1",
-		"jest": "30.4.2",
-		"jest-environment-jsdom": "30.5.2",
-		"prettier": "3.8.0",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"rollup": "4.63.5",
-		"storybook": "10.4.0",
-		"ts-jest": "29.4.11",
-		"tslib": "2.8.1",
-		"typescript": "6.0.3",
-		"wireit": "0.14.13"
-	},
-	"peerDependencies": {
-		"@emotion/react": "^11.11.4",
-		"@guardian/libs": "^33.0.0",
-		"@guardian/source": "^13.0.0",
-		"@types/react": "^18.2.79",
-		"react": "^18.2.0",
-		"typescript": "~6.0.3"
-	},
-	"peerDependenciesMeta": {
-		"@types/react": {
-			"optional": true
-		},
-		"typescript": {
-			"optional": true
-		}
 	},
 	"wireit": {
 		"build": {
@@ -118,16 +72,16 @@
 				"!(dist|storybook-static)/**",
 				"!.eslintcache"
 			],
-			"clean": false,
 			"output": [
 				"."
-			]
+			],
+			"clean": false
 		},
 		"lint": {
+			"command": "eslint --cache --color .",
 			"dependencies": [
 				"build"
 			],
-			"command": "eslint --cache --color .",
 			"files": [
 				"**",
 				"!(dist|storybook-static)/**",
@@ -176,6 +130,52 @@
 				"!.eslintcache"
 			],
 			"output": []
+		}
+	},
+	"dependencies": {
+		"tslib": "2.8.1",
+		"use-local-storage-state": "19.5.0"
+	},
+	"devDependencies": {
+		"@emotion/react": "11.11.4",
+		"@guardian/eslint-config": "workspace:*",
+		"@guardian/libs": "33.0.0",
+		"@guardian/source": "14.0.0",
+		"@storybook/addon-a11y": "10.4.0",
+		"@storybook/addon-docs": "10.4.0",
+		"@storybook/addon-links": "10.4.0",
+		"@storybook/react-vite": "10.4.0",
+		"@types/chai": "5.2.3",
+		"@types/jest": "30.0.0",
+		"@types/react": "18.2.79",
+		"dotenv": "18.0.5",
+		"eslint": "9.39.1",
+		"jest": "30.4.2",
+		"jest-environment-jsdom": "30.5.2",
+		"prettier": "3.8.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"rollup": "4.63.5",
+		"storybook": "10.4.0",
+		"ts-jest": "29.4.11",
+		"tslib": "2.8.1",
+		"typescript": "6.0.3",
+		"wireit": "0.14.13"
+	},
+	"peerDependencies": {
+		"@emotion/react": "^11.11.4",
+		"@guardian/libs": "^33.0.0",
+		"@guardian/source": "^14.0.0",
+		"@types/react": "^18.2.79",
+		"react": "^18.2.0",
+		"typescript": "~6.0.3"
+	},
+	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
+		"typescript": {
+			"optional": true
 		}
 	}
 }
