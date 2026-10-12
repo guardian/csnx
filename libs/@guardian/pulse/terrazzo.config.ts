@@ -7,6 +7,72 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 	plugins: [
 		css({
 			filename: 'pulse.css',
+			permutations: [
+				{
+					input: {}, // default
+					exclude: ['mode.**', 'color.**'],
+					prepare: (contents) => `:root {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'core' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="core"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'core-alt' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="core-alt"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'core-support' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="core-support"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'culture' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="culture"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'lifestyle' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="lifestyle"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'news' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="news"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'opinion' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="opinion"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { theme: 'sport' },
+					include: ['mode.**'],
+					prepare: (contents) =>
+						`[data-pulse-brand="sport"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { mode: 'light' },
+					include: ['color.**', 'border.**'],
+					prepare: (contents) =>
+						`[data-pulse-mode="light"] {\n  ${contents}\n}`,
+				},
+				{
+					input: { mode: 'dark' },
+					include: ['color.**', 'border.**'],
+					prepare: (contents) => `[data-pulse-mode="dark"] {\n  ${contents}\n}`,
+				},
+			],
 		}),
 	],
 	outDir: './dist',

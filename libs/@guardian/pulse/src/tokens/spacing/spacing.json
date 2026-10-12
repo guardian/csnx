@@ -1,0 +1,190 @@
+{
+	"gap": {
+		"100": {
+			"$type": "dimension",
+			"$value": "{base.dimension.100}"
+		},
+		"1200": {
+			"$type": "dimension",
+			"$value": "{base.dimension.1200}"
+		},
+		"150": {
+			"$type": "dimension",
+			"$value": "{base.dimension.150}"
+		},
+		"200": {
+			"$type": "dimension",
+			"$value": "{base.dimension.200}"
+		},
+		"250": {
+			"$type": "dimension",
+			"$value": "{base.dimension.250}"
+		},
+		"300": {
+			"$type": "dimension",
+			"$value": "{base.dimension.300}"
+		},
+		"350": {
+			"$type": "dimension",
+			"$value": "{base.dimension.350}"
+		},
+		"400": {
+			"$type": "dimension",
+			"$value": "{base.dimension.400}"
+		},
+		"450": {
+			"$type": "dimension",
+			"$value": "{base.dimension.450}"
+		},
+		"50": {
+			"$type": "dimension",
+			"$value": "{base.dimension.50}"
+		},
+		"500": {
+			"$type": "dimension",
+			"$value": "{base.dimension.500}"
+		},
+		"600": {
+			"$type": "dimension",
+			"$value": "{base.dimension.600}"
+		},
+		"700": {
+			"$type": "dimension",
+			"$value": "{base.dimension.700}"
+		},
+		"800": {
+			"$type": "dimension",
+			"$value": "{base.dimension.800}"
+		},
+		"900": {
+			"$type": "dimension",
+			"$value": "{base.dimension.900}"
+		},
+		"none": {
+			"$extensions": {
+				"com.figma": {
+					"codeSyntax": {},
+					"hiddenFromPublishing": false,
+					"scopes": ["ALL_SCOPES"]
+				}
+			},
+			"$type": "dimension",
+			"$value": "{base.dimension.0}"
+		}
+	},
+	"margin": {
+		"10": {
+			"$type": "dimension",
+			"$value": "{base.dimension.10}"
+		},
+		"100": {
+			"$type": "dimension",
+			"$value": "{base.dimension.100}"
+		},
+		"125": {
+			"$type": "dimension",
+			"$value": "{base.dimension.125}"
+		},
+		"150": {
+			"$type": "dimension",
+			"$value": "{base.dimension.150}"
+		},
+		"175": {
+			"$type": "dimension",
+			"$value": "{base.dimension.175}"
+		},
+		"200": {
+			"$type": "dimension",
+			"$value": "{base.dimension.200}"
+		},
+		"25": {
+			"$type": "dimension",
+			"$value": "{base.dimension.25}"
+		},
+		"250": {
+			"$type": "dimension",
+			"$value": "{base.dimension.250}"
+		},
+		"300": {
+			"$type": "dimension",
+			"$value": "{base.dimension.300}"
+		},
+		"400": {
+			"$type": "dimension",
+			"$value": "{base.dimension.400}"
+		},
+		"50": {
+			"$type": "dimension",
+			"$value": "{base.dimension.50}"
+		},
+		"75": {
+			"$type": "dimension",
+			"$value": "{base.dimension.75}"
+		},
+		"none": {
+			"$type": "dimension",
+			"$value": "{base.dimension.0}"
+		}
+	},
+	"padding": {
+		"10": {
+			"$type": "dimension",
+			"$value": "{base.dimension.10}"
+		},
+		"100": {
+			"$type": "dimension",
+			"$value": "{base.dimension.100}"
+		},
+		"125": {
+			"$type": "dimension",
+			"$value": "{base.dimension.125}"
+		},
+		"150": {
+			"$type": "dimension",
+			"$value": "{base.dimension.150}"
+		},
+		"175": {
+			"$type": "dimension",
+			"$value": "{base.dimension.175}"
+		},
+		"200": {
+			"$type": "dimension",
+			"$value": "{base.dimension.200}"
+		},
+		"25": {
+			"$type": "dimension",
+			"$value": "{base.dimension.25}"
+		},
+		"250": {
+			"$type": "dimension",
+			"$value": "{base.dimension.250}"
+		},
+		"300": {
+			"$type": "dimension",
+			"$value": "{base.dimension.300}"
+		},
+		"400": {
+			"$type": "dimension",
+			"$value": "{base.dimension.400}"
+		},
+		"50": {
+			"$type": "dimension",
+			"$value": "{base.dimension.50}"
+		},
+		"75": {
+			"$type": "dimension",
+			"$value": "{base.dimension.75}"
+		},
+		"none": {
+			"$extensions": {
+				"com.figma": {
+					"codeSyntax": {},
+					"hiddenFromPublishing": false,
+					"scopes": ["ALL_SCOPES"]
+				}
+			},
+			"$type": "dimension",
+			"$value": "{base.dimension.0}"
+		}
+	}
+}

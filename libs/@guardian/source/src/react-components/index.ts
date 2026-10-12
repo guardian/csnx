@@ -351,3 +351,5 @@ export {
 	themeUserFeedbackBrand,
 } from './user-feedback/theme';
 export type { ThemeUserFeedback } from './user-feedback/theme';
+
+export { PulseButton } from './pulse-button/PulseButton';
