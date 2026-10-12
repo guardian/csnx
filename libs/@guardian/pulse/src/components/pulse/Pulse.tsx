@@ -1,6 +1,6 @@
 import { Global } from '@emotion/react';
 import { createContext, type ReactNode } from 'react';
-import styles from '@guardian/pulse/pulse.css?inline';
+import styles from '../../../dist/pulse.css?inline';
 import type { PulseMode } from '../@types/mode';
 import type { PulseTheme } from '../@types/theme';
 
