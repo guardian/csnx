@@ -4,32 +4,33 @@
 	"version": "2025.10",
 	"sets": {
 		"base": {
-			"sources": [
-				{ "$ref": "./tokens/base/base.json" },
-				{ "$ref": "./tokens/radius/corner-radius.json" },
-				{ "$ref": "./tokens/spacing/spacing.json" },
-				{ "$ref": "./tokens/typography/fixed.json" }
-			]
+			"sources": [{ "$ref": "./tokens/base/base.json" }]
+		},
+		"shared": {
+			"sources": [{ "$ref": "./tokens/shared/shared.json" }]
 		}
 	},
 	"modifiers": {
 		"theme": {
 			"contexts": {
-				"core": [{ "$ref": "./tokens/theme/core.json" }],
-				"core-alt": [{ "$ref": "./tokens/theme/core-alt.json" }],
-				"core-support": [{ "$ref": "./tokens/theme/core-support.json" }],
-				"culture": [{ "$ref": "./tokens/theme/culture.json" }],
-				"lifestyle": [{ "$ref": "./tokens/theme/lifestyle.json" }],
-				"news": [{ "$ref": "./tokens/theme/news.json" }],
-				"opinion": [{ "$ref": "./tokens/theme/opinion.json" }],
-				"sport": [{ "$ref": "./tokens/theme/sport.json" }]
+				"core": [{ "$ref": "./tokens/core-theme/core.json" }],
+				"core-alt": [{ "$ref": "./tokens/core-theme/core-alt.json" }],
+				"core-support": [{ "$ref": "./tokens/core-theme/core-support.json" }],
+				"culture": [{ "$ref": "./tokens/core-theme/culture.json" }],
+				"lifestyle": [{ "$ref": "./tokens/core-theme/lifestyle.json" }],
+				"news": [{ "$ref": "./tokens/core-theme/news.json" }],
+				"opinion": [{ "$ref": "./tokens/core-theme/opinion.json" }],
+				"sport": [{ "$ref": "./tokens/core-theme/sport.json" }],
+				"feast": [{ "$ref": "./tokens/feast-theme/feast.json" }]
 			},
 			"default": "core"
 		},
 		"mode": {
 			"contexts": {
-				"light": [{ "$ref": "./tokens/mode/light.json" }],
-				"dark": [{ "$ref": "./tokens/mode/dark.json" }]
+				"light": [{ "$ref": "./tokens/core-mode/light.json" }],
+				"dark": [{ "$ref": "./tokens/core-mode/dark.json" }],
+				"feast-light": [{ "$ref": "./tokens/feast-mode/light.json" }],
+				"feast-dark": [{ "$ref": "./tokens/feast-mode/dark.json" }]
 			},
 			"default": "light"
 		}
@@ -37,6 +38,9 @@
 	"resolutionOrder": [
 		{
 			"$ref": "#/sets/base"
+		},
+		{
+			"$ref": "#/sets/shared"
 		},
 		{
 			"$ref": "#/modifiers/theme"

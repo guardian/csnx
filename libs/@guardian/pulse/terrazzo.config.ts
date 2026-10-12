@@ -5,16 +5,22 @@ import { makeCSSVar } from '@terrazzo/token-tools/css';
 
 const themes = [
 	'core',
-	'core-alt',
-	'core-support',
-	'culture',
-	'lifestyle',
-	'news',
-	'opinion',
-	'sport',
+	// 'core-alt',
+	// 'core-support',
+	// 'culture',
+	// 'lifestyle',
+	// 'news',
+	// 'opinion',
+	// 'sport',
+	// 'feast',
 ];
 
-const modes = ['light', 'dark'];
+const modes = [
+	'light',
+	'dark',
+	// 'feast-light',
+	// 'feast-dark'
+];
 
 const config: ReturnType<typeof defineConfig> = defineConfig({
 	tokens: ['src/pulse.resolver.json'],
@@ -23,21 +29,10 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 		css({
 			filename: 'pulse.css',
 			variableName: (token) => makeCSSVar(token.id, { prefix: 'pulse' }),
-			// Temporarily exclude tokens that have not been defined for all themes
-			exclude: [
-				'mode.light.color.fill.accent.tertiary',
-				'mode.light.color.surface.accent.tertiary',
-				'mode.dark.color.fill.accent.tertiary',
-				'mode.dark.color.surface.accent.tertiary',
-				'mode.dark.color.icon.accent.primary-copy',
-				'mode.dark.color.icon.accent.primary-inverse-copy',
-				'mode.light.color.icon.accent.primary-copy',
-				'mode.light.color.icon.accent.primary-inverse-copy',
-			],
 			permutations: [
 				{
 					input: {},
-					exclude: ['mode.**', 'color.**', 'border.**'],
+					exclude: ['mode.**', 'color.**', 'component.**'],
 					prepare: (contents) => `:root {\n  ${contents}\n}`,
 				},
 				...themes.map((theme) => ({
@@ -48,7 +43,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 				})),
 				...modes.map((mode) => ({
 					input: { mode },
-					include: ['color.**', 'border.**'],
+					include: ['color.**', 'component.**'],
 					prepare: (contents: string) =>
 						`[data-pulse-mode="${mode}"] {\n  ${contents}\n}`,
 				})),
