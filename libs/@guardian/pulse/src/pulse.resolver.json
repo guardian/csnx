@@ -6,8 +6,8 @@
 		"base": {
 			"sources": [{ "$ref": "./tokens/base/base.json" }]
 		},
-		"shared": {
-			"sources": [{ "$ref": "./tokens/shared/shared.json" }]
+		"global": {
+			"sources": [{ "$ref": "./tokens/global/global.json" }]
 		}
 	},
 	"modifiers": {
@@ -20,17 +20,14 @@
 				"lifestyle": [{ "$ref": "./tokens/core-theme/lifestyle.json" }],
 				"news": [{ "$ref": "./tokens/core-theme/news.json" }],
 				"opinion": [{ "$ref": "./tokens/core-theme/opinion.json" }],
-				"sport": [{ "$ref": "./tokens/core-theme/sport.json" }],
-				"feast": [{ "$ref": "./tokens/feast-theme/feast.json" }]
+				"sport": [{ "$ref": "./tokens/core-theme/sport.json" }]
 			},
 			"default": "core"
 		},
 		"mode": {
 			"contexts": {
 				"light": [{ "$ref": "./tokens/core-mode/light.json" }],
-				"dark": [{ "$ref": "./tokens/core-mode/dark.json" }],
-				"feast-light": [{ "$ref": "./tokens/feast-mode/light.json" }],
-				"feast-dark": [{ "$ref": "./tokens/feast-mode/dark.json" }]
+				"dark": [{ "$ref": "./tokens/core-mode/dark.json" }]
 			},
 			"default": "light"
 		}
@@ -40,7 +37,7 @@
 			"$ref": "#/sets/base"
 		},
 		{
-			"$ref": "#/sets/shared"
+			"$ref": "#/sets/global"
 		},
 		{
 			"$ref": "#/modifiers/theme"

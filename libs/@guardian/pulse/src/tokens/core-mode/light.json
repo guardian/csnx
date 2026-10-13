@@ -1,23 +1,8 @@
 {
-	"color": {
-		"border": {
-			"neutral": {
-				"primary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
-						}
-					},
-					"$type": "color",
-					"$value": "{mode.light.color.border.neutral.primary}"
-				}
-			}
-		},
-		"fill": {
-			"accent": {
-				"default": {
+	"core": {
+		"color": {
+			"border": {
+				"neutral": {
 					"primary": {
 						"$extensions": {
 							"com.figma": {
@@ -27,74 +12,156 @@
 							}
 						},
 						"$type": "color",
-						"$value": "{mode.light.color.fill.accent.default.primary}"
-					},
-					"secondary": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.accent.default.secondary}"
-					},
-					"tertiary": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.accent.default.tertiary}"
-					}
-				},
-				"inverse": {
-					"primary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"codeSyntax": {},
-								"hiddenFromPublishing": false,
-								"scopes": ["ALL_SCOPES"]
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.color.fill.accent.inverse.primary-inverse}"
-					},
-					"secondary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.accent.inverse.secondary-inverse}"
-					},
-					"tertiary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.accent.inverse.tertiary-inverse}"
+						"$value": "{core.mode.light.color.border.neutral.primary}"
 					}
 				}
 			},
-			"brand": {
-				"brand-1": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
+			"fill": {
+				"accent": {
+					"strong": {
+						"primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.accent.strong.primary}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.accent.strong.secondary}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.accent.strong.tertiary}"
 						}
 					},
-					"$type": "color",
-					"$value": "{mode.light.color.fill.brand.brand-1}"
+					"subtle": {
+						"primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.accent.subtle.primary}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.accent.subtle.secondary}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.accent.subtle.tertiary}"
+						}
+					}
 				},
-				"brand-3": {
-					"$type": "color",
-					"$value": "{mode.light.color.fill.brand.brand-3}"
+				"brand": {
+					"default": {
+						"primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.default.primary}"
+						},
+						"quartenary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.default.quartenary}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.default.secondary}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.default.tertiary}"
+						}
+					},
+					"highlight": {
+						"primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.highlight.primary}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.highlight.secondary}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.brand.highlight.tertiary}"
+						}
+					}
 				},
-				"brand-4": {
-					"$type": "color",
-					"$value": "{mode.light.color.fill.brand.brand-4}"
+				"neutral": {
+					"strong": {
+						"primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.neutral.strong.primary}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.neutral.strong.secondary}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.neutral.strong.tertiary}"
+						}
+					},
+					"subtle": {
+						"primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.neutral.subtle.primary}"
+						},
+						"secondary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.neutral.subtle.secondary}"
+						},
+						"tertiary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.neutral.subtle.tertiary}"
+						}
+					}
 				},
-				"brand-5": {
-					"$type": "color",
-					"$value": "{mode.light.color.fill.brand.brand-5}"
-				},
-				"brand-6": {
-					"$type": "color",
-					"$value": "{mode.light.color.fill.brand.brand-6}"
-				},
-				"brand-8": {
-					"$type": "color",
-					"$value": "{mode.light.color.fill.brand.brand-8}"
+				"utility": {
+					"strong": {
+						"error-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.strong.error-primary}"
+						},
+						"info-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.strong.info-primary}"
+						},
+						"success-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.strong.success-primary}"
+						},
+						"warning-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.strong.warning-primary}"
+						}
+					},
+					"subtle": {
+						"error-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.subtle.error-primary}"
+						},
+						"info-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.subtle.info-primary}"
+						},
+						"success-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.subtle.success-primary}"
+						},
+						"warning-primary": {
+							"$type": "color",
+							"$value": "{core.mode.light.color.fill.utility.subtle.warning-primary}"
+						}
+					}
 				}
 			},
-			"neutral": {
-				"default": {
+			"icon": {
+				"accent": {
+					"primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.accent.primary}"
+					},
+					"primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.accent.primary-inverse}"
+					}
+				},
+				"brand": {
 					"primary": {
 						"$extensions": {
 							"com.figma": {
@@ -104,558 +171,515 @@
 							}
 						},
 						"$type": "color",
-						"$value": "{global.mode.light.color.fill.neutral.default.primary}"
+						"$value": "{core.mode.light.color.icon.brand.primary}"
 					},
-					"secondary": {
-						"$type": "color",
-						"$value": "{global.mode.light.color.fill.neutral.default.secondary}"
-					},
-					"tertiary": {
-						"$type": "color",
-						"$value": "{global.mode.light.color.fill.neutral.default.tertiary}"
-					}
-				},
-				"inverse": {
 					"primary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"codeSyntax": {},
-								"hiddenFromPublishing": false,
-								"scopes": ["ALL_SCOPES"]
-							}
-						},
 						"$type": "color",
-						"$value": "{mode.light.color.fill.neutral.inverse.primary-inverse}"
-					},
-					"secondary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.neutral.inverse.secondary-inverse}"
-					},
-					"tertiary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.neutral.inverse.tertiary-inverse}"
+						"$value": "{core.mode.light.color.icon.brand.primary-inverse}"
 					}
 				},
-				"transparent": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
-						}
-					},
-					"$type": "color",
-					"$value": "{mode.light.color.fill.transparent}"
-				}
-			},
-			"utility": {
-				"default": {
-					"error-primary": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.default.error-primary}"
-					},
-					"info-primary": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.default.info-primary}"
-					},
-					"success-primary": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.default.success-primary}"
-					},
-					"warning-primary": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.default.warning-primary}"
-					}
-				},
-				"inverse": {
-					"error-primary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.inverse.error-primary}"
-					},
-					"info-primary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.inverse.info-primary}"
-					},
-					"success-primary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.inverse.success-primary}"
-					},
-					"warning-primary-inverse": {
-						"$type": "color",
-						"$value": "{mode.light.color.fill.utility.inverse.warning-primary}"
-					}
-				}
-			}
-		},
-		"icon": {
-			"accent": {
-				"primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.accent.primary}"
-				},
-				"primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.accent.primary-inverse}"
-				}
-			},
-			"brand": {
-				"primary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
-						}
-					},
-					"$type": "color",
-					"$value": "{mode.light.color.icon.brand.primary}"
-				},
-				"primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.brand.primary-inverse}"
-				},
-				"secondary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.brand.secondary}"
-				},
-				"secondary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.brand.secondary-inverse}"
-				}
-			},
-			"neutral": {
-				"primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.neutral.primary}"
-				},
-				"primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.neutral.primary-inverse}"
-				},
-				"secondary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.neutral.secondary}"
-				},
-				"secondary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.neutral.secondary-inverse}"
-				}
-			},
-			"utility": {
-				"error-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.error-primary}"
-				},
-				"error-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.error-primary-inverse}"
-				},
-				"info-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.info-primary}"
-				},
-				"info-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.info-primary-inverse}"
-				},
-				"success-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.success-primary}"
-				},
-				"success-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.success-primary-inverse}"
-				},
-				"warning-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.warning-primary}"
-				},
-				"warning-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.icon.utility.warning-primary-inverse}"
-				}
-			}
-		},
-		"surface": {
-			"bg": {
 				"neutral": {
 					"primary": {
 						"$type": "color",
-						"$value": "{mode.light.color.surface.bg.neutral.primary}"
+						"$value": "{core.mode.light.color.icon.neutral.primary}"
 					},
 					"primary-inverse": {
 						"$type": "color",
-						"$value": "{mode.light.color.surface.bg.neutral.primary-inverse}"
+						"$value": "{core.mode.light.color.icon.neutral.primary-inverse}"
 					},
 					"secondary": {
 						"$type": "color",
-						"$value": "{mode.light.color.surface.bg.neutral.secondary}"
+						"$value": "{core.mode.light.color.icon.neutral.secondary}"
 					},
 					"secondary-inverse": {
 						"$type": "color",
-						"$value": "{mode.light.color.surface.bg.neutral.secondary-inverse}"
-					},
-					"tertiary": {
+						"$value": "{core.mode.light.color.icon.neutral.secondary-inverse}"
+					}
+				},
+				"utility": {
+					"error-primary": {
 						"$type": "color",
-						"$value": "{mode.light.color.surface.bg.neutral.tertiary}"
+						"$value": "{core.mode.light.color.icon.utility.error-primary}"
 					},
-					"tertiary-inverse": {
+					"error-primary-inverse": {
 						"$type": "color",
-						"$value": "{mode.light.color.surface.bg.neutral.tertiary-inverse}"
+						"$value": "{core.mode.light.color.icon.utility.error-primary-inverse}"
+					},
+					"info-primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.utility.info-primary}"
+					},
+					"info-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.utility.info-primary-inverse}"
+					},
+					"success-primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.utility.success-primary}"
+					},
+					"success-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.utility.success-primary-inverse}"
+					},
+					"warning-primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.utility.warning-primary}"
+					},
+					"warning-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.icon.utility.warning-primary-inverse}"
+					}
+				}
+			},
+			"surface": {
+				"bg": {
+					"accent": {
+						"strong": {
+							"primary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.accent.strong.primary}"
+							},
+							"secondary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.accent.strong.secondary}"
+							},
+							"tertiary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.accent.strong.tertiary}"
+							}
+						},
+						"subtle": {
+							"primary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.accent.subtle.primary}"
+							},
+							"secondary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.accent.subtle.secondary}"
+							},
+							"tertiary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.accent.subtle.tertiary}"
+							}
+						}
+					},
+					"brand": {
+						"default": {
+							"primary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.default.primary}"
+							},
+							"quartenary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.default.quartenary}"
+							},
+							"secondary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.default.secondary}"
+							},
+							"tertiary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.default.tertiary}"
+							}
+						},
+						"highlight": {
+							"primary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.highlight.primary}"
+							},
+							"secondary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.highlight.secondary}"
+							},
+							"tertiary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.brand.highlight.tertiary}"
+							}
+						}
+					},
+					"neutral": {
+						"strong": {
+							"primary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.neutral.strong.primary}"
+							},
+							"secondary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.neutral.strong.secondary}"
+							},
+							"tertiary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.neutral.strong.tertiary}"
+							}
+						},
+						"subtle": {
+							"primary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.neutral.subtle.primary}"
+							},
+							"secondary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.neutral.subtle.secondary}"
+							},
+							"tertiary": {
+								"$type": "color",
+								"$value": "{core.mode.light.color.surface.bg.neutral.subtle.tertiary}"
+							}
+						}
+					}
+				}
+			},
+			"text": {
+				"accent": {
+					"primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.accent.primary}"
+					},
+					"primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.accent.primary-inverse}"
+					},
+					"secondary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.accent.secondary}"
+					},
+					"secondary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.accent.secondary-inverse}"
+					}
+				},
+				"brand": {
+					"primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.brand.primary}"
+					},
+					"primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.brand.primary-inverse}"
+					}
+				},
+				"neutral": {
+					"primary": {
+						"$extensions": {
+							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
+								"scopes": ["ALL_SCOPES"]
+							}
+						},
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.neutral.primary}"
+					},
+					"primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.neutral.primary-inverse}"
+					},
+					"secondary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.neutral.secondary}"
+					},
+					"secondary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.neutral.secondary-inverse}"
+					}
+				},
+				"utility": {
+					"error-primary": {
+						"$extensions": {
+							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
+								"scopes": ["ALL_SCOPES"]
+							}
+						},
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.error-primary}"
+					},
+					"error-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.error-primary-inverse}"
+					},
+					"info-primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.info-primary}"
+					},
+					"info-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.info-primary-inverse}"
+					},
+					"success-primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.success-primary}"
+					},
+					"success-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.success-primary-inverse}"
+					},
+					"warning-primary": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.warning-primary}"
+					},
+					"warning-primary-inverse": {
+						"$type": "color",
+						"$value": "{core.mode.light.color.text.utility.warning-primary-inverse}"
 					}
 				}
 			}
 		},
-		"text": {
-			"accent": {
-				"primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.accent.primary}"
-				},
-				"primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.accent.primary-inverse}"
-				},
-				"secondary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.accent.secondary}"
-				},
-				"secondary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.accent.secondary-inverse}"
-				}
-			},
-			"brand": {
-				"primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.brand.primary}"
-				},
-				"primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.brand.primary-inverse}"
-				}
-			},
-			"neutral": {
-				"primary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
-						}
-					},
-					"$type": "color",
-					"$value": "{mode.light.color.text.neutral.primary}"
-				},
-				"primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.neutral.primary-inverse}"
-				},
-				"secondary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.neutral.secondary}"
-				},
-				"secondary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.neutral.secondary-inverse}"
-				}
-			},
-			"utility": {
-				"error-primary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": ["ALL_SCOPES"]
-						}
-					},
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.error-primary}"
-				},
-				"error-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.error-primary-inverse}"
-				},
-				"info-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.info-primary}"
-				},
-				"info-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.info-primary-inverse}"
-				},
-				"success-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.success-primary}"
-				},
-				"success-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.success-primary-inverse}"
-				},
-				"warning-primary": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.warning-primary}"
-				},
-				"warning-primary-inverse": {
-					"$type": "color",
-					"$value": "{mode.light.color.text.utility.warning-primary-inverse}"
-				}
-			}
-		}
-	},
-	"component": {
-		"button": {
-			"border": {
-				"primary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": []
-						}
-					},
-					"$type": "border",
-					"$value": {
-						"color": "{component.button.color.border.primary}",
-						"style": "solid",
-						"width": "{base.size.1px}"
-					}
-				},
-				"primary-inverse": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": []
-						}
-					},
-					"$type": "border",
-					"$value": {
-						"color": "{component.button.color.border.primary-inverse}",
-						"style": "solid",
-						"width": "{base.size.1px}"
-					}
-				},
-				"secondary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": []
-						}
-					},
-					"$type": "border",
-					"$value": {
-						"color": "{component.button.color.border.secondary}",
-						"style": "solid",
-						"width": "{base.size.1px}"
-					}
-				},
-				"secondary-inverse": {
-					"$type": "border",
-					"$value": {
-						"color": "{component.button.color.border.secondary-inverse}",
-						"style": "solid",
-						"width": "{base.size.1px}"
-					}
-				},
-				"tertiary": {
-					"$extensions": {
-						"com.figma": {
-							"codeSyntax": {},
-							"hiddenFromPublishing": false,
-							"scopes": []
-						}
-					},
-					"$type": "border",
-					"$value": {
-						"color": "{component.button.color.border.tertiary}",
-						"style": "solid",
-						"width": "{base.size.1px}"
-					}
-				},
-				"tertiary-inverse": {
-					"$type": "border",
-					"$value": {
-						"color": "{component.button.color.border.tertiary-inverse}",
-						"style": "solid",
-						"width": "{base.size.1px}"
-					}
-				}
-			},
-			"color": {
+		"component": {
+			"button": {
 				"border": {
 					"primary": {
 						"$extensions": {
 							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
 								"scopes": []
 							}
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.border.primary}"
+						"$type": "border",
+						"$value": {
+							"color": "{core.component.button.color.border.primary}",
+							"style": "solid",
+							"width": "{base.size.1px}"
+						}
 					},
 					"primary-inverse": {
 						"$extensions": {
 							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
 								"scopes": []
 							}
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.border.primary-inverse}"
+						"$type": "border",
+						"$value": {
+							"color": "{core.component.button.color.border.primary-inverse}",
+							"style": "solid",
+							"width": "{base.size.1px}"
+						}
 					},
 					"secondary": {
 						"$extensions": {
 							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
 								"scopes": []
 							}
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.border.secondary}"
+						"$type": "border",
+						"$value": {
+							"color": "{core.component.button.color.border.secondary}",
+							"style": "solid",
+							"width": "{base.size.1px}"
+						}
 					},
 					"secondary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.border.secondary-inverse}"
+						"$type": "border",
+						"$value": {
+							"color": "{core.component.button.color.border.secondary-inverse}",
+							"style": "solid",
+							"width": "{base.size.1px}"
+						}
 					},
 					"tertiary": {
 						"$extensions": {
 							"com.figma": {
+								"codeSyntax": {},
+								"hiddenFromPublishing": false,
 								"scopes": []
 							}
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.border.tertiary}"
+						"$type": "border",
+						"$value": {
+							"color": "{core.component.button.color.border.tertiary}",
+							"style": "solid",
+							"width": "{base.size.1px}"
+						}
 					},
 					"tertiary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.border.tertiary-inverse}"
+						"$type": "border",
+						"$value": {
+							"color": "{core.component.button.color.border.tertiary-inverse}",
+							"style": "solid",
+							"width": "{base.size.1px}"
+						}
 					}
 				},
-				"fill": {
-					"primary": {
-						"$extensions": {
-							"com.figma": {
-								"codeSyntax": {},
-								"hiddenFromPublishing": false,
-								"scopes": []
-							}
+				"color": {
+					"border": {
+						"primary": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.border.primary}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.fill.primary}"
+						"primary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.border.primary-inverse}"
+						},
+						"secondary": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.border.secondary}"
+						},
+						"secondary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.border.secondary-inverse}"
+						},
+						"tertiary": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.border.tertiary}"
+						},
+						"tertiary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.border.tertiary-inverse}"
+						}
 					},
-					"primary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
+					"fill": {
+						"primary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.fill.primary}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.fill.primary-inverse}"
+						"primary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.fill.primary-inverse}"
+						},
+						"secondary": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.fill.secondary}"
+						},
+						"secondary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.fill.secondary-inverse}"
+						},
+						"tertiary": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.fill.tertiary}"
+						},
+						"tertiary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.fill.tertiary-inverse}"
+						}
 					},
-					"secondary": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
+					"text": {
+						"primary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.text.primary}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.fill.secondary}"
-					},
-					"secondary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
+						"primary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.text.primary-inverse}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.fill.secondary-inverse}"
-					},
-					"tertiary": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
+						"secondary": {
+							"$extensions": {
+								"com.figma": {
+									"codeSyntax": {},
+									"hiddenFromPublishing": false,
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.text.secondary}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.fill.tertiary}"
-					},
-					"tertiary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
+						"secondary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.text.secondary-inverse}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.fill.tertiary-inverse}"
-					}
-				},
-				"text": {
-					"primary": {
-						"$extensions": {
-							"com.figma": {
-								"codeSyntax": {},
-								"hiddenFromPublishing": false,
-								"scopes": []
-							}
+						"tertiary": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.text.tertiary}"
 						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.text.primary}"
-					},
-					"primary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.text.primary-inverse}"
-					},
-					"secondary": {
-						"$extensions": {
-							"com.figma": {
-								"codeSyntax": {},
-								"hiddenFromPublishing": false,
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.text.secondary}"
-					},
-					"secondary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.text.secondary-inverse}"
-					},
-					"tertiary": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.text.tertiary}"
-					},
-					"tertiary-inverse": {
-						"$extensions": {
-							"com.figma": {
-								"scopes": []
-							}
-						},
-						"$type": "color",
-						"$value": "{mode.light.component.button.color.text.tertiary-inverse}"
+						"tertiary-inverse": {
+							"$extensions": {
+								"com.figma": {
+									"scopes": []
+								}
+							},
+							"$type": "color",
+							"$value": "{core.mode.light.component.button.color.text.tertiary-inverse}"
+						}
 					}
 				}
 			}

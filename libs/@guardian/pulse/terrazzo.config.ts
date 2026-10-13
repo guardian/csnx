@@ -5,21 +5,13 @@ import { makeCSSVar } from '@terrazzo/token-tools/css';
 
 const themes = [
 	'core',
-	// 'core-alt',
-	// 'core-support',
-	// 'culture',
-	// 'lifestyle',
-	// 'news',
-	// 'opinion',
-	// 'sport',
-	// 'feast',
-];
-
-const modes = [
-	'light',
-	'dark',
-	// 'feast-light',
-	// 'feast-dark'
+	'core-alt',
+	'core-support',
+	'culture',
+	'lifestyle',
+	'news',
+	'opinion',
+	'sport',
 ];
 
 const config: ReturnType<typeof defineConfig> = defineConfig({
@@ -32,21 +24,28 @@ const config: ReturnType<typeof defineConfig> = defineConfig({
 			permutations: [
 				{
 					input: {},
-					exclude: ['mode.**', 'color.**', 'component.**'],
+					include: ['base.**', 'global.**'],
 					prepare: (contents) => `:root {\n  ${contents}\n}`,
 				},
 				...themes.map((theme) => ({
 					input: { theme },
-					include: ['mode.**'],
+					include: ['core.mode.**'],
 					prepare: (contents: string) =>
-						`[data-pulse-theme="${theme}"] {\n  ${contents}\n}`,
+						`[data-pulse-core-theme="${theme}"] {\n  ${contents}\n}`,
 				})),
-				...modes.map((mode) => ({
-					input: { mode },
-					include: ['color.**', 'component.**'],
+				{
+					input: { mode: 'light' },
+					include: ['core.**'],
+					exclude: ['core.mode.**'],
+					prepare: (contents: string) => `:root {\n  ${contents}\n}`,
+				},
+				{
+					input: { mode: 'dark' },
+					include: ['core.**'],
+					exclude: ['core.mode.**'],
 					prepare: (contents: string) =>
-						`[data-pulse-mode="${mode}"] {\n  ${contents}\n}`,
-				})),
+						`@media (prefers-color-scheme: "dark") {\n  :root {\n    ${contents}\n  }\n}`,
+				},
 			],
 		}),
 	],

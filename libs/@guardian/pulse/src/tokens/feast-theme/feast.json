@@ -50,7 +50,7 @@
 									}
 								},
 								"$type": "color",
-								"$value": "{global.mode.dark.color.text.neutral.primary}"
+								"$value": "{core.mode.dark.color.icon.brand.primary}"
 							}
 						}
 					}
@@ -90,7 +90,7 @@
 									}
 								},
 								"$type": "color",
-								"$value": "{global.mode.light.color.text.neutral.primary}"
+								"$value": "{core.mode.light.color.icon.neutral.primary}"
 							}
 						}
 					}

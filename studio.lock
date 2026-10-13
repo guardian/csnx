@@ -3,7 +3,7 @@
 # Commit this file to version control.
 
 version = 2
-generated_at = "2026-10-12T13:18:11Z"
+generated_at = "2026-10-13T16:38:38Z"
 cli_version = "0.2.4"
 dependencies = []
 
@@ -13,73 +13,73 @@ dependencies = []
   source_ref_type = "branch"
   source_ref_name = "main"
   preset_hash = "sha256:047c3de5945ae2f7e85725e840721b3dd2df359f35143dfdf75078dcd7c5d468"
-  output_hash = "sha256:520a24d90e7adfcbd80454e5df161ab97cec65d49711de258418c3ab5c6fdf46"
-  updated_at = "2026-10-12T13:18:11Z"
+  output_hash = "sha256:d4f1cd4900bee53cff06d2c89cbe609bb3ba27d34a7eb6f9aa0816fb3d746111"
+  updated_at = "2026-10-13T16:38:38Z"
 
   [[exports.files]]
     path = "base/base.json"
-    hash = "sha256:ff9de6a4108f0cb7dc1e3bf65a9a46c28929591fb06542fc13bef87f9f8a23ee"
-    size = 133966
+    hash = "sha256:af60b5620f5222f67202606b9d96ea837e5113199f06cda85a0efcc35f0a93ae"
+    size = 165258
     tokens = 0
 
   [[exports.files]]
     path = "core-mode/dark.json"
-    hash = "sha256:92da0fc8383e16a9b8d9e5656643ba1aff28e91ea55b20538c38e90c43b0c1fb"
-    size = 20155
+    hash = "sha256:0245db3b0270c2ee51156f8f94f49a4cc3054b7ea4684cf6957b5f83845cdc01"
+    size = 22698
     tokens = 0
 
   [[exports.files]]
     path = "core-mode/light.json"
-    hash = "sha256:771264bf63242b31ae33cb537338d21fddd433911e4b4b3a5882bb55264c5de2"
-    size = 20264
+    hash = "sha256:4cfcad69da7afe723844156dfac6b5773283957776621f81b34689b6093d1f2a"
+    size = 22797
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/core-alt.json"
-    hash = "sha256:a2f28056502fe16977e28b7e4d77844f9ac7e5836e457ef18e5110795bd7c5aa"
-    size = 34910
+    hash = "sha256:734eac6ffe7e32149001f6bcc1d512bb1b7db8c57ba8a917c66e18af040ef16d"
+    size = 43016
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/core-support.json"
-    hash = "sha256:6e880d15cfcd005b01092213fbb9e663e639dd73ac86d7f150621cad27823400"
-    size = 34913
+    hash = "sha256:0754d7651480a67569d1e5c0b67f34ae6fe74a7550b73d4e7bfb13120b55b97e"
+    size = 43018
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/core.json"
-    hash = "sha256:8a7c692dd2b2b638484334d4b97486bdba2efb261278fe359bc53d4fbd51b024"
-    size = 37200
+    hash = "sha256:73f2256d20c3e8d91d8ac279673233343611b692fd96867d7308beafba62761c"
+    size = 43022
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/culture.json"
-    hash = "sha256:bb8aeb5f0a6f3b970c4eeb817e27348ca1838743c9bc9a086819ce037d38fb72"
-    size = 35129
+    hash = "sha256:f965a6286ff1c907c426ff1baf76562e2b240544727b38a78d2ad5606d24f050"
+    size = 42411
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/lifestyle.json"
-    hash = "sha256:5e2d1701576a8388853df215b01200b4ace8d17eccebcae4baa327d970625a2a"
-    size = 37468
+    hash = "sha256:aa4b3425e9a63d4590ecc4525b6755f3f1d0c1d13d8128f22fbbafc70c9970f2"
+    size = 42458
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/news.json"
-    hash = "sha256:99eaac0fb7962463b957752c71332b38f608b50c2ce7bd9b20c9325117263516"
-    size = 33999
+    hash = "sha256:496616e93c19bb8f112bc209103ff0860ebd1938149c14d15d45a4271270dd7a"
+    size = 42312
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/opinion.json"
-    hash = "sha256:34dea763502f462d36c7caef61bf705ed775233b7b0bc9804dfb75518c0d9f79"
-    size = 34075
+    hash = "sha256:f16db8cd963884ea6fd24bf27dbb134f8745a9d93b9a3c5b9cc2da3d4a253364"
+    size = 42460
     tokens = 0
 
   [[exports.files]]
     path = "core-theme/sport.json"
-    hash = "sha256:245205f7071e18840be849384d2049fd29677248321d162696ad2e34ec8b347f"
-    size = 34029
+    hash = "sha256:cca7f7e92ec2479a4f4c7106892c56540fff6f9147e2fcbb85464a9896f0e831"
+    size = 42364
     tokens = 0
 
   [[exports.files]]
@@ -96,16 +96,16 @@ dependencies = []
 
   [[exports.files]]
     path = "feast-theme/feast.json"
-    hash = "sha256:1d0b712c9c7e89eefb7666a3abce23d92fc62889d6fb77c9b33734bfc298fa32"
-    size = 3065
+    hash = "sha256:54b8b40985a4662c20c003e15f941816c68a209f24fffd65661359455922c0b8"
+    size = 3059
     tokens = 0
 
   [[exports.files]]
-    path = "shared/shared.json"
-    hash = "sha256:f09e2c8e84230efce38706c26031d4d5eeb88bfeab847e5de968200ffee2035b"
-    size = 22099
+    path = "global/global.json"
+    hash = "sha256:f8126d165e4db25f1bccea90d02dc559d8d077dc526706400857366dac44dbef"
+    size = 63054
     tokens = 0
 
 [integrity]
-  lockfile_hash = "sha256:bd4fe0f52e6d9825ceb66de9d7eef40fa0e7b9f8c3d232999a1488c42bac76b0"
+  lockfile_hash = "sha256:68918e08ced4e813c1fe81ad1414ef103b2c8097ee16501ef8811913c68d656c"
   algorithm = "sha256"
