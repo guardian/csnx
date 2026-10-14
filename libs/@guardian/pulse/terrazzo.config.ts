@@ -3,6 +3,10 @@ import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
 import { makeCSSVar } from '@terrazzo/token-tools/css';
 
+/**
+ * This should be manually updated to match themes defined in the resolver file
+ * {@link src/pulse.resolver.json}
+ */
 const themes = [
 	'core',
 	'core-alt',
