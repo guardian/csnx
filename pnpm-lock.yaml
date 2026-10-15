@@ -589,6 +589,9 @@ importers:
       '@terrazzo/plugin-css':
         specifier: 2.7.1
         version: 2.7.1(@terrazzo/cli@2.7.1(@types/node@26.6.2)(esbuild@0.28.2)(tsx@4.23.1))(@terrazzo/parser@2.7.1(yaml-to-momoa@0.1.0))
+      '@terrazzo/token-tools':
+        specifier: 2.7.1
+        version: 2.7.1
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
