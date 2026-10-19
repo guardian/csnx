@@ -112,7 +112,7 @@
 		"@terrazzo/plugin-css": "2.7.1",
 		"@terrazzo/token-tools": "2.7.1",
 		"@types/jest": "30.0.0",
-		"eslint": "9.39.1",
+		"eslint": "10.12.0",
 		"jest": "30.4.2",
 		"prettier": "3.8.0",
 		"rollup": "4.64.5",
