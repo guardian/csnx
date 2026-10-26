@@ -48,6 +48,7 @@
 			"minimatch": "~10.2.3"
 		},
 		"patchedDependencies": {
+			"@storybook/react@10.6.4": "patches/@storybook__react@10.6.4.patch",
 			"ast-types@0.16.1": "patches/ast-types@0.16.1.patch",
 			"jsdom@26.1.0": "patches/jsdom@26.1.0.patch"
 		}

@@ -1,0 +1,11 @@
+diff --git a/dist/chunk-ojHmM-yX.d.ts b/dist/chunk-ojHmM-yX.d.ts
+--- a/dist/chunk-ojHmM-yX.d.ts
++++ b/dist/chunk-ojHmM-yX.d.ts
+@@ -1026,1 +1026,2 @@
+-interface ReactMeta<T extends ReactTypes, MetaInput extends ComponentAnnotations<T>> /** @ts-expect-error ReactMeta requires two type parameters, but Meta's constraints differ */ extends Meta<T, MetaInput> {
++/** @ts-expect-error ReactMeta requires two type parameters, but Meta's constraints differ */
++interface ReactMeta<T extends ReactTypes, MetaInput extends ComponentAnnotations<T>> extends Meta<T, MetaInput> {
+@@ -1072,1 +1073,2 @@
+-  story<TInput extends Simplify<StoryAnnotations<T, AddMocks<T['args'], MetaInput['args']>, SetOptional<T['args'], keyof T['args'] & keyof MetaInput['args']>>>>(story: TInput /** @ts-expect-error hard */): ReactStory<T, TInput>;
++  /** @ts-expect-error hard */
++  story<TInput extends Simplify<StoryAnnotations<T, AddMocks<T['args'], MetaInput['args']>, SetOptional<T['args'], keyof T['args'] & keyof MetaInput['args']>>>>(story: TInput): ReactStory<T, TInput>;
