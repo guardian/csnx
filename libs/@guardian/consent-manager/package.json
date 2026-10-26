@@ -152,7 +152,7 @@
 		"jest-environment-jsdom": "30.5.2",
 		"jest-fetch-mock": "3.2.0",
 		"mockdate": "3.0.5",
-		"rollup": "4.64.5",
+		"rollup": "4.65.0",
 		"ts-jest": "29.4.11",
 		"tslib": "2.8.1",
 		"tsx": "4.23.1",
