@@ -12,6 +12,27 @@
 		"fix": "wireit",
 		"lint": "wireit"
 	},
+	"wireit": {
+		"fix": {
+			"command": "eslint --cache --color . --fix",
+			"files": [
+				"**",
+				"!.eslintcache"
+			],
+			"output": [
+				"."
+			],
+			"clean": false
+		},
+		"lint": {
+			"command": "eslint --cache --color .",
+			"files": [
+				"**",
+				"!.eslintcache"
+			],
+			"output": []
+		}
+	},
 	"dependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "4.7.1",
 		"@eslint/js": "9.39.1",
@@ -32,32 +53,11 @@
 	},
 	"peerDependencies": {
 		"eslint": "^9.39.1",
-		"eslint-plugin-storybook": "^10.4.0"
+		"eslint-plugin-storybook": "^10.6.3"
 	},
 	"peerDependenciesMeta": {
 		"eslint-plugin-storybook": {
 			"optional": true
-		}
-	},
-	"wireit": {
-		"lint": {
-			"command": "eslint --cache --color .",
-			"files": [
-				"**",
-				"!.eslintcache"
-			],
-			"output": []
-		},
-		"fix": {
-			"command": "eslint --cache --color . --fix",
-			"clean": false,
-			"files": [
-				"**",
-				"!.eslintcache"
-			],
-			"output": [
-				"."
-			]
 		}
 	}
 }
