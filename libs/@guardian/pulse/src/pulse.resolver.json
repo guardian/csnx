@@ -1,0 +1,49 @@
+{
+	"$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+	"name": "Guardian Pulse",
+	"version": "2025.10",
+	"sets": {
+		"base": {
+			"sources": [{ "$ref": "./tokens/base/base.json" }]
+		},
+		"global": {
+			"sources": [{ "$ref": "./tokens/global/global.json" }]
+		}
+	},
+	"modifiers": {
+		"theme": {
+			"contexts": {
+				"core": [{ "$ref": "./tokens/core-theme/core.json" }],
+				"core-alt": [{ "$ref": "./tokens/core-theme/core-alt.json" }],
+				"core-support": [{ "$ref": "./tokens/core-theme/core-support.json" }],
+				"culture": [{ "$ref": "./tokens/core-theme/culture.json" }],
+				"lifestyle": [{ "$ref": "./tokens/core-theme/lifestyle.json" }],
+				"news": [{ "$ref": "./tokens/core-theme/news.json" }],
+				"opinion": [{ "$ref": "./tokens/core-theme/opinion.json" }],
+				"sport": [{ "$ref": "./tokens/core-theme/sport.json" }]
+			},
+			"default": "core"
+		},
+		"mode": {
+			"contexts": {
+				"light": [{ "$ref": "./tokens/core-mode/light.json" }],
+				"dark": [{ "$ref": "./tokens/core-mode/dark.json" }]
+			},
+			"default": "light"
+		}
+	},
+	"resolutionOrder": [
+		{
+			"$ref": "#/sets/base"
+		},
+		{
+			"$ref": "#/sets/global"
+		},
+		{
+			"$ref": "#/modifiers/theme"
+		},
+		{
+			"$ref": "#/modifiers/mode"
+		}
+	]
+}
