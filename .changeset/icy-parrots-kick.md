@@ -1,5 +1,5 @@
 ---
-'@guardian/consent-manager': major
+'@guardian/consent-manager': minor
 ---
 
 Remove old ab tests
