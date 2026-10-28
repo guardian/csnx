@@ -8,13 +8,11 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { format } from 'prettier';
 import { includedTable } from './included-table.mjs';
 import { usageTable } from './usage-table.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const pathToReadme = path.join(__dirname, '..', '/README.md');
+const pathToReadme = path.join(import.meta.dirname, '..', '/README.md');
 
 let readme = await readFile(pathToReadme, 'utf8');
 

@@ -1,8 +1,9 @@
 import { readFileSync } from 'fs';
+import { resolve } from 'path';
 import { normaliseBrowserName } from './normalise-browser-name.mjs';
 
 const browserslistStats = JSON.parse(
-	readFileSync('../browserslist-stats.json'),
+	readFileSync(resolve(import.meta.dirname, '../browserslist-stats.json')),
 );
 
 const flattened = {};
