@@ -335,7 +335,7 @@ export const init = (
 			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
-					cipaBanner: isInUsStateForCipaBanner()
+					cipaBanner: isInUsStateForCipaBanner(),
 				},
 			};
 			break;
