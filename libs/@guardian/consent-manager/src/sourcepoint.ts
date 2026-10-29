@@ -32,6 +32,7 @@ import { getSourcepointAppliedConsentFramework } from './sourcepointGeolocation'
 import { loadStubsFor } from './stub';
 import type { ConsentFramework, SourcepointConsentFramework } from './types';
 import type { SPUserConsent } from './types/tcfv2';
+import { isInUsStateForCipaBanner } from './usnat/geo';
 
 let resolveWillShowPrivacyMessage: typeof Promise.resolve;
 export const willShowPrivacyMessage = new Promise<boolean>((resolve) => {
@@ -334,6 +335,7 @@ export const init = (
 			window._sp_.config.usnat = {
 				targetingParams: {
 					framework,
+					cipaBanner: isInUsStateForCipaBanner(),
 				},
 			};
 			break;
