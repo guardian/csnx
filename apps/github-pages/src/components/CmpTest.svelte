@@ -10,7 +10,16 @@
 	// Extract country from URL parameter or default to GB
 	let getInitialCountry = () => {
 		const urlParams = new URLSearchParams(window.location.search);
-		return urlParams.get('country') || 'GB';
+		const country = urlParams.get('country');
+		console.info('Clearing preferences for country:', country);
+		if (country?.startsWith('US-')) {
+			dropStateCookie(country);
+		}
+		return country || 'GB';
+	};
+
+	let dropStateCookie = (geoCountryRegion) => {
+		document.cookie = `GU_geo_country_region=${encodeURIComponent(geoCountryRegion)}; Max-Age=86400; Path=/; SameSite=Lax`;
 	};
 
 	let selectedCountry = getInitialCountry();
@@ -45,7 +54,6 @@
 				.replace(/^ +/, '')
 				.replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
 		});
-
 		window.location.reload();
 	};
 
@@ -61,7 +69,8 @@
 		GB: 'tcfv2 - consent or pay',
 		FR: 'tcfv2 - consent or pay',
 		CA: 'tcfv2 - rest of world',
-		US: 'usnat',
+		'US-CA': 'usnat (CIPA)',
+		'US-NY': 'usnat (Not CIPA)',
 		AU: 'aus',
 	};
 
@@ -104,7 +113,7 @@
 
 	onMount(async () => {
 		cmp.init({
-			country: selectedCountry,
+			country: selectedCountry.split('-')[0],
 			isUserSignedIn: isUserSignedIn,
 			useNonAdvertisedList: useNonAdvertisedList,
 		});
