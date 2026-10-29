@@ -772,11 +772,13 @@ These are the numbers that were used to generate the list of included browsers.
 
 Usage is based on our Ophan browser stats.
 
-To update it, find the "Browser Share" Dashboard in the Dotcom folder in Grafana, in the 3 dots menu for the Raw data panel, click Inspect > Data and export the data as CSV.
+To update it, go to https://metrics.gutools.co.uk/d/ja7sk9c/browser-share, in the 3 dots menu for the Raw data panel, click Inspect > Data and export the data as CSV.
+
+The format is the same as the CSV exported by Google Analytics so we can use it with `browserslist-ga-export`.
 
 This data updates monthly.
 
-Then use `browserslist-ga-export` to convert the exported CSV data into a `browserslist-stats.json` file.
+You can then use `browserslist-ga-export` to convert the exported CSV data into a `browserslist-stats.json` file.
 
 ```
 $ npx browserslist-ga-export path/to/exported.csv
