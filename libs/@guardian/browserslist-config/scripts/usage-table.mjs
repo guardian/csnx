@@ -1,8 +1,9 @@
 import { readFileSync } from 'fs';
+import { resolve } from 'path';
 import { normaliseBrowserName } from './normalise-browser-name.mjs';
 
 const browserslistStats = JSON.parse(
-	readFileSync('../browserslist-stats.json'),
+	readFileSync(resolve(import.meta.dirname, '../browserslist-stats.json')),
 );
 
 const flattened = {};
@@ -27,7 +28,9 @@ const sorted = Object.fromEntries(
 const table = ['| Browser | Usage |', '| ------- | -------- |'];
 
 for (let [browser, usage] of Object.entries(sorted)) {
-	table.push(`| ${normaliseBrowserName(browser)} | ${usage}% |`);
+	if (usage !== '0.00') {
+		table.push(`| ${normaliseBrowserName(browser)} | ${usage}% |`);
+	}
 }
 
 export const usageTable = table.join('\n');
