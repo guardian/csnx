@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.3.0
+
+### Minor Changes
+
+- 81afe8c: Stop showing US Banner to states not in CIPA List by using the GU_geo_country_region cookie to determine state.
+
 ## 2.2.0
 
 ### Minor Changes
