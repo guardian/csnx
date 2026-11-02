@@ -134,7 +134,7 @@
 	},
 	"dependencies": {
 		"tslib": "2.8.1",
-		"use-local-storage-state": "19.5.0"
+		"use-local-storage-state": "20.0.0"
 	},
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
