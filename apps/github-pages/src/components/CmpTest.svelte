@@ -6,12 +6,12 @@
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
 	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
+	let useSpStage = new URLSearchParams(window.location.search).get('_sp_env') === 'stage';
 
 	// Extract country from URL parameter or default to GB
 	let getInitialCountry = () => {
 		const urlParams = new URLSearchParams(window.location.search);
 		const country = urlParams.get('country');
-		console.info('Clearing preferences for country:', country);
 		if (country?.startsWith('US-')) {
 			dropStateCookie(country);
 		}
@@ -57,13 +57,13 @@
 		window.location.reload();
 	};
 
-	const toggleQueryParams = (param) => {
-		let queryParams = new URLSearchParams(window.location.search);
-		queryParams.has(param)
-			? queryParams.delete(param)
-			: queryParams.append(param, '');
-		window.location.search = queryParams.toString();
-	};
+const toggleQueryParams = (param, value = '') => {
+	let queryParams = new URLSearchParams(window.location.search);
+	queryParams.has(param)
+		? queryParams.delete(param)
+		: queryParams.append(param, value);
+	window.location.search = queryParams.toString();
+};
 
 	const listOfCountriesandFrameworkApplied = {
 		GB: 'tcfv2 - consent or pay',
@@ -97,6 +97,11 @@
 	const toggleUseNonAdvertisedList = () => {
 		useNonAdvertisedList = !useNonAdvertisedList;
 		toggleQueryParams('NON_ADV');
+	};
+
+	const toggleSpStage = () => {
+		useSpStage = !useSpStage;
+		toggleQueryParams('_sp_env', 'stage');
 	};
 
 	$: consentState = {};
@@ -159,6 +164,10 @@
 				checked={isUserSignedIn}
 			/>
 			<strong>isUserSignedIn?</strong>
+		</label>
+		<label class={useSpStage ? 'selected' : 'none'}>
+			<input type="checkbox" on:change={toggleSpStage} checked={useSpStage} />
+			<strong>_sp_env=stage?</strong>
 		</label>
 	</nav>
 
