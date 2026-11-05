@@ -24,6 +24,11 @@ describe('usCipaBanner', () => {
 			expect(isInUsStateForCipaBanner()).toBe(false);
 		});
 
+		it('returns false when the geo region cookie is incomplete', () => {
+			mockGetCookie.mockReturnValue('US-');
+			expect(isInUsStateForCipaBanner()).toBe(false);
+		});
+
 		it('returns false when the geo region cookie is for a non-US region', () => {
 			mockGetCookie.mockReturnValue('GB-PNM'); // Non-US region
 			expect(isInUsStateForCipaBanner()).toBe(false);
