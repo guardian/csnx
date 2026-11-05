@@ -39,7 +39,7 @@ jobs:
       - run: make build
 
       - name: Release
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         id: publish-canary
         with:
           # currently, you have to tag releases in git to get the action output to appear
@@ -105,7 +105,7 @@ jobs:
           git config user.email "gu-changesets-release-pr[bot]@users.noreply.github.com"
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
           version: ./scripts/changesets/version.sh
           publish: pnpm changeset publish
