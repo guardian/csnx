@@ -55,6 +55,8 @@ Or in your `package.json`:
 
 These are the numbers that were used to generate the list of included browsers.
 
+See [FEATURES.md](./FEATURES.md) for the percentage of page views that support each browser feature.
+
 <!-- USAGE -->
 
 | Browser                   | Usage  |

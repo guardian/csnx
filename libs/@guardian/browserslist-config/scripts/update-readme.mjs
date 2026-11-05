@@ -9,12 +9,15 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { format } from 'prettier';
+import { featuresTable } from './features-table.mjs';
 import { includedTable } from './included-table.mjs';
 import { usageTable } from './usage-table.mjs';
 
 const pathToReadme = path.join(import.meta.dirname, '..', '/README.md');
+const pathToFeatures = path.join(import.meta.dirname, '..', '/FEATURES.md');
 
 let readme = await readFile(pathToReadme, 'utf8');
+let features = await readFile(pathToFeatures, 'utf8');
 
 // the keys and values to be replaced
 const replacements = [
@@ -28,13 +31,16 @@ const replacements = [
 	},
 ];
 
-for (const { key, value } of replacements) {
+const replace = (content, key, value) => {
 	const regex = new RegExp(`<!-- ${key} -->(.|\n)*?<!-- /${key} -->`, 'gm');
-	readme = readme.replace(regex, `<!-- ${key} -->\n${value}\n<!-- /${key} -->`);
+	return content.replace(regex, `<!-- ${key} -->\n${value}\n<!-- /${key} -->`);
+};
+
+for (const { key, value } of replacements) {
+	readme = replace(readme, key, value);
 }
 
-readme = await format(readme, {
-	parser: 'markdown',
-});
+features = replace(features, 'FEATURES', featuresTable);
 
-await writeFile(pathToReadme, readme);
+await writeFile(pathToReadme, await format(readme, { parser: 'markdown' }));
+await writeFile(pathToFeatures, await format(features, { parser: 'markdown' }));
