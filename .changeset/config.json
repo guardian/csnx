@@ -8,7 +8,16 @@
 	"baseBranch": "main",
 	"updateInternalDependencies": "patch",
 	"bumpVersionsWithWorkspaceProtocolOnly": false,
-	"ignore": ["github-pages", "@configs/*", "coverage", "storybooks"],
+	"ignore": [
+		"github-pages",
+		"@configs/*",
+		"coverage",
+		"storybooks",
+		"scripts",
+		"source-foundations",
+		"source-react-components",
+		"source-development-kitchen"
+	],
 	"___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
 		"onlyUpdatePeerDependentsWhenOutOfRange": true
 	}
