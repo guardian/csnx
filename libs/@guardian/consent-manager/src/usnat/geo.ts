@@ -3,8 +3,6 @@ import { getCookie } from '@guardian/libs';
 const GEO_REGION_COOKIE = 'GU_geo_country_region';
 export const CIPA_US_STATES: string[] = [
 	'FL', // Florida
-	'IL', // Illinois
-	'PA', // Pennsylvania
 	'CA', // California
 ];
 
