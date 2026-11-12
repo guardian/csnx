@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.3.1
+
+### Patch Changes
+
+- 4b0d002: Remove 2 US states from CIPA geo list
+
 ## 2.3.0
 
 ### Minor Changes
