@@ -1,4 +1,6 @@
 {
+	"name": "source-foundations",
+	"version": "0.0.0",
 	"private": true,
 	"type": "module",
 	"main": "../dist/foundations.js",
