@@ -140,7 +140,7 @@
 	},
 	"dependencies": {
 		"@guardian/libs": "workspace:*",
-		"@guardian/ophan-tracker-js": "3.1.0"
+		"@guardian/ophan-tracker-js": "5.2.0"
 	},
 	"devDependencies": {
 		"@guardian/eslint-config": "workspace:*",
