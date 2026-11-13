@@ -1,4 +1,4 @@
-const COOKIE_REGEX = /[()<>@,;"\\/[\]?={} \t]/g;
+const COOKIE_REGEX = /[()<>@,;"\\/[\]?={} \t]/;
 
 // subset of https://github.com/guzzle/guzzle/pull/1131
 const isValidCookieValue = (name: string) => !COOKIE_REGEX.test(name);
