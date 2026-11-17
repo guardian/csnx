@@ -61,6 +61,7 @@ declare global {
 					targetingParams?: {
 						framework: ConsentFramework;
 						cipaBanner?: boolean;
+						excludePage: boolean;
 					};
 				};
 				pubData: PubData;
