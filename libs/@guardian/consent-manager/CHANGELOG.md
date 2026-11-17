@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.3.2
+
+### Patch Changes
+
+- ff4e7a0: Add excludePage to USNAT targeting param.
+
 ## 2.3.1
 
 ### Patch Changes
