@@ -336,6 +336,7 @@ export const init = (
 				targetingParams: {
 					framework,
 					cipaBanner: isInUsStateForCipaBanner(),
+					excludePage: isExcludedFromCMP(pageSection),
 				},
 			};
 			break;
