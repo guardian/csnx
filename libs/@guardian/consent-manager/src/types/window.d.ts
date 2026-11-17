@@ -60,7 +60,8 @@ declare global {
 				usnat?: {
 					targetingParams?: {
 						framework: ConsentFramework;
-						abTestGroup?: string;
+						cipaBanner?: boolean;
+						excludePage: boolean;
 					};
 				};
 				pubData: PubData;

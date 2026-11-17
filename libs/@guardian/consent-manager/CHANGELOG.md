@@ -1,5 +1,35 @@
 # @guardian/consent-manager
 
+## 2.3.2
+
+### Patch Changes
+
+- ff4e7a0: Add excludePage to USNAT targeting param.
+
+## 2.3.1
+
+### Patch Changes
+
+- 4b0d002: Remove 2 US states from CIPA geo list
+
+## 2.3.0
+
+### Minor Changes
+
+- 81afe8c: Stop showing US Banner to states not in CIPA List by using the GU_geo_country_region cookie to determine state.
+
+## 2.2.0
+
+### Minor Changes
+
+- b46792f: Remove old ab tests
+  - Remove US ab test
+  - Remove old propertyId ab test
+
+### Patch Changes
+
+- 59dc496: adds doube verify as a vendor
+
 ## 2.1.2
 
 ### Patch Changes

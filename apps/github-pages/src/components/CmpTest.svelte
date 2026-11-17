@@ -6,11 +6,20 @@
 
 	let useNonAdvertisedList = window.location.search.includes('NON_ADV');
 	let isUserSignedIn = window.location.search.includes('SIGNED_IN');
+	let useSpStage = new URLSearchParams(window.location.search).get('_sp_env') === 'stage';
 
 	// Extract country from URL parameter or default to GB
 	let getInitialCountry = () => {
 		const urlParams = new URLSearchParams(window.location.search);
-		return urlParams.get('country') || 'GB';
+		const country = urlParams.get('country');
+		if (country?.startsWith('US-')) {
+			dropStateCookie(country);
+		}
+		return country || 'GB';
+	};
+
+	let dropStateCookie = (geoCountryRegion) => {
+		document.cookie = `GU_geo_country_region=${encodeURIComponent(geoCountryRegion)}; Max-Age=86400; Path=/; SameSite=Lax`;
 	};
 
 	let selectedCountry = getInitialCountry();
@@ -45,23 +54,23 @@
 				.replace(/^ +/, '')
 				.replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
 		});
-
 		window.location.reload();
 	};
 
-	const toggleQueryParams = (param) => {
-		let queryParams = new URLSearchParams(window.location.search);
-		queryParams.has(param)
-			? queryParams.delete(param)
-			: queryParams.append(param, '');
-		window.location.search = queryParams.toString();
-	};
+const toggleQueryParams = (param, value = '') => {
+	let queryParams = new URLSearchParams(window.location.search);
+	queryParams.has(param)
+		? queryParams.delete(param)
+		: queryParams.append(param, value);
+	window.location.search = queryParams.toString();
+};
 
 	const listOfCountriesandFrameworkApplied = {
 		GB: 'tcfv2 - consent or pay',
 		FR: 'tcfv2 - consent or pay',
 		CA: 'tcfv2 - rest of world',
-		US: 'usnat',
+		'US-CA': 'usnat (CIPA)',
+		'US-NY': 'usnat (Not CIPA)',
 		AU: 'aus',
 	};
 
@@ -90,6 +99,11 @@
 		toggleQueryParams('NON_ADV');
 	};
 
+	const toggleSpStage = () => {
+		useSpStage = !useSpStage;
+		toggleQueryParams('_sp_env', 'stage');
+	};
+
 	$: consentState = {};
 	$: eventsList = [];
 
@@ -104,7 +118,7 @@
 
 	onMount(async () => {
 		cmp.init({
-			country: selectedCountry,
+			country: selectedCountry.split('-')[0],
 			isUserSignedIn: isUserSignedIn,
 			useNonAdvertisedList: useNonAdvertisedList,
 		});
@@ -150,6 +164,10 @@
 				checked={isUserSignedIn}
 			/>
 			<strong>isUserSignedIn?</strong>
+		</label>
+		<label class={useSpStage ? 'selected' : 'none'}>
+			<input type="checkbox" on:change={toggleSpStage} checked={useSpStage} />
+			<strong>_sp_env=stage?</strong>
 		</label>
 	</nav>
 
