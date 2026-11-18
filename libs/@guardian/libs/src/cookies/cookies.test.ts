@@ -107,6 +107,24 @@ describe('cookies', () => {
 		expect(document.cookie).toEqual('');
 	});
 
+	it('still rejects an invalid cookie after a previous invalid cookie was rejected', () => {
+		expect(() =>
+			setCookie({
+				name: 'cookie-1-name',
+				value: 'cookie-1-value-<',
+			}),
+		).toThrow();
+		expect(() =>
+			setCookie({
+				name: 'a;b',
+				value: 'cookie-2-value',
+			}),
+		).toThrow(
+			`Cookie must not contain invalid characters (space, tab and the following characters: '()<>@,;"/[]?={}') a;b=cookie-2-value`,
+		);
+		expect(document.cookie).toEqual('');
+	});
+
 	it('sets a session cookie', () => {
 		setSessionCookie({
 			name: 'cookie-1-name',
