@@ -250,6 +250,9 @@ importers:
       browserslist:
         specifier: 4.28.9
         version: 4.28.9
+      caniuse-lite:
+        specifier: 1.0.30001810
+        version: 1.0.30001810
       eslint:
         specifier: 9.39.1
         version: 9.39.1
