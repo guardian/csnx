@@ -1,12 +1,40 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import browserslist from 'browserslist';
 import caniuse from 'caniuse-lite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const browserslistStats = JSON.parse(
+const allStats = JSON.parse(
 	readFileSync(path.join(__dirname, '..', 'browserslist-stats.json'), 'utf8'),
+);
+
+const included = new Set(
+	browserslist(undefined, { path: path.join(__dirname, '..') }),
+);
+
+// keep only the browsers our browserslist query selects
+const browserslistStats = Object.fromEntries(
+	Object.entries(allStats).map(([browser, versions]) => {
+		const selected = [...included].filter((entry) =>
+			entry.startsWith(`${browser} `),
+		);
+		// browserslist reports some mobile browsers (e.g. and_chr) at caniuse's
+		// latest version rather than the version in our stats
+		const selectsUnknownVersion = selected.some(
+			(entry) => !(entry.slice(browser.length + 1) in versions),
+		);
+		return [
+			browser,
+			Object.fromEntries(
+				Object.entries(versions).filter(
+					([version]) =>
+						selectsUnknownVersion || included.has(`${browser} ${version}`),
+				),
+			),
+		];
+	}),
 );
 
 // caniuse only tracks the latest version of some mobile browsers, so fall back
