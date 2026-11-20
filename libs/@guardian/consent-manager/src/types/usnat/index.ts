@@ -3,6 +3,14 @@ export interface USNATConsentState {
 	signalStatus: GPPSignalStatus;
 }
 
+export interface SourcepointLocalStorageUSNATConsentState {
+	usnat?: {
+		consentStatus?: {
+			hasConsentData?: boolean;
+		};
+	};
+}
+
 type GPPSignalStatus = 'not ready' | 'ready';
 
 type GppParsedSections = Record<

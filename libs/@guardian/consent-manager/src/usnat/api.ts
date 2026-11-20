@@ -1,5 +1,8 @@
 import { PROPERTY_ID_MAIN } from '../lib/sourcepointConfig';
-import type { UsnatData } from '../types/usnat';
+import type {
+	SourcepointLocalStorageUSNATConsentState,
+	UsnatData,
+} from '../types/usnat';
 
 const notReadyResponse = {
 	applies: false,
@@ -20,24 +23,32 @@ export const api = () =>
 			resolve(notReadyResponse);
 		}
 	});
-interface SPUSNATConsentState {
-	usnat?: {
-		consentStatus?: {
-			hasConsentData?: boolean;
-		};
-	};
-}
+
+/**
+ * checks if it is a CIPA state and if it is the first load (user has not actively consented)
+ *
+ * @return {*}  {boolean}
+ */
 const isCipaStateAndFirstLoad = (): boolean => {
-	const isCipaState =
-		window._sp_?.config.usnat?.targetingParams?.cipaBanner ?? false;
-	const storedUserConsent = localStorage.getItem(
-		`_sp_user_consent_${PROPERTY_ID_MAIN}`,
-	);
-	if (!storedUserConsent) {
+	if (window._sp_?.config.usnat?.targetingParams?.cipaBanner) {
 		return false;
 	}
-	const userConsent = JSON.parse(storedUserConsent) as SPUSNATConsentState;
-	return isCipaState && !userConsent.usnat?.consentStatus?.hasConsentData;
+
+	try {
+		const storedUserConsent = localStorage.getItem(
+			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
+		);
+		if (!storedUserConsent) {
+			return false;
+		}
+
+		const userConsent = JSON.parse(
+			storedUserConsent,
+		) as SourcepointLocalStorageUSNATConsentState;
+		return !userConsent.usnat?.consentStatus?.hasConsentData;
+	} catch {
+		return false;
+	}
 };
 
 export const getUsnatData = (): Promise<UsnatData> =>

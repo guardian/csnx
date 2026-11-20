@@ -7,7 +7,7 @@ describe('getUsnatData', () => {
 		delete window._sp_;
 	});
 
-	it('returns not ready when its not a CIPA state, it is the first load and getUserConsents is not available', async () => {
+	it('returns not ready when its not a CIPA state, the user has not actively consented and getUserConsents is not available', async () => {
 		localStorage.setItem(
 			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 			JSON.stringify({
@@ -34,7 +34,7 @@ describe('getUsnatData', () => {
 		expect(result.signalStatus).toEqual('not ready');
 	});
 
-	it('returns ready when its not a CIPA state, it is the first load and getUserConsents is available', async () => {
+	it('returns ready when its not a CIPA state, the user has not actively consented and getUserConsents is available', async () => {
 		localStorage.setItem(
 			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 			JSON.stringify({
@@ -72,7 +72,7 @@ describe('getUsnatData', () => {
 		expect(result.signalStatus).toEqual('ready');
 	});
 
-	it('returns not ready when it is a CIPA state, it is the first load and getUserConsents is not available', async () => {
+	it('returns not ready when it is a CIPA state, the user has not actively consented and getUserConsents is not available', async () => {
 		localStorage.setItem(
 			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 			JSON.stringify({
@@ -99,7 +99,7 @@ describe('getUsnatData', () => {
 		expect(result.signalStatus).toEqual('not ready');
 	});
 
-	it('returns ready when it is a CIPA state, it is not the first load and getUserConsents is available', async () => {
+	it('returns ready when it is a CIPA state, the user has not actively consented and getUserConsents is available', async () => {
 		localStorage.setItem(
 			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 			JSON.stringify({
@@ -136,40 +136,4 @@ describe('getUsnatData', () => {
 		expect(result.vendors).toEqual([]);
 		expect(result.signalStatus).toEqual('ready');
 	});
-	// 	localStorage.setItem('_sp_user_consent_123', JSON.stringify({}));
-	// 	window._sp_ = {
-	// 		config: {
-	// 			usnat: {
-	// 				targetingParams: {
-	// 					cipaBanner: true,
-	// 				},
-	// 			},
-	// 		},
-	// 	};
-	// 	const result = await getUsnatData();
-	// 	expect(result.applies).toBe(false);
-	// 	expect(result.categories).toEqual([]);
-	// 	expect(result.vendors).toEqual([]);
-	// 	expect(result.signalStatus).toEqual('not ready');
-	// });
-
-	// it('returns not ready when CIPA banner is not shown and ', async () => {
-	// 	localStorage.setItem('_sp_user_consent_123', JSON.stringify({}));
-	// 	window._sp_ = {
-	// 		config: {
-	// 			usnat: {
-	// 				targetingParams: {
-	// 					cipaBanner: false,
-	// 				},
-	// 			},
-	// 		},
-	// 	};
-	// 	const result = await getUsnatData();
-	// 	expect(result.applies).toBe(false);
-	// 	expect(result.categories).toEqual([]);
-	// 	expect(result.vendors).toEqual([]);
-	// 	expect(result.signalStatus).toEqual('not ready');
-	// });
 });
-
-// it('')
