@@ -1,5 +1,11 @@
 # @guardian/browserslist-config
 
+## 10.0.0
+
+### Major Changes
+
+- 5936788: Update browser list
+
 ## 9.0.0
 
 ### Major Changes
