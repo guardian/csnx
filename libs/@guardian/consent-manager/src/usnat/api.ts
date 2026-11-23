@@ -30,7 +30,8 @@ export const api = () =>
  * @return {*}  {boolean}
  */
 const isCipaStateAndFirstLoad = (): boolean => {
-	if (window._sp_?.config.usnat?.targetingParams?.cipaBanner) {
+	// If the user is not in a CIPA state, return false immediately.
+	if (!window._sp_?.config.usnat?.targetingParams?.cipaBanner) {
 		return false;
 	}
 
