@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 20.2.0
+
+### Minor Changes
+
+- 5a7d100: Add the Maxi crossword type and a 15x15 Storybook fixture.
+
 ## 20.1.0
 
 ### Minor Changes
