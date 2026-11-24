@@ -99,6 +99,35 @@ describe('getUsnatData', () => {
 		expect(result.signalStatus).toEqual('not ready');
 	});
 
+	it('returns not ready for an unconsented CIPA user even when getUserConsents is available', async () => {
+		localStorage.setItem(
+			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
+			JSON.stringify({
+				usnat: {
+					consentStatus: {
+						hasConsentData: false,
+					},
+				},
+			}),
+		);
+		window._sp_ = {
+			config: {
+				usnat: {
+					targetingParams: {
+						cipaBanner: true,
+					},
+				},
+			},
+			usnat: {
+				getUserConsents: jest.fn((cb) => {
+					cb({ applies: true, categories: [], vendors: [] });
+				}),
+			},
+		};
+		const result = await getUsnatData();
+		expect(result.signalStatus).toEqual('not ready');
+	});
+
 	it('returns ready when it is a CIPA state, the user has not actively consented and getUserConsents is available', async () => {
 		localStorage.setItem(
 			`_sp_user_consent_${PROPERTY_ID_MAIN}`,

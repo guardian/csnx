@@ -48,7 +48,8 @@ const isCipaStateAndFirstLoad = (): boolean => {
 		) as SourcepointLocalStorageUSNATConsentState;
 		return !userConsent.usnat?.consentStatus?.hasConsentData;
 	} catch {
-		return false;
+		// If there is an error parsing the stored consent, assume it is the first load.
+		return true;
 	}
 };
 

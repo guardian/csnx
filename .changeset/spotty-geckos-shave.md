@@ -2,4 +2,4 @@
 '@guardian/consent-manager': minor
 ---
 
-Do not resolve on first load for US CIPA states.
+Refactor usnat.getConsentState function to only return a ready value when consent is actively provided for CIPA states (Florida and California)
