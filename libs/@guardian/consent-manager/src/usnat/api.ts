@@ -12,7 +12,7 @@ const notReadyResponse = {
 };
 export const api = () =>
 	new Promise((resolve) => {
-		if (isCipaStateAndFirstLoad()) {
+		if (isCipaStateAndHasNotConsented()) {
 			resolve(notReadyResponse);
 		}
 		if (window._sp_?.usnat?.getUserConsents) {
@@ -29,7 +29,7 @@ export const api = () =>
  *
  * @return {*}  {boolean}
  */
-const isCipaStateAndFirstLoad = (): boolean => {
+const isCipaStateAndHasNotConsented = (): boolean => {
 	// If the user is not in a CIPA state, return false immediately.
 	if (!window._sp_?.config.usnat?.targetingParams?.cipaBanner) {
 		return false;
@@ -39,8 +39,10 @@ const isCipaStateAndFirstLoad = (): boolean => {
 		const storedUserConsent = localStorage.getItem(
 			`_sp_user_consent_${PROPERTY_ID_MAIN}`,
 		);
+
+		// If there is no stored user consent, it is considered the first load and the user doesn't have consent.
 		if (!storedUserConsent) {
-			return false;
+			return true;
 		}
 
 		const userConsent = JSON.parse(
