@@ -23,6 +23,13 @@ it('throws an error if no framework is present', () => {
 describe('under USNAT', () => {
 	beforeEach(() => {
 		window._sp_ = {
+			config: {
+				usnat: {
+					targetingParams: {
+						cipaBanner: false,
+					},
+				},
+			},
 			usnat: {
 				getUserConsents: jest.fn((cb) => {
 					cb(usnatData);
