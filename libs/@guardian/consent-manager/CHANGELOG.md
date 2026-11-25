@@ -1,5 +1,11 @@
 # @guardian/consent-manager
 
+## 2.4.0
+
+### Minor Changes
+
+- d71de84: Refactor usnat.getConsentState function to only return a ready value when consent is actively provided for CIPA states (Florida and California)
+
 ## 2.3.2
 
 ### Patch Changes
