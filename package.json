@@ -18,7 +18,7 @@
 		"lint-staged": "17.6.0",
 		"prettier": "3.8.0",
 		"sort-package-json": "4.0.0",
-		"syncpack": "13.0.0",
+		"syncpack": "13.0.4",
 		"ts-jest": "29.4.11",
 		"typescript": "6.0.3",
 		"wireit": "0.14.13"
@@ -43,7 +43,6 @@
 		},
 		"overrides": {
 			"@package-json/types": "0.0.13",
-			"effect": "~3.20.0",
 			"lodash": "~4.18.0",
 			"minimatch": "~10.2.3"
 		},
