@@ -1,5 +1,11 @@
 # @guardian/react-crossword
 
+## 20.3.0
+
+### Minor Changes
+
+- 09477c5: Support restoring a completed crossword from its published solution.
+
 ## 20.2.0
 
 ### Minor Changes
