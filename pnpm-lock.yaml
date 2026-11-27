@@ -667,6 +667,9 @@ importers:
       '@types/react':
         specifier: 18.2.79
         version: 18.2.79
+      '@types/react-dom':
+        specifier: 18.2.25
+        version: 18.2.25
       dotenv:
         specifier: 18.0.5
         version: 18.0.5

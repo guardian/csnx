@@ -96,15 +96,35 @@ export const ProgressProvider = ({
 	id,
 	dimensions,
 	progress: userProgress,
+	restoreCompleted,
 	onProgressChange,
 }: {
 	id: CAPICrossword['id'];
 	dimensions: Dimensions;
 	progress?: Progress;
+	restoreCompleted?: boolean;
 	onProgressChange?: (change: ProgressChange) => void;
 	children: ReactNode;
 }) => {
 	const { cells, solutionAvailable } = useData();
+
+	const [hasEdited, setHasEdited] = useState(false);
+	const restored = useMemo(() => {
+		if (!restoreCompleted || hasEdited || !solutionAvailable) {
+			return undefined;
+		}
+		const grid = getNewProgress(dimensions);
+		for (const cell of cells.values()) {
+			if (!cell.group) {
+				continue;
+			}
+			if (!cell.solution) {
+				return undefined;
+			}
+			grid[cell.x]![cell.y] = cell.solution;
+		}
+		return grid;
+	}, [restoreCompleted, hasEdited, solutionAvailable, dimensions, cells]);
 
 	const defaultValue = getInitialProgress({ id, dimensions, userProgress });
 
@@ -133,6 +153,7 @@ export const ProgressProvider = ({
 	// Stores a progress the reader changed and tells the consumer.
 	const updateProgress = useCallback(
 		(newProgress: Progress) => {
+			setHasEdited(true);
 			applyProgress(newProgress);
 			onProgressChange?.({
 				progress: newProgress,
@@ -157,11 +178,11 @@ export const ProgressProvider = ({
 
 	const contextValue = useMemo(
 		() => ({
-			progress,
+			progress: restored ?? progress,
 			updateProgress,
 			isStored: rest.isPersistent,
 		}),
-		[progress, updateProgress, rest.isPersistent],
+		[restored, progress, updateProgress, rest.isPersistent],
 	);
 
 	return (

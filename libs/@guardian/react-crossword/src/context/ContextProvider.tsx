@@ -34,6 +34,7 @@ export const ContextProvider = ({
 	data,
 	selectedEntryId,
 	userProgress,
+	restoreCompleted,
 	onProgressChange,
 	theme,
 	children,
@@ -41,6 +42,7 @@ export const ContextProvider = ({
 	data: CAPICrossword;
 	selectedEntryId?: EntryID;
 	userProgress?: Progress;
+	restoreCompleted?: boolean;
 	onProgressChange?: (change: ProgressChange) => void;
 	theme: Theme;
 	children: ReactNode;
@@ -60,6 +62,7 @@ export const ContextProvider = ({
 						id={id}
 						dimensions={dimensions}
 						progress={userProgress}
+						restoreCompleted={restoreCompleted}
 						onProgressChange={onProgressChange}
 					>
 						<CurrentCellProvider>

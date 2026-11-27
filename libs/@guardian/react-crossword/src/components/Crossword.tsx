@@ -17,6 +17,8 @@ import { Grid } from './Grid';
 export type CrosswordProps = {
 	data: CAPICrossword;
 	progress?: Progress;
+	/** Display the published solution until the reader edits the grid. */
+	restoreCompleted?: boolean;
 	/**
 	 * Called each time the reader changes the grid (typing, deleting, clearing,
 	 * revealing). Not called when saved progress is restored on load.
@@ -57,6 +59,7 @@ export const Crossword = ({
 	children,
 	data,
 	progress,
+	restoreCompleted,
 	onProgressChange,
 	Layout,
 	MobileBannerAd,
@@ -86,6 +89,7 @@ export const Crossword = ({
 			theme={theme}
 			data={data}
 			userProgress={progress}
+			restoreCompleted={restoreCompleted}
 			onProgressChange={onProgressChange}
 		>
 			<div
